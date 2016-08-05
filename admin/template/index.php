@@ -9,7 +9,7 @@
 
 <?php if (!isset($jkv["cms_tpl"])) { ?>
   <div class="alert alert-danger fade in">
-    <i class="fa fa-exclamation-triangle"></i> <a href="index.php?p=template"><?php echo $tl["error"]["e17"]; ?></a>
+    <i class="fa fa-exclamation-triangle fa-lg"></i> <a href="index.php?p=template"><?php echo $tl["error"]["e17"]; ?></a>
   </div>
 <?php } ?>
 
@@ -125,7 +125,7 @@
           <h3 class="box-title"><?php echo $tl["title"]["t"]; ?></h3>
         </div><!-- /.box-header -->
         <div class="box-body no-padding">
-          <table class="table table-striped">
+          <table class="table table-striped first-column">
             <tr>
               <td><?php echo $tl["general"]["g8"]; ?></td>
               <td><?php echo $WEBS; ?></td>
@@ -159,7 +159,7 @@
           <h3 class="box-title"><?php echo $tl["title"]["t1"]; ?></h3>
         </div><!-- /.box-header -->
         <div class="box-body no-padding">
-          <table class="table table-striped">
+          <table class="table table-striped first-column">
             <tr>
               <td><?php echo $tl["menu"]["m12"]; ?></td>
               <td><?php echo $jkv["version"]; ?></td>
