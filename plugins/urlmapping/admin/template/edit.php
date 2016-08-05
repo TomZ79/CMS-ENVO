@@ -1,25 +1,52 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
 <?php if ($page3 == "s") { ?>
-  <div class="alert alert-success fade in">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <?php echo $tl["general"]["g7"]; ?>
-  </div>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo $tl["general"]["g7"];?>',
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php }
 if ($page3 == "e") { ?>
-  <div class="alert alert-danger fade in">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <?php echo $tl["errorpage"]["sql"]; ?>
-  </div>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo $tl["errorpage"]["sql"];?>',
+      }, {
+        // settings
+        type: 'danger',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php } ?>
 
 <?php if ($errors) { ?>
-  <div class="alert alert-danger fade in">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <?php if (isset($errors["e"])) echo $errors["e"];
-    if (isset($errors["e1"])) echo $errors["e1"];
-    if (isset($errors["e2"])) echo $errors["e2"]; ?>
-  </div>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php if (isset($errors["e"])) echo $errors["e"];
+          if (isset($errors["e1"])) echo $errors["e1"];
+          if (isset($errors["e2"])) echo $errors["e2"];?>',
+      }, {
+        // settings
+        type: 'danger',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php } ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
@@ -30,7 +57,7 @@ if ($page3 == "e") { ?>
             <h3 class="box-title"><?php echo $tlum["um"]["d"]; ?></h3>
           </div><!-- /.box-header -->
           <div class="box-body">
-            <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+            <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
               <input class="form-control" type="text" name="jak_oldurl"
                      value="<?php echo $JAK_FORM_DATA["urlold"]; ?>"/>
             </div>
@@ -49,7 +76,7 @@ if ($page3 == "e") { ?>
             <h3 class="box-title"><?php echo $tlum["um"]["d1"]; ?></h3>
           </div><!-- /.box-header -->
           <div class="box-body">
-            <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+            <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
               <input class="form-control" type="text" name="jak_newurl"
                      value="<?php echo $JAK_FORM_DATA["urlnew"]; ?>"/>
             </div>
@@ -68,7 +95,7 @@ if ($page3 == "e") { ?>
         <h3 class="box-title"><?php echo $tlum["um"]["d2"]; ?></h3>
       </div><!-- /.box-header -->
       <div class="box-body">
-        <div class="form-group">
+        <div class="form-group no-margin">
           <select name="jak_redirect" class="form-control">
 
             <option
