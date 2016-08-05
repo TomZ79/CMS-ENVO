@@ -21,7 +21,6 @@ $succesfully = 0;
 <head>
   <title>Uninstallation - BelowHeader Plugin</title>
   <meta charset="utf-8">
-  <meta name="author" content="JAKWEB (http://www.jakweb.ch)"/>
   <link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen"/>
   <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
 </head>

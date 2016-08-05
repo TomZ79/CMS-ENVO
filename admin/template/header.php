@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
   <meta name="description" content="CMS,Adminpanel,JAKWEB"/>
   <meta name="keywords" content="Your premium CMS from JAKWEB HTML5/CSS3"/>
-  <meta name="author" content="JAKWEB (http://www.jakweb.ch)"/>
   <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
 
   <!-- CSS STYLE ================================================================================================ -->
