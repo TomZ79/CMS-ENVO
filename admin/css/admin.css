@@ -49,6 +49,7 @@ body {
 .skin-teal .sidebar-menu .treeview-menu > li > a {
   font-size: 13px;
 }
+
 /* XX. MODIFICATION - notetemplate.html
 ========================================================================*/
 .error-page {
@@ -69,6 +70,25 @@ body {
 /* Bootstrap table - first column */
 table.first-column tr td:first-child {
   width: 40%;
+}
+
+/* XX. MODIFICATION - PLUGINS
+========================================================================*/
+/* Label in Plugins */
+.jak_plugins_move label {
+  font-weight: 300;
+  margin-right: 10px;
+}
+/*  */
+.jakplugins .text,
+.jakplugins .actions {
+  margin-top: 10px;
+}
+.jakplugins .show {
+  margin-top: 5px;
+}
+.jakplugins .form-group {
+  margin-bottom: 5px;
 }
 
 /* XX. MODIFICATION - SKIN TEAL

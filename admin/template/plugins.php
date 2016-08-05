@@ -43,15 +43,19 @@ if ($page1 == "e") { ?>
 
             <li id="plugin-<?php echo $v["id"]; ?>" class="jakplugins">
               <div class="row">
-                <div class="col-md-6 text">#<a
+                <div class="col-md-5 text">#<a
                     href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["id"]; ?></a>
-                  <span
-                    title="<?php echo $v["description"]; ?>"><?php echo $v["name"]; ?></span> <?php if ($v['pluginversion']) {
+                  <span title="<?php echo $v["description"]; ?>"><?php echo $v["name"]; ?></span>
+                  <?php if ($v['pluginversion']) {
                     echo '(' . sprintf($tl["general"]["gv"], $v["pluginversion"]) . ')';
-                  } ?><input type="hidden" name="real_id[]" value="<?php echo $v["id"]; ?>"/></div>
-                <div class="col-md-4 show"><?php echo $tl["plugin"]["p2"]; ?> <input type="text" class="form-control"
-                                                                                     name="access[]"
-                                                                                     value="<?php echo $v["access"]; ?>"/>
+                  } ?>
+                  <input type="hidden" name="real_id[]" value="<?php echo $v["id"]; ?>"/>
+                </div>
+                <div class="col-md-5 show">
+                  <div class="form-group form-inline">
+                    <label><?php echo $tl["plugin"]["p2"]; ?></label>
+                    <input type="text" class="form-control" name="access[]" value="<?php echo $v["access"]; ?>"/>
+                  </div>
                 </div>
                 <div class="col-md-2 actions">
 
@@ -95,9 +99,26 @@ if ($page1 == "e") { ?>
                   <h3 class="box-title"><?php echo ucfirst($p); ?></h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                  <p><?php echo $tl["general"]["g70"]; ?><a class="plugInst"
-                                                            href="../plugins/<?php echo $p; ?>/install.php"><?php echo ucfirst($p); ?></a>
-                  </p>
+                  <div class="col-md-8">
+                    <table width="100%">
+                      <tr>
+                        <td class="col-md-5"><?php echo $tl["general"]["g70"]; ?>:
+                          <a class="plugInst" href="../plugins/<?php echo $p; ?>/install.php"><?php echo ucfirst($p); ?></a>
+                        </td>
+                        <td class="col-md-7"><?php echo $tl["title"]["t21"]; ?>:
+                          <?php
+                          $filename = '../plugins/' . $p . '/help.php';
+
+                          if (file_exists($filename)) {
+                            echo "<a class=\"plugHelp\" href=\"" . $filename . "\">" . ucfirst($p) . "</a>";
+                          } else {
+                            echo "The file with HELP does not exist";
+                          }
+                          ?>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
 
@@ -147,6 +168,20 @@ if ($page1 == "e") { ?>
         $('#JAKModalLabel').html("<?php echo ucwords($page);?>");
         $('#JAKModal').on('show.bs.modal', function () {
           $('<iframe src="' + frameSrc + '" width="100%" height="100%" frameborder="0">').appendTo('.modal-body');
+        });
+        $('#JAKModal').on('hidden.bs.modal', function () {
+          $(this).removeData();
+          window.location.reload();
+        });
+        $('#JAKModal').modal({show: true});
+      });
+
+      $('.plugHelp').on('click', function (e) {
+        e.preventDefault();
+        frameSrc = $(this).attr("href");
+        $('#JAKModalLabel').html("<?php echo ucwords($page);?>");
+        $('#JAKModal').on('show.bs.modal', function () {
+          $('<iframe src="' + frameSrc + '" width="100%" height="400" frameborder="0">').appendTo('.modal-body');
         });
         $('#JAKModal').on('hidden.bs.modal', function () {
           $(this).removeData();
