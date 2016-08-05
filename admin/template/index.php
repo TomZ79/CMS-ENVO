@@ -18,17 +18,21 @@
 if (!isset($jkv["cms_tpl"])) { ?>
   <script type="text/javascript">
     // Notification
-    setTimeout(function () {
-      $.notify({
-        // options
-        icon: 'fa fa-exclamation-triangle',
-        message: '<a href="index.php?p=template"><?php echo $tl["error"]["e17"];?></a>',
-      }, {
-        // settings
-        type: 'danger',
-        delay: 5000,
-      });
-    }, 1000);
+    $.notify({
+      // options
+      icon: 'fa fa-exclamation-triangle',
+      message: '<a href="index.php?p=template"><?php echo $tl["error"]["e17"];?></a>',
+    }, {
+      // settings
+      type: 'danger',
+      delay: 0,
+      template:
+      '<div data-notify="container" class="col-xs-11 col-sm-5 alert alert-{0}" role="alert">' +
+        '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+        '<span data-notify="icon"></span> ' +
+        '<span data-notify="message">{2}</span>' +
+      '</div>'
+    });
   </script>
 <?php } ?>
 
