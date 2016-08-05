@@ -14,7 +14,6 @@ if (!$page1 && isset($PAGE_ID) && isset($JAK_PAGE_BELOW_HEADER) && is_array($JAK
 
       echo jak_secure_site(base64_decode($bh_top));
 
-
     }
   }
 
@@ -31,7 +30,6 @@ if (isset($backtonews) && isset($PAGE_ID) && isset($JAK_NEWS_BELOW_HEADER) && is
       if (!$bh_top) $bh_top = $subn['content_below'];
 
       echo jak_secure_site(base64_decode($bh_top));
-
 
     }
   }
@@ -51,7 +49,6 @@ if (isset($backtonews) && !$page1 && isset($JAK_NEWSMAIN_BELOW_HEADER) && is_arr
 
       echo jak_secure_site(base64_decode($bh_top));
 
-
     }
   }
 
@@ -69,7 +66,6 @@ if ($page == JAK_PLUGIN_VAR_TAGS && isset($JAK_TAGS_BELOW_HEADER) && is_array($J
       if (!$bh_top) $bh_top = $subt['content_below'];
 
       echo jak_secure_site(base64_decode($bh_top));
-
 
     }
   }
@@ -89,7 +85,6 @@ if ($page == 'search' && isset($JAK_SEARCH_BELOW_HEADER) && is_array($JAK_SEARCH
 
       echo jak_secure_site(base64_decode($bh_top));
 
-
     }
   }
 
@@ -107,7 +102,6 @@ if ($page == JAK_PLUGIN_VAR_SITEMAP && isset($JAK_SITEMAP_BELOW_HEADER) && is_ar
       if (!$bh_top) $bh_top = $subsit['content_below'];
 
       echo jak_secure_site(base64_decode($bh_top));
-
 
     }
   }

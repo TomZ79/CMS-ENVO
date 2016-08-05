@@ -7,9 +7,8 @@ require_once '../../config.php';
 // Check if the file is accessed only from a admin if not stop the script from running
 if (!JAK_USERID) die('You cannot access this file directly.');
 
-// not an admin, see ya!
+// If not logged in and not admin, block access
 if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die('You cannot access this file directly.');
-
 
 // Set successfully to zero
 $succesfully = 0;
@@ -63,7 +62,6 @@ $succesfully = 0;
 
     </div>
   </div>
-
 
 </div><!-- #container -->
 </body>

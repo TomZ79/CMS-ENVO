@@ -7,7 +7,7 @@ require_once '../../config.php';
 // Check if the file is accessed only from a admin if not stop the script from running
 if (!JAK_USERID) die('You cannot access this file directly.');
 
-// not an admin, see ya!
+// If not logged in and not admin, block access
 if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die('You cannot access this file directly.');
 
 // Set successfully to zero
@@ -36,9 +36,9 @@ $succesfully = 0;
         require_once APP_PATH.\'plugins/belowheader/admin/belowheader.php\';
         $JAK_PROVED = 1;
         $checkp = 1;
-     }", "../plugins/belowheader/admin/template/bhnav.php", "1", "uninstall.php", "1.0", NOW())');
+      }", "../plugins/belowheader/admin/template/bhnav.php", "1", "uninstall.php", "1.0", NOW())');
 
-// now get the plugin id for futher use
+// Now get the plugin id for futher use
         $sqls = 'SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "BelowHeader"';
         $results = $jakdb->query($sqls);
         $rows = $results->fetch_assoc();
@@ -99,7 +99,6 @@ $succesfully = 0;
 
     </div>
   </div>
-
 
 </div><!-- #container -->
 </body>
