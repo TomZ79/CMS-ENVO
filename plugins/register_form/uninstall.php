@@ -29,6 +29,7 @@ $succesfully = 0;
 	<meta charset="utf-8">
 	<meta name="author" content="JAKCMS (http://www.jakcms.com)" />
 	<link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen" />
 </head>
 <body>
 

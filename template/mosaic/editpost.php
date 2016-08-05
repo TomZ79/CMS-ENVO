@@ -10,6 +10,7 @@
 	<meta name="robots" content="<?php echo $jkv["robots"];?>" />
 	
 	<link rel="stylesheet" href="<?php echo BASE_URL;?>css/stylesheet.css?=<?php echo $jkv["updatetime"];?>" type="text/css" />
+	<link rel="stylesheet" href="<?php echo BASE_URL;?>css/bootstrap/bootstrap.min.css?=<?php echo $jkv["updatetime"];?>" type="text/css" media="screen" />
 	<link rel="stylesheet" href="<?php echo BASE_URL;?>template/mosaic/css/screen.css?=<?php echo $jkv["updatetime"];?>" type="text/css" />
 	
 	<?php if ($jkv["fontg_mosaic_tpl"] != "NonGoogle") { ?>

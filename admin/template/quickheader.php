@@ -11,6 +11,7 @@
 	
 	<!-- General Stylesheet with custom modifications -->
 	<link rel="stylesheet" href="../css/stylesheet.css?=<?php echo $jkv["updatetime"];?>" type="text/css" media="screen" />
+	<link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css?=<?php echo $jkv["updatetime"];?>" type="text/css" media="screen" />
 	<link rel="stylesheet" href="css/admin.css?=<?php echo $jkv["updatetime"];?>" type="text/css" media="screen" />
 	
 	<?php if (!$jkv["langdirection"]) { ?>

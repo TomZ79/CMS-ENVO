@@ -27,6 +27,7 @@ $succesfully = 0;
 	<meta name="author" content="CMS (http://www.jakweb.ch)" />
 	<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
 	<link rel="stylesheet" href="../css/stylesheet.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen" />
 </head>
 <style>
 body {

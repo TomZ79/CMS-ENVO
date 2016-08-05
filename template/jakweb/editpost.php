@@ -10,6 +10,7 @@
 	<meta name="robots" content="<?php echo $jkv["robots"];?>" />
 	
 	<link rel="stylesheet" href="<?php echo BASE_URL;?>css/stylesheet.css?=<?php echo $jkv["updatetime"];?>" type="text/css" />
+	<link rel="stylesheet" href="<?php echo BASE_URL;?>css/bootstrap/bootstrap.min.css?=<?php echo $jkv["updatetime"];?>" type="text/css">
 	<link rel="stylesheet" href="<?php echo BASE_URL;?>template/jakweb/css/screen.css?=<?php echo $jkv["updatetime"];?>" type="text/css" />
 	
 	<?php if ($jkv["fontg_jakweb_tpl"] != "NonGoogle") { ?>

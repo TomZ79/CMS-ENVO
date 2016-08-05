@@ -8,6 +8,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- General Stylesheet with custom modifications -->
     <link rel="stylesheet" href="<?php echo BASE_URL;?>css/stylesheet.css?=<?php echo $jkv["updatetime"];?>" type="text/css" media="screen" />
+    <link rel="stylesheet" href="<?php echo BASE_URL;?>css/bootstrap/bootstrap.min.css?=<?php echo $jkv["updatetime"];?>" type="text/css" media="screen" />
     <link rel="stylesheet" href="<?php echo BASE_URL;?>admin/css/admin.css?=<?php echo $jkv["updatetime"];?>" type="text/css" media="screen" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
