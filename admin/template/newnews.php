@@ -193,7 +193,7 @@ if ($errors) { ?>
                   <tr>
                     <td><?php echo $tl["news"]["n2"]; ?></td>
                     <td>
-                      <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+                      <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
                         <input type="text" class="form-control" name="jak_datefrom" id="datepickerFrom"
                                value="<?php if (isset($_REQUEST["jak_datefrom"])) echo $_REQUEST["jak_datefrom"]; ?>"/>
                       </div>
@@ -204,7 +204,7 @@ if ($errors) { ?>
               <tr>
                 <td><?php echo $tl["news"]["n3"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+                  <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
                     <input type="text" class="form-control" name="jak_dateto" id="datepickerTo"
                            value="<?php if (isset($_REQUEST["jak_dateto"])) echo $_REQUEST["jak_dateto"]; ?>"/>
                   </div>

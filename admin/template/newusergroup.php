@@ -64,7 +64,7 @@ if ($errors) { ?>
           <tr>
             <td><?php echo $tl["user"]["u"]; ?></td>
             <td>
-              <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+              <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
                 <input type="text" name="jak_name" class="form-control"
                        value="<?php if (!isset($JAK_FORM_DATA["name"]) && isset($_REQUEST["jak_name"])) {
                          echo $_REQUEST["jak_name"];

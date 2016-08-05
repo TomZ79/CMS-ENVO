@@ -67,7 +67,7 @@ if ($errors) { ?>
           <tr>
             <td><?php echo $tl["cform"]["c20"]; ?></td>
             <td>
-              <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+              <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
                 <input class="form-control" type="text" name="jak_email"
                        value="<?php if (isset($_REQUEST["jak_email"])) echo $_REQUEST["jak_email"]; ?>"
                        placeholder="email@domain.com,email1@domain.com,email2@domain.com"/>

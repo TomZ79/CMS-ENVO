@@ -61,7 +61,7 @@ if ($errors) { ?>
             <tr>
               <td><?php echo $tl["user"]["u"]; ?></td>
               <td>
-                <div class="form-group">
+                <div class="form-group no-margin">
                   <input type="text" name="jak_name" class="form-control"
                          value="<?php echo $JAK_FORM_DATA["name"]; ?>"/>
                 </div>
@@ -70,7 +70,7 @@ if ($errors) { ?>
             <tr>
               <td><?php echo $tl["user"]["u1"]; ?></td>
               <td>
-                <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+                <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
                   <input type="text" name="jak_email" class="form-control"
                          value="<?php echo $JAK_FORM_DATA["email"]; ?>"/>
                 </div>
@@ -79,7 +79,7 @@ if ($errors) { ?>
             <tr>
               <td><?php echo $tl["user"]["u2"]; ?></td>
               <td>
-                <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+                <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
                   <input class="form-control" type="text" name="jak_username"
                          value="<?php echo $JAK_FORM_DATA["username"]; ?>"/><input type="hidden" name="jak_username_old"
                                                                                    value="<?php echo $JAK_FORM_DATA["username"]; ?>"/>
@@ -191,7 +191,7 @@ if ($errors) { ?>
           <tr>
             <td><?php echo $tl["user"]["u4"]; ?></td>
             <td>
-              <div class="form-group<?php if (isset($errors["e5"]) || isset($errors["e6"])) echo " has-error"; ?>">
+              <div class="form-group no-margin<?php if (isset($errors["e5"]) || isset($errors["e6"])) echo " has-error"; ?>">
                 <input class="form-control" type="text" name="jak_password" id="check_password" value=""/>
               </div>
             </td>
@@ -199,7 +199,7 @@ if ($errors) { ?>
           <tr>
             <td><?php echo $tl["user"]["u5"]; ?></td>
             <td>
-              <div class="form-group<?php if (isset($errors["e5"]) || isset($errors["e6"])) echo " has-error"; ?>">
+              <div class="form-group no-margin<?php if (isset($errors["e5"]) || isset($errors["e6"])) echo " has-error"; ?>">
                 <input class="form-control" type="text" name="jak_confirm_password" value=""/>
               </div>
             </td>

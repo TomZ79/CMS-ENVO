@@ -90,7 +90,7 @@ if ($success) { ?>
                   <tr>
                     <td><?php echo $tl["setting"]["s"]; ?></td>
                     <td>
-                      <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+                      <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
                         <input type="text" name="jak_email" class="form-control"
                                value="<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
                                  if ($v["varname"] == 'email') {
@@ -148,7 +148,7 @@ if ($success) { ?>
                   <tr>
                     <td><?php echo $tl["setting"]["s4"]; ?></td>
                     <td>
-                      <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+                      <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
                         <input type="text" name="jak_date" class="form-control" value="<?php echo $jkv["dateformat"]; ?>"/>
                       </div>
                     </td>
@@ -156,7 +156,7 @@ if ($success) { ?>
                   <tr>
                     <td><?php echo $tl["setting"]["s5"]; ?></td>
                     <td>
-                      <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+                      <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
                         <input type="text" name="jak_time" class="form-control" value="<?php echo $jkv["timeformat"]; ?>"/>
                       </div>
                     </td>
@@ -291,7 +291,7 @@ if ($success) { ?>
                 <table class="table table-striped">
                   <tr>
                     <td>
-                      <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?>">
+                      <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
                         <input type="text" name="jak_shortmsg" class="form-control"
                                value="<?php echo $jkv["shortmsg"]; ?>"/>
                       </div>
@@ -330,7 +330,7 @@ if ($success) { ?>
                   <tr>
                     <td><?php echo $tl["general"]["g41"]; ?></td>
                     <td>
-                      <div class="form-group<?php if (isset($errors["e5"])) echo " has-error"; ?>">
+                      <div class="form-group no-margin<?php if (isset($errors["e5"])) echo " has-error"; ?>">
                         <input type="text" name="jak_rssitem" class="form-control" value="<?php echo $jkv["rssitem"]; ?>"/>
                       </div>
                     </td>
@@ -353,7 +353,7 @@ if ($success) { ?>
               <tr>
                 <td><?php echo $tl["setting"]["s11"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e4"])) echo " has-error"; ?>">
+                  <div class="form-group no-margin<?php if (isset($errors["e4"])) echo " has-error"; ?>">
                     <input type="text" name="jak_mid" class="form-control" value="<?php echo $jkv["adminpagemid"]; ?>"/>
                   </div>
                 </td>
@@ -361,7 +361,7 @@ if ($success) { ?>
               <tr>
                 <td><?php echo $tl["setting"]["s12"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e4"])) echo " has-error"; ?>">
+                  <div class="form-group no-margin<?php if (isset($errors["e4"])) echo " has-error"; ?>">
                     <input type="text" name="jak_item" class="form-control"
                            value="<?php echo $jkv["adminpageitem"]; ?>"/>
                   </div>

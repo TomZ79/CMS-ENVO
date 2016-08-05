@@ -44,7 +44,7 @@ if ($errors) { ?>
           <tr>
             <td><?php echo $tl["hook"]["h"]; ?></td>
             <td>
-              <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+              <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
                 <input type="text" name="jak_name" class="form-control"
                        value="<?php if (isset($_REQUEST["jak_showhook"])) echo $_REQUEST["jak_name"]; ?>"/>
               </div>
@@ -53,7 +53,7 @@ if ($errors) { ?>
           <tr>
             <td><?php echo $tl["hook"]["h2"]; ?></td>
             <td>
-              <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+              <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
                 <select name="jak_hook" class="form-control">
                   <option
                     value="0"<?php if (isset($_REQUEST["jak_showhook"]) && $_REQUEST["jak_showhook"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["hook"]["h6"]; ?></option>
@@ -75,7 +75,7 @@ if ($errors) { ?>
           <tr>
             <td><?php echo $tl["hook"]["h4"]; ?></td>
             <td>
-              <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?>">
+              <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
                 <input type="text" name="jak_exorder" class="form-control"
                        value="<?php if (isset($_REQUEST["jak_exorder)"])) {
                          echo $_REQUEST["jak_exorder"];

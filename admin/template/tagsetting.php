@@ -69,7 +69,7 @@ if ($errors) { ?>
     <div class="tab-content">
       <div class="tab-pane active" id="style_tabs-1">
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-7">
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tl["title"]["t4"]; ?></h3>
@@ -94,7 +94,7 @@ if ($errors) { ?>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-5">
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tl["title"]["t39"]; ?></h3>
@@ -104,7 +104,7 @@ if ($errors) { ?>
                   <tr>
                     <td><?php echo $tl["tag"]["t3"]; ?></td>
                     <td>
-                      <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+                      <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
                         <input class="form-control" type="text" name="jak_limit"
                                value="<?php echo $jkv["taglimit"]; ?>"/>
                       </div>
@@ -113,7 +113,7 @@ if ($errors) { ?>
                   <tr>
                     <td><?php echo $tl["tag"]["t4"]; ?></td>
                     <td>
-                      <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+                      <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
                         <input class="form-control" type="text" name="jak_min"
                                value="<?php echo $jkv["tagminfont"]; ?>"/>
                       </div>
@@ -122,7 +122,7 @@ if ($errors) { ?>
                   <tr>
                     <td><?php echo $tl["tag"]["t5"]; ?></td>
                     <td>
-                      <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?>">
+                      <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
                         <input class="form-control" type="text" name="jak_max"
                                value="<?php echo $jkv["tagmaxfont"]; ?>"/>
                       </div>

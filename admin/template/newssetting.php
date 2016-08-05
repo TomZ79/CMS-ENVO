@@ -81,7 +81,7 @@ if ($errors) { ?>
                   <tr>
                     <td><?php echo $tl["setting"]["s4"]; ?></td>
                     <td>
-                      <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+                      <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
                         <input class="form-control" type="text" name="jak_date"
                                value="<?php echo $jkv["newsdateformat"]; ?>"/>
                       </div>
@@ -90,7 +90,7 @@ if ($errors) { ?>
                   <tr>
                     <td><?php echo $tl["setting"]["s5"]; ?></td>
                     <td>
-                      <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?>">
+                      <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
                         <input class="form-control" type="text" name="jak_time"
                                value="<?php echo $jkv["newstimeformat"]; ?>"/>
                       </div>
@@ -114,7 +114,7 @@ if ($errors) { ?>
                   <tr>
                     <td><?php echo $tl["setting"]["s11"]; ?></td>
                     <td>
-                      <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+                      <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
                         <input class="form-control" type="text" name="jak_mid"
                                value="<?php echo $jkv["newspagemid"]; ?>"/>
                       </div>
@@ -123,7 +123,7 @@ if ($errors) { ?>
                   <tr>
                     <td><?php echo $tl["setting"]["s12"]; ?></td>
                     <td>
-                      <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?>">
+                      <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
                         <input class="form-control" type="text" name="jak_item"
                                value="<?php echo $jkv["newspageitem"]; ?>"/>
                       </div>

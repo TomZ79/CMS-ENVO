@@ -67,7 +67,7 @@ if ($errors) { ?>
               <tr>
                 <td><?php echo $tl["cat"]["c5"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
+                  <div class="form-group no-margin<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
                     <input type="text" name="jak_varname" id="jak_varname" class="form-control"
                            value="<?php echo $JAK_FORM_DATA["varname"]; ?>"/>
                   </div>

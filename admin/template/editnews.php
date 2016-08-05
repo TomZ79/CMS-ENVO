@@ -221,7 +221,7 @@ if ($errors) { ?>
                     <td><?php echo $tl["news"]["n2"]; ?></td>
                     <td>
 
-                      <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+                      <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
                         <input type="text" name="jak_datefrom" class="form-control" id="datepickerFrom"
                                value="<?php if ($JAK_FORM_DATA["startdate"]) echo date("Y-m-d H:i", $JAK_FORM_DATA["startdate"]); ?>"/>
                       </div>
@@ -232,7 +232,7 @@ if ($errors) { ?>
                     <td><?php echo $tl["news"]["n3"]; ?></td>
                     <td>
 
-                      <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+                      <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
                         <input type="text" name="jak_dateto" class="form-control" id="datepickerTo"
                                value="<?php if ($JAK_FORM_DATA["enddate"]) echo date("Y-m-d H:i", $JAK_FORM_DATA["enddate"]); ?>"/>
                       </div>

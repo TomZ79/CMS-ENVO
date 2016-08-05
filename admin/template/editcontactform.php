@@ -82,7 +82,7 @@ if ($errors) { ?>
           <tr>
             <td><?php echo $tl["cform"]["c20"]; ?></td>
             <td>
-              <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?>">
+              <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
                 <input type="text" name="jak_email" class="form-control" value="<?php echo $JAK_FORM_DATA["email"]; ?>"
                        placeholder="email@domain.com,email1@domain.com,email2@domain.com"/>
               </div>
