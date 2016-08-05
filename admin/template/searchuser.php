@@ -1,12 +1,21 @@
 <?php include "header.php"; ?>
 
 <?php if ($errors) { ?>
-  <div class="alert alert-danger fade in">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <?php if (isset($errors["e"])) echo $errors["e"];
-    if (isset($errors["e1"])) echo $errors["e1"];
-    if (isset($errors["e2"])) echo $errors["e2"]; ?>
-  </div>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php if (isset($errors["e"])) echo $errors["e"];
+          if (isset($errors["e1"])) echo $errors["e1"];
+          if (isset($errors["e2"])) echo $errors["e2"];?>',
+      }, {
+        // settings
+        type: 'danger',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php } ?>
 
   <div class="row">

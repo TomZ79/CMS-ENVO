@@ -1,20 +1,36 @@
 <?php include "header.php"; ?>
 
 <?php if ($page2 == "e") { ?>
-  <div class="alert alert-danger fade in">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <?php echo $tl["errorpage"]["sql"]; ?>
-  </div>
-<?php } ?>
-
-<?php if ($errors) { ?>
-  <div class="alert alert-danger fade in">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <?php if (isset($errors["e"])) echo $errors["e"];
-    if (isset($errors["e1"])) echo $errors["e1"];
-    if (isset($errors["e2"])) echo $errors["e2"];
-    if (isset($errors["e3"])) echo $errors["e3"]; ?>
-  </div>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function() {
+      $.notify({
+        // options
+        message: '<?php echo $tl["errorpage"]["sql"];?>',
+      }, {
+        // settings
+        type: 'danger',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
+<?php } if ($errors) { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function() {
+      $.notify({
+        // options
+        message: '<?php if (isset($errors["e"])) echo $errors["e"];
+          if (isset($errors["e1"])) echo $errors["e1"];
+          if (isset($errors["e2"])) echo $errors["e2"];
+          if (isset($errors["e3"])) echo $errors["e3"];?>',
+      }, {
+        // settings
+        type: 'danger',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php } ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">

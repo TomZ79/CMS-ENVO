@@ -1,17 +1,36 @@
 <?php include "header.php"; ?>
 
 <?php if ($JAK_FILE_SUCCESS) { ?>
-  <div class="alert alert-success fade in">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <?php echo $tl["general"]["g7"]; ?>
-  </div>
-<?php } ?>
-
-<?php if ($JAK_FILE_ERROR) { ?>
-  <div class="alert alert-danger fade in">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <?php echo $tl["error"]["e37"]; ?></div>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo $tl["general"]["g7"];?>',
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
+<?php }
+if ($JAK_FILE_ERROR) { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo $tl["error"]["e37"];?></div>',
+      }, {
+        // settings
+        type: 'danger',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php } else { ?>
+
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="box box-primary">
       <div class="box-header with-border">

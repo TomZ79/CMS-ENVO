@@ -1,16 +1,35 @@
 <?php include "header.php"; ?>
 
 <?php if (!isset($jkv["email"])) { ?>
-  <div class="alert alert-danger fade in">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <h4><?php echo $tl["error"]["e3"]; ?>- <a href="index.php?p=setting"><?php echo $tl["menu"]["m2"]; ?></a></h4>
-  </div>
-<?php } ?>
-
-<?php if (!isset($jkv["cms_tpl"])) { ?>
-  <div class="alert alert-danger fade in">
-    <i class="fa fa-exclamation-triangle fa-lg"></i> <a href="index.php?p=template"><?php echo $tl["error"]["e17"]; ?></a>
-  </div>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo $tl["error"]["e3"];?>- <a href="index.php?p=setting"><?php echo $tl["menu"]["m2"];?></a>',
+      }, {
+        // settings
+        type: 'danger',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
+<?php }
+if (!isset($jkv["cms_tpl"])) { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-exclamation-triangle',
+        message: '<a href="index.php?p=template"><?php echo $tl["error"]["e17"];?></a>',
+      }, {
+        // settings
+        type: 'danger',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php } ?>
 
   <!-- Small boxes (Stat box) -->

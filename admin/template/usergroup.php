@@ -1,22 +1,40 @@
 <?php include "header.php"; ?>
 
 <?php if ($page1 == "s") { ?>
-  <div class="alert alert-success fade in">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <?php echo $tl["general"]["g7"]; ?>
-  </div>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo $tl["general"]["g7"];?>',
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php }
 if ($page1 == "e" || $page1 == "ene") { ?>
-  <div class="alert alert-danger fade in">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <h4><?php if ($page1 == "e") {
-        $tl["errorpage"]["sql"];
-      } elseif ($page1 == "ene") {
-        echo $tl["errorpage"]["not"];
-      } else {
-        echo $tl["errorpage"]["ug"];
-      } ?></h4>
-  </div>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php if ($page1 == "e") {
+          $tl["errorpage"]["sql"];
+        } elseif ($page1 == "ene") {
+          echo $tl["errorpage"]["not"];
+        } else {
+          echo $tl["errorpage"]["ug"];
+        } ?>',
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php } ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">

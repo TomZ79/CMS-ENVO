@@ -1,24 +1,42 @@
 <?php include "header.php"; ?>
 
 <?php if ($page1 == "s") { ?>
-  <div class="alert alert-success fade in">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <?php echo $tl["general"]["g7"]; ?>
-  </div>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo $tl["general"]["g7"];?>',
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php }
 if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
-  <div class="alert alert-danger fade in">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <?php if ($page1 == "e") {
-      $tl["errorpage"]["sql"];
-    } elseif ($page1 == "epc") {
-      echo $tl["errorpage"]["pluginc"];
-    } elseif ($page1 == "ene") {
-      echo $tl["errorpage"]["not"];
-    } else {
-      echo $tl["errorpage"]["cat"];
-    } ?>
-  </div>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php if ($page1 == "e") {
+          $tl["errorpage"]["sql"];
+        } elseif ($page1 == "epc") {
+          echo $tl["errorpage"]["pluginc"];
+        } elseif ($page1 == "ene") {
+          echo $tl["errorpage"]["not"];
+        } else {
+          echo $tl["errorpage"]["cat"];
+        } ?>',
+      }, {
+        // settings
+        type: 'danger',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php } ?>
 
   <div class="row">
