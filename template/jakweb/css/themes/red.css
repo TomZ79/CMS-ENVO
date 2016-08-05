@@ -45,24 +45,25 @@ a:hover {
 .sequence-pagination li {
   border: 4px solid #e74c3c;
 }
+
 .sequence-pagination li.current {
   background: #e74c3c;
 }
 
 ul.nav-main ul.dropdown-menu {
-	background-color: #e74c3c;
+  background-color: #e74c3c;
 }
 
 ul.nav-main ul.dropdown-menu li:hover > a {
-	background: #a82315;
+  background: #a82315;
 }
 
 ul.nav-main .dropdown-submenu > a:after {
-	border-left-color: #333333;
+  border-left-color: #333333;
 }
 
 .sb-slidebar a {
-	color: #e74c3c;
+  color: #e74c3c;
 }
 
 .btn-primary {
@@ -71,5 +72,5 @@ ul.nav-main .dropdown-submenu > a:after {
 }
 
 div.feature-box div.feature-box-icon {
-	background: #e74c3c;
+  background: #e74c3c;
 }

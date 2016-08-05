@@ -1,13 +1,5 @@
 <?php
 
-/*===============================================*\
-|| ############################################# ||
-|| # JAKWEB.CH                                 # ||
-|| # ----------------------------------------- # ||
-|| # Copyright 2016 JAKWEB All Rights Reserved # ||
-|| ############################################# ||
-\*===============================================*/
-
 // Check if the file is accessed only via index.php if not stop the script from running
 if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
@@ -25,45 +17,45 @@ $dbimpexp = new dbimpexp();
 
 // Flag to select step
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $defaults = $_POST;
+  $defaults = $_POST;
 
 // Execute Optinos
-if (isset($defaults['download'])) {
+  if (isset($defaults['download'])) {
 
-    $dbimpexp->addValue('download_path', '')->addValue('download', true)->addValue('file_name', JAK_base::jakCleanurl($jkv["title"]).'-'.date("y_m_d", time()).'.xml')->export();
-}
+    $dbimpexp->addValue('download_path', '')->addValue('download', true)->addValue('file_name', JAK_base::jakCleanurl($jkv["title"]) . '-' . date("y_m_d", time()) . '.xml')->export();
+  }
 
-if (isset($defaults['import'])) {
-    
-    	$xmlfiledb = $_FILES['uploaddb']['tmp_name'];
-    	
-    	$filename = $_FILES['uploaddb']['name']; // original filename
-    	$tmpf = explode(".", $filename);
-    	$jak_xtension = end($tmpf);
-    	
-    	if ($xmlfiledb && $jak_xtension == "xml") {
-    	
-    		$dbimpexp->addValue('import_path', $xmlfiledb)->import();
-    		
-    		$success['s'] = $tl['general']['g111'];
-    		$success = $success;
-    		
-    	} else {
-    		
-    		$errors['e'] = $tl['error']['e39'];
-    		$errors = $errors;
-    	
-    	}
-}
+  if (isset($defaults['import'])) {
 
-if (isset($defaults['optimize'])) {
-	
-	$dbimpexp->optimize();
-	
-	$success['s'] = $tl['general']['g113'];
-	$success = $success;
+    $xmlfiledb = $_FILES['uploaddb']['tmp_name'];
 
-}
+    $filename = $_FILES['uploaddb']['name']; // original filename
+    $tmpf = explode(".", $filename);
+    $jak_xtension = end($tmpf);
+
+    if ($xmlfiledb && $jak_xtension == "xml") {
+
+      $dbimpexp->addValue('import_path', $xmlfiledb)->import();
+
+      $success['s'] = $tl['general']['g111'];
+      $success = $success;
+
+    } else {
+
+      $errors['e'] = $tl['error']['e39'];
+      $errors = $errors;
+
+    }
+  }
+
+  if (isset($defaults['optimize'])) {
+
+    $dbimpexp->optimize();
+
+    $success['s'] = $tl['general']['g113'];
+    $success = $success;
+
+  }
 
 }
 

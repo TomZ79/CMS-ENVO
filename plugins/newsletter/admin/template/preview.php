@@ -1,1 +1,1 @@
-<?php echo $JAK_FORM_DATA["content"];?>
+<?php echo $JAK_FORM_DATA["content"]; ?>

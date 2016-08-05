@@ -7,7 +7,8 @@
     <div class="pull-right hidden-xs">
       <?php echo sprintf($tl["general"]["gv"], $jkv["version"]); ?>
     </div>
-    <strong>Copyright 2008 - <?php echo date('Y'); ?> by <a href="http://www.bluesat.cz" target="_blank">BLUESAT</a>.</strong> All
+    <strong>Copyright 2008 - <?php echo date('Y'); ?> by <a href="http://www.bluesat.cz"
+                                                            target="_blank">BLUESAT</a>.</strong> All
     rights reserved.
   </footer>
 

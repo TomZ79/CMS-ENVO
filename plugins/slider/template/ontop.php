@@ -1,14 +1,14 @@
 <?php if (isset($loadslider)) {
 
-	$loadsliderontop = true;
+  $loadsliderontop = true;
 
-	if ($rowls["lsontop"]) {
+  if ($rowls["lsontop"]) {
 
-		$loadsliderontop = false;
+    $loadsliderontop = false;
 
-		include_once APP_PATH.'plugins/slider/template/pages_news.php';
-		
-	}
-	
+    include_once APP_PATH . 'plugins/slider/template/pages_news.php';
+
+  }
+
 }
 ?>

@@ -1,13 +1,5 @@
 <?php
 
-/*===============================================*\
-|| ############################################# ||
-|| # JAKWEB.CH                                 # ||
-|| # ----------------------------------------- # ||
-|| # Copyright 2016 JAKWEB All Rights Reserved # ||
-|| ############################################# ||
-\*===============================================*/
-
 // Do not go any further if install folder still exists
 if (is_dir('../install')) die('Please delete or rename install folder.');
 

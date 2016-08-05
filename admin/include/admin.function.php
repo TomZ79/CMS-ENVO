@@ -1,14 +1,5 @@
 <?php
 
-/*===============================================*\
-|| ############################################# ||
-|| # JAKWEB.CH                                 # ||
-|| # ----------------------------------------- # ||
-|| # Copyright 2016 JAKWEB All Rights Reserved # ||
-|| ############################################# ||
-\*===============================================*/
-
-
 // Protected url names
 function jak_varname_blocked($jakvar) {
 	$blocked = 'user,usergroup,admin,cmsfiles,css,class,img,include,js,lang,pics_gallery,ftp,plugin,profilepicture,template,userfiles,videofiles,search,suche,'.JAK_FILES_DIRECTORY;

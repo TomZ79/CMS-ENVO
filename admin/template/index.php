@@ -170,7 +170,7 @@
             </tr>
             <tr>
               <td><?php echo $tl["general"]["g15"]; ?></td>
-                <td>Tomas Zukal</td>
+              <td>Tomas Zukal</td>
             </tr>
           </table>
         </div>

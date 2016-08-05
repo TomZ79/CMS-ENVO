@@ -1,13 +1,5 @@
 <?php
 
-/*===============================================*\
-|| ############################################# ||
-|| # JAKWEB.CH                                 # ||
-|| # ----------------------------------------- # ||
-|| # Copyright 2016 JAKWEB All Rights Reserved # ||
-|| ############################################# ||
-\*===============================================*/
-
 if (!file_exists('../../config.php')) die('[install.php] config.php not found');
 require_once '../../config.php';
 
@@ -25,42 +17,43 @@ $succesfully = 0;
 <html lang="en">
 
 <head>
-	<title>Uninstallation - OpenURL</title>
-	<meta charset="utf-8">
-	<meta name="author" content="JAKWEB (http://www.jakweb.ch)" />
-	<link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen" />
+  <title>Uninstallation - OpenURL</title>
+  <meta charset="utf-8">
+  <meta name="author" content="JAKWEB (http://www.jakweb.ch)"/>
+  <link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
 </head>
 <body>
 
 <div class="container">
-<div class="row">
-<div class="col-md-12">
-<h3>Uninstallation - OpenURL</h3>
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Uninstallation - OpenURL</h3>
 
-<!-- Let's do the uninstall -->
-<?php if (isset($_POST['uninstall'])) {
- 
-$jakdb->query('DELETE FROM '.DB_PREFIX.'plugins WHERE name = "openurl_blank"');
+      <!-- Let's do the uninstall -->
+      <?php if (isset($_POST['uninstall'])) {
 
-$jakdb->query('DELETE FROM '.DB_PREFIX.'pluginhooks WHERE product = "openurlb"');
+        $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "openurl_blank"');
 
-$succesfully = 1;
+        $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "openurlb"');
 
-?>
-<div class="alert alert-success fade in">
-  <button type="button" class="close" data-dismiss="alert">×</button>
-  <h4>Plugin uninstalled successfully.</h4>
-</div>
+        $succesfully = 1;
 
-<?php }  if (!$succesfully) { ?>
-<form name="company" method="post" action="uninstall.php">
-<button type="submit" name="uninstall" class="btn btn-danger btn-block">UnInstall Plugin</button>
-</form>
-<?php } ?>
+        ?>
+        <div class="alert alert-success fade in">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <h4>Plugin uninstalled successfully.</h4>
+        </div>
 
-</div>
-</div>
+      <?php }
+      if (!$succesfully) { ?>
+        <form name="company" method="post" action="uninstall.php">
+          <button type="submit" name="uninstall" class="btn btn-danger btn-block">UnInstall Plugin</button>
+        </form>
+      <?php } ?>
+
+    </div>
+  </div>
 
 </div><!-- #container -->
 </body>

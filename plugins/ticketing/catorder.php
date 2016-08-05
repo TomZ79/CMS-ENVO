@@ -1,13 +1,5 @@
 <?php
 
-/*===============================================*\
-|| ############################################# ||
-|| # JAKWEB.CH                                 # ||
-|| # ----------------------------------------- # ||
-|| # Copyright 2016 JAKWEB All Rights Reserved # ||
-|| ############################################# ||
-\*===============================================*/
-
 if (!file_exists('../../config.php')) die('ajax/[catorder.php] config.php not exist');
 require_once '../../config.php';
 
@@ -19,16 +11,15 @@ if (!is_numeric($_POST['id']) && !is_array($_POST['positions'])) die("There is n
 
 $key_value = $_POST['positions'];
 $updateVals = array();
-foreach($key_value as $k=>$v)
-{
-	$strVals[] = 'WHEN '.(int)$v.' THEN '.((int)$k+1).PHP_EOL;
+foreach ($key_value as $k => $v) {
+  $strVals[] = 'WHEN ' . (int)$v . ' THEN ' . ((int)$k + 1) . PHP_EOL;
 }
 
-if(!$strVals) die("0");
+if (!$strVals) die("0");
 
 // We are using the CASE SQL operator to update the categories positions en masse:
-$result = $jakdb->query('UPDATE '.DB_PREFIX.'ticketcategories SET catorder = CASE id
-				'.join($strVals).'
+$result = $jakdb->query('UPDATE ' . DB_PREFIX . 'ticketcategories SET catorder = CASE id
+				' . join($strVals) . '
 				ELSE catorder
 				END');
 

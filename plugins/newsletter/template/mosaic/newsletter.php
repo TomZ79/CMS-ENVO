@@ -1,1 +1,1 @@
-<?php echo $PAGE_CONTENT;?>
+<?php echo $PAGE_CONTENT; ?>
