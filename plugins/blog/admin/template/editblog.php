@@ -1,26 +1,53 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
 <?php if ($page3 == "s") { ?>
-  <div class="alert alert-success fade in">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <?php echo $tl["general"]["g7"]; ?>
-  </div>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo $tl["general"]["g7"];?>',
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php }
 if ($page3 == "e") { ?>
-  <div class="alert alert-danger fade in">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <?php echo $tl["errorpage"]["sql"]; ?>
-  </div>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo $tl["errorpage"]["sql"]; ?>',
+      }, {
+        // settings
+        type: 'danger',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php } ?>
 
 <?php if ($errors) { ?>
-  <div class="alert alert-danger fade in">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <?php if (isset($errors["e"])) echo $errors["e"];
-    if (isset($errors["e1"])) echo $errors["e1"];
-    if (isset($errors["e2"])) echo $errors["e2"];
-    if (isset($errors["e3"])) echo $errors["e3"]; ?>
-  </div>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php if (isset($errors["e"])) echo $errors["e"];
+          if (isset($errors["e1"])) echo $errors["e1"];
+          if (isset($errors["e2"])) echo $errors["e2"];
+          if (isset($errors["e3"])) echo $errors["e3"]; ?>',
+      }, {
+        // settings
+        type: 'danger',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php } ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
@@ -207,7 +234,7 @@ if ($page3 == "e") { ?>
                     <td><?php echo $tlblog["blog"]["d17"]; ?></td>
                     <td>
 
-                      <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+                      <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
                         <input type="text" name="jak_datefrom" id="datepickerFrom" class="form-control"
                                value="<?php if ($JAK_FORM_DATA["startdate"]) echo date("Y-m-d H:i", $JAK_FORM_DATA["startdate"]); ?>"/>
                       </div>
@@ -218,7 +245,7 @@ if ($page3 == "e") { ?>
                     <td><?php echo $tlblog["blog"]["d23"]; ?></td>
                     <td>
 
-                      <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+                      <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
                         <input type="text" name="jak_dateto" id="datepickerTo" class="form-control"
                                value="<?php if ($JAK_FORM_DATA["enddate"]) echo date("Y-m-d H:i", $JAK_FORM_DATA["enddate"]); ?>"/>
                       </div>
@@ -257,8 +284,7 @@ if ($page3 == "e") { ?>
                   </table>
                 </div>
                 <div class="box-footer">
-                  <button type="submit" name="save"
-                          class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                  <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
                 </div>
               </div>
             <?php } ?>

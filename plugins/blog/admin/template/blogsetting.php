@@ -1,16 +1,34 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
 <?php if ($page2 == "s") { ?>
-  <div class="alert alert-success fade in">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <?php echo $tl["general"]["g7"]; ?>
-  </div>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo $tl["general"]["g7"];?>',
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php }
 if ($page2 == "e") { ?>
-  <div class="alert alert-danger fade in">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <?php echo $tl["errorpage"]["sql"]; ?>
-  </div>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo $tl["errorpage"]["sql"];?>',
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php } ?>
 
 <?php if ($errors) { ?>
@@ -56,7 +74,7 @@ if ($page2 == "e") { ?>
               <tr>
                 <td><?php echo $tlblog["blog"]["d16"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+                  <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
                     <input class="form-control" type="text" name="jak_email" value="<?php echo $jkv["blogemail"]; ?>"/>
                   </div>
                 </td>
@@ -111,7 +129,7 @@ if ($page2 == "e") { ?>
               <tr>
                 <td><?php echo $tl["setting"]["s4"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?>">
+                  <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
                     <input type="text" name="jak_date" class="form-control"
                            value="<?php echo $jkv["blogdateformat"]; ?>"/>
                   </div>
@@ -120,7 +138,7 @@ if ($page2 == "e") { ?>
               <tr>
                 <td><?php echo $tl["setting"]["s5"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e4"])) echo " has-error"; ?>">
+                  <div class="form-group no-margin<?php if (isset($errors["e4"])) echo " has-error"; ?>">
                     <input type="text" name="jak_time" class="form-control"
                            value="<?php echo $jkv["blogtimeformat"]; ?>"/>
                   </div>
@@ -140,7 +158,7 @@ if ($page2 == "e") { ?>
               <tr>
                 <td><?php echo $tl["general"]["g40"]; ?> / <?php echo $tl["general"]["g41"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e7"])) echo " has-error"; ?>">
+                  <div class="form-group no-margin<?php if (isset($errors["e7"])) echo " has-error"; ?>">
                     <input type="text" name="jak_rssitem" class="form-control" value="<?php echo $jkv["blogrss"]; ?>"/>
                   </div>
                 </td>
@@ -161,20 +179,16 @@ if ($page2 == "e") { ?>
               <tr>
                 <td><?php echo $tl["setting"]["s11"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e5"])) echo " has-error"; ?>"><input type="text"
-                                                                                                      name="jak_mid"
-                                                                                                      class="form-control"
-                                                                                                      value="<?php echo $jkv["blogpagemid"]; ?>"/>
+                  <div class="form-group no-margin<?php if (isset($errors["e5"])) echo " has-error"; ?>">
+                    <input type="text" name="jak_mid" class="form-control" value="<?php echo $jkv["blogpagemid"]; ?>"/>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td><?php echo $tl["setting"]["s12"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e5"])) echo " has-error"; ?>"><input type="text"
-                                                                                                      name="jak_item"
-                                                                                                      class="form-control"
-                                                                                                      value="<?php echo $jkv["blogpageitem"]; ?>"/>
+                  <div class="form-group no-margin<?php if (isset($errors["e5"])) echo " has-error"; ?>">
+                    <input type="text" name="jak_item" class="form-control" value="<?php echo $jkv["blogpageitem"]; ?>"/>
                   </div>
                 </td>
               </tr>

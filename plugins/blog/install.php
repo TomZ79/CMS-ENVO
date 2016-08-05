@@ -4,10 +4,10 @@
 if (!file_exists('../../config.php')) die('[install.php] config.php not found');
 require_once '../../config.php';
 
-// If not logged in...
+// Check if the file is accessed only from a admin if not stop the script from running
 if (!JAK_USERID) die('You cannot access this file directly.');
 
-// If not an admin...
+// If not logged in and not admin, block access
 if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die('You cannot access this file directly.');
 
 // Set successfully to zero
@@ -38,7 +38,7 @@ $succesfully = 0;
            $checkp = 1;
         }", "../plugins/blog/admin/template/blognav.php", "blog", "uninstall.php", "1.0", NOW())');
 
-// now get the plugin id for futher use
+// Now get the plugin id for futher use
         $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blog"');
         $rows = $results->fetch_assoc();
 
@@ -255,7 +255,6 @@ include_once APP_PATH.\'plugins/blog/template/\'.$jkv[\"sitestyle\"].\'/pages_ne
 
     </div>
   </div>
-
 
 </div><!-- #container -->
 </body>
