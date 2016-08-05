@@ -32,7 +32,7 @@ if ($errors) { ?>
 <?php } ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data">
-    <div class="box">
+    <div class="box box-success">
       <div class="box-body no-padding">
         <table class="table table-striped">
           <thead>
