@@ -11,7 +11,7 @@ define('DB_PREFIX', 'cms_'); // Database prefix use (a-z) and (_), for example: 
 define('DB_PASS_HASH', 'your_key_goes_here');
 
 // Define your site url, for example: www.jakweb.ch
-define('FULL_SITE_DOMAIN', 'your_url_goes_here');
+define('FULL_SITE_DOMAIN', 'localhost');
 
 // Define cookie path and lifetime
 define('JAK_COOKIE_PATH', '/');  // Available in the whole domain

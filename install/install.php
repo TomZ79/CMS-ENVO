@@ -77,30 +77,8 @@ if (DB_USER && DB_PASS) {
 
       <?php if (isset($_GET['step']) && $_GET['step'] == 2) { ?>
 
-        <h3>You have three options to install CMS!</h3>
+        <h3>You have one options to install CMS!</h3>
         <div class="row">
-          <div class="col-md-4">
-            <div class="thumbnail">
-              <img src="/install/modern.jpg" class="img-thumbnail img-responsive" alt="Modern Installation">
-              <div class="caption">
-                <h3>Modern</h3>
-                <p>This will install a fancy pancy CMS with pages, news, slider and other goodies all pre set with
-                  images and text placeholders. 5 minute website setup, how cool is that.</p>
-                <p><a href="install.php?step=3&amp;type=modern" class="btn btn-primary" role="button">Install</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="thumbnail">
-              <img src="/install/mosaic.jpg" class="img-thumbnail img-responsive" alt="Mosaic Installation">
-              <div class="caption">
-                <h3>Mosaic</h3>
-                <p>This will install a fresh and business like CMS with pages, news, slider and other goodies all pre
-                  set with images and text placeholders. 5 minute website setup, how cool is that.</p>
-                <p><a href="install.php?step=3&amp;type=mosaic" class="btn btn-primary" role="button">Install</a></p>
-              </div>
-            </div>
-          </div>
           <div class="col-md-4">
             <div class="thumbnail">
               <img src="/install/blank.jpg" class="img-thumbnail img-responsive" alt="Blank Installation">
@@ -126,10 +104,6 @@ if (DB_USER && DB_PASS) {
 // Now we choose the correct installation process, are we going mad
         if (isset($_GET["type"]) && $_GET["type"] == "blank") {
           include_once('plainsql.php');
-        } elseif (isset($_GET["type"]) && $_GET["type"] == "modern") {
-          include_once('modernsql.php');
-        } else {
-          include_once('mosaicsql.php');
         }
 
 // Finally close all db connections
@@ -416,7 +390,7 @@ if (DB_USER && DB_PASS) {
             </div>
           </form>
         <?php } else { ?>
-          <input type="button" class="btn btn-info" value="Refresh page" onclick="history.go(0)"/>
+          <input type="button" class="btn btn-info" value="Refresh page" onclick="window.location.reload()"/>
         <?php }
       } ?>
 
