@@ -20,7 +20,7 @@ if (!isset($jkv["cms_tpl"])) { ?>
     // Notification
     $.notify({
       // options
-      icon: 'fa fa-exclamation-triangle',
+      icon: 'fa fa-exclamation-triangle fa-lg',
       message: '<a href="index.php?p=template"><?php echo $tl["error"]["e17"];?></a>',
     }, {
       // settings

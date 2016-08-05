@@ -6,11 +6,15 @@
     <title>CMS | Template Error</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.6 -->
-    <link rel="stylesheet" href="css/stylsheet.css">
+
+    <!-- CSS STYLE ================================================================================================ -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
     <!-- Theme style -->
+    <link rel="stylesheet" href="css/stylsheet.css">
     <link rel="stylesheet" href="admin/css/admin.css">
 
+    <!-- JQUERY SCRIPT and PLUGINS ================================================================================ -->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -18,24 +22,19 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class="hold-transition skin-blue">
-
-
-
+  <body class="hold-transition skin-teal">
         <!-- Main content -->
         <section class="content">
-
           <div class="error-page">
-            <h2 class="headline text-red">Template Error</h2>
+            <h3 class="headline text-red">Template (Šablona) není nainstalována</h3>
             <div class="error-content">
-              <h3><i class="fa fa-warning text-red"></i> Oops! Something went wrong.</h3>
+              <h3><i class="fa fa-warning text-red"></i> Oops! Někde se stala chyba.</h3>
               <p>
-                Please install a template in your admin area.
-                You can install a template and activate it here: <a href="/admin/index.php?p=template">install and activate template</a>.
+                Prosím nainstalujte šablonu v administraci (ACP) webové sítě.
+                Instalovat a aktivovat šablonu můžete zde: <a href="/admin/index.php?p=template">Instalace a aktivace šablony</a>.
               </p>
             </div>
           </div><!-- /.error-page -->
-
         </section><!-- /.content -->
   </body>
 </html>

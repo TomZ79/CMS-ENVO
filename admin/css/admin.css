@@ -49,6 +49,21 @@ body {
 .skin-teal .sidebar-menu .treeview-menu > li > a {
   font-size: 13px;
 }
+/* XX. MODIFICATION - notetemplate.html
+========================================================================*/
+.error-page {
+  width: 800px !important;
+  margin: 80px auto 0 auto !important;
+}
+
+.error-page > .headline {
+  float: none !important;
+  font-size: 85px !important;
+}
+.error-page > .error-content {
+  margin-left: 160px !important;
+}
+
 /* XX. MODIFICATION - TABLES
 ========================================================================*/
 /* Bootstrap table - first column */
