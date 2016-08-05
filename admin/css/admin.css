@@ -17,17 +17,248 @@
  *
  */
 
-/* 01. GENERAL STYLE
+/* 01. MODIFICATION - GENERAL STYLE
 ========================================================================*/
 body {
   font-size: 13px;
 }
 
+/* XX. MODIFICATION - TOP MAIN MENU
+========================================================================*/
+/* Top main menu */
+.skin-teal .navbar-custom-menu > .navbar-nav > li > .dropdown-menu.right {
+  right: auto;
+  left: 0;
+}
+.skin-teal .navbar i,
+.skin-teal .main-header .sidebar-toggle::before,
+.skin-teal .sidebar-menu i {
+  font-size: 14px;
+}
+.skin-teal .sidebar-menu .treeview-menu i {
+  font-size: 9px;
+}
+.skin-teal .dropdown-menu > li > a {
+  font-size: 13px;
+  padding: 7px 20px;
+}
+/* SideBar Menu */
+.skin-teal .sidebar-menu .treeview-menu i {
+  font-size: 9px;
+}
+.skin-teal .sidebar-menu .treeview-menu > li > a {
+  font-size: 13px;
+}
 /* XX. MODIFICATION - TABLES
 ========================================================================*/
 /* Bootstrap table - first column */
 table.first-column tr td:first-child {
   width: 40%;
+}
+
+/* XX. MODIFICATION - SKIN TEAL
+========================================================================*/
+/* Header */
+.skin-teal .main-header .navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  height: 50px;
+  min-height: inherit;
+}
+
+.skin-teal .main-header .navbar .nav > li > a {
+  color: #555;
+}
+
+.skin-teal .main-header .navbar .nav > li > a:hover,
+.skin-teal .main-header .navbar .nav > li > a:active,
+.skin-teal .main-header .navbar .nav > li > a:focus,
+.skin-teal .main-header .navbar .nav .open > a,
+.skin-teal .main-header .navbar .nav .open > a:hover,
+.skin-teal .main-header .navbar .nav .open > a:focus,
+.skin-teal .main-header .navbar .nav > .active > a {
+  background-color: #f8f8f8;
+  color: #555;
+  height: 49px;
+}
+
+.skin-teal .main-header .navbar .sidebar-toggle {
+  color: #ffffff;
+}
+
+.skin-teal .main-header .navbar .sidebar-toggle:hover {
+  color: #f6f6f6;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.skin-teal .main-header .navbar .sidebar-toggle {
+  color: #555;
+  margin-left: 20px;
+}
+
+.skin-teal .main-header .navbar .sidebar-toggle:hover {
+  color: #555;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+  height: 50px;
+}
+
+@media (max-width: 767px) {
+  .skin-teal .main-header .navbar .dropdown-menu li.divider {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .skin-teal .main-header .navbar .dropdown-menu li a {
+    color: #fff;
+  }
+
+  .skin-teal .main-header .navbar .dropdown-menu li a:hover {
+    background: #367fa9;
+    color: #fff;
+  }
+}
+
+.skin-teal .main-header .logo {
+  background-color: #151b1e;
+  color: #ffffff;
+  border-bottom: 0 solid transparent;
+}
+
+.skin-teal .main-header .logo:hover {
+  background-color: #0a0e0f;
+}
+
+.skin-teal .main-header li.user-header {
+  background-color: #fff;
+}
+
+.skin-teal .content-header {
+  background: transparent;
+}
+
+.skin-teal .wrapper,
+.skin-teal .main-sidebar,
+.skin-teal .left-side {
+  background-color: #263238;
+}
+
+.skin-teal .sidebar-menu > li.header {
+  color: #4b646f;
+  background: #1a2226;
+}
+
+.skin-teal .sidebar-menu > li ul li a {
+  padding: 10px 20px 10px 25px !important;
+  min-height: 40px;
+}
+.skin-teal .sidebar-menu > li {
+  -webkit-transition: border-left-color 0.3s ease;
+  -o-transition: border-left-color 0.3s ease;
+  transition: border-left-color 0.3s ease;
+}
+.skin-teal .sidebar-menu > li.header {
+  color: #848484;
+  background: #f9fafc;
+}
+.skin-teal .sidebar-menu > li > a {
+  border-left: 3px solid transparent;
+  font-weight: 600;
+}
+.skin-teal .sidebar-menu > li:hover > a {
+  color: #fff;
+  background: rgba(0,0,0,.1);
+}
+.skin-teal .sidebar-menu > li.active > a {
+  color: #fff;
+  background: #26A69A;
+}
+.skin-teal .sidebar-menu > li.active {
+  border-left-color: #3c8dbc;
+}
+.skin-teal .sidebar-menu > li.active > a {
+  font-weight: 600;
+}
+.skin-teal .sidebar-menu > li > .treeview-menu {
+  background-color: rgba(0,0,0,.25);
+}
+.skin-teal .sidebar a {
+  color: rgba(255,255,255,.75);
+}
+.skin-teal .sidebar a:hover {
+  text-decoration: none;
+}
+.skin-teal .sidebar-menu .treeview-menu {
+  padding-left: 0;
+}
+.skin-teal .treeview-menu > li > a {
+  color: rgba(255,255,255,.75);
+}
+.skin-teal .treeview-menu > li.active > a {
+  background-color: rgba(0,0,0,.2);
+  color: #fff;
+}
+.skin-teal .treeview-menu > li > a:hover {
+  background-color: rgba(0,0,0,.1);
+}
+.skin-teal .treeview-menu > li.active > a {
+  font-weight: 600;
+}
+
+.skin-teal .sidebar-form {
+  border-radius: 3px;
+  border: 1px solid #374850;
+  margin: 10px 10px;
+}
+
+.skin-teal .sidebar-form input[type="text"],
+.skin-teal .sidebar-form .btn {
+  box-shadow: none;
+  background-color: #374850;
+  border: 1px solid transparent;
+  height: 35px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.skin-teal .sidebar-form input[type="text"] {
+  color: #666;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 2px;
+}
+
+.skin-teal .sidebar-form input[type="text"]:focus,
+.skin-teal .sidebar-form input[type="text"]:focus + .input-group-btn .btn {
+  background-color: #fff;
+  color: #666;
+}
+
+.skin-teal .sidebar-form input[type="text"]:focus + .input-group-btn .btn {
+  border-left-color: #fff;
+}
+
+.skin-teal .sidebar-form .btn {
+  color: #999;
+  border-top-left-radius: 0;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 0;
+}
+
+.skin-teal.layout-top-nav .main-header > .logo {
+  background-color: #3c8dbc;
+  color: #ffffff;
+  border-bottom: 0 solid transparent;
+}
+
+.skin-teal.layout-top-nav .main-header > .logo:hover {
+  background-color: #3b8ab8;
+}
+
+#cmsTab, #settTab {
+  margin-bottom: 20px;
 }
 
 /* XX. ALMSAEED STUDIO CSS
@@ -4354,180 +4585,6 @@ table.text-center th {
   .table-responsive > .table tr td {
     white-space: normal !important;
   }
-}
-
-/*
- * Skin: Blue
- * ----------
- */
-.skin-blue .main-header .navbar {
-  background-color: #3c8dbc;
-}
-
-.skin-blue .main-header .navbar .nav > li > a {
-  color: #ffffff;
-}
-
-.skin-blue .main-header .navbar .nav > li > a:hover,
-.skin-blue .main-header .navbar .nav > li > a:active,
-.skin-blue .main-header .navbar .nav > li > a:focus,
-.skin-blue .main-header .navbar .nav .open > a,
-.skin-blue .main-header .navbar .nav .open > a:hover,
-.skin-blue .main-header .navbar .nav .open > a:focus,
-.skin-blue .main-header .navbar .nav > .active > a {
-  background: rgba(0, 0, 0, 0.1);
-  color: #f6f6f6;
-}
-
-.skin-blue .main-header .navbar .sidebar-toggle {
-  color: #ffffff;
-}
-
-.skin-blue .main-header .navbar .sidebar-toggle:hover {
-  color: #f6f6f6;
-  background: rgba(0, 0, 0, 0.1);
-}
-
-.skin-blue .main-header .navbar .sidebar-toggle {
-  color: #fff;
-}
-
-.skin-blue .main-header .navbar .sidebar-toggle:hover {
-  background-color: #367fa9;
-}
-
-@media (max-width: 767px) {
-  .skin-blue .main-header .navbar .dropdown-menu li.divider {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-
-  .skin-blue .main-header .navbar .dropdown-menu li a {
-    color: #333;
-  }
-
-  .skin-blue .main-header .navbar .dropdown-menu li a:hover {
-    background: #367fa9;
-    color: #fff;
-  }
-}
-
-.skin-blue .main-header .logo {
-  background-color: #367fa9;
-  color: #ffffff;
-  border-bottom: 0 solid transparent;
-}
-
-.skin-blue .main-header .logo:hover {
-  background-color: #357ca5;
-}
-
-.skin-blue .main-header li.user-header {
-  background-color: #3c8dbc;
-}
-
-.skin-blue .content-header {
-  background: transparent;
-}
-
-.skin-blue .wrapper,
-.skin-blue .main-sidebar,
-.skin-blue .left-side {
-  background-color: #222d32;
-}
-
-.skin-blue .sidebar-menu > li.header {
-  color: #4b646f;
-  background: #1a2226;
-}
-
-.skin-blue .sidebar-menu > li > a {
-  border-left: 3px solid transparent;
-}
-
-.skin-blue .sidebar-menu > li:hover > a,
-.skin-blue .sidebar-menu > li.active > a {
-  color: #ffffff;
-  background: #1e282c;
-  border-left-color: #3c8dbc;
-}
-
-.skin-blue .sidebar-menu > li > .treeview-menu {
-  margin: 0 1px;
-  background: #2c3b41;
-}
-
-.skin-blue .sidebar a {
-  color: #b8c7ce;
-}
-
-.skin-blue .sidebar a:hover {
-  text-decoration: none;
-}
-
-.skin-blue .treeview-menu > li > a {
-  color: #8aa4af;
-}
-
-.skin-blue .treeview-menu > li.active > a,
-.skin-blue .treeview-menu > li > a:hover {
-  color: #ffffff;
-}
-
-.skin-blue .sidebar-form {
-  border-radius: 3px;
-  border: 1px solid #374850;
-  margin: 10px 10px;
-}
-
-.skin-blue .sidebar-form input[type="text"],
-.skin-blue .sidebar-form .btn {
-  box-shadow: none;
-  background-color: #374850;
-  border: 1px solid transparent;
-  height: 35px;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-
-.skin-blue .sidebar-form input[type="text"] {
-  color: #666;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 2px;
-}
-
-.skin-blue .sidebar-form input[type="text"]:focus,
-.skin-blue .sidebar-form input[type="text"]:focus + .input-group-btn .btn {
-  background-color: #fff;
-  color: #666;
-}
-
-.skin-blue .sidebar-form input[type="text"]:focus + .input-group-btn .btn {
-  border-left-color: #fff;
-}
-
-.skin-blue .sidebar-form .btn {
-  color: #999;
-  border-top-left-radius: 0;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
-  border-bottom-left-radius: 0;
-}
-
-.skin-blue.layout-top-nav .main-header > .logo {
-  background-color: #3c8dbc;
-  color: #ffffff;
-  border-bottom: 0 solid transparent;
-}
-
-.skin-blue.layout-top-nav .main-header > .logo:hover {
-  background-color: #3b8ab8;
-}
-
-#cmsTab, #settTab {
-  margin-bottom: 20px;
 }
 
 /* Passwordo Meter */

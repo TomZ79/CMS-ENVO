@@ -9,12 +9,16 @@
   <meta name="author" content="JAKWEB (http://www.jakweb.ch)"/>
   <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
 
+  <!-- CSS STYLE ================================================================================================ -->
   <!-- General Stylesheet with custom modifications -->
   <link rel="stylesheet" href="../css/stylesheet.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css"
         media="screen"/>
+  <!-- Bootstrap -->
   <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css"
         media="screen"/>
+  <!-- Theme style -->
   <link rel="stylesheet" href="css/admin.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
+  <!-- Animate style -->
   <link rel="stylesheet" href="css/animate.min.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
 
   <?php if (!$jkv["langdirection"]) { ?>
@@ -23,10 +27,15 @@
     <!-- End RTL Support -->
   <?php } ?>
 
-  <!--js-->
+  <!-- JQUERY SCRIPT and PLUGINS ================================================================================ -->
+  <!-- jQuery -->
   <script src="../js/jquery.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+  <!-- General function -->
   <script type="text/javascript" src="../js/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+  <!-- Admin App function -->
   <script type="text/javascript" src="js/cms.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+  <!-- Slimscroll -->
+  <script type="text/javascript" src="js-plugins/slimScroll/jquery.slimscroll.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 
   <!--[if lt IE 9]>
   <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -37,12 +46,12 @@
     include_once APP_PATH . $headt['phpcode'];
   } ?>
 </head>
-<body class="skin-blue<?php if (!$JAK_PROVED) echo " login-page"; ?>">
+<body class="skin-teal fixed<?php if (!$JAK_PROVED) echo " login-page"; ?>">
 <?php if ($JAK_PROVED) { ?>
 <div class="wrapper">
   <header class="main-header">
     <!-- Logo -->
-    <a class="logo" href="<?php echo BASE_URL_ORIG; ?>"><?php echo $jkv["title"]; ?></a>
+    <a class="logo" href="<?php echo BASE_URL_ORIG; ?>" target="_blank"><?php echo $jkv["title"]; ?></a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
@@ -54,7 +63,7 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-home"></i><span
                 class="hidden-xs hidden-sm"> <?php echo $tl["menu"]["mh"]; ?> <b class="caret"></b></span></a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu right">
               <li><a href="<?php echo BASE_URL_ADMIN; ?>"><?php echo $tl["menu"]["mh"]; ?></a></li>
               <li><a href="index.php?p=site"><?php echo $tl["cmenu"]["c1"]; ?></a></li>
               <li><a href="index.php?p=logs"><?php echo $tl["cmenu"]["c48"]; ?></a></li>

@@ -1,11 +1,3 @@
-/*===============================================*\
-|| ############################################# ||
-|| # JAKWEB.CH                                 # ||
-|| # ----------------------------------------- # ||
-|| # Copyright 2016 JAKWEB All Rights Reserved # ||
-|| ############################################# ||
-\*===============================================*/
-
 /*! AdminLTE app.js
  * ================
  * Main JS application file for AdminLTE v2. This file
@@ -41,6 +33,8 @@ $.AdminLTE.options = {
   sidebarToggleSelector: "[data-toggle='offcanvas']",
   //Activate sidebar push menu
   sidebarPushMenu: true,
+  //Activate sidebar slimscroll if the fixed layout is set (requires SlimScroll Plugin)
+  sidebarSlimScroll: true,
 
   controlSidebarOptions: {
     //Which button should trigger the open/close event
@@ -186,7 +180,8 @@ function _init() {
           $(".sidebar").slimscroll({
             height: ($(window).height() - $(".main-header").height()) + "px",
             color: "rgba(0,0,0,0.2)",
-            size: "3px"
+            size: "5px",
+            wheelStep: 5
           });
         }
       }
