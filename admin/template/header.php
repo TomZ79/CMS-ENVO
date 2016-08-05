@@ -80,8 +80,6 @@
             <li><a href="index.php?p=setting"><i class="fa fa-cogs"></i><span
                   class="hidden-xs hidden-sm"> <?php echo $tl["general"]["g5"]; ?></span></a></li>
           <?php } ?>
-          <li><a class="wIframe" data-title='CMS - FAQ' href="https://www.jakweb.ch/faq"><i class="fa fa-ambulance"></i><span
-                class="hidden-xs hidden-sm"> <?php echo $tl["title"]["t21"]; ?></span></a></li>
 
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">

@@ -256,6 +256,9 @@ table.first-column tr td:first-child {
 .skin-teal.layout-top-nav .main-header > .logo:hover {
   background-color: #3b8ab8;
 }
+.skin-teal .navbar-nav > .user-menu > .dropdown-menu > li.user-header > p {
+  color: #444444 !important;
+}
 
 #cmsTab, #settTab {
   margin-bottom: 20px;
