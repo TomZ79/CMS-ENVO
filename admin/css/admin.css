@@ -23,6 +23,11 @@ body {
   font-size: 13px;
 }
 
+/* Template */
+.caption h3 {
+  text-transform: uppercase;
+}
+
 /* XX. MODIFICATION - TOP MAIN MENU
 ========================================================================*/
 /* Top main menu */
@@ -30,22 +35,27 @@ body {
   right: auto;
   left: 0;
 }
+
 .skin-teal .navbar i,
 .skin-teal .main-header .sidebar-toggle::before,
 .skin-teal .sidebar-menu i {
   font-size: 14px;
 }
+
 .skin-teal .sidebar-menu .treeview-menu i {
   font-size: 9px;
 }
+
 .skin-teal .dropdown-menu > li > a {
   font-size: 13px;
   padding: 7px 20px;
 }
+
 /* SideBar Menu */
 .skin-teal .sidebar-menu .treeview-menu i {
   font-size: 9px;
 }
+
 .skin-teal .sidebar-menu .treeview-menu > li > a {
   font-size: 13px;
 }
@@ -61,6 +71,7 @@ body {
   float: none !important;
   font-size: 85px !important;
 }
+
 .error-page > .error-content {
   margin-left: 160px !important;
 }
@@ -79,81 +90,120 @@ table.first-column tr td:first-child {
   font-weight: 300;
   margin-right: 10px;
 }
+
 /*  */
 .jakplugins .text,
 .jakplugins .actions {
   margin-top: 13px;
   font-size: 13px !important;
 }
+
 .jakplugins .show {
   margin-top: 5px;
   font-size: 13px !important;
 }
+
 .jakplugins .form-group {
   margin-bottom: 5px;
 }
+
 .jakplugins .plugins-name {
   text-transform: uppercase;
 }
+
 .jakplugins .plugins-version {
   text-transform: uppercase;
 }
 
-/* XX. MODIFICATION - BOOTSTRAP SELECT
+/* XX. MODIFICATION - BOOTSTRAP
 ========================================================================*/
+/* BOOTSTRAP Same height for column */
+.row-table {
+  display: table;
+}
+
+.col-table {
+  float: none;
+  display: table-cell;
+  vertical-align: top;
+}
+
+/* MARGIN and PADDING for Bootstrap */
+.margin-bottom-10 { margin-bottom: 10px; !important;}
+.margin-bottom-20 { margin-bottom: 20px; !important;}
+.margin-bottom-30 { margin-bottom: 30px; !important;}
+.margin-bottom-40 { margin-bottom: 40px; !important;}
+.container-fluid-nopadding {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/* BOOTSTRAP SELECT */
 .bootstrap-select .btn-default {
   background-color: transparent !important;
   border-radius: 0;
 }
+
 .bootstrap-select .btn-default:active:hover {
   background-color: transparent;
   border-radius: 0;
   border-color: #8c8c8c;
   box-shadow: none !important;
 }
+
 .bootstrap-select.btn-group.open .dropdown-toggle {
   box-shadow: none !important;
 }
+
 .bootstrap-select .dropdown-menu {
   border-radius: 0 !important;
   border-color: #adadad !important;
-  -webkit-box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);
-  box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24)
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24)
 }
+
 .bootstrap-select .dropdown-menu > .active > a,
 .bootstrap-select .dropdown-menu > .active > a:focus,
 .bootstrap-select .dropdown-menu > .active > a:hover {
   background-color: #4DB6AC;
 }
+
 .bootstrap-select .dropdown-menu > li.selected > a {
   color: #FFF !important;
 }
+
 .bootstrap-select .dropdown-menu > li.selected > a:focus,
 .bootstrap-select .dropdown-menu > li.selected > a:hover {
   background-color: #4DB6AC !important;
 }
+
 .bootstrap-select .dropdown-menu > li {
   background-color: #FFF !important;
   border: none !important;
   margin: 0 !important;
   padding: 0 !important;
 }
+
 .bootstrap-select .dropdown-menu > li:hover {
   border: none !important;
   box-shadow: none !important;
 }
+
 .bootstrap-select .dropdown-menu > li.selected > a > span.text {
   color: #FFF !important;
   font-size: 13px;
 }
+
 .bootstrap-select .dropdown-menu > li > a > span.text {
   font-size: 13px;
 }
+
 .bootstrap-select .dropdown-menu > li.dropdown-header > span.text {
   font-size: 13px;
   font-weight: 700;
   margin-left: 10px;
 }
+
 .bootstrap-select .dropdown-menu > li.divider {
   background-color: #eee !important;
   border: none !important;
@@ -256,55 +306,70 @@ table.first-column tr td:first-child {
   padding: 10px 20px 10px 25px !important;
   min-height: 40px;
 }
+
 .skin-teal .sidebar-menu > li {
   -webkit-transition: border-left-color 0.3s ease;
   -o-transition: border-left-color 0.3s ease;
   transition: border-left-color 0.3s ease;
 }
+
 .skin-teal .sidebar-menu > li.header {
   color: #848484;
   background: #f9fafc;
 }
+
 .skin-teal .sidebar-menu > li > a {
   border-left: 3px solid transparent;
   font-weight: 600;
 }
+
 .skin-teal .sidebar-menu > li:hover > a {
   color: #fff;
-  background: rgba(0,0,0,.1);
+  background: rgba(0, 0, 0, .1);
 }
+
 .skin-teal .sidebar-menu > li.active > a {
   color: #fff;
   background: #26A69A;
 }
+
 .skin-teal .sidebar-menu > li.active {
   border-left-color: #3c8dbc;
 }
+
 .skin-teal .sidebar-menu > li.active > a {
   font-weight: 600;
 }
+
 .skin-teal .sidebar-menu > li > .treeview-menu {
-  background-color: rgba(0,0,0,.25);
+  background-color: rgba(0, 0, 0, .25);
 }
+
 .skin-teal .sidebar a {
-  color: rgba(255,255,255,.75);
+  color: rgba(255, 255, 255, .75);
 }
+
 .skin-teal .sidebar a:hover {
   text-decoration: none;
 }
+
 .skin-teal .sidebar-menu .treeview-menu {
   padding-left: 0;
 }
+
 .skin-teal .treeview-menu > li > a {
-  color: rgba(255,255,255,.75);
+  color: rgba(255, 255, 255, .75);
 }
+
 .skin-teal .treeview-menu > li.active > a {
-  background-color: rgba(0,0,0,.2);
+  background-color: rgba(0, 0, 0, .2);
   color: #fff;
 }
+
 .skin-teal .treeview-menu > li > a:hover {
-  background-color: rgba(0,0,0,.1);
+  background-color: rgba(0, 0, 0, .1);
 }
+
 .skin-teal .treeview-menu > li.active > a {
   font-weight: 600;
 }
@@ -361,6 +426,7 @@ table.first-column tr td:first-child {
 .skin-teal.layout-top-nav .main-header > .logo:hover {
   background-color: #3b8ab8;
 }
+
 .skin-teal .navbar-nav > .user-menu > .dropdown-menu > li.user-header > p {
   color: #444444 !important;
 }

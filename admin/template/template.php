@@ -72,22 +72,48 @@ if ($page1 == "e") { ?>
 
         ?>
 
-        <div class="col-sm-6 col-md-3">
-          <div class="thumbnail">
-            <img src="../template/<?php echo $l; ?>/preview.jpg" alt="<?php echo $l; ?>"/>
+        <div class="col-sm-6 col-md-12 margin-bottom-20 row-table">
+          <div class="col-md-3 col-table">
+            <div class="thumbnail" style="background: rgb(217, 217, 217) none repeat scroll 0% 0%; border: medium none; border-radius: 0px; margin: 0px; padding: 24px;">
+              <div class="thumbnail-container">
+                <img class="img-responsive" src="../template/<?php echo $l; ?>/preview.jpg" alt="<?php echo $l; ?>"/>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-9 col-table" style="background: white none repeat scroll 0% 0%;">
             <div class="caption">
               <h3><?php echo $l; ?><?php if ($jkv["sitestyle"] == $l) echo ' <i class="fa fa-check"></i>'; ?></h3>
               <p>
+                <?php
+                // Content of file
+                $file = APP_PATH . '/template/' . $l . "/description.txt";
+                if (file_exists($file)) {
+                  // File exist, get content
+                  $content = file_get_contents($file);
+                  echo htmlspecialchars($content);
+                } else {
+                  // File not exist
+                  echo 'Description for this template not exists.';
+                }
+                ?>
+              </p>
+              <p>
 
                 <?php if ($jkv["sitestyle"] != $l && !$template_addon) { ?>
-                  <button value="<?php echo $l; ?>" name="save"
-                          class="btn btn-primary"><?php echo $tl["title"]["t16"]; ?></button>
+                  <button value="<?php echo $l; ?>" name="save" class="btn btn-primary btn-sm"><?php echo $tl["title"]["t16"]; ?></button>
+                  <a class="btn btn-info btn-sm tempSett" href="../template/<?php echo $l; ?>/help.html">
+                    <?php echo $tl["title"]["t21"]; ?>
+                  </a>
                 <?php } elseif ($jkv["sitestyle"] == $l && file_exists('../template/' . $l . '/install.php') && !$template_addon) { ?>
 
-                  <a class="btn btn-success btn-sm tempInst"
-                     href="../template/<?php echo $l; ?>/install.php"><?php echo $tl["general"]["g93"]; ?></a>
-                  <a class="btn btn-info btn-sm tempSett"
-                     href="../template/<?php echo $l; ?>/help.html"><?php echo $tl["title"]["t21"]; ?></a>
+                  <a class="btn btn-success btn-sm tempInst" href="../template/<?php echo $l; ?>/install.php">
+                    <?php echo $tl["general"]["g93"]; ?>
+                  </a>
+                  <?php if (file_exists('../template/' . $l . '/help.html')) { ?>
+                    <a class="btn btn-info btn-sm tempSett" href="../template/<?php echo $l; ?>/help.html">
+                      <?php echo $tl["title"]["t21"]; ?>
+                    </a>
+                  <?php } ?>
 
                 <?php } elseif ($jkv["sitestyle"] == $l && file_exists('../template/' . $l . '/uninstall.php') && $template_addon) {
                   if (file_exists('../template/' . $l . '/styleswitcher.php')) { ?>
@@ -95,19 +121,34 @@ if ($page1 == "e") { ?>
                       echo 'success';
                     } else {
                       echo 'default';
-                    } ?> btn-sm" href="index.php?p=template&amp;sp=active&amp;ssp=<?php echo $l; ?>"><i
-                        class="fa fa-css3"></i> <?php echo $tl["style"]["s2"]; ?></a> <?php } ?><a
-                  class="btn btn-danger btn-sm tempInst" href="../template/<?php echo $l; ?>/uninstall.php"><i
-                    class="fa fa-remove"></i> <?php echo $tl["general"]["g94"]; ?></a>
-
-                <?php }
+                    } ?> btn-sm" href="index.php?p=template&amp;sp=active&amp;ssp=<?php echo $l; ?>"><i class="fa fa-css3"></i> <?php echo $tl["style"]["s2"]; ?>
+                    </a>
+                  <?php } ?>
+                  <a class="btn btn-danger btn-sm tempInst" href="../template/<?php echo $l; ?>/uninstall.php">
+                    <i class="fa fa-remove"></i> <?php echo $tl["general"]["g94"]; ?>
+                  </a>
+                  <?php if (file_exists('../template/' . $l . '/help.html')) { ?>
+                    <a class="btn btn-info btn-sm tempSett" href="../template/<?php echo $l; ?>/help.html">
+                      <?php echo $tl["title"]["t21"]; ?>
+                    </a>
+                  <?php }
+                }
                 else { ?>
-              <div class="progress">
-                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0"
-                     aria-valuemax="100" style="width: 100%">
-                  <?php echo str_replace("%s", $jkv["sitestyle"], $tl["style"]["s1"]); ?>
+              <div class="col-md-5">
+                <div class="row">
+                  <div class="alert alert-danger" style="width: 100%; padding: 5px 10px; text-align: center;">
+                    <?php echo str_replace("%s", $jkv["sitestyle"], $tl["style"]["s1"]); ?>
+                  </div>
                 </div>
               </div>
+              <?php if (file_exists('../template/' . $l . '/help.html')) { ?>
+                <div class="col-md-1">
+                  <a class="btn btn-info btn-sm tempSett" href="../template/<?php echo $l; ?>/help.html">
+                    <?php echo $tl["title"]["t21"]; ?>
+                  </a>
+                </div>
+              <?php } ?>
+
               <?php } ?>
 
               </p>
