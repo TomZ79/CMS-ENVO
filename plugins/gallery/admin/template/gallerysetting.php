@@ -1,23 +1,54 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
 <?php if ($page2 == "s") { ?>
-  <div class="alert alert-success fade in">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <?php echo $tl["general"]["g7"]; ?>
-  </div>
-<?php }
-if ($page2 == "e") { ?>
-  <div class="alert alert-danger fade in">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <?php echo $tl["errorpage"]["sql"]; ?>
-  </div>
-<?php } ?>
-
-<?php if ($errors) { ?>
-  <div class="alert alert-danger fade in">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <?php echo $errors["e1"] . $errors["e2"] . $errors["e3"] . $errors["e4"] . $errors["e5"] . $errors["e6"] . $errors["e7"] . $errors["e8"]; ?>
-  </div>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function() {
+      $.notify({
+        // options
+        message: '<?php echo $tl["general"]["g7"];?>',
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
+<?php } if ($page2 == "e") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function() {
+      $.notify({
+        // options
+        message: '<?php echo $tl["errorpage"]["sql"];?>',
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
+<?php } if ($errors) { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function() {
+      $.notify({
+        // options
+        message: '<?php if (isset($errors["e1"])) echo $errors["e1"];
+          if (isset($errors["e2"])) echo $errors["e2"];
+          if (isset($errors["e3"])) echo $errors["e3"];
+          if (isset($errors["e4"])) echo $errors["e4"];
+          if (isset($errors["e5"])) echo $errors["e5"];
+          if (isset($errors["e6"])) echo $errors["e6"];
+          if (isset($errors["e7"])) echo $errors["e7"];
+          if (isset($errors["e8"])) echo $errors["e8"];?>',
+      }, {
+        // settings
+        type: 'danger',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php } ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
