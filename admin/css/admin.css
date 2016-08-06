@@ -219,6 +219,12 @@ table.first-column tr td:first-child {
   margin: 9px 0 !important;
   padding: 0 !important;
 }
+.bootstrap-select.btn-group .no-results {
+  padding: 3px !important;
+  margin: 0 7px !important;
+  color: #C00;
+  font-weight: 700;
+}
 
 /* XX. MODIFICATION - SKIN TEAL
 ========================================================================*/
