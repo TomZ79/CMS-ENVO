@@ -4,7 +4,6 @@
 <head>
   <title>Installation Guide - CMS</title>
   <meta charset="utf-8">
-  <meta name="author" content="CMS (http://www.jakweb.ch)"/>
   <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
   <link rel="stylesheet" href="../css/stylesheet.css" type="text/css" media="screen"/>
   <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
@@ -20,7 +19,7 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <?php include 'include/install-version.php';?>
+      <?php include 'include/install-version.php'; ?>
     </div>
   </div>
 </div>
