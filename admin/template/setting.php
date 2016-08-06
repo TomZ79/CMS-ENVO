@@ -123,10 +123,12 @@ if ($success) { ?>
                   </tr>
                   <tr>
                     <td><?php echo $tl["setting"]["s2"]; ?></td>
-                    <td><select name="jak_lang" class="form-control">
+                    <td>
+                      <select name="jak_lang" class="form-control selectpicker" data-size="5">
                         <?php if (isset($acp_lang_files) && is_array($lang_files)) foreach ($lang_files as $lf) { ?>
                           <option value="<?php echo $lf; ?>"<?php if ($jkv["lang"] == $lf) { ?> selected="selected"<?php } ?>><?php echo ucwords($lf); ?></option><?php } ?>
-                      </select></td>
+                      </select>
+                    </td>
                   </tr>
                   <tr>
                     <td><?php echo $tl["setting"]["s17"]; ?></td>
@@ -163,9 +165,11 @@ if ($success) { ?>
                   </tr>
                   <tr>
                     <td><?php echo $tl["setting"]["s31"]; ?></td>
-                    <td><select name="jak_timezone_server" class="form-control">
+                    <td>
+                      <select name="jak_timezone_server" class="form-control selectpicker" data-live-search="true" data-size="5">
                         <?php include_once "timezoneserver.php"; ?>
-                      </select></td>
+                      </select>
+                    </td>
                   </tr>
                   <tr>
                     <td><?php echo $tl["general"]["g138"]; ?></td>

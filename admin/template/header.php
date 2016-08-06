@@ -10,15 +10,15 @@
 
   <!-- CSS STYLE ================================================================================================ -->
   <!-- General Stylesheet with custom modifications -->
-  <link rel="stylesheet" href="../css/stylesheet.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css"
-        media="screen"/>
+  <link rel="stylesheet" href="../css/stylesheet.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
   <!-- Bootstrap -->
-  <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css"
-        media="screen"/>
+  <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
   <!-- Theme style -->
   <link rel="stylesheet" href="css/admin.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
   <!-- Animate style -->
   <link rel="stylesheet" href="css/animate.min.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
+  <!-- Bootstrap-Select CSS -->
+  <link rel="stylesheet" href="js-plugins/bootstrap-select/css/bootstrap-select.min.css?=<?php echo $jkv["updatetime"];?>" type="text/css" media="screen" />
 
   <?php if (!$jkv["langdirection"]) { ?>
     <!-- RTL Support -->
@@ -35,6 +35,9 @@
   <script type="text/javascript" src="js/cms.js?=<?php echo $jkv["updatetime"]; ?>"></script>
   <!-- Slimscroll -->
   <script type="text/javascript" src="js-plugins/slimScroll/jquery.slimscroll.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+  <!-- Bootstrap-Select JS -->
+  <script type="text/javascript" src="js-plugins/bootstrap-select/js/bootstrap-select.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+  <script type="text/javascript" src="js-plugins/bootstrap-select/js/i18n/defaults-cs_CZ.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 
   <!--[if lt IE 9]>
   <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
