@@ -178,6 +178,7 @@ table.first-column tr td:first-child {
 
 .bootstrap-select .dropdown-menu > li.selected > a {
   color: #FFF !important;
+  background-color: #4DB6AC;
 }
 
 .bootstrap-select .dropdown-menu > li.selected > a:focus,
