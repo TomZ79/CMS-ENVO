@@ -15,6 +15,7 @@ $row = $result->fetch_assoc();
 $JAK_FILE_SUCCESS = $JAK_FILE_ERROR = $JAK_FILEURL = $JAK_FILECONTENT = "";
 $defaults = $_POST;
 
+// Show file in dir - original solution from Jakweb( show file only in main dir)
 function jak_get_template_files($directory, $exempt = array('.', '..', '.ds_store', '.svn', 'preview.jpg', 'index.html', 'js', 'css', 'img', '_cache'), &$files = array())
 {
   $handle = opendir($directory);
@@ -31,6 +32,60 @@ function jak_get_template_files($directory, $exempt = array('.', '..', '.ds_stor
   }
   closedir($handle);
   return $files;
+}
+
+// Show file in dir - custom solution ( show file in dir and subdir)
+$pathLen = 0;
+
+function getTemplateFiles($dir, $level, $rootLen) {
+  # Global variable
+  global $pathLen;
+  global $page1;
+  global $ROOT_DIR;
+  # Extension Filter
+  $allowed_ext = '/\.(css|ini|php|txt)$/';
+  $allowed_file = '/help.html$/';
+
+  if ($handle = opendir($dir)) {
+
+    $allFiles = array();
+
+    while (false !== ($entry = readdir($handle))) {
+      if ($entry != "." && $entry != "..") {
+        if (is_dir($dir . "/" . $entry)) {
+          $allFiles[] = "D: " . $dir . "/" . $entry;
+        } else {
+          if (preg_match($allowed_ext, $entry) || preg_match($allowed_file, $entry)) {
+            $allFiles[] = "F: " . $dir . "/" . $entry;
+          }
+        }
+      }
+    }
+
+    closedir($handle);
+
+    natsort($allFiles);
+
+    foreach($allFiles as $value) {
+      $displayName = substr($value, $rootLen + 4);
+      $fileName    = substr($value, 3);
+      $linkName    = str_replace(" ", "%20", substr($value, $pathLen + 3));
+      if ($page1 != 'edit-files') {
+        if (is_dir($fileName)) {
+          $linkName = ltrim($linkName, '/');
+          echo "<optgroup label=\"" . $linkName . "\">\n";
+          getTemplateFiles($fileName, $level + 1, strlen($fileName));
+          echo "</optgroup>";
+        } else {
+          echo "<option value=\"" . $ROOT_DIR . $linkName . "\">" . $displayName . "</option>";
+        }
+      } else {
+        if (!is_dir($fileName)) {
+          echo "<option value=\"" . $ROOT_DIR . $linkName . "\">" . $displayName . "</option>";
+        }
+      }
+    }
+  }
 }
 
 switch ($page1) {
@@ -78,11 +133,18 @@ switch ($page1) {
 
     }
 
+    // Dir path
+    $ROOT_DIR = $cssdir;
+    // Get the important files into template
     $JAK_GET_TEMPLATE_FILES = jak_get_template_files($cssdir);
 
     // Title and Description
     $SECTION_TITLE = $tl["general"]["g53"];
     $SECTION_DESC = $tl["cmdesc"]["d44"];
+
+    // Breadcrumbs sections
+    $SECTION_CATEGORY = $tl["menu"]["m23"];
+    $SECTION_SUBCATEGORY_F = $tl["general"]["g53"];
 
     // Ace Mode
     $acemode = 'css';
@@ -135,11 +197,18 @@ switch ($page1) {
 
     }
 
+    // Dir path
+    $ROOT_DIR = $langdir;
+    // Get the important files into template
     $JAK_GET_TEMPLATE_FILES = jak_get_template_files($langdir);
 
     // Title and Description
     $SECTION_TITLE = $tl["cmenu"]["c54"];
     $SECTION_DESC = $tl["cmdesc"]["d44"];
+
+    // Breadcrumbs sections
+    $SECTION_CATEGORY = $tl["menu"]["m23"];
+    $SECTION_SUBCATEGORY_F = $tl["cmenu"]["c54"];
 
     // Ace Mode
     $acemode = 'ini';
@@ -192,12 +261,18 @@ switch ($page1) {
       $JAK_FILE_ERROR = 1;
     }
 
-    // Get the importartant files into template
+    // Dir path
+    $ROOT_DIR = $filedir;
+    // Get the important files into template
     $JAK_GET_TEMPLATE_FILES = jak_get_template_files($filedir);
 
     // Title and Description
     $SECTION_TITLE = $tl["general"]["g52"];
     $SECTION_DESC = $tl["cmdesc"]["d44"];
+
+    // Breadcrumbs sections
+    $SECTION_CATEGORY = $tl["menu"]["m23"];
+    $SECTION_SUBCATEGORY_F = $tl["general"]["g52"];
 
     // Ace Mode
     $acemode = 'php';
@@ -213,7 +288,7 @@ switch ($page1) {
     if (!$result) {
       jak_redirect(BASE_URL . 'index.php?p=template&sp=e');
     } else {
-      jak_redirect(BASE_URL . 'index.php?p=template&sp=s');
+      jak_redirect(BASE_URL . 'index.php?p=template&sp=s1');
     }
 
     break;
@@ -245,6 +320,9 @@ switch ($page1) {
     // Title and Description
     $SECTION_TITLE = $tl["menu"]["m23"];
     $SECTION_DESC = $tl["cmdesc"]["d44"];
+
+    // Breadcrumbs sections
+    $SECTION_CATEGORY = $tl["menu"]["m23"];
 
     // Call the template
     $template = 'template.php';
