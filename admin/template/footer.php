@@ -7,9 +7,7 @@
     <div class="pull-right hidden-xs">
       <?php echo sprintf($tl["general"]["gv"], $jkv["version"]); ?>
     </div>
-    <strong>Copyright 2008 - <?php echo date('Y'); ?> by <a href="http://www.bluesat.cz"
-                                                            target="_blank">BLUESAT</a>.</strong> All
-    rights reserved.
+    <strong>Copyright 2008 - <?php echo date('Y'); ?> by <a href="http://www.bluesat.cz" target="_blank">BLUESAT</a>.</strong> All rights reserved.
   </footer>
 
   </div><!-- Wrapper -->
@@ -34,6 +32,13 @@
   $.notify({icon: 'fa fa-exclamation-triangle', message: '<?php echo $_SESSION["errormsg"];?>'}, {type: 'danger'});
   <?php } ?>
 
+  $('.wIframe').on('click', function (e) {
+    e.preventDefault();
+    $('#JAKModal').on('show.bs.modal', function () {
+      $('#JAKModal .modal-lg').css("width", "90%");
+    });
+  });
+
 </script>
 
 <?php if ($JAK_PROVED) { ?>
@@ -57,8 +62,7 @@
       <div class="modal-body">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default"
-                data-dismiss="modal"><?php echo $tl["general"]["g129"]; ?></button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $tl["general"]["g129"]; ?></button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

@@ -115,6 +115,14 @@ table.first-column tr td:first-child {
   text-transform: uppercase;
 }
 
+/* XX. MODIFICATION - MODAL DIALOG
+========================================================================*/
+@media (min-width: 992px) {
+  .modal-lg {
+    width: 90%;
+  }
+}
+
 /* XX. MODIFICATION - BOOTSTRAP
 ========================================================================*/
 /* BOOTSTRAP Same height for column */
