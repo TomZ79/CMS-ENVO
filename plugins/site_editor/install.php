@@ -57,33 +57,43 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
            $checkp = 1;
         }", "../plugins/site_editor/admin/template/site_editornav.php", "NULL", "uninstall.php", "1.0", NOW())');
 
-// now get the plugin id for futher use
+// Now get the plugin id for futher use
           $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Site_editor"');
           $rows = $results->fetch_assoc();
 
           if ($rows['id']) {
 
+            $adminlang = 'if (file_exists(APP_PATH.\'plugins/site_editor/admin/lang/\'.$site_language.\'.ini\')) {
+              $tlsedi = parse_ini_file(APP_PATH.\'plugins/site_editor/admin/lang/\'.$site_language.\'.ini\', true);
+          } else {
+              $tlsedi = parse_ini_file(APP_PATH.\'plugins/site_editor/admin/lang/en.ini\', true);
+          }';
+
+            $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES (NULL, "php_admin_lang", "SITE Editor Admin Language", "' . $adminlang . '", "site_editor", 1, 4, "' . $rows['id'] . '", NOW())');
+
             $succesfully = 1;
 
             ?>
 
-            <div class="alert alert-success"><?php echo $tl["plugin"]["p13"];?></div>
+            <div class="alert alert-success"><?php echo $tl["plugin"]["p13"]; ?></div>
 
           <?php } else {
 
             $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Site_editor"');
 
             ?>
-            <div class="alert alert-danger"><?php echo $tl["plugin"]["p14"];?></div>
+            <div class="alert alert-danger"><?php echo $tl["plugin"]["p14"]; ?></div>
             <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
-              <button type="submit" name="redirect" class="btn btn-danger btn-block"><?php echo $tl["plugin"]["p11"];?></button>
+              <button type="submit" name="redirect"
+                      class="btn btn-danger btn-block"><?php echo $tl["plugin"]["p11"]; ?></button>
             </form>
           <?php }
         } ?>
 
         <?php if (!$succesfully) { ?>
           <form name="company" method="post" action="install.php" enctype="multipart/form-data">
-            <button type="submit" name="install" class="btn btn-primary btn-block"><?php echo $tl["plugin"]["p10"];?></button>
+            <button type="submit" name="install"
+                    class="btn btn-primary btn-block"><?php echo $tl["plugin"]["p10"]; ?></button>
           </form>
         <?php }
       } ?>

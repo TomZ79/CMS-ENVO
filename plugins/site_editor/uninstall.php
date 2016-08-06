@@ -53,17 +53,19 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 
         $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Site_editor"');
 
+        $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "xmlseo"');
+
         $succesfully = 1;
 
         ?>
 
-        <div class="alert alert-success"><?php echo $tl["plugin"]["p15"];?></div>
+        <div class="alert alert-success"><?php echo $tl["plugin"]["p15"]; ?></div>
 
       <?php } ?>
 
       <?php if (!$succesfully) { ?>
         <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
-          <button type="submit" name="uninstall" class="btn btn-danger btn-block"><?php echo $tl["plugin"]["p11"];?></button>
+          <button type="submit" name="uninstall" class="btn btn-danger btn-block"><?php echo $tl["plugin"]["p11"]; ?></button>
         </form>
       <?php } ?>
 
