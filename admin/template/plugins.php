@@ -43,15 +43,36 @@ if ($page1 == "e") { ?>
 
             <li id="plugin-<?php echo $v["id"]; ?>" class="jakplugins">
               <div class="row">
-                <div class="col-md-5 text">#<a
-                    href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["id"]; ?></a>
-                  <span title="<?php echo $v["description"]; ?>"><?php echo $v["name"]; ?></span>
+                <div class="col-md-1 text">
+                  <span># </span>
+                  <a href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["id"]; ?></a>
+                </div>
+                <div class="col-md-2 text plugins-name">
+                  <span title="<?php echo $v["description"]; ?>">
+                    <?php
+                    $name = $v["name"];
+                    echo "<strong>" . str_replace('_', ' ', $name) . "</strong>";
+                    ?>
+                  </span>
+                </div>
+                <div class="col-md-2 text">
                   <?php if ($v['pluginversion']) {
                     echo '(' . sprintf($tl["general"]["gv"], $v["pluginversion"]) . ')';
                   } ?>
                   <input type="hidden" name="real_id[]" value="<?php echo $v["id"]; ?>"/>
                 </div>
-                <div class="col-md-5 show">
+                <div class="col-md-1 text text-center">
+                  <?php
+                  $filename = '../plugins/' . strtolower($v["name"]) . '/help.php';
+
+                  if (file_exists($filename)) {
+                    echo "<a class=\"plugHelp\" href=\"" . $filename . "\">" . $tl["title"]["t21"] . "</a>";
+                  } else {
+                    echo "-";
+                  }
+                  ?>
+                </div>
+                <div class="col-md-4 show">
                   <div class="form-group form-inline">
                     <label><?php echo $tl["plugin"]["p2"]; ?></label>
                     <input type="text" class="form-control" name="access[]" value="<?php echo $v["access"]; ?>"/>
@@ -96,21 +117,23 @@ if ($page1 == "e") { ?>
               <div class="box box-solid">
                 <div class="box-header with-border">
                   <i class="fa fa-plug"></i>
-                  <h3 class="box-title"><?php echo ucfirst($p); ?></h3>
+                  <h3 class="box-title">
+                    <?php echo str_replace('_', ' ', ucfirst($p)); ?>
+                  </h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   <div class="col-md-8">
                     <table width="100%">
                       <tr>
                         <td class="col-md-5"><?php echo $tl["general"]["g70"]; ?>:
-                          <a class="plugInst" href="../plugins/<?php echo $p; ?>/install.php"><?php echo ucfirst($p); ?></a>
+                          <a class="plugInst" href="../plugins/<?php echo $p; ?>/install.php"><?php echo str_replace('_', ' ', ucfirst($p)); ?></a>
                         </td>
                         <td class="col-md-7"><?php echo $tl["title"]["t21"]; ?>:
                           <?php
                           $filename = '../plugins/' . $p . '/help.php';
 
                           if (file_exists($filename)) {
-                            echo "<a class=\"plugHelp\" href=\"" . $filename . "\">" . ucfirst($p) . "</a>";
+                            echo "<a class=\"plugHelp\" href=\"" . $filename . "\">" . str_replace('_', ' ', ucfirst($p)) . "</a>";
                           } else {
                             echo "The file with HELP does not exist";
                           }
