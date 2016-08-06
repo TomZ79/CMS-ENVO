@@ -1,16 +1,34 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
 <?php if ($page4 == "s") { ?>
-  <div class="alert alert-success fade in">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <?php echo $tl["general"]["g7"]; ?>
-  </div>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo $tl["general"]["g7"];?>',
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php }
 if ($page4 == "e") { ?>
-  <div class="alert alert-danger fade in">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <?php echo $tl["errorpage"]["sql"]; ?>
-  </div>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo $tl["errorpage"]["sql"];?>',
+      }, {
+        // settings
+        type: 'danger',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php } ?>
 
 <?php if ($errors) { ?>
@@ -42,7 +60,7 @@ if ($page4 == "e") { ?>
               <tr>
                 <td><?php echo $tl["cat"]["c5"]; ?></td>
                 <td>
-                  <div class="form-group<?php if ($errors["e2"] || $errors["e3"]) echo " has-error"; ?>">
+                  <div class="form-group no-margin<?php if ($errors["e2"] || $errors["e3"]) echo " has-error"; ?>">
                     <input type="text" name="jak_varname" id="jak_varname" class="form-control"
                            value="<?php echo $JAK_FORM_DATA["varname"]; ?>"/>
                   </div>
