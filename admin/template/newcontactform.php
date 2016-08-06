@@ -105,7 +105,8 @@ if ($errors) { ?>
               </div>
               <div class="col-md-2">
                 <div class="form-group">
-                  <?php echo $tl["cform"]["c9"]; ?> <select name="jak_optionmandatory[]" class="form-control">
+                  <?php echo $tl["cform"]["c9"]; ?>
+                  <select name="jak_optionmandatory[]" class="form-control selectpicker" data-size="5">
                     <option value="0"><?php echo $tl["general"]["g19"]; ?></option>
                     <option value="1"><?php echo $tl["general"]["g18"]; ?></option>
                     <option value="2"><?php echo $tl["cform"]["c16"]; ?></option>
@@ -115,7 +116,8 @@ if ($errors) { ?>
               </div>
               <div class="col-md-2">
                 <div class="form-group">
-                  <?php echo $tl["cform"]["c7"]; ?> <select name="jak_optiontype[]" class="form-control">
+                  <?php echo $tl["cform"]["c7"]; ?>
+                  <select name="jak_optiontype[]" class="form-control selectpicker" data-size="5">
                     <option value="1"><?php echo $tl["cform"]["c10"]; ?></option>
                     <option value="2"><?php echo $tl["cform"]["c11"]; ?></option>
                     <option value="3"><?php echo $tl["cform"]["c12"]; ?></option>

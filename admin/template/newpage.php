@@ -233,12 +233,14 @@ if ($errors) { ?>
               <div class="box-body">
                 <table class="table table-striped">
                   <tr>
-                    <td><select name="jak_catid" class="form-control">
+                    <td>
+                      <select name="jak_catid" class="form-control selectpicker" data-size="5">
                         <option
                           value="0"<?php if (!$page1) { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g24"]; ?></option>
                         <?php if (isset($JAK_CAT_NOTUSED) && is_array($JAK_CAT_NOTUSED)) foreach ($JAK_CAT_NOTUSED as $v) { ?>
                           <option value="<?php echo $v["id"]; ?>"<?php if ($v["id"] == $page2 || isset($_REQUEST["jak_catid"]) && $_REQUEST["jak_catid"] == $v["id"]) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php } ?>
-                      </select></td>
+                      </select>
+                    </td>
                   </tr>
                 </table>
               </div>
@@ -337,7 +339,7 @@ if ($errors) { ?>
                     <li class="jakcontent">
                       <div class="form-group">
                         <label><?php echo $tl["page"]["p7"]; ?></label>
-                        <select name="jak_showcontact" class="form-control">
+                        <select name="jak_showcontact" class="form-control selectpicker" data-size="5">
                           <option
                             value="0"<?php if (isset($_REQUEST["jak_showcontact"]) && $_REQUEST["jak_showcontact"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c18"]; ?></option>
                           <?php foreach ($JAK_CONTACT_FORMS as $cf) { ?>
@@ -345,11 +347,8 @@ if ($errors) { ?>
                         </select>
                       </div>
                       <div class="actions">
-
-                        <input type="hidden" name="corder_new[]" class="corder" value="2"/> <input type="hidden"
-                                                                                                   name="real_plugin_id[]"
-                                                                                                   value="9997"/>
-
+                        <input type="hidden" name="corder_new[]" class="corder" value="2"/>
+                        <input type="hidden" name="real_plugin_id[]" value="9997"/>
                       </div>
                     </li>
 
@@ -360,18 +359,15 @@ if ($errors) { ?>
                       <label><?php echo $tl["title"]["t20"]; ?></label>
                       <div class="row">
                         <div class="col-md-6">
-                          <select name="jak_shownewsorder" class="form-control">
-                            <option
-                              value="ASC"<?php if (isset($_REQUEST["jak_shownewsorder"]) && $_REQUEST["jak_shownewsorder"] == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g90"]; ?></option>
-                            <option
-                              value="DESC"<?php if (isset($_REQUEST["jak_shownewsorder"]) && $_REQUEST["jak_shownewsorder"] == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g91"]; ?></option>
+                          <select name="jak_shownewsorder" class="form-control selectpicker" data-size="5">
+                            <option value="ASC"<?php if (isset($_REQUEST["jak_shownewsorder"]) && $_REQUEST["jak_shownewsorder"] == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g90"]; ?></option>
+                            <option value="DESC"<?php if (isset($_REQUEST["jak_shownewsorder"]) && $_REQUEST["jak_shownewsorder"] == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g91"]; ?></option>
                           </select>
                         </div>
                         <div class="col-md-6">
-                          <select name="jak_shownewsmany" class="form-control">
+                          <select name="jak_shownewsmany" class="form-control selectpicker" data-size="5">
                             <?php for ($i = 0; $i <= 10; $i++) { ?>
-                              <option
-                                value="<?php echo $i ?>"<?php if (isset($_REQUEST["jak_shownewsmany"]) && $_REQUEST["jak_shownewsmany"] == $i) { ?> selected="selected"<?php } ?>><?php echo $i; ?></option>
+                              <option value="<?php echo $i ?>"<?php if (isset($_REQUEST["jak_shownewsmany"]) && $_REQUEST["jak_shownewsmany"] == $i) { ?> selected="selected"<?php } ?>><?php echo $i; ?></option>
                             <?php } ?>
                           </select>
                         </div>

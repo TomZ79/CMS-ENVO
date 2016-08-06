@@ -71,7 +71,8 @@
               </tr>
               <tr>
                 <td><?php echo $tl["menu"]["m9"]; ?></td>
-                <td><select name="jak_usergroup" class="form-control">
+                <td>
+                  <select name="jak_usergroup" class="form-control selectpicker" data-size="5">
                     <?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
                       if ($v["id"] != "1") { ?>
                         <option value="<?php echo $v["id"]; ?>"<?php if (isset($_REQUEST["jak_usergroup"]) && $v["id"] == $_REQUEST["jak_usergroup"]) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php }

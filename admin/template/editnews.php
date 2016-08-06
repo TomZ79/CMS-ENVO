@@ -365,19 +365,14 @@ if ($errors) { ?>
                         <li class="jakcontent">
                           <div class="form-group">
                             <label><?php echo $tl["page"]["p7"]; ?></label>
-                            <select name="jak_showcontact" class="form-control">
-                              <option
-                                value="0"<?php if ($JAK_FORM_DATA["showcontact"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c18"]; ?></option>
+                            <select name="jak_showcontact" class="form-control selectpicker" data-size="5">
+                              <option value="0"<?php if ($JAK_FORM_DATA["showcontact"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c18"]; ?></option>
                               <?php if (isset($JAK_CONTACT_FORMS) && is_array($JAK_CONTACT_FORMS)) foreach ($JAK_CONTACT_FORMS as $cf) { ?>
                                 <option value="<?php echo $cf["id"]; ?>"<?php if ($cf["id"] == $JAK_FORM_DATA["showcontact"]) { ?> selected="selected"<?php } ?>><?php echo $cf["title"]; ?></option><?php } ?>
                             </select>
                           </div>
                           <div class="actions">
-
-                            <input type="hidden" name="corder[]" class="corder"
-                                   value="<?php echo $pg["orderid"]; ?>"/><input type="hidden" name="real_id[]"
-                                                                                 value="<?php echo $pg["id"]; ?>"/>
-
+                            <input type="hidden" name="corder[]" class="corder" value="<?php echo $pg["orderid"]; ?>"/><input type="hidden" name="real_id[]" value="<?php echo $pg["id"]; ?>"/>
                           </div>
                         </li>
 

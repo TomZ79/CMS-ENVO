@@ -70,7 +70,7 @@ if ($errors) { ?>
             </div>
             <div class="form-group">
               <label for="jak_offpage"><?php echo $tl["site"]["s1"]; ?></label>
-              <select name="jak_offpage" class="form-control">
+              <select name="jak_offpage" class="form-control selectpicker" data-live-search="true" data-size="5">
                 <option
                   value="0"<?php if ($jkv["offline_page"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["title"]["t12"]; ?></option>
                 <?php if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $c) {
@@ -81,7 +81,7 @@ if ($errors) { ?>
             </div>
             <div class="form-group">
               <label for="jak_pagenotfound"><?php echo $tl["site"]["s7"]; ?></label>
-              <select name="jak_pagenotfound" class="form-control">
+              <select name="jak_pagenotfound" class="form-control selectpicker" data-live-search="true" data-size="5">
                 <option
                   value="0"<?php if ($jkv["notfound_page"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["title"]["t12"]; ?></option>
                 <?php if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $nf) {

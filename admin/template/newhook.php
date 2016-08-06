@@ -54,7 +54,7 @@ if ($errors) { ?>
             <td><?php echo $tl["hook"]["h2"]; ?></td>
             <td>
               <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-                <select name="jak_hook" class="form-control">
+                <select name="jak_hook" class="form-control selectpicker" data-live-search="true" data-size="5">
                   <option
                     value="0"<?php if (isset($_REQUEST["jak_showhook"]) && $_REQUEST["jak_showhook"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["hook"]["h6"]; ?></option>
                   <?php if (isset($JAK_HOOK_LOCATIONS) && is_array($JAK_HOOK_LOCATIONS)) foreach ($JAK_HOOK_LOCATIONS as $h) { ?>
@@ -65,12 +65,13 @@ if ($errors) { ?>
           </tr>
           <tr>
             <td><?php echo $tl["hook"]["h3"]; ?></td>
-            <td><select name="jak_plugin" class="form-control">
-                <option
-                  value="0"<?php if (isset($_REQUEST["jak_showhook"]) && $_REQUEST["jak_plugin"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c18"]; ?></option>
+            <td>
+              <select name="jak_plugin" class="form-control selectpicker" data-live-search="true" data-size="5">
+                <option value="0"<?php if (isset($_REQUEST["jak_showhook"]) && $_REQUEST["jak_plugin"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c18"]; ?></option>
                 <?php if (isset($JAK_PLUGINS) && is_array($JAK_PLUGINS)) foreach ($JAK_PLUGINS as $p) { ?>
                   <option value="<?php echo $p["id"]; ?>"<?php if (isset($_REQUEST["jak_showhook"]) && $p["id"] == $_REQUEST["jak_plugin"]) { ?> selected="selected"<?php } ?>><?php echo $p["name"]; ?></option><?php } ?>
-              </select></td>
+              </select>
+            </td>
           </tr>
           <tr>
             <td><?php echo $tl["hook"]["h4"]; ?></td>

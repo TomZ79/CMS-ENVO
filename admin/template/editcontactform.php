@@ -118,7 +118,8 @@ if ($errors) { ?>
               </div>
               <div class="col-md-2">
                 <div class="form-group">
-                  <?php echo $tl["cform"]["c9"]; ?> <select name="jak_optionmandatory[]" class="form-control">
+                  <?php echo $tl["cform"]["c9"]; ?>
+                  <select name="jak_optionmandatory[]" class="form-control selectpicker" data-size="5">
                     <option value="0"><?php echo $tl["general"]["g19"]; ?></option>
                     <option value="1"><?php echo $tl["general"]["g18"]; ?></option>
                     <option value="2"><?php echo $tl["cform"]["c16"]; ?></option>
@@ -128,7 +129,8 @@ if ($errors) { ?>
               </div>
               <div class="col-md-2">
                 <div class="form-group">
-                  <?php echo $tl["cform"]["c7"]; ?> <select name="jak_optiontype[]" class="form-control">
+                  <?php echo $tl["cform"]["c7"]; ?>
+                  <select name="jak_optiontype[]" class="form-control selectpicker" data-size="5">
                     <option value="1"><?php echo $tl["cform"]["c10"]; ?></option>
                     <option value="2"><?php echo $tl["cform"]["c11"]; ?></option>
                     <option value="3"><?php echo $tl["cform"]["c12"]; ?></option>
@@ -166,42 +168,33 @@ if ($errors) { ?>
                 </div>
                 <div class="col-md-2">
                   <div class="form-group">
-                    <?php echo $tl["cform"]["c9"]; ?> <select name="jak_optionmandatory_old[]" class="form-control">
-                      <option
-                        value="0"<?php if ($o["mandatory"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g19"]; ?></option>
-                      <option
-                        value="1"<?php if ($o["mandatory"] == 1) { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g18"]; ?></option>
-                      <option
-                        value="2"<?php if ($o["mandatory"] == 2) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c16"]; ?></option>
-                      <option
-                        value="3"<?php if ($o["mandatory"] == 3) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c17"]; ?></option>
+                    <?php echo $tl["cform"]["c9"]; ?>
+                    <select name="jak_optionmandatory_old[]" class="form-control selectpicker" data-size="5">
+                      <option value="0"<?php if ($o["mandatory"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g19"]; ?></option>
+                      <option value="1"<?php if ($o["mandatory"] == 1) { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g18"]; ?></option>
+                      <option value="2"<?php if ($o["mandatory"] == 2) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c16"]; ?></option>
+                      <option value="3"<?php if ($o["mandatory"] == 3) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c17"]; ?></option>
                     </select>
                   </div>
                 </div>
                 <div class="col-md-2">
                   <div class="form-group">
-                    <?php echo $tl["cform"]["c7"]; ?> <select name="jak_optiontype_old[]" class="form-control">
-                      <option
-                        value="1"<?php if ($o["typeid"] == 1) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c10"]; ?></option>
-                      <option
-                        value="2"<?php if ($o["typeid"] == 2) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c11"]; ?></option>
-                      <option
-                        value="3"<?php if ($o["typeid"] == 3) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c12"]; ?></option>
-                      <option
-                        value="4"<?php if ($o["typeid"] == 4) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c13"]; ?></option>
-                      <option
-                        value="5"<?php if ($o["typeid"] == 5) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c14"]; ?></option>
-                      <option
-                        value="6"<?php if ($o["typeid"] == 6) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c19"]; ?></option>
-                      <option
-                        value="7"<?php if ($o["typeid"] == 7) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c23"]; ?></option>
+                    <?php echo $tl["cform"]["c7"]; ?>
+                    <select name="jak_optiontype_old[]" class="form-control selectpicker" data-size="5">
+                      <option value="1"<?php if ($o["typeid"] == 1) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c10"]; ?></option>
+                      <option value="2"<?php if ($o["typeid"] == 2) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c11"]; ?></option>
+                      <option value="3"<?php if ($o["typeid"] == 3) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c12"]; ?></option>
+                      <option value="4"<?php if ($o["typeid"] == 4) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c13"]; ?></option>
+                      <option value="5"<?php if ($o["typeid"] == 5) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c14"]; ?></option>
+                      <option value="6"<?php if ($o["typeid"] == 6) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c19"]; ?></option>
+                      <option value="7"<?php if ($o["typeid"] == 7) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c23"]; ?></option>
                     </select>
 
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <?php echo $tl["cform"]["c8"]; ?> <input type="text" name="jak_options_old[]"
-                                                           value="<?php echo $o["options"]; ?>" class="form-control"/>
+                  <?php echo $tl["cform"]["c8"]; ?>
+                  <input type="text" name="jak_options_old[]" value="<?php echo $o["options"]; ?>" class="form-control"/>
                 </div>
                 <div class="col-md-1">
                   <div class="checkbox">

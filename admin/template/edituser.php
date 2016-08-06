@@ -88,12 +88,14 @@ if ($errors) { ?>
             </tr>
             <tr>
               <td><?php echo $tl["menu"]["m9"]; ?></td>
-              <td><select name="jak_usergroup" class="form-control">
+              <td>
+                <select name="jak_usergroup" class="form-control selectpicker" data-size="5">
                   <?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
                     if ($v["id"] != "1") { ?>
                       <option value="<?php echo $v["id"]; ?>"<?php if ($v["id"] == $JAK_FORM_DATA["usergroupid"]) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php }
                   } ?>
-                </select></td>
+                </select>
+              </td>
             </tr>
             <tr>
               <td><?php echo $tl["user"]["u8"]; ?></td>
@@ -102,13 +104,15 @@ if ($errors) { ?>
             </tr>
             <tr>
               <td><?php echo $tl["user"]["u7"]; ?></td>
-              <td><select name="jak_usergroupback" class="form-control">
+              <td>
+                <select name="jak_usergroupback" class="form-control selectpicker" data-size="5">
                   <option value="0"><?php echo $tl["general"]["g99"]; ?></option>
                   <?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
                     if ($v["id"] != "1") { ?>
                       <option value="<?php echo $v["id"]; ?>"<?php if ($v["id"] == $JAK_FORM_DATA["backtogroup"]) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php }
                   } ?>
-                </select></td>
+                </select>
+              </td>
             </tr>
             <tr>
               <td><?php echo $tl["user"]["u3"]; ?></td>

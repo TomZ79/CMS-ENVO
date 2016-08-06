@@ -10,9 +10,8 @@
           <th>
             <div class="form-group">
               <label><?php echo $tl["general"]["g103"]; ?></label>
-              <select name="restorcontent" id="restorcontent" class="form-control">
-                <option
-                  value="0"><?php echo $tl["general"]["g99"]; ?></option><?php foreach ($JAK_PAGE_BACKUP as $pb) { ?>
+              <select name="restorcontent" id="restorcontent" class="form-control selectpicker" data-size="5">
+                <option value="0"><?php echo $tl["general"]["g99"]; ?></option><?php foreach ($JAK_PAGE_BACKUP as $pb) { ?>
                   <option value="<?php echo $pb['id']; ?>"><?php echo $pb['time']; ?></option><?php } ?></select><span
                 class="loader"><i class="fa fa-spinner fa-pulse"></i></span>
             </div>

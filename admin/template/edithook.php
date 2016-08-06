@@ -68,9 +68,8 @@ if ($errors) { ?>
             <td><?php echo $tl["hook"]["h2"]; ?></td>
             <td>
               <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-                <select name="jak_hook" class="form-control">
-                  <option
-                    value="0"<?php if ($JAK_FORM_DATA["hook_name"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["hook"]["h6"]; ?></option>
+                <select name="jak_hook" class="form-control selectpicker" data-live-search="true" data-size="5">
+                  <option value="0"<?php if ($JAK_FORM_DATA["hook_name"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["hook"]["h6"]; ?></option>
                   <?php if (isset($JAK_HOOK_LOCATIONS) && is_array($JAK_HOOK_LOCATIONS)) foreach ($JAK_HOOK_LOCATIONS as $h) { ?>
                     <option value="<?php echo $h; ?>"<?php if ($h == $JAK_FORM_DATA["hook_name"]) { ?> selected="selected"<?php } ?>><?php echo $h; ?></option><?php } ?>
                 </select>
@@ -80,12 +79,13 @@ if ($errors) { ?>
 
           <tr>
             <td><?php echo $tl["hook"]["h3"]; ?></td>
-            <td><select name="jak_plugin" class="form-control">
-                <option
-                  value="0"<?php if ($JAK_FORM_DATA["pluginid"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c18"]; ?></option>
+            <td>
+              <select name="jak_plugin" class="form-control selectpicker" data-live-search="true" data-size="5">
+                <option value="0"<?php if ($JAK_FORM_DATA["pluginid"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c18"]; ?></option>
                 <?php if (isset($JAK_PLUGINS) && is_array($JAK_PLUGINS)) foreach ($JAK_PLUGINS as $p) { ?>
                   <option value="<?php echo $p["id"]; ?>"<?php if ($p["id"] == $JAK_FORM_DATA["pluginid"]) { ?> selected="selected"<?php } ?>><?php echo $p["name"]; ?></option><?php } ?>
-              </select></td>
+              </select>
+            </td>
           </tr>
           <tr>
             <td><?php echo $tl["hook"]["h4"]; ?></td>

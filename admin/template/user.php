@@ -51,7 +51,7 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
     <div class="col-md-6">
       <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
         <div class="input-group">
-          <select name="jak_group" class="form-control">
+          <select name="jak_group" class="form-control selectpicker" data-size="5">
             <?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $z) {
               if ($z["id"] != 1) { ?>
                 <option value="<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></option><?php }

@@ -42,7 +42,7 @@ if ($JAK_FILE_ERROR) { ?>
             <td>
               <label for="jak_file_edit"><?php echo $tl["general"]["g51"]; ?></label>
               <select name="jak_file_edit" id="jak_file_edit"
-                      class="form-control"<?php if ($JAK_FILECONTENT) { ?> disabled="disabled"<?php } ?>>
+                      class="form-control selectpicker" data-live-search="true" data-size="5" <?php if ($JAK_FILECONTENT) { ?> disabled="disabled"<?php } ?>>
                 <?php if (isset($JAK_GET_TEMPLATE_FILES) && is_array($JAK_GET_TEMPLATE_FILES)) foreach ($JAK_GET_TEMPLATE_FILES as $f) { ?>
                   <option value="<?php echo $f["path"]; ?>"<?php if ($JAK_FILEURL == $f["path"]) { ?> selected="selected"<?php } ?>><?php echo $f["name"]; ?></option><?php } ?>
               </select></td>

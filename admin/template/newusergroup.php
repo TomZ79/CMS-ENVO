@@ -39,7 +39,7 @@ if ($errors) { ?>
         <div class="form-group">
           <label for="groupbase"><?php echo $tl["general"]["g61"]; ?></label>
           <div class="input-group">
-            <select name="jak_groupbase" id="groupbase" class="form-control">
+            <select name="jak_groupbase" id="groupbase" class="form-control selectpicker" data-size="5">
               <?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $z) {
                 if ($z["id"] != '1') { ?>
                   <option value="<?php echo $z["id"]; ?>"<?php if (isset($_REQUEST['jak_groupbase']) && $z["id"] == $_REQUEST['jak_groupbase']) { ?> selected="selected"<?php } ?>><?php echo $z["name"]; ?></option><?php }
