@@ -717,14 +717,6 @@ switch ($page1) {
 					END
 					WHERE id IN (' . $hookrealid . ')');
 
-        } else {
-          /* Sometimes ERROR with code
-           * $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE plugin = "' . smartsql(JAK_PLUGIN_BLOG) . '" AND blogid = 0 AND hookid != 0');
-           * MySQL Query fail: DELETE FROM cms_blogcomments WHERE plugin = "7" AND blogid = 0 AND hookid != 0
-           * Unknown column 'plugin' in 'where clause'
-          */
-
-          $jakdb->query('DELETE FROM ' . $jaktable4 . ' WHERE plugin = "' . smartsql(JAK_PLUGIN_BLOG) . '" AND blogid = 0 AND hookid != 0');
         }
 
         if (!$result) {
