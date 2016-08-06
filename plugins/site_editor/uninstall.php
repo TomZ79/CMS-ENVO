@@ -53,7 +53,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 
         $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Site_editor"');
 
-        $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "xmlseo"');
+        $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "site_editor"');
 
         $succesfully = 1;
 
