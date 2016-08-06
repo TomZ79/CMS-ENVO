@@ -19,61 +19,71 @@ if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die('You cannot 
 // Set successfully to zero
 $succesfully = 0;
 
+// Set language for plugin
+if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
+  $tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
+} else {
+  $tl = parse_ini_file(APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
+  $site_language = $jkv["lang"];
+}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Installation - E-Commerce Plugin</title>
-	<meta charset="utf-8">
-	<meta name="author" content="JAKWEB (http://www.jakweb.ch)" />
-	<link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen" />
+  <title><?php echo $tl["plugin"]["t6"]; ?></title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
 </head>
 <body>
 
 <div class="container">
-<div class="row">
-<div class="col-md-12">
-<h3>Installation - E-Commerce Plugin</h3>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="well">
+        <h3><?php echo $tl["plugin"]["t6"];?></h3>
+      </div>
+      <hr>
 
-<!-- Check if the plugin is already installed -->
-<?php $jakdb->query('SELECT id FROM '.DB_PREFIX.'plugins WHERE name = "Ecommerce"');
-if ($jakdb->affected_rows > 0) { ?>
+      <!-- Check if the plugin is already installed -->
+      <?php $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Ecommerce"');
+      if ($jakdb->affected_rows > 0) { ?>
 
-<div class="alert alert-info">Plugin is already installed!!!</div>
+        <div class="alert alert-info">Plugin is already installed!!!</div>
 
-<!-- Plugin is not installed let's display the installation script -->
-<?php } else { ?>
+        <!-- Plugin is not installed let's display the installation script -->
+      <?php } else { ?>
 
-<!-- The installation button is hit -->
-<?php if (isset($_POST['install'])) {
- 
-$jakdb->query('INSERT INTO '.DB_PREFIX.'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Ecommerce", "Modern and simple AJAX Shop, sell products has never been easier.", 1, '.JAK_USERID.', 4, "ecommerce", "require_once APP_PATH.\'plugins/ecommerce/shop.php\';", "if ($page == \'shop\') {
+        <!-- The installation button is hit -->
+        <?php if (isset($_POST['install'])) {
+
+          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Ecommerce", "Modern and simple AJAX Shop, sell products has never been easier.", 1, ' . JAK_USERID . ', 4, "ecommerce", "require_once APP_PATH.\'plugins/ecommerce/shop.php\';", "if ($page == \'shop\') {
         require_once APP_PATH.\'plugins/ecommerce/admin/shop.php\';
         $JAK_PROVED = 1;
         $checkp = 1;
      }", "../plugins/ecommerce/admin/template/shopnav.php", "shop", "uninstall.php", "1.0", NOW())');
 
 // now get the plugin id for futher use
-$results = $jakdb->query('SELECT id FROM '.DB_PREFIX.'plugins WHERE name = "Ecommerce"');
-$rows = $results->fetch_assoc();
+          $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Ecommerce"');
+          $rows = $results->fetch_assoc();
 
-if ($rows['id']) {
+          if ($rows['id']) {
 
-$adminlang = 'if (file_exists(APP_PATH.\'plugins/ecommerce/admin/lang/\'.$site_language.\'.ini\')) {
+            $adminlang = 'if (file_exists(APP_PATH.\'plugins/ecommerce/admin/lang/\'.$site_language.\'.ini\')) {
     $tlec = parse_ini_file(APP_PATH.\'plugins/ecommerce/admin/lang/\'.$site_language.\'.ini\', true);
 } else {
     $tlec = parse_ini_file(APP_PATH.\'plugins/ecommerce/admin/lang/en.ini\', true);
 }';
 
-$sitelang = 'if (file_exists(APP_PATH.\'plugins/ecommerce/lang/\'.$site_language.\'.ini\')) {
+            $sitelang = 'if (file_exists(APP_PATH.\'plugins/ecommerce/lang/\'.$site_language.\'.ini\')) {
     $tlec = parse_ini_file(APP_PATH.\'plugins/ecommerce/lang/\'.$site_language.\'.ini\', true);
 } else {
     $tlec = parse_ini_file(APP_PATH.\'plugins/ecommerce/lang/en.ini\', true);
 }';
 
-$sitephpsearch = '$shop = new JAK_search($SearchInput); 
+            $sitephpsearch = '$shop = new JAK_search($SearchInput);
         	$shop->jakSettable(\'shop\',\"\");
         	$shop->jakAndor(\"OR\");
         	$shop->jakFieldactive(\"active\");
@@ -85,25 +95,25 @@ $sitephpsearch = '$shop = new JAK_search($SearchInput);
         	// Load the array into template
         	$JAK_SEARCH_RESULT_ECOMMERCE = $shop->set_result(JAK_PLUGIN_VAR_ECOMMERCE, \'i\', $jkv[\"shopurl\"]);';
 
-$sitephptag = 'if ($row[\'pluginid\'] == JAK_PLUGIN_ID_ECOMMERCE) {
+            $sitephptag = 'if ($row[\'pluginid\'] == JAK_PLUGIN_ID_ECOMMERCE) {
 $shoptagData[] = JAK_tags::jakTagsql(\"shop\", $row[\'itemid\'], \"id, title, content\", \"content\", JAK_PLUGIN_VAR_ECOMMERCE, \"i\", $jkv[\"shopurl\"]);
 $JAK_TAG_ECOMMERCE_DATA = $shoptagData;
 }';
 
-$sitephpsitemap = 'include_once APP_PATH.\'plugins/ecommerce/functions.php\';
+            $sitephpsitemap = 'include_once APP_PATH.\'plugins/ecommerce/functions.php\';
 
 $JAK_ECOMMERCE_ALL = jak_get_shop($jkv[\"shopurl\"]);
 $PAGE_TITLE = JAK_PLUGIN_NAME_ECOMMERCE;';
 
 // Fulltext search query
-$sqlfull = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'shop ADD FULLTEXT(`title`, `content`)\');';
-$sqlfullremove = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'shop DROP INDEX `title`\');';
+            $sqlfull = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'shop ADD FULLTEXT(`title`, `content`)\');';
+            $sqlfullremove = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'shop DROP INDEX `title`\');';
 
 // Insert php code
-$insertphpcode = 'if (isset($defaults[\'jak_shop\'])) {
+            $insertphpcode = 'if (isset($defaults[\'jak_shop\'])) {
 	$insert .= \'shop = \"\'.$defaults[\'jak_shop\'].\'\",\'; }';
-        	
-$sitephprss = 'if ($page1 == JAK_PLUGIN_VAR_ECOMMERCE) {
+
+            $sitephprss = 'if ($page1 == JAK_PLUGIN_VAR_ECOMMERCE) {
 	
 	if ($jkv[\"shoprss\"]) {
 		$sql = \'SELECT id, title, content, time FROM \'.DB_PREFIX.\'shop WHERE active = 1 ORDER BY time DESC LIMIT \'.$jkv[\"shoprss\"];
@@ -121,19 +131,19 @@ $sitephprss = 'if ($page1 == JAK_PLUGIN_VAR_ECOMMERCE) {
 }';
 
 // Insert into hooks
-$jakdb->query('INSERT INTO '.DB_PREFIX.'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES (NULL, "php_admin_lang", "Ecommerce Admin Language", "'.$adminlang.'", "shop", 1, 1, "'.$rows['id'].'", NOW()), (NULL, "php_lang", "Ecommerce Site Language", "'.$sitelang.'", "shop", 1, 4, "'.$rows['id'].'", NOW()), (NULL, "php_admin_usergroup", "Ecommerce Usergroup", "'.$insertphpcode.'", "shop", 1, 4, "'.$rows['id'].'", NOW()), (NULL, "php_search", "Ecommerce Search PHP", "'.$sitephpsearch.'", "shop", 1, 8, "'.$rows['id'].'", NOW()), (NULL, "tpl_admin_usergroup", "Ecommerce Usergroup New", "plugins/ecommerce/admin/template/usergroup_new.php", "shop", 1, 4, "'.$rows['id'].'", NOW()), (NULL, "tpl_admin_usergroup_edit", "Ecommerce Usergroup Edit", "plugins/ecommerce/admin/template/usergroup_edit.php", "shop", 1, 4, "'.$rows['id'].'", NOW()), (NULL, "tpl_between_head", "E-Commerce CSS", "plugins/ecommerce/template/header.php", "shop", 1, 4, "'.$rows['id'].'", NOW()), (NULL, "tpl_footer_end", "E-Commerce JS", "plugins/ecommerce/template/footer.php", "shop", 1, 4, "'.$rows['id'].'", NOW()), (NULL, "php_search", "Ecommerce Search PHP", "'.$sitephpsearch.'", "shop", 1, 8, "'.$rows['id'].'", NOW()), (NULL, "php_rss", "Ecommerce RSS PHP", "'.$sitephprss.'", "shop", 1, 1, "'.$rows['id'].'", NOW()), (NULL, "php_tags", "Ecommerce Tags PHP", "'.$sitephptag.'", "shop", 1, 8, "'.$rows['id'].'", NOW()), (NULL, "php_sitemap", "Ecommerce Sitemap PHP", "'.$sitephpsitemap.'", "shop", 1, 4, "'.$rows['id'].'", NOW()), (NULL, "tpl_tags", "Ecommerce Tags TPL", "plugins/ecommerce/template/tag.php", "shop", 1, 4, "'.$rows['id'].'", NOW()), (NULL, "tpl_sitemap", "Ecommerce Sitemap TPL", "plugins/ecommerce/template/sitemap.php", "shop", 1, 4, "'.$rows['id'].'", NOW()), (NULL, "php_admin_fulltext_add", "Ecommerce Full Text Search", "'.$sqlfull.'", "shop", 1, 1, "'.$rows['id'].'", NOW()), (NULL, "php_admin_fulltext_remove", "Ecommerce Remove Full Text Search", "'.$sqlfullremove.'", "shop", 1, 1, "'.$rows['id'].'", NOW()), (NULL, "tpl_search", "Ecommerce Search TPL", "plugins/ecommerce/template/search.php", "shop", 1, 1, "'.$rows['id'].'", NOW())');
+            $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES (NULL, "php_admin_lang", "Ecommerce Admin Language", "' . $adminlang . '", "shop", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_lang", "Ecommerce Site Language", "' . $sitelang . '", "shop", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_usergroup", "Ecommerce Usergroup", "' . $insertphpcode . '", "shop", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_search", "Ecommerce Search PHP", "' . $sitephpsearch . '", "shop", 1, 8, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_usergroup", "Ecommerce Usergroup New", "plugins/ecommerce/admin/template/usergroup_new.php", "shop", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_usergroup_edit", "Ecommerce Usergroup Edit", "plugins/ecommerce/admin/template/usergroup_edit.php", "shop", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_between_head", "E-Commerce CSS", "plugins/ecommerce/template/header.php", "shop", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_footer_end", "E-Commerce JS", "plugins/ecommerce/template/footer.php", "shop", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_search", "Ecommerce Search PHP", "' . $sitephpsearch . '", "shop", 1, 8, "' . $rows['id'] . '", NOW()), (NULL, "php_rss", "Ecommerce RSS PHP", "' . $sitephprss . '", "shop", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_tags", "Ecommerce Tags PHP", "' . $sitephptag . '", "shop", 1, 8, "' . $rows['id'] . '", NOW()), (NULL, "php_sitemap", "Ecommerce Sitemap PHP", "' . $sitephpsitemap . '", "shop", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_tags", "Ecommerce Tags TPL", "plugins/ecommerce/template/tag.php", "shop", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_sitemap", "Ecommerce Sitemap TPL", "plugins/ecommerce/template/sitemap.php", "shop", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_fulltext_add", "Ecommerce Full Text Search", "' . $sqlfull . '", "shop", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_fulltext_remove", "Ecommerce Remove Full Text Search", "' . $sqlfullremove . '", "shop", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_search", "Ecommerce Search TPL", "plugins/ecommerce/template/search.php", "shop", 1, 1, "' . $rows['id'] . '", NOW())');
 
 // Insert tables into settings
-$jakdb->query('INSERT INTO '.DB_PREFIX.'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES ("e_title", "shop", NULL, NULL, "input", "free", "shop"), ("e_desc", "shop", "", "", "textarea", "free", "shop"), ("e_thanks", "shop", NULL, NULL, "textarea", "free", "shop"), ("e_currency", "shop", "CHF", "CHF", "input", "free", "shop"), ("e_currency1", "shop", "", "", "input", "free", "shop"), ("e_currency2", "shop", "", "", "input", "free", "shop"), ("e_taxes", "shop", "", "", "input", "free", "shop"), ("shopemail", "shop", NULL, NULL, "input", "free", "shop"), ("shopdateformat", "shop", "d.m.Y", "d.m.Y", "input", "free", "shop"), ("shoptimeformat", "shop", ": h:i A", ": h:i A", "input", "free", "shop"), ("shopurl", "shop", 0, 0, "yesno", "boolean", "shop"), ("shoprss", "shop", 5, 5, "number", "select", "shop"), ("e_http", "shop", 0, 0, "yesno", "boolean", "shop"), ("e_agreement", "shop", NULL, NULL, "number", "select", "shop"), ("shoppagemid", "shop", 3, 3, "input", "number", "shop"), ("shoppageitem", "shop", 4, 4, "input", "number", "shop"), ("e_shop_address", "shop", NULL, NULL, "input", "free", "shop"), ("e_country", "shop", 0, 0, "number", "select", "shop"), ("e_productopen", "shop", 1, 1, "yesno", "boolean", "shop"), ("shopcheckout", "shop", 1, 1, "input", "number", "shop"), ("e_shop_download", "shop", "Please download your purchased digital good(s) with the provided link below.", NULL, "input", "free", "shop"), ("e_shop_download_b", "shop", "Please download your file(s) within 7 days:", NULL, "input", "free", "shop"), ("e_shop_download_bt", "shop", "Download Now", NULL, "input", "free", "shop")');
+            $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES ("e_title", "shop", NULL, NULL, "input", "free", "shop"), ("e_desc", "shop", "", "", "textarea", "free", "shop"), ("e_thanks", "shop", NULL, NULL, "textarea", "free", "shop"), ("e_currency", "shop", "CHF", "CHF", "input", "free", "shop"), ("e_currency1", "shop", "", "", "input", "free", "shop"), ("e_currency2", "shop", "", "", "input", "free", "shop"), ("e_taxes", "shop", "", "", "input", "free", "shop"), ("shopemail", "shop", NULL, NULL, "input", "free", "shop"), ("shopdateformat", "shop", "d.m.Y", "d.m.Y", "input", "free", "shop"), ("shoptimeformat", "shop", ": h:i A", ": h:i A", "input", "free", "shop"), ("shopurl", "shop", 0, 0, "yesno", "boolean", "shop"), ("shoprss", "shop", 5, 5, "number", "select", "shop"), ("e_http", "shop", 0, 0, "yesno", "boolean", "shop"), ("e_agreement", "shop", NULL, NULL, "number", "select", "shop"), ("shoppagemid", "shop", 3, 3, "input", "number", "shop"), ("shoppageitem", "shop", 4, 4, "input", "number", "shop"), ("e_shop_address", "shop", NULL, NULL, "input", "free", "shop"), ("e_country", "shop", 0, 0, "number", "select", "shop"), ("e_productopen", "shop", 1, 1, "yesno", "boolean", "shop"), ("shopcheckout", "shop", 1, 1, "input", "number", "shop"), ("e_shop_download", "shop", "Please download your purchased digital good(s) with the provided link below.", NULL, "input", "free", "shop"), ("e_shop_download_b", "shop", "Please download your file(s) within 7 days:", NULL, "input", "free", "shop"), ("e_shop_download_bt", "shop", "Download Now", NULL, "input", "free", "shop")');
 
 // Write into categories
-$jakdb->query('INSERT INTO '.DB_PREFIX.'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `permission`, `activeplugin`, `pluginid`) VALUES (NULL, "Shop", "shop", NULL, 1, 0, 5, 0, 0, 0, 1, "'.$rows['id'].'")');
+            $jakdb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `permission`, `activeplugin`, `pluginid`) VALUES (NULL, "Shop", "shop", NULL, 1, 0, 5, 0, 0, 0, 1, "' . $rows['id'] . '")');
 
 // Insert into usergroup
-$jakdb->query('ALTER TABLE '.DB_PREFIX.'usergroup ADD `shop` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
-$jakdb->query('ALTER TABLE '.DB_PREFIX.'pagesgrid ADD shopid INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER newsid');
+            $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `shop` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
+            $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pagesgrid ADD shopid INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER newsid');
 
-$jakdb->query('CREATE TABLE IF NOT EXISTS '.DB_PREFIX.'shop (
+            $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'shop (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `catid` int(11) unsigned NOT NULL DEFAULT 0,
   `title` varchar(255) DEFAULT NULL,
@@ -159,7 +169,7 @@ $jakdb->query('CREATE TABLE IF NOT EXISTS '.DB_PREFIX.'shop (
   KEY `catid` (`catid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-$jakdb->query('CREATE TABLE IF NOT EXISTS '.DB_PREFIX.'shop_order (
+            $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'shop_order (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `paid_method` smallint(2) unsigned NOT NULL DEFAULT 0,
   `total_price` float(10,2) DEFAULT NULL,
@@ -195,7 +205,7 @@ $jakdb->query('CREATE TABLE IF NOT EXISTS '.DB_PREFIX.'shop_order (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-$jakdb->query('CREATE TABLE IF NOT EXISTS '.DB_PREFIX.'shopcategories (
+            $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'shopcategories (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `varname` varchar(255) DEFAULT NULL,
@@ -209,7 +219,7 @@ $jakdb->query('CREATE TABLE IF NOT EXISTS '.DB_PREFIX.'shopcategories (
   KEY `catorder` (`catorder`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-$jakdb->query('CREATE TABLE IF NOT EXISTS '.DB_PREFIX.'shop_order_details (
+            $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'shop_order_details (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `orderid` int(11) unsigned NOT NULL DEFAULT 0,
   `shopid` int(11) unsigned NOT NULL DEFAULT 0,
@@ -222,7 +232,7 @@ $jakdb->query('CREATE TABLE IF NOT EXISTS '.DB_PREFIX.'shop_order_details (
   KEY `orderid` (`orderid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-$jakdb->query('CREATE TABLE IF NOT EXISTS '.DB_PREFIX.'shopping_cart (
+            $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'shopping_cart (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `shopid` int(11) unsigned NOT NULL DEFAULT 0,
   `cartid` varchar(100) DEFAULT NULL,
@@ -235,7 +245,7 @@ $jakdb->query('CREATE TABLE IF NOT EXISTS '.DB_PREFIX.'shopping_cart (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-$jakdb->query('CREATE TABLE IF NOT EXISTS '.DB_PREFIX.'shop_shipping (
+            $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'shop_shipping (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
   `deliveryimg` varchar(255) DEFAULT NULL,
@@ -250,7 +260,7 @@ $jakdb->query('CREATE TABLE IF NOT EXISTS '.DB_PREFIX.'shop_shipping (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-$jakdb->query('CREATE TABLE IF NOT EXISTS '.DB_PREFIX.'shop_payment_ipn (
+            $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'shop_payment_ipn (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ordernr` varchar(20) DEFAULT NULL,
   `status` varchar(250) DEFAULT NULL,
@@ -264,7 +274,7 @@ $jakdb->query('CREATE TABLE IF NOT EXISTS '.DB_PREFIX.'shop_payment_ipn (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-$jakdb->query('CREATE TABLE IF NOT EXISTS '.DB_PREFIX.'shop_payment (
+            $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'shop_payment (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
   `field` text,
@@ -277,7 +287,7 @@ $jakdb->query('CREATE TABLE IF NOT EXISTS '.DB_PREFIX.'shop_payment (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=7');
 
-$jakdb->query("INSERT INTO ".DB_PREFIX."shop_payment (`id`, `title`, `field`, `field1`, `field2`, `field3`, `status`, `msporder`) VALUES
+            $jakdb->query("INSERT INTO " . DB_PREFIX . "shop_payment (`id`, `title`, `field`, `field1`, `field2`, `field3`, `status`, `msporder`) VALUES
 (1, 'Bank Transfer', 'Bank Transfer Swiss', '', NULL, NULL, 0, 1),
 (2, 'Cheque / Money Order', 'Cheque / Money Order', '', NULL, NULL, 0, 2),
 (3, 'Paypal', 'Paypal', '', NULL, NULL, 0, 3),
@@ -289,7 +299,7 @@ $jakdb->query("INSERT INTO ".DB_PREFIX."shop_payment (`id`, `title`, `field`, `f
 (9, 'Skrill (Moneybookers)', 'Skrill', '', NULL, NULL, 0, 7),
 (10, 'Stripe', 'Credit Card', '', NULL, NULL, 0, 10)");
 
-$jakdb->query('CREATE TABLE IF NOT EXISTS '.DB_PREFIX.'shop_coupon (
+            $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'shop_coupon (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
   `description` text,
@@ -307,7 +317,7 @@ $jakdb->query('CREATE TABLE IF NOT EXISTS '.DB_PREFIX.'shop_coupon (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-$jakdb->query('CREATE TABLE '.DB_PREFIX.'shop_country (
+            $jakdb->query('CREATE TABLE ' . DB_PREFIX . 'shop_country (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(128) DEFAULT NULL,
   `iso_code_2` varchar(2) DEFAULT NULL,
@@ -315,7 +325,7 @@ $jakdb->query('CREATE TABLE '.DB_PREFIX.'shop_country (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=240');
 
-$jakdb->query("INSERT INTO ".DB_PREFIX."shop_country VALUES
+            $jakdb->query("INSERT INTO " . DB_PREFIX . "shop_country VALUES
 (1, 'Afghanistan', 'AF', 'AFG'),
 (2, 'Albania', 'AL', 'ALB'),
 (3, 'Algeria', 'DZ', 'DZA'),
@@ -557,31 +567,37 @@ $jakdb->query("INSERT INTO ".DB_PREFIX."shop_country VALUES
 (239, 'Zimbabwe', 'ZW', 'ZWE'),
 (999, 'Worldwide', 'WW', 'WWE')");
 
-$succesfully = 1;
+            $succesfully = 1;
 
 // Full text search is activated we do so for the blog table as well
-if ($jkv["fulltextsearch"]) {
-	$jakdb->query('ALTER TABLE '.DB_PREFIX.'shop ADD FULLTEXT(`title`, `content`)');
-}
+            if ($jkv["fulltextsearch"]) {
+              $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'shop ADD FULLTEXT(`title`, `content`)');
+            }
 
-?>
-<div class="alert alert-success">Plugin installed successfully</div>
-<?php } else { 
+            ?>
 
-$result = $jakdb->query('DELETE FROM '.DB_PREFIX.'plugins WHERE name = "Ecommerce"');
+            <div class="alert alert-success"><?php echo $tl["plugin"]["p13"];?></div>
 
-?>
-<div class="alert alert-danger">Plugin installation failed.</div>
-<?php } } ?>
+          <?php } else {
 
-<?php if (!$succesfully) { ?>
-<form name="company" method="post" action="install.php" enctype="multipart/form-data">
-<button type="submit" name="install" class="btn btn-primary btn-block">Install Plugin</button>
-</form>
-<?php } } ?>
+            $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Ecommerce"');
 
-</div>
-</div>
+            ?>
+
+            <div class="alert alert-danger"><?php echo $tl["plugin"]["p16"];?></div>
+
+          <?php }
+        } ?>
+
+        <?php if (!$succesfully) { ?>
+          <form name="company" method="post" action="install.php" enctype="multipart/form-data">
+            <button type="submit" name="install" class="btn btn-primary btn-block"><?php echo $tl["plugin"]["p10"];?></button>
+          </form>
+        <?php }
+      } ?>
+
+    </div>
+  </div>
 
 
 </div><!-- #container -->

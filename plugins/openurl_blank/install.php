@@ -11,12 +11,20 @@ if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die('You cannot 
 // Set successfully to zero
 $succesfully = 0;
 
+// Set language for plugin
+if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_language.'.ini')) {
+  $tl = parse_ini_file(APP_PATH.'admin/lang/'.$site_language.'.ini', true);
+} else {
+  $tl = parse_ini_file(APP_PATH.'admin/lang/'.$jkv["lang"].'.ini', true);
+  $site_language = $jkv["lang"];
+}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Installation - OpenURL</title>
+  <title><?php echo $tl["plugin"]["t16"];?></title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen"/>
   <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
@@ -26,16 +34,16 @@ $succesfully = 0;
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h3>Installation - OpenURL</h3>
+      <div class="well">
+        <h3><?php echo $tl["plugin"]["t16"];?></h3>
+      </div>
+      <hr>
 
       <!-- Check if the plugin is already installed -->
       <?php $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "openurl_blank"');
       if ($jakdb->affected_rows > 0) { ?>
 
-        <div class="alert alert-success fade in">
-          <button type="button" class="close" data-dismiss="alert">×</button>
-          <h4>Plugin is already installed!!!</h4>
-        </div>
+        <div class="alert alert-info"><?php echo $tl["plugin"]["p12"];?></div>
 
         <!-- Plugin is not installed let's display the installation script -->
       <?php } else { ?>
@@ -56,26 +64,22 @@ $succesfully = 0;
             $succesfully = 1;
 
             ?>
-            <div class="alert alert-success fade in">
-              <button type="button" class="close" data-dismiss="alert">×</button>
-              <h4>Plugin installed successfully.</h4>
-            </div>
+
+            <div class="alert alert-success"><?php echo $tl["plugin"]["p13"];?></div>
+
           <?php } else {
 
             $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "openurl_blank"');
 
             ?>
 
-            <div class="alert alert-danger fade in">
-              <button type="button" class="close" data-dismiss="alert">×</button>
-              <h4>Plugin installation failed.</h4>
-            </div>
+            <div class="alert alert-danger"><?php echo $tl["plugin"]["p14"];?></div>
 
           <?php }
         }
         if (!$succesfully) { ?>
           <form name="company" method="post" action="install.php">
-            <button type="submit" name="install" class="btn btn-success btn-block">Install Plugin</button>
+            <button type="submit" name="install" class="btn btn-primary btn-block"><?php echo $tl["plugin"]["p10"];?></button>
           </form>
         <?php }
       } ?>

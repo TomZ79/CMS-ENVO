@@ -11,15 +11,22 @@ if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die('You cannot 
 // Set successfully to zero
 $succesfully = 0;
 
+// Set language for plugin
+if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_language.'.ini')) {
+  $tl = parse_ini_file(APP_PATH.'admin/lang/'.$site_language.'.ini', true);
+} else {
+  $tl = parse_ini_file(APP_PATH.'admin/lang/'.$jkv["lang"].'.ini', true);
+  $site_language = $jkv["lang"];
+}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>Uninstallation - Register Form</title>
+  <title><?php echo $tl["plugin"]["t19"];?></title>
   <meta charset="utf-8">
-  <meta name="author" content="JAKCMS (http://www.jakcms.com)"/>
   <link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen"/>
   <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
 </head>
@@ -28,7 +35,10 @@ $succesfully = 0;
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h3>Uninstallation - Register Form</h3>
+      <div class="well">
+        <h3><?php echo $tl["plugin"]["t19"];?></h3>
+      </div>
+      <hr>
 
       <!-- Let's do the uninstall -->
       <?php if (isset($_POST['uninstall'])) {
@@ -67,13 +77,15 @@ $succesfully = 0;
         }
 
         ?>
-        <div class="alert alert-success">Plugin uninstalled successfully</div>
+
+        <div class="alert alert-success"><?php echo $tl["plugin"]["p15"];?></div>
+
       <?php } ?>
 
       <?php if (!$succesfully) { ?>
         <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
           <div class="form-actions">
-            <button type="submit" name="uninstall" class="btn btn-primary btn-block">UnInstall Plugin</button>
+            <button type="submit" name="uninstall" class="btn btn-danger btn-block"><?php echo $tl["plugin"]["p11"];?></button>
           </div>
         </form>
       <?php } ?>

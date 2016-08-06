@@ -13,12 +13,20 @@ if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die('You cannot 
 // Set successfully to zero
 $succesfully = 0;
 
+// Set language for plugin
+if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_language.'.ini')) {
+  $tl = parse_ini_file(APP_PATH.'admin/lang/'.$site_language.'.ini', true);
+} else {
+  $tl = parse_ini_file(APP_PATH.'admin/lang/'.$jkv["lang"].'.ini', true);
+  $site_language = $jkv["lang"];
+}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Installation - Growl</title>
+  <title><?php echo $tl["plugin"]["t12"];?></title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen"/>
   <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
@@ -28,7 +36,10 @@ $succesfully = 0;
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h3>Installation - Growl</h3>
+      <div class="well">
+        <h3><?php echo $tl["plugin"]["t12"];?></h3>
+      </div>
+      <hr>
 
       <!-- Check if the plugin is already installed -->
       <?php $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Growl"');
@@ -102,13 +113,15 @@ $succesfully = 0;
             $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Growl"');
 
             ?>
-            <div class="alert alert-danger">Plugin install failed, could not determine the plugin id.</div>
+
+            <div class="alert alert-success"><?php echo $tl["plugin"]["p13"];?></div>
+
           <?php }
         } ?>
 
         <?php if (!$succesfully) { ?>
           <form name="company" method="post" action="install.php" enctype="multipart/form-data">
-            <button type="submit" name="install" class="btn btn-primary btn-block">Install Plugin</button>
+            <button type="submit" name="install" class="btn btn-primary btn-block"><?php echo $tl["plugin"]["p10"];?></button>
           </form>
         <?php }
       } ?>

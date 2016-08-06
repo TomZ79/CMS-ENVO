@@ -13,12 +13,20 @@ if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die('You cannot 
 // Set successfully to zero
 $succesfully = 0;
 
+// Set language for plugin
+if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_language.'.ini')) {
+  $tl = parse_ini_file(APP_PATH.'admin/lang/'.$site_language.'.ini', true);
+} else {
+  $tl = parse_ini_file(APP_PATH.'admin/lang/'.$jkv["lang"].'.ini', true);
+  $site_language = $jkv["lang"];
+}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Installation - URL Mapping Plugin</title>
+  <title><?php echo $tl["plugin"]["t30"];?></title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen"/>
   <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
@@ -28,7 +36,10 @@ $succesfully = 0;
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h3>Installation - URL Mapping Plugin</h3>
+      <div class="well">
+        <h3><?php echo $tl["plugin"]["t30"];?></h3>
+      </div>
+      <hr>
 
       <?php if (isset($_POST['install'])) {
 
@@ -68,22 +79,26 @@ $succesfully = 0;
           $succesfully = 1;
 
           ?>
-          <div class="alert alert-success">Plugin installed successfully</div>
+
+          <div class="alert alert-success"><?php echo $tl["plugin"]["p13"];?></div>
+
         <?php } else {
 
           $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "UrlMapping"');
 
           ?>
-          <div class="alert alert-success">Plugin install failed, could not determine the plugin id.</div>
+
+          <div class="alert alert-danger"><?php echo $tl["plugin"]["p16"];?></div>
           <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
-            <button type="submit" name="redirect" class="btn btn-danger pull-right">Uninstall Plugin</button>
+            <button type="submit" name="redirect" class="btn btn-danger btn-block"><?php echo $tl["plugin"]["p11"];?></button>
           </form>
+
         <?php }
       } ?>
 
       <?php if (!$succesfully) { ?>
         <form name="company" method="post" action="install.php" enctype="multipart/form-data">
-          <button type="submit" name="install" class="btn btn-primary btn-block">Install Plugin</button>
+          <button type="submit" name="install" class="btn btn-primary btn-block"><?php echo $tl["plugin"]["p10"];?></button>
         </form>
       <?php } ?>
 
