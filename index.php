@@ -485,7 +485,7 @@ if (isset($jkv["sitestyle"]) && !empty($jkv["sitestyle"]) && isset($template) &&
     include_once APP_PATH . $plugin_template;
 // No template available
 } else {
-    include_once APP_PATH . 'notemplate.html';
+    include_once APP_PATH . 'notemplate.php';
 }
 
 // Reset success and errors session for next use
