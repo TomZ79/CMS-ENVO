@@ -1,22 +1,33 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
 <?php if ($page2 == "s") { ?>
-  <div class="alert alert-success fade in">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <?php echo $tl["general"]["g7"]; ?>
-  </div>
-<?php }
-if ($page2 == "e" || $page2 == "ene") { ?>
-  <div class="alert alert-danger fade in">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <?php if ($page2 == "e") {
-      $tl["errorpage"]["sql"];
-    } elseif ($page2 == "ene") {
-      echo $tl["errorpage"]["not"];
-    } else {
-      echo $tl["errorpage"]["ug"];
-    } ?>
-  </div>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function() {
+      $.notify({
+        // options
+        message: '<?php echo $tl["general"]["g7"];?>',
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
+<?php } if ($page2 == "e" || $page2 == "ene") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function() {
+      $.notify({
+        // options
+        message: '<?php if ($page2 == "e") { $tl["errorpage"]["sql"]; } elseif ($page2 == "ene") { echo $tl["errorpage"]["not"]; } else { echo $tl["errorpage"]["ug"]; } ?>',
+      }, {
+        // settings
+        type: 'danger',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php } ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
