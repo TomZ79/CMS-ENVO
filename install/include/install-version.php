@@ -1,1 +1,1 @@
-<a class="navbar-brand" href="http://www.bluesat.cz" target="_blank">CMS - Bluesat (1.0)</a>
+<a class="navbar-brand" href="http://www.bluesat.cz" target="_blank">CMS - Bluesat (1.1)</a>
