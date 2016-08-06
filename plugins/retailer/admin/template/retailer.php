@@ -1,16 +1,33 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
 <?php if ($page1 == "s") { ?>
-  <div class="alert alert-success fade in">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <?php echo $tl["general"]["g7"]; ?>
-  </div>
-<?php }
-if ($page1 == "e" || $page1 == "ene") { ?>
-  <div class="alert alert-error fade in">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <h4><?php echo($page1 == "e" ? $tl["errorpage"]["sql"] : $tl["errorpage"]["not"]); ?></h4>
-  </div>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function() {
+      $.notify({
+        // options
+        message: '<?php echo $tl["general"]["g7"];?>',
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
+<?php } if ($page1 == "e" || $page1 == "ene") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function() {
+      $.notify({
+        // options
+        message: '<?php echo ($page1 == "e" ? $tl["errorpage"]["sql"] : $tl["errorpage"]["not"]);?>',
+      }, {
+        // settings
+        type: 'danger',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php } ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
