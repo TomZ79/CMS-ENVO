@@ -82,13 +82,83 @@ table.first-column tr td:first-child {
 /*  */
 .jakplugins .text,
 .jakplugins .actions {
-  margin-top: 10px;
+  margin-top: 13px;
+  font-size: 13px !important;
 }
 .jakplugins .show {
   margin-top: 5px;
+  font-size: 13px !important;
 }
 .jakplugins .form-group {
   margin-bottom: 5px;
+}
+.jakplugins .plugins-name {
+  text-transform: uppercase;
+}
+.jakplugins .plugins-version {
+  text-transform: uppercase;
+}
+
+/* XX. MODIFICATION - BOOTSTRAP SELECT
+========================================================================*/
+.bootstrap-select .btn-default {
+  background-color: transparent !important;
+  border-radius: 0;
+}
+.bootstrap-select .btn-default:active:hover {
+  background-color: transparent;
+  border-radius: 0;
+  border-color: #8c8c8c;
+  box-shadow: none !important;
+}
+.bootstrap-select.btn-group.open .dropdown-toggle {
+  box-shadow: none !important;
+}
+.bootstrap-select .dropdown-menu {
+  border-radius: 0 !important;
+  border-color: #adadad !important;
+  -webkit-box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);
+  box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24)
+}
+.bootstrap-select .dropdown-menu > .active > a,
+.bootstrap-select .dropdown-menu > .active > a:focus,
+.bootstrap-select .dropdown-menu > .active > a:hover {
+  background-color: #4DB6AC;
+}
+.bootstrap-select .dropdown-menu > li.selected > a {
+  color: #FFF !important;
+}
+.bootstrap-select .dropdown-menu > li.selected > a:focus,
+.bootstrap-select .dropdown-menu > li.selected > a:hover {
+  background-color: #4DB6AC !important;
+}
+.bootstrap-select .dropdown-menu > li {
+  background-color: #FFF !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.bootstrap-select .dropdown-menu > li:hover {
+  border: none !important;
+  box-shadow: none !important;
+}
+.bootstrap-select .dropdown-menu > li.selected > a > span.text {
+  color: #FFF !important;
+  font-size: 13px;
+}
+.bootstrap-select .dropdown-menu > li > a > span.text {
+  font-size: 13px;
+}
+.bootstrap-select .dropdown-menu > li.dropdown-header > span.text {
+  font-size: 13px;
+  font-weight: 700;
+  margin-left: 10px;
+}
+.bootstrap-select .dropdown-menu > li.divider {
+  background-color: #eee !important;
+  border: none !important;
+  margin: 9px 0 !important;
+  padding: 0 !important;
 }
 
 /* XX. MODIFICATION - SKIN TEAL
