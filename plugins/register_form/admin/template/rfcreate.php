@@ -1,27 +1,54 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
 <?php if ($page1 == "s") { ?>
-  <div class="alert alert-success fade in">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <?php echo $tl["general"]["g7"]; ?>
-  </div>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo $tl["general"]["g7"];?>',
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php }
 if ($page1 == "e" || $page1 == "ene") { ?>
-  <div class="alert alert-danger fade in">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <?php echo($page1 == "e" ? $tl["errorpage"]["sql"] : $tl["errorpage"]["not"]); ?>
-  </div>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo($page1 == "e" ? $tl["errorpage"]["sql"] : $tl["errorpage"]["not"]);?>',
+      }, {
+        // settings
+        type: 'danger',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
+<?php }
+if ($errors) { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php if (isset($errors["e"])) echo $errors["e"];
+          if (isset($errors["e1"])) echo $errors["e1"];
+          if (isset($errors["e2"])) echo $errors["e2"];
+          if (isset($errors["e3"])) echo $errors["e3"];?>',
+      }, {
+        // settings
+        type: 'danger',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php } ?>
 
-<?php if ($errors) { ?>
-  <div class="alert alert-danger fade in">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <?php if (isset($errors["e"])) echo $errors["e"];
-    if (isset($errors["e1"])) echo $errors["e1"];
-    if (isset($errors["e2"])) echo $errors["e2"];
-    if (isset($errors["e3"])) echo $errors["e3"]; ?>
-  </div>
-<?php } ?>
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="box box-default">
       <div class="box-header with-border">
