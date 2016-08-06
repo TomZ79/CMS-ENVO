@@ -2,16 +2,16 @@
 // Database connection and setup
 define('DB_HOST', 'localhost'); // Database host ## Datenbank Server
 define('DB_PORT', 3306); // Enter the database port for your mysql server
-define('DB_USER', 'admin'); // Database user ## Datenbank Benutzername
-define('DB_PASS', 'admin'); // Database password ## Datenbank Passwort
-define('DB_NAME', 'cmsbluesat'); // Database name ## Datenbank Name
+define('DB_USER', ''); // Database user ## Datenbank Benutzername
+define('DB_PASS', ''); // Database password ## Datenbank Passwort
+define('DB_NAME', ''); // Database name ## Datenbank Name
 define('DB_PREFIX', 'cms_'); // Database prefix use (a-z) and (_), for example: cms_
 
 // Define a unique key for your site, don't change after, or people can't login anymore for example: 3l2kLOk2so
 define('DB_PASS_HASH', 'your_key_goes_here');
 
-// Define your site url, for example: www.jakweb.ch
-define('FULL_SITE_DOMAIN', 'localhost');
+// Define your site url, for example: www.bluesat.cz
+define('FULL_SITE_DOMAIN', 'your_site_url');
 
 // Define cookie path and lifetime
 define('JAK_COOKIE_PATH', '/');  // Available in the whole domain
