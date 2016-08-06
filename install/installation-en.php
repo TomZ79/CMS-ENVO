@@ -6,19 +6,22 @@
   <meta charset="utf-8">
   <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
   <link rel="stylesheet" href="../css/stylesheet.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
-</head>
-<style>
-  body {
-    padding-top: 60px;
-  }
 
-</style>
-<body>
+  <!-- Basic CSS and Bootstrap CSS -->
+  <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="include/style.css" type="text/css" media="screen"/>
+
+  <!-- Web Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
+
+</head>
+<body class="light-gray-bg">
 
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
+      <div class="logo pull-left"><img src="include/logo_light_blue.png" alt=""></div>
       <?php include 'include/install-version.php'; ?>
     </div>
   </div>
@@ -76,7 +79,7 @@
     <div class="col-md-6">
       <div class="jumbotron">
         <h3>Installation Guide - Video</h3>
-        Watch the video how to install CMS.
+        Watch the video how to install CMS - Bluesat.
       </div>
 
       <h4>Installation Video</h4>

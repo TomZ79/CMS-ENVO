@@ -50,18 +50,22 @@ if (DB_USER && DB_PASS) {
   <meta charset="utf-8">
   <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
   <link rel="stylesheet" href="../css/stylesheet.css" type="text/css" media="screen"/>
+
+  <!-- Basic CSS and Bootstrap CSS -->
   <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
-  <style type="text/css">
-    body {
-      padding-top: 60px;
-    }
-  </style>
+  <link rel="stylesheet" href="include/style.css" type="text/css" media="screen"/>
+
+  <!-- Web Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
+
 </head>
-<body>
+<body class="light-gray-bg">
 
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
+      <div class="logo pull-left"><img src="include/logo_light_blue.png" alt=""></div>
       <?php include 'include/install-version.php'; ?>
     </div>
   </div>
@@ -70,26 +74,21 @@ if (DB_USER && DB_PASS) {
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h2>Installation - Wizard</h2>
+      <h1 class="page-title">Installation <strong>Wizard</strong></h1>
+      <div class="separator-2"></div>
+
+      <!--
       <p>Please read or watch the <a href="/install/installation-en.php">installation manual/video</a> very
         carefully</p>
+      -->
 
       <?php if (isset($_GET['step']) && $_GET['step'] == 2) { ?>
 
         <h3>You have one options to install CMS!</h3>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="thumbnail">
-              <img src="/install/blank.jpg" class="img-thumbnail img-responsive" alt="Blank Installation">
-              <div class="caption">
-                <h3>Plain</h3>
-                <p>This will install a plain CMS to start fresh, for experienced administrators. Seriously you start
-                  pretty much blank like writing a book from scratch, no categories, no slider and no pages.</p>
-                <p><a href="install.php?step=3&amp;type=blank" class="btn btn-primary" role="button">Install</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <p>This will install a plain CMS to start fresh, for experienced administrators. Seriously you start
+          pretty much blank like writing a book from scratch, no categories, no slider and no pages.</p>
+        <p><a href="install.php" class="btn square btn-default pull-left" role="button">Back</a></p>
+        <p><a href="install.php?step=3&amp;type=blank" class="btn square btn-default pull-right" role="button">Install</a></p>
 
       <?php }
       if (isset($_GET['step']) && $_GET['step'] == 3) {
@@ -114,12 +113,12 @@ if (DB_USER && DB_PASS) {
         <form id="company" method="post" action="install.php?step=4" enctype="multipart/form-data">
 
           <div class="form-actions">
-            <button type="submit" name="userf" class="btn btn-primary pull-right">Setup Super Administrator</button>
+            <button type="submit" name="userf" class="btn square btn-default pull-right">Setup Super Administrator</button>
           </div>
 
         </form>
       <?php } elseif (isset($_GET['step']) && $_GET['step'] == 4) { ?>
-        <div class="well well-sm">Last Step - Create Admin</div>
+        <div class="well well-sm"><strong>Last Step - Create Admin</strong></div>
         <?php
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_POST['userf'])) {
@@ -227,7 +226,7 @@ if (DB_USER && DB_PASS) {
               </tr>
             </table>
 
-            <button type="submit" name="user" class="btn btn-primary pull-right">Finish</button>
+            <button type="submit" name="user" class="btn square btn-default pull-right">Finish</button>
 
           </form>
         <?php }
@@ -377,19 +376,19 @@ if (DB_USER && DB_PASS) {
         <?php if (file_exists('../config.php') AND ($linkdb) AND ($dlink) && !$check_db_content) { ?>
           <form name="company" method="post" action="install.php?step=2" enctype="multipart/form-data">
             <div class="form-actions">
-              <button type="submit" name="install" class="btn btn-primary pull-right">Yeah, let's rock!</button>
+              <button type="submit" name="install" class="btn square btn-default pull-right">Yeah, let's do it!</button>
             </div>
           </form>
         <?php } elseif ((file_exists('../config.php') AND ($linkdb) AND ($dlink) && $check_db_content)) { ?>
           <form name="company" method="post" action="install.php?step=4" enctype="multipart/form-data">
             <div class="form-actions">
-              <button type="submit" name="userf" class="btn btn-primary pull-right">(Database exist already) Create
+              <button type="submit" name="userf" class="btn square btn-default pull-right">(Database exist already) Create
                 User
               </button>
             </div>
           </form>
         <?php } else { ?>
-          <input type="button" class="btn btn-info" value="Refresh page" onclick="window.location.reload()"/>
+          <input type="button" class="btn square btn-default" value="Refresh page" onclick="window.location.reload()"/>
         <?php }
       } ?>
 
