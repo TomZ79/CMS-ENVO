@@ -27,6 +27,14 @@ body {
 .caption h3 {
   text-transform: uppercase;
 }
+/* ACP Header */
+.content-header > h1 {
+  font-weight: 700;
+}
+.content-header > h1 > small {
+  padding-left: 10px !important;
+  font-weight: 700 !important;
+}
 
 /* XX. MODIFICATION - TOP MAIN MENU
 ========================================================================*/
