@@ -132,11 +132,15 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <section class="content-header">
-      <h1><?php echo $SECTION_TITLE; ?>
-        <small><?php echo $SECTION_DESC; ?></small>
-      </h1>
-    </section>
+    <?php if ($page != '404' && !empty($page))	{ ?>
+      <!-- Header - content -->
+      <section class="section-header">
+        <!-- Title section -->
+        <div class="content-header">
+          <h1><?php echo $SECTION_TITLE;?><small><?php echo $SECTION_DESC;?></small></h1>
+        </div>
+      </section>
+    <?php } ?>
 
     <!-- Main content -->
     <section class="content">
