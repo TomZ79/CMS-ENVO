@@ -576,8 +576,38 @@ table.table-expandable > tbody > tr div.table-expandable-arrow.up {
   color: #444444 !important;
 }
 
+/* Box - box primary */
+.skin-teal .box.box-primary,
+.skin-teal .box {
+  border-radius: 0;
+  border-top-color: #009688 !important;
+  -webkit-box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);
+  box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24)
+}
+.skin-teal .box-header .box-title {
+  font-weight: 700;
+  font-size: 13px;
+  color: #00796B;
+  text-transform: uppercase;
+}
+.skin-teal .small-box {
+  -webkit-box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);
+  box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24)
+}
+
+/* Other */
 #cmsTab, #settTab {
   margin-bottom: 20px;
+}
+
+/* XX. MODIFICATION ALMSAEED STUDIO CSS
+========================================================================*/
+ul.todoList li:hover, ul.jak_cat_move li:hover, ul.jak_cat_move_fot li:hover, ul.jak_cat_move_sub li:hover, ul.jak_cat_move_subsub li:hover, ul.jak_news_move li:hover, ul.jak_plugins_move li:hover, ul.jak_hooks_move li:hover, ul.jak_widget_move li:hover, ul.jak_content_move li:hover, ul.cform_drag li:hover, ul#cform_sort li:hover {
+  border-color: #80cbc4 !important;
+  /* CSS3 glow effect: */
+  -moz-box-shadow: 0 0 3px #dbf0ee !important;
+  -webkit-box-shadow: 0 0 3px #dbf0ee !important;
+  box-shadow: 0 0 3px #dbf0ee !important;
 }
 
 /* XX. ALMSAEED STUDIO CSS
