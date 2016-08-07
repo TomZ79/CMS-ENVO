@@ -39,6 +39,12 @@ body {
   font-weight: 700 !important;
 }
 
+/* Table - verticla text */
+.v-text-center td {
+  float: none;
+  vertical-align: middle !important;
+}
+
 /* XX. MODIFICATION - TOP MAIN MENU
 ========================================================================*/
 /* Top main menu */
@@ -69,6 +75,12 @@ body {
 
 .skin-teal .sidebar-menu .treeview-menu > li > a {
   font-size: 13px;
+}
+
+/* XX. MODIFICATION - RADIO, CHECKBOX BUTTON
+========================================================================*/
+.checkbox-inline, .radio-inline {
+  margin-right: 15px;
 }
 
 /* XX. MODIFICATION - notetemplate.html

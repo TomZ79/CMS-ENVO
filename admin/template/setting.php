@@ -86,7 +86,7 @@ if ($success) { ?>
                 <h3 class="box-title"><?php echo $tl["title"]["t4"]; ?></h3>
               </div><!-- /.box-header -->
               <div class="box-body">
-                <table class="table table-striped first-column">
+                <table class="table table-striped v-text-center first-column">
                   <tr>
                     <td><?php echo $tl["setting"]["s"]; ?></td>
                     <td>
@@ -104,15 +104,13 @@ if ($success) { ?>
                     <td><?php echo $tl["setting"]["s27"]; ?></td>
                     <td>
                       <div class="radio">
-                        <label>
+                        <label class="checkbox-inline">
                           <input type="radio" name="jak_shttp"
                                  value="0"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
                             if ($v["varname"] == 'sitehttps' && $v["value"] == '0') { ?> checked="checked"<?php }
                           } ?> /> <?php echo $tl["setting"]["s28"]; ?>
                         </label>
-                      </div>
-                      <div class="radio">
-                        <label>
+                        <label class="checkbox-inline">
                           <input type="radio" name="jak_shttp"
                                  value="1"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
                             if ($v["varname"] == 'sitehttps' && $v["value"] == '1') { ?> checked="checked"<?php }
@@ -134,15 +132,11 @@ if ($success) { ?>
                     <td><?php echo $tl["setting"]["s17"]; ?></td>
                     <td>
                       <div class="radio">
-                        <label>
-                          <input type="radio" name="jak_langd"
-                                 value="1"<?php if ($jkv["langdirection"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["setting"]["s18"]; ?>
+                        <label class="checkbox-inline">
+                          <input type="radio" name="jak_langd" value="1"<?php if ($jkv["langdirection"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["setting"]["s18"]; ?>
                         </label>
-                      </div>
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="jak_langd"
-                                 value="0"<?php if ($jkv["langdirection"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["setting"]["s19"]; ?>
+                        <label class="checkbox-inline">
+                          <input type="radio" name="jak_langd" value="0"<?php if ($jkv["langdirection"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["setting"]["s19"]; ?>
                         </label>
                       </div>
                     </td>
@@ -175,15 +169,11 @@ if ($success) { ?>
                     <td><?php echo $tl["general"]["g138"]; ?></td>
                     <td>
                       <div class="radio">
-                        <label>
-                          <input type="radio" name="jak_time_ago"
-                                 value="1"<?php if ($jkv["time_ago_show"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                        <label class="checkbox-inline">
+                          <input type="radio" name="jak_time_ago" value="1"<?php if ($jkv["time_ago_show"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                         </label>
-                      </div>
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="jak_time_ago"
-                                 value="0"<?php if ($jkv["time_ago_show"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                        <label class="checkbox-inline">
+                          <input type="radio" name="jak_time_ago" value="0"<?php if ($jkv["time_ago_show"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                         </label>
                       </div>
                     </td>
@@ -192,15 +182,11 @@ if ($success) { ?>
                     <td><?php echo $tl["menu"]["m21"]; ?></td>
                     <td>
                       <div class="radio">
-                        <label>
-                          <input type="radio" name="jak_hvm"
-                                 value="1"<?php if ($jkv["hvm"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                        <label class="checkbox-inline">
+                          <input type="radio" name="jak_hvm" value="1"<?php if ($jkv["hvm"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                         </label>
-                      </div>
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="jak_hvm"
-                                 value="0"<?php if ($jkv["hvm"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                        <label class="checkbox-inline">
+                          <input type="radio" name="jak_hvm" value="0"<?php if ($jkv["hvm"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                         </label>
                       </div>
                     </td>
@@ -209,15 +195,11 @@ if ($success) { ?>
                     <td><?php echo $tl["setting"]["s10"]; ?></td>
                     <td>
                       <div class="radio">
-                        <label>
-                          <input type="radio" name="jak_editor"
-                                 value="1"<?php if ($jkv["adv_editor"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                        <label class="checkbox-inline">
+                          <input type="radio" name="jak_editor" value="1"<?php if ($jkv["adv_editor"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                         </label>
-                      </div>
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="jak_editor"
-                                 value="0"<?php if ($jkv["adv_editor"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                        <label class="checkbox-inline">
+                          <input type="radio" name="jak_editor" value="0"<?php if ($jkv["adv_editor"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                         </label>
                       </div>
                     </td>
@@ -236,18 +218,16 @@ if ($success) { ?>
                 <h3 class="box-title"><?php echo $tl["title"]["t6"]; ?></h3>
               </div><!-- /.box-header -->
               <div class="box-body">
-                <table class="table table-striped">
+                <table class="table table-striped v-text-center">
                   <tr>
                     <td><?php echo $tl["setting"]["s8"]; ?></td>
                     <td>
                       <div class="radio">
-                        <label>
+                        <label class="checkbox-inline">
                           <input type="radio" name="jak_contact"
                                  value="1"<?php if ($jkv["contactform"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                         </label>
-                      </div>
-                      <div class="radio">
-                        <label>
+                        <label class="checkbox-inline">
                           <input type="radio" name="jak_contact"
                                  value="0"<?php if ($jkv["contactform"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                         </label>
@@ -266,7 +246,7 @@ if ($success) { ?>
                 <h3 class="box-title"><?php echo $tl["title"]["t20"]; ?></h3>
               </div><!-- /.box-header -->
               <div class="box-body">
-                <table class="table table-striped">
+                <table class="table table-striped v-text-center">
                   <tr>
                     <td><?php echo $tl["general"]["g58"]; ?></td>
                     <td>
@@ -313,18 +293,16 @@ if ($success) { ?>
                 <h3 class="box-title"><?php echo $tl["title"]["t40"]; ?></h3>
               </div><!-- /.box-header -->
               <div class="box-body">
-                <table class="table table-striped">
+                <table class="table table-striped v-text-center">
                   <tr>
                     <td><?php echo $tl["general"]["g40"]; ?></td>
                     <td>
                       <div class="radio">
-                        <label>
+                        <label class="checkbox-inline">
                           <input type="radio" name="jak_rss"
                                  value="1"<?php if ($jkv["rss"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                         </label>
-                      </div>
-                      <div class="radio">
-                        <label>
+                        <label class="checkbox-inline">
                           <input type="radio" name="jak_rss"
                                  value="0"<?php if ($jkv["rss"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                         </label>

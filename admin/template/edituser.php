@@ -57,7 +57,7 @@ if ($errors) { ?>
       </div><!-- /.box-header -->
       <div class="box-body">
         <div class="table-responsive">
-          <table class="table table-striped">
+          <table class="table table-striped v-text-center">
             <tr>
               <td><?php echo $tl["user"]["u"]; ?></td>
               <td>
@@ -118,15 +118,11 @@ if ($errors) { ?>
               <td><?php echo $tl["user"]["u3"]; ?></td>
               <td>
                 <div class="radio">
-                  <label>
-                    <input type="radio" name="jak_access"
-                           value="1"<?php if ($JAK_FORM_DATA["access"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                  <label class="checkbox-inline">
+                    <input type="radio" name="jak_access" value="1"<?php if ($JAK_FORM_DATA["access"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                   </label>
-                </div>
-                <div class="radio">
-                  <label>
-                    <input type="radio" name="jak_access"
-                           value="0"<?php if ($JAK_FORM_DATA["access"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                  <label class="checkbox-inline">
+                    <input type="radio" name="jak_access" value="0"<?php if ($JAK_FORM_DATA["access"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                   </label>
                 </div>
               </td>
@@ -163,10 +159,10 @@ if ($errors) { ?>
         </div>
       </div>
       <div class="box-footer">
-        <button type="submit" name="save"
-                class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+        <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
       </div>
     </div>
+
     <?php if (isset($JAK_HOOK_ADMIN_USER_EDIT) && is_array($JAK_HOOK_ADMIN_USER_EDIT)) foreach ($JAK_HOOK_ADMIN_USER_EDIT as $hsue) {
       include_once APP_PATH . $hsue['phpcode'];
     }
@@ -176,22 +172,22 @@ if ($errors) { ?>
           <h3 class="box-title"><?php echo $tl["general"]["g114"]; ?></h3>
         </div><!-- /.box-header -->
         <div class="box-body">
-          <table class="table table-striped">
+          <table class="table table-striped v-text-center">
             <?php echo $extrafields; ?>
           </table>
         </div>
         <div class="box-footer">
-          <button type="submit" name="save"
-                  class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+          <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
         </div>
       </div>
     <?php } ?>
+
     <div class="box box-primary">
       <div class="box-header with-border">
         <h3 class="box-title"><?php echo $tl["title"]["t8"]; ?></h3>
       </div><!-- /.box-header -->
       <div class="box-body">
-        <table class="table table-striped">
+        <table class="table table-striped v-text-center">
           <tr>
             <td><?php echo $tl["user"]["u4"]; ?></td>
             <td>

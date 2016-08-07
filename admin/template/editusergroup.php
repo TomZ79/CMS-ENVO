@@ -53,7 +53,7 @@ if ($errors) { ?>
         <h3 class="box-title"><?php echo $tl["title"]["t18"]; ?></h3>
       </div><!-- /.box-header -->
       <div class="box-body">
-        <table class="table table-striped">
+        <table class="table table-striped first-column v-text-center">
           <tr>
             <td><?php echo $tl["user"]["u"]; ?></td>
             <td>
@@ -70,15 +70,11 @@ if ($errors) { ?>
             <td><?php echo $tl["user"]["u37"]; ?></td>
             <td>
               <div class="radio">
-                <label>
-                  <input type="radio" name="jak_advs"
-                         value="1"<?php if ($JAK_FORM_DATA["advsearch"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                <label class="checkbox-inline">
+                  <input type="radio" name="jak_advs" value="1"<?php if ($JAK_FORM_DATA["advsearch"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                 </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="jak_advs"
-                         value="0"<?php if ($JAK_FORM_DATA["advsearch"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                <label class="checkbox-inline">
+                  <input type="radio" name="jak_advs" value="0"<?php if ($JAK_FORM_DATA["advsearch"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                 </label>
               </div>
             </td>
@@ -87,15 +83,11 @@ if ($errors) { ?>
             <td><?php echo $tl["user"]["u11"]; ?></td>
             <td>
               <div class="radio">
-                <label>
-                  <input type="radio" name="jak_rate"
-                         value="1"<?php if ($JAK_FORM_DATA["canrate"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                <label class="checkbox-inline">
+                  <input type="radio" name="jak_rate" value="1"<?php if ($JAK_FORM_DATA["canrate"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                 </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="jak_rate"
-                         value="0"<?php if ($JAK_FORM_DATA["canrate"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                <label class="checkbox-inline">
+                  <input type="radio" name="jak_rate" value="0"<?php if ($JAK_FORM_DATA["canrate"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                 </label>
               </div>
             </td>
@@ -103,8 +95,7 @@ if ($errors) { ?>
         </table>
       </div>
       <div class="box-footer">
-        <button type="submit" name="save"
-                class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+        <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
       </div>
     </div>
     <?php if (JAK_TAGS) { ?>
@@ -113,19 +104,15 @@ if ($errors) { ?>
           <h3 class="box-title"><?php echo $tl["user"]["u40"]; ?></h3>
         </div><!-- /.box-header -->
         <div class="box-body">
-          <table class="table table-striped">
+          <table class="table table-striped v-text-center">
             <tr>
               <td>
                 <div class="radio">
-                  <label>
-                    <input type="radio" name="jak_tags"
-                           value="1"<?php if ($JAK_FORM_DATA["tags"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                  <label class="checkbox-inline">
+                    <input type="radio" name="jak_tags" value="1"<?php if ($JAK_FORM_DATA["tags"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                   </label>
-                </div>
-                <div class="radio">
-                  <label>
-                    <input type="radio" name="jak_tags"
-                           value="0"<?php if ($JAK_FORM_DATA["tags"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                  <label class="checkbox-inline">
+                    <input type="radio" name="jak_tags" value="0"<?php if ($JAK_FORM_DATA["tags"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                   </label>
                 </div>
               </td>

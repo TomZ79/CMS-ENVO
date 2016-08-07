@@ -60,7 +60,7 @@ if ($errors) { ?>
         <h3 class="box-title"><?php echo $tl["title"]["t18"]; ?></h3>
       </div><!-- /.box-header -->
       <div class="box-body">
-        <table class="table table-striped">
+        <table class="table table-striped first-column v-text-center">
           <tr>
             <td><?php echo $tl["user"]["u"]; ?></td>
             <td>
@@ -81,16 +81,12 @@ if ($errors) { ?>
             <td><?php echo $tl["user"]["u37"]; ?></td>
             <td>
               <div class="radio">
-                <label>
-                  <input type="radio" name="jak_advs"
-                         value="1"<?php if (isset($_REQUEST["jak_advs"]) && $_REQUEST["jak_advs"] == '1') { ?> checked="checked"<?php }
+                <label class="checkbox-inline">
+                  <input type="radio" name="jak_advs" value="1"<?php if (isset($_REQUEST["jak_advs"]) && $_REQUEST["jak_advs"] == '1') { ?> checked="checked"<?php }
                   if (isset($JAK_FORM_DATA["advsearch"]) && $JAK_FORM_DATA["advsearch"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                 </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="jak_advs"
-                         value="0"<?php if (isset($_REQUEST["jak_advs"]) && $_REQUEST["jak_advs"] == '0') { ?> checked="checked"<?php }
+                <label class="checkbox-inline">
+                  <input type="radio" name="jak_advs" value="0"<?php if (isset($_REQUEST["jak_advs"]) && $_REQUEST["jak_advs"] == '0') { ?> checked="checked"<?php }
                   if (isset($JAK_FORM_DATA["advsearch"]) && $JAK_FORM_DATA["advsearch"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                 </label>
               </div>
@@ -100,16 +96,12 @@ if ($errors) { ?>
             <td><?php echo $tl["user"]["u11"]; ?></td>
             <td>
               <div class="radio">
-                <label>
-                  <input type="radio" name="jak_rate"
-                         value="1"<?php if (isset($_REQUEST["jak_rate"]) && $_REQUEST["jak_rate"] == '1') { ?> checked="checked"<?php }
+                <label class="checkbox-inline">
+                  <input type="radio" name="jak_rate" value="1"<?php if (isset($_REQUEST["jak_rate"]) && $_REQUEST["jak_rate"] == '1') { ?> checked="checked"<?php }
                   if (isset($JAK_FORM_DATA["canrate"]) && $JAK_FORM_DATA["canrate"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                 </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="jak_rate"
-                         value="0"<?php if (isset($_REQUEST["jak_rate"]) && $_REQUEST["jak_rate"] == '0') { ?> checked="checked"<?php }
+                <label class="checkbox-inline">
+                  <input type="radio" name="jak_rate" value="0"<?php if (isset($_REQUEST["jak_rate"]) && $_REQUEST["jak_rate"] == '0') { ?> checked="checked"<?php }
                   if (isset($JAK_FORM_DATA["canrate"]) && $JAK_FORM_DATA["canrate"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                 </label>
               </div>
@@ -132,16 +124,12 @@ if ($errors) { ?>
             <tr>
               <td>
                 <div class="radio">
-                  <label>
-                    <input type="radio" name="jak_tags"
-                           value="1"<?php if (isset($_REQUEST["jak_tags"]) && $_REQUEST["jak_tags"] == '1') { ?> checked="checked"<?php }
+                  <label class="checkbox-inline">
+                    <input type="radio" name="jak_tags" value="1"<?php if (isset($_REQUEST["jak_tags"]) && $_REQUEST["jak_tags"] == '1') { ?> checked="checked"<?php }
                     if (isset($JAK_FORM_DATA["tags"]) && $JAK_FORM_DATA["tags"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                   </label>
-                </div>
-                <div class="radio">
-                  <label>
-                    <input type="radio" name="jak_tags"
-                           value="0"<?php if (isset($_REQUEST["jak_tags"]) && $_REQUEST["jak_tags"] == '0') { ?> checked="checked"<?php }
+                  <label class="checkbox-inline">
+                    <input type="radio" name="jak_tags" value="0"<?php if (isset($_REQUEST["jak_tags"]) && $_REQUEST["jak_tags"] == '0') { ?> checked="checked"<?php }
                     if (isset($JAK_FORM_DATA["tags"]) && $JAK_FORM_DATA["tags"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                   </label>
                 </div>

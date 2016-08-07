@@ -59,12 +59,12 @@ if ($errors) { ?>
 
             <div class="form-group">
               <label for="siteonline"><?php echo $tl["site"]["s"]; ?></label>
-              <div class="radio"><label><input type="radio" name="jak_online" id="siteonline"
-                                               value="1"<?php if ($jkv["offline"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+              <div class="radio">
+                <label class="checkbox-inline">
+                  <input type="radio" name="jak_online" id="siteonline" value="1"<?php if ($jkv["offline"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                 </label>
-              </div>
-              <div class="radio"><label><input type="radio" name="jak_online"
-                                               value="0"<?php if ($jkv["offline"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                <label class="checkbox-inline">
+                  <input type="radio" name="jak_online" value="0"<?php if ($jkv["offline"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                 </label>
               </div>
             </div>

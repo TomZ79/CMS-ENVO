@@ -41,7 +41,7 @@
             <h3 class="box-title"><?php echo $tl["title"]["t9"]; ?></h3>
           </div><!-- /.box-header -->
           <div class="box-body">
-            <table class="table table-striped">
+            <table class="table table-striped v-text-center">
               <tr>
                 <td><?php echo $tl["user"]["u"]; ?></td>
                 <td>
@@ -83,13 +83,10 @@
                 <td><?php echo $tl["user"]["u3"]; ?></td>
                 <td>
                   <div class="radio">
-                    <label>
-                      <input type="radio" name="jak_access" value="1"
-                             checked="checked"/> <?php echo $tl["general"]["g18"]; ?>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_access" value="1" checked="checked"/> <?php echo $tl["general"]["g18"]; ?>
                     </label>
-                  </div>
-                  <div class="radio">
-                    <label>
+                    <label class="checkbox-inline">
                       <input type="radio" name="jak_access" value="0"/> <?php echo $tl["general"]["g19"]; ?>
                     </label>
                   </div>
@@ -98,8 +95,7 @@
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
       </div>
@@ -109,7 +105,7 @@
             <h3 class="box-title"><?php echo $tl["title"]["t10"]; ?></h3>
           </div><!-- /.box-header -->
           <div class="box-body">
-            <table class="table table-striped">
+            <table class="table table-striped v-text-center">
               <tr>
                 <td><?php echo $tl["user"]["u4"]; ?></td>
                 <td>
