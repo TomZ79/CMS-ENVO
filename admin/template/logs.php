@@ -80,18 +80,18 @@
                 </tr>
                 <!-- Detail of login user -->
                 <tr>
-                  <td colspan="11" style="background: #f0f5f5;">
+                  <td colspan="11" style="background: #edf7ee; border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc;">
                     <table style="width: 100%;">
                       <tbody>
                       <tr>
                         <td style="padding: 5px;">
-                          <table style="width: 50%;">
+                          <table style="width: 70%;">
                             <tr>
                               <!-- Name of user -->
                               <td><strong><?php echo $tl["user"]["u"]; ?>: </strong> <?php echo $v["name"]; ?></td>
                               <!-- Login page -->
                               <td><strong><?php echo $tl["general"]["g29"]; ?>
-                                  : </strong> <?php echo $v["fromwhere"]; ?></td>
+                                  : </strong> <?php echo rtrim(BASE_URL_ORIG, "/") . $v["fromwhere"]; ?></td>
                             </tr>
                           </table>
                         </td>

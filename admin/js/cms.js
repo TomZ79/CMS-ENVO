@@ -29,6 +29,7 @@
         var element = $(this);
         // Show detail without TD with buttons
         if (!$(e.target).closest('.call-button').length) {
+          element.toggleClass('active')
           element.next('tr').toggle('slow');
           element.find(".table-expandable-arrow").toggleClass("up");
         }
