@@ -142,7 +142,7 @@ if ($page1 == "e") { ?>
                 </div>
               </div>
               <?php if (file_exists('../template/' . $l . '/help.html')) { ?>
-                <div class="col-md-1">
+                <div class="col-md-2">
                   <a class="btn btn-info btn-sm tempSett" href="../template/<?php echo $l; ?>/help.html">
                     <?php echo $tl["title"]["t21"]; ?>
                   </a>
