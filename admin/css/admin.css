@@ -17,6 +17,7 @@
  *
  */
 
+
 /* 01. MODIFICATION - GENERAL STYLE
 ========================================================================*/
 body {
@@ -27,10 +28,12 @@ body {
 .caption h3 {
   text-transform: uppercase;
 }
+
 /* ACP Header */
 .content-header > h1 {
   font-weight: 700;
 }
+
 .content-header > h1 > small {
   padding-left: 10px !important;
   font-weight: 700 !important;
@@ -145,10 +148,26 @@ table.first-column tr td:first-child {
 }
 
 /* MARGIN and PADDING for Bootstrap */
-.margin-bottom-10 { margin-bottom: 10px; !important;}
-.margin-bottom-20 { margin-bottom: 20px; !important;}
-.margin-bottom-30 { margin-bottom: 30px; !important;}
-.margin-bottom-40 { margin-bottom: 40px; !important;}
+.margin-bottom-10 {
+  margin-bottom: 10px;
+!important;
+}
+
+.margin-bottom-20 {
+  margin-bottom: 20px;
+!important;
+}
+
+.margin-bottom-30 {
+  margin-bottom: 30px;
+!important;
+}
+
+.margin-bottom-40 {
+  margin-bottom: 40px;
+!important;
+}
+
 .container-fluid-nopadding {
   padding-right: 0;
   padding-left: 0;
@@ -158,11 +177,16 @@ table.first-column tr td:first-child {
 table.table-expandable > tbody > tr:nth-child(odd) {
   cursor: pointer;
 }
+
 table.table-expandable > tbody > tr div.table-expandable-arrow {
-  background:transparent url(/admin/img/table-arrows.png) no-repeat scroll 0px -16px; width:16px; height:16px; display:block;
+  background: transparent url(/admin/img/table-arrows.png) no-repeat scroll 0px -16px;
+  width: 16px;
+  height: 16px;
+  display: block;
 }
+
 table.table-expandable > tbody > tr div.table-expandable-arrow.up {
-  background-position:0px 0px;
+  background-position: 0px 0px;
 }
 
 /* BOOTSTRAP SELECT */
@@ -238,6 +262,7 @@ table.table-expandable > tbody > tr div.table-expandable-arrow.up {
   margin: 9px 0 !important;
   padding: 0 !important;
 }
+
 .bootstrap-select.btn-group .no-results {
   padding: 3px !important;
   margin: 0 7px !important;
