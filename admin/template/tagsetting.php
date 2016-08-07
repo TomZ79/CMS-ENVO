@@ -75,7 +75,7 @@ if ($errors) { ?>
                 <h3 class="box-title"><?php echo $tl["title"]["t4"]; ?></h3>
               </div><!-- /.box-header -->
               <div class="box-body">
-                <table class="table table-striped">
+                <table class="table table-striped v-text-center">
                   <tr>
                     <td><?php echo $tl["page"]["p"]; ?></td>
                     <td>
@@ -89,8 +89,7 @@ if ($errors) { ?>
                 </table>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save"
-                        class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
               </div>
             </div>
           </div>
@@ -100,7 +99,7 @@ if ($errors) { ?>
                 <h3 class="box-title"><?php echo $tl["title"]["t39"]; ?></h3>
               </div><!-- /.box-header -->
               <div class="box-body">
-                <table class="table table-striped">
+                <table class="table table-striped v-text-center">
                   <tr>
                     <td><?php echo $tl["tag"]["t3"]; ?></td>
                     <td>

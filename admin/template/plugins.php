@@ -152,22 +152,23 @@ if ($page1 == "e") { ?>
               <h3 class="box-title"><?php echo $tl["title"]["t28"]; ?></h3>
             </div><!-- /.box-header -->
             <div class="box-body">
-              <table class="table table-striped">
+              <table class="table table-striped v-text-center">
                 <tr>
                   <td><?php echo $tl["plugin"]["p"]; ?></td>
-                  <td><input type="text" name="jak_generala" class="form-control"
-                             value="<?php echo $jkv["accessgeneral"]; ?>"/></td>
+                  <td>
+                    <input type="text" name="jak_generala" class="form-control" value="<?php echo $jkv["accessgeneral"]; ?>"/>
+                  </td>
                 </tr>
                 <tr>
                   <td><?php echo $tl["plugin"]["p1"]; ?></td>
-                  <td><input type="text" name="jak_managea" class="form-control"
-                             value="<?php echo $jkv["accessmanage"]; ?>"/></td>
+                  <td>
+                    <input type="text" name="jak_managea" class="form-control" value="<?php echo $jkv["accessmanage"]; ?>"/>
+                  </td>
                 </tr>
               </table>
             </div>
             <div class="box-footer">
-              <button type="submit" name="save"
-                      class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+              <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
             </div>
           </div>
   </form>

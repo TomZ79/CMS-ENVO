@@ -368,16 +368,18 @@ if ($success) { ?>
           </div><!-- /.box-header -->
           <div class="box-body">
             <div class="table-responsive">
-              <table class="table table-striped">
+              <table class="table table-striped first-column v-text-center">
                 <tr>
                   <td><?php echo $tl["setting"]["s22"]; ?></td>
                   <td>
-                    <div class="radio"><label><input type="radio" name="jak_smpt"
-                                                     value="0"<?php if ($jkv["smtp_or_mail"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["setting"]["s23"]; ?>
-                      </label></div>
-                    <div class="radio"><label><input type="radio" name="jak_smpt"
-                                                     value="1"<?php if ($jkv["smtp_or_mail"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["setting"]["s24"]; ?>
-                      </label></div>
+                    <div class="radio">
+                      <label class="checkbox-inline">
+                        <input type="radio" name="jak_smpt" value="0"<?php if ($jkv["smtp_or_mail"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["setting"]["s23"]; ?>
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="radio" name="jak_smpt" value="1"<?php if ($jkv["smtp_or_mail"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["setting"]["s24"]; ?>
+                      </label>
+                    </div>
                   </td>
                 </tr>
                 <tr>
@@ -389,55 +391,55 @@ if ($success) { ?>
                   <td><?php echo $tl["setting"]["s26"]; ?></td>
                   <td>
                     <div class="form-group">
-                      <input type="text" name="jak_port" class="form-control" value="<?php echo $jkv["smtp_port"]; ?>"
-                             placeholder="25"/>
+                      <input type="text" name="jak_port" class="form-control" value="<?php echo $jkv["smtp_port"]; ?>" placeholder="25"/>
                     </div>
                   </td>
                 </tr>
                 <tr>
                   <td><?php echo $tl["setting"]["s32"]; ?></td>
                   <td>
-                    <div class="radio"><label><input type="radio" name="jak_alive"
-                                                     value="1"<?php if ($jkv["smtp_alive"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                      </label></div>
-                    <div class="radio"><label><input type="radio" name="jak_alive"
-                                                     value="0"<?php if ($jkv["smtp_alive"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                      </label></div>
+                    <div class="radio">
+                      <label class="checkbox-inline">
+                        <input type="radio" name="jak_alive" value="1"<?php if ($jkv["smtp_alive"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="radio" name="jak_alive" value="0"<?php if ($jkv["smtp_alive"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                      </label>
+                    </div>
                   </td>
                 </tr>
                 <tr>
                   <td><?php echo $tl["setting"]["s33"]; ?></td>
                   <td>
-                    <div class="radio"><label><input type="radio" name="jak_auth"
-                                                     value="1"<?php if ($jkv["smtp_auth"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                      </label></div>
-                    <div class="radio"><label><input type="radio" name="jak_auth"
-                                                     value="0"<?php if ($jkv["smtp_auth"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                      </label></div>
+                    <div class="radio">
+                      <label class="checkbox-inline">
+                        <input type="radio" name="jak_auth" value="1"<?php if ($jkv["smtp_auth"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="radio" name="jak_auth" value="0"<?php if ($jkv["smtp_auth"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                      </label>
+                    </div>
                   </td>
                 </tr>
                 <tr>
                   <td><?php echo $tl["setting"]["s34"]; ?></td>
                   <td>
-                    <input type="text" name="jak_prefix" class="form-control" value="<?php echo $jkv["smtp_prefix"]; ?>"
-                           placeholder="ssl/tls/true/false"/>
+                    <input type="text" name="jak_prefix" class="form-control" value="<?php echo $jkv["smtp_prefix"]; ?>" placeholder="ssl/tls/true/false"/>
                   </td>
                 </tr>
                 <tr>
                   <td><?php echo $tl["setting"]["s39"]; ?></td>
-                  <td><input type="text" name="jak_smtpusername" class="form-control"
-                             value="<?php echo $jkv["smtp_user"]; ?>"/></td>
+                  <td><input type="text" name="jak_smtpusername" class="form-control" value="<?php echo $jkv["smtp_user"]; ?>"/></td>
                 </tr>
                 <tr>
                   <td><?php echo $tl["setting"]["s40"]; ?></td>
-                  <td><input type="password" name="jak_smtppassword" class="form-control"
-                             value="<?php echo $jkv["smtp_password"]; ?>"/></td>
+                  <td><input type="password" name="jak_smtppassword" class="form-control" value="<?php echo $jkv["smtp_password"]; ?>"/></td>
                 </tr>
                 <tr>
                   <td><?php echo $tl["setting"]["s41"]; ?></td>
                   <td>
-                    <button type="submit" name="testMail" class="btn btn-success" id="sendTM"><i id="loader"
-                                                                                                 class="fa fa-spinner fa-pulse"></i> <?php echo $tl["setting"]["s42"]; ?>
+                    <button type="submit" name="testMail" class="btn btn-success" id="sendTM">
+                      <i id="loader" class="fa fa-spinner fa-pulse"></i> <?php echo $tl["setting"]["s42"]; ?>
                     </button>
                   </td>
                 </tr>
@@ -456,20 +458,16 @@ if ($success) { ?>
             <h3 class="box-title"><?php echo $tl["title"]["t23"]; ?></h3>
           </div><!-- /.box-header -->
           <div class="box-body">
-            <table class="table table-striped">
+            <table class="table table-striped first-column v-text-center">
               <tr>
                 <td><?php echo $tl["setting"]["s36"]; ?></td>
                 <td>
                   <div class="radio">
-                    <label>
-                      <input type="radio" name="jak_loginside"
-                             value="1"<?php if ($jkv["showloginside"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_loginside" value="1"<?php if ($jkv["showloginside"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                     </label>
-                  </div>
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="jak_loginside"
-                             value="0"<?php if ($jkv["showloginside"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_loginside" value="0"<?php if ($jkv["showloginside"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                     </label>
                   </div>
                 </td>
@@ -478,15 +476,11 @@ if ($success) { ?>
                 <td><?php echo $tl["setting"]["s35"]; ?></td>
                 <td>
                   <div class="radio">
-                    <label>
-                      <input type="radio" name="jak_sprint"
-                             value="1"<?php if ($jkv["printme"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_sprint" value="1"<?php if ($jkv["printme"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                     </label>
-                  </div>
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="jak_sprint"
-                             value="0"<?php if ($jkv["printme"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_sprint" value="0"<?php if ($jkv["printme"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                     </label>
                   </div>
                 </td>
@@ -495,15 +489,11 @@ if ($success) { ?>
                 <td><?php echo $tl["setting"]["s1"]; ?></td>
                 <td>
                   <div class="radio">
-                    <label>
-                      <input type="radio" name="jak_smilies"
-                             value="1"<?php if ($jkv["usr_smilies"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_smilies" value="1"<?php if ($jkv["usr_smilies"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                     </label>
-                  </div>
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="jak_smilies"
-                             value="0"<?php if ($jkv["usr_smilies"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_smilies" value="0"<?php if ($jkv["usr_smilies"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                     </label>
                   </div>
                 </td>
@@ -536,8 +526,7 @@ if ($success) { ?>
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
         <div class="box box-primary">
@@ -548,27 +537,23 @@ if ($success) { ?>
             <table class="table table-striped">
               <tr>
                 <td><?php echo $tl["general"]["g95"]; ?></td>
-                <td><textarea name="ip_block" cols="60" rows="5" class="form-control txtautogrow"
-                              placeholder="32.12.153.14,127.0.0.1,52.12.54.199,23.21.1.4:255.255.255.0"><?php echo $jkv["ip_block"]; ?></textarea>
+                <td><textarea name="ip_block" cols="60" rows="5" class="form-control txtautogrow" placeholder="32.12.153.14,127.0.0.1,52.12.54.199,23.21.1.4:255.255.255.0"><?php echo $jkv["ip_block"]; ?></textarea>
                 </td>
               </tr>
               <tr>
                 <td><?php echo $tl["general"]["g96"]; ?></td>
-                <td><textarea name="email_block" cols="60" rows="5" class="form-control txtautogrow"
-                              placeholder="one@mail.com,two@mail.com,three@mail.com,@domain.com"><?php echo $jkv["email_block"]; ?></textarea>
+                <td><textarea name="email_block" cols="60" rows="5" class="form-control txtautogrow" placeholder="one@mail.com,two@mail.com,three@mail.com,@domain.com"><?php echo $jkv["email_block"]; ?></textarea>
                 </td>
               </tr>
               <tr>
                 <td><?php echo $tl["general"]["g137"]; ?></td>
-                <td><textarea name="username_block" cols="60" rows="5" class="form-control txtautogrow"
-                              placeholder="admin,demo,administrator"><?php echo $jkv["username_block"]; ?></textarea>
+                <td><textarea name="username_block" cols="60" rows="5" class="form-control txtautogrow" placeholder="admin,demo,administrator"><?php echo $jkv["username_block"]; ?></textarea>
                 </td>
               </tr>
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
       </div>
@@ -581,14 +566,14 @@ if ($success) { ?>
           <div class="box-body">
             <table class="table table-striped">
               <tr>
-                <td><textarea name="jak_analytics" cols="60" rows="5"
-                              class="form-control txtautogrow"><?php echo $jkv["analytics"]; ?></textarea></td>
+                <td>
+                  <textarea name="jak_analytics" cols="60" rows="5" class="form-control txtautogrow"><?php echo $jkv["analytics"]; ?></textarea>
+                </td>
               </tr>
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
         <div class="box box-primary">
@@ -600,15 +585,11 @@ if ($success) { ?>
               <tr>
                 <td>
                   <div class="radio">
-                    <label>
-                      <input type="radio" name="jak_heatmap"
-                             value="1"<?php if ($jkv["heatmap"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_heatmap" value="1"<?php if ($jkv["heatmap"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                     </label>
-                  </div>
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="jak_heatmap"
-                             value="0"<?php if ($jkv["heatmap"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_heatmap" value="0"<?php if ($jkv["heatmap"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                     </label>
                   </div>
                 </td>
@@ -616,10 +597,8 @@ if ($success) { ?>
             </table>
           </div>
           <div class="box-footer">
-            <a href="index.php?p=setting&amp;sp=trunheat"
-               class="btn btn-warning btn-sm"><?php echo $tl["general"]["g128"]; ?></a>
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <a href="index.php?p=setting&amp;sp=trunheat" class="btn btn-warning btn-sm"><?php echo $tl["general"]["g128"]; ?></a>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
       </div>

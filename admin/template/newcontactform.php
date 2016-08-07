@@ -40,7 +40,7 @@ if ($errors) { ?>
         <h3 class="box-title"><?php echo $tl["title"]["t14"]; ?></h3>
       </div><!-- /.box-header -->
       <div class="box-body">
-        <table class="table table-striped">
+        <table class="table table-striped first-column v-text-center">
           <tr>
             <td><?php echo $tl["cform"]["c2"]; ?></td>
             <td>
@@ -51,15 +51,11 @@ if ($errors) { ?>
             <td><?php echo $tl["page"]["p3"]; ?></td>
             <td>
               <div class="radio">
-                <label>
-                  <input type="radio" name="jak_showtitle"
-                         value="1"<?php if (isset($_REQUEST["showtitle"]) && $_REQUEST["showtitle"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                <label class="checkbox-inline">
+                  <input type="radio" name="jak_showtitle" value="1"<?php if (isset($_REQUEST["showtitle"]) && $_REQUEST["showtitle"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                 </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="jak_showtitle"
-                         value="0"<?php if (isset($_REQUEST["showtitle"]) && $_REQUEST["showtitle"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                <label class="checkbox-inline">
+                  <input type="radio" name="jak_showtitle" value="0"<?php if (isset($_REQUEST["showtitle"]) && $_REQUEST["showtitle"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                 </label>
               </div>
             </td>
@@ -68,9 +64,7 @@ if ($errors) { ?>
             <td><?php echo $tl["cform"]["c20"]; ?></td>
             <td>
               <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-                <input class="form-control" type="text" name="jak_email"
-                       value="<?php if (isset($_REQUEST["jak_email"])) echo $_REQUEST["jak_email"]; ?>"
-                       placeholder="email@domain.com,email1@domain.com,email2@domain.com"/>
+                <input class="form-control" type="text" name="jak_email" value="<?php if (isset($_REQUEST["jak_email"])) echo $_REQUEST["jak_email"]; ?>" placeholder="email@domain.com,email1@domain.com,email2@domain.com"/>
               </div>
             </td>
           </tr>
@@ -82,8 +76,7 @@ if ($errors) { ?>
 
       </div>
       <div class="box-footer">
-        <button type="submit" name="save"
-                class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+        <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
       </div>
     </div>
 

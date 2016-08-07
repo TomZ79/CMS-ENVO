@@ -67,7 +67,7 @@ if ($errors) { ?>
                 <h3 class="box-title"><?php echo $tl["title"]["t4"]; ?></h3>
               </div><!-- /.box-header -->
               <div class="box-body">
-                <table class="table table-striped">
+                <table class="table table-striped first-column v-text-center">
                   <tr>
                     <td><?php echo $tl["page"]["p"]; ?></td>
                     <td>
@@ -82,8 +82,7 @@ if ($errors) { ?>
                     <td><?php echo $tl["setting"]["s4"]; ?></td>
                     <td>
                       <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-                        <input class="form-control" type="text" name="jak_date"
-                               value="<?php echo $jkv["newsdateformat"]; ?>"/>
+                        <input class="form-control" type="text" name="jak_date" value="<?php echo $jkv["newsdateformat"]; ?>"/>
                       </div>
                     </td>
                   </tr>
@@ -91,16 +90,14 @@ if ($errors) { ?>
                     <td><?php echo $tl["setting"]["s5"]; ?></td>
                     <td>
                       <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
-                        <input class="form-control" type="text" name="jak_time"
-                               value="<?php echo $jkv["newstimeformat"]; ?>"/>
+                        <input class="form-control" type="text" name="jak_time" value="<?php echo $jkv["newstimeformat"]; ?>"/>
                       </div>
                     </td>
                   </tr>
                 </table>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save"
-                        class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
               </div>
             </div>
           </div>
@@ -110,13 +107,12 @@ if ($errors) { ?>
                 <h3 class="box-title"><?php echo $tl["title"]["t29"]; ?></h3>
               </div><!-- /.box-header -->
               <div class="box-body">
-                <table class="table table-striped">
+                <table class="table table-striped v-text-center">
                   <tr>
                     <td><?php echo $tl["setting"]["s11"]; ?></td>
                     <td>
                       <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-                        <input class="form-control" type="text" name="jak_mid"
-                               value="<?php echo $jkv["newspagemid"]; ?>"/>
+                        <input class="form-control" type="text" name="jak_mid" value="<?php echo $jkv["newspagemid"]; ?>"/>
                       </div>
                     </td>
                   </tr>
@@ -124,16 +120,14 @@ if ($errors) { ?>
                     <td><?php echo $tl["setting"]["s12"]; ?></td>
                     <td>
                       <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
-                        <input class="form-control" type="text" name="jak_item"
-                               value="<?php echo $jkv["newspageitem"]; ?>"/>
+                        <input class="form-control" type="text" name="jak_item" value="<?php echo $jkv["newspageitem"]; ?>"/>
                       </div>
                     </td>
                   </tr>
                 </table>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save"
-                        class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
               </div>
             </div>
           </div>
@@ -146,16 +140,13 @@ if ($errors) { ?>
             <h3 class="box-title"><?php echo $tl["general"]["g53"]; ?></h3>
           </div><!-- /.box-header -->
           <div class="box-body">
-            <a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor"
-               class="ifManager"><?php echo $tl["general"]["g69"]; ?></a> <a href="javascript:;"
-                                                                             id="addCssBlock"><?php echo $tl["general"]["g101"]; ?></a><br/>
+            <a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
+            <a href="javascript:;" id="addCssBlock"><?php echo $tl["general"]["g101"]; ?></a><br/>
             <div id="csseditor"></div>
-            <textarea name="jak_css" class="form-control hidden" id="jak_css"
-                      rows="20"><?php echo $jkv["news_css"]; ?></textarea>
+            <textarea name="jak_css" class="form-control hidden" id="jak_css" rows="20"><?php echo $jkv["news_css"]; ?></textarea>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
       </div>
@@ -165,16 +156,13 @@ if ($errors) { ?>
             <h3 class="box-title"><?php echo $tl["general"]["g100"]; ?></h3>
           </div><!-- /.box-header -->
           <div class="box-body">
-            <a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor"
-               class="ifManager"><?php echo $tl["general"]["g69"]; ?></a> <a href="javascript:;"
-                                                                             id="addJavascriptBlock"><?php echo $tl["general"]["g102"]; ?></a><br/>
+            <a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
+            <a href="javascript:;" id="addJavascriptBlock"><?php echo $tl["general"]["g102"]; ?></a><br/>
             <div id="javaeditor"></div>
-            <textarea name="jak_javascript" class="form-control hidden" id="jak_javascript"
-                      rows="20"><?php echo $jkv["news_javascript"]; ?></textarea>
+            <textarea name="jak_javascript" class="form-control hidden" id="jak_javascript" rows="20"><?php echo $jkv["news_javascript"]; ?></textarea>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
       </div>
@@ -187,8 +175,7 @@ if ($errors) { ?>
             <?php include "sidebar_widget.php"; ?>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
 

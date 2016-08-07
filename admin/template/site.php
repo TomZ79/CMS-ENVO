@@ -132,29 +132,23 @@ if ($errors) { ?>
             <div class="form-group">
               <label for="robots"><?php echo $tl["site"]["s6"]; ?></label>
               <div class="radio">
-                <label>
-                  <input type="radio" name="jak_robots" id="robots"
-                         value="1"<?php if ($jkv["robots"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                <label class="checkbox-inline">
+                  <input type="radio" name="jak_robots" id="robots" value="1"<?php if ($jkv["robots"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                 </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="jak_robots"
-                         value="0"<?php if ($jkv["robots"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                <label class="checkbox-inline">
+                  <input type="radio" name="jak_robots" value="0"<?php if ($jkv["robots"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                 </label>
               </div>
             </div>
 
             <div class="form-group">
               <label for="copyright"><?php echo $tl["setting"]["s3"]; ?></label>
-              <input type="text" name="jak_copy" id="copyright" class="form-control"
-                     value="<?php echo $jkv["copyright"]; ?>"/>
+              <input type="text" name="jak_copy" id="copyright" class="form-control" value="<?php echo $jkv["copyright"]; ?>"/>
             </div>
 
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
       </div>
