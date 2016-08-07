@@ -154,6 +154,17 @@ table.first-column tr td:first-child {
   padding-left: 0;
 }
 
+/* BOOTSTRAP - Expand table rows */
+table.table-expandable > tbody > tr:nth-child(odd) {
+  cursor: pointer;
+}
+table.table-expandable > tbody > tr div.table-expandable-arrow {
+  background:transparent url(/admin/img/table-arrows.png) no-repeat scroll 0px -16px; width:16px; height:16px; display:block;
+}
+table.table-expandable > tbody > tr div.table-expandable-arrow.up {
+  background-position:0px 0px;
+}
+
 /* BOOTSTRAP SELECT */
 .bootstrap-select .btn-default {
   background-color: transparent !important;

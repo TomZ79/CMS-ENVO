@@ -1,3 +1,48 @@
+/*
+ *
+ * BLUESAT.CZ
+ * JS for Admin Control Panel with custom modification
+ * Copyright © 2016 Bluesat.cz
+ *
+ * -----------------------------------------------------------------------
+ * Author: Almsaeed Studio
+ * Website: Almsaeed Studio <http://almsaeedstudio.com>
+ * -----------------------------------------------------------------------
+ * Author: Thomas
+ * Written by: Bluesat.cz - (http://www.bluesat.cz)
+ * Email: bluesatkv@gmail.com
+ * =======================================================================
+ * INDEX:
+ *
+ *
+ */
+
+/* 01. MODIFICATION - BOOTSTRAP-EXPAND table rows
+ ========================================================================*/
+(function ($) {
+  $(function () {
+    $('.table-expandable').each(function () {
+      var table = $(this);
+      table.children('thead').children('tr').append('<th></th>');
+      table.children('tbody').children('tr').filter(':odd').hide();
+      table.children('tbody').children('tr').filter(':even').click(function (e) {
+        var element = $(this);
+        // Show detail without TD with buttons
+        if (!$(e.target).closest('.call-button').length) {
+          element.next('tr').toggle('slow');
+          element.find(".table-expandable-arrow").toggleClass("up");
+        }
+      });
+      table.children('tbody').children('tr').filter(':even').each(function () {
+        var element = $(this);
+        element.append('<td><div class="table-expandable-arrow"></div></td>');
+      });
+    });
+  });
+})(jQuery);
+
+/* XX. ALMSAEED STUDIO JS
+ ========================================================================*/
 /*! AdminLTE app.js
  * ================
  * Main JS application file for AdminLTE v2. This file

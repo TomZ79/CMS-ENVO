@@ -37,7 +37,7 @@ if ($page1 == "e") { ?>
     <div class="box">
       <div class="box-body no-padding">
         <div class="table-responsive">
-          <table class="table table-striped table-hover">
+          <table class="table table-hover table-expandable">
             <thead>
             <tr>
               <th>#</th>
@@ -47,7 +47,7 @@ if ($page1 == "e") { ?>
               <th><?php echo $tl["general"]["g45"]; ?></th>
               <th><?php echo $tl["general"]["g49"]; ?></th>
               <th><?php echo $tl["page"]["p2"]; ?></th>
-              <th><?php echo $tl["general"]["g123"]; ?></th>
+              <th class="text-center"><?php echo $tl["general"]["g123"]; ?></th>
               <th><a href="index.php?p=logs&amp;sp=truncate&amp;ssp=go" class="btn btn-warning btn-xs"
                      onclick="if(!confirm('<?php echo $tl["error"]["e34"]; ?>'))return false;"><i
                     class="fa fa-exclamation-triangle"></i></a></th>
@@ -63,18 +63,43 @@ if ($page1 == "e") { ?>
                 <td><?php echo $v["id"]; ?></td>
                 <td><input type="checkbox" name="jak_delete_log[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
                 </td>
-                <td><?php echo $v["name"]; ?></td>
+                <td><?php echo jak_cut_text($v["name"], 8, '...'); ?></td>
                 <td><?php echo $v["fromwhere"]; ?></td>
                 <td><?php echo $v["ip"]; ?></td>
-                <td><?php echo $v["usragent"]; ?></td>
+                <td><?php echo jak_cut_text($v["usragent"], 20, '...'); ?></td>
                 <td><?php echo $v["time"]; ?></td>
-                <td><?php if ($v["access"] == '1') { ?><i class="fa fa-check"></i><?php } else { ?><i
+                <td class="text-center"><?php if ($v["access"] == '1') { ?><i class="fa fa-check"></i><?php } else { ?><i
                     class="fa fa-exclamation"></i><?php } ?></td>
                 <td></td>
-                <td><a class="btn btn-default btn-xs"
+                <td class="call-button"><a class="btn btn-default btn-xs"
                        href="index.php?p=logs&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>"
                        onclick="if(!confirm('<?php echo $tl["error"]["e33"]; ?>'))return false;"><i
                       class="fa fa-trash-o"></i></a></td>
+              </tr>
+              <!-- Detail of login user -->
+              <tr>
+                <td colspan="11" style="background: #f0f5f5;">
+                  <table style="width: 100%;">
+                    <tbody>
+                    <tr>
+                      <td style="padding: 5px;">
+                        <table style="width: 50%;">
+                          <tr>
+                            <!-- Name of user -->
+                            <td><strong><?php echo $tl["user"]["u"]; ?>: </strong> <?php echo $v["name"]; ?></td>
+                            <!-- Login page -->
+                            <td><strong><?php echo $tl["general"]["g29"]; ?>: </strong> <?php echo $v["fromwhere"]; ?></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- User Agent -->
+                    <tr>
+                      <td style="padding: 5px;"><strong><?php echo $tl["general"]["g49"]; ?>: </strong> <?php echo $v["usragent"]; ?></td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </td>
               </tr>
             <?php } ?>
           </table>
