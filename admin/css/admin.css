@@ -119,7 +119,7 @@ table.first-column tr td:first-child {
 ========================================================================*/
 @media (min-width: 992px) {
   .modal-lg {
-    width: 90%;
+    width: 900px;
   }
 }
 
