@@ -13,12 +13,26 @@
   <script src="js/ace/ace.js" type="text/javascript"></script>
   <script type="text/javascript">
 
+    // ACE editor
     var htmlelACE = ace.edit("htmleditorlight");
-    htmlelACE.setTheme("ace/theme/chrome");
-    htmlelACE.session.setMode("ace/mode/html");
+    htmlelACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
+    htmlelACE.session.setUseWrapMode(true);
+    htmlelACE.session.setWrapLimitRange();
+    htmlelACE.setOptions({
+      // session options
+      mode: "ace/mode/html",
+      tabSize: <?php echo $jkv["acetabSize"]; ?>,
+      useSoftTabs: true,
+      highlightActiveLine: <?php echo $jkv["aceactiveline"]; ?>,
+      // renderer options
+      showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
+      showGutter: <?php echo $jkv["acegutter"]; ?>,
+    });
+
     texthtmlel = $("#jak_editor_light").val();
     htmlelACE.session.setValue(texthtmlel);
 
+    // Responsive Filemanager
     function responsive_filemanager_callback(field_id) {
 
       if (field_id == "htmleditorlight") {
@@ -29,6 +43,7 @@
       }
     }
 
+    // Submit Form
     $('form').submit(function () {
       $("#jak_editor_light").val(htmlelACE.getValue());
     });
