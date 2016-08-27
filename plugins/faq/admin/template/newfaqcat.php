@@ -61,7 +61,7 @@
               <tr>
                 <td><?php echo $tl["page"]["p5"]; ?></td>
                 <td>
-                  <?php include_once APP_PATH . "admin/template/editorlight_new.php"; ?>
+                  <textarea name="jak_lcontent" class="form-control" rows="4"><?php if (isset($_REQUEST["jak_lcontent"])) echo jak_edit_safe_userpost($_REQUEST["jak_lcontent"]); ?></textarea>
                 </td>
               </tr>
               <tr>

@@ -634,12 +634,12 @@ switch ($page1) {
         }
 
         // Now check if all the sidebar a deselct and hooks exist, if so delete all associated to this page
-        $result = $jakdb->query('SELECT id FROM ' . $jaktable4 . ' WHERE plugin = ' . JAK_PLUGIN_FAQ . ' AND hookid != 0');
+        $result = $jakdb->query('SELECT id FROM '.$jaktable4.' WHERE plugin = '.JAK_PLUGIN_FAQ.' AND hookid != 0');
         $row = $result->fetch_assoc();
 
         if (isset($defaults['jak_hookshow_new']) && !is_array($defaults['jak_hookshow_new']) && $row['id'] && !is_array($defaults['jak_hookshow'])) {
 
-          $jakdb->query('DELETE FROM ' . $jaktable4 . ' WHERE plugin = ' . JAK_PLUGIN_FAQ . ' AND faqid = 0 AND hookid != 0');
+          $jakdb->query('DELETE FROM '.$jaktable4.' WHERE plugin = '.JAK_PLUGIN_FAQ.' AND faqid = 0 AND hookid != 0');
 
         }
 
