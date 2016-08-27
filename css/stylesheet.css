@@ -1,12 +1,9 @@
 /*
  *
  * BLUESAT.CZ
- * CSS for Admin Control Panel with custom modification
+ * CSS for CMS with custom modification
  * Copyright © 2016 Bluesat.cz
  *
- * -----------------------------------------------------------------------
- * Author: Almsaeed Studio
- * Website: Almsaeed Studio <http://almsaeedstudio.com>
  * -----------------------------------------------------------------------
  * Author: Thomas
  * Written by: Bluesat.cz - (http://www.bluesat.cz)
@@ -17,7 +14,7 @@
  *
  */
 
-/* XX. BOOTSTRAP MODIFICATION
+/* XX. BOOTSTRAP MODAL POPUP
 ========================================================================*/
 /* popup modal - remove padding right if popup modal open */
 body.modal-open {
@@ -34,51 +31,58 @@ body.modal-open[style] {
   width: 0 !important; /*removes the scrollbar but still scrollable*/
   /* reference: http://stackoverflow.com/a/26500272/2259400 */
 }
-/* basic config for modal */
+
+/* */
 .modal {
-  z-index: 10000 !important;
+  padding-right: 0 !important;
 }
-/* .modal-fullscreen */
-.modal-fullscreen {
-  background: transparent;
-}
-.modal-fullscreen .modal-content {
-  background: #fff;
-  border: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  border-radius: 0;
-}
-.modal-backdrop {
-  z-index: 9999 !important;
-}
-.modal-backdrop.modal-backdrop-fullscreen {
-  background: #ffffff;
-}
-.modal-backdrop.modal-backdrop-fullscreen.in {
-  opacity: .97;
-  filter: alpha(opacity=97);
-}
-/* .modal-fullscreen size for popup modal: we use Bootstrap media query breakpoints */
-.modal-fullscreen .modal-dialog {
-  margin: 0;
-  margin-right: auto;
-  margin-left: auto;
+/* Fullscreen modal style */
+.fullscreen .modal-dialog {
+  margin: 0 0 0 0;
   width: 100%;
+  height: 100%;
+  min-height: 100%;
+  padding: 0;
+  color: #333;
 }
-@media (min-width: 768px) {
-  .modal-fullscreen .modal-dialog {
-    width: 750px;
+
+.fullscreen .modal-content {
+  height: 100%;
+  min-height: 100%;
+  border-radius: 0;
+  color: #333;
+  background: rgba(255, 255, 255, 0.97);
+  overflow:auto;
+}
+
+.fullscreen .modal-body ul {
+  padding: 100px 0 0 0;
+}
+
+.fullscreen .modal-body li {
+  padding: 10px 0 10px 0 ;
+}
+
+.fullscreen .modal-body a {
+  color: #333;
+  font-size: 300%;
+}
+
+@media (max-width: 480px){
+  .fullscreen .modal-body ul {
+    padding: 30px 0 0 0;
+    overflow: auto;
   }
-}
-@media (min-width: 992px) {
-  .modal-fullscreen .modal-dialog {
-    width: 970px;
+
+  .fullscreen .modal-body li {
+    padding: 4px 0 4px 0 ;
   }
-}
-@media (min-width: 1200px) {
-  .modal-fullscreen .modal-dialog {
-    width: 1170px;
+
+  .fullscreen .modal-body a {
+    color: #333;
+    font-size: 200%;
+    text-transform: uppercase;
+    font-weight: 700;
   }
 }
 

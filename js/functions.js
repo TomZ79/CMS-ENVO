@@ -6,7 +6,7 @@ $(document).ready(function () {
     frameSrc = $(this).attr("href");
     $('#JAKModalLabel').html(jakWeb.jak_quickedit);
     $('#JAKModal').on('show.bs.modal', function () {
-      $('<iframe src="' + frameSrc + '" width="100%" height="400" frameborder="0">').appendTo('.modal-body');
+      $('<iframe src="' + frameSrc + '" width="100%" height="450" frameborder="0">').appendTo('.modal-body');
     });
     $('#JAKModal').on('hidden.bs.modal', function () {
       window.location.reload();
