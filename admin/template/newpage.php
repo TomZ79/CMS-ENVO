@@ -381,8 +381,20 @@ if ($errors) { ?>
 
     <?php if ($jkv["adv_editor"]) { ?>
     var htmlACE = ace.edit("htmleditor");
-    htmlACE.setTheme("ace/theme/chrome");
-    htmlACE.session.setMode("ace/mode/html");
+    htmlACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
+    htmlACE.session.setUseWrapMode(true);
+    htmlACE.session.setWrapLimitRange(<?php echo $jkv["acewraplimit"] . ',' . $jkv["acewraplimit"]; ?>);
+    htmlACE.setOptions({
+      // session options
+      mode: "ace/mode/html",
+      tabSize: <?php echo $jkv["acetabSize"]; ?>,
+      useSoftTabs: true,
+      highlightActiveLine: <?php echo $jkv["aceactiveline"]; ?>,
+      // renderer options
+      showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
+      showGutter: <?php echo $jkv["acegutter"]; ?>,
+    });
+
     texthtml = $("#jak_editor").val();
     htmlACE.session.setValue(texthtml);
     <?php } ?>

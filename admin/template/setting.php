@@ -391,7 +391,7 @@ if ($success) { ?>
                 </td>
               </tr>
               <tr>
-                <td>ACE Tab Size</td>
+                <td><?php echo $tl["setting_cmd"]["s52"]; ?></td>
                 <td>
                   <div class="form-group no-margin<?php if (isset($errors["e4"])) echo " has-error"; ?>">
                     <input type="text" name="jak_acetabSize" class="form-control" value="<?php echo $jkv["acetabSize"]; ?>"/>
@@ -399,7 +399,7 @@ if ($success) { ?>
                 </td>
               </tr>
               <tr>
-                <td>Set Wrap Limit</td>
+                <td><?php echo $tl["setting_cmd"]["s53"]; ?></td>
                 <td>
                   <div class="form-group no-margin<?php if (isset($errors["e4"])) echo " has-error"; ?>">
                     <input type="text" name="jak_acewraplimit" class="form-control" value="<?php echo $jkv["acewraplimit"]; ?>"/>
@@ -407,7 +407,7 @@ if ($success) { ?>
                 </td>
               </tr>
               <tr>
-                <td>Show Gutter</td>
+                <td><?php echo $tl["setting_cmd"]["s54"]; ?></td>
                 <td>
                   <div class="radio">
                     <label class="checkbox-inline">
@@ -420,7 +420,7 @@ if ($success) { ?>
                 </td>
               </tr>
               <tr>
-                <td>Highlight Active Line</td>
+                <td><?php echo $tl["setting_cmd"]["s55"]; ?></td>
                 <td>
                   <div class="radio">
                     <label class="checkbox-inline">
@@ -433,7 +433,7 @@ if ($success) { ?>
                 </td>
               </tr>
               <tr>
-                <td>Show Invisible</td>
+                <td><?php echo $tl["setting_cmd"]["s56"]; ?></td>
                 <td>
                   <div class="radio">
                     <label class="checkbox-inline">

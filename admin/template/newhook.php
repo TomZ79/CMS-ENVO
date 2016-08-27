@@ -113,14 +113,27 @@ if ($errors) { ?>
   <script type="text/javascript">
 
     var htmlefACE = ace.edit("htmleditor");
-    htmlefACE.setTheme("ace/theme/chrome");
-    htmlefACE.session.setMode({path: "ace/mode/php", inline: true});
+    htmlefACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
+    htmlefACE.session.setUseWrapMode(true);
+    htmlefACE.session.setWrapLimitRange(<?php echo $jkv["acewraplimit"] . ',' . $jkv["acewraplimit"]; ?>);
+    htmlefACE.setOptions({
+      // session options
+      mode: "ace/mode/php",
+      tabSize: <?php echo $jkv["acetabSize"]; ?>,
+      useSoftTabs: true,
+      highlightActiveLine: <?php echo $jkv["aceactiveline"]; ?>,
+      // renderer options
+      showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
+      showGutter: <?php echo $jkv["acegutter"]; ?>,
+    });
+
     texthtmlef = $("#jak_phpcode").val();
     htmlefACE.session.setValue(texthtmlef);
 
     $('form').submit(function () {
       $("#jak_phpcode").val(htmlefACE.getValue());
     });
+
   </script>
 
 <?php include "footer.php"; ?>
