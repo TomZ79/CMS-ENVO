@@ -390,6 +390,61 @@ if ($success) { ?>
                   </select>
                 </td>
               </tr>
+              <tr>
+                <td>ACE Tab Size</td>
+                <td>
+                  <div class="form-group no-margin<?php if (isset($errors["e4"])) echo " has-error"; ?>">
+                    <input type="text" name="jak_acetabSize" class="form-control" value="<?php echo $jkv["acetabSize"]; ?>"/>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Set Wrap Limit</td>
+                <td>
+                  <div class="form-group no-margin<?php if (isset($errors["e4"])) echo " has-error"; ?>">
+                    <input type="text" name="jak_acewraplimit" class="form-control" value="<?php echo $jkv["acewraplimit"]; ?>"/>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Show Gutter</td>
+                <td>
+                  <div class="radio">
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_acegutter" value="1"<?php if ($jkv["acegutter"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_acegutter" value="0"<?php if ($jkv["acegutter"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Highlight Active Line</td>
+                <td>
+                  <div class="radio">
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_aceactiveline" value="1"<?php if ($jkv["aceactiveline"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_aceactiveline" value="0"<?php if ($jkv["aceactiveline"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    </label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Show Invisible</td>
+                <td>
+                  <div class="radio">
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_aceinvisible" value="1"<?php if ($jkv["aceinvisible"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_aceinvisible" value="0"<?php if ($jkv["aceinvisible"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    </label>
+                  </div>
+                </td>
+              </tr>
             </table>
           </div>
           <div class="box-footer">

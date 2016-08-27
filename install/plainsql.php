@@ -294,7 +294,12 @@ $jakdb->query("INSERT INTO " . DB_PREFIX . "setting VALUES
 ('smtp_alive', 'setting', 0, 0, 'yesno', 'boolean', 'cms'),
 ('smtp_user', 'setting', '', '', 'input', 'free', 'cms'),
 ('smtp_password', 'setting', '', '', 'input', 'free', 'cms'),
-('acetheme', 'setting', 'chrome', 'chrome', 'input', 'free', 'cms')
+('acetheme', 'setting', 'chrome', 'chrome', 'input', 'free', 'cms'),
+('acetabSize', 'setting', '2', '2', 'input', 'free', 'cms'),
+('acegutter', 'setting', '1', '1', 'yesno', 'boolean', 'cms'),
+('aceinvisible', 'setting', '0', '0', 'yesno', 'boolean', 'cms'),
+('acewraplimit', 'setting', '100', '100', 'input', 'free', 'cms'),
+('aceactiveline', 'setting', '1', '1', 'yesno', 'boolean', 'cms'),
 ");
 
 

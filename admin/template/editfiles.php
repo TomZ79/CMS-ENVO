@@ -95,8 +95,20 @@ if ($JAK_FILECONTENT) { ?>
   <script type="text/javascript">
 
     var htmlefACE = ace.edit("htmleditor");
-    htmlefACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>");
-    htmlefACE.session.setMode("ace/mode/<?php echo $acemode;?>");
+    htmlefACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
+    htmlefACE.session.setUseWrapMode(true);
+    htmlefACE.session.setWrapLimitRange(<?php echo $jkv["acewraplimit"] . ',' . $jkv["acewraplimit"]; ?>);
+    htmlefACE.setOptions({
+      // session options
+      mode: "ace/mode/<?php echo $acemode;?>",
+      tabSize: <?php echo $jkv["acetabSize"]; ?>,
+      useSoftTabs: true,
+      highlightActiveLine: <?php echo $jkv["aceactiveline"]; ?>,
+      // renderer options
+      showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
+      showGutter: <?php echo $jkv["acegutter"]; ?>,
+    });
+
     texthtmlef = $("#jak_filecontent").val();
     htmlefACE.session.setValue(texthtmlef);
 

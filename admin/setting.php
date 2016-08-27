@@ -117,8 +117,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         WHEN "smtp_user" THEN "' . smartsql($defaults['jak_smtpusername']) . '"
         WHEN "smtp_password" THEN "' . smartsql($defaults['jak_smtppassword']) . '"
         WHEN "acetheme" THEN "' . smartsql($defaults['jak_acetheme']) . '"
+        WHEN "acetabSize" THEN "' . smartsql($defaults['jak_acetabSize']) . '"
+        WHEN "acegutter" THEN "' . smartsql($defaults['jak_acegutter']) . '"
+        WHEN "aceinvisible" THEN "' . smartsql($defaults['jak_aceinvisible']) . '"
+        WHEN "acewraplimit" THEN "' . smartsql($defaults['jak_acewraplimit']) . '"
+        WHEN "aceactiveline" THEN "' . smartsql($defaults['jak_aceactiveline']) . '"
     END
-    	WHERE varname IN ("email","sitehttps","lang","langdirection","showloginside","loginside","useravatwidth","useravatheight","userpath","printme","shortmsg","dateformat","timeformat","time_ago_show","timezoneserver","hvm","adv_editor","usr_smilies","contactform","shownews","rss","rssitem","adminpagemid","adminpageitem","ip_block","email_block","username_block","analytics","heatmap","smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password","acetheme")');
+    	WHERE varname IN ("email","sitehttps","lang","langdirection","showloginside","loginside","useravatwidth","useravatheight","userpath","printme","shortmsg","dateformat","timeformat","time_ago_show","timezoneserver","hvm","adv_editor","usr_smilies","contactform","shownews","rss","rssitem","adminpagemid","adminpageitem","ip_block","email_block","username_block","analytics","heatmap","smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password","acetheme","acetabSize","acegutter","aceinvisible","acewraplimit","aceactiveline")');
 
       if (!$result) {
         jak_redirect(BASE_URL . 'index.php?p=setting&sp=e');
