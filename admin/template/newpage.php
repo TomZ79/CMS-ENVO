@@ -379,6 +379,7 @@ if ($errors) { ?>
   <script src="js/ace/ace.js" type="text/javascript"></script>
   <script type="text/javascript">
 
+    // ACE editor
     <?php if ($jkv["adv_editor"]) { ?>
     var htmlACE = ace.edit("htmleditor");
     htmlACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
@@ -435,6 +436,7 @@ if ($errors) { ?>
       });
     });
 
+    // Responsive Filemanager
     function responsive_filemanager_callback(field_id) {
 
       if (field_id == "csseditor" || field_id == "javaeditor" || field_id == "htmleditor") {
@@ -452,6 +454,7 @@ if ($errors) { ?>
       }
     }
 
+    // Submit Form
     $('form').submit(function () {
       $("#jak_css").val(cssACE.getValue());
       $("#jak_javascript").val(jsACE.getValue());

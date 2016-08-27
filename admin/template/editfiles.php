@@ -94,6 +94,7 @@ if ($JAK_FILECONTENT) { ?>
   <script src="js/ace/ace.js" type="text/javascript"></script>
   <script type="text/javascript">
 
+    // ACE editor
     var htmlefACE = ace.edit("htmleditor");
     htmlefACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
     htmlefACE.session.setUseWrapMode(true);
@@ -112,6 +113,7 @@ if ($JAK_FILECONTENT) { ?>
     texthtmlef = $("#jak_filecontent").val();
     htmlefACE.session.setValue(texthtmlef);
 
+    // Submit Form
     $('form').submit(function () {
       $("#jak_filecontent").val(htmlefACE.getValue());
     });
