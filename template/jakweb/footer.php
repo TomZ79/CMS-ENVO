@@ -326,7 +326,7 @@ if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT; ?>
 <?php } ?>
 
 <!-- Modal -->
-<div class="modal fade" id="JAKModal" tabindex="-1" role="dialog" aria-labelledby="JAKModal" aria-hidden="true">
+<div class="modal modal-fullscreen fade" id="JAKModal" tabindex="-1" role="dialog" aria-labelledby="JAKModal" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -336,12 +336,25 @@ if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT; ?>
       <div class="modal-body">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default"
-                data-dismiss="modal"><?php echo $tl["general"]["g177"]; ?></button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $tl["general"]["g177"]; ?></button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+<script type="text/javascript">
+  $(document).ready(function () {
+
+    $(".modal-fullscreen").on('show.bs.modal', function () {
+      setTimeout( function() {
+        $(".modal-backdrop").addClass("modal-backdrop-fullscreen");
+      }, 0);
+    });
+    $(".modal-fullscreen").on('hidden.bs.modal', function () {
+      $(".modal-backdrop").addClass("modal-backdrop-fullscreen");
+    });
+
+  });
+</script>
 
 </body>
 </html>
