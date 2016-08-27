@@ -66,8 +66,7 @@ if ($JAK_FILE_ERROR) { ?>
               <td>
                 <label for="jak_filecontent"><?php echo $tl["general"]["g54"]; ?></label>
                 <div id="htmleditor"></div>
-                <textarea name="jak_filecontent" id="jak_filecontent"
-                          class="form-control hidden"><?php echo $JAK_FILECONTENT; ?></textarea>
+                <textarea name="jak_filecontent" id="jak_filecontent" class="form-control hidden"><?php echo $JAK_FILECONTENT; ?></textarea>
               </td>
             </tr>
           <?php } ?>
@@ -81,11 +80,9 @@ if ($JAK_FILE_ERROR) { ?>
           <button type="submit" name="reset" class="btn btn-success"><?php echo $tl["general"]["g72"]; ?></button>
         <?php }
         if (!$JAK_FILECONTENT) { ?>
-          <button type="submit" name="edit"
-                  class="btn btn-primary pull-right"><?php echo $tl["general"]["g77"]; ?></button>
+          <button type="submit" name="edit" class="btn btn-primary pull-right"><?php echo $tl["general"]["g77"]; ?></button>
         <?php } else { ?>
-          <button type="submit" name="save"
-                  class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+          <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
         <?php }
       } ?>
     </div>
@@ -98,7 +95,7 @@ if ($JAK_FILECONTENT) { ?>
   <script type="text/javascript">
 
     var htmlefACE = ace.edit("htmleditor");
-    htmlefACE.setTheme("ace/theme/chrome");
+    htmlefACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>");
     htmlefACE.session.setMode("ace/mode/<?php echo $acemode;?>");
     texthtmlef = $("#jak_filecontent").val();
     htmlefACE.session.setValue(texthtmlef);

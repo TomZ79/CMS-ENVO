@@ -292,8 +292,7 @@ if ($errors) { ?>
                       <div class="form-group">
                         <label><?php echo $tl["page"]["p7"]; ?></label>
                         <select name="jak_showcontact" class="form-control selectpicker" data-size="5">
-                          <option
-                            value="0"<?php if (isset($_REQUEST["jak_showcontact"]) && $_REQUEST["jak_showcontact"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c18"]; ?></option>
+                          <option value="0"<?php if (isset($_REQUEST["jak_showcontact"]) && $_REQUEST["jak_showcontact"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c18"]; ?></option>
                           <?php foreach ($JAK_CONTACT_FORMS as $cf) { ?>
                             <option value="<?php echo $cf["id"]; ?>"<?php if (isset($_REQUEST["jak_showcontact"]) && $cf["id"] == $_REQUEST["jak_showcontact"]) { ?> selected="selected"<?php } ?>><?php echo $cf["title"]; ?></option><?php } ?>
                         </select>

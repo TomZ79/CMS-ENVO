@@ -234,7 +234,7 @@ $jakdb->query("INSERT INTO " . DB_PREFIX . "setting VALUES
 ('copyright', 'general', 'yoursite.com &copy; 2016', 'CMS copyright 2016', 'input', 'free', 'cms'),
 ('metadesc', 'general', '', '', 'textarea', 'free', 'cms'),
 ('metakey', 'general', '', '', 'textarea', 'free', 'cms'),
-('metaauthor', 'general', 'http://www.yoursite.com', 'http://www.jakweb.ch', 'input', 'free', 'cms'),
+('metaauthor', 'general', 'http://www.yoursite.com', 'http://www.bluesat.cz', 'input', 'free', 'cms'),
 ('robots', 'general', '1', '1', 'yesno', 'boolean', 'cms'),
 ('analytics',  'general', NULL , NULL ,  'textarea',  'free',  'cms'),
 ('email', 'setting', '', '', 'input', 'free', 'cms'),
@@ -293,7 +293,10 @@ $jakdb->query("INSERT INTO " . DB_PREFIX . "setting VALUES
 ('smtp_prefix', 'setting', '', '', 'input', 'free', 'cms'),
 ('smtp_alive', 'setting', 0, 0, 'yesno', 'boolean', 'cms'),
 ('smtp_user', 'setting', '', '', 'input', 'free', 'cms'),
-('smtp_password', 'setting', '', '', 'input', 'free', 'cms')");
+('smtp_password', 'setting', '', '', 'input', 'free', 'cms'),
+('acetheme', 'setting', 'chrome', 'chrome', 'input', 'free', 'cms')
+");
+
 
 $jakdb->query("CREATE TABLE " . DB_PREFIX . "tagcloud (
   `id` int(11) NOT NULL AUTO_INCREMENT,
