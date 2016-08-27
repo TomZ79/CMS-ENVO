@@ -1,9 +1,6 @@
 <?php if ($jkv["adv_editor"]) { ?>
-  <p><a href="../js/editor/plugins/filemanager/dialog.php?type=0&editor=mce_0&lang=eng&fldr=&field_id=htmleditorlight"
-        class="btn btn-default btn-xs ifManager"><i class="fa fa-files-o"></i></a></p>
   <div id="htmleditorlight"></div>
-  <textarea name="jak_lcontent" class="form-control hidden"
-            id="jak_editor_light"><?php if (isset($_REQUEST["jak_lcontent"])) echo jak_edit_safe_userpost(htmlspecialchars($_REQUEST["jak_lcontent"])); ?></textarea>
+  <textarea name="jak_lcontent" class="form-control hidden" id="jak_editor_light"><?php if (isset($_REQUEST["jak_lcontent"])) echo jak_edit_safe_userpost(htmlspecialchars($_REQUEST["jak_lcontent"])); ?></textarea>
 <?php } else { ?>
   <textarea name="jak_lcontent" class="jakEditorLight" id="jakEditor" rows="40"><?php if (isset($_REQUEST["jak_lcontent"])) echo jak_edit_safe_userpost($_REQUEST["jak_lcontent"]); ?></textarea>
 <?php } ?>
