@@ -95,11 +95,11 @@
         </div>
         <div class="box box-danger">
           <div class="box-header with-border">
-            <h3 class="box-title"><?php echo $tl["general"]["g88"]; ?> <a class="cms-help"
-                                                                          data-content="<?php echo $tl["help"]["h"]; ?>"
-                                                                          href="javascript:void(0)"
-                                                                          data-original-title="<?php echo $tl["title"]["t21"]; ?>"><i
-                  class="fa fa-question-circle"></i></a></h3>
+            <h3 class="box-title"><?php echo $tl["general"]["g88"]; ?>
+              <a class="cms-help" data-content="<?php echo $tl["help"]["h"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tl["title"]["t21"]; ?>">
+                <i class="fa fa-question-circle"></i>
+              </a>
+            </h3>
           </div><!-- /.box-header -->
           <div class="box-body">
             <table class="table table-striped">
@@ -246,18 +246,45 @@
   <script src="js/ace/ace.js" type="text/javascript"></script>
   <script type="text/javascript">
 
+    // ACE editor 1
     var htmlACE = ace.edit("htmleditor");
-    htmlACE.setTheme("ace/theme/chrome");
-    htmlACE.session.setMode("ace/mode/html");
+    htmlACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
+    htmlACE.session.setUseWrapMode(true);
+    htmlACE.session.setWrapLimitRange(<?php echo $jkv["acewraplimit"] . ',' . $jkv["acewraplimit"]; ?>);
+    htmlACE.setOptions({
+      // session options
+      mode: "ace/mode/html",
+      tabSize: <?php echo $jkv["acetabSize"]; ?>,
+      useSoftTabs: true,
+      highlightActiveLine: <?php echo $jkv["aceactiveline"]; ?>,
+      // renderer options
+      showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
+      showGutter: <?php echo $jkv["acegutter"]; ?>,
+    });
+
     texthtml = $("#jak_editor").val();
     htmlACE.session.setValue(texthtml);
 
+    // ACE editor 2
     var htmlACE2 = ace.edit("htmleditor2");
-    htmlACE2.setTheme("ace/theme/chrome");
-    htmlACE2.session.setMode("ace/mode/html");
-    texthtml2 = $("#jak_editor2").val();
+    htmlACE2.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
+    htmlACE2.session.setUseWrapMode(true);
+    htmlACE2.session.setWrapLimitRange(<?php echo $jkv["acewraplimit"] . ',' . $jkv["acewraplimit"]; ?>);
+    htmlACE2.setOptions({
+      // session options
+      mode: "ace/mode/html",
+      tabSize: <?php echo $jkv["acetabSize"]; ?>,
+      useSoftTabs: true,
+      highlightActiveLine: <?php echo $jkv["aceactiveline"]; ?>,
+      // renderer options
+      showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
+      showGutter: <?php echo $jkv["acegutter"]; ?>,
+    });
+
+    texthtml2 = $("#htmleditor2").val();
     htmlACE2.session.setValue(texthtml2);
 
+    // Responsive Filemanager
     function responsive_filemanager_callback(field_id) {
 
       // get the path for the ace file
@@ -270,10 +297,12 @@
       }
     }
 
+    // Submit Form
     $('form').submit(function () {
       $("#jak_editor").val(htmlACE.getValue());
       $("#jak_editor2").val(htmlACE2.getValue());
     });
+
   </script>
 <?php } ?>
 
