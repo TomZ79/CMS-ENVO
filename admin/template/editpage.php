@@ -462,24 +462,25 @@ if ($errors) { ?>
   <script src="js/ace/ace.js" type="text/javascript"></script>
   <script type="text/javascript">
 
+    // ACE editor
     <?php if ($jkv["adv_editor"]) { ?>
-      var htmlACE = ace.edit("htmleditor");
-      htmlACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
-      htmlACE.session.setUseWrapMode(true);
-      htmlACE.session.setWrapLimitRange(<?php echo $jkv["acewraplimit"] . ',' . $jkv["acewraplimit"]; ?>);
-      htmlACE.setOptions({
-        // session options
-        mode: "ace/mode/html",
-        tabSize: <?php echo $jkv["acetabSize"]; ?>,
-        useSoftTabs: true,
-        highlightActiveLine: <?php echo $jkv["aceactiveline"]; ?>,
-        // renderer options
-        showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
-        showGutter: <?php echo $jkv["acegutter"]; ?>,
-      });
+    var htmlACE = ace.edit("htmleditor");
+    htmlACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
+    htmlACE.session.setUseWrapMode(true);
+    htmlACE.session.setWrapLimitRange(<?php echo $jkv["acewraplimit"] . ',' . $jkv["acewraplimit"]; ?>);
+    htmlACE.setOptions({
+      // session options
+      mode: "ace/mode/html",
+      tabSize: <?php echo $jkv["acetabSize"]; ?>,
+      useSoftTabs: true,
+      highlightActiveLine: <?php echo $jkv["aceactiveline"]; ?>,
+      // renderer options
+      showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
+      showGutter: <?php echo $jkv["acegutter"]; ?>,
+    });
 
-      texthtml = $("#jak_editor").val();
-      htmlACE.session.setValue(texthtml);
+    texthtml = $("#jak_editor").val();
+    htmlACE.session.setValue(texthtml);
     <?php } ?>
 
     var jsACE = ace.edit("javaeditor");
@@ -530,6 +531,7 @@ if ($errors) { ?>
       });
     });
 
+    // Responsive Filemanager
     function responsive_filemanager_callback(field_id) {
 
       if (field_id == "csseditor" || field_id == "javaeditor" || field_id == "htmleditor") {
@@ -547,6 +549,7 @@ if ($errors) { ?>
       }
     }
 
+    // Submit Form
     $('form').submit(function () {
       $("#jak_css").val(cssACE.getValue());
       $("#jak_javascript").val(jsACE.getValue());
