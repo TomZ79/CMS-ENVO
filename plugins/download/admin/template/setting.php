@@ -78,15 +78,14 @@ if ($errors) { ?>
               <tr>
                 <td><?php echo $tl["page"]["p5"]; ?></td>
                 <td>
-                  <?php include_once APP_PATH . "admin/template/editorlight_edit.php"; ?>
+                  <textarea name="jak_lcontent" class="form-control" rows="4"><?php echo jak_edit_safe_userpost($JAK_FORM_DATA["content"]); ?></textarea>
                 </td>
               </tr>
               <tr>
                 <td><?php echo $tld["dload"]["d16"]; ?></td>
                 <td>
                   <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-                    <input class="form-control" type="text" name="jak_email"
-                           value="<?php echo $jkv["downloademail"]; ?>"/>
+                    <input class="form-control" type="text" name="jak_email" value="<?php echo $jkv["downloademail"]; ?>"/>
                   </div>
                 </td>
               </tr>
