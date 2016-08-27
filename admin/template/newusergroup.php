@@ -75,7 +75,9 @@ if ($errors) { ?>
           </tr>
           <tr>
             <td><?php echo $tl["user"]["u6"]; ?></td>
-            <td><?php include_once "editorlight_new.php"; ?></td>
+            <td>
+              <textarea name="jak_lcontent" class="form-control" rows="4"><?php if (isset($_REQUEST["jak_lcontent"])) echo jak_edit_safe_userpost($_REQUEST["jak_lcontent"]); ?></textarea>
+            </td>
           </tr>
           <tr>
             <td><?php echo $tl["user"]["u37"]; ?></td>
