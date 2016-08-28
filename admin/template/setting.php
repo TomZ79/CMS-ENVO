@@ -76,6 +76,9 @@ if ($success) { ?>
       <li><a href="#mailsettings"><?php echo $tl["setting"]["s21"]; ?></a></li>
       <li><a href="#user"><?php echo $tl["title"]["t23"]; ?></a></li>
       <li><a href="#analytics"><?php echo $tl["general"]["g98"]; ?></a></li>
+      <?php if (isset($JAK_HOOK_ADMIN_SETTING_EDIT)) { ?>
+      <li><a href="#plugins">Plugin settings</a></li>
+      <?php } ?>
     </ul>
 
     <div class="tab-content">
@@ -350,9 +353,6 @@ if ($success) { ?>
             <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
-        <?php if (isset($JAK_HOOK_ADMIN_SETTING_EDIT) && is_array($JAK_HOOK_ADMIN_SETTING_EDIT)) foreach ($JAK_HOOK_ADMIN_SETTING_EDIT as $hs) {
-          include_once APP_PATH . $hs['phpcode'];
-        } ?>
       </div>
 
       <div id="aceeditor" class="tab-pane fade">
@@ -700,6 +700,12 @@ if ($success) { ?>
           </div>
         </div>
       </div>
+
+      <?php if (isset($JAK_HOOK_ADMIN_SETTING_EDIT) && is_array($JAK_HOOK_ADMIN_SETTING_EDIT)) foreach ($JAK_HOOK_ADMIN_SETTING_EDIT as $hs) { ?>
+      <div id="plugins" class="tab-pane fade">
+        <?php include_once APP_PATH . $hs['phpcode']; ?>
+      </div>
+      <?php } ?>
     </div>
 
   </form>
