@@ -42,14 +42,15 @@
               <th><?php echo $tlgwl["growl"]["d"]; ?></th>
               <th><?php echo $tl["page"]["p2"]; ?></th>
               <th>
-                <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs"><i
-                    class="fa fa-lock"></i></button>
+                <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
+                  <i class="fa fa-lock"></i>
+                </button>
               </th>
               <th></th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs"
-                        onclick="if(!confirm('<?php echo $tlgwl["growl"]["al"]; ?>'))return false;"><i
-                    class="fa fa-trash-o"></i></button>
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tlgwl["growl"]["al"]; ?>'))return false;">
+                  <i class="fa fa-trash-o"></i>
+                </button>
               </th>
             </tr>
             </thead>
@@ -58,20 +59,25 @@
                 <td><?php echo $v["id"]; ?></td>
                 <td><input type="checkbox" name="jak_delete_growl[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
                 </td>
-                <td><a
-                    href="index.php?p=growl&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a>
+                <td>
+                  <a href="index.php?p=growl&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a>
                 </td>
                 <td><?php echo $v["time"]; ?></td>
-                <td><a href="index.php?p=growl&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>"
-                       class="btn btn-default btn-xs"><i
-                      class="fa fa-<?php if ($v["active"] == '0') { ?>lock<?php } else { ?>check<?php } ?>"></i></a>
+                <td>
+                  <a href="index.php?p=growl&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs">
+                    <i class="fa fa-<?php if ($v["active"] == '0') { ?>lock<?php } else { ?>check<?php } ?>"></i>
+                  </a>
                 </td>
-                <td><a href="index.php?p=growl&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"
-                       class="btn btn-default btn-xs"><i class="glyphicon glyphicon-edit"></i></a></td>
-                <td><a href="index.php?p=growl&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>"
-                       class="btn btn-default btn-xs"
-                       onclick="if(!confirm('<?php echo $tlgwl["growl"]["al"]; ?>'))return false;"><i
-                      class="fa fa-trash-o"></i></a></td>
+                <td>
+                  <a href="index.php?p=growl&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs">
+                    <i class="glyphicon glyphicon-edit"></i>
+                  </a>
+                </td>
+                <td>
+                  <a href="index.php?p=growl&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" onclick="if(!confirm('<?php echo $tlgwl["growl"]["al"]; ?>'))return false;">
+                    <i class="fa fa-trash-o"></i>
+                  </a>
+                </td>
               </tr>
             <?php } ?>
           </table>
