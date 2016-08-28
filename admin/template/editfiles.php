@@ -37,12 +37,11 @@ if ($JAK_FILE_ERROR) { ?>
         <h3 class="box-title"><?php echo $tl["general"]["g50"]; ?></h3>
       </div><!-- /.box-header -->
       <div class="box-body">
-        <table class="table table-striped">
-          <tr>
+        <table class="table">
+          <tr <?php if ($JAK_FILECONTENT) { ?> class="hidden"<?php } ?>>
             <td>
               <label for="jak_file_edit"><?php echo $tl["general"]["g51"]; ?></label>
-              <select name="jak_file_edit" id="jak_file_edit" class="form-control selectpicker" data-live-search="true"
-                      data-size="5"<?php if ($JAK_FILECONTENT) { ?> disabled="disabled"<?php } ?> >
+              <select name="jak_file_edit" id="jak_file_edit" class="form-control selectpicker" data-live-search="true" data-size="5" >
                 <?php
                 $pathLen = strlen($ROOT_DIR);
                 getTemplateFiles($ROOT_DIR, 0, strlen($ROOT_DIR));
@@ -50,16 +49,8 @@ if ($JAK_FILE_ERROR) { ?>
               </select>
             </td>
           </tr>
-          <tr>
-            <td>
-              <!-- Original SELECT from Jakweb
-							<label for="jak_file_edit"><?php echo $tl["general"]["g51"]; ?></label>
-							<select name="jak_file_edit1" id="jak_file_edit1" class="form-control"<?php if ($JAK_FILECONTENT) { ?> disabled="disabled"<?php } ?>>
-								<?php if (isset($JAK_GET_TEMPLATE_FILES) && is_array($JAK_GET_TEMPLATE_FILES)) foreach ($JAK_GET_TEMPLATE_FILES as $f) { ?>
-									<option value="<?php echo $f["path"]; ?>"<?php if ($JAK_FILEURL == $f["path"]) { ?> selected="selected"<?php } ?>><?php echo $f["name"]; ?></option><?php } ?>
-							</select>
-							-->
-            </td>
+          <tr <?php if (!$JAK_FILECONTENT) { ?> class="hidden"<?php } ?>>
+            <td><h4>File <small><strong><?php echo $JAK_FILEURL; ?></strong></small></h4></td>
           </tr>
           <?php if ($JAK_FILECONTENT) { ?>
             <tr>

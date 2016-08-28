@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="<?php echo $site_language; ?>">
 <head>
+
   <meta charset="utf-8">
   <title><?php if ($page) echo ucwords($page) . ' - '; ?>ACP - <?php echo $jkv["title"]; ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
   <meta name="description" content="CMS,Adminpanel,JAKWEB"/>
   <meta name="keywords" content="Your premium CMS from JAKWEB HTML5/CSS3"/>
   <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
+
+  <!-- AUTOMATIC PACE ================================================================================================ -->
+  <!-- Pace -->
+  <script type="text/javascript" src="js-plugins/pace/pace.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+  <link rel="stylesheet" href="js-plugins/pace/themes/blue/pace-theme-minimal.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
 
   <!-- CSS STYLE ================================================================================================ -->
   <!-- General Stylesheet with custom modifications -->
@@ -47,6 +53,7 @@
   <?php if (isset($JAK_HOOK_HEAD_ADMIN) && is_array($JAK_HOOK_HEAD_ADMIN)) foreach ($JAK_HOOK_HEAD_ADMIN as $headt) {
     include_once APP_PATH . $headt['phpcode'];
   } ?>
+
 </head>
 <body class="skin-teal fixed<?php if (!$JAK_PROVED) echo " login-page"; ?>">
 <?php if ($JAK_PROVED) { ?>

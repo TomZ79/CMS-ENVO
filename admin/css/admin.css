@@ -77,6 +77,12 @@ body {
   font-size: 13px;
 }
 
+.skin-teal .sidebar-menu .list-divider {
+  border-top: 1px solid rgba(0,0,0,0.2);
+  margin: 5px 0;
+  height: 1px;
+}
+
 /* XX. MODIFICATION - RADIO, CHECKBOX BUTTON
 ========================================================================*/
 .checkbox-inline, .radio-inline {

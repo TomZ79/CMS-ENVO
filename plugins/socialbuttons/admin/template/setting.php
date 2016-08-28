@@ -1,9 +1,10 @@
 <div class="box box-primary">
   <div class="box-header with-border">
-    <h3 class="box-title"><?php echo $tlsb["sb43"]["t"]; ?> <a href="javascript:void(0)" class="cms-help"
-                                                               data-content="<?php echo $tlsb["sb43"]["d"]; ?>"
-                                                               data-original-title="<?php echo $tl["title"]["t21"]; ?>"><i
-          class="fa fa-question-circle"></i></a></h3>
+    <h3 class="box-title"><?php echo $tlsb["sb43"]["t"]; ?>
+      <a href="javascript:void(0)" class="cms-help" data-content="<?php echo $tlsb["sb43"]["d"]; ?>" data-original-title="<?php echo $tl["title"]["t21"]; ?>">
+        <i class="fa fa-question-circle"></i>
+      </a>
+    </h3>
   </div><!-- /.box-header -->
   <div class="box-body">
     <table class="table table-striped">
