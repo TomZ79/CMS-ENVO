@@ -3,7 +3,7 @@
   <div class="login-block center-block">
     <div class="login-block-content  animated fadeInUp">
       <div class="login-header clearfix">
-        <h3>Login to your <?php echo $jkv["title"]; ?></h3>
+        <h3><?php echo $tl["login"]["l15"] . " " . $jkv["title"]; ?></h3>
       </div>
       <div class="login-body">
 
