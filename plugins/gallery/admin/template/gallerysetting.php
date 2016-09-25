@@ -67,7 +67,7 @@
           </div><!-- /.box-header -->
           <div class="box-body">
 
-            <table class="table table-striped">
+            <table class="table table-striped first-column v-text-center">
               <tr>
                 <td><?php echo $tl["page"]["p"]; ?></td>
                 <td>
@@ -84,8 +84,7 @@
                 <td><?php echo $tlgal["gallery"]["d16"]; ?></td>
                 <td>
                   <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-                    <input class="form-control" type="text" name="jak_email"
-                           value="<?php echo $jkv["galleryemail"]; ?>"/>
+                    <input class="form-control" type="text" name="jak_email" value="<?php echo $jkv["galleryemail"]; ?>"/>
                   </div>
                 </td>
               </tr>
@@ -94,23 +93,17 @@
                 <td>
                   <div class="row">
                     <div class="col-md-6">
-                      <select name="jak_showgalleryordern" class="form-control">
-                        <option
-                          value="id"<?php if ($showgallerywhat == "id") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tlgal["gallery"]["d22"]; ?></option>
-                        <option
-                          value="title"<?php if ($showgallerywhat == "title") { ?> selected="selected"<?php } ?>><?php echo $tlgal["gallery"]["d8"]; ?></option>
-                        <option
-                          value="time"<?php if ($showgallerywhat == "time") { ?> selected="selected"<?php } ?>><?php echo $tlgal["gallery"]["d24"]; ?></option>
-                        <option
-                          value="hits"<?php if ($showgallerywhat == "hits") { ?> selected="selected"<?php } ?>><?php echo $tlgal["gallery"]["d25"]; ?></option>
+                      <select name="jak_showgalleryordern" class="form-control selectpicker">
+                        <option value="id"<?php if ($showgallerywhat == "id") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tlgal["gallery"]["d22"]; ?></option>
+                        <option value="title"<?php if ($showgallerywhat == "title") { ?> selected="selected"<?php } ?>><?php echo $tlgal["gallery"]["d8"]; ?></option>
+                        <option value="time"<?php if ($showgallerywhat == "time") { ?> selected="selected"<?php } ?>><?php echo $tlgal["gallery"]["d24"]; ?></option>
+                        <option value="hits"<?php if ($showgallerywhat == "hits") { ?> selected="selected"<?php } ?>><?php echo $tlgal["gallery"]["d25"]; ?></option>
                       </select>
                     </div>
                     <div class="col-md-6">
-                      <select name="jak_showgalleryorder" class="form-control">
-                        <option
-                          value="ASC"<?php if ($showgalleryorder == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g90"]; ?></option>
-                        <option
-                          value="DESC"<?php if ($showgalleryorder == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g91"]; ?></option>
+                      <select name="jak_showgalleryorder" class="form-control selectpicker">
+                        <option value="ASC"<?php if ($showgalleryorder == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g90"]; ?></option>
+                        <option value="DESC"<?php if ($showgalleryorder == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g91"]; ?></option>
                       </select>
                     </div>
                   </div>
@@ -120,11 +113,10 @@
                 <td><?php echo $tl["general"]["g58"]; ?></td>
                 <td>
 
-                  <select name="jak_gallerylimit" class="form-control">
+                  <select name="jak_gallerylimit" class="form-control selectpicker">
 
                     <?php for ($i = 0; $i <= 50; $i++) { ?>
-                      <option
-                        value="<?php echo $i; ?>"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
+                      <option value="<?php echo $i; ?>"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
                         if ($jkv["galleryhlimit"] == $i) { ?> selected="selected"<?php }
                       } ?>><?php echo $i; ?></option>
                     <?php } ?>
@@ -136,31 +128,35 @@
               <tr>
                 <td><?php echo $tlgal["gallery"]["d30"]; ?></td>
                 <td>
-                  <div class="radio"><label><input type="radio" name="jak_lightbox"
-                                                   value="1"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
+                  <div class="radio">
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_lightbox" value="1"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
                         if ($jkv["galleryopenattached"] == '1') { ?> checked="checked"<?php }
-                      } ?> /> <?php echo $tl["general"]["g18"]; ?></label></div>
-                  <div class="radio"><label><input type="radio" name="jak_lightbox"
-                                                   value="0"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
+                      } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_lightbox" value="0"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
                         if ($jkv["galleryopenattached"] == '0') { ?> checked="checked"<?php }
-                      } ?> /> <?php echo $tl["general"]["g19"]; ?></label></div>
+                      } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    </label>
+                  </div>
                 </td>
               </tr>
               <tr>
                 <td><?php echo $tlgal["gallery"]["d14"]; ?></td>
-                <td><input type="text" name="jak_maxpost" class="form-control"
-                           value="<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
-                             if ($v["varname"] == 'gallerymaxpost') {
-                               echo $v["value"];
-                             }
-                           } ?>"/></td>
+                <td>
+                  <input type="text" name="jak_maxpost" class="form-control" value="<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
+                     if ($v["varname"] == 'gallerymaxpost') {
+                       echo $v["value"];
+                     }
+                   } ?>"/>
+                </td>
               </tr>
               <tr>
                 <td><?php echo $tl["setting"]["s4"]; ?></td>
                 <td>
                   <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?>">
-                    <input type="text" name="jak_date" class="form-control"
-                           value="<?php echo $jkv["gallerydateformat"]; ?>"/>
+                    <input type="text" name="jak_date" class="form-control" value="<?php echo $jkv["gallerydateformat"]; ?>"/>
                   </div>
                 </td>
               </tr>
@@ -168,37 +164,38 @@
                 <td><?php echo $tl["setting"]["s5"]; ?></td>
                 <td>
                   <div class="form-group<?php if (isset($errors["e4"])) echo " has-error"; ?>">
-                    <input type="text" name="jak_time" class="form-control"
-                           value="<?php echo $jkv["gallerytimeformat"]; ?>"/>
+                    <input type="text" name="jak_time" class="form-control" value="<?php echo $jkv["gallerytimeformat"]; ?>"/>
                 </td>
               </tr>
               <tr>
                 <td><?php echo $tlgal["gallery"]["d7"]; ?></td>
                 <td>
-                  <div class="radio"><label><input type="radio" name="jak_galleryurl"
-                                                   value="1"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
+                  <div class="radio">
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_galleryurl" value="1"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
                         if ($v["varname"] == 'galleryurl' && $v["value"] == '1') { ?> checked="checked"<?php }
-                      } ?> /> <?php echo $tl["general"]["g18"]; ?></label></div>
-                  <div class="radio"><label><input type="radio" name="jak_galleryurl"
-                                                   value="0"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
+                      } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_galleryurl" value="0"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
                         if ($v["varname"] == 'galleryurl' && $v["value"] == '0') { ?> checked="checked"<?php }
-                      } ?> /> <?php echo $tl["general"]["g19"]; ?></label></div>
+                      } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    </label>
+                  </div>
                 </td>
               </tr>
               <tr>
                 <td><?php echo $tl["general"]["g40"]; ?> / <?php echo $tl["general"]["g41"]; ?></td>
                 <td>
                   <div class="form-group<?php if (isset($errors["e7"])) echo " has-error"; ?>">
-                    <input type="text" name="jak_rssitem" class="form-control"
-                           value="<?php echo $jkv["galleryrss"]; ?>"/>
+                    <input type="text" name="jak_rssitem" class="form-control" value="<?php echo $jkv["galleryrss"]; ?>"/>
                   </div>
                 </td>
               </tr>
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
         <div class="box box-primary">
@@ -206,13 +203,12 @@
             <h3 class="box-title"><?php echo $tlgal["gallery"]["d13"]; ?></h3>
           </div><!-- /.box-header -->
           <div class="box-body">
-            <table class="table table-striped">
+            <table class="table table-striped first-column v-text-center">
               <tr>
                 <td><?php echo $tlgal["gallery"]["s9"]; ?></td>
                 <td>
                   <div class="form-group<?php if (isset($errors["e4"])) echo " has-error"; ?>">
-                    <input type="text" name="jak_imagebyte" class="form-control"
-                           value="<?php echo $jkv["galleryimgsize"]; ?>"/>
+                    <input type="text" name="jak_imagebyte" class="form-control" value="<?php echo $jkv["galleryimgsize"]; ?>"/>
                   </div>
                 </td>
               </tr>
@@ -220,8 +216,7 @@
                 <td><?php echo $tlgal["gallery"]["s1"]; ?></td>
                 <td>
                   <div class="form-group<?php if (isset($errors["e5"])) echo " has-error"; ?>">
-                    <input type="text" name="jak_imagetw" class="form-control"
-                           value="<?php echo $jkv["gallerythumbw"]; ?>"/>
+                    <input type="text" name="jak_imagetw" class="form-control" value="<?php echo $jkv["gallerythumbw"]; ?>"/>
                   </div>
                 </td>
               </tr>
@@ -229,8 +224,7 @@
                 <td><?php echo $tlgal["gallery"]["s2"]; ?></td>
                 <td>
                   <div class="form-group<?php if (isset($errors["e5"])) echo " has-error"; ?>">
-                    <input type="text" name="jak_imageth" class="form-control"
-                           value="<?php echo $jkv["gallerythumbh"]; ?>"/>
+                    <input type="text" name="jak_imageth" class="form-control" value="<?php echo $jkv["gallerythumbh"]; ?>"/>
                   </div>
                 </td>
               </tr>
@@ -253,8 +247,7 @@
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
         <div class="box box-primary">
@@ -262,12 +255,12 @@
             <h3 class="box-title"><?php echo $tlgal["gallery"]["s5"]; ?></h3>
           </div><!-- /.box-header -->
           <div class="box-body">
-            <table class="table table-striped">
+            <table class="table table-striped first-column v-text-center">
               <tr>
                 <td><?php echo $tlgal["gallery"]["s6"]; ?></td>
                 <td><?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
                     if ($v["varname"] == 'galleryimgquality') { ?>
-                      <select name="jak_quality" class="form-control">
+                      <select name="jak_quality" class="form-control selectpicker">
                       <option value="50"<?php if ($v["value"] == '50') { ?> selected="selected"<?php } ?>>50</option>
                       <option value="55"<?php if ($v["value"] == '55') { ?> selected="selected"<?php } ?>>55</option>
                       <option value="60"<?php if ($v["value"] == '60') { ?> selected="selected"<?php } ?>>60</option>
@@ -286,8 +279,7 @@
                 <td><?php echo $tlgal["gallery"]["s7"]; ?></td>
                 <td>
                   <div class="form-group<?php if (isset($errors["e9"])) echo " has-error"; ?>">
-                    <input type="text" name="jak_watermark" class="form-control"
-                           value="<?php echo $jkv["gallerywatermark"]; ?>"/>
+                    <input type="text" name="jak_watermark" class="form-control" value="<?php echo $jkv["gallerywatermark"]; ?>"/>
                   </div>
                 </td>
               </tr>
@@ -295,39 +287,38 @@
                 <td><?php echo $tlgal["gallery"]["s8"]; ?></td>
                 <td><?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
                     if ($v["varname"] == 'gallerywmposition') { ?>
-                      <table
-                        style="background: #f5f5f5 url('../plugins/gallery/img/watermark.jpg') no-repeat left center;width:400px;height:174px;text-align: center;">
+                      <table style="background: #f5f5f5 url('../plugins/gallery/img/watermark.jpg') no-repeat left center;width:400px;height:174px;text-align: center;">
                       <tr>
-                        <td><input type="radio" value="1"
-                                   name="jak_position"<?php if ($v["value"] == '1') { ?> checked="checked"<?php } ?> />
+                        <td>
+                          <input type="radio" value="1" name="jak_position"<?php if ($v["value"] == '1') { ?> checked="checked"<?php } ?> />
                         </td>
-                        <td><input type="radio" value="2"
-                                   name="jak_position"<?php if ($v["value"] == '2') { ?> checked="checked"<?php } ?> />
+                        <td>
+                          <input type="radio" value="2" name="jak_position"<?php if ($v["value"] == '2') { ?> checked="checked"<?php } ?> />
                         </td>
-                        <td><input type="radio" value="3"
-                                   name="jak_position"<?php if ($v["value"] == '3') { ?> checked="checked"<?php } ?> />
+                        <td>
+                          <input type="radio" value="3" name="jak_position"<?php if ($v["value"] == '3') { ?> checked="checked"<?php } ?> />
                         </td>
                       </tr>
                       <tr>
-                        <td><input type="radio" value="4"
-                                   name="jak_position"<?php if ($v["value"] == '4') { ?> checked="checked"<?php } ?> />
+                        <td>
+                          <input type="radio" value="4" name="jak_position"<?php if ($v["value"] == '4') { ?> checked="checked"<?php } ?> />
                         </td>
-                        <td><input type="radio" value="5"
-                                   name="jak_position"<?php if ($v["value"] == '5') { ?> checked="checked"<?php } ?> />
+                        <td>
+                          <input type="radio" value="5" name="jak_position"<?php if ($v["value"] == '5') { ?> checked="checked"<?php } ?> />
                         </td>
-                        <td><input type="radio" value="6"
-                                   name="jak_position"<?php if ($v["value"] == '6') { ?> checked="checked"<?php } ?> />
+                        <td>
+                          <input type="radio" value="6" name="jak_position"<?php if ($v["value"] == '6') { ?> checked="checked"<?php } ?> />
                         </td>
                       </tr>
                       <tr>
-                        <td><input type="radio" value="7"
-                                   name="jak_position"<?php if ($v["value"] == '7') { ?> checked="checked"<?php } ?> />
+                        <td>
+                          <input type="radio" value="7" name="jak_position"<?php if ($v["value"] == '7') { ?> checked="checked"<?php } ?> />
                         </td>
-                        <td><input type="radio" value="8"
-                                   name="jak_position"<?php if ($v["value"] == '8') { ?> checked="checked"<?php } ?> />
+                        <td>
+                          <input type="radio" value="8" name="jak_position"<?php if ($v["value"] == '8') { ?> checked="checked"<?php } ?> />
                         </td>
-                        <td><input type="radio" value="9"
-                                   name="jak_position"<?php if ($v["value"] == '9') { ?> checked="checked"<?php } ?> />
+                        <td>
+                          <input type="radio" value="9" name="jak_position"<?php if ($v["value"] == '9') { ?> checked="checked"<?php } ?> />
                         </td>
                       </tr>
                       </table><?php }
@@ -336,8 +327,7 @@
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
         <div class="box box-primary">
@@ -350,8 +340,7 @@
                 <td><?php echo $tl["setting"]["s11"]; ?></td>
                 <td>
                   <div class="form-group<?php if (isset($errors["e5"])) echo " has-error"; ?>">
-                    <input type="text" name="jak_mid" class="form-control"
-                           value="<?php echo $jkv["gallerypagemid"]; ?>"/>
+                    <input type="text" name="jak_mid" class="form-control" value="<?php echo $jkv["gallerypagemid"]; ?>"/>
                   </div>
                 </td>
               </tr>
@@ -359,16 +348,14 @@
                 <td><?php echo $tl["setting"]["s12"]; ?></td>
                 <td>
                   <div class="form-group<?php if (isset($errors["e5"])) echo " has-error"; ?>">
-                    <input type="text" name="jak_item" class="form-control"
-                           value="<?php echo $jkv["gallerypageitem"]; ?>"/>
+                    <input type="text" name="jak_item" class="form-control" value="<?php echo $jkv["gallerypageitem"]; ?>"/>
                   </div>
                 </td>
               </tr>
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
       </div>
@@ -381,8 +368,7 @@
             <?php include APP_PATH . "admin/template/sidebar_widget.php"; ?>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
       </div>
