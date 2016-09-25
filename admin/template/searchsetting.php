@@ -77,8 +77,7 @@ if ($errors) { ?>
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
         <div class="box box-primary">
@@ -86,20 +85,16 @@ if ($errors) { ?>
             <h3 class="box-title"><?php echo $tl["title"]["t5"]; ?></h3>
           </div><!-- /.box-header -->
           <div class="box-body">
-            <table class="table table-striped">
+            <table class="table table-striped v-text-center">
               <tr>
                 <td><?php echo $tl["setting"]["s6"]; ?></td>
                 <td>
                   <div class="radio">
-                    <label>
-                      <input type="radio" name="jak_search"
-                             value="1"<?php if ($jkv["searchform"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_search" value="1"<?php if ($jkv["searchform"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                     </label>
-                  </div>
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="jak_search"
-                             value="0"<?php if ($jkv["searchform"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_search" value="0"<?php if ($jkv["searchform"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                     </label>
                   </div>
                 </td>
@@ -108,15 +103,11 @@ if ($errors) { ?>
                 <td><?php echo $tl["setting"]["s38"]; ?></td>
                 <td>
                   <div class="radio">
-                    <label>
-                      <input type="radio" name="jak_ajaxsearch"
-                             value="1"<?php if ($jkv["ajaxsearch"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_ajaxsearch" value="1"<?php if ($jkv["ajaxsearch"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                     </label>
-                  </div>
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="jak_ajaxsearch"
-                             value="0"<?php if ($jkv["ajaxsearch"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_ajaxsearch" value="0"<?php if ($jkv["ajaxsearch"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                     </label>
                   </div>
                 </td>
@@ -125,15 +116,11 @@ if ($errors) { ?>
                 <td><?php echo $tl["setting"]["s37"]; ?></td>
                 <td>
                   <div class="radio">
-                    <label>
-                      <input type="radio" name="jak_fullsearch"
-                             value="1"<?php if ($jkv["fulltextsearch"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_fullsearch" value="1"<?php if ($jkv["fulltextsearch"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                     </label>
-                  </div>
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="jak_fullsearch"
-                             value="0"<?php if ($jkv["fulltextsearch"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_fullsearch" value="0"<?php if ($jkv["fulltextsearch"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                     </label>
                   </div>
                   <input type="hidden" name="jak_fullsearchold" value="<?php echo $jkv["fulltextsearch"]; ?>"/>
@@ -142,8 +129,7 @@ if ($errors) { ?>
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
 
@@ -157,8 +143,7 @@ if ($errors) { ?>
             <?php include 'sidebar_widget.php'; ?>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
       </div>
