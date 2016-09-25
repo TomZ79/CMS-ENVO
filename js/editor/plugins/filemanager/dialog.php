@@ -15,8 +15,6 @@ if (USE_ACCESS_KEYS == TRUE){
 	}
 }
 
-$_SESSION['RF']["verify"] = "JAKfilemanager";
-
 if(isset($_POST['submit'])){
 
 	include 'upload.php';

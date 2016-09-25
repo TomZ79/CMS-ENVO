@@ -3,11 +3,13 @@
 if (!file_exists('../../../../config.php')) die('[index.php] config.php not exist');
 require_once '../../../../config.php';
 
-if (empty(session_id())) session_start();
+if (session_id() == '') session_start();
 
 if (JAK_ADMINACCESS) $_SESSION['RF']["verify"] = "JAKfilemanager";
 mb_internal_encoding('UTF-8');
 date_default_timezone_set('Europe/Zurich');
+
+if (!isset($_SESSION['RF']["verify"]) || $_SESSION['RF']["verify"] != "JAKfilemanager") die('Nothing to see here.');
 
 /*
 |--------------------------------------------------------------------------

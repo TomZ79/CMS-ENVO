@@ -315,7 +315,7 @@ if ($page == 'search') {
         jak_redirect(BASE_URL);
     }
     // Get the url session
-    $_SESSION['jak_lastURL'] = JAK_rewrite::jakParseurl('search', '', '', '', '');
+    $_SESSION['jak_lastURL'] = JAK_rewrite::jakParseurl('search');
     require_once 'search.php';
     $PAGE_SHOWTITLE = 1;
     $JAK_CHECK_PAGE = 1;

@@ -68,6 +68,12 @@ function jak_input_filter($value)
   return preg_replace("/[^0-9 _,.@\-\p{L}]/u", '', $value);
 }
 
+// Filter url inputs
+function jak_url_input_filter($value) {
+  $value = trim(filter_var($value, FILTER_SANITIZE_STRING));
+  return preg_replace('/[^\w-]/', '', $value);
+}
+
 // Get a secure mysql input
 function smartsql($value)
 {

@@ -4,14 +4,9 @@ $config = include '../config/config.php';
 //TODO switch to array
 extract($config, EXTR_OVERWRITE);
 
-if ( ! $java_upload)
-{
-	die('forbidden');
-}
-if ($_SESSION['RF']["verify"] != "JAKfilemanager")
-{
-	die('forbidden');
-}
+// No access
+if (!$java_upload) die('forbidden');
+if (!isset($_SESSION['RF']["verify"]) && $_SESSION['RF']["verify"] != "JAKfilemanager") die('forbidden');
 
 //Let's load the 'interesting' stuff ...  ;-)
 include 'jupload.php';

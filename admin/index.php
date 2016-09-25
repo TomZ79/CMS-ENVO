@@ -1,6 +1,6 @@
 <?php
 
-// prevent direct php access
+// Prevent direct php access
 define('JAK_ADMIN_PREVENT_ACCESS', 1);
 
 // Access not allowed
@@ -10,13 +10,13 @@ if (!file_exists('config.php')) die('[index.php] config.php not found');
 require_once 'config.php';
 
 // Now check if there is more then one language
-$page = ($temppa ? jak_input_filter($temppa) : '');
-$page1 = ($temppa1 ? jak_input_filter($temppa1) : '');
-$page2 = ($temppa2 ? jak_input_filter($temppa2) : '');
-$page3 = ($temppa3 ? jak_input_filter($temppa3) : '');
-$page4 = ($temppa4 ? jak_input_filter($temppa4) : '');
-$page5 = ($temppa5 ? jak_input_filter($temppa5) : '');
-$page6 = ($temppa5 ? jak_input_filter($temppa6) : '');
+$page = ($temppa ? jak_url_input_filter($temppa) : '');
+$page1 = ($temppa1 ? jak_url_input_filter($temppa1) : '');
+$page2 = ($temppa2 ? jak_url_input_filter($temppa2) : '');
+$page3 = ($temppa3 ? jak_url_input_filter($temppa3) : '');
+$page4 = ($temppa4 ? jak_url_input_filter($temppa4) : '');
+$page5 = ($temppa5 ? jak_url_input_filter($temppa5) : '');
+$page6 = ($temppa6 ? jak_url_input_filter($temppa6) : '');
 
 // Only the SuperAdmin in the config file see everything
 if (JAK_USERID && $jakuser->jakSuperadminaccess(JAK_USERID)) {

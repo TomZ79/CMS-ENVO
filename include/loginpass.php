@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jakU'])) {
 
     // success
     $_SESSION["infomsg"] = $tl["general"]["s"];
+    if (isset($_SESSION["logintries"])) unset($_SESSION["logintries"]);
 
     if (isset($_POST['home']) && $_POST['home']) {
       jak_redirect(BASE_URL);
@@ -37,6 +38,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jakU'])) {
     }
 
   } else {
+    // Now calculate if more then 10 times don't even try.
+    if (isset($_SESSION["logintries"])) {
+      $_SESSION["logintries"] = $_SESSION["logintries"] + 1;
+    } else {
+      $_SESSION["logintries"] = 1;
+    }
+    if (isset($_SESSION["logintries"]) && $_SESSION["logintries"] > 10) {
+      $_SESSION["infomsg"] = $tl["error"]["e10"];
+      jak_redirect(BASE_URL);
+    }
+
     $errors['e'] = '<i class="fa fa-exclamation-triangle"></i> ' . $tl['error']['l'];
     $errorlo = $errors;
   }

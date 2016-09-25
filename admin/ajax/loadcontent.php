@@ -3,7 +3,7 @@
 if (!file_exists('../../config.php')) die('ajax/[qtips.php] config.php not exist');
 require_once '../../config.php';
 
-if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || !$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die("Nothing to see here");
+if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || !JAK_USERID || !$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die("Nothing to see here");
 
 $content_array = array("status" => 0, "rcontent" => "");
 
@@ -13,4 +13,5 @@ $row = $jakdb->queryRow('SELECT content FROM '.DB_PREFIX.'backup_content WHERE i
 
 if (!$row) die("There is no such content!");
 die(json_encode(array("status" => 1, "rcontent" => $row['content'])));
+
 ?>
