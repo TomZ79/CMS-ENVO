@@ -847,8 +847,6 @@ switch ($page1) {
 					END
 					WHERE id IN (' . $hookrealid . ')');
 
-        } else {
-          $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE plugin = "' . smartsql(JAK_PLUGIN_TICKETING) . '" AND ticketid = 0 AND hookid != 0');
         }
 
         if (!$result) {
