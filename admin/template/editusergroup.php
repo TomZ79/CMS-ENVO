@@ -122,8 +122,7 @@ if ($errors) { ?>
           </table>
         </div>
         <div class="box-footer">
-          <button type="submit" name="save"
-                  class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+          <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
         </div>
       </div>
     <?php }
