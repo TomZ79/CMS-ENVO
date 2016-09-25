@@ -62,7 +62,7 @@ if ($page2 == "e") { ?>
             <h3 class="box-title"><?php echo $tl["title"]["t4"]; ?></h3>
           </div><!-- /.box-header -->
           <div class="box-body">
-            <table class="table table-striped">
+            <table class="table table-striped first-colum v-text-center">
               <tr>
                 <td><?php echo $tl["page"]["p"]; ?></td>
                 <td><?php include_once APP_PATH . "admin/template/title_edit.php"; ?></td>
@@ -86,23 +86,17 @@ if ($page2 == "e") { ?>
                 <td>
                   <div class="row">
                     <div class="col-md-6">
-                      <select name="jak_showblogordern" class="form-control">
-                        <option
-                          value="id"<?php if ($JAK_SETTING['showblogwhat'] == "id") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tlblog["blog"]["d22"]; ?></option>
-                        <option
-                          value="title"<?php if ($JAK_SETTING['showblogwhat'] == "title") { ?> selected="selected"<?php } ?>><?php echo $tlblog["blog"]["d8"]; ?></option>
-                        <option
-                          value="time"<?php if ($JAK_SETTING['showblogwhat'] == "time") { ?> selected="selected"<?php } ?>><?php echo $tlblog["blog"]["d24"]; ?></option>
-                        <option
-                          value="hits"<?php if ($JAK_SETTING['showblogwhat'] == "hits") { ?> selected="selected"<?php } ?>><?php echo $tlblog["blog"]["d25"]; ?></option>
+                      <select name="jak_showblogordern" class="form-control selectpicker">
+                        <option value="id"<?php if ($JAK_SETTING['showblogwhat'] == "id") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tlblog["blog"]["d22"]; ?></option>
+                        <option value="title"<?php if ($JAK_SETTING['showblogwhat'] == "title") { ?> selected="selected"<?php } ?>><?php echo $tlblog["blog"]["d8"]; ?></option>
+                        <option value="time"<?php if ($JAK_SETTING['showblogwhat'] == "time") { ?> selected="selected"<?php } ?>><?php echo $tlblog["blog"]["d24"]; ?></option>
+                        <option value="hits"<?php if ($JAK_SETTING['showblogwhat'] == "hits") { ?> selected="selected"<?php } ?>><?php echo $tlblog["blog"]["d25"]; ?></option>
                       </select>
                     </div>
                     <div class="col-md-6">
-                      <select name="jak_showblogorder" class="form-control">
-                        <option
-                          value="ASC"<?php if ($JAK_SETTING['showblogorder'] == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g90"]; ?></option>
-                        <option
-                          value="DESC"<?php if ($JAK_SETTING['showblogorder'] == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g91"]; ?></option>
+                      <select name="jak_showblogorder" class="form-control selectpicker">
+                        <option value="ASC"<?php if ($JAK_SETTING['showblogorder'] == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g90"]; ?></option>
+                        <option value="DESC"<?php if ($JAK_SETTING['showblogorder'] == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g91"]; ?></option>
                       </select>
                     </div>
                   </div>
@@ -112,11 +106,10 @@ if ($page2 == "e") { ?>
                 <td><?php echo $tl["general"]["g58"]; ?></td>
                 <td>
 
-                  <select name="jak_bloglimit" class="form-control">
+                  <select name="jak_bloglimit" class="form-control selectpicker">
 
                     <?php for ($i = 0; $i <= 50; $i++) { ?>
-                      <option
-                        value="<?php echo $i; ?>"<?php if ($jkv["bloghlimit"] == $i) { ?> selected="selected"<?php } ?>><?php echo $i; ?></option>
+                      <option value="<?php echo $i; ?>"<?php if ($jkv["bloghlimit"] == $i) { ?> selected="selected"<?php } ?>><?php echo $i; ?></option>
                     <?php } ?>
 
                   </select>
@@ -125,15 +118,15 @@ if ($page2 == "e") { ?>
               </tr>
               <tr>
                 <td><?php echo $tlblog["blog"]["d14"]; ?></td>
-                <td><input type="text" name="jak_maxpost" class="form-control"
-                           value="<?php echo $jkv["blogmaxpost"]; ?>"/></td>
+                <td>
+                  <input type="text" name="jak_maxpost" class="form-control" value="<?php echo $jkv["blogmaxpost"]; ?>"/>
+                </td>
               </tr>
               <tr>
                 <td><?php echo $tl["setting"]["s4"]; ?></td>
                 <td>
                   <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
-                    <input type="text" name="jak_date" class="form-control"
-                           value="<?php echo $jkv["blogdateformat"]; ?>"/>
+                    <input type="text" name="jak_date" class="form-control" value="<?php echo $jkv["blogdateformat"]; ?>"/>
                   </div>
                 </td>
               </tr>
@@ -141,20 +134,21 @@ if ($page2 == "e") { ?>
                 <td><?php echo $tl["setting"]["s5"]; ?></td>
                 <td>
                   <div class="form-group no-margin<?php if (isset($errors["e4"])) echo " has-error"; ?>">
-                    <input type="text" name="jak_time" class="form-control"
-                           value="<?php echo $jkv["blogtimeformat"]; ?>"/>
+                    <input type="text" name="jak_time" class="form-control" value="<?php echo $jkv["blogtimeformat"]; ?>"/>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td><?php echo $tlblog["blog"]["d7"]; ?></td>
                 <td>
-                  <div class="radio"><label><input type="radio" name="jak_blogurl"
-                                                   value="1"<?php if ($jkv["blogurl"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                    </label></div>
-                  <div class="radio"><label><input type="radio" name="jak_blogurl"
-                                                   value="0"<?php if ($jkv["blogurl"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                    </label></div>
+                  <div class="radio">
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_blogurl" value="1"<?php if ($jkv["blogurl"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_blogurl" value="0"<?php if ($jkv["blogurl"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    </label>
+                  </div>
                 </td>
               </tr>
               <tr>
@@ -168,8 +162,7 @@ if ($page2 == "e") { ?>
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
         <div class="box box-primary">
@@ -197,8 +190,7 @@ if ($page2 == "e") { ?>
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
       </div>
@@ -208,17 +200,12 @@ if ($page2 == "e") { ?>
             <h3 class="box-title"><?php echo $tl["general"]["g53"]; ?></h3>
           </div><!-- /.box-header -->
           <div class="box-body">
-            <a
-              href="../../../../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor"
-              class="ifManager"><?php echo $tl["general"]["g69"]; ?></a> <a href="javascript:;"
-                                                                            id="addCssBlock"><?php echo $tl["general"]["g101"]; ?></a><br/>
+            <a href="../../../../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a> <a href="javascript:;" id="addCssBlock"><?php echo $tl["general"]["g101"]; ?></a><br/>
             <div id="csseditor"></div>
-            <textarea name="jak_css" class="form-control hidden" id="jak_css"
-                      rows="20"><?php echo $jkv["blog_css"]; ?></textarea>
+            <textarea name="jak_css" class="form-control hidden" id="jak_css" rows="20"><?php echo $jkv["blog_css"]; ?></textarea>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
 
@@ -230,17 +217,12 @@ if ($page2 == "e") { ?>
             <h3 class="box-title"><?php echo $tl["general"]["g100"]; ?></h3>
           </div><!-- /.box-header -->
           <div class="box-body">
-            <a
-              href="../../../../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor"
-              class="ifManager"><?php echo $tl["general"]["g69"]; ?></a> <a href="javascript:;"
-                                                                            id="addJavascriptBlock"><?php echo $tl["general"]["g102"]; ?></a><br/>
+            <a href="../../../../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a> <a href="javascript:;" id="addJavascriptBlock"><?php echo $tl["general"]["g102"]; ?></a><br/>
             <div id="javaeditor"></div>
-            <textarea name="jak_javascript" class="form-control hidden" id="jak_javascript"
-                      rows="20"><?php echo $jkv["blog_javascript"]; ?></textarea>
+            <textarea name="jak_javascript" class="form-control hidden" id="jak_javascript" rows="20"><?php echo $jkv["blog_javascript"]; ?></textarea>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
       </div>
@@ -254,8 +236,7 @@ if ($page2 == "e") { ?>
             <?php include APP_PATH . "admin/template/sidebar_widget.php"; ?>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
       </div>
