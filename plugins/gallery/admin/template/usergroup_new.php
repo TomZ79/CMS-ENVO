@@ -3,7 +3,7 @@
     <h3 class="box-title"><?php echo $tlgal["gallery"]["d"]; ?></h3>
   </div><!-- /.box-header -->
   <div class="box-body">
-    <table class="table">
+    <table class="table table-striped first-column v-text-center">
       <tr>
         <td><?php echo $tlgal["gallery"]["d1"]; ?></td>
         <td>
