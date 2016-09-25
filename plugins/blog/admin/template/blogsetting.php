@@ -62,7 +62,7 @@ if ($page2 == "e") { ?>
             <h3 class="box-title"><?php echo $tl["title"]["t4"]; ?></h3>
           </div><!-- /.box-header -->
           <div class="box-body">
-            <table class="table table-striped first-colum v-text-center">
+            <table class="table table-striped first-column v-text-center">
               <tr>
                 <td><?php echo $tl["page"]["p"]; ?></td>
                 <td><?php include_once APP_PATH . "admin/template/title_edit.php"; ?></td>

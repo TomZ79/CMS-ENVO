@@ -42,7 +42,7 @@
             <h3 class="box-title"><?php echo $tl["title"]["t11"]; ?></h3>
           </div><!-- /.box-header -->
           <div class="box-body">
-            <table class="table table-striped first-colum v-text-center">
+            <table class="table table-striped first-column v-text-center">
               <tr>
                 <td><?php echo $tl["cat"]["c4"]; ?></td>
                 <td>

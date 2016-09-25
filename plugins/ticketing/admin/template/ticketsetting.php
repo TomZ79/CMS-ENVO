@@ -68,7 +68,7 @@ if ($errors) { ?>
           </div><!-- /.box-header -->
           <div class="box-body">
 
-            <table class="table table-striped">
+            <table class="table table-striped first-column v-text-center">
               <tr>
                 <td><?php echo $tlt["st"]["d7"]; ?></td>
                 <td>
@@ -84,7 +84,7 @@ if ($errors) { ?>
               <tr>
                 <td><?php echo $tlt["st"]["d15"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+                  <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
                     <input type="text" name="jak_email" class="form-control" value="<?php echo $jkv["ticketemail"]; ?>"/>
                   </div>
                 </td>
@@ -119,7 +119,7 @@ if ($errors) { ?>
               <tr>
                 <td><?php echo $tl["setting"]["s4"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?>">
+                  <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
                     <input type="text" name="jak_date" class="form-control" value="<?php echo $jkv["ticketdateformat"]; ?>"/>
                   </div>
                 </td>
@@ -127,7 +127,7 @@ if ($errors) { ?>
               <tr>
                 <td><?php echo $tl["setting"]["s5"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e4"])) echo " has-error"; ?>">
+                  <div class="form-group<?php if (isset($errors["e4"])) echo " has-error"; ?> no-margin">
                     <input type="text" name="jak_time" class="form-control" value="<?php echo $jkv["tickettimeformat"]; ?>"/>
                   </div>
                 </td>
@@ -137,10 +137,10 @@ if ($errors) { ?>
                 <td>
                   <div class="radio">
                     <label class="checkbox-inline">
-                      <input type="radio" name="jak_ticketurl" value="0"<?php if ($jkv["ticketurl"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                      <input type="radio" name="jak_ticketurl" value="1"<?php if ($jkv["ticketurl"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                     </label>
                     <label class="checkbox-inline">
-                      <input type="radio" name="jak_ticketurl" value="1"<?php if ($jkv["ticketurl"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                      <input type="radio" name="jak_ticketurl" value="0"<?php if ($jkv["ticketurl"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                     </label>
                   </div>
                 </td>
@@ -148,7 +148,7 @@ if ($errors) { ?>
               <tr>
                 <td><?php echo $tl["setting"]["s7"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e6"])) echo " has-error"; ?>">
+                  <div class="form-group<?php if (isset($errors["e6"])) echo " has-error"; ?> no-margin">
                     <input type="text" class="form-control" name="jak_path" value="<?php echo $jkv["ticketpath"]; ?>"/>
                   </div>
                 </td>
@@ -156,7 +156,7 @@ if ($errors) { ?>
               <tr>
                 <td><?php echo $tl["general"]["g40"]; ?> / <?php echo $tl["general"]["g41"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e7"])) echo " has-error"; ?>">
+                  <div class="form-group<?php if (isset($errors["e7"])) echo " has-error"; ?> no-margin">
                     <input type="text" class="form-control" name="jak_rssitem" value="<?php echo $jkv["ticketrss"]; ?>"/>
                   </div>
                 </td>
@@ -224,7 +224,7 @@ if ($errors) { ?>
               <tr>
                 <td><?php echo $tl["setting"]["s11"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e5"])) echo " has-error"; ?>">
+                  <div class="form-group<?php if (isset($errors["e5"])) echo " has-error"; ?> no-margin">
                     <input type="text" name="jak_mid" class="form-control" value="<?php echo $jkv["ticketpagemid"]; ?>"/>
                   </div>
                 </td>
@@ -232,7 +232,7 @@ if ($errors) { ?>
               <tr>
                 <td><?php echo $tl["setting"]["s12"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e5"])) echo " has-error"; ?>">
+                  <div class="form-group<?php if (isset($errors["e5"])) echo " has-error"; ?> no-margin">
                     <input type="text" name="jak_item" class="form-control" value="<?php echo $jkv["ticketpageitem"]; ?>"/>
                   </div>
                 </td>
