@@ -1,7 +1,7 @@
 <ul class="sidebar-menu">
   <?php if ($JAK_MODULES) { ?>
 <!-- START HOME SECTION -->
-    <li class="treeview<?php if ($page == '' || $page == 'site' || $page == 'logs' || $page == 'searchlog') echo ' active'; ?>">
+    <li class="treeview<?php if ($page == '' || $page == 'site' || $page == 'logs' || $page == 'searchlog' || $page == 'changelog') echo ' active'; ?>">
       <a href="javascript:void(0)">
         <i class="fa fa-home"></i> <?php echo $tl["menu"]["mh"]; ?>
         <i class="fa fa-angle-left pull-right"></i>
@@ -26,6 +26,11 @@
         <li<?php if ($page == 'searchlog') echo ' class="active"'; ?>>
           <a href="index.php?p=searchlog">
             <i class="fa fa-circle-o"></i> <?php echo $tl["cmenu"]["c49"]; ?>
+          </a>
+        </li>
+        <li<?php if ($page == 'changelog') echo ' class="active"'; ?>>
+          <a href="index.php?p=changelog">
+            <i class="fa fa-circle-o"></i> Changelog
           </a>
         </li>
       </ul>

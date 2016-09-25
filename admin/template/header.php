@@ -25,6 +25,8 @@
   <link rel="stylesheet" href="css/animate.min.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
   <!-- Bootstrap-Select CSS -->
   <link rel="stylesheet" href="js-plugins/bootstrap-select/css/bootstrap-select.min.css?=<?php echo $jkv["updatetime"];?>" type="text/css" media="screen" />
+  <!-- Prism CSS -->
+  <link rel="stylesheet" href="js-plugins/prism/prism.css?=<?php echo $jkv["updatetime"];?>" type="text/css" media="screen" />
 
   <?php if (!$jkv["langdirection"]) { ?>
     <!-- RTL Support -->
@@ -44,6 +46,8 @@
   <!-- Bootstrap-Select JS -->
   <script type="text/javascript" src="js-plugins/bootstrap-select/js/bootstrap-select.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
   <script type="text/javascript" src="js-plugins/bootstrap-select/js/i18n/defaults-cs_CZ.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+  <!-- Prism JS -->
+  <script type="text/javascript" src="js-plugins/prism/prism.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 
   <!--[if lt IE 9]>
   <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -55,7 +59,7 @@
   } ?>
 
 </head>
-<body class="skin-teal fixed<?php if (!$JAK_PROVED) echo " login-page"; ?>">
+<body class="skin-teal fixed<?php if (!$JAK_PROVED) echo " login-page"; ?> has-detached-right" data-spy="scroll" data-target="#.sidebar-detached">
 <?php if ($JAK_PROVED) { ?>
 <div class="wrapper">
   <header class="main-header">

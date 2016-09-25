@@ -227,6 +227,12 @@ if ($page == 'searchlog') {
   $JAK_PAGE_ACTIVE = 1;
   $checkp = 1;
 }
+if ($page == 'changelog') {
+  require_once 'changelog.php';
+  $JAK_PROVED = 1;
+  $JAK_PAGE_ACTIVE = 1;
+  $checkp = 1;
+}
 if ($page == 'setting') {
   require_once 'setting.php';
   $JAK_PROVED = 1;
