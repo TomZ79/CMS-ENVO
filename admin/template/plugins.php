@@ -92,15 +92,17 @@ if ($page1 == "e") { ?>
                     }
                   } ?>
 
-                  <a class="btn btn-default btn-xs"
-                     href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["id"]; ?>"><i
-                      class="fa fa-flag"></i></a>
-                  <a class="btn btn-default btn-xs"
-                     href="index.php?p=plugins&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>"><i
-                      class="fa fa-<?php if ($v["active"] == '0') { ?>lock<?php } else { ?>check<?php } ?>"></i></a>
-                  <?php if ($v["uninstallfile"]) { ?><a class="plugInst btn btn-danger btn-xs"
-                                                        href="../plugins/<?php echo $v["pluginpath"] . '/' . $v["uninstallfile"]; ?>">
-                      <i class="fa fa-trash-o"></i></a><?php } ?>
+                  <a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["id"]; ?>">
+                    <i class="fa fa-flag"></i>
+                  </a>
+                  <a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>">
+                    <i class="fa fa-<?php if ($v["active"] == '0') { ?>lock<?php } else { ?>check<?php } ?>"></i>
+                  </a>
+                  <?php if ($v["uninstallfile"]) { ?>
+                  <a class="plugInst btn btn-danger btn-xs" href="../plugins/<?php echo $v["pluginpath"] . '/' . $v["uninstallfile"]; ?>">
+                    <i class="fa fa-trash-o"></i>
+                  </a>
+                  <?php } ?>
 
                 </div>
               </div>
