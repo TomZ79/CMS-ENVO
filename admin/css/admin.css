@@ -17,7 +17,6 @@
  *
  */
 
-
 /* 01. MODIFICATION - GENERAL STYLE
 ========================================================================*/
 body {
@@ -39,7 +38,8 @@ body {
   font-weight: 700 !important;
 }
 
-/* Table - verticla text */
+/* Table - vertical text */
+.v-text-center,
 .v-text-center td {
   float: none;
   vertical-align: middle !important;
@@ -78,7 +78,7 @@ body {
 }
 
 .skin-teal .sidebar-menu .list-divider {
-  border-top: 1px solid rgba(0,0,0,0.2);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
   margin: 5px 0;
   height: 1px;
 }
@@ -324,7 +324,7 @@ table.table-expandable > tbody > tr div.table-expandable-arrow.up {
   padding: 30px;
   position: relative;
   box-shadow: 0 5px 30px 0 #000;
-  border-radius:3px
+  border-radius: 3px
 }
 
 .login-block .copyright {
@@ -372,6 +372,87 @@ table.table-expandable > tbody > tr div.table-expandable-arrow.up {
   .login-block .login-header h3 {
     margin: 0
   }
+}
+
+/* XX. MODIFICATION - PLUGIN GALLERY
+========================================================================*/
+.center-cropped {
+  position: relative;
+  width: 100%;
+  height: 85px;
+  overflow: hidden;
+}
+
+.center-cropped img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: auto;
+  width: 100%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.hovereffect {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+}
+
+.hovereffect .overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  border-radius: 0 !important;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out
+}
+
+.hovereffect a.info {
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  color: #fff;
+  border: 1px solid #fff;
+  background-color: transparent;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  margin: 25px 0 0;
+  padding: 7px 14px;
+}
+
+.hovereffect a.info:hover {
+  box-shadow: 0 0 5px #fff;
+}
+
+.hovereffect:hover .overlay {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+.hovereffect:hover a.info {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -ms-transform: translatey(0);
+  -webkit-transform: translatey(0);
+  transform: translatey(0);
+}
+
+.hovereffect:hover a.info {
+  -webkit-transition-delay: .2s;
+  transition-delay: .2s;
 }
 
 /* XX. MODIFICATION - SKIN TEAL
@@ -599,18 +680,20 @@ table.table-expandable > tbody > tr div.table-expandable-arrow.up {
 .skin-teal .box {
   border-radius: 0;
   border-top-color: #009688 !important;
-  -webkit-box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);
-  box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24)
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24)
 }
+
 .skin-teal .box-header .box-title {
   font-weight: 700;
   font-size: 13px;
   color: #00796B;
   text-transform: uppercase;
 }
+
 .skin-teal .small-box {
-  -webkit-box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);
-  box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24)
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24)
 }
 
 /* Other */
@@ -627,7 +710,6 @@ ul.todoList li:hover, ul.jak_cat_move li:hover, ul.jak_cat_move_fot li:hover, ul
   -webkit-box-shadow: 0 0 3px #dbf0ee !important;
   box-shadow: 0 0 3px #dbf0ee !important;
 }
-
 
 /* XX. GROWL PLUGIN - TABLE
 ========  ================================================================*/

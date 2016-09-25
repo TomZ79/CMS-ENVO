@@ -57,42 +57,55 @@
 							<th><?php echo $tl["page"]["p2"]; ?></th>
 							<th><?php echo $tl["general"]["g56"]; ?></th>
 							<th>
-								<button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs"><i
-										class="fa fa-lock"></i></button>
+								<button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
+									<i class="fa fa-lock"></i>
+								</button>
 							</th>
 							<th></th>
 							<th>
-								<button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs"
-												onclick="if(!confirm('<?php echo $tlgal["gallery"]["al"]; ?>'))return false;"><i
-										class="fa fa-trash-o"></i></button>
+								<button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tlgal["gallery"]["al"]; ?>'))return false;">
+									<i class="fa fa-trash-o"></i>
+								</button>
 							</th>
 						</tr>
 						</thead>
 						<?php if (isset($JAK_GALLERY_ALL) && is_array($JAK_GALLERY_ALL)) foreach ($JAK_GALLERY_ALL as $v) { ?>
 							<tr>
-								<td><?php echo $v["id"]; ?></td>
-								<td><input type="checkbox" name="jak_delete_gallery[]" class="highlight"
-													 value="<?php echo $v["id"]; ?>"/></td>
-								<td><a href="index.php?p=gallery&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><img
-											src="<?php echo BASE_URL_ORIG . $JAK_UPLOAD_PATH_BASE . $v["paththumb"]; ?>"
-											alt="<?php echo $v["title"]; ?>" class="img-thumbnail img-responsive"/></a></td>
-								<td><?php if ($v["catid"] != '0') {
+								<td class="col-xs-1"><?php echo $v["id"]; ?></td>
+								<td class="col-xs-1">
+									<input type="checkbox" name="jak_delete_gallery[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
+								</td>
+								<td class="col-xs-2">
+									<div class="hovereffect">
+										<div class="center-cropped">
+											<img src="<?php echo BASE_URL_ORIG . $JAK_UPLOAD_PATH_BASE . $v["pathbig"]; ?>" alt="<?php echo $v["title"]; ?>" />
+										</div>
+										<div class="overlay">
+											<a href="index.php?p=gallery&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" class="info">Edit Photo</a>
+										</div>
+									</div>
+								</td>
+								<td class="col-xs-2">
+									<?php if ($v["catid"] != '0') {
 										if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $z) {
 											if ($z["id"] == $v["catid"]) { ?><a
 												href="index.php?p=gallery&amp;sp=showcat&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a> <?php }
 										}
-									} else { ?><?php echo $tl["general"]["g24"]; ?><?php } ?></td>
-								<td><?php echo $v["time"]; ?></td>
-								<td><?php echo $v["hits"]; ?></td>
-								<td><a href="index.php?p=gallery&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>"
-											 class="btn btn-default btn-xs"><i
-											class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i></a></td>
-								<td><a href="index.php?p=gallery&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"
-											 class="btn btn-default btn-xs"><i class="fa fa-edit"></i></a></td>
-								<td><a href="index.php?p=gallery&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>"
-											 class="btn btn-default btn-xs"
-											 onclick="if(!confirm('<?php echo $tlgal["gallery"]["al"]; ?>'))return false;"><i
-											class="fa fa-trash-o"></i></a></td>
+									} else { ?><?php echo $tl["general"]["g24"]; ?><?php } ?>
+								</td>
+								<td class="col-xs-2"><?php echo $v["time"]; ?></td>
+								<td class="col-xs-1"><?php echo $v["hits"]; ?></td>
+								<td class="col-xs-1">
+									<a href="index.php?p=gallery&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs"><i class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i></a>
+								</td>
+								<td class="col-xs-1">
+									<a href="index.php?p=gallery&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs"><i class="fa fa-edit"></i></a>
+								</td>
+								<td class="col-xs-1">
+									<a href="index.php?p=gallery&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" onclick="if(!confirm('<?php echo $tlgal["gallery"]["al"]; ?>'))return false;">
+										<i class="fa fa-trash-o"></i>
+									</a>
+								</td>
 							</tr>
 						<?php } ?>
 					</table>

@@ -42,38 +42,47 @@
 
             <li id="photo-<?php echo $v["id"]; ?>" class="jakcat">
               <div class="row">
-                <div class="col-xs-2">
-                  <a href="index.php?p=gallery&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><img
-                      src="<?php echo BASE_URL_ORIG . $JAK_UPLOAD_PATH_BASE . $v["paththumb"]; ?>"
-                      alt="<?php echo $v["title"]; ?>" class="img-thumbnail"/></a> <input type="hidden" name="phorder[]"
-                                                                                          class="corder"
-                                                                                          value="<?php echo $v["picorder"]; ?>"/><input
-                    type="hidden" name="real_photo_id[]" value="<?php echo $v["id"]; ?>"/></div>
-                <div class="col-xs-8">
-                  <div class="row">
-                    <div class="col-xs-7">
-                      <?php echo $tl["page"]["p"]; ?>: <input type="text" name="phname[]"
-                                                              value="<?php echo $v["title"]; ?>" class="form-control"
-                                                              maxlength="100"/></div>
-                    <div class="col-xs-5"><?php echo $tl["page"]["p1"]; ?>: <?php if ($v["catid"] != '0') {
-                        if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $z) {
-                          if (in_array($z["id"], explode(',', $v["catid"]))) { ?><a
-                            href="index.php?p=gallery&amp;sp=showcat&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a> <?php }
-                        }
-                      } else { ?><?php echo $tl["general"]["g24"]; ?><?php } ?></div>
+                <div class="row-table">
+                  <div class="col-xs-2 col-table">
+                    <div class="hovereffect">
+                      <div class="center-cropped">
+                        <img src="<?php echo BASE_URL_ORIG . $JAK_UPLOAD_PATH_BASE . $v["pathbig"]; ?>" alt="<?php echo $v["title"]; ?>"/>
+                      </div>
+                      <div class="overlay">
+                        <a href="index.php?p=gallery&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" class="info">Edit Photo</a>
+                      </div>
+                    </div>
+                    <input type="hidden" name="phorder[]" class="corder" value="<?php echo $v["picorder"]; ?>"/>
+                    <input type="hidden" name="real_photo_id[]" value="<?php echo $v["id"]; ?>"/>
                   </div>
-                </div>
-                <div class="col-xs-2">
-                  <a href="index.php?p=gallery&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>"
-                     class="btn btn-default btn-xs"><i
-                      class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i></a>
-                  <a href="index.php?p=gallery&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"
-                     class="btn btn-default btn-xs"><i class="fa fa-edit"></i></a>
-                  <a href="index.php?p=gallery&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>"
-                     class="btn btn-default btn-xs"
-                     onclick="if(!confirm('<?php echo $tl["page"]["al"]; ?>'))return false;"><i
-                      class="fa fa-trash-o"></i></a>
-
+                  <div class="col-xs-10 col-table v-text-center">
+                    <div class="row">
+                      <div class="col-xs-5">
+                        <div class="form-group form-inline no-margin">
+                          <label><?php echo $tl["page"]["p"]; ?>:</label>
+                          <input type="text" name="phname[]" value="<?php echo $v["title"]; ?>" class="form-control" maxlength="100"/>
+                        </div>
+                      </div>
+                      <div class="col-xs-5"><?php echo $tl["page"]["p1"]; ?>: <?php if ($v["catid"] != '0') {
+                          if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $z) {
+                            if (in_array($z["id"], explode(',', $v["catid"]))) { ?>
+                              <a href="index.php?p=gallery&amp;sp=showcat&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a> <?php }
+                          }
+                        } else { ?><?php echo $tl["general"]["g24"]; ?><?php } ?>
+                      </div>
+                      <div class="col-xs-2">
+                        <a href="index.php?p=gallery&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs">
+                          <i class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i>
+                        </a>
+                        <a href="index.php?p=gallery&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs">
+                          <i class="fa fa-edit"></i>
+                        </a>
+                        <a href="index.php?p=gallery&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" onclick="if(!confirm('<?php echo $tl["page"]["al"]; ?>'))return false;">
+                          <i class="fa fa-trash-o"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </li>
