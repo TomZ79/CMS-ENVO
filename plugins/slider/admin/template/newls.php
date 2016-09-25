@@ -73,13 +73,12 @@ if ($page3 == "e") { ?>
             <h3 class="box-title"><?php echo $tl["title"]["t13"]; ?></h3>
           </div><!-- /.box-header -->
           <div class="box-body">
-            <table class="table">
+            <table class="table v-text-center">
               <tr>
                 <td><?php echo $tlls["ls"]["d8"]; ?></td>
                 <td>
                   <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-                    <input type="text" name="jak_title" class="form-control"
-                           value="<?php if (isset($_REQUEST["jak_title"])) echo $_REQUEST["jak_title"]; ?>"/>
+                    <input type="text" name="jak_title" class="form-control" value="<?php if (isset($_REQUEST["jak_title"])) echo $_REQUEST["jak_title"]; ?>"/>
                   </div>
                 </td>
               </tr>
@@ -87,9 +86,7 @@ if ($page3 == "e") { ?>
                 <td><?php echo $tlls["ls"]["d9"]; ?></td>
                 <td>
                   <div class="input-group<?php if (isset($errors["e3"])) echo " has-error"; ?>">
-                    <input type="text" name="jak_lswidth" class="form-control"
-                           value="<?php if (isset($_REQUEST["jak_lswidth"])) echo $_REQUEST["jak_lswidth"] ?>"
-                           class="form-control"/>
+                    <input type="text" name="jak_lswidth" class="form-control" value="<?php if (isset($_REQUEST["jak_lswidth"])) echo $_REQUEST["jak_lswidth"] ?>" class="form-control"/>
                     <span class="input-group-addon">px / &#37;</span>
                   </div>
                 </td>
@@ -97,10 +94,8 @@ if ($page3 == "e") { ?>
               <tr>
                 <td><?php echo $tlls["ls"]["d10"]; ?></td>
                 <td>
-                  <div class="input-group<?php if (isset($errors["e3"])) echo " has-error"; ?>"><input type="text"
-                                                                                                       name="jak_lsheight"
-                                                                                                       value="<?php if (isset($_REQUEST["jak_lsheight"])) echo $_REQUEST["jak_lsheight"] ?>"
-                                                                                                       class="form-control"/>
+                  <div class="input-group<?php if (isset($errors["e3"])) echo " has-error"; ?>">
+                    <input type="text" name="jak_lsheight" value="<?php if (isset($_REQUEST["jak_lsheight"])) echo $_REQUEST["jak_lsheight"] ?>" class="form-control"/>
                     <span class="input-group-addon">px / &#37;</span>
                   </div>
                 </td>
@@ -109,12 +104,11 @@ if ($page3 == "e") { ?>
                 <td><?php echo $tlls["ls"]["d23"]; ?></td>
                 <td>
                   <div class="input-group">
-                    <input type="text" name="jak_logod" id="jak_logod" class="form-control"
-                           value="<?php if (isset($_REQUEST["jak_logod"])) echo $_REQUEST["jak_logod"]; ?>"/>
-				<span class="input-group-btn">
-				  <a class="btn btn-info ifManager" type="button"
-             href="../js/editor/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_logod"><?php echo $tl["general"]["g69"]; ?></a>
-				</span>
+                    <input type="text" name="jak_logod" id="jak_logod" class="form-control" value="<?php if (isset($_REQUEST["jak_logod"])) echo $_REQUEST["jak_logod"]; ?>"/>
+                    <span class="input-group-btn">
+                      <a class="btn btn-info ifManager" type="button"
+                         href="../js/editor/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_logod"><?php echo $tl["general"]["g69"]; ?></a>
+                    </span>
                   </div><!-- /input-group -->
                 </td>
               </tr>
@@ -122,28 +116,29 @@ if ($page3 == "e") { ?>
                 <td><?php echo $tlls["ls"]["d7"]; ?></td>
                 <td>
                   <div class="input-group">
-                    <input type="text" name="jak_logolink" id="jak_logolink" class="form-control"
-                           value="<?php if (isset($_REQUEST["jak_logolink"])) echo $_REQUEST["jak_logolink"]; ?>"/>
-				<span class="input-group-btn">
-				  <a class="btn btn-info ifManager" type="button"
-             href="../js/editor/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_logolink"><?php echo $tl["general"]["g69"]; ?></a>
-				</span>
+                    <input type="text" name="jak_logolink" id="jak_logolink" class="form-control" value="<?php if (isset($_REQUEST["jak_logolink"])) echo $_REQUEST["jak_logolink"]; ?>"/>
+                    <span class="input-group-btn">
+                      <a class="btn btn-info ifManager" type="button"
+                         href="../js/editor/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_logolink"><?php echo $tl["general"]["g69"]; ?></a>
+                    </span>
                   </div><!-- /input-group -->
                 </td>
               </tr>
               <tr>
                 <td><?php echo $tlls["ls"]["d1"]; ?></td>
                 <td>
-                  <div class="radio"><label><input type="radio" name="jak_animatef"
-                                                   value="1"<?php if (isset($_REQUEST["jak_animatef"]) && $_REQUEST["jak_animatef"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                    </label></div>
-                  <div class="radio"><label><input type="radio" name="jak_animatef"
-                                                   value="0"<?php if (isset($_REQUEST["jak_animatef"]) && $_REQUEST["jak_animatef"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                    </label></div>
+                  <div class="radio">
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_animatef" value="1"<?php if (isset($_REQUEST["jak_animatef"]) && $_REQUEST["jak_animatef"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_animatef" value="0"<?php if (isset($_REQUEST["jak_animatef"]) && $_REQUEST["jak_animatef"] == 0) { ?> checked="checked"<?php } ?> />
+                    </label>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <td><?php echo $tlls["ls"]["d6"]; ?></td>
+                <td style="vertical-align: top !important;"><?php echo $tlls["ls"]["d6"]; ?></td>
                 <td>
 
                   <div class="row">
@@ -170,315 +165,267 @@ if ($page3 == "e") { ?>
               </tr>
               <tr>
                 <td><?php echo $tlls["ls"]["d3"]; ?></td>
-                <td><select name="jak_transition" class="form-control">
-                    <option
-                      value="swing"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'swing') { ?> selected="selected"<?php } ?>>
+                <td>
+                  <select name="jak_transition" class="form-control selectpicker" data-live-search="true" data-size="5">
+                    <option value="swing"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'swing') { ?> selected="selected"<?php } ?>>
                       Swing
                     </option>
-                    <option
-                      value="easeInQuad"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInQuad') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInQuad"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInQuad') { ?> selected="selected"<?php } ?>>
                       easeInQuad
                     </option>
-                    <option
-                      value="easeOutQuad"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeOutQuad') { ?> selected="selected"<?php } ?>>
+                    <option value="easeOutQuad"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeOutQuad') { ?> selected="selected"<?php } ?>>
                       easeOutQuad
                     </option>
-                    <option
-                      value="easeInOutQuad"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInOutQuad') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInOutQuad"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInOutQuad') { ?> selected="selected"<?php } ?>>
                       easeInOutQuad
                     </option>
-                    <option
-                      value="easeInCubic"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInCubic') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInCubic"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInCubic') { ?> selected="selected"<?php } ?>>
                       easeInCubic
                     </option>
-                    <option
-                      value="easeOutCubic"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeOutCubic') { ?> selected="selected"<?php } ?>>
+                    <option value="easeOutCubic"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeOutCubic') { ?> selected="selected"<?php } ?>>
                       easeOutCubic
                     </option>
-                    <option
-                      value="easeInOutCubic"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInOutCubic') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInOutCubic"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInOutCubic') { ?> selected="selected"<?php } ?>>
                       easeInOutCubic
                     </option>
-                    <option
-                      value="easeInQuart"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInQuart') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInQuart"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInQuart') { ?> selected="selected"<?php } ?>>
                       easeInQuart
                     </option>
-                    <option
-                      value="easeOutQuart"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeOutQuart') { ?> selected="selected"<?php } ?>>
+                    <option value="easeOutQuart"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeOutQuart') { ?> selected="selected"<?php } ?>>
                       easeOutQuart
                     </option>
-                    <option
-                      value="easeInOutQuart"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInOutQuart') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInOutQuart"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInOutQuart') { ?> selected="selected"<?php } ?>>
                       easeInOutQuart
                     </option>
-                    <option
-                      value="easeInQuint"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInQuint') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInQuint"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInQuint') { ?> selected="selected"<?php } ?>>
                       easeInQuint
                     </option>
-                    <option
-                      value="easeInOutQuint"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInOutQuint') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInOutQuint"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInOutQuint') { ?> selected="selected"<?php } ?>>
                       easeInOutQuint
                     </option>
-                    <option
-                      value="easeInSine"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInSine') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInSine"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInSine') { ?> selected="selected"<?php } ?>>
                       easeInSine
                     </option>
-                    <option
-                      value="easeOutSine"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeOutSine') { ?> selected="selected"<?php } ?>>
+                    <option value="easeOutSine"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeOutSine') { ?> selected="selected"<?php } ?>>
                       easeOutSine
                     </option>
-                    <option
-                      value="easeInOutSine"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInOutSine') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInOutSine"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInOutSine') { ?> selected="selected"<?php } ?>>
                       easeInOutSine
                     </option>
-                    <option
-                      value="easeInExpo"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInExpo') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInExpo"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInExpo') { ?> selected="selected"<?php } ?>>
                       easeInExpo
                     </option>
-                    <option
-                      value="easeOutExpo"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeOutExpo') { ?> selected="selected"<?php } ?>>
+                    <option value="easeOutExpo"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeOutExpo') { ?> selected="selected"<?php } ?>>
                       easeOutExpo
                     </option>
-                    <option
-                      value="easeInOutExpo"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInOutExpo') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInOutExpo"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInOutExpo') { ?> selected="selected"<?php } ?>>
                       easeInOutExpo
                     </option>
-                    <option
-                      value="easeInCirc"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInCirc') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInCirc"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInCirc') { ?> selected="selected"<?php } ?>>
                       easeInCirc
                     </option>
-                    <option
-                      value="easeOutCirc"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeOutCirc') { ?> selected="selected"<?php } ?>>
+                    <option value="easeOutCirc"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeOutCirc') { ?> selected="selected"<?php } ?>>
                       easeOutCirc
                     </option>
-                    <option
-                      value="easeInOutCirc"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInOutCirc') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInOutCirc"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInOutCirc') { ?> selected="selected"<?php } ?>>
                       easeInOutCirc
                     </option>
-                    <option
-                      value="easeInElastic"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInElastic') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInElastic"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInElastic') { ?> selected="selected"<?php } ?>>
                       easeInElastic
                     </option>
-                    <option
-                      value="easeInOutElastic"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInOutElastic') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInOutElastic"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInOutElastic') { ?> selected="selected"<?php } ?>>
                       easeInOutElastic
                     </option>
-                    <option
-                      value="easeInBack"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInBack') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInBack"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInBack') { ?> selected="selected"<?php } ?>>
                       easeInBack
                     </option>
-                    <option
-                      value="easeOutBack"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeOutBack') { ?> selected="selected"<?php } ?>>
+                    <option value="easeOutBack"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeOutBack') { ?> selected="selected"<?php } ?>>
                       easeOutBack
                     </option>
-                    <option
-                      value="easeInOutBack"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInOutBack') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInOutBack"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInOutBack') { ?> selected="selected"<?php } ?>>
                       easeInOutBack
                     </option>
-                    <option
-                      value="easeInBounce"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInBounce') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInBounce"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInBounce') { ?> selected="selected"<?php } ?>>
                       easeInBounce
                     </option>
-                    <option
-                      value="easeOutBounce"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeOutBounce') { ?> selected="selected"<?php } ?>>
+                    <option value="easeOutBounce"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeOutBounce') { ?> selected="selected"<?php } ?>>
                       easeOutBounce
                     </option>
-                    <option
-                      value="easeInOutBounce"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInOutBounce') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInOutBounce"<?php if (isset($_REQUEST["jak_transition"]) && $_REQUEST["jak_transition"] == 'easeInOutBounce') { ?> selected="selected"<?php } ?>>
                       easeInOutBounce
                     </option>
-                  </select></td>
+                  </select>
+                </td>
               </tr>
               <tr>
                 <td><?php echo $tlls["ls"]["d2"]; ?></td>
-                <td><select name="jak_transition_out" class="form-control">
-                    <option
-                      value="swing"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'swing') { ?> selected="selected"<?php } ?>>
+                <td>
+                  <select name="jak_transition_out" class="form-control selectpicker" data-live-search="true" data-size="5">
+                    <option value="swing"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'swing') { ?> selected="selected"<?php } ?>>
                       Swing
                     </option>
-                    <option
-                      value="easeInQuad"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInQuad') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInQuad"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInQuad') { ?> selected="selected"<?php } ?>>
                       easeInQuad
                     </option>
-                    <option
-                      value="easeOutQuad"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeOutQuad') { ?> selected="selected"<?php } ?>>
+                    <option value="easeOutQuad"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeOutQuad') { ?> selected="selected"<?php } ?>>
                       easeOutQuad
                     </option>
-                    <option
-                      value="easeInOutQuad"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInOutQuad') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInOutQuad"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInOutQuad') { ?> selected="selected"<?php } ?>>
                       easeInOutQuad
                     </option>
-                    <option
-                      value="easeInCubic"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInCubic') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInCubic"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInCubic') { ?> selected="selected"<?php } ?>>
                       easeInCubic
                     </option>
-                    <option
-                      value="easeOutCubic"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeOutCubic') { ?> selected="selected"<?php } ?>>
+                    <option value="easeOutCubic"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeOutCubic') { ?> selected="selected"<?php } ?>>
                       easeOutCubic
                     </option>
-                    <option
-                      value="easeInOutCubic"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInOutCubic') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInOutCubic"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInOutCubic') { ?> selected="selected"<?php } ?>>
                       easeInOutCubic
                     </option>
-                    <option
-                      value="easeInQuart"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInQuart') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInQuart"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInQuart') { ?> selected="selected"<?php } ?>>
                       easeInQuart
                     </option>
-                    <option
-                      value="easeOutQuart"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeOutQuart') { ?> selected="selected"<?php } ?>>
+                    <option value="easeOutQuart"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeOutQuart') { ?> selected="selected"<?php } ?>>
                       easeOutQuart
                     </option>
-                    <option
-                      value="easeInOutQuart"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInOutQuart') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInOutQuart"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInOutQuart') { ?> selected="selected"<?php } ?>>
                       easeInOutQuart
                     </option>
-                    <option
-                      value="easeInQuint"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInQuint') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInQuint"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInQuint') { ?> selected="selected"<?php } ?>>
                       easeInQuint
                     </option>
-                    <option
-                      value="easeInOutQuint"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInOutQuint') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInOutQuint"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInOutQuint') { ?> selected="selected"<?php } ?>>
                       easeInOutQuint
                     </option>
-                    <option
-                      value="easeInSine"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInSine') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInSine"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInSine') { ?> selected="selected"<?php } ?>>
                       easeInSine
                     </option>
-                    <option
-                      value="easeOutSine"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeOutSine') { ?> selected="selected"<?php } ?>>
+                    <option value="easeOutSine"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeOutSine') { ?> selected="selected"<?php } ?>>
                       easeOutSine
                     </option>
-                    <option
-                      value="easeInOutSine"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInOutSine') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInOutSine"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInOutSine') { ?> selected="selected"<?php } ?>>
                       easeInOutSine
                     </option>
-                    <option
-                      value="easeInExpo"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInExpo') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInExpo"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInExpo') { ?> selected="selected"<?php } ?>>
                       easeInExpo
                     </option>
-                    <option
-                      value="easeOutExpo"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeOutExpo') { ?> selected="selected"<?php } ?>>
+                    <option value="easeOutExpo"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeOutExpo') { ?> selected="selected"<?php } ?>>
                       easeOutExpo
                     </option>
-                    <option
-                      value="easeInOutExpo"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInOutExpo') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInOutExpo"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInOutExpo') { ?> selected="selected"<?php } ?>>
                       easeInOutExpo
                     </option>
-                    <option
-                      value="easeInCirc"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInCirc') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInCirc"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInCirc') { ?> selected="selected"<?php } ?>>
                       easeInCirc
                     </option>
-                    <option
-                      value="easeOutCirc"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeOutCirc') { ?> selected="selected"<?php } ?>>
+                    <option value="easeOutCirc"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeOutCirc') { ?> selected="selected"<?php } ?>>
                       easeOutCirc
                     </option>
-                    <option
-                      value="easeInOutCirc"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInOutCirc') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInOutCirc"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInOutCirc') { ?> selected="selected"<?php } ?>>
                       easeInOutCirc
                     </option>
-                    <option
-                      value="easeInElastic"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInElastic') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInElastic"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInElastic') { ?> selected="selected"<?php } ?>>
                       easeInElastic
                     </option>
-                    <option
-                      value="easeInOutElastic"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInOutElastic') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInOutElastic"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInOutElastic') { ?> selected="selected"<?php } ?>>
                       easeInOutElastic
                     </option>
-                    <option
-                      value="easeInBack"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInBack') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInBack"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInBack') { ?> selected="selected"<?php } ?>>
                       easeInBack
                     </option>
-                    <option
-                      value="easeOutBack"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeOutBack') { ?> selected="selected"<?php } ?>>
+                    <option value="easeOutBack"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeOutBack') { ?> selected="selected"<?php } ?>>
                       easeOutBack
                     </option>
-                    <option
-                      value="easeInOutBack"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInOutBack') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInOutBack"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInOutBack') { ?> selected="selected"<?php } ?>>
                       easeInOutBack
                     </option>
-                    <option
-                      value="easeInBounce"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInBounce') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInBounce"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInBounce') { ?> selected="selected"<?php } ?>>
                       easeInBounce
                     </option>
-                    <option
-                      value="easeOutBounce"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeOutBounce') { ?> selected="selected"<?php } ?>>
+                    <option value="easeOutBounce"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeOutBounce') { ?> selected="selected"<?php } ?>>
                       easeOutBounce
                     </option>
-                    <option
-                      value="easeInOutBounce"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInOutBounce') { ?> selected="selected"<?php } ?>>
+                    <option value="easeInOutBounce"<?php if (isset($_REQUEST["jak_transition_out"]) && $_REQUEST["jak_transition_out"] == 'easeInOutBounce') { ?> selected="selected"<?php } ?>>
                       easeInOutBounce
                     </option>
-                  </select></td>
+                  </select>
+                </td>
               </tr>
               <tr>
                 <td><?php echo $tlls["ls"]["d16"]; ?></td>
-                <td><select name="jak_direction" class="form-control">
-                    <option
-                      value="top"<?php if (isset($_REQUEST["jak_direction"]) && $_REQUEST["jak_direction"] == "top") { ?> selected="selected"<?php } ?>><?php echo $tlls["ls"]["d17"]; ?></option>
-                    <option
-                      value="left"<?php if (isset($_REQUEST["jak_direction"]) && $_REQUEST["jak_direction"] == "left") { ?> selected="selected"<?php } ?>><?php echo $tlls["ls"]["d18"]; ?></option>
-                    <option
-                      value="bottom"<?php if (isset($_REQUEST["jak_direction"]) && $_REQUEST["jak_direction"] == "bottom") { ?> selected="selected"<?php } ?>><?php echo $tlls["ls"]["d19"]; ?></option>
-                    <option
-                      value="right"<?php if (isset($_REQUEST["jak_direction"]) && $_REQUEST["jak_direction"] == "right") { ?> selected="selected"<?php } ?>><?php echo $tlls["ls"]["d20"]; ?></option>
-                  </select></td>
+                <td>
+                  <select name="jak_direction" class="form-control selectpicker" data-size="5">
+                    <option value="top"<?php if (isset($_REQUEST["jak_direction"]) && $_REQUEST["jak_direction"] == "top") { ?> selected="selected"<?php } ?>><?php echo $tlls["ls"]["d17"]; ?></option>
+                    <option value="left"<?php if (isset($_REQUEST["jak_direction"]) && $_REQUEST["jak_direction"] == "left") { ?> selected="selected"<?php } ?>><?php echo $tlls["ls"]["d18"]; ?></option>
+                    <option value="bottom"<?php if (isset($_REQUEST["jak_direction"]) && $_REQUEST["jak_direction"] == "bottom") { ?> selected="selected"<?php } ?>><?php echo $tlls["ls"]["d19"]; ?></option>
+                    <option value="right"<?php if (isset($_REQUEST["jak_direction"]) && $_REQUEST["jak_direction"] == "right") { ?> selected="selected"<?php } ?>><?php echo $tlls["ls"]["d20"]; ?></option>
+                  </select>
+                </td>
               </tr>
               <tr>
                 <td><?php echo $tlls["ls"]["d5"]; ?></td>
-                <td><select name="jak_pause" class="form-control">
+                <td>
+                  <select name="jak_pause" class="form-control selectpicker" data-live-search="true" data-size="5">
                     <?php for ($i = 200; $i <= 20000; $i += 200) { ?>
-                      <option
-                        value="<?php echo $i; ?>"<?php if (isset($_REQUEST["jak_pause"]) && $_REQUEST["jak_pause"] == $i) { ?> selected="selected"<?php } ?>><?php echo $i; ?></option>
+                      <option value="<?php echo $i; ?>"<?php if (isset($_REQUEST["jak_pause"]) && $_REQUEST["jak_pause"] == $i) { ?> selected="selected"<?php } ?>><?php echo $i; ?></option>
                     <?php } ?>
-                  </select></td>
+                  </select>
+                </td>
               </tr>
               <tr>
-                <td><?php echo $tlls["ls"]["d50"]; ?> <a class="cms-help" data-content="<?php echo $tlls["ls"]["h"]; ?>"
-                                                         href="javascript:void(0)"
-                                                         data-original-title="<?php echo $tl["title"]["t21"]; ?>"><i
-                      class="fa fa-question-circle"></i></a></td>
+                <td><?php echo $tlls["ls"]["d50"]; ?>
+                  <a class="cms-help" data-content="<?php echo $tlls["ls"]["h"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tl["title"]["t21"]; ?>">
+                    <i class="fa fa-question-circle"></i>
+                  </a>
+                </td>
                 <td>
-                  <div class="radio"><label>
-                      <input type="radio" name="jak_ontop"
-                             value="1"<?php if (isset($_REQUEST["jak_ontop"]) && $_REQUEST["jak_ontop"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                    </label></div>
-                  <div class="radio"><label>
-                      <input type="radio" name="jak_ontop"
-                             value="0"<?php if (isset($_REQUEST["jak_ontop"]) && $_REQUEST["jak_ontop"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                    </label></div>
+                  <div class="radio">
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_ontop" value="1"<?php if (isset($_REQUEST["jak_ontop"]) && $_REQUEST["jak_ontop"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_ontop" value="0"<?php if (isset($_REQUEST["jak_ontop"]) && $_REQUEST["jak_ontop"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    </label>
+                  </div>
                 </td>
               </tr>
               <tr>
                 <td><?php echo $tlls["ls"]["d42"]; ?></td>
                 <td>
-                  <div class="radio"><label><input type="radio" name="jak_responsive"
-                                                   value="1"<?php if (isset($_REQUEST["jak_responsive"]) && $_REQUEST["jak_responsive"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                    </label></div>
-                  <div class="radio"><label><input type="radio" name="jak_responsive"
-                                                   value="0"<?php if (isset($_REQUEST["jak_responsive"]) && $_REQUEST["jak_responsive"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                    </label></div>
+                  <div class="radio">
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_responsive" value="1"<?php if (isset($_REQUEST["jak_responsive"]) && $_REQUEST["jak_responsive"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_responsive" value="0"<?php if (isset($_REQUEST["jak_responsive"]) && $_REQUEST["jak_responsive"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    </label>
+                  </div>
                 </td>
               </tr>
               <tr>
                 <td><?php echo $tlls["ls"]["d24"]; ?></td>
                 <td>
-                  <div class="radio"><label><input type="radio" name="jak_autostart"
-                                                   value="1"<?php if (isset($_REQUEST["jak_autostart"]) && $_REQUEST["jak_autostart"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                    </label></div>
-                  <div class="radio"><label><input type="radio" name="jak_autostart"
-                                                   value="0"<?php if (isset($_REQUEST["jak_autostart"]) && $_REQUEST["jak_autostart"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                    </label></div>
+                  <div class="radio">
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_autostart" value="1"<?php if (isset($_REQUEST["jak_autostart"]) && $_REQUEST["jak_autostart"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_autostart" value="0"<?php if (isset($_REQUEST["jak_autostart"]) && $_REQUEST["jak_autostart"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    </label>
+                  </div>
                 </td>
               </tr>
               <tr>
                 <td><?php echo $tlls["ls"]["d21"]; ?></td>
                 <td>
-                  <div class="radio"><label><input type="radio" name="jak_navbutton"
-                                                   value="1"<?php if (isset($_REQUEST["jak_navbutton"]) && $_REQUEST["jak_navbutton"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                    </label></div>
-                  <div class="radio"><label><input type="radio" name="jak_navbutton"
-                                                   value="0"<?php if (isset($_REQUEST["jak_navbutton"]) && $_REQUEST["jak_navbutton"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                    </label></div>
+                  <div class="radio">
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_navbutton" value="1"<?php if (isset($_REQUEST["jak_navbutton"]) && $_REQUEST["jak_navbutton"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_navbutton" value="0"<?php if (isset($_REQUEST["jak_navbutton"]) && $_REQUEST["jak_navbutton"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    </label>
+                  </div>
                 </td>
               </tr>
               <tr>
