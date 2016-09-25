@@ -33,7 +33,7 @@
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 		<?php if (isset($JAK_GALLERY_ALL)) { ?>
 			<div class="input-group">
-				<select name="jak_catid" class="form-control">
+				<select name="jak_catid" class="form-control selectpicker">
 					<?php if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $z) { ?>
 						<option value="<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></option><?php } ?>
 				</select>

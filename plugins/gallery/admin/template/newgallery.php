@@ -54,24 +54,24 @@
       <div class="box-body">
         <table class="table">
           <tr>
-            <td><select name="jak_catid" class="form-control">
+            <td>
+              <select name="jak_catid" class="form-control selectpicker">
                 <?php if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $v) { ?>
                   <option value="<?php echo $v["id"]; ?>"<?php if ($v["id"] == $page2) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php } ?>
-              </select></td>
+              </select>
+            </td>
           </tr>
         </table>
       </div>
       <div class="box-footer">
-        <button type="submit" name="catsave"
-                class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+        <button type="submit" name="catsave" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
       </div>
     </div>
   </form>
 
   <?php if ($page2) { ?>
 
-    <form method="post" class="dropzone" id="GalleryDropzone" action="<?php echo $_SERVER['REQUEST_URI']; ?>"
-          enctype="multipart/form-data">
+    <form method="post" class="dropzone" id="GalleryDropzone" action="<?php echo $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data">
       <?php if ($errors) { ?>
         <div class="validation-failure">
           <?php if (isset($errors["e"])) echo $errors["e"]; ?>
@@ -80,10 +80,8 @@
       <div class="fallback">
         <input type="file" name="photoupload[]" accept="image/*" multiple/>
 
-
         <div class="form-actions">
-          <button type="submit" name="oldfashion"
-                  class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+          <button type="submit" name="oldfashion" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
         </div>
       </div>
       <input type="hidden" value="<?php echo $page2; ?>" name="jak_catid_new"/>

@@ -1,10 +1,5 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
-  <ul class="breadcrumb">
-    <li><a href="index.php?p=gallery"><?php echo $tlgal["gallery"]["m"]; ?></a></li>
-    <li class="active"><?php echo $tlgal["gallery"]["m3"]; ?></li>
-  </ul>
-
 <?php if ($page3 == "s") { ?>
   <script type="text/javascript">
     // Notification
@@ -35,7 +30,7 @@
   </script>
 <?php } ?>
 
-  <div class="page-header">
+  <div class="page-header" style="height: 37px">
     <div class="btn-group pull-right">
       <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $tl["menu"]["m15"]; ?>
         <span class="caret"></span>
@@ -43,12 +38,10 @@
       <ul class="dropdown-menu">
         <li><a href="index.php?p=gallery"><?php echo $tlgal["gallery"]["m1"]; ?></a></li>
         <li><a href="index.php?p=gallery&amp;sp=new"><?php echo $tlgal["gallery"]["m2"]; ?></a></li>
-        <li><a
-            href="index.php?p=gallery&amp;sp=edit&amp;ssp=<?php echo $page2; ?>"><?php echo $tlgal["gallery"]["m3"]; ?></a>
+        <li><a href="index.php?p=gallery&amp;sp=edit&amp;ssp=<?php echo $page2; ?>"><?php echo $tlgal["gallery"]["m3"]; ?></a>
         </li>
       </ul>
     </div>
-    <h1><?php echo $tlgal["gallery"]["m3"]; ?></h1>
   </div>
 
 <?php if ($errors) { ?>
@@ -71,15 +64,10 @@
             <td><?php echo $tl["page"]["p1"]; ?></td>
             <td>
 
-              <select name="jak_catid" class="form-control">
-
-                <option
-                  value="0"<?php if ($JAK_FORM_DATA["catid"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g24"]; ?></option>
+              <select name="jak_catid" class="form-control selectpicker">
+                <option value="0"<?php if ($JAK_FORM_DATA["catid"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g24"]; ?></option>
                 <?php if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $z) { ?>
-
-                  <option
-                    value="<?php echo $z["id"]; ?>"<?php if ($z["id"] == $JAK_FORM_DATA["catid"]) { ?> selected="selected"<?php } ?>><?php echo $z["name"]; ?></option>
-
+                  <option value="<?php echo $z["id"]; ?>"<?php if ($z["id"] == $JAK_FORM_DATA["catid"]) { ?> selected="selected"<?php } ?>><?php echo $z["name"]; ?></option>
                 <?php } ?>
               </select>
 
@@ -88,8 +76,7 @@
         </table>
       </div>
       <div class="box-footer">
-        <button type="submit" name="catsave"
-                class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+        <button type="submit" name="catsave" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
       </div>
     </div>
 
@@ -103,8 +90,7 @@
             <td><?php echo $tlgal["gallery"]["d8"]; ?></td>
             <td>
               <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-                <input class="form-control" type="text" name="jak_title"
-                       value="<?php echo $JAK_FORM_DATA["title"]; ?>"/>
+                <input class="form-control" type="text" name="jak_title" value="<?php echo $JAK_FORM_DATA["title"]; ?>"/>
               </div>
             </td>
           </tr>
@@ -127,8 +113,7 @@
         </table>
       </div>
       <div class="box-footer">
-        <button type="submit" name="catsave"
-                class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+        <button type="submit" name="catsave" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
       </div>
     </div>
 
@@ -139,14 +124,16 @@
       <div class="box-body">
         <table class="table">
           <tr>
-            <td><img src="<?php echo BASE_URL_ORIG . $JAK_UPLOAD_PATH_BASE . $JAK_FORM_DATA["pathbig"]; ?>"
-                     alt="<?php echo $JAK_FORM_DATA["title"]; ?>"/></td>
+            <td class="text-center">
+
+              <img src="<?php echo BASE_URL_ORIG . $JAK_UPLOAD_PATH_BASE . $JAK_FORM_DATA["pathbig"]; ?>" alt="<?php echo $JAK_FORM_DATA["title"]; ?>"/>
+
+            </td>
           </tr>
         </table>
       </div>
       <div class="box-footer">
-        <button type="submit" name="catsave"
-                class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+        <button type="submit" name="catsave" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
       </div>
     </div>
 
@@ -159,7 +146,6 @@
   <script src="js/ace/ace.js" type="text/javascript"></script>
 <?php } ?>
   <script type="text/javascript">
-
     <?php if ($jkv["adv_editor"]) { ?>
     var htmlACE = ace.edit("htmleditor");
     htmlACE.setTheme("ace/theme/chrome");
