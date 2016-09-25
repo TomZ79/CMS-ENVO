@@ -52,8 +52,7 @@
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
         <div class="box box-primary">
@@ -61,48 +60,47 @@
             <h3 class="box-title"><?php echo $lrf["register"]["r6"]; ?></h3>
           </div><!-- /.box-header -->
           <div class="box-body">
-            <table class="table table-striped">
+            <table class="table table-striped v-text-center">
               <tr>
                 <td><?php echo $lrf["register"]["r3"]; ?></td>
                 <td>
-                  <div class="radio"><label>
-                      <input type="radio" name="jak_register"
-                             value="1"<?php if ($jkv["rf_active"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                    </label></div>
-                  <div class="radio"><label>
-                      <input type="radio" name="jak_register"
-                             value="0"<?php if ($jkv["rf_active"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                    </label></div>
+                  <div class="radio">
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_register" value="1"<?php if ($jkv["rf_active"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_register" value="0"<?php if ($jkv["rf_active"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    </label>
+                  </div>
                 </td>
               </tr>
               <tr>
                 <td><?php echo $lrf["register"]["r12"]; ?></td>
                 <td>
-                  <div class="radio"><label>
-                      <input type="radio" name="jak_simple"
-                             value="1"<?php if ($jkv["rf_simple"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                    </label></div>
-                  <div class="radio"><label>
-                      <input type="radio" name="jak_simple"
-                             value="0"<?php if ($jkv["rf_simple"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                    </label></div>
+                  <div class="radio">
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_simple" value="1"<?php if ($jkv["rf_simple"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_simple" value="0"<?php if ($jkv["rf_simple"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    </label>
+                  </div>
                 </td>
               </tr>
               <tr>
                 <td><?php echo $lrf["register"]["r4"]; ?></td>
                 <td>
-                  <div class="radio"><label>
-                      <input type="radio" name="jak_usrapprove"
-                             value="1"<?php if ($jkv["rf_confirm"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                    </label></div>
-                  <div class="radio"><label>
-                      <input type="radio" name="jak_usrapprove"
-                             value="2"<?php if ($jkv["rf_confirm"] == '2') { ?> checked="checked"<?php } ?> /> <?php echo $lrf["register"]["r7"]; ?>
-                    </label></div>
-                  <div class="radio"><label>
-                      <input type="radio" name="jak_usrapprove"
-                             value="3"<?php if ($jkv["rf_confirm"] == '3') { ?> checked="checked"<?php } ?> /> <?php echo $lrf["register"]["r8"]; ?>
-                    </label></div>
+                  <div class="radio">
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_usrapprove" value="1"<?php if ($jkv["rf_confirm"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_usrapprove" value="2"<?php if ($jkv["rf_confirm"] == '2') { ?> checked="checked"<?php } ?> /> <?php echo $lrf["register"]["r7"]; ?>
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_usrapprove" value="3"<?php if ($jkv["rf_confirm"] == '3') { ?> checked="checked"<?php } ?> /> <?php echo $lrf["register"]["r8"]; ?>
+                    </label>
+                  </div>
                 </td>
               </tr>
               <tr>
