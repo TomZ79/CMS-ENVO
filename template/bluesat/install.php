@@ -1,5 +1,19 @@
 <?php
 
+/*
+*
+* BLUESAT.CZ
+* PHP INSTALL for CMS Template
+* Copyright © 2016 Bluesat.cz
+*
+* -----------------------------------------------------------------------
+* author: Thomas
+* written by: Bluesat.cz - (http://www.bluesat.cz)
+* email: bluesatkv@gmail.com
+* =======================================================================
+*
+*/
+
 if (!file_exists('../../config.php')) die('[index.php] config.php not found');
 require_once '../../config.php';
 
@@ -16,7 +30,7 @@ $succesfully = 0;
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Installation - Mosaic / Template</title>
+  <title>Installation - Bluesat / Template</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen"/>
   <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
@@ -26,12 +40,12 @@ $succesfully = 0;
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h3>Installation - Mosaic / Template</h3>
+      <h3>Installation - Bluesat / Template</h3>
 
       <!-- Check if the plugin is already installed -->
       <?php
 
-      $jakdb->query('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "sitestyle_widget_mosaic"');
+      $jakdb->query('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "sitestyle_widget_bluesat"');
       if ($jakdb->affected_rows > 0) { ?>
 
         <div class="alert alert-info fade in">
@@ -39,25 +53,24 @@ $succesfully = 0;
         </div>
 
         <!-- Plugin is not installed let's display the installation script -->
-      <?php } else {
-        if (isset($_POST['install'])) {
+        <?php } else { if (isset($_POST['install'])) {
 
-// Delete old entries
-          $jakdb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "mosaic"');
+          // Delete old entries
+          $jakdb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "bluesat"');
 
-// Insert tables into settings
+          // Insert tables into settings
           $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
-("navbarstyle_mosaic_tpl", "mosaic", 0, 0, "yesno", "boolean", "tpl_mosaic"),
-("navbarbw_mosaic_tpl", "mosaic", "dark", "dark", "select", "free", "tpl_mosaic"),
-("navbarcolor_mosaic_tpl", "mosaic", NULL, NULL, "input", "free", "tpl_mosaic"),
-("navbarlinkcolor_mosaic_tpl", "mosaic", NULL, NULL, "input", "free", "tpl_mosaic"),
-("navbarcolorlinkbg_mosaic_tpl", "mosaic", NULL, NULL, "input", "free", "tpl_mosaic"),
-("navbarcolorsubmenu_mosaic_tpl", "mosaic", NULL, NULL, "input", "free", "tpl_mosaic"),
-("logo_mosaic_tpl", "mosaic", NULL, NULL, "input", "free", "tpl_mosaic"),
+("navbarstyle_mosaic_tpl", "bluesat", 0, 0, "yesno", "boolean", "tpl_bluesat"),
+("navbarbw_mosaic_tpl", "bluesat", "dark", "dark", "select", "free", "tpl_bluesat"),
+("navbarcolor_mosaic_tpl", "bluesat", NULL, NULL, "input", "free", "tpl_bluesat"),
+("navbarlinkcolor_mosaic_tpl", "bluesat", NULL, NULL, "input", "free", "tpl_bluesat"),
+("navbarcolorlinkbg_mosaic_tpl", "bluesat", NULL, NULL, "input", "free", "tpl_bluesat"),
+("navbarcolorsubmenu_mosaic_tpl", "bluesat", NULL, NULL, "input", "free", "tpl_bluesat"),
+("logo_mosaic_tpl", "bluesat", NULL, NULL, "input", "free", "tpl_bluesat"),
 
-("mininavbarshow_mosaic_tpl", "mosaic", 1, 0, "yesno", "boolean", "tpl_mosaic"),
-("mininavbarcolour_mosaic_tpl", "mosaic", "dark", "dark", "select", "free", "tpl_mosaic"),
-("mininavbartxt_mosaic_tpl", "mosaic", "<div class=\"col-sm-12\">
+("mininavbarshow_mosaic_tpl", "bluesat", 1, 0, "yesno", "boolean", "tpl_bluesat"),
+("mininavbarcolour_mosaic_tpl", "bluesat", "dark", "dark", "select", "free", "tpl_bluesat"),
+("mininavbartxt_mosaic_tpl", "bluesat", "<div class=\"col-sm-12\">
   <a href=\"#\" class=\"first-child\"><i class=\"fa fa-envelope\"></i> Email<span class=\"hidden-sm\">: contact@example.com</span></a>
   <span class=\"phone\">
     <i class=\"fa fa-phone-square\"></i> Tel.: +0 (000) 000-00-00
@@ -65,31 +78,31 @@ $succesfully = 0;
   <a href=\"#\" class=\"pull-right\"><i class=\"fa fa-arrow-circle-down\"></i> Sign Up</a>
   <a href=\"#\" class=\"pull-right\"><i class=\"fa fa-sign-in\"></i> Sign In</a>
   <a href=\"#\" class=\"pull-right\"><i class=\"fa fa-search\"></i> Search</a>
-</div>", NULL, "input", "free", "tpl_mosaic"),
+</div>", NULL, "input", "free", "tpl_bluesat"),
 
-("style_mosaic_tpl", "mosaic", NULL, NULL, "input", "free", "tpl_mosaic"),
-("design_mosaic_tpl", "mosaic", "white", "white", "input", "free", "tpl_mosaic"),
-("boxpattern_mosaic_tpl", "mosaic", NULL, NULL, "input", "free", "tpl_mosaic"),
-("boxbg_mosaic_tpl", "mosaic", NULL, NULL, "input", "free", "tpl_mosaic"),
-("sidebar_location_tpl", "mosaic", NULL, NULL, "input", "free", "tpl_mosaic"),
-("font_mosaic_tpl", "mosaic", "Robot, Helvetica, sans-serif", "Arial, Helvetica, sans-serif", "input", "free", "tpl_mosaic"),
-("fontg_mosaic_tpl", "mosaic", "Oswald", "NonGoogle", "input", "free", "tpl_mosaic"),
-("hcolour_mosaic_tpl", "mosaic", NULL, NULL, "input", "free", "tpl_mosaic"),
-("txtcolour_mosaic_tpl", "mosaic", NULL, NULL, "input", "free", "tpl_mosaic"),
+("style_mosaic_tpl", "bluesat", NULL, NULL, "input", "free", "tpl_bluesat"),
+("design_mosaic_tpl", "bluesat", "white", "white", "input", "free", "tpl_bluesat"),
+("boxpattern_mosaic_tpl", "bluesat", NULL, NULL, "input", "free", "tpl_bluesat"),
+("boxbg_mosaic_tpl", "bluesat", NULL, NULL, "input", "free", "tpl_bluesat"),
+("sidebar_location_tpl", "bluesat", NULL, NULL, "input", "free", "tpl_bluesat"),
+("font_mosaic_tpl", "bluesat", "Robot, Helvetica, sans-serif", "Arial, Helvetica, sans-serif", "input", "free", "tpl_bluesat"),
+("fontg_mosaic_tpl", "bluesat", "Oswald", "NonGoogle", "input", "free", "tpl_bluesat"),
+("hcolour_mosaic_tpl", "bluesat", NULL, NULL, "input", "free", "tpl_bluesat"),
+("txtcolour_mosaic_tpl", "bluesat", NULL, NULL, "input", "free", "tpl_bluesat"),
 
-("theme_mosaic_tpl", "mosaic", "body-green", "body-green", "input", "free", "tpl_mosaic"),
-("pattern_mosaic_tpl", "mosaic", NULL, NULL, "input", "free", "tpl_mosaic"),
-("mainbg_mosaic_tpl", "mosaic", NULL, NULL, "input", "free", "tpl_mosaic"),
+("theme_mosaic_tpl", "bluesat", "body-green", "body-green", "input", "free", "tpl_bluesat"),
+("pattern_mosaic_tpl", "bluesat", NULL, NULL, "input", "free", "tpl_bluesat"),
+("mainbg_mosaic_tpl", "bluesat", NULL, NULL, "input", "free", "tpl_bluesat"),
 
-("bcontent1_mosaic_tpl", "mosaic", NULL, NULL, "textarea", "free", "tpl_mosaic"),
-("bcontent2_mosaic_tpl", "mosaic", NULL, NULL, "textarea", "free", "tpl_mosaic"),
-("bcontent3_mosaic_tpl", "mosaic", NULL, NULL, "textarea", "free", "tpl_mosaic"),
-("sectionbg_mosaic_tpl", "mosaic", NULL, NULL, "input", "free", "tpl_mosaic"),
-("sectiontc_mosaic_tpl", "mosaic", NULL, NULL, "input", "free", "tpl_mosaic"),
-("sectionshow_mosaic_tpl", "mosaic", 0, 0, "yesno", "boolean", "tpl_mosaic"),
+("bcontent1_mosaic_tpl", "bluesat", NULL, NULL, "textarea", "free", "tpl_bluesat"),
+("bcontent2_mosaic_tpl", "bluesat", NULL, NULL, "textarea", "free", "tpl_bluesat"),
+("bcontent3_mosaic_tpl", "bluesat", NULL, NULL, "textarea", "free", "tpl_bluesat"),
+("sectionbg_mosaic_tpl", "bluesat", NULL, NULL, "input", "free", "tpl_bluesat"),
+("sectiontc_mosaic_tpl", "bluesat", NULL, NULL, "input", "free", "tpl_bluesat"),
+("sectionshow_mosaic_tpl", "bluesat", 0, 0, "yesno", "boolean", "tpl_bluesat"),
 
-("footer_mosaic_tpl", "mosaic", "dark", "dark", "select", "free", "tpl_mosaic"),
-("fcont_mosaic_tpl", "mosaic", "<h3 class=\"text-color\"><span>Go Social</span></h3><div class=\"content social\">
+("footer_mosaic_tpl", "bluesat", "dark", "dark", "select", "free", "tpl_bluesat"),
+("fcont_mosaic_tpl", "bluesat", "<h3 class=\"text-color\"><span>Go Social</span></h3><div class=\"content social\">
   <p>Stay in touch with us:</p>
   <ul class=\"list-inline\">
       <li><a href=\"#\" class=\"twitter\"><i class=\"fa fa-twitter\"></i></a></li>
@@ -101,21 +114,21 @@ $succesfully = 0;
     <li><a href=\"#\" class=\"plus\"><i class=\"fa fa-google-plus\"></i></a></li>
   </ul>
   <div class=\"clearfix\"></div>
-</div>", NULL, "input", "free", "tpl_mosaic"),
+</div>", NULL, "input", "free", "tpl_bluesat"),
 ("fcont2_mosaic_tpl", "mosaic", "<h3 class=\"text-color\"><span>Contacts</span></h3>
 <p class=\"contact-us-details\">
 	<b>Address:</b> your Address<br/>
 	<b>Phone:</b> your Phone<br/>
 	<b>Email:</b> your Email
-</p>", NULL, "input", "free", "tpl_mosaic"),
-("fcont3_mosaic_tpl", "mosaic", "<h3 class=\"text-color\"><span>Navigation</span></h3>", NULL, "input", "free", "tpl_mosaic"),
-("footerc_mosaic_tpl", "mosaic", NULL, NULL, "input", "free", "tpl_mosaic"),
-("footerct_mosaic_tpl", "mosaic", NULL, NULL, "input", "free", "tpl_mosaic"),
-("footercte_mosaic_tpl", "mosaic", NULL, NULL, "input", "free", "tpl_mosaic"),
+</p>", NULL, "input", "free", "tpl_bluesat"),
+("fcont3_mosaic_tpl", "bluesat", "<h3 class=\"text-color\"><span>Navigation</span></h3>", NULL, "input", "free", "tpl_bluesat"),
+("footerc_mosaic_tpl", "bluesat", NULL, NULL, "input", "free", "tpl_bluesat"),
+("footerct_mosaic_tpl", "bluesat", NULL, NULL, "input", "free", "tpl_bluesat"),
+("footercte_mosaic_tpl", "bluesat", NULL, NULL, "input", "free", "tpl_bluesat"),
 
-("styleswitcher_tpl", "mosaic", "1", "1", "yesno", "boolean", "tpl_mosaic"),
-("cms_tpl", "mosaic", "1", "1", "yesno", "boolean", "tpl_mosaic"),
-("sitestyle_widget_mosaic", "mosaic", 1, 1, "yesno", "boolean", "tpl_mosaic")');
+("styleswitcher_tpl", "bluesat", "1", "1", "yesno", "boolean", "tpl_bluesat"),
+("cms_tpl", "bluesat", "1", "1", "yesno", "boolean", "tpl_bluesat"),
+("sitestyle_widget_mosaic", "bluesat", 1, 1, "yesno", "boolean", "tpl_bluesat")');
 
           $succesfully = 1;
 

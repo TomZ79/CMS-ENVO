@@ -182,11 +182,7 @@ if (!$JAK_SHOW_FOOTER) { ?>
 <?php }
 if ($JAK_SHOW_NAVBAR) { ?>
 
-  </div><!-- sb-site -->
-
-  <div class="sb-slidebar sb-left">
-    <?php include_once APP_PATH . 'template/mosaic/navbar_mobile.php'; ?>
-  </div>
+  </div><!-- END - MAIN DIV -->
 
   <!-- Style Manager -->
 <?php }

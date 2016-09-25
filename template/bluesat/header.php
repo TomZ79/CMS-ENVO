@@ -2,54 +2,49 @@
 <html lang="<?php echo $site_language; ?>">
 <head>
   <meta charset="utf-8">
-  <title><?php echo $PAGE_TITLE;
-    if ($PAGE_TITLE) { ?> - <?php }
-    echo $jkv["title"]; ?></title>
+  <title><?php echo $jkv["title"];
+    if ($jkv["title"]) { ?> &raquo; <?php }
+    echo $PAGE_TITLE; ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
   <meta name="keywords" content="<?php echo trim($PAGE_KEYWORDS); ?>">
   <meta name="description" content="<?php echo trim($PAGE_DESCRIPTION); ?>">
   <meta name="author" content="<?php echo $jkv["metaauthor"]; ?>">
   <?php if ($page == '404') { ?>
-    <meta name="robots" content="noindex, follow">
+  <meta name="robots" content="noindex, follow">
   <?php } else { ?>
-    <meta name="robots" content="<?php echo $jk_robots; ?>">
+  <meta name="robots" content="<?php echo $jk_robots; ?>">
   <?php }
   if ($page == "success" or $page == "logout") { ?>
-    <meta http-equiv="refresh" content="1;URL=<?php echo $_SERVER['HTTP_REFERER']; ?>">
+  <meta http-equiv="refresh" content="1;URL=<?php echo $_SERVER['HTTP_REFERER']; ?>">
   <?php } ?>
 
-  <link rel="canonical"
-        href="<?php echo (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . JAK_rewrite::jakParseurl($page, $page1, $page2, $page3, $page4, $page5, $page6); ?>">
-  <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/stylesheet.css?=<?php echo $jkv["updatetime"]; ?>"
-        type="text/css">
+  <link rel="canonical" href="<?php echo (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . JAK_rewrite::jakParseurl($page, $page1, $page2, $page3, $page4, $page5, $page6); ?>">
 
-  <link rel="stylesheet"
-        href="<?php echo BASE_URL; ?>css/bootstrap/bootstrap.min.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css"
-        media="screen"/>
-  <?php if ($JAK_SHOW_NAVBAR) include_once APP_PATH . 'template/mosaic/customstyle.php'; ?>
+  <!-- ======= DEFAULT CSS and RSS ======= -->
+  <!-- Basic stylesheet -->
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/stylesheet.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css">
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/bootstrap/bootstrap.min.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
 
+  <?php if ($JAK_SHOW_NAVBAR) include_once APP_PATH . 'template/bluesat/customstyle.php'; ?>
+
+  <!-- RSS -->
   <?php if (isset($JAK_RSS_DISPLAY) && isset($JAK_RSS_TITLE)) { ?>
-    <link rel="alternate" type="application/rss+xml" title="<?php echo $JAK_RSS_TITLE; ?> RSS 2.0"
-          href="<?php echo $P_RSS_LINK; ?>">
+    <link rel="alternate" type="application/rss+xml" title="<?php echo $JAK_RSS_TITLE; ?> RSS 2.0" href="<?php echo $P_RSS_LINK; ?>">
   <?php } ?>
 
+  <!-- RTL Support -->
   <?php if (!$jkv["langdirection"]) { ?>
-    <!-- RTL Support -->
-    <link rel="stylesheet"
-          href="<?php echo BASE_URL; ?>template/mosaic/css/rtlscreen.css?=<?php echo $jkv["updatetime"]; ?>"
-          type="text/css" media="screen">
-    <!-- End RTL Support -->
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>template/bluesat/css/rtlscreen.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen">
   <?php } ?>
 
+  <!-- Stylechanger CSS -->
   <?php if (JAK_ASACCESS && $jkv["styleswitcher_tpl"]) { ?>
-    <link rel="stylesheet"
-          href="<?php echo BASE_URL; ?>template/mosaic/css/stylechanger.css?=<?php echo $jkv["updatetime"]; ?>"
-          type="text/css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>template/bluesat/css/stylechanger.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css">
   <?php } ?>
 
+  <!-- ======= JQUERY and JS ======= -->
   <script src="<?php echo BASE_URL; ?>js/jquery.js?=<?php echo $jkv["updatetime"]; ?>"></script>
-  <script type="text/javascript"
-          src="<?php echo BASE_URL; ?>js/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+  <script type="text/javascript" src="<?php echo BASE_URL; ?>js/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -79,8 +74,7 @@ if ($JAK_SHOW_NAVBAR && $jkv["style_mosaic_tpl"] == "boxed") echo " boxed-layout
 
 <?php if ($JAK_SHOW_NAVBAR) { ?>
 <!-- Navbar -->
-<nav
-  class="navbar navbar-<?php echo $jkv["navbarbw_mosaic_tpl"]; ?><?php if ($jkv["navbarstyle_mosaic_tpl"]) echo ' navbar-fixed-top'; ?> sb-slide">
+<nav class="navbar navbar-<?php echo $jkv["navbarbw_mosaic_tpl"]; ?><?php if ($jkv["navbarstyle_mosaic_tpl"]) echo ' navbar-fixed-top'; ?> sb-slide">
   <?php if ($jkv["mininavbarshow_mosaic_tpl"]) { ?>
     <!-- Extra Bar -->
     <div class="mini-navbar mini-navbar-<?php echo $jkv["mininavbarcolour_mosaic_tpl"]; ?> hidden-xs">
@@ -111,7 +105,7 @@ if ($JAK_SHOW_NAVBAR && $jkv["style_mosaic_tpl"] == "boxed") echo " boxed-layout
   </div>
 </nav>
 
-<div id="sb-site">
+<div role="main" class="main"> <!-- START - MAIN DIV -->
 
   <!-- Import templates below header -->
   <?php if (isset($JAK_HOOK_BELOW_HEADER) && is_array($JAK_HOOK_BELOW_HEADER)) foreach ($JAK_HOOK_BELOW_HEADER as $bheader) {
@@ -156,10 +150,10 @@ if ($JAK_SHOW_NAVBAR && $jkv["style_mosaic_tpl"] == "boxed") echo " boxed-layout
   <?php } ?>
 
   <!-- Main Container -->
-  <div class="container main-site">
+  <div id="maincontainer" class="container">
 
     <!-- Main Row -->
-    <div class="row">
+    <div id="mainrow" class="row">
 
       <!-- Sidebar if right -->
       <?php if (!empty($JAK_HOOK_SIDE_GRID) && $jkv["sidebar_location_tpl"] == "left") include_once APP_PATH . 'template/mosaic/sidebar.php'; ?>

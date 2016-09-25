@@ -1,4 +1,4 @@
-<?php include_once APP_PATH . 'template/mosaic/header.php'; ?>
+<?php include_once APP_PATH . 'template/bluesat/header.php'; ?>
 
   <!-- Show alert messages, url to edit and quick edit -->
 <?php if (!$PAGE_ACTIVE) { ?>
@@ -63,7 +63,7 @@ if ($PAGE_SHOWTITLE && $JAK_SHOW_NAVBAR) { ?>
 
     // Show Contact form
     if ($pg["pluginid"] == '9997' && $JAK_SHOW_C_FORM) {
-      include_once APP_PATH . 'template/mosaic/contact.php';
+      include_once APP_PATH . 'template/bluesat/contact.php';
     }
 
     // Load News
@@ -103,12 +103,12 @@ if ($PAGE_SHOWTITLE && $JAK_SHOW_NAVBAR) { ?>
 
   <!-- Show login form -->
   <?php if ($PAGE_LOGIN_FORM) {
-    include_once APP_PATH . 'template/mosaic/loginpage.php';
+    include_once APP_PATH . 'template/bluesat/loginpage.php';
   } ?>
 
   <!-- Show vote result -->
   <?php if ($SHOWVOTE && $USR_CAN_RATE) {
-    include_once APP_PATH . 'template/mosaic/voteresult.php';
+    include_once APP_PATH . 'template/bluesat/voteresult.php';
   } ?>
 
   <!-- Show date, social buttons and tag list -->
@@ -117,7 +117,7 @@ if ($PAGE_SHOWTITLE && $JAK_SHOW_NAVBAR) { ?>
       <div class="row">
         <?php if ($SHOWSOCIALBUTTON) { ?>
           <div class="col-md-4">
-            <?php include_once APP_PATH . 'template/mosaic/socialbutton.php'; ?>
+            <?php include_once APP_PATH . 'template/bluesat/socialbutton.php'; ?>
           </div>
         <?php }
         if ($JAK_TAGLIST && $SHOWTAGS) { ?>
@@ -140,4 +140,4 @@ if ($jkv["printme"]) { ?>
   </div>
 
 <?php }
-include_once APP_PATH . 'template/mosaic/footer.php'; ?>
+include_once APP_PATH . 'template/bluesat/footer.php'; ?>
