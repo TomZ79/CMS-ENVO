@@ -7,7 +7,7 @@
  *
  * Date: February 24, 2012
  * Version: 1.7.4
- * Modified by JAKWEB for CMS
+ * Modified by BLUESAT for CMS
  */
 
 (function ($) {

@@ -18,24 +18,29 @@
             var allgrowl = $.gritter.add({
               // (string | mandatory) the heading of the notification
               title: <?php echo json_encode(base64_decode($suball['title']));?>,
+
               // (string | mandatory) the text inside the notification
               text: <?php echo json_encode(base64_decode($suball['content']));?>,
-              // (string | optional) the image to display on the left
+
               <?php if ($suball['previmg']) { ?>
+                // (string | optional) the image to display on the left
               image: '<?php echo $suball['previmg'];?>',
               <?php } ?>
+
               // (bool | optional) if you want it to fade out on its own or just sit there
               sticky: <?php echo($suball['sticky'] ? 'true' : 'false');?>,
+
               // (int | optional) the time you want it to be alive for before fading out (milliseconds)
-              time: <?php echo $suball['duration'];?>
-              // (string | optional) the class name you want to apply directly to the notification for custom styling
+              time: <?php echo $suball['duration'];?>,
+
               <?php if (!$suball['color']) { ?>
-              , class_name: 'gritter-light'
+              // (string | optional) the class name you want to apply directly to the notification for custom styling
+              class_name: 'gritter-light',
               <?php } ?>
-              // (function | optional) function called before it opens
+
               <?php if ($suball['remember']) { ?>
               // (function | optional) function called after it closes
-              , after_close: function () {
+              after_close: function () {
                 setCookie('growl_<?php echo $suball['id'];?>', 1, <?php echo $suball['remembertime'];?>);
               }
               <?php } ?>
