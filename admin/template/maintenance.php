@@ -43,8 +43,7 @@ if ($errors) { ?>
           <tr>
             <td><?php echo $tl["general"]["g112"]; ?></td>
             <td>
-              <button type="submit" name="optimize"
-                      class="btn btn-success"><?php echo $tl["general"]["g112"]; ?></button>
+              <button type="submit" name="optimize" class="btn btn-success"><?php echo $tl["general"]["g112"]; ?></button>
             </td>
           </tr>
           <tr>
@@ -57,16 +56,15 @@ if ($errors) { ?>
             <td><?php echo $tl["general"]["g108"]; ?></td>
             <td>
               <div class="fileinput fileinput-new" data-provides="fileinput">
-                <span class="btn btn-default btn-file"><span
-                    class="fileinput-new"><?php echo $tl["general"]["g133"]; ?></span><span
-                    class="fileinput-exists"><?php echo $tl["general"]["g131"]; ?></span><input type="file"
-                                                                                                name="uploaddb"
-                                                                                                accept=".xml"></span>
+                <span class="btn btn-default btn-file">
+                  <span class="fileinput-new"><?php echo $tl["general"]["g133"]; ?></span>
+                  <span class="fileinput-exists"><?php echo $tl["general"]["g131"]; ?></span>
+                  <input type="file" name="uploaddb" accept=".xml">
+                </span>
                 <span class="fileinput-filename"></span>
                 <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
               </div>
-              <button type="submit" name="import" class="btn btn-warning"
-                      onclick="if(!confirm('<?php echo $tl["error"]["e35"]; ?>'))return false;"><?php echo $tl["general"]["g110"]; ?></button>
+              <button type="submit" name="import" class="btn btn-warning" onclick="if(!confirm('<?php echo $tl["error"]["e35"]; ?>'))return false;"><?php echo $tl["general"]["g110"]; ?></button>
 
             </td>
           </tr>
