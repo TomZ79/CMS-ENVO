@@ -59,7 +59,7 @@
   } ?>
 
 </head>
-<body class="skin-teal fixed<?php if (!$JAK_PROVED) echo " login-page"; ?> has-detached-right" data-spy="scroll" data-target="#.sidebar-detached">
+<body class="skin-teal fixed<?php if (!$JAK_PROVED) echo " login-page"; ?> has-detached-right" data-spy="scroll" data-target=".sidebar-detached">
 <?php if ($JAK_PROVED) { ?>
 <div class="wrapper">
   <header class="main-header">
