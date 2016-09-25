@@ -628,6 +628,13 @@ ul.todoList li:hover, ul.jak_cat_move li:hover, ul.jak_cat_move_fot li:hover, ul
   box-shadow: 0 0 3px #dbf0ee !important;
 }
 
+
+/* XX. GROWL PLUGIN - TABLE
+========  ================================================================*/
+tr.disablerow.warning td {
+  color: #999999;
+}
+
 /* XX. ALMSAEED STUDIO CSS
 ========================================================================*/
 
