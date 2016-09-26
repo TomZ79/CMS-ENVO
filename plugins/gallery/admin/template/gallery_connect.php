@@ -6,18 +6,15 @@
       <label class="control-label"><?php echo $tlgal["gallery"]["d27"]; ?></label>
       <div class="row">
         <div class="col-md-6">
-          <select name="jak_showgalleryorder" class="form-control">
-            <option
-              value="ASC"<?php if (isset($JAK_FORM_DATA["showgalleryorder"]) && $JAK_FORM_DATA["showgalleryorder"] == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g90"]; ?></option>
-            <option
-              value="DESC"<?php if (isset($JAK_FORM_DATA["showgalleryorder"]) && $JAK_FORM_DATA["showgalleryorder"] == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g91"]; ?></option>
+          <select name="jak_showgalleryorder" class="form-control selectpicker">
+            <option value="ASC"<?php if (isset($JAK_FORM_DATA["showgalleryorder"]) && $JAK_FORM_DATA["showgalleryorder"] == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g90"]; ?></option>
+            <option value="DESC"<?php if (isset($JAK_FORM_DATA["showgalleryorder"]) && $JAK_FORM_DATA["showgalleryorder"] == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g91"]; ?></option>
           </select>
         </div>
         <div class="col-md-6">
-          <select name="jak_showgallerymany" class="form-control">
+          <select name="jak_showgallerymany" class="form-control selectpicker" data-size="5">
             <?php for ($i = 0; $i <= 10; $i++) { ?>
-              <option
-                value="<?php echo $i ?>"<?php if (isset($JAK_FORM_DATA["showgallerymany"]) && $JAK_FORM_DATA["showgallerymany"] == $i) { ?> selected="selected"<?php } ?>><?php echo $i; ?></option>
+              <option value="<?php echo $i ?>"<?php if (isset($JAK_FORM_DATA["showgallerymany"]) && $JAK_FORM_DATA["showgallerymany"] == $i) { ?> selected="selected"<?php } ?>><?php echo $i; ?></option>
             <?php } ?>
           </select>
         </div>
