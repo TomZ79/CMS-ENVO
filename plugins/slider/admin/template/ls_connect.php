@@ -13,9 +13,8 @@
 
     <div class="form-group">
       <label class="control-label"><?php echo $tlls["ls"]["m"]; ?></label>
-      <select name="jak_showslider" class="form-control">
-        <option
-          value="0"<?php if ($JAK_FORM_DATA["showslider"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c18"]; ?></option>
+      <select name="jak_showslider" class="form-control selectpicker">
+        <option value="0"<?php if ($JAK_FORM_DATA["showslider"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c18"]; ?></option>
         <?php if (isset($JAK_GET_SLIDER) && is_array($JAK_GET_SLIDER)) foreach ($JAK_GET_SLIDER as $las) { ?>
           <option value="<?php echo $las["id"]; ?>"<?php if ($las["id"] == $JAK_FORM_DATA["showslider"]) { ?> selected="selected"<?php } ?>><?php echo $las["title"]; ?></option><?php } ?>
       </select>
