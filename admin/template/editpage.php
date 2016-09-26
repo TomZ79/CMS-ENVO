@@ -87,19 +87,6 @@ if ($errors) { ?>
                     </td>
                   </tr>
                   <tr>
-                    <td><?php echo $tl["page"]["p10"]; ?></td>
-                    <td>
-                      <div class="radio">
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_showlogin" value="1"<?php if ($JAK_FORM_DATA["showlogin"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                        </label>
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_showlogin" value="0"<?php if ($JAK_FORM_DATA["showlogin"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                        </label>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
                     <td><?php echo $tl["page"]["p14"]; ?></td>
                     <td>
                       <div class="radio">
@@ -134,6 +121,19 @@ if ($errors) { ?>
                         </label>
                         <label class="checkbox-inline">
                           <input type="radio" name="jak_showdate" value="0"<?php if ($JAK_FORM_DATA["showdate"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                        </label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><?php echo $tl["general"]["g124"]; ?></td>
+                    <td>
+                      <div class="radio">
+                        <label class="checkbox-inline">
+                          <input type="radio" name="jak_sidebar" value="1"<?php if ($JAK_FORM_DATA["sidebar"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g125"]; ?>
+                        </label>
+                        <label class="checkbox-inline">
+                          <input type="radio" name="jak_sidebar" value="0"<?php if ($JAK_FORM_DATA["sidebar"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g126"]; ?>
                         </label>
                       </div>
                     </td>
@@ -178,14 +178,14 @@ if ($errors) { ?>
                     </td>
                   </tr>
                   <tr>
-                    <td><?php echo $tl["general"]["g124"]; ?></td>
+                    <td><?php echo $tl["page"]["p10"]; ?></td>
                     <td>
                       <div class="radio">
                         <label class="checkbox-inline">
-                          <input type="radio" name="jak_sidebar" value="1"<?php if ($JAK_FORM_DATA["sidebar"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g125"]; ?>
+                          <input type="radio" name="jak_showlogin" value="1"<?php if ($JAK_FORM_DATA["showlogin"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                         </label>
                         <label class="checkbox-inline">
-                          <input type="radio" name="jak_sidebar" value="0"<?php if ($JAK_FORM_DATA["sidebar"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g126"]; ?>
+                          <input type="radio" name="jak_showlogin" value="0"<?php if ($JAK_FORM_DATA["showlogin"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                         </label>
                       </div>
                     </td>
