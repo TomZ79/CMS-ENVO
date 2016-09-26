@@ -68,7 +68,7 @@ if ($errors) { ?>
             <h3 class="box-title"><?php echo $tl["title"]["t4"]; ?></h3>
           </div><!-- /.box-header -->
           <div class="box-body">
-            <table class="table table-striped v-text-center">
+            <table class="table table-striped first-column v-text-center">
               <tr>
                 <td><?php echo $tl["page"]["p"]; ?></td>
                 <td>
@@ -94,7 +94,7 @@ if ($errors) { ?>
                 <td>
                   <div class="row">
                     <div class="col-md-6">
-                      <select name="jak_showdlordern" class="form-control">
+                      <select name="jak_showdlordern" class="form-control selectpicker">
                         <option value="id"<?php if ($JAK_SETTING['showdlwhat'] == "id") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tld["dload"]["d22"]; ?></option>
                         <option value="name"<?php if ($JAK_SETTING['showdlwhat'] == "name") { ?> selected="selected"<?php } ?>><?php echo $tld["dload"]["d23"]; ?></option>
                         <option value="time"<?php if ($JAK_SETTING['showdlwhat'] == "time") { ?> selected="selected"<?php } ?>><?php echo $tld["dload"]["d24"]; ?></option>
@@ -103,7 +103,7 @@ if ($errors) { ?>
                       </select>
                     </div>
                     <div class="col-md-6">
-                      <select name="jak_showdlorder" class="form-control">
+                      <select name="jak_showdlorder" class="form-control selectpicker">
                         <option value="ASC"<?php if ($JAK_SETTING['showdlorder'] == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g90"]; ?></option>
                         <option value="DESC"<?php if ($JAK_SETTING['showdlorder'] == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g91"]; ?></option>
                       </select>

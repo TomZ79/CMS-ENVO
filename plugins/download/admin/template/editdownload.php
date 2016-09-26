@@ -60,13 +60,13 @@ if ($errors) { ?>
     <div class="tab-content">
       <div class="tab-pane active" id="dlArt1">
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-7">
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tl["title"]["t13"]; ?></h3>
               </div><!-- /.box-header -->
               <div class="box-body">
-                <table class="table table-striped v-text-center">
+                <table class="table table-striped first-column v-text-center">
                   <tr>
                     <td><?php echo $tld["dload"]["d8"]; ?></td>
                     <td>
@@ -89,11 +89,13 @@ if ($errors) { ?>
                   <?php if ($JAK_CONTACT_FORM) { ?>
                     <tr>
                       <td><?php echo $tl["page"]["p7"]; ?></td>
-                      <td><select name="jak_showcontact" class="form-control">
+                      <td>
+                        <select name="jak_showcontact" class="form-control selectpicker">
                           <option value="0"<?php if ($JAK_FORM_DATA["showcontact"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c18"]; ?></option>
                           <?php if (isset($JAK_CONTACT_FORMS) && is_array($JAK_CONTACT_FORMS)) foreach ($JAK_CONTACT_FORMS as $cf) { ?>
                             <option value="<?php echo $cf["id"]; ?>"<?php if ($cf["id"] == $JAK_FORM_DATA["showcontact"]) { ?> selected="selected"<?php } ?>><?php echo $cf["title"]; ?></option><?php } ?>
-                        </select></td>
+                        </select>
+                      </td>
                     </tr>
                   <?php } ?>
                   <tr>
@@ -218,7 +220,7 @@ if ($errors) { ?>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-5">
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tl["title"]["t12"]; ?></h3>
@@ -226,19 +228,20 @@ if ($errors) { ?>
               <div class="box-body">
                 <table class="table table-striped">
                   <tr>
-                    <td><select name="jak_catid" class="form-control">
+                    <td>
+                      <select name="jak_catid" class="form-control selectpicker">
                         <option
                           value="0"<?php if ($JAK_FORM_DATA["catid"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g24"]; ?></option>
                         <?php if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $z) { ?>
                           <option
                           value="<?php echo $z["id"]; ?>" <?php if ($z["id"] == $JAK_FORM_DATA["catid"]) { ?>selected="selected"<?php } ?>><?php echo $z["name"]; ?></option><?php } ?>
-                      </select></td>
+                      </select>
+                    </td>
                   </tr>
                 </table>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save"
-                        class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
               </div>
             </div>
             <div class="box box-primary">
@@ -257,7 +260,8 @@ if ($errors) { ?>
                         <option value="0"<?php if ($JAK_FORM_DATA["candownload"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tld["dload"]["d31"]; ?></option>
                         <?php if (isset($JAK_USERGROUP) && is_array($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) { ?>
                           <option value="<?php echo $v["id"]; ?>"<?php if (in_array($v["id"], explode(',', $JAK_FORM_DATA["candownload"]))) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php } ?>
-                      </select></td>
+                      </select>
+                    </td>
                   </tr>
                 </table>
               </div>
@@ -278,7 +282,7 @@ if ($errors) { ?>
                   <tr>
                     <td><?php echo $tld["dload"]["d10"]; ?></td>
                     <td>
-                      <select name="jak_file" class="form-control">
+                      <select name="jak_file" class="form-control selectpicker">
                         <option value="0"><?php echo $tld["dload"]["d12"]; ?></option><?php if (isset($site_dload_files) && is_array($site_dload_files)) foreach ($site_dload_files as $l) { ?>
                           <option value="<?php echo $l; ?>"<?php if ($JAK_FORM_DATA["file"] == $l) { ?> selected="selected"<?php } ?>><?php echo $l; ?></option><?php } ?>
                       </select>
@@ -288,20 +292,18 @@ if ($errors) { ?>
                     <td><?php echo $tld["dload"]["d11"]; ?></td>
                     <td>
                       <div class="input-group">
-                        <input type="text" name="jak_extfile" id="ext_file" class="form-control"
-                               value="<?php echo $JAK_FORM_DATA["extfile"]; ?>"/>
-		<span class="input-group-btn">
-		  <a class="btn btn-info ifManager" type="button"
-         href="../js/editor/plugins/filemanager/dialog.php?type=2&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=ext_file"><?php echo $tl["general"]["g69"]; ?></a>
-		</span>
+                        <input type="text" name="jak_extfile" id="ext_file" class="form-control" value="<?php echo $JAK_FORM_DATA["extfile"]; ?>"/>
+                      <span class="input-group-btn">
+                        <a class="btn btn-info ifManager" type="button"
+                           href="../js/editor/plugins/filemanager/dialog.php?type=2&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=ext_file"><?php echo $tl["general"]["g69"]; ?></a>
+                      </span>
                       </div><!-- /input-group -->
                     </td>
                   </tr>
                 </table>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save"
-                        class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
               </div>
             </div>
             <?php if (JAK_TAGS) { ?>
@@ -329,8 +331,7 @@ if ($errors) { ?>
                   </table>
                 </div>
                 <div class="box-footer">
-                  <button type="submit" name="save"
-                          class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                  <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
                 </div>
               </div>
             <?php } ?>
@@ -342,19 +343,16 @@ if ($errors) { ?>
                 <table class="table table-striped v-text-center">
                   <tr>
                     <td><?php echo $tld["dload"]["d25"]; ?></td>
-                    <td><input type="text" name="jak_hitstotal" class="form-control"
-                               value="<?php echo $JAK_FORM_DATA["hits"]; ?>"/></td>
+                    <td><input type="text" name="jak_hitstotal" class="form-control" value="<?php echo $JAK_FORM_DATA["hits"]; ?>"/></td>
                   </tr>
                   <tr>
                     <td><?php echo $tld["dload"]["d9"]; ?></td>
-                    <td><input type="text" name="jak_dltotal" class="form-control"
-                               value="<?php echo $JAK_FORM_DATA["countdl"]; ?>"/></td>
+                    <td><input type="text" name="jak_dltotal" class="form-control" value="<?php echo $JAK_FORM_DATA["countdl"]; ?>"/></td>
                   </tr>
                 </table>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save"
-                        class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
               </div>
             </div>
           </div>
@@ -369,15 +367,13 @@ if ($errors) { ?>
             <h3 class="box-title"><?php echo $tl["general"]["g53"]; ?></h3>
           </div><!-- /.box-header -->
           <div class="box-body">
-            <a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor"
-               class="ifManager"><?php echo $tl["general"]["g69"]; ?></a> <a href="javascript:;"
-                                                                             id="addCssBlock"><?php echo $tl["general"]["g101"]; ?></a><br/>
+            <a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
+            <a href="javascript:;" id="addCssBlock"><?php echo $tl["general"]["g101"]; ?></a><br/>
             <div id="csseditor"></div>
             <textarea name="jak_css" id="jak_css" class="hidden"><?php echo $JAK_FORM_DATA["dl_css"]; ?></textarea>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
       </div>
@@ -387,16 +383,13 @@ if ($errors) { ?>
             <h3 class="box-title"><?php echo $tl["general"]["g100"]; ?></h3>
           </div><!-- /.box-header -->
           <div class="box-body">
-            <a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor"
-               class="ifManager"><?php echo $tl["general"]["g69"]; ?></a> <a href="javascript:;"
-                                                                             id="addJavascriptBlock"><?php echo $tl["general"]["g102"]; ?></a><br/>
+            <a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
+            <a href="javascript:;" id="addJavascriptBlock"><?php echo $tl["general"]["g102"]; ?></a><br/>
             <div id="javaeditor"></div>
-					<textarea name="jak_javascript" id="jak_javascript"
-                    class="hidden"><?php echo $JAK_FORM_DATA["dl_javascript"]; ?></textarea>
+					<textarea name="jak_javascript" id="jak_javascript" class="hidden"><?php echo $JAK_FORM_DATA["dl_javascript"]; ?></textarea>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
       </div>
@@ -409,8 +402,7 @@ if ($errors) { ?>
             <?php include APP_PATH . "admin/template/sidebar_widget.php"; ?>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
       </div>

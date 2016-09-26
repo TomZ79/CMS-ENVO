@@ -46,13 +46,13 @@ if ($errors) { ?>
     <div class="tab-content">
       <div class="tab-pane active" id="dlArt1">
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-7">
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tl["title"]["t13"]; ?></h3>
               </div><!-- /.box-header -->
               <div class="box-body">
-                <table class="table table-striped v-text-center">
+                <table class="table table-striped first-column v-text-center">
                   <tr>
                     <td><?php echo $tld["dload"]["d8"]; ?></td>
                     <td>
@@ -75,12 +75,13 @@ if ($errors) { ?>
                   <?php if (isset($JAK_CONTACT_FORMS) && is_array($JAK_CONTACT_FORMS)) { ?>
                     <tr>
                       <td><?php echo $tl["page"]["p7"]; ?></td>
-                      <td><select name="jak_showcontact" class="form-control">
-                          <option
-                            value="0"<?php if (isset($_REQUEST["jak_showcontact"]) && $_REQUEST["jak_showcontact"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c18"]; ?></option>
+                      <td>
+                        <select name="jak_showcontact" class="form-control selectpicker">
+                          <option value="0"<?php if (isset($_REQUEST["jak_showcontact"]) && $_REQUEST["jak_showcontact"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c18"]; ?></option>
                           <?php foreach ($JAK_CONTACT_FORMS as $cf) { ?>
                             <option value="<?php echo $cf["id"]; ?>"<?php if (isset($_REQUEST["jak_showcontact"]) && $cf["id"] == $_REQUEST["jak_showcontact"]) { ?> selected="selected"<?php } ?>><?php echo $cf["title"]; ?></option><?php } ?>
-                        </select></td>
+                        </select>
+                      </td>
                     </tr>
                   <?php } ?>
                   <tr>
@@ -189,7 +190,7 @@ if ($errors) { ?>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-5">
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tl["title"]["t12"]; ?></h3>
@@ -198,7 +199,7 @@ if ($errors) { ?>
                 <table class="table table-striped">
                   <tr>
                     <td>
-                      <select name="jak_catid" class="form-control">
+                      <select name="jak_catid" class="form-control selectpicker">
                         <option value="0"<?php if (!$page1) { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g24"]; ?></option>
                         <?php if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $v) { ?>
                           <option value="<?php echo $v["id"]; ?>"<?php if ($v["id"] == $page2) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option>
@@ -250,7 +251,7 @@ if ($errors) { ?>
                   <tr>
                     <td><?php echo $tld["dload"]["d10"]; ?></td>
                     <td>
-                      <select name="jak_file" class="form-control">
+                      <select name="jak_file" class="form-control selectpicker">
                         <option value="0"><?php echo $tld["dload"]["d12"]; ?></option><?php if (isset($site_dload_files) && is_array($site_dload_files)) foreach ($site_dload_files as $l) { ?>
                           <option value="<?php echo $l; ?>"<?php if ($_REQUEST["jak_file"] == $l) { ?> selected="selected"<?php } ?>><?php echo $l; ?></option><?php } ?>
                       </select>
