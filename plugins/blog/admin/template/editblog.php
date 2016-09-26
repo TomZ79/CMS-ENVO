@@ -229,6 +229,27 @@ if ($page3 == "e") { ?>
                 <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
               </div>
             </div>
+
+            <div class="box box-primary">
+              <div class="box-header with-border">
+                <h3 class="box-title"><?php echo $tl["news_cmd"]["n1"]; ?></h3>
+              </div><!-- /.box-header -->
+              <div class="box-body">
+                <table class="table table-striped">
+                  <tr>
+                    <td>
+                      <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
+                        <input type="text" name="jak_datetime" id="datepickerTime" class="form-control" value="<?php if ($JAK_FORM_DATA["time"]) echo $JAK_FORM_DATA["time"]; ?>"/>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="box-footer">
+                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+              </div>
+            </div>
+
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tl["news"]["n4"]; ?></h3>
@@ -347,7 +368,8 @@ if ($page3 == "e") { ?>
   <script src="js/ace/ace.js" type="text/javascript"></script>
   <script type="text/javascript">
 
-    // ACE editor
+    /* ACE Editor
+     ========================================= */
     <?php if ($jkv["adv_editor"]) { ?>
     var htmlACE = ace.edit("htmleditor");
     htmlACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
@@ -380,6 +402,8 @@ if ($page3 == "e") { ?>
     textcss = $("#jak_css").val();
     cssACE.session.setValue(textcss);
 
+    /* Other config
+     ========================================= */
     $(document).ready(function () {
 
       $('#jak_tags').tagsInput({
@@ -404,7 +428,21 @@ if ($page3 == "e") { ?>
 
       });
 
+      /* DateTimePicker
+       ========================================= */
+
+      $("#datepickerTime").datetimepicker({
+        language: '<?php echo $site_language;?>',
+        format: 'yyyy-mm-dd hh:ii:ss',
+        autoclose: true,
+        todayBtn: true,
+        clearBtn: true,
+        todayHighlight: true,
+        fontAwesome: true,
+        zIndex: 999,
+      });
       $("#datepickerFrom, #datepickerTo").datetimepicker({
+        language: '<?php echo $site_language;?>',
         format: 'yyyy-mm-dd hh:ii',
         autoclose: true,
         startDate: new Date()

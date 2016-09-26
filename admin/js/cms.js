@@ -3538,3 +3538,42 @@ jQuery.fn.autoGrow = function () {
     d('[data-provide="datetimepicker-inline"]').datetimepicker()
   })
 }(window.jQuery);
+
+/**
+ * Czech translation for bootstrap-datetimepicker
+ * Matěj Koubík <matej@koubik.name>
+ * Fixes by Michal Remiš <michal.remis@gmail.com>
+ */
+;(function($){
+  $.fn.datetimepicker.dates['cs'] = {
+    days: ["Neděle", "Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek", "Sobota", "Neděle"],
+    daysShort: ["Ned", "Pon", "Úte", "Stř", "Čtv", "Pát", "Sob", "Ned"],
+    daysMin: ["Ne", "Po", "Út", "St", "Čt", "Pá", "So", "Ne"],
+    months: ["Leden", "Únor", "Březen", "Duben", "Květen", "Červen", "Červenec", "Srpen", "Září", "Říjen", "Listopad", "Prosinec"],
+    monthsShort: ["Led", "Úno", "Bře", "Dub", "Kvě", "Čer", "Čnc", "Srp", "Zář", "Říj", "Lis", "Pro"],
+    today: "Dnes",
+    suffix: [],
+    meridiem: [],
+    weekStart: 1,
+    format: "dd.mm.yyyy"
+  };
+}(jQuery));
+
+/**
+ * German translation for bootstrap-datetimepicker
+ * Sam Zurcher <sam@orelias.ch>
+ */
+;(function($){
+  $.fn.datetimepicker.dates['de'] = {
+    days: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"],
+    daysShort: ["Son", "Mon", "Die", "Mit", "Don", "Fre", "Sam", "Son"],
+    daysMin: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"],
+    months: ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
+    monthsShort: ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"],
+    today: "Heute",
+    suffix: [],
+    meridiem: [],
+    weekStart: 1,
+    format: "dd.mm.yyyy"
+  };
+}(jQuery));

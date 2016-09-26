@@ -41,6 +41,10 @@ switch ($page1) {
           $errors['e2'] = $tl['error']['e16'];
         }
 
+        if (!empty($defaults['jak_datetime'])) {
+          $finaltime = $defaults['jak_datetime'];
+        }
+
         if (!empty($defaults['jak_datefrom'])) {
           $finalfrom = strtotime($defaults['jak_datefrom']);
         }
@@ -84,6 +88,12 @@ switch ($page1) {
           }
 
           // save the time if available
+          if (!empty($finaltime)) {
+            $insert .= 'time = "'.smartsql($finaltime).'"';
+          } else {
+            $insert .= 'time = NOW()';
+          }
+
           if (isset($finalfrom)) {
             $insert .= 'startdate = "' . smartsql($finalfrom) . '",';
           }
@@ -107,8 +117,7 @@ switch ($page1) {
 			comments = "' . smartsql($comment) . '",
 			showvote = "' . smartsql($defaults['jak_vote']) . '",
 			socialbutton = "' . smartsql($defaults['jak_social']) . '",
-			' . $insert . '
-			time = NOW()');
+			'.$insert);
 
           $rowid = $jakdb->jak_last_id();
 
@@ -1017,6 +1026,10 @@ switch ($page1) {
               $errors['e1'] = $tl['error']['e2'];
             }
 
+            if (!empty($defaults['jak_datetime'])) {
+              $finaltime = $defaults['jak_datetime'];
+            }
+
             if (!empty($defaults['jak_datefrom'])) {
               $finalfrom = strtotime($defaults['jak_datefrom']);
             }
@@ -1031,7 +1044,9 @@ switch ($page1) {
 
             if (count($errors) == 0) {
 
-              if (!empty($defaults['jak_update_time'])) {
+              if (empty($defaults['jak_update_time'])) {
+                $insert .= 'time = "'.smartsql($finaltime).'",';
+              } else {
                 $insert .= 'time = NOW(),';
               }
 
