@@ -191,6 +191,17 @@ table.first-column tr td:first-child {
   padding-left: 0;
 }
 
+/* BOOTSTRAP - navbar color and position */
+.navbar-static-top {
+  z-index: 1080;
+}
+.navbar-nav > .user-menu > .dropdown-menu {
+  border-top-width: inherit !important;
+  border: 1px solid #ddd !important;
+}
+.dropdown-menu {
+  border: 1px solid #ddd !important;
+}
 /* BOOTSTRAP - Expand table rows */
 table.table-expandable > tbody > tr:nth-child(odd) {
   cursor: pointer;
