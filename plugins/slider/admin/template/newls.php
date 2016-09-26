@@ -73,7 +73,7 @@ if ($page3 == "e") { ?>
             <h3 class="box-title"><?php echo $tl["title"]["t13"]; ?></h3>
           </div><!-- /.box-header -->
           <div class="box-body">
-            <table class="table v-text-center">
+            <table class="table first-column v-text-center">
               <tr>
                 <td><?php echo $tlls["ls"]["d8"]; ?></td>
                 <td>
@@ -151,8 +151,7 @@ if ($page3 == "e") { ?>
 
                             <div class="radio">
                               <label>
-                                <input type="radio" name="jak_theme"
-                                       value="<?php echo $l; ?>"<?php if (isset($_REQUEST["jak_theme"]) && $_REQUEST["jak_theme"] == $l) { ?> checked="checked"<?php } ?> /> <?php echo $l; ?>
+                                <input type="radio" name="jak_theme" value="<?php echo $l; ?>"<?php if (isset($_REQUEST["jak_theme"]) && $_REQUEST["jak_theme"] == $l) { ?> checked="checked"<?php } ?> /> <?php echo $l; ?>
                               </label>
                             </div>
                           </div>
@@ -431,123 +430,131 @@ if ($page3 == "e") { ?>
               <tr>
                 <td><?php echo $tlls["ls"]["d22"]; ?></td>
                 <td>
-                  <div class="radio"><label><input type="radio" name="jak_buttonnext"
-                                                   value="1"<?php if (isset($_REQUEST["jak_buttonnext"]) && $_REQUEST["jak_buttonnext"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                    </label></div>
-                  <div class="radio"><label><input type="radio" name="jak_buttonnext"
-                                                   value="0"<?php if (isset($_REQUEST["jak_buttonnext"]) && $_REQUEST["jak_buttonnext"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                    </label></div>
+                  <div class="radio">
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_buttonnext" value="1"<?php if (isset($_REQUEST["jak_buttonnext"]) && $_REQUEST["jak_buttonnext"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_buttonnext" value="0"<?php if (isset($_REQUEST["jak_buttonnext"]) && $_REQUEST["jak_buttonnext"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    </label>
+                  </div>
                 </td>
               </tr>
               <tr>
                 <td><?php echo $tlls["ls"]["d25"]; ?></td>
                 <td>
-                  <div class="radio"><label><input type="radio" name="jak_preload"
-                                                   value="1"<?php if (isset($_REQUEST["jak_preload"]) && $_REQUEST["jak_preload"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                    </label></div>
-                  <div class="radio"><label><input type="radio" name="jak_preload"
-                                                   value="0"<?php if (isset($_REQUEST["jak_preload"]) && $_REQUEST["jak_preload"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                    </label></div>
+                  <div class="radio">
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_preload" value="1"<?php if (isset($_REQUEST["jak_preload"]) && $_REQUEST["jak_preload"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_preload" value="0"<?php if (isset($_REQUEST["jak_preload"]) && $_REQUEST["jak_preload"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    </label>
+                  </div>
                 </td>
               </tr>
               <tr>
                 <td><?php echo $tlls["ls"]["d36"]; ?></td>
                 <td>
-                  <div class="radio"><label><input type="radio" name="jak_mhover"
-                                                   value="1"<?php if (isset($_REQUEST["jak_mhover"]) && $_REQUEST["jak_mhover"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                    </label></div>
-                  <div class="radio"><label><input type="radio" name="jak_mhover"
-                                                   value="0"<?php if (isset($_REQUEST["jak_mhover"]) && $_REQUEST["jak_mhover"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                    </label></div>
+                  <div class="radio">
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_mhover" value="1"<?php if (isset($_REQUEST["jak_mhover"]) && $_REQUEST["jak_mhover"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_mhover" value="0"<?php if (isset($_REQUEST["jak_mhover"]) && $_REQUEST["jak_mhover"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    </label>
+                  </div>
                 </td>
               </tr>
               <tr>
                 <td><?php echo $tlls["ls"]["d37"]; ?></td>
-                <td><select name="jak_loops" class="form-control">
-                    <option
-                      value="0"<?php if (isset($_REQUEST["jak_loops"]) && $_REQUEST["jak_loops"] == 0) { ?> selected="selected"<?php } ?>>
+                <td>
+                  <select name="jak_loops" class="form-control selectpicker" data-size="5">
+                    <option value="0"<?php if (isset($_REQUEST["jak_loops"]) && $_REQUEST["jak_loops"] == 0) { ?> selected="selected"<?php } ?>>
                       0 (<?php echo $tlls["ls"]["d41"]; ?>)
                     </option>
                     <?php for ($i = 1; $i <= 99; $i++) { ?>
-                      <option
-                        value="<?php echo $i ?>"<?php if (isset($_REQUEST["jak_loops"]) && $_REQUEST["jak_loops"] == $i) { ?> selected="selected"<?php } ?>><?php echo $i; ?></option>
+                      <option value="<?php echo $i ?>"<?php if (isset($_REQUEST["jak_loops"]) && $_REQUEST["jak_loops"] == $i) { ?> selected="selected"<?php } ?>><?php echo $i; ?></option>
                     <?php } ?>
-                  </select></td>
+                  </select>
+                </td>
               </tr>
               <tr>
                 <td><?php echo $tlls["ls"]["d38"]; ?></td>
                 <td>
-                  <div class="radio"><label><input type="radio" name="jak_floops"
-                                                   value="1"<?php if (isset($_REQUEST["jak_floops"]) && $_REQUEST["jak_floops"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                    </label></div>
-                  <div class="radio"><label><input type="radio" name="jak_floops"
-                                                   value="0"<?php if (isset($_REQUEST["jak_floops"]) && $_REQUEST["jak_floops"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                    </label></div>
+                  <div class="radio">
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_floops" value="1"<?php if (isset($_REQUEST["jak_floops"]) && $_REQUEST["jak_floops"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_floops" value="0"<?php if (isset($_REQUEST["jak_floops"]) && $_REQUEST["jak_floops"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    </label>
+                  </div>
                 </td>
               </tr>
               <tr>
                 <td><?php echo $tlls["ls"]["d39"]; ?></td>
                 <td>
-                  <div class="radio"><label><input type="radio" name="jak_autov"
-                                                   value="1"<?php if (isset($_REQUEST["jak_autov"]) && $_REQUEST["jak_autov"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                    </label></div>
-                  <div class="radio"><label><input type="radio" name="jak_autov"
-                                                   value="0"<?php if (isset($_REQUEST["jak_autov"]) && $_REQUEST["jak_autov"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                    </label></div>
+                  <div class="radio">
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_autov" value="1"<?php if (isset($_REQUEST["jak_autov"]) && $_REQUEST["jak_autov"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                    </label>
+                    <label class="checkbox-inline">
+                      <input type="radio" name="jak_autov" value="0"<?php if (isset($_REQUEST["jak_autov"]) && $_REQUEST["jak_autov"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                    </label>
+                  </div>
                 </td>
               </tr>
               <tr>
                 <td><?php echo $tlls["ls"]["d40"]; ?></td>
-                <td><select name="jak_prevv" class="form-control">
-                    <option
-                      value="maxresdefault.jpg"<?php if (isset($_REQUEST["jak_prevv"]) && $_REQUEST["jak_prevv"] == "maxresdefault.jpg") { ?> selected="selected"<?php } ?>>
+                <td>
+                  <select name="jak_prevv" class="form-control selectpicker">
+                    <option value="maxresdefault.jpg"<?php if (isset($_REQUEST["jak_prevv"]) && $_REQUEST["jak_prevv"] == "maxresdefault.jpg") { ?> selected="selected"<?php } ?>>
                       maxresdefault.jpg
                     </option>
-                    <option
-                      value="hqdefault.jpg"<?php if (isset($_REQUEST["jak_prevv"]) && $_REQUEST["jak_prevv"] == "hqdefault.jpg") { ?> selected="selected"<?php } ?>>
+                    <option value="hqdefault.jpg"<?php if (isset($_REQUEST["jak_prevv"]) && $_REQUEST["jak_prevv"] == "hqdefault.jpg") { ?> selected="selected"<?php } ?>>
                       hqdefault.jpg
                     </option>
-                    <option
-                      value="mqdefault.jpg"<?php if (isset($_REQUEST["jak_prevv"]) && $_REQUEST["jak_prevv"] == "mqdefault.jpg") { ?> selected="selected"<?php } ?>>
+                    <option value="mqdefault.jpg"<?php if (isset($_REQUEST["jak_prevv"]) && $_REQUEST["jak_prevv"] == "mqdefault.jpg") { ?> selected="selected"<?php } ?>>
                       mqdefault.jpg
                     </option>
-                    <option
-                      value="default.jpg"<?php if (isset($_REQUEST["jak_prevv"]) && $_REQUEST["jak_prevv"] == "default.jpg") { ?> selected="selected"<?php } ?>>
+                    <option value="default.jpg"<?php if (isset($_REQUEST["jak_prevv"]) && $_REQUEST["jak_prevv"] == "default.jpg") { ?> selected="selected"<?php } ?>>
                       default.jpg
                     </option>
-                  </select></td>
+                  </select>
+                </td>
               </tr>
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
 
         <div class="box box-danger">
           <div class="box-header with-border">
-            <h3 class="box-title"><?php echo $tl["general"]["g88"]; ?> <a class="cms-help"
-                                                                          data-content="<?php echo $tl["help"]["h"]; ?>"
-                                                                          href="javascript:void(0)"
-                                                                          data-original-title="<?php echo $tl["title"]["t21"]; ?>"><i
-                  class="fa fa-question-circle"></i></a></h3>
+            <h3 class="box-title">
+              <?php echo $tl["general"]["g88"]; ?>
+              <a class="cms-help" data-content="<?php echo $tl["help"]["h"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tl["title"]["t21"]; ?>">
+                <i class="fa fa-question-circle"></i>
+              </a>
+            </h3>
           </div><!-- /.box-header -->
           <div class="box-body">
             <table class="table">
               <tr>
-                <td><select name="jak_permission[]" multiple="multiple" class="form-control">
-                    <option
-                      value="0"<?php if (isset($_REQUEST["jak_permission"]) && in_array(0, $_REQUEST["jak_permission"])) { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g84"]; ?></option>
+                <td>
+                  <select name="jak_permission[]" multiple="multiple" class="form-control">
+                    <option value="0"<?php if (isset($_REQUEST["jak_permission"]) && in_array(0, $_REQUEST["jak_permission"])) { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g84"]; ?></option>
                     <?php if (isset($JAK_USERGROUP) && is_array($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) { ?>
                       <option value="<?php echo $v["id"]; ?>"<?php if (isset($_REQUEST["jak_permission"]) && in_array($v["id"], $_REQUEST["jak_permission"])) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php } ?>
-                  </select></td>
+                  </select>
+                </td>
               </tr>
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
 
@@ -565,17 +572,21 @@ if ($page3 == "e") { ?>
               <table class="table">
                 <tr>
                   <td><?php echo $tlls["ls"]["d33"]; ?></td>
-                  <td><input type="checkbox" name="jak_activel[]" value="1"/><input type="hidden" name="jak_layerid[]"
-                                                                                    value="<?php echo $i; ?>"/></td>
+                  <td>
+                    <input type="checkbox" name="jak_activel[]" value="1"/>
+                    <input type="hidden" name="jak_layerid[]" value="<?php echo $i; ?>"/>
+                  </td>
                 </tr>
                 <tr>
                   <td><?php echo $tlls["ls"]["d43"]; ?></td>
                   <td>
                     <div class="input-group">
                       <input type="text" name="jak_2d[]" class="form-control">
-                      <span class="input-group-addon"><a class="lsHelp"
-                                                         href="../plugins/slider/admin/doc/index.html#slide-transitions"><i
-                            class="fa fa-question-circle"></i></a></span>
+                      <span class="input-group-addon">
+                        <a class="lsHelp" href="../plugins/slider/admin/doc/index.html#slide-transitions">
+                          <i class="fa fa-question-circle"></i>
+                        </a>
+                      </span>
                     </div>
                   </td>
                 </tr>
@@ -584,9 +595,11 @@ if ($page3 == "e") { ?>
                   <td>
                     <div class="input-group">
                       <input type="text" name="jak_3d[]" class="form-control">
-                      <span class="input-group-addon"><a class="lsHelp"
-                                                         href="../plugins/slider/admin/doc/index.html#slide-transitions"><i
-                            class="fa fa-question-circle"></i></a></span>
+                      <span class="input-group-addon">
+                        <a class="lsHelp" href="../plugins/slider/admin/doc/index.html#slide-transitions">
+                          <i class="fa fa-question-circle"></i>
+                        </a>
+                      </span>
                     </div>
                   </td>
                 </tr>
@@ -595,9 +608,11 @@ if ($page3 == "e") { ?>
                   <td>
                     <div class="input-group">
                       <input type="text" name="jak_ts[]" class="form-control">
-                      <span class="input-group-addon"><a class="lsHelp"
-                                                         href="../plugins/slider/admin/doc/index.html#configuring-slides"><i
-                            class="fa fa-question-circle"></i></a></span>
+                      <span class="input-group-addon">
+                        <a class="lsHelp" href="../plugins/slider/admin/doc/index.html#configuring-slides">
+                          <i class="fa fa-question-circle"></i>
+                        </a>
+                      </span>
                     </div>
                   </td>
                 </tr>
@@ -606,15 +621,18 @@ if ($page3 == "e") { ?>
                   <td>
                     <div class="input-group">
                       <input type="text" name="jak_deep[]" class="form-control">
-                      <span class="input-group-addon"><a class="lsHelp"
-                                                         href="../plugins/slider/admin/doc/index.html#deep-linking-slides"><i
-                            class="fa fa-question-circle"></i></a></span>
+                      <span class="input-group-addon">
+                        <a class="lsHelp" href="../plugins/slider/admin/doc/index.html#deep-linking-slides">
+                          <i class="fa fa-question-circle"></i>
+                        </a>
+                      </span>
                     </div>
                   </td>
                 </tr>
                 <tr>
                   <td><?php echo $tlls["ls"]["d3"]; ?></td>
-                  <td><select name="jak_transition_l[]" class="form-control">
+                  <td>
+                    <select name="jak_transition_l[]" class="form-control selectpicker" data-size="5">
                       <option value=""><?php echo $tl['cform']['c18']; ?></option>
                       <option value="swing">Swing</option>
                       <option value="easeInQuad">easeInQuad</option>
@@ -645,11 +663,13 @@ if ($page3 == "e") { ?>
                       <option value="easeInBounce">easeInBounce</option>
                       <option value="easeOutBounce">easeOutBounce</option>
                       <option value="easeInOutBounce">easeInOutBounce</option>
-                    </select></td>
+                    </select>
+                  </td>
                 </tr>
                 <tr>
                   <td><?php echo $tlls["ls"]["d2"]; ?></td>
-                  <td><select name="jak_transition_out_l[]" class="form-control">
+                  <td>
+                    <select name="jak_transition_out_l[]" class="form-control selectpicker" data-size="5">
                       <option value=""><?php echo $tl['cform']['c18']; ?></option>
                       <option value="swing">Swing</option>
                       <option value="easeInQuad">easeInQuad</option>
@@ -680,32 +700,38 @@ if ($page3 == "e") { ?>
                       <option value="easeInBounce">easeInBounce</option>
                       <option value="easeOutBounce">easeOutBounce</option>
                       <option value="easeInOutBounce">easeInOutBounce</option>
-                    </select></td>
+                    </select>
+                  </td>
                 </tr>
                 <tr>
                   <td><?php echo $tlls["ls"]["d16"]; ?></td>
-                  <td><select name="jak_direction_l[]" class="form-control">
+                  <td>
+                    <select name="jak_direction_l[]" class="form-control selectpicker">
                       <option value=""><?php echo $tl['cform']['c18']; ?></option>
                       <option value="top"><?php echo $tlls["ls"]["d17"]; ?></option>
                       <option value="left"><?php echo $tlls["ls"]["d18"]; ?></option>
                       <option value="bottom"><?php echo $tlls["ls"]["d19"]; ?></option>
                       <option value="right"><?php echo $tlls["ls"]["d20"]; ?></option>
-                    </select></td>
+                    </select>
+                  </td>
                 </tr>
 
                 <tr>
                   <td><?php echo $tlls["ls"]["d5"]; ?></td>
-                  <td><select name="jak_pause_l[]" class="form-control">
+                  <td>
+                    <select name="jak_pause_l[]" class="form-control selectpicker">
                       <option value=""><?php echo $tl['cform']['c18']; ?></option>
                       <?php for ($o = 200; $o <= 20000; $o += 200) { ?>
                         <option value="<?php echo $o; ?>"><?php echo $o; ?></option>
                       <?php } ?>
-                    </select></td>
+                    </select>
+                  </td>
                 </tr>
 
                 <tr>
                   <td><?php echo $tlls["ls"]["d27"]; ?></td>
-                  <td><select name="jak_durationin_l[]" class="form-control">
+                  <td>
+                    <select name="jak_durationin_l[]" class="form-control selectpicker">
                       <option value=""><?php echo $tl['cform']['c18']; ?></option>
 
                       <?php for ($z = 100; $z <= 2000; $z += 100) { ?>
@@ -719,12 +745,14 @@ if ($page3 == "e") { ?>
                       <option value="7000">7000</option>
                       <option value="8000">8000</option>
                       <option value="9000">9000</option>
-                    </select></td>
+                    </select>
+                  </td>
                 </tr>
 
                 <tr>
                   <td><?php echo $tlls["ls"]["d28"]; ?></td>
-                  <td><select name="jak_duration_l[]" class="form-control">
+                  <td>
+                    <select name="jak_duration_l[]" class="form-control selectpicker">
                       <option value=""><?php echo $tl['cform']['c18']; ?></option>
 
                       <?php for ($z = 100; $z <= 2000; $z += 100) { ?>
@@ -739,12 +767,14 @@ if ($page3 == "e") { ?>
                       <option value="7000">7000</option>
                       <option value="8000">8000</option>
                       <option value="9000">9000</option>
-                    </select></td>
+                    </select>
+                  </td>
                 </tr>
 
                 <tr>
                   <td><?php echo $tlls["ls"]["d29"]; ?></td>
-                  <td><select name="jak_delay_l[]" class="form-control">
+                  <td>
+                    <select name="jak_delay_l[]" class="form-control selectpicker">
                       <option value=""><?php echo $tl['cform']['c18']; ?></option>
 
                       <?php for ($z = 100; $z <= 2000; $z += 100) { ?>
@@ -758,12 +788,14 @@ if ($page3 == "e") { ?>
                       <option value="7000">7000</option>
                       <option value="8000">8000</option>
                       <option value="9000">9000</option>
-                    </select></td>
+                    </select>
+                  </td>
                 </tr>
 
                 <tr>
                   <td><?php echo $tlls["ls"]["d30"]; ?></td>
-                  <td><select name="jak_delayout_l[]" class="form-control">
+                  <td>
+                    <select name="jak_delayout_l[]" class="form-control selectpicker">
                       <option value=""><?php echo $tl['cform']['c18']; ?></option>
 
                       <?php for ($z = 100; $z <= 2000; $z += 100) { ?>
@@ -777,13 +809,13 @@ if ($page3 == "e") { ?>
                       <option value="7000">7000</option>
                       <option value="8000">8000</option>
                       <option value="9000">9000</option>
-                    </select></td>
+                    </select>
+                  </td>
                 </tr>
               </table>
             </div>
             <div class="box-footer">
-              <button type="submit" name="save"
-                      class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+              <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
             </div>
           </div>
 
@@ -799,62 +831,74 @@ if ($page3 == "e") { ?>
                 <table class="table table-striped">
                   <tr>
                     <td colspan="8"><?php echo $tlls["ls"]["d12"]; ?><br/>
-                      <div class="input-group"><input type="text" class="form-control"
-                                                      name="jak_path<?php echo $i; ?>[]"
-                                                      id="jak_path<?php echo $i . $o; ?>"><span
-                          class="input-group-addon"><a
-                            href="../js/editor/plugins/filemanager/dialog.php?type=1&editor=mce_0&lang=eng&fldr=&field_id=jak_path<?php echo $i . $o; ?>"
-                            class="ifManager"><i class="fa fa-picture-o"></i></a></span>
-                        <span class="input-group-addon"><a
-                            href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=jak_path<?php echo $i . $o; ?>"
-                            class="ifManager"><i class="fa fa-file"></i></a></span></div>
+                      <div class="input-group">
+                        <input type="text" class="form-control" name="jak_path<?php echo $i; ?>[]" id="jak_path<?php echo $i . $o; ?>">
+                        <span class="input-group-addon">
+                          <a href="../js/editor/plugins/filemanager/dialog.php?type=1&editor=mce_0&lang=eng&fldr=&field_id=jak_path<?php echo $i . $o; ?>" class="ifManager">
+                            <i class="fa fa-picture-o"></i>
+                          </a>
+                        </span>
+                        <span class="input-group-addon">
+                          <a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=jak_path<?php echo $i . $o; ?>" class="ifManager">
+                            <i class="fa fa-file"></i>
+                          </a>
+                        </span>
+                      </div>
                     </td>
                   </tr>
                   <tr>
-                    <td colspan="2"><?php echo $tlls["ls"]["d16"]; ?><br/><select
-                        name="jak_direction_ls<?php echo $i; ?>[]" class="form-control">
+                    <td colspan="2"><?php echo $tlls["ls"]["d16"]; ?><br/>
+                      <select name="jak_direction_ls<?php echo $i; ?>[]" class="form-control selectpicker">
                         <option value=""><?php echo $tl['cform']['c18']; ?></option>
                         <option value="top"><?php echo $tlls["ls"]["d17"]; ?></option>
                         <option value="left"><?php echo $tlls["ls"]["d18"]; ?></option>
                         <option value="bottom"><?php echo $tlls["ls"]["d19"]; ?></option>
                         <option value="right"><?php echo $tlls["ls"]["d20"]; ?></option>
-                      </select></td>
-                    <td colspan="3"><?php echo $tlls["ls"]["d13"]; ?><br/><input type="text"
-                                                                                 name="jak_link<?php echo $i; ?>[]"<?php if ($o == 1) {
+                      </select>
+                    </td>
+                    <td colspan="3"><?php echo $tlls["ls"]["d13"]; ?><br/>
+                      <input type="text" name="jak_link<?php echo $i; ?>[]"<?php if ($o == 1) {
                         echo ' readonly="readonly" placeholder="---"';
-                      } ?> class="form-control"/></td>
-                    <td><?php echo $tlls["ls"]["d14"]; ?><br/><input type="text" name="jak_style<?php echo $i; ?>[]"
-                                                                     class="form-control"/></td>
-                    <td><?php echo $tlls["ls"]["d31"]; ?><br/><input type="text" name="jak_parallax<?php echo $i; ?>[]"
-                                                                     class="form-control"/></td>
-                    <td><?php echo $tlls["ls"]["d32"]; ?><br/><input type="text"
-                                                                     name="jak_parallaxout<?php echo $i; ?>[]"
-                                                                     class="form-control"/></td>
+                      } ?> class="form-control"/>
+                    </td>
+                    <td><?php echo $tlls["ls"]["d14"]; ?><br/>
+                      <input type="text" name="jak_style<?php echo $i; ?>[]" class="form-control"/>
+                    </td>
+                    <td><?php echo $tlls["ls"]["d31"]; ?><br/>
+                      <input type="text" name="jak_parallax<?php echo $i; ?>[]" class="form-control"/>
+                    </td>
+                    <td><?php echo $tlls["ls"]["d32"]; ?><br/>
+                      <input type="text" name="jak_parallaxout<?php echo $i; ?>[]" class="form-control"/>
+                    </td>
                   </tr>
                   <tr>
                     <td colspan="4">
                       <?php echo $tlls["ls"]["d48"]; ?><br>
                       <div class="input-group">
                         <input type="text" name="jak_pos<?php echo $i; ?>[]" class="form-control">
-                        <span class="input-group-addon"><a class="lsHelp"
-                                                           href="../plugins/slider/admin/doc/index.html#positioning-layers"><i
-                              class="fa fa-question-circle"></i></a></span>
+                        <span class="input-group-addon">
+                          <a class="lsHelp" href="../plugins/slider/admin/doc/index.html#positioning-layers">
+                            <i class="fa fa-question-circle"></i>
+                          </a>
+                        </span>
                       </div>
                     </td>
                     <td colspan="4">
                       <?php echo $tlls["ls"]["d46"]; ?><br>
                       <div class="input-group">
                         <input type="text" name="jak_move<?php echo $i; ?>[]" class="form-control">
-                        <span class="input-group-addon"><a class="lsHelp"
-                                                           href="../plugins/slider/admin/doc/index.html#layer-transitions"><i
-                              class="fa fa-question-circle"></i></a></span>
+                        <span class="input-group-addon">
+                          <a class="lsHelp" href="../plugins/slider/admin/doc/index.html#layer-transitions">
+                            <i class="fa fa-question-circle"></i>
+                          </a>
+                        </span>
                       </div>
                     </td>
                   </tr>
                   <tr>
 
-                    <td><?php echo $tlls["ls"]["d3"]; ?><br/><select name="jak_transition_ls<?php echo $i; ?>[]"
-                                                                     class="form-control">
+                    <td><?php echo $tlls["ls"]["d3"]; ?><br/>
+                      <select name="jak_transition_ls<?php echo $i; ?>[]" class="form-control selectpicker" data-size="5">
                         <option value=""><?php echo $tl['cform']['c18']; ?></option>
                         <option value="swing">Swing</option>
                         <option value="easeInQuad">easeInQuad</option>
@@ -885,10 +929,11 @@ if ($page3 == "e") { ?>
                         <option value="easeInBounce">easeInBounce</option>
                         <option value="easeOutBounce">easeOutBounce</option>
                         <option value="easeInOutBounce">easeInOutBounce</option>
-                      </select></td>
+                      </select>
+                    </td>
 
-                    <td><?php echo $tlls["ls"]["d2"]; ?><br/><select name="jak_transition_out_ls<?php echo $i; ?>[]"
-                                                                     class="form-control">
+                    <td><?php echo $tlls["ls"]["d2"]; ?><br/>
+                      <select name="jak_transition_out_ls<?php echo $i; ?>[]" class="form-control selectpicker" data-size="5">
                         <option value=""><?php echo $tl['cform']['c18']; ?></option>
                         <option value="swing">Swing</option>
                         <option value="easeInQuad">easeInQuad</option>
@@ -919,10 +964,11 @@ if ($page3 == "e") { ?>
                         <option value="easeInBounce">easeInBounce</option>
                         <option value="easeOutBounce">easeOutBounce</option>
                         <option value="easeInOutBounce">easeInOutBounce</option>
-                      </select></td>
+                      </select>
+                    </td>
 
-                    <td colspan="2"><?php echo $tlls["ls"]["d27"]; ?><br/><select
-                        name="jak_duration_ls<?php echo $i; ?>[]" class="form-control">
+                    <td colspan="2"><?php echo $tlls["ls"]["d27"]; ?><br/>
+                      <select name="jak_duration_ls<?php echo $i; ?>[]" class="form-control selectpicker" data-size="5">
                         <option value=""><?php echo $tl['cform']['c18']; ?></option>
 
                         <?php for ($z = 100; $z <= 2000; $z += 100) { ?>
@@ -936,10 +982,11 @@ if ($page3 == "e") { ?>
                         <option value="7000">7000</option>
                         <option value="8000">8000</option>
                         <option value="9000">9000</option>
-                      </select></td>
+                      </select>
+                    </td>
 
-                    <td colspan="2"><?php echo $tlls["ls"]["d28"]; ?><br/><select
-                        name="jak_durationout_ls<?php echo $i; ?>[]" class="form-control">
+                    <td colspan="2"><?php echo $tlls["ls"]["d28"]; ?><br/>
+                      <select name="jak_durationout_ls<?php echo $i; ?>[]" class="form-control selectpicker" data-size="5">
                         <option value=""><?php echo $tl['cform']['c18']; ?></option>
 
                         <?php for ($z = 100; $z <= 2000; $z += 100) { ?>
@@ -953,10 +1000,11 @@ if ($page3 == "e") { ?>
                         <option value="7000">7000</option>
                         <option value="8000">8000</option>
                         <option value="9000">9000</option>
-                      </select></td>
+                      </select>
+                    </td>
 
-                    <td><?php echo $tlls["ls"]["d29"]; ?><br/><select name="jak_delay_ls<?php echo $i; ?>[]"
-                                                                      class="form-control">
+                    <td><?php echo $tlls["ls"]["d29"]; ?><br/>
+                      <select name="jak_delay_ls<?php echo $i; ?>[]" class="form-control selectpicker" data-size="5">
                         <option value=""><?php echo $tl['cform']['c18']; ?></option>
 
                         <?php for ($z = 100; $z <= 2000; $z += 100) { ?>
@@ -970,10 +1018,11 @@ if ($page3 == "e") { ?>
                         <option value="7000">7000</option>
                         <option value="8000">8000</option>
                         <option value="9000">9000</option>
-                      </select></td>
+                      </select>
+                    </td>
 
-                    <td><?php echo $tlls["ls"]["d30"]; ?><br/><select name="jak_delayout_ls<?php echo $i; ?>[]"
-                                                                      class="form-control">
+                    <td><?php echo $tlls["ls"]["d30"]; ?><br/>
+                      <select name="jak_delayout_ls<?php echo $i; ?>[]" class="form-control selectpicker" data-size="5">
                         <option value=""><?php echo $tl['cform']['c18']; ?></option>
 
                         <?php for ($z = 100; $z <= 2000; $z += 100) { ?>
@@ -987,14 +1036,14 @@ if ($page3 == "e") { ?>
                         <option value="7000">7000</option>
                         <option value="8000">8000</option>
                         <option value="9000">9000</option>
-                      </select></td>
+                      </select>
+                    </td>
 
                   </tr>
                 </table>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save"
-                        class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
               </div>
             </div>
 
