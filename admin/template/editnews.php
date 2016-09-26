@@ -167,8 +167,7 @@ if ($errors) { ?>
                     <td><?php echo $tl["general"]["g87"]; ?></td>
                     <td>
                       <div class="input-group">
-                        <input type="text" name="jak_img" id="jak_img" class="form-control"
-                               value="<?php echo $JAK_FORM_DATA["previmg"]; ?>"/>
+                        <input type="text" name="jak_img" id="jak_img" class="form-control" value="<?php echo $JAK_FORM_DATA["previmg"]; ?>"/>
 		<span class="input-group-btn">
 		  <a class="btn btn-info ifManager" type="button"
          href="../js/editor/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_img"><?php echo $tl["general"]["g69"]; ?></a>
@@ -216,14 +215,13 @@ if ($errors) { ?>
                 <h3 class="box-title"><?php echo $tl["news"]["n4"]; ?></h3>
               </div><!-- /.box-header -->
               <div class="box-body">
-                <table class="table table-striped">
+                <table class="table table-striped v-text-center">
                   <tr>
                     <td><?php echo $tl["news"]["n2"]; ?></td>
                     <td>
 
                       <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-                        <input type="text" name="jak_datefrom" class="form-control" id="datepickerFrom"
-                               value="<?php if ($JAK_FORM_DATA["startdate"]) echo date("Y-m-d H:i", $JAK_FORM_DATA["startdate"]); ?>"/>
+                        <input type="text" name="jak_datefrom" class="form-control" id="datepickerFrom" value="<?php if ($JAK_FORM_DATA["startdate"]) echo date("Y-m-d H:i", $JAK_FORM_DATA["startdate"]); ?>"/>
                       </div>
 
                     </td>
@@ -233,8 +231,7 @@ if ($errors) { ?>
                     <td>
 
                       <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-                        <input type="text" name="jak_dateto" class="form-control" id="datepickerTo"
-                               value="<?php if ($JAK_FORM_DATA["enddate"]) echo date("Y-m-d H:i", $JAK_FORM_DATA["enddate"]); ?>"/>
+                        <input type="text" name="jak_dateto" class="form-control" id="datepickerTo" value="<?php if ($JAK_FORM_DATA["enddate"]) echo date("Y-m-d H:i", $JAK_FORM_DATA["enddate"]); ?>"/>
                       </div>
 
                     </td>
@@ -242,8 +239,7 @@ if ($errors) { ?>
                 </table>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save"
-                        class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
               </div>
             </div>
 
