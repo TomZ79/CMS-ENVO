@@ -58,13 +58,11 @@ if ($page3 == "e") { ?>
           </div><!-- /.box-header -->
           <div class="box-body">
             <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-              <input class="form-control" type="text" name="jak_oldurl"
-                     value="<?php echo $JAK_FORM_DATA["urlold"]; ?>"/>
+              <input class="form-control" type="text" name="jak_oldurl" value="<?php echo $JAK_FORM_DATA["urlold"]; ?>"/>
             </div>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
 
@@ -77,13 +75,11 @@ if ($page3 == "e") { ?>
           </div><!-- /.box-header -->
           <div class="box-body">
             <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-              <input class="form-control" type="text" name="jak_newurl"
-                     value="<?php echo $JAK_FORM_DATA["urlnew"]; ?>"/>
+              <input class="form-control" type="text" name="jak_newurl" value="<?php echo $JAK_FORM_DATA["urlnew"]; ?>"/>
             </div>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
 
@@ -96,19 +92,14 @@ if ($page3 == "e") { ?>
       </div><!-- /.box-header -->
       <div class="box-body">
         <div class="form-group no-margin">
-          <select name="jak_redirect" class="form-control">
-
-            <option
-              value="301"<?php if ($JAK_FORM_DATA["redirect"] == '301') { ?> selected="selected"<?php } ?>><?php echo $tlum["um"]["d3"]; ?></option>
-            <option
-              value="302"<?php if ($JAK_FORM_DATA["redirect"] == '302') { ?> selected="selected"<?php } ?>><?php echo $tlum["um"]["d4"]; ?></option>
-
+          <select name="jak_redirect" class="form-control selectpicker">
+            <option value="301"<?php if ($JAK_FORM_DATA["redirect"] == '301') { ?> selected="selected"<?php } ?>><?php echo $tlum["um"]["d3"]; ?></option>
+            <option value="302"<?php if ($JAK_FORM_DATA["redirect"] == '302') { ?> selected="selected"<?php } ?>><?php echo $tlum["um"]["d4"]; ?></option>
           </select>
         </div>
       </div>
       <div class="box-footer">
-        <button type="submit" name="save"
-                class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+        <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
       </div>
     </div>
   </form>

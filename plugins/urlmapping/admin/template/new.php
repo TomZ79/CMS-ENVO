@@ -58,13 +58,11 @@ if ($page3 == "e") { ?>
           </div><!-- /.box-header -->
           <div class="box-body">
             <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-              <input class="form-control" type="text" name="jak_oldurl"
-                     value="<?php if (isset($_REQUEST["jak_oldurl"])) echo $_REQUEST["jak_oldurl"]; ?>"/>
+              <input class="form-control" type="text" name="jak_oldurl" value="<?php if (isset($_REQUEST["jak_oldurl"])) echo $_REQUEST["jak_oldurl"]; ?>"/>
             </div>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
 
@@ -77,13 +75,11 @@ if ($page3 == "e") { ?>
           </div><!-- /.box-header -->
           <div class="box-body">
             <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-              <input class="form-control" type="text" name="jak_newurl"
-                     value="<?php if (isset($_REQUEST["jak_newurl"])) echo $_REQUEST["jak_newurl"]; ?>"/>
+              <input class="form-control" type="text" name="jak_newurl" value="<?php if (isset($_REQUEST["jak_newurl"])) echo $_REQUEST["jak_newurl"]; ?>"/>
             </div>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
 
@@ -96,19 +92,14 @@ if ($page3 == "e") { ?>
       </div><!-- /.box-header -->
       <div class="box-body">
         <div class="form-group no-margin">
-          <select name="jak_redirect" class="form-control">
-
-            <option
-              value="301"<?php if (isset($_REQUEST["jak_redirect"]) && $_REQUEST["jak_redirect"] == '301') { ?> selected="selected"<?php } ?>><?php echo $tlum["um"]["d3"]; ?></option>
-            <option
-              value="302"<?php if (isset($_REQUEST["jak_redirect"]) && $_REQUEST["jak_redirect"] == '302') { ?> selected="selected"<?php } ?>><?php echo $tlum["um"]["d4"]; ?></option>
-
+          <select name="jak_redirect" class="form-control selectpicker">
+            <option value="301"<?php if (isset($_REQUEST["jak_redirect"]) && $_REQUEST["jak_redirect"] == '301') { ?> selected="selected"<?php } ?>><?php echo $tlum["um"]["d3"]; ?></option>
+            <option value="302"<?php if (isset($_REQUEST["jak_redirect"]) && $_REQUEST["jak_redirect"] == '302') { ?> selected="selected"<?php } ?>><?php echo $tlum["um"]["d4"]; ?></option>
           </select>
         </div>
       </div>
       <div class="box-footer">
-        <button type="submit" name="save"
-                class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+        <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
       </div>
     </div>
 
