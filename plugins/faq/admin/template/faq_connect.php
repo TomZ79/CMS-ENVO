@@ -5,13 +5,13 @@
       <label class="control-label"><?php echo $tlf["faq"]["d27"]; ?></label>
       <div class="row">
         <div class="col-md-6">
-          <select name="jak_showfaqorder" class="form-control">
+          <select name="jak_showfaqorder" class="form-control selectpicker">
             <option value="ASC"<?php if (isset($JAK_FORM_DATA["showfaqorder"]) && $JAK_FORM_DATA["showfaqorder"] == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g90"]; ?></option>
             <option value="DESC"<?php if (isset($JAK_FORM_DATA["showfaqorder"]) && $JAK_FORM_DATA["showfaqorder"] == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g91"]; ?></option>
           </select>
         </div>
         <div class="col-md-6">
-          <select name="jak_showfaqmany" class="form-control">
+          <select name="jak_showfaqmany" class="form-control selectpicker" data-size="5">
             <?php for ($i = 0; $i <= 10; $i++) { ?>
               <option value="<?php echo $i ?>"<?php if (isset($JAK_FORM_DATA["showfaqmany"]) && $JAK_FORM_DATA["showfaqmany"] == $i) { ?> selected="selected"<?php } ?>><?php echo $i; ?></option>
             <?php } ?>
