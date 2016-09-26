@@ -88,12 +88,12 @@ if ($errors) { ?>
       <div class="box-body">
 
         <ul class="cform_drag">
-          <li id="cform_drag" class="ui-state-highlight big-drag">
+          <li id="cform_drag">
             <div class="row">
               <div class="col-md-3">
                 <div class="form-group">
-                  <?php echo $tl["cform"]["c6"]; ?> <input type="text" class="form-control jakread" readonly="readonly"
-                                                           name="jak_option[]" value=""/>
+                  <?php echo $tl["cform"]["c6"]; ?>
+                  <input type="text" class="form-control jakread" readonly="readonly" name="jak_option[]" value=""/>
                 </div>
               </div>
               <div class="col-md-2">
@@ -123,8 +123,8 @@ if ($errors) { ?>
               </div>
               <div class="col-md-5">
                 <div class="form-group">
-                  <?php echo $tl["cform"]["c8"]; ?> <input type="text" class="form-control jakread" readonly="readonly"
-                                                           name="jak_options[]" value="female,male"/>
+                  <?php echo $tl["cform"]["c8"]; ?>
+                  <input type="text" class="form-control jakread" readonly="readonly" name="jak_options[]" value="female,male"/>
                 </div>
               </div>
               <input type="hidden" name="jak_optionsort[]" class="cforder-orig" value=""/>
@@ -141,13 +141,14 @@ if ($errors) { ?>
             <div class="row">
               <div class="col-md-3">
                 <div class="form-group">
-                  <?php echo $tl["cform"]["c6"]; ?> <input type="text" class="form-control" name="jak_option[]"
-                                                           value=""/>
+                  <?php echo $tl["cform"]["c6"]; ?>
+                  <input type="text" class="form-control" name="jak_option[]" value=""/>
                 </div>
               </div>
               <div class="col-md-2">
                 <div class="form-group">
-                  <?php echo $tl["cform"]["c9"]; ?> <select name="jak_optionmandatory[]" class="form-control">
+                  <?php echo $tl["cform"]["c9"]; ?>
+                  <select name="jak_optionmandatory[]" class="form-control selectpicker">
                     <option value="0"><?php echo $tl["general"]["g19"]; ?></option>
                     <option value="1"><?php echo $tl["general"]["g18"]; ?></option>
                     <option value="2"><?php echo $tl["cform"]["c16"]; ?></option>
@@ -157,7 +158,8 @@ if ($errors) { ?>
               </div>
               <div class="col-md-2">
                 <div class="form-group">
-                  <?php echo $tl["cform"]["c7"]; ?> <select name="jak_optiontype[]" class="form-control">
+                  <?php echo $tl["cform"]["c7"]; ?>
+                  <select name="jak_optiontype[]" class="form-control selectpicker" data-size="5">
                     <option value="1"><?php echo $tl["cform"]["c10"]; ?></option>
                     <option value="2"><?php echo $tl["cform"]["c11"]; ?></option>
                     <option value="3"><?php echo $tl["cform"]["c12"]; ?></option>
@@ -170,8 +172,8 @@ if ($errors) { ?>
               </div>
               <div class="col-md-5">
                 <div class="form-group">
-                  <?php echo $tl["cform"]["c8"]; ?> <input type="text" class="form-control" name="jak_options[]"
-                                                           value=""/>
+                  <?php echo $tl["cform"]["c8"]; ?>
+                  <input type="text" class="form-control" name="jak_options[]" value=""/>
                   <input type="hidden" name="jak_optionsort[]" class="cforder" value=""/>
                 </div>
               </div>
@@ -180,8 +182,7 @@ if ($errors) { ?>
         </ul>
       </div>
       <div class="box-footer">
-        <button type="submit" name="save"
-                class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+        <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
       </div>
     </div>
   </form>

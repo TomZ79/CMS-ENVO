@@ -102,12 +102,12 @@ if ($errors) { ?>
       <div class="box-body">
 
         <ul class="cform_drag">
-          <li id="cform_drag" class="ui-state-highlight big-drag">
+          <li id="cform_drag">
             <div class="row">
               <div class="col-md-3">
                 <div class="form-group">
-                  <?php echo $tl["cform"]["c6"]; ?> <input type="text" class="form-control jakread" readonly="readonly"
-                                                           name="jak_option[]" value=""/>
+                  <?php echo $tl["cform"]["c6"]; ?>
+                  <input type="text" class="form-control jakread" readonly="readonly" name="jak_option[]" value=""/>
                 </div>
               </div>
               <div class="col-md-2">
@@ -136,8 +136,8 @@ if ($errors) { ?>
                 </div>
               </div>
               <div class="col-md-4">
-                <?php echo $tl["cform"]["c8"]; ?> <input type="text" name="jak_options[]" class="form-control jakread"
-                                                         readonly="readonly" value="female,male"/>
+                <?php echo $tl["cform"]["c8"]; ?>
+                <input type="text" name="jak_options[]" class="form-control jakread" readonly="readonly" value="female,male"/>
               </div>
               <input type="hidden" name="jak_optionsort[]" class="cforder-orig" value=""/>
             </div>
@@ -156,8 +156,8 @@ if ($errors) { ?>
               <div class="row">
                 <div class="col-md-3">
                   <div class="form-group">
-                    <?php echo $tl["cform"]["c6"]; ?> <input type="text" class="form-control" name="jak_option_old[]"
-                                                             value="<?php echo $o["name"]; ?>"/>
+                    <?php echo $tl["cform"]["c6"]; ?>
+                    <input type="text" class="form-control" name="jak_option_old[]" value="<?php echo $o["name"]; ?>"/>
                   </div>
                 </div>
                 <div class="col-md-2">
@@ -193,8 +193,7 @@ if ($errors) { ?>
                 <div class="col-md-1">
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" name="jak_sod[]" value="<?php echo $o["id"]; ?>"/> <i
-                        class="fa fa-trash-o"></i>
+                      <input type="checkbox" name="jak_sod[]" value="<?php echo $o["id"]; ?>"/> <i class="fa fa-trash-o"></i>
                     </label>
                   </div>
                 </div>
@@ -209,8 +208,7 @@ if ($errors) { ?>
 
       </div>
       <div class="box-footer">
-        <button type="submit" name="save"
-                class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+        <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
       </div>
     </div>
   </form>
