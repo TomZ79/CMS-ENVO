@@ -105,24 +105,28 @@
               </tr>
               <tr>
                 <td><?php echo $lrf["register"]["r10"]; ?></td>
-                <td><select name="jak_redirect" class="form-control">
+                <td>
+                  <select name="jak_redirect" class="form-control selectpicker" data-size="5">
                     <option value="0"><?php echo $tl["title"]["t12"]; ?></option>
                     <?php if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $c) { ?>
                       <option value="<?php echo $c["id"]; ?>"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $z) {
                         if ($z["varname"] == 'rf_redirect' && $c["id"] == $z["value"]) { ?> selected="selected"<?php }
                       } ?>><?php echo $c["name"]; ?></option><?php } ?>
-                  </select></td>
+                  </select>
+                </td>
               </tr>
               <tr>
                 <td><?php echo $lrf["register"]["r9"]; ?></td>
-                <td><select name="jak_usergroup" class="form-control">
+                <td>
+                  <select name="jak_usergroup" class="form-control selectpicker">
                     <?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
                       if ($v["id"] != '1') { ?>
                         <option value="<?php echo $v["id"]; ?>"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $z) {
                           if ($z["varname"] == 'rf_usergroup' && $v["id"] == $z["value"]) { ?> selected="selected"<?php }
                         } ?>><?php echo $v["name"]; ?></option><?php }
                     } ?>
-                  </select></td>
+                  </select>
+                </td>
               </tr>
               <tr>
                 <td><?php echo $lrf["register"]["r5"]; ?></td>
@@ -131,8 +135,7 @@
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
 
@@ -146,8 +149,7 @@
             <?php include APP_PATH . 'admin/template/sidebar_widget.php'; ?>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
       </div>
