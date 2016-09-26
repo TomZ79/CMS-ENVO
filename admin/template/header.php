@@ -12,7 +12,7 @@
   <!-- AUTOMATIC PACE ================================================================================================ -->
   <!-- Pace -->
   <script type="text/javascript" src="js-plugins/pace/pace.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
-  <link rel="stylesheet" href="js-plugins/pace/themes/blue/pace-theme-minimal.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="js-plugins/pace/themes/teal/pace-theme-minimal.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
 
   <!-- CSS STYLE ================================================================================================ -->
   <!-- General Stylesheet with custom modifications -->
@@ -111,7 +111,12 @@
                   class="img-circle" alt="User Image">
                 <p>
                   <?php echo $JAK_WELCOME_NAME; ?>
-                  <small><?php echo sprintf($tl["user"]["u18"], $jakuser->getVar("time")); ?></small>
+                  <small>
+                    <?php
+                    $date = strtotime($jakuser->getVar("time"));
+                    echo sprintf($tl["user"]["u18"], date($jkv["dateformat"] . $jkv["timeformat"],$date));
+                    ?>
+                  </small>
                 </p>
               </li>
               <!-- Menu Footer-->
