@@ -255,7 +255,7 @@ if ($success) { ?>
                     <td><?php echo $tl["general"]["g58"]; ?></td>
                     <td>
 
-                      <select name="jak_shownews" class="form-control">
+                      <select name="jak_shownews" class="form-control selectpicker" data-size="5">
                         <?php for ($i = 0; $i <= 10; $i++) { ?>
                           <option value="<?php echo $i ?>"<?php if ($jkv["shownews"] == $i) { ?> selected="selected"<?php } ?>><?php echo $i; ?></option>
                         <?php } ?>
