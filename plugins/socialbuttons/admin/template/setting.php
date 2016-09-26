@@ -97,7 +97,7 @@
                 <td><?php echo $tlsb["sb43"]["b"]; ?></td>
                 <td>
 
-                  <select name="sb_show" class="form-control">
+                  <select name="sb_show" class="form-control selectpicker" data-size="5">
                     <?php for ($i = 0; $i <= 10; $i++) { ?>
                       <option value="<?php echo $i ?>"<?php if ($jkv["sb_show"] == $i) { ?> selected="selected"<?php } ?>><?php echo $i; ?></option>
                     <?php } ?>
@@ -109,7 +109,7 @@
                 <td><?php echo $tlsb["sb43"]["b1"]; ?></td>
                 <td>
 
-                  <select name="sb_move" class="form-control">
+                  <select name="sb_move" class="form-control selectpicker" data-size="5">
                     <?php for ($i = 0; $i <= 10; $i++) { ?>
                       <option value="<?php echo $i ?>"<?php if ($jkv["sb_move"] == $i) { ?> selected="selected"<?php } ?>><?php echo $i; ?></option>
                     <?php } ?>
@@ -121,7 +121,7 @@
                 <td><?php echo $tlsb["sb43"]["b2"]; ?></td>
                 <td>
 
-                  <select name="sb_skin" class="form-control">
+                  <select name="sb_skin" class="form-control selectpicker">
                     <option value="clear"<?php if ($jkv["sb_skin"] == 'clear') { ?> selected="selected"<?php } ?>><?php echo $tlsb["sb43"]["b8"]; ?></option>
                     <option value="dark"<?php if ($jkv["sb_skin"] == 'dark') { ?> selected="selected"<?php } ?>><?php echo $tlsb["sb43"]["b9"]; ?></option>
                   </select>
@@ -132,7 +132,7 @@
                 <td><?php echo $tlsb["sb43"]["b3"]; ?></td>
                 <td>
 
-                  <select name="sb_position" class="form-control">
+                  <select name="sb_position" class="form-control selectpicker">
                     <option value="left"<?php if ($jkv["sb_position"] == 'left') { ?> selected="selected"<?php } ?>><?php echo $tlsb["sb43"]["b4"]; ?></option>
                     <option value="top"<?php if ($jkv["sb_position"] == 'top') { ?> selected="selected"<?php } ?>><?php echo $tlsb["sb43"]["b5"]; ?></option>
                     <option value="right"<?php if ($jkv["sb_position"] == 'right') { ?> selected="selected"<?php } ?>><?php echo $tlsb["sb43"]["b6"]; ?></option>
