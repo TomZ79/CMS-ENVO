@@ -430,16 +430,12 @@ if ($page3 == "e") { ?>
 
       /* DateTimePicker
        ========================================= */
-
       $("#datepickerTime").datetimepicker({
         language: '<?php echo $site_language;?>',
         format: 'yyyy-mm-dd hh:ii:ss',
         autoclose: true,
         todayBtn: true,
-        clearBtn: true,
-        todayHighlight: true,
-        fontAwesome: true,
-        zIndex: 999,
+        todayHighlight: true
       });
       $("#datepickerFrom, #datepickerTo").datetimepicker({
         language: '<?php echo $site_language;?>',
@@ -460,7 +456,8 @@ if ($page3 == "e") { ?>
       });
     });
 
-    // Responsive Filemanager
+    /* Responsive Filemanager
+     ========================================= */
     function responsive_filemanager_callback(field_id) {
 
       if (field_id == "csseditor" || field_id == "javaeditor" || field_id == "htmleditor") {
@@ -478,7 +475,8 @@ if ($page3 == "e") { ?>
       }
     }
 
-    // Submit Form
+    /* Submit Form
+     ========================================= */
     $('form').submit(function () {
       $("#jak_css").val(cssACE.getValue());
       $("#jak_javascript").val(jsACE.getValue());

@@ -403,7 +403,8 @@
       });
     });
 
-    // Responsive Filemanager
+    /* Responsive Filemanager
+      ========================================= */
     function responsive_filemanager_callback(field_id) {
 
       if (field_id == "csseditor" || field_id == "javaeditor" || field_id == "htmleditor") {
@@ -421,7 +422,8 @@
       }
     }
 
-    // Submit Form
+    /* Submit Form
+     ========================================= */
     $('form').submit(function () {
       $("#jak_css").val(cssACE.getValue());
       $("#jak_javascript").val(jsACE.getValue());
