@@ -14,6 +14,8 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "categories (
   `exturl` varchar(255) DEFAULT NULL,
   `catimg` varchar(255) DEFAULT NULL,
   `content` text,
+  `metadesc` text,
+  `metakey` text,
   `showmenu` smallint(1) unsigned NOT NULL DEFAULT 0,
   `showfooter` smallint(1) unsigned NOT NULL DEFAULT 0,
   `catorder` int(11) unsigned NOT NULL,
