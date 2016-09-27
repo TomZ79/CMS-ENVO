@@ -393,10 +393,7 @@
         format: 'yyyy-mm-dd hh:ii:ss',
         autoclose: true,
         todayBtn: true,
-        clearBtn: true,
-        todayHighlight: true,
-        fontAwesome: true,
-        zIndex: 999,
+        todayHighlight: true
       });
       $("#datepickerFrom, #datepickerTo").datetimepicker({
         language: '<?php echo $site_language;?>',
