@@ -6235,11 +6235,11 @@ div.tagsinput div {
 .datetimepicker thead tr:first-child th.switch:hover {
   color: #000000;
 }
-.datetimepicker thead tr:first-child th.prev:hover span {
+.datetimepicker thead tr:first-child th.prev:hover i {
   margin-left: -.3em;
   color: #000000;
 }
-.datetimepicker thead tr:first-child th.next:hover span {
+.datetimepicker thead tr:first-child th.next:hover i {
   margin-right: -.3em;
   color: #000000;
 }
