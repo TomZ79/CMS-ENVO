@@ -41,14 +41,10 @@
             <th><?php echo $tl["page"]["p4"]; ?></th>
             <th><?php echo $tl["login"]["l1"]; ?></th>
             <th>
-              <button type="submit" name="untrash" id="button_lock" class="btn btn-default btn-xs"
-                      onclick="if(!confirm('<?php echo $tlblog["blog"]["ap"]; ?>'))return false;"><i
-                  class="fa fa-check"></i></button>
+              <button type="submit" name="untrash" id="button_lock" class="btn btn-default btn-xs" onclick="if(!confirm('<?php echo $tlblog["blog"]["ap"]; ?>'))return false;"><i class="fa fa-check"></i></button>
             </th>
             <th>
-              <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs"
-                      onclick="if(!confirm('<?php echo $tlblog["blog"]["co"]; ?>'))return false;"><i
-                  class="fa fa-trash-o"></i></button>
+              <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tlblog["blog"]["co"]; ?>'))return false;"><i class="fa fa-trash-o"></i></button>
             </th>
           </tr>
           </thead>

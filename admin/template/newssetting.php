@@ -188,6 +188,8 @@ if ($errors) { ?>
   <script src="js/ace/ace.js" type="text/javascript"></script>
   <script type="text/javascript">
 
+    /* ACE Editor
+     ========================================= */
     var jsACE = ace.edit("javaeditor");
     jsACE.setTheme("ace/theme/chrome");
     jsACE.session.setMode("ace/mode/html");
@@ -200,6 +202,8 @@ if ($errors) { ?>
     textcss = $("#jak_css").val();
     cssACE.session.setValue(textcss);
 
+    /* Other config
+     ========================================= */
     $(document).ready(function () {
 
       $('#cmsTab a').click(function (e) {
@@ -219,6 +223,8 @@ if ($errors) { ?>
       });
     });
 
+    /* Responsive Filemanager
+     ========================================= */
     function responsive_filemanager_callback(field_id) {
 
       if (field_id == "csseditor" || field_id == "javaeditor") {
@@ -234,6 +240,8 @@ if ($errors) { ?>
       }
     }
 
+    /* Submit Form
+     ========================================= */
     $('form').submit(function () {
       $("#jak_css").val(cssACE.getValue());
       $("#jak_javascript").val(jsACE.getValue());

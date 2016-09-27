@@ -42,14 +42,11 @@
             <th><?php echo $tl["page"]["p1"]; ?></th>
             <th><?php echo $tl["page"]["p2"]; ?></th>
             <th>
-              <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs"><i
-                  class="fa fa-check"></i></button>
+              <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
             </th>
             <th></th>
             <th>
-              <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs"
-                      onclick="if(!confirm('<?php echo $tl["page"]["al"]; ?>'))return false;"><i
-                  class="fa fa-trash-o"></i></button>
+              <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tl["page"]["al"]; ?>'))return false;"><i class="fa fa-trash-o"></i></button>
             </th>
           </tr>
           </thead>
@@ -62,19 +59,26 @@
               </td>
               <td><?php if ($v["catid"] != '0') {
                   if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $z) {
-                    if ($v["catid"] == $z["id"]) { ?><a
-                      href="index.php?p=blog&amp;sp=showcat&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a><?php }
+                    if ($v["catid"] == $z["id"]) { ?>
+                      <a href="index.php?p=blog&amp;sp=showcat&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a><?php }
                   }
                 } else { ?><?php echo $tl["general"]["g24"]; ?><?php } ?></td>
               <td><?php echo $v["time"]; ?></td>
-              <td><a href="index.php?p=blog&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs"><i
-                    class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i></a></td>
-              <td><a href="index.php?p=blog&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs"><i
-                    class="fa fa-edit"></i></a></td>
-              <td><a href="index.php?p=blog&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>"
-                     class="btn btn-default btn-xs"
-                     onclick="if(!confirm('<?php echo $tl["page"]["al"]; ?>'))return false;"><i
-                    class="fa fa-trash-o"></i></a></td>
+              <td>
+                <a href="index.php?p=blog&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs">
+                  <i class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i>
+                </a>
+              </td>
+              <td>
+                <a href="index.php?p=blog&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs">
+                  <i class="fa fa-edit"></i>
+                </a>
+              </td>
+              <td>
+                <a href="index.php?p=blog&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" onclick="if(!confirm('<?php echo $tl["page"]["al"]; ?>'))return false;">
+                  <i class="fa fa-trash-o"></i>
+                </a>
+              </td>
             </tr>
           <?php } ?>
         </table>

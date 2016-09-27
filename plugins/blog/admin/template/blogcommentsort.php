@@ -43,35 +43,35 @@
               <th><?php echo $tlblog["blog"]["d8"]; ?></th>
               <th><?php echo $tl["user"]["u2"]; ?></th>
               <th>
-                <button type="submit" name="approve" id="button_lock" class="btn btn-default btn-xs"><i
-                    class="fa fa-clock-o"></i></button>
+                <button type="submit" name="approve" id="button_lock" class="btn btn-default btn-xs"><i class="fa fa-clock-o"></i></button>
               </th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs"
-                        onclick="if(!confirm('<?php echo $tlblog["blog"]["co"]; ?>'))return false;"><i
-                    class="fa fa-trash-o"></i></button>
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tlblog["blog"]["co"]; ?>'))return false;"><i class="fa fa-trash-o"></i></button>
               </th>
             </tr>
             </thead>
             <?php if (isset($JAK_BLOGCOM_SORT) && is_array($JAK_BLOGCOM_SORT)) foreach ($JAK_BLOGCOM_SORT as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
-                <td><input type="checkbox" name="jak_delete_comment[]" class="highlight"
-                           value="<?php echo $v["id"]; ?>"/></td>
+                <td>
+                  <input type="checkbox" name="jak_delete_comment[]" class="highlight" value="<?php echo $v["id"]; ?>"/></td>
                 <td><?php echo jak_clean_comment($v["message"]); ?></td>
                 <td><?php if (isset($JAK_BLOG_ALL) && is_array($JAK_BLOG_ALL)) foreach ($JAK_BLOG_ALL as $z) {
-                    if ($v["blogid"] == $z["id"]) { ?><a
-                      href="index.php?p=blog&amp;sp=comment&amp;ssp=sort&amp;sssp=blog&amp;ssssp=<?php echo $z["id"]; ?>"><?php echo $z["title"]; ?></a><?php }
+                    if ($v["blogid"] == $z["id"]) { ?>
+                      <a href="index.php?p=blog&amp;sp=comment&amp;ssp=sort&amp;sssp=blog&amp;ssssp=<?php echo $z["id"]; ?>"><?php echo $z["title"]; ?></a><?php }
                   } ?></td>
-                <td><?php if ($v["userid"] == '0') { ?><?php echo $tl["general"]["g28"]; ?><?php } else { ?><a
-                    href="index.php?p=blog&amp;sp=comment&amp;ssp=sort&amp;sssp=user&amp;ssssp=<?php echo $v["userid"]; ?>"><?php echo $v["username"]; ?></a><?php } ?>
+                <td><?php if ($v["userid"] == '0') { ?><?php echo $tl["general"]["g28"]; ?><?php } else { ?>
+                    <a href="index.php?p=blog&amp;sp=comment&amp;ssp=sort&amp;sssp=user&amp;ssssp=<?php echo $v["userid"]; ?>"><?php echo $v["username"]; ?></a><?php } ?>
                 </td>
-                <td><a href="index.php?p=blog&amp;sp=comment&amp;ssp=approve&amp;sssp=<?php echo $v["id"]; ?>"
-                       class="btn btn-default btn-xs"><i
-                      class="fa fa-<?php if ($v["approve"] == '0') { ?>lock<?php } else { ?>check<?php } ?>"></i></a>
+                <td>
+                  <a href="index.php?p=blog&amp;sp=comment&amp;ssp=approve&amp;sssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs">
+                    <i class="fa fa-<?php if ($v["approve"] == '0') { ?>lock<?php } else { ?>check<?php } ?>"></i>
+                  </a>
                 </td>
-                <td><a href="index.php?p=blog&amp;sp=comment&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>"
-                       class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i></a></td>
+                <td>
+                  <a href="index.php?p=blog&amp;sp=comment&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i>
+                  </a>
+                </td>
               </tr>
             <?php } ?>
           </table>

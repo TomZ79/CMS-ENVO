@@ -9,7 +9,8 @@
   <script src="js/ace/ace.js" type="text/javascript"></script>
   <script type="text/javascript">
 
-    // ACE editor
+    /* ACE Editor
+     ========================================= */
     var htmlelACE = ace.edit("htmleditorlight");
     htmlelACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
     htmlelACE.session.setUseWrapMode(true);
@@ -28,7 +29,8 @@
     texthtmlel = $("#jak_editor_light").val();
     htmlelACE.session.setValue(texthtmlel);
 
-    // Responsive Filemanager
+    /* Responsive Filemanager
+     ========================================= */
     function responsive_filemanager_callback(field_id) {
 
       if (field_id == "htmleditorlight") {
@@ -39,7 +41,8 @@
       }
     }
 
-    // Submit Form
+    /* Submit Form
+     ========================================= */
     $('form').submit(function () {
       $("#jak_editor_light").val(htmlelACE.getValue());
     });

@@ -46,9 +46,7 @@
                   class="fa fa-lock"></i></button>
             </th>
             <th>
-              <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs"
-                      onclick="if(!confirm('<?php echo $tld["dload"]["co"]; ?>'))return false;"><i
-                  class="fa fa-trash-o"></i></button>
+              <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tld["dload"]["co"]; ?>'))return false;"><i class="fa fa-trash-o"></i></button>
             </th>
           </tr>
           </thead>

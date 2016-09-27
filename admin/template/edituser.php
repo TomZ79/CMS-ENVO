@@ -220,7 +220,18 @@ if ($errors) { ?>
 
   <script type="text/javascript">
     $(document).ready(function () {
-      $("#datepicker").datetimepicker({format: 'yyyy-mm-dd', minView: 2, autoclose: true, startDate: new Date()});
+      /* DateTimePicker
+       ========================================= */
+      $("#datepicker").datetimepicker({
+        language: '<?php echo $site_language;?>',
+        format: 'yyyy-mm-dd',
+        minView: 2,
+        autoclose: true,
+        startDate: new Date()
+      });
+
+      /* Other
+       ========================================= */
       $('#check_password').keyup(function () {
         passwordStrength($(this).val());
       });

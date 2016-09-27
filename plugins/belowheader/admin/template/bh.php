@@ -40,35 +40,37 @@
               <th><?php echo $tlbh["bh"]["d"]; ?></th>
               <th><?php echo $tl["page"]["p2"]; ?></th>
               <th>
-                <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs"><i
-                    class="fa fa-check"></i></button>
+                <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
               </th>
               <th></th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs"
-                        onclick="if(!confirm('<?php echo $tlbh["bh"]["al"]; ?>'))return false;"><i
-                    class="fa fa-trash-o"></i></button>
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tlbh["bh"]["al"]; ?>'))return false;"><i class="fa fa-trash-o"></i></button>
               </th>
             </tr>
             </thead>
             <?php if (isset($JAK_BELOWHEADER_ALL) && is_array($JAK_BELOWHEADER_ALL)) foreach ($JAK_BELOWHEADER_ALL as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
-                <td><input type="checkbox" name="jak_delete_belowheader[]" class="highlight"
-                           value="<?php echo $v["id"]; ?>"/></td>
-                <td><a
-                    href="index.php?p=belowheader&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a>
+                <td>
+                  <input type="checkbox" name="jak_delete_belowheader[]" class="highlight" value="<?php echo $v["id"]; ?>"/></td>
+                <td>
+                  <a href="index.php?p=belowheader&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a>
                 </td>
                 <td><?php echo $v["time"]; ?></td>
-                <td><a href="index.php?p=belowheader&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>"
-                       class="btn btn-default btn-xs"><i
-                      class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i></a></td>
-                <td><a href="index.php?p=belowheader&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"
-                       class="btn btn-default btn-xs"><i class="fa fa-edit"></i></a></td>
-                <td><a href="index.php?p=belowheader&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>"
-                       class="btn btn-default btn-xs"
-                       onclick="if(!confirm('<?php echo $tlbh["bh"]["al"]; ?>'))return false;"><i
-                      class="fa fa-trash-o"></i></a></td>
+                <td>
+                  <a href="index.php?p=belowheader&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs">
+                    <i class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i>
+                  </a>
+                </td>
+                <td>
+                  <a href="index.php?p=belowheader&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>
+                  </a>
+                </td>
+                <td>
+                  <a href="index.php?p=belowheader&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" onclick="if(!confirm('<?php echo $tlbh["bh"]["al"]; ?>'))return false;">
+                    <i class="fa fa-trash-o"></i>
+                  </a>
+                </td>
               </tr>
             <?php } ?>
           </table>

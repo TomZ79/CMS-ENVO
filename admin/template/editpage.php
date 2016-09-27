@@ -462,7 +462,8 @@ if ($errors) { ?>
   <script src="js/ace/ace.js" type="text/javascript"></script>
   <script type="text/javascript">
 
-    // ACE editor
+    /* ACE Editor
+     ========================================= */
     <?php if ($jkv["adv_editor"]) { ?>
     var htmlACE = ace.edit("htmleditor");
     htmlACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
@@ -495,6 +496,8 @@ if ($errors) { ?>
     textcss = $("#jak_css").val();
     cssACE.session.setValue(textcss);
 
+    /* Other config
+     ========================================= */
     $(document).ready(function () {
 
       $('#jak_tags').tagsInput({
@@ -531,7 +534,8 @@ if ($errors) { ?>
       });
     });
 
-    // Responsive Filemanager
+    /* Responsive Filemanager
+     ========================================= */
     function responsive_filemanager_callback(field_id) {
 
       if (field_id == "csseditor" || field_id == "javaeditor" || field_id == "htmleditor") {
@@ -549,7 +553,8 @@ if ($errors) { ?>
       }
     }
 
-    // Submit Form
+    /* Submit Form
+     ========================================= */
     $('form').submit(function () {
       $("#jak_css").val(cssACE.getValue());
       $("#jak_javascript").val(jsACE.getValue());

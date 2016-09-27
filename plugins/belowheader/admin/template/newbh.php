@@ -51,16 +51,14 @@
               <tr>
                 <td>
                   <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-                    <input class="form-control" type="text" name="jak_title"
-                           value="<?php if (isset($_REQUEST["jak_title"])) echo $_REQUEST["jak_title"]; ?>"/>
+                    <input class="form-control" type="text" name="jak_title" value="<?php if (isset($_REQUEST["jak_title"])) echo $_REQUEST["jak_title"]; ?>"/>
                   </div>
                 </td>
               </tr>
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
         <div class="box box-primary">
@@ -89,8 +87,7 @@
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
         <div class="box box-danger">
@@ -104,18 +101,18 @@
           <div class="box-body">
             <table class="table table-striped">
               <tr>
-                <td><select name="jak_permission[]" multiple="multiple" class="form-control">
-                    <option
-                      value="0"<?php if (isset($_REQUEST["jak_permission"]) && $_REQUEST["jak_permission"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g84"]; ?></option>
+                <td>
+                  <select name="jak_permission[]" multiple="multiple" class="form-control">
+                    <option value="0"<?php if (isset($_REQUEST["jak_permission"]) && $_REQUEST["jak_permission"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g84"]; ?></option>
                     <?php if (isset($JAK_USERGROUP) && is_array($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) { ?>
                       <option value="<?php echo $v["id"]; ?>"<?php if (isset($_REQUEST["jak_permission"]) && $v["id"] == $_REQUEST["jak_permission"]) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php } ?>
-                  </select></td>
+                  </select>
+                </td>
               </tr>
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
       </div>
@@ -221,23 +218,22 @@
           <tr>
             <td>
               <?php if ($jkv["adv_editor"]) { ?>
-                <p><a
-                    href="../js/editor/plugins/filemanager/dialog.php?type=0&editor=mce_0&lang=eng&fldr=&field_id=htmleditor2"
-                    class="btn btn-default btn-xs ifManager"><i class="fa fa-files-o"></i></a></p>
+                <p>
+                  <a href="../js/editor/plugins/filemanager/dialog.php?type=0&editor=mce_0&lang=eng&fldr=&field_id=htmleditor2" class="btn btn-default btn-xs ifManager">
+                    <i class="fa fa-files-o"></i>
+                  </a>
+                </p>
                 <div id="htmleditor2"></div>
-                <textarea name="jak_contentb" class="form-control hidden"
-                          id="jak_editor2"><?php if (isset($_REQUEST["jak_contentb"])) echo jak_edit_safe_userpost(htmlspecialchars($_REQUEST["jak_contentb"])); ?></textarea>
+                <textarea name="jak_contentb" class="form-control hidden" id="jak_editor2"><?php if (isset($_REQUEST["jak_contentb"])) echo jak_edit_safe_userpost(htmlspecialchars($_REQUEST["jak_contentb"])); ?></textarea>
               <?php } else { ?>
-                <textarea name="jak_contentb" class="form-control jakEditor" id="jakEditor2"
-                          rows="40"><?php if (isset($_REQUEST["jak_contentb"])) echo jak_edit_safe_userpost($_REQUEST["jak_contentb"]); ?></textarea>
+                <textarea name="jak_contentb" class="form-control jakEditor" id="jakEditor2" rows="40"><?php if (isset($_REQUEST["jak_contentb"])) echo jak_edit_safe_userpost($_REQUEST["jak_contentb"]); ?></textarea>
               <?php } ?>
             </td>
           </tr>
         </table>
       </div>
       <div class="box-footer">
-        <button type="submit" name="save"
-                class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+        <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
       </div>
     </div>
   </form>
@@ -246,6 +242,8 @@
   <script src="js/ace/ace.js" type="text/javascript"></script>
   <script type="text/javascript">
 
+    /* ACE Editor
+     ========================================= */
     // ACE editor 1
     var htmlACE = ace.edit("htmleditor");
     htmlACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
@@ -284,7 +282,8 @@
     texthtml2 = $("#htmleditor2").val();
     htmlACE2.session.setValue(texthtml2);
 
-    // Responsive Filemanager
+    /* Responsive Filemanager
+     ========================================= */
     function responsive_filemanager_callback(field_id) {
 
       // get the path for the ace file
@@ -297,7 +296,8 @@
       }
     }
 
-    // Submit Form
+    /* Submit Form
+     ========================================= */
     $('form').submit(function () {
       $("#jak_editor").val(htmlACE.getValue());
       $("#jak_editor2").val(htmlACE2.getValue());
