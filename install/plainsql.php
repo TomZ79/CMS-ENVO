@@ -29,10 +29,10 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "categories (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=5");
 
 $jakdb->query("INSERT INTO " . DB_PREFIX . "categories VALUES
-(1, 'Home', 'home', NULL, NULL, NULL, 1, 0, 1, 0, 1, 0, 1, 0),
-(2, 'Sitemap', 'sitemap', NULL, NULL, NULL, 0, 1, 3, 0, 0, 0, 1, 2),
-(3, 'Tags', 'tag', NULL, NULL, NULL, 0, 0, 4, 0, 0, 0, 1, 3),
-(4, 'News', 'news', NULL, NULL, NULL, 1, 0, 2, 0, 0, 0, 1, 1)");
+(1, 'Home', 'home', NULL, NULL, NULL, NULL, NULL, 1, 0, 1, 0, 1, 0, 1, 0),
+(2, 'Sitemap', 'sitemap', NULL, NULL, NULL, NULL, NULL, 0, 1, 3, 0, 0, 0, 1, 2),
+(3, 'Tags', 'tag', NULL, NULL, NULL, NULL, NULL, 0, 0, 4, 0, 0, 0, 1, 3),
+(4, 'News', 'news', NULL, NULL, NULL, NULL, NULL,1, 0, 2, 0, 0, 0, 1, 1)");
 
 $jakdb->query("CREATE TABLE " . DB_PREFIX . "clickstat (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -226,7 +226,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "setting (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8");
 
 $jakdb->query("INSERT INTO " . DB_PREFIX . "setting VALUES
-('version', 'version', '1.1', '1.1', NULL, 'free', 'cms'),
+('version', 'version', '1.2', '1.2', NULL, 'free', 'cms'),
 ('updatetime', 'updatetime', '" . time() . "', '" . time() . "', 'timestamp', 'integer', 'cms'),
 ('o_number', 'setting', '0', '0', 'input', 'free', 'cms'),
 ('offline', 'general', '0', '0', 'yesno', 'boolean', 'cms'),
@@ -275,13 +275,13 @@ $jakdb->query("INSERT INTO " . DB_PREFIX . "setting VALUES
 ('tagminfont', 'tags', '12', '12', 'input', 'number', 'cms'),
 ('tagmaxfont', 'tags', '24', '24', 'input', 'number', 'cms'),
 ('tagtitle', 'tags', 'Tags', 'Tags', 'input', 'free', 'cms'),
-('tagdesc', 'tags', '<p>Write something about your tags.</p>', '<p>Write something about your tags.</p>', 'textarea', 'free', 'cms'),
+('tagdesc', 'tags', 'Write something about your tags', 'Write something about your tags', 'textarea', 'free', 'cms'),
 ('sitemaptitle', 'sitemap', 'Sitemap', 'Sitemap', 'input', 'free', 'cms'),
 ('sitemapdesc', 'sitemap', '', '', 'textarea', 'free', 'cms'),
 ('searchtitle', 'search', 'Search', 'Search', 'input', 'free', 'cms'),
 ('searchdesc', 'search', '', '', 'textarea', 'free', 'cms'),
 ('newstitle', 'news', 'News', 'News', 'input', 'free', 'cms'),
-('newsdesc', 'news', '<p>Write something about your news.</p>', '<p>Write something about your news.</p>', 'textarea', 'free', 'cms'),
+('newsdesc', 'news', 'Write something about your news', 'Write something about your news', 'textarea', 'free', 'cms'),
 ('newsdateformat', 'news', 'd.m.Y', 'd.m.Y', 'input', 'free', 'cms'),
 ('newstimeformat', 'news', '', 'h:i A', 'input', 'free', 'cms'),
 ('newspagemid', 'news', '5', '5', 'input', 'number', 'cms'),
@@ -301,7 +301,7 @@ $jakdb->query("INSERT INTO " . DB_PREFIX . "setting VALUES
 ('acegutter', 'setting', '1', '1', 'yesno', 'boolean', 'cms'),
 ('aceinvisible', 'setting', '0', '0', 'yesno', 'boolean', 'cms'),
 ('acewraplimit', 'setting', '100', '100', 'input', 'free', 'cms'),
-('aceactiveline', 'setting', '1', '1', 'yesno', 'boolean', 'cms'),
+('aceactiveline', 'setting', '1', '1', 'yesno', 'boolean', 'cms')
 ");
 
 
