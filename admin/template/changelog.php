@@ -29,12 +29,21 @@
     [new]  ACP - some settings are in extra custom card
     [new]  Translate language
     [new]  Add new tamplate 'Bluesat'
+    [new]  Add new color theme for PACE Jquery script
+    [new]  ACP - Ace Editor - Add resize buttons to fullscreen mode
+    [new]  Add new function for blog article (edit time)
+    [new]  ACP - Categories - extra settings for meta description and keywords
+    [new]  ACP - Datetimepicker - change plugin to better
+           http://eonasdan.github.io/bootstrap-datetimepicker/
 
     // # List of updated components
     // ------------------------------
 
     [updated]  Update basice original code from JakWeb - from 2.2 to 2.2.1
     [updated]  Update ACE Editor
+    [updated]  Login Form in site - after 3 times bad login, redirect to base url
+               (in original JakWeb CMS is setting after 10 times redirect to base url)
+    [updated]  ACP - Datetimepicker (Add language cs,de)
 
 
     // # List of fixed bugs
@@ -47,11 +56,15 @@
     [fixed]  Fix typo
     [fixed]  ACP - Plugin Gallery - better solution in sort photo table
     [fixed]  Fixed various small bugs
+    [fixed]  ACP - color settings for navbar
+    [fixed]  ACP - Navbar - User Header - time by setting in Global Settings
 
     // # List of enhancements
     // ------------------------------
 
     [enhanced]  ACP - Changelog
+    [enhanced]  ACP - Datetimepicker - change plugin
+                http://eonasdan.github.io/bootstrap-datetimepicker/
 
 
     // # List of new pages
@@ -150,7 +163,7 @@
                 <li>Jquery-Share social media plugin - <a href="http://plugins.in1.com/share" target="_blank">Preview</a></li>
                 <li>Bootstrap - <a href="http://getbootstrap.com/" target="_blank">Preview</a></li>
                 <li>Bootstrap Select - <a href="http://silviomoreto.github.io/bootstrap-select/examples/#basic-examples" target="_blank">Preview</a></li>
-                <li>Bootstrap DateTimePicker - <a href="https://github.com/smalot/bootstrap-datetimepicker" target="_blank">Preview</a></li>
+                <li>Bootstrap DateTimePicker - <a href="http://eonasdan.github.io/bootstrap-datetimepicker/" target="_blank">Preview</a></li>
               </ul>
               <h4>Other technology</h4>
               <ul>
