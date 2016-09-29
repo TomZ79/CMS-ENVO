@@ -121,7 +121,7 @@
                   </select>
                 </td>
               </tr>
-              <tr>
+              <tr class="disablerow">
                 <td><?php echo $tlgwl["growl"]["d11"]; ?></td>
                 <td>
                   <select name="jak_dur" class="form-control selectpicker" data-size="5">
@@ -204,7 +204,7 @@
                 <td>
 
                   <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
-                    <input type="text" name="jak_datefrom" id="datepickerFrom" class="form-control" value="<?php if ($JAK_FORM_DATA["startdate"]) echo date("Y-m-d H:i", $JAK_FORM_DATA["startdate"]); ?>"/>
+                    <input type="text" name="jak_datefrom" id="datepickerFrom" class="form-control" value="<?php if ($JAK_FORM_DATA["startdate"]) echo date("Y-m-d H:i", $JAK_FORM_DATA["startdate"]); ?>" readonly />
                   </div>
 
                 </td>
@@ -214,7 +214,7 @@
                 <td>
 
                   <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
-                    <input type="text" name="jak_dateto" id="datepickerTo" class="form-control" value="<?php if ($JAK_FORM_DATA["enddate"]) echo date("Y-m-d H:i", $JAK_FORM_DATA["enddate"]); ?>"/>
+                    <input type="text" name="jak_dateto" id="datepickerTo" class="form-control" value="<?php if ($JAK_FORM_DATA["enddate"]) echo date("Y-m-d H:i", $JAK_FORM_DATA["enddate"]); ?>" readonly />
                   </div>
 
                 </td>
@@ -423,10 +423,59 @@
 
   <script type="text/javascript">
     $(document).ready(function () {
-      $("#datepickerFrom, #datepickerTo").datetimepicker({
-        format: 'yyyy-mm-dd hh:ii',
-        autoclose: true,
-        startDate: new Date()
+      /* Sticky active
+       ========================================= */
+      if ($('input[name="jak_sticky"]').is(':checked') && $('input[name="jak_sticky"]').val() == '0') {
+        $('tr.disablerow').addClass('warning');
+        $('tr.disablerow select').attr("disabled", "disabled");
+      }
+      $('input[name="jak_sticky"]').change(
+        function(){
+          if ($(this).is(':checked') && $(this).val() == '1') {
+            $('tr.disablerow').addClass('warning');
+            $('tr.disablerow button').addClass('disabled');
+          } else {
+            $('tr.disablerow').removeClass('warning');
+            $('tr.disablerow select').removeAttr("disabled");
+            $('tr.disablerow button').removeClass('disabled');
+          }
+        });
+
+      /* DateTimePicker
+       ========================================= */
+      $('#datepickerFrom').datetimepicker({
+        // Language
+        locale: '<?php echo $site_language;?>',
+        // Date-Time format
+        format: 'YYYY-MM-DD HH:mm',
+        // Show Button
+        showTodayButton: true,
+        showClear: true,
+        // Other
+        ignoreReadonly: true,
+        keepInvalid: true,
+        minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>
+      });
+
+      $('#datepickerTo').datetimepicker({
+        // Language
+        locale: '<?php echo $site_language;?>',
+        // Date-Time format
+        format: 'YYYY-MM-DD HH:mm',
+        // Show Button
+        showTodayButton: true,
+        showClear: true,
+        // Other
+        ignoreReadonly: true,
+        minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>,
+        useCurrent: false //Important! See issue #1075
+      });
+
+      $("#datepickerFrom").on("dp.change", function (e) {
+        $('#datepickerTo').data("DateTimePicker").minDate(e.date);
+      });
+      $("#datepickerTo").on("dp.change", function (e) {
+        $('#datepickerFrom').data("DateTimePicker").maxDate(e.date);
       });
     });
   </script>

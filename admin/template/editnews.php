@@ -221,7 +221,7 @@ if ($errors) { ?>
                     <td>
 
                       <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-                        <input type="text" name="jak_datefrom" class="form-control" id="datepickerFrom" value="<?php if ($JAK_FORM_DATA["startdate"]) echo date("Y-m-d H:i", $JAK_FORM_DATA["startdate"]); ?>"/>
+                        <input type="text" name="jak_datefrom" class="form-control" id="datepickerFrom" value="<?php if ($JAK_FORM_DATA["startdate"]) echo date("Y-m-d H:i", $JAK_FORM_DATA["startdate"]); ?>" readonly />
                       </div>
 
                     </td>
@@ -231,7 +231,7 @@ if ($errors) { ?>
                     <td>
 
                       <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-                        <input type="text" name="jak_dateto" class="form-control" id="datepickerTo" value="<?php if ($JAK_FORM_DATA["enddate"]) echo date("Y-m-d H:i", $JAK_FORM_DATA["enddate"]); ?>"/>
+                        <input type="text" name="jak_dateto" class="form-control" id="datepickerTo" value="<?php if ($JAK_FORM_DATA["enddate"]) echo date("Y-m-d H:i", $JAK_FORM_DATA["enddate"]); ?>" readonly />
                       </div>
 
                     </td>
@@ -451,11 +451,39 @@ if ($errors) { ?>
 
       /* DateTimePicker
        ========================================= */
-      $("#datepickerFrom, #datepickerTo").datetimepicker({
-        language: '<?php echo $site_language;?>',
-        format: 'yyyy-mm-dd hh:ii',
-        autoclose: true,
-        startDate: new Date()
+      $('#datepickerFrom').datetimepicker({
+        // Language
+        locale: '<?php echo $site_language;?>',
+        // Date-Time format
+        format: 'YYYY-MM-DD HH:mm',
+        // Show Button
+        showTodayButton: true,
+        showClear: true,
+        // Other
+        ignoreReadonly: true,
+        keepInvalid: true,
+        minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>
+      });
+
+      $('#datepickerTo').datetimepicker({
+        // Language
+        locale: '<?php echo $site_language;?>',
+        // Date-Time format
+        format: 'YYYY-MM-DD HH:mm',
+        // Show Button
+        showTodayButton: true,
+        showClear: true,
+        // Other
+        ignoreReadonly: true,
+        minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>,
+        useCurrent: false //Important! See issue #1075
+      });
+
+      $("#datepickerFrom").on("dp.change", function (e) {
+        $('#datepickerTo').data("DateTimePicker").minDate(e.date);
+      });
+      $("#datepickerTo").on("dp.change", function (e) {
+        $('#datepickerFrom').data("DateTimePicker").maxDate(e.date);
       });
     });
 

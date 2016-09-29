@@ -239,7 +239,7 @@ if ($page3 == "e") { ?>
                   <tr>
                     <td>
                       <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
-                        <input type="text" name="jak_datetime" id="datepickerTime" class="form-control" value="<?php if ($JAK_FORM_DATA["time"]) echo $JAK_FORM_DATA["time"]; ?>"/>
+                        <input type="text" name="jak_datetime" id="datepickerTime" class="form-control" value="<?php if ($JAK_FORM_DATA["time"]) echo $JAK_FORM_DATA["time"]; ?>" readonly />
                       </div>
                     </td>
                   </tr>
@@ -255,13 +255,13 @@ if ($page3 == "e") { ?>
                 <h3 class="box-title"><?php echo $tl["news"]["n4"]; ?></h3>
               </div><!-- /.box-header -->
               <div class="box-body">
-                <table class="table table-striped">
+                <table class="table table-striped v-text-center">
                   <tr>
                     <td><?php echo $tlblog["blog"]["d17"]; ?></td>
                     <td>
 
                       <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-                        <input type="text" name="jak_datefrom" id="datepickerFrom" class="form-control" value="<?php if ($JAK_FORM_DATA["startdate"]) echo date("Y-m-d H:i", $JAK_FORM_DATA["startdate"]); ?>"/>
+                        <input type="text" name="jak_datefrom" id="datepickerFrom" class="form-control" value="<?php if ($JAK_FORM_DATA["startdate"]) echo date("Y-m-d H:i", $JAK_FORM_DATA["startdate"]); ?>" readonly />
                       </div>
 
                     </td>
@@ -271,7 +271,7 @@ if ($page3 == "e") { ?>
                     <td>
 
                       <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-                        <input type="text" name="jak_dateto" id="datepickerTo" class="form-control" value="<?php if ($JAK_FORM_DATA["enddate"]) echo date("Y-m-d H:i", $JAK_FORM_DATA["enddate"]); ?>"/>
+                        <input type="text" name="jak_dateto" id="datepickerTo" class="form-control" value="<?php if ($JAK_FORM_DATA["enddate"]) echo date("Y-m-d H:i", $JAK_FORM_DATA["enddate"]); ?>" readonly />
                       </div>
 
                     </td>
@@ -430,20 +430,54 @@ if ($page3 == "e") { ?>
 
       /* DateTimePicker
        ========================================= */
-      $("#datepickerTime").datetimepicker({
-        language: '<?php echo $site_language;?>',
-        format: 'yyyy-mm-dd hh:ii:ss',
-        autoclose: true,
-        todayBtn: true,
-        todayHighlight: true
-      });
-      $("#datepickerFrom, #datepickerTo").datetimepicker({
-        language: '<?php echo $site_language;?>',
-        format: 'yyyy-mm-dd hh:ii',
-        autoclose: true,
-        startDate: new Date()
+      $('#datepickerTime').datetimepicker({
+        // Language
+        locale: '<?php echo $site_language;?>',
+        // Date-Time format
+        format: 'YYYY-MM-DD HH:mm:ss',
+        // Show Button
+        showTodayButton: true,
+        // Other
+        ignoreReadonly: true
       });
 
+      $('#datepickerFrom').datetimepicker({
+        // Language
+        locale: '<?php echo $site_language;?>',
+        // Date-Time format
+        format: 'YYYY-MM-DD HH:mm',
+        // Show Button
+        showTodayButton: true,
+        showClear: true,
+        // Other
+        ignoreReadonly: true,
+        keepInvalid: true,
+        minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>
+      });
+
+      $('#datepickerTo').datetimepicker({
+        // Language
+        locale: '<?php echo $site_language;?>',
+        // Date-Time format
+        format: 'YYYY-MM-DD HH:mm',
+        // Show Button
+        showTodayButton: true,
+        showClear: true,
+        // Other
+        ignoreReadonly: true,
+        minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>,
+        useCurrent: false //Important! See issue #1075
+      });
+
+      $("#datepickerFrom").on("dp.change", function (e) {
+        $('#datepickerTo').data("DateTimePicker").minDate(e.date);
+      });
+      $("#datepickerTo").on("dp.change", function (e) {
+        $('#datepickerFrom').data("DateTimePicker").maxDate(e.date);
+      });
+
+      /* RestoreContent
+       ========================================= */
       $("#restorcontent").change(function () {
         if ($(this).val() != 0) {
           if (!confirm('<?php echo $tl["general"]["restore"];?>')) {

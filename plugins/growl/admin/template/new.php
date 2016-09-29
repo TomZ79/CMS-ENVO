@@ -76,7 +76,7 @@
                 <td>
 
                   <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
-                    <input type="text" name="jak_datefrom" id="datepickerFrom" class="form-control" value="<?php if (isset($_REQUEST["jak_datefrom"])) echo $_REQUEST["jak_datefrom"]; ?>"/>
+                    <input type="text" name="jak_datefrom" id="datepickerFrom" class="form-control" value="<?php if (isset($_REQUEST["jak_datefrom"])) echo $_REQUEST["jak_datefrom"]; ?>" readonly />
                   </div>
 
                 </td>
@@ -86,7 +86,7 @@
                 <td>
 
                   <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?>" no-margin>
-                    <input type="text" name="jak_dateto" id="datepickerTo" class="form-control" value="<?php if (isset($_REQUEST["jak_dateto"])) echo $_REQUEST["jak_dateto"]; ?>"/>
+                    <input type="text" name="jak_dateto" id="datepickerTo" class="form-control" value="<?php if (isset($_REQUEST["jak_dateto"])) echo $_REQUEST["jak_dateto"]; ?>" readonly />
                   </div>
 
                 </td>
@@ -411,10 +411,41 @@
 
   <script type="text/javascript">
     $(document).ready(function () {
-      $("#datepickerFrom, #datepickerTo").datetimepicker({
-        format: 'yyyy-mm-dd hh:ii',
-        autoclose: true,
-        startDate: new Date()
+      /* DateTimePicker
+       ========================================= */
+      $('#datepickerFrom').datetimepicker({
+        // Language
+        locale: '<?php echo $site_language;?>',
+        // Date-Time format
+        format: 'YYYY-MM-DD HH:mm',
+        // Show Button
+        showTodayButton: true,
+        showClear: true,
+        // Other
+        ignoreReadonly: true,
+        keepInvalid: true,
+        minDate: moment()
+      });
+
+      $('#datepickerTo').datetimepicker({
+        // Language
+        locale: '<?php echo $site_language;?>',
+        // Date-Time format
+        format: 'YYYY-MM-DD HH:mm',
+        // Show Button
+        showTodayButton: true,
+        showClear: true,
+        // Other
+        ignoreReadonly: true,
+        minDate: moment(),
+        useCurrent: false //Important! See issue #1075
+      });
+
+      $("#datepickerFrom").on("dp.change", function (e) {
+        $('#datepickerTo').data("DateTimePicker").minDate(e.date);
+      });
+      $("#datepickerTo").on("dp.change", function (e) {
+        $('#datepickerFrom').data("DateTimePicker").maxDate(e.date);
       });
     });
   </script>

@@ -59,7 +59,7 @@ if ($errors) { ?>
           </div><!-- /.box-header -->
           <div class="box-body">
             <div class="table-responsive">
-              <table class="table table-striped first-column v-text-center">
+              <table class="table table-striped v-text-center">
                 <tr>
                   <td><?php echo $tl["user"]["u"]; ?></td>
                   <td>
@@ -99,7 +99,7 @@ if ($errors) { ?>
                 <tr>
                   <td><?php echo $tl["user"]["u8"]; ?></td>
                   <td>
-                    <input type="text" name="jak_backtime" id="datepicker" class="form-control" value="<?php echo $JAK_FORM_DATA["backtime"]; ?>"/>
+                    <input type="text" name="jak_backtime" id="datepicker" class="form-control" value="<?php echo $JAK_FORM_DATA["backtime"]; ?>" readonly />
                   </td>
                 </tr>
                 <tr>
@@ -220,14 +220,21 @@ if ($errors) { ?>
 
   <script type="text/javascript">
     $(document).ready(function () {
+
       /* DateTimePicker
        ========================================= */
-      $("#datepicker").datetimepicker({
-        language: '<?php echo $site_language;?>',
-        format: 'yyyy-mm-dd',
-        minView: 2,
-        autoclose: true,
-        startDate: new Date()
+      $('#datepicker').datetimepicker({
+        // Language
+        locale: '<?php echo $site_language;?>',
+        // Date-Time format
+        format: 'YYYY-MM-DD',
+        // Show Button
+        showTodayButton: true,
+        showClear: true,
+        // Other
+        ignoreReadonly: true,
+        keepInvalid: true,
+        minDate: moment()
       });
 
       /* Other

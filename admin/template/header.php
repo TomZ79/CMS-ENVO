@@ -23,6 +23,8 @@
   <link rel="stylesheet" href="css/admin.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
   <!-- Animate style -->
   <link rel="stylesheet" href="css/animate.min.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
+  <!-- Bootstrap Datetimpicker 4 -->
+  <link rel="stylesheet" href="js-plugins/bootstrap-datetimepicker-4/css/bootstrap-datetimepicker.min.css?=<?php echo $jkv["updatetime"];?>" type="text/css" media="screen" />
   <!-- Bootstrap-Select CSS -->
   <link rel="stylesheet" href="js-plugins/bootstrap-select/css/bootstrap-select.min.css?=<?php echo $jkv["updatetime"];?>" type="text/css" media="screen" />
   <!-- Prism CSS -->
@@ -38,16 +40,23 @@
   <!-- jQuery -->
   <script src="../js/jquery.js?=<?php echo $jkv["updatetime"]; ?>"></script>
   <!-- General function -->
+  <script type="text/javascript" src="../js/bootstrap/bootstrap.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
   <script type="text/javascript" src="../js/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+  <script type="text/javascript" src="js-plugins/moment/moment-with-locales.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
   <!-- Admin App function -->
   <script type="text/javascript" src="js/cms.js?=<?php echo $jkv["updatetime"]; ?>"></script>
   <!-- Slimscroll -->
   <script type="text/javascript" src="js-plugins/slimScroll/jquery.slimscroll.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+  <!-- Bootstrap Datetimpicker 4 -->
+  <script type="text/javascript" src="js-plugins/bootstrap-datetimepicker-4/js/bootstrap-datetimepicker.js?=<?php echo $jkv["updatetime"]; ?>"></script>
   <!-- Bootstrap-Select JS -->
   <script type="text/javascript" src="js-plugins/bootstrap-select/js/bootstrap-select.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
   <script type="text/javascript" src="js-plugins/bootstrap-select/js/i18n/defaults-cs_CZ.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
   <!-- Prism JS -->
   <script type="text/javascript" src="js-plugins/prism/prism.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+
+  <!-- Custom Admin App function -->
+  <script type="text/javascript" src="js/cms_custom.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 
   <!--[if lt IE 9]>
   <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>

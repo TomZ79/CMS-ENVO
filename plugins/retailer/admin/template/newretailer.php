@@ -422,12 +422,6 @@
         jsACE.insert(insert_javascript());
 
       });
-
-      $("#datepickerFrom, #datepickerTo").datetimepicker({
-        format: 'yyyy-mm-dd hh:ii',
-        autoclose: true,
-        startDate: new Date()
-      });
     });
 
     function responsive_filemanager_callback(field_id) {

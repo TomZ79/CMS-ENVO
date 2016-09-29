@@ -173,10 +173,14 @@ switch ($page1) {
 
           if (!empty($defaults['jak_datefrom'])) {
             $finalfrom = strtotime($defaults['jak_datefrom']);
+          } else {
+            $finalfrom = '0';
           }
 
           if (!empty($defaults['jak_dateto'])) {
             $finalto = strtotime($defaults['jak_dateto']);
+          } else {
+            $finalto = '0';
           }
 
           if (isset($finalto) && isset($finalfrom) && $finalto < $finalfrom) {

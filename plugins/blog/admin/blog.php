@@ -77,29 +77,32 @@ switch ($page1) {
 
         if (count($errors) == 0) {
 
-          if (!empty($defaults['jak_img'])) {
-            $insert .= 'previmg = "' . smartsql($defaults['jak_img']) . '",';
-          }
-
-          if (!isset($defaults['jak_catid'])) {
-            $catid = 0;
-          } else {
-            $catid = join(',', $defaults['jak_catid']);
-          }
-
-          // save the time if available
+          // Save the time if available of article
           if (!empty($finaltime)) {
-            $insert .= 'time = "'.smartsql($finaltime).'"';
+            $insert .= 'time = "'.smartsql($finaltime) . '",';
           } else {
             $insert .= 'time = NOW()';
           }
 
+          // Save image
+          if (!empty($defaults['jak_img'])) {
+            $insert .= 'previmg = "' . smartsql($defaults['jak_img']) . '",';
+          }
+
+          // Save the time range if available of article
           if (isset($finalfrom)) {
-            $insert .= 'startdate = "' . smartsql($finalfrom) . '",';
+            $insert .= ',startdate = "' . smartsql($finalfrom) . '",';
           }
 
           if (isset($finalto)) {
-            $insert .= 'enddate = "' . smartsql($finalto) . '",';
+            $insert .= 'enddate = "' . smartsql($finalto) . '"';
+          }
+
+          // Save category
+          if (!isset($defaults['jak_catid'])) {
+            $catid = 0;
+          } else {
+            $catid = join(',', $defaults['jak_catid']);
           }
 
           if (!isset($defaults['jak_social'])) $defaults['jak_social'] = 0;
@@ -1032,10 +1035,14 @@ switch ($page1) {
 
             if (!empty($defaults['jak_datefrom'])) {
               $finalfrom = strtotime($defaults['jak_datefrom']);
+            } else {
+              $finalfrom = '0';
             }
 
             if (!empty($defaults['jak_dateto'])) {
               $finalto = strtotime($defaults['jak_dateto']);
+            }  else {
+              $finalto = '0';
             }
 
             if (isset($finalto) && isset($finalfrom) && $finalto < $finalfrom) {
@@ -1043,20 +1050,21 @@ switch ($page1) {
             }
 
             if (count($errors) == 0) {
-
+              // Save or update time of article
               if (empty($defaults['jak_update_time'])) {
                 $insert .= 'time = "'.smartsql($finaltime).'",';
               } else {
                 $insert .= 'time = NOW(),';
               }
 
+              // Save image
               if (!empty($defaults['jak_img'])) {
                 $insert .= 'previmg = "' . smartsql($defaults['jak_img']) . '",';
               } else {
                 $insert .= 'previmg = NULL,';
               }
 
-              // save the time if available
+              // Save the time range if available of article
               if (isset($finalfrom)) {
                 $insert .= 'startdate = "' . smartsql($finalfrom) . '",';
               }
@@ -1065,6 +1073,7 @@ switch ($page1) {
                 $insert .= 'enddate = "' . smartsql($finalto) . '",';
               }
 
+              // Save category
               if (!isset($defaults['jak_catid'])) {
                 $catid = 0;
               } else {
