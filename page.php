@@ -120,11 +120,11 @@ if ($JAK_TAGLIST) {
     $keytags = preg_split('/\s+/', strip_tags($JAK_TAGLIST));
     $keytags = ',' . implode(',', $keytags);
 }
-$PAGE_KEYWORDS = str_replace(" ", "", JAK_Base::jakCleanurl($row['title']) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+$PAGE_KEYWORDS = str_replace(" ", "", JAK_Base::jakCleanurl($row['title']) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : "") . (JAK_Base::jakCleanurl($ca['metakey']) ? "," . JAK_Base::jakCleanurl($ca['metakey']) : "" ));
 
 // SEO from the category content if available
-if (!empty($ca['content'])) {
-    $PAGE_DESCRIPTION = jak_cut_text($ca['content'], 155, '');
+if (!empty($ca['metadesc'])) {
+    $PAGE_DESCRIPTION = jak_cut_text($ca['metadesc'], 155, '');
 } else {
     $PAGE_DESCRIPTION = jak_cut_text($row['content'], 155, '');
 }

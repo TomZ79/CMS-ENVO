@@ -191,7 +191,7 @@ class JAK_base
   {
 
     global $jakdb;
-    $result = $jakdb->query('SELECT id, name, varname, exturl, catimg, content, showmenu, showfooter, catparent, catorder, pageid, activeplugin, permission, pluginid FROM ' . DB_PREFIX . 'categories WHERE ((pageid > 0 AND activeplugin = 1) OR (pageid = 0 AND pluginid > 0) OR (exturl != "" AND pageid = 0 AND pluginid = 0)) ORDER BY catorder ASC');
+    $result = $jakdb->query('SELECT id, name, varname, exturl, catimg, content, metadesc, metakey, showmenu, showfooter, catparent, catorder, pageid, activeplugin, permission, pluginid FROM ' . DB_PREFIX . 'categories WHERE ((pageid > 0 AND activeplugin = 1) OR (pageid = 0 AND pluginid > 0) OR (exturl != "" AND pageid = 0 AND pluginid = 0)) ORDER BY catorder ASC');
 
     while ($row = $result->fetch_assoc()) {
 
@@ -209,7 +209,7 @@ class JAK_base
           $parseurl = JAK_rewrite::jakParseurl('', '', '', '', '');
         }
 
-        $jakdata[] = array('id' => $row['id'], 'name' => $row['name'], 'varname' => $parseurl, 'pagename' => $row['varname'], 'content' => $row['content'], 'showmenu' => $row['showmenu'], 'showfooter' => $row['showfooter'], 'catorder' => $row['catorder'], 'catimg' => $row['catimg'], 'catparent' => $row['catparent'], 'activeplugin' => $row['activeplugin'], 'pluginid' => $row['pluginid'], 'pageid' => $row['pageid']);
+        $jakdata[] = array('id' => $row['id'], 'name' => $row['name'], 'varname' => $parseurl, 'pagename' => $row['varname'], 'content' => $row['content'], 'metadesc' => $row['metadesc'], 'metakey' => $row['metakey'], 'showmenu' => $row['showmenu'], 'showfooter' => $row['showfooter'], 'catorder' => $row['catorder'], 'catimg' => $row['catimg'], 'catparent' => $row['catparent'], 'activeplugin' => $row['activeplugin'], 'pluginid' => $row['pluginid'], 'pageid' => $row['pageid']);
       }
 
     }
