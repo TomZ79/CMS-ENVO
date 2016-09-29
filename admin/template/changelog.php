@@ -43,7 +43,6 @@
     [updated]  Update ACE Editor
     [updated]  Login Form in site - after 3 times bad login, redirect to base url
                (in original JakWeb CMS is setting after 10 times redirect to base url)
-    [updated]  ACP - Datetimepicker (Add language cs,de)
 
 
     // # List of fixed bugs
@@ -58,6 +57,7 @@
     [fixed]  Fixed various small bugs
     [fixed]  ACP - color settings for navbar
     [fixed]  ACP - Navbar - User Header - time by setting in Global Settings
+    [fixed]  ACP - Datetimepicker (Add language cs,de)
 
     // # List of enhancements
     // ------------------------------
@@ -65,6 +65,7 @@
     [enhanced]  ACP - Changelog
     [enhanced]  ACP - Datetimepicker - change plugin
                 http://eonasdan.github.io/bootstrap-datetimepicker/
+    [enhanced]  ACP - Plugin - added info about uninstallation
 
 
     // # List of new pages

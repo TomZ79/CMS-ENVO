@@ -46,7 +46,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
         <p>Info o procesu odinstalace. Výpis komponentů, které budou odinstalovány a které ne. Po odinstalaci zadané články, kategorie a komentáře budou uchovány v databázi a nebudou odstraněny. Při opětovné instalaci Pluginu Blog budou znovu načteny z databáze. </p>
         <table class="table">
           <thead>
-            <tr class="bg-teal">
+            <tr class="bg-teal-400">
               <th>Process</th>
               <th>Yes - will be uninstalled</th>
               <th>No - Data will remain in the database</th>
@@ -55,6 +55,11 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
           <tbody>
           <tr>
             <td>Blog Setting</td>
+            <td class="text-center"><i class="fa fa-check"></i></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Blog User Setting</td>
             <td class="text-center"><i class="fa fa-check"></i></td>
             <td></td>
           </tr>
@@ -137,6 +142,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 
       <?php }
       if (!$succesfully) { ?>
+        <hr>
         <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
           <button type="submit" name="uninstall" class="btn btn-danger btn-block"><?php echo $tl["plugin"]["p11"];?></button>
         </form>
