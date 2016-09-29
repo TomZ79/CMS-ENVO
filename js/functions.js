@@ -34,7 +34,7 @@ $(document).ready(function () {
 
 });
 
-// get the like button
+// Get the like button
 var elems = document.getElementsByClassName('jak-like');
 var likeBox = likebox_result = likeBoxLink = likebox_div = false;
 

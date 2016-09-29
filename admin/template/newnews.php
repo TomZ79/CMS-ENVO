@@ -157,21 +157,22 @@ if ($errors) { ?>
           <div class="col-md-6">
             <div class="box box-danger">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["general"]["g88"]; ?> <a class="cms-help"
-                                                                              data-content="<?php echo $tl["help"]["h"]; ?>"
-                                                                              href="javascript:void(0)"
-                                                                              data-original-title="<?php echo $tl["title"]["t21"]; ?>"><i
-                      class="fa fa-question-circle"></i></a></h3>
+                <h3 class="box-title"><?php echo $tl["general"]["g88"]; ?>
+                  <a class="cms-help" data-content="<?php echo $tl["help"]["h"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tl["title"]["t21"]; ?>">
+                    <i class="fa fa-question-circle"></i>
+                  </a>
+                </h3>
               </div><!-- /.box-header -->
               <div class="box-body">
                 <table class="table table-striped">
                   <tr>
-                    <td><select name="jak_permission[]" multiple="multiple" class="form-control">
-                        <option
-                          value="0"<?php if (isset($_REQUEST["jak_permission"]) && in_array(0, $_REQUEST["jak_permission"])) { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g84"]; ?></option>
+                    <td>
+                      <select name="jak_permission[]" multiple="multiple" class="form-control">
+                        <option value="0"<?php if (isset($_REQUEST["jak_permission"]) && in_array(0, $_REQUEST["jak_permission"])) { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g84"]; ?></option>
                         <?php if (isset($JAK_USERGROUP) && is_array($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) { ?>
                           <option value="<?php echo $v["id"]; ?>"<?php if (isset($_REQUEST["jak_permission"]) && in_array($v["id"], $_REQUEST["jak_permission"])) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php } ?>
-                      </select></td>
+                      </select>
+                    </td>
                   </tr>
                 </table>
               </div>
@@ -241,16 +242,13 @@ if ($errors) { ?>
             <h3 class="box-title"><?php echo $tl["general"]["g53"]; ?></h3>
           </div><!-- /.box-header -->
           <div class="box-body">
-            <a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor"
-               class="ifManager"><?php echo $tl["general"]["g69"]; ?></a> <a href="javascript:;"
-                                                                             id="addCssBlock"><?php echo $tl["general"]["g101"]; ?></a><br/>
+            <a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
+            <a href="javascript:;" id="addCssBlock"><?php echo $tl["general"]["g101"]; ?></a><br/>
             <div id="csseditor"></div>
-            <textarea name="jak_css" id="jak_css"
-                      class="hidden"><?php if (isset($_REQUEST["jak_css"])) echo $_REQUEST["jak_css"]; ?></textarea>
+            <textarea name="jak_css" id="jak_css" class="hidden"><?php if (isset($_REQUEST["jak_css"])) echo $_REQUEST["jak_css"]; ?></textarea>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
       </div>
@@ -260,16 +258,13 @@ if ($errors) { ?>
             <h3 class="box-title"><?php echo $tl["general"]["g100"]; ?></h3>
           </div><!-- /.box-header -->
           <div class="box-body">
-            <a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor"
-               class="ifManager"><?php echo $tl["general"]["g69"]; ?></a> <a href="javascript:;"
-                                                                             id="addJavascriptBlock"><?php echo $tl["general"]["g102"]; ?></a><br/>
+            <a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
+            <a href="javascript:;" id="addJavascriptBlock"><?php echo $tl["general"]["g102"]; ?></a><br/>
             <div id="javaeditor"></div>
-            <textarea name="jak_javascript" id="jak_javascript"
-                      class="hidden"><?php if (isset($_REQUEST["jak_javascript"])) echo $_REQUEST["jak_javascript"]; ?></textarea>
+            <textarea name="jak_javascript" id="jak_javascript" class="hidden"><?php if (isset($_REQUEST["jak_javascript"])) echo $_REQUEST["jak_javascript"]; ?></textarea>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save"
-                    class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
       </div>
@@ -299,9 +294,8 @@ if ($errors) { ?>
                       </div>
                       <div class="actions">
 
-                        <input type="hidden" name="corder_new[]" class="corder" value="1"/> <input type="hidden"
-                                                                                                   name="real_plugin_id[]"
-                                                                                                   value="9997"/>
+                        <input type="hidden" name="corder_new[]" class="corder" value="1"/>
+                        <input type="hidden" name="real_plugin_id[]" value="9997"/>
 
                       </div>
                     </li>
@@ -319,8 +313,7 @@ if ($errors) { ?>
 
               </div>
               <div class="box-footer">
-                <button type="submit" name="save"
-                        class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
               </div>
             </div>
 
@@ -335,8 +328,7 @@ if ($errors) { ?>
                 <?php include "sidebar_widget_new.php"; ?>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save"
-                        class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
               </div>
             </div>
 
@@ -388,6 +380,7 @@ if ($errors) { ?>
     $(document).ready(function () {
       $('#jak_tags').tagsInput({
         defaultText: '<?php echo $tl["general"]["g83"];?>',
+        width: 'auto',
         taglimit: 10
       });
       $('#jak_tags_tag').alphanumeric({nocaps: true});
