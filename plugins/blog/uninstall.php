@@ -28,8 +28,9 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 <head>
   <title><?php echo $tl["plugin"]["t3"];?></title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/stylesheet.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/admin/css/admin-color.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
 </head>
 <body>
 
@@ -40,6 +41,41 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
         <h3><?php echo $tl["plugin"]["t3"];?></h3>
       </div>
       <hr>
+      <div class="margin-bottom-30">
+        <h4>Blog Plugin - Info about uninstallation</h4>
+        <p>Info o procesu odinstalace. Výpis komponentů, které budou odinstalovány a které ne. Po odinstalaci zadané články, kategorie a komentáře budou uchovány v databázi a nebudou odstraněny. Při opětovné instalaci Pluginu Blog budou znovu načteny z databáze. </p>
+        <table class="table">
+          <thead>
+            <tr class="bg-teal">
+              <th>Process</th>
+              <th>Yes - will be uninstalled</th>
+              <th>No - Data will remain in the database</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>Blog Setting</td>
+            <td class="text-center"><i class="fa fa-check"></i></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Blog Article</td>
+            <td></td>
+            <td class="text-center"><i class="fa fa-check"></i></td>
+          </tr>
+          <tr>
+            <td>Blog Categories</td>
+            <td></td>
+            <td class="text-center"><i class="fa fa-check"></i></td>
+          </tr>
+          <tr>
+            <td>Blog Comments</td>
+            <td></td>
+            <td class="text-center"><i class="fa fa-check"></i></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
 
       <!-- Let's do the uninstall -->
       <?php if (isset($_POST['uninstall'])) {

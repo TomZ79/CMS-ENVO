@@ -26,8 +26,9 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 <head>
   <title><?php echo $tl["plugin"]["t18"];?></title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/stylesheet.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/admin/css/admin-color.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
 </head>
 <body>
 
@@ -135,10 +136,29 @@ if (!$result) {
 // Insert code into index.php
             $insertadminindex = 'plugins/register_form/admin/template/stat.php';
 
-            $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES (NULL, "tpl_admin_page_news", "Register Form Admin - Page/News", "' . $pages . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_page_news_new", "Register Form Admin - Page/News - New", "plugins/register_form/admin/template/rf_connect_new.php", "registerf", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_sidebar", "Profile/Login Form Sidebar", "plugins/register_form/template/rf_sidebar.php", "registerf", 1, 5, "' . $rows['id'] . '", NOW()), (NULL, "tpl_footer_widgets", "Profile/Login Form Footer Widget", "plugins/register_form/template/footer_widget.php", "registerf", 1, 2, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_pages_sql", "Profile/Login Form SQL", "' . $sqlinsert . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_news_sql", "Profile/Login Form SQL", "' . $sqlinsert . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_lang", "Register Form Admin Language", "' . $adminlang . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_pages_news", "Register Form Pages/News", "' . $pn_include . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_page_news_grid", "Register Form TPL - Pages/News", "include_once APP_PATH.\'plugins/register_form/template/rf_registerform.php\';", "registerf", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_index_page", "Register User Validate", "' . $index_page . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_index", "Register Statistics Admin", "' . $insertadminindex . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW())');
+            $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+(NULL, "tpl_admin_page_news", "Register Form Admin - Page/News", "' . $pages . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_page_news_new", "Register Form Admin - Page/News - New", "plugins/register_form/admin/template/rf_connect_new.php", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_sidebar", "Profile/Login Form Sidebar", "plugins/register_form/template/rf_sidebar.php", "registerf", 1, 5, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_footer_widgets", "Profile/Login Form Footer Widget", "plugins/register_form/template/footer_widget.php", "registerf", 1, 2, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_pages_sql", "Profile/Login Form SQL", "' . $sqlinsert . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_news_sql", "Profile/Login Form SQL", "' . $sqlinsert . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_lang", "Register Form Admin Language", "' . $adminlang . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_pages_news", "Register Form Pages/News", "' . $pn_include . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_page_news_grid", "Register Form TPL - Pages/News", "include_once APP_PATH.\'plugins/register_form/template/rf_registerform.php\';", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_index_page", "Register User Validate", "' . $index_page . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_index", "Register Statistics Admin", "' . $insertadminindex . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW())');
 
 // Insert tables into settings
-            $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES ("rf_title", "register_form", NULL, NULL, "input", "free", "registerf"), ("rf_active", "register_form", 1, 1, "yesno", "boolean", "registerf"), ("rf_simple", "register_form", 1, 1, "yesno", "boolean", "registerf"), ("rf_message", "register_form", NULL, NULL, "textarea", "free", "registerf"), ("rf_confirm", "register_form", 1, 1, "select", "boolean", "registerf"), ("rf_welcome", "register_form", NULL, NULL, "textarea", "free", "registerf"), ("rf_usergroup", "register_form", 2, 2, "select", "number", "registerf"), ("rf_redirect", "register_form", NULL, NULL, "number", "select", "registerf")');
+            $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+("rf_title", "register_form", NULL, NULL, "input", "free", "registerf"),
+("rf_active", "register_form", 1, 1, "yesno", "boolean", "registerf"),
+("rf_simple", "register_form", 1, 1, "yesno", "boolean", "registerf"),
+("rf_message", "register_form", NULL, NULL, "textarea", "free", "registerf"),
+("rf_confirm", "register_form", 1, 1, "select", "boolean", "registerf"),
+("rf_welcome", "register_form", NULL, NULL, "textarea", "free", "registerf"),
+("rf_usergroup", "register_form", 2, 2, "select", "number", "registerf"),
+("rf_redirect", "register_form", NULL, NULL, "number", "select", "registerf")');
 
 // Write into categories
             $jakdb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `permission`, `activeplugin`, `pluginid`) VALUES (NULL, "Edit Profile", "edit-profile", NULL, 1, 0, 5, 0, 0, "2,3,4", 1, "' . $rows['id'] . '")');

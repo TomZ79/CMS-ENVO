@@ -26,8 +26,9 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 <head>
   <title><?php echo $tl["plugin"]["t14"];?></title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/stylesheet.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/admin/css/admin-color.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
 </head>
 <body>
 
@@ -70,10 +71,29 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
     $tlnl = parse_ini_file(APP_PATH.\'plugins/newsletter/lang/en.ini\', true);
 }';
 
-          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES (NULL, "php_admin_usergroup", "Newsletter Usergroup", "' . $insertphpcode . '", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_lang", "Newsletter Admin Language", "' . $adminlang . '", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_lang", "Newsletter Site Language", "' . $sitelang . '", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_usergroup", "Newsletter Usergroup New", "plugins/newsletter/admin/template/usergroup_new.php", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_usergroup_edit", "Newsletter Usergroup Edit", "plugins/newsletter/admin/template/usergroup_edit.php", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_sidebar", "Newsletter SignUp", "plugins/newsletter/template/newslettersidebar.php", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_footer_widgets", "Footer - Newsletter Form", "plugins/newsletter/template/footer_widget.php", "newsletter", 1, 3, "' . $rows['id'] . '", NOW())');
+          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+(NULL, "php_admin_usergroup", "Newsletter Usergroup", "' . $insertphpcode . '", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_lang", "Newsletter Admin Language", "' . $adminlang . '", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_lang", "Newsletter Site Language", "' . $sitelang . '", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_usergroup", "Newsletter Usergroup New", "plugins/newsletter/admin/template/usergroup_new.php", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_usergroup_edit", "Newsletter Usergroup Edit", "plugins/newsletter/admin/template/usergroup_edit.php", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_sidebar", "Newsletter SignUp", "plugins/newsletter/template/newslettersidebar.php", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_footer_widgets", "Footer - Newsletter Form", "plugins/newsletter/template/footer_widget.php", "newsletter", 1, 3, "' . $rows['id'] . '", NOW())');
 
 // Insert tables into settings
-          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES ("nlsmtp_mail", "newsletter", 0, 0, "yesno", "boolean", "newsletter"), ("nlsmtpport", "newsletter", 25, 25, "input", "number", "newsletter"), ("nlsmtphost", "newsletter", "", "", "input", "free", "newsletter"), ("nlsmtp_auth", "newsletter", 0, 0, "yesno", "boolean", "newsletter"), ("nlsmtp_prefix", "newsletter", "", "", "input", "free", "newsletter"), ("nlsmtp_alive", "newsletter", 0, 0, "yesno", "boolean", "newsletter"), ("nlemail", "newsletter", "", "", "input", "free", "newsletter"), ("nlsmtpusername", "newsletter", "", "", "input", "free", "newsletter"), ("nlsmtppassword", "newsletter", "", "", "input", "free", "newsletter"), ("nlthankyou", "newsletter", "Thank you for your interest in our service.", "thank you", "input", "free", "newsletter"), ("nlsignoff", "newsletter", "Your email address will be removed from our Newsletter after successful entering your email address.", "removed", "input", "free", "newsletter"), ("nltitle", "newsletter", "Newsletter", "title", "input", "free", "newsletter")');
+          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+("nlsmtp_mail", "newsletter", 0, 0, "yesno", "boolean", "newsletter"),
+("nlsmtpport", "newsletter", 25, 25, "input", "number", "newsletter"),
+("nlsmtphost", "newsletter", "", "", "input", "free", "newsletter"),
+("nlsmtp_auth", "newsletter", 0, 0, "yesno", "boolean", "newsletter"),
+("nlsmtp_prefix", "newsletter", "", "", "input", "free", "newsletter"),
+("nlsmtp_alive", "newsletter", 0, 0, "yesno", "boolean", "newsletter"),
+("nlemail", "newsletter", "", "", "input", "free", "newsletter"),
+("nlsmtpusername", "newsletter", "", "", "input", "free", "newsletter"),
+("nlsmtppassword", "newsletter", "", "", "input", "free", "newsletter"),
+("nlthankyou", "newsletter", "Thank you for your interest in our service.", "thank you", "input", "free", "newsletter"),
+("nlsignoff", "newsletter", "Your email address will be removed from our Newsletter after successful entering your email address.", "removed", "input", "free", "newsletter"),
+("nltitle", "newsletter", "Newsletter", "title", "input", "free", "newsletter")');
 
 // Insert into usergroup
           $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `newsletter` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');

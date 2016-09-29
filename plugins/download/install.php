@@ -27,8 +27,9 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 <head>
   <title><?php echo $tl["plugin"]["t4"];?></title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/stylesheet.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/admin/css/admin-color.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
 </head>
 <body>
 
@@ -160,10 +161,52 @@ include_once APP_PATH.\'plugins/download/template/\'.$jkv[\"sitestyle\"].\'/page
 	
 }';
 
-          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES (NULL, "php_admin_usergroup", "Download Usergroup", "' . $insertphpcode . '", "download", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_lang", "Download Admin Language", "' . $adminlang . '", "download", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_lang", "Download Site Language", "' . $sitelang . '", "download", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_search", "Download Search PHP", "' . $sitephpsearch . '", "download", 1, 8, "' . $rows['id'] . '", NOW()), (NULL, "php_rss", "Download RSS PHP", "' . $sitephprss . '", "download", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_tags", "Download Tags PHP", "' . $sitephptag . '", "download", 1, 8, "' . $rows['id'] . '", NOW()), (NULL, "php_sitemap", "Download Sitemap PHP", "' . $sitephpsitemap . '", "download", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_between_head", "Download CSS", "plugins/download/template/cssheader.php", "download", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_usergroup", "Download Usergroup New", "plugins/download/admin/template/usergroup_new.php", "download", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_usergroup_edit", "Download Usergroup Edit", "plugins/download/admin/template/usergroup_edit.php", "download", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_tags", "Download Tags", "plugins/download/template/tag.php", "download", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_sitemap", "Download Sitemap", "plugins/download/template/sitemap.php", "download", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_sidebar", "Download Sidebar Categories", "plugins/download/template/downloadsidebar.php", "download", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_fulltext_add", "Download Full Text Search", "' . $sqlfull . '", "download", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_fulltext_remove", "Download Remove Full Text Search", "' . $sqlfullremove . '", "download", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_page_news", "Download Admin - Page/News", "' . $pages . '", "download", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_page_news_new", "Download Admin - Page/News - New", "plugins/download/admin/template/dl_connect_new.php", "download", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_pages_sql", "Download Pages SQL", "' . $sqlinsert . '", "download", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_news_sql", "Download News SQL", "' . $sqlinsert . '", "download", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_pages_news_info", "Download Pages/News Info", "' . $getdl . '", "download", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_page_news_grid", "Download Pages/News Display", "' . $get_dlconnect . '", "download", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_search", "Download Search", "plugins/download/template/search.php", "download", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_user_delete", "Download Delete User", "' . $adminphpdelete . '", "download", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_user_rename", "Download Rename User", "' . $adminphprename . '", "download", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_user_delete_mass", "Download Delete User Mass", "' . $adminphpmassdel . '", "download", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_footer_widgets", "Download - 3 Latest Files", "plugins/download/template/footer_widget.php", "download", 1, 3, "' . $rows['id'] . '", NOW()), (NULL, "tpl_footer_widgets", "Download - Show Categories", "plugins/download/template/footer_widget1.php", "download", 1, 3, "' . $rows['id'] . '", NOW())');
+          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+(NULL, "php_admin_usergroup", "Download Usergroup", "' . $insertphpcode . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_lang", "Download Admin Language", "' . $adminlang . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_lang", "Download Site Language", "' . $sitelang . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_search", "Download Search PHP", "' . $sitephpsearch . '", "download", 1, 8, "' . $rows['id'] . '", NOW()),
+(NULL, "php_rss", "Download RSS PHP", "' . $sitephprss . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_tags", "Download Tags PHP", "' . $sitephptag . '", "download", 1, 8, "' . $rows['id'] . '", NOW()),
+(NULL, "php_sitemap", "Download Sitemap PHP", "' . $sitephpsitemap . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_between_head", "Download CSS", "plugins/download/template/cssheader.php", "download", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_usergroup", "Download Usergroup New", "plugins/download/admin/template/usergroup_new.php", "download", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_usergroup_edit", "Download Usergroup Edit", "plugins/download/admin/template/usergroup_edit.php", "download", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_tags", "Download Tags", "plugins/download/template/tag.php", "download", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_sitemap", "Download Sitemap", "plugins/download/template/sitemap.php", "download", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_sidebar", "Download Sidebar Categories", "plugins/download/template/downloadsidebar.php", "download", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_fulltext_add", "Download Full Text Search", "' . $sqlfull . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_fulltext_remove", "Download Remove Full Text Search", "' . $sqlfullremove . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_page_news", "Download Admin - Page/News", "' . $pages . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_page_news_new", "Download Admin - Page/News - New", "plugins/download/admin/template/dl_connect_new.php", "download", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_pages_sql", "Download Pages SQL", "' . $sqlinsert . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_news_sql", "Download News SQL", "' . $sqlinsert . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_pages_news_info", "Download Pages/News Info", "' . $getdl . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_page_news_grid", "Download Pages/News Display", "' . $get_dlconnect . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_search", "Download Search", "plugins/download/template/search.php", "download", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_user_delete", "Download Delete User", "' . $adminphpdelete . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_user_rename", "Download Rename User", "' . $adminphprename . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_user_delete_mass", "Download Delete User Mass", "' . $adminphpmassdel . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_footer_widgets", "Download - 3 Latest Files", "plugins/download/template/footer_widget.php", "download", 1, 3, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_footer_widgets", "Download - Show Categories", "plugins/download/template/footer_widget1.php", "download", 1, 3, "' . $rows['id'] . '", NOW())');
 
 // Insert tables into settings
-          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES ("downloadtitle", "download", NULL, NULL, "input", "free", "download"), ("downloaddesc", "download", NULL, NULL, "textarea", "free", "download"), ("downloademail", "download", NULL, NULL, "input", "free", "download"), ("downloaddateformat", "download", "d.m.Y", "d.m.Y", "input", "free", "download"), ("downloadtimeformat", "download", ": h:i A", ": h:i A", "input", "free", "download"), ("downloadurl", "download", 0, 0, "yesno", "boolean", "download"), ("downloadmaxpost", "download", 2000, 2000, "input", "boolean", "download"), ("downloadpagemid", "download", 3, 3, "yesno", "number", "download"), ("downloadpageitem", "download", 4, 4, "yesno", "number", "download"), ("downloadpath", "download", NULL, NULL, "input", "free", "download"), ("downloadorder", "download", "id ASC", "", "input", "free", "download"), ("downloadtwitter", "download", "", "", "input", "free", "download"), ("download_css", "download", "", "", "textarea", "free", "download"), ("download_javascript", "download", "", "", "textarea", "free", "download"), ("downloadrss", "download", 5, 5, "select", "number", "download")');
+          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+("downloadtitle", "download", NULL, NULL, "input", "free", "download"),
+("downloaddesc", "download", NULL, NULL, "textarea", "free", "download"),
+("downloademail", "download", NULL, NULL, "input", "free", "download"),
+("downloaddateformat", "download", "d.m.Y", "d.m.Y", "input", "free", "download"),
+("downloadtimeformat", "download", ": h:i A", ": h:i A", "input", "free", "download"),
+("downloadurl", "download", 0, 0, "yesno", "boolean", "download"),
+("downloadmaxpost", "download", 2000, 2000, "input", "boolean", "download"),
+("downloadpagemid", "download", 3, 3, "yesno", "number", "download"),
+("downloadpageitem", "download", 4, 4, "yesno", "number", "download"),
+("downloadpath", "download", NULL, NULL, "input", "free", "download"),
+("downloadorder", "download", "id ASC", "", "input", "free", "download"),
+("downloadtwitter", "download", "", "", "input", "free", "download"),
+("download_css", "download", "", "", "textarea", "free", "download"),
+("download_javascript", "download", "", "", "textarea", "free", "download"),
+("downloadrss", "download", 5, 5, "select", "number", "download")');
 
 // Insert into usergroup
           $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `download` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`, ADD `downloadcan` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `download`, ADD `downloadpost` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `download`, ADD `downloadpostdelete` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `downloadpost`, ADD `downloadpostapprove` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `downloadpostdelete`, ADD `downloadrate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `downloadpostdelete`, ADD `downloadmoderate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `downloadrate`');

@@ -26,8 +26,9 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 <head>
   <title><?php echo $tl["plugin"]["t20"];?></title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/stylesheet.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/admin/css/admin-color.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
 </head>
 <body>
 
@@ -159,10 +160,59 @@ include_once APP_PATH.\'plugins/retailer/template/\'.$jkv[\"sitestyle\"].\'/page
 
           $adminphpmassdel = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'retailercomments SET userid = 0 WHERE userid = \'.$page2.\'\');';
 
-          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES (NULL, "php_admin_usergroup", "Retailer Usergroup", "' . $insertphpcode . '", "retailer", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_lang", "Retailer Admin Language", "' . $adminlang . '", "retailer", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_lang", "Retailer Site Language", "' . $sitelang . '", "retailer", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_search", "Retailer Search PHP", "' . $sitephpsearch . '", "retailer", 1, 8, "' . $rows['id'] . '", NOW()), (NULL, "php_rss", "Retailer RSS PHP", "' . $sitephprss . '", "retailer", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_tags", "Retailer Tags PHP", "' . $sitephptag . '", "retailer", 1, 8, "' . $rows['id'] . '", NOW()), (NULL, "php_sitemap", "Retailer Sitemap PHP", "' . $sitephpsitemap . '", "retailer", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_between_head", "Retailer CSS", "plugins/retailer/template/cssheader.php", "retailer", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_usergroup", "Retailer Usergroup New", "plugins/retailer/admin/template/usergroup_new.php", "retailer", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_usergroup_edit", "Retailer Usergroup Edit", "plugins/retailer/admin/template/usergroup_edit.php", "retailer", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_tags", "Retailer Tags TPL", "plugins/retailer/template/tag.php", "retailer", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_sitemap", "Retailer Sitemap TPL", "plugins/retailer/template/sitemap.php", "retailer", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_sidebar", "Retailer Sidebar Categories TPL", "plugins/retailer/template/retailersidebar.php", "retailer", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_fulltext_add", "Retailer Full Text Search", "' . $sqlfull . '", "retailer", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_fulltext_remove", "Retailer Remove Full Text Search", "' . $sqlfullremove . '", "retailer", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_page_news", "Retailer Admin - Page/News", "' . $pages . '", "retailer", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_page_news_new", "Retailer Admin - Page/News - New", "plugins/retailer/admin/template/retailer_connect_new.php", "retailer", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_pages_sql", "Retailer Pages SQL", "' . $sqlinsert . '", "retailer", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_news_sql", "Retailer News SQL", "' . $sqlinsert . '", "retailer", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_pages_news_info", "Retailer Pages/News Info", "' . $getretailer . '", "retailer", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_page_news_grid", "Retailer Pages/News Display", "' . $get_fqconnect . '", "retailer", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_search", "Retailer Search TPL", "plugins/retailer/template/search.php", "retailer", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_user_delete", "Retailer Delete User", "' . $adminphpdelete . '", "retailer", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_user_rename", "Retailer Rename User", "' . $adminphprename . '", "retailer", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_user_delete_mass", "Retailer Delete User Mass", "' . $adminphpmassdel . '", "retailer", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_head", "Retailer Admin - CSS", "plugins/retailer/admin/template/csshead.php", "retailer", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_footer_end", "Retailer - JS", "plugins/retailer/template/jsfooter.php", "retailer", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_footer_widgets", "Retailer - 5 Latest Entries", "plugins/retailer/template/footer_widget.php", "retailer", 1, 3, "' . $row['id'] . '", NOW()), (NULL, "tpl_footer_widgets", "Retailer - Show Categories", "plugins/retailer/template/footer_widget1.php", "retailer", 1, 3, "' . $row['id'] . '", NOW())');
+          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+(NULL, "php_admin_usergroup", "Retailer Usergroup", "' . $insertphpcode . '", "retailer", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_lang", "Retailer Admin Language", "' . $adminlang . '", "retailer", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_lang", "Retailer Site Language", "' . $sitelang . '", "retailer", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_search", "Retailer Search PHP", "' . $sitephpsearch . '", "retailer", 1, 8, "' . $rows['id'] . '", NOW()),
+(NULL, "php_rss", "Retailer RSS PHP", "' . $sitephprss . '", "retailer", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_tags", "Retailer Tags PHP", "' . $sitephptag . '", "retailer", 1, 8, "' . $rows['id'] . '", NOW()),
+(NULL, "php_sitemap", "Retailer Sitemap PHP", "' . $sitephpsitemap . '", "retailer", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_between_head", "Retailer CSS", "plugins/retailer/template/cssheader.php", "retailer", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_usergroup", "Retailer Usergroup New", "plugins/retailer/admin/template/usergroup_new.php", "retailer", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_usergroup_edit", "Retailer Usergroup Edit", "plugins/retailer/admin/template/usergroup_edit.php", "retailer", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_tags", "Retailer Tags TPL", "plugins/retailer/template/tag.php", "retailer", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_sitemap", "Retailer Sitemap TPL", "plugins/retailer/template/sitemap.php", "retailer", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_sidebar", "Retailer Sidebar Categories TPL", "plugins/retailer/template/retailersidebar.php", "retailer", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_fulltext_add", "Retailer Full Text Search", "' . $sqlfull . '", "retailer", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_fulltext_remove", "Retailer Remove Full Text Search", "' . $sqlfullremove . '", "retailer", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_page_news", "Retailer Admin - Page/News", "' . $pages . '", "retailer", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_page_news_new", "Retailer Admin - Page/News - New", "plugins/retailer/admin/template/retailer_connect_new.php", "retailer", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_pages_sql", "Retailer Pages SQL", "' . $sqlinsert . '", "retailer", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_news_sql", "Retailer News SQL", "' . $sqlinsert . '", "retailer", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_pages_news_info", "Retailer Pages/News Info", "' . $getretailer . '", "retailer", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_page_news_grid", "Retailer Pages/News Display", "' . $get_fqconnect . '", "retailer", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_search", "Retailer Search TPL", "plugins/retailer/template/search.php", "retailer", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_user_delete", "Retailer Delete User", "' . $adminphpdelete . '", "retailer", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_user_rename", "Retailer Rename User", "' . $adminphprename . '", "retailer", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_user_delete_mass", "Retailer Delete User Mass", "' . $adminphpmassdel . '", "retailer", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_head", "Retailer Admin - CSS", "plugins/retailer/admin/template/csshead.php", "retailer", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_footer_end", "Retailer - JS", "plugins/retailer/template/jsfooter.php", "retailer", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_footer_widgets", "Retailer - 5 Latest Entries", "plugins/retailer/template/footer_widget.php", "retailer", 1, 3, "' . $row['id'] . '", NOW()),
+(NULL, "tpl_footer_widgets", "Retailer - Show Categories", "plugins/retailer/template/footer_widget1.php", "retailer", 1, 3, "' . $row['id'] . '", NOW())');
 
 // Insert tables into settings
-          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES ("retailertitle", "retailer", NULL, NULL, "input", "free", "retailer"), ("retailerdesc", "retailer", NULL, NULL, "textarea", "free", "retailer"), ("retaileremail", "retailer", NULL, NULL, "input", "free", "retailer"), ("retailerdateformat", "retailer", "d.m.Y", "d.m.Y", "input", "free", "retailer"), ("retailertimeformat", "retailer", ": h:i A", ": h:i A", "input", "free", "retailer"), ("retailerurl", "retailer", 0, 0, "yesno", "boolean", "retailer"), ("retailermaxpost", "retailer", 2000, 2000, "input", "boolean", "retailer"), ("retailerpagemid", "retailer", 3, 3, "yesno", "number", "retailer"), ("retailerpageitem", "retailer", 4, 4, "yesno", "number", "retailer"), ("retailerorder", "retailer", "id ASC", "", "input", "free", "retailer"), ("retailerrss", "retailer", 5, 5, "number", "select", "retailer"), ("retailerlat", "retailer", "4", "4", "input", "free", "retailer"), ("retailerlng", "retailer", "10", "10", "input", "free", "retailer"), ("retailerzoom", "retailer", 10, 10, "select", "number", "retailer"), ("retailermapstyle", "retailer", "ROADMAP", "ROADMAP", "select", "free", "retailer"), ("retailershowmap", "retailer", 1, 1, "yesno", "boolean", "retailer"), ("retailerlocation", "retailer", 1, 1, "yesno", "boolean", "retailer"), ("retailer_css", "retailer", "", "", "textarea", "free", "retailer"), ("retailer_javascript", "retailer", "", "", "textarea", "free", "retailer"), ("retailermapkey", "retailer", "", "", "input", "free", "retailer")');
+          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+("retailertitle", "retailer", NULL, NULL, "input", "free", "retailer"),
+("retailerdesc", "retailer", NULL, NULL, "textarea", "free", "retailer"),
+("retaileremail", "retailer", NULL, NULL, "input", "free", "retailer"),
+("retailerdateformat", "retailer", "d.m.Y", "d.m.Y", "input", "free", "retailer"),
+("retailertimeformat", "retailer", ": h:i A", ": h:i A", "input", "free", "retailer"),
+("retailerurl", "retailer", 0, 0, "yesno", "boolean", "retailer"),
+("retailermaxpost", "retailer", 2000, 2000, "input", "boolean", "retailer"),
+("retailerpagemid", "retailer", 3, 3, "yesno", "number", "retailer"),
+("retailerpageitem", "retailer", 4, 4, "yesno", "number", "retailer"),
+("retailerorder", "retailer", "id ASC", "", "input", "free", "retailer"),
+("retailerrss", "retailer", 5, 5, "number", "select", "retailer"),
+("retailerlat", "retailer", "4", "4", "input", "free", "retailer"),
+("retailerlng", "retailer", "10", "10", "input", "free", "retailer"),
+("retailerzoom", "retailer", 10, 10, "select", "number", "retailer"),
+("retailermapstyle", "retailer", "ROADMAP", "ROADMAP", "select", "free", "retailer"),
+("retailershowmap", "retailer", 1, 1, "yesno", "boolean", "retailer"),
+("retailerlocation", "retailer", 1, 1, "yesno", "boolean", "retailer"),
+("retailer_css", "retailer", "", "", "textarea", "free", "retailer"),
+("retailer_javascript", "retailer", "", "", "textarea", "free", "retailer"),
+("retailermapkey", "retailer", "", "", "input", "free", "retailer")');
 
 // Insert into usergroup
           $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `retailer` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`, ADD `retailerpost` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `retailer`, ADD `retailerpostdelete` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `retailerpost`, ADD `retailerpostapprove` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `retailerpostdelete`, ADD `retailerrate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `retailerpostdelete`, ADD `retailermoderate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `retailerrate`');

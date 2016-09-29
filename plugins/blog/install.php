@@ -28,8 +28,9 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 <head>
   <title><?php echo $tl["plugin"]["t2"];?></title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/stylesheet.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/admin/css/admin-color.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
 </head>
 <body>
 
@@ -161,10 +162,51 @@ include_once APP_PATH.\'plugins/blog/template/\'.$jkv[\"sitestyle\"].\'/pages_ne
 
           $adminphpmassdel = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'blogcomments SET userid = 0 WHERE userid = \'.$locked.\'\');';
 
-          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES (NULL, "php_admin_usergroup", "Blog Usergroup", "' . $insertphpcode . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_lang", "Blog Admin Language", "' . $adminlang . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_lang", "Blog Site Language", "' . $sitelang . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_search", "Blog Search PHP", "' . $sitephpsearch . '", "blog", 1, 8, "' . $rows['id'] . '", NOW()), (NULL, "php_rss", "Blog RSS PHP", "' . $sitephprss . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_tags", "Blog Tags PHP", "' . $sitephptag . '", "blog", 1, 8, "' . $rows['id'] . '", NOW()), (NULL, "php_sitemap", "Blog Sitemap PHP", "' . $sitephpsitemap . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_between_head", "Blog CSS", "plugins/blog/template/cssheader.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_usergroup", "Blog Usergroup New", "plugins/blog/admin/template/usergroup_new.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_usergroup_edit", "Blog Usergroup Edit", "plugins/blog/admin/template/usergroup_edit.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_tags", "Blog Tags", "plugins/blog/template/tag.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_sitemap", "Blog Sitemap", "plugins/blog/template/sitemap.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_sidebar", "Blog Sidebar Categories", "plugins/blog/template/blogsidebar.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_fulltext_add", "Blog Full Text Search", "' . $sqlfull . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_fulltext_remove", "Blog Remove Full Text Search", "' . $sqlfullremove . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_page_news", "Blog Admin - Page/News", "' . $pages . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_page_news_new", "Blog Admin - Page/News - New", "plugins/blog/admin/template/blog_connect_new.php", "blog", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_pages_sql", "Blog Pages SQL", "' . $sqlinsert . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_news_sql", "Blog News SQL", "' . $sqlinsert . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_pages_news_info", "Blog Pages/News Info", "' . $getblog . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_page_news_grid", "Blog Pages/News Display", "' . $get_blconnect . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_search", "Blog Search", "plugins/blog/template/search.php", "blog", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_user_delete", "Blog Delete User", "' . $adminphpdelete . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_user_rename", "Blog Rename User", "' . $adminphprename . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_user_delete_mass", "Blog Delete User Mass", "' . $adminphpmassdel . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_footer_widgets", "Blog - 3 Latest Files", "plugins/blog/template/footer_widget.php", "blog", 1, 3, "' . $row['id'] . '", NOW()), (NULL, "tpl_footer_widgets", "Blog - Show Categories", "plugins/blog/template/footer_widget1.php", "blog", 1, 3, "' . $row['id'] . '", NOW())');
+          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+(NULL, "php_admin_usergroup", "Blog Usergroup", "' . $insertphpcode . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_lang", "Blog Admin Language", "' . $adminlang . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_lang", "Blog Site Language", "' . $sitelang . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_search", "Blog Search PHP", "' . $sitephpsearch . '", "blog", 1, 8, "' . $rows['id'] . '", NOW()),
+(NULL, "php_rss", "Blog RSS PHP", "' . $sitephprss . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_tags", "Blog Tags PHP", "' . $sitephptag . '", "blog", 1, 8, "' . $rows['id'] . '", NOW()),
+(NULL, "php_sitemap", "Blog Sitemap PHP", "' . $sitephpsitemap . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_between_head", "Blog CSS", "plugins/blog/template/cssheader.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_usergroup", "Blog Usergroup New", "plugins/blog/admin/template/usergroup_new.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_usergroup_edit", "Blog Usergroup Edit", "plugins/blog/admin/template/usergroup_edit.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_tags", "Blog Tags", "plugins/blog/template/tag.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_sitemap", "Blog Sitemap", "plugins/blog/template/sitemap.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_sidebar", "Blog Sidebar Categories", "plugins/blog/template/blogsidebar.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_fulltext_add", "Blog Full Text Search", "' . $sqlfull . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_fulltext_remove", "Blog Remove Full Text Search", "' . $sqlfullremove . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_page_news", "Blog Admin - Page/News", "' . $pages . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_page_news_new", "Blog Admin - Page/News - New", "plugins/blog/admin/template/blog_connect_new.php", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_pages_sql", "Blog Pages SQL", "' . $sqlinsert . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_news_sql", "Blog News SQL", "' . $sqlinsert . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_pages_news_info", "Blog Pages/News Info", "' . $getblog . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_page_news_grid", "Blog Pages/News Display", "' . $get_blconnect . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_search", "Blog Search", "plugins/blog/template/search.php", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_user_delete", "Blog Delete User", "' . $adminphpdelete . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_user_rename", "Blog Rename User", "' . $adminphprename . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_user_delete_mass", "Blog Delete User Mass", "' . $adminphpmassdel . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_footer_widgets", "Blog - 3 Latest Files", "plugins/blog/template/footer_widget.php", "blog", 1, 3, "' . $row['id'] . '", NOW()),
+(NULL, "tpl_footer_widgets", "Blog - Show Categories", "plugins/blog/template/footer_widget1.php", "blog", 1, 3, "' . $row['id'] . '", NOW())');
 
 // Insert tables into settings
-          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES ("blogtitle", "blog", NULL, NULL, "input", "free", "blog"), ("blogdesc", "blog", NULL, NULL, "textarea", "free", "blog"), ("blogemail", "blog", NULL, NULL, "input", "free", "blog"), ("blogdateformat", "blog", "d.m.Y", "d.m.Y", "input", "free", "blog"), ("blogtimeformat", "blog", ": h:i A", ": h:i A", "input", "free", "blog"), ("blogurl", "blog", 0, 0, "yesno", "boolean", "blog"), ("blogmaxpost", "blog", 2000, 2000, "input", "boolean", "blog"), ("blogpagemid", "blog", 3, 3, "yesno", "number", "blog"), ("blogpageitem", "blog", 4, 4, "yesno", "number", "blog"), ("blogorder", "blog", "id ASC", "", "input", "free", "blog"), ("blogrss", "blog", 5, 5, "number", "select", "blog"), ("bloghlimit", "blog", 5, 5, "number", "select", "blog"), ("blog_css", "blog", "", "", "textarea", "free", "blog"), ("blog_javascript", "blog", "", "", "textarea", "free", "blog")');
+          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+("blogtitle", "blog", NULL, NULL, "input", "free", "blog"),
+("blogdesc", "blog", NULL, NULL, "textarea", "free", "blog"),
+("blogemail", "blog", NULL, NULL, "input", "free", "blog"),
+("blogdateformat", "blog", "d.m.Y", "d.m.Y", "input", "free", "blog"),
+("blogtimeformat", "blog", ": h:i A", ": h:i A", "input", "free", "blog"),
+("blogurl", "blog", 0, 0, "yesno", "boolean", "blog"),
+("blogmaxpost", "blog", 2000, 2000, "input", "boolean", "blog"),
+("blogpagemid", "blog", 3, 3, "yesno", "number", "blog"),
+("blogpageitem", "blog", 4, 4, "yesno", "number", "blog"),
+("blogorder", "blog", "id ASC", "", "input", "free", "blog"),
+("blogrss", "blog", 5, 5, "number", "select", "blog"),
+("bloghlimit", "blog", 5, 5, "number", "select", "blog"),
+("blog_css", "blog", "", "", "textarea", "free", "blog"),
+("blog_javascript", "blog", "", "", "textarea", "free", "blog")');
 
 // Insert into usergroup
           $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `blog` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`, ADD `blogpost` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `blog`, ADD `blogpostdelete` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `blogpost`, ADD `blogpostapprove` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `blogpostdelete`, ADD `blograte` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `blogpostdelete`, ADD `blogmoderate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `blograte`');
@@ -178,7 +220,8 @@ include_once APP_PATH.\'plugins/blog/template/\'.$jkv[\"sitestyle\"].\'/pages_ne
           $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'backup_content ADD blogid INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER pageid');
 
 // Insert Category
-          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES (NULL, "Blog", "blog", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
+          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES
+(NULL, "Blog", "blog", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
 
           $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'blog (
   `id` int(11) NOT NULL AUTO_INCREMENT,

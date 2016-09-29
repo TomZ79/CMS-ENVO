@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
   <!-- Theme style -->
   <link rel="stylesheet" href="css/admin.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="css/admin-color.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
   <!-- Animate style -->
   <link rel="stylesheet" href="css/animate.min.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
   <!-- Bootstrap Datetimpicker 4 -->

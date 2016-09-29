@@ -26,8 +26,9 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 <head>
   <title><?php echo $tl["plugin"]["t26"]; ?></title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/stylesheet.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/admin/css/admin-color.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
 </head>
 <body>
 
@@ -160,10 +161,51 @@ include_once APP_PATH.\'plugins/ticketing/template/\'.$jkv[\"sitestyle\"].\'/pag
           $sqlfull = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'tickets ADD FULLTEXT(`title`, `content`)\');';
           $sqlfullremove = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'tickets DROP INDEX `title`\');';
 
-          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES (NULL, "php_admin_usergroup", "Ticketing Usergroup", "' . $insertphpcode . '", "ticketing", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_lang", "Ticketing Admin Language", "' . $adminlang . '", "ticketing", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_lang", "Ticketing Site Language", "' . $sitelang . '", "ticketing", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_search", "Ticketing Search PHP", "' . $sitephpsearch . '", "ticketing", 1, 8, "' . $rows['id'] . '", NOW()), (NULL, "php_rss", "Support Ticket RSS PHP", "' . $sitephprss . '", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_tags", "Ticketing Tags PHP", "' . $sitephptag . '", "ticketing", 1, 8, "' . $rows['id'] . '", NOW()), (NULL, "php_sitemap", "Ticketing Sitemap PHP", "' . $sitephpsitemap . '", "ticketing", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_between_head", "Ticketing CSS", "plugins/ticketing/template/cssheader.php", "ticketing", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_usergroup", "Ticketing Usergroup New", "plugins/ticketing/admin/template/usergroup_new.php", "ticketing", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_usergroup_edit", "Ticketing Usergroup Edit", "plugins/ticketing/admin/template/usergroup_edit.php", "ticketing", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_tags", "Ticketing Tags", "plugins/ticketing/template/tag.php", "ticketing", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_sitemap", "Ticketing Sitemap", "plugins/ticketing/template/sitemap.php", "ticketing", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_sidebar", "Ticketing Sidebar Categories", "plugins/ticketing/template/ticketsidebar.php", "ticketing", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_fulltext_add", "Ticketing Full Text Search", "' . $sqlfull . '", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_fulltext_remove", "Ticketing Remove Full Text Search", "' . $sqlfullremove . '", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_search", "Ticketing Search", "plugins/ticketing/template/search.php", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_page_news", "Ticketing Admin - Page/News", "' . $pages . '", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_page_news_new", "Ticketing Admin - Page/News - New", "plugins/ticketing/admin/template/st_connect_new.php", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_pages_sql", "Ticketing Pages SQL", "' . $sqlinsert . '", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_news_sql", "Ticketing News SQL", "' . $sqlinsert . '", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_pages_news_info", "Ticketing Pages/News Info", "' . $getst . '", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_page_news_grid", "Ticketing Pages/News Display", "' . $tpl_connect . '", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_user_delete", "Ticketing Delete User", "' . $adminphpdelete . '", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_user_rename", "Ticketing Rename User", "' . $adminphprename . '", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_user_delete_mass", "Ticketing Delete User Mass", "' . $adminphpmassdel . '", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_footer_widgets", "Ticketing - 3 Latest Tickets", "plugins/ticketing/template/footer_widget.php", "ticketing", 1, 3, "' . $rows['id'] . '", NOW())');
+          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+(NULL, "php_admin_usergroup", "Ticketing Usergroup", "' . $insertphpcode . '", "ticketing", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_lang", "Ticketing Admin Language", "' . $adminlang . '", "ticketing", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_lang", "Ticketing Site Language", "' . $sitelang . '", "ticketing", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_search", "Ticketing Search PHP", "' . $sitephpsearch . '", "ticketing", 1, 8, "' . $rows['id'] . '", NOW()),
+(NULL, "php_rss", "Support Ticket RSS PHP", "' . $sitephprss . '", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_tags", "Ticketing Tags PHP", "' . $sitephptag . '", "ticketing", 1, 8, "' . $rows['id'] . '", NOW()),
+(NULL, "php_sitemap", "Ticketing Sitemap PHP", "' . $sitephpsitemap . '", "ticketing", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_between_head", "Ticketing CSS", "plugins/ticketing/template/cssheader.php", "ticketing", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_usergroup", "Ticketing Usergroup New", "plugins/ticketing/admin/template/usergroup_new.php", "ticketing", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_usergroup_edit", "Ticketing Usergroup Edit", "plugins/ticketing/admin/template/usergroup_edit.php", "ticketing", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_tags", "Ticketing Tags", "plugins/ticketing/template/tag.php", "ticketing", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_sitemap", "Ticketing Sitemap", "plugins/ticketing/template/sitemap.php", "ticketing", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_sidebar", "Ticketing Sidebar Categories", "plugins/ticketing/template/ticketsidebar.php", "ticketing", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_fulltext_add", "Ticketing Full Text Search", "' . $sqlfull . '", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_fulltext_remove", "Ticketing Remove Full Text Search", "' . $sqlfullremove . '", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_search", "Ticketing Search", "plugins/ticketing/template/search.php", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_page_news", "Ticketing Admin - Page/News", "' . $pages . '", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_page_news_new", "Ticketing Admin - Page/News - New", "plugins/ticketing/admin/template/st_connect_new.php", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_pages_sql", "Ticketing Pages SQL", "' . $sqlinsert . '", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_news_sql", "Ticketing News SQL", "' . $sqlinsert . '", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_pages_news_info", "Ticketing Pages/News Info", "' . $getst . '", "ticketing", 1, 1, "' . $rows['id'] . '  ", NOW()),
+(NULL, "tpl_page_news_grid", "Ticketing Pages/News Display", "' . $tpl_connect . '", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_user_delete", "Ticketing Delete User", "' . $adminphpdelete . '", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_user_rename", "Ticketing Rename User", "' . $adminphprename . '", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_user_delete_mass", "Ticketing Delete User Mass", "' . $adminphpmassdel . '", "ticketing", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_footer_widgets", "Ticketing - 3 Latest Tickets", "plugins/ticketing/template/footer_widget.php", "ticketing", 1, 3, "' . $rows['id'] . '", NOW())');
 
 // Insert tables into settings
-          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES ("tickettitle", "ticket", "Support Tickets", NULL, "input", "free", "ticketing"), ("ticketdesc", "ticket", "Support and Bug Ticketing", NULL, "textarea", "free", "ticketing"),  ("ticketemail", "ticket", NULL, NULL, "input", "free", "ticketing"), ("ticketdateformat", "ticket", "d.m.Y", "d.m.Y", "input", "free", "ticketing"), ("tickettimeformat", "ticket", ": h:i A", ": h:i A", "input", "free", "ticketing"), ("ticketurl", "ticket", 0, 0, "yesno", "boolean", "ticketing"), ("ticketmaxpost", "ticket", 2000, 2000, "input", "boolean", "ticketing"), ("ticketshortmsg", "ticket", 80, 80, "number", "select", "ticketing"), ("ticketpagemid", "ticket", 3, 3, "yesno", "number", "ticketing"), ("ticketpageitem", "ticket", 4, 4, "yesno", "number", "ticketing"), ("ticketpath", "ticket", NULL, NULL, "input", "free", "ticketing"), ("ticketorder", "ticket", "id ASC", "", "input", "free", "ticketing"), ("ticketrss", "ticket", 5, 5, "number", "select", "ticketing"), ("ticketgvote", "ticket", 1, 1, "yesno", "boolean", "ticketing"), ("ticketgsocial", "ticket", 1, 1, "yesno", "boolean", "ticketing")');
+          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+("tickettitle", "ticket", "Support Tickets", NULL, "input", "free", "ticketing"),
+("ticketdesc", "ticket", "Support and Bug Ticketing", NULL, "textarea", "free", "ticketing"),
+("ticketemail", "ticket", NULL, NULL, "input", "free", "ticketing"),
+("ticketdateformat", "ticket", "d.m.Y", "d.m.Y", "input", "free", "ticketing"),
+("tickettimeformat", "ticket", ": h:i A", ": h:i A", "input", "free", "ticketing"),
+("ticketurl", "ticket", 0, 0, "yesno", "boolean", "ticketing"),
+("ticketmaxpost", "ticket", 2000, 2000, "input", "boolean", "ticketing"),
+("ticketshortmsg", "ticket", 80, 80, "number", "select", "ticketing"),
+("ticketpagemid", "ticket", 3, 3, "yesno", "number", "ticketing"),
+("ticketpageitem", "ticket", 4, 4, "yesno", "number", "ticketing"),
+("ticketpath", "ticket", NULL, NULL, "input", "free", "ticketing"),
+("ticketorder", "ticket", "id ASC", "", "input", "free", "ticketing"),
+("ticketrss", "ticket", 5, 5, "number", "select", "ticketing"),
+("ticketgvote", "ticket", 1, 1, "yesno", "boolean", "ticketing"),
+("ticketgsocial", "ticket", 1, 1, "yesno", "boolean", "ticketing")');
 
 // Insert into usergroup
           $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `ticket` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`, ADD `ticketpost` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `ticket`, ADD `ticketpostdelete` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `ticketpost`, ADD `ticketpostapprove` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `ticketpostdelete`, ADD `ticketrate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `ticketpostdelete`, ADD `ticketmoderate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `ticketrate`');

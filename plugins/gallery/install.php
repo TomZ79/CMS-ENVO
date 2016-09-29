@@ -26,8 +26,9 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 <head>
   <title><?php echo $tl["plugin"]["t10"];?></title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/stylesheet.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/admin/css/admin-color.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
 </head>
 <body>
 
@@ -161,10 +162,57 @@ include_once APP_PATH.\'plugins/gallery/template/\'.$jkv[\"sitestyle\"].\'/pages
 
           $adminphpmassdel = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'gallerycomments SET userid = 0 WHERE userid = \'.$locked.\'\');';
 
-          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES (NULL, "php_admin_usergroup", "Gallery Usergroup", "' . $insertphpcode . '", "gallery", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_lang", "Gallery Admin Language", "' . $adminlang . '", "gallery", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_lang", "Gallery Site Language", "' . $sitelang . '", "gallery", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_search", "Gallery Search PHP", "' . $sitephpsearch . '", "gallery", 1, 8, "' . $rows['id'] . '", NOW()), (NULL, "php_rss", "Gallery RSS PHP", "' . $sitephprss . '", "gallery", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_tags", "Gallery Tags PHP", "' . $sitephptag . '", "gallery", 1, 8, "' . $rows['id'] . '", NOW()), (NULL, "php_sitemap", "Gallery Sitemap PHP", "' . $sitephpsitemap . '", "gallery", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_between_head", "Gallery CSS", "plugins/gallery/template/cssheader.php", "gallery", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_usergroup", "Gallery Usergroup New", "plugins/gallery/admin/template/usergroup_new.php", "gallery", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_usergroup_edit", "Gallery Usergroup Edit", "plugins/gallery/admin/template/usergroup_edit.php", "gallery", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_tags", "Gallery Tags", "plugins/gallery/template/tag.php", "gallery", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_sitemap", "Gallery Sitemap", "plugins/gallery/template/sitemap.php", "gallery", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_sidebar", "Gallery Sidebar Categories", "plugins/gallery/template/gallerysidebar.php", "gallery", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_fulltext_add", "Gallery Full Text Search", "' . $sqlfull . '", "gallery", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_fulltext_remove", "Gallery Remove Full Text Search", "' . $sqlfullremove . '", "gallery", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_page_news", "Gallery Admin - Page/News", "' . $pages . '", "gallery", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_page_news_new", "Gallery Admin - Page/News - New", "plugins/gallery/admin/template/gallery_connect_new.php", "gallery", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_pages_sql", "Gallery Pages SQL", "' . $sqlinsert . '", "gallery", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_news_sql", "Gallery News SQL", "' . $sqlinsert . '", "gallery", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_pages_news_info", "Gallery Pages/News Info", "' . $getgallery . '", "gallery", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_page_news_grid", "Gallery Pages/News Display", "' . $get_fqconnect . '", "gallery", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_search", "Gallery Search", "plugins/gallery/template/search.php", "gallery", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_user_delete", "Gallery Delete User", "' . $adminphpdelete . '", "gallery", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_user_rename", "GALLERY Rename User", "' . $adminphprename . '", "gallery", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_user_delete_mass", "Gallery Delete User Mass", "' . $adminphpmassdel . '", "gallery", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_footer_widgets", "Gallery - 10 Latest Photos", "plugins/gallery/template/footer_widget.php", "gallery", 1, 3, "' . $rows['id'] . '", NOW())');
+          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+(NULL, "php_admin_usergroup", "Gallery Usergroup", "' . $insertphpcode . '", "gallery", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_lang", "Gallery Admin Language", "' . $adminlang . '", "gallery", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_lang", "Gallery Site Language", "' . $sitelang . '", "gallery", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_search", "Gallery Search PHP", "' . $sitephpsearch . '", "gallery", 1, 8, "' . $rows['id'] . '", NOW()),
+(NULL, "php_rss", "Gallery RSS PHP", "' . $sitephprss . '", "gallery", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_tags", "Gallery Tags PHP", "' . $sitephptag . '", "gallery", 1, 8, "' . $rows['id'] . '", NOW()),
+(NULL, "php_sitemap", "Gallery Sitemap PHP", "' . $sitephpsitemap . '", "gallery", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_between_head", "Gallery CSS", "plugins/gallery/template/cssheader.php", "gallery", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_usergroup", "Gallery Usergroup New", "plugins/gallery/admin/template/usergroup_new.php", "gallery", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_usergroup_edit", "Gallery Usergroup Edit", "plugins/gallery/admin/template/usergroup_edit.php", "gallery", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_tags", "Gallery Tags", "plugins/gallery/template/tag.php", "gallery", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_sitemap", "Gallery Sitemap", "plugins/gallery/template/sitemap.php", "gallery", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_sidebar", "Gallery Sidebar Categories", "plugins/gallery/template/gallerysidebar.php", "gallery", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_fulltext_add", "Gallery Full Text Search", "' . $sqlfull . '", "gallery", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_fulltext_remove", "Gallery Remove Full Text Search", "' . $sqlfullremove . '", "gallery", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_page_news", "Gallery Admin - Page/News", "' . $pages . '", "gallery", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_page_news_new", "Gallery Admin - Page/News - New", "plugins/gallery/admin/template/gallery_connect_new.php", "gallery", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_pages_sql", "Gallery Pages SQL", "' . $sqlinsert . '", "gallery", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_news_sql", "Gallery News SQL", "' . $sqlinsert . '", "gallery", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_pages_news_info", "Gallery Pages/News Info", "' . $getgallery . '", "gallery", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_page_news_grid", "Gallery Pages/News Display", "' . $get_fqconnect . '", "gallery", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_search", "Gallery Search", "plugins/gallery/template/search.php", "gallery", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_user_delete", "Gallery Delete User", "' . $adminphpdelete . '", "gallery", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_user_rename", "GALLERY Rename User", "' . $adminphprename . '", "gallery", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_user_delete_mass", "Gallery Delete User Mass", "' . $adminphpmassdel . '", "gallery", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_footer_widgets", "Gallery - 10 Latest Photos", "plugins/gallery/template/footer_widget.php", "gallery", 1, 3, "' . $rows['id'] . '", NOW())');
 
 // Insert tables into settings
-          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES ("gallerytitle", "gallery", NULL, NULL, "input", "free", "gallery"), ("gallerydesc", "gallery", NULL, NULL, "textarea", "free", "gallery"), ("galleryemail", "gallery", NULL, NULL, "input", "free", "gallery"), ("gallerydateformat", "gallery", "d.m.Y", "d.m.Y", "input", "free", "gallery"), ("gallerytimeformat", "gallery", ": h:i A", ": h:i A", "input", "free", "gallery"), ("galleryurl", "gallery", 0, 0, "yesno", "boolean", "gallery"), ("gallerymaxpost", "gallery", 2000, 2000, "input", "boolean", "gallery"), ("gallerypagemid", "gallery", 5, 5, "yesno", "number", "gallery"), ("gallerypageitem", "gallery", 24, 24, "yesno", "number", "gallery"), ("galleryorder", "gallery", "id ASC", "", "input", "free", "gallery"), ("galleryrss", "gallery", 5, 5, "number", "select", "gallery"), ("gallerythumbw", "gallery", "120", "120", "input", "number", "gallery"), ("gallerythumbh", "gallery", "90", "90", "input", "number", "gallery"), ("galleryw", "gallery", "600", "600", "input", "number", "gallery"), ("galleryh", "gallery", "450", "450", "input", "number", "gallery"), ("galleryimgquality", "gallery", "75", "75", "select", "number", "gallery"), ("gallerywatermark", "gallery", "", "img/watermark/wm.png", "input", "free", "gallery"), ("gallerywmposition", "gallery", "3", "9", "radio", "number", "gallery"), ("galleryimgsize", "gallery", "2", "2", "input", "number", "gallery"), ("galleryhlimit", "gallery", "12", "12", "select", "number", "gallery"), ("galleryopenattached", "gallery", "1", "1", "yesno", "boolean", "gallery")');
+          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+("gallerytitle", "gallery", NULL, NULL, "input", "free", "gallery"),
+("gallerydesc", "gallery", NULL, NULL, "textarea", "free", "gallery"),
+("galleryemail", "gallery", NULL, NULL, "input", "free", "gallery"),
+("gallerydateformat", "gallery", "d.m.Y", "d.m.Y", "input", "free", "gallery"),
+("gallerytimeformat", "gallery", ": h:i A", ": h:i A", "input", "free", "gallery"),
+("galleryurl", "gallery", 0, 0, "yesno", "boolean", "gallery"),
+("gallerymaxpost", "gallery", 2000, 2000, "input", "boolean", "gallery"),
+("gallerypagemid", "gallery", 5, 5, "yesno", "number", "gallery"),
+("gallerypageitem", "gallery", 24, 24, "yesno", "number", "gallery"),
+("galleryorder", "gallery", "id ASC", "", "input", "free", "gallery"),
+("galleryrss", "gallery", 5, 5, "number", "select", "gallery"),
+("gallerythumbw", "gallery", "120", "120", "input", "number", "gallery"),
+("gallerythumbh", "gallery", "90", "90", "input", "number", "gallery"),
+("galleryw", "gallery", "600", "600", "input", "number", "gallery"),
+("galleryh", "gallery", "450", "450", "input", "number", "gallery"),
+("galleryimgquality", "gallery", "75", "75", "select", "number", "gallery"),
+("gallerywatermark", "gallery", "", "img/watermark/wm.png", "input", "free", "gallery"),
+("gallerywmposition", "gallery", "3", "9", "radio", "number", "gallery"),
+("galleryimgsize", "gallery", "2", "2", "input", "number", "gallery"),
+("galleryhlimit", "gallery", "12", "12", "select", "number", "gallery"),
+("galleryopenattached", "gallery", "1", "1", "yesno", "boolean", "gallery")');
 
 // Insert into usergroup
           $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `gallery` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`, ADD `gallerypost` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `gallery`, ADD `gallerypostdelete` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `gallerypost`, ADD `gallerypostapprove` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `gallerypostdelete`, ADD `galleryrate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `gallerypostdelete`, ADD `gallerymoderate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `galleryrate`, ADD `galleryupload` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `gallerymoderate');

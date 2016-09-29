@@ -193,7 +193,7 @@ if ($page1 == "e") { ?>
         frameSrc = $(this).attr("href");
         $('#JAKModalLabel').html("<?php echo ucwords($page);?>");
         $('#JAKModal').on('show.bs.modal', function () {
-          $('<iframe src="' + frameSrc + '" width="100%" height="210" frameborder="0">').appendTo('.modal-body');
+          $('<iframe src="' + frameSrc + '" width="100%" height="310" frameborder="0">').appendTo('.modal-body');
         });
         $('#JAKModal').on('hidden.bs.modal', function () {
           $(this).removeData();

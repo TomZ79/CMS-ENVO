@@ -26,8 +26,9 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 <head>
   <title><?php echo $tl["plugin"]["t22"];?></title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/stylesheet.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/admin/css/admin-color.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
 </head>
 <body>
 
@@ -91,7 +92,20 @@ if ($rowls) {
 	$loadslider = true;
 } }';
 
-          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `widgetcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES (NULL, "php_admin_lang", "Slider Admin Language", "' . $adminlang . '", "", "slider", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_page_news", "Slider Admin - Page/News", "' . $pages . '", "", "slider", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_page_news_new", "Slider Admin - Page/News - New", "plugins/slider/admin/template/ls_connect_new.php", "", "slider", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_pages_sql", "Slider Pages SQL", "' . $sqlinsert . '", "", "slider", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_news_sql", "Slider News SQL", "' . $sqlinsert . '", "", "slider", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_pages_news_info", "Slider Pages/News Info", "' . $getslider . '", "", "slider", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_page_news_grid", "Slider Pages/News Display", "' . $get_fqconnect . '", "", "slider", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_pages_news", "Slider Pages/News CSS", "' . $loadcss . '", "", "slider", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_between_head", "Slider CSS", "plugins/slider/template/cssheader.php", "", "slider", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_footer_end", "Slider JavaScript", "plugins/slider/template/jsfooter.php", "", "slider", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_below_header", "Slider OnTop", "plugins/slider/template/ontop.php", "", "slider", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_sidebar", "Slider", "plugins/slider/template/sidebar.php", "plugins/slider/admin/template/sidebar.php", "slider", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_widgets_sql", "Slider Widgets", "", "", "slider", 1, 1, "' . $rows['id'] . '", NOW())');
+          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `widgetcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+(NULL, "php_admin_lang", "Slider Admin Language", "' . $adminlang . '", "", "slider", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_page_news", "Slider Admin - Page/News", "' . $pages . '", "", "slider", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_page_news_new", "Slider Admin - Page/News - New", "plugins/slider/admin/template/ls_connect_new.php", "", "slider", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_pages_sql", "Slider Pages SQL", "' . $sqlinsert . '", "", "slider", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_news_sql", "Slider News SQL", "' . $sqlinsert . '", "", "slider", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_pages_news_info", "Slider Pages/News Info", "' . $getslider . '", "", "slider", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_page_news_grid", "Slider Pages/News Display", "' . $get_fqconnect . '", "", "slider", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_pages_news", "Slider Pages/News CSS", "' . $loadcss . '", "", "slider", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_between_head", "Slider CSS", "plugins/slider/template/cssheader.php", "", "slider", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_footer_end", "Slider JavaScript", "plugins/slider/template/jsfooter.php", "", "slider", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_below_header", "Slider OnTop", "plugins/slider/template/ontop.php", "", "slider", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_sidebar", "Slider", "plugins/slider/template/sidebar.php", "plugins/slider/admin/template/sidebar.php", "slider", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_widgets_sql", "Slider Widgets", "", "", "slider", 1, 1, "' . $rows['id'] . '", NOW())');
 
 // Pages/News alter Table
           $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showslider INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER showcontact');

@@ -28,8 +28,9 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 <head>
   <title><?php echo $tl["plugin"]["t12"];?></title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/stylesheet.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/admin/css/admin-color.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
 </head>
 <body>
 
@@ -75,7 +76,10 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
             $growlheader = 'plugins/growl/template/header.php';
             $growlfooter = 'plugins/growl/template/footer.php';
 
-            $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES (NULL, "php_admin_lang", "Growl Admin Language", "' . $adminlang . '", "growl", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_between_head", "Growl CSS", "' . $growlheader . '", "growl", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_footer_end", "Growl Javascript", "' . $growlfooter . '", "growl", 1, 1, "' . $rows['id'] . '", NOW())');
+            $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+(NULL, "php_admin_lang", "Growl Admin Language", "' . $adminlang . '", "growl", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_between_head", "Growl CSS", "' . $growlheader . '", "growl", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_footer_end", "Growl Javascript", "' . $growlfooter . '", "growl", 1, 1, "' . $rows['id'] . '", NOW())');
 
             $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'growl (
   `id` int(11) NOT NULL AUTO_INCREMENT,

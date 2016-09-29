@@ -26,8 +26,9 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 <head>
   <title><?php echo $tl["plugin"]["t8"]; ?></title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/stylesheet.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/admin/css/admin-color.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
 </head>
 <body>
 
@@ -159,10 +160,48 @@ include_once APP_PATH.\'plugins/faq/template/\'.$jkv[\"sitestyle\"].\'/page_news
 
           $adminphpmassdel = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'faqcomments SET userid = 0 WHERE userid = \'.$locked);';
 
-          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES (NULL, "php_admin_usergroup", "Faq Usergroup", "' . $insertphpcode . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_lang", "Faq Admin Language", "' . $adminlang . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_lang", "Faq Site Language", "' . $sitelang . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_search", "Faq Search PHP", "' . $sitephpsearch . '", "faq", 1, 8, "' . $rows['id'] . '", NOW()), (NULL, "php_rss", "FAQ RSS PHP", "' . $sitephprss . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_tags", "Faq Tags PHP", "' . $sitephptag . '", "faq", 1, 8, "' . $rows['id'] . '", NOW()), (NULL, "php_sitemap", "Faq Sitemap PHP", "' . $sitephpsitemap . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_between_head", "Faq CSS", "plugins/faq/template/cssheader.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_usergroup", "Faq Usergroup New", "plugins/faq/admin/template/usergroup_new.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_usergroup_edit", "Faq Usergroup Edit", "plugins/faq/admin/template/usergroup_edit.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_tags", "Faq Tags", "plugins/faq/template/tag.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_sitemap", "Faq Sitemap", "plugins/faq/template/sitemap.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_sidebar", "Faq Sidebar Categories", "plugins/faq/template/faqsidebar.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_fulltext_add", "Faq Full Text Search", "' . $sqlfull . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_fulltext_remove", "Faq Remove Full Text Search", "' . $sqlfullremove . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_page_news", "Faq Admin - Page/News", "' . $pages . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_page_news_new", "Faq Admin - Page/News - New", "plugins/faq/admin/template/faq_connect_new.php", "faq", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_pages_sql", "Faq Pages SQL", "' . $sqlinsert . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_news_sql", "Faq News SQL", "' . $sqlinsert . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_pages_news_info", "Faq Pages/News Info", "' . $getfaq . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_page_news_grid", "Faq Pages/News Display", "' . $get_fqconnect . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_search", "Faq Search", "plugins/faq/template/search.php", "faq", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_user_delete", "FAQ Delete User", "' . $adminphpdelete . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_user_rename", "FAQ Rename User", "' . $adminphprename . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_user_delete_mass", "FAQ Delete User Mass", "' . $adminphpmassdel . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()), (NULL, "tpl_footer_widgets", "FAQ - 3 Latest Entries", "plugins/faq/template/footer_widget.php", "faq", 1, 3, "' . $rows['id'] . '", NOW())');
+          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+(NULL, "php_admin_usergroup", "Faq Usergroup", "' . $insertphpcode . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_lang", "Faq Admin Language", "' . $adminlang . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_lang", "Faq Site Language", "' . $sitelang . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_search", "Faq Search PHP", "' . $sitephpsearch . '", "faq", 1, 8, "' . $rows['id'] . '", NOW()),
+(NULL, "php_rss", "FAQ RSS PHP", "' . $sitephprss . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_tags", "Faq Tags PHP", "' . $sitephptag . '", "faq", 1, 8, "' . $rows['id'] . '", NOW()),
+(NULL, "php_sitemap", "Faq Sitemap PHP", "' . $sitephpsitemap . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_between_head", "Faq CSS", "plugins/faq/template/cssheader.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_usergroup", "Faq Usergroup New", "plugins/faq/admin/template/usergroup_new.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_usergroup_edit", "Faq Usergroup Edit", "plugins/faq/admin/template/usergroup_edit.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_tags", "Faq Tags", "plugins/faq/template/tag.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_sitemap", "Faq Sitemap", "plugins/faq/template/sitemap.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_sidebar", "Faq Sidebar Categories", "plugins/faq/template/faqsidebar.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_fulltext_add", "Faq Full Text Search", "' . $sqlfull . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_fulltext_remove", "Faq Remove Full Text Search", "' . $sqlfullremove . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_page_news", "Faq Admin - Page/News", "' . $pages . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_page_news_new", "Faq Admin - Page/News - New", "plugins/faq/admin/template/faq_connect_new.php", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_pages_sql", "Faq Pages SQL", "' . $sqlinsert . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_news_sql", "Faq News SQL", "' . $sqlinsert . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_pages_news_info", "Faq Pages/News Info", "' . $getfaq . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_page_news_grid", "Faq Pages/News Display", "' . $get_fqconnect . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_search", "Faq Search", "plugins/faq/template/search.php", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_user_delete", "FAQ Delete User", "' . $adminphpdelete . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_user_rename", "FAQ Rename User", "' . $adminphprename . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_user_delete_mass", "FAQ Delete User Mass", "' . $adminphpmassdel . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_footer_widgets", "FAQ - 3 Latest Entries", "plugins/faq/template/footer_widget.php", "faq", 1, 3, "' . $rows['id'] . '", NOW())');
 
 // Insert tables into settings
-          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES ("faqtitle", "faq", NULL, NULL, "input", "free", "faq"), ("faqdesc", "faq", NULL, NULL, "textarea", "free", "faq"), ("faqemail", "faq", NULL, NULL, "input", "free", "faq"), ("faqdateformat", "faq", "d.m.Y", "d.m.Y", "input", "free", "faq"), ("faqtimeformat", "faq", ": h:i A", ": h:i A", "input", "free", "faq"), ("faqurl", "faq", 0, 0, "yesno", "boolean", "faq"), ("faqmaxpost", "faq", 2000, 2000, "input", "boolean", "faq"), ("faqpagemid", "faq", 3, 3, "yesno", "number", "faq"), ("faqpageitem", "faq", 4, 4, "yesno", "number", "faq"), ("faqorder", "faq", "id ASC", "", "input", "free", "faq"), ("faqrss", "faq", 5, 5, "select", "number", "faq"), ("faqhlimit", "faq", 5, 5, "select", "number", "faq")');
+          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+("faqtitle", "faq", NULL, NULL, "input", "free", "faq"),
+("faqdesc", "faq", NULL, NULL, "textarea", "free", "faq"),
+("faqemail", "faq", NULL, NULL, "input", "free", "faq"),
+("faqdateformat", "faq", "d.m.Y", "d.m.Y", "input", "free", "faq"),
+("faqtimeformat", "faq", ": h:i A", ": h:i A", "input", "free", "faq"),
+("faqurl", "faq", 0, 0, "yesno", "boolean", "faq"),
+("faqmaxpost", "faq", 2000, 2000, "input", "boolean", "faq"),
+("faqpagemid", "faq", 3, 3, "yesno", "number", "faq"),
+("faqpageitem", "faq", 4, 4, "yesno", "number", "faq"),
+("faqorder", "faq", "id ASC", "", "input", "free", "faq"),
+("faqrss", "faq", 5, 5, "select", "number", "faq"),
+("faqhlimit", "faq", 5, 5, "select", "number", "faq")');
 
 // Insert into usergroup
           $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `faq` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`, ADD `faqpost` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faq`, ADD `faqpostdelete` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faqpost`, ADD `faqpostapprove` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faqpostdelete`, ADD `faqrate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faqpostdelete`, ADD `faqmoderate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faqrate`');

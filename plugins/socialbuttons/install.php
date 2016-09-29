@@ -26,8 +26,9 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 <head>
   <title><?php echo $tl["plugin"]["t24"]; ?></title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/stylesheet.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="/admin/css/admin-color.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
 </head>
 <body>
 
@@ -95,10 +96,39 @@ $jakdb->query(\'UPDATE \'.DB_PREFIX.\'setting SET value = CASE varname
 END
 	WHERE varname IN (\"sb_twitter\", \"sb_facebook\", \"sb_google\", \"sb_linkedin\", \"sb_flicker\", \"sb_skype\", \"sb_youtube\", \"sb_vimeo\", \"sb_orkut\", \"sb_myspace\", \"sb_digg\", \"sb_lastfm\", \"sb_delicious\", \"sb_tumbler\", \"sb_picasa\", \"sb_reddit\", \"sb_technorati\", \"sb_rss\", \"sb_contact\", \"sb_website\", \"sb_position\", \"sb_skin\", \"sb_show\", \"sb_move\")\');';
 
-            $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES (NULL, "php_admin_setting_post", "SocialButton Settings", "' . $insertphpcode . '", "socialbuttons", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_admin_setting", "SocialButton Settings Template", "plugins/socialbuttons/admin/template/setting.php", "socialbuttons", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "php_admin_lang", "SocialButton Admin Language", "' . $adminlang . '", "socialbuttons", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_between_head", "SocialButton CSS", "plugins/socialbuttons/template/header.php", "socialbuttons", 1, 4, "' . $rows['id'] . '", NOW()), (NULL, "tpl_footer_end", "SocialButton JavaScript", "plugins/socialbuttons/template/footer.php", "socialbuttons", 1, 4, "' . $rows['id'] . '", NOW())');
+            $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+(NULL, "php_admin_setting_post", "SocialButton Settings", "' . $insertphpcode . '", "socialbuttons", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_setting", "SocialButton Settings Template", "plugins/socialbuttons/admin/template/setting.php", "socialbuttons", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_lang", "SocialButton Admin Language", "' . $adminlang . '", "socialbuttons", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_between_head", "SocialButton CSS", "plugins/socialbuttons/template/header.php", "socialbuttons", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_footer_end", "SocialButton JavaScript", "plugins/socialbuttons/template/footer.php", "socialbuttons", 1, 4, "' . $rows['id'] . '", NOW())');
 
 // Insert tables into settings
-            $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES ("sb_twitter", "setting", NULL, NULL, "input", "free", "socialbuttons"), ("sb_facebook", "setting", NULL, NULL, "input", "free", "socialbuttons"), ("sb_linkedin", "setting", NULL, NULL, "input", "free", "socialbuttons"), ("sb_flicker", "setting", NULL, NULL, "input", "free", "socialbuttons"), ("sb_skype", "setting", NULL, NULL, "input", "free", "socialbuttons"), ("sb_rss", "setting", NULL, NULL, "input", "free", "socialbuttons"), ("sb_google", "setting", NULL, NULL, "input", "free", "socialbuttons"), ("sb_contact", "setting", NULL, NULL, "input", "free", "socialbuttons"), ("sb_youtube", "setting", NULL, NULL, "input", "free", "socialbuttons"), ("sb_orkut", "setting", NULL, NULL, "input", "free", "socialbuttons"), ("sb_myspace", "setting", NULL, NULL, "input", "free", "socialbuttons"), ("sb_digg", "setting", NULL, NULL, "input", "free", "socialbuttons"), ("sb_lastfm", "setting", NULL, NULL, "input", "free", "socialbuttons"), ("sb_delicious", "setting", NULL, NULL, "input", "free", "socialbuttons"), ("sb_tumbler", "setting", NULL, NULL, "input", "free", "socialbuttons"), ("sb_picasa", "setting", NULL, NULL, "input", "free", "socialbuttons"), ("sb_vimeo", "setting", NULL, NULL, "input", "free", "socialbuttons"), ("sb_reddit", "setting", NULL, NULL, "input", "free", "socialbuttons"), ("sb_technorati", "setting", NULL, NULL, "input", "free", "socialbuttons"), ("sb_website", "setting", NULL, NULL, "input", "free", "socialbuttons"), ("sb_position", "setting", "left", "left", "input", "free", "socialbuttons"), ("sb_skin", "setting", "clear", "clear", "input", "free", "socialbuttons"), ("sb_show", "setting", 6, 6, "select", "number", "socialbuttons"), ("sb_move", "setting", 3, 3, "select", "number", "socialbuttons")');
+            $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+("sb_twitter", "setting", NULL, NULL, "input", "free", "socialbuttons"),
+("sb_facebook", "setting", NULL, NULL, "input", "free", "socialbuttons"),
+("sb_linkedin", "setting", NULL, NULL, "input", "free", "socialbuttons"),
+("sb_flicker", "setting", NULL, NULL, "input", "free", "socialbuttons"),
+("sb_skype", "setting", NULL, NULL, "input", "free", "socialbuttons"),
+("sb_rss", "setting", NULL, NULL, "input", "free", "socialbuttons"),
+("sb_google", "setting", NULL, NULL, "input", "free", "socialbuttons"),
+("sb_contact", "setting", NULL, NULL, "input", "free", "socialbuttons"),
+("sb_youtube", "setting", NULL, NULL, "input", "free", "socialbuttons"),
+("sb_orkut", "setting", NULL, NULL, "input", "free", "socialbuttons"),
+("sb_myspace", "setting", NULL, NULL, "input", "free", "socialbuttons"),
+("sb_digg", "setting", NULL, NULL, "input", "free", "socialbuttons"),
+("sb_lastfm", "setting", NULL, NULL, "input", "free", "socialbuttons"),
+("sb_delicious", "setting", NULL, NULL, "input", "free", "socialbuttons"),
+("sb_tumbler", "setting", NULL, NULL, "input", "free", "socialbuttons"),
+("sb_picasa", "setting", NULL, NULL, "input", "free", "socialbuttons"),
+("sb_vimeo", "setting", NULL, NULL, "input", "free", "socialbuttons"),
+("sb_reddit", "setting", NULL, NULL, "input", "free", "socialbuttons"),
+("sb_technorati", "setting", NULL, NULL, "input", "free", "socialbuttons"),
+("sb_website", "setting", NULL, NULL, "input", "free", "socialbuttons"),
+("sb_position", "setting", "left", "left", "input", "free", "socialbuttons"),
+("sb_skin", "setting", "clear", "clear", "input", "free", "socialbuttons"),
+("sb_show", "setting", 6, 6, "select", "number", "socialbuttons"),
+("sb_move", "setting", 3, 3, "select", "number", "socialbuttons")');
 
             $succesfully = 1;
 
