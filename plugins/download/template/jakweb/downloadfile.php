@@ -7,7 +7,7 @@ if ($DL_PASSWORD && !JAK_ASACCESS && $DL_PASSWORD != $_SESSION['dlsecurehash' . 
 
   <?php if ($errorpp) { ?>
 
-    <div class="alert alert-danger fade in">
+    <div class="alert bg-danger fade in">
       <button type="button" class="close" data-dismiss="alert">×</button>
       <?php echo $errorpp["e"]; ?>
     </div>
@@ -108,7 +108,7 @@ if ($DL_PASSWORD && !JAK_ASACCESS && $DL_PASSWORD != $_SESSION['dlsecurehash' . 
                     echo BASE_URL . JAK_FILES_DIRECTORY . '/userfiles' . '/standard.png';
                   } ?>" alt="avatar"/> <?php echo $v["username"]; ?></div>
                 <?php if ($CHECK_USR_SESSION == $v["session"]) { ?>
-                  <div class="alert alert-info"><?php echo $tl["general"]["g103"]; ?></div>
+                  <div class="alert bg-info"><?php echo $tl["general"]["g103"]; ?></div>
                 <?php } ?>
                 <div class="com">
                   <?php echo $v["message"]; ?>

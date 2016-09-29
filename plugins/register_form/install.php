@@ -44,7 +44,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
       <?php $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "register_form"');
       if ($jakdb->affected_rows > 0) { ?>
 
-        <div class="alert alert-info"><?php echo $tl["plugin"]["p12"];?></div>
+        <div class="alert bg-info"><?php echo $tl["plugin"]["p12"];?></div>
 
         <!-- Plugin is not installed let's display the installation script -->
       <?php } else { ?>
@@ -185,7 +185,7 @@ if (!$result) {
 
             ?>
 
-            <div class="alert alert-success"><?php echo $tl["plugin"]["p13"];?></div>
+            <div class="alert bg-success"><?php echo $tl["plugin"]["p13"];?></div>
 
           <?php } else {
 
@@ -193,7 +193,7 @@ if (!$result) {
 
             ?>
 
-            <div class="alert alert-danger"><?php echo $tl["plugin"]["p14"];?></div>
+            <div class="alert bg-danger"><?php echo $tl["plugin"]["p14"];?></div>
 
           <?php }
         } ?>

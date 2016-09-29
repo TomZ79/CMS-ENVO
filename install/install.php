@@ -108,7 +108,7 @@ if (DB_USER && DB_PASS) {
         $jakdb->jak_close();
 
         ?>
-        <div class="alert alert-success">Database installed successfully.</div>
+        <div class="alert bg-success">Database installed successfully.</div>
 
         <form id="company" method="post" action="install.php?step=4" enctype="multipart/form-data">
 
@@ -184,7 +184,7 @@ if (DB_USER && DB_PASS) {
             $mail->MsgHTML($body);
             $mail->Send();
 
-            echo '<div class="alert alert-success">Installation successful, please delete or rename the <strong>install</strong> directory. You can now log in, in your <a href="../admin/">administration</a> panel.</div>';
+            echo '<div class="alert bg-success">Installation successful, please delete or rename the <strong>install</strong> directory. You can now log in, in your <a href="../admin/">administration</a> panel.</div>';
 
             $show_form = false;
 
@@ -195,7 +195,7 @@ if (DB_USER && DB_PASS) {
 
           if ($errors) {
 
-            echo '<div class="alert alert-danger">' . $errors["e1"] . $errors["e2"] . $errors["e3"] . $errors["e4"] . '</div>';
+            echo '<div class="alert bg-danger">' . $errors["e1"] . $errors["e2"] . $errors["e3"] . $errors["e4"] . '</div>';
 
           }
         }

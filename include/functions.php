@@ -366,7 +366,7 @@ function jak_build_comments($parent, $comm, $mainclass, $access, $session, $appr
     foreach ($comm['subcomm'][$parent] as $comID) {
       if (!isset($comm['subcomm'][$comID])) {
         $html .= '<li><div class="comment-wrapper"><div class="comment-author"><img src="' . ($comm["comm"][$comID]["userid"] != 0 ? BASE_URL . JAK_FILES_DIRECTORY . '/userfiles' . $comm["comm"][$comID]["picture"] : BASE_URL . JAK_FILES_DIRECTORY . '/userfiles' . '/standard.png') . '" alt="avatar" /> ' . $comm["comm"][$comID]["username"] . '</div>
-   	     	 			' . (($comm["comm"][$comID]["approve"] == 0 && !empty($comm["comm"][$comID]["session"]) && $session == $comm["comm"][$comID]["session"]) ? '<div class="alert alert-info">' . $approve . '</div>' : "") . '
+   	     	 			' . (($comm["comm"][$comID]["approve"] == 0 && !empty($comm["comm"][$comID]["session"]) && $session == $comm["comm"][$comID]["session"]) ? '<div class="alert bg-info">' . $approve . '</div>' : "") . '
    	     	 			<div class="com">
    	     	 				' . $comm["comm"][$comID]["message"] . '
    	     	 			</div>
@@ -390,7 +390,7 @@ function jak_build_comments($parent, $comm, $mainclass, $access, $session, $appr
       if (isset($comm['subcomm'][$comID])) {
         $html .= '<li><div class="comment-wrapper">
    	        	 			<div class="comment-author"><img src="' . ($comm["comm"][$comID]["userid"] != 0 ? BASE_URL . JAK_FILES_DIRECTORY . '/userfiles' . $comm["comm"][$comID]["picture"] : BASE_URL . JAK_FILES_DIRECTORY . '/userfiles' . '/standard.png') . '" alt="avatar" /> ' . $comm["comm"][$comID]["username"] . '</div>
-   	        	 			' . (($comm["comm"][$comID]["approve"] == 0 && !empty($comm["comm"][$comID]["session"]) && $session == $comm["comm"][$comID]["session"]) ? '<div class="alert alert-info">' . $approve . '</div>' : "") . '
+   	        	 			' . (($comm["comm"][$comID]["approve"] == 0 && !empty($comm["comm"][$comID]["session"]) && $session == $comm["comm"][$comID]["session"]) ? '<div class="alert bg-info">' . $approve . '</div>' : "") . '
    	        	 			<div class="com">
    	        	 				' . $comm["comm"][$comID]["message"] . '
    	        	 			</div>

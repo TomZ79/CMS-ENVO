@@ -4,7 +4,7 @@
       <?php if (!JAK_USERID) { ?>
         <div class="basic-login">
         <?php if ($errorsC || $errorsA) { ?>
-          <div class="alert alert-danger fade in">
+          <div class="alert bg-danger fade in">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
 
             <?php if (isset($errorsC["e3"])) echo $errorsC["e3"];
@@ -20,7 +20,7 @@
             ?>
           </div>
         <?php } else if (isset($_SESSION["rf_msg_sent"]) && $_SESSION["rf_msg_sent"] == 1) { ?>
-          <div class="alert alert-success fade in">
+          <div class="alert bg-success fade in">
             <?php echo $jkv["rf_welcome"]; ?>
           </div>
         <?php }
@@ -84,7 +84,7 @@
 
           <h3><?php echo $tl["general"]["g146"]; ?></h3>
           <?php if ($errorlo) { ?>
-            <div class="alert alert-danger">
+            <div class="alert bg-danger">
               <?php if (isset($errorlo["e"])) echo $errorlo["e"]; ?>
             </div>
           <?php } ?>
@@ -113,7 +113,7 @@
           <form role="form" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
             <h3><?php echo $tl["title"]["t14"]; ?></h3>
             <?php if (isset($errorfp) && !empty($errorfp)) { ?>
-              <div class="alert alert-danger"><?php if (isset($errorfp["e"])) echo $errorfp["e"]; ?></div><?php } ?>
+              <div class="alert bg-danger"><?php if (isset($errorfp["e"])) echo $errorfp["e"]; ?></div><?php } ?>
             <div class="form-group<?php if (isset($errorfp)) echo " error"; ?>">
               <label class="control-label" for="email"><?php echo $tl["login"]["l5"]; ?></label>
               <input type="email" class="form-control" name="jakE" id="email" class="form-control"

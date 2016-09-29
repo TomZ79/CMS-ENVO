@@ -50,7 +50,7 @@ if ($errors) { ?>
 <?php } ?>
 
 <?php if ($errors) { ?>
-  <div class="alert alert-danger fade in">
+  <div class="alert bg-danger fade in">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
     <?php if (isset($errors["e"])) echo $errors["e"];
     if (isset($errors["e1"])) echo $errors["e1"];

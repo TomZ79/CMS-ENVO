@@ -44,7 +44,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
       <?php $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Ecommerce"');
       if ($jakdb->affected_rows > 0) { ?>
 
-        <div class="alert alert-info">Plugin is already installed!!!</div>
+        <div class="alert bg-info">Plugin is already installed!!!</div>
 
         <!-- Plugin is not installed let's display the installation script -->
       <?php } else { ?>
@@ -569,7 +569,7 @@ $PAGE_TITLE = JAK_PLUGIN_NAME_ECOMMERCE;';
 
             ?>
 
-            <div class="alert alert-success"><?php echo $tl["plugin"]["p13"];?></div>
+            <div class="alert bg-success"><?php echo $tl["plugin"]["p13"];?></div>
 
           <?php } else {
 
@@ -577,7 +577,7 @@ $PAGE_TITLE = JAK_PLUGIN_NAME_ECOMMERCE;';
 
             ?>
 
-            <div class="alert alert-danger"><?php echo $tl["plugin"]["p16"];?></div>
+            <div class="alert bg-danger"><?php echo $tl["plugin"]["p16"];?></div>
 
           <?php }
         } ?>

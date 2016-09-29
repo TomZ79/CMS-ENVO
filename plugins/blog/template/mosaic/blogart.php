@@ -41,7 +41,7 @@ if ($jkv["printme"]) $printme = 1; ?>
         <?php if (isset($JAK_COMMENTS)) {
           echo jak_build_comments(0, $JAK_COMMENTS, 'post-comments', JAK_BLOGMODERATE, $CHECK_USR_SESSION, $tl["general"]["g103"], $tlblog["blog"]["g9"], JAK_BLOGPOST, $jaktable2, false, true);
         } else { ?>
-          <div class="alert alert-info" id="comments-blank"><?php echo $tlblog["blog"]["g10"]; ?></div>
+          <div class="alert bg-info" id="comments-blank"><?php echo $tlblog["blog"]["g10"]; ?></div>
         <?php } ?>
 
         <!-- Show Comment Editor if set so -->

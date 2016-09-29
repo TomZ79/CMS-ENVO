@@ -1432,7 +1432,7 @@ a.slideshow-arrow-next {
   display: none;
 }
 
-#form_message.alert-success {
+#form_message.bg-success {
   display: block;
 }
 

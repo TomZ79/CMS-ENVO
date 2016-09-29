@@ -90,7 +90,7 @@
 
   <?php }
 } else { ?>
-  <div class="alert alert-info">
+  <div class="alert bg-info">
     <?php echo $tl["cmdesc"]["d8"]; ?>
   </div>
 <?php } ?>

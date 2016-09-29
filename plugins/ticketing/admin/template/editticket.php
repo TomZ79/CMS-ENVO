@@ -151,7 +151,7 @@ if ($errors) { ?>
                 </div>
 
               <?php } else {
-                echo '<div class="alert alert-info">' . $tl["error"]["e21"] . '</div>';
+                echo '<div class="alert bg-info">' . $tl["error"]["e21"] . '</div>';
               } ?>
 
             </td>

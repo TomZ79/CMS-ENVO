@@ -75,7 +75,7 @@ END
     // Ajax Request
     if (isset($_POST['jakajax']) && $_POST['jakajax'] == "yes") {
       header('Cache-Control: no-cache');
-      die(json_encode(array('status' => 1, 'html' => '<div class="alert alert-success">Successful</div>')));
+      die(json_encode(array('status' => 1, 'html' => '<div class="alert bg-success">Successful</div>')));
     } else {
       jak_redirect($_SERVER['HTTP_REFERER']);
     }

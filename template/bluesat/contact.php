@@ -2,7 +2,7 @@
   <?php if ($JAK_SHOW_C_FORM_NAME['showtitle'] == 1) echo '<h3>' . $JAK_SHOW_C_FORM_NAME['title'] . '</h3>'; ?>
   <?php if (isset($errorsA) && !empty($errorsA)) { ?>
 
-    <div class="alert alert-danger fade in">
+    <div class="alert bg-danger fade in">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
       <?php foreach ($errorsA as $i) {
         echo $i;
@@ -11,7 +11,7 @@
 
   <?php }
   if (!empty($_SESSION["jak_thankyou_msg"])) { ?>
-    <div class="alert alert-success">
+    <div class="alert bg-success">
       <?php echo $_SESSION['jak_thankyou_msg']; ?>
     </div>
   <?php } ?>

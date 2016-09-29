@@ -4,7 +4,7 @@
 
   <div class="jak-post jak-single-post">
     <?php if ($errors) { ?>
-      <div class="alert alert-danger">
+      <div class="alert bg-danger">
         <button type="button" class="close" data-dismiss="alert">×</button>
         <?php if (isset($errors["e"])) echo $errors["e"];
         if (isset($errors["e1"])) echo $errors["e1"];

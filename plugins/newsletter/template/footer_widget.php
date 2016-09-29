@@ -6,13 +6,13 @@
   ?>
 
   <h3><?php echo JAK_NLTITLE; ?></h3>
-  <div id="nl_msg" class="alert alert-success" style="display: none;"></div>
+  <div id="nl_msg" class="alert bg-success" style="display: none;"></div>
   <?php if ($_SESSION['jak_nl_errors']) { ?>
     <div
-      class="alert alert-danger"><?php echo $_SESSION['jak_nl_errors']["nlUser"] . $_SESSION['jak_nl_errors']["nlEmail"]; ?></div>
+      class="alert bg-danger"><?php echo $_SESSION['jak_nl_errors']["nlUser"] . $_SESSION['jak_nl_errors']["nlEmail"]; ?></div>
   <?php }
   if ($_SESSION["jak_nl_sent"] == 1) { ?>
-    <div class="alert alert-success"><?php echo $_SESSION['jak_thankyou_nl']; ?></div>
+    <div class="alert bg-success"><?php echo $_SESSION['jak_thankyou_nl']; ?></div>
   <?php } else { ?>
     <form id="nlSubmit" action="<?php echo $NL_SUBMIT_LINK; ?>" method="post">
       <div class="form-group<?php if ($errornl) echo " has-error"; ?>">

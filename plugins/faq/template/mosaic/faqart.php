@@ -53,7 +53,7 @@ if ($jkv["printme"]) $printme = 1; ?>
                 echo BASE_URL . JAK_FILES_DIRECTORY . '/userfiles' . '/standard.png';
               } ?>" alt="avatar"/> <?php echo $v["username"]; ?></div>
             <?php if ($CHECK_USR_SESSION == $v["session"]) { ?>
-              <div class="alert alert-info"><?php echo $tl["general"]["g103"]; ?></div>
+              <div class="alert bg-info"><?php echo $tl["general"]["g103"]; ?></div>
             <?php } ?>
             <div class="com">
               <?php echo $v["message"]; ?>

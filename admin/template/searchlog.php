@@ -78,7 +78,7 @@ if ($page1 == "e") { ?>
 
 <?php } else { ?>
 
-  <div class="alert alert-info">
+  <div class="alert bg-info">
     <?php echo $tl["errorpage"]["data"]; ?>
   </div>
 

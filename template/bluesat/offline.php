@@ -10,7 +10,7 @@
   </div>
 
 <?php if ($USR_IP_BLOCKED) { ?>
-  <div class="alert alert-info">
+  <div class="alert bg-info">
     <p><?php echo $USR_IP_BLOCKED; ?></p>
   </div>
 <?php } ?>

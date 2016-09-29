@@ -9,7 +9,7 @@
 
         <div class="loginF">
           <?php if ($ErrLogin) { ?>
-            <div class="alert alert-danger lost-pwd">
+            <div class="alert bg-danger lost-pwd">
               <?php echo $tl["error"]["f"]; ?>
             </div>
           <?php } ?>
@@ -34,7 +34,7 @@
 
         <div class="forgotP hide">
           <?php if ($errorfp) { ?>
-            <div class="alert alert-danger"><?php echo $errorfp["e"]; ?></div><?php } ?>
+            <div class="alert bg-danger"><?php echo $errorfp["e"]; ?></div><?php } ?>
           <h4><?php echo $tl["general"]["g47"]; ?></h4>
           <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
             <div class="form-group has-feedback">

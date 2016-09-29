@@ -7,7 +7,7 @@
 
   <?php if (isset($JAK_NO_TAG_DATA)) { ?>
 
-    <div class="alert alert-info">
+    <div class="alert bg-info">
       <?php echo $JAK_NO_TAG_DATA; ?>
     </div>
 
@@ -51,13 +51,13 @@
 
 <?php if (isset($count)) { ?>
 
-  <div class="alert alert-info">
+  <div class="alert bg-info">
     <?php echo str_replace("%s", $count, $tl["general"]["g159"]); ?>
   </div>
 
 <?php } else { ?>
 
-  <div class="alert alert-danger">
+  <div class="alert bg-danger">
     <?php echo $tl["general"]["g158"]; ?>
   </div>
 

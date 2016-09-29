@@ -10,7 +10,7 @@
 
     <?php if ($errorsnl) { ?>
 
-      <div class="alert alert-danger fade in">
+      <div class="alert bg-danger fade in">
         <button type="button" class="close" data-dismiss="alert">×</button>
         <h4><?php echo $errorsnl["e"]; ?></h4>
       </div>
@@ -21,7 +21,7 @@
     if (!JAK_USERID) {
       if (isset($_SESSION['password_recover'])) {
 
-        echo '<div class="alert alert-success">' . $tl['login']['l7'] . '</div>';
+        echo '<div class="alert bg-success">' . $tl['login']['l7'] . '</div>';
 
       } ?>
       <div class="loginF">

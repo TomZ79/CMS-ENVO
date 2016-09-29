@@ -34,7 +34,7 @@ $succesfully = 0;
       if ($jakdb->affected_rows == 0) {
         $succesfully = 1; ?>
 
-        <div class="alert alert-danger">Plugin is not installed!!!</div>
+        <div class="alert bg-danger">Plugin is not installed!!!</div>
 
         <!-- Plugin is not installed let's display the installation script -->
       <?php } else { ?>
@@ -45,7 +45,7 @@ $succesfully = 0;
           $succesfully = 1;
           $jakdb->query('UPDATE ' . DB_PREFIX . 'plugins SET time = NOW() WHERE name = "Download"'); ?>
 
-          <div class="alert alert-info">Plugin is already up to date!</div>
+          <div class="alert bg-info">Plugin is already up to date!</div>
 
           <!-- Plugin is not installed let's display the installation script -->
         <?php } else { ?>
@@ -70,7 +70,7 @@ $succesfully = 0;
             $succesfully = 1;
 
             ?>
-            <div class="alert alert-success">Plugin updated successfully</div>
+            <div class="alert bg-success">Plugin updated successfully</div>
           <?php }
         } ?>
 

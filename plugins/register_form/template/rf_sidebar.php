@@ -3,13 +3,13 @@
     <?php if (!JAK_USERID) {
       if (isset($_SESSION['password_recover'])) {
 
-        echo '<div class="alert alert-success"><h4>' . $tl['login']['l7'] . '</h4></div>';
+        echo '<div class="alert bg-success"><h4>' . $tl['login']['l7'] . '</h4></div>';
 
       } ?>
 
       <h4><?php echo $tl["general"]["g146"]; ?></h4>
       <?php if (isset($errorlo) && !empty($errorlo)) { ?>
-        <div class="alert alert-danger">
+        <div class="alert bg-danger">
           <?php if (isset($errorlo["e"])) echo $errorlo["e"]; ?>
         </div>
       <?php } ?>
@@ -38,7 +38,7 @@
       </form>
       <h4><?php echo $tl["title"]["t14"]; ?></h4>
       <?php if (isset($errorfp) && !empty($errorfp)) { ?>
-        <div class="alert alert-danger"><?php if (isset($errorfp["e"])) echo $errorfp["e"]; ?></div><?php } ?>
+        <div class="alert bg-danger"><?php if (isset($errorfp["e"])) echo $errorfp["e"]; ?></div><?php } ?>
       <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
         <div class="form-group<?php if (isset($errorfp["e"])) echo " has-error"; ?>">
           <label class="control-label" for="email"><?php echo $tl["login"]["l5"]; ?></label>

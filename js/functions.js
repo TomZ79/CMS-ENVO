@@ -717,7 +717,7 @@ function removeLikeCSS(lb) {
           // No results were found for this search.
 
           sett.resultsDiv.empty();
-          $('<div>', {html: sett.msg}).addClass('alert alert-danger').hide().appendTo(sett.resultsDiv).fadeIn();
+          $('<div>', {html: sett.msg}).addClass('alert bg-danger').hide().appendTo(sett.resultsDiv).fadeIn();
         }
       });
 
@@ -1114,7 +1114,7 @@ eval(function (p, a, c, k, e, r) {
   function s(s) {
     var e = !1;
     return t('[data-notify="container"]').each(function (i, n) {
-      var a = t(n), o = a.find('[data-notify="title"]').text().trim(), r = a.find('[data-notify="message"]').html().trim(), l = o === t("<div>" + s.settings.content.title + "</div>").html().trim(), d = r === t("<div>" + s.settings.content.message + "</div>").html().trim(), g = a.hasClass("alert-" + s.settings.type);
+      var a = t(n), o = a.find('[data-notify="title"]').text().trim(), r = a.find('[data-notify="message"]').html().trim(), l = o === t("<div>" + s.settings.content.title + "</div>").html().trim(), d = r === t("<div>" + s.settings.content.message + "</div>").html().trim(), g = a.hasClass("bg-" + s.settings.type);
       return l && d && g && (e = !0), !e
     }), e
   }
@@ -1160,7 +1160,7 @@ eval(function (p, a, c, k, e, r) {
     onClose: null,
     onClosed: null,
     icon_type: "class",
-    template: '<div data-notify="container" class="col-xs-11 col-sm-4 alert alert-{0}" role="alert"><button type="button" aria-hidden="true" class="close" data-notify="dismiss">&times;</button><span data-notify="icon"></span> <span data-notify="title">{1}</span> <span data-notify="message">{2}</span><div class="progress" data-notify="progressbar"><div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div></div><a href="{3}" target="{4}" data-notify="url"></a></div>'
+    template: '<div data-notify="container" class="col-xs-11 col-sm-4 alert bg-{0}" role="alert"><button type="button" aria-hidden="true" class="close" data-notify="dismiss">&times;</button><span data-notify="icon"></span> <span data-notify="title">{1}</span> <span data-notify="message">{2}</span><div class="progress" data-notify="progressbar"><div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div></div><a href="{3}" target="{4}" data-notify="url"></a></div>'
   };
   String.format = function () {
     for (var t = arguments[0], s = 1; s < arguments.length; s++)t = t.replace(RegExp("\\{" + (s - 1) + "\\}", "gm"), arguments[s]);
@@ -1175,7 +1175,7 @@ eval(function (p, a, c, k, e, r) {
           "string" == typeof s ? i[s] = e : i = s;
           for (var n in i)switch (n) {
             case"type":
-              this.$ele.removeClass("alert-" + t.settings.type), this.$ele.find('[data-notify="progressbar"] > .progress-bar').removeClass("progress-bar-" + t.settings.type), t.settings.type = i[n], this.$ele.addClass("alert-" + i[n]).find('[data-notify="progressbar"] > .progress-bar').addClass("progress-bar-" + i[n]);
+              this.$ele.removeClass("bg-" + t.settings.type), this.$ele.find('[data-notify="progressbar"] > .progress-bar').removeClass("progress-bar-" + t.settings.type), t.settings.type = i[n], this.$ele.addClass("bg-" + i[n]).find('[data-notify="progressbar"] > .progress-bar').addClass("progress-bar-" + i[n]);
               break;
             case"icon":
               var a = this.$ele.find('[data-notify="icon"]');

@@ -57,13 +57,13 @@
     <div class="col-md-12">
 
       <?php if ($page4 == "s") { ?>
-        <div class="alert alert-success fade in">
+        <div class="alert bg-success fade in">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
           <?php echo $tl["general"]["s"]; ?>
         </div>
       <?php }
       if ($page4 == "e") { ?>
-        <div class="alert alert-danger fade in">
+        <div class="alert bg-danger fade in">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
           <?php echo $tl["errorpage"]["not"]; ?>
         </div>

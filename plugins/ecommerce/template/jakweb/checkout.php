@@ -2,7 +2,7 @@
 
 <?php if ($JAK_GO_PAY) { ?>
 
-	<div class="alert alert-info">
+	<div class="alert bg-info">
 	  <h4><?php echo $tlec["shop"]["m25"];?></h4>
 	  <p><img src="<?php echo BASE_URL;?>img/loading.gif" alt="loading" /></p>
 	  <p><?php echo $JAK_GO_PAY;?></p>
@@ -20,7 +20,7 @@
 <?php } else { ?>
 
 <?php if ($errors) { ?>
-<div class="alert alert-danger">
+<div class="alert bg-danger">
 	<button type="button" class="close" data-dismiss="alert">×</button>
     <?php if (isset($errors["e"])) echo $errors["e"];
     	  if (isset($errors["e1"])) echo $errors["e1"];
@@ -275,13 +275,13 @@
 <?php if (!JAK_USERID) { ?>
 <?php if (isset($_SESSION['password_recover'])) {
 
-	echo '<div class="alert alert-success"><h4>'.$tl['login']['l7'].'</h4></div>';
+	echo '<div class="alert bg-success"><h4>'.$tl['login']['l7'].'</h4></div>';
 
 } ?>
 
 <h3><?php echo $tl["general"]["g146"];?></h3>
 		<?php if (isset($errorlo) && !empty($errorlo)) { ?>
-		<div class="alert alert-danger">
+		<div class="alert bg-danger">
 			<?php if (isset($errorlo["e"])) echo $errorlo["e"];?>
 		</div>
 		<?php } ?>
@@ -305,7 +305,7 @@
 		<hr>
 		<form role="form" method="post" action="<?php echo $_SERVER['REQUEST_URI'];?>">
 		<h3><?php echo $tl["title"]["t14"];?></h3>
-		<?php if (isset($errorfp) && !empty($errorfp)) { ?><div class="alert alert-danger"><?php if (isset($errorfp["e"])) echo $errorfp["e"];?></div><?php } ?>
+		<?php if (isset($errorfp) && !empty($errorfp)) { ?><div class="alert bg-danger"><?php if (isset($errorfp["e"])) echo $errorfp["e"];?></div><?php } ?>
 			<div class="form-group<?php if (isset($errorfp)) echo " error";?>">
 			    <label class="control-label" for="email"><?php echo $tl["login"]["l5"];?></label>
 					<input type="email" class="form-control" name="jakE" id="email" class="form-control" placeholder="<?php echo $tl["login"]["l5"];?>">

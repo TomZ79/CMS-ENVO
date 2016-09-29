@@ -2,7 +2,7 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<div class="alert alert-info"><?php echo $tlec["shop"]["m58"];?></div>
+		<div class="alert bg-info"><?php echo $tlec["shop"]["m58"];?></div>
 		<form role="form" id="download_form" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 			<input type="submit" name="download" class="btn btn-success" value="<?php echo $tlec["shop"]["m59"];?>" />
 		</form>

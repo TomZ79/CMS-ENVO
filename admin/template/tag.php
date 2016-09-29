@@ -91,7 +91,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
   }
 } else { ?>
 
-  <div class="alert alert-info">
+  <div class="alert bg-info">
     <?php echo $tl["errorpage"]["data"]; ?>
   </div>
 

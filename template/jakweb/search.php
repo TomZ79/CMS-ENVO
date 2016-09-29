@@ -1,7 +1,7 @@
 <?php include_once APP_PATH . 'template/jakweb/header.php'; ?>
 
 <?php if (!$jkv["searchform"]) { ?>
-  <div class="alert alert-danger">
+  <div class="alert bg-danger">
     <?php echo $tl["errorpage"]["ep"]; ?>
   </div>
 <?php }
@@ -29,7 +29,7 @@ if (isset($PAGE_CONTENT)) echo $PAGE_CONTENT; ?>
 
 <?php if ($errors) { ?>
   <hr>
-  <div class="alert alert-danger fade in">
+  <div class="alert bg-danger fade in">
     <button type="button" class="close" data-dismiss="alert">×</button>
     <?php if (isset($errors["e1"])) echo $errors["e1"];
     if (isset($errors["e2"])) echo $errors["e2"];
@@ -77,13 +77,13 @@ if (isset($JAK_SEARCH_USED)) { ?>
 
   <?php if (isset($count)) { ?>
 
-    <div class="alert alert-info">
+    <div class="alert bg-info">
       <?php echo str_replace("%s", $count, $tl["general"]["g159"]); ?>
     </div>
 
   <?php } else { ?>
 
-    <div class="alert alert-danger">
+    <div class="alert bg-danger">
       <?php echo $tl["general"]["g158"]; ?>
     </div>
 

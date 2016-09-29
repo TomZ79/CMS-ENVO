@@ -681,11 +681,11 @@ $files=array_merge(array($prev_folder),array($current_folder),$sorted);
 	<div class="span12">
 		<?php if(@opendir($current_path.$rfm_subfolder.$subdir)===FALSE){ ?>
 		<br/>
-		<div class="alert alert-error">There is an error! The upload folder there isn't. Check your config.php file. </div>
+		<div class="alert bg-error">There is an error! The upload folder there isn't. Check your config.php file. </div>
 		<?php }else{ ?>
 		<h4 id="help"><?php echo trans('Swipe_help');?></h4>
 		<?php if(isset($folder_message)){ ?>
-		<div class="alert alert-block"><?php echo $folder_message;?></div>
+		<div class="alert bg-block"><?php echo $folder_message;?></div>
 		<?php } ?>
 		<?php if($show_sorting_bar){ ?>
 		<!-- sorter -->

@@ -368,11 +368,11 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "usergroup (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=6");
 
 $jakdb->query("INSERT INTO " . DB_PREFIX . "usergroup VALUES
-(1, 'Guest', '<p>Usergroup for all the guests.</p>', 1, 1, 1),
-(2, 'Member (Standard)', '<p>Standard user group after register on your site.</p>', 0, 1, 1),
-(3, 'Administrator', '<p>Administrator user group, usually full access and no approval for posts.</p>', 1, 1, 1),
-(4, 'Moderator', '<p>Moderator user group, they can delete other post from blog, forum, gallery or shop.</p>', 0, 1, 1),
-(5, 'Banned', '<p>Banned user can only browse thru the page.</p>', 0, 0, 0)");
+(1, 'Guest', 'Usergroup for all the guests.', 1, 1, 1),
+(2, 'Member (Standard)', 'Standard user group after register on your site.', 0, 1, 1),
+(3, 'Administrator', 'Administrator user group, usually full access and no approval for posts.', 1, 1, 1),
+(4, 'Moderator', 'Moderator user group, they can delete other post from blog, forum, gallery or shop.', 0, 1, 1),
+(5, 'Banned', 'Banned user can only browse thru the page.', 0, 0, 0)");
 
 $jakdb->query("CREATE TABLE " . DB_PREFIX . "like_counter (
   `id` int(11) NOT NULL AUTO_INCREMENT,

@@ -1,6 +1,6 @@
 <?php include_once APP_PATH . 'template/mosaic/header.php'; ?>
 
-  <div class="alert alert-success">
+  <div class="alert bg-success">
     <p><a href="<?php echo $_SERVER['HTTP_REFERER']; ?>"><?php echo $tl["general"]["re"]; ?></a></p>
   </div>
 

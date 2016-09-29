@@ -2,7 +2,7 @@
 
 <?php if ($errors_rf || $errorsA) { ?>
 
-  <div class="alert alert-danger">
+  <div class="alert bg-danger">
     <button type="button" class="close" data-dismiss="alert">×</button>
     <?php if (isset($errors_rf["e"])) echo $errors_rf["e"];
     if (isset($errors_rf["e1"])) echo $errors_rf["e1"];

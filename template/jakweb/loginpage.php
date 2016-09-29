@@ -1,13 +1,13 @@
 <?php if (!JAK_USERID) {
   if (isset($_SESSION['password_recover'])) {
 
-    echo '<div class="alert alert-success"><h4>' . $tl['login']['l7'] . '</h4></div>';
+    echo '<div class="alert bg-success"><h4>' . $tl['login']['l7'] . '</h4></div>';
 
   } ?>
   <div class="loginF">
     <h3><?php echo $tl["general"]["g146"]; ?></h3>
     <?php if (isset($errorlo)) { ?>
-      <div class="alert alert-danger">
+      <div class="alert bg-danger">
         <?php echo $errorlo["e"]; ?>
       </div>
     <?php } ?>
@@ -37,7 +37,7 @@
   <div class="forgotP">
     <h3><?php echo $tl["title"]["t14"]; ?></h3>
     <?php if (isset($errorfp)) { ?>
-      <div class="alert alert-danger"><?php echo $errorfp["e"]; ?></div><?php } ?>
+      <div class="alert bg-danger"><?php echo $errorfp["e"]; ?></div><?php } ?>
     <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
       <div class="form-group<?php if (isset($errorfp)) echo " has-error"; ?>">
         <label class="control-label" for="email"><?php echo $tl["login"]["l5"]; ?></label>

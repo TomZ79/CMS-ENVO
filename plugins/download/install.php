@@ -298,14 +298,14 @@ include_once APP_PATH.\'plugins/download/template/\'.$jkv[\"sitestyle\"].\'/page
           $succesfully = 1;
 
           ?>
-          <div class="alert alert-success">Plugin installed successfully</div>
+          <div class="alert bg-success">Plugin installed successfully</div>
         <?php } else {
 
           $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
 
           ?>
 
-          <div class="alert alert-success"><?php echo $tl["plugin"]["p13"];?></div>
+          <div class="alert bg-success"><?php echo $tl["plugin"]["p13"];?></div>
 
         <?php }
       } ?>

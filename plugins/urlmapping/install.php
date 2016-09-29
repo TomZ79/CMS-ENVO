@@ -83,7 +83,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 
           ?>
 
-          <div class="alert alert-success"><?php echo $tl["plugin"]["p13"];?></div>
+          <div class="alert bg-success"><?php echo $tl["plugin"]["p13"];?></div>
 
         <?php } else {
 
@@ -91,7 +91,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 
           ?>
 
-          <div class="alert alert-danger"><?php echo $tl["plugin"]["p16"];?></div>
+          <div class="alert bg-danger"><?php echo $tl["plugin"]["p16"];?></div>
           <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
             <button type="submit" name="redirect" class="btn btn-danger btn-block"><?php echo $tl["plugin"]["p11"];?></button>
           </form>

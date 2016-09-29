@@ -73,7 +73,7 @@ if ($mz["catparent"] != '0' && $mz["catparent"] == $mv["id"]) {
 <?php } ?>
 </table>
 <?php } else { ?>
-<div class="alert alert-info"><?php echo sprintf($tlec['shop']['m74'],'<a href="'.$backtoshop.'">'.$tlec["shop"]["m75"].'</a>');?></div>
+<div class="alert bg-info"><?php echo sprintf($tlec['shop']['m74'],'<a href="'.$backtoshop.'">'.$tlec["shop"]["m75"].'</a>');?></div>
 <?php } ?>
 		
 <?php include_once APP_PATH.'template/'.$jkv["sitestyle"].'/footer.php';?>

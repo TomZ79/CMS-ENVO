@@ -46,7 +46,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
       <?php $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Growl"');
       if ($jakdb->affected_rows > 0) { ?>
 
-        <div class="alert alert-info">Plugin is already installed!!!</div>
+        <div class="alert bg-info">Plugin is already installed!!!</div>
 
         <!-- Plugin is not installed let's display the installation script -->
       <?php } else { ?>
@@ -111,14 +111,14 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
             $succesfully = 1;
 
             ?>
-            <div class="alert alert-success">Plugin installed successfully</div>
+            <div class="alert bg-success">Plugin installed successfully</div>
           <?php } else {
 
             $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Growl"');
 
             ?>
 
-            <div class="alert alert-success"><?php echo $tl["plugin"]["p13"];?></div>
+            <div class="alert bg-success"><?php echo $tl["plugin"]["p13"];?></div>
 
           <?php }
         } ?>

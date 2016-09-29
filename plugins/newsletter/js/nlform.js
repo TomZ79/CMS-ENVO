@@ -32,7 +32,7 @@ $(document).ready(function () {
 
       if (msg.status) {
 
-        $(jakform).find('.jak-thankyou').addClass("alert alert-success").fadeIn(1000).html(msg.html);
+        $(jakform).find('.jak-thankyou').addClass("alert bg-success").fadeIn(1000).html(msg.html);
         $(jakform)[0].reset();
 
         // Fade out the form

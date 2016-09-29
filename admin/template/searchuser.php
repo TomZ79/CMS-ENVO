@@ -155,7 +155,7 @@
 
 <?php } else if ($SEARCH_WORD) { ?>
   <hr>
-  <div class="alert alert-danger fade in">
+  <div class="alert bg-danger fade in">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
     <?php echo $tl["search"]["s6"]; ?> <strong><?php echo $SEARCH_WORD; ?></strong>
   </div>

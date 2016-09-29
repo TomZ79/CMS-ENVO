@@ -112,7 +112,7 @@ class JAK_comment
 
       $approve = "";
       if ($d['session']) {
-        $approve = '<div class="alert alert-info">' . $lang2 . '</div>';
+        $approve = '<div class="alert bg-info">' . $lang2 . '</div>';
       }
 
       return '<div class="comment-wrapper">

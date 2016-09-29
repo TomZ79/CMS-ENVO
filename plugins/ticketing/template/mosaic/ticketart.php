@@ -72,7 +72,7 @@ if (JAK_ASACCESS || JAK_TICKETMODERATE) { ?>
     <?php if (isset($JAK_COMMENTS)) {
       echo jak_build_comments(0, $JAK_COMMENTS, 'post-comments', JAK_TICKETMODERATE, $CHECK_USR_SESSION, $tl["general"]["g103"], $tlt["st"]["g9"], JAK_TICKETPOST, $jaktable2, false, !$row['status']);
     } else { ?>
-      <div class="alert alert-info" id="comments-blank"><?php echo $tlt["st"]["g10"]; ?></div>
+      <div class="alert bg-info" id="comments-blank"><?php echo $tlt["st"]["g10"]; ?></div>
     <?php } ?>
 
     <!-- Show Comment Editor if set so -->
@@ -97,7 +97,7 @@ if (JAK_ASACCESS || JAK_TICKETMODERATE) { ?>
   </div>
   <!-- End Comments -->
 <?php } else { ?>
-  <div class="alert alert-info"><?php echo $tlt["st"]["d2"]; ?></div>
+  <div class="alert bg-info"><?php echo $tlt["st"]["d2"]; ?></div>
 <?php } ?>
   <!-- End Blog Post -->
 

@@ -1,13 +1,13 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
 <?php if ($page1 == "s") { ?>
-  <div class="alert alert-success fade in">
+  <div class="alert bg-success fade in">
     <button type="button" class="close" data-dismiss="alert">×</button>
     <?php echo $tl["general"]["g7"]; ?>
   </div>
 <?php }
 if ($page1 == "e" || $page1 == "ene") { ?>
-  <div class="alert alert-danger fade in">
+  <div class="alert bg-danger fade in">
     <button type="button" class="close" data-dismiss="alert">×</button>
     <h4><?php echo($page1 == "e" ? $tl["errorpage"]["sql"] : $tl["errorpage"]["not"]); ?></h4>
   </div>

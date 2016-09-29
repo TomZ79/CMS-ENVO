@@ -77,7 +77,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
   }
 } else { ?>
 
-  <div class="alert alert-info">
+  <div class="alert bg-info">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
     <?php echo $tl["errorpage"]["data"]; ?>
   </div>

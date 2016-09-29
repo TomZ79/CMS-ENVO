@@ -50,7 +50,7 @@ $succesfully = 0;
       if ($row["value"] == "2.1") {
         $succesfully = 1; ?>
 
-        <div class="alert alert-info">Your CMS is already up to date!</div>
+        <div class="alert bg-info">Your CMS is already up to date!</div>
 
         <!-- Plugin is not installed let's display the installation script -->
       <?php } else {
@@ -463,13 +463,13 @@ $succesfully = 0;
           $mail->Send();
 
           ?>
-          <div class="alert alert-success">Database update successfully, please delete the <strong>install</strong>
+          <div class="alert bg-success">Database update successfully, please delete the <strong>install</strong>
             directory. You can now log in, in your <a href="../admin/">administration</a> panel.
           </div>
         <?php } ?>
 
         <?php if (!$succesfully) { ?>
-          <div class="alert alert-info">Please follow this steps carefully before you update the database!</div>
+          <div class="alert bg-info">Please follow this steps carefully before you update the database!</div>
           <ul>
             <li>Backup all your files and your database.</li>
             <li>Upload all folders and files from the new version.</li>

@@ -44,7 +44,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
       <?php $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "socialbuttons"');
       if ($jakdb->affected_rows > 0) { ?>
 
-        <div class="alert alert-info">Plugin is already installed!!!</div>
+        <div class="alert bg-info">Plugin is already installed!!!</div>
 
         <!-- Plugin is not installed let's display the installation script -->
       <?php } else { ?>
@@ -134,7 +134,7 @@ END
 
             ?>
 
-            <div class="alert alert-success"><?php echo $tl["plugin"]["p13"]; ?></div>
+            <div class="alert bg-success"><?php echo $tl["plugin"]["p13"]; ?></div>
 
           <?php } else {
 
@@ -142,7 +142,7 @@ END
             $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "socialbuttons"');
 
             ?>
-            <div class="alert alert-danger"><?php echo $tl["plugin"]["p16"]; ?></div>
+            <div class="alert bg-danger"><?php echo $tl["plugin"]["p16"]; ?></div>
             <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
               <button type="submit" name="redirect" class="btn btn-danger btn-block"><?php echo $tl["plugin"]["p11"]; ?></button>
             </form>

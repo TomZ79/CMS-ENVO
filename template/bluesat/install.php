@@ -48,7 +48,7 @@ $succesfully = 0;
       $jakdb->query('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "sitestyle_widget_bluesat"');
       if ($jakdb->affected_rows > 0) { ?>
 
-        <div class="alert alert-info fade in">
+        <div class="alert bg-info fade in">
           Template is already installed.
         </div>
 
@@ -133,7 +133,7 @@ $succesfully = 0;
           $succesfully = 1;
 
           ?>
-          <div class="alert alert-success fade in">
+          <div class="alert bg-success fade in">
             Template successfully installed!
           </div>
         <?php }

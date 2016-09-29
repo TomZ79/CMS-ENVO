@@ -663,7 +663,7 @@
 </div>
 <div class="row">
     <div class="col-md-10" id="divAlert1">
-        <div class="alert alert-warning">                          
+        <div class="alert bg-warning">
 	        <h4>Warning!</h4>              
 	        <p>Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>            
         </div>
@@ -683,7 +683,7 @@
 </div>
 <div class="row">
     <div class="col-md-10" id="divAlert2">
-        <div class="alert alert-danger">                            
+        <div class="alert bg-danger">
             <strong>Oh snap!</strong> Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
         </div>
         <p>&nbsp;</p>
@@ -702,7 +702,7 @@
 </div>
 <div class="row">
     <div class="col-md-10" id="divAlert3">
-        <div class="alert alert-success">                           
+        <div class="alert bg-success">
             <strong>Well done!</strong> Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
         </div>
         <p>&nbsp;</p>
@@ -721,7 +721,7 @@
 </div>
 <div class="row">
     <div class="col-md-10" id="divAlert4">
-        <div class="alert alert-info">                          
+        <div class="alert bg-info">
             <strong>Heads up!</strong> Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
         </div>
         <p>&nbsp;</p>

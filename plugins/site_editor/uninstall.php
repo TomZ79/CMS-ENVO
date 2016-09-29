@@ -52,7 +52,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 
         ?>
 
-        <div class="alert alert-success"><?php echo $tl["plugin"]["p15"]; ?></div>
+        <div class="alert bg-success"><?php echo $tl["plugin"]["p15"]; ?></div>
 
       <?php } ?>
 

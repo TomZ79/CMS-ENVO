@@ -172,14 +172,14 @@ if ($rowls) {
           $succesfully = 1;
 
           ?>
-          <div class="alert alert-success">Plugin installed successfully</div>
+          <div class="alert bg-success">Plugin installed successfully</div>
         <?php } else {
 
           $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Slider"');
 
           ?>
 
-          <div class="alert alert-danger"><?php echo $tl["plugin"]["p16"];?></div>
+          <div class="alert bg-danger"><?php echo $tl["plugin"]["p16"];?></div>
           <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
             <button type="submit" name="redirect" class="btn btn-danger btn-block"><?php echo $tl["plugin"]["p11"];?></button>
           </form>

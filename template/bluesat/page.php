@@ -2,7 +2,7 @@
 
   <!-- Show alert messages, url to edit and quick edit -->
 <?php if (!$PAGE_ACTIVE) { ?>
-  <div class="alert alert-danger">
+  <div class="alert bg-danger">
     <?php echo $tl["errorpage"]["ep"]; ?>
   </div>
 <?php }
@@ -27,7 +27,7 @@ if ($PAGE_SHOWTITLE && $JAK_SHOW_NAVBAR) { ?>
   if ($errorpp) { ?>
 
     <!-- Show password error -->
-    <div class="alert alert-danger fade in">
+    <div class="alert bg-danger fade in">
       <button type="button" class="close" data-dismiss="alert">×</button>
       <h4><?php echo $errorpp["e"]; ?></h4>
     </div>

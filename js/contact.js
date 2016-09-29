@@ -30,7 +30,7 @@ $(document).ready(function () {
 
       if (msg.status) {
 
-        $(jakform).find('.jak-thankyou').fadeIn(1000).html('<div class="alert alert-success">' + msg.html + '</div>');
+        $(jakform).find('.jak-thankyou').fadeIn(1000).html('<div class="alert bg-success">' + msg.html + '</div>');
         $(jakform)[0].reset();
 
         // Fade out the form

@@ -18,7 +18,7 @@ if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
 
 $csCode = strip_tags($_POST['coupon']);
 
-if (!preg_match('/^([0-9]||[a-z]||[A-Z])+$/', $csCode)) die(json_encode(array("status" => 0, "html" => '<div class="alert-danger alert-link">'.$_POST['shopmsg2'].'</div>')));
+if (!preg_match('/^([0-9]||[a-z]||[A-Z])+$/', $csCode)) die(json_encode(array("status" => 0, "html" => '<div class="bg-danger alert-link">'.$_POST['shopmsg2'].'</div>')));
 	
 if ($_POST['action'] == "checkC") {	
 			
@@ -96,11 +96,11 @@ if ($_POST['action'] == "checkC") {
 					}
 					    
 				}
-				die(json_encode(array("status" => 1, "html" => '<div class="alert-success alert-link">'.sprintf($_POST['shopmsg'],$row['discount'].$dtT).'</div>', "total" => number_format($sumT, 2, '.', ''), "discount" => number_format($discT, 2, '.', '').' '.$_SESSION['ECOMMERCE_CURRENCY'], "shipping" => $fsT)));
+				die(json_encode(array("status" => 1, "html" => '<div class="bg-success alert-link">'.sprintf($_POST['shopmsg'],$row['discount'].$dtT).'</div>', "total" => number_format($sumT, 2, '.', ''), "discount" => number_format($discT, 2, '.', '').' '.$_SESSION['ECOMMERCE_CURRENCY'], "shipping" => $fsT)));
 			}
 		}
 	}
 }
-die(json_encode(array("status" => 0, "html" => '<div class="alert-danger alert-link">'.$_POST['shopmsg2'].'</div>')));
+die(json_encode(array("status" => 0, "html" => '<div class="bg-danger alert-link">'.$_POST['shopmsg2'].'</div>')));
 
 ?>

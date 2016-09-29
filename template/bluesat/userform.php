@@ -2,7 +2,7 @@
 
 <?php if ($errors) { ?>
 
-  <div class="alert alert-danger fade in">
+  <div class="alert bg-danger fade in">
     <button type="button" class="close" data-dismiss="alert">×</button>
     <?php if (isset($errors["co_name"])) echo $errors["co_name"];
     if (isset($errors["co_email"])) echo $errors["co_email"];
