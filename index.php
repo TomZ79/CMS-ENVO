@@ -7,13 +7,13 @@ if (!file_exists('config.php')) die('[index.php] config.php not exist');
 require_once 'config.php';
 
 // Now check if there is more then one language
-$page = ($tempp ? jak_input_filter($tempp) : '');
-$page1 = ($tempp1 ? jak_input_filter($tempp1) : '');
-$page2 = ($tempp2 ? jak_input_filter($tempp2) : '');
-$page3 = ($tempp3 ? jak_input_filter($tempp3) : '');
-$page4 = ($tempp4 ? jak_input_filter($tempp4) : '');
-$page5 = ($tempp5 ? jak_input_filter($tempp5) : '');
-$page6 = ($tempp5 ? jak_input_filter($tempp6) : '');
+$page = ($tempp ? jak_url_input_filter($tempp) : '');
+$page1 = ($tempp1 ? jak_url_input_filter($tempp1) : '');
+$page2 = ($tempp2 ? jak_url_input_filter($tempp2) : '');
+$page3 = ($tempp3 ? jak_url_input_filter($tempp3) : '');
+$page4 = ($tempp4 ? jak_url_input_filter($tempp4) : '');
+$page5 = ($tempp5 ? jak_url_input_filter($tempp5) : '');
+$page6 = ($tempp6 ? jak_url_input_filter($tempp6) : '');
 
 // Import the language file
 if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
@@ -477,13 +477,18 @@ if ($SHOWDATE == '1') define('SHOWDATE', 1);
 // Check if there is tag and the user can see it
 if (!JAK_TAGS && !JAK_USER_TAGS) $JAK_TAGLIST = false;
 
-// Get the template normal or mobile
+// Get the normal or plugin template
 if (isset($jkv["sitestyle"]) && !empty($jkv["sitestyle"]) && isset($template) && $template != '') {
     include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/' . $template;
-// Get the plugin template	
+// Get the plugin template
 } elseif (isset($plugin_template) && $plugin_template != '') {
-    include_once APP_PATH . $plugin_template;
-// No template available
+    // Check if plugin template files exist or not
+    if (!file_exists(APP_PATH . $plugin_template)) {
+        include_once APP_PATH . 'noplugintemplate.php';
+    } else {
+        include_once APP_PATH . $plugin_template;
+    }
+// No normal template available
 } else {
     include_once APP_PATH . 'notemplate.php';
 }
@@ -496,3 +501,4 @@ unset($_SESSION["infomsg"]);
 // Finally close all db connections
 $jakdb->jak_close();
 ?>
+
