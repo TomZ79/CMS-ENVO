@@ -61,6 +61,8 @@ switch ($page1) {
 			varname = "' . smartsql($defaults['jak_varname']) . '",
 			exturl = "' . smartsql($defaults['jak_url']) . '",
 			content = "' . smartsql($defaults['jak_lcontent']) . '",
+			metadesc = "' . smartsql($defaults['jak_lcontent_meta_desc']) . '",
+			metakey = "' . smartsql($defaults['jak_lcontent_meta_key']) . '",
 			showmenu = "' . smartsql($menu) . '",
 			showfooter = "' . smartsql($footer) . '",
 			' . $catimg . '
@@ -167,6 +169,8 @@ switch ($page1) {
 				varname = "' . smartsql($defaults['jak_varname']) . '",
 				exturl = "' . smartsql($defaults['jak_url']) . '",
 				content = "' . smartsql($defaults['jak_lcontent']) . '",
+				metadesc = "' . smartsql($defaults['jak_lcontent_meta_desc']) . '",
+				metakey = "' . smartsql($defaults['jak_lcontent_meta_key']) . '",
 				showmenu = "' . smartsql($defaults['jak_menu']) . '",
 				showfooter = "' . smartsql($defaults['jak_footer']) . '",
 				' . $insert . '
