@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jakU'])) {
     } else {
       $_SESSION["logintries"] = 1;
     }
-    if (isset($_SESSION["logintries"]) && $_SESSION["logintries"] > 10) {
+    if (isset($_SESSION["logintries"]) && $_SESSION["logintries"] > 3) {
       $_SESSION["infomsg"] = $tl["error"]["e10"];
       jak_redirect(BASE_URL);
     }
