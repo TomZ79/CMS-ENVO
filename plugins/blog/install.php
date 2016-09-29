@@ -48,7 +48,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
         require_once APP_PATH.\'plugins/blog/admin/blog.php\';
            $JAK_PROVED = 1;
            $checkp = 1;
-        }", "../plugins/blog/admin/template/blognav.php", "blog", "uninstall.php", "1.0", NOW())');
+        }", "../plugins/blog/admin/template/blognav.php", "blog", "uninstall.php", "1.1", NOW())');
 
 // Now get the plugin id for futher use
         $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blog"');

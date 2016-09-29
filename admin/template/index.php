@@ -40,7 +40,7 @@ if (!isset($jkv["cms_tpl"])) { ?>
   <div class="row">
     <div class="col-lg-3 col-xs-6">
       <!-- small box -->
-      <div class="small-box bg-aqua">
+      <div class="small-box bg-pink">
         <div class="inner">
           <h3><?php echo $totalhits; ?></h3>
           <p><?php echo $tl["stat"]["s1"]; ?></p>
@@ -68,7 +68,7 @@ if (!isset($jkv["cms_tpl"])) { ?>
     </div><!-- ./col -->
     <div class="col-lg-3 col-xs-6">
       <!-- small box -->
-      <div class="small-box bg-yellow">
+      <div class="small-box bg-orange">
         <div class="inner">
           <h3><?php echo $JAK_COUNTS["pluginCtotal"]; ?></h3>
           <p><?php echo $tl["stat"]["s4"]; ?></p>
@@ -83,7 +83,7 @@ if (!isset($jkv["cms_tpl"])) { ?>
     <div class="col-lg-3 col-xs-6">
       <!-- small box -->
       <?php if (JAK_TAGS) { ?>
-        <div class="small-box bg-red">
+        <div class="small-box bg-brown">
           <div class="inner">
             <h3><?php echo $JAK_COUNTS["tagsCtotal"]; ?></h3>
             <p><?php echo $tl["stat"]["s5"]; ?></p>
@@ -95,7 +95,7 @@ if (!isset($jkv["cms_tpl"])) { ?>
               class="fa fa-arrow-circle-right"></i></a>
         </div>
       <?php } else { ?>
-        <div class="small-box bg-red">
+        <div class="small-box bg-slate">
           <div class="inner">
             <h3><?php echo $JAK_COUNTS["hookCtotal"]; ?></h3>
             <p><?php echo $tl["stat"]["s7"]; ?></p>
