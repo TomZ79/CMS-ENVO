@@ -38,7 +38,7 @@ $succesfully = 0;
         ?>
 
         <div class="alert bg-success fade in">
-          <h4>Template successfully uninstalled!</h4>
+          Template successfully uninstalled!
         </div>
 
       <?php }
