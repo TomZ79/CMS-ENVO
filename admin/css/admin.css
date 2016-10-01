@@ -152,6 +152,41 @@ table.first-column tr td:first-child {
   }
 }
 
+/* XX. MODIFICATION - LIST of TAGs
+========================================================================*/
+.fancy-checkbox  {
+  position: relative;
+}
+
+.fancy-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.fancy-checkbox .checked,
+.fancy-checkbox .unchecked{
+  position: absolute;
+  left: 2px;
+  top: 4px;
+}
+
+.fancy-checkbox .checked {
+  display: none;
+}
+
+.fancy-checkbox input[type="checkbox"]:checked ~ .checked {
+  display: inline-block;
+}
+
+.fancy-checkbox input[type="checkbox"]:checked ~ .unchecked {
+  display: none;
+}
+
+/* XX. MODIFICATION - FONTAWESOME
+========================================================================*/
+.fa-sm {
+  font-size: 1.5em;
+}
+
 /* XX. MODIFICATION - BOOTSTRAP
 ========================================================================*/
 /* BOOTSTRAP Same height for column */
