@@ -153,26 +153,68 @@
 
             <div class="panel-body">
               <h4>Basic properties</h4>
-              <ul>
-                <li>Basic template - Admin LTE - <a href="https://almsaeedstudio.com/preview" target="_blank">Preview</a></li>
-              </ul>
-              <h4>Jquery plugins</h4>
-              <ul>
-                <li>TinyMCE Editor - <a href="https://www.tinymce.com/" target="_blank">Preview</a></li>
-                <li>ACE Editor - <a href="https://ace.c9.io/" target="_blank">Preview</a></li>
-                <li>slimScroll - <a href="http://rocha.la/jQuery-slimScroll" target="_blank">Preview</a></li>
-                <li>Jquery-Share social media plugin - <a href="http://plugins.in1.com/share" target="_blank">Preview</a></li>
-                <li>Bootstrap - <a href="http://getbootstrap.com/" target="_blank">Preview</a></li>
-                <li>Bootstrap Select - <a href="http://silviomoreto.github.io/bootstrap-select/examples/#basic-examples" target="_blank">Preview</a></li>
-                <li>Bootstrap DateTimePicker - <a href="http://eonasdan.github.io/bootstrap-datetimepicker/" target="_blank">Preview</a></li>
-              </ul>
+              <div class="well">
+                <dl class="dl-horizontal">
+                  <dt>Basic template - Admin LTE</dt>
+                  <dd>Best open source admin dashboard & control panel theme. Built on top of Bootstrap 3, AdminLTE provides a range of responsive, reusable, and commonly used components.
+                    <a href="https://almsaeedstudio.com/preview" class="btn bg-teal btn-xs" target="_blank">Preview</a>
+                  </dd>
+                </dl>
+              </div>
+              <h4>Jquery plugins for Admin Control Panel</h4>
+              <div class="well">
+                <dl class="dl-horizontal">
+                  <dt>TinyMCE Editor</dt>
+                  <dd>TinyMCE enables you to convert HTML textarea fields or other HTML elements to editor instances.
+                    <a href="https://www.tinymce.com/" class="btn bg-teal btn-xs" target="_blank">Preview</a>
+                  </dd>
+
+                  <dt>ACE Editor</dt>
+                  <dd>Ace is an embeddable code editor written in JavaScript.
+                    <a href="https://ace.c9.io/" class="btn bg-teal btn-xs" target="_blank">Preview</a>
+                  </dd>
+
+                  <dt>slimScroll</dt>
+                  <dd>slimScroll is a small (4.6KB) jQuery plugin that transforms any div into a scrollable area with a nice scrollbar - similar to the one Facebook and Google started using in their products recently.
+                    <a href="http://rocha.la/jQuery-slimScroll" class="btn bg-teal btn-xs" target="_blank">Preview</a>
+                  </dd>
+
+                  <dt>Jquery-Share social media plugin</dt>
+                  <dd><a href="http://plugins.in1.com/share" class="btn bg-teal btn-xs" target="_blank">Preview</a></dd>
+
+                  <dt>Bootstrap</dt>
+                  <dd>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.
+                    <a href="http://getbootstrap.com/" class="btn bg-teal btn-xs" target="_blank">Preview</a>
+                  </dd>
+
+                  <dt>Bootstrap Select</dt>
+                  <dd>Bootstrap-select is a jQuery plugin that utilizes Bootstrap's dropdown.js to style and bring additional functionality to standard select elements.
+                    <a href="http://silviomoreto.github.io/bootstrap-select/" class="btn bg-teal btn-xs" target="_blank">Preview</a>
+                  </dd>
+
+                  <dt>Bootstrap DateTimePicker</dt>
+                  <dd>A date/time picker component designed to work with Bootstrap 3 and Momentjs.
+                    <a href="http://eonasdan.github.io/bootstrap-datetimepicker/" class="btn bg-teal btn-xs" target="_blank">Preview</a>
+                  </dd>
+                </dl>
+              </div>
               <h4>Other technology</h4>
-              <ul>
-                <li>FontAwesome - <a href="https://fortawesome.github.io/Font-Awesome/" target="_blank">Preview</a></li>
-                <li>Simple PHP Auto-Update System - <a href="http://maxmorgandesign.com/simple_php_auto_update_system/" target="_blank">Preview</a></li>
-                <li>AJAX-ed Todo List With PHP - <a href="http://tutorialzine.com/2010/03/ajax-todo-list-jquery-php-mysql-css/" target="_blank">Preview</a></li>
-                <li>PHP XML Sitemap generator - <a href="http://www.alanmiller.com/blog/article/php-xml-sitemap-generator" target="_blank">Preview</a></li>
-              </ul>
+              <div class="well">
+                <dl class="dl-horizontal">
+                  <dt>FontAwesome</dt>
+                  <dd>Font Awesome gives you scalable vector icons that can instantly be customized — size, color, drop shadow, and anything that can be done with the power of CSS.
+                    <a href="https://fortawesome.github.io/Font-Awesome/" class="btn bg-teal btn-xs" target="_blank">Preview</a></dd>
+
+                  <dt>Simple PHP Auto-Update System</dt>
+                  <dd><a href="http://maxmorgandesign.com/simple_php_auto_update_system/" class="btn bg-teal btn-xs" target="_blank">Preview</a></dd>
+
+                  <dt>AJAX-ed Todo List With PHP</dt>
+                  <dd><a href="http://tutorialzine.com/2010/03/ajax-todo-list-jquery-php-mysql-css/" class="btn bg-teal btn-xs" target="_blank">Preview</a></dd>
+
+                  <dt>PHP XML Sitemap generator</dt>
+                  <dd><a href="http://www.alanmiller.com/blog/article/php-xml-sitemap-generator" class="btn bg-teal btn-xs" target="_blank">Preview</a></dd>
+                </dl>
+              </div>
             </div>
 
           </div>
@@ -221,24 +263,9 @@
 
   <script>
     $('body').scrollspy({ target: '.sidebar-detached' });
-
-    /* ------------------------------------------------------------------------------
-     *
-     *  # Sticky sidebar with native scrollbar
-     *
-     *  Specific JS code additions for layout_sidebar_sticky_native.html blank page
-     *
-     *  Version: 1.0
-     *  Latest update: Aug 1, 2015
-     *
-     * ---------------------------------------------------------------------------- */
-
     $(function() {
-
-
-      // Resize sidebar on scroll
-      // ------------------------------
-
+      /* Resize sidebar on scroll
+       ========================================= */
       // Resize detached sidebar vertically when bottom reached
       function resizeDetached() {
         $(window).on('load scroll', function() {
@@ -251,28 +278,22 @@
         });
       }
 
-
-      // Affix detached sidebar
-      // ------------------------------
-
+      /* Affix detached sidebar
+       ========================================= */
       // Init nicescroll when sidebar affixed
       $('.sidebar-detached').on('affix.bs.affix', function() {
         resizeDetached();
       });
-
       // Attach BS affix component to the sidebar
       $('.sidebar-detached').affix({
         offset: {
           top: $('.sidebar-detached').offset().top - 20 // top offset - computed line height
         }
       });
-
-
       // Remove affix and scrollbar on mobile
       $(window).on('resize', function() {
         setTimeout(function() {
           if($(window).width() <= 768) {
-
             // Remove affix on mobile
             $(window).off('.affix')
             $('.sidebar-detached').removeData('affix').removeClass('affix affix-top affix-bottom');
