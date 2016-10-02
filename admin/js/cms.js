@@ -81,7 +81,8 @@ $.AdminLTE.options = {
   sidebarPushMenu: true,
   //Activate sidebar slimscroll if the fixed layout is set (requires SlimScroll Plugin)
   sidebarSlimScroll: true,
-
+  //Control Sidebar Options
+  enableControlSidebar: true,
   controlSidebarOptions: {
     //Which button should trigger the open/close event
     toggleBtnSelector: "[data-toggle='control-sidebar']",
@@ -132,6 +133,11 @@ $(function () {
 
   //Enable sidebar tree view controls
   $.AdminLTE.tree('.sidebar');
+
+  //Enable control sidebar
+  if (o.enableControlSidebar) {
+    $.AdminLTE.controlSidebar.activate();
+  }
 
   //Activate sidebar push menu
   if (o.sidebarPushMenu) {

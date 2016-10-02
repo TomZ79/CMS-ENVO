@@ -142,6 +142,10 @@
               </li>
             </ul>
           </li>
+          <!-- Control Sidebar Toggle Button -->
+          <li id="control-sb" class="hidden">
+            <a href="#" data-toggle="control-sidebar" ><i class="fa fa-question"></i></a>
+          </li>
 
         </ul>
       </div>

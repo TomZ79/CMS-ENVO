@@ -155,4 +155,24 @@ if ($errors) { ?>
     </div>
   </form>
 
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <div class="row-fluid" style="margin-top: 20px;">
+      <div class="container-fluid">
+        <h5><strong>Site Offline</strong></h5>
+        <p>Přepnutí sítě do režimu Offline. Využíváme pro update webové sítě.</p>
+
+        <h5><strong>Offline Page</strong></h5>
+        <p>Výběr offline stránky. Offline stránka se zobrazí při aktivaci sítě do režimu offline. Můžeme tak vytvořit stránku např. "Comming Soon".</p>
+
+        <h5><strong>404 Page</strong></h5>
+        <p>Výběr chybové stránky. Pokud uživatel zadá chybný název stránky, CMS zobrazí chybovou stránku. V seznamu můžeme vybrat námi definovanou stránku. Pokud není nic vybráno, tak základní chybová hláška je 404.php v daném template.</p>
+      </div>
+    </div>
+  </aside>
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+
 <?php include "footer.php"; ?>
