@@ -195,24 +195,10 @@ if ($success) { ?>
                       </div>
                     </td>
                   </tr>
-                  <tr>
-                    <td><?php echo $tl["setting"]["s10"]; ?></td>
-                    <td>
-                      <div class="radio">
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_editor" value="1"<?php if ($jkv["adv_editor"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                        </label>
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_editor" value="0"<?php if ($jkv["adv_editor"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                        </label>
-                      </div>
-                    </td>
-                  </tr>
                 </table>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save"
-                        class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
               </div>
             </div>
           </div>
@@ -709,6 +695,192 @@ if ($success) { ?>
     </div>
 
   </form>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Create the tabs -->
+    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+      <li class="active"><a href="#control-sidebar1" data-toggle="tab"><strong>1.</strong></a></li>
+      <li><a href="#control-sidebar2" data-toggle="tab"><strong>2.</strong></a></li>
+      <li><a href="#control-sidebar3" data-toggle="tab"><strong>3.</strong></a></li>
+      <li><a href="#control-sidebar4" data-toggle="tab"><strong>4.</strong></a></li>
+      <li><a href="#control-sidebar5" data-toggle="tab"><strong>5.</strong></a></li>
+      <li><a href="#control-sidebar6" data-toggle="tab"><strong>6.</strong></a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <!-- Tab 1. -->
+      <div class="tab-pane active" id="control-sidebar1">
+        <h4>Obecná Nastavení</h4>
+        <p>Obecná nastavení pro ACP a webovou síť.</p>
+        <hr>
+
+        <h5><strong>Vaše Emailová Adresa</strong></h5>
+        <p></p>
+
+        <h5><strong>Server is running on</strong></h5>
+        <p></p>
+
+        <h5><strong>Jazyk</strong></h5>
+        <p>Výběr jazyka pro ACP</p>
+
+        <h5><strong>Směr Textu</strong></h5>
+        <p></p>
+
+        <h5><strong>Formát Datumu</strong></h5>
+        <p></p>
+
+        <h5><strong>Formát Času</strong></h5>
+        <p></p>
+
+        <h5><strong>Vaše Časová Zóna</strong></h5>
+        <p></p>
+
+        <h5><strong>Show time in minutes/hours/days ago</strong></h5>
+        <p></p>
+
+        <h5><strong>Captcha</strong></h5>
+        <p></p>
+
+        <h5><strong>Zobrazit Formulář</strong></h5>
+        <p></p>
+
+        <h5><strong>Choose how many</strong></h5>
+        <p></p>
+
+        <h5><strong>Short Message Length</strong></h5>
+        <p></p>
+
+        <h5><strong>Aktivovat RSS</strong></h5>
+        <p></p>
+
+        <h5><strong>Items</strong></h5>
+        <p></p>
+
+        <h5><strong>Page Mid Range</strong></h5>
+        <p></p>
+
+        <h5><strong>Items per Page</strong></h5>
+        <p></p>
+
+      </div>
+      <!-- Tab 2. -->
+      <div class="tab-pane" id="control-sidebar2">
+        <h4>ACE Editor</h4>
+        <p>Nastavení ACE Editoru. Tento editor umožňuje pracovat se zdrojovým html kódem stránek.</p>
+        <hr>
+
+        <h5><strong>Aktivovat Rozšířený Editor (ACE editor)</strong></h5>
+        <p>Aktivace ACE Editoru.</p>
+
+        <h5><strong>Color Themes</strong></h5>
+        <p>Výběr barevného tématu pro ACE Editor.</p>
+
+        <h5><strong>ACE Tab Size</strong></h5>
+        <p></p>
+
+        <h5><strong>Set Wrap Limit</strong></h5>
+        <p></p>
+
+        <h5><strong>Show Gutter</strong></h5>
+        <p></p>
+
+        <h5><strong>Highlight Active Line</strong></h5>
+        <p></p>
+
+        <h5><strong>Show Invisible</strong></h5>
+        <p></p>
+      </div>
+      <!-- Tab 3. -->
+      <div class="tab-pane" id="control-sidebar3">
+        <h4>Nastavení Emailu</h4>
+        <hr>
+
+        <h5><strong>Protokol pro Email</strong></h5>
+        <p></p>
+
+        <h5><strong>Host</strong></h5>
+        <p></p>
+
+        <h5><strong>Port</strong></h5>
+        <p></p>
+
+        <h5><strong>Keep SMTP alive?</strong></h5>
+        <p></p>
+
+        <h5><strong>SMTP Authentication</strong></h5>
+        <p></p>
+
+        <h5><strong>SMTP Server Prefix</strong></h5>
+        <p></p>
+
+        <h5><strong>SMTP Username</strong></h5>
+        <p></p>
+
+        <h5><strong>SMPT Password</strong></h5>
+        <p></p>
+
+        <h5><strong>Test Email Settings</strong></h5>
+        <p></p>
+
+      </div>
+      <!-- Tab 4. -->
+      <div class="tab-pane" id="control-sidebar4">
+        <h4>Uživatelské Nastavení</h4>
+        <hr>
+
+        <h5><strong>Show Login in Sidebar</strong></h5>
+        <p></p>
+
+        <h5><strong>Print Function Active</strong></h5>
+        <p></p>
+
+        <h5><strong>Parse Smilies</strong></h5>
+        <p></p>
+
+        <h5><strong>Avatar Size</strong></h5>
+        <p></p>
+
+        <h5><strong>IP Block List</strong></h5>
+        <p></p>
+
+        <h5><strong>Email Block List</strong></h5>
+        <p></p>
+
+        <h5><strong>Prohibited Usernames</strong></h5>
+        <p></p>
+
+      </div>
+      <!-- Tab 5. -->
+      <div class="tab-pane" id="control-sidebar5">
+        <h4>Analitycké Kódy</h4>
+        <hr>
+
+        <h5><strong>XXXX</strong></h5>
+        <p></p>
+
+        <h5><strong>Activate Click Heat Map</strong></h5>
+        <p></p>
+
+        <h5><strong>Truncate Clicks</strong></h5>
+        <p></p>
+
+      </div>
+      <!-- Tab 6. -->
+      <div class="tab-pane" id="control-sidebar6">
+        <h4>Plugin Settings</h4>
+        <hr>
+        <p></p>
+
+      </div>
+    </div>
+
+  </aside>
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
 
   <script type="text/javascript">
     $(document).ready(function () {
