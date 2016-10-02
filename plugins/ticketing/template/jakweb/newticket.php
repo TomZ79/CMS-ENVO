@@ -134,13 +134,7 @@
             </div>
             <script type="text/javascript">
               $(document).ready(function () {
-                $('#jak_tags').tagsInput({
-                  defaultText: '<?php echo $tlt["st"]["t6"];?>',
-                  width: 'auto',
-                  taglimit: 5,
-                  placeholderColor: '#000'
-                });
-                $('#jak_tags_tag').alphanumeric({nocaps: true});
+
               });
             </script>
           <?php } ?>
