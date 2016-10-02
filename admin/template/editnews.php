@@ -251,11 +251,45 @@ if ($errors) { ?>
                 <div class="box-body">
                   <table class="table table-striped">
                     <tr>
-                      <td><input type="text" name="jak_tags" id="jak_tags" class="form-control tags" value=""/></td>
+                      <td>Choose tags from list</td>
+                      <td>
+                        <select name="" id="selecttags1" class="form-control selectpicker" title="Choose tags ..." data-size="7" data-live-search="true">
+                          <optgroup label="Group 1">
+                            <option value="tag1">Tag 1</option>
+                            <option value="tag2">Tag 2</option>
+                            <option value="tag3">Tag 3</option>
+                          </optgroup>
+                          <optgroup label="Group 2">
+                            <option value="tag4">Tag 4</option>
+                            <option value="tag5">Tag 5</option>
+                            <option value="tag6">Tag 6</option>
+                            <option value="tag7">Tag 7</option>
+                          </optgroup>
+                        </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Choose tags from cloud</td>
+                      <td>
+
+                        <?php $JAK_TAG_ALL = jak_get_tag($tags->limit, false, $jakplugins->jakAdmintag(), false);
+                        if ($JAK_TAG_ALL) { ?>
+                        <select name="" id="selecttags2" class="form-control selectpicker" title="Choose tags ..." data-size="7" data-live-search="true">
+                        <?php foreach ($JAK_TAG_ALL as $v) { ?>
+                          <option value="<?php echo $v["tag"]; ?>"><?php echo $v["tag"]; ?></option>
+                        <?php } ?>
+                        </select>
+                        <?php } else { ?>
+                          <div>Tags cloud is empty!</div>
+                        <?php } ?>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"><input type="text" name="jak_tags" class="form-control tags" value="" data-role="tagsinput"/></td>
                     </tr>
                     <?php if ($JAK_TAGLIST) { ?>
                       <tr>
-                        <td>
+                        <td colspan="2">
                           <div class="form-group">
                             <label for="tags"><?php echo $tl["general"]["g27"]; ?></label>
                             <div class="controls">
@@ -427,12 +461,6 @@ if ($errors) { ?>
     /* Other config
      ========================================= */
     $(document).ready(function () {
-      $('#jak_tags').tagsInput({
-        defaultText: '<?php echo $tl["general"]["g83"];?>',
-        width: 'auto',
-        taglimit: 10
-      });
-      $('#jak_tags_tag').alphanumeric({nocaps: true});
 
       $('#cmsTab a').click(function (e) {
         e.preventDefault();
