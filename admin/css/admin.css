@@ -633,6 +633,14 @@ pre[class*="language-"] {
   color: #555;
   height: 49px;
 }
+.skin-teal .main-header .navbar .nav > li#control-sb > a {
+  background-color: #f8f8f8;
+  height: 49px;
+}
+.skin-teal .main-header .navbar .nav > li#control-sb > a:hover {
+  background-color: #e6e6e6;
+}
+
 
 .skin-teal .main-header .navbar .sidebar-toggle {
   color: #ffffff;
