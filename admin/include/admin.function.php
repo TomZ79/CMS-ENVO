@@ -213,16 +213,30 @@ function jak_get_tags($jakvar,$jakvar1) {
 // Tag cloud data
 function jak_tag_data_admin() {
 
-	global $jakdb;
-	$cloud = array();
-  	$result = $jakdb->query('SELECT * FROM '.DB_PREFIX.'tagcloud'.' GROUP BY tag ORDER BY count DESC');
-  	while($row = $result->fetch_assoc()) {
-    	$cloud[$row['tag']] = $row['count'];
-  	}
-  	if (!empty($cloud)) {
-  		ksort($cloud);
-		return $cloud;
-	}
+  global $jakdb;
+  $cloud = array();
+  $result = $jakdb->query('SELECT * FROM '.DB_PREFIX.'tagcloud'.' GROUP BY tag ORDER BY count DESC');
+  while($row = $result->fetch_assoc()) {
+    $cloud[$row['tag']] = $row['count'];
+  }
+  if (!empty($cloud)) {
+    ksort($cloud);
+    return $cloud;
+  }
+}
+
+// Tag cloud name
+function jak_tag_name_admin() {
+
+  global $jakdb;
+  $cloud = array();
+  $result = $jakdb->query('SELECT tag FROM '.DB_PREFIX.'tagcloud'.' ORDER BY tag ASC');
+  while($row = $result->fetch_assoc()) {
+    $cloud[] = $row;
+  }
+  if (!empty($cloud)) {
+    return $cloud;
+  }
 }
 
 // Create tag cloud

@@ -304,7 +304,7 @@ if ($errors) { ?>
                       <td>Choose tags from list</td>
                       <td>
 
-                        <?php $JAK_TAG_ALL = jak_get_tag($tags->limit, false, $jakplugins->jakAdmintag(), false);
+                        <?php $JAK_TAG_ALL = jak_tag_name_admin();
                         if ($JAK_TAG_ALL) { ?>
                           <select name="" id="selecttags2" class="form-control selectpicker" title="Choose tags ..." data-size="7" data-live-search="true">
                             <?php foreach ($JAK_TAG_ALL as $v) { ?>
