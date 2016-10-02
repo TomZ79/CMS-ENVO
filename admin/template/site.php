@@ -160,13 +160,31 @@ if ($errors) { ?>
     <div class="row-fluid" style="margin-top: 20px;">
       <div class="container-fluid">
         <h5><strong>Site Offline</strong></h5>
-        <p>Přepnutí sítě do režimu Offline. Využíváme pro update webové sítě.</p>
+        <p>Přepnutí sítě do režimu Offline. Využíváme pro update webové sítě. Pro aktivaci, musíme vybrat stránku pro zobrazení v režimu offline. Pokud tak neučiníme, tak síť nepřejde do režimu offline. </p>
 
         <h5><strong>Offline Page</strong></h5>
         <p>Výběr offline stránky. Offline stránka se zobrazí při aktivaci sítě do režimu offline. Můžeme tak vytvořit stránku např. "Comming Soon".</p>
 
         <h5><strong>404 Page</strong></h5>
         <p>Výběr chybové stránky. Pokud uživatel zadá chybný název stránky, CMS zobrazí chybovou stránku. V seznamu můžeme vybrat námi definovanou stránku. Pokud není nic vybráno, tak základní chybová hláška je 404.php v daném template.</p>
+
+        <h5><strong>Titulek Web Sítě</strong></h5>
+        <p>Základní jméno webové sítě. Zobrazí se v tagu <span class="text-primary-400">'title'</span> v každé stránce sítě.</p>
+
+        <h5><strong>Meta Description</strong></h5>
+        <p><span class="text-danger-400">???</span></p>
+
+        <h5><strong>Meta Keywords</strong></h5>
+        <p><span class="text-danger-400">???</span></p>
+
+        <h5><strong>Meta Author</strong></h5>
+        <p>Meta tag se zobrazí v každé stránce webové sítě.</p>
+
+        <h5><strong>Robots Follow</strong></h5>
+        <p><span class="text-danger-400">???</span></p>
+
+        <h5><strong>Copyright Text</strong></h5>
+        <p>Text se zobrazí v zápatí stránek webové sítě</p>
       </div>
     </div>
   </aside>
