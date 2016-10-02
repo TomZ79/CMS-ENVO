@@ -199,7 +199,7 @@ function jak_get_tags($jakvar,$jakvar1) {
 	$tags = array();
     $result = $jakdb->query('SELECT id, tag FROM '.DB_PREFIX.'tags'.' WHERE itemid = '.smartsql($jakvar).' AND pluginid = '.$jakvar1.' ORDER BY `id` ASC');
     while ($row = $result->fetch_assoc()) {
-        $tags[] = '<span class="label label-default fancy-checkbox" style="line-height:2.4;margin:0 10px 10px 0px;"><label class="checkbox-inline"><input type="checkbox" name="jak_tagdelete[]" value="'.$row['id'].'" /><i class="fa fa-square-o fa-sm unchecked"></i><i class="fa fa-check-square-o fa-sm checked"></i> '.$row['tag'].'</label></span>';
+        $tags[] = '<span class="label label-default fancy-checkbox" style="line-height:2.2;margin:0 10px 10px 0px;"><label class="checkbox-inline"><input type="checkbox" name="jak_tagdelete[]" value="'.$row['id'].'" /><i class="fa fa-square-o fa-sm unchecked"></i><i class="fa fa-check-square-o fa-sm checked"></i> '.$row['tag'].'</label></span>';
     }
     
     if (!empty($tags)) {
