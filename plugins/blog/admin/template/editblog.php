@@ -406,13 +406,6 @@ if ($page3 == "e") { ?>
      ========================================= */
     $(document).ready(function () {
 
-      $('#jak_tags').tagsInput({
-        defaultText: '<?php echo $tl["general"]["g83"];?>',
-        width: 'auto',
-        taglimit: 10
-      });
-      $('#jak_tags_tag').alphanumeric({nocaps: true});
-
       $('#cmsTab a').click(function (e) {
         e.preventDefault();
         $(this).tab('show');
