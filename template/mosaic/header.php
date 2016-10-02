@@ -48,7 +48,7 @@
   <?php } ?>
 
   <script src="<?php echo BASE_URL; ?>js/jquery.js?=<?php echo $jkv["updatetime"]; ?>"></script>
-  <script type="text/javascript" src="<?php echo BASE_URL; ?>/js/bootstrap/bootstrap.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+  <script src="<?php echo BASE_URL; ?>js/bootstrap/bootstrap.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>js/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
