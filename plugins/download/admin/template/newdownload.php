@@ -281,10 +281,44 @@ if ($errors) { ?>
                   <h3 class="box-title"><?php echo $tl["title"]["t31"]; ?></h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                  <table class="table table-striped">
+                  <table class="table table-striped v-text-center">
                     <tr>
+                      <td>Choose tags from predefined list</td>
                       <td>
-                        <input type="text" name="jak_tags" id="jak_tags" class="tags" value="<?php if (isset($_REQUEST["jak_tags"])) echo $_REQUEST["jak_tags"]; ?>"/>
+                        <select name="" id="selecttags1" class="form-control selectpicker" title="Choose tags ..." data-size="7" data-live-search="true">
+                          <optgroup label="Poskytovatelé TV">
+                            <option value="skylink">Skylink</option>
+                            <option value="freesat">freeSAT</option>
+                            <option value="digi-tv">Digi TV</option>
+                          </optgroup>
+                          <optgroup label="Vysílací technologie">
+                            <option value="dvb-t/t2">DVB-T/T2</option>
+                            <option value="dvb-s/s2">DVB-S/S2</option>
+                            <option value="dvb-c">DVB-C</option>
+                            <option value="dvb-h">DVB-H</option>
+                          </optgroup>
+                        </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Choose tags from list</td>
+                      <td>
+
+                        <?php $JAK_TAG_ALL = jak_get_tag($tags->limit, false, $jakplugins->jakAdmintag(), false);
+                        if ($JAK_TAG_ALL) { ?>
+                          <select name="" id="selecttags2" class="form-control selectpicker" title="Choose tags ..." data-size="7" data-live-search="true">
+                            <?php foreach ($JAK_TAG_ALL as $v) { ?>
+                              <option value="<?php echo $v["tag"]; ?>"><?php echo $v["tag"]; ?></option>
+                            <?php } ?>
+                          </select>
+                        <?php } else { ?>
+                          <div>Tags cloud is empty!</div>
+                        <?php } ?>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">
+                        <input type="text" name="jak_tags" id="jak_tags" class="tags form-control" value="<?php if (isset($_REQUEST["jak_tags"])) echo $_REQUEST["jak_tags"]; ?>" data-role="tagsinput"/>
                       </td>
                     </tr>
                   </table>
@@ -354,7 +388,8 @@ if ($errors) { ?>
   <script src="js/ace/ace.js" type="text/javascript"></script>
   <script type="text/javascript">
 
-    // ACE editor
+    /* ACE Editor
+     ========================================= */
     <?php if ($jkv["adv_editor"]) { ?>
     var htmlACE = ace.edit("htmleditor");
     htmlACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
@@ -387,6 +422,8 @@ if ($errors) { ?>
     textcss = $("#jak_css").val();
     cssACE.session.setValue(textcss);
 
+    /* Other config
+     ========================================= */
     $(document).ready(function () {
 
       $('#cmsTab a').click(function (e) {
@@ -406,7 +443,8 @@ if ($errors) { ?>
       });
     });
 
-    // Responsive Filemanager
+    /* Responsive Filemanager
+     ========================================= */
     function responsive_filemanager_callback(field_id) {
 
       if (field_id == "csseditor" || field_id == "javaeditor" || field_id == "htmleditor") {
@@ -424,7 +462,8 @@ if ($errors) { ?>
       }
     }
 
-    // Submit Form
+    /* Submit Form
+     ========================================= */
     $('form').submit(function () {
       $("#jak_css").val(cssACE.getValue());
       $("#jak_javascript").val(jsACE.getValue());
