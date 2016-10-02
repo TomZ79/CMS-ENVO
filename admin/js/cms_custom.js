@@ -17,5 +17,14 @@
  *
  */
 
-/* 01. MODIFICATION -
+/* 01. MODIFICATION - INIT and CONFIG BOOTSTRAP TAGSINPUT PLUGIN
  ========================================================================*/
+$(function() {
+  $('#selecttags1').on('changed.bs.select', function (e) {
+    $("input[name='jak_tags']").tagsinput('add', $(this).val());
+  });
+  $('#selecttags2').on('changed.bs.select', function (e) {
+    $("input[name='jak_tags']").tagsinput('add', $(this).val());
+  });
+  $("input[name='jak_tags']").tagsinput('items')
+});
