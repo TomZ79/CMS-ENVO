@@ -155,12 +155,7 @@
     <?php } ?>
 
     $(document).ready(function () {
-      $('#jak_tags').tagsInput({
-        defaultText: '<?php echo $tl["general"]["g83"];?>',
-        width: 'auto',
-        taglimit: 10
-      });
-      $('#jak_tags_tag').alphanumeric({nocaps: true});
+
     });
 
     <?php if ($jkv["adv_editor"]) { ?>
