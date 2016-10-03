@@ -84,7 +84,7 @@ if ($errors) { ?>
               <tr>
                 <td><?php echo $tld["dload"]["d16"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+                  <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
                     <input class="form-control" type="text" name="jak_email" value="<?php echo $jkv["downloademail"]; ?>"/>
                   </div>
                 </td>
@@ -120,7 +120,7 @@ if ($errors) { ?>
               <tr>
                 <td><?php echo $tl["setting"]["s4"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?>">
+                  <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
                     <input type="text" name="jak_date" class="form-control" value="<?php echo $jkv["downloaddateformat"]; ?>"/>
                   </div>
                 </td>
@@ -128,7 +128,7 @@ if ($errors) { ?>
               <tr>
                 <td><?php echo $tl["setting"]["s5"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e4"])) echo " has-error"; ?>">
+                  <div class="form-group<?php if (isset($errors["e4"])) echo " has-error"; ?> no-margin">
                     <input type="text" name="jak_time" class="form-control" value="<?php echo $jkv["downloadtimeformat"]; ?>"/>
                   </div>
                 </td>
@@ -138,10 +138,10 @@ if ($errors) { ?>
                 <td>
                   <div class="radio">
                     <label class="checkbox-inline">
-                      <input type="radio" name="jak_downloadurl" value="0"<?php if ($jkv["downloadurl"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                      <input type="radio" name="jak_downloadurl" value="1"<?php if ($jkv["downloadurl"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                     </label>
                     <label class="checkbox-inline">
-                      <input type="radio" name="jak_downloadurl" value="1"<?php if ($jkv["downloadurl"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                      <input type="radio" name="jak_downloadurl" value="0"<?php if ($jkv["downloadurl"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                     </label>
                   </div>
                 </td>
@@ -149,7 +149,7 @@ if ($errors) { ?>
               <tr>
                 <td><?php echo $tl["general"]["g40"]; ?> / <?php echo $tl["general"]["g41"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e7"])) echo " has-error"; ?>">
+                  <div class="form-group<?php if (isset($errors["e7"])) echo " has-error"; ?> no-margin">
                     <input type="text" name="jak_rssitem" class="form-control" value="<?php echo $jkv["downloadrss"]; ?>"/>
                   </div>
                 </td>
@@ -157,7 +157,7 @@ if ($errors) { ?>
               <tr>
                 <td><?php echo $tl["setting"]["s7"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e6"])) echo " has-error"; ?>">
+                  <div class="form-group<?php if (isset($errors["e6"])) echo " has-error"; ?> no-margin">
                     <input type="text" class="form-control" name="jak_path" value="<?php echo $jkv["downloadpath"]; ?>"/>
                   </div>
                 </td>
@@ -182,7 +182,7 @@ if ($errors) { ?>
               <tr>
                 <td><?php echo $tl["setting"]["s11"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e5"])) echo " has-error"; ?>">
+                  <div class="form-group<?php if (isset($errors["e5"])) echo " has-error"; ?> no-margin">
                     <input type="text" name="jak_mid" class="form-control" class="form-control" value="<?php echo $jkv["downloadpagemid"]; ?>"/>
                   </div>
                 </td>
@@ -190,7 +190,7 @@ if ($errors) { ?>
               <tr>
                 <td><?php echo $tl["setting"]["s12"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e5"])) echo " has-error"; ?>">
+                  <div class="form-group<?php if (isset($errors["e5"])) echo " has-error"; ?> no-margin">
                     <input type="text" name="jak_item" class="form-control" value="<?php echo $jkv["downloadpageitem"]; ?>"/>
                   </div>
                 </td>
@@ -257,6 +257,8 @@ if ($errors) { ?>
   <script src="js/ace/ace.js" type="text/javascript"></script>
   <script type="text/javascript">
 
+    /* ACE Editor
+     ========================================= */
     var jsACE = ace.edit("javaeditor");
     jsACE.setTheme("ace/theme/chrome");
     jsACE.session.setMode("ace/mode/html");
@@ -269,6 +271,8 @@ if ($errors) { ?>
     textcss = $("#jak_css").val();
     cssACE.session.setValue(textcss);
 
+    /* Other config
+     ========================================= */
     $(document).ready(function () {
 
       $('#cmsTab a').click(function (e) {
@@ -288,6 +292,8 @@ if ($errors) { ?>
       });
     });
 
+    /* Responsive Filemanager
+     ========================================= */
     function responsive_filemanager_callback(field_id) {
 
       if (field_id == "csseditor" || field_id == "javaeditor") {
@@ -303,6 +309,8 @@ if ($errors) { ?>
       }
     }
 
+    /* Submit Form
+     ========================================= */
     $('form').submit(function () {
       $("#jak_css").val(cssACE.getValue());
       $("#jak_javascript").val(jsACE.getValue());
