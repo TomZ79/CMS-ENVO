@@ -58,10 +58,8 @@ if ($errors) { ?>
           <tr>
             <td><?php echo $tlt["st"]["d29"]; ?></td>
             <td>
-              <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-                <input type="text" name="jak_name" class="form-control"
-                       value="<?php if (isset($_REQUEST["jak_name"])) echo $_REQUEST["jak_name"];
-                       if (isset($JAK_FORM_DATA["name"])) echo $JAK_FORM_DATA["name"]; ?>"/>
+              <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?> no-margin">
+                <input type="text" name="jak_name" class="form-control" value="<?php if (isset($_REQUEST["jak_name"])) echo $_REQUEST["jak_name"]; if (isset($JAK_FORM_DATA["name"])) echo $JAK_FORM_DATA["name"]; ?>"/>
               </div>
             </td>
           </tr>
@@ -69,9 +67,7 @@ if ($errors) { ?>
             <td><?php echo $tl["general"]["g87"]; ?></td>
             <td>
               <div class="input-group">
-                <input type="text" name="jak_img" id="jak_img" data-placement="bottomRight" class="form-control"
-                       value="<?php if (isset($_REQUEST["jak_img"])) echo $_REQUEST["jak_img"];
-                       if (isset($JAK_FORM_DATA["img"])) echo $JAK_FORM_DATA["img"]; ?>">
+                <input type="text" name="jak_img" id="jak_img" data-placement="bottomRight" class="form-control" value="<?php if (isset($_REQUEST["jak_img"])) echo $_REQUEST["jak_img"]; if (isset($JAK_FORM_DATA["img"])) echo $JAK_FORM_DATA["img"]; ?>">
                 <span class="input-group-addon"></span>
               </div>
             </td>
@@ -79,8 +75,7 @@ if ($errors) { ?>
         </table>
       </div>
       <div class="box-footer">
-        <button type="submit" name="save"
-                class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+        <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
       </div>
     </div>
   </form>

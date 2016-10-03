@@ -41,8 +41,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
         <?php if (isset($CMS_TICKET_OPTIONS) && is_array($CMS_TICKET_OPTIONS)) foreach ($CMS_TICKET_OPTIONS as $v) { ?>
 
           <li id="opt-<?php echo $v["id"]; ?>" class="jakcat">
-            <div class="text">#<?php echo $v["id"]; ?> <a
-                href="index.php?p=ticketing&amp;sp=options&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
+            <div class="text">#<?php echo $v["id"]; ?>
+              <a href="index.php?p=ticketing&amp;sp=options&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
             </div>
             <div class="actions">
 

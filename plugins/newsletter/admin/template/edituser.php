@@ -58,35 +58,32 @@ if ($errors) { ?>
           <tr>
             <td><?php echo $tl["user"]["u"]; ?></td>
             <td>
-              <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?>"><input type="text"
-                                                                                                  name="jak_name"
-                                                                                                  class="form-control"
-                                                                                                  value="<?php echo $JAK_FORM_DATA["name"]; ?>"/>
+              <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?> no-margin">
+                <input type="text" name="jak_name" class="form-control" value="<?php echo $JAK_FORM_DATA["name"]; ?>"/>
               </div>
             </td>
           </tr>
           <tr>
             <td><?php echo $tl["user"]["u1"]; ?></td>
             <td>
-              <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?>"><input type="text"
-                                                                                                  name="jak_email"
-                                                                                                  class="form-control"
-                                                                                                  value="<?php echo $JAK_FORM_DATA["email"]; ?>"/>
+              <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
+                <input type="text" name="jak_email" class="form-control" value="<?php echo $JAK_FORM_DATA["email"]; ?>"/>
               </div>
             </td>
           </tr>
           <tr>
             <td><?php echo $tl["menu"]["m9"]; ?></td>
-            <td><select name="jak_usergroup" class="form-control">
+            <td>
+              <select name="jak_usergroup" class="form-control selectpicker">
                 <?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) { ?>
                   <option value="<?php echo $v["id"]; ?>"<?php if ($v["id"] == $JAK_FORM_DATA["usergroupid"]) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php } ?>
-              </select></td>
+              </select>
+            </td>
           </tr>
         </table>
       </div>
       <div class="box-footer">
-        <button type="submit" name="save"
-                class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+        <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
       </div>
     </div>
   </form>

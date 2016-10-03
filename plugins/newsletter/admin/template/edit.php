@@ -54,34 +54,34 @@
           <tr>
             <td><?php echo $tlnl["nletter"]["d8"]; ?></td>
             <td>
-              <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-                <input type="text" name="jak_title" class="form-control"
-                       value="<?php echo $JAK_FORM_DATA["title"]; ?>"/>
+              <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?> no-margin">
+                <input type="text" name="jak_title" class="form-control" value="<?php echo $JAK_FORM_DATA["title"]; ?>"/>
               </div>
             </td>
           </tr>
           <tr>
             <td><?php echo $tl["page"]["p8"]; ?></td>
             <td>
-              <div class="radio"><label><input type="radio" name="jak_showdate"
-                                               value="1"<?php if ($JAK_FORM_DATA["showdate"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                </label></div>
-              <div class="radio"><label><input type="radio" name="jak_showdate"
-                                               value="0"<?php if ($JAK_FORM_DATA["showdate"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                </label></div>
+              <div class="radio">
+                <label class="checkbox-inline">
+                  <input type="radio" name="jak_showdate" value="1"<?php if ($JAK_FORM_DATA["showdate"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                </label>
+                <label class="checkbox-inline">
+                  <input type="radio" name="jak_showdate" value="0"<?php if ($JAK_FORM_DATA["showdate"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                </label>
+              </div>
             </td>
           </tr>
           <tr>
             <td><?php echo $tlnl["nletter"]["d44"]; ?></td>
-            <td><a
-                href="<?php echo (JAK_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(JAK_rewrite::jakParseurl($rowc['varname'], 'fv', $JAK_FORM_DATA['id'], $JAK_FORM_DATA['fullview'], '')); ?>"
-                target="_blank"><?php echo $tlnl["nletter"]["m"]; ?></a></td>
+            <td>
+              <a href="<?php echo (JAK_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(JAK_rewrite::jakParseurl($rowc['varname'], 'fv', $JAK_FORM_DATA['id'], $JAK_FORM_DATA['fullview'], '')); ?>" target="_blank"><?php echo $tlnl["nletter"]["m"]; ?></a>
+            </td>
           </tr>
         </table>
       </div>
       <div class="box-footer">
-        <button type="submit" name="save"
-                class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+        <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
       </div>
     </div>
     <div class="box box-primary">
@@ -94,14 +94,14 @@
             <td>{myweburl} {mywebname} {browserversion} {unsubscribe} {username} {fullname} {useremail}</td>
           </tr>
           <tr>
-            <td><textarea name="jak_content" class="form-control jakEditorF" id="nlpost"
-                          rows="40"><?php echo $JAK_FORM_DATA["content"]; ?></textarea></td>
+            <td>
+              <textarea name="jak_content" class="form-control jakEditorF" id="nlpost" rows="40"><?php echo $JAK_FORM_DATA["content"]; ?></textarea>
+            </td>
           </tr>
         </table>
       </div>
       <div class="box-footer">
-        <button type="submit" name="save"
-                class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+        <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
       </div>
     </div>
   </form>

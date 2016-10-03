@@ -83,7 +83,7 @@
               <tr>
                 <td><?php echo $tlgal["gallery"]["d16"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+                  <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
                     <input class="form-control" type="text" name="jak_email" value="<?php echo $jkv["galleryemail"]; ?>"/>
                   </div>
                 </td>
@@ -155,7 +155,7 @@
               <tr>
                 <td><?php echo $tl["setting"]["s4"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?>">
+                  <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
                     <input type="text" name="jak_date" class="form-control" value="<?php echo $jkv["gallerydateformat"]; ?>"/>
                   </div>
                 </td>
@@ -163,7 +163,7 @@
               <tr>
                 <td><?php echo $tl["setting"]["s5"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e4"])) echo " has-error"; ?>">
+                  <div class="form-group<?php if (isset($errors["e4"])) echo " has-error"; ?> no-margin">
                     <input type="text" name="jak_time" class="form-control" value="<?php echo $jkv["gallerytimeformat"]; ?>"/>
                 </td>
               </tr>
@@ -187,7 +187,7 @@
               <tr>
                 <td><?php echo $tl["general"]["g40"]; ?> / <?php echo $tl["general"]["g41"]; ?></td>
                 <td>
-                  <div class="form-group<?php if (isset($errors["e7"])) echo " has-error"; ?>">
+                  <div class="form-group<?php if (isset($errors["e7"])) echo " has-error"; ?> no-margin">
                     <input type="text" name="jak_rssitem" class="form-control" value="<?php echo $jkv["galleryrss"]; ?>"/>
                   </div>
                 </td>

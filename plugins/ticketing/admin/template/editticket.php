@@ -288,8 +288,7 @@ if ($errors) { ?>
           </table>
         </div>
         <div class="box-footer">
-          <button type="submit" name="save"
-                  class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+          <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
         </div>
       </div>
     <?php }
@@ -303,6 +302,8 @@ if ($errors) { ?>
 <?php } ?>
   <script type="text/javascript">
 
+    /* ACE Editor
+     ========================================= */
     <?php if ($jkv["adv_editor"]) { ?>
     var htmlACE = ace.edit("htmleditor");
     htmlACE.setTheme("ace/theme/chrome");
@@ -311,10 +312,14 @@ if ($errors) { ?>
     htmlACE.session.setValue(texthtml);
     <?php } ?>
 
+    /* Other config
+     ========================================= */
     $(document).ready(function () {
 
     });
 
+    /* Responsive Filemanager
+     ========================================= */
     <?php if ($jkv["adv_editor"]) { ?>
     function responsive_filemanager_callback(field_id) {
 
@@ -325,6 +330,8 @@ if ($errors) { ?>
       }
     }
 
+    /* Submit Form
+     ========================================= */
     $('form').submit(function () {
       $("#jak_editor").val(htmlACE.getValue());
     });

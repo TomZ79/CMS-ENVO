@@ -33,7 +33,7 @@ if ($page2 == "e") { ?>
 
   <form role="form" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="input-group">
-      <select name="jak_group" class="form-control">
+      <select name="jak_group" class="form-control selectpicker">
         <?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $z) { ?>
           <option value="<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></option><?php } ?>
       </select>
@@ -55,9 +55,9 @@ if ($page2 == "e") { ?>
             <th><?php echo $tl["menu"]["m9"]; ?></th>
             <th></th>
             <th>
-              <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs"
-                      onclick="if(!confirm('<?php echo $tl["user"]["al"]; ?>'))return false;"><i
-                  class="fa fa-trash-o"></i></button>
+              <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tl["user"]["al"]; ?>'))return false;">
+                <i class="fa fa-trash-o"></i>
+              </button>
             </th>
           </tr>
           </thead>
@@ -66,20 +66,24 @@ if ($page2 == "e") { ?>
               <td><?php echo $v["id"]; ?></td>
               <td><input type="checkbox" name="jak_delete_user[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
               </td>
-              <td><a
-                  href="index.php?p=newsletter&amp;sp=user&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
+              <td>
+                <a href="index.php?p=newsletter&amp;sp=user&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
               </td>
               <td><?php echo $v["email"]; ?></td>
-              <td><?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $z) {
-                  if ($v["usergroupid"] == $z["id"]) { ?><a
-                    href="index.php?p=newsletter&amp;sp=user&amp;ssp=group&amp;sssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a><?php }
-                } ?></td>
-              <td><a href="index.php?p=newsletter&amp;sp=user&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"
-                     class="btn btn-default btn-xs"><i class="fa fa-edit"></i></a></td>
-              <td><a href="index.php?p=newsletter&amp;sp=user&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>"
-                     class="btn btn-default btn-xs"
-                     onclick="if(!confirm('<?php echo $tl["user"]["al"]; ?>'))return false;"><i
-                    class="fa fa-trash-o"></i></a></td>
+              <td>
+                <?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $z) {
+                  if ($v["usergroupid"] == $z["id"]) { ?>
+                    <a href="index.php?p=newsletter&amp;sp=user&amp;ssp=group&amp;sssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a><?php }
+                } ?>
+              </td>
+              <td>
+                <a href="index.php?p=newsletter&amp;sp=user&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs"><i class="fa fa-edit"></i></a>
+              </td>
+              <td>
+                <a href="index.php?p=newsletter&amp;sp=user&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" onclick="if(!confirm('<?php echo $tl["user"]["al"]; ?>'))return false;">
+                  <i class="fa fa-trash-o"></i>
+                </a>
+              </td>
             </tr>
           <?php } ?>
         </table>

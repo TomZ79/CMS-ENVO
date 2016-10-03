@@ -41,36 +41,34 @@
           <tr>
             <td><?php echo $tlnl["nletter"]["d8"]; ?></td>
             <td>
-              <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-                <input type="text" name="jak_title" class="form-control"
-                       value="<?php if (isset($_REQUEST["jak_title"])) echo $_REQUEST["jak_title"]; ?>"/>
+              <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?> no-margin">
+                <input type="text" name="jak_title" class="form-control" value="<?php if (isset($_REQUEST["jak_title"])) echo $_REQUEST["jak_title"]; ?>"/>
               </div>
             </td>
           </tr>
           <tr>
             <td><?php echo $tl["page"]["p8"]; ?></td>
             <td>
-              <div class="radio"><label><input type="radio" name="jak_showdate"
-                                               value="1"<?php if (isset($_REQUEST["jak_showdate"]) && $_REQUEST["jak_showdate"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                </label></div>
-              <div class="radio"><label><input type="radio" name="jak_showdate"
-                                               value="0"<?php if (isset($_REQUEST["jak_showdate"]) && $_REQUEST["jak_showdate"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                </label></div>
+              <div class="radio">
+                <label class="checkbox-inline">
+                  <input type="radio" name="jak_showdate" value="1"<?php if (isset($_REQUEST["jak_showdate"]) && $_REQUEST["jak_showdate"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                </label>
+                <label class="checkbox-inline">
+                  <input type="radio" name="jak_showdate" value="0"<?php if (isset($_REQUEST["jak_showdate"]) && $_REQUEST["jak_showdate"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                </label>
+              </div>
             </td>
           </tr>
         </table>
       </div>
       <div class="box-footer">
-        <button type="submit" name="save"
-                class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+        <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
       </div>
     </div>
     <div class="box box-primary">
       <div class="box-header with-border">
-        <h3 class="box-title"><?php echo $tlnl["nletter"]["d1"]; ?> <span id="loader"><img src="../../img/loader.gif"
-                                                                                           alt="loader" width="16"
-                                                                                           height="11"
-                                                                                           style="display: none;"/></span>
+        <h3 class="box-title"><?php echo $tlnl["nletter"]["d1"]; ?>
+          <span id="loader"><img src="../../img/loader.gif" alt="loader" width="16" height="11" style="display: none;"/></span>
         </h3>
       </div><!-- /.box-header -->
       <div class="box-body">
@@ -106,8 +104,7 @@
         </table>
       </div>
       <div class="box-footer">
-        <button type="submit" name="save"
-                class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+        <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
       </div>
     </div>
     <div class="box box-primary">
@@ -120,15 +117,14 @@
             <td>{myweburl} {mywebname} {browserversion} {unsubscribe} {username} {fullname} {useremail}</td>
           </tr>
           <tr>
-            <td><textarea name="jak_content" class="form-control jakEditorF" id="nlpost"
-                          rows="40"><?php if (isset($_REQUEST["jak_content"])) echo $_REQUEST["jak_content"]; ?></textarea>
+            <td>
+              <textarea name="jak_content" class="form-control jakEditorF" id="nlpost" rows="40"><?php if (isset($_REQUEST["jak_content"])) echo $_REQUEST["jak_content"]; ?></textarea>
             </td>
           </tr>
         </table>
       </div>
       <div class="box-footer">
-        <button type="submit" name="save"
-                class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+        <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
       </div>
     </div>
   </form>
