@@ -107,26 +107,22 @@ if ($errors) { ?>
           <div class="box-body">
             <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?>">
               <label for="sitetitle"><?php echo $tl["site"]["s2"]; ?></label>
-              <input type="text" name="jak_title" id="sitetitle" class="form-control"
-                     value="<?php echo $jkv["title"]; ?>"/>
+              <input type="text" name="jak_title" id="sitetitle" class="form-control" value="<?php echo $jkv["title"]; ?>"/>
             </div>
 
             <div class="form-group">
               <label for="metadesc"><?php echo $tl["site"]["s3"]; ?></label>
-              <input type="text" name="jak_description" id="metadesc" class="form-control"
-                     value="<?php echo $jkv["metadesc"]; ?>"/>
+              <input type="text" name="jak_description" id="metadesc" class="form-control" value="<?php echo $jkv["metadesc"]; ?>"/>
             </div>
 
             <div class="form-group">
               <label for="metakey"><?php echo $tl["site"]["s4"]; ?></label>
-              <input type="text" name="jak_keywords" id="metakey" class="form-control"
-                     value="<?php echo $jkv["metakey"]; ?>"/>
+              <input type="text" name="jak_keywords" id="metakey" class="form-control" value="<?php echo $jkv["metakey"]; ?>"/>
             </div>
 
             <div class="form-group">
               <label for="metaauthor"><?php echo $tl["site"]["s5"]; ?></label>
-              <input type="text" name="jak_author" id="metaauthor" class="form-control"
-                     value="<?php echo $jkv["metaauthor"]; ?>"/>
+              <input type="text" name="jak_author" id="metaauthor" class="form-control" value="<?php echo $jkv["metaauthor"]; ?>"/>
             </div>
 
             <div class="form-group">
@@ -175,7 +171,7 @@ if ($errors) { ?>
         <p><span class="text-danger-400">???</span></p>
 
         <h5><strong>Meta Keywords</strong></h5>
-        <p><span class="text-danger-400">???</span></p>
+        <p>Nastavení globálních klíčových slov.</p>
 
         <h5><strong>Meta Author</strong></h5>
         <p>Meta tag se zobrazí v každé stránce webové sítě.</p>
