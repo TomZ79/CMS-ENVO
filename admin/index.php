@@ -239,6 +239,12 @@ if ($page == 'setting') {
   $JAK_PAGE_ACTIVE = 1;
   $checkp = 1;
 }
+if ($page == 'mediasharing') {
+  require_once 'mediasharing.php';
+  $JAK_PROVED = 1;
+  $JAK_PAGE_ACTIVE = 1;
+  $checkp = 1;
+}
 if ($page == 'user') {
   require_once 'user.php';
   $JAK_PROVED = 1;

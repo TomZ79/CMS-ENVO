@@ -38,7 +38,7 @@
 <!-- END HOME SECTION -->
 
 <!-- START GENERAL SETTINGS SECTION -->
-    <li class="treeview<?php if ($page == 'setting' || $page == 'plugins' || $page == 'template' || $page == 'maintenance' || $page == 'version-control') echo " active"; ?>">
+    <li class="treeview<?php if ($page == 'setting' || $page == 'mediasharing' || $page == 'plugins' || $page == 'template' || $page == 'maintenance' || $page == 'version-control') echo " active"; ?>">
       <a href="javascript:void(0)">
         <i class="fa fa-cogs"></i> <?php echo $tl["menu"]["m"]; ?> <i class="fa fa-angle-left pull-right"></i>
       </a>
@@ -48,6 +48,11 @@
         <li<?php if ($page == 'setting') echo ' class="active"'; ?>>
           <a href="index.php?p=setting">
             <i class="fa fa-circle-o"></i> <?php echo $tl["menu"]["m2"]; ?>
+          </a>
+        </li>
+        <li<?php if ($page == 'mediasharing') echo ' class="active"'; ?>>
+          <a href="index.php?p=mediasharing">
+            <i class="fa fa-circle-o"></i> Social Media Settings
           </a>
         </li>
         <li class="list-divider"></li>

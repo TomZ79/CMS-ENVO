@@ -1605,79 +1605,21 @@ $(function () {
   }, c.defaultOptions.icons = ["edge", "modx", "product-hunt", "shopping-basket", "bluetooth-b", "fort-awesome", "pause-circle", "reddit-alien", "stop-circle", "codiepie", "hashtag", "pause-circle-o", "scribd", "stop-circle-o", "credit-card-alt", "mixcloud", "percent", "shopping-bag", "usb", "bluetooth", "500px", "amazon", "balance-scale", "battery-0", "battery-1", "battery-2", "battery-3", "battery-4", "battery-empty", "battery-full", "battery-half", "battery-quarter", "battery-three-quarters", "black-tie", "calendar-check-o", "calendar-minus-o", "calendar-plus-o", "calendar-times-o", "cc-diners-club", "cc-jcb", "chrome", "clone", "commenting", "commenting-o", "contao", "creative-commons", "expeditedssl", "firefox", "fonticons", "get-pocket", "gg", "gg-circle", "hand-grab-o", "hand-lizard-o", "hand-paper-o", "hand-peace-o", "hand-pointer-o", "hand-rock-o", "hand-scissors-o", "hand-spock-o", "hand-stop-o", "hourglass", "hourglass-1", "hourglass-2", "hourglass-3", "hourglass-end", "hourglass-half", "hourglass-o", "hourglass-start", "houzz", "i-cursor", "industry", "internet-explorer", "map", "map-o", "map-pin", "map-signs", "mouse-pointer", "object-group", "object-ungroup", "odnoklassniki", "odnoklassniki-square", "opencart", "opera", "optin-monster", "registered", "safari", "sticky-note", "sticky-note-o", "television", "trademark", "tripadvisor", "tv", "vimeo", "wikipedia-w", "y-combinator", "yc", "glass", "music", "search", "envelope-o", "heart", "star", "star-o", "user", "film", "th-large", "th", "th-list", "check", "remove", "close", "times", "search-plus", "search-minus", "power-off", "signal", "gear", "cog", "trash-o", "home", "file-o", "clock-o", "road", "download", "arrow-circle-o-down", "arrow-circle-o-up", "inbox", "play-circle-o", "rotate-right", "repeat", "refresh", "list-alt", "lock", "flag", "headphones", "volume-off", "volume-down", "volume-up", "qrcode", "barcode", "tag", "tags", "book", "bookmark", "print", "camera", "font", "bold", "italic", "text-height", "text-width", "align-left", "align-center", "align-right", "align-justify", "list", "dedent", "outdent", "indent", "video-camera", "photo", "image", "picture-o", "pencil", "map-marker", "adjust", "tint", "edit", "pencil-square-o", "share-square-o", "check-square-o", "arrows", "step-backward", "fast-backward", "backward", "play", "pause", "stop", "forward", "fast-forward", "step-forward", "eject", "chevron-left", "chevron-right", "plus-circle", "minus-circle", "times-circle", "check-circle", "question-circle", "info-circle", "crosshairs", "times-circle-o", "check-circle-o", "ban", "arrow-left", "arrow-right", "arrow-up", "arrow-down", "mail-forward", "share", "expand", "compress", "plus", "minus", "asterisk", "exclamation-circle", "gift", "leaf", "fire", "eye", "eye-slash", "warning", "exclamation-triangle", "plane", "calendar", "random", "comment", "magnet", "chevron-up", "chevron-down", "retweet", "shopping-cart", "folder", "folder-open", "arrows-v", "arrows-h", "bar-chart-o", "bar-chart", "twitter-square", "facebook-square", "camera-retro", "key", "gears", "cogs", "comments", "thumbs-o-up", "thumbs-o-down", "star-half", "heart-o", "sign-out", "linkedin-square", "thumb-tack", "external-link", "sign-in", "trophy", "github-square", "upload", "lemon-o", "phone", "square-o", "bookmark-o", "phone-square", "twitter", "facebook-f", "facebook", "github", "unlock", "credit-card", "rss", "hdd-o", "bullhorn", "bell", "certificate", "hand-o-right", "hand-o-left", "hand-o-up", "hand-o-down", "arrow-circle-left", "arrow-circle-right", "arrow-circle-up", "arrow-circle-down", "globe", "wrench", "tasks", "filter", "briefcase", "arrows-alt", "group", "users", "chain", "link", "cloud", "flask", "cut", "scissors", "copy", "files-o", "paperclip", "save", "floppy-o", "square", "navicon", "reorder", "bars", "list-ul", "list-ol", "strikethrough", "underline", "table", "magic", "truck", "pinterest", "pinterest-square", "google-plus-square", "google-plus", "money", "caret-down", "caret-up", "caret-left", "caret-right", "columns", "unsorted", "sort", "sort-down", "sort-desc", "sort-up", "sort-asc", "envelope", "linkedin", "rotate-left", "undo", "legal", "gavel", "dashboard", "tachometer", "comment-o", "comments-o", "flash", "bolt", "sitemap", "umbrella", "paste", "clipboard", "lightbulb-o", "exchange", "cloud-download", "cloud-upload", "user-md", "stethoscope", "suitcase", "bell-o", "coffee", "cutlery", "file-text-o", "building-o", "hospital-o", "ambulance", "medkit", "fighter-jet", "beer", "h-square", "plus-square", "angle-double-left", "angle-double-right", "angle-double-up", "angle-double-down", "angle-left", "angle-right", "angle-up", "angle-down", "desktop", "laptop", "tablet", "mobile-phone", "mobile", "circle-o", "quote-left", "quote-right", "spinner", "circle", "mail-reply", "reply", "github-alt", "folder-o", "folder-open-o", "smile-o", "frown-o", "meh-o", "gamepad", "keyboard-o", "flag-o", "flag-checkered", "terminal", "code", "mail-reply-all", "reply-all", "star-half-empty", "star-half-full", "star-half-o", "location-arrow", "crop", "code-fork", "unlink", "chain-broken", "question", "info", "exclamation", "superscript", "subscript", "eraser", "puzzle-piece", "microphone", "microphone-slash", "shield", "calendar-o", "fire-extinguisher", "rocket", "maxcdn", "chevron-circle-left", "chevron-circle-right", "chevron-circle-up", "chevron-circle-down", "html5", "css3", "anchor", "unlock-alt", "bullseye", "ellipsis-h", "ellipsis-v", "rss-square", "play-circle", "ticket", "minus-square", "minus-square-o", "level-up", "level-down", "check-square", "pencil-square", "external-link-square", "share-square", "compass", "toggle-down", "caret-square-o-down", "toggle-up", "caret-square-o-up", "toggle-right", "caret-square-o-right", "euro", "eur", "gbp", "dollar", "usd", "rupee", "inr", "cny", "rmb", "yen", "jpy", "ruble", "rouble", "rub", "won", "krw", "bitcoin", "btc", "file", "file-text", "sort-alpha-asc", "sort-alpha-desc", "sort-amount-asc", "sort-amount-desc", "sort-numeric-asc", "sort-numeric-desc", "thumbs-up", "thumbs-down", "youtube-square", "youtube", "xing", "xing-square", "youtube-play", "dropbox", "stack-overflow", "instagram", "flickr", "adn", "bitbucket", "bitbucket-square", "tumblr", "tumblr-square", "long-arrow-down", "long-arrow-up", "long-arrow-left", "long-arrow-right", "apple", "windows", "android", "linux", "dribbble", "skype", "foursquare", "trello", "female", "male", "gittip", "gratipay", "sun-o", "moon-o", "archive", "bug", "vk", "weibo", "renren", "pagelines", "stack-exchange", "arrow-circle-o-right", "arrow-circle-o-left", "toggle-left", "caret-square-o-left", "dot-circle-o", "wheelchair", "vimeo-square", "turkish-lira", "try", "plus-square-o", "space-shuttle", "slack", "envelope-square", "wordpress", "openid", "institution", "bank", "university", "mortar-board", "graduation-cap", "yahoo", "google", "reddit", "reddit-square", "stumbleupon-circle", "stumbleupon", "delicious", "digg", "pied-piper", "pied-piper-alt", "drupal", "joomla", "language", "fax", "building", "child", "paw", "spoon", "cube", "cubes", "behance", "behance-square", "steam", "steam-square", "recycle", "automobile", "car", "cab", "taxi", "tree", "spotify", "deviantart", "soundcloud", "database", "file-pdf-o", "file-word-o", "file-excel-o", "file-powerpoint-o", "file-photo-o", "file-picture-o", "file-image-o", "file-zip-o", "file-archive-o", "file-sound-o", "file-audio-o", "file-movie-o", "file-video-o", "file-code-o", "vine", "codepen", "jsfiddle", "life-bouy", "life-buoy", "life-saver", "support", "life-ring", "circle-o-notch", "ra", "rebel", "ge", "empire", "git-square", "git", "hacker-news", "tencent-weibo", "qq", "wechat", "weixin", "send", "paper-plane", "send-o", "paper-plane-o", "history", "genderless", "circle-thin", "header", "paragraph", "sliders", "share-alt", "share-alt-square", "bomb", "soccer-ball-o", "futbol-o", "tty", "binoculars", "plug", "slideshare", "twitch", "yelp", "newspaper-o", "wifi", "calculator", "paypal", "google-wallet", "cc-visa", "cc-mastercard", "cc-discover", "cc-amex", "cc-paypal", "cc-stripe", "bell-slash", "bell-slash-o", "trash", "copyright", "at", "eyedropper", "paint-brush", "birthday-cake", "area-chart", "pie-chart", "line-chart", "lastfm", "lastfm-square", "toggle-off", "toggle-on", "bicycle", "bus", "ioxhost", "angellist", "cc", "shekel", "sheqel", "ils", "meanpath", "buysellads", "connectdevelop", "dashcube", "forumbee", "leanpub", "sellsy", "shirtsinbulk", "simplybuilt", "skyatlas", "cart-plus", "cart-arrow-down", "diamond", "ship", "user-secret", "motorcycle", "street-view", "heartbeat", "venus", "mars", "mercury", "transgender", "transgender-alt", "venus-double", "mars-double", "venus-mars", "mars-stroke", "mars-stroke-v", "mars-stroke-h", "neuter", "facebook-official", "pinterest-p", "whatsapp", "server", "user-plus", "user-times", "hotel", "bed", "viacoin", "train", "subway", "medium"]
 });
 
-/* 00. jQuery.share - social media sharing plugin
- * @author Carol Skelly (http://in1.com)
+/* 00. jQuery Sollist - social media sharing plugin
+ * http://88z.github.io/sollist/
  ========================================================================*/
 
-(function ($) {
-  var document = window.document;
-  $.fn.share = function (method) {
-    var methods = {
-      init: function (options) {
-        this.share.settings = $.extend({}, this.share.defaults, options);
-        var networks = this.share.settings.networks, orientation = this.share.settings.orientation, affix = this.share.settings.affix, margin = this.share.settings.margin, pageTitle = this.share.settings.title || $(document).attr('title'), pageUrl = this.share.settings.urlToShare || $(location).attr('href');
-        return this.each(function () {
-          var $element = $(this), id = $element.attr("id"), u = encodeURIComponent(pageUrl), t = encodeURIComponent(pageTitle), href;
-          for (var item in networks) {
-            item = networks[item];
-            href = helpers.networkDefs[item].url;
-            href = href.replace('|u|', u).replace('|t|', t).replace('|140|', t.substring(0, 130));
-            if (item == "email") {
-              $("<a href='" + href + "' title='Share this page on " + item + "' class='share-icon share-icon-" + item + "'></a>").appendTo($element)
-            } else {
-              $("<a href='" + href + "' title='Share this page on " + item + "' class='pop share-icon share-icon-" + item + "'></a>").appendTo($element)
-            }
-          }
-          $("#" + id + ".share-icon").css('margin', margin);
-          $("#" + id + " a.share-icon").css('display', 'inline-block');
-          if (typeof affix != "undefined") {
-            $element.addClass('share-affix');
-            if (affix.indexOf('right') != -1) {
-              $element.css('left', 'auto');
-              $element.css('right', '0px');
-              if (affix.indexOf('center') != -1) {
-                $element.css('top', '40%')
-              }
-            } else if (affix.indexOf('left center') != -1) {
-              $element.css('top', '40%')
-            }
-            if (affix.indexOf('bottom') != -1) {
-              $element.css('bottom', '0px');
-              $element.css('top', 'auto');
-              if (affix.indexOf('center') != -1) {
-                $element.css('left', '40%')
-              }
-            }
-          }
-          $('.pop').click(function () {
-            window.open($(this).attr('href'), 't', 'toolbar=0,resizable=1,status=0,width=640,height=528');
-            return false
-          })
-        })
-      }
-    };
-    var helpers = {
-      networkDefs: {
-        tumblr: {url: 'http://www.tumblr.com/share?v=3&u=|u|'},
-        facebook: {url: 'http://www.facebook.com/share.php?u=|u|'},
-        twitter: {url: 'https://twitter.com/share?url=|u|&text=|140|'},
-        googleplus: {url: 'https://plusone.google.com/_/+1/confirm?hl=en&url=|u|'},
-        pinterest: {url: 'http://pinterest.com/pin/create/button/?url=|u|'},
-        email: {url: 'mailto:?subject=|t|&body=|u|'}
-      }
-    };
-    if (methods[method]) {
-      return methods[method].apply(this, Array.prototype.slice.call(arguments, 1))
-    } else if (typeof method === 'object' || !method) {
-      return methods.init.apply(this, arguments)
-    } else {
-      $.error('Method "' + method + '" does not exist in social plugin')
-    }
-  };
-  $.fn.share.defaults = {
-    networks: ['tumblr', 'facebook', 'twitter', 'googleplus', 'pinterest', 'email'],
-    autoShow: true,
-    margin: '3px'
-  };
-  $.fn.share.settings = {}
-})(jQuery);
+!function(t){var o=function(o,i){var s={profiles:{},theme:"lee-gargano-circle-color",pixelsBetweenItems:10,themeDirPath:"",containerTag:"ul",elementTag:"li",size:32,iconFileExtension:"png",hoverEffect:"",newTab:!0,showTooltips:!1,tooltipsterOptions:{theme:"sl-tooltip-black"},tooltipClass:"sl-tooltip",showTooltips:!1,tooltips:{googleplus:"google+"},itemClass:"",itemCss:{}}
+  this.elem=i,this.options=t.extend({},s,o),this.options.tooltips=t.extend({},s.tooltips,this.options.tooltips),(this.options.theme||this.themeDirPath)&&this.options.profiles&&this.elem&&(this.hoverFunctions={myFadeOut:{inFunc:function(t){t.fadeTo(.2,.5)},outFunc:function(t){t.fadeTo(.2,1)}}},this.go())}
+  t.extend(o.prototype,{go:function(){this.setHoverFucntions(),$container=t("<"+this.options.containerTag+"></"+this.options.containerTag+">")
+    this.options.profiles.length
+    for(var o in this.options.profiles)$container.addClass("sl-container"),$container.append(this.itemElement(o))
+    $container.children().last().css("margin-right",0),this.elem.append($container),this.options.showTooltips&&t("."+this.options.tooltipClass).tooltipster(this.options.tooltipsterOptions)},itemElement:function(o){var i=t("<"+this.options.elementTag+"></"+this.options.elementTag+">")
+    i.addClass("sl-item"),i.addClass(this.options.itemClass),this.options.hoverInFunction&&this.options.hoverOutFunction?i.hover(function(){n.options.hoverInFunction(t(this))},function(){n.options.hoverOutFunction(t(this))}):i.addClass(this.hoverClass())
+    var s=t.extend({},{"margin-right":this.options.pixelsBetweenItems},this.options.itemCss)
+    i.css(s)
+    var n=this,e=t("<a></a>")
+    if(e.attr("href",this.options.profiles[o]),e.height(this.options.size),e.width(this.options.size),this.options.themeDirPath){var h=t('<img src = "'+this.socialIconPath(o)+"."+this.options.iconFileExtension+'"/>')
+      e.append(h)}else e.addClass(o),e.addClass(this.options.theme)
+    return this.options.newTab&&e.attr("target","_blank"),this.options.showTooltips&&(e.addClass(this.options.tooltipClass),e.attr("title",this.tooltip(o)),e.addClass(this.options.tooltipsTheme)),i.append(e),i},hoverClass:function(){return"fadeOut"==this.options.hoverEffect?"":this.options.hoverEffect},socialIconPath:function(t){return this.options.themeDirPath+"/"+t},setHoverFucntions:function(){this.options.hoverOutFunction&&this.options.hoverInFunction||"myFadeOut"==this.options.hoverEffect&&(this.options.hoverInFunction=this.hoverFunctions[this.options.hoverEffect].inFunc,this.options.hoverOutFunction=this.hoverFunctions[this.options.hoverEffect].outFunc)},tooltip:function(t){return this.options.tooltips.hasOwnProperty(t)?this.options.tooltips[t]:t}}),t.fn.sollist=function(i){this.each(function(){var s=t(this)
+    new o(i,s)})}}(jQuery)
