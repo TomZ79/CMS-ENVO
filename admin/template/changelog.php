@@ -35,6 +35,10 @@
     [new]  ACP - Categories - extra settings for meta description and keywords
     [new]  ACP - Datetimepicker - change plugin to better
            http://eonasdan.github.io/bootstrap-datetimepicker/
+    [new]  ACP - Bootstrap Tags Input
+           https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/
+    [new]  Social Media Sharing Plugin
+           88z.github.io/sollist/
 
     // # List of updated components
     // ------------------------------
@@ -66,6 +70,8 @@
     [enhanced]  ACP - Datetimepicker - change plugin
                 http://eonasdan.github.io/bootstrap-datetimepicker/
     [enhanced]  ACP - Plugin - added info about uninstallation
+    [enhanced]  ACP - Help for each page
+    [enhanced]  Social Media Sharing Plugin
 
 
     // # List of new pages
@@ -78,6 +84,8 @@
     // ------------------------------
 
     [removed]  Remove unnecessary code in *.css
+    [removed]  Remove Jak Tags Input
+    [removed]  jQuery.share - social media sharing plugin
   </code></pre>
             </div>
           </div>
@@ -179,8 +187,9 @@
                     <a href="http://rocha.la/jQuery-slimScroll" class="btn bg-teal btn-xs" target="_blank">Preview</a>
                   </dd>
 
-                  <dt>Jquery-Share social media plugin</dt>
-                  <dd><a href="http://plugins.in1.com/share" class="btn bg-teal btn-xs" target="_blank">Preview</a></dd>
+                  <dt>Sollist - Share social media plugin</dt>
+                  <dd>jQuery plugin builds easy customisable lists of social links.
+                    <a href="88z.github.io/sollist/" class="btn bg-teal btn-xs" target="_blank">Preview</a></dd>
 
                   <dt>Bootstrap</dt>
                   <dd>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.
@@ -195,6 +204,11 @@
                   <dt>Bootstrap DateTimePicker</dt>
                   <dd>A date/time picker component designed to work with Bootstrap 3 and Momentjs.
                     <a href="http://eonasdan.github.io/bootstrap-datetimepicker/" class="btn bg-teal btn-xs" target="_blank">Preview</a>
+                  </dd>
+
+                  <dt>Bootstrap Tags Input</dt>
+                  <dd>jQuery plugin providing a Twitter Bootstrap user interface for managing tags.
+                    <a href="https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/" class="btn bg-teal btn-xs" target="_blank">Preview</a>
                   </dd>
                 </dl>
               </div>
@@ -303,7 +317,5 @@
 
     });
   </script>
-  <style>
 
-  </style>
 <?php include_once "footer.php"; ?>
