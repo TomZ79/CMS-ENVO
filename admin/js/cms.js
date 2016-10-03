@@ -412,15 +412,11 @@ function _init() {
       var bg = $(".control-sidebar-bg");
       _this._fix(bg);
 
-      //If the body has a fixed layout, make the control sidebar fixed
-      if ($('body').hasClass('fixed')) {
-        _this._fixForFixed(sidebar);
-      } else {
-        //If the content height is less than the sidebar's height, force max height
-        if ($('.content-wrapper, .right-side').height() < sidebar.height()) {
-          _this._fixForContent(sidebar);
-        }
+      //If the content height is less than the sidebar's height, force max height
+      if ($('.content-wrapper, .right-side').height() < sidebar.height()) {
+        _this._fixForContent(sidebar);
       }
+
     },
     //Open the control sidebar
     open: function (sidebar, slide) {
