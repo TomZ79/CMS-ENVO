@@ -60,7 +60,7 @@ if ($errors) { ?>
     <div class="tab-content">
       <div class="tab-pane active" id="style_tabs-1">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-7">
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tl["title"]["t13"]; ?></h3>
@@ -182,7 +182,7 @@ if ($errors) { ?>
               </div>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-5">
             <div class="box box-danger">
               <div class="box-header with-border">
                 <h3 class="box-title">
@@ -249,30 +249,30 @@ if ($errors) { ?>
                   <h3 class="box-title"><?php echo $tl["title"]["t31"]; ?></h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                  <table class="table table-striped">
+                  <table class="table table-striped v-text-center">
                     <tr>
-                      <td>Choose tags from list</td>
+                      <td>Choose tags from predefined list</td>
                       <td>
                         <select name="" id="selecttags1" class="form-control selectpicker" title="Choose tags ..." data-size="7" data-live-search="true">
-                          <optgroup label="Group 1">
-                            <option value="tag1">Tag 1</option>
-                            <option value="tag2">Tag 2</option>
-                            <option value="tag3">Tag 3</option>
+                          <optgroup label="Poskytovatelé TV">
+                            <option value="skylink">Skylink</option>
+                            <option value="freesat">freeSAT</option>
+                            <option value="digi-tv">Digi TV</option>
                           </optgroup>
-                          <optgroup label="Group 2">
-                            <option value="tag4">Tag 4</option>
-                            <option value="tag5">Tag 5</option>
-                            <option value="tag6">Tag 6</option>
-                            <option value="tag7">Tag 7</option>
+                          <optgroup label="Vysílací technologie">
+                            <option value="dvb-t/t2">DVB-T/T2</option>
+                            <option value="dvb-s/s2">DVB-S/S2</option>
+                            <option value="dvb-c">DVB-C</option>
+                            <option value="dvb-h">DVB-H</option>
                           </optgroup>
                         </select>
                       </td>
                     </tr>
                     <tr>
-                      <td>Choose tags from cloud</td>
+                      <td>Choose tags from list</td>
                       <td>
 
-                        <?php $JAK_TAG_ALL = jak_get_tag($tags->limit, false, $jakplugins->jakAdmintag(), false);
+                        <?php $JAK_TAG_ALL = jak_tag_name_admin();
                         if ($JAK_TAG_ALL) { ?>
                         <select name="" id="selecttags2" class="form-control selectpicker" title="Choose tags ..." data-size="7" data-live-search="true">
                         <?php foreach ($JAK_TAG_ALL as $v) { ?>
