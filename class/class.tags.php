@@ -111,12 +111,13 @@ class JAK_tags
 
     $striptags = strip_tags($tags);
     $smalltags = strtolower($striptags);
-    $tagarray = explode(' ', $smalltags);
+    $tagarray = explode(',', $smalltags);
 
     for ($i = 0; $i < count($tagarray); $i++) {
       $tag = $tagarray[$i];
-      $tag = trim($tag);
-      $urlTAG = JAK_base::jakCleanurl($tag);
+      // $tag = trim($tag);
+      // $urlTAG = JAK_base::jakCleanurl($tag);
+      $urlTAG = trim($tag);
 
       // check if tag exist
       global $jakdb;
@@ -135,13 +136,14 @@ class JAK_tags
 
     $striptags = strip_tags($tags);
     $smalltags = strtolower($striptags);
-    $tagarray = explode(' ', $smalltags);
+    $tagarray = explode(',', $smalltags);
 
     for ($i = 0; $i < count($tagarray); $i++) {
 
       $tag = $tagarray[$i];
-      $tag = trim($tag);
-      $urlTAG = JAK_base::jakCleanurl($tag);
+      // $tag = trim($tag);
+      // $urlTAG = JAK_base::jakCleanurl($tag);
+      $urlTAG = trim($tag);
 
       // check if tag exist
       global $jakdb;
