@@ -1,0 +1,34 @@
+/*
+ * BLUESAT.CZ
+ * CANVAS CSS Style with custom modification
+ * Copyright © 2016 Bluesat.cz
+ *
+ * -----------------------------------------------------------------------
+ * Author: Thomas
+ * Written by: Bluesat.cz - (http://www.bluesat.cz)
+ * Email: bluesatkv@gmail.com
+ * =======================================================================
+ */
+
+
+/* 00. BOOTSTRAP - Custom modification
+ ========================================================================*/
+/* Margin */
+.no-margin {
+  margin: 0;
+}
+
+/* UL List */
+.list-footer li::after {
+  content: "/";
+}
+.list-footer li:last-child::after {
+  content: "";
+}
+
+.dark #header-wrap:not(.not-dark) #primary-menu > ul > li:hover > a,
+.dark #header-wrap:not(.not-dark) #primary-menu > ul > li.current > a,
+.dark #header-wrap:not(.not-dark) #primary-menu > .container > ul > li:hover > a,
+.dark #header-wrap:not(.not-dark) #primary-menu > .container > ul > li.current > a {
+  color: #1ABC9C;
+}
