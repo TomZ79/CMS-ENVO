@@ -28,9 +28,9 @@ if (JAK_ASACCESS) {
           <?php } ?>
         </div><!-- .entry-title end -->
 
-        <!-- Entry Meta - Date, Hits
+        <!-- Entry Meta
         ============================================= -->
-        <?php if ($SHOWDATE || $SHOWHITS) { ?>
+        <?php if ($SHOWDATE || $SHOWHITS || $JAK_TAGLIST) { ?>
         <ul class="entry-meta clearfix">
           <!-- Show Date -->
           <?php if ($SHOWDATE) { ?>
@@ -39,6 +39,10 @@ if (JAK_ASACCESS) {
           <!-- Show Hits -->
           <?php if ($SHOWHITS) { ?>
           <li><i class="fa fa-eye"></i> <?php echo $tl["general"]["g13"] . $PAGE_HITS; ?></li>
+          <?php } ?>
+          <!-- Show Tags -->
+          <?php if ($JAK_TAGLIST) { ?>
+          <li><i class="fa fa-tags"></i> <?php echo $JAK_TAGLIST; ?></li>
           <?php } ?>
         </ul><!-- .entry-meta end -->
         <?php } ?>
@@ -55,17 +59,6 @@ if (JAK_ASACCESS) {
 
           <?php echo $PAGE_CONTENT; ?>
           <!-- Post Single - Content End -->
-
-          <!-- Tag Cloud
-					============================================= -->
-          <?php if ($JAK_TAGLIST) { ?>
-            <!-- Show Tags -->
-            <?php if ($JAK_TAGLIST) { ?>
-              <div class="tagcloud clearfix bottommargin">
-                <?php echo $JAK_TAGLIST; ?>
-              </div><!-- .tagcloud end -->
-            <?php } ?>
-          <?php } ?>
 
           <div class="clear"></div>
 
@@ -97,6 +90,8 @@ if (JAK_ASACCESS) {
         </div>
 
       </div><!-- .post-navigation end -->
+
+      <div class="line"></div>
 
       <!-- Show other settings
       ============================================= -->
