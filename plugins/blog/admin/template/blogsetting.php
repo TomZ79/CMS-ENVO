@@ -174,8 +174,24 @@ if ($page2 == "e") { ?>
               <tr>
                 <td><?php echo $tl["setting"]["s11"]; ?></td>
                 <td>
-                  <div class="form-group no-margin<?php if (isset($errors["e5"])) echo " has-error"; ?>">
-                    <input type="text" name="jak_mid" class="form-control" value="<?php echo $jkv["blogpagemid"]; ?>"/>
+                  <div class="<?php if (isset($errors["e5"])) echo " has-error"; ?>">
+                    <select name="jak_mid" class="form-control selectpicker">
+                      <option value="2"<?php if ($jkv["blogpagemid"] == 2) { ?> selected="selected"<?php } ?>>
+                        Range 1 page
+                      </option>
+                      <option value="4"<?php if ($jkv["blogpagemid"] == 4) { ?> selected="selected"<?php } ?>>
+                        Range 2 page
+                      </option>
+                      <option value="6"<?php if ($jkv["blogpagemid"] == 6) { ?> selected="selected"<?php } ?>>
+                        Range 3 page
+                      </option>
+                      <option value="8"<?php if ($jkv["blogpagemid"] == 8) { ?> selected="selected"<?php } ?>>
+                        Range 4 page
+                      </option>
+                      <option value="10"<?php if ($jkv["blogpagemid"] == 10) { ?> selected="selected"<?php } ?>>
+                        Range 5 page
+                      </option>
+                    </select>
                   </div>
                 </td>
               </tr>
