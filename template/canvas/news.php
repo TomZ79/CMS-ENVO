@@ -13,7 +13,7 @@
         <div class="entry clearfix">
           <div class="entry-image">
             <a href="<?php echo $v["parseurl"]; ?>">
-              <img class="image_fade" src="<?php echo BASE_URL . $v["previmg"]; ?>" alt="Preview - <?php echo $v["title"]; ?>">
+              <img class="image_fade" src="<?php echo $v["previmg"]; ?>" alt="Preview - <?php echo $v["title"]; ?>">
             </a>
           </div>
           <div class="entry-title">
@@ -28,7 +28,6 @@
             <a href="<?php echo $v["parseurl"]; ?>" class="more-link"><?php echo $tl["general"]["g3"]; ?></a>
             <?php if (JAK_ASACCESS) { ?>
               <div class="pull-right">
-
 
                 <a href="<?php echo BASE_URL; ?>admin/index.php?p=news&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" class="button button-mini button-border button-rounded jaktip" title="<?php echo $tl["general"]["g"]; ?>" style="padding: 0 3px 0 7px;line-height: 21px;"><span><i class="fa fa-pencil"></i></span></a>
 

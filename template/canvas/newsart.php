@@ -50,7 +50,7 @@ if (JAK_ASACCESS) {
           <!-- Entry Image
           ============================================= -->
           <div class="entry-image alignleft">
-            <a href="#"><img src="<?php echo BASE_URL . $PAGE_IMAGE; ?>" alt="Preview - <?php echo $PAGE_TITLE; ?>"></a>
+            <a href="#"><img src="<?php echo $PAGE_IMAGE; ?>" alt="Preview - <?php echo $PAGE_TITLE; ?>"></a>
           </div><!-- .entry-image end -->
 
           <?php echo $PAGE_CONTENT; ?>
@@ -60,11 +60,9 @@ if (JAK_ASACCESS) {
 					============================================= -->
           <?php if ($JAK_TAGLIST) { ?>
             <!-- Show Tags -->
-            <?php if ($JAK_TAGLIST) { ?>
-              <div class="tagcloud clearfix bottommargin">
-                <?php echo $JAK_TAGLIST; ?>
-              </div><!-- .tagcloud end -->
-            <?php } ?>
+            <div class="tagcloud clearfix bottommargin">
+              <?php echo $JAK_TAGLIST; ?>
+            </div><!-- .tagcloud end -->
           <?php } ?>
 
           <div class="clear"></div>
@@ -73,7 +71,7 @@ if (JAK_ASACCESS) {
           ============================================= -->
           <?php if ($SHOWSOCIALBUTTON) { ?>
             <div class="si-share noborder clearfix">
-              <?php include_once APP_PATH . 'template/canvas/socialbutton.php'; ?>
+              <?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/socialbutton.php'; ?>
             </div><!-- Post Single - Share End -->
           <?php } ?>
 
