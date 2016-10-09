@@ -39,6 +39,7 @@
            https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/
     [new]  Social Media Sharing Plugin
            88z.github.io/sollist/
+    [new]  Add new template Canvas
 
     // # List of updated components
     // ------------------------------
@@ -86,6 +87,7 @@
     [removed]  Remove unnecessary code in *.css
     [removed]  Remove Jak Tags Input
     [removed]  jQuery.share - social media sharing plugin
+    [removed]  Remove Bluesat template
   </code></pre>
             </div>
           </div>
