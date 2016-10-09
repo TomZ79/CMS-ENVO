@@ -58,12 +58,14 @@ switch ($page1) {
 
                 $PAGE_ID = $row['id'];
                 $PAGE_TITLE = $row['title'];
+                $PAGE_IMAGE = $row['previmg'];
                 $PAGE_CONTENT = jak_secure_site($row['content']);
                 $JAK_HEADER_CSS = $row['news_css'];
                 $JAK_FOOTER_JAVASCRIPT = $row['news_javascript'];
                 $jkv["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
                 $SHOWTITLE = $row['showtitle'];
                 $SHOWDATE = $row['showdate'];
+                $SHOWHITS = $row['showhits'];
                 $SHOWSOCIALBUTTON = $row['socialbutton'];
                 $SHOWVOTE = $row['showvote'];
                 $PAGE_ACTIVE = $row['active'];

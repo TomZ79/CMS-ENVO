@@ -95,6 +95,11 @@
               <i class="fa fa-circle-o"></i> <?php echo $tl["menu"]["m23"]; ?>
             </a>
           </li>
+          <li<?php if ($page1 == 'settings') echo ' class="active"'; ?>>
+            <a href="index.php?p=template&amp;sp=settings">
+              <i class="fa fa-circle-o"></i> Settings
+            </a>
+          </li>
           <li<?php if ($page1 == 'edit-files') echo ' class="active"'; ?>>
             <a href="index.php?p=template&amp;sp=edit-files">
               <i class="fa fa-circle-o"></i> <?php echo $tl["general"]["g52"]; ?>

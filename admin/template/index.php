@@ -38,7 +38,7 @@ if (!isset($jkv["cms_tpl"])) { ?>
 
   <!-- Small boxes (Stat box) -->
   <div class="row">
-    <div class="col-lg-3 col-xs-6">
+    <div class="col-lg-3 col-xs-12">
       <!-- small box -->
       <div class="small-box bg-pink">
         <div class="inner">
@@ -52,7 +52,7 @@ if (!isset($jkv["cms_tpl"])) { ?>
             class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div><!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
+    <div class="col-lg-3 col-xs-12">
       <!-- small box -->
       <div class="small-box bg-green">
         <div class="inner">
@@ -66,7 +66,7 @@ if (!isset($jkv["cms_tpl"])) { ?>
             class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div><!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
+    <div class="col-lg-3 col-xs-12">
       <!-- small box -->
       <div class="small-box bg-orange">
         <div class="inner">
@@ -80,7 +80,7 @@ if (!isset($jkv["cms_tpl"])) { ?>
             class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div><!-- ./col -->
-    <div class="col-lg-3 col-xs-6">
+    <div class="col-lg-3 col-xs-12">
       <!-- small box -->
       <?php if (JAK_TAGS) { ?>
         <div class="small-box bg-brown">

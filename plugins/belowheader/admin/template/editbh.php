@@ -236,12 +236,16 @@
           <tr>
             <td>
               <?php if ($jkv["adv_editor"]) { ?>
-                <p>
-                  <a href="../js/editor/plugins/filemanager/dialog.php?type=0&editor=mce_0&lang=eng&fldr=&field_id=htmleditor2" class="btn btn-default btn-xs ifManager">
-                    <i class="fa fa-files-o"></i>
-                  </a>
-                </p>
-                <div id="htmleditor2"></div>
+                <div id="cover">
+                  <div class="cover-header">
+                    <a href="../js/editor/plugins/filemanager/dialog.php?type=0&editor=mce_0&lang=eng&fldr=&field_id=htmleditor2" class="btn btn-primary btn-xs ifManager">
+                      <i class="fa fa-files-o"></i>
+                    </a>
+                  </div>
+                  <div id="editorContainer2">
+                    <div id="htmleditor2"></div>
+                  </div>
+                </div>
                 <textarea name="jak_contentb" class="form-control hidden" id="jak_editor2"><?php echo jak_edit_safe_userpost(htmlspecialchars($JAK_FORM_DATA["content_below"])); ?></textarea>
               <?php } else { ?>
                 <textarea name="jak_contentb" class="form-control jakEditor" id="jakEditor2" rows="40"><?php echo jak_edit_safe_userpost($JAK_FORM_DATA["content_below"]); ?></textarea>
@@ -297,7 +301,7 @@
       showGutter: <?php echo $jkv["acegutter"]; ?>,
     });
 
-    texthtml2 = $("#htmleditor2").val();
+    texthtml2 = $("#jak_editor2").val();
     htmlACE2.session.setValue(texthtml2);
 
     /* Responsive Filemanager

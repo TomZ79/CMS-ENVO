@@ -180,6 +180,30 @@ if ($page1 == "e") { ?>
                   </td>
                 </tr>
               </table>
+              <div style="position: relative;height: 200px;">
+
+                <div id="sollist-sharing" style="position: absolute;display: table-cell;top: 30%;left: 10%;"></div>
+
+                <script type="text/javascript">
+                  $(function(){
+                    $("#sollist-sharing").sollist({
+                      pixelsBetweenItems: <?php echo $jkv["md_mediaSize"] ?>,
+                      size: <?php echo $jkv["md_iconSize"] ?>,
+                      theme: '<?php echo $jkv["md_mediatheme"] ?>',
+                      hoverEffect: '<?php echo $jkv["md_mediahover"] ?>',
+                      profiles: {
+                        facebook: '',
+                        googleplus: '',
+                        instagram: '',
+                        twitter: '',
+                        youtube: '',
+                        vimeo: '',
+                        email: '',
+                      }
+                    });
+                  });
+                </script>
+              </div>
             </div>
           </div>
 
