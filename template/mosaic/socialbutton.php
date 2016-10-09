@@ -1,4 +1,7 @@
-<div id="sollist-sharing"></div>
+<div style="display: table;">
+  <div style="display: table-cell;vertical-align: middle;/*! margin-right: 20px; */padding-right: 20px;"><strong>Share this post:</strong></div>
+  <div id="sollist-sharing"></div>
+</div>
 
 <?php
 $stack = array();
