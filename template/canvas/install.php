@@ -16,7 +16,7 @@ $succesfully = 0;
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Installation - Mosaic / Template</title>
+  <title>Installation - Canvas / Template</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="../../css/stylesheet.css" type="text/css" media="screen"/>
   <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
@@ -26,7 +26,7 @@ $succesfully = 0;
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h3>Installation - Mosaic / Template</h3>
+      <h3>Installation - Canvas / Template</h3>
 
       <!-- Check if the plugin is already installed -->
       <?php
@@ -45,77 +45,52 @@ $succesfully = 0;
 // Delete old entries
           $jakdb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "canvas"');
 
+// Insert php code for lang site to hooks
+          $sitelang = 'if (file_exists(APP_PATH.\'template/canvas/lang/\'.$site_language.\'.ini\')) {
+    $tlcanvas = parse_ini_file(APP_PATH.\'template/canvas/lang/\'.$site_language.\'.ini\', true);
+} else {
+    $tlcanvas = parse_ini_file(APP_PATH.\'template/canvas/lang/en.ini\', true);
+}';
+          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+(NULL, "php_lang", "Canvas Template Site Language", "' . $sitelang . '", "tpl_canvas", 1, 4, "0", NOW())');
+
 // Insert tables into settings
+          /* Table of varname
+           * ------------------
+           * cms_tpl => basic info about installed template
+           * styleswitcher_tpl => show or hide styleswitcher in site
+           */
           $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
-("navbarstyle_mosaic_tpl", "canvas", 0, 0, "yesno", "boolean", "tpl_canvas"),
-("navbarbw_mosaic_tpl", "canvas", "dark", "dark", "select", "free", "tpl_canvas"),
-("navbarcolor_mosaic_tpl", "canvas", NULL, NULL, "input", "free", "tpl_canvas"),
-("navbarlinkcolor_mosaic_tpl", "canvas", NULL, NULL, "input", "free", "tpl_canvas"),
-("navbarcolorlinkbg_mosaic_tpl", "canvas", NULL, NULL, "input", "free", "tpl_canvas"),
-("navbarcolorsubmenu_mosaic_tpl", "canvas", NULL, NULL, "input", "free", "tpl_canvas"),
-("logo_mosaic_tpl", "canvas", NULL, NULL, "input", "free", "tpl_canvas"),
+("homeLinks_canvas_tpl", "canvas", "#", "#", "input", "free", "tpl_canvas"),
+("contactLinks_canvas_tpl", "canvas", "#", "#", "input", "free", "tpl_canvas"),
+("loginLinks_canvas_tpl", "canvas", "#", "#", "input", "free", "tpl_canvas"),
+("registerLinks_canvas_tpl", "canvas", "#", "#", "input", "free", "tpl_canvas"),
 
-("mininavbarshow_mosaic_tpl", "canvas", 1, 0, "yesno", "boolean", "tpl_canvas"),
-("mininavbarcolour_mosaic_tpl", "canvas", "dark", "dark", "select", "free", "tpl_canvas"),
-("mininavbartxt_mosaic_tpl", "canvas", "<div class=\"col-sm-12\">
-  <a href=\"#\" class=\"first-child\"><i class=\"fa fa-envelope\"></i> Email<span class=\"hidden-sm\">: contact@example.com</span></a>
-  <span class=\"phone\">
-    <i class=\"fa fa-phone-square\"></i> Tel.: +0 (000) 000-00-00
-  </span>
-  <a href=\"#\" class=\"pull-right\"><i class=\"fa fa-arrow-circle-down\"></i> Sign Up</a>
-  <a href=\"#\" class=\"pull-right\"><i class=\"fa fa-sign-in\"></i> Sign In</a>
-  <a href=\"#\" class=\"pull-right\"><i class=\"fa fa-search\"></i> Search</a>
-</div>", NULL, "input", "free", "tpl_canvas"),
+("facebookShow_canvas_tpl", "canvas", "1", "1", "yesno", "boolean", "tpl_canvas"),
+("facebookLinks_canvas_tpl", "canvas", "https://www.facebook.com/", "https://www.facebook.com/", "input", "free", "tpl_canvas"),
 
-("style_mosaic_tpl", "canvas", NULL, NULL, "input", "free", "tpl_canvas"),
-("design_mosaic_tpl", "canvas", "white", "white", "input", "free", "tpl_canvas"),
-("boxpattern_mosaic_tpl", "canvas", NULL, NULL, "input", "free", "tpl_canvas"),
-("boxbg_mosaic_tpl", "canvas", NULL, NULL, "input", "free", "tpl_canvas"),
-("sidebar_location_tpl", "canvas", NULL, NULL, "input", "free", "tpl_canvas"),
-("font_mosaic_tpl", "canvas", "Robot, Helvetica, sans-serif", "Arial, Helvetica, sans-serif", "input", "free", "tpl_canvas"),
-("fontg_mosaic_tpl", "canvas", "Oswald", "NonGoogle", "input", "free", "tpl_canvas"),
-("hcolour_mosaic_tpl", "canvas", NULL, NULL, "input", "free", "tpl_canvas"),
-("txtcolour_mosaic_tpl", "canvas", NULL, NULL, "input", "free", "tpl_canvas"),
+("twitterShow_canvas_tpl", "canvas", "1", "1", "yesno", "boolean", "tpl_canvas"),
+("twitterLinks_canvas_tpl", "canvas", "https://twitter.com/", "https://twitter.com/", "input", "free", "tpl_canvas"),
 
-("theme_mosaic_tpl", "canvas", "body-green", "body-green", "input", "free", "tpl_canvas"),
-("pattern_mosaic_tpl", "canvas", NULL, NULL, "input", "free", "tpl_canvas"),
-("mainbg_mosaic_tpl", "canvas", NULL, NULL, "input", "free", "tpl_canvas"),
+("googleShow_canvas_tpl", "canvas", "1", "1", "yesno", "boolean", "tpl_canvas"),
+("googleLinks_canvas_tpl", "canvas", "https://plus.google.com/", "https://plus.google.com/", "input", "free", "tpl_canvas"),
 
-("bcontent1_mosaic_tpl", "canvas", NULL, NULL, "textarea", "free", "tpl_canvas"),
-("bcontent2_mosaic_tpl", "canvas", NULL, NULL, "textarea", "free", "tpl_canvas"),
-("bcontent3_mosaic_tpl", "canvas", NULL, NULL, "textarea", "free", "tpl_canvas"),
-("sectionbg_mosaic_tpl", "canvas", NULL, NULL, "input", "free", "tpl_canvas"),
-("sectiontc_mosaic_tpl", "canvas", NULL, NULL, "input", "free", "tpl_canvas"),
-("sectionshow_mosaic_tpl", "canvas", 0, 0, "yesno", "boolean", "tpl_canvas"),
+("phoneShow_canvas_tpl", "canvas", "1", "1", "yesno", "boolean", "tpl_canvas"),
+("phoneLinks_canvas_tpl", "canvas", "+420 000 000 000", "+420 000 000 000", "input", "free", "tpl_canvas"),
 
-("footer_mosaic_tpl", "canvas", "dark", "dark", "select", "free", "tpl_canvas"),
-("fcont_mosaic_tpl", "canvas", "<h3 class=\"text-color\"><span>Go Social</span></h3><div class=\"content social\">
-  <p>Stay in touch with us:</p>
-  <ul class=\"list-inline\">
-      <li><a href=\"#\" class=\"twitter\"><i class=\"fa fa-twitter\"></i></a></li>
-    <li><a href=\"#\" class=\"facebook\"><i class=\"fa fa-facebook\"></i></a></li>
-    <li><a href=\"#\" class=\"pinterest\"><i class=\"fa fa-pinterest\"></i></a></li>
-    <li><a href=\"#\" class=\"github\"><i class=\"fa fa-github\"></i></a></li>
-    <li><a href=\"#\" class=\"linkedin\"><i class=\"fa fa-linkedin\"></i></a></li>
-    <li><a href=\"#\" class=\"vk\"><i class=\"fa fa-vk\"></i></a></li>
-    <li><a href=\"#\" class=\"plus\"><i class=\"fa fa-google-plus\"></i></a></li>
-  </ul>
-  <div class=\"clearfix\"></div>
-</div>", NULL, "input", "free", "tpl_canvas"),
-("fcont2_mosaic_tpl", "canvas", "<h3 class=\"text-color\"><span>Contacts</span></h3>
-<p class=\"contact-us-details\">
-	<b>Address:</b> your Address<br/>
-	<b>Phone:</b> your Phone<br/>
-	<b>Email:</b> your Email
-</p>", NULL, "input", "free", "tpl_canvas"),
-("fcont3_mosaic_tpl", "canvas", "<h3 class=\"text-color\"><span>Navigation</span></h3>", NULL, "input", "free", "tpl_canvas"),
-("footerc_mosaic_tpl", "canvas", NULL, NULL, "input", "free", "tpl_canvas"),
-("footerct_mosaic_tpl", "canvas", NULL, NULL, "input", "free", "tpl_canvas"),
-("footercte_mosaic_tpl", "canvas", NULL, NULL, "input", "free", "tpl_canvas"),
+("emailShow_canvas_tpl", "canvas", "1", "1", "yesno", "boolean", "tpl_canvas"),
+("emailLinks_canvas_tpl", "canvas", "info@canvas.com", "info@canvas.com", "input", "free", "tpl_canvas"),
 
+("logo1_canvas_tpl", "canvas", "/template/canvas/img/logo.png", "/template/canvas/img/logo.png", "input", "free", "tpl_canvas"),
+("logo2_canvas_tpl", "canvas", "/template/canvas/img/logo@2x.png", "/template/canvas/img/logo@2x.png", "input", "free", "tpl_canvas"),
+("phoneLinks1_canvas_tpl", "canvas", "+420 000 000 000", "+420 000 000 000", "input", "free", "tpl_canvas"),
+("emailLinks1_canvas_tpl", "canvas", "info@canvas.com", "info@canvas.com", "input", "free", "tpl_canvas"),
+
+("section_canvas_tpl", "canvas", NULL, NULL, "textarea", "free", "tpl_canvas"),
+
+("sidebar_location_tpl", "jakweb", "left", "left", "input", "free", "tpl_jakweb"),
 ("styleswitcher_tpl", "canvas", "1", "1", "yesno", "boolean", "tpl_canvas"),
-("cms_tpl", "canvas", "1", "1", "yesno", "boolean", "tpl_canvas"),
-("sitestyle_widget_mosaic", "canvas", 1, 1, "yesno", "boolean", "tpl_canvas")');
+("cms_tpl", "canvas", "1", "1", "yesno", "boolean", "tpl_canvas")');
 
           $succesfully = 1;
 

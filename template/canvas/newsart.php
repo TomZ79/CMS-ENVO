@@ -10,74 +10,107 @@ if (JAK_ASACCESS) {
   $qapedit = BASE_URL . 'admin/index.php?p=news&amp;sp=quickedit&amp;id=' . $PAGE_ID;
 } ?>
 
-<?php if ($SHOWTITLE) { ?>
-  <!-- Heading -->
-  <h2 class="first-child text-color hidden-xs"><?php echo $PAGE_TITLE; ?></h2>
-<?php } ?>
+  <!-- Post Content
+            ============================================= -->
+  <div class="nobottommargin clearfix">
 
-<?php echo $PAGE_CONTENT; ?>
+    <div class="single-post nobottommargin">
 
-<?php if (isset($JAK_HOOK_PAGE) && is_array($JAK_HOOK_PAGE)) foreach ($JAK_HOOK_PAGE as $hpage) {
-  include_once APP_PATH . $hpage["phpcode"];
-}
+      <!-- Single Post
+      ============================================= -->
+      <div class="entry clearfix">
 
-if (isset($JAK_PAGE_GRID) && is_array($JAK_PAGE_GRID)) foreach ($JAK_PAGE_GRID as $pg) {
+        <!-- Entry Title
+        ============================================= -->
+        <div class="entry-title">
+          <?php if ($SHOWTITLE) { ?>
+            <h2><?php echo $PAGE_TITLE; ?></h2>
+          <?php } ?>
+        </div><!-- .entry-title end -->
 
-  // Load contact form
-  if ($pg["pluginid"] == '9997' && $JAK_SHOW_C_FORM) {
-    include_once APP_PATH . 'template/canvas/contact.php';
-  }
-
-  // Load News Grid
-  if (isset($JAK_HOOK_NEWS_GRID) && is_array($JAK_HOOK_NEWS_GRID)) foreach ($JAK_HOOK_NEWS_GRID as $hpagegrid) {
-    eval($hpagegrid["phpcode"]);
-  }
-} ?>
-
-<?php if ($SHOWVOTE && $USR_CAN_RATE) {
-  include_once APP_PATH . 'template/canvas/voteresult.php';
-} ?>
-
-  <!-- Show date, socialbuttons and tag list -->
-<?php if ($SHOWDATE || $JAK_TAGLIST) { ?>
-  <div class="well well-sm">
-    <div class="row">
-
-      <div class="col-md-6">
-        <?php if ($JAK_TAGLIST) { ?>
-          <i class="fa fa-tags"></i> <?php echo $JAK_TAGLIST; ?>
+        <!-- Entry Meta
+        ============================================= -->
+        <?php if ($SHOWDATE || $SHOWHITS || $JAK_TAGLIST) { ?>
+        <ul class="entry-meta clearfix">
+          <!-- Show Date -->
+          <?php if ($SHOWDATE) { ?>
+            <li><i class="icon-calendar3"></i> <time datetime="<?php echo $PAGE_TIME_HTML5; ?>"><?php echo $PAGE_TIME; ?></time></li>
+          <?php } ?>
+          <!-- Show Hits -->
+          <?php if ($SHOWHITS) { ?>
+          <li><i class="fa fa-eye"></i> <?php echo $tl["general"]["g13"] . $PAGE_HITS; ?></li>
+          <?php } ?>
+          <!-- Show Tags -->
+          <?php if ($JAK_TAGLIST) { ?>
+          <li><i class="fa fa-tags"></i> <?php echo $JAK_TAGLIST; ?></li>
+          <?php } ?>
+        </ul><!-- .entry-meta end -->
         <?php } ?>
-      </div>
-      <div class="col-md-3">
-        <i class="fa fa-users"></i> <?php echo $tl["general"]["g13"] . $PAGE_HITS; ?>
-      </div>
-      <div class="col-md-3">
-        <?php if ($SHOWDATE) { ?>
-          <i class="fa fa-clock-o"></i>
-          <time datetime="<?php echo $PAGE_TIME_HTML5; ?>"><?php echo $PAGE_TIME; ?></time>
-        <?php } ?>
-      </div>
+
+        <!-- Entry Content
+        ============================================= -->
+        <div class="entry-content notopmargin">
+
+          <!-- Entry Image
+          ============================================= -->
+          <div class="entry-image alignleft">
+            <a href="#"><img src="<?php echo BASE_URL . $PAGE_IMAGE; ?>" alt="Preview - <?php echo $PAGE_TITLE; ?>"></a>
+          </div><!-- .entry-image end -->
+
+          <?php echo $PAGE_CONTENT; ?>
+          <!-- Post Single - Content End -->
+
+          <div class="clear"></div>
+
+          <!-- Post Single - Share
+          ============================================= -->
+          <?php if ($SHOWSOCIALBUTTON) { ?>
+            <div class="si-share noborder clearfix">
+              <?php include_once APP_PATH . 'template/canvas/socialbutton.php'; ?>
+            </div><!-- Post Single - Share End -->
+          <?php } ?>
+
+        </div>
+      </div><!-- .entry end -->
+
+      <!-- Post Navigation
+      ============================================= -->
+      <div class="post-navigation clearfix">
+
+        <div class="col_half nobottommargin">
+        <?php if ($JAK_NAV_PREV) { ?>
+            <a href="<?php echo $JAK_NAV_PREV; ?>">&lArr; <?php echo $JAK_NAV_PREV_TITLE; ?></a>
+        <?php } else { echo '&nbsp'; } ?>
+        </div>
+
+        <div class="col_half col_last tright nobottommargin">
+        <?php if ($JAK_NAV_NEXT) { ?>
+            <a href="<?php echo $JAK_NAV_NEXT; ?>"><?php echo $JAK_NAV_NEXT_TITLE; ?> &rArr;</a>
+        <?php } else { echo '&nbsp'; } ?>
+        </div>
+
+      </div><!-- .post-navigation end -->
+
+      <div class="line"></div>
+
+      <!-- Show other settings
+      ============================================= -->
+      <?php if ($SHOWVOTE && $USR_CAN_RATE) { ?>
+        <div class="style-msg errormsg">
+          <div class="sb-msg"><i class="icon-remove"></i><strong>Oooh!</strong> Like button is not available in Canvas template for News Plugin.</div>
+        </div>
+      <?php } ?>
+
+      <?php if (isset($JAK_HOOK_PAGE) && is_array($JAK_HOOK_PAGE)) { ?>
+        <div class="style-msg errormsg">
+          <div class="sb-msg"><i class="icon-remove"></i><strong>Oooh!</strong> Hooks is not available in Canvas template for News Plugin.</div>
+        </div>
+      <?php } ?>
+
+      <!-- $JAK_PAGE_GRID is removed -->
+
     </div>
-  </div>
-<?php } ?>
 
-<?php if ($SHOWSOCIALBUTTON) { ?>
-  <div class="well well-sm">
-    <?php include_once APP_PATH . 'template/canvas/socialbutton.php'; ?>
-  </div>
-<?php } ?>
-
-  <hr>
-
-  <ul class="pager">
-    <?php if ($JAK_NAV_PREV) { ?>
-      <li class="previous"><a href="<?php echo $JAK_NAV_PREV; ?>"><i
-            class="fa fa-arrow-left"></i> <?php echo $JAK_NAV_PREV_TITLE; ?></a></li>
-    <?php }
-    if ($JAK_NAV_NEXT) { ?>
-      <li class="next"><a href="<?php echo $JAK_NAV_NEXT; ?>"><?php echo $JAK_NAV_NEXT_TITLE; ?> <i
-            class="fa fa-arrow-right"></i></a></li>
-    <?php } ?>
-  </ul>
+  </div><!-- .postcontent end -->
 
 <?php include_once APP_PATH . 'template/canvas/footer.php'; ?>

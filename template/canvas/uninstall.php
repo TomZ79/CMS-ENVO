@@ -31,7 +31,11 @@ $succesfully = 0;
       <!-- Let's do the uninstall -->
       <?php if (isset($_POST['uninstall'])) {
 
+        // Delete all settings
         $jakdb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "tpl_canvas"');
+
+        // Delete php code for lang site from hooks
+        $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "tpl_canvas"');
 
         $succesfully = 1;
 

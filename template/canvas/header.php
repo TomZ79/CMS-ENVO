@@ -99,15 +99,14 @@ require_once 'config.php';
         ============================================= -->
         <div class="top-links">
           <ul>
-            <li><a href="#">Úvod</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Kontakt</a></li>
+            <li><a href="<?php echo $jkv["homeLinks_canvas_tpl"]; ?>"><?php echo $tlcanvas["header"]["h"]; ?></a></li>
+            <li><a href="<?php echo $jkv["contactLinks_canvas_tpl"]; ?>"><?php echo $tlcanvas["header"]["h1"]; ?></a></li>
             <li>
-              <a href="#">
+              <a href="<?php echo $jkv["loginLinks_canvas_tpl"]; ?>">
               <?php if (!JAK_USERID) {
-                echo 'Přihlásit / Registrovat';
+                echo $tlcanvas["header"]["h2"];
               } else {
-                echo 'Odhlásit';
+                echo $tlcanvas["header"]["h3"];
               } ?>
 
               </a>
@@ -126,17 +125,20 @@ require_once 'config.php';
                   <label class="checkbox">
                     <input type="checkbox" name="lcookies" value="1"> <?php echo $tl["general"]["g7"]; ?>
                   </label>
-                  <button type="submit" name="login" class="btn btn-success btn-block"><?php echo $tl["general"]["g146"]; ?></button>
+                  <button type="submit" name="login" class="button button-3d button-mini button-rounded button-green nomargin btn-block"><?php echo $tl["general"]["g146"]; ?></button>
                   <input type="hidden" name="home" value="0"/>
                 </form>
               <?php } else { ?>
                 <h4><?php echo sprintf($JAK_USERNAME, $tl["general"]["g8"]); ?></h4>
-                <a href="<?php echo $P_USR_LOGOUT; ?>" class="btn btn-danger" style="width: 100%;"><?php echo $tl["title"]["t6"]; ?></a>
+                <a href="<?php echo $P_USR_LOGOUT; ?>" class="button button-3d button-mini button-rounded button-red nomargin btn-block"><?php echo $tl["title"]["t6"]; ?></a>
 
               <?php } ?>
 
               </div>
             </li>
+            <?php if (!JAK_USERID) { ?>
+            <li><a href="<?php echo $jkv["registerLinks_canvas_tpl"]; ?>"><?php echo $tlcanvas["header"]["h4"]; ?></a></li>
+            <?php } ?>
           </ul>
         </div><!-- .top-links end -->
 
@@ -148,14 +150,17 @@ require_once 'config.php';
         ============================================= -->
         <div id="top-social">
           <ul>
-            <li><a href="#" class="si-facebook"><span class="ts-icon"><i class="icon-facebook"></i></span><span class="ts-text">Facebook</span></a></li>
-            <li><a href="#" class="si-twitter"><span class="ts-icon"><i class="icon-twitter"></i></span><span class="ts-text">Twitter</span></a></li>
-            <li><a href="#" class="si-dribbble"><span class="ts-icon"><i class="icon-dribbble"></i></span><span class="ts-text">Dribbble</span></a></li>
-            <li><a href="#" class="si-github"><span class="ts-icon"><i class="icon-github-circled"></i></span><span class="ts-text">Github</span></a></li>
-            <li><a href="#" class="si-pinterest"><span class="ts-icon"><i class="icon-pinterest"></i></span><span class="ts-text">Pinterest</span></a></li>
-            <li><a href="#" class="si-instagram"><span class="ts-icon"><i class="icon-instagram2"></i></span><span class="ts-text">Instagram</span></a></li>
-            <li><a href="tel:+91.11.85412542" class="si-call"><span class="ts-icon"><i class="icon-call"></i></span><span class="ts-text">+91.11.85412542</span></a></li>
-            <li><a href="mailto:info@canvas.com" class="si-email3"><span class="ts-icon"><i class="icon-email3"></i></span><span class="ts-text">info@canvas.com</span></a></li>
+            <?php if ($jkv["facebookShow_canvas_tpl"] == 1 ) { ?>
+            <li><a href="<?php echo $jkv["facebookLinks_canvas_tpl"]; ?>" class="si-facebook"><span class="ts-icon"><i class="icon-facebook"></i></span><span class="ts-text">Facebook</span></a></li>
+            <?php } if ($jkv["twitterShow_canvas_tpl"] == 1 ) { ?>
+            <li><a href="<?php echo $jkv["twitterLinks_canvas_tpl"]; ?>" class="si-twitter"><span class="ts-icon"><i class="icon-twitter"></i></span><span class="ts-text">Twitter</span></a></li>
+            <?php } if ($jkv["googleShow_canvas_tpl"] == 1 ) { ?>
+            <li><a href="<?php echo $jkv["googleLinks_canvas_tpl"]; ?>" class="si-google"><span class="ts-icon"><i class="icon-google"></i></span><span class="ts-text">Google Plus</span></a></li>
+            <?php } if ($jkv["phoneShow_canvas_tpl"] == 1 ) { ?>
+            <li><a href="tel:<?php echo $jkv["phoneLinks_canvas_tpl"]; ?>" class="si-call"><span class="ts-icon"><i class="icon-call"></i></span><span class="ts-text"><?php echo $jkv["phoneLinks_canvas_tpl"]; ?></span></a></li>
+            <?php } if ($jkv["emailShow_canvas_tpl"] == 1 ) { ?>
+            <li><a href="mailto:<?php echo $jkv["emailLinks_canvas_tpl"]; ?>" class="si-email3"><span class="ts-icon"><i class="icon-email3"></i></span><span class="ts-text"><?php echo $jkv["emailLinks_canvas_tpl"]; ?></span></a></li>
+            <?php } ?>
           </ul>
         </div><!-- #top-social end -->
 
@@ -174,11 +179,11 @@ require_once 'config.php';
       <!-- Logo
       ============================================= -->
       <div id="logo">
-        <a href="<?php echo BASE_URL; ?>" class="standard-logo" data-dark-logo="template/canvas/img/logo-dark.png">
-          <img src="template/canvas/img/logo.png" alt="<?php echo $jkv["title"]; ?>">
+        <a href="<?php echo BASE_URL; ?>" class="standard-logo">
+          <img src="<?php echo $jkv["logo1_canvas_tpl"]; ?>" alt="<?php echo $jkv["title"]; ?>">
         </a>
-        <a href="<?php echo BASE_URL; ?>" class="retina-logo" data-dark-logo="template/canvas/img/logo-dark@2x.png">
-          <img src="template/canvas/img/logo@2x.png" alt="<?php echo $jkv["title"]; ?>">
+        <a href="<?php echo BASE_URL; ?>" class="retina-logo">
+          <img src="<?php echo $jkv["logo2_canvas_tpl"]; ?>" alt="<?php echo $jkv["title"]; ?>">
         </a>
       </div><!-- #logo end -->
 
@@ -186,15 +191,15 @@ require_once 'config.php';
         <li>
           <i class="i-plain icon-email3 nomargin"></i>
           <div class="he-text">
-            Email
-            <span>info@canvas.com</span>
+            <?php echo $tlcanvas["header"]["h5"]; ?>
+            <span><?php echo $jkv["emailLinks1_canvas_tpl"]; ?></span>
           </div>
         </li>
         <li>
           <i class="i-plain icon-call nomargin"></i>
           <div class="he-text">
-            Zavolejte nám
-            <span>+420 000 000 000</span>
+            <?php echo $tlcanvas["header"]["h6"]; ?>
+            <span><?php echo $jkv["phoneLinks1_canvas_tpl"]; ?></span>
           </div>
         </li>
       </ul>
@@ -223,7 +228,7 @@ require_once 'config.php';
           <div id="top-search">
             <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
             <form action="search.html" method="get">
-              <input type="text" name="q" class="form-control" value="" placeholder="Zadejte hledaný výraz ...">
+              <input type="text" name="q" class="form-control" value="" placeholder="<?php echo $tlcanvas["header"]["h7"]; ?>">
             </form>
           </div><!-- #top-search end -->
 
