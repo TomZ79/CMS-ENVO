@@ -195,19 +195,19 @@ function jak_field_not_exist_id($jakvar,$jakvar1,$jakvar2,$jakvar3)
 // Get tags per id
 function jak_get_tags($jakvar,$jakvar1) {
 
-	global $jakdb;
-	$tags = array();
-    $result = $jakdb->query('SELECT id, tag FROM '.DB_PREFIX.'tags'.' WHERE itemid = '.smartsql($jakvar).' AND pluginid = '.$jakvar1.' ORDER BY `id` ASC');
-    while ($row = $result->fetch_assoc()) {
-        $tags[] = '<span class="label label-default fancy-checkbox" style="line-height:2.2;margin:0 10px 10px 0px;"><label class="checkbox-inline"><input type="checkbox" name="jak_tagdelete[]" value="'.$row['id'].'" /><i class="fa fa-square-o fa-sm unchecked"></i><i class="fa fa-check-square-o fa-sm checked"></i> '.$row['tag'].'</label></span>';
-    }
-    
-    if (!empty($tags)) {
-    	$taglist = join("", $tags);
-    	return $taglist;
-    } else {
-   		return false;
-    }
+  global $jakdb;
+  $tags = array();
+  $result = $jakdb->query('SELECT id, tag FROM '.DB_PREFIX.'tags'.' WHERE itemid = '.smartsql($jakvar).' AND pluginid = '.$jakvar1.' ORDER BY `id` ASC');
+  while ($row = $result->fetch_assoc()) {
+    $tags[] = '<span class="label label-default fancy-checkbox" style="line-height:2.2;margin:0 10px 10px 0px;"><label class="checkbox-inline"><input type="checkbox" name="jak_tagdelete[]" value="'.$row['id'].'" /><i class="fa fa-square-o fa-sm unchecked"></i><i class="fa fa-check-square-o fa-sm checked"></i> '.$row['tag'].'</label></span>';
+  }
+
+  if (!empty($tags)) {
+    $taglist = join("", $tags);
+    return $taglist;
+  } else {
+    return false;
+  }
 }
 
 // Tag cloud data

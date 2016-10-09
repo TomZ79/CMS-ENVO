@@ -93,6 +93,29 @@ class JAK_tags
     }
   }
 
+  /* jakGettaglist_class - Get all tags for article, ... with custom definition class for anchor <a class=" CUSTOM CLASS"> </a>
+   * Call class
+   * ----------------
+   * JAK_tags::jakGettaglist_class('', '', '', 'label');
+   */
+  public static function jakGettaglist_class($jakvar, $jakvar1, $where, $class)
+  {
+
+    global $jakdb;
+    $result = $jakdb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql($jakvar) . '" AND pluginid = "' . smartsql($jakvar1) . '" AND active = 1 ORDER BY id DESC');
+
+    while ($row = $result->fetch_assoc()) {
+      $tags[] = '<a class="' . $class . '" href="' . JAK_rewrite::jakParseurl($where, JAK_base::jakCleanurl($row['tag']), '', '', '') . '">' . $row['tag'] . '</a>';
+    }
+
+    if (!empty($tags)) {
+      $taglist = join(" ", $tags);
+      return $taglist;
+    } else {
+      return false;
+    }
+  }
+
   public function jakPlugintag($allcat)
   {
 

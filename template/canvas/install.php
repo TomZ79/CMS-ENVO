@@ -57,6 +57,7 @@ $succesfully = 0;
 // Insert tables into settings
           /* Table of varname
            * ------------------
+           * sidebar_location_tpl => info about sidebar location
            * cms_tpl => basic info about installed template
            * styleswitcher_tpl => show or hide styleswitcher in site
            */
@@ -87,6 +88,7 @@ $succesfully = 0;
 ("emailLinks1_canvas_tpl", "canvas", "info@canvas.com", "info@canvas.com", "input", "free", "tpl_canvas"),
 
 ("section_canvas_tpl", "canvas", NULL, NULL, "textarea", "free", "tpl_canvas"),
+
 
 ("sidebar_location_tpl", "jakweb", "left", "left", "input", "free", "tpl_jakweb"),
 ("styleswitcher_tpl", "canvas", "1", "1", "yesno", "boolean", "tpl_canvas"),
