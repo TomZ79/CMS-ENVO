@@ -247,12 +247,12 @@ require_once 'config.php';
   } ?>
 
   <!-- Page Title
-		============================================= -->
+	============================================= -->
   <?php if (!isset($page) || empty($page)) { // Code for homepage ?>
 
   <?php } elseif (isset($page)) { // Code for all page without home page ?>
 
-    <section id="page-title" class="page-title-pattern">
+    <section id="page-title">
 
       <div class="container clearfix">
         <h1><?php echo $PAGE_TITLE; ?></h1>
