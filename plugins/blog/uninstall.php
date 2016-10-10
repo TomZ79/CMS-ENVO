@@ -44,6 +44,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
       <div class="margin-bottom-30">
         <h4>Blog Plugin - Info about uninstallation</h4>
         <p>Info o procesu odinstalace. Výpis komponentů, které budou odinstalovány a které ne. Po odinstalaci zadané články, kategorie a komentáře budou uchovány v databázi a nebudou odstraněny. Při opětovné instalaci Pluginu Blog budou znovu načteny z databáze. </p>
+        <p>POZOR: Při odinstalování pluginu Blog, budou odstraněny Tagy (Štítky) pro jednotlivé články.</p>
         <table class="table">
           <thead>
             <tr class="bg-teal-400">
@@ -69,6 +70,11 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
             <td class="text-center"><i class="fa fa-check"></i></td>
           </tr>
           <tr>
+            <td>Blog Article - Tags</td>
+            <td class="text-center"><i class="fa fa-check"></i></td>
+            <td></td>
+          </tr>
+          <tr>
             <td>Blog Categories</td>
             <td></td>
             <td class="text-center"><i class="fa fa-check"></i></td>
@@ -84,6 +90,9 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 
       <!-- Let's do the uninstall -->
       <?php if (isset($_POST['uninstall'])) {
+// Validate
+        session_start();
+        if(isset($_POST["captcha"])&&$_POST["captcha"]!=""&&$_SESSION["code"]==$_POST["captcha"]) {
 
 // Now get the plugin id for futher use
         $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blog"');
@@ -121,11 +130,11 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
             $count = $result1->fetch_assoc();
 
             if ($count['count'] <= '1') {
-              $jakdb->query('DELETE FROM tagcloud WHERE tag = "' . smartsql($row['tag']) . '"');
+              $jakdb->query('DELETE FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($row['tag']) . '"');
 
             } else {
 
-              $jakdb->query('UPDATE tagcloud SET count = count - 1 WHERE tag = "' . smartsql($row['tag']) . '"');
+              $jakdb->query('UPDATE ' . DB_PREFIX . 'tagcloud SET count = count - 1 WHERE tag = "' . smartsql($row['tag']) . '"');
 
             }
           }
@@ -140,10 +149,19 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 
         <div class="alert bg-success"><?php echo $tl["plugin"]["p15"];?></div>
 
-      <?php }
+      <?php } else { ?>
+          <div>
+            <h4 class="text-danger-400">Wrong Code Entered - Please, enter right number !</h4>
+          </div>
+      <?php }}
       if (!$succesfully) { ?>
         <hr>
-        <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
+        <form name="company" action="uninstall.php" method="post" enctype="multipart/form-data">
+          <div class="form-group form-inline">
+            <label for="text">Please read info about uninstallation and enter text: </label>
+            <input type="text" name="captcha" class="form-control" id="text">
+            <img src="../captcha.php" />
+          </div>
           <button type="submit" name="uninstall" class="btn btn-danger btn-block"><?php echo $tl["plugin"]["p11"];?></button>
         </form>
       <?php } ?>
@@ -152,5 +170,12 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
   </div>
 
 </div><!-- #container -->
+
+<script src="/js/jquery.js"></script>
+<script>
+  $('#reload').click(function() {
+    document.location.reload();
+  });
+</script>
 </body>
 </html>

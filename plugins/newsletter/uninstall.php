@@ -38,12 +38,17 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
       <div class="well">
         <h3><?php echo $tl["plugin"]["t15"]; ?></h3>
       </div>
-      <hr>
+      <div class="margin-bottom-30">
+        <h4>Newsletter Plugin - Info about uninstallation</h4>
+      </div>
 
       <!-- Let's do the uninstall -->
       <?php if (isset($_POST['uninstall'])) {
+// Validate
+        session_start();
+        if(isset($_POST["captcha"])&&$_POST["captcha"]!=""&&$_SESSION["code"]==$_POST["captcha"]) {
 
-// now get the plugin id for futher use
+// Now get the plugin id for futher use
         $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Newsletter"');
         $rows = $results->fetch_assoc();
 
@@ -61,7 +66,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 
           $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `newsletter`');
 
-// clean user table
+// Clean user table
           $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'user DROP `newsletter`');
 
           $jakdb->query('DROP TABLE ' . DB_PREFIX . 'newsletter, ' . DB_PREFIX . 'newslettergroup, ' . DB_PREFIX . 'newsletteruser, ' . DB_PREFIX . 'newsletterstat');
@@ -76,9 +81,19 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 
         <div class="alert bg-success"><?php echo $tl["plugin"]["p15"];?></div>
 
-      <?php }
+      <?php } else { ?>
+        <div>
+          <h4 class="text-danger-400">Wrong Code Entered - Please, enter right number !</h4>
+        </div>
+      <?php }}
       if (!$succesfully) { ?>
-        <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
+        <hr>
+        <form name="company" action="uninstall.php" method="post" enctype="multipart/form-data">
+          <div class="form-group form-inline">
+            <label for="text">Please read info about uninstallation and enter text: </label>
+            <input type="text" name="captcha" class="form-control" id="text">
+            <img src="../captcha.php" />
+          </div>
           <button type="submit" name="uninstall" class="btn btn-danger btn-block"><?php echo $tl["plugin"]["p11"];?></button>
         </form>
       <?php } ?>

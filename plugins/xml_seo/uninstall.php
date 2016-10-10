@@ -40,9 +40,15 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
         <h3><?php echo $tl["plugin"]["t29"];?></h3>
       </div>
       <hr>
+      <div class="margin-bottom-30">
+        <h4>XML Seo Plugin - Info about uninstallation</h4>
+      </div>
 
       <!-- Let's do the uninstall -->
       <?php if (isset($_POST['uninstall'])) {
+// Validate
+        session_start();
+        if(isset($_POST["captcha"])&&$_POST["captcha"]!=""&&$_SESSION["code"]==$_POST["captcha"]) {
 
         $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "XML_SEO"');
 
@@ -52,10 +58,19 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 
         <div class="alert bg-success"><?php echo $tl["plugin"]["p15"];?></div>
 
-      <?php } ?>
-
-      <?php if (!$succesfully) { ?>
-        <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
+      <?php } else { ?>
+        <div>
+          <h4 class="text-danger-400">Wrong Code Entered - Please, enter right number !</h4>
+        </div>
+      <?php }}
+      if (!$succesfully) { ?>
+        <hr>
+        <form name="company" action="uninstall.php" method="post" enctype="multipart/form-data">
+          <div class="form-group form-inline">
+            <label for="text">Please read info about uninstallation and enter text: </label>
+            <input type="text" name="captcha" class="form-control" id="text">
+            <img src="../captcha.php" />
+          </div>
           <button type="submit" name="uninstall" class="btn btn-danger btn-block"><?php echo $tl["plugin"]["p11"];?></button>
         </form>
       <?php } ?>
