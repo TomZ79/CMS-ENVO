@@ -40,6 +40,8 @@
     [new]  Social Media Sharing Plugin
            88z.github.io/sollist/
     [new]  Add new template Canvas
+    [new]  ACP - Plugins - added captcha (security number) for uninstallation
+           http://99webtools.com/blog/php-simple-captcha-script/
 
     // # List of updated components
     // ------------------------------
@@ -73,6 +75,8 @@
     [enhanced]  ACP - Plugin - added info about uninstallation
     [enhanced]  ACP - Help for each page
     [enhanced]  Social Media Sharing Plugin
+    [enhanced]  ACP - Plugins - added captcha (security number) for uninstallation
+                http://99webtools.com/blog/php-simple-captcha-script/
 
 
     // # List of new pages
