@@ -315,11 +315,14 @@ switch ($page1) {
     $PAGE_KEYWORDS = str_replace(" ", "", JAK_Base::jakCleanurl($row['title']) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
     $PAGE_DESCRIPTION = jak_cut_text($row['content'], 155, '');
 
-    // get the standard template
+    // Get gallery category
+    $JAK_GALLERY_CAT = JAK_Base::jakGetcatmix(JAK_PLUGIN_VAR_GALLERY, '', $jaktable1, JAK_USERGROUPID, $jkv["galleryurl"]);
+
+    // Get the standard template
     $plugin_template = 'plugins/gallery/template/' . $jkv["sitestyle"] . '/galleryart.php';
 
     break;
-  case 'del';
+  case 'del':
 
     if (is_numeric($page2) && is_numeric($page3) && jak_row_exist($page2, $jaktable2)) {
 

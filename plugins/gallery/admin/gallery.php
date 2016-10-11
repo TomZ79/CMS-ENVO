@@ -550,7 +550,7 @@ switch ($page1) {
     $plugin_template = 'plugins/gallery/admin/template/newgallerycat.php';
 
     break;
-  case 'comment';
+  case 'comment':
 
     $getTotal = jak_get_total($jaktable2, '', '', '');
     if ($getTotal != 0) {
