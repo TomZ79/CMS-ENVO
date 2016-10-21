@@ -3,7 +3,7 @@
 
 <?php
 $stack = array();
-$facebook = "facebook: 'http://www.facebook.com/share.php?u=" . $_SERVER[HTTP_HOST] . "'";
+$facebook = "facebook: 'http://www.facebook.com/share.php?u=" . $_SERVER[HTTP_HOST] . $_SERVER[REQUEST_URI] . "'";
 $googleplus = "googleplus: 'https://plusone.google.com/_/+1/confirm?hl=en&url=" . $_SERVER[HTTP_HOST] . "'";
 $instagram = "instagram: 'http://xxx.xx'";
 $twitter = "twitter: 'https://twitter.com/share?url=" . $_SERVER[HTTP_HOST] . "'";
@@ -30,4 +30,40 @@ if ( $jkv["md_email"] == 1) array_push($stack, $email);
       profiles: { <?php echo implode(",", $stack); ?> }
     });
   });
+</script>
+
+<script type="text/javascript">
+  (function($){
+    /**
+     * jQuery function to prevent default anchor event and take the href * and the title to make a share pupup
+     *
+     * @param  {[object]} e           [Mouse event]
+     * @param  {[integer]} intWidth   [Popup width defalut 500]
+     * @param  {[integer]} intHeight  [Popup height defalut 400]
+     * @param  {[boolean]} blnResize  [Is popup resizeabel default true]
+     */
+    $.fn.sollistPopup = function (e, intWidth, intHeight, blnResize) {
+
+      // Prevent default anchor event
+      e.preventDefault();
+
+      // Set values for window
+      intWidth = intWidth || '600';
+      intHeight = intHeight || '700';
+      strResize = (blnResize ? 'yes' : 'no');
+
+      // Set title and open popup with focus on it
+      var strTitle = ((typeof this.attr('title') !== 'undefined') ? this.attr('title') : 'Social Share'),
+        strParam = 'width=' + intWidth + ',height=' + intHeight + ',resizable=' + strResize,
+        objWindow = window.open(this.attr('href'), strTitle, strParam).focus();
+    }
+
+    /* ================================================== */
+
+    $(document).ready(function ($) {
+      $('.facebook').on("click", function(e) {
+        $(this).sollistPopup(e);
+      });
+    });
+  }(jQuery));
 </script>

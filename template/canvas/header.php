@@ -11,9 +11,23 @@ require_once 'config.php';
 <head>
 
   <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <!-- for Google -->
   <meta name="keywords" content="<?php echo trim($PAGE_KEYWORDS); ?>">
   <meta name="description" content="<?php echo trim($PAGE_DESCRIPTION); ?>">
   <meta name="author" content="<?php echo $jkv["metaauthor"]; ?>">
+
+  <!-- for Facebook -->
+  <meta property="og:title" content="<?php echo $PAGE_TITLE; ?>" />
+  <meta property="og:type" content="article" />
+  <meta property="og:image" content="<?php echo (($PAGE_IMAGE) ? $PAGE_IMAGE : $SHOWIMG); ?>" />
+  <meta property="og:description" content="<?php echo trim($PAGE_DESCRIPTION); ?>" />
+
+  <!-- for Twitter -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="" />
+
   <?php if ($page == '404') { ?>
     <meta name="robots" content="noindex, follow">
   <?php } else { ?>
@@ -38,9 +52,9 @@ require_once 'config.php';
   <link rel="stylesheet" href="<?php echo BASE_URL; ?>/template/canvas/css/canvas/font-icons.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css">
   <link rel="stylesheet" href="<?php echo BASE_URL; ?>/template/canvas/css/canvas/animate.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css">
   <link rel="stylesheet" href="<?php echo BASE_URL; ?>template/canvas/css/screen.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css"/>
-  <link rel="stylesheet" href="<?php echo BASE_URL; ?>template/canvas/css/canvas.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css"/>
 
   <link rel="stylesheet" href="<?php echo BASE_URL; ?>/template/canvas/css/canvas/responsive.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css">
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>template/canvas/css/canvas.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css"/>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!--[if lt IE 9]>
   <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
@@ -151,11 +165,13 @@ require_once 'config.php';
         <div id="top-social">
           <ul>
             <?php if ($jkv["facebookShow_canvas_tpl"] == 1 ) { ?>
-            <li><a href="<?php echo $jkv["facebookLinks_canvas_tpl"]; ?>" class="si-facebook"><span class="ts-icon"><i class="icon-facebook"></i></span><span class="ts-text">Facebook</span></a></li>
+            <li><a href="<?php echo $jkv["facebookLinks_canvas_tpl"]; ?>" class="si-facebook" target="_blank"><span class="ts-icon"><i class="icon-facebook"></i></span><span class="ts-text">Facebook</span></a></li>
             <?php } if ($jkv["twitterShow_canvas_tpl"] == 1 ) { ?>
-            <li><a href="<?php echo $jkv["twitterLinks_canvas_tpl"]; ?>" class="si-twitter"><span class="ts-icon"><i class="icon-twitter"></i></span><span class="ts-text">Twitter</span></a></li>
+            <li><a href="<?php echo $jkv["twitterLinks_canvas_tpl"]; ?>" class="si-twitter" target="_blank"><span class="ts-icon"><i class="icon-twitter"></i></span><span class="ts-text">Twitter</span></a></li>
             <?php } if ($jkv["googleShow_canvas_tpl"] == 1 ) { ?>
-            <li><a href="<?php echo $jkv["googleLinks_canvas_tpl"]; ?>" class="si-google"><span class="ts-icon"><i class="icon-google"></i></span><span class="ts-text">Google Plus</span></a></li>
+              <li><a href="<?php echo $jkv["googleLinks_canvas_tpl"]; ?>" class="si-google" target="_blank"><span class="ts-icon"><i class="icon-google"></i></span><span class="ts-text">Google Plus</span></a></li>
+            <?php } if ($jkv["instagramShow_canvas_tpl"] == 1 ) { ?>
+              <li><a href="<?php echo $jkv["instagramLinks_canvas_tpl"]; ?>" class="si-instagram" target="_blank"><span class="ts-icon"><i class="icon-instagram2"></i></span><span class="ts-text">Instagram</span></a></li>
             <?php } if ($jkv["phoneShow_canvas_tpl"] == 1 ) { ?>
             <li><a href="tel:<?php echo $jkv["phoneLinks_canvas_tpl"]; ?>" class="si-call"><span class="ts-icon"><i class="icon-call"></i></span><span class="ts-text"><?php echo $jkv["phoneLinks_canvas_tpl"]; ?></span></a></li>
             <?php } if ($jkv["emailShow_canvas_tpl"] == 1 ) { ?>
@@ -170,8 +186,8 @@ require_once 'config.php';
 
   </div><!-- #top-bar end -->
 
-        <!-- Header
-        ============================================= -->
+  <!-- Header
+  ============================================= -->
   <header id="header" class="sticky-style-2">
 
     <div class="container clearfix">
@@ -226,10 +242,17 @@ require_once 'config.php';
           <!-- Top Search
           ============================================= -->
           <div id="top-search">
-            <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
-            <form action="search.html" method="get">
-              <input type="text" name="q" class="form-control" value="" placeholder="<?php echo $tlcanvas["header"]["h7"]; ?>">
-            </form>
+            <a href="#" id="top-search-trigger" class="cluseSearch"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
+            <?php if (JAK_SEARCH && JAK_USER_SEARCH) { ?>
+              <form class="form-search" action="<?php echo $P_SEAERCH_LINK; ?>" method="post">
+                <input type="text" name="jakSH" id="Jajaxs" class="search" placeholder="<?php echo $tlcanvas["header"]["h7"];
+                if ($jkv["fulltextsearch"]) echo $tl["search"]["s5"]; ?>">
+              </form>
+              <?php if (isset($JAK_HOOK_SEARCH_SIDEBAR) && is_array($JAK_HOOK_SEARCH_SIDEBAR)) foreach ($JAK_HOOK_SEARCH_SIDEBAR as $hss) {
+                include_once $hss;
+              }
+            } ?>
+
           </div><!-- #top-search end -->
 
         </div>
@@ -247,16 +270,16 @@ require_once 'config.php';
   } ?>
 
   <!-- Page Title
-	============================================= -->
-  <?php if (!isset($page) || empty($page)) { // Code for homepage ?>
+  ============================================= -->
+  <?php if (!isset($page) || empty($page) || ($page == 'offline') ) { // Code for homepage ?>
 
   <?php } elseif (isset($page)) { // Code for all page without home page ?>
 
-    <section id="page-title">
+    <section id="page-title" class="page-title-pattern">
 
       <div class="container clearfix">
         <h1><?php echo $PAGE_TITLE; ?></h1>
-        <span>A Short Page Title Tagline</span>
+        <span><?php echo $MAIN_DESCRIPTION; ?></span>
         <ol class="breadcrumb">
           <li>
             <a href="<?php echo BASE_URL; ?>"><?php foreach ($jakcategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) { echo $ca["name"]; } ?></a>
@@ -278,8 +301,75 @@ require_once 'config.php';
 
   <?php } ?>
 
+
+  <!-- Gallery - show page menu only for Gallery
+  ============================================= -->
+  <?php if ($page == strtolower(JAK_PLUGIN_NAME_GALLERY) ) { ?>
+    <div id="page-menu">
+
+      <div id="page-menu-wrap">
+
+        <div class="container clearfix">
+
+          <div class="menu-title">Fotogalerie <span>ANTÉNNÍCH SYSTÉMŮ</span></div>
+
+          <nav>
+            <ul>
+              <li<?php if ($page2 == '' && $page3 == '') echo ' class="current"'; ?>>
+                <a href="<?php echo $backtogallery; ?>" name="all"><?php echo $tlgal["gallery"]["d"]; ?></a>
+              </li>
+              <?php if (isset($JAK_GALLERY_CAT) && is_array($JAK_GALLERY_CAT)) foreach ($JAK_GALLERY_CAT as $mv) {
+                if ($mv["catparent"] == '0') { ?>
+
+                <li<?php if ($page2 != '' && $page2 == $mv["id"]) echo ' class="current"'; ?>><a
+                    href="<?php echo $mv['parseurl']; ?>" name="<?php echo $mv["varname"]; ?>"><?php if ($mv["catimg"]) { ?><i
+                      class="fa <?php echo $mv["catimg"]; ?>"></i> <?php }
+                    echo $mv["name"]; ?></a>
+
+                  <?php if (isset($catexistid) && is_array($catexistid) && in_array($mv['id'], $catexistid)) { ?>
+
+                    <ul>
+
+                      <?php if (isset($JAK_GALLERY_CAT) && is_array($JAK_GALLERY_CAT)) foreach ($JAK_GALLERY_CAT as $mz) {
+
+                        if ($mz["catparent"] != '0' && $mz["catparent"] == $mv["id"]) {
+
+                          ?>
+
+                          <li><a href="<?php echo $mz['parseurl']; ?>"
+                                 name="<?php echo $mz["varname"]; ?>"><?php if ($mz["catimg"]) { ?><i
+                                class="fa <?php echo $mz["catimg"]; ?>"></i> <?php }
+                              echo $mz["name"]; ?></a></li>
+                        <?php }
+                      } ?>
+                    </ul>
+                    </li>
+                  <?php } else { ?>
+                    </li>
+
+                  <?php }
+                }
+              } ?>
+            </ul>
+          </nav>
+
+          <div id="page-submenu-trigger"><i class="icon-reorder"></i></div>
+
+        </div>
+
+      </div>
+
+    </div><!-- #page-menu end -->
+  <?php } ?>
+
   <!-- Content
   ============================================= -->
+  <?php if (!isset($page) || empty($page)) { // Code for homepage, offline ?>
+  <section id="content">
+
+    <div class="content-wrap">
+
+  <?php } elseif (isset($page)) { // Code for all other pages ?>
   <section id="content">
 
     <div class="content-wrap">
@@ -293,7 +383,7 @@ require_once 'config.php';
           <div class="sidebar-widgets-wrap">
 
             <!-- Sidebar if exist -->
-            <?php if (!empty($JAK_HOOK_SIDE_GRID)) include_once APP_PATH . 'template/jakweb/sidebar.php'; ?>
+            <?php if (!empty($JAK_HOOK_SIDE_GRID)) include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/sidebar.php'; ?>
 
 
           </div>
@@ -304,4 +394,4 @@ require_once 'config.php';
         ============================================= -->
         <div class="nobottommargin clearfix <?php if (!empty($JAK_HOOK_SIDE_GRID)) echo " postcontent "; if (!empty($JAK_HOOK_SIDE_GRID) && $jkv["sidebar_location_tpl"] == "left") echo " col_last "; ?>">
 
-  <?php } ?>
+  <?php } } ?>

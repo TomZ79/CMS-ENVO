@@ -76,6 +76,9 @@ $succesfully = 0;
 ("googleShow_canvas_tpl", "canvas", "1", "1", "yesno", "boolean", "tpl_canvas"),
 ("googleLinks_canvas_tpl", "canvas", "https://plus.google.com/", "https://plus.google.com/", "input", "free", "tpl_canvas"),
 
+("instagramShow_canvas_tpl", "canvas", "1", "1", "yesno", "boolean", "tpl_canvas"),
+("instagramLinks_canvas_tpl", "canvas", "https://www.instagram.com/", "https://www.instagram.com/", "input", "free", "tpl_canvas"),
+
 ("phoneShow_canvas_tpl", "canvas", "1", "1", "yesno", "boolean", "tpl_canvas"),
 ("phoneLinks_canvas_tpl", "canvas", "+420 000 000 000", "+420 000 000 000", "input", "free", "tpl_canvas"),
 
@@ -90,7 +93,7 @@ $succesfully = 0;
 ("section_canvas_tpl", "canvas", NULL, NULL, "textarea", "free", "tpl_canvas"),
 
 
-("sidebar_location_tpl", "jakweb", "left", "left", "input", "free", "tpl_jakweb"),
+("sidebar_location_tpl", "jakweb", "left", "left", "input", "free", "tpl_canvas"),
 ("styleswitcher_tpl", "canvas", "1", "1", "yesno", "boolean", "tpl_canvas"),
 ("cms_tpl", "canvas", "1", "1", "yesno", "boolean", "tpl_canvas")');
 

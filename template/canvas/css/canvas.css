@@ -26,9 +26,25 @@
   content: "";
 }
 
+/* 00. OTHER - Custom modification
+ ========================================================================*/
 .dark #header-wrap:not(.not-dark) #primary-menu > ul > li:hover > a,
 .dark #header-wrap:not(.not-dark) #primary-menu > ul > li.current > a,
 .dark #header-wrap:not(.not-dark) #primary-menu > .container > ul > li:hover > a,
 .dark #header-wrap:not(.not-dark) #primary-menu > .container > ul > li.current > a {
   color: #1ABC9C;
+}
+
+#page-menu nav {
+  right: 50px;
+}
+
+/* Carusel Hover Effect for image */
+.owl-carousel .oc-item a:hover img { -webkit-filter: sepia(100%); filter: sepia(100%); }
+
+/* */
+@media (max-width: 767px) {
+  .container,
+  #header.full-header .container,
+  .container-fullwidth { width: 100% !important; }
 }

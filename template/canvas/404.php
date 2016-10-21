@@ -1,9 +1,12 @@
 <?php include_once APP_PATH . 'template/canvas/header.php'; ?>
 
-  <div class="not-found-p">
-    <div class="text">
-      <h1><i class="fa fa-th-large"></i> 404</h1>
-      <h2 class="primary-font"><?php echo $tl["error"]["e5"]; ?></h2>
+  <div class="col_half nobottommargin">
+    <div class="error404 center">404</div>
+  </div>
+
+  <div class="col_half nobottommargin col_last" style="position: relative;top: 120px;">
+    <div class="heading-block nobottomborder">
+      <h4><?php echo $tl["error"]["e5"]; ?></h4>
     </div>
   </div>
 

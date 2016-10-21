@@ -122,7 +122,7 @@ body #side-panel.dark { background-color: #383838; }
 .dark #header.semi-transparent.sticky-header #header-wrap,
 #header.dark.semi-transparent.sticky-header #header-wrap { background-color: rgba(0,0,0,0.6); }
 
-.dark #logo a { color: #CCC; }
+.dark #logo a { color: #FFF; }
 
 .dark #header.full-header #header-wrap:not(.not-dark) #logo,
 #header.full-header.dark #header-wrap:not(.not-dark) #logo { border-right-color: rgba(255,255,255,0.15); }
@@ -1686,6 +1686,22 @@ body #side-panel.dark #side-panel-trigger-close a {
 	#header.dark.semi-transparent {
 		background-color: #333;
 		border-bottom-color: rgba(255,255,255,0.1);
+	}
+
+	.dark #primary-menu.mobile-menu-off-canvas:not(.not-dark) > ul,
+	.dark #primary-menu.mobile-menu-off-canvas:not(.not-dark) > div > ul,
+	#primary-menu.mobile-menu-off-canvas.dark > ul,
+	#primary-menu.mobile-menu-off-canvas.dark > div > ul {
+		background-color: #333;
+		border-right: 1px solid rgba(255,255,255,0.05) !important;
+	}
+
+	.dark #primary-menu.mobile-menu-off-canvas.from-right:not(.not-dark) > ul,
+	.dark #primary-menu.mobile-menu-off-canvas.from-right:not(.not-dark) > div > ul,
+	#primary-menu.mobile-menu-off-canvas.from-right.dark > ul,
+	#primary-menu.mobile-menu-off-canvas.from-right.dark > div > ul {
+		border-right: 0 !important;
+		border-left: 1px solid rgba(255,255,255,0.05) !important;
 	}
 
 	.dark #primary-menu:not(.not-dark) ul li,

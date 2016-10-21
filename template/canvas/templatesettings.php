@@ -155,6 +155,23 @@
                     </td>
                   </tr>
                   <tr>
+                    <td><strong>Instagram</strong></td>
+                    <td>
+                      <div class="radio">
+                        <label class="checkbox-inline">
+                          <input type="radio" name="instagramShow" value="1" <?php if ($jktpl["instagramShow_canvas_tpl"] == 1) { ?> checked="checked"<?php } ?> /> Show
+                        </label>
+                        <label class="checkbox-inline">
+                          <input type="radio" name="instagramShow" value="0" <?php if ($jktpl["instagramShow_canvas_tpl"] == 0) { ?> checked="checked"<?php } ?> /> Hide
+                        </label>
+                      </div>
+                    </td>
+                    <td>Links</td>
+                    <td>
+                      <input type="text" name="instagramLinks" class="form-control" value="<?php echo $jktpl["instagramLinks_canvas_tpl"]; ?>"/>
+                    </td>
+                  </tr>
+                  <tr>
                     <td><strong>Phone</strong></td>
                     <td>
                       <div class="radio">
