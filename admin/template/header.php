@@ -36,6 +36,16 @@
     <link rel="stylesheet" href="css/rtl/screen.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
     <!-- End RTL Support -->
   <?php } ?>
+  <?php if ($page == 'categories') { ?>
+    <!-- EXTRA CSS SETTINGS FOR SOME PAGES -->
+    <style type="text/css">
+      /* Global page categories */
+      .bootstrap-tagsinput {
+        height: 112px;
+        margin-top: 32px;
+      }
+    </style>
+  <?php } ?>
 
   <!-- JQUERY SCRIPT and PLUGINS ================================================================================ -->
   <!-- jQuery -->
@@ -143,7 +153,7 @@
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
-          <li id="control-sb" class="hidden">
+          <li id="control-sb" class="hidden-xs">
             <a href="#" data-toggle="control-sidebar" ><i class="fa fa-question"></i></a>
           </li>
 
