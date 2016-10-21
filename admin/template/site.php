@@ -170,7 +170,12 @@ if ($errors) { ?>
         <p><span class="text-danger-400">???</span></p>
 
         <h5><strong>Meta Keywords</strong></h5>
-        <p>Nastavení globálních klíčových slov.</p>
+        <p>Nastavení globálních klíčových slov. Slova jsou automaticky oddělena po stisknutí kláves:</p>
+        <ul>
+          <li>Mezerník</li>
+          <li>Enter</li>
+          <li>Znak ' , '</li>
+        </ul>
 
         <h5><strong>Meta Author</strong></h5>
         <p>Meta tag se zobrazí v každé stránce webové sítě.</p>

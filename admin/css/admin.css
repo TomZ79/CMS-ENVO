@@ -595,6 +595,7 @@ table.table-expandable > tbody > tr div.table-expandable-arrow.up {
   height: 100px;
   box-shadow: none;
   border-radius: 0;
+  overflow: auto;
 }
 .bootstrap-tagsinput .tag {
   margin: 0 4px 6px 0;
