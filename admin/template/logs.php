@@ -131,7 +131,6 @@
 
   <?php } ?>
 
-  <!-- JavaScript for select all -->
   <script type="text/javascript">
     $(document).ready(function () {
       $("#jak_delete_all").click(function () {
@@ -141,16 +140,6 @@
         });
       });
     });
-  </script>
-  <script type="text/javascript">
-    // PRELOADER
-    $(window).load(function () { // makes sure the whole site is loaded
-      $('#status').fadeOut(); // will first fade out the loading animation
-      $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
-      $('#content').delay(350).css({
-        'overflow': 'visible'
-      });
-    })
   </script>
 
 <?php include "footer.php"; ?>

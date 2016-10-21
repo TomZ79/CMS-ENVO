@@ -62,9 +62,7 @@
   </div>
 
   <script type="text/javascript">
-
     $(document).ready(function () {
-
       // Switch buttons from "Log In | Register" to "Close Panel" on click
       $(".lost-pwd").click(function (e) {
         e.preventDefault();
@@ -80,9 +78,7 @@
       <?php } if ($ErrLogin) { ?>
       $(".loginF").addClass("shake");
       <?php } ?>
-
     });
-
   </script>
 
 <?php include "footer.php"; ?>

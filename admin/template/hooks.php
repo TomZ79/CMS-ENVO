@@ -113,8 +113,6 @@ if ($page2 == "e" || $page2 == "edn") { ?>
   echo $JAK_PAGINATE;
 } ?>
 
-  <!-- JavaScript for select all -->
-
   <script type="text/javascript">
     $(document).ready(function () {
       $("#jak_delete_all").click(function () {
@@ -125,6 +123,5 @@ if ($page2 == "e" || $page2 == "edn") { ?>
       });
     });
   </script>
-
 
 <?php include "footer.php"; ?>

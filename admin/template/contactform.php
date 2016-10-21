@@ -104,8 +104,6 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
 <?php } ?>
 
-  <!-- JavaScript for select all -->
-
   <script type="text/javascript">
     $(document).ready(function () {
       $("#jak_delete_all").click(function () {
@@ -116,6 +114,5 @@ if ($page1 == "e" || $page1 == "ene") { ?>
       });
     });
   </script>
-
 
 <?php include "footer.php"; ?>

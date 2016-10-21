@@ -233,6 +233,9 @@
 
                   <dt>PHP XML Sitemap generator</dt>
                   <dd><a href="http://www.alanmiller.com/blog/article/php-xml-sitemap-generator" class="btn bg-teal btn-xs" target="_blank">Preview</a></dd>
+
+                  <dt>Animate.css</dt>
+                  <dd><a href="https://daneden.github.io/animate.css/" class="btn bg-teal btn-xs" target="_blank">Preview</a></dd>
                 </dl>
               </div>
             </div>
