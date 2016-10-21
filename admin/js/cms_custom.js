@@ -27,9 +27,11 @@ $(function() {
   $('#selecttags2').on('changed.bs.select', function (e) {
     $("input[name='jak_tags']").tagsinput('add', $(this).val());
   });
+
   // Init Booststrap TagsInput for all Tags
   $("input[name='jak_tags'].tags").tagsinput('items');
-  /* Init Booststrap TagsInput for metakey in ACP - site
+
+  /* Init Booststrap TagsInput for metakey in ACP
     * confirm key code
     * 13 - enter
     * 44 - comma ' , '
@@ -37,6 +39,10 @@ $(function() {
     *
      */
   $("input[name='jak_keywords']#metakey").tagsinput({
+    confirmKeys: [13, 44, 32]
+  });
+
+  $("input[name='jak_lcontent_meta_key']#jak_editor_light_meta_key").tagsinput({
     confirmKeys: [13, 44, 32]
   });
 });
