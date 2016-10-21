@@ -10,10 +10,6 @@ if (!JAK_USERID || !$JAK_MODULES) jak_redirect(BASE_URL);
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $defaults = $_POST;
 
-  if ($defaults['jak_online'] == '1' && empty($defaults['jak_offpage'])) {
-    $errors['e1'] = $tl['error']['e1'];
-  }
-
   if (empty($defaults['jak_title'])) {
     $errors['e2'] = $tl['error']['e2'];
   }

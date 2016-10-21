@@ -71,8 +71,7 @@ if ($errors) { ?>
             <div class="form-group">
               <label for="jak_offpage"><?php echo $tl["site"]["s1"]; ?></label>
               <select name="jak_offpage" class="form-control selectpicker" data-live-search="true" data-size="5">
-                <option
-                  value="0"<?php if ($jkv["offline_page"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["title"]["t12"]; ?></option>
+                <option value="0"<?php if ($jkv["offline_page"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["title"]["t12"]; ?></option>
                 <?php if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $c) {
                   if ($c["pluginid"] == '0' && $c["pageid"] > '0') { ?>
                     <option value="<?php echo $c["id"]; ?>"<?php if ($jkv["offline_page"] == $c["id"]) { ?> selected="selected"<?php } ?>><?php echo $c["name"]; ?></option><?php }
@@ -139,7 +138,7 @@ if ($errors) { ?>
 
             <div class="form-group">
               <label for="copyright"><?php echo $tl["setting"]["s3"]; ?></label>
-              <input type="text" name="jak_copy" id="copyright" class="form-control" value="<?php echo $jkv["copyright"]; ?>"/>
+              <textarea name="jak_copy" id="copyright" class="form-control" rows="1"><?php echo $jkv["copyright"]; ?></textarea>
             </div>
 
           </div>

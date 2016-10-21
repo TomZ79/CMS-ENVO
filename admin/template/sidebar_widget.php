@@ -22,8 +22,8 @@ $hid = array();
           <div class="form-group">
             <div class="checkbox">
               <label>
-                <input type="checkbox" name="jak_hookshow[]" value="<?php echo $pgh["id"]; ?>" checked="checked"/> <a
-                  href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
+                <input type="checkbox" name="jak_hookshow[]" value="<?php echo $pgh["id"]; ?>" checked="checked"/>
+                <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
               </label>
             </div>
           </div>
@@ -31,8 +31,8 @@ $hid = array();
 
             <?php if (!empty($v["widgetcode"])) include_once APP_PATH . $v["widgetcode"]; ?>
 
-            <input type="hidden" name="horder[]" class="sorder" value="<?php echo $pgh["orderid"]; ?>"/> <input
-              type="hidden" name="real_hook_id[]" value="<?php echo $pgh["id"]; ?>"/>
+            <input type="hidden" name="horder[]" class="sorder" value="<?php echo $pgh["orderid"]; ?>"/>
+            <input type="hidden" name="real_hook_id[]" value="<?php echo $pgh["id"]; ?>"/>
 
           </div>
         </li>
@@ -48,8 +48,8 @@ $hid = array();
         <div class="form-group">
           <div class="checkbox">
             <label>
-              <input type="checkbox" name="jak_hookshow_new[]" value="<?php echo $v["id"]; ?>"/> <a
-                href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
+              <input type="checkbox" name="jak_hookshow_new[]" value="<?php echo $v["id"]; ?>"/>
+              <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
             </label>
           </div>
         </div>
@@ -57,10 +57,9 @@ $hid = array();
 
           <?php if (!empty($v["widgetcode"])) include_once APP_PATH . $v["widgetcode"]; ?>
 
-          <input type="hidden" name="horder_new[]" class="sorder" value="<?php echo $v["exorder"]; ?>"/> <input
-            type="hidden" name="real_hook_id_new[]" value="<?php echo $v["id"]; ?>"/> <input type="hidden"
-                                                                                             name="sreal_plugin_id_new[]"
-                                                                                             value="<?php echo $v["pluginid"]; ?>"/>
+          <input type="hidden" name="horder_new[]" class="sorder" value="<?php echo $v["exorder"]; ?>"/>
+          <input type="hidden" name="real_hook_id_new[]" value="<?php echo $v["id"]; ?>"/>
+          <input type="hidden" name="sreal_plugin_id_new[]" value="<?php echo $v["pluginid"]; ?>"/>
 
         </div>
       </li>

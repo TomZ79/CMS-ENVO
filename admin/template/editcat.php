@@ -184,7 +184,7 @@ if ($errors) { ?>
                   <tr>
                     <td>
                       <button id="copy1" class="btn btn-primary btn-xs pull-right margin-bottom-10" type="button">Copy from description</button>
-                      <textarea name="jak_lcontent_meta_desc" class="form-control" id="jak_editor_light_meta_desc" rows="6" maxlength="400"><?php echo jak_edit_safe_userpost(htmlspecialchars($JAK_FORM_DATA["metadesc"])); ?></textarea>
+                      <textarea name="jak_lcontent_meta_desc" class="form-control" id="jak_editor_light_meta_desc" rows="4" maxlength="400"><?php echo jak_edit_safe_userpost(htmlspecialchars($JAK_FORM_DATA["metadesc"])); ?></textarea>
                     </td>
                   </tr>
                 </table>
@@ -203,8 +203,7 @@ if ($errors) { ?>
                 <table class="table table-striped first-column v-text-center">
                   <tr>
                     <td>
-                      <button id="copy2" class="btn btn-primary btn-xs pull-right margin-bottom-10" type="button">Copy from description</button>
-                      <textarea name="jak_lcontent_meta_key" class="form-control" id="jak_editor_light_meta_key" rows="6"><?php echo jak_edit_safe_userpost(htmlspecialchars($JAK_FORM_DATA["metakey"])); ?></textarea>
+                      <input type="text" name="jak_lcontent_meta_key" class="form-control" id="jak_editor_light_meta_key" value="<?php echo jak_edit_safe_userpost(htmlspecialchars($JAK_FORM_DATA["metakey"])); ?>"/>
                     </td>
                   </tr>
                 </table>
@@ -233,13 +232,11 @@ if ($errors) { ?>
         // Checked, copy values
         $("#jak_varname").val(jakSlug($("#jak_name").val()));
       });
+
       $('#jak_img').iconpicker();
 
       $("#copy1").click(function() {
-        $("#jak_editor_light_meta_desc").val($("#content").text());
-      });
-      $("#copy2").click(function() {
-        $("#jak_editor_light_meta_key").val($("#content").text());
+        $("#jak_editor_light_meta_desc").val($("#content").val());
       });
     });
   </script>

@@ -131,7 +131,6 @@ function Image_Sharpen($img, $amount, $radius, $threshold)
 }
 
 function create_thumbnail($targetPath, $targetFile, $sourceFile, $widthNew, $heightNew, $qualityNew)
-
 {
 
   $imgsize = getimagesize($targetFile);

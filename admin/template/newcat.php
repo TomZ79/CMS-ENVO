@@ -71,7 +71,7 @@ if ($errors) { ?>
                   <tr>
                     <td><?php echo $tl["site"]["s3"]; ?></td>
                     <td>
-                      <textarea name="jak_lcontent" class="form-control" rows="4"><?php if (isset($_REQUEST["jak_lcontent"])) echo jak_edit_safe_userpost($_REQUEST["jak_lcontent"]); ?></textarea>
+                      <textarea name="jak_lcontent" id="content" class="form-control" rows="4"><?php if (isset($_REQUEST["jak_lcontent"])) echo jak_edit_safe_userpost($_REQUEST["jak_lcontent"]); ?></textarea>
                     </td>
                   </tr>
                   <tr>
@@ -156,7 +156,8 @@ if ($errors) { ?>
                 <table class="table table-striped first-column v-text-center">
                   <tr>
                     <td>
-                      <textarea name="jak_lcontent_meta_desc" class="form-control" id="jak_editor_light_meta_desc" rows="6"><?php if (isset($_REQUEST["jak_lcontent_meta_desc"])) echo jak_edit_safe_userpost(htmlspecialchars($_REQUEST["jak_lcontent_meta_desc"])); ?></textarea>
+                      <button id="copy1" class="btn btn-primary btn-xs pull-right margin-bottom-10" type="button">Copy from description</button>
+                      <textarea name="jak_lcontent_meta_desc" class="form-control" id="jak_editor_light_meta_desc" rows="4" maxlength="400"><?php if (isset($_REQUEST["jak_lcontent_meta_desc"])) echo jak_edit_safe_userpost(htmlspecialchars($_REQUEST["jak_lcontent_meta_desc"])); ?></textarea>
                     </td>
                   </tr>
                 </table>
@@ -175,7 +176,7 @@ if ($errors) { ?>
                 <table class="table table-striped first-column v-text-center">
                   <tr>
                     <td>
-                      <textarea name="jak_lcontent_meta_key" class="form-control" id="jak_editor_light_meta_key" rows="6"><?php if (isset($_REQUEST["jak_lcontent_meta_key"])) echo jak_edit_safe_userpost(htmlspecialchars($_REQUEST["jak_lcontent_meta_key"])); ?></textarea>
+                      <input type="text" name="jak_lcontent_meta_key" class="form-control" id="jak_editor_light_meta_key" value="<?php echo jak_edit_safe_userpost(htmlspecialchars($JAK_FORM_DATA["metakey"])); ?>"/>
                     </td>
                   </tr>
                 </table>
@@ -202,7 +203,12 @@ if ($errors) { ?>
         // Checked, copy values
         $("#jak_varname").val(jakSlug($("#jak_name").val()));
       });
+
       $('#jak_img').iconpicker();
+
+      $("#copy1").click(function() {
+        $("#jak_editor_light_meta_desc").val($("#content").val());
+      });
     });
   </script>
 

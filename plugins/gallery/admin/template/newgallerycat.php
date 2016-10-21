@@ -36,7 +36,7 @@
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-7">
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["title"]["t11"]; ?></h3>
@@ -144,7 +144,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-5">
         <?php if (JAK_TAGS) { ?>
           <div class="box box-primary">
             <div class="box-header with-border">

@@ -635,17 +635,17 @@ if ($success) { ?>
                 <table class="table table-striped v-text-center">
                   <tr>
                     <td><?php echo $tl["general"]["g95"]; ?></td>
-                    <td><textarea name="ip_block" cols="60" rows="5" class="form-control txtautogrow" placeholder="32.12.153.14,127.0.0.1,52.12.54.199,23.21.1.4:255.255.255.0"><?php echo $jkv["ip_block"]; ?></textarea>
+                    <td><textarea name="ip_block" cols="50" rows="5" class="form-control txtautogrow" placeholder="32.12.153.14,127.0.0.1,52.12.54.199,23.21.1.4:255.255.255.0"><?php echo $jkv["ip_block"]; ?></textarea>
                     </td>
                   </tr>
                   <tr>
                     <td><?php echo $tl["general"]["g96"]; ?></td>
-                    <td><textarea name="email_block" cols="60" rows="5" class="form-control txtautogrow" placeholder="one@mail.com,two@mail.com,three@mail.com,@domain.com"><?php echo $jkv["email_block"]; ?></textarea>
+                    <td><textarea name="email_block" cols="50" rows="4" class="form-control txtautogrow" placeholder="one@mail.com,two@mail.com,three@mail.com,@domain.com"><?php echo $jkv["email_block"]; ?></textarea>
                     </td>
                   </tr>
                   <tr>
                     <td><?php echo $tl["general"]["g137"]; ?></td>
-                    <td><textarea name="username_block" cols="60" rows="3" class="form-control txtautogrow" placeholder="admin,demo,administrator"><?php echo $jkv["username_block"]; ?></textarea>
+                    <td><textarea name="username_block" cols="50" rows="3" class="form-control txtautogrow" placeholder="admin,demo,administrator"><?php echo $jkv["username_block"]; ?></textarea>
                     </td>
                   </tr>
                 </table>
