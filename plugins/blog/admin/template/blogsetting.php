@@ -60,6 +60,10 @@ if ($page2 == "e") { ?>
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["title"]["t4"]; ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
           </div><!-- /.box-header -->
           <div class="box-body">
             <table class="table table-striped first-column v-text-center">
@@ -168,6 +172,10 @@ if ($page2 == "e") { ?>
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["title"]["t29"]; ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
           </div><!-- /.box-header -->
           <div class="box-body">
             <table class="table table-striped">
@@ -214,6 +222,10 @@ if ($page2 == "e") { ?>
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["general"]["g53"]; ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
           </div><!-- /.box-header -->
           <div class="box-body">
             <a href="../../../../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a> <a href="javascript:;" id="addCssBlock"><?php echo $tl["general"]["g101"]; ?></a><br/>
@@ -231,6 +243,10 @@ if ($page2 == "e") { ?>
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["general"]["g100"]; ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
           </div><!-- /.box-header -->
           <div class="box-body">
             <a href="../../../../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a> <a href="javascript:;" id="addJavascriptBlock"><?php echo $tl["general"]["g102"]; ?></a><br/>
@@ -247,6 +263,10 @@ if ($page2 == "e") { ?>
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["general"]["g89"]; ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
           </div><!-- /.box-header -->
           <div class="box-body">
             <?php include APP_PATH . "admin/template/sidebar_widget.php"; ?>

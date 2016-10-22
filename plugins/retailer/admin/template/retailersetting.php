@@ -65,6 +65,10 @@
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["title"]["t4"]; ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
           </div><!-- /.box-header -->
           <div class="box-body">
 
@@ -166,6 +170,10 @@
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tlre["retailer"]["q6"]; ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
           </div><!-- /.box-header -->
           <div class="box-body">
             <table class="table table-striped">
@@ -267,6 +275,10 @@
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["title"]["t29"]; ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
           </div><!-- /.box-header -->
           <div class="box-body">
             <table class="table table-responsive">
@@ -317,6 +329,10 @@
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["general"]["g53"]; ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
           </div><!-- /.box-header -->
           <div class="box-body">
             <a
@@ -338,6 +354,10 @@
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["general"]["g100"]; ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
           </div><!-- /.box-header -->
           <div class="box-body">
             <a
@@ -359,6 +379,10 @@
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["general"]["g89"]; ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
           </div><!-- /.box-header -->
           <div class="box-body">
             <?php include APP_PATH . "admin/template/sidebar_widget.php"; ?>

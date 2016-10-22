@@ -38,6 +38,10 @@ if ($errors) { ?>
     <div class="box box-primary">
       <div class="box-header with-border">
         <h3 class="box-title"><?php echo $tl["title"]["t13"]; ?></h3>
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+          <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        </div>
       </div><!-- /.box-header -->
       <div class="box-body">
         <table class="table table-striped">
@@ -76,6 +80,10 @@ if ($errors) { ?>
     <div class="box box-primary">
       <div class="box-header with-border">
         <h3 class="box-title"><?php echo $tlec["shop"]["m14"]; ?></h3>
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+          <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        </div>
       </div><!-- /.box-header -->
       <div class="box-body">
         <table class="table table-striped">

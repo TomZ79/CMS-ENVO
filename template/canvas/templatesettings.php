@@ -14,6 +14,10 @@
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title">Mini Navbar Content</h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
               </div><!-- /.box-header -->
               <div class="box-body">
                 <table class="table table-striped first-column v-text-center">
@@ -52,6 +56,10 @@
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title">Navbar Style</h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
               </div><!-- /.box-header -->
               <div class="box-body">
                 <table class="table table-striped first-column v-text-center">
@@ -100,6 +108,10 @@
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title">Mini Navbar Content - Social Icons</h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
               </div><!-- /.box-header -->
               <div class="box-body">
                 <table class="table table-striped v-text-center">
@@ -221,6 +233,10 @@
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title">Section</h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
               </div><!-- /.box-header -->
               <div class="box-body">
                 <table class="table v-text-center">
@@ -250,6 +266,10 @@
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title">Footer Block 1</h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
               </div><!-- /.box-header -->
               <div class="box-body">
                 <table class="table">
@@ -267,6 +287,10 @@
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title">Footer Block 2</h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
               </div><!-- /.box-header -->
               <div class="box-body">
                 <table class="table">
@@ -284,6 +308,10 @@
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title">Footer Block 3</h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
               </div><!-- /.box-header -->
               <div class="box-body">
                 <table class="table">
@@ -307,6 +335,10 @@
               <div class="box box-primary">
                 <div class="box-header with-border">
                   <h3 class="box-title">Editace Souboru</h3>
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   <table class="table">

@@ -46,6 +46,10 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
         <div class="box-header with-border">
           <i class="fa fa-bars"></i>
           <h3 class="box-title"><?php echo $tl["general"]["g116"]; ?></h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
         </div><!-- /.box-header -->
         <div class="box-body">
 
@@ -63,6 +67,10 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
         <div class="box-header with-border">
           <i class="fa fa-clone"></i>
           <h3 class="box-title"><?php echo $tl["cat"]["f"]; ?></h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
         </div><!-- /.box-header -->
         <div class="box-body">
 
@@ -83,6 +91,10 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
         <div class="box-header with-border">
           <i class="fa fa-clone"></i>
           <h3 class="box-title"><?php echo $tl["general"]["g117"]; ?></h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
         </div><!-- /.box-header -->
         <div class="box-body">
           <?php if ($ucatblank) {

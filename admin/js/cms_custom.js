@@ -47,7 +47,7 @@ $(function() {
   });
 });
 
-/* 01. MODIFICATION - SHOW/HIDE Help for each page
+/* 02. MODIFICATION - SHOW/HIDE Help for each page
  ========================================================================*/
 $(function() {
   if( $('.control-sidebar').length ) {

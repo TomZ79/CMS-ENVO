@@ -88,6 +88,10 @@ if ($success) { ?>
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tl["title"]["t4"]; ?></h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
               </div><!-- /.box-header -->
               <div class="box-body">
                 <table class="table table-striped v-text-center first-column">
@@ -206,6 +210,10 @@ if ($success) { ?>
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tl["title"]["t6"]; ?></h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
               </div><!-- /.box-header -->
               <div class="box-body">
                 <table class="table table-striped v-text-center">
@@ -234,6 +242,10 @@ if ($success) { ?>
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tl["title"]["t20"]; ?></h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
               </div><!-- /.box-header -->
               <div class="box-body">
                 <table class="table table-striped v-text-center">
@@ -259,6 +271,10 @@ if ($success) { ?>
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tl["title"]["t47"]; ?></h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
               </div><!-- /.box-header -->
               <div class="box-body">
                 <table class="table table-striped">
@@ -279,6 +295,10 @@ if ($success) { ?>
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tl["title"]["t40"]; ?></h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
               </div><!-- /.box-header -->
               <div class="box-body">
                 <table class="table table-striped v-text-center">
@@ -314,6 +334,10 @@ if ($success) { ?>
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["title"]["t29"]; ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
           </div><!-- /.box-header -->
           <div class="box-body">
             <table class="table table-striped">
@@ -361,6 +385,10 @@ if ($success) { ?>
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["title"]["t4"]; ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
           </div><!-- /.box-header -->
           <div class="box-body">
             <table class="table table-striped v-text-center first-column">
@@ -459,6 +487,10 @@ if ($success) { ?>
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["setting"]["s21"]; ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
           </div><!-- /.box-header -->
           <div class="box-body">
             <div class="table-responsive">
@@ -552,6 +584,10 @@ if ($success) { ?>
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tl["title"]["t23"]; ?></h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
               </div><!-- /.box-header -->
               <div class="box-body">
                 <table class="table table-striped first-column v-text-center">
@@ -630,6 +666,10 @@ if ($success) { ?>
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tl["general"]["g97"]; ?></h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
               </div><!-- /.box-header -->
               <div class="box-body">
                 <table class="table table-striped v-text-center">
@@ -662,6 +702,10 @@ if ($success) { ?>
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["general"]["g98"]; ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
           </div><!-- /.box-header -->
           <div class="box-body">
             <table class="table table-striped">
@@ -679,6 +723,10 @@ if ($success) { ?>
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["general"]["g127"]; ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
           </div><!-- /.box-header -->
           <div class="box-body">
             <table class="table table-striped">

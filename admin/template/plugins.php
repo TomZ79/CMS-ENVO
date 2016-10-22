@@ -36,6 +36,10 @@ if ($page1 == "e") { ?>
       <div class="box-header with-border">
         <i class="fa fa-plug"></i>
         <h3 class="box-title"><?php echo $tl["menu"]["m14"]; ?></h3>
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+          <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        </div>
       </div><!-- /.box-header -->
       <div class="box-body">
         <ul class="jak_plugins_move">
@@ -122,6 +126,10 @@ if ($page1 == "e") { ?>
                   <h3 class="box-title">
                     <?php echo str_replace('_', ' ', ucfirst($p)); ?>
                   </h3>
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   <div class="col-md-8">
@@ -152,6 +160,10 @@ if ($page1 == "e") { ?>
           <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title"><?php echo $tl["title"]["t28"]; ?></h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
             </div><!-- /.box-header -->
             <div class="box-body">
               <table class="table table-striped v-text-center">
