@@ -42,6 +42,7 @@
     [new]  Add new template Canvas
     [new]  ACP - Plugins - added captcha (security number) for uninstallation
            http://99webtools.com/blog/php-simple-captcha-script/
+    [new]  Password generator for Users
 
     // # List of updated components
     // ------------------------------
@@ -77,7 +78,6 @@
     [enhanced]  Social Media Sharing Plugin
     [enhanced]  ACP - Plugins - added captcha (security number) for uninstallation
                 http://99webtools.com/blog/php-simple-captcha-script/
-
 
     // # List of new pages
     // ------------------------------

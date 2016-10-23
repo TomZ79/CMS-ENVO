@@ -57,166 +57,173 @@ if ($page2 == "e") { ?>
     <div class="tab-content">
       <div class="tab-pane active" id="blogSett1">
 
-        <div class="box box-primary">
-          <div class="box-header with-border">
-            <h3 class="box-title"><?php echo $tl["title"]["t4"]; ?></h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        <div class="row">
+          <div class="col-md-7">
+            <div class="box box-primary">
+              <div class="box-header with-border">
+                <h3 class="box-title"><?php echo $tl["title"]["t4"]; ?></h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+              </div><!-- /.box-header -->
+              <div class="box-body">
+                <table class="table table-striped first-column v-text-center">
+                  <tr>
+                    <td><?php echo $tl["page"]["p"]; ?></td>
+                    <td><?php include_once APP_PATH . "admin/template/title_edit.php"; ?></td>
+                  </tr>
+                  <tr>
+                    <td><?php echo $tl["page"]["p5"]; ?></td>
+                    <td>
+                      <textarea name="jak_lcontent" class="form-control" rows="4"><?php echo jak_edit_safe_userpost($JAK_FORM_DATA["content"]); ?></textarea>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><?php echo $tlblog["blog"]["d16"]; ?></td>
+                    <td>
+                      <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+                        <input class="form-control" type="text" name="jak_email" value="<?php echo $jkv["blogemail"]; ?>"/>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><?php echo $tlblog["blog"]["d15"]; ?></td>
+                    <td>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <select name="jak_showblogordern" class="form-control selectpicker">
+                            <option value="id"<?php if ($JAK_SETTING['showblogwhat'] == "id") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tlblog["blog"]["d22"]; ?></option>
+                            <option value="title"<?php if ($JAK_SETTING['showblogwhat'] == "title") { ?> selected="selected"<?php } ?>><?php echo $tlblog["blog"]["d8"]; ?></option>
+                            <option value="time"<?php if ($JAK_SETTING['showblogwhat'] == "time") { ?> selected="selected"<?php } ?>><?php echo $tlblog["blog"]["d24"]; ?></option>
+                            <option value="hits"<?php if ($JAK_SETTING['showblogwhat'] == "hits") { ?> selected="selected"<?php } ?>><?php echo $tlblog["blog"]["d25"]; ?></option>
+                          </select>
+                        </div>
+                        <div class="col-md-6">
+                          <select name="jak_showblogorder" class="form-control selectpicker">
+                            <option value="ASC"<?php if ($JAK_SETTING['showblogorder'] == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g90"]; ?></option>
+                            <option value="DESC"<?php if ($JAK_SETTING['showblogorder'] == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g91"]; ?></option>
+                          </select>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><?php echo $tl["general"]["g58"]; ?></td>
+                    <td>
+
+                      <select name="jak_bloglimit" class="form-control selectpicker">
+
+                        <?php for ($i = 0; $i <= 50; $i++) { ?>
+                          <option value="<?php echo $i; ?>"<?php if ($jkv["bloghlimit"] == $i) { ?> selected="selected"<?php } ?>><?php echo $i; ?></option>
+                        <?php } ?>
+
+                      </select>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><?php echo $tlblog["blog"]["d14"]; ?></td>
+                    <td>
+                      <input type="text" name="jak_maxpost" class="form-control" value="<?php echo $jkv["blogmaxpost"]; ?>"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><?php echo $tl["setting"]["s4"]; ?></td>
+                    <td>
+                      <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
+                        <input type="text" name="jak_date" class="form-control" value="<?php echo $jkv["blogdateformat"]; ?>"/>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><?php echo $tl["setting"]["s5"]; ?></td>
+                    <td>
+                      <div class="form-group no-margin<?php if (isset($errors["e4"])) echo " has-error"; ?>">
+                        <input type="text" name="jak_time" class="form-control" value="<?php echo $jkv["blogtimeformat"]; ?>"/>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><?php echo $tlblog["blog"]["d7"]; ?></td>
+                    <td>
+                      <div class="radio">
+                        <label class="checkbox-inline">
+                          <input type="radio" name="jak_blogurl" value="1"<?php if ($jkv["blogurl"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                        </label>
+                        <label class="checkbox-inline">
+                          <input type="radio" name="jak_blogurl" value="0"<?php if ($jkv["blogurl"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                        </label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><?php echo $tl["general"]["g40"]; ?> / <?php echo $tl["general"]["g41"]; ?></td>
+                    <td>
+                      <div class="form-group no-margin<?php if (isset($errors["e7"])) echo " has-error"; ?>">
+                        <input type="text" name="jak_rssitem" class="form-control" value="<?php echo $jkv["blogrss"]; ?>"/>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="box-footer">
+                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+              </div>
             </div>
-          </div><!-- /.box-header -->
-          <div class="box-body">
-            <table class="table table-striped first-column v-text-center">
-              <tr>
-                <td><?php echo $tl["page"]["p"]; ?></td>
-                <td><?php include_once APP_PATH . "admin/template/title_edit.php"; ?></td>
-              </tr>
-              <tr>
-                <td><?php echo $tl["page"]["p5"]; ?></td>
-                <td>
-                  <textarea name="jak_lcontent" class="form-control" rows="4"><?php echo jak_edit_safe_userpost($JAK_FORM_DATA["content"]); ?></textarea>
-                </td>
-              </tr>
-              <tr>
-                <td><?php echo $tlblog["blog"]["d16"]; ?></td>
-                <td>
-                  <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-                    <input class="form-control" type="text" name="jak_email" value="<?php echo $jkv["blogemail"]; ?>"/>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><?php echo $tlblog["blog"]["d15"]; ?></td>
-                <td>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <select name="jak_showblogordern" class="form-control selectpicker">
-                        <option value="id"<?php if ($JAK_SETTING['showblogwhat'] == "id") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tlblog["blog"]["d22"]; ?></option>
-                        <option value="title"<?php if ($JAK_SETTING['showblogwhat'] == "title") { ?> selected="selected"<?php } ?>><?php echo $tlblog["blog"]["d8"]; ?></option>
-                        <option value="time"<?php if ($JAK_SETTING['showblogwhat'] == "time") { ?> selected="selected"<?php } ?>><?php echo $tlblog["blog"]["d24"]; ?></option>
-                        <option value="hits"<?php if ($JAK_SETTING['showblogwhat'] == "hits") { ?> selected="selected"<?php } ?>><?php echo $tlblog["blog"]["d25"]; ?></option>
-                      </select>
-                    </div>
-                    <div class="col-md-6">
-                      <select name="jak_showblogorder" class="form-control selectpicker">
-                        <option value="ASC"<?php if ($JAK_SETTING['showblogorder'] == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g90"]; ?></option>
-                        <option value="DESC"<?php if ($JAK_SETTING['showblogorder'] == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g91"]; ?></option>
-                      </select>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><?php echo $tl["general"]["g58"]; ?></td>
-                <td>
-
-                  <select name="jak_bloglimit" class="form-control selectpicker">
-
-                    <?php for ($i = 0; $i <= 50; $i++) { ?>
-                      <option value="<?php echo $i; ?>"<?php if ($jkv["bloghlimit"] == $i) { ?> selected="selected"<?php } ?>><?php echo $i; ?></option>
-                    <?php } ?>
-
-                  </select>
-
-                </td>
-              </tr>
-              <tr>
-                <td><?php echo $tlblog["blog"]["d14"]; ?></td>
-                <td>
-                  <input type="text" name="jak_maxpost" class="form-control" value="<?php echo $jkv["blogmaxpost"]; ?>"/>
-                </td>
-              </tr>
-              <tr>
-                <td><?php echo $tl["setting"]["s4"]; ?></td>
-                <td>
-                  <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
-                    <input type="text" name="jak_date" class="form-control" value="<?php echo $jkv["blogdateformat"]; ?>"/>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><?php echo $tl["setting"]["s5"]; ?></td>
-                <td>
-                  <div class="form-group no-margin<?php if (isset($errors["e4"])) echo " has-error"; ?>">
-                    <input type="text" name="jak_time" class="form-control" value="<?php echo $jkv["blogtimeformat"]; ?>"/>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><?php echo $tlblog["blog"]["d7"]; ?></td>
-                <td>
-                  <div class="radio">
-                    <label class="checkbox-inline">
-                      <input type="radio" name="jak_blogurl" value="1"<?php if ($jkv["blogurl"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                    </label>
-                    <label class="checkbox-inline">
-                      <input type="radio" name="jak_blogurl" value="0"<?php if ($jkv["blogurl"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                    </label>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><?php echo $tl["general"]["g40"]; ?> / <?php echo $tl["general"]["g41"]; ?></td>
-                <td>
-                  <div class="form-group no-margin<?php if (isset($errors["e7"])) echo " has-error"; ?>">
-                    <input type="text" name="jak_rssitem" class="form-control" value="<?php echo $jkv["blogrss"]; ?>"/>
-                  </div>
-                </td>
-              </tr>
-            </table>
           </div>
-          <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+          <div class="col-md-5">
+            <div class="box box-primary">
+              <div class="box-header with-border">
+                <h3 class="box-title"><?php echo $tl["title"]["t29"]; ?></h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+              </div><!-- /.box-header -->
+              <div class="box-body">
+                <table class="table table-striped">
+                  <tr>
+                    <td><?php echo $tl["setting"]["s11"]; ?></td>
+                    <td>
+                      <div class="<?php if (isset($errors["e5"])) echo " has-error"; ?>">
+                        <select name="jak_mid" class="form-control selectpicker">
+                          <option value="2"<?php if ($jkv["blogpagemid"] == 2) { ?> selected="selected"<?php } ?>>
+                            Range 1 page
+                          </option>
+                          <option value="4"<?php if ($jkv["blogpagemid"] == 4) { ?> selected="selected"<?php } ?>>
+                            Range 2 page
+                          </option>
+                          <option value="6"<?php if ($jkv["blogpagemid"] == 6) { ?> selected="selected"<?php } ?>>
+                            Range 3 page
+                          </option>
+                          <option value="8"<?php if ($jkv["blogpagemid"] == 8) { ?> selected="selected"<?php } ?>>
+                            Range 4 page
+                          </option>
+                          <option value="10"<?php if ($jkv["blogpagemid"] == 10) { ?> selected="selected"<?php } ?>>
+                            Range 5 page
+                          </option>
+                        </select>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><?php echo $tl["setting"]["s12"]; ?></td>
+                    <td>
+                      <div class="form-group no-margin<?php if (isset($errors["e5"])) echo " has-error"; ?>">
+                        <input type="text" name="jak_item" class="form-control" value="<?php echo $jkv["blogpageitem"]; ?>"/>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="box-footer">
+                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="box box-primary">
-          <div class="box-header with-border">
-            <h3 class="box-title"><?php echo $tl["title"]["t29"]; ?></h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
-          </div><!-- /.box-header -->
-          <div class="box-body">
-            <table class="table table-striped">
-              <tr>
-                <td><?php echo $tl["setting"]["s11"]; ?></td>
-                <td>
-                  <div class="<?php if (isset($errors["e5"])) echo " has-error"; ?>">
-                    <select name="jak_mid" class="form-control selectpicker">
-                      <option value="2"<?php if ($jkv["blogpagemid"] == 2) { ?> selected="selected"<?php } ?>>
-                        Range 1 page
-                      </option>
-                      <option value="4"<?php if ($jkv["blogpagemid"] == 4) { ?> selected="selected"<?php } ?>>
-                        Range 2 page
-                      </option>
-                      <option value="6"<?php if ($jkv["blogpagemid"] == 6) { ?> selected="selected"<?php } ?>>
-                        Range 3 page
-                      </option>
-                      <option value="8"<?php if ($jkv["blogpagemid"] == 8) { ?> selected="selected"<?php } ?>>
-                        Range 4 page
-                      </option>
-                      <option value="10"<?php if ($jkv["blogpagemid"] == 10) { ?> selected="selected"<?php } ?>>
-                        Range 5 page
-                      </option>
-                    </select>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><?php echo $tl["setting"]["s12"]; ?></td>
-                <td>
-                  <div class="form-group no-margin<?php if (isset($errors["e5"])) echo " has-error"; ?>">
-                    <input type="text" name="jak_item" class="form-control" value="<?php echo $jkv["blogpageitem"]; ?>"/>
-                  </div>
-                </td>
-              </tr>
-            </table>
-          </div>
-          <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
-          </div>
-        </div>
+
       </div>
       <div class="tab-pane" id="blogSett2">
         <div class="box box-primary">

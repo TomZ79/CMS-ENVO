@@ -11,7 +11,7 @@ switch ($page1) {
 
     // Title and Description
     $SECTION_TITLE = "Changelog";
-    $SECTION_DESC = "";
+    $SECTION_DESC = "All notable changes made to a project";
 
     // Call the template
     $template = 'changelog.php';
