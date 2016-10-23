@@ -1,0 +1,303 @@
+/* ------------------------------------------------------------------------------
+*  # Steps wizard
+*
+*  An all-in-one wizard plugin that is extremely flexible, compact and feature-rich
+*  Version: 1.0
+*  Latest update: May 25, 2015
+* ---------------------------------------------------------------------------- */
+.wizard {
+    width: 100%;
+    overflow: hidden;
+}
+
+.wizard > .steps .current-info,
+.wizard > .content > .title {
+    position: absolute;
+    left: -99999px;
+}
+
+.wizard > .content {
+    overflow: hidden;
+    position: relative;
+    width: auto;
+    padding: 0;
+}
+
+.wizard > .content > .body {
+    padding: 0 20px;
+}
+
+.wizard > .content > iframe {
+    border: 0 none;
+    width: 100%;
+    height: 100%;
+}
+
+.wizard > .steps {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.wizard > .steps > ul {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.wizard > .steps > ul > li {
+    display: table-cell;
+    width: auto;
+    vertical-align: top;
+    text-align: center;
+    position: relative;
+}
+
+.wizard > .steps > ul > li a {
+    position: relative;
+    padding-top: 48px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.wizard > .steps > ul > li:before,
+.wizard > .steps > ul > li:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 43px;
+    width: 50%;
+    height: 2px;
+    background-color: #00BCD4;
+    z-index: 9;
+}
+
+.wizard > .steps > ul > li:before {
+    left: 0;
+}
+
+.wizard > .steps > ul > li:after {
+    right: 0;
+}
+
+.wizard > .steps > ul > li:first-child:before,
+.wizard > .steps > ul > li:last-child:after {
+    content: none;
+}
+
+.wizard > .steps > ul > li.current:after,
+.wizard > .steps > ul > li.current ~ li:before,
+.wizard > .steps > ul > li.current ~ li:after {
+    background-color: #eeeeee;
+}
+
+.wizard > .steps > ul > li.current > a {
+    color: #333333;
+    cursor: default;
+}
+
+.wizard > .steps > ul > li.current .number {
+    font-size: 0;
+    border-color: #00BCD4;
+    background-color: #fff;
+    color: #00BCD4;
+}
+
+.wizard > .steps > ul > li.current .number:after {
+    content: '\f040';
+    font-family: 'fontawesome';
+    display: inline-block;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 34px;
+    -webkit-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+}
+
+.wizard > .steps > ul > li.disabled a,
+.wizard > .steps > ul > li.disabled a:hover,
+.wizard > .steps > ul > li.disabled a:focus {
+    color: #999999;
+    cursor: default;
+}
+
+.wizard > .steps > ul > li.done a,
+.wizard > .steps > ul > li.done a:hover,
+.wizard > .steps > ul > li.done a:focus {
+    color: #999999;
+}
+
+.wizard > .steps > ul > li.done .number {
+    font-size: 0;
+    background-color: #00BCD4;
+    border-color: #00BCD4;
+    color: #fff;
+}
+
+.wizard > .steps > ul > li.done .number:after {
+    content: '\f00c';
+    font-family: 'fontawesome';
+    display: inline-block;
+    font-size: 16px;
+    line-height: 34px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+}
+
+.wizard > .steps > ul > li.error .number {
+    border-color: #F44336;
+    color: #F44336;
+}
+
+@media (max-width: 768px) {
+    .wizard > .steps > ul {
+        margin-bottom: 20px;
+    }
+
+    .wizard > .steps > ul > li {
+        display: block;
+        float: left;
+        width: 50%;
+    }
+
+    .wizard > .steps > ul > li > a {
+        margin-bottom: 0;
+    }
+
+    .wizard > .steps > ul > li:first-child:before,
+    .wizard > .steps > ul > li:last-child:after {
+        content: '';
+    }
+
+    .wizard > .steps > ul > li:last-child:after {
+        background-color: #00BCD4;
+    }
+}
+
+@media (max-width: 480px) {
+    .wizard > .steps > ul > li {
+        width: 100%;
+    }
+
+    .wizard > .steps > ul > li.current:after {
+        background-color: #00BCD4;
+    }
+}
+
+.wizard > .steps .number {
+    background-color: #fff;
+    color: #ccc;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -19px;
+    width: 38px;
+    height: 38px;
+    border: 2px solid #eeeeee;
+    font-size: 14px;
+    border-radius: 50%;
+    z-index: 10;
+    line-height: 34px;
+    text-align: center;
+}
+
+.panel-flat > .wizard > .steps > ul {
+    border-top: 1px solid #ddd;
+}
+
+.wizard > .content {
+    min-height: 100px;
+}
+
+.wizard > .content textarea {
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.wizard > .actions {
+    position: relative;
+    display: block;
+    text-align: right;
+    padding: 20px;
+    padding-top: 0;
+}
+
+.wizard > .actions > ul {
+    float: right;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.wizard > .actions > ul:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.wizard > .actions > ul > li {
+    float: left;
+}
+
+.wizard > .actions > ul > li + li {
+    margin-left: 10px;
+}
+
+.wizard > .actions > ul > li > a {
+    background: #2196F3;
+    color: #fff;
+    display: block;
+    padding: 7px 12px;
+    border-radius: 2px;
+    border: 1px solid transparent;
+}
+
+.wizard > .actions > ul > li > a:hover,
+.wizard > .actions > ul > li > a:focus {
+    -webkit-box-shadow: 0 0 0 100px rgba(0, 0, 0, 0.05) inset;
+    box-shadow: 0 0 0 100px rgba(0, 0, 0, 0.05) inset;
+}
+
+.wizard > .actions > ul > li > a:active {
+    -webkit-box-shadow: 0 0 0 100px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 0 0 100px rgba(0, 0, 0, 0.1) inset;
+}
+
+.wizard > .actions > ul > li > a[href="#previous"] {
+    background-color: #fcfcfc;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.wizard > .actions > ul > li > a[href="#previous"]:hover,
+.wizard > .actions > ul > li > a[href="#previous"]:focus {
+    -webkit-box-shadow: 0 0 0 100px rgba(0, 0, 0, 0.02) inset;
+    box-shadow: 0 0 0 100px rgba(0, 0, 0, 0.02) inset;
+}
+
+.wizard > .actions > ul > li > a[href="#previous"]:active {
+    -webkit-box-shadow: 0 0 0 100px rgba(0, 0, 0, 0.04) inset;
+    box-shadow: 0 0 0 100px rgba(0, 0, 0, 0.04) inset;
+}
+
+.wizard > .actions > ul > li.disabled > a,
+.wizard > .actions > ul > li.disabled > a:hover,
+.wizard > .actions > ul > li.disabled > a:focus {
+    color: #999999;
+}
+
+.wizard > .actions > ul > li.disabled > a[href="#previous"],
+.wizard > .actions > ul > li.disabled > a[href="#previous"]:hover,
+.wizard > .actions > ul > li.disabled > a[href="#previous"]:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}

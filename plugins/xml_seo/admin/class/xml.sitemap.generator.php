@@ -315,7 +315,7 @@ class xml_sitemap_generator
     private function _buildHeader()
     {
         $header  = '<'.'?'.'xml version="1.0" encoding="UTF-8"?'.'>'."\n";
-        $header .= "\t".'<urlset ';
+        $header .= '<urlset ';
         $header .= 'xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'."\n";
         return $header;
     }
