@@ -97,14 +97,14 @@ switch ($page1) {
     $SECTION_TITLE = 'Template Settings';
     $SECTION_DESC = 'Settings for your template';
 
-// Breadcrumbs sections
+    // Breadcrumbs sections
     $SECTION_CATEGORY = 'Template Settings';
     $SECTION_SUBCATEGORY_F = 'Settings for your template';
 
-// Ace Mode
+    // Ace Mode
     $acemode = 'ini';
 
-// Call the template
+    // Call the template
     $template = 'templatesettings.php';
 
     break;

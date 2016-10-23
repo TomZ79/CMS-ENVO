@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <title>Bluesat Template Documentation</title>
 
+  <!-- ======= FONTS ======= -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&subset=latin-ext" rel="stylesheet">
+
   <!-- ======= CSS STYLE ======= -->
   <link rel="stylesheet" href="/admin/doc/css/doc.css">
   <link rel="stylesheet" href="/admin/doc/js/syntaxhighlighter/styles/shCoreKreatura.css">

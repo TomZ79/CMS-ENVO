@@ -128,7 +128,7 @@ if ($page1 == "e") { ?>
                     <i class="fa fa-remove"></i> <?php echo $tl["general"]["g94"]; ?>
                   </a>
                   <?php if (file_exists('../template/' . $l . '/help.html')) { ?>
-                    <a class="btn btn-info btn-sm tempSett" href="../template/<?php echo $l; ?>/help.html">
+                    <a class="btn btn-info btn-sm tempHelp" href="../template/<?php echo $l; ?>/help.html">
                       <?php echo $tl["title"]["t21"]; ?>
                     </a>
                   <?php }
@@ -143,7 +143,7 @@ if ($page1 == "e") { ?>
               </div>
               <?php if (file_exists('../template/' . $l . '/help.html')) { ?>
                 <div class="col-md-2">
-                  <a class="btn btn-info btn-sm tempSett" href="../template/<?php echo $l; ?>/help.html">
+                  <a class="btn btn-info btn-sm tempHelp" href="../template/<?php echo $l; ?>/help.html">
                     <?php echo $tl["title"]["t21"]; ?>
                   </a>
                 </div>
@@ -183,6 +183,20 @@ if ($page1 == "e") { ?>
         $('#JAKModalLabel').html("<?php echo ucwords($page);?>");
         $('#JAKModal').on('show.bs.modal', function () {
           $('<iframe src="' + frameSrc + '" width="100%" height="100%" frameborder="0">').appendTo('.modal-body');
+        });
+        $('#JAKModal').on('hidden.bs.modal', function () {
+          window.location.reload();
+        });
+        $('#JAKModal').modal({show: true});
+      });
+
+      $('.tempHelp').on('click', function (e) {
+        e.preventDefault();
+        frameSrc = $(this).attr("href");
+        $('#JAKModalLabel').html("<?php echo ucwords($page);?>");
+        $('#JAKModal').on('show.bs.modal', function () {
+          $('#JAKModal .modal-lg').css("width", "90%");
+          $('<iframe src="' + frameSrc + '" width="100%" height="400px" frameborder="0">').appendTo('.modal-body');
         });
         $('#JAKModal').on('hidden.bs.modal', function () {
           window.location.reload();

@@ -178,7 +178,10 @@ if ($errors) { ?>
                 <td><?php echo $tl["user"]["u4"]; ?></td>
                 <td>
                   <div class="form-group no-margin<?php if (isset($errors["e5"]) || isset($errors["e6"])) echo " has-error"; ?>">
-                    <input class="form-control" type="text" name="jak_password" id="check_password" value=""/>
+                    <div class="label-indicator-absolute">
+                      <input class="form-control" type="text" name="jak_password" value=""/>
+                      <span class="label password-indicator-label-absolute"></span>
+                    </div>
                   </div>
                 </td>
               </tr>
@@ -186,21 +189,16 @@ if ($errors) { ?>
                 <td><?php echo $tl["user"]["u5"]; ?></td>
                 <td>
                   <div class="form-group no-margin<?php if (isset($errors["e5"]) || isset($errors["e6"])) echo " has-error"; ?>">
-                    <input class="form-control" type="text" name="jak_confirm_password" value=""/>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><?php echo $tl["user"]["u12"]; ?></td>
-                <td>
-                  <div class="progress">
-                    <div id="jak_pstrength" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                    <div class="label-indicator-absolute">
+                      <input class="form-control" type="text" name="jak_confirm_password" value=""/>
+                    </div>
                   </div>
                 </td>
               </tr>
             </table>
           </div>
           <div class="box-footer">
+            <button type="button" class="btn btn-info generate-label-absolute">Generate 10 characters password</button>
             <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
           </div>
         </div>
@@ -249,12 +247,22 @@ if ($errors) { ?>
         minDate: moment()
       });
 
-      /* Other
-       ========================================= */
-      $('#check_password').keyup(function () {
-        passwordStrength($(this).val());
-      });
     });
   </script>
+
+  <style>
+    .label-indicator-absolute {
+      position: relative;
+    }
+    .label-indicator-absolute .password-indicator-label-absolute {
+      position: absolute;
+      top: 50%;
+      margin-top: -9px;
+      right: 7px;
+      -webkit-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+    }
+  </style>
 
 <?php include "footer.php"; ?>
