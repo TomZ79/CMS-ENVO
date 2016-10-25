@@ -43,6 +43,8 @@
     [new]  ACP - Plugins - added captcha (security number) for uninstallation
            http://99webtools.com/blog/php-simple-captcha-script/
     [new]  Password generator for Users
+    [new]  New Plugin XML SEO Sitemap v1.3
+    [new]  Add search page by title in Pages
 
     // # List of updated components
     // ------------------------------

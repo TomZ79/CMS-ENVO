@@ -187,6 +187,41 @@ switch ($page1) {
     $JAK_CONTACT_FORMS = jak_get_page_info($jaktable2, '');
 
     switch ($page1) {
+      case 'search':
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          $defaults = $_POST;
+
+          if (isset($defaults['search'])) {
+
+            if ($defaults['jakSH'] == '' or $defaults['jakSH'] == $tl['search']['s']) {
+              $errors['e'] = $tl['search']['s1'];
+            }
+
+            if (strlen($defaults['jakSH']) < '1') {
+              $errors['e1'] = $tl['search']['s2'];
+            }
+
+            if (count($errors) > 0) {
+              $errors['e2'] = $tl['search']['s3'];
+              $errors = $errors;
+            } else {
+              $secureIn = smartsql(strip_tags($defaults['jakSH']));
+              $SEARCH_WORD = $secureIn;
+              $JAK_SEARCH = jak_admin_search($secureIn, $jaktable, 'pages');
+            }
+          }
+
+        }
+
+        // Title and Description
+        $SECTION_TITLE = $tl["menu"]["m7"];
+        $SECTION_DESC = str_replace("%s", $tl["menu"]["m4"], $tl["cmdesc"]['d3']);
+
+        // Get the template
+        $template = 'searchpages.php';
+
+        break;
       case 'lock':
 
         $result = $jakdb->query('UPDATE ' . $jaktable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page2) . '"');

@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // Title and Description
 $SECTION_TITLE = "Social Media Sharing";
-$SECTION_DESC = "";
+$SECTION_DESC = "Setting for sharing on social networks";
 
 // Call the template
 $template = 'mediasharing.php';

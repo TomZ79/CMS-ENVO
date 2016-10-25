@@ -10,7 +10,6 @@ if (!JAK_USERID) die('You cannot access this file directly.');
 // If not logged in and not admin, block access
 if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die('You cannot access this file directly.');
 
-
 // Set successfully to zero
 $succesfully = 0;
 
@@ -88,7 +87,6 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 
     </div>
   </div>
-
 
 </div><!-- #container -->
 </body>

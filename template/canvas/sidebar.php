@@ -4,12 +4,13 @@
 	if ($hs["id"] == $sg["hookid"]) {
 		// vlastní řešení pro přidání pluginsidebar z plugin template adresáře
 		// dotaz viz ticket https://www.jakweb.ch/support/t/439/cms-sidebar-in-plugins-template
-		$text = str_replace("' . site_style . '",$jkv["sitestyle"],$hs["phpcode"]);
-		if (file_exists($text)) {
-			include_once $text;
+		$template = $jkv["sitestyle"];
+		$path = str_replace('$site_style',$template,$hs["phpcode"]);
+		if (file_exists($path)) {
+			include_once $path;
 		} else {
-			$text = str_replace("' . site_style . '",'',$hs["phpcode"]);
-			include_once $text;
+			$path = str_replace('$site_style','',$hs["phpcode"]);
+			include_once $path;
 		}
 
 } } } ?>

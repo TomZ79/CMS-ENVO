@@ -186,6 +186,11 @@ table.first-column tr td:first-child {
 
 /* XX. MODIFICATION - BOOTSTRAP
 ========================================================================*/
+/* HR Divider */
+hr {
+  border-top: 1px solid #CCC;
+}
+
 /* BOOTSTRAP Same height for column */
 .row-table {
   display: table;
@@ -3158,6 +3163,8 @@ a:focus {
 
 .callout.callout-info {
   border-color: #0097bc;
+  color: #fff !important;
+  background-color: #00BCD4 !important;
 }
 
 .callout.callout-success {

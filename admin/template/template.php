@@ -127,13 +127,15 @@ if ($page1 == "e") { ?>
                   <a class="btn btn-danger btn-sm tempInst" href="../template/<?php echo $l; ?>/uninstall.php">
                     <i class="fa fa-remove"></i> <?php echo $tl["general"]["g94"]; ?>
                   </a>
+                  <a class="btn btn-primary btn-sm <?php if (!file_exists('../template/' . $l . '/templatesettings.php')) echo 'disabled'; ?>" href="index.php?p=template&amp;sp=settings">
+                    Template setting
+                  </a>
                   <?php if (file_exists('../template/' . $l . '/help.html')) { ?>
                     <a class="btn btn-info btn-sm tempHelp" href="../template/<?php echo $l; ?>/help.html">
                       <?php echo $tl["title"]["t21"]; ?>
                     </a>
                   <?php }
-                }
-                else { ?>
+                } else { ?>
               <div class="col-md-5">
                 <div class="row">
                   <div class="alert bg-danger" style="width: 100%; padding: 5px 10px; text-align: center;">
@@ -203,6 +205,10 @@ if ($page1 == "e") { ?>
         });
         $('#JAKModal').modal({show: true});
       });
+
+      $('.disabled').click(function(e){
+        e.preventDefault();
+      })
     });
   </script>
 

@@ -91,7 +91,10 @@ function getTemplateFiles($dir, $level, $rootLen) {
 switch ($page1) {
   case 'settings':
 
-    include_once ('../template/' . $jkv["sitestyle"] . '/templatesettings_case.php');
+    $file = '../template/' . $jkv["sitestyle"] . '/templatesettings_case.php';
+    if (file_exists($file)) {
+      include_once $file;
+    }
 
     // Title and Description
     $SECTION_TITLE = 'Template Settings';

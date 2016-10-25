@@ -44,7 +44,7 @@ if ($page3 == "e") { ?>
           <h3><i class="fa fa-warning text-warning-800"></i> Your template settings not exists</h3>
           <p>
             Your template settings not exists, because settings file <?php echo $filename; ?> not exists.
-            Please use styleswitcher for settings your template.
+            Please use Style Manager for settings your template.
           </p>
         </div><!-- /.error-content -->
       </div><!-- /.error-page -->

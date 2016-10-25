@@ -146,24 +146,26 @@ function jak_get_user_all($jakvar,$jakvar1,$jakvar2) {
     return $user;
 }
 
-// Get all user out the database limited with the paginator
+// Get all user or pages out the database limited with the paginator
 function jak_admin_search($jakvar,$jakvar1,$jakvar2) {
 
-	$sqlwhere = '';
-	if ($jakvar2 == 'user') {
-		$sqlwhere = ' WHERE id like "%'.$jakvar.'%" OR username like "%'.$jakvar.'%" OR name like "%'.$jakvar.'%" OR email like "%'.$jakvar.'%"';
-	} elseif ($jakvar2 == 'newsletter') {
-		$sqlwhere = ' WHERE id like "%'.$jakvar.'%" or email like "%'.$jakvar.'%"';
-	}
-	global $jakdb;
-	$jakdata = array();
-    $result = $jakdb->query('SELECT * FROM '.$jakvar1.$sqlwhere.' ORDER BY id ASC LIMIT 5');
-    while ($row = $result->fetch_assoc()) {
-    	// collect each record into $_data
-        $jakdata[] = $row;
-    }
-        
-    return $jakdata;
+  $sqlwhere = '';
+  if ($jakvar2 == 'user') {
+    $sqlwhere = ' WHERE id like "%'.$jakvar.'%" OR username like "%'.$jakvar.'%" OR name like "%'.$jakvar.'%" OR email like "%'.$jakvar.'%"';
+  } elseif ($jakvar2 == 'newsletter') {
+    $sqlwhere = ' WHERE id like "%'.$jakvar.'%" or email like "%'.$jakvar.'%"';
+  } elseif ($jakvar2 == 'pages') {
+    $sqlwhere = ' WHERE title like "%'.$jakvar.'%"';
+  }
+  global $jakdb;
+  $jakdata = array();
+  $result = $jakdb->query('SELECT * FROM '.$jakvar1.$sqlwhere.' ORDER BY id ASC LIMIT 5');
+  while ($row = $result->fetch_assoc()) {
+    // collect each record into $_data
+    $jakdata[] = $row;
+  }
+
+  return $jakdata;
 }
 
 // Check if user exist and it is possible to delete ## (config.php)

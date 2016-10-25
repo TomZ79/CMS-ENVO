@@ -152,14 +152,14 @@ header p a {
 	margin: 0;
 }
 #subnav h3:first-child {
-	width: 219px;
+	width: 239px;
 	border-right: 1px solid #dfdfdf;
 	margin-right: 20px;
 }
 
 /* SIDEBAR */
 aside {
-	width: 229px;
+	width: 249px;
 	position: absolute;
 	top: 90px;
 	bottom: 0px;
@@ -230,7 +230,7 @@ aside ul ul li span {
 /* CONTENT */
 #content {
 	position: absolute;
-	left: 230px;
+	left: 250px;
 	right: 0px;
 	top: 90px;
 	bottom: 0px;
@@ -284,7 +284,7 @@ section ol, section ul {
 	padding-left: 40px;
 }
 section ol, section ul, section ol li, section ul li, section p, section > div, article > div {
-	margin: 20px 0px 0px 0px;
+	margin: 10px 0px 0px 0px;
 }
 section li p,
 section ol li:first-child,

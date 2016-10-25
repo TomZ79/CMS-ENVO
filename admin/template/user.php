@@ -44,7 +44,7 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
 			<span class="input-group-btn">
 		    	<button class="btn btn-info" name="search" type="submit"><?php echo $tl["title"]["t30"]; ?></button>
 		    </span>
-          <input type="text" name="jakSH" class="form-control">
+          <input type="text" name="jakSH" class="form-control" placeholder="Search by Username, Name or Email">
         </div><!-- /input-group -->
       </form>
     </div>
@@ -57,9 +57,9 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
                 <option value="<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></option><?php }
             } ?>
           </select>
-			<span class="input-group-btn">
-				<button type="submit" name="move" class="btn btn-warning"><?php echo $tl["general"]["g35"]; ?></button>
-			</span>
+          <span class="input-group-btn">
+            <button type="submit" name="move" class="btn btn-warning"><?php echo $tl["general"]["g35"]; ?></button>
+          </span>
         </div>
     </div>
   </div>
@@ -217,8 +217,6 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
 <?php if ($JAK_PAGINATE) {
   echo $JAK_PAGINATE;
 } ?>
-
-  <!-- JavaScript for select all -->
 
   <script type="text/javascript">
     $(document).ready(function () {

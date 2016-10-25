@@ -20,21 +20,16 @@
 
   <div class="row">
     <div class="col-md-6">
-
       <form role="form" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-
         <div class="input-group">
-	<span class="input-group-btn">
-    	<button class="btn btn-info" name="search" type="submit"><?php echo $tl["title"]["t30"]; ?></button>
-    </span>
-          <input type="text" name="jakSH" class="form-control">
+          <span class="input-group-btn">
+              <button class="btn btn-info" name="search" type="submit"><?php echo $tl["title"]["t30"]; ?></button>
+          </span>
+          <input type="text" name="jakSH" class="form-control" placeholder="Search by Username, Name or Email">
         </div><!-- /input-group -->
-
       </form>
-
     </div>
     <div class="col-md-6">
-
       <div class="input-group">
         <select name="jak_group" class="form-control selectpicker" data-size="5">
           <?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $z) {
@@ -42,11 +37,10 @@
               <option value="<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></option><?php }
           } ?>
         </select>
-	<span class="input-group-btn">
-		<button type="submit" name="move" class="btn btn-warning"><?php echo $tl["general"]["g35"]; ?></button>
-	</span>
+        <span class="input-group-btn">
+          <button type="submit" name="move" class="btn btn-warning"><?php echo $tl["general"]["g35"]; ?></button>
+        </span>
       </div>
-
     </div>
   </div>
 

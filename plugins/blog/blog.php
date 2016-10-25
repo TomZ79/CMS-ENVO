@@ -231,6 +231,7 @@ switch ($page1) {
           $PAGE_ID = $row['id'];
           $PAGE_TITLE = $row['title'];
           $PAGE_CONTENT = jak_secure_site($row['content']);
+          $MAIN_DESCRIPTION = $jkv["blogdesc"];
           $SHOWTITLE = $row['showtitle'];
           $SHOWIMG = $row['previmg'];
           $SHOWDATE = $row['showdate'];
@@ -304,7 +305,7 @@ switch ($page1) {
         }
 
         // Show Tags
-        $JAK_TAGLIST = JAK_tags::jakGettaglist($page2, JAK_PLUGIN_ID_BLOG, JAK_PLUGIN_VAR_TAGS);
+        $JAK_TAGLIST = JAK_tags::jakGettaglist_class($page2, JAK_PLUGIN_ID_BLOG, JAK_PLUGIN_VAR_TAGS, '');
 
         // Page Nav
         $nextp = jak_next_page($page2, 'title', $jaktable, 'id', ' AND catid != 0', '', 'active');
@@ -362,7 +363,7 @@ switch ($page1) {
     $plugin_template = 'plugins/blog/template/' . $jkv["sitestyle"] . '/blogart.php';
 
     break;
-  case 'del';
+  case 'del':
 
     if (is_numeric($page2) && jak_row_exist($page2, $jaktable2) && JAK_BLOGMODERATE) {
 
@@ -503,6 +504,7 @@ switch ($page1) {
     if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
     $PAGE_KEYWORDS = str_replace(" ", "", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+
     // SEO from the category content if available
     if (!empty($ca['content'])) {
       $PAGE_DESCRIPTION = jak_cut_text($ca['content'], 155, '');

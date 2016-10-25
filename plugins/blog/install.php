@@ -175,7 +175,7 @@ include_once APP_PATH.\'plugins/blog/template/\'.$jkv[\"sitestyle\"].\'/pages_ne
 (NULL, "tpl_admin_usergroup_edit", "Blog Usergroup Edit", "plugins/blog/admin/template/usergroup_edit.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_tags", "Blog Tags", "plugins/blog/template/tag.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_sitemap", "Blog Sitemap", "plugins/blog/template/sitemap.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_sidebar", "Blog Sidebar Categories", "plugins/blog/template/blogsidebar.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_sidebar", "Blog Sidebar Categories", "plugins/blog/template/$site_style/blogsidebar.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_fulltext_add", "Blog Full Text Search", "' . $sqlfull . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_fulltext_remove", "Blog Remove Full Text Search", "' . $sqlfullremove . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_page_news", "Blog Admin - Page/News", "' . $pages . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),

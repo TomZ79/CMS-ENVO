@@ -235,8 +235,7 @@ if ($success) { ?>
                 </table>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save"
-                        class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
               </div>
             </div>
             <div class="box box-primary">
@@ -264,8 +263,7 @@ if ($success) { ?>
                 </table>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save"
-                        class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
               </div>
             </div>
             <div class="box box-primary">
@@ -281,8 +279,7 @@ if ($success) { ?>
                   <tr>
                     <td>
                       <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
-                        <input type="text" name="jak_shortmsg" class="form-control"
-                               value="<?php echo $jkv["shortmsg"]; ?>"/>
+                        <input type="text" name="jak_shortmsg" class="form-control" value="<?php echo $jkv["shortmsg"]; ?>"/>
                       </div>
                     </td>
                   </tr>
@@ -776,158 +773,218 @@ if ($success) { ?>
     <div class="tab-content">
       <!-- Tab 1. -->
       <div class="tab-pane active" id="control-sidebar1">
-        <h4>Obecná Nastavení</h4>
+        <h4><?php echo $tl["title"]["t4"]; ?></h4>
         <p>Obecná nastavení pro ACP a webovou síť.</p>
         <hr>
 
-        <h5><strong>Vaše Emailová Adresa</strong></h5>
+        <!-- Emailová adresa -->
+        <h5><strong><?php echo $tl["setting"]["s"]; ?></strong></h5>
         <p></p>
 
-        <h5><strong>Server is running on</strong></h5>
+        <!-- HTTP or HTTPS -->
+        <h5><strong><?php echo $tl["setting"]["s27"]; ?></strong></h5>
         <p></p>
 
-        <h5><strong>Jazyk</strong></h5>
-        <p>Výběr jazyka pro ACP</p>
+        <!-- Jazyk -->
+        <h5><strong><?php echo $tl["setting"]["s2"]; ?></strong></h5>
+        <p>Výběr jazyka pro Administrační rozhraní ACP</p>
 
-        <h5><strong>Směr Textu</strong></h5>
+        <!-- Směr Textu -->
+        <h5><strong><?php echo $tl["setting"]["s17"]; ?></strong></h5>
         <p></p>
 
-        <h5><strong>Formát Datumu</strong></h5>
+        <!-- Formát Datumu -->
+        <h5><strong><?php echo $tl["setting"]["s4"]; ?></strong></h5>
+        <p>Formátu data.</p>
+
+        <!-- Formát Času -->
+        <h5><strong><?php echo $tl["setting"]["s5"]; ?></strong></h5>
+        <p>Formát času.</p>
+
+        <!-- Časová Zóna -->
+        <h5><strong><?php echo $tl["setting"]["s31"]; ?></strong></h5>
+        <p>Výběr časové zóny.</p>
+
+        <!-- Zobrazení data a času -->
+        <h5><strong><?php echo $tl["general"]["g138"]; ?></strong></h5>
+        <p>Zobrazí čas ve článcích a stránkách buď dle formátu data a času nebo zobrazní čas článku před kolika hodinami byl článek zadán.</p>
+
+        <!-- Captcha -->
+        <h5><strong><?php echo $tl["menu"]["m21"]; ?></strong></h5>
         <p></p>
 
-        <h5><strong>Formát Času</strong></h5>
+        <!-- Zobrazit Formulář -->
+        <h5><strong><?php echo $tl["setting"]["s8"]; ?></strong></h5>
+        <p>Zobrazí nabídku na zobrazení kontaktního formuláře v layoutu stránky a v jednotlivých pluginech.</p>
+
+        <!-- Choose how many -->
+        <h5><strong><?php echo $tl["title"]["t20"]; ?></strong></h5>
+        <p>Nastavení zobrazení počtu zpráv v:</p>
+        <p>
+        <ul>
+          <li>Web Site - Style Manager - Content Block - News (footer Widget)</li>
+        </ul>
+        </p>
+        <p>TIP: Pokud použijeme PHP kódy v template pro zobrazení News-Zpráv, bude i toto nastavení aktivní pro naše template.</p>
+
+        <!-- Short Message Length -->
+        <h5><strong><?php echo $tl["title"]["t47"]; ?></strong></h5>
+        <p>Nastavení počtu zobrazených znaků v seznamu článku pro:</p>
+        <p>
+        <ul>
+          <li>News - Zprávy</li>
+          <li>Blog - Novinky</li>
+          <li>Download - Ke Stažení</li>
+          <li>FAWQ - Časté dotazy</li>
+          <li>Ticketing</li>
+          <li>Gallery - Fotogalerie</li>
+          <li>Tags - Tagy (Štítky)</li>
+          <li>RSS - RSS zprávy</li>
+        </ul>
+        </p>
+
+        <!-- Aktivovat RSS -->
+        <h5><strong><?php echo $tl["title"]["t40"]; ?></strong></h5>
+        <p>Aktivace RSS zpráv. Aktivací této položky budou RSS zprávy dostupné pouze pro všeobecné stránky a nebude RSS dostupné pro:</p>
+        <p>
+        <ul>
+          <li>News - Zprávy</li>
+          <li>Všechny pluginy (např: Blog, ...)</li>
+        </ul>
+        </p>
+
+        <!-- Items -->
+        <h5><strong><?php echo $tl["general"]["g41"]; ?></strong></h5>
+        <p>Počet zobrazených posledních položek RSS Zpráv</p>
+
+        <!-- Page Mid Range -->
+        <h5><strong><?php echo $tl["title"]["t29"]; ?></strong></h5>
         <p></p>
 
-        <h5><strong>Vaše Časová Zóna</strong></h5>
-        <p></p>
-
-        <h5><strong>Show time in minutes/hours/days ago</strong></h5>
-        <p></p>
-
-        <h5><strong>Captcha</strong></h5>
-        <p></p>
-
-        <h5><strong>Zobrazit Formulář</strong></h5>
-        <p></p>
-
-        <h5><strong>Choose how many</strong></h5>
-        <p></p>
-
-        <h5><strong>Short Message Length</strong></h5>
-        <p></p>
-
-        <h5><strong>Aktivovat RSS</strong></h5>
-        <p></p>
-
-        <h5><strong>Items</strong></h5>
-        <p></p>
-
-        <h5><strong>Page Mid Range</strong></h5>
-        <p></p>
-
-        <h5><strong>Items per Page</strong></h5>
+        <!-- Items per Page -->
+        <h5><strong><?php echo $tl["setting"]["s12"]; ?></strong></h5>
         <p></p>
 
       </div>
       <!-- Tab 2. -->
       <div class="tab-pane" id="control-sidebar2">
-        <h4>ACE Editor</h4>
+        <h4><?php echo $tl["setting_cmd"]["s50"]; ?></h4>
         <p>Nastavení ACE Editoru. Tento editor umožňuje pracovat se zdrojovým html kódem stránek.</p>
         <hr>
 
-        <h5><strong>Aktivovat Rozšířený Editor (ACE editor)</strong></h5>
+        <!-- Aktivovat Rozšířený Editor (ACE editor) -->
+        <h5><strong><?php echo $tl["setting"]["s10"]; ?></strong></h5>
         <p>Aktivace ACE Editoru.</p>
 
-        <h5><strong>Color Themes</strong></h5>
-        <p>Výběr barevného tématu pro ACE Editor.</p>
+        <!-- Color Themes -->
+        <h5><strong><?php echo $tl["setting_cmd"]["s51"]; ?></strong></h5>
+        <p>Výběr barevného tématu ACE Editoru.</p>
 
-        <h5><strong>ACE Tab Size</strong></h5>
+        <!-- ACE Tab Size -->
+        <h5><strong><?php echo $tl["setting_cmd"]["s52"]; ?></strong></h5>
+        <p>Nastavení velikosti odsazení.</p>
+
+        <!-- Set Wrap Limit -->
+        <h5><strong><?php echo $tl["setting_cmd"]["s53"]; ?></strong></h5>
         <p></p>
 
-        <h5><strong>Set Wrap Limit</strong></h5>
+        <!-- Show Gutter -->
+        <h5><strong><?php echo $tl["setting_cmd"]["s54"]; ?></strong></h5>
         <p></p>
 
-        <h5><strong>Show Gutter</strong></h5>
+        <!-- Highlight Active Line -->
+        <h5><strong><?php echo $tl["setting_cmd"]["s55"]; ?></strong></h5>
         <p></p>
 
-        <h5><strong>Highlight Active Line</strong></h5>
-        <p></p>
-
-        <h5><strong>Show Invisible</strong></h5>
+        <!-- Show Invisible -->
+        <h5><strong><?php echo $tl["setting_cmd"]["s56"]; ?></strong></h5>
         <p></p>
       </div>
       <!-- Tab 3. -->
       <div class="tab-pane" id="control-sidebar3">
-        <h4>Nastavení Emailu</h4>
+        <h4><?php echo $tl["setting"]["s21"]; ?></h4>
         <hr>
 
-        <h5><strong>Protokol pro Email</strong></h5>
+        <!-- Protokol pro Email -->
+        <h5><strong><?php echo $tl["setting"]["s22"]; ?></strong></h5>
         <p></p>
 
-        <h5><strong>Host</strong></h5>
+        <!-- Host -->
+        <h5><strong><?php echo $tl["setting"]["s25"]; ?></strong></h5>
         <p></p>
 
-        <h5><strong>Port</strong></h5>
+        <!-- Port -->
+        <h5><strong><?php echo $tl["setting"]["s26"]; ?></strong></h5>
         <p></p>
 
-        <h5><strong>Keep SMTP alive?</strong></h5>
+        <!-- Keep SMTP alive? -->
+        <h5><strong><?php echo $tl["setting"]["s32"]; ?></strong></h5>
         <p></p>
 
-        <h5><strong>SMTP Authentication</strong></h5>
+        <!-- SMTP Authentication -->
+        <h5><strong><?php echo $tl["setting"]["s33"]; ?></strong></h5>
         <p></p>
 
-        <h5><strong>SMTP Server Prefix</strong></h5>
+        <!-- SMTP Server Prefix -->
+        <h5><strong><?php echo $tl["setting"]["s34"]; ?></strong></h5>
         <p></p>
 
-        <h5><strong>SMTP Username</strong></h5>
+        <!-- SMTP Username -->
+        <h5><strong><?php echo $tl["setting"]["s39"]; ?></strong></h5>
         <p></p>
 
-        <h5><strong>SMPT Password</strong></h5>
+        <!-- SMPT Password -->
+        <h5><strong><?php echo $tl["setting"]["s40"]; ?></strong></h5>
         <p></p>
 
-        <h5><strong>Test Email Settings</strong></h5>
+        <!-- Test Email Settings -->
+        <h5><strong><?php echo $tl["setting"]["s41"]; ?></strong></h5>
         <p></p>
 
       </div>
       <!-- Tab 4. -->
       <div class="tab-pane" id="control-sidebar4">
-        <h4>Uživatelské Nastavení</h4>
+        <h4><?php echo $tl["title"]["t23"]; ?></h4>
         <hr>
 
-        <h5><strong>Show Login in Sidebar</strong></h5>
+        <!-- Show Login in Sidebar -->
+        <h5><strong><?php echo $tl["setting"]["s36"]; ?></strong></h5>
         <p></p>
 
-        <h5><strong>Print Function Active</strong></h5>
+        <!-- Aktivovat Tiskové Funkce -->
+        <h5><strong><?php echo $tl["setting"]["s35"]; ?></strong></h5>
+        <p>Aktivace tisknutí stránky. Pokud je tato položka aktivní zobrazí se na dané stránce tlačítko pro tisk.</p>
+
+        <!-- Parse Smilies -->
+        <h5><strong><?php echo $tl["setting"]["s1"]; ?></strong></h5>
         <p></p>
 
-        <h5><strong>Parse Smilies</strong></h5>
+        <!-- Avatar Size -->
+        <h5><strong><?php echo $tl["setting"]["s14"]; ?></strong></h5>
         <p></p>
 
-        <h5><strong>Avatar Size</strong></h5>
+        <!-- IP Block List -->
+        <h5><strong><?php echo $tl["general"]["g95"]; ?></strong></h5>
         <p></p>
 
-        <h5><strong>IP Block List</strong></h5>
+        <!-- Email Block List -->
+        <h5><strong><?php echo $tl["general"]["g96"]; ?></strong></h5>
         <p></p>
 
-        <h5><strong>Email Block List</strong></h5>
-        <p></p>
-
-        <h5><strong>Prohibited Usernames</strong></h5>
+        <!-- Prohibited Usernames -->
+        <h5><strong><?php echo $tl["general"]["g137"]; ?></strong></h5>
         <p></p>
 
       </div>
       <!-- Tab 5. -->
       <div class="tab-pane" id="control-sidebar5">
-        <h4>Analitycké Kódy</h4>
+        <h4><?php echo $tl["general"]["g98"]; ?></h4>
         <hr>
 
-        <h5><strong>XXXX</strong></h5>
+        <h5><strong><?php echo $tl["general"]["g127"]; ?></strong></h5>
         <p></p>
 
-        <h5><strong>Activate Click Heat Map</strong></h5>
-        <p></p>
-
-        <h5><strong>Truncate Clicks</strong></h5>
+        <h5><strong><?php echo $tl["general"]["g128"]; ?></strong></h5>
         <p></p>
 
       </div>

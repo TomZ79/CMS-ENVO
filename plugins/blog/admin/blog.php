@@ -79,14 +79,16 @@ switch ($page1) {
 
           // Save the time if available of article
           if (!empty($finaltime)) {
-            $insert .= 'time = "'.smartsql($finaltime) . '",';
+            $insert .= 'time = "'.smartsql($finaltime) . '"';
           } else {
             $insert .= 'time = NOW()';
           }
 
           // Save image
           if (!empty($defaults['jak_img'])) {
-            $insert .= 'previmg = "' . smartsql($defaults['jak_img']) . '",';
+            $insert .= ',previmg = "' . smartsql($defaults['jak_img']) . '"';
+          } else {
+            $insert .= ',previmg = NULL';
           }
 
           // Save the time range if available of article
@@ -120,7 +122,7 @@ switch ($page1) {
 			comments = "' . smartsql($comment) . '",
 			showvote = "' . smartsql($defaults['jak_vote']) . '",
 			socialbutton = "' . smartsql($defaults['jak_social']) . '",
-			'.$insert);
+			' . $insert);
 
           $rowid = $jakdb->jak_last_id();
 
@@ -450,7 +452,7 @@ switch ($page1) {
     $plugin_template = 'plugins/blog/admin/template/newblogcat.php';
 
     break;
-  case 'comment';
+  case 'comment':
 
     $getTotal = jak_get_total($jaktable2, '', '', '');
     if ($getTotal != 0) {

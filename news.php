@@ -200,7 +200,13 @@ switch ($page1) {
         if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
         $PAGE_KEYWORDS = str_replace(" ", "", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
-        $PAGE_DESCRIPTION = jak_cut_text($PAGE_CONTENT, 155, '');
+
+        // SEO from the category content if available
+        if (!empty($ca['metadesc'])) {
+            $PAGE_DESCRIPTION = jak_cut_text($ca['metadesc'], 155, '');
+        } else {
+            $PAGE_DESCRIPTION = jak_cut_text($PAGE_CONTENT, 155, '');
+        }
 
         // get the standard template
         $template = 'news.php';

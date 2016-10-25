@@ -4,53 +4,45 @@
 
 <?php if ($PAGE_CONTENT) echo $PAGE_CONTENT; ?>
 
-  <div class="row">
+  <!-- Posts
+	============================================= -->
+  <div id="posts" class="small-thumbs">
+
     <?php if (isset($JAK_BLOG_ALL) && is_array($JAK_BLOG_ALL)) foreach ($JAK_BLOG_ALL as $v) { ?>
-      <!-- Post -->
-      <div class="col-md-4 col-sm-6">
-        <div class="jak-post">
-          <!-- Post Info -->
-          <div class="post-info">
-            <div class="info-details">
-              <?php if ($v["showdate"]) { ?><i class="fa fa-clock-o"></i> <?php echo $v["created"]; ?><?php } ?><i
-                class="fa fa-eye"></i> <?php echo $tl["general"]["g13"] . $v["hits"]; ?>
-            </div>
+      <div class="entry clearfix">
+        <div class="entry-image">
+          <a href="<?php echo $v["parseurl"]; ?>"><img class="image_fade" src="<?php echo $v["previmg"]; ?>" alt="Preview - <?php echo $v["title"]; ?>"></a>
+        </div>
+        <div class="entry-c">
+          <div class="entry-title">
+            <h2><a href="<?php echo $v["parseurl"]; ?>"><?php echo jak_cut_text($v["title"], 30, ""); ?></a></h2>
           </div>
-          <!-- End Post Info -->
-          <!-- Post Image -->
-          <a href="<?php echo $v["parseurl"]; ?>"><img src="<?php echo BASE_URL . $v["previmg"]; ?>" alt="blog-preview"
-                                                       class="post-image img-responsive"></a>
-          <!-- End Post Image -->
-          <!-- Post Title & Summary -->
-          <div class="post-title">
-            <h3 class="text-color"><span><a
-                  href="<?php echo $v["parseurl"]; ?>"><?php echo jak_cut_text($v["title"], 30, ""); ?></a></span></h3>
-          </div>
-          <div class="post-summary">
+          <ul class="entry-meta clearfix">
+            <li><i class="icon-calendar3"></i> <?php echo $v["created"]; ?></li>
+            <li><i class="fa fa-eye"></i> <?php echo $tl["general"]["g13"] . $v["hits"]; ?></li>
+          </ul>
+          <div class="entry-content">
             <p><?php echo $v["contentshort"]; ?></p>
-          </div>
-          <!-- End Post Title & Summary -->
-          <div class="post-more">
-            <a href="<?php echo $v["parseurl"]; ?>" class="btn btn-color btn-sm"><i
-                class="fa fa-book"></i> <?php echo $tl["general"]["g3"]; ?></a>
+            <a href="<?php echo $v["parseurl"]; ?>" class="more-link"><?php echo $tl["general"]["g3"]; ?></a>
             <?php if (JAK_ASACCESS) { ?>
+              <div class="pull-right">
 
-              <a href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>"
-                 title="<?php echo $tl["general"]["g"]; ?>" class="btn btn-default btn-sm jaktip"><i
-                  class="fa fa-pencil"></i></a>
+                <a href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" class="button button-mini button-border button-rounded jaktip" title="<?php echo $tl["general"]["g"]; ?>" style="padding: 0 3px 0 7px;line-height: 21px;"><span><i class="fa fa-pencil"></i></span></a>
 
-              <a class="btn btn-default btn-sm jaktip quickedit"
-                 href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>"
-                 title="<?php echo $tl["general"]["g176"]; ?>"><i class="fa fa-edit"></i></a>
+                <a href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" class="button button-mini button-border button-rounded jaktip quickedit" title="<?php echo $tl["general"]["g176"]; ?>" style="padding: 0 3px 0 7px;line-height: 21px;"><span><i class="fa fa-edit"></i></span></a>
 
+              </div>
             <?php } ?>
           </div>
         </div>
       </div>
-      <!-- End Post -->
-    <?php } ?>
-  </div>
 
-<?php if ($JAK_PAGINATE) echo $JAK_PAGINATE; ?>
+    <?php } ?>
+
+    <!-- Pagination
+    ============================================= -->
+    <?php if ($JAK_PAGINATE) echo $JAK_PAGINATE; ?>
+
+  </div>
 
 <?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/footer.php'; ?>

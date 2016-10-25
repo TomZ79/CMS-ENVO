@@ -7,13 +7,13 @@ if (!file_exists('config.php')) die('[index.php] config.php not exist');
 require_once 'config.php';
 
 // Now check if there is more then one language
-$page = ($tempp ? jak_url_input_filter($tempp) : '');
-$page1 = ($tempp1 ? jak_url_input_filter($tempp1) : '');
-$page2 = ($tempp2 ? jak_url_input_filter($tempp2) : '');
-$page3 = ($tempp3 ? jak_url_input_filter($tempp3) : '');
-$page4 = ($tempp4 ? jak_url_input_filter($tempp4) : '');
-$page5 = ($tempp5 ? jak_url_input_filter($tempp5) : '');
-$page6 = ($tempp6 ? jak_url_input_filter($tempp6) : '');
+$page = ($tempp ? jak_input_filter($tempp) : '');
+$page1 = ($tempp1 ? jak_input_filter($tempp1) : '');
+$page2 = ($tempp2 ? jak_input_filter($tempp2) : '');
+$page3 = ($tempp3 ? jak_input_filter($tempp3) : '');
+$page4 = ($tempp4 ? jak_input_filter($tempp4) : '');
+$page5 = ($tempp5 ? jak_input_filter($tempp5) : '');
+$page6 = ($tempp6 ? jak_input_filter($tempp6) : '');
 
 // Import the language file
 if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
