@@ -246,7 +246,11 @@
         $("#jak_varname").val(jakSlug($("#jak_name").val()));
       });
 
-      $('#jak_img').iconpicker();
+      /* Font Awesome Icon Picker */
+      $('#jak_img').iconpicker({
+        selectedCustomClass: 'bg-teal-300',
+      });
+
     });
   </script>
 

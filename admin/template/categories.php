@@ -41,7 +41,7 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
 
   <div class="row">
     <div class="col-md-6">
-      <!-- Header or Header and Footer -->
+      <!-- Header or Header/Footer -->
       <div class="box box-default">
         <div class="box-header with-border">
           <i class="fa fa-bars"></i>
@@ -62,7 +62,7 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
       </div>
     </div>
     <div class="col-md-6">
-      <!-- Footer And None Only -->
+      <!-- Footer Only -->
       <div class="box box-default">
         <div class="box-header with-border">
           <i class="fa fa-clone"></i>
@@ -86,7 +86,7 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
 
   <div class="row">
     <div class="col-md-12">
-      <!-- Footer And None Only -->
+      <!-- Not Visible -->
       <div class="box box-default">
         <div class="box-header with-border">
           <i class="fa fa-clone"></i>

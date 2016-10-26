@@ -227,6 +227,11 @@
                   <dd>Font Awesome gives you scalable vector icons that can instantly be customized — size, color, drop shadow, and anything that can be done with the power of CSS.
                     <a href="https://fortawesome.github.io/Font-Awesome/" class="btn bg-teal btn-xs" target="_blank">Preview</a></dd>
 
+                  <dt>Font Awesome Icon Picker</dt>
+                  <dd>Font Awesome Icon Picker is a fully customizable plugin for Twitter Bootstrap, with a powerful base API,
+                    based on Bootstrap Popover Picker.
+                    <a href="https://itsjavi.com/fontawesome-iconpicker/" class="btn bg-teal btn-xs" target="_blank">Preview</a></dd>
+
                   <dt>Simple PHP Auto-Update System</dt>
                   <dd><a href="http://maxmorgandesign.com/simple_php_auto_update_system/" class="btn bg-teal btn-xs" target="_blank">Preview</a></dd>
 

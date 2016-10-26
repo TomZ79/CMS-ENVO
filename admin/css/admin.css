@@ -228,6 +228,11 @@ hr {
   padding-left: 0;
 }
 
+/* Listgroup */
+.list-group-item {
+  padding: 7px 15px;
+}
+
 /* BOOTSTRAP - navbar color and position */
 .navbar-static-top {
   z-index: 1080;

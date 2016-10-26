@@ -290,7 +290,7 @@ switch ($page1) {
 					<div class="actions">
 						' . ($catblank["pluginid"] == 0 && $catblank["pageid"] == 0 && $catblank["exturl"] == '' ? '<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=newpage&amp;ssp=' . $catblank["id"] . '"><i class="fa fa-sticky-note-o"></i></a>' : '') . '
 						' . ($catblank["pluginid"] == 0 && $catblank["pageid"] == 1 && $catblank["exturl"] == '' ? '<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=edit&amp;ssp=' . $catblank["pageid"] . '"><i class="fa fa-pencil"></i></a>' : '') . '
-						' . ($catblank["pluginid"] > 0 && $catblank["exturl"] == '' ? '<i class="fa fa-eyedropper"></i>' : '') . '
+						' . ($catblank["pluginid"] > 0 && $catblank["exturl"] == '' ? '<a class="btn btn-info btn-xs" href="javascript:void(0)"><i class="fa fa-eyedropper"></i></a>' : '') . '
 						' . ($catblank["exturl"] != '' ? '<i class="fa fa-link"></i>' : '') . '
 						
 						<a class="btn btn-default btn-xs" href="index.php?p=categories&amp;sp=edit&amp;ssp=' . $catblank["id"] . '"><i class="fa fa-edit"></i></a>
@@ -298,6 +298,8 @@ switch ($page1) {
 					</div></div></li>';
 
         }
+
+
 
         // Call the template
         $template = 'categories.php';

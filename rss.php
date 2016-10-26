@@ -90,7 +90,6 @@ if (!empty($sql)) {
 
 // get the standard template
     $template = 'rss.php';
-    $JAK_PAGE = $page;
 
 } else {
     jak_redirect(BASE_URL);

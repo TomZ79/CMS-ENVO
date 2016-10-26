@@ -249,8 +249,12 @@ if ($errors) { ?>
         $("#jak_varname").val(jakSlug($("#jak_name").val()));
       });
 
-      $('#jak_img').iconpicker();
+      /* Font Awesome Icon Picker */
+      $('#jak_img').iconpicker({
+        selectedCustomClass: 'bg-teal-300',
+      });
 
+      /* Copy Value */
       $("#copy1").click(function() {
         $("#jak_editor_light_meta_desc").val($("#content").val());
       });
