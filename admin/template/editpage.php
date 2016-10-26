@@ -563,6 +563,7 @@ if ($errors) { ?>
      ========================================= */
     $(document).ready(function () {
 
+      /* Bootstrap Tab Activation */
       $('#cmsTab a').click(function (e) {
         e.preventDefault();
         $(this).tab('show');

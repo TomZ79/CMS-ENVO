@@ -1060,6 +1060,8 @@ if ($page3 == "e") { ?>
 
   <script type="text/javascript">
     $(document).ready(function () {
+
+      /* Bootstrap Tab Activation */
       $('#cmsTab a').click(function (e) {
         e.preventDefault();
         $(this).tab('show');

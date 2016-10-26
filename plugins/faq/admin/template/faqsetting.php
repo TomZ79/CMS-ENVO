@@ -241,10 +241,13 @@ if ($errors) { ?>
 
   <script type="text/javascript">
     $(document).ready(function () {
+
+      /* Bootstrap Tab Activation */
       $('#cmsTab a').click(function (e) {
         e.preventDefault();
         $(this).tab('show');
       });
+
     });
   </script>
 

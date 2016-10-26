@@ -239,6 +239,8 @@ if ($errors) { ?>
   <script src="js/slug.js" type="text/javascript"></script>
   <script type="text/javascript">
     $(document).ready(function () {
+
+      /* Bootstrap Tab Activation */
       $('#settTab a').click(function (e) {
         e.preventDefault();
         $(this).tab('show');
