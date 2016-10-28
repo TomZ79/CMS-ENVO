@@ -19,7 +19,7 @@ $hid = array();
       if ($pgh["hookid"] == $v["id"]) { ?>
 
         <li id="widget-<?php echo $pgh["id"]; ?>" class="jakwidget">
-          <div class="form-group">
+          <div class="sidebar-widget">
             <div class="checkbox">
               <label>
                 <input type="checkbox" name="jak_hookshow[]" value="<?php echo $pgh["id"]; ?>" checked="checked"/>
@@ -45,7 +45,7 @@ $hid = array();
     if ((is_array($hid) && !in_array($v["id"], $hid)) || !isset($hid)) { ?>
 
       <li id="widget-<?php echo $v["id"]; ?>" class="jakwidget">
-        <div class="form-group">
+        <div class="sidebar-widget">
           <div class="checkbox">
             <label>
               <input type="checkbox" name="jak_hookshow_new[]" value="<?php echo $v["id"]; ?>"/>

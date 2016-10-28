@@ -233,6 +233,18 @@ hr {
   padding: 7px 15px;
 }
 
+/* Sidebar Widget */
+.jakwidget .sidebar-widget .checkbox {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.jakwidget .actions .form-control {
+  height: 28px;
+}
+.jakwidget .actions .btn {
+  padding: 3px 35px;
+}
+
 /* BOOTSTRAP - navbar color and position */
 .navbar-static-top {
   z-index: 1080;

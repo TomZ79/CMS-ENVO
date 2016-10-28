@@ -589,7 +589,7 @@ $(document).ready(function () {
 
   $(".jak_widget_move").sortable({
     axis: 'y',				// Only vertical movements allowed
-    containment: 'window',			// Constrained by the window
+    containment: 'parent',			// Constrained by the window
     placeholder: "ui-state-highlight",
     update: function () {		// The function is called after the todos are rearranged
 
@@ -612,7 +612,7 @@ $(document).ready(function () {
 
   $(".jak_content_move").sortable({
     axis: 'y',				// Only vertical movements allowed
-    containment: 'window',			// Constrained by the window
+    containment: 'parent',			// Constrained by the window
     placeholder: "ui-state-highlight",
     update: function () {		// The function is called after the todos are rearranged
 

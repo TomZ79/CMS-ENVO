@@ -38,7 +38,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 			<span class="input-group-btn">
 		    	<button class="btn btn-info" name="search" type="submit"><?php echo $tl["title"]["t30"]; ?></button>
 		    </span>
-          <input type="text" name="jakSH" class="form-control" placeholder="Search by title">
+          <input type="text" name="jakSH" class="form-control" placeholder="Search by Title">
         </div><!-- /input-group -->
       </form>
     </div>
