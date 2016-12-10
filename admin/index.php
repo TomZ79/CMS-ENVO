@@ -76,9 +76,6 @@ if (JAK_USERID) {
   $JAK_WELCOME_NAME = $jakuser->getVar("name");
 }
 
-// Now get the forgot password link into the right shape
-$P_FORGOT_PASS_ADMIN = JAK_rewrite::jakParseurl('forgot', '', '', '', '');
-
 // We do not need code highlighting
 $CODE_HIGHLIGHT = $JAK_PAGINATE = false;
 
@@ -120,7 +117,7 @@ if (JAK_USERID) {
   }
 }
 
-// home
+// Home
 if ($page == '') {
   #show login page only if the admin is not logged in
   #else show homepage
@@ -306,7 +303,7 @@ if ($page == 'maintenance') {
   $checkp = 1;
 }
 
-// if page not found
+// If page not found
 if ($checkp == 0) jak_redirect(BASE_URL . 'index.php?p=404');
 
 if (isset($template) && $template != '') {
