@@ -35,8 +35,8 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 define('JAK_PAGINATE_ADMIN', 0);
 
 // Parse stuff we use more then once
-define('JAK_PARSE_ERROR', html_entity_decode(JAK_rewrite::jakParseurl('error', 'mysql', '', '', '')));
-define('JAK_PARSE_SUCCESS', html_entity_decode(JAK_rewrite::jakParseurl('success', '', '', '', '')));
+define('JAK_PARSE_ERROR', html_entity_decode(JAK_rewrite::jakParseurl('error', 'mysql')));
+define('JAK_PARSE_SUCCESS', html_entity_decode(JAK_rewrite::jakParseurl('success')));
 
 // First load the language from the hook
 $hooklang = $jakhooks->jakGethook("php_lang");
@@ -455,7 +455,7 @@ foreach ($JAK_CAT_SITE as $itemf) {
 
 // Get News out the database, if not already in the page
 if (JAK_NEWS_ACTIVE && $newsloadonce && $jkv["shownews"]) {
-    $JAK_GET_NEWS_SORTED = jak_get_news('LIMIT ' . $jkv["shownews"], '', JAK_PLUGIN_VAR_NEWS, 'ASC', $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['general']['g56']);
+    $JAK_GET_NEWS_SORTED = jak_get_news('LIMIT ' . $jkv["shownews"], '', JAK_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['general']['g56']);
 }
 
 // We have tags
