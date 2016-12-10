@@ -130,7 +130,7 @@
   <?php } ?>
 
 <!-- START MANAGE SECTION -->
-  <li class="treeview<?php if ($page == 'user' || $page == 'usergroup' || $page == 'categories' || $page == 'page' || $page == 'contactform' || $page == 'poll' || $page == 'contactform' || $page == 'sitemap' || $page == 'searchsetting' || $page == 'growl' || $page == 'xml_seo' || $page == 'slider' || $page == 'site_editor' || $page == 'belowheader' || $page == 'register-form' || $page == 'urlmapping') echo " active"; ?>">
+  <li class="treeview<?php if ($page == 'user' || $page == 'usergroup' || $page == 'categories' || $page == 'page' || $page == 'contactform' || $page == 'poll' || $page == 'contactform' || $page == 'sitemap' || $page == 'searchsetting' || $page == 'growl' || $page == 'xml_seo' || $page == 'slider' || $page == 'site_editor' || $page == 'belowheader' || $page == 'register-form' || $page == 'urlmapping' || $page == 'owl') echo " active"; ?>">
 
     <a href="javascript:void(0)">
       <i class="fa fa-files-o"></i> <?php echo $tl["menu"]["m4"]; ?>

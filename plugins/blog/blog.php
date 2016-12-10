@@ -331,7 +331,7 @@ switch ($page1) {
         }
 
         // Get the categories into a list
-        $resultc = $jakdb->query('SELECT id, name' . ', varname FROM ' . $jaktable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
+        $resultc = $jakdb->query('SELECT id, name, varname FROM ' . $jaktable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
         while ($rowc = $resultc->fetch_assoc()) {
 
           if ($jkv["blogurl"]) {

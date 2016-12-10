@@ -101,11 +101,9 @@ if ($mz["catparent"] != '0' && $mz["catparent"] == $mv["id"]) {
 		<div class="shop-item shop-product" id="p_<?php echo $v["id"];?>">
 			<div class="image">
 				<?php if ($v['img']) { ?>
-				<a href="<?php echo $v["img"];?>" class="lightbox">
-				<?php } ?>
-				<img class="product-image" src="<?php echo $v["previmg"];?>" alt="product thumbnail">
-				<?php if ($v['img']) { ?>
-				</a>
+					<a href="<?php echo $v["img"];?>" class="lightbox"><img src="<?php echo $v["previmg"];?>" class="img-responsive" alt="product thumbnail"></a>
+				<?php } else { ?>
+					<a href="<?php echo $v['parseurl'];?>"><img src="<?php echo $v["previmg"];?>" class="img-responsive" alt="product thumbnail"></a>
 				<?php } ?>
 			</div>
 			<div class="title">

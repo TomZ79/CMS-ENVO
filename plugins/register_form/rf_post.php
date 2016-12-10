@@ -43,22 +43,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
     // First we check username and email
     if ($formarray[$i] == 1) {
 
-      if (empty($defaults[$formarray[$i]])) {
-        $errors['e3'] = $tl['error']['e14'] . '<br />';
+      if (isset($defaults[$formarray[$i]]) && empty($defaults[$formarray[$i]])) {
+        $errors['e3'] = $tl['error']['e14'].'<br />';
       }
 
-      if (!preg_match('/^([a-zA-Z0-9\-_])+$/', $defaults[$formarray[$i]])) {
-        $errors['e3'] = $tl['error']['e15'] . '<br />';
+      if (isset($defaults[$formarray[$i]]) && !preg_match('/^([a-zA-Z0-9\-_])+$/', $defaults[$formarray[$i]])) {
+        $errors['e3'] = $tl['error']['e15'].'<br />';
       }
 
-      if (jak_field_not_exist(strtolower($defaults[$formarray[$i]]), $jaktable, 'username')) {
-        $errors['e3'] = $tl['error']['e16'] . '<br />';
+      if (isset($defaults[$formarray[$i]]) && jak_field_not_exist(strtolower($defaults[$formarray[$i]]),$jaktable, 'username')) {
+        $errors['e3'] = $tl['error']['e16'].'<br />';
       }
 
-      if ($jkv["username_block"]) {
+      if (isset($defaults[$formarray[$i]]) && $jkv["username_block"]) {
         $blockusrname = explode(',', $jkv["username_block"]);
         if (in_array(strtolower($defaults[$formarray[$i]]), $blockusrname)) {
-          $errors['e3'] = $tl['error']['e25'] . '<br />';
+          $errors['e3'] = $tl['error']['e25'].'<br />';
+        }
+
+        // We do not have to type the exact word, it will pick the correct word in the string
+        if (!isset($errors['e3']) && isset($blockusrname) && is_array($blockusrname)) foreach ($blockusrname as $q) {
+          if (strpos(strtolower($defaults[$formarray[$i]]), $q) !== false) {
+            $errors['e3'] = $tl['error']['e25'].'<br />';
+            break;
+          }
         }
       }
 

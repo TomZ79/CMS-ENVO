@@ -797,12 +797,15 @@ switch ($page1) {
         }
 
         // Now check if all the sidebar a deselct and hooks exist, if so delete all associated to this page
-        $result = $jakdb->query('SELECT id FROM ' . $jaktable3 . ' WHERE plugin = ' . JAK_PLUGIN_TICKETING . ' AND hookid != 0');
-        $row = $result->fetch_assoc();
+        if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
 
-        if (isset($defaults['jak_hookshow_new']) && !is_array($defaults['jak_hookshow_new']) && $row['id'] && !is_array($defaults['jak_hookshow'])) {
+          // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
+          $row = $jakdb->queryRow('SELECT id FROM '.$jaktable3.' WHERE plugin = '.smartsql(JAK_PLUGIN_TICKETING).' AND ticketid = 0 AND hookid != 0');
 
-          $jakdb->query('DELETE FROM ' . $jaktable3 . ' WHERE plugin = "' . smartsql(JAK_PLUGIN_TICKETING) . '" AND ticketid = 0 AND hookid != 0');
+          // We have something to delete
+          if ($row["id"]) {
+            $jakdb->query('DELETE FROM '.$jaktable3.' WHERE plugin = "'.smartsql(JAK_PLUGIN_TICKETING).'" AND ticketid = 0 AND hookid != 0');
+          }
 
         }
 

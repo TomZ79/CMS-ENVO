@@ -99,100 +99,98 @@ if ($mz["catparent"] != '0' && $mz["catparent"] == $mv["id"]) {
 	<div class="col-sm-4" data-id="id-<?php echo $v['id'];?>" data-type="<?php echo $v["catname"];?>">
 		<div class="shop-product" id="p_<?php echo $v["id"];?>">
 			<?php if ($v['img']) { ?>
-			<a href="<?php echo $v["img"];?>" class="lightbox">
-			<?php } ?>
-			<img src="<?php echo $v["previmg"];?>" class="img-responsive" alt="product thumbnail">
-			<?php if ($v['img']) { ?>
-			</a>
+				<a href="<?php echo $v["img"];?>" class="lightbox"><img src="<?php echo $v["previmg"];?>" class="img-responsive" alt="product thumbnail"></a>
+			<?php } else { ?>
+				<a href="<?php echo $v['parseurl'];?>"><img src="<?php echo $v["previmg"];?>" class="img-responsive" alt="product thumbnail"></a>
 			<?php } ?>
 			<h3><a<?php if ($jkv["e_productopen"]) { echo ' class="product-info"'; } ?> id="<?php echo $v["id"];?>" href="<?php echo $v['parseurl'];?>"><?php echo $v["title"];?></a></h3>
 			<p class="price">
-			  <?php if ($v["onsale"]) { ?>
-			  <span class="old"><?php echo $v["price"];?></span>
-			  <span class="new"><span class="pprice_<?php echo $v["id"];?>"><?php echo $v["sale"];?></span> <?php echo $jkv["e_currency"];?></span>
-			  <?php } else { ?>
-			  <span class="new"><span class="pprice_<?php echo $v["id"];?>"><?php echo $v["price"];?></span> <?php echo $jkv["e_currency"];?></span>
-			  <?php } ?>
+				<?php if ($v["onsale"]) { ?>
+					<span class="old"><?php echo $v["price"];?></span>
+					<span class="new"><span class="pprice_<?php echo $v["id"];?>"><?php echo $v["sale"];?></span> <?php echo $jkv["e_currency"];?></span>
+				<?php } else { ?>
+					<span class="new"><span class="pprice_<?php echo $v["id"];?>"><?php echo $v["price"];?></span> <?php echo $jkv["e_currency"];?></span>
+				<?php } ?>
 			</p>
 			<div class="options">
 				<div class="row">
 					<div class="col-xs-6">
-				<?php if ($v['product_options']) { ?>
-				<div class="form-group">
-				<select name="product-option" id="po_<?php echo $v["id"];?>" class="product-option form-control input-sm">
-					<option value=""><?php echo $tlec["shop"]["m54"];?></option>
-					<?php $poptarray = explode(',', $v['product_options']); for ($i = 0; $i < count($poptarray); $i++) { 
-					
-						$optearray = explode('::', $poptarray[$i]);
-						
-						if ($_SESSION['ECOMMERCE_CURRENCY'] != $jkv["e_currency"] && $optearray[1] != "0.00") {
-						
-							$optearray[1] = $convert->Convert($optearray[1], $_SESSION['ECOMMERCE_CURRENCY']);
-						}
-					
-					?>
-					
-					<option value="<?php echo $optearray[0].'::'.$optearray[1].'::'.$optearray[2];?>"><?php echo $optearray[0]; if ($optearray[1] != "0.00") { echo ' ('.$optearray[1].'&nbsp;'.$jkv["e_currency"].')'; }?></option>
-					
-					<?php } ?>
-				</select>
+						<?php if ($v['product_options']) { ?>
+							<div class="form-group">
+								<select name="product-option" id="po_<?php echo $v["id"];?>" class="product-option form-control input-sm">
+									<option value=""><?php echo $tlec["shop"]["m54"];?></option>
+									<?php $poptarray = explode(',', $v['product_options']); for ($i = 0; $i < count($poptarray); $i++) {
+
+										$optearray = explode('::', $poptarray[$i]);
+
+										if ($_SESSION['ECOMMERCE_CURRENCY'] != $jkv["e_currency"] && $optearray[1] != "0.00") {
+
+											$optearray[1] = $convert->Convert($optearray[1], $_SESSION['ECOMMERCE_CURRENCY']);
+										}
+
+										?>
+
+										<option value="<?php echo $optearray[0].'::'.$optearray[1].'::'.$optearray[2];?>"><?php echo $optearray[0]; if ($optearray[1] != "0.00") { echo ' ('.$optearray[1].'&nbsp;'.$jkv["e_currency"].')'; }?></option>
+
+									<?php } ?>
+								</select>
+							</div>
+							<input type="hidden" name="pop_<?php echo $v["id"];?>" id="pop_<?php echo $v["id"];?>" value="" />
+						<?php } ?>
+					</div>
+					<div class="col-xs-6">
+						<?php if ($v['product_options'] && $v['product_options1']) { ?>
+							<div class="form-group">
+								<select name="product-option1" id="po1_<?php echo $v["id"];?>" class="product-option1 form-control input-sm">
+									<option value=""><?php echo $tlec["shop"]["m54"];?></option>
+
+									<?php $poptarray1 = explode(',', $v['product_options1']); for ($i = 0; $i < count($poptarray1); $i++) {
+
+										$optearray1 = explode('::', $poptarray1[$i]);
+
+										if ($_SESSION['ECOMMERCE_CURRENCY'] != $jkv["e_currency"] && $optearray[1] != "0.00") {
+
+											$optearray1[1] = $convert->Convert($optearray1[1], $_SESSION['ECOMMERCE_CURRENCY']);
+										}
+
+										?>
+
+										<option value="<?php echo $optearray1[0].'::'.$optearray1[1].'::'.$optearray1[2];?>"><?php echo $optearray1[0]; if ($optearray1[1] != "0.00") { echo ' ('.$optearray1[1].'&nbsp;'.$jkv["e_currency"].')'; }?></option>
+
+									<?php } ?>
+								</select>
+							</div>
+							<input type="hidden" name="pop1_<?php echo $v["id"];?>" id="pop1_<?php echo $v["id"];?>" value="" />
+						<?php } ?>
+					</div>
+					<div class="col-xs-12">
+						<?php if ($v['product_options'] && $v['product_options1'] && $v['product_options2']) { ?>
+							<div class="form-group">
+								<select name="product-option2" id="po2_<?php echo $v["id"];?>" class="product-option2 form-control input-sm">
+									<option value=""><?php echo $tlec["shop"]["m54"];?></option>
+									<?php $poptarray2 = explode(',', $v['product_options2']); for ($i = 0; $i < count($poptarray2); $i++) {
+
+										$optearray2 = explode('::', $poptarray2[$i]);
+
+										if ($_SESSION['ECOMMERCE_CURRENCY'] != $jkv["e_currency"] && $optearray[1] != "0.00") {
+
+											$optearray2[1] = $convert->Convert($optearray2[1], $_SESSION['ECOMMERCE_CURRENCY']);
+										}
+
+										?>
+
+										<option value="<?php echo $optearray2[0].'::'.$optearray2[1].'::'.$optearray2[2];?>"><?php echo $optearray2[0]; if ($optearray2[1] != "0.00") { echo ' ('.$optearray2[1].'&nbsp;'.$jkv["e_currency"].')'; }?></option>
+
+									<?php } ?>
+								</select>
+							</div>
+							<input type="hidden" name="pop2_<?php echo $v["id"];?>" id="pop2_<?php echo $v["id"];?>" value="" />
+						<?php } ?>
+					</div>
 				</div>
-				<input type="hidden" name="pop_<?php echo $v["id"];?>" id="pop_<?php echo $v["id"];?>" value="" />
-				<?php } ?>
-				</div>
-				<div class="col-xs-6">
-				<?php if ($v['product_options'] && $v['product_options1']) { ?>
-				<div class="form-group">
-				<select name="product-option1" id="po1_<?php echo $v["id"];?>" class="product-option1 form-control input-sm">
-					<option value=""><?php echo $tlec["shop"]["m54"];?></option>
-					
-					<?php $poptarray1 = explode(',', $v['product_options1']); for ($i = 0; $i < count($poptarray1); $i++) { 
-					
-						$optearray1 = explode('::', $poptarray1[$i]);
-						
-						if ($_SESSION['ECOMMERCE_CURRENCY'] != $jkv["e_currency"] && $optearray[1] != "0.00") {
-						
-							$optearray1[1] = $convert->Convert($optearray1[1], $_SESSION['ECOMMERCE_CURRENCY']);
-						}
-					
-					?>
-					
-					<option value="<?php echo $optearray1[0].'::'.$optearray1[1].'::'.$optearray1[2];?>"><?php echo $optearray1[0]; if ($optearray1[1] != "0.00") { echo ' ('.$optearray1[1].'&nbsp;'.$jkv["e_currency"].')'; }?></option>
-					
-					<?php } ?>
-				</select>
-				</div>
-				<input type="hidden" name="pop1_<?php echo $v["id"];?>" id="pop1_<?php echo $v["id"];?>" value="" />
-				<?php } ?>
-				</div>
-				<div class="col-xs-12">
-				<?php if ($v['product_options'] && $v['product_options1'] && $v['product_options2']) { ?>
-				<div class="form-group">
-				<select name="product-option2" id="po2_<?php echo $v["id"];?>" class="product-option2 form-control input-sm">
-					<option value=""><?php echo $tlec["shop"]["m54"];?></option>
-					<?php $poptarray2 = explode(',', $v['product_options2']); for ($i = 0; $i < count($poptarray2); $i++) { 
-					
-						$optearray2 = explode('::', $poptarray2[$i]);
-						
-						if ($_SESSION['ECOMMERCE_CURRENCY'] != $jkv["e_currency"] && $optearray[1] != "0.00") {
-						
-							$optearray2[1] = $convert->Convert($optearray2[1], $_SESSION['ECOMMERCE_CURRENCY']);
-						}
-					
-					?>
-					
-					<option value="<?php echo $optearray2[0].'::'.$optearray2[1].'::'.$optearray2[2];?>"><?php echo $optearray2[0]; if ($optearray2[1] != "0.00") { echo ' ('.$optearray2[1].'&nbsp;'.$jkv["e_currency"].')'; }?></option>
-					
-					<?php } ?>
-				</select>
-				</div>
-				<input type="hidden" name="pop2_<?php echo $v["id"];?>" id="pop2_<?php echo $v["id"];?>" value="" />
-				<?php } ?>
-				</div>
-			</div>
 			</div>
 			<div class="action">
-			<a href="javascript:void(0)" class="btn btn-color btn-sm" onclick="addlist(<?php echo $v['id'];?>);return false;"><i class="fa fa-shopping-cart"></i> <?php echo $tlec["shop"]["m67"];?></a><?php if (JAK_ASACCESS) { ?> <a class="btn btn-primary btn-sm jaktip quickedit" href="<?php echo BASE_URL;?>admin/index.php?p=shop&amp;sp=quickedit&amp;id=<?php echo $v["id"];?>" title="<?php echo $tl["general"]["g176"];?>"><i class="fa fa-edit"></i></a><?php } ?> <a data-id="<?php echo $v["id"];?>" href="<?php echo $v['parseurl'];?>" class="btn btn-info<?php if ($jkv["e_productopen"]) echo ' product-info';?> btn-sm"><i class="fa fa-info-circle"></i></a>
+				<a href="javascript:void(0)" class="btn btn-color btn-sm" onclick="addlist(<?php echo $v['id'];?>);return false;"><i class="fa fa-shopping-cart"></i> <?php echo $tlec["shop"]["m67"];?></a><?php if (JAK_ASACCESS) { ?> <a class="btn btn-primary btn-sm jaktip quickedit" href="<?php echo BASE_URL;?>admin/index.php?p=shop&amp;sp=quickedit&amp;id=<?php echo $v["id"];?>" title="<?php echo $tl["general"]["g176"];?>"><i class="fa fa-edit"></i></a><?php } ?> <a data-id="<?php echo $v["id"];?>" href="<?php echo $v['parseurl'];?>" class="btn btn-info<?php if ($jkv["e_productopen"]) echo ' product-info';?> btn-sm"><i class="fa fa-info-circle"></i></a>
 			</div>
 		</div>
 		</div>

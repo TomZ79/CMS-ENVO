@@ -437,17 +437,19 @@ switch ($page1) {
               }
 
               $jakdb->query('UPDATE ' . $jaktable3 . ' SET orderid = CASE id
-		' . $updatesql . '
-		END
-		WHERE id IN (' . $realid . ')');
+              ' . $updatesql . '
+              END
+              WHERE id IN (' . $realid . ')');
 
-              // Now check if all the sidebar a deselct and hooks exist, if so delete all associated to this page
-              $result = $jakdb->query('SELECT id FROM ' . $jaktable3 . ' WHERE pageid = "' . smartsql($page2) . '" AND hookid != 0');
-              $row = $result->fetch_assoc();
+              if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
 
-              if (isset($defaults['jak_hookshow_new']) && !is_array($defaults['jak_hookshow_new']) && $row['id'] && !is_array($defaults['jak_hookshow'])) {
+                // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
+                $row = $jakdb->queryRow('SELECT id FROM '.$jaktable3.' WHERE pageid = "'.smartsql($page2).'" AND hookid != 0');
 
-                $jakdb->query('DELETE FROM ' . $jaktable3 . ' WHERE pageid = "' . smartsql($page2) . '" AND hookid != 0');
+                // We have something to delete
+                if ($row["id"]) {
+                  $jakdb->query('DELETE FROM '.$jaktable3.' WHERE pageid = "'.smartsql($page2).'" AND hookid != 0');
+                }
 
               }
 

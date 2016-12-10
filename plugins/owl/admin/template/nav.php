@@ -1,0 +1,1 @@
+<li<?php if ($page == 'owl') { ?> class="active"<?php } ?>><a href="index.php?p=owl"><i class="fa fa-circle-o"></i> <?php echo $tlowl["owl"]["m"];?></a></li>

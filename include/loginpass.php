@@ -6,6 +6,11 @@ $errorlo = $errorfp = $errorpp = array();
 // Login user
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jakU'])) {
 
+  if (isset($_SESSION["logintries"]) && $_SESSION["logintries"] > 3) {
+    $_SESSION["infomsg"] = $tl["error"]["e10"];
+    jak_redirect(BASE_URL);
+  }
+
   $username = smartsql($_POST['jakU']);
   $userpass = smartsql($_POST['jakP']);
   $cookies = false;
@@ -27,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jakU'])) {
     // Write the log file each time someone login after to show success
     $jakuserlogin->jakWriteloginlog($user_check, '', $valid_ip, '', 1);
 
-    // success
+    // Success
     $_SESSION["infomsg"] = $tl["general"]["s"];
     if (isset($_SESSION["logintries"])) unset($_SESSION["logintries"]);
 
@@ -38,7 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jakU'])) {
     }
 
   } else {
-    // Now calculate if more then 10 times don't even try.
+
+    // Now calculate if more then 3 times don't even try.
     if (isset($_SESSION["logintries"])) {
       $_SESSION["logintries"] = $_SESSION["logintries"] + 1;
     } else {

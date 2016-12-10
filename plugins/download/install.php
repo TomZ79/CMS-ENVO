@@ -1,5 +1,6 @@
 <?php
 
+// Include the config file...
 if (!file_exists('../../config.php')) die('[index.php] config.php not found');
 require_once '../../config.php';
 

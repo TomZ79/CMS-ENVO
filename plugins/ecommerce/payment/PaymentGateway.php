@@ -122,7 +122,7 @@ abstract class PaymentGateway
         }
         
         
-        $form .= "<button type=\"submit\" class\"btn btn-success\">".$buttonlang."</button>\n";
+        $form .= "<button type=\"submit\" class=\"btn btn-success\">".$buttonlang."</button>\n";
         $form .= "</form>\n";
         
         return $form;

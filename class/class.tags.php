@@ -50,7 +50,7 @@ class JAK_tags
         shuffle($my_colours);
         $size = $minsize + ($count - $minimum_count)
           * ($maxsize - $minsize) / $spread;
-        $cloud_tags[] = '<a style="font-size:' . floor($size) . 'px" class="btn btn-' . $my_colours[0] . '" href="' . JAK_rewrite::jakParseurl($varname, JAK_base::jakCleanurl($tag), '', '', '') . '">' . htmlspecialchars(stripslashes($tag)) . '</a>';
+        $cloud_tags[] = '<li class="tag-cloud tag-cloud-'.$my_colours[0].'"><a style="font-size:'.floor($size).'px" href="'.JAK_rewrite::jakParseurl($varname, JAK_base::jakCleanurl($tag), '', '', '').'">'.htmlspecialchars(stripslashes($tag)).'</a></li>';
       }
       $cloud_html = join("\n", $cloud_tags) . "\n";
       return $cloud_html;

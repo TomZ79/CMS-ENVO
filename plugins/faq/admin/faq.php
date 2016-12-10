@@ -408,7 +408,7 @@ switch ($page1) {
     $plugin_template = 'plugins/faq/admin/template/newfaqcat.php';
 
     break;
-  case 'comment';
+  case 'comment':
 
     $getTotal = jak_get_total($jaktable2, '', '', '');
     if ($getTotal != 0) {
@@ -634,12 +634,15 @@ switch ($page1) {
         }
 
         // Now check if all the sidebar a deselct and hooks exist, if so delete all associated to this page
-        $result = $jakdb->query('SELECT id FROM '.$jaktable4.' WHERE plugin = '.JAK_PLUGIN_FAQ.' AND hookid != 0');
-        $row = $result->fetch_assoc();
+        if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
 
-        if (isset($defaults['jak_hookshow_new']) && !is_array($defaults['jak_hookshow_new']) && $row['id'] && !is_array($defaults['jak_hookshow'])) {
+          // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
+          $row = $jakdb->queryRow('SELECT id FROM '.$jaktable4.' WHERE plugin = '.smartsql(JAK_PLUGIN_FAQ).' AND faqid = 0 AND hookid != 0');
 
-          $jakdb->query('DELETE FROM '.$jaktable4.' WHERE plugin = '.JAK_PLUGIN_FAQ.' AND faqid = 0 AND hookid != 0');
+          // We have something to delete
+          if ($row["id"]) {
+            $jakdb->query('DELETE FROM '.$jaktable4.' WHERE plugin = '.smartsql(JAK_PLUGIN_FAQ).' AND faqid = 0 AND hookid != 0');
+          }
 
         }
 
@@ -658,8 +661,7 @@ switch ($page1) {
           foreach ($doith as $key => $exorder) {
 
             // Get the real what id
-            $result = $jakdb->query('SELECT pluginid FROM ' . $jaktable4 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
-            $row = $result->fetch_assoc();
+            $row = $jakdb->queryRow('SELECT pluginid FROM ' . $jaktable4 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
 
             // Get the whatid
             $whatid = 0;
@@ -684,8 +686,6 @@ switch ($page1) {
 					END
 					WHERE id IN (' . $hookrealid . ')');
 
-        } else {
-          $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE plugin = "' . smartsql(JAK_PLUGIN_FAQ) . '" AND faqid = 0 AND hookid != 0');
         }
 
         if (!$result) {
@@ -716,7 +716,6 @@ switch ($page1) {
     while ($row = $result->fetch_assoc()) {
       $JAK_HOOKS[] = $row;
     }
-
 
     // Now let's check how to display the order
     $showfaqarray = explode(" ", $jkv["faqorder"]);
@@ -1022,12 +1021,15 @@ switch ($page1) {
               }
 
               // Now check if all the sidebar a deselct and hooks exist, if so delete all associated to this page
-              $result = $jakdb->query('SELECT id FROM ' . $jaktable4 . ' WHERE faqid = "' . smartsql($page2) . '" AND hookid != 0');
-              $row = $result->fetch_assoc();
+              if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
 
-              if (isset($defaults['jak_hookshow_new']) && !is_array($defaults['jak_hookshow_new']) && $row['id'] && !is_array($defaults['jak_hookshow'])) {
+                // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
+                $row = $jakdb->queryRow('SELECT id FROM '.$jaktable4.' WHERE faqid = "'.smartsql($page2).'" AND hookid != 0');
 
-                $jakdb->query('DELETE FROM ' . $jaktable4 . ' WHERE faqid = "' . smartsql($page2) . '" AND hookid != 0');
+                // We have something to delete
+                if ($row["id"]) {
+                  $jakdb->query('DELETE FROM '.$jaktable4.' WHERE faqid = "'.smartsql($page2).'" AND hookid != 0');
+                }
 
               }
 

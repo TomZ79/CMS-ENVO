@@ -1,5 +1,6 @@
 <?php
 
+// Include the config file...
 if (!file_exists('../../config.php')) die('[install.php] config.php not found');
 require_once '../../config.php';
 
@@ -107,7 +108,6 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 
     </div>
   </div>
-
 
 </div>
 </body>

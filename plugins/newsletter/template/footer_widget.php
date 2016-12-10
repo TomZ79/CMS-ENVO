@@ -5,7 +5,7 @@
 
   ?>
 
-  <h3><?php echo JAK_NLTITLE; ?></h3>
+  <h3><?php echo $jkv["nltitle"]; ?></h3>
   <div id="nl_msg" class="alert bg-success" style="display: none;"></div>
   <?php if ($_SESSION['jak_nl_errors']) { ?>
     <div

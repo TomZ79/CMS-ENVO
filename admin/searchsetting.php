@@ -54,12 +54,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 
   // Now check if all the sidebar a deselct and hooks exist, if so delete all associated to this page
-  $result = $jakdb->query('SELECT id FROM ' . $jaktable . ' WHERE plugin = 999999 AND hookid != 0');
-  $row = $result->fetch_assoc();
+  if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
 
-  if (isset($defaults['jak_hookshow_new']) && !is_array($defaults['jak_hookshow_new']) && $row['id'] && !is_array($defaults['jak_hookshow'])) {
+    // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
+    $row = $jakdb->queryRow('SELECT id FROM '.$jaktable.' WHERE plugin = 999999 AND hookid != 0');
 
-    $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE plugin = 999999 AND hookid != 0');
+    // We have something to delete
+    if ($row["id"]) {
+      $jakdb->query('DELETE FROM '.$jaktable.' WHERE plugin = 999999 AND hookid != 0');
+    }
 
   }
 

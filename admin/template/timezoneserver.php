@@ -1513,10 +1513,6 @@ if ($v["varname"] == 'timezoneserver' && $v["value"] == 'Africa/Harare') { ?> se
   if ($v["varname"] == 'timezoneserver' && $v["value"] == 'Australia/Perth') { ?> selected="selected"<?php }
 } ?>>(GMT+8:00) Australia/Perth (Western Standard Time (Australia))
 </option>
-<option value="Australia/West"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
-  if ($v["varname"] == 'timezoneserver' && $v["value"] == 'Australia/West') { ?> selected="selected"<?php }
-} ?>>(GMT+8:00) Australia/West (Western Standard Time (Australia))
-</option>
 <option value="Australia/Eucla"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
   if ($v["varname"] == 'timezoneserver' && $v["value"] == 'Australia/Eucla') { ?> selected="selected"<?php }
 } ?>>(GMT+8:45) Australia/Eucla (Central Western Standard Time (Australia))

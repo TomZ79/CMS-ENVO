@@ -95,8 +95,7 @@ switch ($page1) {
     if (is_numeric($page2) && is_numeric($page3) && jak_field_not_exist($page3, $jaktable, 'fullview')) {
 
       // Get the data from the newsletter
-      $result = $jakdb->query('SELECT content FROM ' . $jaktable . ' WHERE id = ' . smartsql($page2));
-      $row = $result->fetch_assoc();
+      $row = $jakdb->queryRow('SELECT content FROM ' . $jaktable . ' WHERE id = ' . smartsql($page2));
 
       // Just the content
       $cssAtt = array('{myweburl}', '{mywebname}', '{browserversion}', '{unsubscribe}', '{username}', '{fullname}', '{useremail}');
