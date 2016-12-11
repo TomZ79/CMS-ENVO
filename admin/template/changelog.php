@@ -53,7 +53,8 @@
     [updated]  Update ACE Editor
     [updated]  Login Form in site - after 3 times bad login, redirect to base url
                (in original JakWeb CMS is setting after 10 times redirect to base url)
-
+    [updated]  Update source basic code to CMS 2.3
+    [updated]  Update Jquery script
 
     // # List of fixed bugs
     // ------------------------------
