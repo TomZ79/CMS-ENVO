@@ -191,7 +191,7 @@ if ($errors) { ?>
         <p><span class="text-danger-400">???</span></p>
 
         <h5><strong><?php echo $tl["setting"]["s3"]; ?></strong></h5>
-        <p>Text se zobrazí v zápatí stránek webové sítě</p>
+        <p>Text se zobrazí v zápatí stránek webové sítě. Lze používat i html kód.</p>
       </div>
     </div>
   </aside>
