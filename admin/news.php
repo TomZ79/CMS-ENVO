@@ -256,11 +256,15 @@ switch ($page1) {
         }
 
         // Now check if all the sidebar a deselct and hooks exist, if so delete all associated to this page
-        $row = $jakdb->queryRow('SELECT id FROM ' . $jaktable2 . ' WHERE plugin = 1 AND hookid != 0');
+        if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
 
-        if (isset($defaults['jak_hookshow_new']) && !is_array($defaults['jak_hookshow_new']) && $row['id'] && !is_array($defaults['jak_hookshow'])) {
+          // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
+          $row = $jakdb->queryRow('SELECT id FROM ' . $jaktable2 . ' WHERE plugin = 1 AND hookid != 0');
 
-          $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE plugin = 1 AND hookid != 0');
+          // We have something to delete
+          if ($row["id"]) {
+            $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE plugin = 1 AND hookid != 0');
+          }
 
         }
 
@@ -304,8 +308,6 @@ switch ($page1) {
 					END
 					WHERE id IN (' . $hookrealid . ')');
 
-        } else {
-          $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE plugin = 1 AND newsid = 0 AND hookid != 0');
         }
 
         if (!$result) {
@@ -430,14 +432,10 @@ switch ($page1) {
 
             if (!empty($defaults['jak_datefrom'])) {
               $finalfrom = strtotime($defaults['jak_datefrom']);
-            } else {
-              $finalfrom = '0';
             }
 
             if (!empty($defaults['jak_dateto'])) {
               $finalto = strtotime($defaults['jak_dateto']);
-            } else {
-              $finalto = '0';
             }
 
             if (isset($finalto) && isset($finalfrom) && $finalto < $finalfrom) {
@@ -548,13 +546,15 @@ switch ($page1) {
 			END
 			WHERE id IN (' . $realid . ')');
 
-              // Now check if all the sidebar a deselct and hooks exist, if so delete all associated to this page
-              $result = $jakdb->query('SELECT id FROM ' . $jaktable2 . ' WHERE newsid = "' . smartsql($page2) . '" AND hookid != 0');
-              $row = $result->fetch_assoc();
+              if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
 
-              if (isset($defaults['jak_hookshow_new']) && !is_array($defaults['jak_hookshow_new']) && $row['id'] && !is_array($defaults['jak_hookshow'])) {
+                // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
+                $row = $jakdb->queryRow('SELECT id FROM ' . $jaktable2 . ' WHERE newsid = "' . smartsql($page2) . '" AND hookid != 0');
 
-                $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE newsid = "' . smartsql($page2) . '" AND hookid != 0');
+                // We have something to delete
+                if ($row["id"]) {
+                  $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE newsid = "' . smartsql($page2) . '" AND hookid != 0');
+                }
 
               }
 
