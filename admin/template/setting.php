@@ -77,7 +77,7 @@ if ($success) { ?>
       <li><a href="#user"><?php echo $tl["title"]["t23"]; ?></a></li>
       <li><a href="#analytics"><?php echo $tl["general"]["g98"]; ?></a></li>
       <?php if (isset($JAK_HOOK_ADMIN_SETTING_EDIT)) { ?>
-      <li><a href="#plugins">Plugin settings</a></li>
+      <li><a href="#plugins"><?php echo $tl["title_cmd"]["t2"]; ?></a></li>
       <?php } ?>
     </ul>
 
@@ -990,7 +990,7 @@ if ($success) { ?>
       </div>
       <!-- Tab 6. -->
       <div class="tab-pane" id="control-sidebar6">
-        <h4>Plugin Settings</h4>
+        <h4><?php echo $tl["title_cmd"]["t2"]; ?></h4>
         <hr>
         <p></p>
 

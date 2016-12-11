@@ -904,6 +904,12 @@ tr.disablerow.warning td {
   color: #999999;
 }
 
+/* XX. JQEURY UI - SORTABLE, DRAGGABLE
+========================================================================*/
+.ui-helper {
+  width: 100% !important;
+}
+
 /* XX. ALMSAEED STUDIO CSS
 ========================================================================*/
 

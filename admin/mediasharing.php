@@ -52,8 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // Title and Description
-$SECTION_TITLE = "Social Media Sharing";
-$SECTION_DESC = "Setting for sharing on social networks";
+$SECTION_TITLE = $tl["cmenumenu_cmd"]["c2"];
+$SECTION_DESC = $tl["cmdesc_cmd"]["d2"];
 
 // Call the template
 $template = 'mediasharing.php';

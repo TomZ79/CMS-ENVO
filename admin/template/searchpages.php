@@ -25,7 +25,7 @@
           <span class="input-group-btn">
               <button class="btn btn-info" name="search" type="submit"><?php echo $tl["title"]["t30"]; ?></button>
           </span>
-          <input type="text" name="jakSH" class="form-control" placeholder="Search by title">
+          <input type="text" name="jakSH" class="form-control" placeholder="<?php echo $tl["placeholder"]["p1"]; ?>">
         </div><!-- /input-group -->
       </form>
     </div>

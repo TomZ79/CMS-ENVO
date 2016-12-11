@@ -82,7 +82,7 @@ if ($page1 == "e") { ?>
           </div>
           <div class="col-md-9 col-table" style="background: white none repeat scroll 0% 0%;">
             <div class="caption">
-              <h3><?php echo $l; ?><?php if ($jkv["sitestyle"] == $l) echo ' <i class="fa fa-check"></i>'; ?></h3>
+              <h3><?php echo $l; ?><?php if ($jkv["sitestyle"] == $l) echo ' <i class="fa fa-check text-success-800"></i>'; ?></h3>
               <p>
                 <?php
                 // Content of file
@@ -93,7 +93,7 @@ if ($page1 == "e") { ?>
                   echo htmlspecialchars($content);
                 } else {
                   // File not exist
-                  echo 'Description for this template not exists.';
+                  echo $tl["style"]["s3"];
                 }
                 ?>
               </p>
@@ -128,7 +128,7 @@ if ($page1 == "e") { ?>
                     <i class="fa fa-remove"></i> <?php echo $tl["general"]["g94"]; ?>
                   </a>
                   <a class="btn btn-primary btn-sm <?php if (!file_exists('../template/' . $l . '/templatesettings.php')) echo 'disabled'; ?>" href="index.php?p=template&amp;sp=settings">
-                    Template setting
+                    <?php echo $tl["style"]["s4"]; ?>
                   </a>
                   <?php if (file_exists('../template/' . $l . '/help.html')) { ?>
                     <a class="btn btn-info btn-sm tempHelp" href="../template/<?php echo $l; ?>/help.html">

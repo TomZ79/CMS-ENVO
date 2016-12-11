@@ -6,14 +6,11 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file direc
 // Check if the user has access to this file
 if (!JAK_USERID || !$JAK_MODULES) jak_redirect(BASE_URL);
 
-switch ($page1) {
-  default:
+// Title and Description
+$SECTION_TITLE = $tl["cmenumenu_cmd"]["c1"];
+$SECTION_DESC = $tl["cmdesc_cmd"]["d1"];
 
-    // Title and Description
-    $SECTION_TITLE = "Changelog";
-    $SECTION_DESC = "All notable changes made to a project";
+// Call the template
+$template = 'changelog.php';
 
-    // Call the template
-    $template = 'changelog.php';
-}
 ?>

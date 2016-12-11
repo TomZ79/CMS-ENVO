@@ -59,7 +59,7 @@ if ($errors) { ?>
     <ul class="nav nav-tabs" id="settTab">
       <li class="active"><a href="#general"><?php echo $tl["title"]["t4"]; ?></a></li>
       <?php if (isset($JAK_HOOK_ADMIN_USERGROUP_EDIT)) { ?>
-        <li><a href="#plugins">Plugin settings</a></li>
+        <li><a href="#plugins"><?php echo $tl["title_cmd"]["t2"]; ?></a></li>
       <?php } ?>
     </ul>
 

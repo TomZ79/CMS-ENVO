@@ -122,11 +122,12 @@ function jak_get_site_style($styledir) {
 			    
 	    	}
 	    }
-	    
+
+    sort($getstyle); // Sort style by alphabet
 		return $getstyle;
 		
 		clearstatcache();
-	    closedir($handle);
+    closedir($handle);
 	}
 }
 

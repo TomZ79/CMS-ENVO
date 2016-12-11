@@ -660,7 +660,11 @@ $(document).ready(function () {
   $("#cform_drag").draggable({
     connectToSortable: "#cform_sort",
     helper: "clone",
-    revert: "invalid"
+    revert: "invalid",
+    /* Add custom class */
+    start  : function(event, ui){
+      $(ui.helper).addClass("ui-helper");
+    }
   });
 
   $('[data-toggle=collapse]').each(function () {

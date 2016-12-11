@@ -7,8 +7,9 @@
     </div>
   </div><!-- /.box-header -->
   <div class="box-body">
-    <table class="table table-striped">
+    <table class="table table-striped first-column v-text-center">
       <tr>
+        <td><?php echo $tlec["shop"]["d2"]; ?></td>
         <td>
           <div class="radio">
             <label class="checkbox-inline">

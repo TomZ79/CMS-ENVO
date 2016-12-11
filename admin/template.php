@@ -97,12 +97,12 @@ switch ($page1) {
     }
 
     // Title and Description
-    $SECTION_TITLE = 'Template Settings';
-    $SECTION_DESC = 'Settings for your template';
+    $SECTION_TITLE = $tl["cmenumenu_cmd"]["c3"];
+    $SECTION_DESC = $tl["cmdesc_cmd"]["d3"];
 
     // Breadcrumbs sections
-    $SECTION_CATEGORY = 'Template Settings';
-    $SECTION_SUBCATEGORY_F = 'Settings for your template';
+    $SECTION_CATEGORY = $tl["cmenumenu_cmd"]["c3"];
+    $SECTION_SUBCATEGORY_F = $tl["cmdesc_cmd"]["d3"];
 
     // Ace Mode
     $acemode = 'ini';

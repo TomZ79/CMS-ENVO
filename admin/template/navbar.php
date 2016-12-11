@@ -52,7 +52,7 @@
         </li>
         <li<?php if ($page == 'mediasharing') echo ' class="active"'; ?>>
           <a href="index.php?p=mediasharing">
-            <i class="fa fa-circle-o"></i> Social Media Settings
+            <i class="fa fa-circle-o"></i> <?php echo $tl["cmenumenu_cmd"]["c2"]; ?>
           </a>
         </li>
         <li class="list-divider"></li>
@@ -97,7 +97,7 @@
           </li>
           <li<?php if ($page1 == 'settings') echo ' class="active"'; ?>>
             <a href="index.php?p=template&amp;sp=settings">
-              <i class="fa fa-circle-o"></i> Settings
+              <i class="fa fa-circle-o"></i> <?php echo $tl["style"]["s5"]; ?>
             </a>
           </li>
           <li<?php if ($page1 == 'edit-files') echo ' class="active"'; ?>>

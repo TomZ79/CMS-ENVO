@@ -44,7 +44,7 @@ $succesfully = 0;
       <?php }
       if (!$succesfully) { ?>
         <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
-          <button type="submit" name="uninstall" class="btn btn-danger btn-block">UnInstall Template</button>
+          <button type="submit" name="uninstall" class="btn btn-danger btn-block">Uninstall Template</button>
         </form>
       <?php } ?>
 
