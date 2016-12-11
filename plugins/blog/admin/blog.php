@@ -640,23 +640,23 @@ switch ($page1) {
         $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
 		    	WHEN "blogtitle" THEN "' . smartsql($defaults['jak_title']) . '"
 		    	WHEN "blogdesc" THEN "' . smartsql($defaults['jak_lcontent']) . '"
-		        WHEN "blogemail" THEN "' . smartsql($defaults['jak_email']) . '"
-		        WHEN "blogorder" THEN "' . $blogorder . '"
-		        WHEN "bloghlimit" THEN "' . smartsql($defaults['jak_bloglimit']) . '"
-		        WHEN "blogdateformat" THEN "' . smartsql($defaults['jak_date']) . '"
-		        WHEN "blogtimeformat" THEN "' . smartsql($defaults['jak_time']) . '"
-		        WHEN "blogurl" THEN "' . smartsql($defaults['jak_blogurl']) . '"
-		        WHEN "blogmaxpost" THEN "' . smartsql($defaults['jak_maxpost']) . '"
-		        WHEN "blogrss" THEN "' . smartsql($defaults['jak_rssitem']) . '"
-		        WHEN "blogpagemid" THEN "' . smartsql($defaults['jak_mid']) . '"
-		        WHEN "blogpageitem" THEN "' . smartsql($defaults['jak_item']) . '"
-		        WHEN "blog_css" THEN "' . smartsql($defaults['jak_css']) . '"
-		        WHEN "blog_javascript" THEN "' . smartsql($defaults['jak_javascript']) . '"
+		      WHEN "blogemail" THEN "' . smartsql($defaults['jak_email']) . '"
+		      WHEN "blogorder" THEN "' . $blogorder . '"
+		      WHEN "bloghlimit" THEN "' . smartsql($defaults['jak_bloglimit']) . '"
+		      WHEN "blogdateformat" THEN "' . smartsql($defaults['jak_date']) . '"
+		      WHEN "blogtimeformat" THEN "' . smartsql($defaults['jak_time']) . '"
+		      WHEN "blogurl" THEN "' . smartsql($defaults['jak_blogurl']) . '"
+		      WHEN "blogmaxpost" THEN "' . smartsql($defaults['jak_maxpost']) . '"
+		      WHEN "blogrss" THEN "' . smartsql($defaults['jak_rssitem']) . '"
+		      WHEN "blogpagemid" THEN "' . smartsql($defaults['jak_mid']) . '"
+		      WHEN "blogpageitem" THEN "' . smartsql($defaults['jak_item']) . '"
+		      WHEN "blog_css" THEN "' . smartsql($defaults['jak_css']) . '"
+		      WHEN "blog_javascript" THEN "' . smartsql($defaults['jak_javascript']) . '"
 		    END
 				WHERE varname IN ("blogtitle","blogdesc","blogemail","blogorder","bloghlimit","blogdateformat","blogtimeformat","blogurl","blogmaxpost","blogpagemid","blogpageitem","blogrss", "blog_css", "blog_javascript")');
 
         // Save order for sidebar widget
-        if (isset($defaults['jak_hookshow_new']) && is_array($defaults['jak_hookshow_new'])) {
+        if (isset($defaults['jak_hookshow_new']) && !empty($defaults['jak_hookshow_new'])) {
 
           $exorder = $defaults['horder_new'];
           $hookid = $defaults['real_hook_id_new'];
@@ -681,12 +681,15 @@ switch ($page1) {
         }
 
         // Now check if all the sidebar a deselct and hooks exist, if so delete all associated to this page
-        $result = $jakdb->query('SELECT id FROM ' . $jaktable4 . ' WHERE plugin = "' . smartsql(JAK_PLUGIN_BLOG) . '" AND hookid != 0');
-        $row = $result->fetch_assoc();
+        if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
 
-        if (isset($defaults['jak_hookshow_new']) && !is_array($defaults['jak_hookshow_new']) && $row['id'] && !is_array($defaults['jak_hookshow'])) {
+          // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
+          $row = $jakdb->queryRow('SELECT id FROM '.$jaktable4.' WHERE plugin = "'.smartsql(JAK_PLUGIN_BLOG).'" AND blogid = 0 AND hookid != 0');
 
-          $jakdb->query('DELETE FROM ' . $jaktable4 . ' WHERE plugin = "' . smartsql(JAK_PLUGIN_BLOG) . '" AND blogid = 0 AND hookid != 0');
+          // We have something to delete
+          if ($row["id"]) {
+            $jakdb->query('DELETE FROM '.$jaktable4.' WHERE plugin = "'.smartsql(JAK_PLUGIN_BLOG).'" AND blogid = 0 AND hookid != 0');
+          }
 
         }
 
@@ -705,8 +708,7 @@ switch ($page1) {
           foreach ($doith as $key => $exorder) {
 
             // Get the real what id
-            $result = $jakdb->query('SELECT pluginid FROM ' . $jaktable4 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
-            $row = $result->fetch_assoc();
+            $row = $jakdb->queryRow('SELECT pluginid FROM ' . $jaktable4 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
 
             // Get the whatid
             $whatid = 0;
@@ -1163,12 +1165,15 @@ switch ($page1) {
               }
 
               // Now check if all the sidebar a deselct and hooks exist, if so delete all associated to this page
-              $result = $jakdb->query('SELECT id FROM ' . $jaktable4 . ' WHERE blogid = "' . smartsql($page2) . '" AND hookid != 0');
-              $row = $result->fetch_assoc();
+              if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
 
-              if (isset($defaults['jak_hookshow_new']) && !is_array($defaults['jak_hookshow_new']) && $row['id'] && !is_array($defaults['jak_hookshow'])) {
+                // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
+                $row = $jakdb->queryRow('SELECT id FROM '.$jaktable4.' WHERE blogid = "'.smartsql($page2).'" AND hookid != 0');
 
-                $jakdb->query('DELETE FROM ' . $jaktable4 . ' WHERE blogid = "' . smartsql($page2) . '" AND hookid != 0');
+                // We have something to delete
+                if ($row["id"]) {
+                  $jakdb->query('DELETE FROM '.$jaktable4.' WHERE blogid = "'.smartsql($page2).'" AND hookid != 0');
+                }
 
               }
 
@@ -1183,8 +1188,7 @@ switch ($page1) {
                 foreach ($doith as $key => $exorder) {
 
                   // Get the real what id
-                  $result = $jakdb->query('SELECT pluginid FROM ' . $jaktable4 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
-                  $row = $result->fetch_assoc();
+                  $row = $jakdb->queryRow('SELECT pluginid FROM ' . $jaktable4 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
 
                   $whatid = 0;
                   if (isset($defaults['whatid_' . $row["pluginid"]])) $whatid = $defaults['whatid_' . $row["pluginid"]];
