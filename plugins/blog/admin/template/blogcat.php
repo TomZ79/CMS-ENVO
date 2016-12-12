@@ -41,8 +41,7 @@
 
     </div>
     <div class="box-footer">
-      <button type="submit" data-menu="mheader" name="save"
-              class="btn btn-primary pull-right save-menu-plugin"><?php echo $tl["general"]["g20"]; ?></button>
+      <button type="submit" data-menu="mheader" name="save" class="btn btn-primary pull-right save-menu-plugin"><?php echo $tl["general"]["g20"]; ?></button>
     </div>
   </div>
 

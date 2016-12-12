@@ -22,9 +22,8 @@
 
     <div class="actions">
 
-      <input type="hidden" name="corder_new[]" class="corder" value="2" size="2" maxlength="2"/> <input type="hidden"
-                                                                                                        name="real_plugin_id[]"
-                                                                                                        value="<?php echo JAK_PLUGIN_SLIDER; ?>"/>
+      <input type="hidden" name="corder_new[]" class="corder" value="2" size="2" maxlength="2"/>
+      <input type="hidden" name="real_plugin_id[]" value="<?php echo JAK_PLUGIN_SLIDER; ?>"/>
 
     </div>
   </li>

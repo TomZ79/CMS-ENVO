@@ -70,6 +70,7 @@
     [fixed]  ACP - color settings for navbar
     [fixed]  ACP - Navbar - User Header - time by setting in Global Settings
     [fixed]  ACP - Datetimepicker (Add language cs,de)
+    [fixed]  ACP - fix other bug
 
     // # List of enhancements
     // ------------------------------

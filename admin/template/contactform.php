@@ -45,37 +45,42 @@ if ($page1 == "e" || $page1 == "ene") { ?>
               <th><?php echo $tl["cform"]["c2"]; ?></th>
               <th><?php echo $tl["cform"]["c3"]; ?></th>
               <th>
-                <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs"><i
-                    class="fa fa-lock"></i></button>
+                <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
+                  <i class="fa fa-lock"></i>
+                </button>
               </th>
               <th></th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs"
-                        onclick="if(!confirm('<?php echo $tl["cform"]["al"]; ?>'))return false;"><i
-                    class="fa fa-trash-o"></i></button>
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tl["cform"]["al"]; ?>'))return false;">
+                  <i class="fa fa-trash-o"></i>
+                </button>
               </th>
             </tr>
             </thead>
             <?php foreach ($JAK_CONTACT_ALL as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
-                <td><input type="checkbox" name="jak_delete_contact[]" class="highlight"
-                           value="<?php echo $v["id"]; ?>"/></td>
-                <td><a
-                    href="index.php?p=contactform&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a>
+                <td>
+                  <input type="checkbox" name="jak_delete_contact[]" class="highlight" value="<?php echo $v["id"]; ?>"/></td>
+                <td>
+                  <a href="index.php?p=contactform&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a>
                 </td>
                 <td><?php echo $v["content"]; ?></td>
-                <td><a class="btn btn-default btn-xs"
-                       href="index.php?p=contactform&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>"><i
-                      class="fa fa-<?php if ($v["active"] == '0') { ?>lock<?php } else { ?>check<?php } ?>"></i></a>
+                <td>
+                  <a class="btn btn-default btn-xs" href="index.php?p=contactform&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') { echo $tl["icons"]["i5"]; } else { echo $tl["icons"]["i6"]; } ?>">
+                    <i class="fa fa-<?php if ($v["active"] == '0') { ?>lock<?php } else { ?>check<?php } ?>"></i>
+                  </a>
                 </td>
-                <td><a class="btn btn-default btn-xs"
-                       href="index.php?p=contactform&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><i
-                      class="fa fa-edit"></i></a></td>
-                <td><a class="btn btn-default btn-xs"
-                       href="index.php?p=contactform&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>"
-                       onclick="if(!confirm('<?php echo $tl["cform"]["al"]; ?>'))return false;"><i
-                      class="fa fa-trash-o"></i></a></td>
+                <td>
+                  <a class="btn btn-default btn-xs" href="index.php?p=contactform&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i2"]; ?>">
+                    <i class="fa fa-edit"></i>
+                  </a>
+                </td>
+                <td>
+                  <a class="btn btn-default btn-xs" href="index.php?p=contactform&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["cform"]["al"]; ?>'))return false;" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                    <i class="fa fa-trash-o"></i>
+                  </a>
+                </td>
               </tr>
             <?php } ?>
           </table>

@@ -341,27 +341,30 @@ function jak_objectsIntoArray($arrObjData, $arrSkipIndices = array())
 }
 
 // Menu builder function, parentId 0 is the root
-function jak_build_menu_admin($parent, $menu, $lang, $class = "", $id = "")
+function jak_build_menu_admin($parent, $menu, $lang, $title1, $title2, $title3, $title4, $title5, $class = "", $id = "")
 {
    $html = "";
    if (isset($menu['parents'][$parent])) {
       $html .= "
       <ul".$class.$id.">\n";
        foreach ($menu['parents'][$parent] as $itemId) {
+         // Build menu for categories header and header/footer
           if (!isset($menu['parents'][$itemId])) {
           	$html .= '<li id="menuItem_'.$menu["items"][$itemId]["id"].'" class="jakcat">
           		<div>
-          		<span class="text">#'.$menu["items"][$itemId]["id"].' <a href="index.php?p=categories&amp;sp=edit&amp;ssp='.$menu["items"][$itemId]["id"].'">'.$menu["items"][$itemId]["name"].'</a></span>
+          		<span class="text"><span class="textid">#'.$menu["items"][$itemId]["id"].'</span><a href="index.php?p=categories&amp;sp=edit&amp;ssp='.$menu["items"][$itemId]["id"].'">'.$menu["items"][$itemId]["name"].'</a></span>
           		<span class="actions">
-          			'.($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["pageid"] == 0 && $menu["items"][$itemId]["exturl"] == '' ? '<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=newpage&amp;ssp='.$menu["items"][$itemId]["id"].'"><i class="fa fa-sticky-note-o"></i></a>' : '').' 
-          			'.($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["pageid"] != 0 && $menu["items"][$itemId]["exturl"] == '' ? '<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=edit&amp;ssp='.$menu["items"][$itemId]["pageid"].'"><i class="fa fa-pencil"></i></a>' : '').'
-          			'.($menu["items"][$itemId]["pluginid"] > 0 && $menu["items"][$itemId]["exturl"] == '' ? '<a class="btn btn-info btn-xs" href="javascript:void(0)"><i class="fa fa-eyedropper"></i></a>' : '').'
+          			'.($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["pageid"] == 0 && $menu["items"][$itemId]["exturl"] == '' ? '<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=newpage&amp;ssp='.$menu["items"][$itemId]["id"].'" data-toggle="tooltip" data-placement="bottom" title="' . $title1 . '"><i class="fa fa-sticky-note-o"></i></a>' : '').'
+          			'.($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["pageid"] != 0 && $menu["items"][$itemId]["exturl"] == '' ? '<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=edit&amp;ssp='.$menu["items"][$itemId]["pageid"].'" data-toggle="tooltip" data-placement="bottom" title="' . $title2 . '"><i class="fa fa-pencil"></i></a>' : '').'
+          			'.($menu["items"][$itemId]["pluginid"] > 0 && $menu["items"][$itemId]["exturl"] == '' ? '<a class="btn btn-info btn-xs" href="javascript:void(0)" data-toggle="tooltip" data-placement="bottom" title="' . $title3 . '"><i class="fa fa-eyedropper"></i></a>' : '').'
           			'.($menu["items"][$itemId]["exturl"] != '' ? '<i class="fa fa-link"></i>' : '').'
           			
-          			<a class="btn btn-default btn-xs" href="index.php?p=categories&amp;sp=edit&amp;ssp='.$menu["items"][$itemId]["id"].'"><i class="fa fa-edit"></i></a>
-          			'.($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["id"] != 1 ? '<a class="btn btn-danger btn-xs" href="index.php?p=categories&amp;sp=delete&amp;ssp='.$menu["items"][$itemId]["id"].'" onclick="if(!confirm('.$lang.'))return false;"><i class="fa fa-trash-o" ></i></a>' : '').'	
+          			<a class="btn btn-default btn-xs" href="index.php?p=categories&amp;sp=edit&amp;ssp='.$menu["items"][$itemId]["id"].'" data-toggle="tooltip" data-placement="bottom" title="' . $title4 . '"><i class="fa fa-edit"></i></a>
+          			'.($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["id"] != 1 ? '<a class="btn btn-danger btn-xs" href="index.php?p=categories&amp;sp=delete&amp;ssp='.$menu["items"][$itemId]["id"].'" onclick="if(!confirm(\''.$lang.'\'))return false;" data-toggle="tooltip" data-placement="bottom" title="' . $title5 . '"><i class="fa fa-trash-o" ></i></a>' : '').'
           		</span></div></li>';
           }
+
+         // Build menu for ...
           if (isset($menu['parents'][$itemId])) {
           	$html .= '<li id="menuItem_'.$menu["items"][$itemId]["id"].'" class="jakcat">
           		<div>
@@ -373,7 +376,7 @@ function jak_build_menu_admin($parent, $menu, $lang, $class = "", $id = "")
           			'.($menu["items"][$itemId]["exturl"] != '' ? '<i class="fa fa-link"></i>' : '').'
           			
           			<a class="btn btn-default btn-xs" href="index.php?p=categories&amp;sp=edit&amp;ssp='.$menu["items"][$itemId]["id"].'"><i class="fa fa-edit"></i></a>
-          			'.($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["id"] != 1 ? '<a class="btn btn-danger btn-xs" href="index.php?p=categories&amp;sp=delete&amp;ssp='.$menu["items"][$itemId]["id"].'" onclick="if(!confirm('.$lang.'))return false;"><i class="fa fa-trash-o" ></i></a>' : '').'	
+          			'.($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["id"] != 1 ? '<a class="btn btn-danger btn-xs" href="index.php?p=categories&amp;sp=delete&amp;ssp='.$menu["items"][$itemId]["id"].'" onclick="if(!confirm(\''.$lang.'\'))return false;"><i class="fa fa-trash-o" ></i></a>' : '').'
           		</span>
           		</div>';
              $html .= jak_build_menu_admin($itemId, $menu, $lang);

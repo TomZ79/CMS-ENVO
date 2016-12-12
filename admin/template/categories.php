@@ -53,7 +53,19 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
         </div><!-- /.box-header -->
         <div class="box-body">
 
-          <?php echo jak_build_menu_admin(0, $mheader, $tl["cat"]["al"], ' class="sortable jak_cat_move"', ' id="mheader"'); ?>
+          <?php
+
+          // Build menu for categories header and header/footer
+          $lang = $tl["cat"]["al"];
+          $title1 = $tl["icons"]["i11"];  // Add page
+          $title2 = $tl["icons"]["i10"];  //
+          $title3 = $tl["icons"]["i8"];   //
+          $title4 = $tl["icons"]["i2"];   // Edit
+          $title5 = $tl["icons"]["i1"];   // Trash
+
+          echo jak_build_menu_admin(0, $mheader, $lang, $title1, $title2, $title3, $title4, $title5, ' class="sortable jak_cat_move"', ' id="mheader"');
+
+          ?>
 
         </div>
         <div class="box-footer">
@@ -74,7 +86,19 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
         </div><!-- /.box-header -->
         <div class="box-body">
 
-          <?php echo jak_build_menu_admin(0, $mfooter, $tl["cat"]["al"], ' class="sortable jak_cat_move"', ' id="mfooter"'); ?>
+          <?php
+
+          // Build menu for categories
+          $lang = $tl["cat"]["al"];
+          $title1 = $tl["icons"]["i11"];  // Add page
+          $title2 = $tl["icons"]["i10"];  //
+          $title3 = $tl["icons"]["i8"];   //
+          $title4 = $tl["icons"]["i2"];   // Edit
+          $title5 = $tl["icons"]["i1"];   // Trash
+
+          echo jak_build_menu_admin(0, $mfooter, $lang, $title1, $title2, $title3, $title4, $title5, ' class="sortable jak_cat_move"', ' id="mfooter"');
+
+          ?>
 
         </div>
         <div class="box-footer">

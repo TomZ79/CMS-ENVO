@@ -279,7 +279,7 @@ switch ($page1) {
           $mfooter['parents'][$items['catparent']][] = $items['id'];
         }
 
-        // get the menu
+        // Get the menu
         $ucatblank = "";
         $result = $jakdb->query('SELECT * FROM ' . $jaktable . ' WHERE showmenu = 0 && showfooter = 0 ORDER BY catparent, catorder, name');
         while ($catblank = $result->fetch_assoc()) {
@@ -298,8 +298,6 @@ switch ($page1) {
 					</div></div></li>';
 
         }
-
-
 
         // Call the template
         $template = 'categories.php';

@@ -48,13 +48,17 @@ if ($page1 == "e" || $page1 == "ene") { ?>
               class="show"><?php echo $tl["news"]["n1"] . ': ' . $v["time"] . ' | ' . $tl["general"]["g56"] . ': ' . $v["hits"]; ?></div>
             <div class="actions">
 
-              <a class="btn btn-default btn-xs" href="index.php?p=news&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>"><i
-                  class="fa fa-<?php if ($v["active"] == '0') { ?>lock<?php } else { ?>check<?php } ?>"></i></a>
-              <a class="btn btn-default btn-xs" href="index.php?p=news&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><i
-                  class="fa fa-edit"></i></a>
-              <a class="btn btn-default btn-xs" href="index.php?p=news&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>"
-                 onclick="if(!confirm('<?php echo $tl["news"]["d"]; ?>'))return false;"><i
-                  class="fa fa-trash-o"></i></a>
+              <a class="btn btn-default btn-xs" href="index.php?p=news&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') { echo $tl["icons"]["i5"]; } else { echo $tl["icons"]["i6"]; } ?>">
+                <i class="fa fa-<?php if ($v["active"] == '0') { ?>lock<?php } else { ?>check<?php } ?>"></i>
+              </a>
+
+              <a class="btn btn-default btn-xs" href="index.php?p=news&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i2"]; ?>">
+                <i class="fa fa-edit"></i>
+              </a>
+
+              <a class="btn btn-default btn-xs" href="index.php?p=news&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["news"]["d"]; ?>'))return false;" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                <i class="fa fa-trash-o"></i>
+              </a>
 
             </div>
           </li>

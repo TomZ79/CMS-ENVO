@@ -184,6 +184,12 @@ table.first-column tr td:first-child {
   font-size: 1.5em;
 }
 
+.fa-lock,
+.fa-trash-o,
+.fa-clock-o {
+  width: 12px;
+}
+
 /* XX. MODIFICATION - BOOTSTRAP
 ========================================================================*/
 /* HR Divider */
@@ -904,18 +910,18 @@ tr.disablerow.warning td {
   color: #999999;
 }
 
-/* XX. FONTAWESOME
-========================================================================*/
-.fa-lock,
-.fa-trash-o,
-.fa-clock-o {
-  width: 12px;
-}
-
 /* XX. JQEURY UI - SORTABLE, DRAGGABLE
 ========================================================================*/
 .ui-helper {
   width: 100% !important;
+}
+
+/* XX. OTHER
+========================================================================*/
+/* Span in Categories */
+.textid {
+  float: left;
+  width: 40px;
 }
 
 /* XX. ALMSAEED STUDIO CSS

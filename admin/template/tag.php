@@ -42,18 +42,23 @@ if ($page1 == "e" || $page1 == "ene") { ?>
             <tr>
               <th>#</th>
               <th><input type="checkbox" id="jak_delete_all"/></th>
-              <th><?php echo $tl["tag"]["t"]; ?> <a class="btn btn-warning btn-xs"
-                                                    href="index.php?p=tags&amp;sp=sort&amp;ssp=tag&amp;sssp=DESC"><i
-                    class="fa fa-arrow-up"></i></a> <a class="btn btn-success btn-xs"
-                                                       href="index.php?p=tags&amp;sp=sort&amp;ssp=tag&amp;sssp=ASC"><i
-                    class="fa fa-arrow-down"></i></a></th>
-              <th><?php echo $tl["tag"]["t1"]; ?></th>
-              <th><a href="javascript:void(0);" class="btn btn-default btn-xs"><i class="fa fa-lock"></i> <i
-                    class="fa fa-check"></i></a></th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs"
-                        onclick="if(!confirm('<?php echo $tl["tag"]["al"]; ?>'))return false;"><i
-                    class="fa fa-trash-o"></i></button>
+                <?php echo $tl["tag"]["t"]; ?>
+                <a class="btn btn-warning btn-xs" href="index.php?p=tags&amp;sp=sort&amp;ssp=tag&amp;sssp=DESC">
+                  <i class="fa fa-arrow-up"></i>
+                </a>
+                <a class="btn btn-success btn-xs" href="index.php?p=tags&amp;sp=sort&amp;ssp=tag&amp;sssp=ASC">
+                  <i class="fa fa-arrow-down"></i>
+                </a>
+              </th>
+              <th><?php echo $tl["tag"]["t1"]; ?></th>
+              <th>
+                <a href="javascript:void(0);" class="btn btn-default btn-xs"><i class="fa fa-lock"></i></a>
+              </th>
+              <th>
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tl["tag"]["al"]; ?>'))return false;">
+                  <i class="fa fa-trash-o"></i>
+                </button>
               </th>
             </tr>
             </thead>
@@ -63,16 +68,19 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                 <td><input type="checkbox" name="jak_delete_tag[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
                 </td>
                 <td><?php echo $v["tag"]; ?></td>
-                <td><a
-                    href="index.php?p=tags&amp;sp=sort&amp;ssp=pluginid&amp;sssp=<?php echo $v["pluginid"]; ?>"><?php echo $v["plugin"]; ?></a>
+                <td>
+                  <a href="index.php?p=tags&amp;sp=sort&amp;ssp=pluginid&amp;sssp=<?php echo $v["pluginid"]; ?>"><?php echo $v["plugin"]; ?></a>
                 </td>
-                <td><a class="btn btn-default btn-xs"
-                       href="index.php?p=tags&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>"><i
-                      class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i></a></td>
-                <td><a class="btn btn-default btn-xs"
-                       href="index.php?p=tags&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>"
-                       onclick="if(!confirm('<?php echo $tl["tag"]["al"]; ?>'))return false;"><i
-                      class="fa fa-trash-o"></i></a></td>
+                <td>
+                  <a class="btn btn-default btn-xs" href="index.php?p=tags&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') { echo $tl["icons"]["i5"]; } else { echo $tl["icons"]["i6"]; } ?>">
+                    <i class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i>
+                  </a>
+                </td>
+                <td>
+                  <a class="btn btn-default btn-xs" href="index.php?p=tags&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["tag"]["al"]; ?>'))return false;" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                    <i class="fa fa-trash-o"></i>
+                  </a>
+                </td>
               </tr>
             <?php } ?>
           </table>
@@ -83,7 +91,9 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
   <div class="icon_legend">
     <h3><?php echo $tl["icons"]["i"]; ?></h3>
-    <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-remove"></i>
+    <i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
+    <i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
+    <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
   </div>
 
   <?php if ($JAK_PAGINATE) {
