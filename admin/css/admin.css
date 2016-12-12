@@ -297,7 +297,7 @@ table.table-expandable > tbody > tr div.table-expandable-arrow {
 }
 
 table.table-expandable > tbody > tr div.table-expandable-arrow.up {
-  background-position: 0px 0px;
+  background-position: 0 0;
 }
 
 /* BOOTSTRAP SELECT */
@@ -902,6 +902,14 @@ ul.todoList li:hover, ul.jak_cat_move li:hover, ul.jak_cat_move_fot li:hover, ul
 ========  ================================================================*/
 tr.disablerow.warning td {
   color: #999999;
+}
+
+/* XX. FONTAWESOME
+========================================================================*/
+.fa-lock,
+.fa-trash-o,
+.fa-clock-o {
+  width: 12px;
 }
 
 /* XX. JQEURY UI - SORTABLE, DRAGGABLE

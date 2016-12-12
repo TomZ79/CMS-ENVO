@@ -198,19 +198,19 @@ if ($errors) { ?>
                       <div class="<?php if (isset($errors["e5"])) echo " has-error"; ?>">
                         <select name="jak_mid" class="form-control selectpicker">
                           <option value="2"<?php if ($jkv["downloadpagemid"] == 2) { ?> selected="selected"<?php } ?>>
-                            Range 1 page
+                            <?php echo $tl["option"]["o1"]; ?>
                           </option>
                           <option value="4"<?php if ($jkv["downloadpagemid"] == 4) { ?> selected="selected"<?php } ?>>
-                            Range 2 page
+                            <?php echo $tl["option"]["o2"]; ?>
                           </option>
                           <option value="6"<?php if ($jkv["downloadpagemid"] == 6) { ?> selected="selected"<?php } ?>>
-                            Range 3 page
+                            <?php echo $tl["option"]["o3"]; ?>
                           </option>
                           <option value="8"<?php if ($jkv["downloadpagemid"] == 8) { ?> selected="selected"<?php } ?>>
-                            Range 4 page
+                            <?php echo $tl["option"]["o4"]; ?>
                           </option>
                           <option value="10"<?php if ($jkv["downloadpagemid"] == 10) { ?> selected="selected"<?php } ?>>
-                            Range 5 page
+                            <?php echo $tl["option"]["o5"]; ?>
                           </option>
                         </select>
                       </div>

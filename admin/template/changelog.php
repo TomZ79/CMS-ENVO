@@ -45,15 +45,16 @@
     [new]  Password generator for Users
     [new]  New Plugin XML SEO Sitemap v1.3
     [new]  Add search page by title in Pages
+    [new]  Add Bootstrap Tooltip to Action icons
 
     // # List of updated components
     // ------------------------------
 
-    [updated]  Update basice original code from JakWeb - from 2.2 to 2.2.1
+    [updated]  Update basic original code from JakWeb - from 2.2 to 2.2.1
     [updated]  Update ACE Editor
     [updated]  Login Form in site - after 3 times bad login, redirect to base url
                (in original JakWeb CMS is setting after 10 times redirect to base url)
-    [updated]  Update source basic code to CMS 2.3
+    [updated]  Update basic original code from JakWeb from CMS 2.3
     [updated]  Update Jquery script
 
     // # List of fixed bugs

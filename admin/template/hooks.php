@@ -57,14 +57,15 @@ if ($page2 == "e" || $page2 == "edn") { ?>
               <th><?php echo $tl["hook"]["h1"]; ?></th>
               <th><?php echo $tl["tag"]["t1"]; ?></th>
               <th>
-                <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs"><i
-                    class="fa fa-lock"></i></button>
+                <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
+                  <i class="fa fa-lock"></i>
+                </button>
               </th>
               <th></th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs"
-                        onclick="if(!confirm('<?php echo $tl["hook"]["al"]; ?>'))return false;"><i
-                    class="fa fa-trash-o"></i></button>
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tl["hook"]["al"]; ?>'))return false;">
+                  <i class="fa fa-trash-o"></i>
+                </button>
               </th>
             </tr>
             </thead>
@@ -73,25 +74,33 @@ if ($page2 == "e" || $page2 == "edn") { ?>
                 <td><?php echo $v["id"]; ?></td>
                 <td><input type="checkbox" name="jak_delete_hook[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
                 </td>
-                <td><a
-                    href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
+                <td>
+                  <a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
                 </td>
-                <td><a
-                    href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["hook_name"]; ?>"><?php echo $v["hook_name"]; ?></a>
+                <td>
+                  <a href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["hook_name"]; ?>"><?php echo $v["hook_name"]; ?></a>
                 </td>
-                <td><?php if ($v["pluginid"] != '0') { ?><a
-                    href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["pluginid"]; ?>"><?php echo $v["pluginid"]; ?></a><?php } else { ?><?php echo $v["pluginid"];
-                  } ?></td>
-                <td><a class="btn btn-default btn-xs"
-                       href="index.php?p=plugins&amp;sp=hooks&amp;ssp=lock&amp;sssp=<?php echo $v["id"]; ?>"><i
-                      class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i></a></td>
-                <td><a class="btn btn-default btn-xs"
-                       href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"><i
-                      class="fa fa-edit"></i></a></td>
-                <td><?php if ($v["id"] > 5) { ?><a class="btn btn-default btn-xs"
-                                                   href="index.php?p=plugins&amp;sp=hooks&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>"
-                                                   onclick="if(!confirm('<?php echo $tl["hook"]["al"]; ?>'))return false;">
-                      <i class="fa fa-trash-o"></i></a><?php } ?></td>
+                <td><?php if ($v["pluginid"] != '0') { ?>
+                    <a href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["pluginid"]; ?>"><?php echo $v["pluginid"]; ?></a><?php } else { ?><?php echo $v["pluginid"];
+                  } ?>
+                </td>
+                <td>
+                  <a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=hooks&amp;ssp=lock&amp;sssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') { echo $tl["icons"]["i5"]; } else { echo $tl["icons"]["i6"]; } ?>">
+                    <i class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i>
+                  </a>
+                </td>
+                <td>
+                  <a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i2"]; ?>">
+                    <i class="fa fa-edit"></i>
+                  </a>
+                </td>
+                <td>
+                  <?php if ($v["id"] > 5) { ?>
+                  <a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=hooks&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["hook"]["al"]; ?>'))return false;" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                      <i class="fa fa-trash-o"></i>
+                    </a>
+                  <?php } ?>
+                </td>
               </tr>
             <?php } ?>
           </table>

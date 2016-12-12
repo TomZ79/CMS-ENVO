@@ -51,31 +51,39 @@ if ($page1 == "e" || $page1 == "ene") { ?>
               <th></th>
               <th></th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs"
-                        onclick="if(!confirm('<?php echo $tl["user"]["al"]; ?>'))return false;"><i
-                    class="fa fa-trash-o"></i></button>
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tl["user"]["al"]; ?>'))return false;">
+                  <i class="fa fa-trash-o"></i>
+                </button>
               </th>
             </tr>
             </thead>
             <?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
-                <td><input type="checkbox" name="jak_delete_usergroup[]" class="highlight"
-                           value="<?php echo $v["id"]; ?>"/></td>
-                <td><a
-                    href="index.php?p=usergroup&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
+                <td>
+                  <input type="checkbox" name="jak_delete_usergroup[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
+                </td>
+                <td>
+                  <a href="index.php?p=usergroup&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
                 </td>
                 <td><?php echo $v["description"]; ?></td>
-                <td><a class="btn btn-default btn-xs"
-                       href="index.php?p=usergroup&amp;sp=user&amp;ssp=<?php echo $v["id"]; ?>"><i
-                      class="fa fa-user"></i></a></td>
-                <td><a class="btn btn-default btn-xs"
-                       href="index.php?p=usergroup&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><i
-                      class="fa fa-edit"></i></a></td>
-                <td><?php if ($v["id"] > 4) { ?><a class="btn btn-default btn-xs"
-                                                   href="index.php?p=usergroup&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>"
-                                                   onclick="if(!confirm('<?php echo $tl["user"]["alg"]; ?>'))return false;">
-                      <i class="fa fa-trash-o"></i></a><?php } ?></td>
+                <td>
+                  <a class="btn btn-default btn-xs" href="index.php?p=usergroup&amp;sp=user&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["cmenu"]["c10"]; ?>">
+                    <i class="fa fa-user"></i>
+                  </a>
+                </td>
+                <td>
+                  <a class="btn btn-default btn-xs" href="index.php?p=usergroup&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i2"]; ?>">
+                    <i class="fa fa-edit"></i>
+                  </a>
+                </td>
+                <td>
+                  <?php if ($v["id"] > 4) { ?>
+                    <a class="btn btn-default btn-xs" href="index.php?p=usergroup&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["user"]["alg"]; ?>'))return false;" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                      <i class="fa fa-trash-o"></i>
+                    </a>
+                  <?php } ?>
+                </td>
               </tr>
             <?php } ?>
           </table>

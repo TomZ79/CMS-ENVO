@@ -90,20 +90,20 @@ if ($page1 == "e") { ?>
                       $filename = '../plugins/' . $p . '/update.php';
 
                       if (file_exists($filename) && (strtotime($v["time"]) < filemtime($filename))) {
-                        echo '<a class="plugInst btn btn-success btn-xs" href="../plugins/' . $p . '/update.php"><i class="fa fa-clock-o"></i></a>';
+                        echo '<a class="plugInst btn btn-success btn-xs" href="../plugins/' . $p . '/update.php" data-toggle="tooltip" data-placement="bottom" title="' . $tl["icons"]["i12"] . '"><i class="fa fa-clock-o"></i></a>';
                       }
 
                     }
                   } ?>
 
-                  <a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["id"]; ?>">
+                  <a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i13"]; ?>">
                     <i class="fa fa-flag"></i>
                   </a>
-                  <a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>">
+                  <a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') { echo $tl["icons"]["i5"]; } else { echo $tl["icons"]["i6"]; } ?>">
                     <i class="fa fa-<?php if ($v["active"] == '0') { ?>lock<?php } else { ?>check<?php } ?>"></i>
                   </a>
                   <?php if ($v["uninstallfile"]) { ?>
-                  <a class="plugInst btn btn-danger btn-xs" href="../plugins/<?php echo $v["pluginpath"] . '/' . $v["uninstallfile"]; ?>">
+                  <a class="plugInst btn btn-danger btn-xs" href="../plugins/<?php echo $v["pluginpath"] . '/' . $v["uninstallfile"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                     <i class="fa fa-trash-o"></i>
                   </a>
                   <?php } ?>

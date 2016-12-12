@@ -81,6 +81,9 @@ $.AdminLTE.options = {
   sidebarPushMenu: true,
   //Activate sidebar slimscroll if the fixed layout is set (requires SlimScroll Plugin)
   sidebarSlimScroll: true,
+  //Bootstrap.js tooltip
+  enableBSToppltip: true,
+  BSTooltipSelector: "[data-toggle='tooltip']",
   //Control Sidebar Options
   enableControlSidebar: true,
   controlSidebarOptions: {
@@ -162,6 +165,13 @@ $(function () {
   //Activate sidebar push menu
   if (o.sidebarPushMenu) {
     $.AdminLTE.pushMenu.activate(o.sidebarToggleSelector);
+  }
+
+  //Activate Bootstrap tooltip
+  if (o.enableBSToppltip) {
+    $('body').tooltip({
+      selector: o.BSTooltipSelector
+    });
   }
 
   //Activate box widget

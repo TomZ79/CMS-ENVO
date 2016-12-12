@@ -48,35 +48,42 @@
                 <th><?php echo $tl["general"]["g49"]; ?></th>
                 <th><?php echo $tl["page"]["p2"]; ?></th>
                 <th class="text-center"><?php echo $tl["general"]["g123"]; ?></th>
-                <th><a href="index.php?p=logs&amp;sp=truncate&amp;ssp=go" class="btn btn-warning btn-xs"
-                       onclick="if(!confirm('<?php echo $tl["error"]["e34"]; ?>'))return false;"><i
-                      class="fa fa-exclamation-triangle"></i></a></th>
                 <th>
-                  <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs"
-                          onclick="if(!confirm('<?php echo $tl["error"]["e33"]; ?>'))return false;"><i
-                      class="fa fa-trash-o"></i></button>
+                  <a href="index.php?p=logs&amp;sp=truncate&amp;ssp=go" class="btn btn-warning btn-xs" onclick="if(!confirm('<?php echo $tl["error"]["e34"]; ?>'))return false;">
+                    <i class="fa fa-exclamation-triangle"></i>
+                  </a>
+                </th>
+                <th>
+                  <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tl["error"]["e33"]; ?>'))return false;">
+                    <i class="fa fa-trash-o"></i>
+                  </button>
                 </th>
               </tr>
               </thead>
               <?php foreach ($JAK_LOGINLOG_ALL as $v) { ?>
                 <tr>
                   <td><?php echo $v["id"]; ?></td>
-                  <td><input type="checkbox" name="jak_delete_log[]" class="highlight"
-                             value="<?php echo $v["id"]; ?>"/>
+                  <td>
+                    <input type="checkbox" name="jak_delete_log[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
                   </td>
                   <td><?php echo jak_cut_text($v["name"], 8, '...'); ?></td>
                   <td><?php echo $v["fromwhere"]; ?></td>
                   <td><?php echo $v["ip"]; ?></td>
                   <td><?php echo jak_cut_text($v["usragent"], 20, '...'); ?></td>
                   <td><?php echo $v["time"]; ?></td>
-                  <td class="text-center"><?php if ($v["access"] == '1') { ?><i
-                      class="fa fa-check"></i><?php } else { ?><i
-                      class="fa fa-exclamation"></i><?php } ?></td>
+                  <td class="text-center">
+                    <?php if ($v["access"] == '1') { ?>
+                      <i class="fa fa-check"></i>
+                    <?php } else { ?>
+                      <i class="fa fa-exclamation"></i>
+                    <?php } ?>
+                  </td>
                   <td></td>
-                  <td class="call-button"><a class="btn btn-default btn-xs"
-                                             href="index.php?p=logs&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>"
-                                             onclick="if(!confirm('<?php echo $tl["error"]["e33"]; ?>'))return false;"><i
-                        class="fa fa-trash-o"></i></a></td>
+                  <td class="call-button">
+                    <a class="btn btn-default btn-xs" href="index.php?p=logs&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["error"]["e33"]; ?>'))return false;" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                      <i class="fa fa-trash-o"></i>
+                    </a>
+                  </td>
                 </tr>
                 <!-- Detail of login user -->
                 <tr>
@@ -117,7 +124,7 @@
       <i title="<?php echo $tl["icons"]["i16"]; ?>" class="fa fa-check"></i>
       <i title="<?php echo $tl["icons"]["i17"]; ?>" class="fa fa-exclamation"></i>
       <i title="<?php echo $tl["icons"]["i15"]; ?>" class="fa fa-warning-sign"></i>
-      <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-remove"></i>
+      <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
     </div>
 
     <?php if ($JAK_PAGINATE) {

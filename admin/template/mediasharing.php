@@ -37,7 +37,7 @@ if ($page1 == "e") { ?>
       <div class="col-md-12">
         <div class="box box-primary">
           <div class="box-header with-border">
-            <h3 class="box-title">Nastavení Social Media Sharing Icon</h3>
+            <h3 class="box-title"><?php echo $tl["mediasharing"]["ms"]; ?></h3>
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -143,7 +143,7 @@ if ($page1 == "e") { ?>
               <div class="col-md-6">
                 <table class="table table-striped v-text-center">
                   <tr>
-                    <td>Space between icons (px)</td>
+                    <td><?php echo $tl["mediasharing"]["ms1"]; ?></td>
                     <td>
                       <div class="form-group no-margin">
                         <input type="text" name="jak_mediaSize" class="form-control" value="<?php echo $jkv["md_mediaSize"]; ?>"/>
@@ -151,7 +151,7 @@ if ($page1 == "e") { ?>
                     </td>
                   </tr>
                   <tr>
-                    <td>Icon size</td>
+                    <td><?php echo $tl["mediasharing"]["ms2"]; ?></td>
                     <td>
                       <div class="form-group no-margin">
                         <input type="text" name="jak_iconSize" class="form-control" value="<?php echo $jkv["md_iconSize"]; ?>"/>
@@ -159,7 +159,7 @@ if ($page1 == "e") { ?>
                     </td>
                   </tr>
                   <tr>
-                    <td>Color Themes</td>
+                    <td><?php echo $tl["mediasharing"]["ms3"]; ?></td>
                     <td>
                       <select name="jak_mediatheme" class="form-control selectpicker" data-size="5">
                         <option value="lee-gargano-circle-color" <?php if ($jkv["md_mediatheme"] == 'lee-gargano-circle-color') { ?> selected="selected"<?php } ?>>Lee-gargano-circle-color</option>
@@ -170,7 +170,7 @@ if ($page1 == "e") { ?>
                     </td>
                   </tr>
                   <tr>
-                    <td>Hover Effect</td>
+                    <td><?php echo $tl["mediasharing"]["ms4"]; ?></td>
                     <td>
                       <select name="jak_mediahover" class="form-control selectpicker" data-size="5">
                         <option value="fade-out" <?php if ($jkv["md_mediahover"] == 'fade-out') { ?> selected="selected"<?php } ?>>Fade-out</option>

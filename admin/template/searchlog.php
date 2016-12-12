@@ -45,29 +45,32 @@ if ($page1 == "e") { ?>
               <th><?php echo $tl["general"]["g46"]; ?></th>
               <th><?php echo $tl["page"]["p2"]; ?></th>
               <th><?php echo $tl["general"]["g56"]; ?></th>
-              <th><a href="index.php?p=searchlog&amp;sp=truncate&amp;ssp=go" class="btn btn-warning btn-xs"
-                     onclick="if(!confirm('<?php echo $tl["error"]["e34"]; ?>'))return false;"><i
-                    class="fa fa-exclamation-triangle"></i></a></th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs"
-                        onclick="if(!confirm('<?php echo $tl["error"]["e33"]; ?>'))return false;"><i
-                    class="fa fa-trash-o"></i></button>
+                <a href="index.php?p=searchlog&amp;sp=truncate&amp;ssp=go" class="btn btn-warning btn-xs" onclick="if(!confirm('<?php echo $tl["error"]["e34"]; ?>'))return false;">
+                  <i class="fa fa-exclamation-triangle"></i>
+                </a>
+              </th>
+              <th>
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tl["error"]["e33"]; ?>'))return false;">
+                  <i class="fa fa-trash-o"></i>
+                </button>
               </th>
             </tr>
             </thead>
             <?php foreach ($JAK_SEARCHLOG_ALL as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
-                <td><input type="checkbox" name="jak_delete_search[]" class="highlight"
-                           value="<?php echo $v["id"]; ?>"/></td>
+                <td>
+                  <input type="checkbox" name="jak_delete_search[]" class="highlight" value="<?php echo $v["id"]; ?>"/></td>
                 <td><?php echo $v["tag"]; ?></td>
                 <td><?php echo $v["time"]; ?></td>
                 <td><?php echo $v["count"]; ?></td>
                 <td></td>
-                <td><a href="index.php?p=searchlog&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>"
-                       class="btn btn-default btn-xs"
-                       onclick="if(!confirm('<?php echo $tl["error"]["e33"]; ?>'))return false;"><i
-                      class="fa fa-trash-o"></i></a></td>
+                <td>
+                  <a href="index.php?p=searchlog&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" onclick="if(!confirm('<?php echo $tl["error"]["e33"]; ?>'))return false;" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                    <i class="fa fa-trash-o"></i>
+                  </a>
+                </td>
               </tr>
             <?php } ?>
           </table>

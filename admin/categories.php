@@ -288,13 +288,13 @@ switch ($page1) {
 					<div>
 					<div class="text">#' . $catblank["id"] . ' <a href="index.php?p=categories&amp;sp=edit&amp;ssp=' . $catblank["id"] . '">' . $catblank["name"] . '</a></div>
 					<div class="actions">
-						' . ($catblank["pluginid"] == 0 && $catblank["pageid"] == 0 && $catblank["exturl"] == '' ? '<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=newpage&amp;ssp=' . $catblank["id"] . '"><i class="fa fa-sticky-note-o"></i></a>' : '') . '
-						' . ($catblank["pluginid"] == 0 && $catblank["pageid"] == 1 && $catblank["exturl"] == '' ? '<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=edit&amp;ssp=' . $catblank["pageid"] . '"><i class="fa fa-pencil"></i></a>' : '') . '
-						' . ($catblank["pluginid"] > 0 && $catblank["exturl"] == '' ? '<a class="btn btn-info btn-xs" href="javascript:void(0)"><i class="fa fa-eyedropper"></i></a>' : '') . '
+						' . ($catblank["pluginid"] == 0 && $catblank["pageid"] == 0 && $catblank["exturl"] == '' ? '<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=newpage&amp;ssp=' . $catblank["id"] . '" data-toggle="tooltip" data-placement="bottom" title="' . $tl["icons"]["i11"] . '"><i class="fa fa-sticky-note-o"></i></a>' : '') . '
+						' . ($catblank["pluginid"] == 0 && $catblank["pageid"] == 1 && $catblank["exturl"] == '' ? '<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=edit&amp;ssp=' . $catblank["pageid"] . '" data-toggle="tooltip" data-placement="bottom" title="' . $tl["icons"]["i10"] . '"><i class="fa fa-pencil"></i></a>' : '') . '
+						' . ($catblank["pluginid"] > 0 && $catblank["exturl"] == '' ? '<a class="btn btn-info btn-xs" href="javascript:void(0)" data-toggle="tooltip" data-placement="bottom" title="' . $tl["icons"]["i8"] . '"><i class="fa fa-eyedropper"></i></a>' : '') . '
 						' . ($catblank["exturl"] != '' ? '<i class="fa fa-link"></i>' : '') . '
 						
-						<a class="btn btn-default btn-xs" href="index.php?p=categories&amp;sp=edit&amp;ssp=' . $catblank["id"] . '"><i class="fa fa-edit"></i></a>
-						' . ($catblank["pluginid"] == 0 && $catblank["id"] != 1 ? '<a class="btn btn-danger btn-xs" href="index.php?p=categories&amp;sp=delete&amp;ssp=' . $catblank["id"] . '" onclick="if(!confirm(' . $tl["cat"]["al"] . '))return false;"><i class="fa fa-trash-o" ></i></a>' : '') . '
+						<a class="btn btn-default btn-xs" href="index.php?p=categories&amp;sp=edit&amp;ssp=' . $catblank["id"] . '" data-toggle="tooltip" data-placement="bottom" title="' . $tl["icons"]["i2"] . '"><i class="fa fa-edit"></i></a>
+						' . ($catblank["pluginid"] == 0 && $catblank["id"] != 1 ? '<a class="btn btn-danger btn-xs" href="index.php?p=categories&amp;sp=delete&amp;ssp=' . $catblank["id"] . '" onclick="if(!confirm(' . $tl["cat"]["al"] . '))return false;" data-toggle="tooltip" data-placement="bottom" title="' . $tl["icons"]["i1"] . '"><i class="fa fa-trash-o"></i></a>' : '') . '
 					</div></div></li>';
 
         }
