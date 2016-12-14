@@ -39,27 +39,34 @@
             <tr>
               <th>#</th>
               <th><input type="checkbox" id="jak_delete_all"/></th>
-              <th><?php echo $tlf["faq"]["d8"]; ?> <a class="btn btn-warning btn-xs"
-                                                      href="index.php?p=faq&amp;sp=sort&amp;ssp=title&amp;sssp=DESC"><i
-                    class="fa fa-arrow-up"></i></a> <a class="btn btn-success btn-xs"
-                                                       href="index.php?p=faq&amp;sp=sort&amp;ssp=title&amp;sssp=ASC"><i
-                    class="fa fa-arrow-down"></i></a></th>
+              <th><?php echo $tlf["faq"]["d8"]; ?>
+                <a class="btn btn-warning btn-xs" href="index.php?p=faq&amp;sp=sort&amp;ssp=title&amp;sssp=DESC">
+                  <i class="fa fa-arrow-up"></i>
+                </a>
+                <a class="btn btn-success btn-xs" href="index.php?p=faq&amp;sp=sort&amp;ssp=title&amp;sssp=ASC">
+                  <i class="fa fa-arrow-down"></i>
+                </a>
+              </th>
               <th><?php echo $tl["page"]["p1"]; ?></th>
               <th><?php echo $tl["page"]["p2"]; ?></th>
-              <th><?php echo $tl["general"]["g56"]; ?> <a class="btn btn-warning btn-xs"
-                                                          href="index.php?p=faq&amp;sp=sort&amp;ssp=hits&amp;sssp=DESC"><i
-                    class="fa fa-arrow-up"></i></a> <a class="btn btn-success btn-xs"
-                                                       href="index.php?p=faq&amp;sp=sort&amp;ssp=hits&amp;sssp=ASC"><i
-                    class="fa fa-arrow-down"></i></a></th>
+              <th><?php echo $tl["general"]["g56"]; ?>
+                <a class="btn btn-warning btn-xs" href="index.php?p=faq&amp;sp=sort&amp;ssp=hits&amp;sssp=DESC">
+                  <i class="fa fa-arrow-up"></i>
+                </a>
+                <a class="btn btn-success btn-xs" href="index.php?p=faq&amp;sp=sort&amp;ssp=hits&amp;sssp=ASC">
+                  <i class="fa fa-arrow-down"></i>
+                </a>
+              </th>
               <th>
-                <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs"><i
-                    class="fa fa-lock"></i></button>
+                <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
+                  <i class="fa fa-lock"></i>
+                </button>
               </th>
               <th></th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs"
-                        onclick="if(!confirm('<?php echo $tlf["faq"]["al"]; ?>'))return false;"><i
-                    class="fa fa-trash-o"></i></button>
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tlf["faq"]["al"]; ?>'))return false;">
+                  <i class="fa fa-trash-o"></i>
+                </button>
               </th>
             </tr>
             </thead>
@@ -78,15 +85,21 @@
                   } else { ?><?php echo $tl["general"]["g24"]; ?><?php } ?></td>
                 <td><?php echo $v["time"]; ?></td>
                 <td><?php echo $v["hits"]; ?></td>
-                <td><a href="index.php?p=faq&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>"
-                       class="btn btn-default btn-xs"><i
-                      class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i></a></td>
-                <td><a href="index.php?p=faq&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"
-                       class="btn btn-default btn-xs"><i class="fa fa-edit"></i></a></td>
-                <td><a href="index.php?p=faq&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>"
-                       class="btn btn-default btn-xs"
-                       onclick="if(!confirm('<?php echo $tlf["faq"]["al"]; ?>'))return false;"><i
-                      class="fa fa-trash-o"></i></a></td>
+                <td>
+                  <a href="index.php?p=faq&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') { echo $tl["icons"]["i5"]; } else { echo $tl["icons"]["i6"]; } ?>">
+                    <i class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i>
+                  </a>
+                </td>
+                <td>
+                  <a href="index.php?p=faq&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i2"]; ?>">
+                    <i class="fa fa-edit"></i>
+                  </a>
+                </td>
+                <td>
+                  <a href="index.php?p=faq&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" onclick="if(!confirm('<?php echo $tlf["faq"]["al"]; ?>'))return false;" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                    <i class="fa fa-trash-o"></i>
+                  </a>
+                </td>
               </tr>
             <?php } ?>
           </table>

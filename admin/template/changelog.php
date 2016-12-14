@@ -46,6 +46,7 @@
     [new]  New Plugin XML SEO Sitemap v1.3
     [new]  Add search page by title in Pages
     [new]  Add Bootstrap Tooltip to Action icons
+    [new]  Add new plugin for scrolling vertical menu (Perfect ScrollBar)
 
     // # List of updated components
     // ------------------------------
@@ -83,6 +84,7 @@
     [enhanced]  Social Media Sharing Plugin
     [enhanced]  ACP - Plugins - added captcha (security number) for uninstallation
                 http://99webtools.com/blog/php-simple-captcha-script/
+    [enhanced]  Installation of CMS with better Step Wizard
 
     // # List of new pages
     // ------------------------------
@@ -97,6 +99,8 @@
     [removed]  Remove Jak Tags Input
     [removed]  jQuery.share - social media sharing plugin
     [removed]  Remove Bluesat template
+    [removed]  Jquery slimScroll plugins
+    [removed]  Remove plugins - Ecommerce, Owl, Retailer, Ticketing
   </code></pre>
             </div>
           </div>
@@ -193,9 +197,9 @@
                     <a href="https://ace.c9.io/" class="btn bg-teal btn-xs" target="_blank">Preview</a>
                   </dd>
 
-                  <dt>slimScroll</dt>
-                  <dd>slimScroll is a small (4.6KB) jQuery plugin that transforms any div into a scrollable area with a nice scrollbar - similar to the one Facebook and Google started using in their products recently.
-                    <a href="http://rocha.la/jQuery-slimScroll" class="btn bg-teal btn-xs" target="_blank">Preview</a>
+                  <dt>perfectScrollBar</dt>
+                  <dd>perfectScrollBar is  jQuery plugin that transforms any div into a scrollable area with a nice scrollbar - similar to the one Facebook and Google started using in their products recently.
+                    <a href="https://github.com/noraesae/perfect-scrollbar" class="btn bg-teal btn-xs" target="_blank">Preview</a>
                   </dd>
 
                   <dt>Sollist - Share social media plugin</dt>

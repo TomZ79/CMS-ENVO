@@ -28,7 +28,6 @@
 			});
 		}, 1000);
 	</script>
-	</script>
 <?php } ?>
 
   <div class="box box-default">
@@ -38,18 +37,28 @@
     </div><!-- /.box-header -->
     <div class="box-body">
 
-      <?php echo jak_build_menu_faq(0, $mheader, $tl["cat"]["al"], ' class="sortable jak_cat_move"', ' id="mheader"'); ?>
+      <?php
+
+      // Build menu for categories header and header/footer
+      $lang = $tl["cat"]["al"];
+      $title1 = $tl["icons"]["i5"];
+      $title2 = $tl["icons"]["i6"];
+      $title3 = $tlf["faq"]["q9"];
+      $title4 = $tl["icons"]["i2"];
+      $title5 = $tl["icons"]["i1"];
+
+      echo jak_build_menu_faq(0, $mheader, $lang, $title1, $title2, $title3, $title4, $title5, ' class="sortable jak_cat_move"', ' id="mheader"');
+
+      ?>
 
     </div>
     <div class="box-footer">
-      <button type="submit" data-menu="mheader" name="save"
-              class="btn btn-primary pull-right save-menu-plugin"><?php echo $tl["general"]["g20"]; ?></button>
+      <button type="submit" data-menu="mheader" name="save" class="btn btn-primary pull-right save-menu-plugin"><?php echo $tl["general"]["g20"]; ?></button>
     </div>
   </div>
 
   <div class="icon_legend">
     <h3><?php echo $tl["icons"]["i"]; ?></h3>
-    <i title="<?php echo $tl["icons"]["i7"]; ?>" class="fa fa-folder-plus"></i>
     <i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
     <i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
     <i title="<?php echo $tlf["faq"]["q9"]; ?>" class="fa fa-sticky-note-o"></i>
@@ -57,7 +66,7 @@
     <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
   </div>
 
-  <script src="js/catorder.js" type="text/javascript"></script>
+  <script type="text/javascript" src="js/catorder.js"></script>
 
   <script type="text/javascript">
     $(document).ready(function () {

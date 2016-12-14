@@ -129,7 +129,11 @@ if ($errors) { ?>
                     </td>
                   </tr>
                   <tr>
-                    <td><?php echo $tld["dload"]["d17"]; ?></td>
+                    <td><?php echo $tld["dload"]["d17"]; ?>
+                      <a class="cms-help" data-content="<?php echo $tld["dload"]["h1"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tl["title"]["t21"]; ?>">
+                        <i class="fa fa-question-circle"></i>
+                      </a>
+                    </td>
                     <td>
                       <div class="radio">
                         <label class="checkbox-inline">

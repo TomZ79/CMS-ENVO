@@ -39,65 +39,81 @@
             <tr>
               <th>#</th>
               <th><input type="checkbox" id="jak_delete_all"/></th>
-              <th><?php echo $tld["dload"]["d8"]; ?> <a class="btn btn-warning btn-xs"
-                                                        href="index.php?p=download&amp;sp=sort&amp;ssp=title&amp;sssp=DESC"><i
-                    class="fa fa-arrow-up"></i></a> <a class="btn btn-success btn-xs"
-                                                       href="index.php?p=download&amp;sp=sort&amp;ssp=title&amp;sssp=ASC"><i
-                    class="fa fa-arrow-down"></i></a></th>
+              <th><?php echo $tld["dload"]["d8"]; ?>
+                <a class="btn btn-warning btn-xs" href="index.php?p=download&amp;sp=sort&amp;ssp=title&amp;sssp=DESC">
+                  <i class="fa fa-arrow-up"></i>
+                </a>
+                <a class="btn btn-success btn-xs" href="index.php?p=download&amp;sp=sort&amp;ssp=title&amp;sssp=ASC">
+                  <i class="fa fa-arrow-down"></i>
+                </a>
+              </th>
               <th><?php echo $tl["page"]["p1"]; ?></th>
               <th><?php echo $tl["page"]["p2"]; ?></th>
-              <th><?php echo $tl["general"]["g56"]; ?> <a class="btn btn-warning btn-xs"
-                                                          href="index.php?p=download&amp;sp=sort&amp;ssp=hits&amp;sssp=DESC"><i
-                    class="fa fa-arrow-up"></i></a> <a class="btn btn-success btn-xs"
-                                                       href="index.php?p=download&amp;sp=sort&amp;ssp=hits&amp;sssp=ASC"><i
-                    class="fa fa-arrow-down"></i></a></th>
-              <th><?php echo $tld["dload"]["d9"]; ?> <a class="btn btn-warning btn-xs"
-                                                        href="index.php?p=download&amp;sp=sort&amp;ssp=countdl&amp;sssp=DESC"><i
-                    class="fa fa-arrow-up"></i></a> <a class="btn btn-success btn-xs"
-                                                       href="index.php?p=download&amp;sp=sort&amp;ssp=countdl&amp;sssp=ASC"><i
-                    class="fa fa-arrow-down"></i></a></th>
+              <th><?php echo $tl["general"]["g56"]; ?>
+                <a class="btn btn-warning btn-xs" href="index.php?p=download&amp;sp=sort&amp;ssp=hits&amp;sssp=DESC">
+                  <i class="fa fa-arrow-up"></i>
+                </a>
+                <a class="btn btn-success btn-xs" href="index.php?p=download&amp;sp=sort&amp;ssp=hits&amp;sssp=ASC">
+                  <i class="fa fa-arrow-down"></i>
+                </a>
+              </th>
+              <th><?php echo $tld["dload"]["d9"]; ?>
+                <a class="btn btn-warning btn-xs" href="index.php?p=download&amp;sp=sort&amp;ssp=countdl&amp;sssp=DESC">
+                  <i class="fa fa-arrow-up"></i>
+                </a>
+                <a class="btn btn-success btn-xs" href="index.php?p=download&amp;sp=sort&amp;ssp=countdl&amp;sssp=ASC">
+                  <i class="fa fa-arrow-down"></i>
+                </a>
+              </th>
               <th>
-                <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs"><i
-                    class="fa fa-lock"></i></button>
+                <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
+                  <i class="fa fa-lock"></i>
+                </button>
               </th>
               <th></th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs"
-                        onclick="if(!confirm('<?php echo $tld["dload"]["al"]; ?>'))return false;"><i
-                    class="fa fa-trash-o"></i></button>
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tld["dload"]["al"]; ?>'))return false;">
+                  <i class="fa fa-trash-o"></i>
+                </button>
               </th>
             </tr>
             </thead>
             <?php if (isset($JAK_DOWNLOAD_ALL) && is_array($JAK_DOWNLOAD_ALL)) foreach ($JAK_DOWNLOAD_ALL as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
-                <td><input type="checkbox" name="jak_delete_download[]" class="highlight"
-                           value="<?php echo $v["id"]; ?>"/></td>
-                <td><a
-                    href="index.php?p=download&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a><?php if ($v["password"]) { ?>
-                    <i class="fa fa-key"></i><?php } ?></td>
-                <td><?php if ($v["catid"] != '0') {
+                <td>
+                  <input type="checkbox" name="jak_delete_download[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
+                </td>
+                <td>
+                  <a href="index.php?p=download&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a><?php if ($v["password"]) { ?><i class="fa fa-key"></i><?php } ?>
+                </td>
+                <td>
+                  <?php if ($v["catid"] != '0') {
                     if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $z) {
-                      if ($v["catid"] == $z["id"]) { ?><a
-                        href="index.php?p=download&amp;sp=showcat&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a><?php }
+                      if ($v["catid"] == $z["id"]) { ?>
+                        <a href="index.php?p=download&amp;sp=showcat&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a>
+                      <?php }
                     }
-                  } else { ?><?php echo $tl["general"]["g24"]; ?><?php } ?></td>
+                  } else { ?><?php echo $tl["general"]["g24"]; ?><?php } ?>
+                </td>
                 <td><?php echo $v["time"]; ?></td>
                 <td><?php echo $v["hits"]; ?></td>
                 <td><?php echo $v["countdl"]; ?></td>
-                <td><a href="index.php?p=download&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>"
-                       title="<?php if ($v["active"] == 1) {
-                         echo $tl["cmdesc"]["d35"];
-                       } else {
-                         echo $tl["cmdesc"]["d36"];
-                       } ?>" class="btn btn-default btn-xs"><i
-                      class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i></a></td>
-                <td><a href="index.php?p=download&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"
-                       class="btn btn-default btn-xs"><i class="fa fa-edit"></i></a></td>
-                <td><a href="index.php?p=download&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>"
-                       class="btn btn-default btn-xs"
-                       onclick="if(!confirm('<?php echo $tld["dload"]["al"]; ?>'))return false;"><i
-                      class="fa fa-trash-o"></i></a></td>
+                <td>
+                  <a href="index.php?p=download&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '1') { echo $tl["icons"]["i6"]; } else { echo $tl["icons"]["i5"]; } ?>">
+                    <i class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i>
+                  </a>
+                </td>
+                <td>
+                  <a href="index.php?p=download&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i2"]; ?>">
+                    <i class="fa fa-edit"></i>
+                  </a>
+                </td>
+                <td>
+                  <a href="index.php?p=download&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" onclick="if(!confirm('<?php echo $tld["dload"]["al"]; ?>'))return false;" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                    <i class="fa fa-trash-o"></i>
+                  </a>
+                </td>
               </tr>
             <?php } ?>
           </table>
@@ -130,6 +146,5 @@
       });
     });
   </script>
-
 
 <?php include_once APP_PATH . 'admin/template/footer.php'; ?>

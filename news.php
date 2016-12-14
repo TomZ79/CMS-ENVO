@@ -170,7 +170,17 @@ switch ($page1) {
             $JAK_PAGINATE = $news->display_pages();
 
             // Display the news
-            $JAK_NEWS_ALL = jak_get_news($news->limit, '', JAK_PLUGIN_VAR_NEWS, 'ASC', $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['general']['g56']);
+
+            // Now let's check how to display the order
+            $shownewsarray = explode(" ", $jkv["newsorder"]);
+
+            if (is_array($shownewsarray) && in_array("ASC", $shownewsarray) || in_array("DESC", $shownewsarray)) {
+
+                $JAK_SETTING['shownewswhat'] = $shownewsarray[0];
+                $JAK_SETTING['shownewsorder'] = $shownewsarray[1];
+
+            }
+            $JAK_NEWS_ALL = jak_get_news($news->limit, '', JAK_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['general']['g56']);
         }
 
         // Check if we have a language and display the right stuff

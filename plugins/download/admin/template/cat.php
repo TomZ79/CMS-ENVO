@@ -37,12 +37,23 @@
     </div><!-- /.box-header -->
     <div class="box-body">
 
-      <?php echo jak_build_menu_download(0, $mheader, $tl["cat"]["al"], ' class="sortable jak_cat_move"', ' id="mheader"'); ?>
+      <?php
+
+      // Build menu for categories header and header/footer
+      $lang = $tl["cat"]["al"];
+      $title1 = $tl["icons"]["i5"];
+      $title2 = $tl["icons"]["i6"];
+      $title3 = $tld["dload"]["d32"];
+      $title4 = $tl["icons"]["i2"];
+      $title5 = $tl["icons"]["i1"];
+
+      echo jak_build_menu_download(0, $mheader, $lang, $title1, $title2, $title3, $title4, $title5, ' class="sortable jak_cat_move"', ' id="mheader"');
+
+      ?>
 
     </div>
     <div class="box-footer">
-      <button type="submit" data-menu="mheader" name="save"
-              class="btn btn-primary pull-right save-menu-plugin"><?php echo $tl["general"]["g20"]; ?></button>
+      <button type="submit" data-menu="mheader" name="save" class="btn btn-primary pull-right save-menu-plugin"><?php echo $tl["general"]["g20"]; ?></button>
     </div>
   </div>
 

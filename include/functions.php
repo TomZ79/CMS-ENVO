@@ -241,13 +241,13 @@ function jak_get_id_name($jakvar, $jakvar1, $jakvar2, $jakvar3)
 function jak_get_news($jakvar, $where, $plname, $order, $datef, $timef, $timeago)
 {
   if (!empty($jakvar)) {
-    $sqlin = 'active = 1 ORDER BY newsorder ' . $order . ' ';
+    $sqlin = 'active = 1 ORDER BY ' . $order . ' ';
   } else if (empty($jakvar) && is_numeric($where)) {
-    $sqlin = 'id = ' . $where . ' AND active = 1 ORDER BY newsorder ASC';
+    $sqlin = 'id = ' . $where . ' AND active = 1 ORDER BY ' . $order . ' ';
   } else if (empty($jakvar) && !is_numeric($where)) {
-    $sqlin = 'id IN(' . $where . ') AND active = 1 ORDER BY newsorder ASC';
+    $sqlin = 'id IN(' . $where . ') AND active = 1 ORDER BY ' . $order . ' ';
   } else {
-    $sqlin = 'active = 1 ORDER BY newsorder ASC LIMIT 1';
+    $sqlin = 'active = 1 ORDER BY ' . $order . ' LIMIT 1';
   }
 
   global $jakdb;

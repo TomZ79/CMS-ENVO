@@ -61,7 +61,7 @@ if ($errors) { ?>
     <div class="tab-content">
       <div class="tab-pane active" id="style_tabs-1">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-7">
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tl["title"]["t4"]; ?></h3>
@@ -82,6 +82,27 @@ if ($errors) { ?>
                     <td><?php echo $tl["page"]["p5"]; ?></td>
                     <td>
                       <textarea name="jak_lcontent" class="form-control" rows="4"><?php echo jak_edit_safe_userpost($JAK_FORM_DATA["content"]); ?></textarea>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><?php echo $tl["setting_cmd"]["s61"]; ?></td>
+                    <td>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <select name="jak_shownewsordern" class="form-control selectpicker">
+                            <option value="id"<?php if ($JAK_SETTING['shownewswhat'] == "id") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["setting_cmd"]["s57"]; ?></option>
+                            <option value="title"<?php if ($JAK_SETTING['shownewswhat'] == "title") { ?> selected="selected"<?php } ?>><?php echo $tl["setting_cmd"]["s58"]; ?></option>
+                            <option value="time"<?php if ($JAK_SETTING['shownewswhat'] == "time") { ?> selected="selected"<?php } ?>><?php echo $tl["setting_cmd"]["s59"]; ?></option>
+                            <option value="hits"<?php if ($JAK_SETTING['shownewswhat'] == "hits") { ?> selected="selected"<?php } ?>><?php echo $tl["setting_cmd"]["s60"]; ?></option>
+                          </select>
+                        </div>
+                        <div class="col-md-6">
+                          <select name="jak_shownewsorder" class="form-control selectpicker">
+                            <option value="ASC"<?php if ($JAK_SETTING['shownewsorder'] == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g90"]; ?></option>
+                            <option value="DESC"<?php if ($JAK_SETTING['shownewsorder'] == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g91"]; ?></option>
+                          </select>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   <tr>
@@ -107,7 +128,7 @@ if ($errors) { ?>
               </div>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-5">
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tl["title"]["t29"]; ?></h3>
@@ -124,19 +145,19 @@ if ($errors) { ?>
                       <div class="<?php if (isset($errors["e2"])) echo " has-error"; ?>">
                         <select name="jak_mid" class="form-control selectpicker">
                           <option value="2"<?php if ($jkv["newspagemid"] == 2) { ?> selected="selected"<?php } ?>>
-                            Range 1 page
+                            <?php echo $tl["option"]["o1"]; ?>
                           </option>
                           <option value="4"<?php if ($jkv["newspagemid"] == 4) { ?> selected="selected"<?php } ?>>
-                            Range 2 page
+                            <?php echo $tl["option"]["o2"]; ?>
                           </option>
                           <option value="6"<?php if ($jkv["newspagemid"] == 6) { ?> selected="selected"<?php } ?>>
-                            Range 3 page
+                            <?php echo $tl["option"]["o3"]; ?>
                           </option>
                           <option value="8"<?php if ($jkv["newspagemid"] == 8) { ?> selected="selected"<?php } ?>>
-                            Range 4 page
+                            <?php echo $tl["option"]["o4"]; ?>
                           </option>
                           <option value="10"<?php if ($jkv["newspagemid"] == 10) { ?> selected="selected"<?php } ?>>
-                            Range 5 page
+                            <?php echo $tl["option"]["o5"]; ?>
                           </option>
                         </select>
                       </div>

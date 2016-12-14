@@ -63,12 +63,13 @@
                     <a href="index.php?p=blog&amp;sp=comment&amp;ssp=sort&amp;sssp=user&amp;ssssp=<?php echo $v["userid"]; ?>"><?php echo $v["username"]; ?></a><?php } ?>
                 </td>
                 <td>
-                  <a href="index.php?p=blog&amp;sp=comment&amp;ssp=approve&amp;sssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs">
+                  <a href="index.php?p=blog&amp;sp=comment&amp;ssp=approve&amp;sssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["approve"] == '0') { echo $tl["icons"]["i5"]; } else { echo $tl["icons"]["i6"]; } ?>">
                     <i class="fa fa-<?php if ($v["approve"] == '0') { ?>lock<?php } else { ?>check<?php } ?>"></i>
                   </a>
                 </td>
                 <td>
-                  <a href="index.php?p=blog&amp;sp=comment&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i>
+                  <a href="index.php?p=blog&amp;sp=comment&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" onclick="if(!confirm('<?php echo $tlblog["blog"]["co"]; ?>'))return false;" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                    <i class="fa fa-trash-o"></i>
                   </a>
                 </td>
               </tr>

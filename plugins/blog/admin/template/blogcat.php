@@ -37,7 +37,19 @@
     </div><!-- /.box-header -->
     <div class="box-body">
 
-      <?php echo jak_build_menu_blog(0, $mheader, $tl["cat"]["al"], ' class="sortable jak_cat_move"', ' id="mheader"'); ?>
+      <?php
+
+      // Build menu for categories header and header/footer
+      $lang = $tl["cat"]["al"];
+      $title1 = $tl["icons"]["i5"];
+      $title2 = $tl["icons"]["i6"];
+      $title3 = $tlblog["blog"]["q9"];
+      $title4 = $tl["icons"]["i2"];
+      $title5 = $tl["icons"]["i1"];
+
+      echo jak_build_menu_blog(0, $mheader, $lang, $title1, $title2, $title3, $title4, $title5, ' class="sortable jak_cat_move"', ' id="mheader"');
+
+      ?>
 
     </div>
     <div class="box-footer">

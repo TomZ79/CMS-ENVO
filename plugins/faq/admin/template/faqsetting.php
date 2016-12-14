@@ -141,10 +141,10 @@ if ($errors) { ?>
                     <td>
                       <div class="radio">
                         <label class="checkbox-inline">
-                          <input type="radio" name="jak_faqurl" value="0"<?php if ($jkv["faqurl"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                          <input type="radio" name="jak_faqurl" value="1"<?php if ($jkv["faqurl"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
                         </label>
                         <label class="checkbox-inline">
-                          <input type="radio" name="jak_faqurl" value="1"<?php if ($jkv["faqurl"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                          <input type="radio" name="jak_faqurl" value="0"<?php if ($jkv["faqurl"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                         </label>
                       </div>
                     </td>

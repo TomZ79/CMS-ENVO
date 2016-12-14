@@ -24,6 +24,8 @@
   <link rel="stylesheet" href="css/admin-color.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
   <!-- Animate style -->
   <link rel="stylesheet" href="css/animate.min.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
+  <!-- Perfect Scroll -->
+  <link rel="stylesheet" href="js-plugins/perfect-scrollbar/css/perfect-scrollbar.css?=<?php echo $jkv["updatetime"];?>" type="text/css" media="screen" />
   <!-- Bootstrap Datetimpicker 4 -->
   <link rel="stylesheet" href="js-plugins/bootstrap-datetimepicker-4/css/bootstrap-datetimepicker.min.css?=<?php echo $jkv["updatetime"];?>" type="text/css" media="screen" />
   <!-- Bootstrap-Select CSS -->
@@ -46,6 +48,11 @@
       }
     </style>
   <?php } ?>
+  <style type="text/css">
+    .main-sidebar {
+      height: 100%; /* Or whatever you want (eg. 400px) */
+    }
+  </style>
 
   <!-- JQUERY SCRIPT and PLUGINS ================================================================================ -->
   <!-- jQuery -->
@@ -56,8 +63,8 @@
   <script type="text/javascript" src="js-plugins/moment/moment-with-locales.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
   <!-- Admin App function -->
   <script type="text/javascript" src="js/cms.js?=<?php echo $jkv["updatetime"]; ?>"></script>
-  <!-- Slimscroll -->
-  <script type="text/javascript" src="js-plugins/slimScroll/jquery.slimscroll.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+  <!-- Perfect Scroll -->
+  <script type="text/javascript" src="js-plugins/perfect-scrollbar/js/perfect-scrollbar.jquery.js?=<?php echo $jkv["updatetime"]; ?>"></script>
   <!-- Bootstrap Datetimpicker 4 -->
   <script type="text/javascript" src="js-plugins/bootstrap-datetimepicker-4/js/bootstrap-datetimepicker.js?=<?php echo $jkv["updatetime"]; ?>"></script>
   <!-- Bootstrap-Select JS -->
@@ -165,7 +172,7 @@
   <!-- Left side column. contains sidebar -->
   <aside class="main-sidebar">
     <!-- sidebar: style -->
-    <section class="sidebar">
+    <section id="sidebar" class="sidebar">
       <?php include_once APP_PATH . 'admin/template/navbar.php'; ?>
     </section>
   </aside>

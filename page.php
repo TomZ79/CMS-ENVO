@@ -72,7 +72,7 @@ if (!empty($row['shownews'])) {
 
     } else {
 
-        $JAK_NEWS_IN_CONTENT = jak_get_news('', $row['shownews'], JAK_PLUGIN_VAR_NEWS, 'ASC', $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['general']['g56']);
+        $JAK_NEWS_IN_CONTENT = jak_get_news('', $row['shownews'], JAK_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['general']['g56']);
     }
 
     // Set news load to false

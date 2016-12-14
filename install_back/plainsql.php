@@ -293,6 +293,7 @@ $jakdb->query("INSERT INTO " . DB_PREFIX . "setting VALUES
 ('searchdesc', 'search', '', '', 'textarea', 'free', 'cms'),
 ('newstitle', 'news', 'News', 'News', 'input', 'free', 'cms'),
 ('newsdesc', 'news', 'Write something about your news', 'Write something about your news', 'textarea', 'free', 'cms'),
+('newsorder', 'news', 'id ASC', '', 'input', 'free', 'cms'),
 ('newsdateformat', 'news', 'd.m.Y', 'd.m.Y', 'input', 'free', 'cms'),
 ('newstimeformat', 'news', '', 'h:i A', 'input', 'free', 'cms'),
 ('newspagemid', 'news', '5', '5', 'input', 'number', 'cms'),
