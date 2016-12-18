@@ -77,10 +77,12 @@ if ($page2 == "e") { ?>
                 } ?>
               </td>
               <td>
-                <a href="index.php?p=newsletter&amp;sp=user&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs"><i class="fa fa-edit"></i></a>
+                <a href="index.php?p=newsletter&amp;sp=user&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs">
+                  <i class="fa fa-edit"></i>
+                </a>
               </td>
               <td>
-                <a href="index.php?p=newsletter&amp;sp=user&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" onclick="if(!confirm('<?php echo $tl["user"]["al"]; ?>'))return false;">
+                <a href="index.php?p=newsletter&amp;sp=user&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo $tl["user"]["al"]; ?>">
                   <i class="fa fa-trash-o"></i>
                 </a>
               </td>

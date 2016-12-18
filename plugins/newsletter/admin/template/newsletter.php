@@ -47,17 +47,18 @@
               <th></th>
               <th></th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tlnl["nletter"]["al"]; ?>'))return false;"><i class="fa fa-trash-o"></i></button>
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tlnl["nletter"]["al"]; ?>'))return false;">
+                  <i class="fa fa-trash-o"></i>
+                </button>
               </th>
             </tr>
             </thead>
             <?php if (isset($JAK_NEWSLETTER_ALL) && is_array($JAK_NEWSLETTER_ALL)) foreach ($JAK_NEWSLETTER_ALL as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
-                <td><input type="checkbox" name="jak_delete_newsletter[]" class="highlight"
-                           value="<?php echo $v["id"]; ?>"/></td>
-                <td><a
-                    href="index.php?p=newsletter&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a>
+                <td><input type="checkbox" name="jak_delete_newsletter[]" class="highlight" value="<?php echo $v["id"]; ?>"/></td>
+                <td>
+                  <a href="index.php?p=newsletter&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a>
                 </td>
                 <td><?php if ($v["sent"]) {
                     echo $v["senttime"];
@@ -66,16 +67,26 @@
                   } ?></td>
                 <td><?php echo $v["time"]; ?></td>
                 <td><?php if ($v["sent"]) echo '<a href="index.php?p=newsletter&amp;sp=stat&amp;ssp=' . $v["id"] . '" class="btn btn-default btn-xs"><i class="fa fa-bar-chart"></i></a>'; ?></td>
-                <td><a href="index.php?p=newsletter&amp;sp=preview&amp;ssp=<?php echo $v["id"]; ?>"
-                       class="btn btn-default btn-xs nlbox"><i class="fa fa-desktop"></i></a></td>
-                <td><a href="index.php?p=newsletter&amp;sp=send&amp;ssp=<?php echo $v["id"]; ?>"
-                       class="btn btn-default btn-xs"><i class="fa fa-envelope-o"></i></a></td>
-                <td><a href="index.php?p=newsletter&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"
-                       class="btn btn-default btn-xs"><i class="fa fa-edit"></i></a></td>
-                <td><a href="index.php?p=newsletter&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>"
-                       class="btn btn-default btn-xs"
-                       onclick="if(!confirm('<?php echo $tlnl["nletter"]["al"]; ?>'))return false;"><i
-                      class="fa fa-trash-o"></i></a></td>
+                <td>
+                  <a href="index.php?p=newsletter&amp;sp=preview&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs nlbox">
+                    <i class="fa fa-desktop"></i>
+                  </a>
+                </td>
+                <td>
+                  <a href="index.php?p=newsletter&amp;sp=send&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs">
+                    <i class="fa fa-envelope-o"></i>
+                  </a>
+                </td>
+                <td>
+                  <a href="index.php?p=newsletter&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs">
+                    <i class="fa fa-edit"></i>
+                  </a>
+                </td>
+                <td>
+                  <a href="index.php?p=newsletter&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo $tlnl["nletter"]["al"]; ?>">
+                    <i class="fa fa-trash-o"></i>
+                  </a>
+                </td>
               </tr>
             <?php } ?>
           </table>
