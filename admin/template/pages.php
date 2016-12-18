@@ -75,7 +75,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   <i class="fa fa-arrow-down"></i>
                 </a>
               </th>
-              <th>Aktivita</th>
+              <th><?php echo $tl["general_cmd"]["g9"]; ?></th>
               <th>
                 <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
                   <i class="fa fa-lock"></i>
@@ -108,9 +108,9 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                 <td>
                   <?php
                     if ($v["active"] == 1 && $v["catid"] != '0') {
-                      echo "Active";
+                      echo $tl["general_cmd"]["g10"];
                     } else {
-                      echo "Inactive";
+                      echo $tl["general_cmd"]["g11"];
                     }
                   ?>
                 </td>
