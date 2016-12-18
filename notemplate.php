@@ -33,8 +33,8 @@
       <h3><i class="fa fa-warning text-red"></i><?php echo $tl["notetemplate"]["n1"]; ?></h3>
       <p><?php echo $tl["notetemplate"]["n2"]; ?></p>
     </div>
-  </div><!-- /.error-page -->
-</section><!-- /.content -->
+  </div>
+</section>
 
 </body>
 </html>

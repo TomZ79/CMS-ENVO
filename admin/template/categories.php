@@ -50,13 +50,13 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
             <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
           </div>
-        </div><!-- /.box-header -->
+        </div>
         <div class="box-body">
 
           <?php
 
           // Build menu for categories header and header/footer
-          $lang = $tl["cat"]["al"];
+          $lang = $tl["cat"]["del"];
           $title1 = $tl["icons"]["i11"];  // Add page
           $title2 = $tl["icons"]["i10"];  //
           $title3 = $tl["icons"]["i8"];   //
@@ -83,13 +83,13 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
             <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
           </div>
-        </div><!-- /.box-header -->
+        </div>
         <div class="box-body">
 
           <?php
 
           // Build menu for categories
-          $lang = $tl["cat"]["al"];
+          $lang = $tl["cat"]["del"];
           $title1 = $tl["icons"]["i11"];  // Add page
           $title2 = $tl["icons"]["i10"];  //
           $title3 = $tl["icons"]["i8"];   //
@@ -119,7 +119,7 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
             <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
           </div>
-        </div><!-- /.box-header -->
+        </div>
         <div class="box-body">
           <?php if ($ucatblank) {
             echo '<ul class="list-group">' . $ucatblank . '</ul>';

@@ -62,16 +62,17 @@ if ($page2 == "e" || $page2 == "edn") { ?>
               } ?></div>
             <div class="actions">
 
-              <a class="btn btn-default btn-xs"
-                 href="index.php?p=plugins&amp;sp=hooks&amp;ssp=lock&amp;sssp=<?php echo $v["id"]; ?>"><i
-                  class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i></a>
-              <a class="btn btn-default btn-xs"
-                 href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"><i
-                  class="fa fa-edit"></i></a>
-              <?php if ($v["id"] > 5) { ?><a class="btn btn-default btn-xs"
-                                             href="index.php?p=plugins&amp;sp=hooks&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>"
-                                             onclick="if(!confirm('<?php echo $tl["hook"]["al"]; ?>'))return false;"><i
-                    class="fa fa-trash-o"></i></a><?php } ?>
+              <a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=hooks&amp;ssp=lock&amp;sssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') { echo $tl["icons"]["i5"]; } else { echo $tl["icons"]["i6"]; } ?>">
+                <i class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i>
+              </a>
+              <a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i2"]; ?>">
+                <i class="fa fa-edit"></i>
+              </a>
+              <?php if ($v["id"] > 5) { ?>
+              <a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=hooks&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>"  data-confirm="<?php echo $tl["hook"]["al"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                  <i class="fa fa-trash-o"></i>
+                </a>
+              <?php } ?>
 
             </div>
           </li>

@@ -52,7 +52,7 @@ if ($page4 == "e") { ?>
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
             </div>
-          </div><!-- /.box-header -->
+          </div>
           <div class="box-body">
             <table class="table table-striped first-column v-text-center">
               <tr>
@@ -116,7 +116,7 @@ if ($page4 == "e") { ?>
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
             </div>
-          </div><!-- /.box-header -->
+          </div>
           <div class="box-body">
             <table class="table table-striped">
               <tr>

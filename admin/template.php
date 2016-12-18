@@ -16,16 +16,15 @@ $JAK_FILE_SUCCESS = $JAK_FILE_ERROR = $JAK_FILEURL = $JAK_FILECONTENT = "";
 $defaults = $_POST;
 
 // Show file in dir - original solution from Jakweb( show file only in main dir)
-function jak_get_template_files($directory, $exempt = array('.', '..', '.ds_store', '.svn', 'preview.jpg', 'index.html', 'js', 'css', 'img', '_cache'), &$files = array())
-{
+function jak_get_template_files($directory,$exempt = array('.','..','.ds_store','.svn','preview.jpg','index.html','js','css','img','_cache'),&$files = array()) {
   $handle = opendir($directory);
-  while (false !== ($resource = readdir($handle))) {
-    if (!in_array(strtolower($resource), $exempt)) {
-      if (is_dir($directory . $resource . '/')) {
-        array_merge($files, getFiles($directory . $resource . '/', $exempt, $files));
+  while(false !== ($resource = readdir($handle))) {
+    if(!in_array(strtolower($resource),$exempt)) {
+      if(is_dir($directory.$resource.'/')) {
+        array_merge($files, jak_get_template_files($directory.$resource.'/',$exempt,$files));
       } else {
-        if (is_writable($directory . '/' . $resource)) {
-          $files[] = array('path' => $directory . '/' . $resource, 'name' => $resource);
+        if (is_writable($directory.'/'.$resource)) {
+          $files[] = array('path' => $directory.'/'.$resource,'name' => $resource);
         }
       }
     }
@@ -113,12 +112,6 @@ switch ($page1) {
     break;
   case 'cssedit':
 
-    $cssdir = '../template/' . $row['value'] . '/css';
-
-    if (!is_writable($cssdir)) {
-      $JAK_FILE_ERROR = 1;
-    }
-
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($defaults['edit'])) {
 
       $openfile = fopen($defaults['jak_file_edit'], 'r');
@@ -155,10 +148,24 @@ switch ($page1) {
 
     }
 
-    // Dir path
+    if (isset($jkv["cms_tpl"])) {
+
+    }
+
+    // Dir path and check if folder is writable
+    $cssdir = '../template/' . $row['value'] . '/css';
     $ROOT_DIR = $cssdir;
-    // Get the important files into template
-    $JAK_GET_TEMPLATE_FILES = jak_get_template_files($cssdir);
+
+    // Check if template is installed
+    if (isset($jkv["cms_tpl"])) {
+      // Check if folder is writable
+      if (!is_writable($cssdir)) {
+        $JAK_FILE_ERROR = 1;
+      }
+
+      // Get the important files into template
+      $JAK_GET_TEMPLATE_FILES = jak_get_template_files($cssdir);
+    }
 
     // Title and Description
     $SECTION_TITLE = $tl["general"]["g53"];
@@ -176,12 +183,6 @@ switch ($page1) {
 
     break;
   case 'langedit':
-
-    $langdir = '../lang';
-
-    if (!is_writable($langdir)) {
-      $JAK_FILE_ERROR = 1;
-    }
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($defaults['edit'])) {
 
@@ -220,9 +221,19 @@ switch ($page1) {
     }
 
     // Dir path
+    $langdir = '../lang';
     $ROOT_DIR = $langdir;
-    // Get the important files into template
-    $JAK_GET_TEMPLATE_FILES = jak_get_template_files($langdir);
+
+    // Check if template is installed
+    if (isset($jkv["cms_tpl"])) {
+      // Check if folder is writable
+      if (!is_writable($langdir)) {
+        $JAK_FILE_ERROR = 1;
+      }
+
+      // Get the important files into template
+      $JAK_GET_TEMPLATE_FILES = jak_get_template_files($langdir);
+    }
 
     // Title and Description
     $SECTION_TITLE = $tl["cmenu"]["c54"];
@@ -277,16 +288,20 @@ switch ($page1) {
 
     }
 
-    $filedir = '../template/' . $row['value'];
-
-    if (!is_writable($filedir)) {
-      $JAK_FILE_ERROR = 1;
-    }
-
     // Dir path
+    $filedir = '../template/' . $row['value'];
     $ROOT_DIR = $filedir;
-    // Get the important files into template
-    $JAK_GET_TEMPLATE_FILES = jak_get_template_files($filedir);
+
+    // Check if template is installed
+    if (isset($jkv["cms_tpl"])) {
+      // Check if folder is writable
+      if (!is_writable($filedir)) {
+        $JAK_FILE_ERROR = 1;
+      }
+
+      // Get the important files into template
+      $JAK_GET_TEMPLATE_FILES = jak_get_template_files($filedir);
+    }
 
     // Title and Description
     $SECTION_TITLE = $tl["general"]["g52"];

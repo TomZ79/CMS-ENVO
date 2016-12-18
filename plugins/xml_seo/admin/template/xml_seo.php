@@ -86,7 +86,7 @@ if (isset($error2)) { ?>
 			<div class="box box-primary">
 				<div class="box-header with-border">
 					<h3 class="box-title"><?php echo $tl["title"]["t4"]; ?></h3>
-				</div><!-- /.box-header -->
+				</div>
 				<div class="box-body">
 					<form id="xmlseo-wizard" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 						<input type="hidden" name="action" value="form1"/>
@@ -195,7 +195,7 @@ if (isset($error2)) { ?>
 				<div class="box box-primary">
 					<div class="box-header with-border">
 						<h3 class="box-title"><?php echo $tlxml["xmlseo"]["t1"]; ?></h3>
-					</div><!-- /.box-header -->
+					</div>
 					<div class="box-body">
 						<table class="table table-striped first-column">
 							<tr>
@@ -219,7 +219,7 @@ if (isset($error2)) { ?>
 				<div class="box box-primary">
 					<div class="box-header with-border">
 						<h3 class="box-title"><?php echo $tlxml["xmlseo"]["t5"]; ?></strong></h3>
-					</div><!-- /.box-header -->
+					</div>
 					<div class="box-body">
 						<?php if (!isset($contentxml)) { ?>
 							<div class="margin-bottom-10">

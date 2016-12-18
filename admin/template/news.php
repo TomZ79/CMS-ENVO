@@ -36,7 +36,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
     <div class="box-header with-border">
       <i class="fa fa-file-text-o"></i>
       <h3 class="box-title"><?php echo $tl["menu"]["m8"]; ?></h3>
-    </div><!-- /.box-header -->
+    </div>
     <div class="box-body">
       <ul class="jak_news_move">
         <?php foreach ($JAK_NEWS as $v) { ?>
@@ -56,7 +56,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                 <i class="fa fa-edit"></i>
               </a>
 
-              <a class="btn btn-default btn-xs" href="index.php?p=news&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["news"]["d"]; ?>'))return false;" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+              <a class="btn btn-default btn-xs" href="index.php?p=news&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["news"]["d"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                 <i class="fa fa-trash-o"></i>
               </a>
 

@@ -29,7 +29,7 @@ if (!empty($_POST['action']) && $_POST['action'] == 'login') {
     // Write the log file each time someone login after to show success
     $jakuserlogin->jakWriteloginlog($username, '', $valid_ip, '', 1);
 
-    $_SESSION["infomsg"] = $tl["general"]["g7"];
+    $_SESSION["infomsg"] = $tl["general_cmd"]["g8"];
 
     if (isset($_SESSION['JAKRedirect'])) {
       jak_redirect($_SESSION['JAKRedirect']);

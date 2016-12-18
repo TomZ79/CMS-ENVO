@@ -75,6 +75,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   <i class="fa fa-arrow-down"></i>
                 </a>
               </th>
+              <th>Aktivita</th>
               <th>
                 <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
                   <i class="fa fa-lock"></i>
@@ -82,7 +83,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
               </th>
               <th></th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tl["page"]["al"]; ?>'))return false;">
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm="<?php echo $tl["page"]["al"];?>">
                   <i class="fa fa-trash-o"></i>
                 </button>
               </th>
@@ -105,6 +106,15 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                 <td><?php echo $v["time"]; ?></td>
                 <td><?php echo $v["hits"]; ?></td>
                 <td>
+                  <?php
+                    if ($v["active"] == 1 && $v["catid"] != '0') {
+                      echo "Active";
+                    } else {
+                      echo "Inactive";
+                    }
+                  ?>
+                </td>
+                <td>
                   <a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') { echo $tl["icons"]["i5"]; } else { echo $tl["icons"]["i6"]; } ?>">
                     <i class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i>
                   </a>
@@ -115,7 +125,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   </a>
                 </td>
                 <td>
-                  <a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["page"]["al"]; ?>'))return false;" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                  <a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo sprintf($tl["page"]["del"], $v["title"]);?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                     <i class="fa fa-trash-o"></i>
                   </a>
                 </td>
@@ -129,7 +139,6 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
   <div class="icon_legend">
     <h3><?php echo $tl["icons"]["i"]; ?></h3>
-    <i title="<?php echo $tl["icons"]["i4"]; ?>" class="fa fa-sort"></i>
     <i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
     <i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
     <i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>
@@ -142,6 +151,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
   <script type="text/javascript">
     $(document).ready(function () {
+      // Delete all
       $("#jak_delete_all").click(function () {
         var checked_status = this.checked;
         $(".highlight").each(function () {
@@ -149,6 +159,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
         });
       });
     });
+
   </script>
 
 <?php include "footer.php"; ?>

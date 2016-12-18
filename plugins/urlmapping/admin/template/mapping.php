@@ -65,15 +65,21 @@
                     href="index.php?p=urlmapping&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["urlnew"]; ?></a>
                 </td>
                 <td><?php echo $v["time"]; ?></td>
-                <td><a href="index.php?p=urlmapping&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>"
-                       class="btn btn-default btn-xs"><i
-                      class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i></a></td>
-                <td><a href="index.php?p=urlmapping&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"
-                       class="btn btn-default btn-xs"><i class="fa fa-edit"></i></a></td>
-                <td><a href="index.php?p=urlmapping&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>"
-                       class="btn btn-default btn-xs"
-                       onclick="if(!confirm('<?php echo $tlum["um"]["al"]; ?>'))return false;"><i
-                      class="fa fa-trash-o"></i></a></td>
+                <td>
+                  <a href="index.php?p=urlmapping&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs">
+                    <i class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i>
+                  </a>
+                </td>
+                <td>
+                  <a href="index.php?p=urlmapping&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs">
+                    <i class="fa fa-edit"></i>
+                  </a>
+                </td>
+                <td>
+                  <a href="index.php?p=urlmapping&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo $tlum["um"]["al"]; ?>">
+                    <i class="fa fa-trash-o"></i>
+                  </a>
+                </td>
               </tr>
             <?php } ?>
           </table>

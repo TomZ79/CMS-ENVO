@@ -55,7 +55,7 @@ if ($page3 == "e") { ?>
         <div class="box box-danger">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tlum["um"]["d"]; ?></h3>
-          </div><!-- /.box-header -->
+          </div>
           <div class="box-body">
             <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
               <input class="form-control" type="text" name="jak_oldurl" value="<?php if (isset($_REQUEST["jak_oldurl"])) echo $_REQUEST["jak_oldurl"]; ?>"/>
@@ -72,7 +72,7 @@ if ($page3 == "e") { ?>
         <div class="box box-success">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tlum["um"]["d1"]; ?></h3>
-          </div><!-- /.box-header -->
+          </div>
           <div class="box-body">
             <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
               <input class="form-control" type="text" name="jak_newurl" value="<?php if (isset($_REQUEST["jak_newurl"])) echo $_REQUEST["jak_newurl"]; ?>"/>
@@ -89,7 +89,7 @@ if ($page3 == "e") { ?>
     <div class="box box-primary">
       <div class="box-header with-border">
         <h3 class="box-title"><?php echo $tlum["um"]["d2"]; ?></h3>
-      </div><!-- /.box-header -->
+      </div>
       <div class="box-body">
         <div class="form-group no-margin">
           <select name="jak_redirect" class="form-control selectpicker">

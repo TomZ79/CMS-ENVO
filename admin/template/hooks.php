@@ -39,7 +39,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
       </button>
       <div class="dropdown-menu livefilter">
         <div class="search-box">
-          <input type="text" placeholder="Search in the list" id="input-bts-ex-1" class="form-control live-search" aria-describedby="search-icon1" />
+          <input type="text" placeholder="<?php echo $tl["placeholder"]["p3"]; ?>" id="input-bts-ex-1" class="form-control live-search" aria-describedby="search-icon1" />
         </div>
         <div class="list-to-filter">
           <ul class="list-unstyled overflow">
@@ -108,7 +108,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
                 </td>
                 <td>
                   <?php if ($v["id"] > 5) { ?>
-                  <a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=hooks&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["hook"]["al"]; ?>'))return false;" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                  <a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=hooks&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["hook"]["al"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                       <i class="fa fa-trash-o"></i>
                     </a>
                   <?php } ?>

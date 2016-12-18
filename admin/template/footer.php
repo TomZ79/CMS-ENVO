@@ -39,6 +39,25 @@
     });
   });
 
+  $(document).ready(function () {
+    // Confirm dialog
+    $('[data-confirm]').click(function(e) {
+      var links = $(this).attr("href");
+      $("a").tooltip('destroy');
+      e.preventDefault();
+      // Show Message
+      bootbox.setLocale('<?php echo $site_language;?>');
+      bootbox.confirm($(this).attr('data-confirm'), function(result) {
+        if (result) {
+          // OK
+          window.location = links;
+        } else {
+          // Cancel
+        }
+      });
+    });
+  });
+
 </script>
 
 <?php if ($JAK_PROVED) { ?>

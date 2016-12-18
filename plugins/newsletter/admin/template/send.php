@@ -43,7 +43,7 @@ if ($errors) { ?>
                                                                         href="javascript:void(0)"
                                                                         data-original-title="<?php echo $tl["title"]["t21"]; ?>"><i
               class="fa fa-question-circle"></i></a></h3>
-      </div><!-- /.box-header -->
+      </div>
       <div class="box-body">
         <table class="table table-striped">
           <tr>
@@ -64,7 +64,7 @@ if ($errors) { ?>
                                                                         href="javascript:void(0)"
                                                                         data-original-title="<?php echo $tl["title"]["t21"]; ?>"><i
               class="fa fa-question-circle"></i></a></h3>
-      </div><!-- /.box-header -->
+      </div>
       <div class="box-body">
         <table class="table table-striped">
           <tr>
@@ -81,7 +81,7 @@ if ($errors) { ?>
     <div class="box box-primary">
       <div class="box-header with-border">
         <h3 class="box-title"><?php echo $tlnl["nletter"]["m"]; ?></h3>
-      </div><!-- /.box-header -->
+      </div>
       <div class="box-body">
         <table class="table table-striped">
           <tr>

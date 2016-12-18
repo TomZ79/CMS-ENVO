@@ -79,7 +79,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                 </td>
                 <td>
                   <?php if ($v["id"] > 4) { ?>
-                    <a class="btn btn-default btn-xs" href="index.php?p=usergroup&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["user"]["alg"]; ?>'))return false;" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                    <a class="btn btn-default btn-xs" href="index.php?p=usergroup&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["user"]["alg"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                       <i class="fa fa-trash-o"></i>
                     </a>
                   <?php } ?>
@@ -103,6 +103,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
   <script type="text/javascript">
     $(document).ready(function () {
+      // Delete all
       $("#jak_delete_all").click(function () {
         var checked_status = this.checked;
         $(".highlight").each(function () {

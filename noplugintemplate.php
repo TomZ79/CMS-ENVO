@@ -33,8 +33,8 @@
       <h3><i class="fa fa-warning text-red"></i><?php echo $tl["notetemplate"]["n1"]; ?></h3>
       <p>Prosím nainstalujte šablonu <?php echo "<strong>" . $jkv["sitestyle"] . "</strong>"; ?> pro plugin <?php echo "<strong>" . $JAK_TPL_PLUG_T . "</strong>"; ?> v administraci (ACP) webové sítě</p>
     </div>
-  </div><!-- /.error-page -->
-</section><!-- /.content -->
+  </div>
+</section>
 
 </body>
 </html>

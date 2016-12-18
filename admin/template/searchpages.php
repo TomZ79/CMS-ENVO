@@ -70,17 +70,17 @@
                 <td><?php echo $v["time"]; ?></td>
                 <td><?php echo $v["hits"]; ?></td>
                 <td>
-                  <a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>"
+                  <a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') { echo $tl["icons"]["i5"]; } else { echo $tl["icons"]["i6"]; } ?>"
                   ><i class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i>
                   </a>
                 </td>
                 <td>
-                  <a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>">
+                  <a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i2"]; ?>">
                     <i class="fa fa-edit"></i>
                   </a>
                 </td>
                 <td>
-                  <a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["page"]["al"]; ?>'))return false;">
+                  <a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["page"]["al"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                     <i class="fa fa-trash-o"></i>
                   </a>
                 </td>
@@ -104,7 +104,6 @@
 
   <div class="icon_legend">
     <h3><?php echo $tl["icons"]["i"]; ?></h3>
-    <i title="<?php echo $tl["icons"]["i4"]; ?>" class="fa fa-sort"></i>
     <i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
     <i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
     <i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>

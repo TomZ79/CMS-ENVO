@@ -53,7 +53,7 @@ if ($errors) { ?>
                   <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                   <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                 </div>
-              </div><!-- /.box-header -->
+              </div>
               <div class="box-body">
                 <table class="table table-striped first-column v-text-center">
                   <tr>
@@ -200,7 +200,7 @@ if ($errors) { ?>
                   <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                   <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                 </div>
-              </div><!-- /.box-header -->
+              </div>
               <div class="box-body">
                 <table class="table table-striped">
                   <tr>
@@ -226,7 +226,7 @@ if ($errors) { ?>
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                     <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                   </div>
-                </div><!-- /.box-header -->
+                </div>
                 <div class="box-body">
                   <table class="table table-striped v-text-center">
                     <tr>
@@ -289,7 +289,7 @@ if ($errors) { ?>
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
             </div>
-          </div><!-- /.box-header -->
+          </div>
           <div class="box-body">
             <a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
             <a href="javascript:;" id="addCssBlock"><?php echo $tl["general"]["g101"]; ?></a><br/>
@@ -309,7 +309,7 @@ if ($errors) { ?>
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
             </div>
-          </div><!-- /.box-header -->
+          </div>
           <div class="box-body">
             <a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
             <a href="javascript:;" id="addJavascriptBlock"><?php echo $tl["general"]["g102"]; ?></a><br/>
@@ -332,7 +332,7 @@ if ($errors) { ?>
                   <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                   <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                 </div>
-              </div><!-- /.box-header -->
+              </div>
               <div class="box-body">
                 <!-- Moving stuff -->
                 <ul class="jak_content_move">
@@ -424,7 +424,7 @@ if ($errors) { ?>
                   <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                   <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                 </div>
-              </div><!-- /.box-header -->
+              </div>
               <div class="box-body">
                 <?php include "sidebar_widget_new.php"; ?>
               </div>

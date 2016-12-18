@@ -210,7 +210,7 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
                 </a>
               </td>
               <td>
-                <a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=password&amp;ssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["user"]["pass"]; ?>'))return false;" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i14"]; ?>">
+                <a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=password&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["user"]["pass"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i14"]; ?>">
                   <i class="fa fa-key"></i>
                 </a>
               </td>
@@ -220,7 +220,7 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
                 </a>
               </td>
               <td>
-                <a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["user"]["al"]; ?>'))return false;" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                <a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["user"]["al"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                   <i class="fa fa-trash-o"></i>
                 </a>
               </td>
@@ -234,7 +234,6 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
 
   <div class="icon_legend">
     <h3><?php echo $tl["icons"]["i"]; ?></h3>
-    <i title="<?php echo $tl["icons"]["i4"]; ?>" class="fa fa-sort"></i>
     <i title="<?php echo $tl["icons"]["i19"]; ?>" class="fa fa-envelope-o"></i>
     <i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
     <i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
@@ -249,6 +248,7 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
 
   <script type="text/javascript">
     $(document).ready(function () {
+      // Delete all
       $("#jak_delete_all").click(function () {
         var checked_status = this.checked;
         $(".highlight").each(function () {

@@ -125,7 +125,6 @@
   <div class="icon_legend">
     <h3><?php echo $tl["icons"]["i"]; ?></h3>
     <i title="<?php echo $tl["page"]["p11"]; ?>" class="fa fa-key"></i>
-    <i title="<?php echo $tl["icons"]["i4"]; ?>" class="fa fa-sort"></i>
     <i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
     <i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
     <i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>

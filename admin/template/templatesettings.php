@@ -31,7 +31,19 @@ if ($page3 == "e") { ?>
   </script>
 <?php } ?>
 
-  <?php  // Include template settings from each template if exists
+<?php if (!isset($jkv["cms_tpl"])) { ?>
+  <section class="content">
+    <div class="error-page">
+      <div class="error-content">
+        <h3><i class="fa fa-warning text-warning-800"></i> <?php echo $tl["notetemplate"]["nh"]; ?></h3>
+        <h4><?php echo $tl["notetemplate"]["n1"]; ?></h4>
+        <p><?php echo $tl["notetemplate"]["n2"]; ?></p>
+      </div>
+    </div>
+  </section>
+<?php } else {
+
+  // Include template settings from each template if exists
   $filename = '../template/' . $jkv["sitestyle"] . '/templatesettings.php';
 
   if (file_exists($filename)) {
@@ -41,19 +53,12 @@ if ($page3 == "e") { ?>
     <section class="content">
       <div class="error-page">
         <div class="error-content">
-          <h3><i class="fa fa-warning text-warning-800"></i> Your template settings not exists</h3>
-          <p>
-            Your template settings not exists, because settings file <?php echo $filename; ?> not exists.
-            Please use Style Manager for settings your template.
-          </p>
-        </div><!-- /.error-content -->
-      </div><!-- /.error-page -->
-    </section><!-- /.content -->
+          <h3><i class="fa fa-warning text-warning-800"></i> <?php echo sprintf($tl["notetemplate"]["nh1"], $jkv["sitestyle"]); ?></h3>
+          <?php echo sprintf($tl["notetemplate"]["n3"], $filename); ?>
+        </div>
+      </div>
+    </section>
 
-  <?php } ?>
-
-  <script type="text/javascript">
-
-  </script>
+  <?php } } ?>
 
 <?php include "footer.php"; ?>

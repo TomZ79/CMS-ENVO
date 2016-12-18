@@ -46,9 +46,9 @@
                   class="fa fa-lock"></i></button>
             </th>
             <th>
-              <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs"
-                      onclick="if(!confirm('<?php echo $tlf["faq"]["co"]; ?>'))return false;"><i
-                  class="fa fa-trash-o"></i></button>
+              <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tlf["faq"]["co"]; ?>'))return false;">
+                <i class="fa fa-trash-o"></i>
+              </button>
             </th>
           </tr>
           </thead>
@@ -59,17 +59,20 @@
               </td>
               <td><?php echo jak_clean_comment($v["message"]); ?></td>
               <td><?php if (isset($JAK_FAQ_ALL) && is_array($JAK_FAQ_ALL)) foreach ($JAK_FAQ_ALL as $z) {
-                  if ($v["faqid"] == $z["id"]) { ?><a
-                    href="index.php?p=faq&amp;sp=comment&amp;ssp=sort&amp;sssp=faq&amp;ssssp=<?php echo $z["id"]; ?>"><?php echo $z["title"]; ?></a><?php }
+                  if ($v["faqid"] == $z["id"]) { ?><a href="index.php?p=faq&amp;sp=comment&amp;ssp=sort&amp;sssp=faq&amp;ssssp=<?php echo $z["id"]; ?>"><?php echo $z["title"]; ?></a><?php }
                 } ?></td>
-              <td><?php if ($v["userid"] == '0') { ?><?php echo $tl["general"]["g28"]; ?><?php } else { ?><a
-                  href="index.php?p=faq&amp;sp=comment&amp;ssp=sort&amp;sssp=user&amp;ssssp=<?php echo $v["userid"]; ?>"><?php echo $v["username"]; ?></a><?php } ?>
+              <td><?php if ($v["userid"] == '0') { ?><?php echo $tl["general"]["g28"]; ?><?php } else { ?><a href="index.php?p=faq&amp;sp=comment&amp;ssp=sort&amp;sssp=user&amp;ssssp=<?php echo $v["userid"]; ?>"><?php echo $v["username"]; ?></a><?php } ?>
               </td>
-              <td><a href="index.php?p=faq&amp;sp=comment&amp;ssp=approve&amp;sssp=<?php echo $v["id"]; ?>"
-                     class="btn btn-default btn-xs"><i
-                    class="fa fa-<?php if ($v["approve"] == '0') { ?>lock<?php } else { ?>check<?php } ?>"></i></a></td>
-              <td><a href="index.php?p=faq&amp;sp=comment&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>"
-                     class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i></a></td>
+              <td>
+                <a href="index.php?p=faq&amp;sp=comment&amp;ssp=approve&amp;sssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs">
+                  <i class="fa fa-<?php if ($v["approve"] == '0') { ?>lock<?php } else { ?>check<?php } ?>"></i>
+                </a>
+              </td>
+              <td>
+                <a href="index.php?p=faq&amp;sp=comment&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs">
+                  <i class="fa fa-trash-o"></i>
+                </a>
+              </td>
             </tr>
           <?php } ?>
         </table>

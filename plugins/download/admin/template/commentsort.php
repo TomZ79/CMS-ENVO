@@ -46,9 +46,9 @@
                   class="fa fa-lock"></i></button>
             </th>
             <th>
-              <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs"
-                      onclick="if(!confirm('<?php echo $tld["dload"]["co"]; ?>'))return false;"><i
-                  class="fa fa-trash-o"></i></button>
+              <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tld["dload"]["co"]; ?>'))return false;">
+                <i class="fa fa-trash-o"></i>
+              </button>
             </th>
           </tr>
           </thead>
@@ -74,7 +74,7 @@
                 </a>
               </td>
               <td>
-                <a href="index.php?p=download&amp;sp=comment&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" onclick="if(!confirm('<?php echo $tld["dload"]["co"]; ?>'))return false;" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                <a href="index.php?p=download&amp;sp=comment&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo $tld["dload"]["co"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                   <i class="fa fa-trash-o"></i>
                 </a>
               </td>

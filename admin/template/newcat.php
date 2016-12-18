@@ -51,7 +51,7 @@ if ($errors) { ?>
                   <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                   <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                 </div>
-              </div><!-- /.box-header -->
+              </div>
               <div class="box-body">
                 <table class="table table-striped first-column v-text-center">
                   <tr>
@@ -61,7 +61,11 @@ if ($errors) { ?>
                     </td>
                   </tr>
                   <tr>
-                    <td><?php echo $tl["cat"]["c5"]; ?></td>
+                    <td><?php echo $tl["cat"]["c5"]; ?>
+                      <a class="cms-help" data-content="<?php echo $tl["help"]["h2"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tl["title"]["t21"]; ?>">
+                        <i class="fa fa-question-circle"></i>
+                      </a>
+                    </td>
                     <td>
                       <div class="form-group no-margin<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
                         <input type="text" name="jak_varname" id="jak_varname" class="form-control" value="<?php if (isset($_REQUEST["jak_varname"])) echo $_REQUEST["jak_varname"]; ?>"/>
@@ -132,7 +136,7 @@ if ($errors) { ?>
                   <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                   <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                 </div>
-              </div><!-- /.box-header -->
+              </div>
               <div class="box-body">
                 <table class="table table-striped">
                   <tr>
@@ -163,7 +167,7 @@ if ($errors) { ?>
                   <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                   <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                 </div>
-              </div><!-- /.box-header -->
+              </div>
               <div class="box-body">
                 <table class="table table-striped first-column v-text-center">
                   <tr>
@@ -187,7 +191,7 @@ if ($errors) { ?>
                   <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                   <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                 </div>
-              </div><!-- /.box-header -->
+              </div>
               <div class="box-body">
                 <table class="table table-striped first-column v-text-center">
                   <tr>

@@ -7,7 +7,7 @@
             <i class="fa fa-question-circle"></i>
           </a>
         </h3>
-      </div><!-- /.box-header -->
+      </div>
       <div class="box-body">
         <div class="row">
           <div class="col-md-7">

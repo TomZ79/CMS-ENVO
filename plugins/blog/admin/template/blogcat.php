@@ -34,13 +34,13 @@
     <div class="box-header with-border">
       <i class="fa fa-bars"></i>
       <h3 class="box-title"><?php echo $tl["menu"]["m5"]; ?></h3>
-    </div><!-- /.box-header -->
+    </div>
     <div class="box-body">
 
       <?php
 
       // Build menu for categories header and header/footer
-      $lang = $tl["cat"]["al"];
+      $lang = $tl["cat"]["del"];
       $title1 = $tl["icons"]["i5"];
       $title2 = $tl["icons"]["i6"];
       $title3 = $tlblog["blog"]["q9"];

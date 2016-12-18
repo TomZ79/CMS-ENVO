@@ -94,7 +94,7 @@
                   </a>
                 </td>
                 <td>
-                  <a href="index.php?p=blog&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" onclick="if(!confirm('<?php echo $tlblog["blog"]["al"]; ?>'))return false;" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                  <a href="index.php?p=blog&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo sprintf($tlblog["blog"]["del"], $v["title"]); ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                     <i class="fa fa-trash-o"></i>
                   </a>
                 </td>
@@ -108,7 +108,6 @@
 
   <div class="icon_legend">
     <h3><?php echo $tl["icons"]["i"]; ?></h3>
-    <i title="<?php echo $tl["icons"]["i4"]; ?>" class="fa fa-sort"></i>
     <i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
     <i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
     <i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>

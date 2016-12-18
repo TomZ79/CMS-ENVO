@@ -34,10 +34,10 @@
     <div class="box-header with-border">
       <i class="fa fa-bars"></i>
       <h3 class="box-title"><?php echo $tl["menu"]["m5"]; ?></h3>
-    </div><!-- /.box-header -->
+    </div>
     <div class="box-body">
 
-      <?php echo jak_build_menu_gallery(0, $mheader, $tl["cat"]["al"], ' class="sortable jak_cat_move"', ' id="mheader"'); ?>
+      <?php echo jak_build_menu_gallery(0, $mheader, $tl["cat"]["del"], ' class="sortable jak_cat_move"', ' id="mheader"'); ?>
 
     </div>
     <div class="box-footer">

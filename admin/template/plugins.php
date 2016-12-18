@@ -40,7 +40,7 @@ if ($page1 == "e") { ?>
           <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
           <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
         </div>
-      </div><!-- /.box-header -->
+      </div>
       <div class="box-body">
         <ul class="jak_plugins_move">
           <?php if (isset($JAK_PLUGINS) && is_array($JAK_PLUGINS)) foreach ($JAK_PLUGINS as $v) { ?>
@@ -103,7 +103,7 @@ if ($page1 == "e") { ?>
                     <i class="fa fa-<?php if ($v["active"] == '0') { ?>lock<?php } else { ?>check<?php } ?>"></i>
                   </a>
                   <?php if ($v["uninstallfile"]) { ?>
-                  <a class="plugInst btn btn-danger btn-xs" href="../plugins/<?php echo $v["pluginpath"] . '/' . $v["uninstallfile"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                  <a class="plugInst btn btn-danger btn-xs" href="../plugins/<?php echo $v["pluginpath"] . '/' . $v["uninstallfile"]; ?>"  data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                     <i class="fa fa-trash-o"></i>
                   </a>
                   <?php } ?>
@@ -130,7 +130,7 @@ if ($page1 == "e") { ?>
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                     <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                   </div>
-                </div><!-- /.box-header -->
+                </div>
                 <div class="box-body">
                   <div class="col-md-8">
                     <table width="100%">
@@ -164,7 +164,7 @@ if ($page1 == "e") { ?>
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
-            </div><!-- /.box-header -->
+            </div>
             <div class="box-body">
               <table class="table table-striped v-text-center">
                 <tr>

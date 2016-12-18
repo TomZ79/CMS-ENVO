@@ -47,6 +47,7 @@
     [new]  Add search page by title in Pages
     [new]  Add Bootstrap Tooltip to Action icons
     [new]  Add new plugin for scrolling vertical menu (Perfect ScrollBar)
+    [new]  Add new plugin Bootbox
 
     // # List of updated components
     // ------------------------------
@@ -57,6 +58,7 @@
                (in original JakWeb CMS is setting after 10 times redirect to base url)
     [updated]  Update basic original code from JakWeb from CMS 2.3
     [updated]  Update Jquery script
+    [updated]  Update Font-Awesome (4.7.0)
 
     // # List of fixed bugs
     // ------------------------------
@@ -221,10 +223,15 @@
                     <a href="http://eonasdan.github.io/bootstrap-datetimepicker/" class="btn bg-teal btn-xs" target="_blank">Preview</a>
                   </dd>
 
-                  <dt>Bootstrap Tags Input</dt>
-                  <dd>jQuery plugin providing a Twitter Bootstrap user interface for managing tags.
-                    <a href="https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/" class="btn bg-teal btn-xs" target="_blank">Preview</a>
-                  </dd>
+                    <dt>Bootstrap Tags Input</dt>
+                    <dd>jQuery plugin providing a Twitter Bootstrap user interface for managing tags.
+                        <a href="https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/" class="btn bg-teal btn-xs" target="_blank">Preview</a>
+                    </dd>
+
+                    <dt>Bootbox</dt>
+                    <dd>Bootstrap modals made easy.
+                        <a href="http://bootboxjs.com/" class="btn bg-teal btn-xs" target="_blank">Preview</a>
+                    </dd>
                 </dl>
               </div>
               <h4>Other technology</h4>

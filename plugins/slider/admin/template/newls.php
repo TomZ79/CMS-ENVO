@@ -66,12 +66,13 @@ if ($page3 == "e") { ?>
       <li><a href="#style_tabs-9">9</a></li>
       <li><a href="#style_tabs-10">10</a></li>
     </ul>
+
     <div class="tab-content">
       <div class="tab-pane active" id="style_tabs-11">
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["title"]["t13"]; ?></h3>
-          </div><!-- /.box-header -->
+          </div>
           <div class="box-body">
             <table class="table first-column v-text-center">
               <tr>
@@ -539,7 +540,7 @@ if ($page3 == "e") { ?>
                 <i class="fa fa-question-circle"></i>
               </a>
             </h3>
-          </div><!-- /.box-header -->
+          </div>
           <div class="box-body">
             <table class="table">
               <tr>
@@ -567,7 +568,7 @@ if ($page3 == "e") { ?>
           <div class="box box-info">
             <div class="box-header with-border">
               <h3 class="box-title"><?php echo $tlls["ls"]["d11"] . ' - ', $i; ?></h3>
-            </div><!-- /.box-header -->
+            </div>
             <div class="box-body">
               <table class="table">
                 <tr>
@@ -825,7 +826,7 @@ if ($page3 == "e") { ?>
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tlls["ls"]["d26"] . ' - ' . $i . ' / ' . $o; ?></h3>
-              </div><!-- /.box-header -->
+              </div>
               <div class="box-body">
 
                 <table class="table table-striped">

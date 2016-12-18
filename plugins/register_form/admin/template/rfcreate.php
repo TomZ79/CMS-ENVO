@@ -54,7 +54,7 @@ if ($errors) { ?>
       <div class="box-header with-border">
         <i class="fa fa-plus-square"></i>
         <h3 class="box-title"><?php echo $lrf["register"]["r2"]; ?></h3>
-      </div><!-- /.box-header -->
+      </div>
       <div class="box-body">
         <ul class="cform_drag">
           <li id="cform_drag" class="ui-state-highlight big-drag">

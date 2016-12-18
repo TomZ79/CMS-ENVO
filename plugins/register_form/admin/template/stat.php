@@ -15,7 +15,7 @@ $rwresrf2 = $resrf2->fetch_assoc();
   <div class="box-header">
     <i class="fa fa-users"></i>
     <h3 class="box-title"><?php echo $lrf["register"]["s"]; ?></h3>
-  </div><!-- /.box-header -->
+  </div>
   <div class="box-body no-padding">
     <table class="table table-striped">
       <tr>

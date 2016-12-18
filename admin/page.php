@@ -261,7 +261,7 @@ switch ($page1) {
         $JAK_PAGE_ALL = $pagearray;
 
         // Title and Description
-        $SECTION_TITLE = $tl["icons"]["i4"];
+        $SECTION_TITLE = $tl["general"]["g4"];
         $SECTION_DESC = $tl["cmdesc"]["d10"];
 
         // Call the template
@@ -692,6 +692,7 @@ switch ($page1) {
 
           // Ouput all pages, well with paginate of course
           $JAK_PAGE_ALL = jak_get_page_info($jaktable, $pages->limit);
+
         }
 
         // Title and Description

@@ -35,7 +35,7 @@
       <div class="box-header with-border">
         <i class="fa fa-picture-o"></i>
         <h3 class="box-title"><?php echo $tlgal["gallery"]["m1"]; ?></h3>
-      </div><!-- /.box-header -->
+      </div>
       <div class="box-body">
         <ul class="jak_cat_move">
           <?php if (isset($JAK_GALLERY_SORT) && is_array($JAK_GALLERY_SORT)) foreach ($JAK_GALLERY_SORT as $v) { ?>

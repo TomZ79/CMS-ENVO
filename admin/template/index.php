@@ -116,7 +116,7 @@ if (!isset($jkv["cms_tpl"])) { ?>
         <div class="box-header">
           <i class="fa fa-paperclip"></i>
           <h3 class="box-title"><?php echo $tl["title"]["t24"]; ?></h3>
-        </div><!-- /.box-header -->
+        </div>
         <div class="box-body">
           <ul class="todoList">
             <?php if (isset($todos) && is_array($todos)) foreach ($todos as $item) {
@@ -132,7 +132,7 @@ if (!isset($jkv["cms_tpl"])) { ?>
         <div class="box-header">
           <i class="fa fa-pie-chart"></i>
           <h3 class="box-title"><?php echo $tl["title"]["t19"]; ?></h3>
-        </div><!-- /.box-header -->
+        </div>
         <div class="box-body no-padding">
           <div id="chart_total" class="charts"></div>
         </div>
@@ -146,7 +146,7 @@ if (!isset($jkv["cms_tpl"])) { ?>
         <div class="box-header">
           <i class="fa fa-server"></i>
           <h3 class="box-title"><?php echo $tl["title"]["t"]; ?></h3>
-        </div><!-- /.box-header -->
+        </div>
         <div class="box-body no-padding">
           <table class="table table-striped first-column">
             <tr>
@@ -180,7 +180,7 @@ if (!isset($jkv["cms_tpl"])) { ?>
         <div class="box-header">
           <i class="fa fa-info-circle"></i>
           <h3 class="box-title"><?php echo $tl["title"]["t1"]; ?></h3>
-        </div><!-- /.box-header -->
+        </div>
         <div class="box-body no-padding">
           <table class="table table-striped first-column">
             <tr>

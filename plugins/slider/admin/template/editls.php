@@ -64,7 +64,7 @@ if ($page3 == "e") { ?>
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["title"]["t13"]; ?></h3>
-          </div><!-- /.box-header -->
+          </div>
           <div class="box-body">
             <table class="table first-column v-text-center">
               <tr>
@@ -538,7 +538,7 @@ if ($page3 == "e") { ?>
             <h3 class="box-title"><?php echo $tl["general"]["g88"]; ?>
               <a class="cms-help" data-content="<?php echo $tl["help"]["h"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tl["title"]["t21"]; ?>"><i
                   class="fa fa-question-circle"></i></a></h3>
-          </div><!-- /.box-header -->
+          </div>
           <div class="box-body">
             <table class="table">
               <tr>
@@ -568,7 +568,7 @@ if ($page3 == "e") { ?>
             <div class="box box-info">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tlls["ls"]["d11"] . ' - ' . $count; ?></h3>
-              </div><!-- /.box-header -->
+              </div>
               <div class="box-body">
                 <table class="table">
                   <tr>
@@ -1013,7 +1013,7 @@ if ($page3 == "e") { ?>
                 <div class="box box-info">
                   <div class="box-header with-border">
                     <h3 class="box-title"><?php echo $tlls["ls"]["d26"] . ' - ' . $count; ?></h3>
-                  </div><!-- /.box-header -->
+                  </div>
                   <div class="box-body">
 
                     <table class="table table-striped">
@@ -1437,7 +1437,7 @@ if ($page3 == "e") { ?>
               <div class="box box-primary">
                 <div class="box-header with-border">
                   <h3 class="box-title">Add</h3>
-                </div><!-- /.box-header -->
+                </div>
                 <div class="box-body">
 
                   <table class="table">
@@ -1658,7 +1658,7 @@ if ($page3 == "e") { ?>
           <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title"><?php echo $tlls["ls"]["d11"] . ' - ' . $u; ?></h3>
-            </div><!-- /.box-header -->
+            </div>
             <div class="box-body">
 
               <table class="table table-striped">
@@ -1890,7 +1890,7 @@ if ($page3 == "e") { ?>
             <div class="box box-info">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tlls["ls"]["d26"] . ' - ' . $u . ' / ' . $o; ?></h3>
-              </div><!-- /.box-header -->
+              </div>
               <div class="box-body">
 
                 <table class="table table-striped">

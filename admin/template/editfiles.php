@@ -31,11 +31,22 @@ if ($JAK_FILE_ERROR) { ?>
   </script>
 <?php } else { ?>
 
+<?php if (!isset($jkv["cms_tpl"])) { ?>
+    <section class="content">
+      <div class="error-page">
+        <div class="error-content">
+          <h3><i class="fa fa-warning text-warning-800"></i> <?php echo $tl["notetemplate"]["nh"]; ?></h3>
+          <h4><?php echo $tl["notetemplate"]["n1"]; ?></h4>
+          <p><?php echo $tl["notetemplate"]["n2"]; ?></p>
+        </div>
+      </div>
+    </section>
+<?php } else { ?>
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="box box-primary">
       <div class="box-header with-border">
         <h3 class="box-title"><?php echo $tl["general"]["g50"]; ?></h3>
-      </div><!-- /.box-header -->
+      </div>
       <div class="box-body">
         <table class="table">
           <tr <?php if ($JAK_FILECONTENT) { ?> class="hidden"<?php } ?>>
@@ -80,8 +91,8 @@ if ($JAK_FILE_ERROR) { ?>
 
     <input type="hidden" name="jak_file" value="<?php echo $JAK_FILEURL; ?>"/>
   </form>
-<?php }
-if ($JAK_FILECONTENT) { ?>
+
+<?php } } if ($JAK_FILECONTENT) { ?>
   <script src="js/ace/ace.js" type="text/javascript"></script>
   <script type="text/javascript">
 

@@ -5,7 +5,7 @@
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title"><?php echo $tlsedi["siteedit"]["t1"]; ?></h3>
-        </div><!-- /.box-header -->
+        </div>
         <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
           <div class="box-body">
             <input type="hidden" name="action" value="form1"/>
