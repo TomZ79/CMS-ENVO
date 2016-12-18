@@ -43,6 +43,24 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
       <hr>
       <div class="margin-bottom-30">
         <h4>URL Mapping Plugin - Info about uninstallation</h4>
+        <p>Info o procesu odinstalace. Výpis komponentů, které budou odinstalovány a které ne.</p>
+        <p>POZOR: Při odinstalování pluginu, budou odstraněny všechny uložené záznamy.</p>
+        <table class="table">
+          <thead>
+          <tr class="bg-teal-400">
+            <th>Process</th>
+            <th>Yes - will be uninstalled</th>
+            <th>No - Data will remain in the database</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>Záznamy</td>
+            <td class="text-center"><i class="fa fa-check"></i></td>
+            <td></td>
+          </tr>
+          </tbody>
+        </table>
       </div>
 
       <!-- Let's do the uninstall -->

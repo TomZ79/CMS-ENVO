@@ -18,12 +18,16 @@ switch ($page1) {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $defaults = $_POST;
 
-      if (empty($defaults['jak_oldurl'])) {
+      if (empty($defaults['jak_oldurl']) && empty($defaults['jak_newurl']) && (($defaults['jak_baseurl'] == 0) || ($defaults['jak_baseurl'] == 1))) {
         $errors['e1'] = $tlum['um']['e'];
       }
 
-      if (empty($defaults['jak_newurl'])) {
-        $errors['e2'] = $tlum['um']['e'];
+      if (empty($defaults['jak_oldurl']) && !empty($defaults['jak_newurl']) && ($defaults['jak_baseurl'] == 0)) {
+        $errors['e2'] = $tlum['um']['e1'];
+      }
+
+      if (empty($defaults['jak_newurl']) && !empty($defaults['jak_oldurl']) && ($defaults['jak_baseurl'] == 0)) {
+        $errors['e3'] = $tlum['um']['e2'];
       }
 
       if (count($errors) == 0) {
@@ -32,6 +36,7 @@ switch ($page1) {
         $result = $jakdb->query('INSERT INTO ' . $jaktable . ' SET
 		    urlold = "' . smartsql($defaults['jak_oldurl']) . '",
 		    urlnew = "' . smartsql($defaults['jak_newurl']) . '",
+		    baseurl = "' . smartsql($defaults['jak_baseurl']) . '",
 		    redirect = "' . smartsql($defaults['jak_redirect']) . '",
 		    time = NOW()');
 
@@ -92,20 +97,31 @@ switch ($page1) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           $defaults = $_POST;
 
-          if (empty($defaults['jak_oldurl'])) {
+          if (empty($defaults['jak_oldurl']) && empty($defaults['jak_newurl']) && (($defaults['jak_baseurl'] == 0) || ($defaults['jak_baseurl'] == 1))) {
             $errors['e1'] = $tlum['um']['e'];
           }
 
-          if (empty($defaults['jak_newurl'])) {
-            $errors['e2'] = $tlum['um']['e'];
+          if (empty($defaults['jak_oldurl']) && !empty($defaults['jak_newurl']) && ($defaults['jak_baseurl'] == 0)) {
+            $errors['e2'] = $tlum['um']['e1'];
+          }
+
+          if (empty($defaults['jak_newurl']) && !empty($defaults['jak_oldurl']) && ($defaults['jak_baseurl'] == 0)) {
+            $errors['e3'] = $tlum['um']['e2'];
           }
 
           if (count($errors) == 0) {
 
+            if ($defaults['jak_baseurl'] == 1) {
+              $urlnew = '';
+            } else {
+              $urlnew = smartsql($defaults['jak_newurl']);
+            }
+
             // Do the dirty work in mysql
             $result = $jakdb->query('UPDATE ' . $jaktable . ' SET
 				    urlold = "' . smartsql($defaults['jak_oldurl']) . '",
-				    urlnew = "' . smartsql($defaults['jak_newurl']) . '",
+				    urlnew = "' . $urlnew . '",
+				    baseurl = "' . smartsql($defaults['jak_baseurl']) . '",
 				    redirect = "' . smartsql($defaults['jak_redirect']) . '",
 				    time = NOW()
 				    WHERE id = "' . smartsql($page2) . '"');
@@ -178,7 +194,7 @@ switch ($page1) {
         }
 
         // Get all
-        $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'urlmapping ORDER BY id DESC');
+        $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'urlmapping ORDER BY id ASC');
         while ($row = $result->fetch_assoc()) {
           // collect each record into $_data
           $JAK_UM_ALL[] = $row;

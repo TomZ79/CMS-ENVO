@@ -50,7 +50,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
         $checkp = 1;
      }", "../plugins/urlmapping/admin/template/nav.php", "1", "uninstall.php", "1.0", NOW())');
 
-// now get the plugin id for futher use
+// Now get the plugin id for futher use
         $rows = $jakdb->queryRow('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "UrlMapping"');
 
         if ($rows['id']) {
@@ -72,6 +72,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `urlold` varchar(255) DEFAULT NULL,
   `urlnew` varchar(255) DEFAULT NULL,
+  `baseurl` mediumtext,
   `redirect` smallint(3) unsigned NOT NULL DEFAULT 0,
   `active` smallint(1) unsigned NOT NULL DEFAULT 1,
   `time` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
