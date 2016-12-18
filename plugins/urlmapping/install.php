@@ -48,7 +48,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
         require_once APP_PATH.\'plugins/urlmapping/admin/urlmapping.php\';
         $JAK_PROVED = 1;
         $checkp = 1;
-     }", "../plugins/urlmapping/admin/template/nav.php", "1", "uninstall.php", "1.0", NOW())');
+     }", "../plugins/urlmapping/admin/template/nav.php", "1", "uninstall.php", "1.1", NOW())');
 
 // Now get the plugin id for futher use
         $rows = $jakdb->queryRow('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "UrlMapping"');

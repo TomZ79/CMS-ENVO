@@ -43,6 +43,7 @@
               <th><?php echo $tlum["um"]["d1"]; ?></th>
               <th><?php echo $tlum["um"]["d3"]; ?></th>
               <th><?php echo $tlum["um"]["d2"]; ?></th>
+              <th><?php echo $tl["general_cmd"]["g9"]; ?></th>
               <th>
                 <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
                   <i class="fa fa-check"></i>
@@ -66,6 +67,15 @@
                 </td>
                 <td><?php if ($v["redirect"] == '301') { echo $tlum["um"]["d4"]; } else { echo $tlum["um"]["d5"]; }?></td>
                 <td><?php echo $v["time"]; ?></td>
+                <td>
+                  <?php
+                  if ($v["active"] == 1) {
+                    echo $tl["general_cmd"]["g10"];
+                  } else {
+                    echo $tl["general_cmd"]["g11"];
+                  }
+                  ?>
+                </td>
                 <td>
                   <a href="index.php?p=urlmapping&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') { echo $tl["icons"]["i5"]; } else { echo $tl["icons"]["i6"]; } ?>">
                     <i class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i>
