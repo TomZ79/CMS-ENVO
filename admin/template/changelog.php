@@ -102,7 +102,7 @@
     [removed]  jQuery.share - social media sharing plugin
     [removed]  Remove Bluesat template
     [removed]  Jquery slimScroll plugins
-    [removed]  Remove plugins - Ecommerce, Owl, Retailer, Ticketing
+    [removed]  Remove plugins - Ecommerce, Owl, Retailer, Ticketing, Gallery
   </code></pre>
             </div>
           </div>

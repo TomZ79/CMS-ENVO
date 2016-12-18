@@ -46,7 +46,6 @@
           <li data-deeplink="belowheader">Below Header</li>
           <li data-deeplink="blog">Blog</li>
           <li data-deeplink="download">Download</li>
-          <li data-deeplink="ecommerce">E-Commerce</li>
           <li data-deeplink="faq">FAQ</li>
         </ul>
       </li>
@@ -258,12 +257,6 @@ define('JAK_USE_APACHE', 1);
       <!-- Download -->
       <article>
         <h4>Download</h4>
-
-      </article>
-
-      <!-- E-Commerce -->
-      <article>
-        <h4>E-Commerce</h4>
 
       </article>
 
@@ -1063,32 +1056,32 @@ if (is_numeric(JAK_BCONTENT1_IGRID_TPL)) {
         <p>PHP functions are great to reduce and simplify your code. As soon you use a code more then once, make a class for it. Very simple and very practical.</p>
 
         <h5>Redirect your visitor to another page.</h5>
-        <pre name="code" class="brush: xml;">
+        <pre name="code" class="brush: php;">
 function redirect($url, $code = 302) {
     header('Location: '.$url, true, $code);
     exit();
 }
         </pre>
         <p>To use this function and redirect your visitor to another page you will only need to use:</p>
-        <pre name="code" class="brush: xml;">
+        <pre name="code" class="brush: php;">
 redirect("new_page.php");
         </pre>
         <p>How simple is that? Plus you can use it as many times you want for all your redirection calls, but hang on why no second parameter? You can but because we set a default parameter you don't have to if you use 302 anyway.</p>
 
         <h5>Filter User Input</h5>
-        <pre name="code" class="brush: xml;">
+        <pre name="code" class="brush: php;">
 function input_filter($value) {
 	$value = filter_var($value, FILTER_SANITIZE_STRING);
 	return preg_replace("/[^0-9 _,.@-p{L}]/u", '', $value);
 }
         </pre>
         <p>This small function will filter the content from input fields for example:</p>
-        <pre name="code" class="brush: xml;">
+        <pre name="code" class="brush: php;">
 $filtered = $input_filter($_POST["title"];
         </pre>
 
         <h5>Escape for MySQL</h5>
-        <pre name="code" class="brush: xml;">
+        <pre name="code" class="brush: php;">
 function smartsql($value) {
 
     // To your database
@@ -1106,12 +1099,12 @@ function smartsql($value) {
 }
         </pre>
         <p>This function does a few things, it will check if magic_quotes are enabled, if so it will strip off backslashes. The next step is to check if the value is not integer, if not it will escape the string and make it secure for your database. Again to use the function in your database updates or inserts only use:</p>
-        <pre name="code" class="brush: xml;">
+        <pre name="code" class="brush: php;">
 smartsql($filtered);
         </pre>
 
         <h5>Cut some long text</h5>
-        <pre name="code" class="brush: xml;">
+        <pre name="code" class="brush: php;">
 function cut_text($text,$limit,$ending) {
 
 	// empty limit
@@ -1136,7 +1129,7 @@ function cut_text($text,$limit,$ending) {
         <p>Let's say you code a blog and you want to preview the article instead of showing the whole content, easily use the cut_text function. The function will cut to the length you set and does not cut off words, so your preview text always looks nice. You know how to use it now, don't you?!</p>
 
         <h5>Create a random password</h5>
-        <pre name="code" class="brush: xml;">
+        <pre name="code" class="brush: php;">
 // Password generator
 function password_creator($length = 8) {
 	return substr(md5(rand().rand()), 0, $length);
@@ -1145,7 +1138,7 @@ function password_creator($length = 8) {
         <p>That should be self explained, the function will return a password with the length of your choice (8 characters are standard).</p>
 
         <h5>Encode email address</h5>
-        <pre name="code" class="brush: xml;">
+        <pre name="code" class="brush: php;">
 // encrypt email address (prevent spam)
 function encode_email($e) {
 	for ($i = 0; $i < strlen($e); $i++) { $output .= '&#'.ord($e[$i]).';'; }
@@ -1155,7 +1148,7 @@ function encode_email($e) {
         <p>Very useful function to prevent spam on your displayed email addresses. Simply encode your email address with this function before you display the email address.</p>
 
         <h5>Get IP Address</h5>
-        <pre name="code" class="brush: xml;">
+        <pre name="code" class="brush: php;">
 function get_ip_address() {
     foreach (array('HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'REMOTE_ADDR') as $key) {
         if (array_key_exists($key, $_SERVER) === true) {
@@ -1263,6 +1256,11 @@ jak_build_menu(0, $mheader, $page, 'nav nav-main navbar-nav navbar-right', 'drop
 <script src="/admin/doc/js/syntaxhighlighter/scripts/shBrushPlain.js" type="text/javascript"></script>
 <script src="/admin/doc/js/gallery.js"></script>
 <script src="/admin/doc/js/doc.js"></script>
+<script type="text/javascript">
+    // Init syntax highlighter
+    SyntaxHighlighter.defaults['toolbar'] = false;
+    SyntaxHighlighter.all();
+</script>
 
 </body>
 </html>
