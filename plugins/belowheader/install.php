@@ -48,7 +48,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
         require_once APP_PATH.\'plugins/belowheader/admin/belowheader.php\';
         $JAK_PROVED = 1;
         $checkp = 1;
-      }", "../plugins/belowheader/admin/template/bhnav.php", "1", "uninstall.php", "1.0", NOW())');
+      }", "../plugins/belowheader/admin/template/bhnav.php", "1", "uninstall.php", "1.1", NOW())');
 
 // Now get the plugin id for futher use
         $sqls = 'SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "BelowHeader"';

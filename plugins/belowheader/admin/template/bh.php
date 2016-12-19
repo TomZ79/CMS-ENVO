@@ -39,6 +39,7 @@
               <th><input type="checkbox" id="jak_delete_all"/></th>
               <th><?php echo $tlbh["bh"]["d"]; ?></th>
               <th><?php echo $tl["page"]["p2"]; ?></th>
+              <th><?php echo $tl["general_cmd"]["g9"]; ?></th>
               <th>
                 <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
               </th>
@@ -58,6 +59,15 @@
                 </td>
                 <td><?php echo $v["time"]; ?></td>
                 <td>
+                  <?php
+                  if ($v["active"] == 1) {
+                    echo $tl["general_cmd"]["g10"];
+                  } else {
+                    echo $tl["general_cmd"]["g11"];
+                  }
+                  ?>
+                </td>
+                <td>
                   <a href="index.php?p=belowheader&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') { echo $tl["icons"]["i5"]; } else { echo $tl["icons"]["i6"]; } ?>">
                     <i class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i>
                   </a>
@@ -68,7 +78,7 @@
                   </a>
                 </td>
                 <td>
-                  <a href="index.php?p=belowheader&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo $tlbh["bh"]["al"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                  <a href="index.php?p=belowheader&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo sprintf($tlbh["bh"]["del"], $v["title"]); ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                     <i class="fa fa-trash-o"></i>
                   </a>
                 </td>
