@@ -37,6 +37,24 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
   </script>
 <?php } ?>
 
+<?php if ($page2 == "s") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?php echo $tl["notification"]["n2"]; ?>',
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000,
+      });
+    }, 2000);
+  </script>
+<?php } ?>
+
   <div class="row">
     <div class="col-md-6">
       <form role="form" method="post" action="/admin/index.php?p=user&amp;sp=search&amp;ssp=go">
@@ -48,19 +66,20 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
         </div><!-- /input-group -->
       </form>
     </div>
+
+  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="col-md-6">
-      <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-        <div class="input-group">
-          <select name="jak_group" class="form-control selectpicker" data-size="5">
-            <?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $z) {
-              if ($z["id"] != 1) { ?>
-                <option value="<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></option><?php }
-            } ?>
-          </select>
+      <div class="input-group">
+        <select name="jak_group" class="form-control selectpicker" data-size="5">
+          <?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $z) {
+            if ($z["id"] != 1) { ?>
+              <option value="<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></option><?php }
+          } ?>
+        </select>
           <span class="input-group-btn">
             <button type="submit" name="move" class="btn btn-warning"><?php echo $tl["general"]["g35"]; ?></button>
           </span>
-        </div>
+      </div>
     </div>
   </div>
 
@@ -168,6 +187,7 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
               </a>
             </th>
             <th><?php echo $tl["menu"]["m9"]; ?></th>
+            <th><?php echo $tl["general_cmd"]["g9"]; ?></th>
             <th>
               <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
                 <i class="fa fa-lock"></i>
@@ -180,7 +200,7 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
             </th>
             <th></th>
             <th>
-              <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tl["user"]["al"]; ?>'))return false;">
+              <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tl["user"]["al"]; ?>">
                 <i class="fa fa-trash-o"></i>
               </button>
             </th>
@@ -200,9 +220,19 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
               </td>
               <td>
                 <?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $z) {
-                  if ($v["usergroupid"] == $z["id"]) { ?><a
-                    href="index.php?p=usergroup&amp;sp=user&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a><?php }
+                  if ($v["usergroupid"] == $z["id"]) { ?>
+                    <a href="index.php?p=usergroup&amp;sp=user&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a>
+                  <?php }
                 } ?>
+              </td>
+              <td>
+                <?php
+                if ($v["access"] == 1) {
+                  echo $tl["general_cmd"]["g10"];
+                } else {
+                  echo $tl["general_cmd"]["g11"] . '<span class="small">  - ' . $tl["general_cmd"]["g12"] . '</span>';
+                }
+                ?>
               </td>
               <td>
                 <a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["access"] == '1') { echo $tl["icons"]["i6"]; } else { echo $tl["icons"]["i5"]; } ?>">

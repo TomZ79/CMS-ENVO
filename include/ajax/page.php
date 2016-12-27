@@ -1,8 +1,11 @@
 <?php
 
+// EN: Include the config file ...
+// CZ: Vložení konfiguračního souboru ...
 if (!file_exists('../../config.php')) die('ajax/[page.php] config.php not exist');
 require_once '../../config.php';
 
+//
 if (!file_exists('../../class/class.search.php')) die('ajax/[page.php] class.search.php not exist');
 include_once '../../class/class.search.php';
 

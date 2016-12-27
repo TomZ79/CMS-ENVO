@@ -51,12 +51,21 @@ if ($page3 == "e") { ?>
 <?php } ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+    <!-- Fixed Button for save form -->
+    <div class="savebutton">
+      <button type="submit" name="save" class="btn btn-primary button">
+        <i class="fa fa-save margin-right-5"></i>
+        <?php echo $tl["general"]["g20"]; ?> !!
+      </button>
+    </div>
 
+    <!-- Form Content -->
     <ul class="nav nav-tabs" id="cmsTab">
       <li class="active"><a href="#blogArt1"><?php echo $tl["page"]["p4"]; ?></a></li>
-      <li><a href="#blogArt2"><?php echo $tl["general"]["g53"]; ?></a></li>
-      <li><a href="#blogArt3"><?php echo $tl["general"]["g100"]; ?></a></li>
-      <li><a href="#blogArt4"><?php echo $tl["general"]["g89"]; ?></a></li>
+      <li><a href="#blogArt2"><?php echo $tl["title"]["t14"]; ?></a></li>
+      <li><a href="#blogArt3"><?php echo $tl["general"]["g53"]; ?></a></li>
+      <li><a href="#blogArt4"><?php echo $tl["general"]["g100"]; ?></a></li>
+      <li><a href="#blogArt5"><?php echo $tl["general"]["g89"]; ?></a></li>
     </ul>
 
     <div class="tab-content">
@@ -370,11 +379,11 @@ if ($page3 == "e") { ?>
 
           </div>
         </div>
-
+      </div>
+      <div class="tab-pane" id="blogArt2">
         <?php include_once APP_PATH . "admin/template/editor_edit.php"; ?>
       </div>
-
-      <div class="tab-pane" id="blogArt2">
+      <div class="tab-pane" id="blogArt3">
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["general"]["g53"]; ?></h3>
@@ -393,7 +402,7 @@ if ($page3 == "e") { ?>
           </div>
         </div>
       </div>
-      <div class="tab-pane" id="blogArt3">
+      <div class="tab-pane" id="blogArt4">
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["general"]["g100"]; ?></h3>
@@ -412,7 +421,7 @@ if ($page3 == "e") { ?>
           </div>
         </div>
       </div>
-      <div class="tab-pane" id="blogArt4">
+      <div class="tab-pane" id="blogArt5">
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["general"]["g89"]; ?></h3>

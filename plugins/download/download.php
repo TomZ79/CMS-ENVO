@@ -1,6 +1,7 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_PREVENT_ACCESS')) die($tl['error']['nda']);
 
 // Include the comment class file
@@ -9,6 +10,8 @@ require_once APP_PATH . 'class/class.comment.php';
 // Functions we need for this plugin
 include_once 'functions.php';
 
+// EN: Settings all the tables we need for our work
+// CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = DB_PREFIX . 'download';
 $jaktable1 = DB_PREFIX . 'downloadcategories';
 $jaktable2 = DB_PREFIX . 'downloadcomments';
@@ -86,6 +89,7 @@ switch ($page1) {
 
       $PAGE_TITLE = JAK_PLUGIN_NAME_DOWNLOAD . ' - ' . $row['name'];
       $PAGE_CONTENT = $row['content'];
+      $MAIN_DESCRIPTION = $jkv['downloaddesc'];
 
       // Get the sort orders for the grid
       $JAK_HOOK_SIDE_GRID = false;
@@ -110,7 +114,8 @@ switch ($page1) {
       $JAK_HEADER_CSS = $jkv["download_css"];
       $JAK_FOOTER_JAVASCRIPT = $jkv["download_javascript"];
 
-      // get the standard template
+      // EN: Load the template
+      // CZ: Načti template (šablonu)
       $plugin_template = 'plugins/download/template/' . $jkv["sitestyle"] . '/download.php';
 
     } else {
@@ -258,6 +263,7 @@ switch ($page1) {
           $PAGE_ID = $row['id'];
           $PAGE_TITLE = $row['title'];
           $PAGE_CONTENT = jak_secure_site($row['content']);
+          $MAIN_DESCRIPTION = $jkv['newsdesc'];
           $SHOWTITLE = $row['showtitle'];
           $SHOWIMG = $row['previmg'];
           $SHOWDATE = $row['showdate'];
@@ -365,11 +371,21 @@ switch ($page1) {
     $PAGE_KEYWORDS = str_replace(" ", "", JAK_Base::jakCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
     $PAGE_DESCRIPTION = jak_cut_text($PAGE_CONTENT, 155, '');
 
-    // get the standard template
+    // Get Facebook SDK Connection
+    $row = $jakdb->queryRow('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "facebookconnect"  LIMIT 1');
+
+    // Get script for Facebook SDK
+    $JAK_FACEBOOK_SDK_CONNECTION = $row['value'];
+
+    // Get random image from folder
+    $JAK_RANDOM_IMAGE = jak_get_random_image(JAK_FILES_DIRECTORY . '/facebook/');
+
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $plugin_template = 'plugins/download/template/' . $jkv["sitestyle"] . '/downloadfile.php';
 
     break;
-  case 'del';
+  case 'del':
 
     if (is_numeric($page2) && is_numeric($page3) && jak_row_exist($page2, $jaktable2)) {
 
@@ -437,7 +453,8 @@ switch ($page1) {
         $RWEB = $row['web'];
         $RCONT = jak_edit_safe_userpost($row['message']);
 
-        // get the standard template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $template = 'editpost.php';
 
       } else {
@@ -558,6 +575,7 @@ switch ($page1) {
     // Check if we have a language and display the right stuff
     $PAGE_TITLE = $jkv["downloadtitle"];
     $PAGE_CONTENT = $jkv["downloaddesc"];
+    $MAIN_DESCRIPTION = $jkv['downloaddesc'];
 
     // Get the url session
     $_SESSION['jak_lastURL'] = $backtodl;
@@ -587,7 +605,8 @@ switch ($page1) {
     $JAK_HEADER_CSS = $jkv["download_css"];
     $JAK_FOOTER_JAVASCRIPT = $jkv["download_javascript"];
 
-    // get the standard template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $plugin_template = 'plugins/download/template/' . $jkv["sitestyle"] . '/download.php';
 
 }

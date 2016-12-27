@@ -1,6 +1,8 @@
 <li class="treeview<?php if ($page == 'download') echo ' active'; ?>">
   <a href="javascript:void(0)">
-    <i class="fa fa-download"></i> <?php echo $tld["dload"]["m"]; ?> <i class="fa fa-angle-left pull-right"></i>
+    <i class="fa fa-download"></i>
+    <span><?php echo $tld["dload"]["m"]; ?></span>
+    <i class="fa fa-angle-left pull-right"></i>
   </a>
 
   <ul class="treeview-menu">
@@ -22,6 +24,7 @@
       </a>
     </li>
     <?php } ?>
+    <li class="list-divider"></li>
 
     <li<?php if ($page == 'download' && ($page1 == 'categories' || $page1 == 'newcategory')) echo ' class="active"'; ?>>
       <a href="index.php?p=download&amp;sp=categories">
@@ -40,6 +43,8 @@
       </a>
     </li>
     <?php } ?>
+    <li class="list-divider"></li>
+
     <li<?php if ($page == 'download' && $page1 == 'comment' || $page == 'download' && $page1 == 'trash') echo ' class="active"'; ?>>
       <a href="index.php?p=download&amp;sp=comment">
         <i class="fa fa-circle-o"></i> <?php echo $tld["dload"]["d19"]; ?>
@@ -50,6 +55,7 @@
         <i class="fa fa-circle-o"></i> <?php echo $tld["dload"]["d18"]; ?>
       </a>
     </li>
+    <li class="list-divider"></li>
 
     <li<?php if ($page == 'download' && $page1 == 'setting') echo ' class="active"'; ?>>
       <a href="index.php?p=download&amp;sp=setting">

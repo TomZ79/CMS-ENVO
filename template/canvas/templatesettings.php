@@ -1,5 +1,13 @@
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+    <!-- Fixed Button for save form -->
+    <div class="savebutton">
+      <button type="submit" name="save" class="btn btn-primary button">
+        <i class="fa fa-save margin-right-5"></i>
+        <?php echo $tl["general"]["g20"]; ?> !!
+      </button>
+    </div>
 
+    <!-- Form Content -->
     <ul class="nav nav-tabs" id="cmsTab">
       <li class="active"><a href="#cmsPage1">Header</a></li>
       <li><a href="#cmsPage2">Section</a></li>
@@ -343,7 +351,7 @@
                 <div class="box-body">
                   <table class="table">
                     <tr <?php if (!$JAK_FILECONTENT) { ?> class="hidden"<?php } ?>>
-                      <td><h4>File <small><strong><?php echo $JAK_FILEURL; ?></strong></small></h4></td>
+                      <td><h4>File: <small><strong><?php echo $JAK_FILEURL; ?></strong></small></h4></td>
                     </tr>
                     <?php if ($JAK_FILECONTENT) { ?>
                       <tr>

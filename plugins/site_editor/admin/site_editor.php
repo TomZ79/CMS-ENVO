@@ -1,9 +1,11 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
-// Check if the user has access to this file
+// EN: Check if the user has access to this file
+// CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, $jkv["accessmanage"])) jak_redirect(BASE_URL);
 
 // Form 1-2
@@ -27,16 +29,20 @@ if (isset($_POST['action']) && $_POST['action'] == 'form1') {
 
   if (isset($_POST['reset1'])) {
 
+    // EN: Redirect page
+    // CZ: Přesměrování stránky
     jak_redirect(BASE_URL . 'index.php?p=site_editor');
 
   }
 
 }
 
-// Title and Description
+// EN: Title and Description
+// CZ: Titulek a Popis
 $SECTION_TITLE = $tlsedi["siteedit"]["m1"];
 $SECTION_DESC = $tlsedi["siteedit"]["t"];
 
-// Call the template
+// EN: Load the template
+// CZ: Načti template (šablonu)
 $plugin_template = 'plugins/site_editor/admin/template/site_editor.php';
 ?>

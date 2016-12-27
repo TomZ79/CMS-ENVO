@@ -30,6 +30,8 @@
   </script>
 <?php } ?>
 
+<?php if (isset($JAK_TRASH_ALL) && is_array($JAK_TRASH_ALL)) { ?>
+
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="box">
       <div class="box-body no-padding">
@@ -41,31 +43,27 @@
             <th><?php echo $tl["page"]["p4"]; ?></th>
             <th><?php echo $tl["login"]["l1"]; ?></th>
             <th>
-              <button type="submit" name="untrash" id="button_lock" class="btn btn-default btn-xs"
-                      onclick="if(!confirm('<?php echo $tld["dload"]["ap"]; ?>'))return false;"><i
-                  class="fa fa-check"></i></button>
+              <button type="submit" name="untrash" id="button_lock" class="btn btn-default btn-xs" onclick="if(!confirm('<?php echo $tld["dload"]["ap"]; ?>'))return false;">
+                <i class="fa fa-check"></i>
+              </button>
             </th>
             <th>
-              <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs"
-                      onclick="if(!confirm('<?php echo $tld["dload"]["co"]; ?>'))return false;"><i
-                  class="fa fa-trash-o"></i></button>
+              <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tld["dload"]["co"]; ?>'))return false;">
+                <i class="fa fa-trash-o"></i>
+              </button>
             </th>
           </tr>
           </thead>
-          <?php if (isset($JAK_TRASH_ALL) && is_array($JAK_TRASH_ALL)) foreach ($JAK_TRASH_ALL as $v) { ?>
+          <?php foreach ($JAK_TRASH_ALL as $v) { ?>
             <tr>
               <td><?php echo $v["id"]; ?></td>
               <td><input type="checkbox" name="jak_delete_trash[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
               </td>
               <td><?php echo jak_clean_comment($v["message"]); ?></td>
-              <td><?php if ($v["userid"] == '0') {
-                  echo $tl["general"]["g28"];
-                } else {
-                  if ($page1 != 'user') { ?><a
-                    href="index.php?p=user&amp;sp=edit&amp;ssp=<?php echo $v["userid"]; ?>"><?php echo $v["username"]; ?></a><?php } else {
-                    echo $v["username"];
-                  }
-                } ?></td>
+              <td><?php if ($v["userid"] == '0') { echo $tl["general"]["g28"]; } else { if ($page1 != 'user') { ?>
+                  <a href="index.php?p=user&amp;sp=edit&amp;ssp=<?php echo $v["userid"]; ?>"><?php echo $v["username"]; ?></a>
+                <?php } else { echo $v["username"]; } } ?>
+              </td>
               <td></td>
               <td></td>
             </tr>
@@ -74,6 +72,14 @@
       </div>
     </div>
   </form>
+
+<?php } else { ?>
+
+  <div class="alert bg-info">
+    <?php echo $tl["errorpage"]["data"]; ?>
+  </div>
+
+<?php } ?>
 
   <div class="icon_legend">
     <h3><?php echo $tl["icons"]["i"]; ?></h3>

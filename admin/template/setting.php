@@ -69,20 +69,29 @@ if ($success) { ?>
 <?php } ?>
 
   <form method="post" class="jak_form" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+    <!-- Fixed Button for save form -->
+    <div class="savebutton">
+      <button type="submit" name="save" class="btn btn-primary button">
+        <i class="fa fa-save margin-right-5"></i>
+        <?php echo $tl["general"]["g20"]; ?> !!
+      </button>
+    </div>
 
+    <!-- Form Content -->
     <ul class="nav nav-tabs" id="settTab">
-      <li class="active"><a href="#general"><?php echo $tl["title"]["t4"]; ?></a></li>
-      <li><a href="#aceeditor"><?php echo $tl["setting_cmd"]["s50"]; ?></a></li>
-      <li><a href="#mailsettings"><?php echo $tl["setting"]["s21"]; ?></a></li>
-      <li><a href="#user"><?php echo $tl["title"]["t23"]; ?></a></li>
-      <li><a href="#analytics"><?php echo $tl["general"]["g98"]; ?></a></li>
+      <li class="active"><a href="#cmsPage1"><?php echo $tl["title"]["t4"]; ?></a></li>
+      <li><a href="#cmsPage2"><?php echo $tl["setting_cmd"]["s50"]; ?></a></li>
+      <li><a href="#cmsPage3"><?php echo $tl["setting"]["s21"]; ?></a></li>
+      <li><a href="#cmsPage4"><?php echo $tl["title"]["t23"]; ?></a></li>
+      <li><a href="#cmsPage5"><?php echo $tl["general"]["g98"]; ?></a></li>
+
       <?php if (isset($JAK_HOOK_ADMIN_SETTING_EDIT)) { ?>
-      <li><a href="#plugins"><?php echo $tl["title_cmd"]["t2"]; ?></a></li>
+      <li><a href="#cmsPage6"><?php echo $tl["title_cmd"]["t2"]; ?></a></li>
       <?php } ?>
     </ul>
 
     <div class="tab-content">
-      <div id="general" class="tab-pane active fade in">
+      <div id="cmsPage1" class="tab-pane active fade in">
         <div class="row">
           <div class="col-md-8">
             <div class="box box-primary">
@@ -378,7 +387,7 @@ if ($success) { ?>
         </div>
       </div>
 
-      <div id="aceeditor" class="tab-pane fade">
+      <div id="cmsPage2" class="tab-pane fade">
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["title"]["t4"]; ?></h3>
@@ -480,7 +489,7 @@ if ($success) { ?>
         </div>
       </div>
 
-      <div id="mailsettings" class="tab-pane fade">
+      <div id="cmsPage3" class="tab-pane fade">
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["setting"]["s21"]; ?></h3>
@@ -575,7 +584,7 @@ if ($success) { ?>
         </div>
       </div>
 
-      <div id="user" class="tab-pane fade">
+      <div id="cmsPage4" class="tab-pane fade">
         <div class="row">
           <div class="col-md-5">
             <div class="box box-primary">
@@ -695,7 +704,7 @@ if ($success) { ?>
         </div>
       </div>
 
-      <div id="analytics" class="tab-pane fade">
+      <div id="cmsPage5" class="tab-pane fade">
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["general"]["g98"]; ?></h3>
@@ -748,8 +757,40 @@ if ($success) { ?>
         </div>
       </div>
 
+      <div id="cmsPage6" class="tab-pane fade">
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <h3 class="box-title"><?php echo $tl["general_cmd"]["g14"]; ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="margin-bottom-20">
+              <p><?php echo $tl["setting_cmd"]["s62"]; ?></p>
+              <hr>
+              <p><?php echo $tl["setting_cmd"]["s63"]; ?></p>
+              <ul>
+                <li>Plugin Download ( Pro sdílení webu před stažením dokumentu. Více v nastavení pluginu Download )</li>
+              </ul>
+            </div>
+            <table class="table table-striped">
+              <tr>
+                <td>
+                  <textarea name="jak_facebookconnect" cols="60" rows="10" class="form-control txtautogrow"><?php echo $jkv["facebookconnect"]; ?></textarea>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="box-footer">
+            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+          </div>
+        </div>
+      </div>
+
       <?php if (isset($JAK_HOOK_ADMIN_SETTING_EDIT) && is_array($JAK_HOOK_ADMIN_SETTING_EDIT)) foreach ($JAK_HOOK_ADMIN_SETTING_EDIT as $hs) { ?>
-      <div id="plugins" class="tab-pane fade">
+      <div id="cmsPage7" class="tab-pane fade">
         <?php include_once APP_PATH . $hs['phpcode']; ?>
       </div>
       <?php } ?>
@@ -767,6 +808,7 @@ if ($success) { ?>
       <li><a href="#control-sidebar4" data-toggle="tab"><strong>4.</strong></a></li>
       <li><a href="#control-sidebar5" data-toggle="tab"><strong>5.</strong></a></li>
       <li><a href="#control-sidebar6" data-toggle="tab"><strong>6.</strong></a></li>
+      <li><a href="#control-sidebar7" data-toggle="tab"><strong>7.</strong></a></li>
     </ul>
 
     <!-- Tab panes -->
@@ -993,6 +1035,19 @@ if ($success) { ?>
         <h4><?php echo $tl["title_cmd"]["t2"]; ?></h4>
         <hr>
         <p></p>
+
+      </div>
+      <!-- Tab 7. -->
+      <div class="tab-pane" id="control-sidebar7">
+        <h4><?php echo $tl["general_cmd"]["g14"]; ?></h4>
+        <hr>
+        <p>Ke spojení na Facebook je využíván Feed Dialog, který ovšem vyžaduje mít přidanou webovou síť na Developers SDK Facebook.</p>
+        <p>Pro sdílení článků na Facebooku je využíván jednoduchý Share Link Dialog ( sharer.php )</p>
+        <p>V následujícím seznamu částí CMS není využíván Share Link Dialog, ale SDK spojení - Feed Dialog:</p>
+        <ul>
+          <li>Plugin Download -  pro sdílení webu před stažením dokumentu.</li>
+        </ul>
+
 
       </div>
     </div>

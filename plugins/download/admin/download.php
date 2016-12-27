@@ -1,12 +1,15 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
-// Check if the user has access to this file
+// EN: Check if the user has access to this file
+// CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSDOWNLOAD)) jak_redirect(BASE_URL);
 
-// All the tables we need for this plugin
+// EN: Settings all the tables we need for our work
+// CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = DB_PREFIX . 'download';
 $jaktable1 = DB_PREFIX . 'downloadcategories';
 $jaktable2 = DB_PREFIX . 'downloadcomments';
@@ -150,6 +153,8 @@ switch ($page1) {
           }
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=download&sp=new&ssp=e');
           } else {
 
@@ -161,6 +166,9 @@ switch ($page1) {
               JAK_tags::jakInsertags($defaults['jak_tags'], $rowid, JAK_PLUGIN_DOWNLOAD, $tagactive);
 
             }
+
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=download&sp=edit&ssp=' . $rowid . '&sssp=s');
           }
         } else {
@@ -187,11 +195,13 @@ switch ($page1) {
     // Get all usergroups
     $JAK_USERGROUP = jak_get_usergroup_all('usergroup');
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tld["dload"]["m2"];
     $SECTION_DESC = $tld["dload"]["t1"];
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $plugin_template = 'plugins/download/admin/template/newdownload.php';
 
     break;
@@ -207,8 +217,12 @@ switch ($page1) {
         $result = $jakdb->query('UPDATE ' . $jaktable1 . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page3) . '"');
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=categories&ssp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=categories&ssp=s');
         }
 
@@ -220,12 +234,23 @@ switch ($page1) {
           $result = $jakdb->query('DELETE FROM ' . $jaktable1 . ' WHERE id = "' . smartsql($page3) . '"');
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - chybné
             jak_redirect(BASE_URL . 'index.php?p=download&sp=categories&ssp=e');
           } else {
-            jak_redirect(BASE_URL . 'index.php?p=download&sp=categories&ssp=s');
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - úspěšné
+            /*
+            NOTIFIKACE:
+            'ssp=s'   - Záznam úspěšně uložen
+            'sssp=s'  - Zázanm úspěšně odstraněn
+            */
+            jak_redirect(BASE_URL . 'index.php?p=download&sp=categories&ssp=s&sssp=s');
           }
 
         } elseif (jak_row_exist($page3, $jaktable1) && jak_field_not_exist($page3, $jaktable1, $jakfield)) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=categories&ssp=eca');
         }
 
@@ -275,8 +300,12 @@ switch ($page1) {
 				WHERE id = "' . smartsql($page3) . '"');
 
               if (!$result) {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=download&sp=categories&ssp=edit&sssp=' . $page3 . '&ssssp=e');
               } else {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=download&sp=categories&ssp=edit&sssp=' . $page3 . '&ssssp=s');
               }
             } else {
@@ -289,14 +318,18 @@ switch ($page1) {
           $JAK_FORM_DATA = jak_get_data($page3, $jaktable1);
           $JAK_USERGROUP = jak_get_usergroup_all('usergroup');
 
-          // Title and Description
+          // EN: Title and Description
+          // CZ: Titulek a Popis
           $SECTION_TITLE = $tld["dload"]["m"] . ' - ' . $tl["cmenu"]["c6"];
           $SECTION_DESC = $tl["cmdesc"]["d6"];
 
-          // Call the template
+          // EN: Load the template
+          // CZ: Načti template (šablonu)
           $plugin_template = 'plugins/download/admin/template/editcat.php';
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=categories&ssp=ene');
         }
         break;
@@ -322,7 +355,8 @@ switch ($page1) {
               header('Cache-Control: no-cache');
               die(json_encode(array("status" => 1, "html" => $tl["general"]["g7"])));
             } else {
-              // redirect back to home
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               $_SESSION["successmsg"] = $tl["general"]["g7"];
               jak_redirect(BASE_URL . 'index.php?p=b2b&sp=categories');
             }
@@ -332,7 +366,8 @@ switch ($page1) {
               header('Cache-Control: no-cache');
               die(json_encode(array("status" => 0, "html" => $tl["errorpage"]["sql"])));
             } else {
-              // redirect back to home
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               $_SESSION["errormsg"] = $tl["errorpage"]["sql"];
               jak_redirect(BASE_URL . 'index.php?p=b2b&sp=categories');
             }
@@ -355,11 +390,19 @@ switch ($page1) {
           $mheader['parents'][$items['catparent']][] = $items['id'];
         }
 
-        // Title and Description
+        // EN: Check if some categories exist
+        // CZ: Kontrola jestli existuje nějaká kategorie
+        if(!empty($mheader['items'])){
+          $JAK_DL_CAT_EXIST = '1';
+        }
+
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tld["dload"]["m"] . ' - ' . $tl["menu"]["m5"];
         $SECTION_DESC = $tl["cmdesc"]["d5"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $plugin_template = 'plugins/download/admin/template/cat.php';
     }
     break;
@@ -417,8 +460,12 @@ switch ($page1) {
         $rowid = $jakdb->jak_last_id();
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=newcategory&ssp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=categories&ssp=edit&sssp=' . $rowid . '&ssssp=s');
         }
       } else {
@@ -428,11 +475,13 @@ switch ($page1) {
       }
     }
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tld["dload"]["m"] . ' - ' . $tl["cmenu"]["c4"];
     $SECTION_DESC = $tl["cmdesc"]["d8"];
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $plugin_template = 'plugins/download/admin/template/newcat.php';
 
     break;
@@ -470,8 +519,12 @@ switch ($page1) {
         }
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=comment&ssp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=comment&ssp=s');
         }
 
@@ -487,8 +540,12 @@ switch ($page1) {
         }
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=comment&ssp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=comment&ssp=s');
         }
 
@@ -500,12 +557,15 @@ switch ($page1) {
       case 'approval':
         $JAK_DOWNLOADCOM_APPROVE = jak_get_download_comments($pages->limit, 'approve', '');
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tld["dload"]["d20"];
         $SECTION_DESC = $tld["dload"]["t2"];
 
-        // Get the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $plugin_template = 'plugins/download/admin/template/comment.php';
+
         break;
       case 'sort':
         if ($page3 == 'download') {
@@ -513,6 +573,8 @@ switch ($page1) {
         } elseif ($page3 == 'user') {
           $bu = 'userid';
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL);
         }
         $getTotal = jak_get_total($jaktable2, $page4, $bu, '');
@@ -528,13 +590,17 @@ switch ($page1) {
           $JAK_PAGINATE_SORT = $pages->display_pages();
           $JAK_DOWNLOADCOM_SORT = jak_get_download_comments($pages->limit, $page4, $bu);
 
-          // Title and Description
+          // EN: Title and Description
+          // CZ: Titulek a Popis
           $SECTION_TITLE = $tld["dload"]["d20"];
           $SECTION_DESC = $tld["dload"]["t2"];
 
-          // Get the template
+          // EN: Load the template
+          // CZ: Načti template (šablonu)
           $plugin_template = 'plugins/download/admin/template/commentsort.php';
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=comment&ssp=ene');
         }
         break;
@@ -545,12 +611,18 @@ switch ($page1) {
           $result = $jakdb->query('UPDATE ' . $jaktable2 . ' SET approve = IF (approve = 1, 0, 1), session = NULL WHERE id = "' . smartsql($page3) . '"');
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=download&sp=comment&ssp=e');
           } else {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=download&sp=comment&ssp=s');
           }
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=comment&ssp=ene');
         }
 
@@ -561,22 +633,30 @@ switch ($page1) {
           $result = $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE id = "' . smartsql($page3) . '"');
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=download&sp=comment&ssp=e');
           } else {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=download&sp=comment&ssp=s');
           }
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=comment&ssp=ene');
         }
         break;
       default:
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tld["dload"]["d19"];
         $SECTION_DESC = $tld["dload"]["t2"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $plugin_template = 'plugins/download/admin/template/comment.php';
     }
 
@@ -720,8 +800,12 @@ switch ($page1) {
         }
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=setting&ssp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=setting&ssp=s');
         }
       } else {
@@ -731,6 +815,8 @@ switch ($page1) {
       }
     }
 
+    // EN: Import important settings for the template from the DB
+    // CZ: Importuj důležité nastavení pro šablonu z DB
     $JAK_SETTING = jak_get_setting('download');
 
     // Get the sort orders for the grid
@@ -760,11 +846,13 @@ switch ($page1) {
     $JAK_FORM_DATA["title"] = $jkv["downloadtitle"];
     $JAK_FORM_DATA["content"] = $jkv["downloaddesc"];
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tld["dload"]["m"] . ' - ' . $tl["menu"]["m2"];
     $SECTION_DESC = $tl["cmdesc"]["d2"];
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $plugin_template = 'plugins/download/admin/template/setting.php';
 
     break;
@@ -782,8 +870,12 @@ switch ($page1) {
         }
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=trash&ssp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=trash&ssp=s');
         }
 
@@ -799,8 +891,12 @@ switch ($page1) {
         }
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=trash&ssp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=trash&ssp=s');
         }
 
@@ -814,12 +910,15 @@ switch ($page1) {
       $JAK_TRASH_ALL[] = $row;
     }
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tld["dload"]["d18"];
     $SECTION_DESC = $tld["dload"]["t2"];
 
-    // Get the template, same from the user
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $plugin_template = 'plugins/download/admin/template/trash.php';
+
     break;
   default:
 
@@ -842,13 +941,18 @@ switch ($page1) {
           $JAK_PAGINATE_SORT = $pages->display_pages();
           $JAK_DOWNLOAD_SORT = jak_get_downloads($pages->limit, $page2, $jaktable);
 
-          // Title and Description
+          // EN: Title and Description
+          // CZ: Titulek a Popis
           $SECTION_TITLE = $tld["dload"]["m1"];
           $SECTION_DESC = $tld["dload"]["t"];
 
-          // Get the template
+          // EN: Load the template
+          // CZ: Načti template (šablonu)
           $plugin_template = 'plugins/download/admin/template/catsort.php';
+
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=ene');
         }
         break;
@@ -868,8 +972,12 @@ switch ($page1) {
         JAK_tags::jaklocktags($page2, JAK_PLUGIN_DOWNLOAD);
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=s');
         }
 
@@ -887,14 +995,25 @@ switch ($page1) {
           $result = $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE id = "' . smartsql($page2) . '"');
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - chybné
             jak_redirect(BASE_URL . 'index.php?p=download&sp=e');
           } else {
             JAK_tags::jakDeletetags($page2, JAK_PLUGIN_DOWNLOAD);
 
-            jak_redirect(BASE_URL . 'index.php?p=download&sp=s');
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - úspěšné
+            /*
+            NOTIFIKACE:
+            'sp=s'   - Záznam úspěšně uložen
+            'ssp=s'  - Zázanm úspěšně odstraněn
+            */
+            jak_redirect(BASE_URL . 'index.php?p=download&sp=s&ssp=s');
           }
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=ene');
         }
         break;
@@ -1090,6 +1209,8 @@ switch ($page1) {
               }
 
               if (!$result) {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=download&sp=edit&ssp=' . $page2 . '&sssp=e');
               } else {
 
@@ -1101,6 +1222,9 @@ switch ($page1) {
                   JAK_tags::jakInsertags($defaults['jak_tags'], smartsql($page2), JAK_PLUGIN_DOWNLOAD, $tagactive);
 
                 }
+
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=download&sp=edit&ssp=' . $page2 . '&sssp=s');
               }
 
@@ -1132,14 +1256,18 @@ switch ($page1) {
           // Get all usergroups
           $JAK_USERGROUP = jak_get_usergroup_all('usergroup');
 
-          // Title and Description
+          // EN: Title and Description
+          // CZ: Titulek a Popis
           $SECTION_TITLE = $tld["dload"]["m3"];
           $SECTION_DESC = $tld["dload"]["t3"];
 
-          // Call the template
+          // EN: Load the template
+          // CZ: Načti template (šablonu)
           $plugin_template = 'plugins/download/admin/template/editdownload.php';
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=ene');
         }
         break;
@@ -1162,8 +1290,12 @@ switch ($page1) {
 				WHERE id = "' . smartsql($page2) . '"');
 
               if (!$result) {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=download&sp=quickedit&ssp=' . $page2 . '&sssp=e');
               } else {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=download&sp=quickedit&ssp=' . $page2 . '&sssp=s');
               }
             } else {
@@ -1176,9 +1308,13 @@ switch ($page1) {
           // Get the data
           $JAK_FORM_DATA = jak_get_data($page2, $jaktable);
 
+          // EN: Load the template
+          // CZ: Načti template (šablonu)
           $template = 'quickedit.php';
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=download&sp=ene');
         }
         break;
@@ -1207,11 +1343,13 @@ switch ($page1) {
 
         $JAK_DOWNLOAD_ALL = $dlarray;
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tld["dload"]["m1"];
         $SECTION_DESC = $tld["dload"]["t"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $plugin_template = 'plugins/download/admin/template/download.php';
 
         break;
@@ -1243,8 +1381,12 @@ switch ($page1) {
             }
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=download&sp=e');
             } else {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=download&sp=s');
             }
 
@@ -1268,16 +1410,25 @@ switch ($page1) {
             }
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky s notifikací - chybné
               jak_redirect(BASE_URL . 'index.php?p=download&sp=e');
             } else {
-              jak_redirect(BASE_URL . 'index.php?p=download&sp=s');
+              // EN: Redirect page
+              // CZ: Přesměrování stránky s notifikací - úspěšné
+              /*
+              NOTIFIKACE:
+              'sp=s'   - Záznam úspěšně uložen
+              'ssp=s'  - Zázanm úspěšně odstraněn
+              */
+              jak_redirect(BASE_URL . 'index.php?p=download&sp=s&ssp=s');
             }
 
           }
 
         }
 
-        // get all downloads out
+        // Get all downloads out
         $getTotal = jak_get_total($jaktable, '', '', '');
 
         if ($getTotal != 0) {
@@ -1294,11 +1445,13 @@ switch ($page1) {
           $JAK_DOWNLOAD_ALL = jak_get_downloads($pages->limit, '', $jaktable);
         }
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tld["dload"]["m1"];
         $SECTION_DESC = $tld["dload"]["t"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $plugin_template = 'plugins/download/admin/template/download.php';
     }
 }

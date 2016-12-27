@@ -1,8 +1,11 @@
 <?php
 
+// EN: Include the config file ...
+// CZ: Vložení konfiguračního souboru ...
 if (!file_exists('../../../../config.php')) die('[index.php] config.php not exist');
 require_once '../../../../config.php';
 
+//
 if (session_id() == '') session_start();
 
 if (JAK_ADMINACCESS) $_SESSION['RF']["verify"] = "JAKfilemanager";

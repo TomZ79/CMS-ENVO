@@ -31,6 +31,24 @@ if ($page1 == "e" || $page1 == "ene") { ?>
   </script>
 <?php } ?>
 
+<?php if ($page2 == "s") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?php echo $tl["notification"]["n2"]; ?>',
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000,
+      });
+    }, 2000);
+  </script>
+<?php } ?>
+
 <?php if (isset($JAK_TAG_ALL) && is_array($JAK_TAG_ALL)) { ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
@@ -56,7 +74,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                 <a href="javascript:void(0);" class="btn btn-default btn-xs"><i class="fa fa-lock"></i></a>
               </th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tl["tag"]["al"]; ?>'))return false;">
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tl["tag"]["al"]; ?>">
                   <i class="fa fa-trash-o"></i>
                 </button>
               </th>

@@ -1,6 +1,7 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_PREVENT_ACCESS')) die('No direct access!');
 
 // Call the hooks per name
@@ -36,6 +37,7 @@ while ($grow = $grid->fetch_assoc()) {
 $PAGE_KEYWORDS = str_replace(" ", "", JAK_Base::jakCleanurl(JAK_PLUGIN_NAME_SITEMAP) . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
 $PAGE_DESCRIPTION = $jkv["metadesc"];
 
-// get the standard template
+// EN: Load the template
+// CZ: Načti template (šablonu)
 $template = 'sitemap.php';
 ?>

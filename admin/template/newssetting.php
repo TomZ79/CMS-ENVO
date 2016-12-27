@@ -50,16 +50,24 @@ if ($errors) { ?>
 <?php } ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+    <!-- Fixed Button for save form -->
+    <div class="savebutton">
+      <button type="submit" name="save" class="btn btn-primary button">
+        <i class="fa fa-save margin-right-5"></i>
+        <?php echo $tl["general"]["g20"]; ?> !!
+      </button>
+    </div>
 
+    <!-- Form Content -->
     <ul class="nav nav-tabs" id="cmsTab">
-      <li class="active"><a href="#style_tabs-1"><?php echo $tl["page"]["p4"]; ?></a></li>
-      <li><a href="#style_tabs-2"><?php echo $tl["general"]["g53"]; ?></a></li>
-      <li><a href="#style_tabs-3"><?php echo $tl["general"]["g100"]; ?></a></li>
-      <li><a href="#style_tabs-4"><?php echo $tl["general"]["g121"]; ?></a></li>
+      <li class="active"><a href="#cmsPage1"><?php echo $tl["page"]["p4"]; ?></a></li>
+      <li><a href="#cmsPage2"><?php echo $tl["general"]["g53"]; ?></a></li>
+      <li><a href="#cmsPage3"><?php echo $tl["general"]["g100"]; ?></a></li>
+      <li><a href="#cmsPage4"><?php echo $tl["general"]["g121"]; ?></a></li>
     </ul>
 
     <div class="tab-content">
-      <div class="tab-pane active" id="style_tabs-1">
+      <div class="tab-pane active" id="cmsPage1">
         <div class="row">
           <div class="col-md-7">
             <div class="box box-primary">
@@ -181,7 +189,7 @@ if ($errors) { ?>
         </div>
 
       </div>
-      <div class="tab-pane" id="style_tabs-2">
+      <div class="tab-pane" id="cmsPage2">
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["general"]["g53"]; ?></h3>
@@ -201,7 +209,7 @@ if ($errors) { ?>
           </div>
         </div>
       </div>
-      <div class="tab-pane" id="style_tabs-3">
+      <div class="tab-pane" id="cmsPage3">
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["general"]["g100"]; ?></h3>
@@ -221,7 +229,7 @@ if ($errors) { ?>
           </div>
         </div>
       </div>
-      <div class="tab-pane" id="style_tabs-4">
+      <div class="tab-pane" id="cmsPage4">
         <div class="box box-primary">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["general"]["g89"]; ?></h3>

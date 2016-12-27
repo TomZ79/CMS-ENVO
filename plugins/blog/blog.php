@@ -1,6 +1,7 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_PREVENT_ACCESS')) die('No direct file access!');
 
 // Include the comment class file
@@ -9,6 +10,8 @@ require_once 'class/class.comment.php';
 // Functions we need for this plugin
 include_once 'functions.php';
 
+// EN: Settings all the tables we need for our work
+// CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = DB_PREFIX . 'blog';
 $jaktable1 = DB_PREFIX . 'blogcategories';
 $jaktable2 = DB_PREFIX . 'blogcomments';
@@ -84,6 +87,7 @@ switch ($page1) {
 
       $PAGE_TITLE = JAK_PLUGIN_NAME_BLOG . ' - ' . $row['name'];
       $PAGE_CONTENT = $row['content'];
+      $MAIN_DESCRIPTION = $row['content'];
 
       // Get the sort orders for the grid
       $JAK_HOOK_SIDE_GRID = false;
@@ -107,7 +111,8 @@ switch ($page1) {
       $JAK_HEADER_CSS = $jkv["blog_css"];
       $JAK_FOOTER_JAVASCRIPT = $jkv["blog_javascript"];
 
-      // get the standard template
+      // EN: Load the template
+      // CZ: Načti template (šablonu)
       $plugin_template = 'plugins/blog/template/' . $jkv["sitestyle"] . '/blog.php';
 
     } else {
@@ -359,7 +364,8 @@ switch ($page1) {
     $PAGE_KEYWORDS = str_replace(" ", "", JAK_Base::jakCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
     $PAGE_DESCRIPTION = jak_cut_text($PAGE_CONTENT, 155, '');
 
-    // get the standard template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $plugin_template = 'plugins/blog/template/' . $jkv["sitestyle"] . '/blogart.php';
 
     break;
@@ -425,7 +431,8 @@ switch ($page1) {
         $RWEB = $row['web'];
         $RCONT = jak_edit_safe_userpost($row['message']);
 
-        // get the standard template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $template = 'editpost.php';
 
       } else {
@@ -486,6 +493,7 @@ switch ($page1) {
     // Check if we have a language and display the right stuff
     $PAGE_TITLE = $jkv["blogtitle"];
     $PAGE_CONTENT = $jkv["blogdesc"];
+    $MAIN_DESCRIPTION = $jkv['blogdesc'];
 
     // Get the url session
     $_SESSION['jak_lastURL'] = $backtoblog;
@@ -516,7 +524,8 @@ switch ($page1) {
     $JAK_HEADER_CSS = $jkv["blog_css"];
     $JAK_FOOTER_JAVASCRIPT = $jkv["blog_javascript"];
 
-    // get the standard template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $plugin_template = 'plugins/blog/template/' . $jkv["sitestyle"] . '/blog.php';
 }
 ?>

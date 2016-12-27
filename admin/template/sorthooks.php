@@ -31,15 +31,29 @@ if ($page2 == "e" || $page2 == "edn") { ?>
   </script>
 <?php } ?>
 
-  <div class="btn-group pull-right">
-    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $tl["menu"]["m27"]; ?>
-      <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu">
-      <?php if (isset($JAK_HOOK_LOCATIONS) && is_array($JAK_HOOK_LOCATIONS)) foreach ($JAK_HOOK_LOCATIONS as $h) { ?>
-        <li><a href="index.php?p=plugins&sp=sorthooks&ssp=<?php echo $h; ?>"><?php echo $h; ?></a></li>
-      <?php } ?>
-    </ul>
+  <div class="btn-toolbar margin-bottom">
+    <div class="btn-group">
+
+      <button class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#" style="width: 100px;"><?php echo $tl["menu"]["m27"]; ?>
+        <span class="caret"></span>
+      </button>
+      <div class="dropdown-menu livefilter">
+        <div class="search-box">
+          <input type="text" placeholder="<?php echo $tl["placeholder"]["p3"]; ?>" id="input-bts-ex-1" class="form-control live-search" aria-describedby="search-icon1" />
+        </div>
+        <div class="list-to-filter">
+          <ul class="list-unstyled overflow">
+            <?php if (isset($JAK_HOOK_LOCATIONS) && is_array($JAK_HOOK_LOCATIONS)) foreach ($JAK_HOOK_LOCATIONS as $h) { ?>
+              <li class="filter-item" data-filter="<?php echo $h; ?>"><a href="index.php?p=plugins&sp=sorthooks&ssp=<?php echo $h; ?>"><?php echo $h; ?></a></li>
+            <?php } ?>
+          </ul>
+          <div class="no-search-results">
+            <div class="no-results" role="alert">No entry was found.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 
 <?php if (isset($JAK_HOOKS) && is_array($JAK_HOOKS)) { ?>

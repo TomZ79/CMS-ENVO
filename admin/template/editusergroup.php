@@ -48,7 +48,15 @@ if ($errors) { ?>
 <?php } ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+    <!-- Fixed Button for save form -->
+    <div class="savebutton">
+      <button type="submit" name="save" class="btn btn-primary button">
+        <i class="fa fa-save margin-right-5"></i>
+        <?php echo $tl["general"]["g20"]; ?> !!
+      </button>
+    </div>
 
+    <!-- Form Content -->
     <ul class="nav nav-tabs" id="settTab">
       <li class="active"><a href="#general"><?php echo $tl["title"]["t4"]; ?></a></li>
       <?php if (isset($JAK_HOOK_ADMIN_USERGROUP_EDIT)) { ?>

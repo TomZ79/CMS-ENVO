@@ -75,7 +75,7 @@ function jak_get_news_info($jakvar)
 {
 	global $jakdb;
 	$jakdata = array();
-    $result = $jakdb->query('SELECT * FROM '.DB_PREFIX.'news'.' ORDER BY newsorder ASC '.$jakvar);
+    $result = $jakdb->query('SELECT * FROM '.DB_PREFIX.'news'.' ORDER BY id ASC '.$jakvar);
     while ($row = $result->fetch_assoc()) {
             // collect each record into $jakdata
             $jakdata[] = $row;

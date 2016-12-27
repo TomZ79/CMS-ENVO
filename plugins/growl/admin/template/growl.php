@@ -30,6 +30,26 @@
   </script>
 <?php } ?>
 
+<?php if ($page2 == "s") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?php echo $tl["notification"]["n2"]; ?>',
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000,
+      });
+    }, 2000);
+  </script>
+<?php } ?>
+
+<?php if (isset($JAK_GROWL_ALL) && is_array($JAK_GROWL_ALL)) { ?>
+
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="box">
       <div class="box-body no-padding">
@@ -41,6 +61,7 @@
               <th><input type="checkbox" id="jak_delete_all"/></th>
               <th><?php echo $tlgwl["growl"]["d"]; ?></th>
               <th><?php echo $tl["page"]["p2"]; ?></th>
+              <th><?php echo $tl["general_cmd"]["g9"]; ?></th>
               <th>
                 <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
                   <i class="fa fa-lock"></i>
@@ -48,13 +69,13 @@
               </th>
               <th></th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tlgwl["growl"]["al"]; ?>'))return false;">
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tlgwl["growl"]["al"]; ?>">
                   <i class="fa fa-trash-o"></i>
                 </button>
               </th>
             </tr>
             </thead>
-            <?php if (isset($JAK_GROWL_ALL) && is_array($JAK_GROWL_ALL)) foreach ($JAK_GROWL_ALL as $v) { ?>
+            <?php foreach ($JAK_GROWL_ALL as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
                 <td><input type="checkbox" name="jak_delete_growl[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
@@ -63,6 +84,34 @@
                   <a href="index.php?p=growl&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a>
                 </td>
                 <td><?php echo $v["time"]; ?></td>
+                <td>
+                  <?php
+                  // Time Control - variable
+                  $today = date("Y-m-d H:i:s"); // Today time
+                  $expire = date("Y-m-d H:i:s", $v["enddate"]); //End time of article or content from DB
+                  $today_time = strtotime($today);
+                  $expire_time = strtotime($expire);
+
+                  // Control Active of article or content ...
+                  if ($v["active"] == 1 ) {
+                    if (empty($v["enddate"])) {
+                      echo $tl["general_cmd"]["g10"];
+                    } elseif (!empty($v["enddate"]) && $expire_time >= $today_time) {
+                      echo $tl["general_cmd"]["g10"];
+                    } else {
+                      echo $tl["general_cmd"]["g11"] . '<span class="small">  - ' . $tl["general_cmd"]["g13"] . '</span>';
+                    }
+                  } else {
+                    if (empty($v["enddate"])) {
+                      echo $tl["general_cmd"]["g11"] . '<span class="small">  - ' . $tl["general_cmd"]["g12"] . '</span>';
+                    } elseif (!empty($v["enddate"]) && $expire_time >= $today_time) {
+                      echo $tl["general_cmd"]["g11"] . '<span class="small">  - ' . $tl["general_cmd"]["g12"] . '</span>';
+                    } else {
+                      echo $tl["general_cmd"]["g11"] . '<span class="small"> - ' . $tl["general_cmd"]["g12"] . ', ' . $tl["general_cmd"]["g13"] . '</span>';
+                    }
+                  }
+                  ?>
+                </td>
                 <td>
                   <a href="index.php?p=growl&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') { echo $tl["icons"]["i5"]; } else { echo $tl["icons"]["i6"]; } ?>">
                     <i class="fa fa-<?php if ($v["active"] == '0') { ?>lock<?php } else { ?>check<?php } ?>"></i>
@@ -85,6 +134,14 @@
       </div>
     </div>
   </form>
+
+<?php } else { ?>
+
+  <div class="alert bg-info">
+    <?php echo $tl["errorpage"]["data"]; ?>
+  </div>
+
+<?php } ?>
 
   <div class="icon_legend">
     <h3><?php echo $tl["icons"]["i"]; ?></h3>

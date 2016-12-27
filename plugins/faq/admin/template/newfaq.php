@@ -35,6 +35,15 @@ if ($errors) { ?>
 <?php } ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+    <!-- Fixed Button for save form -->
+    <div class="savebutton">
+      <button type="submit" name="save" class="btn btn-primary button">
+        <i class="fa fa-save margin-right-5"></i>
+        <?php echo $tl["general"]["g20"]; ?> !!
+      </button>
+    </div>
+
+    <!-- Form Content -->
     <ul class="nav nav-tabs" id="cmsTab">
       <li class="active"><a href="#faqArt1"><?php echo $tl["page"]["p4"]; ?></a></li>
       <li><a href="#faqArt2"><?php echo $tl["general"]["g89"]; ?></a></li>

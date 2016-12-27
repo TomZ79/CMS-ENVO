@@ -1,8 +1,11 @@
 <?php
 
+// EN: Include the config file ...
+// CZ: Vložení konfiguračního souboru ...
 if (!file_exists('../../config.php')) die('ajax/[clickstat.php] config.php not exist');
 require_once '../../config.php';
 
+//
 if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
 
 if (isset($_POST['l']) && is_numeric($_POST['x']) && is_numeric($_POST['y'])) {

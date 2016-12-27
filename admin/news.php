@@ -1,12 +1,15 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
-// Check if the user has access to this file
+// EN: Check if the user has access to this file
+// CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSNEWS)) jak_redirect(BASE_URL);
 
-// All the tables we need for this plugin
+// EN: Settings all the tables we need for our work
+// CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = DB_PREFIX . 'news';
 $jaktable1 = DB_PREFIX . 'contactform';
 $jaktable2 = DB_PREFIX . 'pagesgrid';
@@ -139,6 +142,8 @@ switch ($page1) {
         }
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=news&sp=new&ssp=e');
         } else {
 
@@ -151,6 +156,8 @@ switch ($page1) {
 
 
           }
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=news&sp=edit&ssp=' . $rowid . '&sssp=s');
         }
       } else {
@@ -185,17 +192,20 @@ switch ($page1) {
     // Get all usergroup's
     $JAK_USERGROUP = jak_get_usergroup_all('usergroup');
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tl["cmenu"]["c8"];
     $SECTION_DESC = $tl["cmdesc"]["d12"];
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $template = 'newnews.php';
 
     break;
   case 'setting':
 
-    // Important template Stuff
+    // EN: Import important settings for the template from the DB
+    // CZ: Importuj důležité nastavení pro šablonu z DB
     $JAK_SETTING = jak_get_setting('news');
 
     // Let's go on with the script
@@ -216,11 +226,14 @@ switch ($page1) {
 
       if (count($errors) == 0) {
 
-        // Do the dirty work in mysql
+        // Get the order into the right format
+        $newsorder = $defaults['jak_shownewsordern'] . ' ' . $defaults['jak_shownewsorder'];
 
+        // Do the dirty work in mysql
         $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
 		    	WHEN "newstitle" THEN "' . smartsql($defaults['jak_title']) . '"
 		    	WHEN "newsdesc" THEN "' . smartsql($defaults['jak_lcontent']) . '"
+		    	WHEN "newsorder" THEN "' . $newsorder . '"
 		    	WHEN "newsdateformat" THEN "' . smartsql($defaults['jak_date']) . '"
 		    	WHEN "newstimeformat" THEN "' . smartsql($defaults['jak_time']) . '"
 		    	WHEN "newspagemid" THEN "' . smartsql($defaults['jak_mid']) . '"
@@ -228,7 +241,7 @@ switch ($page1) {
 		    	WHEN "news_css" THEN "' . smartsql($defaults['jak_css']) . '"
 		    	WHEN "news_javascript" THEN "' . smartsql($defaults['jak_javascript']) . '"
 		    END
-				WHERE varname IN ("newstitle","newsdesc", "newsdateformat", "newstimeformat", "newspagemid", "newspageitem","news_css","news_javascript")');
+				WHERE varname IN ("newstitle", "newsdesc", "newsorder", "newsdateformat", "newstimeformat", "newspagemid", "newspageitem","news_css","news_javascript")');
 
         // Save order for sidebar widget
         if (isset($defaults['jak_hookshow_new']) && is_array($defaults['jak_hookshow_new'])) {
@@ -311,8 +324,12 @@ switch ($page1) {
         }
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=news&sp=setting&ssp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=news&sp=setting&ssp=s');
         }
       } else {
@@ -344,15 +361,27 @@ switch ($page1) {
       }
     }
 
+    // Now let's check how to display the order
+    $shownewsarray = explode(" ", $jkv["newsorder"]);
+
+    if (is_array($shownewsarray) && in_array("ASC", $shownewsarray) || in_array("DESC", $shownewsarray)) {
+
+      $JAK_SETTING['shownewswhat'] = $shownewsarray[0];
+      $JAK_SETTING['shownewsorder'] = $shownewsarray[1];
+
+    }
+
     // Get the special vars for multi language support
     $JAK_FORM_DATA["title"] = $jkv["newstitle"];
     $JAK_FORM_DATA["content"] = $jkv["newsdesc"];
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tl["menu"]["m2"];
     $SECTION_DESC = $tl["cmdesc"]["d37"];
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $template = 'newssetting.php';
 
     break;
@@ -370,12 +399,18 @@ switch ($page1) {
           JAK_tags::jakLocktags($page2, 1);
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=news&sp=e');
           } else {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=news&sp=s');
           }
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=news&sp=ene');
         }
         break;
@@ -385,14 +420,24 @@ switch ($page1) {
           $result = $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE id = "' . smartsql($page2) . '"');
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - chybné
             jak_redirect(BASE_URL . 'index.php?p=news&sp=e');
           } else {
             JAK_tags::jakDeletetags($page2, 1);
 
-
-            jak_redirect(BASE_URL . 'index.php?p=news&sp=s');
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - úspěšné
+            /*
+            NOTIFIKACE:
+            'sp=s'   - Záznam úspěšně uložen
+            'ssp=s'  - Zázanm úspěšně odstraněn
+            */
+            jak_redirect(BASE_URL . 'index.php?p=news&sp=s&ssp=s');
           }
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=news&sp=ene');
         }
         break;
@@ -602,6 +647,8 @@ switch ($page1) {
               }
 
               if (!$result) {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=news&sp=edit&ssp=' . $page2 . '&sssp=e');
               } else {
 
@@ -624,7 +671,8 @@ switch ($page1) {
 
                 }
 
-
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=news&sp=edit&ssp=' . $page2 . '&sssp=s');
               }
             } else {
@@ -661,13 +709,18 @@ switch ($page1) {
           // Get all usergroup's
           $JAK_USERGROUP = jak_get_usergroup_all('usergroup');
 
-          // Title and Description
+          // EN: Title and Description
+          // CZ: Titulek a Popis
           $SECTION_TITLE = $tl["cmenu"]["c9"];
           $SECTION_DESC = $tl["cmdesc"]["d12"];
 
+          // EN: Load the template
+          // CZ: Načti template (šablonu)
           $template = 'editnews.php';
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=news&sp=ene');
         }
         break;
@@ -690,8 +743,12 @@ switch ($page1) {
 				WHERE id = "' . smartsql($page2) . '"');
 
               if (!$result) {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=news&sp=quickedit&ssp=' . $page2 . '&sssp=e');
               } else {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=news&sp=quickedit&ssp=' . $page2 . '&sssp=s');
               }
             } else {
@@ -704,9 +761,13 @@ switch ($page1) {
           // Get the data
           $JAK_FORM_DATA = jak_get_data($page2, $jaktable);
 
+          // EN: Load the template
+          // CZ: Načti template (šablonu)
           $template = 'quickedit.php';
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=news&sp=ene');
         }
         break;
@@ -730,11 +791,13 @@ switch ($page1) {
           $JAK_NEWS = jak_get_news_info($pages->limit);
         }
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tl["menu"]["m8"];
         $SECTION_DESC = $tl["cmdesc"]["d11"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $template = 'news.php';
     }
 }

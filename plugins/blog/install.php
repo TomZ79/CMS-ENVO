@@ -1,6 +1,7 @@
 <?php
 
-// Include the config file...
+// EN: Include the config file ...
+// CZ: Vložení konfiguračního souboru ...
 if (!file_exists('../../config.php')) die('[install.php] config.php not found');
 require_once '../../config.php';
 
@@ -193,8 +194,8 @@ include_once APP_PATH.\'plugins/blog/template/\'.$jkv[\"sitestyle\"].\'/pages_ne
 
 // Insert tables into settings
           $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
-("blogtitle", "blog", NULL, NULL, "input", "free", "blog"),
-("blogdesc", "blog", NULL, NULL, "textarea", "free", "blog"),
+("blogtitle", "blog", "Blog", "Blog", "input", "free", "blog"),
+("blogdesc", "blog", "Write something about your Blog", "Write something about your Blog", "textarea", "free", "blog"),
 ("blogemail", "blog", NULL, NULL, "input", "free", "blog"),
 ("blogdateformat", "blog", "d.m.Y", "d.m.Y", "input", "free", "blog"),
 ("blogtimeformat", "blog", ": h:i A", ": h:i A", "input", "free", "blog"),

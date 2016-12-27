@@ -1,13 +1,20 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
-// Check if the user has access to this file
+// EN: Check if the user has access to this file
+// CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !JAK_SUPERADMINACCESS) jak_redirect(BASE_URL);
 
-$templateurl = jak_get_setting('setting');
+// EN: Settings all the tables we need for our work
+// CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = DB_PREFIX . 'setting';
+
+// EN: Import important settings for the template from the DB
+// CZ: Importuj důležité nastavení pro šablonu z DB
+$templateurl = jak_get_setting('setting');
 
 $result = $jakdb->query('SELECT value FROM ' . $jaktable . ' WHERE groupname = "setting" && varname = "sitestyle" LIMIT 1');
 $row = $result->fetch_assoc();
@@ -95,7 +102,8 @@ switch ($page1) {
       include_once $file;
     }
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tl["cmenumenu_cmd"]["c3"];
     $SECTION_DESC = $tl["cmdesc_cmd"]["d3"];
 
@@ -103,10 +111,11 @@ switch ($page1) {
     $SECTION_CATEGORY = $tl["cmenumenu_cmd"]["c3"];
     $SECTION_SUBCATEGORY_F = $tl["cmdesc_cmd"]["d3"];
 
-    // Ace Mode
+    // EN: Ace Mode
     $acemode = 'ini';
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $template = 'templatesettings.php';
 
     break;
@@ -126,6 +135,8 @@ switch ($page1) {
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($defaults['reset'])) {
 
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
       jak_redirect(BASE_URL . 'index.php?p=template&sp=cssedit');
 
     }
@@ -167,7 +178,8 @@ switch ($page1) {
       $JAK_GET_TEMPLATE_FILES = jak_get_template_files($cssdir);
     }
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tl["general"]["g53"];
     $SECTION_DESC = $tl["cmdesc"]["d44"];
 
@@ -175,10 +187,11 @@ switch ($page1) {
     $SECTION_CATEGORY = $tl["menu"]["m23"];
     $SECTION_SUBCATEGORY_F = $tl["general"]["g53"];
 
-    // Ace Mode
+    // EN: Ace Mode
     $acemode = 'css';
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $template = 'editfiles.php';
 
     break;
@@ -198,6 +211,8 @@ switch ($page1) {
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($defaults['reset'])) {
 
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
       jak_redirect(BASE_URL . 'index.php?p=template&sp=langedit');
 
     }
@@ -235,7 +250,8 @@ switch ($page1) {
       $JAK_GET_TEMPLATE_FILES = jak_get_template_files($langdir);
     }
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tl["cmenu"]["c54"];
     $SECTION_DESC = $tl["cmdesc"]["d44"];
 
@@ -243,10 +259,11 @@ switch ($page1) {
     $SECTION_CATEGORY = $tl["menu"]["m23"];
     $SECTION_SUBCATEGORY_F = $tl["cmenu"]["c54"];
 
-    // Ace Mode
+    // EN: Ace Mode
     $acemode = 'ini';
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $template = 'editfiles.php';
 
     break;
@@ -266,6 +283,8 @@ switch ($page1) {
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($defaults['reset'])) {
 
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
       jak_redirect(BASE_URL . 'index.php?p=template&sp=edit-files');
 
     }
@@ -303,7 +322,8 @@ switch ($page1) {
       $JAK_GET_TEMPLATE_FILES = jak_get_template_files($filedir);
     }
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tl["general"]["g52"];
     $SECTION_DESC = $tl["cmdesc"]["d44"];
 
@@ -311,10 +331,11 @@ switch ($page1) {
     $SECTION_CATEGORY = $tl["menu"]["m23"];
     $SECTION_SUBCATEGORY_F = $tl["general"]["g52"];
 
-    // Ace Mode
+    // EN: Ace Mode
     $acemode = 'php';
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $template = 'editfiles.php';
 
     break;
@@ -323,15 +344,20 @@ switch ($page1) {
     $result = $jakdb->query('UPDATE ' . $jaktable . ' SET value = IF (value = 1, 0, 1) WHERE varname = "styleswitcher_tpl" && groupname = "' . smartsql($page2) . '"');
 
     if (!$result) {
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
       jak_redirect(BASE_URL . 'index.php?p=template&sp=e');
     } else {
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
       jak_redirect(BASE_URL . 'index.php?p=template&sp=s1');
     }
 
     break;
   default:
 
-    // Get the settings
+    // EN: Import important settings for the template from the DB
+    // CZ: Importuj důležité nastavení pro šablonu z DB
     $JAK_SETTING = jak_get_setting('setting');
 
     // Let's go on with the script
@@ -345,8 +371,12 @@ switch ($page1) {
 				WHERE varname IN ("sitestyle")');
 
       if (!$result) {
+        // EN: Redirect page
+        // CZ: Přesměrování stránky
         jak_redirect(BASE_URL . 'index.php?p=template&sp=e');
       } else {
+        // EN: Redirect page
+        // CZ: Přesměrování stránky
         jak_redirect(BASE_URL . 'index.php?p=template&sp=s');
       }
     }
@@ -354,14 +384,16 @@ switch ($page1) {
     // Get all styles in the directory
     $site_style_files = jak_get_site_style('../template/');
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tl["menu"]["m23"];
     $SECTION_DESC = $tl["cmdesc"]["d44"];
 
     // Breadcrumbs sections
     $SECTION_CATEGORY = $tl["menu"]["m23"];
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $template = 'template.php';
 }
 ?>

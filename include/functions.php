@@ -103,6 +103,74 @@ function jak_get_lang_files()
   }
 }
 
+// Check if folder is empty
+function is_dir_empty($dir) {
+  if (!is_readable($dir)) return NULL;
+  $handle = opendir($dir);
+  while (false !== ($entry = readdir($handle))) {
+    if ($entry != "." && $entry != "..") {
+      return FALSE;
+    }
+  }
+  return TRUE;
+}
+
+// Get random image from folder
+function jak_get_random_image($img_path)
+{
+  $img_handle = opendir(APP_PATH . $img_path);
+  $exts = "/(.jpg)|(.jpeg)|(.gif)|(.png)$/i";
+
+  if (is_dir_empty($img_path)) {
+    $img_src = NULL;
+  } else {
+    while (false !== ($img_file = readdir($img_handle))) {
+      if (preg_match($exts, $img_file)) {
+        $img[] = $img_file;
+      }
+    }
+
+    mt_srand();
+    $len = count($img) - 1;
+    $index = mt_rand(0, $len);
+    if (isset($img[$index])) {
+      $img_src = $img_path . $img[$index];
+    } else {
+      $img_src = NULL;
+    }
+  }
+
+  return $img_src;
+  closedir($img_handle);
+
+}
+
+// Get random line from text file
+function jak_get_random__line($fileName, $maxLineLength = 4096) {
+  $handle = @fopen($fileName, "r");
+  if ($handle) {
+    $random_line = null;
+    $line = null;
+    $count = 0;
+    while (($line = fgets($handle, $maxLineLength)) !== false) {
+      $count++;
+      // P(1/$count) probability of picking current line as random line
+      if(rand() % $count == 0) {
+        $random_line = $line;
+      }
+    }
+    if (!feof($handle)) {
+      echo "Error: unexpected fgets() fail\n";
+      fclose($handle);
+      return null;
+    } else {
+      fclose($handle);
+    }
+    $random_line = str_replace("\r\n", '', $random_line);
+    return $random_line;
+  }
+}
+
 // Detect Mobile Browser in a simple way to display videos in html5 or video/template not available message
 function jak_find_browser($useragent, $wap)
 {
@@ -169,6 +237,20 @@ function jak_get_data($id, $table)
     // collect each record into $jakdata
     $jakdata = $row;
   }
+  return $jakdata;
+}
+
+// Get the data per array for galleries
+function jak_get_galleryfacebook($limit, $table){
+
+  global $jakdb;
+  $jakdata = array();
+  $result = $jakdb->query('SELECT * FROM ' . $table . ' ORDER BY id ASC ' . $limit);
+  while ($row = $result->fetch_assoc()) {
+    // collect each record into $_data
+    $jakdata[] = $row;
+  }
+
   return $jakdata;
 }
 
@@ -602,4 +684,27 @@ function jak_editcode($matches)
   return str_replace($matches[1], htmlspecialchars($matches[1]), $matches[0]);
 }
 
+// Convert size units
+function formatSizeUnits($bytes) {
+  if ($bytes >= 1073741824) {
+    $bytes = number_format($bytes / 1073741824, 2) . ' GB';
+  }
+  elseif ($bytes >= 1048576) {
+    $bytes = number_format($bytes / 1048576, 2) . ' MB';
+  }
+  elseif ($bytes >= 1024) {
+    $bytes = number_format($bytes / 1024, 2) . ' kB';
+  }
+  elseif ($bytes > 1) {
+    $bytes = $bytes . ' bytes';
+  }
+  elseif ($bytes == 1) {
+    $bytes = $bytes . ' byte';
+  }
+  else {
+    $bytes = '0 bytes';
+  }
+
+  return $bytes;
+}
 ?>

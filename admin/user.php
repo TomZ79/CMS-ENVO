@@ -1,12 +1,15 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
-// Check if the user has access to this file
+// EN: Check if the user has access to this file
+// CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !$JAK_MODULES) jak_redirect(BASE_URL);
 
-// All the tables we need for this plugin
+// EN: Settings all the tables we need for our work
+// CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = DB_PREFIX . 'user';
 $jakfield = 'username';
 
@@ -73,6 +76,8 @@ switch ($page1) {
         $rowid = $jakdb->jak_last_id();
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=user&sp=newuser&ssp=e');
         } else {
 
@@ -82,6 +87,8 @@ switch ($page1) {
             mkdir($newuserpath, 0777);
             copy("../" . JAK_FILES_DIRECTORY . "/index.html", $newuserpath . "/index.html");
           }
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=user&sp=edit&ssp=' . $rowid . '&sssp=s');
         }
       } else {
@@ -94,11 +101,13 @@ switch ($page1) {
     // Get the usergroups
     $JAK_USERGROUP_ALL = jak_get_usergroup_all('usergroup');
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tl["cmenu"]["c2"];
     $SECTION_DESC = $tl["cmdesc"]["d4"];
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $template = 'newuser.php';
 
     break;
@@ -121,8 +130,12 @@ switch ($page1) {
             }
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=user&sp=e');
             } else {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=user&sp=s');
             }
 
@@ -142,8 +155,12 @@ switch ($page1) {
             }
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=user&sp=e');
             } else {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=user&sp=s');
             }
 
@@ -184,8 +201,12 @@ switch ($page1) {
             }
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=user&sp=e');
             } else {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=user&sp=s');
             }
 
@@ -229,8 +250,12 @@ switch ($page1) {
             }
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=user&sp=e');
             } else {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=user&sp=s');
             }
 
@@ -261,11 +286,13 @@ switch ($page1) {
         // Get all usergroup's
         $JAK_USERGROUP_ALL = jak_get_usergroup_all('usergroup');
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tl["menu"]["m3"];
         $SECTION_DESC = str_replace("%s", $tl["menu"]["m3"], $tl["cmdesc"]['d3']);
 
-        // get the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $template = 'searchuser.php';
 
         break;
@@ -295,11 +322,13 @@ switch ($page1) {
         $JAK_USER_ALL = $user;
         $JAK_USERGROUP_ALL = jak_get_usergroup_all('usergroup');
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tl["menu"]["m3"];
         $SECTION_DESC = str_replace("%s", $tl["menu"]["m3"], $tl["cmdesc"]['d3']);
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $template = 'user.php';
 
         break;
@@ -310,11 +339,17 @@ switch ($page1) {
           $result = $jakdb->query('UPDATE ' . $jaktable . ' SET access = IF (access = 1, 0, 1) WHERE id = ' . smartsql($page2));
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=user&sp=e');
           } else {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=user&sp=s');
           }
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=user&sp=edp');
         }
 
@@ -337,8 +372,12 @@ switch ($page1) {
           $mail->MsgHTML($body);
 
           if ($mail->Send()) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=user&sp=s');
           } else {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=user&sp=e');
           }
 
@@ -347,6 +386,8 @@ switch ($page1) {
           $result1 = $jakdb->query('UPDATE ' . DB_PREFIX . 'user SET access = 1 WHERE id = ' . smartsql($page2));
 
           if (!$result1) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=user&sp=e');
           } else {
 
@@ -359,6 +400,8 @@ switch ($page1) {
             $mail->MsgHTML($body);
             $mail->Send();
 
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=user&sp=s');
           }
 
@@ -388,11 +431,17 @@ switch ($page1) {
             // Update database
             $result = $jakdb->query('UPDATE ' . $jaktable . ' SET password = "' . hash_hmac('sha256', $password, DB_PASS_HASH) . '" WHERE id = ' . $row["id"]);
 
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=user&sp=s');
           } else {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=user&sp=e');
           }
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=user&sp=edp');
         }
 
@@ -421,12 +470,23 @@ switch ($page1) {
           }
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - chybné
             jak_redirect(BASE_URL . 'index.php?p=user&sp=e');
           } else {
-            jak_redirect(BASE_URL . 'index.php?p=user&sp=s');
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - úspěšné
+            /*
+            NOTIFIKACE:
+            'sp=s'   - Záznam úspěšně uložen
+            'ssp=s'  - Zázanm úspěšně odstraněn
+            */
+            jak_redirect(BASE_URL . 'index.php?p=user&sp=s&ssp=s');
           }
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=user&sp=edp');
         }
 
@@ -613,6 +673,8 @@ switch ($page1) {
 			WHERE id = ' . smartsql($page2));
 
               if (!$result) {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=user&sp=edit&ssp=' . $page2 . '&sssp=e');
               } else {
                 // Now do all the dirty work if we changed the username, also check if we have more then one language installed
@@ -626,6 +688,9 @@ switch ($page1) {
                     }
 
                 }
+
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=user&sp=edit&ssp=' . $page2 . '&sssp=s');
               }
 
@@ -654,13 +719,18 @@ switch ($page1) {
 
           }
 
-          // Title and Description
+          // EN: Title and Description
+          // CZ: Titulek a Popis
           $SECTION_TITLE = $tl["cmenu"]["c3"];
           $SECTION_DESC = str_replace("%s", $JAK_FORM_DATA["username"], $tl["cmdesc"]['d3']);
 
+          // EN: Load the template
+          // CZ: Načti template (šablonu)
           $template = 'edituser.php';
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=user&sp=ene');
         }
 
@@ -681,8 +751,12 @@ switch ($page1) {
             }
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=user&sp=e');
             } else {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=user&sp=s');
             }
 
@@ -702,8 +776,12 @@ switch ($page1) {
             }
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=user&sp=e');
             } else {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=user&sp=s');
             }
 
@@ -744,8 +822,12 @@ switch ($page1) {
             }
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=user&sp=e');
             } else {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=user&sp=s');
             }
 
@@ -786,9 +868,18 @@ switch ($page1) {
             }
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky s notifikací - chybné
               jak_redirect(BASE_URL . 'index.php?p=user&sp=e');
             } else {
-              jak_redirect(BASE_URL . 'index.php?p=user&sp=s');
+              // EN: Redirect page
+              // CZ: Přesměrování stránky s notifikací - úspěšné
+              /*
+              NOTIFIKACE:
+              'sp=s'   - Záznam úspěšně uložen
+              'ssp=s'  - Zázanm úspěšně odstraněn
+              */
+              jak_redirect(BASE_URL . 'index.php?p=user&sp=s&ssp=s');
             }
 
           }
@@ -817,11 +908,13 @@ switch ($page1) {
           $JAK_USER_ALL_APPROVE[] = array('id' => $rowa['id'], 'usergroupid' => $rowa['usergroupid'], 'username' => $rowa['username'], 'email' => $rowa['email'], 'access' => $rowa['access']);
         }
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tl["menu"]["m3"];
         $SECTION_DESC = str_replace("%s", $tl["menu"]["m3"], $tl["cmdesc"]['d3']);
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $template = 'user.php';
     }
 }

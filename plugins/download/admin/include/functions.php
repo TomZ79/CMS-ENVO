@@ -43,7 +43,7 @@ function jak_get_download_comments($limit, $jakvar1, $jakvar2)
   return $jakdata;
 }
 
-// get local download files
+// Get local download files
 function jak_get_download_files($path)
 {
   if (is_dir($path)) {

@@ -21,8 +21,7 @@
             }
             ?>
             <div class="form-group">
-              <textarea id="jak_file1" name="jak_file1" rows="8" placeholder="<?php echo $tlxml["xmlseo"]["d4"]; ?>"
-                        class="form-control" disabled><?php echo htmlspecialchars($content); ?></textarea>
+              <textarea id="jak_file1" name="jak_file1" rows="8" placeholder="<?php echo $tlxml["xmlseo"]["d4"]; ?>" class="form-control" disabled><?php echo htmlspecialchars($content); ?></textarea>
             </div>
           </div>
           <div class="box-footer">

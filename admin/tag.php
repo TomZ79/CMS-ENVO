@@ -1,12 +1,15 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
-// Check if the user has access to this file
+// EN: Check if the user has access to this file
+// CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSTAGS)) jak_redirect(BASE_URL);
 
-// All the tables we need for this plugin
+// EN: Settings all the tables we need for our work
+// CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = DB_PREFIX . 'tags';
 $jaktable1 = DB_PREFIX . 'tagcloud';
 $jaktable2 = DB_PREFIX . 'pagesgrid';
@@ -30,12 +33,23 @@ switch ($page1) {
           $result1 = $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE tag = "' . smartsql($page3) . '"');
 
           if (!$result || !$result1) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - chybné
             jak_redirect(BASE_URL . 'index.php?p=tags&sp=cloud&ssp=e');
           } else {
-            jak_redirect(BASE_URL . 'index.php?p=tags&sp=cloud&ssp=s');
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - úspěšné
+            /*
+            NOTIFIKACE:
+            'ssp=s'   - Záznam úspěšně uložen
+            'sssp=s'  - Zázanm úspěšně odstraněn
+            */
+            jak_redirect(BASE_URL . 'index.php?p=tags&sp=cloud&ssp=s&sssp=s');
           }
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=tags&sp=cloud&ssp=ene');
         }
 
@@ -43,18 +57,21 @@ switch ($page1) {
       default:
         define('TAG_DELETE_CLOUD', $tl['tag']['al']);
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tl["menu"]["m20"];
         $SECTION_DESC = $tl["cmdesc"]["d38"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $template = 'tagcloud.php';
     }
 
     break;
   case 'setting':
 
-    // Important template Stuff
+    // EN: Import important settings for the template from the DB
+    // CZ: Importuj důležité nastavení pro šablonu z DB
     $JAK_SETTING = jak_get_setting('tags');
 
     // Let's go on with the script
@@ -168,8 +185,12 @@ switch ($page1) {
         }
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=tags&sp=setting&ssp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=tags&sp=setting&ssp=s');
         }
       } else {
@@ -205,18 +226,20 @@ switch ($page1) {
     $JAK_FORM_DATA["title"] = $jkv["tagtitle"];
     $JAK_FORM_DATA["content"] = $jkv["tagdesc"];
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tl["menu"]["m2"];
     $SECTION_DESC = $tl["cmdesc"]["d39"];
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $template = 'tagsetting.php';
 
     break;
   default:
 
     // Let's go on with the script
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jak_delete_tag'])) {
       $defaults = $_POST;
 
       if (isset($defaults['delete'])) {
@@ -228,7 +251,14 @@ switch ($page1) {
           JAK_tags::jakDeleteonetag($tag);
         }
 
-        jak_redirect(BASE_URL . 'index.php?p=tags&sp=s');
+        // EN: Redirect page
+        // CZ: Přesměrování stránky s notifikací - úspěšné
+        /*
+        NOTIFIKACE:
+        'sp=s'   - Záznam úspěšně uložen
+        'ssp=s'  - Zázanm úspěšně odstraněn
+        */
+        jak_redirect(BASE_URL . 'index.php?p=tags&sp=s&ssp=s');
 
       }
     }
@@ -281,14 +311,18 @@ switch ($page1) {
           }
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=tags');
         }
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tl["menu"]["t"];
         $SECTION_DESC = $tl["cmdesc"]["d38"];
 
-        // Get the template, same from the pm but modified... :)
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $template = 'tag.php';
 
         break;
@@ -298,9 +332,13 @@ switch ($page1) {
 
           JAK_tags::jakLocktag($page2);
 
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=tags&sp=s');
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=tags&sp=ene');
         }
 
@@ -310,9 +348,18 @@ switch ($page1) {
 
           JAK_tags::jakDeleteonetag($page2);
 
-          jak_redirect(BASE_URL . 'index.php?p=tags&sp=s');
+          // EN: Redirect page
+          // CZ: Přesměrování stránky s notifikací - úspěšné
+          /*
+          NOTIFIKACE:
+          'sp=s'   - Záznam úspěšně uložen
+          'ssp=s'  - Zázanm úspěšně odstraněn
+          */
+          jak_redirect(BASE_URL . 'index.php?p=tags&sp=s&ssp=s');
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=tags&sp=ene');
         }
         break;
@@ -334,11 +381,13 @@ switch ($page1) {
           $JAK_TAG_ALL = jak_get_tag($tags->limit, false, $jakplugins->jakAdmintag(), false);
         }
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tl["menu"]["t"];
         $SECTION_DESC = $tl["cmdesc"]["d38"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $template = 'tag.php';
     }
 }

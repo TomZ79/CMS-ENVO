@@ -1,4 +1,4 @@
-<?php include_once "header.php"; ?>
+<?php include "header.php"; ?>
 
   <div class="row">
     <div class="col-md-12">
@@ -48,6 +48,7 @@
     [new]  Add Bootstrap Tooltip to Action icons
     [new]  Add new plugin for scrolling vertical menu (Perfect ScrollBar)
     [new]  Add new plugin Bootbox
+    [new]  Add new button for saving forms
 
     // # List of updated components
     // ------------------------------
@@ -348,4 +349,4 @@
     });
   </script>
 
-<?php include_once "footer.php"; ?>
+<?php include "footer.php"; ?>

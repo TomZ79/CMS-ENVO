@@ -30,6 +30,26 @@
   </script>
 <?php } ?>
 
+<?php if ($page2 == "s") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?php echo $tl["notification"]["n2"]; ?>',
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000,
+      });
+    }, 2000);
+  </script>
+<?php } ?>
+
+<?php if (isset($JAK_FAQ_ALL) && is_array($JAK_FAQ_ALL)) { ?>
+
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="box">
       <div class="box-body no-padding">
@@ -64,25 +84,23 @@
               </th>
               <th></th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tlf["faq"]["al"]; ?>'))return false;">
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tlf["faq"]["al"]; ?>">
                   <i class="fa fa-trash-o"></i>
                 </button>
               </th>
             </tr>
             </thead>
-            <?php if (isset($JAK_FAQ_ALL) && is_array($JAK_FAQ_ALL)) foreach ($JAK_FAQ_ALL as $v) { ?>
+            <?php foreach ($JAK_FAQ_ALL as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
                 <td><input type="checkbox" name="jak_delete_faq[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
                 </td>
                 <td><a href="index.php?p=faq&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a>
                 </td>
-                <td><?php if ($v["catid"] != '0') {
-                    if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $z) {
-                      if ($v["catid"] == $z["id"]) { ?><a
-                        href="index.php?p=faq&amp;sp=showcat&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a><?php }
-                    }
-                  } else { ?><?php echo $tl["general"]["g24"]; ?><?php } ?></td>
+                <td><?php if ($v["catid"] != '0') { if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $z) { if ($v["catid"] == $z["id"]) { ?>
+                    <a href="index.php?p=faq&amp;sp=showcat&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a>
+                  <?php } } } else { ?><?php echo $tl["general"]["g24"]; ?><?php } ?>
+                </td>
                 <td><?php echo $v["time"]; ?></td>
                 <td><?php echo $v["hits"]; ?></td>
                 <td>
@@ -107,6 +125,14 @@
       </div>
     </div>
   </form>
+
+<?php } else { ?>
+
+  <div class="alert bg-info">
+    <?php echo $tl["errorpage"]["data"]; ?>
+  </div>
+
+<?php } ?>
 
   <div class="icon_legend">
     <h3><?php echo $tl["icons"]["i"]; ?></h3>

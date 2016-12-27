@@ -51,13 +51,22 @@ if ($page3 == "e") { ?>
 <?php } ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+    <!-- Fixed Button for save form -->
+    <div class="savebutton">
+      <button type="submit" name="save" class="btn btn-primary button">
+        <i class="fa fa-save margin-right-5"></i>
+        <?php echo $tl["general"]["g20"]; ?> !!
+      </button>
+    </div>
+
+    <!-- Form Content -->
     <div class="row">
       <div class="col-md-6">
         <div class="box box-danger">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tlum["um"]["d"]; ?></h3>
           </div>
-          <div class="box-body" style="height: 111px;">
+          <div class="box-body boxbody-height110">
             <div class="form-group no-margin<?php if (isset($errors["e1"]) || isset($errors["e2"])) echo " has-error"; ?>">
               <input class="form-control" type="text" name="jak_oldurl" value="<?php if (isset($_REQUEST["jak_oldurl"])) echo $_REQUEST["jak_oldurl"]; ?>"/>
             </div>
@@ -74,7 +83,7 @@ if ($page3 == "e") { ?>
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tlum["um"]["d1"]; ?></h3>
           </div>
-          <div class="box-body">
+          <div class="box-body boxbody-height110">
             <div class="form-group no-margin<?php if (isset($errors["e1"]) || isset($errors["e3"])) echo " has-error"; ?>">
               <input class="form-control" type="text" name="jak_newurl" id="jak_newurl" value="<?php if (isset($_REQUEST["jak_newurl"])) echo $_REQUEST["jak_newurl"]; ?>"/>
             </div>

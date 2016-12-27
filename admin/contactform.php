@@ -1,12 +1,15 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
-// Check if the user has access to this file
+// EN: Check if the user has access to this file
+// CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !$JAK_MODULEM) jak_redirect(BASE_URL);
 
-// All the tables we need for this plugin
+// EN: Settings all the tables we need for our work
+// CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = DB_PREFIX . 'contactform';
 $jaktable1 = DB_PREFIX . 'contactoptions';
 
@@ -63,8 +66,12 @@ switch ($page1) {
         }
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=contactform&sp=newcontact&ssp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=contactform&sp=edit&ssp=' . $rowid . '&sssp=s');
         }
       } else {
@@ -74,11 +81,13 @@ switch ($page1) {
       }
     }
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tl["cform"]["c"];
     $SECTION_DESC = $tl["cform"]["c4"];
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $template = 'newcontactform.php';
 
     break;
@@ -97,9 +106,12 @@ switch ($page1) {
         }
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=contactform&sp=e');
         } else {
-
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=contactform&sp=s');
         }
 
@@ -117,8 +129,12 @@ switch ($page1) {
         }
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=contactform&sp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=contactform&sp=s');
         }
 
@@ -132,8 +148,12 @@ switch ($page1) {
         $result = $jakdb->query('UPDATE ' . $jaktable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page2) . '"');
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=contactform&sp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=contactform&sp=s');
         }
 
@@ -146,12 +166,18 @@ switch ($page1) {
           $jakdb->query('DELETE FROM ' . $jaktable1 . ' WHERE formid = "' . smartsql($page2) . '"');
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=contactform&sp=w');
           } else {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=contactform&sp=s');
           }
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=contactform&sp=ene');
         }
         break;
@@ -244,8 +270,12 @@ switch ($page1) {
               }
 
               if (!$result) {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=contactform&sp=edit&ssp=' . $page2 . '&sssp=e');
               } else {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=contactform&sp=edit&ssp=' . $page2 . '&sssp=s');
               }
 
@@ -258,14 +288,18 @@ switch ($page1) {
           $JAK_FORM_DATA = jak_get_data($page2, $jaktable);
           $JAK_CONTACTOPTION_ALL = jak_get_contact_options($jaktable1, $page2);
 
-          // Title and Description
+          // EN: Title and Description
+          // CZ: Titulek a Popis
           $SECTION_TITLE = $tl["cform"]["c15"];
           $SECTION_DESC = $tl["cform"]["c22"];
 
-          // Get the template
+          // EN: Load the template
+          // CZ: Načti template (šablonu)
           $template = 'editcontactform.php';
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=contactform&sp=ene');
         }
         break;
@@ -287,11 +321,13 @@ switch ($page1) {
         // Get all contact forms
         $JAK_CONTACT_ALL = jak_get_page_info($jaktable, $pages->limit);
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tl["menu"]["m26"];
         $SECTION_DESC = $tl["cform"]["c1"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $template = 'contactform.php';
 
     }

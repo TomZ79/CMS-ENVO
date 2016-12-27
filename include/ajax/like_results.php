@@ -4,9 +4,12 @@ header('Content-Type: text/event-stream');
 header("Cache-Control: no-cache");
 header("Expires: Sat, 6 May 1998 03:10:00 GMT");
 
+// EN: Include the config file ...
+// CZ: Vložení konfiguračního souboru ...
 if (!file_exists('../../config.php')) die('ajax/[like_results.php] config.php not exist');
 require_once '../../config.php';
 
+//
 if (isset($_GET['aid']) && is_numeric($_GET['aid'])) {
 
   $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'like_counter WHERE btnid = "' . smartsql($_GET['aid']) . '" AND locid = "' . smartsql($_GET['locid']) . '"');

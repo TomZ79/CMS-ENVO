@@ -28,6 +28,26 @@
   </script>
 <?php } ?>
 
+<?php if ($page2 == "s") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?php echo $tl["notification"]["n2"]; ?>',
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000,
+      });
+    }, 2000);
+  </script>
+<?php } ?>
+
+<?php if (isset($JAK_BELOWHEADER_ALL) && is_array($JAK_BELOWHEADER_ALL)) { ?>
+
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="box">
       <div class="box-body no-padding">
@@ -41,15 +61,17 @@
               <th><?php echo $tl["page"]["p2"]; ?></th>
               <th><?php echo $tl["general_cmd"]["g9"]; ?></th>
               <th>
-                <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs"><i class="fa fa-check"></i></button>
+                <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
+                  <i class="fa fa-lock"></i>
+                </button>
               </th>
               <th></th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tlbh["bh"]["al"]; ?>'))return false;"><i class="fa fa-trash-o"></i></button>
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tlbh["bh"]["al"]; ?>"><i class="fa fa-trash-o"></i></button>
               </th>
             </tr>
             </thead>
-            <?php if (isset($JAK_BELOWHEADER_ALL) && is_array($JAK_BELOWHEADER_ALL)) foreach ($JAK_BELOWHEADER_ALL as $v) { ?>
+            <?php foreach ($JAK_BELOWHEADER_ALL as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
                 <td>
@@ -63,7 +85,7 @@
                   if ($v["active"] == 1) {
                     echo $tl["general_cmd"]["g10"];
                   } else {
-                    echo $tl["general_cmd"]["g11"];
+                    echo $tl["general_cmd"]["g11"] . '<span class="small">  - ' . $tl["general_cmd"]["g12"] . '</span>';
                   }
                   ?>
                 </td>
@@ -89,6 +111,14 @@
       </div>
     </div>
   </form>
+
+<?php } else { ?>
+
+  <div class="alert bg-info">
+    <?php echo $tl["errorpage"]["data"]; ?>
+  </div>
+
+<?php } ?>
 
   <div class="icon_legend">
     <h3><?php echo $tl["icons"]["i"]; ?></h3>

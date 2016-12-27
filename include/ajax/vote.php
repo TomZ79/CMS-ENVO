@@ -1,8 +1,11 @@
 <?php
 
+// EN: Include the config file ...
+// CZ: Vložení konfiguračního souboru ...
 if (!file_exists('../../config.php')) die('ajax/[vote.php] config.php not exist');
 require_once '../../config.php';
 
+//
 $vote = strip_tags(smartsql($_POST['vote']));
 $voteid = $_POST['voteid'];
 $commid = $_POST['votecommentid'];

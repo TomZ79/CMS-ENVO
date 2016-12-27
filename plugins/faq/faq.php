@@ -1,6 +1,7 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_PREVENT_ACCESS')) die('No direct file access!');
 
 // Include the comment class file
@@ -9,6 +10,8 @@ require_once 'class/class.comment.php';
 // Functions we need for this plugin
 include_once 'functions.php';
 
+// EN: Settings all the tables we need for our work
+// CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = DB_PREFIX . 'faq';
 $jaktable1 = DB_PREFIX . 'faqcategories';
 $jaktable2 = DB_PREFIX . 'faqcomments';
@@ -84,6 +87,7 @@ switch ($page1) {
 
       $PAGE_TITLE = JAK_PLUGIN_NAME_FAQ . ' - ' . $row['name'];
       $PAGE_CONTENT = $row['content'];
+      $MAIN_DESCRIPTION = $jkv["faqdesc"];
 
       // Get the sort orders for the grid
       $JAK_HOOK_SIDE_GRID = false;
@@ -104,7 +108,8 @@ switch ($page1) {
       $PAGE_KEYWORDS = str_replace(" ", "", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
       $PAGE_DESCRIPTION = jak_cut_text($PAGE_CONTENT, 155, '');
 
-      // get the standard template
+      // EN: Load the template
+      // CZ: Načti template (šablonu)
       $plugin_template = 'plugins/faq/template/' . $jkv["sitestyle"] . '/faq.php';
 
     } else {
@@ -223,6 +228,7 @@ switch ($page1) {
           $PAGE_ID = $row['id'];
           $PAGE_TITLE = $row['title'];
           $PAGE_CONTENT = jak_secure_site($row['content']);
+          $MAIN_DESCRIPTION = $jkv["faqdesc"];
           $SHOWTITLE = $row['showtitle'];
           $SHOWDATE = $row['showdate'];
           $SHOWVOTE = $row['showvote'];
@@ -315,11 +321,12 @@ switch ($page1) {
     $PAGE_DESCRIPTION = jak_cut_text($PAGE_CONTENT, 155, '');
 
 
-    // get the standard template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $plugin_template = 'plugins/faq/template/' . $jkv["sitestyle"] . '/faqart.php';
 
     break;
-  case 'del';
+  case 'del':
 
     if (is_numeric($page2) && is_numeric($page3) && jak_row_exist($page2, $jaktable2)) {
 
@@ -387,7 +394,8 @@ switch ($page1) {
         $RWEB = $row['web'];
         $RCONT = jak_edit_safe_userpost($row['message']);
 
-        // get the standard template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $template = 'editpost.php';
 
       } else {
@@ -446,6 +454,7 @@ switch ($page1) {
     // Check if we have a language and display the right stuff
     $PAGE_TITLE = $jkv["faqtitle"];
     $PAGE_CONTENT = $jkv["faqdesc"];
+    $MAIN_DESCRIPTION = $jkv["faqdesc"];
 
     // Get the url session
     $_SESSION['jak_lastURL'] = $backtofaq;
@@ -470,7 +479,8 @@ switch ($page1) {
       $PAGE_DESCRIPTION = jak_cut_text($PAGE_CONTENT, 155, '');
     }
 
-    // get the standard template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $plugin_template = 'plugins/faq/template/' . $jkv["sitestyle"] . '/faq.php';
 
 }

@@ -1,9 +1,11 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
-// Check if the user has access to this file
+// EN: Check if the user has access to this file
+// CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, $jkv["accessmanage"])) jak_redirect(BASE_URL);
 
 require_once('class/xml.sitemap.generator.php');
@@ -359,13 +361,15 @@ if (isset($_POST['action']) && $_POST['action'] == 'form1') {
 	}
 }
 
-// Title and Description
+// EN: Title and Description
+// CZ: Titulek a Popis
 $SECTION_TITLE = $tlxml["xmlseo"]["m1"];
 $SECTION_DESC = $tlxml["xmlseo"]["t"];
 
 // Breadcrumbs sections
 $SECTION_CATEGORY = $tlxml["xmlseo"]["m1"];
 
-// Call the template
+// EN: Load the template
+// CZ: Načti template (šablonu)
 $plugin_template = 'plugins/xml_seo/admin/template/xml_seo.php';
 ?>

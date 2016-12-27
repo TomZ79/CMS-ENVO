@@ -1,19 +1,24 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
-// Check if the user has access to this file
+// EN: Check if the user has access to this file
+// CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !$JAK_MODULES) jak_redirect(BASE_URL);
 
-// Important DB Tables
+// EN: Settings all the tables we need for our work
+// CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = DB_PREFIX . 'categories';
 $jaktable1 = DB_PREFIX . 'clickstat';
 
-// reset
+// EN: Reset Array (output the error in a array)
+// CZ: Reset Pole (výstupní chyby se ukládají do pole)
 $success = array();
 
-// Important template Stuff
+// EN: Import important settings for the template from the DB
+// CZ: Importuj důležité nastavení pro šablonu z DB
 $JAK_SETTING = jak_get_setting('setting');
 
 // Get the php hook for setting top before language control
@@ -29,6 +34,8 @@ if ($page1 == "trunheat") {
 
   $result = $jakdb->query('TRUNCATE ' . $jaktable1);
 
+  // EN: Redirect page
+  // CZ: Přesměrování stránky
   jak_redirect(BASE_URL . 'index.php?p=setting&sp=s');
 
 }
@@ -126,8 +133,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     	WHERE varname IN ("email","sitehttps","lang","langdirection","showloginside","loginside","useravatwidth","useravatheight","userpath","printme","shortmsg","dateformat","timeformat","time_ago_show","timezoneserver","hvm","adv_editor","usr_smilies","contactform","shownews","rss","rssitem","adminpagemid","adminpageitem","ip_block","email_block","username_block","analytics","heatmap","smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password","acetheme","acetabSize","acegutter","aceinvisible","acewraplimit","aceactiveline")');
 
       if (!$result) {
+        // EN: Redirect page
+        // CZ: Přesměrování stránky
         jak_redirect(BASE_URL . 'index.php?p=setting&sp=e');
       } else {
+        // EN: Redirect page
+        // CZ: Přesměrování stránky
         jak_redirect(BASE_URL . 'index.php?p=setting&sp=s');
       }
     } else {
@@ -205,10 +216,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $acp_lang_files = jak_get_lang_files(true);
 $lang_files = jak_get_lang_files(false);
 
-// Title and Description
+// EN: Title and Description
+// CZ: Titulek a Popis
 $SECTION_TITLE = $tl["menu"]["m2"];
 $SECTION_DESC = $tl["cmdesc"]["d2"];
 
-// Call the template
+// EN: Load the template
+// CZ: Načti template (šablonu)
 $template = 'setting.php';
+
+
 ?>

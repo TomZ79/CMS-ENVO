@@ -30,6 +30,8 @@
   </script>
 <?php } ?>
 
+<?php if (isset($JAK_NEWSLETTER_ALL) && is_array($JAK_NEWSLETTER_ALL)) { ?>
+
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="box">
       <div class="box-body no-padding">
@@ -47,13 +49,13 @@
               <th></th>
               <th></th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tlnl["nletter"]["al"]; ?>'))return false;">
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tlnl["nletter"]["al"]; ?>">
                   <i class="fa fa-trash-o"></i>
                 </button>
               </th>
             </tr>
             </thead>
-            <?php if (isset($JAK_NEWSLETTER_ALL) && is_array($JAK_NEWSLETTER_ALL)) foreach ($JAK_NEWSLETTER_ALL as $v) { ?>
+            <?php foreach ($JAK_NEWSLETTER_ALL as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
                 <td><input type="checkbox" name="jak_delete_newsletter[]" class="highlight" value="<?php echo $v["id"]; ?>"/></td>
@@ -94,6 +96,14 @@
       </div>
     </div>
   </form>
+
+<?php } else { ?>
+
+  <div class="alert bg-info">
+    <?php echo $tl["errorpage"]["data"]; ?>
+  </div>
+
+<?php } ?>
 
   <div class="icon_legend">
     <h3><?php echo $tl["icons"]["i"]; ?></h3>

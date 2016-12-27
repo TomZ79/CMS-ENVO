@@ -3,7 +3,8 @@
 <!-- START HOME SECTION -->
     <li class="treeview<?php if ($page == '' || $page == 'site' || $page == 'logs' || $page == 'searchlog' || $page == 'changelog') echo ' active'; ?>">
       <a href="javascript:void(0)">
-        <i class="fa fa-home"></i> <?php echo $tl["menu"]["mh"]; ?>
+        <i class="fa fa-home"></i>
+        <span><?php echo $tl["menu"]["mh"]; ?></span>
         <i class="fa fa-angle-left pull-right"></i>
       </a>
 
@@ -38,9 +39,11 @@
 <!-- END HOME SECTION -->
 
 <!-- START GENERAL SETTINGS SECTION -->
-    <li class="treeview<?php if ($page == 'setting' || $page == 'mediasharing' || $page == 'plugins' || $page == 'template' || $page == 'maintenance' || $page == 'version-control') echo " active"; ?>">
+    <li class="treeview<?php if ($page == 'setting' || $page == 'mediasharing' || $page == 'settingfacebook' || $page == 'facebookgallery'  || $page == 'plugins' || $page == 'template' || $page == 'maintenance' || $page == 'version-control') echo " active"; ?>">
       <a href="javascript:void(0)">
-        <i class="fa fa-cogs"></i> <?php echo $tl["menu"]["m"]; ?> <i class="fa fa-angle-left pull-right"></i>
+        <i class="fa fa-cogs"></i>
+        <span><?php echo $tl["menu"]["m"]; ?></span>
+        <i class="fa fa-angle-left pull-right"></i>
       </a>
 
       <ul class="treeview-menu">
@@ -55,6 +58,30 @@
             <i class="fa fa-circle-o"></i> <?php echo $tl["cmenumenu_cmd"]["c2"]; ?>
           </a>
         </li>
+        <li class="list-divider"></li>
+
+        <li<?php if ($page == 'settingfacebook') echo ' class="active"'; ?>>
+          <a href="index.php?p=settingfacebook">
+            <i class="fa fa-circle-o"></i> <?php echo $tl["menu"]["m30"]; ?>
+          </a>
+        </li>
+        <li<?php if ($page == 'facebookgallery') echo ' class="active"'; ?>>
+          <a href="index.php?p=facebookgallery">
+            <i class="fa fa-circle-o"></i> <?php echo $tl["menu"]["m31"]; ?>
+          </a>
+        </li>
+        <li<?php if ($page1 == 'newfacebook') echo ' class="active"'; ?>>
+          <a href="index.php?p=facebookgallery&amp;sp=newfacebook">
+            <i class="fa fa-circle-o"></i> <?php echo $tl["menu"]["m32"]; ?>
+          </a>
+        </li>
+        <?php if ($page == 'facebookgallery' && $page1 == 'edit') { ?>
+          <li class="active">
+            <a href="index.php?p=facebookgallery&amp;sp=edit&amp;ssp=<?php echo $page2; ?>">
+              <i class="fa fa-circle-o"></i> <?php echo $tl["cmenu"]["c7"]; ?>
+            </a>
+          </li>
+        <?php } ?>
         <li class="list-divider"></li>
 
         <?php if (JAK_SUPERADMINACCESS) { ?>
@@ -133,7 +160,8 @@
   <li class="treeview<?php if ($page == 'user' || $page == 'usergroup' || $page == 'categories' || $page == 'page' || $page == 'contactform' || $page == 'poll' || $page == 'contactform' || $page == 'sitemap' || $page == 'searchsetting' || $page == 'growl' || $page == 'xml_seo' || $page == 'slider' || $page == 'site_editor' || $page == 'belowheader' || $page == 'register-form' || $page == 'urlmapping' || $page == 'owl') echo " active"; ?>">
 
     <a href="javascript:void(0)">
-      <i class="fa fa-files-o"></i> <?php echo $tl["menu"]["m4"]; ?>
+      <i class="fa fa-files-o"></i>
+      <span><?php echo $tl["menu"]["m4"]; ?></span>
       <i class="fa fa-angle-left pull-right"></i>
     </a>
 

@@ -1,12 +1,15 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
-// Check if the user has access to this file
+// EN: Check if the user has access to this file
+// CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSFAQ)) jak_redirect(BASE_URL);
 
-// All the tables we need for this plugin
+// EN: Settings all the tables we need for our work
+// CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = DB_PREFIX . 'faq';
 $jaktable1 = DB_PREFIX . 'faqcategories';
 $jaktable2 = DB_PREFIX . 'faqcomments';
@@ -120,6 +123,8 @@ switch ($page1) {
           }
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=faq&sp=new&ssp=e');
           } else {
 
@@ -131,6 +136,9 @@ switch ($page1) {
               JAK_tags::jakInsertags($defaults['jak_tags'], $rowid, JAK_PLUGIN_FAQ, $tagactive);
 
             }
+
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=faq&sp=edit&ssp=' . $rowid . '&sssp=s');
           }
         } else {
@@ -154,11 +162,13 @@ switch ($page1) {
       $JAK_ACTIVE_GRID[] = $grow;
     }
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tlf["faq"]["m2"];
     $SECTION_DESC = $tlf["faq"]["t1"];
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $plugin_template = 'plugins/faq/admin/template/newfaq.php';
 
     break;
@@ -174,8 +184,12 @@ switch ($page1) {
         $result = $jakdb->query('UPDATE ' . $jaktable1 . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page3) . '"');
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=categories&ssp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=categories&ssp=s');
         }
 
@@ -187,12 +201,23 @@ switch ($page1) {
           $result = $jakdb->query('DELETE FROM ' . $jaktable1 . ' WHERE id = "' . smartsql($page3) . '"');
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - chybné
             jak_redirect(BASE_URL . 'index.php?p=faq&sp=categories&ssp=e');
           } else {
-            jak_redirect(BASE_URL . 'index.php?p=faq&sp=categories&ssp=s');
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - úspěšné
+            /*
+            NOTIFIKACE:
+            'ssp=s'   - Záznam úspěšně uložen
+            'sssp=s'  - Zázanm úspěšně odstraněn
+            */
+            jak_redirect(BASE_URL . 'index.php?p=faq&sp=categories&ssp=s&sssp=s');
           }
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=categories&ssp=eca');
         }
 
@@ -248,8 +273,12 @@ switch ($page1) {
 			WHERE id = ' . smartsql($page3));
 
               if (!$result) {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=faq&sp=categories&ssp=edit&sssp=' . $page3 . '&ssssp=e');
               } else {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=faq&sp=categories&ssp=edit&sssp=' . $page3 . '&ssssp=s');
               }
             } else {
@@ -262,13 +291,18 @@ switch ($page1) {
           $JAK_FORM_DATA = jak_get_data($page3, $jaktable1);
           $JAK_USERGROUP = jak_get_usergroup_all('usergroup');
 
-          // Title and Description
+          // EN: Title and Description
+          // CZ: Titulek a Popis
           $SECTION_TITLE = $tl["cmenu"]["c6"];
           $SECTION_DESC = $tl["cmdesc"]["d6"];
 
+          // EN: Load the template
+          // CZ: Načti template (šablonu)
           $plugin_template = 'plugins/faq/admin/template/editfaqcat.php';
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=categories&ssp=ene');
         }
         break;
@@ -294,7 +328,8 @@ switch ($page1) {
               header('Cache-Control: no-cache');
               die(json_encode(array("status" => 1, "html" => $tl["general"]["g7"])));
             } else {
-              // redirect back to home
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               $_SESSION["successmsg"] = $tl["general"]["g7"];
               jak_redirect(BASE_URL . 'index.php?p=b2b&sp=categories');
             }
@@ -304,7 +339,8 @@ switch ($page1) {
               header('Cache-Control: no-cache');
               die(json_encode(array("status" => 0, "html" => $tl["errorpage"]["sql"])));
             } else {
-              // redirect back to home
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               $_SESSION["errormsg"] = $tl["errorpage"]["sql"];
               jak_redirect(BASE_URL . 'index.php?p=b2b&sp=categories');
             }
@@ -312,8 +348,9 @@ switch ($page1) {
 
         }
 
-        // get the menu
+        // Get the menu
         $result = $jakdb->query('SELECT * FROM ' . $jaktable1 . ' ORDER BY catparent, catorder, name');
+
         // Create a multidimensional array to conatin a list of items and parents
         $mheader = array(
           'items' => array(),
@@ -327,11 +364,19 @@ switch ($page1) {
           $mheader['parents'][$items['catparent']][] = $items['id'];
         }
 
-        // Title and Description
+        // EN: Check if some categories exist
+        // CZ: Kontrola jestli existuje nějaká kategorie
+        if(!empty($mheader['items'])){
+          $JAK_FAQ_CAT_EXIST = '1';
+        }
+
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tlf["faq"]["m"] . ' - ' . $tl["menu"]["m5"];
         $SECTION_DESC = "";
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $plugin_template = 'plugins/faq/admin/template/faqcat.php';
     }
     break;
@@ -389,8 +434,12 @@ switch ($page1) {
         $rowid = $jakdb->jak_last_id();
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=newcategory&ssp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=categories&ssp=edit&sssp=' . $rowid . '&ssssp=s');
         }
       } else {
@@ -400,11 +449,13 @@ switch ($page1) {
       }
     }
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tlf["faq"]["m"] . ' - ' . $tl["cmenu"]["c4"];
     $SECTION_DESC = $tl["cmdesc"]["d8"];
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $plugin_template = 'plugins/faq/admin/template/newfaqcat.php';
 
     break;
@@ -442,8 +493,12 @@ switch ($page1) {
         }
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=comment&ssp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=comment&ssp=s');
         }
 
@@ -459,8 +514,12 @@ switch ($page1) {
         }
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=comment&ssp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=comment&ssp=s');
         }
 
@@ -472,12 +531,15 @@ switch ($page1) {
       case 'approval':
         $JAK_FAQCOM_ALL = jak_get_faq_comments($pages->limit, 'approve', '');
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tlf["faq"]["d20"];
         $SECTION_DESC = $tlf["faq"]["t2"];
 
-        // Get the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $plugin_template = 'plugins/faq/admin/template/faqcomment.php';
+
         break;
       case 'sort':
         if ($page3 == 'faq') {
@@ -485,6 +547,8 @@ switch ($page1) {
         } elseif ($page3 == 'user') {
           $bu = 'userid';
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL);
         }
         $getTotal = jak_get_total($jaktable2, $page4, $bu, '');
@@ -500,13 +564,18 @@ switch ($page1) {
           $JAK_PAGINATE_SORT = $pages->display_pages();
           $JAK_FAQCOM_SORT = jak_get_faq_comments($pages->limit, $page4, $bu);
 
-          // Title and Description
+          // EN: Title and Description
+          // CZ: Titulek a Popis
           $SECTION_TITLE = $tlf["faq"]["d20"];
           $SECTION_DESC = $tlf["faq"]["t2"];
 
-          // Get the template
+          // EN: Load the template
+          // CZ: Načti template (šablonu)
           $plugin_template = 'plugins/faq/admin/template/faqcommentsort.php';
+
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=comment&ssp=ene');
         }
         break;
@@ -518,12 +587,18 @@ switch ($page1) {
           $result = $jakdb->query($sql);
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=faq&sp=comment&ssp=e');
           } else {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=faq&sp=comment&ssp=s');
           }
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=comment&ssp=ene');
         }
 
@@ -535,22 +610,30 @@ switch ($page1) {
           $result = $jakdb->query($sql);
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=faq&sp=comment&ssp=e');
           } else {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=faq&sp=comment&ssp=s');
           }
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=comment&ssp=ene');
         }
         break;
       default:
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tlf["faq"]["d19"];
         $SECTION_DESC = $tlf["faq"]["t2"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $plugin_template = 'plugins/faq/admin/template/faqcomment.php';
     }
 
@@ -689,8 +772,12 @@ switch ($page1) {
         }
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=setting&ssp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=setting&ssp=s');
         }
       } else {
@@ -700,6 +787,8 @@ switch ($page1) {
       }
     }
 
+    // EN: Import important settings for the template from the DB
+    // CZ: Importuj důležité nastavení pro šablonu z DB
     $JAK_SETTING = jak_get_setting('faq');
 
     // Get the sort orders for the grid
@@ -731,11 +820,13 @@ switch ($page1) {
     $JAK_FORM_DATA["title"] = $jkv["faqtitle"];
     $JAK_FORM_DATA["content"] = $jkv["faqdesc"];
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tlf["faq"]["m"] . ' - ' . $tl["menu"]["m2"];
     $SECTION_DESC = $tl["cmdesc"]["d2"];
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $plugin_template = 'plugins/faq/admin/template/faqsetting.php';
 
     break;
@@ -755,8 +846,12 @@ switch ($page1) {
         }
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=trash&ssp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=trash&ssp=s');
         }
 
@@ -775,8 +870,12 @@ switch ($page1) {
         }
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=trash&ssp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=trash&ssp=s');
         }
 
@@ -791,12 +890,15 @@ switch ($page1) {
       $JAK_TRASH_ALL[] = $row;
     }
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tlf["faq"]["d18"];
     $SECTION_DESC = $tlf["faq"]["t2"];
 
-    // Get the template, same from the user
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $plugin_template = 'plugins/faq/admin/template/trash.php';
+
     break;
   case 'quickedit':
     if (jak_row_exist($page2, $jaktable)) {
@@ -817,9 +919,12 @@ switch ($page1) {
 			WHERE id = "' . smartsql($page2) . '"');
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=faq&sp=quickedit&ssp=' . $page2 . '&sssp=e');
           } else {
-
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=faq&sp=quickedit&ssp=' . $page2 . '&sssp=s');
           }
         } else {
@@ -832,9 +937,13 @@ switch ($page1) {
       // Get the data
       $JAK_FORM_DATA = jak_get_data($page2, $jaktable);
 
+      // EN: Load the template
+      // CZ: Načti template (šablonu)
       $template = 'quickedit.php';
 
     } else {
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
       jak_redirect(BASE_URL . 'index.php?p=faq&sp=ene');
     }
     break;
@@ -859,13 +968,18 @@ switch ($page1) {
           $JAK_PAGINATE_SORT = $pages->display_pages();
           $JAK_FAQ_SORT = jak_get_faqs($pages->limit, $page2, $jaktable);
 
-          // Title and Description
+          // EN: Title and Description
+          // CZ: Titulek a Popis
           $SECTION_TITLE = $tlf["faq"]["m1"];
           $SECTION_DESC = $tlf["faq"]["t"];
 
-          // Get the template
+          // EN: Load the template
+          // CZ: Načti template (šablonu)
           $plugin_template = 'plugins/faq/admin/template/faqcatsort.php';
+
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=ene');
         }
         break;
@@ -885,8 +999,12 @@ switch ($page1) {
         JAK_tags::jaklocktags($page2, JAK_PLUGIN_FAQ);
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=s');
         }
 
@@ -903,14 +1021,25 @@ switch ($page1) {
           $result = $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE id = "' . smartsql($page2) . '"');
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - chybné
             jak_redirect(BASE_URL . 'index.php?p=faq&sp=e');
           } else {
             JAK_tags::jakDeletetags($page2, JAK_PLUGIN_FAQ);
 
-            jak_redirect(BASE_URL . 'index.php?p=faq&sp=s');
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - úspěšné
+            /*
+            NOTIFIKACE:
+            'sp=s'   - Záznam úspěšně uložen
+            'ssp=s'  - Zázanm úspěšně odstraněn
+            */
+            jak_redirect(BASE_URL . 'index.php?p=faq&sp=s&ssp=s');
           }
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=ene');
         }
         break;
@@ -1072,6 +1201,8 @@ switch ($page1) {
               }
 
               if (!$result) {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=faq&sp=edit&ssp=' . $page2 . '&sssp=e');
               } else {
 
@@ -1083,6 +1214,9 @@ switch ($page1) {
                   JAK_tags::jakInsertags($defaults['jak_tags'], smartsql($page2), JAK_PLUGIN_FAQ, $tagactive);
 
                 }
+
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=faq&sp=edit&ssp=' . $page2 . '&sssp=s');
               }
 
@@ -1111,13 +1245,18 @@ switch ($page1) {
             $JAK_HOOKS[] = $row;
           }
 
-          // Title and Description
+          // EN: Title and Description
+          // CZ: Titulek a Popis
           $SECTION_TITLE = $tlf["faq"]["m1"];
           $SECTION_DESC = $tlf["faq"]["t3"];
 
+          // EN: Load the template
+          // CZ: Načti template (šablonu)
           $plugin_template = 'plugins/faq/admin/template/editfaq.php';
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=faq&sp=ene');
         }
         break;
@@ -1146,7 +1285,8 @@ switch ($page1) {
 
         $JAK_FAQ_ALL = $faqarray;
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $plugin_template = 'plugins/faq/admin/template/faq.php';
 
         break;
@@ -1178,8 +1318,12 @@ switch ($page1) {
             }
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=faq&sp=e');
             } else {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=faq&sp=s');
             }
 
@@ -1203,16 +1347,25 @@ switch ($page1) {
             }
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky s notifikací - chybné
               jak_redirect(BASE_URL . 'index.php?p=faq&sp=e');
             } else {
-              jak_redirect(BASE_URL . 'index.php?p=faq&sp=s');
+              // EN: Redirect page
+              // CZ: Přesměrování stránky s notifikací - úspěšné
+              /*
+              NOTIFIKACE:
+              'sp=s'   - Záznam úspěšně uložen
+              'ssp=s'  - Zázanm úspěšně odstraněn
+              */
+              jak_redirect(BASE_URL . 'index.php?p=faq&sp=s&ssp=s');
             }
 
           }
 
         }
 
-        // get all faqs out
+        // Get all faqs out
         $getTotal = jak_get_total($jaktable, '', '', '');
 
         if ($getTotal != 0) {
@@ -1228,11 +1381,13 @@ switch ($page1) {
         }
         $JAK_FAQ_ALL = jak_get_faqs($pages->limit, '', $jaktable);
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tlf["faq"]["m1"];
         $SECTION_DESC = $tlf["faq"]["t"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $plugin_template = 'plugins/faq/admin/template/faq.php';
     }
 }

@@ -30,6 +30,8 @@
   <link rel="stylesheet" href="js-plugins/bootstrap-datetimepicker-4/css/bootstrap-datetimepicker.min.css?=<?php echo $jkv["updatetime"];?>" type="text/css" media="screen" />
   <!-- Bootstrap-Select CSS -->
   <link rel="stylesheet" href="js-plugins/bootstrap-select/css/bootstrap-select.min.css?=<?php echo $jkv["updatetime"];?>" type="text/css" media="screen" />
+  <!-- Bootstrap-Iconpicker -->
+  <link rel="stylesheet" href="js-plugins/bootstrap-iconpicker/css/bootstrap-iconpicker.min.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
   <!-- Prism CSS -->
   <link rel="stylesheet" href="js-plugins/prism/prism.css?=<?php echo $jkv["updatetime"];?>" type="text/css" media="screen" />
 
@@ -59,7 +61,6 @@
   <script src="../js/jquery.js?=<?php echo $jkv["updatetime"]; ?>"></script>
   <!-- General function -->
   <script type="text/javascript" src="../js/bootstrap/bootstrap.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
-  <script type="text/javascript" src="../js/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
   <script type="text/javascript" src="js-plugins/moment/moment-with-locales.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
   <!-- Admin App function -->
   <script type="text/javascript" src="js/cms.js?=<?php echo $jkv["updatetime"]; ?>"></script>
@@ -70,11 +71,24 @@
   <!-- Bootstrap-Select JS -->
   <script type="text/javascript" src="js-plugins/bootstrap-select/js/bootstrap-select.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
   <script type="text/javascript" src="js-plugins/bootstrap-select/js/i18n/defaults-cs_CZ.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+  <!-- Bootstrap-Iconpicker -->
+  <script type="text/javascript" src="js-plugins/bootstrap-iconpicker/js/iconset/iconset-fontawesome-4.2.0.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+  <script type="text/javascript" src="js-plugins/bootstrap-iconpicker/js/bootstrap-iconpicker.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
   <!-- Prism JS -->
   <script type="text/javascript" src="js-plugins/prism/prism.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 
   <!-- Custom Admin App function -->
+  <script type="text/javascript" src="../js/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
   <script type="text/javascript" src="js/cms_custom.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+
+  <!-- Jquery Upload Filer -->
+  <script type="text/javascript" src="js-plugins/jquery-filter/js/jquery.filer.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+  <script type="text/javascript" src="js-plugins/jquery-filter/examples/dragdrop/js/custom.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+
+  <link rel="stylesheet" href="js-plugins/jquery-filter/css/jquery.filer.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="js-plugins/jquery-filter/css/themes/jquery.filer-dragdropbox-theme.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
+
+
 
   <!--[if lt IE 9]>
   <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -86,12 +100,18 @@
   } ?>
 
 </head>
-<body class="skin-teal fixed<?php if (!$JAK_PROVED) echo " login-page"; ?> has-detached-right" data-spy="scroll" data-target=".sidebar-detached">
+<body class="skin-teal sidebar-mini fixed<?php if (!$JAK_PROVED) echo " login-page"; ?> has-detached-right" data-spy="scroll" data-target=".sidebar-detached">
 <?php if ($JAK_PROVED) { ?>
 <div class="wrapper">
   <header class="main-header">
     <!-- Logo -->
-    <a class="logo" href="<?php echo BASE_URL_ORIG; ?>" target="_blank"><?php echo $jkv["title"]; ?></a>
+    <a class="logo" href="<?php echo BASE_URL_ORIG; ?>" target="_blank">
+      <!-- Mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini">ACP</span>
+      <!-- Logo for regular state and mobile devices -->
+      <span class="logo-lg"><?php echo $jkv["title"]; ?></span>
+    </a>
+
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
@@ -182,8 +202,8 @@
       <!-- Header - content -->
       <section class="section-header">
         <!-- Title section -->
-        <div class="content-header">
-          <h1><?php echo $SECTION_TITLE;?><small><?php echo $SECTION_DESC;?></small></h1>
+        <div class="content-header" style="height: 60px;">
+          <h1 class="pull-left"><?php echo $SECTION_TITLE;?><small><?php echo $SECTION_DESC;?></small></h1>
         </div>
       </section>
     <?php } ?>

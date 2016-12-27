@@ -1,5 +1,7 @@
 <?php
 
+// EN: Include the config file ...
+// CZ: Vložení konfiguračního souboru ...
 if (!file_exists('../../config.php')) die('[index.php] config.php not found');
 require_once '../../config.php';
 

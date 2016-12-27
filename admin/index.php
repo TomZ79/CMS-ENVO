@@ -6,6 +6,8 @@ define('JAK_ADMIN_PREVENT_ACCESS', 1);
 // Access not allowed
 $JAK_PROVED = false;
 
+// EN: Include the config file ...
+// CZ: Vložení konfiguračního souboru ...
 if (!file_exists('config.php')) die('[index.php] config.php not found');
 require_once 'config.php';
 
@@ -172,11 +174,13 @@ if ($page == '') {
 
     if ($pageCdata) $pageCdata = join(", ", $pageCdata);
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tl["menu"]["mh"];
     $SECTION_DESC = $tl["cmdesc"]["d"];
 
-    // include the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $template = 'index.php';
   }
   $checkp = 1;
@@ -199,10 +203,13 @@ if ($page == '404') {
   $JAK_PROVED = 1;
   $html_title = '404 / ' . $jkv["title"];
 
-  // Title and Description
+  // EN: Title and Description
+  // CZ: Titulek a Popis
   $SECTION_TITLE = "404";
   $SECTION_DESC = $jkv["title"];
 
+  // EN: Load the template
+  // CZ: Načti template (šablonu)
   $template = '404.php';
   $checkp = 1;
 }
@@ -232,6 +239,18 @@ if ($page == 'changelog') {
 }
 if ($page == 'setting') {
   require_once 'setting.php';
+  $JAK_PROVED = 1;
+  $JAK_PAGE_ACTIVE = 1;
+  $checkp = 1;
+}
+if ($page == 'settingfacebook') {
+  require_once 'settingfacebook.php';
+  $JAK_PROVED = 1;
+  $JAK_PAGE_ACTIVE = 1;
+  $checkp = 1;
+}
+if ($page == 'facebookgallery') {
+  require_once 'facebookgallery.php';
   $JAK_PROVED = 1;
   $JAK_PAGE_ACTIVE = 1;
   $checkp = 1;

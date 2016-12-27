@@ -5,7 +5,8 @@
   <div class="alert bg-danger">
     <?php echo $tl["errorpage"]["ep"]; ?>
   </div>
-<?php }
+<?php } else {
+
 if (JAK_ASACCESS) {
   if ($jkv["printme"]) $printme = 1;
   $apedit = BASE_URL . 'admin/index.php?p=page&amp;sp=edit&amp;id=' . $PAGE_ID;
@@ -139,5 +140,6 @@ if ($jkv["printme"]) { ?>
 
   </div>
 
-<?php }
+<?php } }
+
 include_once APP_PATH . 'template/canvas/footer.php'; ?>

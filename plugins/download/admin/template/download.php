@@ -30,6 +30,26 @@
   </script>
 <?php } ?>
 
+<?php if ($page2 == "s") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?php echo $tl["notification"]["n2"]; ?>',
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000,
+      });
+    }, 2000);
+  </script>
+<?php } ?>
+
+<?php if (isset($JAK_DOWNLOAD_ALL) && is_array($JAK_DOWNLOAD_ALL)) { ?>
+
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="box">
       <div class="box-body no-padding">
@@ -65,6 +85,7 @@
                   <i class="fa fa-arrow-down"></i>
                 </a>
               </th>
+              <th><?php echo $tl["general_cmd"]["g9"]; ?></th>
               <th>
                 <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
                   <i class="fa fa-lock"></i>
@@ -72,13 +93,13 @@
               </th>
               <th></th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tld["dload"]["al"]; ?>'))return false;">
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tld["dload"]["al"]; ?>">
                   <i class="fa fa-trash-o"></i>
                 </button>
               </th>
             </tr>
             </thead>
-            <?php if (isset($JAK_DOWNLOAD_ALL) && is_array($JAK_DOWNLOAD_ALL)) foreach ($JAK_DOWNLOAD_ALL as $v) { ?>
+            <?php foreach ($JAK_DOWNLOAD_ALL as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
                 <td>
@@ -99,6 +120,15 @@
                 <td><?php echo $v["time"]; ?></td>
                 <td><?php echo $v["hits"]; ?></td>
                 <td><?php echo $v["countdl"]; ?></td>
+                <td>
+                  <?php
+                  if ($v["active"] == 1 && $v["catid"] != '0') {
+                    echo $tl["general_cmd"]["g10"];
+                  } else {
+                    echo $tl["general_cmd"]["g11"] . '<span class="small">  - Uzamčeno</span>';
+                  }
+                  ?>
+                </td>
                 <td>
                   <a href="index.php?p=download&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '1') { echo $tl["icons"]["i6"]; } else { echo $tl["icons"]["i5"]; } ?>">
                     <i class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i>
@@ -121,6 +151,14 @@
       </div>
     </div>
   </form>
+
+<?php } else { ?>
+
+  <div class="alert bg-info">
+    <?php echo $tl["errorpage"]["data"]; ?>
+  </div>
+
+<?php } ?>
 
   <div class="icon_legend">
     <h3><?php echo $tl["icons"]["i"]; ?></h3>

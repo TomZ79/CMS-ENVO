@@ -39,6 +39,27 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
   </script>
 <?php } ?>
 
+<?php if ($page2 == "s") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?php echo $tl["notification"]["n2"]; ?>',
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000,
+      });
+    }, 2000);
+  </script>
+<?php } ?>
+
+
+<?php if (isset($JAK_CAT1_EXIST) || isset($JAK_CAT2_EXIST) || isset($JAK_CAT3_EXIST)) { ?>
+
   <div class="row">
     <div class="col-md-6">
       <!-- Header or Header/Footer -->
@@ -53,7 +74,7 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
         </div>
         <div class="box-body">
 
-          <?php
+          <?php if ($JAK_CAT1_EXIST) {
 
           // Build menu for categories header and header/footer
           $lang = $tl["cat"]["del"];
@@ -65,7 +86,13 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
 
           echo jak_build_menu_admin(0, $mheader, $lang, $title1, $title2, $title3, $title4, $title5, ' class="sortable jak_cat_move"', ' id="mheader"');
 
-          ?>
+          } else { ?>
+
+            <div class="alert bg-slate-300">
+              <?php echo $tl["errorpage"]["data"]; ?>
+            </div>
+
+          <?php } ?>
 
         </div>
         <div class="box-footer">
@@ -86,7 +113,7 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
         </div>
         <div class="box-body">
 
-          <?php
+          <?php if ($JAK_CAT2_EXIST) {
 
           // Build menu for categories
           $lang = $tl["cat"]["del"];
@@ -98,7 +125,13 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
 
           echo jak_build_menu_admin(0, $mfooter, $lang, $title1, $title2, $title3, $title4, $title5, ' class="sortable jak_cat_move"', ' id="mfooter"');
 
-          ?>
+          } else { ?>
+
+            <div class="alert bg-slate-300">
+              <?php echo $tl["errorpage"]["data"]; ?>
+            </div>
+
+          <?php } ?>
 
         </div>
         <div class="box-footer">
@@ -121,13 +154,29 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
           </div>
         </div>
         <div class="box-body">
-          <?php if ($ucatblank) {
+          <?php if ($JAK_CAT3_EXIST) {
+
             echo '<ul class="list-group">' . $ucatblank . '</ul>';
-          } ?>
+
+          } else { ?>
+
+            <div class="alert bg-slate-300">
+              <?php echo $tl["errorpage"]["data"]; ?>
+            </div>
+
+          <?php } ?>
         </div>
       </div>
     </div>
   </div>
+
+<?php } else { ?>
+
+  <div class="alert bg-info">
+    <?php echo $tl["errorpage"]["data"]; ?>
+  </div>
+
+<?php } ?>
 
   <div class="icon_legend">
     <h3><?php echo $tl["icons"]["i"]; ?></h3>

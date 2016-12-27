@@ -30,6 +30,26 @@
   </script>
 <?php } ?>
 
+<?php if ($page2 == "s") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?php echo $tl["notification"]["n2"]; ?>',
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000,
+      });
+    }, 2000);
+  </script>
+<?php } ?>
+
+<?php if (isset($JAK_BLOG_ALL) && is_array($JAK_BLOG_ALL)) { ?>
+
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="box">
       <div class="box-body no-padding">
@@ -57,18 +77,19 @@
                   <i class="fa fa-arrow-down"></i>
                 </a>
               </th>
+              <th><?php echo $tl["general_cmd"]["g9"]; ?></th>
               <th>
                 <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs"><i class="fa fa-lock"></i></button>
               </th>
               <th></th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tlblog["blog"]["al"]; ?>'))return false;">
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tlblog["blog"]["al"]; ?>">
                   <i class="fa fa-trash-o"></i>
                 </button>
               </th>
             </tr>
             </thead>
-            <?php if (isset($JAK_BLOG_ALL) && is_array($JAK_BLOG_ALL)) foreach ($JAK_BLOG_ALL as $v) { ?>
+            <?php foreach ($JAK_BLOG_ALL as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
                 <td><input type="checkbox" name="jak_delete_blog[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
@@ -83,6 +104,50 @@
                   } else { ?><?php echo $tl["general"]["g24"]; ?><?php } ?></td>
                 <td><?php echo $v["time"]; ?></td>
                 <td><?php echo $v["hits"]; ?></td>
+                <td>
+                  <?php
+                  // Time Control - variable
+                  $today = date("Y-m-d H:i:s"); // Today time
+                  $expire = date("Y-m-d H:i:s", $v["enddate"]); //End time of article or content from DB
+                  $today_time = strtotime($today);
+                  $expire_time = strtotime($expire);
+
+                  // Control Active of article or content ...
+                  if ($v["active"] == 1 && $v["catid"] != 0) { // Odemčeno a není Archiv
+                    if (empty($v["enddate"])) {
+                      echo $tl["general_cmd"]["g10"]; // Aktivní
+                    } elseif (!empty($v["enddate"]) && $expire_time >= $today_time) {
+                      echo $tl["general_cmd"]["g10"]; // Aktivní
+                    } else {
+                      echo $tl["general_cmd"]["g11"] . '<span class="small">  - ' . $tl["general_cmd"]["g13"] . '</span>'; //Neaktivní - Time
+                    }
+                  } elseif ($v["active"] == 1 && $v["catid"] == 0) { // Odemčeno a je Archiv
+                    if (empty($v["enddate"])) {
+                      echo $tl["general_cmd"]["g11"] . '<span class="small">  - ' . $tl["general_cmd"]["g15"] . '</span>'; // Neaktivní - Archiv
+                    } elseif (!empty($v["enddate"]) && $expire_time >= $today_time) {
+                      echo $tl["general_cmd"]["g11"] . '<span class="small">  - ' . $tl["general_cmd"]["g15"] . '</span>'; // Neaktivní - Archiv
+                    } else {
+                      echo $tl["general_cmd"]["g11"] . '<span class="small">  - ' . $tl["general_cmd"]["g13"] . ', ' .$tl["general_cmd"]["g15"] . '</span>'; // Neaktivní - Time, Archiv
+                    }
+                  } elseif ($v["active"] == 0 && $v["catid"] != 0) { //Uzamčeno a není Archiv
+                    if (empty($v["enddate"])) {
+                      echo $tl["general_cmd"]["g11"] . '<span class="small">  - ' . $tl["general_cmd"]["g12"] . '</span>'; // Neaktivní -  Uzamčeno
+                    } elseif (!empty($v["enddate"]) && $expire_time >= $today_time) {
+                      echo $tl["general_cmd"]["g11"] . '<span class="small">  - ' . $tl["general_cmd"]["g12"] . '</span>'; // Neaktivní -  Uzamčeno
+                    } else {
+                      echo $tl["general_cmd"]["g11"] . '<span class="small"> - ' . $tl["general_cmd"]["g12"] . ', ' . $tl["general_cmd"]["g13"] . '</span>'; // Neaktivní - Time,Uzamčeno
+                    }
+                  } else {
+                    if (empty($v["enddate"])) { //Uzamčeno a je Archiv
+                      echo $tl["general_cmd"]["g11"] . '<span class="small">  - ' . $tl["general_cmd"]["g12"] . ', ' . $tl["general_cmd"]["g15"] . '</span>'; // Neaktivní -  Uzamčeno, Archiv
+                    } elseif (!empty($v["enddate"]) && $expire_time >= $today_time) {
+                      echo $tl["general_cmd"]["g11"] . '<span class="small">  - ' . $tl["general_cmd"]["g12"] . ', ' . $tl["general_cmd"]["g15"] . '</span>'; // Neaktivní -  Uzamčeno, Archiv
+                    } else {
+                      echo $tl["general_cmd"]["g11"] . '<span class="small"> - ' . $tl["general_cmd"]["g12"] . ', ' . $tl["general_cmd"]["g13"] . ', ' . $tl["general_cmd"]["g15"] . '</span>'; // Neaktivní - Time, Uzamčeno, Archiv
+                    }
+                  }
+                  ?>
+                </td>
                 <td>
                   <a href="index.php?p=blog&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') { echo $tl["icons"]["i5"]; } else { echo $tl["icons"]["i6"]; } ?>">
                     <i class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i>
@@ -105,6 +170,14 @@
       </div>
     </div>
   </form>
+
+<?php } else { ?>
+
+  <div class="alert bg-info">
+    <?php echo $tl["errorpage"]["data"]; ?>
+  </div>
+
+<?php } ?>
 
   <div class="icon_legend">
     <h3><?php echo $tl["icons"]["i"]; ?></h3>

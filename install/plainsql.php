@@ -73,6 +73,16 @@ $jakdb->query("INSERT INTO " . DB_PREFIX . "contactoptions VALUES
 (3, 1, 'Phone', 1, '', 2, 3),
 (4, 1, 'Message', 2, '', 1, 4)");
 
+$jakdb->query("CREATE TABLE " . DB_PREFIX . "galleryfacebook (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `paththumb` varchar(255) DEFAULT NULL,
+  `pathoriginal` varchar(255) DEFAULT NULL,
+  `size` varchar(255) DEFAULT NULL,
+  `time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`),
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1");
+
 $jakdb->query("CREATE TABLE " . DB_PREFIX . "loginlog (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
@@ -239,6 +249,7 @@ $jakdb->query("INSERT INTO " . DB_PREFIX . "setting VALUES
 ('metaauthor', 'general', 'http://www.yoursite.com', 'http://www.bluesat.cz', 'input', 'free', 'cms'),
 ('robots', 'general', '1', '1', 'yesno', 'boolean', 'cms'),
 ('analytics',  'general', NULL , NULL ,  'textarea',  'free',  'cms'),
+('facebookconnect',  'setting', NULL , NULL ,  'textarea',  'free',  'cms'),
 ('email', 'setting', '', '', 'input', 'free', 'cms'),
 ('sitehttps', 'setting', '0', '0', 'yesno', 'boolean', 'cms'),
 ('dateformat', 'setting', 'd.m.Y', 'd.m.Y', 'input', 'free', 'cms'),

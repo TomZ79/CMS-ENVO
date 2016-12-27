@@ -1,12 +1,15 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
-// Check if the user has access to this file
+// EN: Check if the user has access to this file
+// CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSREGISTER_FORM)) jak_redirect(BASE_URL);
 
-// All the tables we need for this plugin
+// EN: Settings all the tables we need for our work
+// CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = DB_PREFIX . 'registeroptions';
 $jaktable1 = DB_PREFIX . 'user';
 $jaktable2 = DB_PREFIX . 'pagesgrid';
@@ -109,8 +112,12 @@ switch ($page1) {
       }
 
       if (!$result) {
+        // EN: Redirect page
+        // CZ: Přesměrování stránky
         jak_redirect(BASE_URL . 'index.php?p=register-form&sp=settings&ssp=e');
       } else {
+        // EN: Redirect page
+        // CZ: Přesměrování stránky
         jak_redirect(BASE_URL . 'index.php?p=register-form&sp=settings&ssp=s');
       }
 
@@ -130,18 +137,25 @@ switch ($page1) {
     }
 
     $JAK_USERGROUP_ALL = jak_get_usergroup_all('usergroup');
+
+    // EN: Import important settings for the template from the DB
+    // CZ: Importuj důležité nastavení pro šablonu z DB
     $JAK_SETTING = jak_get_setting('register_form');
+
+
     $JAK_CAT = jak_get_cat_info(DB_PREFIX . 'categories', 0);
 
     // Get the special vars for multi language support
     $JAK_FORM_DATA["title"] = $jkv["rf_title"];
     $JAK_FORM_DATA["content"] = $jkv["rf_welcome"];
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $lrf["register"]["r6"];
     $SECTION_DESC = "";
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $plugin_template = 'plugins/register_form/admin/template/settings.php';
 
     break;
@@ -252,6 +266,8 @@ switch ($page1) {
         }
       }
 
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
       jak_redirect(BASE_URL . 'index.php?p=register-form&sp=s');
     }
 
@@ -262,10 +278,13 @@ switch ($page1) {
       $JAK_REGISTEROPTION_ALL[] = $row;
     }
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $lrf["register"]["r"];
     $SECTION_DESC = $lrf["register"]["r2"];
 
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $plugin_template = 'plugins/register_form/admin/template/rfcreate.php';
 }
 ?>

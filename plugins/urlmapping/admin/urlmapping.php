@@ -1,12 +1,15 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
-// Check if the user has access to this file
+// EN: Check if the user has access to this file
+// CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSURLMAPPING)) jak_redirect(BASE_URL);
 
-// All the tables we need for this plugin
+// EN: Settings all the tables we need for our work
+// CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = DB_PREFIX . 'urlmapping';
 
 // Now start with the plugin use a switch to access all pages
@@ -43,8 +46,12 @@ switch ($page1) {
         $rowid = $jakdb->jak_last_id();
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=urlmapping&sp=newbh&ssp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=urlmapping&sp=edit&ssp=' . $rowid . '&sssp=s');
         }
       } else {
@@ -54,11 +61,13 @@ switch ($page1) {
       }
     }
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tlum["um"]["m1"];
     $SECTION_DESC = $tlum["um"]["t"];
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $plugin_template = 'plugins/urlmapping/admin/template/new.php';
 
     break;
@@ -72,12 +81,23 @@ switch ($page1) {
           $result = $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE id = "' . smartsql($page2) . '"');
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - chybné
             jak_redirect(BASE_URL . 'index.php?p=urlmapping&sp=e');
           } else {
-            jak_redirect(BASE_URL . 'index.php?p=urlmapping&sp=s');
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - úspěšné
+            /*
+            NOTIFIKACE:
+            'sp=s'   - Záznam úspěšně uložen
+            'ssp=s'  - Zázanm úspěšně odstraněn
+            */
+            jak_redirect(BASE_URL . 'index.php?p=urlmapping&sp=s&ssp=s');
           }
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=urlmapping&sp=ene');
         }
         break;
@@ -86,8 +106,12 @@ switch ($page1) {
         $result = $jakdb->query('UPDATE ' . $jaktable . ' SET active = IF (active = 1, 0, 1) WHERE id = ' . smartsql($page2));
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=urlmapping&sp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=urlmapping&sp=s');
         }
 
@@ -127,8 +151,12 @@ switch ($page1) {
 				    WHERE id = "' . smartsql($page2) . '"');
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=urlmapping&sp=edit&ssp=' . $page2 . '&sssp=e');
             } else {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=urlmapping&sp=edit&ssp=' . $page2 . '&sssp=s');
             }
 
@@ -141,11 +169,13 @@ switch ($page1) {
         // Get the data
         $JAK_FORM_DATA = jak_get_data($page2, $jaktable);
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tlum["um"]["m2"];
         $SECTION_DESC = $tlum["um"]["t1"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $plugin_template = 'plugins/urlmapping/admin/template/edit.php';
 
         break;
@@ -165,9 +195,18 @@ switch ($page1) {
             }
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky s notifikací - chybné
               jak_redirect(BASE_URL . 'index.php?p=urlmapping&sp=e');
             } else {
-              jak_redirect(BASE_URL . 'index.php?p=urlmapping&sp=s');
+              // EN: Redirect page
+              // CZ: Přesměrování stránky s notifikací - úspěšné
+              /*
+              NOTIFIKACE:
+              'sp=s'   - Záznam úspěšně uložen
+              'ssp=s'  - Zázanm úspěšně odstraněn
+              */
+              jak_redirect(BASE_URL . 'index.php?p=urlmapping&sp=s&ssp=s');
             }
 
           }
@@ -184,8 +223,12 @@ switch ($page1) {
             }
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=urlmapping&sp=e');
             } else {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=urlmapping&sp=s');
             }
 
@@ -200,11 +243,13 @@ switch ($page1) {
           $JAK_UM_ALL[] = $row;
         }
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tlum["um"]["m"];
         $SECTION_DESC = $tlum["um"]["t"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $plugin_template = 'plugins/urlmapping/admin/template/mapping.php';
     }
 }

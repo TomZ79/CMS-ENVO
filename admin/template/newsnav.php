@@ -1,6 +1,8 @@
 <li class="treeview<?php if ($page == 'news') echo " active"; ?>">
   <a href="javascript:void(0)">
-    <i class="fa fa-newspaper-o"></i> <?php echo $tl["menu"]["m8"]; ?> <i class="fa fa-angle-left pull-right"></i>
+    <i class="fa fa-newspaper-o"></i>
+    <span><?php echo $tl["menu"]["m8"]; ?></span>
+    <i class="fa fa-angle-left pull-right"></i>
   </a>
 
   <ul class="treeview-menu">

@@ -29,18 +29,34 @@
 <?php } ?>
 
 <?php if ($errors) { ?>
-  <div class="alert bg-danger fade in">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <?php if (isset($errors["e"])) echo $errors["e"];
-    if (isset($errors["e1"])) echo $errors["e1"];
-    if (isset($errors["e2"])) echo $errors["e2"];
-    if (isset($errors["e3"])) echo $errors["e3"];
-    if (isset($errors["e4"])) echo $errors["e4"]; ?>
-  </div>
+  <script type="text/javascript">
+    setTimeout(function() {
+      $.notify({
+        // options
+        message: '<?php if (isset($errors["e"])) echo $errors["e"];
+            if (isset($errors["e1"])) echo $errors["e1"];
+            if (isset($errors["e2"])) echo $errors["e2"];
+            if (isset($errors["e3"])) echo $errors["e3"];
+            if (isset($errors["e4"])) echo $errors["e4"];?>',
+      }, {
+        // settings
+        type: 'danger',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
 <?php } ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+    <!-- Fixed Button for save form -->
+    <div class="savebutton">
+      <button type="submit" name="save" class="btn btn-primary button">
+        <i class="fa fa-save margin-right-5"></i>
+        <?php echo $tl["general"]["g20"]; ?> !!
+      </button>
+    </div>
 
+    <!-- Form Content -->
     <ul class="nav nav-tabs" id="cmsTab">
       <li class="active"><a href="#cmsPage1">Nastavení</a></li>
       <li><a href="#cmsPage2">Obsah před stránkou</a></li>

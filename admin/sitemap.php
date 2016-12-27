@@ -1,16 +1,20 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
-// Check if the user has access to this file
+// EN: Check if the user has access to this file
+// CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !$JAK_MODULES) jak_redirect(BASE_URL);
 
-// All the tables we need for this plugin
+// EN: Settings all the tables we need for our work
+// CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = DB_PREFIX . 'pagesgrid';
 $jaktable2 = DB_PREFIX . 'pluginhooks';
 
-// Important template Stuff
+// EN: Import important settings for the template from the DB
+// CZ: Importuj důležité nastavení pro šablonu z DB
 $JAK_SETTING = jak_get_setting('sitemap');
 
 // Let's go on with the script
@@ -102,8 +106,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 
   if (!$result) {
+    // EN: Redirect page
+    // CZ: Přesměrování stránky
     jak_redirect(BASE_URL . 'index.php?p=sitemap&sp=e');
   } else {
+    // EN: Redirect page
+    // CZ: Přesměrování stránky
     jak_redirect(BASE_URL . 'index.php?p=sitemap&sp=s');
   }
 }
@@ -134,10 +142,13 @@ if ($hookpagei) {
 $JAK_FORM_DATA["title"] = $jkv["sitemaptitle"];
 $JAK_FORM_DATA["content"] = $jkv["sitemapdesc"];
 
-// Title and Description
+// EN: Title and Description
+// CZ: Titulek a Popis
 $SECTION_TITLE = $tl["menu"]["m16"];
 $SECTION_DESC = "";
 
-// Call the template
+// EN: Load the template
+// CZ: Načti template (šablonu)
 $template = 'sitemapsetting.php';
+
 ?>

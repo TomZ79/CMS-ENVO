@@ -1,12 +1,15 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
-// Check if the user has access to this file
+// EN: Check if the user has access to this file
+// CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !$JAK_MODULEM) jak_redirect(BASE_URL);
 
-// All the tables we need for this plugin
+// EN: Settings all the tables we need for our work
+// CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = DB_PREFIX . 'pages';
 $jaktable1 = DB_PREFIX . 'categories';
 $jaktable2 = DB_PREFIX . 'contactform';
@@ -136,6 +139,8 @@ switch ($page1) {
           }
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=page&sp=newpage&ssp=e');
           } else {
 
@@ -146,6 +151,8 @@ switch ($page1) {
               // insert tag for normal use
               JAK_tags::jakInsertags($defaults['jak_tags'], $rowid, 0, $tagactive);
             }
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=page&sp=edit&ssp=' . $rowid . '&sssp=s');
           }
         } else {
@@ -172,11 +179,13 @@ switch ($page1) {
       }
     }
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tl["cmenu"]["c5"];
     $SECTION_DESC = $tl["cmdesc"]["d10"];
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $template = 'newpage.php';
 
     break;
@@ -214,11 +223,13 @@ switch ($page1) {
 
         }
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tl["menu"]["m7"];
         $SECTION_DESC = str_replace("%s", $tl["menu"]["m4"], $tl["cmdesc"]['d3']);
 
-        // Get the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $template = 'searchpages.php';
 
         break;
@@ -229,8 +240,12 @@ switch ($page1) {
         JAK_tags::jakLocktags($page2, 0);
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=page&sp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=page&sp=s');
         }
 
@@ -260,11 +275,13 @@ switch ($page1) {
 
         $JAK_PAGE_ALL = $pagearray;
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tl["general"]["g4"];
         $SECTION_DESC = $tl["cmdesc"]["d10"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $template = 'pages.php';
 
         break;
@@ -276,14 +293,26 @@ switch ($page1) {
           $jakdb->query('DELETE FROM ' . $jaktable3 . ' WHERE pageid = "' . smartsql($page2) . '"');
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - chybné
             jak_redirect(BASE_URL . 'index.php?p=page&sp=e');
           } else {
             JAK_tags::jakDeletetags($page2, 0);
 
-            jak_redirect(BASE_URL . 'index.php?p=page&ssp=s');
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
+            // CZ: Přesměrování stránky s notifikací - úspěšné
+            /*
+            NOTIFIKACE:
+            'sp=s'   - Záznam úspěšně uložen
+            'ssp=s'  - Zázanm úspěšně odstraněn
+            */
+            jak_redirect(BASE_URL . 'index.php?p=page&sp=s&ssp=s');
           }
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=page&sp=ene');
         }
         break;
@@ -514,6 +543,8 @@ switch ($page1) {
               }
 
               if (!$result) {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=page&sp=edit&ssp=' . $page2 . '&sssp=e');
               } else {
 
@@ -524,6 +555,9 @@ switch ($page1) {
                   // insert tag for normal use
                   JAK_tags::jakInsertags($defaults['jak_tags'], smartsql($page2), 0, $tagactive);
                 }
+
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=page&sp=edit&ssp=' . $page2 . '&sssp=s');
               }
 
@@ -583,14 +617,18 @@ switch ($page1) {
             $JAK_PAGE_BACKUP[] = $rowbp;
           }
 
-          // Title and Description
+          // EN: Title and Description
+          // CZ: Titulek a Popis
           $SECTION_TITLE = $tl["cmenu"]["c7"];
           $SECTION_DESC = $tl["cmdesc"]["d10"];
 
-          // Call the template
+          // EN: Load the template
+          // CZ: Načti template (šablonu)
           $template = 'editpage.php';
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=page&sp=ene');
         }
         break;
@@ -613,8 +651,12 @@ switch ($page1) {
 				WHERE id = "' . smartsql($page2) . '"');
 
               if (!$result) {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=page&sp=quickedit&ssp=' . $page2 . '&sssp=e');
               } else {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=page&sp=quickedit&ssp=' . $page2 . '&sssp=s');
               }
             } else {
@@ -627,9 +669,13 @@ switch ($page1) {
           // Get the data
           $JAK_FORM_DATA = jak_get_data($page2, $jaktable);
 
+          // EN: Load the template
+          // CZ: Načti template (šablonu)
           $template = 'quickedit.php';
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=page&sp=ene');
         }
         break;
@@ -649,8 +695,12 @@ switch ($page1) {
             }
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=page&sp=e');
             } else {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=page&sp=s');
             }
 
@@ -668,9 +718,18 @@ switch ($page1) {
             }
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky s notifikací - chybné
               jak_redirect(BASE_URL . 'index.php?p=page&sp=e');
             } else {
-              jak_redirect(BASE_URL . 'index.php?p=page&sp=s');
+              // EN: Redirect page
+              // CZ: Přesměrování stránky s notifikací - úspěšné
+              /*
+              NOTIFIKACE:
+              'sp=s'   - Záznam úspěšně uložen
+              'ssp=s'  - Zázanm úspěšně odstraněn
+              */
+              jak_redirect(BASE_URL . 'index.php?p=page&sp=s&ssp=s');
             }
 
           }
@@ -695,11 +754,13 @@ switch ($page1) {
 
         }
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tl["menu"]["m7"];
         $SECTION_DESC = $tl["menu"]["m4"] . ' ' . $tl["menu"]["m7"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $template = 'pages.php';
     }
 }

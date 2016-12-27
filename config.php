@@ -43,6 +43,8 @@ include_once 'class/class.plugins.php';
 include_once 'class/class.hooks.php';
 include_once 'class/class.paginator.php';
 include_once 'class/class.tags.php';
+include_once 'class/class.uploader.php';
+include_once 'class/class.resizeimage.php';
 
 // Now launch the rewrite class, depending on the settings in db.
 $getURL = New JAK_rewrite($_SERVER['REQUEST_URI']);

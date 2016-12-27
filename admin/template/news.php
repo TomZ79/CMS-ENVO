@@ -31,40 +31,105 @@ if ($page1 == "e" || $page1 == "ene") { ?>
   </script>
 <?php } ?>
 
+<?php if ($page2 == "s") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?php echo $tl["notification"]["n2"]; ?>',
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000,
+      });
+    }, 2000);
+  </script>
+<?php } ?>
+
 <?php if (isset($JAK_NEWS) && is_array($JAK_NEWS)) { ?>
-  <div class="box box-default">
-    <div class="box-header with-border">
-      <i class="fa fa-file-text-o"></i>
-      <h3 class="box-title"><?php echo $tl["menu"]["m8"]; ?></h3>
-    </div>
-    <div class="box-body">
-      <ul class="jak_news_move">
-        <?php foreach ($JAK_NEWS as $v) { ?>
+  <div class="box">
+    <div class="box-body no-padding">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th><?php echo $tl["page"]["p"]; ?></th>
+              <th><?php echo $tl["page"]["p2"]; ?></th>
+              <th><?php echo $tl["general"]["g56"]; ?></th>
+              <th><?php echo $tl["general_cmd"]["g9"]; ?></th>
+              <th>
+                <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs disabled">
+                  <i class="fa fa-lock"></i>
+                </button>
+              </th>
+              <th></th>
+              <th>
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs disabled">
+                  <i class="fa fa-trash-o"></i>
+                </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php foreach ($JAK_NEWS as $v) { ?>
+            <tr>
+              <td><?php echo $v["id"]; ?></td>
+              <td><a href="index.php?p=news&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a></td>
+              <td><?php echo $v["time"]; ?></td>
+              <td><?php echo $v["hits"]; ?></td>
+              <td>
+                <?php
+                // Time Control - variable
+                $today = date("Y-m-d H:i:s"); // Today time
+                $expire = date("Y-m-d H:i:s", $v["enddate"]); //End time of article or content from DB
+                $today_time = strtotime($today);
+                $expire_time = strtotime($expire);
 
-          <li id="news-<?php echo $v["id"]; ?>" class="jaknews">
-            <div class="text">#<?php echo $v["id"]; ?> <a
-                href="index.php?p=news&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a></div>
-            <div
-              class="show"><?php echo $tl["news"]["n1"] . ': ' . $v["time"] . ' | ' . $tl["general"]["g56"] . ': ' . $v["hits"]; ?></div>
-            <div class="actions">
+                // Control Active of article or content ...
+                if ($v["active"] == 1 ) {
+                  if (empty($v["enddate"])) {
+                    echo $tl["general_cmd"]["g10"];
+                  } elseif (!empty($v["enddate"]) && $expire_time >= $today_time) {
+                    echo $tl["general_cmd"]["g10"];
+                  } else {
+                    echo $tl["general_cmd"]["g11"] . '<span class="small">  - ' . $tl["general_cmd"]["g13"] . '</span>';
+                  }
+                } else {
+                  if (empty($v["enddate"])) {
+                    echo $tl["general_cmd"]["g11"] . '<span class="small">  - ' . $tl["general_cmd"]["g12"] . '</span>';
+                  } elseif (!empty($v["enddate"]) && $expire_time >= $today_time) {
+                    echo $tl["general_cmd"]["g11"] . '<span class="small">  - ' . $tl["general_cmd"]["g12"] . '</span>';
+                  } else {
+                    echo $tl["general_cmd"]["g11"] . '<span class="small"> - ' . $tl["general_cmd"]["g12"] . ', ' . $tl["general_cmd"]["g13"] . '</span>';
+                  }
+                }
+                ?>
+              </td>
+              <td>
+                <a class="btn btn-default btn-xs" href="index.php?p=news&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') { echo $tl["icons"]["i5"]; } else { echo $tl["icons"]["i6"]; } ?>">
+                  <i class="fa fa-<?php if ($v["active"] == '0') { ?>lock<?php } else { ?>check<?php } ?>"></i>
+                </a>
+              </td>
+              <td>
+                <a class="btn btn-default btn-xs" href="index.php?p=news&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i2"]; ?>">
+                  <i class="fa fa-edit"></i>
+                </a>
+              </td>
+              <td>
+                <a class="btn btn-default btn-xs" href="index.php?p=news&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["news"]["d"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                  <i class="fa fa-trash-o"></i>
+                </a>
+              </td>
+            </tr>
 
-              <a class="btn btn-default btn-xs" href="index.php?p=news&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') { echo $tl["icons"]["i5"]; } else { echo $tl["icons"]["i6"]; } ?>">
-                <i class="fa fa-<?php if ($v["active"] == '0') { ?>lock<?php } else { ?>check<?php } ?>"></i>
-              </a>
-
-              <a class="btn btn-default btn-xs" href="index.php?p=news&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i2"]; ?>">
-                <i class="fa fa-edit"></i>
-              </a>
-
-              <a class="btn btn-default btn-xs" href="index.php?p=news&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["news"]["d"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
-                <i class="fa fa-trash-o"></i>
-              </a>
-
-            </div>
-          </li>
-
-        <?php } ?>
-      </ul>
+          <?php } ?>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 
@@ -87,7 +152,5 @@ if ($page1 == "e" || $page1 == "ene") { ?>
   </div>
 
 <?php } ?>
-
-  <script src="js/newsorder.js" type="text/javascript"></script>
 
 <?php include "footer.php"; ?>

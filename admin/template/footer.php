@@ -40,22 +40,61 @@
   });
 
   $(document).ready(function () {
-    // Confirm dialog
+
+    // Bootbox - Confirm dialog for anchor with link
     $('[data-confirm]').click(function(e) {
       var links = $(this).attr("href");
       $("a").tooltip('destroy');
       e.preventDefault();
       // Show Message
       bootbox.setLocale('<?php echo $site_language;?>');
-      bootbox.confirm($(this).attr('data-confirm'), function(result) {
-        if (result) {
-          // OK
-          window.location = links;
-        } else {
-          // Cancel
+      bootbox.confirm({
+        message: $(this).attr('data-confirm'),
+        title: "Potvrzení o odstranění!",
+        buttons: {
+          confirm: {
+            className: 'btn-success'
+          },
+          cancel: {
+            className: 'btn-danger'
+          }
+        },
+        callback: function (result) {
+          if(result == true) {
+            window.location = links;
+          }
         }
       });
     });
+
+    // Bootbox - Confirm dialog for button
+    $("#button_delete").on("click", function (e) {
+      // Init
+      var self = $(this);
+      e.preventDefault();
+
+      // Show Message
+      bootbox.setLocale('<?php echo $site_language;?>');
+      bootbox.confirm({
+        title: "Potvrzení o odstranění!",
+        message: $(this).attr('data-confirm-del'),
+        buttons: {
+          confirm: {
+            className: 'btn-success'
+          },
+          cancel: {
+            className: 'btn-danger'
+          }
+        },
+        callback: function (result) {
+          if (result) {
+            self.off("click");
+            self.click();
+          }
+        }
+      });
+    });
+
   });
 
 </script>

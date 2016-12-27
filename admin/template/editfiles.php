@@ -61,7 +61,7 @@ if ($JAK_FILE_ERROR) { ?>
             </td>
           </tr>
           <tr <?php if (!$JAK_FILECONTENT) { ?> class="hidden"<?php } ?>>
-            <td><h4>File <small><strong><?php echo $JAK_FILEURL; ?></strong></small></h4></td>
+            <td><h4>File: <small><strong><?php echo $JAK_FILEURL; ?></strong></small></h4></td>
           </tr>
           <?php if ($JAK_FILECONTENT) { ?>
             <tr>
@@ -123,4 +123,5 @@ if ($JAK_FILE_ERROR) { ?>
     });
   </script>
 <?php }
+
 include "footer.php"; ?>

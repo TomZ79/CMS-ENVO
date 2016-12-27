@@ -1,9 +1,11 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_PREVENT_ACCESS')) die('No direct access!');
 
-// Get the important database table
+// EN: Settings all the tables we need for our work
+// CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = DB_PREFIX . 'pages';
 
 // Get the database stuff
@@ -25,6 +27,7 @@ $PAGE_ID = $row['id'];
 $PAGE_TITLE = $row['title'];
 $PAGE_CONTENT = $row['content'];
 $PAGE_SHOWTITLE = $row['showtitle'];
+$MAIN_DESCRIPTION = $row['content'];
 $SHOWDATE = $row['showdate'];
 $SHOWTAGS = $row['showtags'];
 $SHOWSOCIALBUTTON = $row['socialbutton'];
@@ -129,7 +132,8 @@ if (!empty($ca['metadesc'])) {
     $PAGE_DESCRIPTION = jak_cut_text($row['content'], 155, '');
 }
 
-// Load the template
+// EN: Load the template
+// CZ: Načti template (šablonu)
 $template = 'page.php';
 
 ?>

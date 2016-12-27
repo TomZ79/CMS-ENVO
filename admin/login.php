@@ -1,6 +1,7 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
 $ErrLogin = $errorfp = false;
@@ -32,8 +33,12 @@ if (!empty($_POST['action']) && $_POST['action'] == 'login') {
     $_SESSION["infomsg"] = $tl["general_cmd"]["g8"];
 
     if (isset($_SESSION['JAKRedirect'])) {
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
       jak_redirect($_SESSION['JAKRedirect']);
     } else {
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
       jak_redirect(BASE_URL);
     }
 
@@ -73,6 +78,8 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
     $mail->AltBody = strip_tags($body);
 
     if ($mail->Send()) {
+      // EN: Redirect page
+      // CZ: Přesměrování stránky/
       $_SESSION["infomsg"] = $tl["login"]["l7"];
       jak_redirect(BASE_URL);
     }
@@ -81,6 +88,9 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
     $errorfp = $errors;
   }
 }
-// let's call the template
+
+// EN: Load the template
+// CZ: Načti template (šablonu)
 $template = 'login.php';
+
 ?>

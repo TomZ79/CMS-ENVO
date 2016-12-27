@@ -5,7 +5,8 @@
   <div class="alert bg-danger">
     <?php echo $tl["errorpage"]["ep"]; ?>
   </div>
-<?php }
+<?php } else {
+
 if (JAK_ASACCESS) {
   if ($jkv["printme"]) $printme = 1;
   $apedit = BASE_URL . 'admin/index.php?p=page&amp;sp=edit&amp;id=' . $PAGE_ID;
@@ -37,12 +38,10 @@ if ($PAGE_SHOWTITLE && $JAK_SHOW_NAVBAR) { ?>
   <!-- Show password form -->
   <form class="form-inline" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="input-group">
-      <input type="password" name="pagepass" class="form-control" value=""
-             placeholder="<?php echo $tl["general"]["g29"]; ?>"/>
-					      <span class="input-group-btn">
-					        <button class="btn btn-default" name="pageprotect"
-                          type="submit"><?php echo $tl["general"]["g83"]; ?></button>
-					      </span>
+      <input type="password" name="pagepass" class="form-control" value="" placeholder="<?php echo $tl["general"]["g29"]; ?>"/>
+          <span class="input-group-btn">
+            <button class="btn btn-default" name="pageprotect" type="submit"><?php echo $tl["general"]["g83"]; ?></button>
+          </span>
     </div>
     <input type="hidden" name="pagesec" value="<?php echo $PAGE_ID; ?>"/>
 
@@ -139,5 +138,6 @@ if ($jkv["printme"]) { ?>
 
   </div>
 
-<?php }
+<?php } }
+
 include_once APP_PATH . 'template/jakweb/footer.php'; ?>

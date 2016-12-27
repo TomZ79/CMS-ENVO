@@ -70,9 +70,9 @@
                     <div class="input-group divcenter">
                       <span class="input-group-addon"><i class="icon-email2"></i></span>
                       <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
-											<span class="input-group-btn">
-												<button class="btn btn-success" type="submit">Subscribe</button>
-											</span>
+                      <span class="input-group-btn">
+                          <button class="btn btn-success" type="submit">Subscribe</button>
+                      </span>
                     </div>
                   </form>
                 </div>
@@ -225,9 +225,9 @@
                     <div class="input-group divcenter">
                       <span class="input-group-addon"><i class="icon-email2"></i></span>
                       <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
-											<span class="input-group-btn">
-												<button class="btn btn-success" type="submit">Subscribe</button>
-											</span>
+                      <span class="input-group-btn">
+                          <button class="btn btn-success" type="submit">Subscribe</button>
+                      </span>
                     </div>
                   </form>
                 </div>
@@ -443,6 +443,8 @@ if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT; ?>
 <?php if (JAK_ASACCESS && $jkv["styleswitcher_tpl"]) { ?>
   <script type="text/javascript" src="<?php echo BASE_URL; ?>template/jakweb/js/stylechanger.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 <?php } ?>
+
+<?php if (isset($JAK_FACEBOOK_SDK_CONNECTION)) echo $JAK_FACEBOOK_SDK_CONNECTION; ?>
 
 <!-- Modal -->
 <div class="modal fullscreen fade" id="JAKModal" tabindex="-1" role="dialog" aria-labelledby="JAKModal" aria-hidden="true">

@@ -507,7 +507,7 @@ function _init() {
       //Make sure the body tag has the .fixed class
       if (!$("body").hasClass("fixed")) {
         if (typeof $.fn.perfectScrollbar != 'undefined') {
-          $(".sidebar").perfectScrollbar({destroy: true}).height("auto");
+          $(".main-sidebar").perfectScrollbar('destroy');
         }
         return;
       } else if (typeof $.fn.perfectScrollbar == 'undefined' && window.console) {
@@ -519,10 +519,8 @@ function _init() {
         if (typeof $.fn.perfectScrollbar != 'undefined') {
           //Destroy if it exists
           $('.main-sidebar').perfectScrollbar('destroy');
-          //Add slimscroll
-          $('.main-sidebar').perfectScrollbar({
-
-          });
+          //Add perfectScrollbar
+          $('.main-sidebar').perfectScrollbar();
         }
       }
     }
@@ -548,8 +546,14 @@ function _init() {
         if ($(window).width() > (screenSizes.sm - 1)) {
           if ($("body").hasClass('sidebar-collapse')) {
             $("body").removeClass('sidebar-collapse').trigger('expanded.pushMenu');
+            $("body").addClass('fixed').trigger('expanded.pushMenu');
+            //Add perfectScrollbar
+            $('.main-sidebar').perfectScrollbar();
           } else {
             $("body").addClass('sidebar-collapse').trigger('collapsed.pushMenu');
+            $("body").removeClass('fixed').trigger('collapsed.pushMenu');
+            //Destroy if it exists
+            $('.main-sidebar').perfectScrollbar('destroy');
           }
         }
         //Handle sidebar push menu for small screens
@@ -568,28 +572,30 @@ function _init() {
           $("body").removeClass('sidebar-open');
         }
       });
-
+      /*
       //Enable expand on hover for sidebar mini
       if ($.AdminLTE.options.sidebarExpandOnHover
-        || ($('body').hasClass('fixed')
-        && $('body').hasClass('sidebar-mini'))) {
+          || ($('body').hasClass('fixed')
+          && $('body').hasClass('sidebar-mini'))) {
         this.expandOnHover();
       }
+      */
     },
+
     expandOnHover: function () {
       var _this = this;
-      var screenWidth = $.AdminLTE.options.screenSizes.sm - 1;
+      var screenWidth = $.AdminLTE.options.screenSizes.xs - 1;
       //Expand sidebar on hover
       $('.main-sidebar').hover(function () {
         if ($('body').hasClass('sidebar-mini')
-          && $("body").hasClass('sidebar-collapse')
-          && $(window).width() > screenWidth) {
+            && $("body").hasClass('sidebar-collapse')
+            && $(window).width() > screenWidth) {
           _this.expand();
         }
       }, function () {
         if ($('body').hasClass('sidebar-mini')
-          && $('body').hasClass('sidebar-expanded-on-hover')
-          && $(window).width() > screenWidth) {
+            && $('body').hasClass('sidebar-expanded-on-hover')
+            && $(window).width() > screenWidth) {
           _this.collapse();
         }
       });
@@ -602,6 +608,7 @@ function _init() {
         $('body').removeClass('sidebar-expanded-on-hover').addClass('sidebar-collapse');
       }
     }
+
   };
 
   /* Tree()
@@ -811,6 +818,25 @@ function _init() {
   };
 
 }
+
+/*
+ * EXPLICIT BOX ACTIVATION
+ * -----------------------
+ * This is a custom plugin to use with the component BOX. It allows you to activate
+ * a box inserted in the DOM after the app.js was loaded.
+ *
+ * @type plugin
+ * @usage $("#box-widget").activateBox();
+ */
+(function ($) {
+
+  'use strict';
+
+  $.fn.activateBox = function () {
+    $.AdminLTE.boxWidget.activate(this);
+  };
+
+})(jQuery);
 
 // More custom cms javascript
 $(document).ready(function () {

@@ -1,9 +1,11 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
-// Check if the user has access to this file
+// EN: Check if the user has access to this file
+// CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID) jak_redirect(BASE_URL);
 
 // If not super admin...
@@ -59,11 +61,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 }
 
-// Title and Description
+// EN: Title and Description
+// CZ: Titulek a Popis
 $SECTION_TITLE = $tl["menu"]["m28"];
 $SECTION_DESC = $tl["general"]["g106"];
 
-// Call the template
+// EN: Load the template
+// CZ: Načti template (šablonu)
 $template = 'maintenance.php';
 
 ?>

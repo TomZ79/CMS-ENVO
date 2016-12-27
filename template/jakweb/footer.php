@@ -321,9 +321,10 @@ echo $jkv["analytics"];
 if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT; ?>
 
 <?php if (JAK_ASACCESS && $jkv["styleswitcher_tpl"]) { ?>
-  <script type="text/javascript"
-          src="<?php echo BASE_URL; ?>template/jakweb/js/stylechanger.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+  <script type="text/javascript" src="<?php echo BASE_URL; ?>template/jakweb/js/stylechanger.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 <?php } ?>
+
+<?php if (isset($JAK_FACEBOOK_SDK_CONNECTION)) echo $JAK_FACEBOOK_SDK_CONNECTION; ?>
 
 <!-- Modal -->
 <div class="modal fullscreen fade" id="JAKModal" tabindex="-1" role="dialog" aria-labelledby="JAKModal" aria-hidden="true">

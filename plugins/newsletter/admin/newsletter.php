@@ -1,17 +1,23 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
-// Check if the user has access to this file
+// EN: Check if the user has access to this file
+// CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSNEWSLETTER)) jak_redirect(BASE_URL);
 
-// All the tables we need for this plugin
-$success = array(); // put the error in a array
+// EN: Settings all the tables we need for our work
+// CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = DB_PREFIX . 'newsletter';
 $jaktable1 = DB_PREFIX . 'newslettergroup';
 $jaktable2 = DB_PREFIX . 'newsletteruser';
 $jaktable3 = DB_PREFIX . 'newsletterstat';
+
+// EN: Reset Array (output the error in a array)
+// CZ: Reset Pole (výstupní chyby se ukládají do pole)
+$success = array();
 
 // Get newsletter skins
 function jak_get_themes($styledir)
@@ -67,8 +73,12 @@ switch ($page1) {
           $rowid = $jakdb->jak_last_id();
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=new&ssp=e');
           } else {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=edit&ssp=' . $rowid . '&sssp=s');
           }
 
@@ -82,11 +92,13 @@ switch ($page1) {
     // Get all styles in the directory
     $theme_files = jak_get_themes('../plugins/newsletter/skins/');
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tlnl["nletter"]["m2"];
     $SECTION_DESC = $tlnl["nletter"]["t1"];
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $plugin_template = 'plugins/newsletter/admin/template/new.php';
 
     break;
@@ -97,10 +109,13 @@ switch ($page1) {
       // Get the newsletter
       $JAK_FORM_DATA = jak_get_data($page2, $jaktable);
 
-      // Call the template
+      // EN: Load the template
+      // CZ: Načti template (šablonu)
       $plugin_template = 'plugins/newsletter/admin/template/preview.php';
 
     } else {
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
       jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=new&ssp=ene');
     }
 
@@ -175,14 +190,18 @@ switch ($page1) {
       // Get the newsletter
       $JAK_FORM_DATA = jak_get_data($page2, $jaktable);
 
-      // Title and Description
+      // EN: Title and Description
+      // CZ: Titulek a Popis
       $SECTION_TITLE = $tlnl["nletter"]["d10"];
       $SECTION_DESC = $tlnl["nletter"]["t6"];
 
-      // Call the template
+      // EN: Load the template
+      // CZ: Načti template (šablonu)
       $plugin_template = 'plugins/newsletter/admin/template/stat.php';
 
     } else {
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
       jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=new&ssp=ene');
     }
 
@@ -358,7 +377,8 @@ switch ($page1) {
 					cmsgroup = "' . smartsql($cmsgroup) . '",
 					time = NOW()');
 
-              // Now redirect to the success page
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=send&ssp=' . $page2 . '&sssp=s');
             }
 
@@ -377,14 +397,18 @@ switch ($page1) {
       // Get usergroups cms
       $JAK_USERGROUP_CMS = jak_get_usergroup_all('usergroup');
 
-      // Title and Description
+      // EN: Title and Description
+      // CZ: Titulek a Popis
       $SECTION_TITLE = $tlnl["nletter"]["d7"];
       $SECTION_DESC = $tlnl["nletter"]["t5"];
 
-      // Call the template
+      // EN: Load the template
+      // CZ: Načti template (šablonu)
       $plugin_template = 'plugins/newsletter/admin/template/send.php';
 
     } else {
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
       jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=ene');
     }
 
@@ -424,8 +448,12 @@ switch ($page1) {
               $rowid = $jakdb->jak_last_id();
 
               if (!$result) {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=user&ssp=newuser&sssp=e');
               } else {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=user&ssp=edit&sssp=' . $rowid . '&ssssp=s');
               }
 
@@ -472,12 +500,16 @@ switch ($page1) {
               $result = $jakdb->query('INSERT INTO ' . $jaktable2 . ' VALUES ' . $csvI);
 
               if (!$result) {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=user&ssp=newuser&sssp=e');
               } else {
 
                 // Now we delete the temp csv file from the cache directory
                 if (is_file($targetFile)) unlink($targetFile);
 
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=user&ssp=s');
               }
 
@@ -494,11 +526,13 @@ switch ($page1) {
         // Get the usergroups
         $JAK_USERGROUP_ALL = jak_get_usergroup_all('newslettergroup');
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tlnl["nletter"]["m"] . ' - ' . $tl["cmenu"]["c2"];
         $SECTION_DESC = $tl["cmdesc"]["d4"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $plugin_template = 'plugins/newsletter/admin/template/newuser.php';
 
         break;
@@ -528,8 +562,12 @@ switch ($page1) {
 						WHERE id = ' . $page3);
 
               if (!$result) {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=user&ssp=edit&sssp=' . $page3 . '&ssssp=e');
               } else {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=user&ssp=edit&sssp=' . $page3 . '&ssssp=s');
               }
 
@@ -543,17 +581,21 @@ switch ($page1) {
           $JAK_FORM_DATA = jak_get_data($page3, $jaktable2);
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=user&ssp=ene');
         }
 
         // Get the usergroups
         $JAK_USERGROUP_ALL = jak_get_usergroup_all('newslettergroup');
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tlnl["nletter"]["m"] . ' - ' . $tl["cmenu"]["c3"];
         $SECTION_DESC = $tlnl["nletter"]["t7"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $plugin_template = 'plugins/newsletter/admin/template/edituser.php';
 
         break;
@@ -566,12 +608,18 @@ switch ($page1) {
           $result = $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE id = "' . smartsql($page3) . '"');
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=user&ssp=e');
           } else {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=user&ssp=s');
           }
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=user&ssp=ene');
         }
 
@@ -601,11 +649,13 @@ switch ($page1) {
         $JAK_USER_ALL = $user;
         $JAK_USERGROUP_ALL = jak_get_usergroup_all('newslettergroup');
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tlnl["nletter"]["m"] . ' - ' . $tl["cmenu"]["c3"];
         $SECTION_DESC = $tlnl["nletter"]["t7"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $plugin_template = 'plugins/newsletter/admin/template/user.php';
 
         break;
@@ -625,8 +675,12 @@ switch ($page1) {
             }
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=user&ssp=e');
             } else {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=user&ssp=s');
             }
 
@@ -643,8 +697,12 @@ switch ($page1) {
             }
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=user&ssp=e');
             } else {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=user&ssp=s');
             }
 
@@ -676,11 +734,13 @@ switch ($page1) {
 
         $JAK_USERGROUP_ALL = jak_get_usergroup_all('newslettergroup');
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tlnl["nletter"]["m"] . ' - ' . $tl["cmenu"]["c2"];
         $SECTION_DESC = $tlnl["nletter"]["t2"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $plugin_template = 'plugins/newsletter/admin/template/user.php';
 
     }
@@ -709,8 +769,12 @@ switch ($page1) {
             $rowid = $jakdb->jak_last_id();
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=usergroup&ssp=new&sssp=e');
             } else {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=usergroup&ssp=edit&sssp=' . $rowid . '&ssssp=s');
             }
 
@@ -720,11 +784,13 @@ switch ($page1) {
           }
         }
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tlnl["nletter"]["m"] . ' - ' . $tl["cmenu"]["c11"];
         $SECTION_DESC = $tl["cmdesc"]["d15"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $plugin_template = 'plugins/newsletter/admin/template/newgroup.php';
 
         break;
@@ -748,8 +814,12 @@ switch ($page1) {
 							WHERE id = "' . smartsql($page3) . '"');
 
               if (!$result) {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=usergroup&ssp=edit&sssp=' . $page3 . '&ssssp=e');
               } else {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=usergroup&ssp=edit&sssp=' . $page3 . '&ssssp=s');
               }
 
@@ -763,14 +833,18 @@ switch ($page1) {
           $JAK_FORM_DATA = jak_get_data($page3, $jaktable1);
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=usergroup&ssp=ene');
         }
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tlnl["nletter"]["m"] . ' - ' . $tl["cmenu"]["c12"];
         $SECTION_DESC = $tlnl["nletter"]["t8"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $plugin_template = 'plugins/newsletter/admin/template/editgroup.php';
 
         break;
@@ -783,16 +857,24 @@ switch ($page1) {
             // Now check how many languages are installed and do the dirty work
             $result = $jakdb->query('DELETE FROM ' . $jaktable1 . ' WHERE id = "' . smartsql($page3) . '"');
           } else {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=usergroup&ssp=edn');
           }
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=usergroup&ssp=e');
           } else {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=usergroup&ssp=s');
           }
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=usergroup&ssp=ene');
         }
 
@@ -817,8 +899,12 @@ switch ($page1) {
 					WHERE id = ' . $page3);
 
               if (!$result) {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=usergroup&ssp=e');
               } else {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=usergroup&ssp=s');
               }
             } else {
@@ -841,8 +927,12 @@ switch ($page1) {
             }
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=usergroup&ssp=e');
             } else {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=usergroup&ssp=s');
             }
 
@@ -853,11 +943,13 @@ switch ($page1) {
 
         $JAK_USERGROUP_ALL = jak_get_usergroup_all('newslettergroup');
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tlnl["nletter"]["m"] . ' - ' . $tl["menu"]["m9"];
         $SECTION_DESC = $tlnl["nletter"]["t3"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $plugin_template = 'plugins/newsletter/admin/template/usergroup.php';
     }
 
@@ -905,8 +997,12 @@ switch ($page1) {
 				WHERE varname IN ("nltitle","nlsignoff","nlthankyou","nlemail","nlsmtp_mail","nlsmtphost","nlsmtpport","nlsmtp_alive","nlsmtp_auth","nlsmtp_prefix","nlsmtpusername","nlsmtppassword")');
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=settings&ssp=e');
           } else {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=settings&ssp=s');
           }
         } else {
@@ -966,14 +1062,17 @@ switch ($page1) {
       }
     }
 
-    // Get the newsletter settings
+    // EN: Import important settings for the template from the DB
+    // CZ: Importuj důležité nastavení pro šablonu z DB
     $JAK_SETTING = jak_get_setting('newsletter');
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tlnl["nletter"]["m"] . ' - ' . $tl["menu"]["m2"];
     $SECTION_DESC = $tl["cmdesc"]["d2"];
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $plugin_template = 'plugins/newsletter/admin/template/settings.php';
 
     break;
@@ -987,12 +1086,18 @@ switch ($page1) {
           $result = $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE id = "' . smartsql($page2) . '"');
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=e');
           } else {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=s');
           }
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=ene');
         }
         break;
@@ -1017,8 +1122,12 @@ switch ($page1) {
 					WHERE id = "' . smartsql($page2) . '"');
 
               if (!$result) {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=edit&ssp=' . $page2 . '&sssp=e');
               } else {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=edit&ssp=' . $page2 . '&sssp=s');
               }
 
@@ -1035,14 +1144,18 @@ switch ($page1) {
           $resultc = $jakdb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql(JAK_PLUGIN_NEWSLETTER) . '"');
           $rowc = $resultc->fetch_assoc();
 
-          // Title and Description
+          // EN: Title and Description
+          // CZ: Titulek a Popis
           $SECTION_TITLE = $tlnl["nletter"]["m3"];
           $SECTION_DESC = $tlnl["nletter"]["t3"];
 
-          // Call the template
+          // EN: Load the template
+          // CZ: Načti template (šablonu)
           $plugin_template = 'plugins/newsletter/admin/template/edit.php';
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=ene');
         }
         break;
@@ -1062,8 +1175,12 @@ switch ($page1) {
             }
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=e');
             } else {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=s');
             }
 
@@ -1086,14 +1203,16 @@ switch ($page1) {
           $JAK_PAGINATE = $nletter->display_pages();
         }
 
-        // Title and Description
-        $SECTION_TITLE = $tlnl["nletter"]["m1"];
-        $SECTION_DESC = $tlnl["nletter"]["t"];
-
         // Newsletter
         $JAK_NEWSLETTER_ALL = jak_get_page_info($jaktable, $nletter->limit);
 
-        // Call the template
+        // EN: Title and Description
+        // CZ: Titulek a Popis
+        $SECTION_TITLE = $tlnl["nletter"]["m1"];
+        $SECTION_DESC = $tlnl["nletter"]["t"];
+
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $plugin_template = 'plugins/newsletter/admin/template/newsletter.php';
     }
 }

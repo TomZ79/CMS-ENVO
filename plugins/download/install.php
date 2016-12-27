@@ -1,6 +1,7 @@
 <?php
 
-// Include the config file...
+// EN: Include the config file ...
+// CZ: Vložení konfiguračního souboru ...
 if (!file_exists('../../config.php')) die('[index.php] config.php not found');
 require_once '../../config.php';
 
@@ -193,8 +194,8 @@ include_once APP_PATH.\'plugins/download/template/\'.$jkv[\"sitestyle\"].\'/page
 
 // Insert tables into settings
           $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
-("downloadtitle", "download", NULL, NULL, "input", "free", "download"),
-("downloaddesc", "download", NULL, NULL, "textarea", "free", "download"),
+("downloadtitle", "download", "Download", "Download", "input", "free", "download"),
+("downloaddesc", "download", "Write something about your Download", "Write something about your Download", "textarea", "free", "download"),
 ("downloademail", "download", NULL, NULL, "input", "free", "download"),
 ("downloaddateformat", "download", "d.m.Y", "d.m.Y", "input", "free", "download"),
 ("downloadtimeformat", "download", ": h:i A", ": h:i A", "input", "free", "download"),

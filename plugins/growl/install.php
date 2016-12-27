@@ -1,6 +1,7 @@
 <?php
 
-// Include the config file...
+// EN: Include the config file ...
+// CZ: Vložení konfiguračního souboru ...
 if (!file_exists('../../config.php')) die('[install.php] config.php not found');
 require_once '../../config.php';
 
@@ -58,7 +59,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
         require_once APP_PATH.\'plugins/growl/admin/growl.php\';
         $JAK_PROVED = 1;
         $checkp = 1;
-     }", "../plugins/growl/admin/template/nav.php", "1", "uninstall.php", "1.0", NOW())');
+     }", "../plugins/growl/admin/template/nav.php", "1", "uninstall.php", "1.1", NOW())');
 
 // now get the plugin id for futher use
           $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Growl"');

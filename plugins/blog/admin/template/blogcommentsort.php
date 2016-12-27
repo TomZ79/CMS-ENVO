@@ -30,6 +30,8 @@
   </script>
 <?php } ?>
 
+<?php if (isset($JAK_BLOGCOM_SORT) && is_array($JAK_BLOGCOM_SORT)) { ?>
+
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="box">
       <div class="box-body no-padding">
@@ -50,7 +52,7 @@
               </th>
             </tr>
             </thead>
-            <?php if (isset($JAK_BLOGCOM_SORT) && is_array($JAK_BLOGCOM_SORT)) foreach ($JAK_BLOGCOM_SORT as $v) { ?>
+            <?php foreach ($JAK_BLOGCOM_SORT as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
                 <td>
@@ -80,6 +82,14 @@
       </div>
     </div>
   </form>
+
+<?php } else { ?>
+
+  <div class="alert bg-info">
+    <?php echo $tl["errorpage"]["data"]; ?>
+  </div>
+
+<?php } ?>
 
   <div class="icon_legend">
     <h3><?php echo $tl["icons"]["i"]; ?></h3>

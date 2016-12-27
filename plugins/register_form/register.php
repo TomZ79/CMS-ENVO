@@ -1,9 +1,11 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
-// Get the table
+// EN: Settings all the tables we need for our work
+// CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = DB_PREFIX . 'user';
 
 // AJAX Search
@@ -302,10 +304,13 @@ if (JAK_USERID) {
   $JAK_TPL_PLUG_T = $PAGE_TITLE;
   $JAK_TPL_PLUG_URL = 1;
 
-  // Get the edit profile template
+  // EN: Load the template
+  // CZ: Načti template (šablonu)
   $plugin_template = 'plugins/register_form/template/' . $jkv["sitestyle"] . '/rf_editprofile.php';
 
 } else {
+  // EN: Redirect page
+  // CZ: Přesměrování stránky
   jak_redirect(BASE_URL);
 }
 

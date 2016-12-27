@@ -31,6 +31,24 @@ if ($page2 == "e" || $page2 == "ene") { ?>
   </script>
 <?php } ?>
 
+<?php if ($page3 == "s") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?php echo $tl["notification"]["n2"]; ?>',
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000,
+      });
+    }, 2000);
+  </script>
+<?php } ?>
+
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <?php if ($JAK_TAGCLOUD) {
       echo $JAK_TAGCLOUD;

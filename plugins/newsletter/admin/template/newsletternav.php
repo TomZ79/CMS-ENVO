@@ -1,6 +1,8 @@
 <li class="treeview<?php if ($page == 'newsletter') echo ' active'; ?>">
   <a href="javascript:void(0)">
-    <i class="fa fa-envelope-o"></i> <?php echo $tlnl["nletter"]["m"]; ?> <i class="fa fa-angle-left pull-right"></i>
+    <i class="fa fa-envelope-o"></i>
+    <span><?php echo $tlnl["nletter"]["m"]; ?></span>
+    <i class="fa fa-angle-left pull-right"></i>
   </a>
 
   <ul class="treeview-menu">
@@ -22,6 +24,8 @@
         </a>
       </li>
     <?php } ?>
+    <li class="list-divider"></li>
+
     <li<?php if ($page == 'newsletter' && $page1 == 'user') echo ' class="active"'; ?>>
       <a href="index.php?p=newsletter&amp;sp=user">
         <i class="fa fa-circle-o"></i> <?php echo $tl["menu"]["m3"]; ?>
@@ -32,6 +36,8 @@
         <i class="fa fa-circle-o"></i> <?php echo $tl["cmenu"]["c2"]; ?>
       </a>
     </li>
+    <li class="list-divider"></li>
+
     <li<?php if ($page == 'newsletter' && $page1 == 'usergroup') echo ' class="active"'; ?>>
       <a href="index.php?p=newsletter&amp;sp=usergroup">
         <i class="fa fa-circle-o"></i> <?php echo $tl["menu"]["m9"]; ?>
@@ -42,6 +48,8 @@
         <i class="fa fa-circle-o"></i> <?php echo $tl["cmenu"]["c11"]; ?>
       </a>
     </li>
+    <li class="list-divider"></li>
+
     <li<?php if ($page == 'newsletter' && $page1 == 'settings') echo ' class="active"'; ?>>
       <a href="index.php?p=newsletter&amp;sp=settings">
         <i class="fa fa-circle-o"></i> <?php echo $tl["menu"]["m2"]; ?>

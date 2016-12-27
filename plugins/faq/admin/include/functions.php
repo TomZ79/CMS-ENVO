@@ -15,7 +15,7 @@ function jak_get_faqs($limit, $jakvar1, $table)
     $jakdata[] = $row;
   }
 
-  return $jakdata;
+  if (!empty($jakdata)) return $jakdata;
 }
 
 // Get the faq comments

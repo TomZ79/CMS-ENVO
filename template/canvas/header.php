@@ -1,6 +1,7 @@
 <?php
 
-/* Config file */
+// EN: Include the config file ...
+// CZ: Vložení konfiguračního souboru ...
 if (!file_exists('config.php')) die('[index.php] config.php not found');
 require_once 'config.php';
 
@@ -276,7 +277,6 @@ require_once 'config.php';
   <?php } elseif (isset($page)) { // Code for all page without home page ?>
 
     <section id="page-title" class="page-title-pattern">
-
       <div class="container clearfix">
         <h1><?php echo $PAGE_TITLE; ?></h1>
         <span><?php echo $MAIN_DESCRIPTION; ?></span>

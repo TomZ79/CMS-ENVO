@@ -133,7 +133,7 @@ if (!isset($jkv["cms_tpl"])) { ?>
           <i class="fa fa-pie-chart"></i>
           <h3 class="box-title"><?php echo $tl["title"]["t19"]; ?></h3>
         </div>
-        <div class="box-body no-padding">
+        <div class="box-body no-padding table-responsive">
           <div id="chart_total" class="charts"></div>
         </div>
       </div>
@@ -148,32 +148,34 @@ if (!isset($jkv["cms_tpl"])) { ?>
           <h3 class="box-title"><?php echo $tl["title"]["t"]; ?></h3>
         </div>
         <div class="box-body no-padding">
-          <table class="table table-striped first-column">
-            <tr>
-              <td><?php echo $tl["general"]["g8"]; ?></td>
-              <td><?php echo $WEBS; ?></td>
-            </tr>
-            <tr>
-              <td><?php echo $tl["general"]["g9"]; ?></td>
-              <td><?php echo $PHPV; ?></td>
-            </tr>
-            <tr>
-              <td><?php echo $tl["general"]["g10"]; ?></td>
-              <td><?php echo $POSTM; ?></td>
-            </tr>
-            <tr>
-              <td><?php echo $tl["general"]["g11"]; ?></td>
-              <td><?php echo $MEML; ?></td>
-            </tr>
-            <tr>
-              <td><?php echo $tl["general"]["g12"]; ?></td>
-              <td><?php echo $MYV; ?></td>
-            </tr>
-            <tr>
-              <td><?php echo $tl["general"]["g13"]; ?></td>
-              <td><?php echo $SRVIP; ?></td>
-            </tr>
-          </table>
+          <div class="table-responsive">
+            <table class="table table-striped first-column">
+              <tr>
+                <td><?php echo $tl["general"]["g8"]; ?></td>
+                <td><?php echo $WEBS; ?></td>
+              </tr>
+              <tr>
+                <td><?php echo $tl["general"]["g9"]; ?></td>
+                <td><?php echo $PHPV; ?></td>
+              </tr>
+              <tr>
+                <td><?php echo $tl["general"]["g10"]; ?></td>
+                <td><?php echo $POSTM; ?></td>
+              </tr>
+              <tr>
+                <td><?php echo $tl["general"]["g11"]; ?></td>
+                <td><?php echo $MEML; ?></td>
+              </tr>
+              <tr>
+                <td><?php echo $tl["general"]["g12"]; ?></td>
+                <td><?php echo $MYV; ?></td>
+              </tr>
+              <tr>
+                <td><?php echo $tl["general"]["g13"]; ?></td>
+                <td><?php echo $SRVIP; ?></td>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
       <div class="box">
@@ -182,20 +184,22 @@ if (!isset($jkv["cms_tpl"])) { ?>
           <h3 class="box-title"><?php echo $tl["title"]["t1"]; ?></h3>
         </div>
         <div class="box-body no-padding">
-          <table class="table table-striped first-column">
-            <tr>
-              <td><?php echo $tl["menu"]["m12"]; ?></td>
-              <td><?php echo $jkv["version"]; ?></td>
-            </tr>
-            <tr>
-              <td><?php echo $tl["general"]["g14"]; ?></td>
-              <td><a href="http://www.bluesat.cz" target="_blank">BLUESAT</a></td>
-            </tr>
-            <tr>
-              <td><?php echo $tl["general"]["g15"]; ?></td>
-              <td>Tomas Zukal</td>
-            </tr>
-          </table>
+          <div class="table-responsive">
+            <table class="table table-striped first-column">
+              <tr>
+                <td><?php echo $tl["menu"]["m12"]; ?></td>
+                <td><?php echo $jkv["version"]; ?></td>
+              </tr>
+              <tr>
+                <td><?php echo $tl["general"]["g14"]; ?></td>
+                <td><a href="http://www.bluesat.cz" target="_blank">BLUESAT</a></td>
+              </tr>
+              <tr>
+                <td><?php echo $tl["general"]["g15"]; ?></td>
+                <td>Tomas Zukal</td>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
     </div>

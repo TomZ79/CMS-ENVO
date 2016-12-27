@@ -1,15 +1,19 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
-// Check if the user has access to this file
+// EN: Check if the user has access to this file
+// CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !$JAK_MODULES) jak_redirect(BASE_URL);
 
-// reset
+// EN: Reset Array (output the error in a array)
+// CZ: Reset Pole (výstupní chyby se ukládají do pole)
 $success = array();
 
-// Important template Stuff
+// EN: Import important settings for the template from the DB
+// CZ: Importuj důležité nastavení pro šablonu z DB
 $JAK_SETTING = jak_get_setting('mediasharing');
 
 // Let's go on with the script
@@ -38,8 +42,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     	WHERE varname IN ("md_facebook","md_googleplus","md_instagram","md_twitter","md_youtube","md_vimeo","md_email","md_mediaSize","md_iconSize","md_mediatheme","md_mediahover")');
 
       if (!$result) {
+        // EN: Redirect page
+        // CZ: Přesměrování stránky
         jak_redirect(BASE_URL . 'index.php?p=mediasharing&sp=e');
       } else {
+        // EN: Redirect page
+        // CZ: Přesměrování stránky
         jak_redirect(BASE_URL . 'index.php?p=mediasharing&sp=s');
       }
     } else {
@@ -51,10 +59,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 }
 
-// Title and Description
+// EN: Title and Description
+// CZ: Titulek a Popis
 $SECTION_TITLE = $tl["cmenumenu_cmd"]["c2"];
 $SECTION_DESC = $tl["cmdesc_cmd"]["d2"];
 
-// Call the template
+// EN: Load the template
+// CZ: Načti template (šablonu)
 $template = 'mediasharing.php';
 ?>

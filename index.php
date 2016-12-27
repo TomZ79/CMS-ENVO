@@ -3,6 +3,8 @@
 // prevent direct php access
 define('JAK_PREVENT_ACCESS', 1);
 
+// EN: Include the config file ...
+// CZ: Vložení konfiguračního souboru ...
 if (!file_exists('config.php')) die('[index.php] config.php not exist');
 require_once 'config.php';
 

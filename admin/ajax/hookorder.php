@@ -1,8 +1,10 @@
 <?php
-
+// EN: Include the config file ...
+// CZ: Vložení konfiguračního souboru ...
 if (!file_exists('../../config.php')) die('ajax/[qtips.php] config.php not exist');
 require_once '../../config.php';
 
+//
 if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || !$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die("Nothing to see here");
 
 $content_array = array("status" => 0, "rcontent" => "");

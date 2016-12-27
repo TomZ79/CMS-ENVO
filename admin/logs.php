@@ -1,12 +1,15 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
-// Check if the user has access to this file
+// EN: Check if the user has access to this file
+// CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !$JAK_MODULES) jak_redirect(BASE_URL);
 
-// All the tables we need for this plugin
+// EN: Settings all the tables we need for our work
+// CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = DB_PREFIX . 'loginlog';
 
 $JAK_LOGINLOG_ALL = "";
@@ -42,13 +45,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     if (!$result) {
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
       jak_redirect(BASE_URL . 'index.php?p=logs&sp=e');
     } else {
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
       jak_redirect(BASE_URL . 'index.php?p=logs&sp=s');
     }
 
   }
-
 
 }
 
@@ -57,8 +63,12 @@ switch ($page1) {
     $result = $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE id = "' . smartsql($page2) . '"');
 
     if (!$result) {
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
       jak_redirect(BASE_URL . 'index.php?p=logs&sp=e');
     } else {
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
       jak_redirect(BASE_URL . 'index.php?p=logs&sp=s');
     }
     break;
@@ -66,18 +76,24 @@ switch ($page1) {
     $result = $jakdb->query('TRUNCATE ' . $jaktable);
 
     if (!$result) {
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
       jak_redirect(BASE_URL . 'index.php?p=logs&sp=e');
     } else {
+      // EN: Redirect page
+      // CZ: Přesměrování stránky
       jak_redirect(BASE_URL . 'index.php?p=logs&sp=s');
     }
     break;
   default:
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tl["cmenu"]["c48"];
     $SECTION_DESC = $tl["cmdesc"]["d42"];
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $template = 'logs.php';
 }
 ?>

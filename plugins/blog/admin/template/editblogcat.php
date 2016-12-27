@@ -31,6 +31,15 @@
 <?php } ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+    <!-- Fixed Button for save form -->
+    <div class="savebutton">
+      <button type="submit" name="save" class="btn btn-primary button">
+        <i class="fa fa-save margin-right-5"></i>
+        <?php echo $tl["general"]["g20"]; ?> !!
+      </button>
+    </div>
+
+    <!-- Form Content -->
     <div class="row">
       <div class="col-md-8">
         <div class="box box-primary">
@@ -48,7 +57,11 @@
                 <td><?php include_once APP_PATH . "admin/template/cat_edit.php"; ?></td>
               </tr>
               <tr>
-                <td><?php echo $tl["cat"]["c5"]; ?></td>
+                <td><?php echo $tl["cat"]["c5"]; ?>
+                  <a class="cms-help" data-content="<?php echo $tl["help"]["h2"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tl["title"]["t21"]; ?>">
+                    <i class="fa fa-question-circle"></i>
+                  </a>
+                </td>
                 <td>
                   <div class="form-group no-margin<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
                     <input type="text" name="jak_varname" id="jak_varname" class="form-control" value="<?php echo $JAK_FORM_DATA["varname"]; ?>"/>
@@ -78,8 +91,10 @@
                 <td><?php echo $tl["general"]["g87"]; ?></td>
                 <td>
                   <div class="input-group">
-                    <input type="text" name="jak_img" id="jak_img" data-placement="topRight" class="form-control" value="<?php echo $JAK_FORM_DATA["catimg"]; ?>">
-                    <span class="input-group-addon"></span>
+                    <input type="text" name="jak_img" id="jak_img" class="form-control" value="<?php echo $JAK_FORM_DATA["catimg"]; ?>">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default iconpicker" data-placement="top" role="iconpicker"></button>
+                    </span>
                   </div>
                 </td>
               </tr>
@@ -132,9 +147,18 @@
         $("#jak_varname").val(jakSlug($("#jak_name").val()));
       });
 
-      /* Font Awesome Icon Picker */
-      $('#jak_img').iconpicker({
-        selectedCustomClass: 'bg-teal-300',
+      /* Bootstrap Icon Picker */
+      $('.iconpicker').iconpicker({
+        iconset: 'fontawesome',
+        icon: '<?php if (isset($JAK_FORM_DATA["catimg"])) { echo $JAK_FORM_DATA["catimg"]; } else { echo 'fa-font'; }?>',
+        searchText: '<?php echo $tl["placeholder"]["p4"]; ?>',
+        arrowPrevIconClass: 'fa fa-chevron-left',
+        arrowNextIconClass: 'fa fa-chevron-right',
+        rows: 5,
+        cols: 6,
+      });
+      $('.iconpicker').on('change', function(e) {
+        $("#jak_img").val(e.icon);
       });
 
     });

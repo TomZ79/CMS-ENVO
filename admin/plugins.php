@@ -1,12 +1,15 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
-// Check if the user has access to this file
+// EN: Check if the user has access to this file
+// CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_SUPERADMINACCESS) jak_redirect(BASE_URL_ORIG);
 
-// All the tables we need for this plugin
+// EN: Settings all the tables we need for our work
+// CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = DB_PREFIX . 'categories';
 $jaktable1 = DB_PREFIX . 'plugins';
 $jaktable2 = DB_PREFIX . 'pluginhooks';
@@ -14,7 +17,8 @@ $jaktable2 = DB_PREFIX . 'pluginhooks';
 // Get all the Hooks
 $jakhooks = new JAK_hooks('', '');
 
-// Important template Stuff
+// EN: Import important settings for the template from the DB
+// CZ: Importuj důležité nastavení pro šablonu z DB
 $JAK_SETTING = jak_get_setting('module');
 
 // Get all the hooks out the class file
@@ -33,6 +37,8 @@ switch ($page1) {
           $jakdb->query('UPDATE ' . $jaktable2 . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page3) . '"');
         }
 
+        // EN: Redirect page
+        // CZ: Přesměrování stránky
         jak_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=s');
 
         break;
@@ -69,8 +75,12 @@ switch ($page1) {
 
 
               if (!$result) {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=edit&sssp=' . $page3 . '&ssssp=e');
               } else {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=edit&sssp=' . $page3 . '&ssssp=s');
               }
             } else {
@@ -83,11 +93,13 @@ switch ($page1) {
           // Get the data from thbe hook
           $JAK_FORM_DATA = jak_get_data($page3, $jaktable2);
 
-          // Title and Description
+          // EN: Title and Description
+          // CZ: Titulek a Popis
           $SECTION_TITLE = $tl["cmenu"]["c51"];
           $SECTION_DESC = $tl["cmdesc"]["d13"];
 
-          // Call the template
+          // EN: Load the template
+          // CZ: Načti template (šablonu)
           $template = 'edithook.php';
         }
 
@@ -101,9 +113,12 @@ switch ($page1) {
             $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE id = "' . smartsql($page3) . '" LIMIT 1');
 
 
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=s');
-
           } else {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky
             jak_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=edn');
           }
         }
@@ -126,8 +141,12 @@ switch ($page1) {
 
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=e');
             } else {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=s');
             }
 
@@ -148,8 +167,12 @@ switch ($page1) {
             }
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=e');
             } else {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=s');
             }
 
@@ -180,12 +203,15 @@ switch ($page1) {
         // Get all plugins out the databse
         $JAK_HOOKS = $plhooks;
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tl["menu"]["m27"];
         $SECTION_DESC = $tl["cmdesc"]["d13"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $template = 'hooks.php';
+
         break;
     }
 
@@ -210,11 +236,13 @@ switch ($page1) {
       if ($vpn['pluginid'] == $page2) $JAK_PLUGIN_NAME = $vpn['pluginname'];
     }
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tl["menu"]["m27"];
     $SECTION_DESC = (is_numeric($page2) ? $tl["tag"]["t1"] . ': ' . $JAK_PLUGIN_NAME : $tl["hook"]["h1"] . ': ' . $page2);
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $template = 'sorthooks.php';
 
     break;
@@ -249,8 +277,12 @@ switch ($page1) {
         $rowid = $jakdb->jak_last_id();
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=plugins&sp=newhook&ssp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=edit&sssp=' . $rowid . '&ssssp=s');
         }
       } else {
@@ -260,11 +292,13 @@ switch ($page1) {
       }
     }
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tl["cmenu"]["c50"];
     $SECTION_DESC = $tl["cmdesc"]["d13"];
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $template = 'newhook.php';
 
     break;
@@ -279,6 +313,8 @@ switch ($page1) {
           $jakdb->query('UPDATE ' . $jaktable2 . ' SET active = IF (active = 1, 0, 1) WHERE pluginid = "' . smartsql($page2) . '"');
         }
 
+        // EN: Redirect page
+        // CZ: Přesměrování stránky
         jak_redirect(BASE_URL . 'index.php?p=plugins&sp=s');
 
         break;
@@ -317,8 +353,12 @@ switch ($page1) {
 		 							WHERE varname IN ("accessgeneral","accessmanage")');
 
               if (!$result1) {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=plugins&sp=e');
               } else {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
                 jak_redirect(BASE_URL . 'index.php?p=plugins&sp=s');
               }
             }
@@ -330,11 +370,13 @@ switch ($page1) {
         // Get all styles in the directory
         $site_plugins = jak_get_site_style('../plugins/');
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tl["menu"]["m14"];
         $SECTION_DESC = $tl["cmdesc"]["d13"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $template = 'plugins.php';
     }
 }

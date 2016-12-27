@@ -46,7 +46,15 @@ if ($page2 == "e") { ?>
 <?php } ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+    <!-- Fixed Button for save form -->
+    <div class="savebutton">
+      <button type="submit" name="save" class="btn btn-primary button">
+        <i class="fa fa-save margin-right-5"></i>
+        <?php echo $tl["general"]["g20"]; ?> !!
+      </button>
+    </div>
 
+    <!-- Form Content -->
     <ul class="nav nav-tabs" id="cmsTab">
       <li class="active"><a href="#blogSett1"><?php echo $tl["menu"]["m2"]; ?></a></li>
       <li><a href="#blogSett2"><?php echo $tl["general"]["g53"]; ?></a></li>

@@ -31,6 +31,24 @@ if ($page1 == "e" || $page1 == "ene") { ?>
   </script>
 <?php } ?>
 
+<?php if ($page2 == "s") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?php echo $tl["notification"]["n2"]; ?>',
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000,
+      });
+    }, 2000);
+  </script>
+<?php } ?>
+
   <div class="row">
     <div class="col-md-6">
       <form role="form" method="post" action="/admin/index.php?p=page&amp;sp=search&amp;ssp=go">
@@ -45,6 +63,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
   </div>
 
   <hr>
+
+<?php if (isset($JAK_PAGE_ALL) && is_array($JAK_PAGE_ALL))  { ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="box">
@@ -83,20 +103,23 @@ if ($page1 == "e" || $page1 == "ene") { ?>
               </th>
               <th></th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm="<?php echo $tl["page"]["al"];?>">
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tl["page"]["al"]; ?>">
                   <i class="fa fa-trash-o"></i>
                 </button>
               </th>
             </tr>
             </thead>
-            <?php if (isset($JAK_PAGE_ALL) && is_array($JAK_PAGE_ALL)) foreach ($JAK_PAGE_ALL as $v) { ?>
+            <?php foreach ($JAK_PAGE_ALL as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
                 <td><input type="checkbox" name="jak_delete_page[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
                 </td>
-                <td><a
-                    href="index.php?p=page&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a><?php if ($v["password"]) { ?>
-                    <i class="fa fa-key"></i><?php } ?></td>
+                <td>
+                  <a href="index.php?p=page&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a>
+                  <?php if ($v["password"]) { ?>
+                    <i class="fa fa-key"></i>
+                  <?php } ?>
+                </td>
                 <td><?php if ($v["catid"] != '0') {
                     if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $z) {
                       if ($v["catid"] == $z["id"]) { ?>
@@ -107,10 +130,14 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                 <td><?php echo $v["hits"]; ?></td>
                 <td>
                   <?php
-                    if ($v["active"] == 1 && $v["catid"] != '0') {
+                    if ($v["active"] == 1 && $v["catid"] != 0) {
                       echo $tl["general_cmd"]["g10"];
+                    } elseif ($v["active"] == 1 && $v["catid"] == 0) {
+                      echo $tl["general_cmd"]["g11"] . '<span class="small">  - Archiv</span>';
+                    } elseif ($v["active"] == 0 && $v["catid"] == 0) {
+                      echo $tl["general_cmd"]["g11"] . '<span class="small">  - Archiv, Uzamčeno</span>';
                     } else {
-                      echo $tl["general_cmd"]["g11"];
+                      echo $tl["general_cmd"]["g11"] . '<span class="small">  - Uzamčeno</span>';
                     }
                   ?>
                 </td>
@@ -136,6 +163,14 @@ if ($page1 == "e" || $page1 == "ene") { ?>
       </div>
     </div>
   </form>
+
+<?php } else { ?>
+
+  <div class="alert bg-info">
+    <?php echo $tl["errorpage"]["data"]; ?>
+  </div>
+
+<?php } ?>
 
   <div class="icon_legend">
     <h3><?php echo $tl["icons"]["i"]; ?></h3>

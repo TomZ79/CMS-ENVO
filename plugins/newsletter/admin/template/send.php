@@ -38,42 +38,44 @@ if ($errors) { ?>
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <h3 class="box-title"><?php echo $tlnl["nletter"]["d25"]; ?> <a class="cms-help"
-                                                                        data-content="<?php echo $tl["help"]["h"]; ?>"
-                                                                        href="javascript:void(0)"
-                                                                        data-original-title="<?php echo $tl["title"]["t21"]; ?>"><i
-              class="fa fa-question-circle"></i></a></h3>
+        <h3 class="box-title"><?php echo $tlnl["nletter"]["d25"]; ?>
+          <a class="cms-help" data-content="<?php echo $tl["help"]["h"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tl["title"]["t21"]; ?>">
+            <i class="fa fa-question-circle"></i>
+          </a>
+        </h3>
       </div>
       <div class="box-body">
         <table class="table table-striped">
           <tr>
-            <td><select name="jak_nlgroup[]" multiple="multiple" class="form-control">
-                <option
-                  value="0"<?php if ($_REQUEST["jak_nlgroup"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c18"]; ?></option>
+            <td>
+              <select name="jak_nlgroup[]" multiple="multiple" class="form-control">
+                <option value="0"<?php if ($_REQUEST["jak_nlgroup"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c18"]; ?></option>
                 <?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) { ?>
                   <option value="<?php echo $v["id"]; ?>"<?php if ($v["id"] == $_REQUEST["jak_nlgroup"]) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php } ?>
-              </select></td>
+              </select>
+            </td>
           </tr>
         </table>
       </div>
     </div>
     <div class="box box-primary">
       <div class="box-header with-border">
-        <h3 class="box-title"><?php echo $tlnl["nletter"]["d26"]; ?> <a class="cms-help"
-                                                                        data-content="<?php echo $tl["help"]["h"]; ?>"
-                                                                        href="javascript:void(0)"
-                                                                        data-original-title="<?php echo $tl["title"]["t21"]; ?>"><i
-              class="fa fa-question-circle"></i></a></h3>
+        <h3 class="box-title"><?php echo $tlnl["nletter"]["d26"]; ?>
+          <a class="cms-help" data-content="<?php echo $tl["help"]["h"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tl["title"]["t21"]; ?>">
+            <i class="fa fa-question-circle"></i>
+          </a>
+        </h3>
       </div>
       <div class="box-body">
         <table class="table table-striped">
           <tr>
-            <td><select name="jak_cmsgroup[]" multiple="multiple" class="form-control">
-                <option
-                  value="0"<?php if ($_REQUEST["jak_cmsgroup"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c18"]; ?></option>
+            <td>
+              <select name="jak_cmsgroup[]" multiple="multiple" class="form-control">
+                <option value="0"<?php if ($_REQUEST["jak_cmsgroup"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c18"]; ?></option>
                 <?php if (isset($JAK_USERGROUP_CMS) && is_array($JAK_USERGROUP_CMS)) foreach ($JAK_USERGROUP_CMS as $c) { ?>
                   <option value="<?php echo $c["id"]; ?>"<?php if ($c["id"] == $_REQUEST["jak_cmsgroup"]) { ?> selected="selected"<?php } ?>><?php echo $c["name"]; ?></option><?php } ?>
-              </select></td>
+              </select>
+            </td>
           </tr>
         </table>
       </div>
@@ -91,10 +93,12 @@ if ($errors) { ?>
         </table>
       </div>
       <div class="box-footer">
-        <span id="loader" style="display: none;"><img src="../../img/loader.gif" alt="loader" width="16"
-                                                      height="11"/></span>
-        <button type="submit" name="save" id="sendNL"
-                class="btn btn-primary pull-right"><?php echo $tl["general"]["g39"]; ?></button>
+        <span id="loader" style="display: none;">
+          <img src="../../img/loader.gif" alt="loader" width="16" height="11"/>
+        </span>
+        <button type="submit" name="save" id="sendNL" class="btn btn-primary pull-right">
+          <?php echo $tl["general"]["g39"]; ?>
+        </button>
       </div>
     </div>
   </form>

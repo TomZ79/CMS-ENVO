@@ -3,9 +3,12 @@
 header("Cache-Control: no-cache, must-revalidate");
 header("Expires: Sat, 6 May 1980 03:10:00 GMT");
 
+// EN: Include the config file ...
+// CZ: Vložení konfiguračního souboru ...
 if (!file_exists('../../config.php')) die('ajax/[like_update.php] config.php not exist');
 require_once '../../config.php';
 
+//
 if (!$jakusergroup->getVar("canrate")) die(json_encode(array("status" => 0)));
 
 if (is_numeric($_GET['aid']) && is_numeric($_GET['locid']) && is_numeric($_GET['feelid'])) {

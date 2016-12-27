@@ -30,6 +30,7 @@
   </script>
 <?php } ?>
 
+<?php if (isset($JAK_DOWNLOADCOM_ALL) && is_array($JAK_DOWNLOADCOM_ALL)) { ?>
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="box">
       <div class="box-body no-padding">
@@ -50,7 +51,7 @@
             </th>
           </tr>
           </thead>
-          <?php if (isset($JAK_DOWNLOADCOM_ALL) && is_array($JAK_DOWNLOADCOM_ALL)) foreach ($JAK_DOWNLOADCOM_ALL as $v) { ?>
+          <?php foreach ($JAK_DOWNLOADCOM_ALL as $v) { ?>
             <tr>
               <td><?php echo $v["id"]; ?></td>
               <td><input type="checkbox" name="jak_delete_comment[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
@@ -83,6 +84,14 @@
       </div>
     </div>
   </form>
+
+<?php } else { ?>
+
+  <div class="alert bg-info">
+    <?php echo $tl["errorpage"]["data"]; ?>
+  </div>
+
+<?php } ?>
 
   <div class="icon_legend">
     <h3><?php echo $tl["icons"]["i"]; ?></h3>

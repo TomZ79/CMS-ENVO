@@ -1,12 +1,15 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
-// Check if the user has access to this file
+// EN: Check if the user has access to this file
+// CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSGROWL)) jak_redirect(BASE_URL);
 
-// All the tables we need for this plugin
+// EN: Settings all the tables we need for our work
+// CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = DB_PREFIX . 'growl';
 $jaktable1 = DB_PREFIX . 'pages';
 $jaktable2 = DB_PREFIX . 'news';
@@ -23,7 +26,7 @@ function jak_get_growl()
     $jakdata[] = $row;
   }
 
-  return $jakdata;
+  if (!empty($jakdata)) return $jakdata;
 }
 
 // Now start with the plugin use a switch to access all pages
@@ -105,9 +108,12 @@ switch ($page1) {
         $rowid = $jakdb->jak_last_id();
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=growl&sp=new&ssp=e');
         } else {
-
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=growl&sp=edit&ssp=' . $rowid . '&sssp=s');
         }
       } else {
@@ -124,11 +130,13 @@ switch ($page1) {
     $JAK_PAGES = jak_get_page_info($jaktable1, '');
     $JAK_NEWS = jak_get_page_info($jaktable2, '');
 
-    // Title and Description
+    // EN: Title and Description
+    // CZ: Titulek a Popis
     $SECTION_TITLE = $tlgwl["growl"]["m1"];
     $SECTION_DESC = $tlgwl["growl"]["t"];
 
-    // Call the template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $plugin_template = 'plugins/growl/admin/template/new.php';
 
     break;
@@ -138,16 +146,28 @@ switch ($page1) {
       case 'delete':
         if (is_numeric($page2) && jak_row_exist($page2, $jaktable)) {
 
-          // Delete the Content
+          // EN: Delete the Content
+          // CZ: Odstranění obsahu
           $result = $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE id = "' . smartsql($page2) . '"');
 
           if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - chybné
             jak_redirect(BASE_URL . 'index.php?p=growl&sp=e');
           } else {
-            jak_redirect(BASE_URL . 'index.php?p=growl&sp=s');
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - úspěšné
+            /*
+            NOTIFIKACE:
+            'sp=s'   - Záznam úspěšně uložen
+            'ssp=s'  - Zázanm úspěšně odstraněn
+            */
+            jak_redirect(BASE_URL . 'index.php?p=growl&sp=s&ssp=s');
           }
 
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=growl&sp=ene');
         }
         break;
@@ -156,8 +176,12 @@ switch ($page1) {
         $result = $jakdb->query('UPDATE ' . $jaktable . ' SET active = IF (active = 1, 0, 1) WHERE id = ' . smartsql($page2));
 
         if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=growl&sp=e');
         } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
           jak_redirect(BASE_URL . 'index.php?p=growl&sp=s');
         }
 
@@ -239,8 +263,12 @@ switch ($page1) {
 			    time = NOW() WHERE id = "' . smartsql($page2) . '"');
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=growl&sp=edit&ssp=' . $page2 . '&sssp=e');
             } else {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=growl&sp=edit&ssp=' . $page2 . '&sssp=s');
             }
           } else {
@@ -260,11 +288,13 @@ switch ($page1) {
         // Get the data
         $JAK_FORM_DATA = jak_get_data($page2, $jaktable);
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tlgwl["growl"]["m2"];
         $SECTION_DESC = $tlgwl["growl"]["t1"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $plugin_template = 'plugins/growl/admin/template/edit.php';
 
         break;
@@ -285,9 +315,18 @@ switch ($page1) {
             }
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky s notifikací - chybné
               jak_redirect(BASE_URL . 'index.php?p=growl&sp=e');
             } else {
-              jak_redirect(BASE_URL . 'index.php?p=growl&sp=s');
+              // EN: Redirect page
+              // CZ: Přesměrování stránky s notifikací - úspěšné
+              /*
+              NOTIFIKACE:
+              'sp=s'   - Záznam úspěšně uložen
+              'ssp=s'  - Zázanm úspěšně odstraněn
+              */
+              jak_redirect(BASE_URL . 'index.php?p=growl&sp=s&ssp=s');
             }
 
           }
@@ -304,8 +343,12 @@ switch ($page1) {
             }
 
             if (!$result) {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=growl&sp=e');
             } else {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
               jak_redirect(BASE_URL . 'index.php?p=growl&sp=s');
             }
 
@@ -315,11 +358,13 @@ switch ($page1) {
 
         $JAK_GROWL_ALL = jak_get_growl();
 
-        // Title and Description
+        // EN: Title and Description
+        // CZ: Titulek a Popis
         $SECTION_TITLE = $tlgwl["growl"]["m"];
         $SECTION_DESC = $tlgwl["growl"]["t"];
 
-        // Call the template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $plugin_template = 'plugins/growl/admin/template/growl.php';
     }
 }

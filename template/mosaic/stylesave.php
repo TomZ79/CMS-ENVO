@@ -1,5 +1,7 @@
 <?php // Save the form
 
+// EN: Include the config file ...
+// CZ: Vložení konfiguračního souboru ...
 if (!file_exists('../../config.php')) die('ajax/[qtips.php] config.php not exist');
 require_once '../../config.php';
 

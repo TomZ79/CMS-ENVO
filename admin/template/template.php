@@ -21,7 +21,6 @@ if ($page1 == "s1") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        icon: 'fa fa-info-circle',
         message: '<?php echo $tl["general"]["g7"]; ?>',
       }, {
         // settings
@@ -37,7 +36,7 @@ if ($page1 == "s1") { ?>
         message: '<?php echo $tl["notification"]["n1"]; ?>',
       }, {
         // settings
-        type: 'warning',
+        type: 'info',
         delay: 5000,
         timer: 3000,
       });

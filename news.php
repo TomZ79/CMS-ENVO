@@ -1,9 +1,11 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_PREVENT_ACCESS')) die('No direct access!');
 
-// Get the database table
+// EN: Settings all the tables we need for our work
+// CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = DB_PREFIX . 'news';
 
 // parse url
@@ -58,6 +60,7 @@ switch ($page1) {
 
                 $PAGE_ID = $row['id'];
                 $PAGE_TITLE = $row['title'];
+                $MAIN_DESCRIPTION = $jkv['newsdesc'];
                 $PAGE_IMAGE = $row['previmg'];
                 $PAGE_CONTENT = jak_secure_site($row['content']);
                 $JAK_HEADER_CSS = $row['news_css'];
@@ -141,7 +144,8 @@ switch ($page1) {
             $PAGE_KEYWORDS = str_replace(" ", "", JAK_Base::jakCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
             $PAGE_DESCRIPTION = jak_cut_text($PAGE_CONTENT, 155, '');
 
-            // Fire the template
+            // EN: Load the template
+            // CZ: Načti template (šablonu)
             $template = 'newsart.php';
 
         } else {
@@ -170,22 +174,13 @@ switch ($page1) {
             $JAK_PAGINATE = $news->display_pages();
 
             // Display the news
-
-            // Now let's check how to display the order
-            $shownewsarray = explode(" ", $jkv["newsorder"]);
-
-            if (is_array($shownewsarray) && in_array("ASC", $shownewsarray) || in_array("DESC", $shownewsarray)) {
-
-                $JAK_SETTING['shownewswhat'] = $shownewsarray[0];
-                $JAK_SETTING['shownewsorder'] = $shownewsarray[1];
-
-            }
             $JAK_NEWS_ALL = jak_get_news($news->limit, '', JAK_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['general']['g56']);
         }
 
         // Check if we have a language and display the right stuff
         $PAGE_TITLE = $jkv["newstitle"];
         $PAGE_CONTENT = $jkv["newsdesc"];
+        $MAIN_DESCRIPTION = $jkv['newsdesc'];
 
         $JAK_HEATMAPLOC = JAK_PLUGIN_VAR_NEWS;
 
@@ -218,7 +213,8 @@ switch ($page1) {
             $PAGE_DESCRIPTION = jak_cut_text($PAGE_CONTENT, 155, '');
         }
 
-        // get the standard template
+        // EN: Load the template
+        // CZ: Načti template (šablonu)
         $template = 'news.php';
 }
 ?>

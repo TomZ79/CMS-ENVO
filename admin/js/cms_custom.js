@@ -55,7 +55,13 @@ $(function() {
   }
 });
 
-/* 03. JQUERY PASSY - Generating and analazing passwords, realtime.
+/* 03. MODIFICATION - INIT and CONFIG BOOTSTRAP TOOLTIP
+ ========================================================================*/
+$(function() {
+  $('[data-toggle="tooltip"]').tooltip();
+});
+
+/* 04. JQUERY PASSY - Generating and analazing passwords, realtime.
  ========================================================================*/
 /*
  * jQuery Passy
@@ -287,7 +293,6 @@ $(function() {
   // Min input length
   $.passy.requirements.length.min = 4;
 
-
   // Strength meter
   var feedback = [
     {color: '#D55757', text: 'Weak', textColor: '#fff'},
@@ -309,7 +314,7 @@ $(function() {
 });
 
 
-/* 04. BOOTBOX
+/* 05. BOOTBOX
  ========================================================================*/
 /* http://bootboxjs.com/license.txt */
 

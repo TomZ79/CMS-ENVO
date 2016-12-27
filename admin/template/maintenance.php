@@ -1,4 +1,4 @@
-<?php include_once APP_PATH . 'admin/template/header.php'; ?>
+<?php include "header.php"; ?>
 
 <?php if ($success) { ?>
   <script type="text/javascript">
@@ -95,4 +95,4 @@ if ($errors) { ?>
     jakCMS.jakrequest_uri = "<?php echo JAK_PARSE_REQUEST;?>";
   </script>
 
-<?php include_once APP_PATH . 'admin/template/footer.php'; ?>
+<?php include "footer.php"; ?>

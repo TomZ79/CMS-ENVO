@@ -1,8 +1,11 @@
 <?php
 
-// Check if the file is accessed only via index.php if not stop the script from running
+// EN: Check if the file is accessed only via index.php if not stop the script from running
+// CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_PREVENT_ACCESS')) die('No direct access!');
 
+// EN: Settings all the tables we need for our work
+// CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = 'pages';
 $jaktable1 = 'categories';
 
@@ -88,10 +91,13 @@ if (!empty($sql)) {
     $JAK_RSS_TITLE = $jkv["title"] . ' - RSS';
     $JAK_RSS_DATE = date(DATE_RFC2822);
 
-// get the standard template
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
     $template = 'rss.php';
 
 } else {
+    // EN: Redirect page
+    // CZ: Přesměrování stránky
     jak_redirect(BASE_URL);
 }
 ?>

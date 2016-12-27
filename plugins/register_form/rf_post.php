@@ -8,8 +8,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
   $defaults = $_POST;
   // Create Session, so contact form can only used once
   $_SESSION['rf_msg_sent'] = -1;
-  // User table
+
+  // EN: Settings all the tables we need for our work
+  // CZ: Nastavení všech tabulek, které potřebujeme pro práci
   $jaktable = DB_PREFIX . 'user';
+
   // spam check
   $spamcheck = true;
 
