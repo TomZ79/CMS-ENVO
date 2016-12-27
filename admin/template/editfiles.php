@@ -84,7 +84,10 @@ if ($JAK_FILE_ERROR) { ?>
         if (!$JAK_FILECONTENT) { ?>
           <button type="submit" name="edit" class="btn btn-primary pull-right"><?php echo $tl["general"]["g77"]; ?></button>
         <?php } else { ?>
-          <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+          <button type="submit" name="save" class="btn btn-primary pull-right">
+            <i class="fa fa-save margin-right-5"></i>
+            <?php echo $tl["general"]["g20"]; ?>
+          </button>
         <?php }
       } ?>
     </div>

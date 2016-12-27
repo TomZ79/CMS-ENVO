@@ -185,7 +185,10 @@ if ($errors) { ?>
                 </table>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right">
+                  <i class="fa fa-save margin-right-5"></i>
+                  <?php echo $tl["general"]["g20"]; ?>
+                </button>
               </div>
             </div>
           </div>
@@ -235,7 +238,10 @@ if ($errors) { ?>
                 </table>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right">
+                  <i class="fa fa-save margin-right-5"></i>
+                  <?php echo $tl["general"]["g20"]; ?>
+                </button>
               </div>
             </div>
           </div>
@@ -259,7 +265,10 @@ if ($errors) { ?>
             <textarea name="jak_css" class="form-control hidden" id="jak_css" rows="20"><?php echo $jkv["download_css"]; ?></textarea>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right">
+              <i class="fa fa-save margin-right-5"></i>
+              <?php echo $tl["general"]["g20"]; ?>
+            </button>
           </div>
         </div>
       </div>
@@ -280,7 +289,10 @@ if ($errors) { ?>
             <textarea name="jak_javascript" class="form-control hidden" id="jak_javascript" rows="20"><?php echo $jkv["download_javascript"]; ?></textarea>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right">
+              <i class="fa fa-save margin-right-5"></i>
+              <?php echo $tl["general"]["g20"]; ?>
+            </button>
           </div>
         </div>
       </div>
@@ -298,7 +310,10 @@ if ($errors) { ?>
             <?php include APP_PATH . "admin/template/sidebar_widget.php"; ?>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right">
+              <i class="fa fa-save margin-right-5"></i>
+              <?php echo $tl["general"]["g20"]; ?>
+            </button>
           </div>
         </div>
       </div>

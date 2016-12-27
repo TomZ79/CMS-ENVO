@@ -24,7 +24,23 @@
   jakWeb.jak_lang = "<?php echo $site_language;?>";
   jakWeb.jak_template = "<?php echo $jkv["sitestyle"];?>";
 
-  <?php if (isset($_SESSION["infomsg"])) { ?>
+  <?php if (isset($_SESSION["loginmsg"])) { ?>
+  $.notify({
+    // Options
+    title: 'Welcome back, <?php echo $JAK_WELCOME_NAME; ?>!',
+    message: '<?php echo $_SESSION["loginmsg"];?>',
+  },{
+    // Settings
+    timer: 8000,
+    template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert" role="alert" style="background-color: #263238;color: #fff">' +
+    '<button type="button" aria-hidden="true" class="close" data-notify="dismiss" style="color: #fff;opacity: 0.8;">×</button>' +
+    '<div style="float: left;margin-right: 20px;"><img src="<?php echo BASE_URL_ORIG . basename(JAK_FILES_DIRECTORY) . "/userfiles/" . $jakuser->getVar("picture"); ?>" alt="" style="width: 40px;"></div>' +
+    '<span data-notify="title" style="display: block;font-weight: bold;">{1}</span> ' +
+    '<span data-notify="message">{2}</span>' +
+    '</div>' +
+    '</div>'
+  });
+  <?php } if (isset($_SESSION["infomsg"])) { ?>
   $.notify({icon: 'fa fa-info-circle', message: '<?php echo $_SESSION["infomsg"];?>'}, {type: 'info'});
   <?php } if (isset($_SESSION["successmsg"])) { ?>
   $.notify({icon: 'fa fa-check-square-o', message: '<?php echo $_SESSION["successmsg"];?>'}, {type: 'success'});

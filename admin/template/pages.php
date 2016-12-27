@@ -53,9 +53,9 @@ if ($page1 == "e" || $page1 == "ene") { ?>
     <div class="col-md-6">
       <form role="form" method="post" action="/admin/index.php?p=page&amp;sp=search&amp;ssp=go">
         <div class="input-group">
-			<span class="input-group-btn">
-		    	<button class="btn btn-info" name="search" type="submit"><?php echo $tl["title"]["t30"]; ?></button>
-		    </span>
+          <span class="input-group-btn">
+            <button class="btn btn-info" name="search" type="submit"><?php echo $tl["title"]["t30"]; ?></button>
+          </span>
           <input type="text" name="jakSH" class="form-control" placeholder="<?php echo $tl["placeholder"]["p1"]; ?>">
         </div><!-- /input-group -->
       </form>

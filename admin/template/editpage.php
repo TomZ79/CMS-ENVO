@@ -227,7 +227,10 @@ if ($errors) { ?>
                 </table>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right">
+                  <i class="fa fa-save margin-right-5"></i>
+                  <?php echo $tl["general"]["g20"]; ?>
+                </button>
               </div>
             </div>
           </div>
@@ -258,7 +261,10 @@ if ($errors) { ?>
                 </table>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right">
+                  <i class="fa fa-save margin-right-5"></i>
+                  <?php echo $tl["general"]["g20"]; ?>
+                </button>
               </div>
             </div>
             <?php if (JAK_TAGS) { ?>
@@ -329,7 +335,10 @@ if ($errors) { ?>
                   </table>
                 </div>
                 <div class="box-footer">
-                  <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                  <button type="submit" name="save" class="btn btn-primary pull-right">
+                    <i class="fa fa-save margin-right-5"></i>
+                    <?php echo $tl["general"]["g20"]; ?>
+                  </button>
                 </div>
               </div>
             <?php } ?>
@@ -357,7 +366,10 @@ if ($errors) { ?>
             <textarea name="jak_css" id="jak_css" class="form-control hidden"><?php echo $JAK_FORM_DATA["page_css"]; ?></textarea>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right">
+              <i class="fa fa-save margin-right-5"></i>
+              <?php echo $tl["general"]["g20"]; ?>
+            </button>
           </div>
         </div>
       </div>
@@ -377,7 +389,10 @@ if ($errors) { ?>
             <textarea name="jak_javascript" id="jak_javascript" class="form-control hidden"><?php echo $JAK_FORM_DATA["page_javascript"]; ?></textarea>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right">
+              <i class="fa fa-save margin-right-5"></i>
+              <?php echo $tl["general"]["g20"]; ?>
+            </button>
           </div>
         </div>
       </div>
@@ -501,7 +516,10 @@ if ($errors) { ?>
 
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right">
+                  <i class="fa fa-save margin-right-5"></i>
+                  <?php echo $tl["general"]["g20"]; ?>
+                </button>
               </div>
             </div>
 
@@ -520,7 +538,10 @@ if ($errors) { ?>
                 <?php include "sidebar_widget.php"; ?>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right">
+                  <i class="fa fa-save margin-right-5"></i>
+                  <?php echo $tl["general"]["g20"]; ?>
+                </button>
               </div>
             </div>
           </div>

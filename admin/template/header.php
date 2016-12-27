@@ -153,9 +153,7 @@
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img
-                  src="<?php echo BASE_URL_ORIG . basename(JAK_FILES_DIRECTORY) . '/userfiles/' . $jakuser->getVar("picture"); ?>"
-                  class="img-circle" alt="User Image">
+                <img src="<?php echo BASE_URL_ORIG . basename(JAK_FILES_DIRECTORY) . '/userfiles/' . $jakuser->getVar("picture"); ?>" class="img-circle" alt="User Image">
                 <p>
                   <?php echo $JAK_WELCOME_NAME; ?>
                   <small>
@@ -169,8 +167,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="index.php?p=user&amp;sp=edit&amp;ssp=<?php echo JAK_USERID; ?>"
-                     class="btn btn-default btn-flat"><?php echo $tl["general"]["g77"]; ?></a>
+                  <a href="index.php?p=user&amp;sp=edit&amp;ssp=<?php echo JAK_USERID; ?>" class="btn btn-default btn-flat"><?php echo $tl["general"]["g77"]; ?></a>
                 </div>
                 <div class="pull-right">
                   <a href="index.php?p=logout" data-confirm-logout="<?php echo $tl["logout"]["l2"]; ?>" class="btn btn-default btn-flat"><?php echo $tl["logout"]["l"]; ?></a>

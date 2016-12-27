@@ -211,7 +211,10 @@ if ($success) { ?>
                 </table>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right">
+                  <i class="fa fa-save margin-right-5"></i>
+                  <?php echo $tl["general"]["g20"]; ?>
+                </button>
               </div>
             </div>
           </div>
@@ -244,7 +247,10 @@ if ($success) { ?>
                 </table>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right">
+                  <i class="fa fa-save margin-right-5"></i>
+                  <?php echo $tl["general"]["g20"]; ?>
+                </button>
               </div>
             </div>
             <div class="box box-primary">
@@ -272,7 +278,10 @@ if ($success) { ?>
                 </table>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right">
+                  <i class="fa fa-save margin-right-5"></i>
+                  <?php echo $tl["general"]["g20"]; ?>
+                </button>
               </div>
             </div>
             <div class="box box-primary">
@@ -295,7 +304,10 @@ if ($success) { ?>
                 </table>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right">
+                  <i class="fa fa-save margin-right-5"></i>
+                  <?php echo $tl["general"]["g20"]; ?>
+                </button>
               </div>
             </div>
             <div class="box box-primary">
@@ -332,7 +344,10 @@ if ($success) { ?>
                 </table>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right">
+                  <i class="fa fa-save margin-right-5"></i>
+                  <?php echo $tl["general"]["g20"]; ?>
+                </button>
               </div>
             </div>
           </div>
@@ -382,7 +397,10 @@ if ($success) { ?>
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right">
+              <i class="fa fa-save margin-right-5"></i>
+              <?php echo $tl["general"]["g20"]; ?>
+            </button>
           </div>
         </div>
       </div>
@@ -484,7 +502,10 @@ if ($success) { ?>
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right">
+              <i class="fa fa-save margin-right-5"></i>
+              <?php echo $tl["general"]["g20"]; ?>
+            </button>
           </div>
         </div>
       </div>
@@ -579,7 +600,10 @@ if ($success) { ?>
             </div>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right">
+              <i class="fa fa-save margin-right-5"></i>
+              <?php echo $tl["general"]["g20"]; ?>
+            </button>
           </div>
         </div>
       </div>
@@ -664,7 +688,10 @@ if ($success) { ?>
                 </table>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right">
+                  <i class="fa fa-save margin-right-5"></i>
+                  <?php echo $tl["general"]["g20"]; ?>
+                </button>
               </div>
             </div>
           </div>
@@ -697,7 +724,10 @@ if ($success) { ?>
                 </table>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+                <button type="submit" name="save" class="btn btn-primary pull-right">
+                  <i class="fa fa-save margin-right-5"></i>
+                  <?php echo $tl["general"]["g20"]; ?>
+                </button>
               </div>
             </div>
           </div>
@@ -723,7 +753,10 @@ if ($success) { ?>
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right">
+              <i class="fa fa-save margin-right-5"></i>
+              <?php echo $tl["general"]["g20"]; ?>
+            </button>
           </div>
         </div>
         <div class="box box-primary">
@@ -752,7 +785,10 @@ if ($success) { ?>
           </div>
           <div class="box-footer">
             <a href="index.php?p=setting&amp;sp=trunheat" class="btn btn-warning btn-sm"><?php echo $tl["general"]["g128"]; ?></a>
-            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right">
+              <i class="fa fa-save margin-right-5"></i>
+              <?php echo $tl["general"]["g20"]; ?>
+            </button>
           </div>
         </div>
       </div>
@@ -784,7 +820,10 @@ if ($success) { ?>
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right">
+              <i class="fa fa-save margin-right-5"></i>
+              <?php echo $tl["general"]["g20"]; ?>
+            </button>
           </div>
         </div>
       </div>

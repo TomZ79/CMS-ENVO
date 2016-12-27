@@ -3,7 +3,7 @@
 <!-- START HOME SECTION -->
     <li class="treeview<?php if ($page == '' || $page == 'site' || $page == 'logs' || $page == 'searchlog' || $page == 'changelog') echo ' active'; ?>">
       <a href="javascript:void(0)">
-        <i class="fa fa-home"></i>
+        <i class="fa fa-laptop"></i>
         <span><?php echo $tl["menu"]["mh"]; ?></span>
         <i class="fa fa-angle-left pull-right"></i>
       </a>
@@ -168,8 +168,14 @@
     <ul class="treeview-menu">
 
       <li<?php if ($page == 'user') echo ' class="active"'; ?>>
-        <a href="index.php?p=user">
-          <i class="fa fa-circle-o"></i> <?php echo $tl["menu"]["m3"]; ?>
+        <a href="index.php?p=user" style="position: relative;">
+          <i class="fa fa-circle-o"></i>
+            <span>
+              <?php echo $tl["menu"]["m3"]; ?>
+              <span class="label bg-blue-300" style="padding: 0 5px;border-radius: 2px;position: absolute;right: 10px;top: 3px;">
+                <?php echo $JAK_COUNTS_NAVBAR["COUNT_USER"]; ?>
+              </span>
+            </span>
         </a>
       </li>
       <li<?php if ($page1 == 'newuser') echo ' class="active"'; ?>>
@@ -187,8 +193,14 @@
       <li class="list-divider"></li>
 
       <li<?php if ($page == 'usergroup') echo ' class="active"'; ?>>
-        <a href="index.php?p=usergroup">
-          <i class="fa fa-circle-o"></i> <?php echo $tl["menu"]["m9"]; ?>
+        <a href="index.php?p=usergroup" style="position: relative;">
+          <i class="fa fa-circle-o"></i>
+            <span>
+              <?php echo $tl["menu"]["m9"]; ?>
+              <span class="label bg-blue-300" style="padding: 0 5px;border-radius: 2px;position: absolute;right: 10px;top: 3px;">
+                <?php echo $JAK_COUNTS_NAVBAR["COUNT_USERGROUP"]; ?>
+              </span>
+            </span>
         </a>
       </li>
 
@@ -227,8 +239,14 @@
         <li class="list-divider"></li>
 
         <li<?php if ($page == 'page') echo ' class="active"'; ?>>
-          <a href="index.php?p=page">
-            <i class="fa fa-circle-o"></i> <?php echo $tl["menu"]["m7"]; ?>
+          <a href="index.php?p=page" style="position: relative;">
+            <i class="fa fa-circle-o"></i>
+            <span>
+              <?php echo $tl["menu"]["m7"]; ?>
+              <span class="label bg-blue-300" style="padding: 0 5px;border-radius: 2px;position: absolute;right: 10px;top: 3px;">
+                <?php echo $JAK_COUNTS_NAVBAR["COUNT_PAGES"]; ?>
+              </span>
+            </span>
           </a>
         </li>
         <li<?php if ($page1 == 'newpage') echo ' class="active"'; ?>>

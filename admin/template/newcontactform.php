@@ -89,7 +89,10 @@ if ($errors) { ?>
 
       </div>
       <div class="box-footer">
-        <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+        <button type="submit" name="save" class="btn btn-primary pull-right">
+          <i class="fa fa-save margin-right-5"></i>
+          <?php echo $tl["general"]["g20"]; ?>
+        </button>
       </div>
     </div>
 
@@ -199,7 +202,10 @@ if ($errors) { ?>
         </ul>
       </div>
       <div class="box-footer">
-        <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+        <button type="submit" name="save" class="btn btn-primary pull-right">
+          <i class="fa fa-save margin-right-5"></i>
+          <?php echo $tl["general"]["g20"]; ?>
+        </button>
       </div>
     </div>
   </form>

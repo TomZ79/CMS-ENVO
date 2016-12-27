@@ -119,6 +119,16 @@ if (JAK_USERID) {
   }
 }
 
+// Get statistics for Navbar
+$jaktable = DB_PREFIX . 'pages';
+$jaktable1 = DB_PREFIX . 'user';
+$jaktable2 = DB_PREFIX . 'usergroup';
+
+$JAK_COUNTS_NAVBAR = $jakdb->queryRow('SELECT
+  (SELECT COUNT(*) FROM ' . $jaktable . ') AS COUNT_PAGES,
+  (SELECT COUNT(*) FROM ' . $jaktable1 . ') AS COUNT_USER,
+  (SELECT COUNT(*) FROM ' . $jaktable2 . ') AS COUNT_USERGROUP');
+
 // Home
 if ($page == '') {
   #show login page only if the admin is not logged in
@@ -339,6 +349,7 @@ if (isset($plugin_template) && $plugin_template != '') {
 unset($_SESSION["successmsg"]);
 unset($_SESSION["errormsg"]);
 unset($_SESSION["infomsg"]);
+unset($_SESSION["loginmsg"]);
 
 // Finally close all db connections
 $jakdb->jak_close();

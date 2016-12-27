@@ -168,7 +168,10 @@ if ($errors) { ?>
             </div>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right">
+              <i class="fa fa-save margin-right-5"></i>
+              <?php echo $tl["general"]["g20"]; ?>
+            </button>
           </div>
         </div>
       </div>
@@ -208,7 +211,10 @@ if ($errors) { ?>
           </div>
           <div class="box-footer">
             <button type="button" class="btn btn-info generate-label-absolute">Generate 10 characters password</button>
-            <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+            <button type="submit" name="save" class="btn btn-primary pull-right">
+              <i class="fa fa-save margin-right-5"></i>
+              <?php echo $tl["general"]["g20"]; ?>
+            </button>
           </div>
         </div>
         <?php if (isset($JAK_HOOK_ADMIN_USER_EDIT) && is_array($JAK_HOOK_ADMIN_USER_EDIT)) foreach ($JAK_HOOK_ADMIN_USER_EDIT as $hsue) {
@@ -229,7 +235,10 @@ if ($errors) { ?>
               </table>
             </div>
             <div class="box-footer">
-              <button type="submit" name="save" class="btn btn-primary pull-right"><?php echo $tl["general"]["g20"]; ?></button>
+              <button type="submit" name="save" class="btn btn-primary pull-right">
+                <i class="fa fa-save margin-right-5"></i>
+                <?php echo $tl["general"]["g20"]; ?>
+              </button>
             </div>
           </div>
         <?php } ?>
