@@ -49,7 +49,7 @@
                 </button>
               </th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tlf["faq"]["co"]; ?>'))return false;">
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tlf["faq"]["co"]; ?>"  disabled="disabled">
                   <i class="fa fa-trash-o"></i>
                 </button>
               </th>
@@ -98,15 +98,27 @@
   echo $JAK_PAGINATE;
 } ?>
 
-  <!-- JavaScript for select all -->
   <script type="text/javascript">
     $(document).ready(function () {
+
+      /* Check all checkbox */
       $("#jak_delete_all").click(function () {
         var checked_status = this.checked;
         $(".highlight").each(function () {
           this.checked = checked_status;
         });
       });
+
+      /* Disable submit button if checkbox is not checked */
+      var the_terms = $('.highlight');
+      the_terms.click(function() {
+        if ($(this).is(":checked")) {
+          $("#button_delete").removeAttr("disabled");
+        } else {
+          $("#button_delete").attr("disabled", "disabled");
+        }
+      });
+
     });
   </script>
 

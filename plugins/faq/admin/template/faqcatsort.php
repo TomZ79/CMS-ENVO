@@ -44,12 +44,12 @@
               <th><?php echo $tl["page"]["p2"]; ?></th>
               <th>
                 <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
-                  <i class="fa fa-clock-o"></i>
+                  <i class="fa fa-lock"></i>
                 </button>
               </th>
               <th></th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tl["page"]["al"]; ?>'))return false;">
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tl["page"]["al"]; ?>" disabled="disabled">
                   <i class="fa fa-trash-o"></i>
                 </button>
               </th>
@@ -102,15 +102,27 @@
 
 <?php if ($JAK_PAGINATE_SORT) echo $JAK_PAGINATE_SORT; ?>
 
-  <!-- JavaScript for select all -->
   <script type="text/javascript">
     $(document).ready(function () {
+
+      /* Check all checkbox */
       $("#jak_delete_all").click(function () {
         var checked_status = this.checked;
         $(".highlight").each(function () {
           this.checked = checked_status;
         });
       });
+
+      /* Disable submit button if checkbox is not checked */
+      var the_terms = $('.highlight');
+      the_terms.click(function() {
+        if ($(this).is(":checked")) {
+          $("#button_delete").removeAttr("disabled");
+        } else {
+          $("#button_delete").attr("disabled", "disabled");
+        }
+      });
+
     });
   </script>
 

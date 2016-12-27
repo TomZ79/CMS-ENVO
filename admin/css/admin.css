@@ -177,6 +177,10 @@ table.first-column tr td:first-child {
   color: #fff;
 }
 
+.bootbox-confirm-del .bootbox-body {
+  padding-left: 10px;
+}
+
 .bootbox-confirm-del .bootbox-body i {
   vertical-align: middle;
   font-size: 40px;
@@ -199,6 +203,10 @@ table.first-column tr td:first-child {
 .bootbox-confirm-logout .modal-header {
   background-color: #00BCD4;
   color: #fff;
+}
+
+.bootbox-confirm-logout .bootbox-body {
+  padding-left: 10px;
 }
 
 .bootbox-confirm-logout .bootbox-body i {
