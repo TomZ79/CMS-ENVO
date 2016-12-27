@@ -167,6 +167,47 @@ table.first-column tr td:first-child {
   }
 }
 
+/* Bootbox confirm dialog - modification */
+.bootbox-body {
+  font-size: 14px;
+}
+
+.bootbox-confirm-del .modal-header {
+  background-color: #D84315;
+  color: #fff;
+}
+
+.bootbox-confirm-del .bootbox-body i {
+  vertical-align: middle;
+  font-size: 40px;
+  color: #D84315;
+  margin-right: 20px;
+}
+
+.bootbox-confirm-trunc .modal-header {
+  background-color: #D84315;
+  color: #fff;
+}
+
+.bootbox-confirm-trunc .bootbox-body i {
+  vertical-align: middle;
+  font-size: 40px;
+  color: #D84315;
+  margin-right: 20px;
+}
+
+.bootbox-confirm-logout .modal-header {
+  background-color: #00BCD4;
+  color: #fff;
+}
+
+.bootbox-confirm-logout .bootbox-body i {
+  vertical-align: middle;
+  font-size: 40px;
+  color: #00BCD4;
+  margin-right: 20px;
+}
+
 /* XX. MODIFICATION - LIST of TAGs
 ========================================================================*/
 .fancy-checkbox  {

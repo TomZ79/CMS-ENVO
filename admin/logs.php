@@ -46,12 +46,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (!$result) {
       // EN: Redirect page
-      // CZ: Přesměrování stránky
+      // CZ: Přesměrování stránky s notifikací - chybné
       jak_redirect(BASE_URL . 'index.php?p=logs&sp=e');
     } else {
       // EN: Redirect page
-      // CZ: Přesměrování stránky
-      jak_redirect(BASE_URL . 'index.php?p=logs&sp=s');
+      // CZ: Přesměrování stránky s notifikací - úspěšné
+      /*
+      NOTIFIKACE:
+      'sp=s'   - Záznam úspěšně uložen
+      'ssp=s'  - Záznam úspěšně odstraněn
+      */
+      jak_redirect(BASE_URL . 'index.php?p=logs&sp=s&ssp=s');
     }
 
   }
@@ -64,12 +69,17 @@ switch ($page1) {
 
     if (!$result) {
       // EN: Redirect page
-      // CZ: Přesměrování stránky
+      // CZ: Přesměrování stránky s notifikací - chybné
       jak_redirect(BASE_URL . 'index.php?p=logs&sp=e');
     } else {
       // EN: Redirect page
-      // CZ: Přesměrování stránky
-      jak_redirect(BASE_URL . 'index.php?p=logs&sp=s');
+      // CZ: Přesměrování stránky s notifikací - úspěšné
+      /*
+      NOTIFIKACE:
+      'sp=s'   - Záznam úspěšně uložen
+      'ssp=s'  - Záznam úspěšně odstraněn
+      */
+      jak_redirect(BASE_URL . 'index.php?p=logs&sp=s&ssp=s');
     }
     break;
   case 'truncate':
@@ -77,12 +87,17 @@ switch ($page1) {
 
     if (!$result) {
       // EN: Redirect page
-      // CZ: Přesměrování stránky
+      // CZ: Přesměrování stránky s notifikací - chybné
       jak_redirect(BASE_URL . 'index.php?p=logs&sp=e');
     } else {
       // EN: Redirect page
-      // CZ: Přesměrování stránky
-      jak_redirect(BASE_URL . 'index.php?p=logs&sp=s');
+      // CZ: Přesměrování stránky s notifikací - úspěšné
+      /*
+      NOTIFIKACE:
+      'sp=s'   - Záznam úspěšně uložen
+      'ssp=s1'  - Všechny záznamy úspěšně odstraněny
+      */
+      jak_redirect(BASE_URL . 'index.php?p=logs&sp=s&ssp=s1');
     }
     break;
   default:

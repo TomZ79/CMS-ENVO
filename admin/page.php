@@ -300,12 +300,11 @@ switch ($page1) {
             JAK_tags::jakDeletetags($page2, 0);
 
             // EN: Redirect page
-            // CZ: Přesměrování stránky
             // CZ: Přesměrování stránky s notifikací - úspěšné
             /*
             NOTIFIKACE:
             'sp=s'   - Záznam úspěšně uložen
-            'ssp=s'  - Zázanm úspěšně odstraněn
+            'ssp=s'  - Záznam úspěšně odstraněn
             */
             jak_redirect(BASE_URL . 'index.php?p=page&sp=s&ssp=s');
           }
@@ -727,7 +726,7 @@ switch ($page1) {
               /*
               NOTIFIKACE:
               'sp=s'   - Záznam úspěšně uložen
-              'ssp=s'  - Zázanm úspěšně odstraněn
+              'ssp=s'  - Záznam úspěšně odstraněn
               */
               jak_redirect(BASE_URL . 'index.php?p=page&sp=s&ssp=s');
             }

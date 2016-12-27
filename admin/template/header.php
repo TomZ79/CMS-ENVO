@@ -173,7 +173,7 @@
                      class="btn btn-default btn-flat"><?php echo $tl["general"]["g77"]; ?></a>
                 </div>
                 <div class="pull-right">
-                  <a href="index.php?p=logout" data-confirm="<?php echo $tl["logout"]["l2"]; ?>" class="btn btn-default btn-flat"><?php echo $tl["logout"]["l"]; ?></a>
+                  <a href="index.php?p=logout" data-confirm-logout="<?php echo $tl["logout"]["l2"]; ?>" class="btn btn-default btn-flat"><?php echo $tl["logout"]["l"]; ?></a>
                 </div>
               </li>
             </ul>

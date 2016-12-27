@@ -41,16 +41,18 @@
 
   $(document).ready(function () {
 
-    // Bootbox - Confirm dialog for anchor with link
+    // Bootbox - Confirm dialog for Delete button
     $('[data-confirm]').click(function(e) {
+      // Init
       var links = $(this).attr("href");
       $("a").tooltip('destroy');
       e.preventDefault();
       // Show Message
       bootbox.setLocale('<?php echo $site_language;?>');
       bootbox.confirm({
-        message: $(this).attr('data-confirm'),
         title: "Potvrzení o odstranění!",
+        message: "<i class='fa fa-trash'></i><span>" + $(this).attr('data-confirm') + "</span>",
+        className: "bootbox-confirm-del",
         buttons: {
           confirm: {
             className: 'btn-success'
@@ -67,17 +69,17 @@
       });
     });
 
-    // Bootbox - Confirm dialog for button
+    // Bootbox - Confirm dialog for Delete button
     $("#button_delete").on("click", function (e) {
       // Init
       var self = $(this);
       e.preventDefault();
-
       // Show Message
       bootbox.setLocale('<?php echo $site_language;?>');
       bootbox.confirm({
         title: "Potvrzení o odstranění!",
-        message: $(this).attr('data-confirm-del'),
+        message: "<i class='fa fa-trash'></i><span>" + $(this).attr('data-confirm-del') + "</span>",
+        className: "bootbox-confirm-del",
         buttons: {
           confirm: {
             className: 'btn-success'
@@ -90,6 +92,62 @@
           if (result) {
             self.off("click");
             self.click();
+          }
+        }
+      });
+    });
+
+    // Bootbox - Confirm dialog for Truncate button
+    $("#button_truncate").on("click", function (e) {
+      // Init
+      var links = $(this).attr("href");
+      $("a").tooltip('destroy');
+      e.preventDefault();
+      // Show Message
+      bootbox.setLocale('<?php echo $site_language;?>');
+      bootbox.confirm({
+        title: "Potvrzení o odstranění!",
+        message: "<i class='fa fa-exclamation-triangle'></i><span>" + $(this).attr('data-confirm-trunc') + "</span>",
+        className: "bootbox-confirm-trunc",
+        buttons: {
+          confirm: {
+            className: 'btn-success'
+          },
+          cancel: {
+            className: 'btn-danger'
+          }
+        },
+        callback: function (result) {
+          if(result == true) {
+            window.location = links;
+          }
+        }
+      });
+    });
+
+    // Bootbox - Confirm dialog for Logout
+    $('[data-confirm-logout]').click(function(e) {
+      // Init
+      var links = $(this).attr("href");
+      $("a").tooltip('destroy');
+      e.preventDefault();
+      // Show Message
+      bootbox.setLocale('<?php echo $site_language;?>');
+      bootbox.confirm({
+        title: "Odhlášení!",
+        message: "<i class='fa fa-sign-out'></i><span>" + $(this).attr('data-confirm-logout') + "</span>",
+        className: "bootbox-confirm-logout",
+        buttons: {
+          confirm: {
+            className: 'btn-info'
+          },
+          cancel: {
+            className: 'btn-default'
+          }
+        },
+        callback: function (result) {
+          if(result == true) {
+            window.location = links;
           }
         }
       });

@@ -31,6 +31,42 @@ if ($page1 == "e") { ?>
   </script>
 <?php } ?>
 
+<?php if ($page2 == "s") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?php echo $tl["notification"]["n2"]; ?>',
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000,
+      });
+    }, 2000);
+  </script>
+<?php } ?>
+
+<?php if ($page2 == "s1") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?php echo $tl["notification"]["n3"]; ?>',
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000,
+      });
+    }, 2000);
+  </script>
+<?php } ?>
+
 <?php if (isset($JAK_SEARCHLOG_ALL) && is_array($JAK_SEARCHLOG_ALL)) { ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
@@ -46,12 +82,12 @@ if ($page1 == "e") { ?>
               <th><?php echo $tl["page"]["p2"]; ?></th>
               <th><?php echo $tl["general"]["g56"]; ?></th>
               <th>
-                <a href="index.php?p=searchlog&amp;sp=truncate&amp;ssp=go" class="btn btn-warning btn-xs" onclick="if(!confirm('<?php echo $tl["error"]["e34"]; ?>'))return false;">
+                <a href="index.php?p=searchlog&amp;sp=truncate&amp;ssp=go" id="button_truncate" class="btn btn-warning btn-xs" data-confirm-trunc="<?php echo $tl["error"]["e34"]; ?>">
                   <i class="fa fa-exclamation-triangle"></i>
                 </a>
               </th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tl["error"]["e33"]; ?>'))return false;">
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tl["error"]["e33"]; ?>">
                   <i class="fa fa-trash-o"></i>
                 </button>
               </th>
@@ -67,7 +103,7 @@ if ($page1 == "e") { ?>
                 <td><?php echo $v["count"]; ?></td>
                 <td></td>
                 <td>
-                  <a href="index.php?p=searchlog&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo $tl["error"]["e33"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                  <a href="index.php?p=searchlog&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo $tl["error_cmd"]["e1"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                     <i class="fa fa-trash-o"></i>
                   </a>
                 </td>

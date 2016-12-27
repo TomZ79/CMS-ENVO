@@ -42,7 +42,7 @@ switch ($page1) {
             /*
             NOTIFIKACE:
             'ssp=s'   - Záznam úspěšně uložen
-            'sssp=s'  - Zázanm úspěšně odstraněn
+            'sssp=s'  - Záznam úspěšně odstraněn
             */
             jak_redirect(BASE_URL . 'index.php?p=tags&sp=cloud&ssp=s&sssp=s');
           }
@@ -256,7 +256,7 @@ switch ($page1) {
         /*
         NOTIFIKACE:
         'sp=s'   - Záznam úspěšně uložen
-        'ssp=s'  - Zázanm úspěšně odstraněn
+        'ssp=s'  - Záznam úspěšně odstraněn
         */
         jak_redirect(BASE_URL . 'index.php?p=tags&sp=s&ssp=s');
 
@@ -353,7 +353,7 @@ switch ($page1) {
           /*
           NOTIFIKACE:
           'sp=s'   - Záznam úspěšně uložen
-          'ssp=s'  - Zázanm úspěšně odstraněn
+          'ssp=s'  - Záznam úspěšně odstraněn
           */
           jak_redirect(BASE_URL . 'index.php?p=tags&sp=s&ssp=s');
 

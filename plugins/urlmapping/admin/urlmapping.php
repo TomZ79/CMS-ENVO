@@ -90,7 +90,7 @@ switch ($page1) {
             /*
             NOTIFIKACE:
             'sp=s'   - Záznam úspěšně uložen
-            'ssp=s'  - Zázanm úspěšně odstraněn
+            'ssp=s'  - Záznam úspěšně odstraněn
             */
             jak_redirect(BASE_URL . 'index.php?p=urlmapping&sp=s&ssp=s');
           }
@@ -204,7 +204,7 @@ switch ($page1) {
               /*
               NOTIFIKACE:
               'sp=s'   - Záznam úspěšně uložen
-              'ssp=s'  - Zázanm úspěšně odstraněn
+              'ssp=s'  - Záznam úspěšně odstraněn
               */
               jak_redirect(BASE_URL . 'index.php?p=urlmapping&sp=s&ssp=s');
             }

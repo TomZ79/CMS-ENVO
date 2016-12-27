@@ -1,35 +1,71 @@
 <?php include "header.php"; ?>
 
-  <?php if ($page1 == "s") { ?>
-    <script type="text/javascript">
-      // Notification
-      setTimeout(function () {
-        $.notify({
-          // options
-          message: '<?php echo $tl["general"]["g7"];?>',
-        }, {
-          // settings
-          type: 'success',
-          delay: 5000,
-        });
-      }, 1000);
-    </script>
-  <?php }
-  if ($page1 == "e") { ?>
-    <script type="text/javascript">
-      // Notification
-      setTimeout(function () {
-        $.notify({
-          // options
-          message: '<?php echo $tl["errorpage"]["sql"];?>',
-        }, {
-          // settings
-          type: 'danger',
-          delay: 5000,
-        });
-      }, 1000);
-    </script>
-  <?php } ?>
+<?php if ($page1 == "s") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo $tl["general"]["g7"];?>',
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
+<?php }
+if ($page1 == "e") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo $tl["errorpage"]["sql"];?>',
+      }, {
+        // settings
+        type: 'danger',
+        delay: 5000,
+      });
+    }, 1000);
+  </script>
+<?php } ?>
+
+<?php if ($page2 == "s") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?php echo $tl["notification"]["n2"]; ?>',
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000,
+      });
+    }, 2000);
+  </script>
+<?php } ?>
+
+<?php if ($page2 == "s1") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?php echo $tl["notification"]["n3"]; ?>',
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000,
+      });
+    }, 2000);
+  </script>
+<?php } ?>
 
   <?php if (isset($JAK_LOGINLOG_ALL) && is_array($JAK_LOGINLOG_ALL)) { ?>
 
@@ -49,12 +85,12 @@
                 <th><?php echo $tl["page"]["p2"]; ?></th>
                 <th class="text-center"><?php echo $tl["general"]["g123"]; ?></th>
                 <th>
-                  <a href="index.php?p=logs&amp;sp=truncate&amp;ssp=go" class="btn btn-warning btn-xs" onclick="if(!confirm('<?php echo $tl["error"]["e34"]; ?>'))return false;">
+                  <a href="index.php?p=logs&amp;sp=truncate&amp;ssp=go" id="button_truncate" class="btn btn-warning btn-xs" data-confirm-trunc="<?php echo $tl["error"]["e34"]; ?>">
                     <i class="fa fa-exclamation-triangle"></i>
                   </a>
                 </th>
                 <th>
-                  <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tl["error"]["e33"]; ?>'))return false;">
+                  <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tl["error"]["e33"]; ?>">
                     <i class="fa fa-trash-o"></i>
                   </button>
                 </th>
@@ -80,7 +116,7 @@
                   </td>
                   <td></td>
                   <td class="call-button">
-                    <a class="btn btn-default btn-xs" href="index.php?p=logs&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["error"]["e33"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                    <a class="btn btn-default btn-xs" href="index.php?p=logs&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["error_cmd"]["e1"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                       <i class="fa fa-trash-o"></i>
                     </a>
                   </td>
