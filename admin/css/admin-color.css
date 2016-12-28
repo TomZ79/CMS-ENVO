@@ -2516,10 +2516,28 @@
 }
 
 /* Bootstrap button */
+.btn-default {
+  background-color: #f4f4f4;
+  color: #444;
+  border-color: #ddd;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+}
+
+.btn-default:hover,
+.btn-default:active,
+.btn-default.hover {
+  background-color: #e7e7e7;
+  border-color: #ddd;
+}
+.btn-default.dropdown-toggle {
+  box-shadow: none;
+}
+
 .btn-primary {
   color: #fff;
   background-color: #2196F3;
   border-color: #2196F3;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
 }
 .btn-primary:focus,
 .btn-primary.focus {
@@ -2577,6 +2595,7 @@ fieldset[disabled] .btn-primary.focus {
   color: #fff;
   background-color: #4CAF50;
   border-color: #4CAF50;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
 }
 .btn-success:focus,
 .btn-success.focus {
@@ -2748,6 +2767,7 @@ fieldset[disabled] .btn-warning.focus {
   color: #fff;
   background-color: #F44336;
   border-color: #F44336;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
 }
 .btn-danger:focus,
 .btn-danger.focus {

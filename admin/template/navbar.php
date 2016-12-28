@@ -39,7 +39,7 @@
 <!-- END HOME SECTION -->
 
 <!-- START GENERAL SETTINGS SECTION -->
-    <li class="treeview<?php if ($page == 'setting' || $page == 'mediasharing' || $page == 'settingfacebook' || $page == 'facebookgallery'  || $page == 'plugins' || $page == 'template' || $page == 'maintenance' || $page == 'version-control') echo " active"; ?>">
+    <li class="treeview<?php if ($page == 'setting' || $page == 'plugins' || $page == 'template' || $page == 'maintenance' || $page == 'version-control') echo " active"; ?>">
       <a href="javascript:void(0)">
         <i class="fa fa-cogs"></i>
         <span><?php echo $tl["menu"]["m"]; ?></span>
@@ -53,35 +53,6 @@
             <i class="fa fa-circle-o"></i> <?php echo $tl["menu"]["m2"]; ?>
           </a>
         </li>
-        <li<?php if ($page == 'mediasharing') echo ' class="active"'; ?>>
-          <a href="index.php?p=mediasharing">
-            <i class="fa fa-circle-o"></i> <?php echo $tl["cmenumenu_cmd"]["c2"]; ?>
-          </a>
-        </li>
-        <li class="list-divider"></li>
-
-        <li<?php if ($page == 'settingfacebook') echo ' class="active"'; ?>>
-          <a href="index.php?p=settingfacebook">
-            <i class="fa fa-circle-o"></i> <?php echo $tl["menu"]["m30"]; ?>
-          </a>
-        </li>
-        <li<?php if ($page == 'facebookgallery') echo ' class="active"'; ?>>
-          <a href="index.php?p=facebookgallery">
-            <i class="fa fa-circle-o"></i> <?php echo $tl["menu"]["m31"]; ?>
-          </a>
-        </li>
-        <li<?php if ($page1 == 'newfacebook') echo ' class="active"'; ?>>
-          <a href="index.php?p=facebookgallery&amp;sp=newfacebook">
-            <i class="fa fa-circle-o"></i> <?php echo $tl["menu"]["m32"]; ?>
-          </a>
-        </li>
-        <?php if ($page == 'facebookgallery' && $page1 == 'edit') { ?>
-          <li class="active">
-            <a href="index.php?p=facebookgallery&amp;sp=edit&amp;ssp=<?php echo $page2; ?>">
-              <i class="fa fa-circle-o"></i> <?php echo $tl["cmenu"]["c7"]; ?>
-            </a>
-          </li>
-        <?php } ?>
         <li class="list-divider"></li>
 
         <?php if (JAK_SUPERADMINACCESS) { ?>
@@ -156,6 +127,72 @@
 <!-- END GENERAL SETTINGS SECTION -->
   <?php } ?>
 
+<!-- START SOCIAL MEDIA SECTION -->
+    <li class="treeview<?php if ($page == 'settingfacebook' || $page == 'facebookgallery' || $page == 'mediasharing') echo " active"; ?>">
+    <a href="javascript:void(0)">
+      <i class="fa fa-comments"></i>
+      <span><?php echo $tl["menu_cmd"]["m3"]; ?></span>
+      <i class="fa fa-angle-left pull-right"></i>
+    </a>
+
+    <ul class="treeview-menu">
+
+      <li<?php if ($page == 'settingfacebook') echo ' class="active"'; ?>>
+        <a href="index.php?p=settingfacebook">
+          <i class="fa fa-circle-o"></i> <?php echo $tl["menu"]["m30"]; ?>
+        </a>
+      </li>
+      <li<?php if ($page == 'facebookgallery') echo ' class="active"'; ?>>
+        <a href="index.php?p=facebookgallery">
+          <i class="fa fa-circle-o"></i> <?php echo $tl["menu"]["m31"]; ?>
+        </a>
+      </li>
+      <li<?php if ($page1 == 'newfacebook') echo ' class="active"'; ?>>
+        <a href="index.php?p=facebookgallery&amp;sp=newfacebook">
+          <i class="fa fa-circle-o"></i> <?php echo $tl["menu"]["m32"]; ?>
+        </a>
+      </li>
+      <?php if ($page == 'facebookgallery' && $page1 == 'edit') { ?>
+        <li class="active">
+          <a href="index.php?p=facebookgallery&amp;sp=edit&amp;ssp=<?php echo $page2; ?>">
+            <i class="fa fa-circle-o"></i> <?php echo $tl["cmenu"]["c7"]; ?>
+          </a>
+        </li>
+      <?php } ?>
+      <li class="list-divider"></li>
+
+      <li>
+        <a href="#">
+          <i class="fa fa-circle-o"></i> Twitter
+        </a>
+      </li>
+      <li class="list-divider"></li>
+
+      <li>
+        <a href="#">
+          <i class="fa fa-circle-o"></i> Instagram
+        </a>
+      </li>
+      <li class="list-divider"></li>
+
+      <li>
+        <a href="#">
+          <i class="fa fa-circle-o"></i> Google +
+        </a>
+      </li>
+      <li class="list-divider"></li>
+
+      <li<?php if ($page == 'mediasharing') echo ' class="active"'; ?>>
+        <a href="index.php?p=mediasharing">
+          <i class="fa fa-circle-o"></i> <?php echo $tl["cmenumenu_cmd"]["c2"]; ?>
+        </a>
+      </li>
+
+    </ul>
+
+  </li>
+<!-- END SOCIAL MEDIA SECTION -->
+
 <!-- START MANAGE SECTION -->
   <li class="treeview<?php if ($page == 'user' || $page == 'usergroup' || $page == 'categories' || $page == 'page' || $page == 'contactform' || $page == 'poll' || $page == 'contactform' || $page == 'sitemap' || $page == 'searchsetting' || $page == 'growl' || $page == 'xml_seo' || $page == 'slider' || $page == 'site_editor' || $page == 'belowheader' || $page == 'register-form' || $page == 'urlmapping' || $page == 'owl') echo " active"; ?>">
 
@@ -165,7 +202,7 @@
       <i class="fa fa-angle-left pull-right"></i>
     </a>
 
-    <ul class="treeview-menu">
+    <ul class="treeview-menu mega-menu" data-columns="3">
 
       <li<?php if ($page == 'user') echo ' class="active"'; ?>>
         <a href="index.php?p=user" style="position: relative;">

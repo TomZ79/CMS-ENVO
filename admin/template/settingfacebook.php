@@ -60,8 +60,9 @@ if ($JAK_FILE_ERROR) { ?>
           </div>
           <div class="box-body">
             <div class="margin-bottom-20">
-              <p><?php echo $tl["setting_cmd"]["s62"]; ?></p>
-              <hr>
+              <blockquote>
+                <p><?php echo $tl["setting_cmd"]["s62"]; ?></p>
+              </blockquote>
               <p><?php echo $tl["setting_cmd"]["s63"]; ?></p>
               <ul>
                 <li>Plugin Download ( Pro sdílení webu před stažením dokumentu. Více v nastavení pluginu Download )</li>
