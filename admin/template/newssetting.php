@@ -79,57 +79,52 @@ if ($errors) { ?>
                 </div>
               </div>
               <div class="box-body">
-                <table class="table table-striped first-column v-text-center">
-                  <tr>
-                    <td><?php echo $tl["page"]["p"]; ?></td>
-                    <td>
-                      <?php include_once "title_edit.php"; ?>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><?php echo $tl["page"]["p5"]; ?></td>
-                    <td>
-                      <textarea name="jak_lcontent" class="form-control" rows="4"><?php echo jak_edit_safe_userpost($JAK_FORM_DATA["content"]); ?></textarea>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><?php echo $tl["setting_cmd"]["s61"]; ?></td>
-                    <td>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <select name="jak_shownewsordern" class="form-control selectpicker">
-                            <option value="id"<?php if ($JAK_SETTING['shownewswhat'] == "id") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["setting_cmd"]["s57"]; ?></option>
-                            <option value="title"<?php if ($JAK_SETTING['shownewswhat'] == "title") { ?> selected="selected"<?php } ?>><?php echo $tl["setting_cmd"]["s58"]; ?></option>
-                            <option value="time"<?php if ($JAK_SETTING['shownewswhat'] == "time") { ?> selected="selected"<?php } ?>><?php echo $tl["setting_cmd"]["s59"]; ?></option>
-                            <option value="hits"<?php if ($JAK_SETTING['shownewswhat'] == "hits") { ?> selected="selected"<?php } ?>><?php echo $tl["setting_cmd"]["s60"]; ?></option>
-                          </select>
-                        </div>
-                        <div class="col-md-6">
-                          <select name="jak_shownewsorder" class="form-control selectpicker">
-                            <option value="ASC"<?php if ($JAK_SETTING['shownewsorder'] == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g90"]; ?></option>
-                            <option value="DESC"<?php if ($JAK_SETTING['shownewsorder'] == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g91"]; ?></option>
-                          </select>
+                <div class="block">
+                  <div class="block-content">
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tl["page"]["p"]; ?></strong></div>
+                      <div class="col-md-7"><?php include_once "title_edit.php"; ?></div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tl["page"]["p5"]; ?></strong></div>
+                      <div class="col-md-7">
+                        <textarea name="jak_lcontent" class="form-control" rows="4"><?php echo jak_edit_safe_userpost($JAK_FORM_DATA["content"]); ?></textarea>
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tl["setting_cmd"]["s61"]; ?></strong></div>
+                      <div class="col-md-7">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <select name="jak_shownewsordern" class="form-control selectpicker">
+                              <option value="id"<?php if ($JAK_SETTING['shownewswhat'] == "id") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["setting_cmd"]["s57"]; ?></option>
+                              <option value="title"<?php if ($JAK_SETTING['shownewswhat'] == "title") { ?> selected="selected"<?php } ?>><?php echo $tl["setting_cmd"]["s58"]; ?></option>
+                              <option value="time"<?php if ($JAK_SETTING['shownewswhat'] == "time") { ?> selected="selected"<?php } ?>><?php echo $tl["setting_cmd"]["s59"]; ?></option>
+                              <option value="hits"<?php if ($JAK_SETTING['shownewswhat'] == "hits") { ?> selected="selected"<?php } ?>><?php echo $tl["setting_cmd"]["s60"]; ?></option>
+                            </select>
+                          </div>
+                          <div class="col-md-6">
+                            <select name="jak_shownewsorder" class="form-control selectpicker">
+                              <option value="ASC"<?php if ($JAK_SETTING['shownewsorder'] == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g90"]; ?></option>
+                              <option value="DESC"<?php if ($JAK_SETTING['shownewsorder'] == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g91"]; ?></option>
+                            </select>
+                          </div>
                         </div>
                       </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><?php echo $tl["setting"]["s4"]; ?></td>
-                    <td>
-                      <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-                        <input class="form-control" type="text" name="jak_date" value="<?php echo $jkv["newsdateformat"]; ?>"/>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><?php echo $tl["setting"]["s5"]; ?></td>
-                    <td>
-                      <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tl["setting"]["s4"]; ?></strong></div>
+                      <div class="col-md-7 <?php if (isset($errors["e1"])) echo "has-error"; ?>">
+                        <input class="form-control" type="text" name="jak_date" value="<?php echo $jkv["newsdateformat"]; ?>"/></div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tl["setting"]["s5"]; ?></strong></div>
+                      <div class="col-md-7" <?php if (isset($errors["e3"])) echo "has-error"; ?>>
                         <input class="form-control" type="text" name="jak_time" value="<?php echo $jkv["newstimeformat"]; ?>"/>
                       </div>
-                    </td>
-                  </tr>
-                </table>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="box-footer">
                 <button type="submit" name="save" class="btn btn-primary pull-right">
@@ -139,6 +134,7 @@ if ($errors) { ?>
               </div>
             </div>
           </div>
+
           <div class="col-md-5">
             <div class="box box-primary">
               <div class="box-header with-border">
@@ -149,11 +145,11 @@ if ($errors) { ?>
                 </div>
               </div>
               <div class="box-body">
-                <table class="table table-striped v-text-center">
-                  <tr>
-                    <td><?php echo $tl["setting"]["s11"]; ?></td>
-                    <td>
-                      <div class="<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+                <div class="block">
+                  <div class="block-content">
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tl["setting"]["s11"]; ?></strong></div>
+                      <div class="col-md-7 <?php if (isset($errors["e2"])) echo "has-error"; ?>">
                         <select name="jak_mid" class="form-control selectpicker">
                           <option value="2"<?php if ($jkv["newspagemid"] == 2) { ?> selected="selected"<?php } ?>>
                             <?php echo $tl["option"]["o1"]; ?>
@@ -172,17 +168,15 @@ if ($errors) { ?>
                           </option>
                         </select>
                       </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><?php echo $tl["setting"]["s12"]; ?></td>
-                    <td>
-                      <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tl["setting"]["s12"]; ?></strong></div>
+                      <div class="col-md-7 <?php if (isset($errors["e3"])) echo "has-error"; ?>">
                         <input class="form-control" type="text" name="jak_item" value="<?php echo $jkv["newspageitem"]; ?>"/>
                       </div>
-                    </td>
-                  </tr>
-                </table>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="box-footer">
                 <button type="submit" name="save" class="btn btn-primary pull-right">

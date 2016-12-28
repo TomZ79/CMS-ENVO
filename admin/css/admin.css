@@ -17,6 +17,84 @@
  *
  */
 
+.block {
+  width: 100%;
+  float: left;
+  position: relative;
+  margin-top: 10px;
+}
+.block-content,
+.block-footer {
+  width: 100%;
+  float: left;
+  position: relative;
+}
+.block-footer {
+  border-top: 1px solid #f2f2f2;
+  line-height: 30px;
+}
+.row-form {
+  float: left;
+  width: 100%;
+  padding: 5px;
+}
+.row-form:nth-child(even) {
+  background: #f2f2f2
+}
+
+@media only screen and (min-width: 1024px) {
+  .row-form {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .row > [class^='col-xs-'],
+  .row > [class^='col-sm-'],
+  .row > [class^='col-md-'],
+  .row > [class^='col-lg-'] {
+    margin-bottom: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .container .row {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .block .block-content {
+    width: 100%;
+  }
+  .row-form {
+    padding-bottom: 12px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .block .block-content {
+    width: 100%;
+  }
+  .row-form {
+    padding-bottom: 12px;
+    line-height: 30px;
+  }
+}
+/* froms */
+.controls {
+  padding: 10px 0px;
+}
+.controls .row-form {
+  float: left;
+  width: 100%;
+  line-height: 30px;
+  padding: 0px 0px 15px;
+}
+.controls .row-form:last-child {
+  padding-bottom: 0px;
+}
+.controls .row-form div[class^='col-md'] {
+  line-height: 30px;
+}
+
 /* 01. MODIFICATION - GENERAL STYLE
 ========================================================================*/
 body {
