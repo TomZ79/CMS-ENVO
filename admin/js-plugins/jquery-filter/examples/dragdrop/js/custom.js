@@ -5,7 +5,7 @@ $(document).ready(function(){
 		limit: null,
 		maxSize: null,
 		extensions: ["jpg", "png", "gif"],
-		changeInput: '<div class="jFiler-input-dragDrop"><div class="jFiler-input-inner"><div class="jFiler-input-icon"><i class="icon-jfi-cloud-up-o"></i></div><div class="jFiler-input-text"><h3>Drag&Drop images here or click to add one!</h3></div></div></div>',
+		changeInput: '<div class="jFiler-input-dragDrop"><div class="jFiler-input-inner"><div class="jFiler-input-icon"><i class="fa fa-cloud-upload"></i></div><div class="jFiler-input-text"><h3>Drag&Drop images here or click to add one!</h3></div></div></div>',
 		showThumbs: true,
 		theme: "dragdropbox",
 		templates: {
@@ -30,7 +30,7 @@ $(document).ready(function(){
 										<li>{{fi-progressBar}}</li>\
 									</ul>\
 									<ul class="list-inline pull-right">\
-										<li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>\
+										<li><a class="fa fa-trash jFiler-item-trash-action"></a></li>\
 									</ul>\
 								</div>\
 							</div>\
@@ -56,7 +56,7 @@ $(document).ready(function(){
 											<li><span class="jFiler-item-others">{{fi-icon}}</span></li>\
 										</ul>\
 										<ul class="list-inline pull-right">\
-											<li><a class="icon-jfi-trash jFiler-item-trash-action"></a></li>\
+											<li><a class="fa fa-trash jFiler-item-trash-action"></a></li>\
 										</ul>\
 									</div>\
 								</div>\
@@ -94,13 +94,13 @@ $(document).ready(function(){
         		filerKit.files_list[id].name = new_file_name;
 
 				itemEl.find(".jFiler-jProgressBar").fadeOut("slow", function(){
-					$("<div class=\"jFiler-item-others text-success\"><i class=\"icon-jfi-check-circle\"></i> Success</div>").hide().appendTo(parent).fadeIn("slow");
+					$("<div class=\"jFiler-item-others text-success\"><i class=\"fa fa-check-circle\"></i> Success</div>").hide().appendTo(parent).fadeIn("slow");
 				});
 			},
 			error: function(el){
 				var parent = el.find(".jFiler-jProgressBar").parent();
 				el.find(".jFiler-jProgressBar").fadeOut("slow", function(){
-					$("<div class=\"jFiler-item-others text-error\"><i class=\"icon-jfi-minus-circle\"></i> Error</div>").hide().appendTo(parent).fadeIn("slow");
+					$("<div class=\"jFiler-item-others text-error\"><i class=\"fa fa-check-circle\"></i> Error</div>").hide().appendTo(parent).fadeIn("slow");
 				});
 			},
 			statusCode: null,

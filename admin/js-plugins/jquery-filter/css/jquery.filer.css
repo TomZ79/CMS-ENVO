@@ -3,7 +3,7 @@
  * Copyright (c) 2016 CreativeDream
  * Version: 1.3 (14-Sep-2016)
 */
-@import url('../assets/fonts/jquery.filer-icons/jquery-filer.css');
+
 
 /*-------------------------
 	Basic configurations
@@ -52,7 +52,7 @@ span.jFiler-icon-file {
     overflow: hidden;
 }
 
-span.jFiler-icon-file i[class*="icon-jfi-"] {
+span.jFiler-icon-file i[class*="fa"] {
     font-size: 24px;
 }
 
@@ -88,7 +88,7 @@ span.jFiler-icon-file.f-audio {
     color: #ffffff;
     text-align: center;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    background-color: #50A1E9;
+    background-color: #26A69A;
     box-sizing: border-box;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
