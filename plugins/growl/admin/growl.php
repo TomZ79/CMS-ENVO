@@ -132,8 +132,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tlgwl["growl"]["m1"];
-    $SECTION_DESC = $tlgwl["growl"]["t"];
+    $SECTION_TITLE = $tlgwl["gwl_sec_title"]["gwlt1"];
+    $SECTION_DESC = $tlgwl["gwl_sec_desc"]["gwld1"];
 
     // EN: Load the template
     // CZ: Načti template (šablonu)
@@ -290,8 +290,8 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlgwl["growl"]["m2"];
-        $SECTION_DESC = $tlgwl["growl"]["t1"];
+        $SECTION_TITLE = $tlgwl["gwl_sec_title"]["gwlt2"];
+        $SECTION_DESC = $tlgwl["gwl_sec_desc"]["gwld2"];
 
         // EN: Load the template
         // CZ: Načti template (šablonu)
@@ -360,8 +360,8 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlgwl["growl"]["m"];
-        $SECTION_DESC = $tlgwl["growl"]["t"];
+        $SECTION_TITLE = $tlgwl["gwl_sec_title"]["gwlt"];
+        $SECTION_DESC = $tlgwl["gwl_sec_desc"]["gwld"];
 
         // EN: Load the template
         // CZ: Načti template (šablonu)

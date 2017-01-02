@@ -43,7 +43,7 @@ if (!empty($row['value'])) {
 	$XMLSEODATE = $row['value'];
 	$XMLSEODATE = date("d-m-Y H:i:s", strtotime($XMLSEODATE));
 } else {
-	$XMLSEODATE = $tlxml["xmlseo"]["e"];
+	$XMLSEODATE = $tlxml["xml_error"]["xmler"];
 }
 
 // Form 1-2-3
@@ -363,11 +363,8 @@ if (isset($_POST['action']) && $_POST['action'] == 'form1') {
 
 // EN: Title and Description
 // CZ: Titulek a Popis
-$SECTION_TITLE = $tlxml["xmlseo"]["m1"];
-$SECTION_DESC = $tlxml["xmlseo"]["t"];
-
-// Breadcrumbs sections
-$SECTION_CATEGORY = $tlxml["xmlseo"]["m1"];
+$SECTION_TITLE = $tlxml["xml_sec_title"]["xmlt"];
+$SECTION_DESC = $tlxml["xml_sec_desc"]["xmld"];
 
 // EN: Load the template
 // CZ: Načti template (šablonu)

@@ -10,8 +10,8 @@ if (!JAK_USERID || !$JAK_MODULES) jak_redirect(BASE_URL);
 
 // EN: Title and Description
 // CZ: Titulek a Popis
-$SECTION_TITLE = $tl["cmenumenu_cmd"]["c1"];
-$SECTION_DESC = $tl["cmdesc_cmd"]["d1"];
+$SECTION_TITLE = $tl["sec_title"]["sect4"];
+$SECTION_DESC = $tl["sec_title"]["secd4"];
 
 // EN: Load the template
 // CZ: Načti template (šablonu)

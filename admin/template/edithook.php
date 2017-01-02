@@ -54,87 +54,91 @@ if ($errors) { ?>
     <div class="savebutton">
       <button type="submit" name="save" class="btn btn-primary button">
         <i class="fa fa-save margin-right-5"></i>
-        <?php echo $tl["general"]["g20"]; ?> !!
+        <?php echo $tl["button"]["btn1"]; ?> !!
       </button>
     </div>
 
     <!-- Form Content -->
-    <div class="box box-primary">
-      <div class="box-header with-border">
-        <h3 class="box-title"><?php echo $tl["title"]["t13"]; ?></h3>
-        <div class="box-tools pull-right">
-          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-          <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title"><?php echo $tl["hook_box_title"]["hookbt1"]; ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="block">
+              <div class="block-content">
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["hook_box_content"]["hookbc"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?> no-margin">
+                      <input type="text" name="jak_name" class="form-control" value="<?php echo $JAK_FORM_DATA["name"]; ?>"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["hook_box_content"]["hookbc1"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
+                      <select name="jak_hook" class="form-control selectpicker" data-live-search="true" data-size="5">
+                        <option value="0"<?php if ($JAK_FORM_DATA["hook_name"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel7"]; ?></option>
+                        <?php if (isset($JAK_HOOK_LOCATIONS) && is_array($JAK_HOOK_LOCATIONS)) foreach ($JAK_HOOK_LOCATIONS as $h) { ?>
+                          <option value="<?php echo $h; ?>"<?php if ($h == $JAK_FORM_DATA["hook_name"]) { ?> selected="selected"<?php } ?>><?php echo $h; ?></option><?php } ?>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["hook_box_content"]["hookbc2"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <select name="jak_plugin" class="form-control selectpicker" data-live-search="true" data-size="5">
+                      <option value="0"<?php if ($JAK_FORM_DATA["pluginid"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c18"]; ?></option>
+                      <?php if (isset($JAK_PLUGINS) && is_array($JAK_PLUGINS)) foreach ($JAK_PLUGINS as $p) { ?>
+                        <option value="<?php echo $p["id"]; ?>"<?php if ($p["id"] == $JAK_FORM_DATA["pluginid"]) { ?> selected="selected"<?php } ?>><?php echo $p["name"]; ?></option><?php } ?>
+                    </select>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["hook_box_content"]["hookbc3"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
+                      <input type="text" name="jak_exorder" class="form-control" value="<?php echo $JAK_FORM_DATA["exorder"]; ?>" maxlength="5"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="box-footer">
+            <button type="submit" name="save" class="btn btn-primary pull-right">
+              <i class="fa fa-save margin-right-5"></i>
+              <?php echo $tl["button"]["btn1"]; ?>
+            </button>
+          </div>
         </div>
-      </div>
-      <div class="box-body">
-        <table class="table table-striped">
-          <tr>
-            <td><?php echo $tl["hook"]["h"]; ?></td>
-            <td>
-              <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?> no-margin">
-                <input type="text" name="jak_name" class="form-control" value="<?php echo $JAK_FORM_DATA["name"]; ?>"/>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $tl["hook"]["h2"]; ?></td>
-            <td>
-              <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
-                <select name="jak_hook" class="form-control selectpicker" data-live-search="true" data-size="5">
-                  <option value="0"<?php if ($JAK_FORM_DATA["hook_name"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["hook"]["h6"]; ?></option>
-                  <?php if (isset($JAK_HOOK_LOCATIONS) && is_array($JAK_HOOK_LOCATIONS)) foreach ($JAK_HOOK_LOCATIONS as $h) { ?>
-                    <option value="<?php echo $h; ?>"<?php if ($h == $JAK_FORM_DATA["hook_name"]) { ?> selected="selected"<?php } ?>><?php echo $h; ?></option><?php } ?>
-                </select>
-              </div>
-            </td>
-          </tr>
-
-          <tr>
-            <td><?php echo $tl["hook"]["h3"]; ?></td>
-            <td>
-              <select name="jak_plugin" class="form-control selectpicker" data-live-search="true" data-size="5">
-                <option value="0"<?php if ($JAK_FORM_DATA["pluginid"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c18"]; ?></option>
-                <?php if (isset($JAK_PLUGINS) && is_array($JAK_PLUGINS)) foreach ($JAK_PLUGINS as $p) { ?>
-                  <option value="<?php echo $p["id"]; ?>"<?php if ($p["id"] == $JAK_FORM_DATA["pluginid"]) { ?> selected="selected"<?php } ?>><?php echo $p["name"]; ?></option><?php } ?>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $tl["hook"]["h4"]; ?></td>
-            <td>
-              <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
-                <input type="text" name="jak_exorder" class="form-control"
-                       value="<?php echo $JAK_FORM_DATA["exorder"]; ?>" maxlength="5"/>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div class="box-footer">
-        <button type="submit" name="save" class="btn btn-primary pull-right">
-          <i class="fa fa-save margin-right-5"></i>
-          <?php echo $tl["general"]["g20"]; ?>
-        </button>
-      </div>
-    </div>
-    <div class="box box-primary">
-      <div class="box-header with-border">
-        <h3 class="box-title"><?php echo $tl["hook"]["h5"]; ?></h3>
-        <div class="box-tools pull-right">
-          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-          <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title"><?php echo $tl["hook_box_title"]["hookbt2"]; ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+          </div>
+          <div class="box-body">
+            <div id="htmleditor"></div>
+            <textarea name="jak_phpcode" id="jak_phpcode" class="form-control hidden"><?php echo $JAK_FORM_DATA["phpcode"]; ?></textarea>
+          </div>
+          <div class="box-footer">
+            <button type="submit" name="save" class="btn btn-primary pull-right">
+              <i class="fa fa-save margin-right-5"></i>
+              <?php echo $tl["button"]["btn1"]; ?>
+            </button>
+          </div>
         </div>
-      </div>
-      <div class="box-body">
-        <div id="htmleditor"></div>
-        <textarea name="jak_phpcode" id="jak_phpcode" class="form-control hidden"><?php echo $JAK_FORM_DATA["phpcode"]; ?></textarea>
-      </div>
-      <div class="box-footer">
-        <button type="submit" name="save" class="btn btn-primary pull-right">
-          <i class="fa fa-save margin-right-5"></i>
-          <?php echo $tl["general"]["g20"]; ?>
-        </button>
       </div>
     </div>
   </form>
@@ -169,5 +173,11 @@ if ($errors) { ?>
     });
 
   </script>
+  <style type="text/css">
+    /* Include style for height ACE Editor */
+    #htmleditor {
+      height: 200px;
+    }
+  </style>
 
 <?php include "footer.php"; ?>

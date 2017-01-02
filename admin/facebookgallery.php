@@ -21,7 +21,7 @@ $JAK_SETTING = jak_get_setting('setting');
 $jaktable = DB_PREFIX . 'galleryfacebook';
 
 // Get the all data
-$JAK_GALLERY_ALL = jak_get_galleryfacebook('', $jaktable);
+$JAK_GALLERY_ALL = jak_get_galleryfacebook('', $jaktable, 'DESC');
 
 // Now start with the plugin use a switch to access all pages
 switch ($page1) {
@@ -30,7 +30,7 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["menu"]["m30"] . ' - ' . $tl["facebook"]["f1"];
+    $SECTION_TITLE = $tl["submenu"]["sm40"] . ' - ' . $tl["facebook"]["f1"];
     $SECTION_DESC = $tl["facebook"]["f2"];
 
     // EN: Load the template
@@ -86,7 +86,7 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tl["menu"]["m30"] . ' - ' . $tl["facebook"]["f3"];
+        $SECTION_TITLE = $tl["submenu"]["sm40"] . ' - ' . $tl["facebook"]["f3"];
         $SECTION_DESC = $tl["facebook"]["f4"];
 
         // EN: Load the template
@@ -98,7 +98,7 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tl["menu"]["m30"] . ' - ' . $tl["facebook"]["f5"];
+        $SECTION_TITLE = $tl["submenu"]["sm40"] . ' - ' . $tl["facebook"]["f5"];
         $SECTION_DESC = $tl["facebook"]["f6"];
 
         // EN: Load the template

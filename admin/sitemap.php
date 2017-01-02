@@ -144,7 +144,7 @@ $JAK_FORM_DATA["content"] = $jkv["sitemapdesc"];
 
 // EN: Title and Description
 // CZ: Titulek a Popis
-$SECTION_TITLE = $tl["menu"]["m16"];
+$SECTION_TITLE = $tl["submenu"]["sm140"];
 $SECTION_DESC = "";
 
 // EN: Load the template

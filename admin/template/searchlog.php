@@ -78,16 +78,16 @@ if ($page1 == "e") { ?>
             <tr>
               <th>#</th>
               <th><input type="checkbox" id="jak_delete_all"/></th>
-              <th><?php echo $tl["general"]["g46"]; ?></th>
-              <th><?php echo $tl["page"]["p2"]; ?></th>
-              <th><?php echo $tl["general"]["g56"]; ?></th>
+              <th><?php echo $tl["slogs_box_table"]["slogstb"]; ?></th>
+              <th><?php echo $tl["slogs_box_table"]["slogstb1"]; ?></th>
+              <th><?php echo $tl["slogs_box_table"]["slogstb2"]; ?></th>
               <th>
-                <a href="index.php?p=searchlog&amp;sp=truncate&amp;ssp=go" id="button_truncate" class="btn btn-warning btn-xs" data-confirm-trunc="<?php echo $tl["error"]["e34"]; ?>">
+                <a href="index.php?p=searchlog&amp;sp=truncate&amp;ssp=go" id="button_truncate" class="btn btn-warning btn-xs" data-confirm-trunc="<?php echo $tl["notification"]["n4"]; ?>">
                   <i class="fa fa-exclamation-triangle"></i>
                 </a>
               </th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tl["error"]["e33"]; ?>" disabled="disabled">
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tl["notification"]["n5"]; ?>" disabled="disabled">
                   <i class="fa fa-trash-o"></i>
                 </button>
               </th>
@@ -103,7 +103,7 @@ if ($page1 == "e") { ?>
                 <td><?php echo $v["count"]; ?></td>
                 <td></td>
                 <td>
-                  <a href="index.php?p=searchlog&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo $tl["error_cmd"]["e1"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                  <a href="index.php?p=searchlog&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo $tl["notification"]["n6"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                     <i class="fa fa-trash-o"></i>
                   </a>
                 </td>

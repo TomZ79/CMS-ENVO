@@ -151,7 +151,7 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $lrf["register"]["r6"];
+    $SECTION_TITLE = $tlrf["reg_sec_title"]["regt1"];
     $SECTION_DESC = "";
 
     // EN: Load the template
@@ -280,8 +280,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $lrf["register"]["r"];
-    $SECTION_DESC = $lrf["register"]["r2"];
+    $SECTION_TITLE = $tlrf["reg_sec_title"]["regt"];
+    $SECTION_DESC = $tlrf["reg_sec_desc"]["regd"];
 
     // EN: Load the template
     // CZ: Načti template (šablonu)

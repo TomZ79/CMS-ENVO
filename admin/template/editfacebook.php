@@ -2,18 +2,11 @@
 
 
   <form method="post" class="jak_form" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-    <!-- Fixed Button for save form -->
-    <div class="savebutton">
-      <button type="submit" name="save" class="btn btn-primary button">
-        <i class="fa fa-save margin-right-5"></i>
-        <?php echo $tl["general"]["g20"]; ?> !!
-      </button>
-    </div>
 
     <!-- Form Content -->
     <div class="row">
       <div class="col-md-12">
-        <div class="box box-primary">
+        <div class="box">
           <div class="box-header with-border">
             <h3 class="box-title">Picture</h3>
             <div class="box-tools pull-right">
@@ -22,38 +15,42 @@
             </div>
           </div>
           <div class="box-body">
-            <div class="row">
-              <div class="col-md-12">
-                <table class="table table-striped v-text-center">
-                  <tr>
-                    <td>Picture Name</td>
-                    <td><?php echo $JAK_FORM_DATA["title"]; ?></td>
-                  </tr>
-                  <tr>
-                    <td>Picture Path</td>
-                    <td><?php echo $JAK_FORM_DATA["pathoriginal"]; ?></td>
-                  </tr>
-                  <tr>
-                    <td>Picture Thumb Path</td>
-                    <td><?php echo $JAK_FORM_DATA["paththumb"]; ?></td>
-                  </tr>
-                  <tr>
-                    <td>Size</td>
-                    <td><?php echo formatSizeUnits($JAK_FORM_DATA["size"]); ?></td>
-                  </tr>
-                  <tr>
-                    <td>Time</td>
-                    <td><?php echo date("d.m.Y - H:i", strtotime($JAK_FORM_DATA["time"])); ?></td>
-                  </tr>
-                </table>
+            <div class="col-md-5" style="padding-top: 15px;padding-bottom: 15px;">
+              <img src="<?php echo $JAK_FORM_DATA["pathoriginal"] . $JAK_FORM_DATA["title"]; ?>" alt="" class="img-responsive" style="border: 8px solid #fff;outline: 8px solid #f9f9f9;max-height: 270px;margin: 0 auto;">
+            </div>
+            <div class="col-md-7">
+              <div class="block">
+                <div class="block-content">
+                  <div class="row-form">
+                    <div class="col-md-5"><strong>Picture Name</strong></div>
+                    <div class="col-md-7"><?php echo $JAK_FORM_DATA["title"]; ?></div>
+                  </div>
+                  <div class="row-form">
+                    <div class="col-md-5"><strong>Picture Path</strong></div>
+                    <div class="col-md-7"><?php echo $JAK_FORM_DATA["pathoriginal"]; ?></div>
+                  </div>
+                  <div class="row-form">
+                    <div class="col-md-5"><strong>Picture Thumb Path</strong></div>
+                    <div class="col-md-7"><?php echo $JAK_FORM_DATA["paththumb"]; ?></div>
+                  </div>
+                  <div class="row-form">
+                    <div class="col-md-5"><strong>Size</strong></div>
+                    <div class="col-md-7"><?php echo formatSizeUnits($JAK_FORM_DATA["size"]); ?></div>
+                  </div>
+                  <div class="row-form">
+                    <div class="col-md-5"><strong>Resolution</strong></div>
+                    <div class="col-md-7"><?php echo $JAK_FORM_DATA["width"] . ' x ' . $JAK_FORM_DATA["height"]; ?></div>
+                  </div>
+                  <div class="row-form">
+                    <div class="col-md-5"><strong>Upload Time</strong></div>
+                    <div class="col-md-7"><?php echo date("d.m.Y - H:i", strtotime($JAK_FORM_DATA["time"])); ?></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right">
-              <i class="fa fa-save margin-right-5"></i>
-              <?php echo $tl["general"]["g20"]; ?>
-            </button>
+            <a href="index.php?p=facebookgallery&amp;sp=delete&amp;ssp=<?php echo $JAK_FORM_DATA["id"]; ?>" class="btn btn-danger pull-right" data-confirm="<?php echo sprintf($tl["facebook"]["del"], $JAK_FORM_DATA["title"]);?>">Delete</a>
           </div>
         </div>
       </div>

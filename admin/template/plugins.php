@@ -32,95 +32,99 @@ if ($page1 == "e") { ?>
 <?php } ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-    <div class="box box-default">
-      <div class="box-header with-border">
-        <i class="fa fa-plug"></i>
-        <h3 class="box-title"><?php echo $tl["menu"]["m14"]; ?></h3>
-        <div class="box-tools pull-right">
-          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-          <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-        </div>
-      </div>
-      <div class="box-body">
-        <ul class="jak_plugins_move">
-          <?php if (isset($JAK_PLUGINS) && is_array($JAK_PLUGINS)) foreach ($JAK_PLUGINS as $v) { ?>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="box">
+          <div class="box-header with-border">
+            <i class="fa fa-plug"></i>
+            <h3 class="box-title"><?php echo $tl["plug_box_title"]["plugbt"]; ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+          </div>
+          <div class="box-body">
+            <ul class="jak_plugins_move">
+              <?php if (isset($JAK_PLUGINS) && is_array($JAK_PLUGINS)) foreach ($JAK_PLUGINS as $v) { ?>
 
-            <li id="plugin-<?php echo $v["id"]; ?>" class="jakplugins">
-              <div class="row">
-                <div class="col-md-1 text">
-                  <span># </span>
-                  <a href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["id"]; ?></a>
-                </div>
-                <div class="col-md-2 text plugins-name">
+                <li id="plugin-<?php echo $v["id"]; ?>" class="jakplugins">
+                  <div class="row">
+                    <div class="col-md-1 text">
+                      <span># </span>
+                      <a href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["id"]; ?></a>
+                    </div>
+                    <div class="col-md-2 text plugins-name">
                   <span title="<?php echo $v["description"]; ?>">
                     <?php
                     $name = $v["name"];
                     echo "<strong>" . str_replace('_', ' ', $name) . "</strong>";
                     ?>
                   </span>
-                </div>
-                <div class="col-md-2 text">
-                  <?php if ($v['pluginversion']) {
-                    echo '(' . sprintf($tl["general"]["gv"], $v["pluginversion"]) . ')';
-                  } ?>
-                  <input type="hidden" name="real_id[]" value="<?php echo $v["id"]; ?>"/>
-                </div>
-                <div class="col-md-1 text text-center">
-                  <?php
-                  $filename = '../plugins/' . strtolower($v["name"]) . '/help.php';
+                    </div>
+                    <div class="col-md-2 text">
+                      <?php if ($v['pluginversion']) {
+                        echo '(' . sprintf($tl["plug_box_content"]["plugbc6"], $v["pluginversion"]) . ')';
+                      } ?>
+                      <input type="hidden" name="real_id[]" value="<?php echo $v["id"]; ?>"/>
+                    </div>
+                    <div class="col-md-1 text text-center">
+                      <?php
+                      $filename = '../plugins/' . strtolower($v["name"]) . '/help.php';
 
-                  if (file_exists($filename)) {
-                    echo "<a class=\"plugHelp\" href=\"" . $filename . "\">" . $tl["title"]["t21"] . "</a>";
-                  } else {
-                    echo "-";
-                  }
-                  ?>
-                </div>
-                <div class="col-md-4 show">
-                  <div class="form-group form-inline">
-                    <label><?php echo $tl["plugin"]["p2"]; ?></label>
-                    <input type="text" class="form-control" name="access[]" value="<?php echo $v["access"]; ?>"/>
-                  </div>
-                </div>
-                <div class="col-md-2 actions">
-
-                  <?php if (isset($site_plugins) && is_array($site_plugins)) foreach ($site_plugins as $p) {
-                    if (strtolower($v["pluginpath"]) == strtolower($p)) {
-
-                      $filename = '../plugins/' . $p . '/update.php';
-
-                      if (file_exists($filename) && (strtotime($v["time"]) < filemtime($filename))) {
-                        echo '<a class="plugInst btn btn-success btn-xs" href="../plugins/' . $p . '/update.php" data-toggle="tooltip" data-placement="bottom" title="' . $tl["icons"]["i12"] . '"><i class="fa fa-clock-o"></i></a>';
+                      if (file_exists($filename)) {
+                        echo "<a class=\"plugHelp\" href=\"" . $filename . "\">" . $tl["plug_box_content"]["plugbc2"] . "</a>";
+                      } else {
+                        echo "-";
                       }
+                      ?>
+                    </div>
+                    <div class="col-md-4 show">
+                      <div class="form-group form-inline">
+                        <label><?php echo $tl["plug_box_content"]["plugbc"]; ?></label>
+                        <input type="text" class="form-control" name="access[]" value="<?php echo $v["access"]; ?>"/>
+                      </div>
+                    </div>
+                    <div class="col-md-2 actions">
 
-                    }
-                  } ?>
+                      <?php if (isset($site_plugins) && is_array($site_plugins)) foreach ($site_plugins as $p) {
+                        if (strtolower($v["pluginpath"]) == strtolower($p)) {
 
-                  <a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i13"]; ?>">
-                    <i class="fa fa-flag"></i>
-                  </a>
-                  <a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') { echo $tl["icons"]["i5"]; } else { echo $tl["icons"]["i6"]; } ?>">
-                    <i class="fa fa-<?php if ($v["active"] == '0') { ?>lock<?php } else { ?>check<?php } ?>"></i>
-                  </a>
-                  <?php if ($v["uninstallfile"]) { ?>
-                  <a class="plugInst btn btn-danger btn-xs" href="../plugins/<?php echo $v["pluginpath"] . '/' . $v["uninstallfile"]; ?>"  data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
-                    <i class="fa fa-trash-o"></i>
-                  </a>
-                  <?php } ?>
+                          $filename = '../plugins/' . $p . '/update.php';
 
-                </div>
-              </div>
-            </li>
+                          if (file_exists($filename) && (strtotime($v["time"]) < filemtime($filename))) {
+                            echo '<a class="plugInst btn btn-success btn-xs" href="../plugins/' . $p . '/update.php" data-toggle="tooltip" data-placement="bottom" title="' . $tl["icons"]["i12"] . '"><i class="fa fa-clock-o"></i></a>';
+                          }
 
-            <?php
+                        }
+                      } ?>
+
+                      <a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i13"]; ?>">
+                        <i class="fa fa-flag"></i>
+                      </a>
+                      <a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') { echo $tl["icons"]["i5"]; } else { echo $tl["icons"]["i6"]; } ?>">
+                        <i class="fa fa-<?php if ($v["active"] == '0') { ?>lock<?php } else { ?>check<?php } ?>"></i>
+                      </a>
+                      <?php if ($v["uninstallfile"]) { ?>
+                        <a class="plugInst btn btn-danger btn-xs" href="../plugins/<?php echo $v["pluginpath"] . '/' . $v["uninstallfile"]; ?>"  data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                          <i class="fa fa-trash-o"></i>
+                        </a>
+                      <?php } ?>
+
+                    </div>
+                  </div>
+                </li>
+
+                <?php
 // Get the installed plugin in a array
-            $installedp[] = strtolower($v["pluginpath"]);
-          }
-          echo "</ul></div></div>";
-          if (isset($site_plugins) && is_array($site_plugins) && isset($installedp) && is_array($installedp)) foreach ($site_plugins as $p) {
-            if (!in_array(strtolower($p), $installedp)) { ?>
+                $installedp[] = strtolower($v["pluginpath"]);
+              } ?>
+            </ul>
+          </div>
+        </div>
+        <?php if (isset($site_plugins) && is_array($site_plugins) && isset($installedp) && is_array($installedp)) foreach ($site_plugins as $p) {
+          if (!in_array(strtolower($p), $installedp)) { ?>
 
-              <div class="box box-solid">
+            <div class="box box-solid">
                 <div class="box-header with-border">
                   <i class="fa fa-plug"></i>
                   <h3 class="box-title">
@@ -132,62 +136,69 @@ if ($page1 == "e") { ?>
                   </div>
                 </div>
                 <div class="box-body">
-                  <div class="col-md-8">
-                    <table width="100%">
-                      <tr>
-                        <td class="col-md-5"><?php echo $tl["general"]["g70"]; ?>:
-                          <a class="plugInst" href="../plugins/<?php echo $p; ?>/install.php"><?php echo str_replace('_', ' ', ucfirst($p)); ?></a>
-                        </td>
-                        <td class="col-md-7"><?php echo $tl["title"]["t21"]; ?>:
+                  <div class="block">
+                    <div class="block-content">
+                      <div class="row-form">
+                        <div class="col-md-3">
+                          <?php echo $tl["plug_box_content"]["plugbc1"]; ?>: <a class="plugInst" href="../plugins/<?php echo $p; ?>/install.php"><?php echo str_replace('_', ' ', ucfirst($p)); ?></a>
+                        </div>
+                        <div class="col-md-9">
+                          <?php echo $tl["plug_box_content"]["plugbc2"]; ?>:
+
                           <?php
                           $filename = '../plugins/' . $p . '/help.php';
 
                           if (file_exists($filename)) {
                             echo "<a class=\"plugHelp\" href=\"" . $filename . "\">" . str_replace('_', ' ', ucfirst($p)) . "</a>";
                           } else {
-                            echo "The file with HELP does not exist";
+                            echo $tl["plug_box_content"]["plugbc3"];
                           }
                           ?>
-                        </td>
-                      </tr>
-                    </table>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
+                </div>
+              </div>
 
             <?php }
           } ?>
-          <div class="box box-primary">
+
+        <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title"><?php echo $tl["title"]["t28"]; ?></h3>
+              <h3 class="box-title"><?php echo $tl["plug_box_title"]["plugbt1"]; ?></h3>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
             </div>
             <div class="box-body">
-              <table class="table table-striped v-text-center">
-                <tr>
-                  <td><?php echo $tl["plugin"]["p"]; ?></td>
-                  <td>
-                    <input type="text" name="jak_generala" class="form-control" value="<?php echo $jkv["accessgeneral"]; ?>"/>
-                  </td>
-                </tr>
-                <tr>
-                  <td><?php echo $tl["plugin"]["p1"]; ?></td>
-                  <td>
-                    <input type="text" name="jak_managea" class="form-control" value="<?php echo $jkv["accessmanage"]; ?>"/>
-                  </td>
-                </tr>
-              </table>
+              <div class="block">
+                <div class="block-content">
+                  <div class="row-form">
+                    <div class="col-md-5"><strong><?php echo $tl["plug_box_content"]["plugbc4"]; ?></strong></div>
+                    <div class="col-md-7">
+                      <input type="text" name="jak_generala" class="form-control" value="<?php echo $jkv["accessgeneral"]; ?>"/>
+                    </div>
+                  </div>
+                  <div class="row-form">
+                    <div class="col-md-5"><strong><?php echo $tl["plug_box_content"]["plugbc5"]; ?></strong></div>
+                    <div class="col-md-7">
+                      <input type="text" name="jak_managea" class="form-control" value="<?php echo $jkv["accessmanage"]; ?>"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="box-footer">
               <button type="submit" name="save" class="btn btn-primary pull-right">
                 <i class="fa fa-save margin-right-5"></i>
-                <?php echo $tl["general"]["g20"]; ?>
+                <?php echo $tl["button"]["btn1"]; ?>
               </button>
             </div>
           </div>
+      </div>
+    </div>
   </form>
 
   <div class="icon_legend">

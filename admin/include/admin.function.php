@@ -113,22 +113,28 @@ function jak_get_tag($limit,$id,$plugin,$order) {
 // Search for style files in the site folder, only choose folders.
 function jak_get_site_style($styledir) {
 
-	if ($handle = opendir($styledir)) {
-	
-	    /* This is the correct way to loop over the directory. */
-	    while (false !== ($template = readdir($handle))) {
-		    if ($template != '.' && $template != '..' && is_dir($styledir.'/'.$template) ) {
-			    $getstyle[] = $template;
-			    
-	    	}
-	    }
+  // Check if folder exist
+  if(is_readable($styledir)) {
+    // Open folder
+    if ($handle = opendir($styledir)) {
+      // If folder isn't empty - loop directory
+      if (count(glob("$styledir/*")) > 0) {
+        /* This is the correct way to loop over the directory. */
+        while (false !== ($template = readdir($handle))) {
+          if ($template != '.' && $template != '..' && is_dir($styledir.'/'.$template) ) {
+            $getstyle[] = $template;
 
-    sort($getstyle); // Sort style by alphabet
-		return $getstyle;
-		
-		clearstatcache();
-    closedir($handle);
-	}
+          }
+        }
+
+        sort($getstyle); // Sort style by alphabet
+        return $getstyle;
+      }
+
+      clearstatcache();
+      closedir($handle);
+    }
+  }
 }
 
 // Get all user out the database limited with the paginator

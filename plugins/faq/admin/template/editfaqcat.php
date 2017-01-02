@@ -60,7 +60,7 @@
     <!-- Form Content -->
     <div class="row">
       <div class="col-md-8">
-        <div class="box box-primary">
+        <div class="box">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["title"]["t11"]; ?></h3>
             <div class="box-tools pull-right">
@@ -69,52 +69,54 @@
             </div>
           </div>
           <div class="box-body">
-            <table class="table table-striped first-column v-text-center">
-              <tr>
-                <td><?php echo $tl["cat"]["c4"]; ?></td>
-                <td>
-                  <?php include_once APP_PATH . "admin/template/cat_edit.php"; ?>
-                </td>
-              </tr>
-              <tr>
-                <td><?php echo $tl["cat"]["c5"]; ?></td>
-                <td>
-                  <div class="form-group<?php if ($errors["e2"] || $errors["e3"]) echo " has-error"; ?>">
-                    <input type="text" name="jak_varname" id="jak_varname" class="form-control" value="<?php echo $JAK_FORM_DATA["varname"]; ?>"/>
+            <div class="block">
+              <div class="block-content">
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["cat"]["c4"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <?php include_once APP_PATH . "admin/template/cat_edit.php"; ?>
                   </div>
-                </td>
-              </tr>
-              <tr>
-                <td><?php echo $tl["page"]["p5"]; ?></td>
-                <td>
-                  <textarea name="jak_lcontent" class="form-control" rows="4"><?php echo jak_edit_safe_userpost($JAK_FORM_DATA["content"]); ?></textarea>
-                </td>
-              </tr>
-              <tr>
-                <td><?php echo $tlf["faq"]["d21"]; ?></td>
-                <td>
-                  <div class="radio">
-                    <label class="checkbox-inline">
-                      <input type="radio" name="jak_active" value="1"<?php if ($JAK_FORM_DATA["active"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                    </label>
-                    <label class="checkbox-inline">
-                      <input type="radio" name="jak_active" value="0"<?php if ($JAK_FORM_DATA["active"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                    </label>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["cat"]["c5"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="form-group<?php if ($errors["e2"] || $errors["e3"]) echo " has-error"; ?>">
+                      <input type="text" name="jak_varname" id="jak_varname" class="form-control" value="<?php echo $JAK_FORM_DATA["varname"]; ?>"/>
+                    </div>
                   </div>
-                </td>
-              </tr>
-              <tr>
-                <td><?php echo $tl["general"]["g87"]; ?></td>
-                <td>
-                  <div class="input-group">
-                    <input type="text" name="jak_img" id="jak_img" class="form-control" value="<?php echo $JAK_FORM_DATA["catimg"]; ?>">
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["page"]["p5"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <textarea name="jak_lcontent" class="form-control" rows="4"><?php echo jak_edit_safe_userpost($JAK_FORM_DATA["content"]); ?></textarea>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tlf["faq"]["d21"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="radio">
+                      <label class="checkbox-inline">
+                        <input type="radio" name="jak_active" value="1"<?php if ($JAK_FORM_DATA["active"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="radio" name="jak_active" value="0"<?php if ($JAK_FORM_DATA["active"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["general"]["g87"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="input-group">
+                      <input type="text" name="jak_img" id="jak_img" class="form-control" value="<?php echo $JAK_FORM_DATA["catimg"]; ?>">
                     <span class="input-group-btn">
                       <button class="btn btn-default iconpicker" data-placement="top" role="iconpicker"></button>
                     </span>
+                    </div>
                   </div>
-                </td>
-              </tr>
-            </table>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="box-footer">
             <button type="submit" name="save" class="btn btn-primary pull-right">
@@ -125,7 +127,7 @@
         </div>
       </div>
       <div class="col-md-4">
-        <div class="box box-danger">
+        <div class="box">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["general"]["g88"]; ?>
               <a class="cms-help" data-content="<?php echo $tl["help"]["h"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tl["title"]["t21"]; ?>">
@@ -138,17 +140,19 @@
             </div>
           </div>
           <div class="box-body">
-            <table class="table table-striped">
-              <tr>
-                <td>
-                  <select name="jak_permission[]" multiple="multiple" class="form-control">
-                    <option value="0"<?php if ($JAK_FORM_DATA["permission"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g84"]; ?></option>
-                    <?php if (isset($JAK_USERGROUP) && is_array($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) { ?>
-                      <option value="<?php echo $v["id"]; ?>"<?php if (in_array($v["id"], explode(',', $JAK_FORM_DATA["permission"]))) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php } ?>
-                  </select>
-                </td>
-              </tr>
-            </table>
+            <div class="block">
+              <div class="block-content">
+                <div class="row-form">
+                  <div class="col-md-12">
+                    <select name="jak_permission[]" multiple="multiple" class="form-control">
+                      <option value="0"<?php if ($JAK_FORM_DATA["permission"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g84"]; ?></option>
+                      <?php if (isset($JAK_USERGROUP) && is_array($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) { ?>
+                        <option value="<?php echo $v["id"]; ?>"<?php if (in_array($v["id"], explode(',', $JAK_FORM_DATA["permission"]))) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php } ?>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="box-footer">
             <button type="submit" name="save" class="btn btn-primary pull-right">

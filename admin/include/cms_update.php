@@ -150,6 +150,6 @@ if ($getVersions != '') {
 }
 
 } else {
-	echo '<a href="index.php?p=maintenance&amp;check=true" class="btn btn-default">'.$tl["general"]["g122"].'</a>';
+	echo '<a href="index.php?p=maintenance&amp;check=true" class="btn btn-default">'.$tl["button"]["btn18"].'</a>';
 }
 ?>

@@ -528,7 +528,7 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlnl["nletter"]["m"] . ' - ' . $tl["cmenu"]["c2"];
+        $SECTION_TITLE = '';
         $SECTION_DESC = $tl["cmdesc"]["d4"];
 
         // EN: Load the template
@@ -591,7 +591,7 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlnl["nletter"]["m"] . ' - ' . $tl["cmenu"]["c3"];
+        $SECTION_TITLE = $tlnl["nletter"]["m"] . ' - ' . '';
         $SECTION_DESC = $tlnl["nletter"]["t7"];
 
         // EN: Load the template
@@ -736,7 +736,7 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlnl["nletter"]["m"] . ' - ' . $tl["cmenu"]["c2"];
+        $SECTION_TITLE = '';
         $SECTION_DESC = $tlnl["nletter"]["t2"];
 
         // EN: Load the template
@@ -786,7 +786,7 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlnl["nletter"]["m"] . ' - ' . $tl["cmenu"]["c11"];
+        $SECTION_TITLE = $tlnl["nletter"]["m"] . ' - ' . '';
         $SECTION_DESC = $tl["cmdesc"]["d15"];
 
         // EN: Load the template
@@ -840,7 +840,7 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlnl["nletter"]["m"] . ' - ' . $tl["cmenu"]["c12"];
+        $SECTION_TITLE = $tlnl["nletter"]["m"] . ' - ' . '';
         $SECTION_DESC = $tlnl["nletter"]["t8"];
 
         // EN: Load the template
@@ -945,7 +945,7 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlnl["nletter"]["m"] . ' - ' . $tl["menu"]["m9"];
+        $SECTION_TITLE = $tlnl["nletter"]["m"] . ' - ' . '';
         $SECTION_DESC = $tlnl["nletter"]["t3"];
 
         // EN: Load the template
@@ -1068,7 +1068,7 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tlnl["nletter"]["m"] . ' - ' . $tl["menu"]["m2"];
+    $SECTION_TITLE = $tlnl["nletter"]["m"] . ' - ' . $tl["submenu"]["sm10"];
     $SECTION_DESC = $tl["cmdesc"]["d2"];
 
     // EN: Load the template

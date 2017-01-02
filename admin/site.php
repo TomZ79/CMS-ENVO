@@ -55,8 +55,8 @@ $JAK_CAT = jak_get_cat_info(DB_PREFIX . 'categories', 0);
 
 // EN: Title and Description
 // CZ: Titulek a Popis
-$SECTION_TITLE = $tl["cmenu"]["c1"];
-$SECTION_DESC = $tl["cmdesc"]["d1"];
+$SECTION_TITLE = $tl["sec_title"]["sect1"];
+$SECTION_DESC = $tl["sec_desc"]["secd1"];
 
 // EN: Load the template
 // CZ: Načti template (šablonu)

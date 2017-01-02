@@ -78,18 +78,15 @@
   <!-- Prism JS -->
   <script type="text/javascript" src="js-plugins/prism/prism.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 
+  <!-- Bootstrap FileInput -->
+  <link href="js-plugins/bootstrap-fileinput/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+  <script src="js-plugins/bootstrap-fileinput/js/fileinput.js" type="text/javascript"></script>
+  <script src="js-plugins/bootstrap-fileinput/js/locales/cz.js" type="text/javascript"></script>
+  <script src="js-plugins/bootstrap-fileinput/themes/fa/theme.js" type="text/javascript"></script>
+
   <!-- Custom Admin App function -->
   <script type="text/javascript" src="../js/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
   <script type="text/javascript" src="js/cms_custom.js?=<?php echo $jkv["updatetime"]; ?>"></script>
-
-  <!-- Jquery Upload Filer -->
-  <script type="text/javascript" src="js-plugins/jquery-filter/js/jquery.filer.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
-  <script type="text/javascript" src="js-plugins/jquery-filter/examples/dragdrop/js/custom.js?=<?php echo $jkv["updatetime"]; ?>"></script>
-
-  <link rel="stylesheet" href="js-plugins/jquery-filter/css/jquery.filer.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="js-plugins/jquery-filter/css/themes/jquery.filer-dragdropbox-theme.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
-
-
 
   <!--[if lt IE 9]>
   <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -123,25 +120,25 @@
         <ul class="nav navbar-nav">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-home"></i><span
-                class="hidden-xs hidden-sm"> <?php echo $tl["menu"]["mh"]; ?> <b class="caret"></b></span></a>
+                class="hidden-xs hidden-sm"> <?php echo $tl["menu"]["mm"]; ?> <b class="caret"></b></span></a>
             <ul class="dropdown-menu right">
-              <li><a href="<?php echo BASE_URL_ADMIN; ?>"><?php echo $tl["menu"]["mh"]; ?></a></li>
-              <li><a href="index.php?p=site"><?php echo $tl["cmenu"]["c1"]; ?></a></li>
-              <li><a href="index.php?p=logs"><?php echo $tl["cmenu"]["c48"]; ?></a></li>
-              <li><a href="index.php?p=searchlog"><?php echo $tl["cmenu"]["c49"]; ?></a></li>
+              <li><a href="<?php echo BASE_URL_ADMIN; ?>"><?php echo $tl["submenu"]["sm"]; ?></a></li>
+              <li><a href="index.php?p=site"><?php echo $tl["submenu"]["sm1"]; ?></a></li>
+              <li><a href="index.php?p=logs"><?php echo $tl["submenu"]["sm2"]; ?></a></li>
+              <li><a href="index.php?p=searchlog"><?php echo $tl["submenu"]["sm3"]; ?></a></li>
             </ul>
           </li>
           <?php if ($JAK_MODULEM) { ?>
-            <li><a href="index.php?p=page"><i class="fa fa-file-text-o"></i><span
-                  class="hidden-xs hidden-sm"> <?php echo $tl["menu"]["m7"]; ?></span></a></li>
             <li><a href="index.php?p=categories"><i class="fa fa-list"></i><span
-                  class="hidden-xs hidden-sm"> <?php echo $tl["menu"]["m5"]; ?></span></a></li>
+                  class="hidden-xs hidden-sm"> <?php echo $tl["submenu"]["sm110"]; ?></span></a></li>
+            <li><a href="index.php?p=page"><i class="fa fa-file-text-o"></i><span
+                  class="hidden-xs hidden-sm"> <?php echo $tl["submenu"]["sm120"]; ?></span></a></li>
           <?php }
           if ($JAK_MODULES) { ?>
             <li><a href="index.php?p=setting"><i class="fa fa-cogs"></i><span
-                  class="hidden-xs hidden-sm"> <?php echo $tl["general"]["g5"]; ?></span></a></li>
+                  class="hidden-xs hidden-sm"> <?php echo $tl["submenu"]["sm10"]; ?></span></a></li>
           <?php } ?>
-            <li><a class="wIframe" data-title='CMS - FAQ' href="<?php echo BASE_URL_ADMIN; ?>template/help.php"><i class="fa fa-ambulance"></i><span class="hidden-xs hidden-sm"> <?php echo $tl["title"]["t21"];?></span></a></li>
+            <li><a class="wIframe" data-title='CMS - FAQ' href="<?php echo BASE_URL_ADMIN; ?>template/help.php"><i class="fa fa-ambulance"></i><span class="hidden-xs hidden-sm"> <?php echo $tl["hf_text"]["hftxt2"];?></span></a></li>
 
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
@@ -160,7 +157,7 @@
                   <small>
                     <?php
                     $date = strtotime($jakuser->getVar("time"));
-                    echo sprintf($tl["user"]["u18"], date($jkv["dateformat"] . $jkv["timeformat"],$date));
+                    echo sprintf($tl["hf_text"]["hftxt3"], date($jkv["dateformat"] . $jkv["timeformat"],$date));
                     ?>
                   </small>
                 </p>
@@ -168,7 +165,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="index.php?p=user&amp;sp=edit&amp;ssp=<?php echo JAK_USERID; ?>" class="btn btn-default btn-flat"><?php echo $tl["general"]["g77"]; ?></a>
+                  <a href="index.php?p=user&amp;sp=edit&amp;ssp=<?php echo JAK_USERID; ?>" class="btn btn-default btn-flat"><?php echo $tl["button"]["btn12"]; ?></a>
                 </div>
                 <div class="pull-right">
                   <a href="index.php?p=logout" data-confirm-logout="<?php echo $tl["logout"]["l2"]; ?>" class="btn btn-default btn-flat"><?php echo $tl["logout"]["l"]; ?></a>
@@ -201,7 +198,7 @@
       <section class="section-header">
         <!-- Title section -->
         <div class="content-header" style="height: 60px;">
-          <h1 class="pull-left"><?php echo $SECTION_TITLE;?><small><?php echo $SECTION_DESC;?></small></h1>
+          <h1 class="pull-left"><?php echo $SECTION_TITLE;?><small class="hidden-xs"><?php echo $SECTION_DESC;?></small></h1>
         </div>
       </section>
     <?php } ?>

@@ -55,7 +55,7 @@ if ($page2 == "e") { ?>
               <th><input type="checkbox" id="jak_delete_all"/></th>
               <th><?php echo $tl["user"]["u"]; ?></th>
               <th><?php echo $tl["user"]["u1"]; ?></th>
-              <th><?php echo $tl["menu"]["m9"]; ?></th>
+              <th><?php echo $tl["submenu"]["sm100"]; ?></th>
               <th></th>
               <th>
                 <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tl["user"]["al"]; ?>" disabled="disabled">

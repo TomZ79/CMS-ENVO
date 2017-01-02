@@ -67,9 +67,9 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
           if ($rows['id']) {
 
             $adminlang = 'if (file_exists(APP_PATH.\'plugins/register_form/admin/lang/\'.$site_language.\'.ini\')) {
-    $lrf = parse_ini_file(APP_PATH.\'plugins/register_form/admin/lang/\'.$site_language.\'.ini\', true);
+    $tlrf = parse_ini_file(APP_PATH.\'plugins/register_form/admin/lang/\'.$site_language.\'.ini\', true);
 } else {
-    $lrf = parse_ini_file(APP_PATH.\'plugins/register_form/admin/lang/en.ini\', true);
+    $tlrf = parse_ini_file(APP_PATH.\'plugins/register_form/admin/lang/en.ini\', true);
 }';
 
             $pn_include = 'if ($row[\'showregister\'] == 1) {

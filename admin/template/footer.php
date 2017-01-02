@@ -5,9 +5,9 @@
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <?php echo sprintf($tl["general"]["gv"], $jkv["version"]); ?>
+      <?php echo sprintf($tl["hf_text"]["hftxt"], $jkv["version"]); ?>
     </div>
-    <strong>Copyright 2008 - <?php echo date('Y'); ?> by <a href="http://www.bluesat.cz" target="_blank">BLUESAT</a>.</strong> All rights reserved.
+    <strong><?php echo $tl["hf_text"]["hftxt1"]; ?> - <?php echo date('Y'); ?> by <a href="http://www.bluesat.cz" target="_blank">BLUESAT</a>.</strong> All rights reserved.
   </footer>
 
   </div><!-- Wrapper -->
@@ -83,6 +83,8 @@
           }
         }
       });
+      // Add div to Bootbox Body
+      $(".bootbox-body i").wrap( "<div class='col-md-2'></div>" );
     });
 
     // Bootbox - Confirm dialog for Delete button
@@ -194,7 +196,7 @@
       <div class="modal-body">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $tl["general"]["g129"]; ?></button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $tl["button"]["btn19"]; ?></button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

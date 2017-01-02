@@ -60,11 +60,11 @@
             <tr>
               <th>#</th>
               <th><input type="checkbox" id="jak_delete_all"/></th>
-              <th><?php echo $tlum["um"]["d"]; ?></th>
-              <th><?php echo $tlum["um"]["d1"]; ?></th>
-              <th><?php echo $tlum["um"]["d3"]; ?></th>
-              <th><?php echo $tlum["um"]["d2"]; ?></th>
-              <th><?php echo $tl["general_cmd"]["g9"]; ?></th>
+              <th><?php echo $tlum["url_box_table"]["urltb"]; ?></th>
+              <th><?php echo $tlum["url_box_table"]["urltb1"]; ?></th>
+              <th><?php echo $tlum["url_box_table"]["urltb2"]; ?></th>
+              <th><?php echo $tlum["url_box_table"]["urltb3"]; ?></th>
+              <th><?php echo $tlum["url_box_table"]["urltb4"]; ?></th>
               <th>
                 <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
                   <i class="fa fa-lock"></i>
@@ -72,7 +72,7 @@
               </th>
               <th></th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tlum["um"]["al"]; ?>" disabled="disabled">
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tlum["url_notification"]["delall"]; ?>" disabled="disabled">
                   <i class="fa fa-trash-o"></i>
                 </button>
               </th>
@@ -86,7 +86,7 @@
                 </td>
                 <td><a href="index.php?p=urlmapping&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["urlnew"]; ?></a>
                 </td>
-                <td><?php if ($v["redirect"] == '301') { echo $tlum["um"]["d4"]; } else { echo $tlum["um"]["d5"]; }?></td>
+                <td><?php if ($v["redirect"] == '301') { echo $tlum["url_box_content"]["urlbc1"]; } else { echo $tlum["url_box_content"]["urlbc2"]; }?></td>
                 <td><?php echo $v["time"]; ?></td>
                 <td>
                   <?php
@@ -108,7 +108,7 @@
                   </a>
                 </td>
                 <td>
-                  <a href="index.php?p=urlmapping&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo $tlum["um"]["del"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                  <a href="index.php?p=urlmapping&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo $tlum["url_notification"]["del"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                     <i class="fa fa-trash-o"></i>
                   </a>
                 </td>

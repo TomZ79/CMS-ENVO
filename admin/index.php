@@ -186,8 +186,8 @@ if ($page == '') {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["menu"]["mh"];
-    $SECTION_DESC = $tl["cmdesc"]["d"];
+    $SECTION_TITLE = '';
+    $SECTION_DESC = '';
 
     // EN: Load the template
     // CZ: Načti template (šablonu)

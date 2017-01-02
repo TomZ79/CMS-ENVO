@@ -41,7 +41,7 @@ if ($errors) { ?>
           if (isset($errors["e2"])) echo $errors["e2"]; ?>',
       }, {
         // settings
-        type: 'success',
+        type: 'danger',
         delay: 5000,
       });
     }, 1000);
@@ -53,118 +53,136 @@ if ($errors) { ?>
     <div class="savebutton">
       <button type="submit" name="save" class="btn btn-primary button">
         <i class="fa fa-save margin-right-5"></i>
-        <?php echo $tl["general"]["g20"]; ?> !!
+        <?php echo $tl["button"]["btn1"]; ?> !!
       </button>
     </div>
 
     <!-- Form Content -->
     <div class="row">
       <div class="col-md-6">
-        <div class="box box-primary">
+        <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title"><?php echo $tl["title"]["t2"]; ?></h3>
+            <h3 class="box-title"><?php echo $tl["site_box_title"]["sitebt"]; ?></h3>
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
             </div>
           </div>
           <div class="box-body">
-
-            <div class="form-group">
-              <label for="siteonline"><?php echo $tl["site"]["s"]; ?></label>
-              <div class="radio">
-                <label class="checkbox-inline">
-                  <input type="radio" name="jak_online" id="siteonline" value="1"<?php if ($jkv["offline"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                </label>
-                <label class="checkbox-inline">
-                  <input type="radio" name="jak_online" value="0"<?php if ($jkv["offline"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                </label>
+            <div class="block">
+              <div class="block-content">
+                <div class="row-form">
+                  <div class="col-md-5 col-xs-6"><strong><?php echo $tl["site_box_content"]["sitebc"]; ?></strong></div>
+                  <div class="col-md-7 col-xs-6">
+                    <div class="radio">
+                      <label class="checkbox-inline">
+                        <input type="radio" name="jak_online" value="1"<?php if ($jkv["offline"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk"]; ?>
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="radio" name="jak_online" value="0"<?php if ($jkv["offline"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk1"]; ?>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["site_box_content"]["sitebc1"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <select name="jak_offpage" class="form-control selectpicker" data-live-search="true" data-size="5">
+                      <option value="0"<?php if ($jkv["offline_page"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel"]; ?></option>
+                      <?php if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $c) {
+                        if ($c["pluginid"] == '0' && $c["pageid"] > '0') { ?>
+                          <option value="<?php echo $c["id"]; ?>"<?php if ($jkv["offline_page"] == $c["id"]) { ?> selected="selected"<?php } ?>><?php echo $c["name"]; ?></option><?php }
+                      } ?>
+                    </select>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["site_box_content"]["sitebc2"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <select name="jak_pagenotfound" class="form-control selectpicker" data-live-search="true" data-size="5">
+                      <option value="0"<?php if ($jkv["notfound_page"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel"]; ?></option>
+                      <?php if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $nf) {
+                        if ($nf["pluginid"] == '0' && $nf["pageid"] > '0') { ?>
+                          <option value="<?php echo $nf["id"]; ?>"<?php if ($jkv["notfound_page"] == $nf["id"]) { ?> selected="selected"<?php } ?>><?php echo $nf["name"]; ?></option><?php }
+                      } ?>
+                    </select>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="form-group">
-              <label for="jak_offpage"><?php echo $tl["site"]["s1"]; ?></label>
-              <select name="jak_offpage" class="form-control selectpicker" data-live-search="true" data-size="5">
-                <option value="0"<?php if ($jkv["offline_page"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["title"]["t12"]; ?></option>
-                <?php if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $c) {
-                  if ($c["pluginid"] == '0' && $c["pageid"] > '0') { ?>
-                    <option value="<?php echo $c["id"]; ?>"<?php if ($jkv["offline_page"] == $c["id"]) { ?> selected="selected"<?php } ?>><?php echo $c["name"]; ?></option><?php }
-                } ?>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="jak_pagenotfound"><?php echo $tl["site"]["s7"]; ?></label>
-              <select name="jak_pagenotfound" class="form-control selectpicker" data-live-search="true" data-size="5">
-                <option
-                  value="0"<?php if ($jkv["notfound_page"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["title"]["t12"]; ?></option>
-                <?php if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $nf) {
-                  if ($nf["pluginid"] == '0' && $nf["pageid"] > '0') { ?>
-                    <option value="<?php echo $nf["id"]; ?>"<?php if ($jkv["notfound_page"] == $nf["id"]) { ?> selected="selected"<?php } ?>><?php echo $nf["name"]; ?></option><?php }
-                } ?>
-              </select>
-            </div>
-
-
           </div>
           <div class="box-footer">
             <button type="submit" name="save" class="btn btn-primary pull-right">
               <i class="fa fa-save margin-right-5"></i>
-              <?php echo $tl["general"]["g20"]; ?>
+              <?php echo $tl["button"]["btn1"]; ?>
             </button>
           </div>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="box box-primary">
+        <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title"><?php echo $tl["title"]["t3"]; ?></h3>
+            <h3 class="box-title"><?php echo $tl["site_box_title"]["sitebt"]; ?></h3>
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
               <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
             </div>
           </div>
           <div class="box-body">
-            <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-              <label for="sitetitle"><?php echo $tl["site"]["s2"]; ?></label>
-              <input type="text" name="jak_title" id="sitetitle" class="form-control" value="<?php echo $jkv["title"]; ?>"/>
-            </div>
-
-            <div class="form-group">
-              <label for="metadesc"><?php echo $tl["site"]["s3"]; ?></label>
-              <input type="text" name="jak_description" id="metadesc" class="form-control" value="<?php echo $jkv["metadesc"]; ?>"/>
-            </div>
-
-            <div class="form-group">
-              <label for="metakey"><?php echo $tl["site"]["s4"]; ?></label>
-              <input type="text" name="jak_keywords" id="metakey" class="form-control" value="<?php echo $jkv["metakey"]; ?>"/>
-            </div>
-
-            <div class="form-group">
-              <label for="metaauthor"><?php echo $tl["site"]["s5"]; ?></label>
-              <input type="text" name="jak_author" id="metaauthor" class="form-control" value="<?php echo $jkv["metaauthor"]; ?>"/>
-            </div>
-
-            <div class="form-group">
-              <label for="robots"><?php echo $tl["site"]["s6"]; ?></label>
-              <div class="radio">
-                <label class="checkbox-inline">
-                  <input type="radio" name="jak_robots" id="robots" value="1"<?php if ($jkv["robots"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                </label>
-                <label class="checkbox-inline">
-                  <input type="radio" name="jak_robots" value="0"<?php if ($jkv["robots"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                </label>
+            <div class="block">
+              <div class="block-content">
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["site_box_content"]["sitebc3"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="form-group no-margin <?php if (isset($errors["e2"])) echo "has-error"; ?>">
+                      <input type="text" name="jak_title" id="sitetitle" class="form-control" value="<?php echo $jkv["title"]; ?>"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["site_box_content"]["sitebc4"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <input type="text" name="jak_description" id="metadesc" class="form-control" value="<?php echo $jkv["metadesc"]; ?>"/>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-12">
+                    <label for=""><strong><?php echo $tl["site_box_content"]["sitebc5"]; ?></strong></label>
+                    <input type="text" name="jak_keywords" id="metakey" class="form-control" value="<?php echo $jkv["metakey"]; ?>"/>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["site_box_content"]["sitebc6"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <input type="text" name="jak_author" id="metaauthor" class="form-control" value="<?php echo $jkv["metaauthor"]; ?>"/>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["site_box_content"]["sitebc7"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="radio">
+                      <label class="checkbox-inline">
+                        <input type="radio" name="jak_robots" value="1"<?php if ($jkv["robots"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk"]; ?>
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="radio" name="jak_robots" value="0"<?php if ($jkv["robots"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk1"]; ?>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["site_box_content"]["sitebc8"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <textarea name="jak_copy" id="copyright" class="form-control" rows="1"><?php echo $jkv["copyright"]; ?></textarea>
+                  </div>
+                </div>
               </div>
             </div>
-
-            <div class="form-group">
-              <label for="copyright"><?php echo $tl["setting"]["s3"]; ?></label>
-              <textarea name="jak_copy" id="copyright" class="form-control" rows="1"><?php echo $jkv["copyright"]; ?></textarea>
-            </div>
-
           </div>
           <div class="box-footer">
             <button type="submit" name="save" class="btn btn-primary pull-right">
               <i class="fa fa-save margin-right-5"></i>
-              <?php echo $tl["general"]["g20"]; ?>
+              <?php echo $tl["button"]["btn1"]; ?>
             </button>
           </div>
         </div>

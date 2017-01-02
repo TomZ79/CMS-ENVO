@@ -92,25 +92,25 @@ if ($page1 == "e") { ?>
                   echo htmlspecialchars($content);
                 } else {
                   // File not exist
-                  echo $tl["style"]["s3"];
+                  echo $tl["tpl_box_content"]["tplbc"];
                 }
                 ?>
               </p>
               <p>
 
                 <?php if ($jkv["sitestyle"] != $l && !$template_addon) { ?>
-                  <button value="<?php echo $l; ?>" name="save" class="btn btn-primary btn-sm"><?php echo $tl["title"]["t16"]; ?></button>
+                  <button value="<?php echo $l; ?>" name="save" class="btn btn-primary btn-sm"><?php echo $tl["button"]["btn5"]; ?></button>
                   <a class="btn btn-info btn-sm tempSett" href="../template/<?php echo $l; ?>/help.html">
-                    <?php echo $tl["title"]["t21"]; ?>
+                    <?php echo $tl["button"]["btn6"]; ?>
                   </a>
                 <?php } elseif ($jkv["sitestyle"] == $l && file_exists('../template/' . $l . '/install.php') && !$template_addon) { ?>
 
                   <a class="btn btn-success btn-sm tempInst" href="../template/<?php echo $l; ?>/install.php">
-                    <?php echo $tl["general"]["g93"]; ?>
+                    <?php echo $tl["button"]["btn7"]; ?>
                   </a>
                   <?php if (file_exists('../template/' . $l . '/help.html')) { ?>
                     <a class="btn btn-info btn-sm tempSett" href="../template/<?php echo $l; ?>/help.html">
-                      <?php echo $tl["title"]["t21"]; ?>
+                      <?php echo $tl["button"]["btn6"]; ?>
                     </a>
                   <?php } ?>
 
@@ -120,32 +120,32 @@ if ($page1 == "e") { ?>
                       echo 'success';
                     } else {
                       echo 'default';
-                    } ?> btn-sm" href="index.php?p=template&amp;sp=active&amp;ssp=<?php echo $l; ?>"><i class="fa fa-css3"></i> <?php echo $tl["style"]["s2"]; ?>
+                    } ?> btn-sm" href="index.php?p=template&amp;sp=active&amp;ssp=<?php echo $l; ?>"><i class="fa fa-css3"></i> <?php echo $tl["button"]["btn8"]; ?>
                     </a>
                   <?php } ?>
                   <a class="btn btn-danger btn-sm tempInst" href="../template/<?php echo $l; ?>/uninstall.php">
-                    <i class="fa fa-remove"></i> <?php echo $tl["general"]["g94"]; ?>
+                    <i class="fa fa-remove"></i> <?php echo $tl["button"]["btn9"]; ?>
                   </a>
                   <a class="btn btn-primary btn-sm <?php if (!file_exists('../template/' . $l . '/templatesettings.php')) echo 'disabled'; ?>" href="index.php?p=template&amp;sp=settings">
-                    <?php echo $tl["style"]["s4"]; ?>
+                    <?php echo $tl["button"]["btn10"]; ?>
                   </a>
                   <?php if (file_exists('../template/' . $l . '/help.html')) { ?>
                     <a class="btn btn-info btn-sm tempHelp" href="../template/<?php echo $l; ?>/help.html">
-                      <?php echo $tl["title"]["t21"]; ?>
+                      <?php echo $tl["button"]["btn6"]; ?>
                     </a>
                   <?php }
                 } else { ?>
               <div class="col-md-5">
                 <div class="row">
                   <div class="alert bg-danger" style="width: 100%; padding: 5px 10px; text-align: center;">
-                    <?php echo str_replace("%s", $jkv["sitestyle"], $tl["style"]["s1"]); ?>
+                    <?php echo str_replace("%s", $jkv["sitestyle"], $tl["tpl_box_content"]["tplbc1"]); ?>
                   </div>
                 </div>
               </div>
               <?php if (file_exists('../template/' . $l . '/help.html')) { ?>
                 <div class="col-md-2">
                   <a class="btn btn-info btn-sm tempHelp" href="../template/<?php echo $l; ?>/help.html">
-                    <?php echo $tl["title"]["t21"]; ?>
+                    <?php echo $tl["button"]["btn6"]; ?>
                   </a>
                 </div>
               <?php } ?>

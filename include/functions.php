@@ -241,11 +241,11 @@ function jak_get_data($id, $table)
 }
 
 // Get the data per array for galleries
-function jak_get_galleryfacebook($limit, $table){
+function jak_get_galleryfacebook($limit, $table, $order){
 
   global $jakdb;
   $jakdata = array();
-  $result = $jakdb->query('SELECT * FROM ' . $table . ' ORDER BY id ASC ' . $limit);
+  $result = $jakdb->query('SELECT * FROM ' . $table . ' ORDER BY id ' . $order . $limit);
   while ($row = $result->fetch_assoc()) {
     // collect each record into $_data
     $jakdata[] = $row;

@@ -104,8 +104,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["cmenu"]["c48"];
-    $SECTION_DESC = $tl["cmdesc"]["d42"];
+    $SECTION_TITLE = $tl["sec_title"]["sect2"];
+    $SECTION_DESC = $tl["sec_desc"]["secd2"];
 
     // EN: Load the template
     // CZ: Načti template (šablonu)

@@ -78,19 +78,19 @@ if ($page1 == "e") { ?>
               <tr>
                 <th>#</th>
                 <th><input type="checkbox" id="jak_delete_all"/></th>
-                <th><?php echo $tl["user"]["u"]; ?></th>
-                <th><?php echo $tl["general"]["g29"]; ?></th>
-                <th><?php echo $tl["general"]["g45"]; ?></th>
-                <th><?php echo $tl["general"]["g49"]; ?></th>
-                <th><?php echo $tl["page"]["p2"]; ?></th>
-                <th class="text-center"><?php echo $tl["general"]["g123"]; ?></th>
+                <th><?php echo $tl["logs_box_table"]["logstb"]; ?></th>
+                <th><?php echo $tl["logs_box_table"]["logstb1"]; ?></th>
+                <th><?php echo $tl["logs_box_table"]["logstb2"]; ?></th>
+                <th><?php echo $tl["logs_box_table"]["logstb3"]; ?></th>
+                <th><?php echo $tl["logs_box_table"]["logstb4"]; ?></th>
+                <th class="text-center"><?php echo $tl["logs_box_table"]["logstb5"]; ?></th>
                 <th>
-                  <a href="index.php?p=logs&amp;sp=truncate&amp;ssp=go" id="button_truncate" class="btn btn-warning btn-xs" data-confirm-trunc="<?php echo $tl["error"]["e34"]; ?>">
+                  <a href="index.php?p=logs&amp;sp=truncate&amp;ssp=go" id="button_truncate" class="btn btn-warning btn-xs" data-confirm-trunc="<?php echo $tl["notification"]["n4"]; ?>">
                     <i class="fa fa-exclamation-triangle"></i>
                   </a>
                 </th>
                 <th>
-                  <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tl["error"]["e33"]; ?>" disabled="disabled">
+                  <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tl["notification"]["n5"]; ?>" disabled="disabled">
                     <i class="fa fa-trash-o"></i>
                   </button>
                 </th>
@@ -116,7 +116,7 @@ if ($page1 == "e") { ?>
                   </td>
                   <td></td>
                   <td class="call-button">
-                    <a class="btn btn-default btn-xs" href="index.php?p=logs&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["error_cmd"]["e1"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                    <a class="btn btn-default btn-xs" href="index.php?p=logs&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["notification"]["n6"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                       <i class="fa fa-trash-o"></i>
                     </a>
                   </td>
@@ -131,9 +131,9 @@ if ($page1 == "e") { ?>
                           <table style="width: 70%;">
                             <tr>
                               <!-- Name of user -->
-                              <td><strong><?php echo $tl["user"]["u"]; ?>: </strong> <?php echo $v["name"]; ?></td>
+                              <td><strong><?php echo $tl["logs_box_table"]["logstb"]; ?>: </strong> <?php echo $v["name"]; ?></td>
                               <!-- Login page -->
-                              <td><strong><?php echo $tl["general"]["g29"]; ?>
+                              <td><strong><?php echo $tl["logs_box_table"]["logstb1"]; ?>
                                   : </strong> <?php echo rtrim(BASE_URL_ORIG, "/") . $v["fromwhere"]; ?></td>
                             </tr>
                           </table>
@@ -141,7 +141,7 @@ if ($page1 == "e") { ?>
                       </tr>
                       <!-- User Agent -->
                       <tr>
-                        <td style="padding: 5px;"><strong><?php echo $tl["general"]["g49"]; ?>
+                        <td style="padding: 5px;"><strong><?php echo $tl["logs_box_table"]["logstb3"]; ?>
                             : </strong> <?php echo $v["usragent"]; ?></td>
                       </tr>
                       </tbody>

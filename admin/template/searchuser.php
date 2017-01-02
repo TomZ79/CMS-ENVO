@@ -59,7 +59,7 @@
             <th><?php echo $tl["user"]["u"]; ?></th>
             <th><?php echo $tl["user"]["u1"]; ?></th>
             <th><?php echo $tl["user"]["u2"]; ?></th>
-            <th><?php echo $tl["menu"]["m9"]; ?></th>
+            <th><?php echo $tl["submenu"]["sm100"]; ?></th>
             <th>
               <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
                 <i class="fa fa-lock"></i>
@@ -162,8 +162,7 @@
 
 <?php } else if ($SEARCH_WORD) { ?>
   <hr>
-  <div class="alert bg-danger fade in">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <div class="alert bg-danger">
     <?php echo $tl["search"]["s6"]; ?> <strong><?php echo $SEARCH_WORD; ?></strong>
   </div>
 <?php } ?>

@@ -104,12 +104,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["cmenumenu_cmd"]["c3"];
-    $SECTION_DESC = $tl["cmdesc_cmd"]["d3"];
-
-    // Breadcrumbs sections
-    $SECTION_CATEGORY = $tl["cmenumenu_cmd"]["c3"];
-    $SECTION_SUBCATEGORY_F = $tl["cmdesc_cmd"]["d3"];
+    $SECTION_TITLE = $tl["sec_title"]["sect12"];
+    $SECTION_DESC = $tl["sec_desc"]["secd13"];
 
     // EN: Ace Mode
     $acemode = 'ini';
@@ -180,12 +176,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["general"]["g53"];
-    $SECTION_DESC = $tl["cmdesc"]["d44"];
-
-    // Breadcrumbs sections
-    $SECTION_CATEGORY = $tl["menu"]["m23"];
-    $SECTION_SUBCATEGORY_F = $tl["general"]["g53"];
+    $SECTION_TITLE = $tl["sec_title"]["sect14"];
+    $SECTION_DESC = $tl["sec_desc"]["secd15"];
 
     // EN: Ace Mode
     $acemode = 'css';
@@ -252,12 +244,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["cmenu"]["c54"];
-    $SECTION_DESC = $tl["cmdesc"]["d44"];
-
-    // Breadcrumbs sections
-    $SECTION_CATEGORY = $tl["menu"]["m23"];
-    $SECTION_SUBCATEGORY_F = $tl["cmenu"]["c54"];
+    $SECTION_TITLE = $tl["sec_title"]["sect15"];
+    $SECTION_DESC = $tl["sec_desc"]["secd16"];
 
     // EN: Ace Mode
     $acemode = 'ini';
@@ -324,12 +312,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["general"]["g52"];
-    $SECTION_DESC = $tl["cmdesc"]["d44"];
-
-    // Breadcrumbs sections
-    $SECTION_CATEGORY = $tl["menu"]["m23"];
-    $SECTION_SUBCATEGORY_F = $tl["general"]["g52"];
+    $SECTION_TITLE = $tl["sec_title"]["sect13"];
+    $SECTION_DESC = $tl["sec_desc"]["secd14"];
 
     // EN: Ace Mode
     $acemode = 'php';
@@ -386,11 +370,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["menu"]["m23"];
-    $SECTION_DESC = $tl["cmdesc"]["d44"];
-
-    // Breadcrumbs sections
-    $SECTION_CATEGORY = $tl["menu"]["m23"];
+    $SECTION_TITLE = $tl["sec_title"]["sect11"];
+    $SECTION_DESC = $tl["sec_desc"]["secd12"];
 
     // EN: Load the template
     // CZ: Načti template (šablonu)

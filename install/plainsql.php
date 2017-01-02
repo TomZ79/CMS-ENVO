@@ -80,7 +80,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "galleryfacebook (
   `pathoriginal` varchar(255) DEFAULT NULL,
   `size` varchar(255) DEFAULT NULL,
   `time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1");
 
 $jakdb->query("CREATE TABLE " . DB_PREFIX . "loginlog (
@@ -366,6 +366,8 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "user (
   `session` varchar(32) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
   `picture` varchar(255) NOT NULL DEFAULT '/standard.png',
   `ulang` varchar(2) DEFAULT NULL,
   `time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',

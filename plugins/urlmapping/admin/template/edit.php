@@ -62,9 +62,9 @@ if ($page3 == "e") { ?>
     <!-- Form Content -->
     <div class="row">
       <div class="col-md-6">
-        <div class="box box-danger">
+        <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title"><?php echo $tlum["um"]["d"]; ?></h3>
+            <h3 class="box-title"><?php echo $tlum["url_box_title"]["urlbt"]; ?></h3>
           </div>
           <div class="box-body boxbody-height110">
             <div class="form-group no-margin<?php if (isset($errors["e1"]) || isset($errors["e2"])) echo " has-error"; ?>">
@@ -78,13 +78,11 @@ if ($page3 == "e") { ?>
             </button>
           </div>
         </div>
-
       </div>
       <div class="col-md-6">
-
-        <div class="box box-success">
+        <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title"><?php echo $tlum["um"]["d1"]; ?></h3>
+            <h3 class="box-title"><?php echo $tlum["url_box_title"]["urlbt1"]; ?></h3>
           </div>
           <div class="box-body boxbody-height110">
             <div class="form-group no-margin<?php if (isset($errors["e1"]) || isset($errors["e3"])) echo " has-error"; ?>">
@@ -92,7 +90,7 @@ if ($page3 == "e") { ?>
             </div>
             <table class="table first-column v-text-center">
               <tr>
-                <td>Přesměrovat na hlavní stránku</td>
+                <td><?php echo $tlum["url_box_content"]["urlbc"]; ?></td>
                 <td>
                   <div class="radio">
                     <label class="checkbox-inline">
@@ -113,27 +111,27 @@ if ($page3 == "e") { ?>
             </button>
           </div>
         </div>
-
       </div>
-    </div>
-
-    <div class="box box-primary">
-      <div class="box-header with-border">
-        <h3 class="box-title"><?php echo $tlum["um"]["d3"]; ?></h3>
-      </div>
-      <div class="box-body">
-        <div class="form-group no-margin">
-          <select name="jak_redirect" class="form-control selectpicker">
-            <option value="301"<?php if ($JAK_FORM_DATA["redirect"] == '301') { ?> selected="selected"<?php } ?>><?php echo $tlum["um"]["d4"]; ?></option>
-            <option value="302"<?php if ($JAK_FORM_DATA["redirect"] == '302') { ?> selected="selected"<?php } ?>><?php echo $tlum["um"]["d5"]; ?></option>
-          </select>
+      <div class="col-md-12">
+        <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title"><?php echo $tlum["url_box_title"]["urlbt2"]; ?></h3>
+          </div>
+          <div class="box-body">
+            <div class="form-group no-margin">
+              <select name="jak_redirect" class="form-control selectpicker">
+                <option value="301"<?php if ($JAK_FORM_DATA["redirect"] == '301') { ?> selected="selected"<?php } ?>><?php echo $tlum["url_box_content"]["urlbc1"]; ?></option>
+                <option value="302"<?php if ($JAK_FORM_DATA["redirect"] == '302') { ?> selected="selected"<?php } ?>><?php echo $tlum["url_box_content"]["urlbc2"]; ?></option>
+              </select>
+            </div>
+          </div>
+          <div class="box-footer">
+            <button type="submit" name="save" class="btn btn-primary pull-right">
+              <i class="fa fa-save margin-right-5"></i>
+              <?php echo $tl["general"]["g20"]; ?>
+            </button>
+          </div>
         </div>
-      </div>
-      <div class="box-footer">
-        <button type="submit" name="save" class="btn btn-primary pull-right">
-          <i class="fa fa-save margin-right-5"></i>
-          <?php echo $tl["general"]["g20"]; ?>
-        </button>
       </div>
     </div>
   </form>

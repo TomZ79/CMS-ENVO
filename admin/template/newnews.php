@@ -43,16 +43,36 @@ if ($errors) { ?>
     </div>
 
     <!-- Form Content -->
-    <ul class="nav nav-tabs" id="cmsTab">
-      <li class="active"><a href="#cmsPage1"><?php echo $tl["general"]["g5"]; ?></a></li>
-      <li><a href="#cmsPage2"><?php echo $tl["title"]["t14"]; ?></a></li>
-      <li><a href="#cmsPage3"><?php echo $tl["general"]["g53"]; ?></a></li>
-      <li><a href="#cmsPage4"><?php echo $tl["general"]["g100"]; ?></a></li>
-      <li><a href="#cmsPage5"><?php echo $tl["general"]["g121"]; ?></a></li>
+    <ul id="cmsTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
+      <li role="presentation" class="active">
+        <a href="#cmsPage1" id="cmsPage1-tab" role="tab" data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
+          <span class="text"><?php echo $tl["general"]["g5"]; ?></span>
+        </a>
+      </li>
+      <li role="presentation" class="next">
+        <a href="#cmsPage2" role="tab" id="cmsPage2-tab" data-toggle="tab" aria-controls="cmsPage2">
+          <span class="text"><?php echo $tl["title"]["t14"]; ?></span>
+        </a>
+      </li>
+      <li role="presentation">
+        <a href="#cmsPage3" role="tab" id="cmsPage3-tab" data-toggle="tab" aria-controls="cmsPage3">
+          <span class="text"><?php echo $tl["general"]["g53"]; ?></span>
+        </a>
+      </li>
+      <li role="presentation">
+        <a href="#cmsPage4" role="tab" id="cmsPage4-tab" data-toggle="tab" aria-controls="cmsPage4">
+          <span class="text"><?php echo $tl["general"]["g100"]; ?></span>
+        </a>
+      </li>
+      <li role="presentation">
+        <a href="#cmsPage5" role="tab" id="cmsPage5-tab" data-toggle="tab" aria-controls="cmsPage5">
+          <span class="text"><?php echo $tl["general"]["g121"]; ?></span>
+        </a>
+      </li>
     </ul>
 
-    <div class="tab-content">
-      <div class="tab-pane active" id="cmsPage1">
+    <div id="cmsTabContent" class="tab-content">
+      <div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
         <div class="row">
           <div class="col-md-7">
             <div class="box">
@@ -71,8 +91,8 @@ if ($errors) { ?>
                       <div class="col-md-7"><?php include_once "title_new.php"; ?></div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5"><strong><?php echo $tl["page"]["p3"]; ?></strong></div>
-                      <div class="col-md-7">
+                      <div class="col-md-5 col-xs-6"><strong><?php echo $tl["page"]["p3"]; ?></strong></div>
+                      <div class="col-md-7 col-xs-6">
                         <div class="radio">
                           <label class="checkbox-inline">
                             <input type="radio" name="jak_showtitle" value="1"<?php if (isset($_REQUEST["showtitle"]) && $JAK_FORM_DATA["showtitle"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
@@ -84,8 +104,8 @@ if ($errors) { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5"><strong><?php echo $tl["page"]["p8"]; ?></strong></div>
-                      <div class="col-md-7">
+                      <div class="col-md-5 col-xs-6"><strong><?php echo $tl["page"]["p8"]; ?></strong></div>
+                      <div class="col-md-7 col-xs-6">
                         <div class="radio">
                           <label class="checkbox-inline">
                             <input type="radio" name="jak_showdate" value="1"<?php if (isset($_REQUEST["jak_showdate"]) && $_REQUEST["jak_showdate"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
@@ -97,8 +117,8 @@ if ($errors) { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5"><strong><?php echo $tl["general"]["g134"]; ?></strong></div>
-                      <div class="col-md-7">
+                      <div class="col-md-5 col-xs-6"><strong><?php echo $tl["general"]["g134"]; ?></strong></div>
+                      <div class="col-md-7 col-xs-6">
                         <div class="radio">
                           <label class="checkbox-inline">
                             <input type="radio" name="jak_showhits" value="1"<?php if (isset($_REQUEST["jak_showhits"]) && $_REQUEST["jak_showhits"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
@@ -110,8 +130,8 @@ if ($errors) { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5"><strong><?php echo $tl["page"]["p9"]; ?></strong></div>
-                      <div class="col-md-7">
+                      <div class="col-md-5 col-xs-6"><strong><?php echo $tl["page"]["p9"]; ?></strong></div>
+                      <div class="col-md-7 col-xs-6">
                         <div class="radio">
                           <label class="checkbox-inline">
                             <input type="radio" name="jak_social" value="1"<?php if (isset($_REQUEST["jak_social"]) && $_REQUEST["jak_social"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
@@ -123,8 +143,8 @@ if ($errors) { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5"><strong><?php echo $tl["general"]["g85"]; ?></strong></div>
-                      <div class="col-md-7">
+                      <div class="col-md-5 col-xs-6"><strong><?php echo $tl["general"]["g85"]; ?></strong></div>
+                      <div class="col-md-7 col-xs-6">
                         <div class="radio">
                           <label class="checkbox-inline">
                             <input type="radio" name="jak_vote" value="1"<?php if (isset($_REQUEST["jak_vote"]) && $_REQUEST["jak_vote"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
@@ -219,14 +239,18 @@ if ($errors) { ?>
                   <div class="block-content">
                     <div class="row-form">
                       <div class="col-md-5"><strong><?php echo $tl["news"]["n2"]; ?></strong></div>
-                      <div class="col-md-7 <?php if (isset($errors["e2"])) echo "has-error"; ?>">
-                        <input type="text" class="form-control" name="jak_datefrom" id="datepickerFrom" value="<?php if (isset($_REQUEST["jak_datefrom"])) echo $_REQUEST["jak_datefrom"]; ?>" readonly />
+                      <div class="col-md-7">
+                        <div class="form-group no-margin <?php if (isset($errors["e2"])) echo "has-error"; ?>">
+                          <input type="text" class="form-control" name="jak_datefrom" id="datepickerFrom" value="<?php if (isset($_REQUEST["jak_datefrom"])) echo $_REQUEST["jak_datefrom"]; ?>" readonly />
+                        </div>
                       </div>
                     </div>
                     <div class="row-form">
                       <div class="col-md-5"><strong><?php echo $tl["news"]["n3"]; ?></strong></div>
-                      <div class="col-md-7 <?php if (isset($errors["e2"])) echo "has-error"; ?>">
-                        <input type="text" class="form-control" name="jak_dateto" id="datepickerTo" value="<?php if (isset($_REQUEST["jak_dateto"])) echo $_REQUEST["jak_dateto"]; ?>" readonly />
+                      <div class="col-md-7">
+                        <div class="form-group no-margin <?php if (isset($errors["e2"])) echo "has-error"; ?>">
+                          <input type="text" class="form-control" name="jak_dateto" id="datepickerTo" value="<?php if (isset($_REQUEST["jak_dateto"])) echo $_REQUEST["jak_dateto"]; ?>" readonly />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -304,59 +328,71 @@ if ($errors) { ?>
           </div>
         </div>
       </div>
-      <div class="tab-pane" id="cmsPage2">
-        <?php include_once "editor_new.php"; ?>
-      </div>
-      <div class="tab-pane" id="cmsPage3">
-        <div class="box box-primary">
-          <div class="box-header with-border">
-            <h3 class="box-title"><?php echo $tl["general"]["g53"]; ?></h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
-          </div>
-          <div class="box-body">
-            <a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
-            <a href="javascript:;" id="addCssBlock"><?php echo $tl["general"]["g101"]; ?></a><br/>
-            <div id="csseditor"></div>
-            <textarea name="jak_css" id="jak_css" class="hidden"><?php if (isset($_REQUEST["jak_css"])) echo $_REQUEST["jak_css"]; ?></textarea>
-          </div>
-          <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right">
-              <i class="fa fa-save margin-right-5"></i>
-              <?php echo $tl["general"]["g20"]; ?>
-            </button>
+      <div role="tabpanel" class="tab-pane fade" id="cmsPage2" aria-labelledby="cmsPage2-tab">
+        <div class="row">
+          <div class="col-md-12">
+            <?php include_once "editor_new.php"; ?>
           </div>
         </div>
       </div>
-      <div class="tab-pane" id="cmsPage4">
-        <div class="box box-primary">
-          <div class="box-header with-border">
-            <h3 class="box-title"><?php echo $tl["general"]["g100"]; ?></h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+      <div role="tabpanel" class="tab-pane fade" id="cmsPage3" aria-labelledby="cmsPage3-tab">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="box">
+              <div class="box-header with-border">
+                <h3 class="box-title"><?php echo $tl["general"]["g53"]; ?></h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+              </div>
+              <div class="box-body">
+                <a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
+                <a href="javascript:;" id="addCssBlock"><?php echo $tl["general"]["g101"]; ?></a><br/>
+                <div id="csseditor"></div>
+                <textarea name="jak_css" id="jak_css" class="hidden"><?php if (isset($_REQUEST["jak_css"])) echo $_REQUEST["jak_css"]; ?></textarea>
+              </div>
+              <div class="box-footer">
+                <button type="submit" name="save" class="btn btn-primary pull-right">
+                  <i class="fa fa-save margin-right-5"></i>
+                  <?php echo $tl["general"]["g20"]; ?>
+                </button>
+              </div>
             </div>
-          </div>
-          <div class="box-body">
-            <a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
-            <a href="javascript:;" id="addJavascriptBlock"><?php echo $tl["general"]["g102"]; ?></a><br/>
-            <div id="javaeditor"></div>
-            <textarea name="jak_javascript" id="jak_javascript" class="hidden"><?php if (isset($_REQUEST["jak_javascript"])) echo $_REQUEST["jak_javascript"]; ?></textarea>
-          </div>
-          <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right">
-              <i class="fa fa-save margin-right-5"></i>
-              <?php echo $tl["general"]["g20"]; ?>
-            </button>
           </div>
         </div>
       </div>
-      <div class="tab-pane" id="cmsPage5">
+      <div role="tabpanel" class="tab-pane fade" id="cmsPage4" aria-labelledby="cmsPage4-tab">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="box">
+              <div class="box-header with-border">
+                <h3 class="box-title"><?php echo $tl["general"]["g100"]; ?></h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+              </div>
+              <div class="box-body">
+                <a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
+                <a href="javascript:;" id="addJavascriptBlock"><?php echo $tl["general"]["g102"]; ?></a><br/>
+                <div id="javaeditor"></div>
+                <textarea name="jak_javascript" id="jak_javascript" class="hidden"><?php if (isset($_REQUEST["jak_javascript"])) echo $_REQUEST["jak_javascript"]; ?></textarea>
+              </div>
+              <div class="box-footer">
+                <button type="submit" name="save" class="btn btn-primary pull-right">
+                  <i class="fa fa-save margin-right-5"></i>
+                  <?php echo $tl["general"]["g20"]; ?>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="cmsPage5" aria-labelledby="cmsPage5-tab">
         <div class="row">
           <div class="col-md-6">
-            <div class="box box-primary">
+            <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tl["page"]["p4"]; ?></h3>
                 <div class="box-tools pull-right">
@@ -411,8 +447,7 @@ if ($errors) { ?>
 
           </div>
           <div class="col-md-6">
-
-            <div class="box box-primary">
+            <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tl["general"]["g89"]; ?></h3>
                 <div class="box-tools pull-right">
@@ -478,21 +513,11 @@ if ($errors) { ?>
      ========================================= */
     $(document).ready(function () {
 
-      /* Bootstrap Tab Activation */
-      $('#cmsTab a').click(function (e) {
-        e.preventDefault();
-        $(this).tab('show');
-      });
-
       $("#addCssBlock").click(function () {
-
         cssACE.insert(insert_cssblock());
-
       });
       $("#addJavascriptBlock").click(function () {
-
         jsACE.insert(insert_javascript());
-
       });
 
       /* DateTimePicker

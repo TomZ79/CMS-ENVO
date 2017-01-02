@@ -40,19 +40,19 @@
 
     <li<?php if ($page == 'newsletter' && $page1 == 'usergroup') echo ' class="active"'; ?>>
       <a href="index.php?p=newsletter&amp;sp=usergroup">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["menu"]["m9"]; ?>
+        <i class="fa fa-circle-o"></i> <?php echo $tl["submenu"]["sm100"]; ?>
       </a>
     </li>
     <li<?php if ($page == 'newsletter' && $page1 == 'usergroup' && $page2 == 'new') echo ' class="active"'; ?>>
       <a href="index.php?p=newsletter&amp;sp=usergroup&amp;ssp=new">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["cmenu"]["c11"]; ?>
+        <i class="fa fa-circle-o"></i> <?php echo $tl["submenu"]["sm101"]; ?>
       </a>
     </li>
     <li class="list-divider"></li>
 
     <li<?php if ($page == 'newsletter' && $page1 == 'settings') echo ' class="active"'; ?>>
       <a href="index.php?p=newsletter&amp;sp=settings">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["menu"]["m2"]; ?>
+        <i class="fa fa-circle-o"></i> <?php echo $tl["submenu"]["sm10"]; ?>
       </a>
     </li>
 

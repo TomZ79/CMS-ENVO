@@ -28,18 +28,18 @@
 
     <li<?php if ($page == 'download' && ($page1 == 'categories' || $page1 == 'newcategory')) echo ' class="active"'; ?>>
       <a href="index.php?p=download&amp;sp=categories">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["menu"]["m5"]; ?>
+        <i class="fa fa-circle-o"></i> <?php echo $tl["submenu"]["sm110"]; ?>
       </a>
     </li>
     <li<?php if ($page == 'download' && $page1 == 'newcategory') echo ' class="active"'; ?>>
       <a href="index.php?p=download&amp;sp=newcategory">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["cmenu"]["c4"]; ?>
+        <i class="fa fa-circle-o"></i> <?php echo $tl["submenu"]["sm111"]; ?>
       </a>
     </li>
     <?php if ($page == 'download' && $page1 == 'categories' && $page2 == 'edit') { ?>
     <li class="active">
       <a href="index.php?p=download&amp;sp=categories&amp;ssp=edit&amp;sssp=<?php echo $page3; ?>">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["cmenu"]["c6"]; ?>
+        <i class="fa fa-circle-o"></i> <?php echo $tl["submenu"]["sm112"]; ?>
       </a>
     </li>
     <?php } ?>
@@ -59,7 +59,7 @@
 
     <li<?php if ($page == 'download' && $page1 == 'setting') echo ' class="active"'; ?>>
       <a href="index.php?p=download&amp;sp=setting">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["menu"]["m2"]; ?>
+        <i class="fa fa-circle-o"></i> <?php echo $tl["submenu"]["sm10"]; ?>
       </a>
     </li>
 

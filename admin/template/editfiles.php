@@ -43,15 +43,15 @@ if ($JAK_FILE_ERROR) { ?>
     </section>
 <?php } else { ?>
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-    <div class="box box-primary">
+    <div class="box">
       <div class="box-header with-border">
-        <h3 class="box-title"><?php echo $tl["general"]["g50"]; ?></h3>
+        <h3 class="box-title"><?php echo $tl["tpl_box_title"]["tplbt"]; ?></h3>
       </div>
       <div class="box-body">
         <table class="table">
           <tr <?php if ($JAK_FILECONTENT) { ?> class="hidden"<?php } ?>>
             <td>
-              <label for="jak_file_edit"><?php echo $tl["general"]["g51"]; ?></label>
+              <label for="jak_file_edit"><?php echo $tl["tpl_box_content"]["tplbc4"]; ?></label>
               <select name="jak_file_edit" id="jak_file_edit" class="form-control selectpicker" data-live-search="true" data-size="5" >
                 <?php
                 $pathLen = strlen($ROOT_DIR);
@@ -61,12 +61,12 @@ if ($JAK_FILE_ERROR) { ?>
             </td>
           </tr>
           <tr <?php if (!$JAK_FILECONTENT) { ?> class="hidden"<?php } ?>>
-            <td><h4>File: <small><strong><?php echo $JAK_FILEURL; ?></strong></small></h4></td>
+            <td><h4><?php echo $tl["tpl_box_content"]["tplbc2"]; ?><small><strong><?php echo $JAK_FILEURL; ?></strong></small></h4></td>
           </tr>
           <?php if ($JAK_FILECONTENT) { ?>
             <tr>
               <td>
-                <label for="jak_filecontent"><?php echo $tl["general"]["g54"]; ?></label>
+                <label for="jak_filecontent"><?php echo $tl["tpl_box_content"]["tplbc3"]; ?></label>
                 <div id="htmleditor"></div>
                 <textarea name="jak_filecontent" id="jak_filecontent" class="form-control hidden"><?php echo $JAK_FILECONTENT; ?></textarea>
               </td>
@@ -79,14 +79,14 @@ if ($JAK_FILE_ERROR) { ?>
     <div class="form-actions">
       <?php if ($JAK_GET_TEMPLATE_FILES) { ?>
         <?php if ($JAK_FILEURL) { ?>
-          <button type="submit" name="reset" class="btn btn-success"><?php echo $tl["general"]["g72"]; ?></button>
+          <button type="submit" name="reset" class="btn btn-success"><?php echo $tl["button"]["btn11"]; ?></button>
         <?php }
         if (!$JAK_FILECONTENT) { ?>
-          <button type="submit" name="edit" class="btn btn-primary pull-right"><?php echo $tl["general"]["g77"]; ?></button>
+          <button type="submit" name="edit" class="btn btn-primary pull-right"><?php echo $tl["button"]["btn12"]; ?></button>
         <?php } else { ?>
           <button type="submit" name="save" class="btn btn-primary pull-right">
             <i class="fa fa-save margin-right-5"></i>
-            <?php echo $tl["general"]["g20"]; ?>
+            <?php echo $tl["button"]["btn1"]; ?>
           </button>
         <?php }
       } ?>

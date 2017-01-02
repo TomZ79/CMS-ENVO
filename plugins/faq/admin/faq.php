@@ -293,7 +293,7 @@ switch ($page1) {
 
           // EN: Title and Description
           // CZ: Titulek a Popis
-          $SECTION_TITLE = $tl["cmenu"]["c6"];
+          $SECTION_TITLE = $tl["submenu"]["sm112"];
           $SECTION_DESC = $tl["cmdesc"]["d6"];
 
           // EN: Load the template
@@ -372,7 +372,7 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlf["faq"]["m"] . ' - ' . $tl["menu"]["m5"];
+        $SECTION_TITLE = $tlf["faq"]["m"] . ' - ' . $tl["submenu"]["sm110"];
         $SECTION_DESC = "";
 
         // EN: Load the template
@@ -451,7 +451,7 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tlf["faq"]["m"] . ' - ' . $tl["cmenu"]["c4"];
+    $SECTION_TITLE = $tlf["faq"]["m"] . ' - ' . $tl["submenu"]["sm111"];
     $SECTION_DESC = $tl["cmdesc"]["d8"];
 
     // EN: Load the template
@@ -822,7 +822,7 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tlf["faq"]["m"] . ' - ' . $tl["menu"]["m2"];
+    $SECTION_TITLE = $tlf["faq"]["m"] . ' - ' . $tl["submenu"]["sm10"];
     $SECTION_DESC = $tl["cmdesc"]["d2"];
 
     // EN: Load the template

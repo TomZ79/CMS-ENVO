@@ -103,7 +103,7 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["cmenu"]["c2"];
+    $SECTION_TITLE = '';
     $SECTION_DESC = $tl["cmdesc"]["d4"];
 
     // EN: Load the template
@@ -288,8 +288,8 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tl["menu"]["m3"];
-        $SECTION_DESC = str_replace("%s", $tl["menu"]["m3"], $tl["cmdesc"]['d3']);
+        $SECTION_TITLE = $tl["submenu"]["sm90"];
+        $SECTION_DESC = '';
 
         // EN: Load the template
         // CZ: Načti template (šablonu)
@@ -324,8 +324,8 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tl["menu"]["m3"];
-        $SECTION_DESC = str_replace("%s", $tl["menu"]["m3"], $tl["cmdesc"]['d3']);
+        $SECTION_TITLE = $tl["submenu"]["sm90"];
+        $SECTION_DESC = '';
 
         // EN: Load the template
         // CZ: Načti template (šablonu)
@@ -711,18 +711,17 @@ switch ($page1) {
 
             if (!in_array($f, $existf)) {
 
-              $extrafields .= '<tr>
-						<td>' . ucfirst($f) . '</td>
-						<td><input type="text" class="form-control" name="' . $f . '" value="' . $JAK_FORM_DATA[$f] . '" /></td>
-					</tr>';
+              $extrafields .= '<div class="col-md-5"><strong>' . ucfirst($f) . '</strong></div>
+						<div class="col-md-7"><input type="text" class="form-control" name="' . $f . '" value="' . $JAK_FORM_DATA[$f] . '" /></div>';
+
             }
 
           }
 
           // EN: Title and Description
           // CZ: Titulek a Popis
-          $SECTION_TITLE = $tl["cmenu"]["c3"];
-          $SECTION_DESC = str_replace("%s", $JAK_FORM_DATA["username"], $tl["cmdesc"]['d3']);
+          $SECTION_TITLE = '';
+          $SECTION_DESC = '';
 
           // EN: Load the template
           // CZ: Načti template (šablonu)
@@ -910,8 +909,8 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tl["menu"]["m3"];
-        $SECTION_DESC = str_replace("%s", $tl["menu"]["m3"], $tl["cmdesc"]['d3']);
+        $SECTION_TITLE = $tl["submenu"]["sm90"];
+        $SECTION_DESC = '';
 
         // EN: Load the template
         // CZ: Načti template (šablonu)

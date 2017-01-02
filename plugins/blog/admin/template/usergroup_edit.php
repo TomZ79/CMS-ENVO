@@ -1,4 +1,4 @@
-<div class="box box-primary">
+<div class="box">
   <div class="box-header with-border">
     <h3 class="box-title"><?php echo $tlblog["blog"]["d"]; ?></h3>
     <div class="box-tools pull-right">
@@ -7,86 +7,88 @@
     </div>
   </div>
   <div class="box-body">
-    <table class="table table-striped first-column v-text-center">
-      <tr>
-        <td><?php echo $tlblog["blog"]["d1"]; ?></td>
-        <td>
-          <div class="radio">
-            <label class="checkbox-inline">
-              <input type="radio" name="jak_blog" value="1"<?php if ($JAK_FORM_DATA["blog"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-            </label>
-            <label class="checkbox-inline">
-              <input type="radio" name="jak_blog" value="0"<?php if ($JAK_FORM_DATA["blog"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-            </label>
+    <div class="block">
+      <div class="block-content">
+        <div class="row-form">
+          <div class="col-md-5"><strong><?php echo $tlblog["blog"]["d1"]; ?></strong></div>
+          <div class="col-md-7">
+            <div class="radio">
+              <label class="checkbox-inline">
+                <input type="radio" name="jak_blog" value="1"<?php if ($JAK_FORM_DATA["blog"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+              </label>
+              <label class="checkbox-inline">
+                <input type="radio" name="jak_blog" value="0"<?php if ($JAK_FORM_DATA["blog"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+              </label>
+            </div>
           </div>
-        </td>
-      </tr>
-      <tr>
-        <td><?php echo $tlblog["blog"]["d2"]; ?></td>
-        <td>
-          <div class="radio">
-            <label class="checkbox-inline">
-              <input type="radio" name="jak_blogpost" value="1"<?php if ($JAK_FORM_DATA["blogpost"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-            </label>
-            <label class="checkbox-inline">
-              <input type="radio" name="jak_blogpost" value="0"<?php if ($JAK_FORM_DATA["blogpost"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-            </label>
+        </div>
+        <div class="row-form">
+          <div class="col-md-5"><strong><?php echo $tlblog["blog"]["d2"]; ?></strong></div>
+          <div class="col-md-7">
+            <div class="radio">
+              <label class="checkbox-inline">
+                <input type="radio" name="jak_blogpost" value="1"<?php if ($JAK_FORM_DATA["blogpost"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+              </label>
+              <label class="checkbox-inline">
+                <input type="radio" name="jak_blogpost" value="0"<?php if ($JAK_FORM_DATA["blogpost"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+              </label>
+            </div>
           </div>
-        </td>
-      </tr>
-      <tr>
-        <td><?php echo $tlblog["blog"]["d3"]; ?></td>
-        <td>
-          <div class="radio">
-            <label class="checkbox-inline">
-              <input type="radio" name="jak_blogpostapprove" value="0"<?php if ($JAK_FORM_DATA["blogpostapprove"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-            </label>
-            <label class="checkbox-inline">
-              <input type="radio" name="jak_blogpostapprove" value="1"<?php if ($JAK_FORM_DATA["blogpostapprove"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-            </label>
+        </div>
+        <div class="row-form">
+          <div class="col-md-5"><strong><?php echo $tlblog["blog"]["d3"]; ?></strong></div>
+          <div class="col-md-7">
+            <div class="radio">
+              <label class="checkbox-inline">
+                <input type="radio" name="jak_blogpostapprove" value="0"<?php if ($JAK_FORM_DATA["blogpostapprove"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+              </label>
+              <label class="checkbox-inline">
+                <input type="radio" name="jak_blogpostapprove" value="1"<?php if ($JAK_FORM_DATA["blogpostapprove"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+              </label>
+            </div>
           </div>
-        </td>
-      </tr>
-      <tr>
-        <td><?php echo $tlblog["blog"]["d4"]; ?></td>
-        <td>
-          <div class="radio">
-            <label class="checkbox-inline">
-              <input type="radio" name="jak_blogpostdelete" value="1"<?php if ($JAK_FORM_DATA["blogpostdelete"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-            </label>
-            <label class="checkbox-inline">
-              <input type="radio" name="jak_blogpostdelete" value="0"<?php if ($JAK_FORM_DATA["blogpostdelete"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-            </label>
+        </div>
+        <div class="row-form">
+          <div class="col-md-5"><strong><?php echo $tlblog["blog"]["d4"]; ?></strong></div>
+          <div class="col-md-7">
+            <div class="radio">
+              <label class="checkbox-inline">
+                <input type="radio" name="jak_blogpostdelete" value="1"<?php if ($JAK_FORM_DATA["blogpostdelete"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+              </label>
+              <label class="checkbox-inline">
+                <input type="radio" name="jak_blogpostdelete" value="0"<?php if ($JAK_FORM_DATA["blogpostdelete"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+              </label>
+            </div>
           </div>
-        </td>
-      </tr>
-      <tr>
-        <td><?php echo $tlblog["blog"]["d5"]; ?></td>
-        <td>
-          <div class="radio">
-            <label class="checkbox-inline">
-              <input type="radio" name="jak_blograte" value="1"<?php if ($JAK_FORM_DATA["blograte"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-            </label>
-            <label class="checkbox-inline">
-              <input type="radio" name="jak_blograte" value="0"<?php if ($JAK_FORM_DATA["blograte"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-            </label>
+        </div>
+        <div class="row-form">
+          <div class="col-md-5"><strong><?php echo $tlblog["blog"]["d5"]; ?></strong></div>
+          <div class="col-md-7">
+            <div class="radio">
+              <label class="checkbox-inline">
+                <input type="radio" name="jak_blograte" value="1"<?php if ($JAK_FORM_DATA["blograte"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+              </label>
+              <label class="checkbox-inline">
+                <input type="radio" name="jak_blograte" value="0"<?php if ($JAK_FORM_DATA["blograte"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+              </label>
+            </div>
           </div>
-        </td>
-      </tr>
-      <tr>
-        <td><?php echo $tlblog["blog"]["d6"]; ?></td>
-        <td>
-          <div class="radio">
-            <label class="checkbox-inline">
-              <input type="radio" name="jak_blogmoderate" value="1"<?php if ($JAK_FORM_DATA["blogmoderate"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-            </label>
-            <label class="checkbox-inline">
-              <input type="radio" name="jak_blogmoderate" value="0"<?php if ($JAK_FORM_DATA["blogmoderate"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-            </label>
+        </div>
+        <div class="row-form">
+          <div class="col-md-5"><strong><?php echo $tlblog["blog"]["d6"]; ?></strong></div>
+          <div class="col-md-7">
+            <div class="radio">
+              <label class="checkbox-inline">
+                <input type="radio" name="jak_blogmoderate" value="1"<?php if ($JAK_FORM_DATA["blogmoderate"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+              </label>
+              <label class="checkbox-inline">
+                <input type="radio" name="jak_blogmoderate" value="0"<?php if ($JAK_FORM_DATA["blogmoderate"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+              </label>
+            </div>
           </div>
-        </td>
-      </tr>
-    </table>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="box-footer">
     <button type="submit" name="save" class="btn btn-primary pull-right">

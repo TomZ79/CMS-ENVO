@@ -72,170 +72,177 @@
     </div>
 
     <!-- Form Content -->
-    <div class="box box-primary">
-      <div class="box-header with-border">
-        <h3 class="box-title"><?php echo $tl["title"]["t4"]; ?></h3>
-        <div class="box-tools pull-right">
-          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-          <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-        </div>
-      </div>
-      <div class="box-body">
-        <table class="table table-striped first-column v-text-center">
-          <tr>
-            <td><?php echo $tl["page"]["p"]; ?></td>
-            <td>
-              <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?> no-margin">
-                <input class="form-control" type="text" name="jak_title" value="<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
-                   if ($v["varname"] == 'nltitle') {
-                     echo $v["value"];
-                   }
-                 } ?>"/>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $tlnl["nletter"]["d13"]; ?></td>
-            <td>
-              <textarea class="jakEditorLight" id="jakEditor" rows="4" name="jak_description"><?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
-                  if ($v["varname"] == 'nlsignoff') {
-                    echo $v["value"];
-                  }
-                } ?></textarea>
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $tlnl["nletter"]["d14"]; ?></td>
-            <td>
-              <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
-                <input class="form-control" type="text" name="jak_thankyou" value="<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
-                   if ($v["varname"] == 'nlthankyou') {
-                     echo $v["value"];
-                   }
-                 } ?>"/>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $tlnl["nletter"]["d28"]; ?></td>
-            <td>
-              <div class="form-group<?php if (isset($errors["e4"])) echo " has-error"; ?> no-margin">
-                <input type="text" name="jak_email" class="form-control" value="<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
-                   if ($v["varname"] == 'nlemail') {
-                     echo $v["value"];
-                   }
-                 } ?>" placeholder="<?php echo $tl["setting"]["s"]; ?>"/>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $tlnl["nletter"]["d15"]; ?></td>
-            <td>
-              <div class="radio">
-                <label class="checkbox-inline">
-                  <input type="radio" name="jak_smpt" value="0"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {if ($v["varname"] == 'nlsmtp_mail' && $v["value"] == '0') { ?> checked="checked"<?php } } ?> /> <?php echo $tlnl["nletter"]["d16"]; ?>
-                </label>
-                <label class="checkbox-inline">
-                  <input type="radio" name="jak_smpt" value="1"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) { if ($v["varname"] == 'nlsmtp_mail' && $v["value"] == '1') { ?> checked="checked"<?php } } ?> /> <?php echo $tlnl["nletter"]["d17"]; ?>
-                </label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $tlnl["nletter"]["d18"]; ?></td>
-            <td>
-              <input type="text" class="form-control" name="jak_host" value="<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
-                 if ($v["varname"] == 'nlsmtphost') {
-                   echo $v["value"];
-                 }
-               } ?>"/>
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $tlnl["nletter"]["d19"]; ?></td>
-            <td>
-              <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
-                <input type="text" class="form-control" name="jak_port" value="<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
-                   if ($v["varname"] == 'nlsmtpport') {
-                     echo $v["value"];
-                   }
-                 } ?>" placeholder="25"/>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $tlnl["nletter"]["d29"]; ?></td>
-            <td>
-              <div class="radio">
-                <label class="checkbox-inline">
-                  <input type="radio" name="jak_alive" value="1"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) { if ($v["varname"] == 'nlsmtp_alive' && $v["value"] == '1') { ?> checked="checked"<?php } } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                </label>
-                <label class="checkbox-inline">
-                  <input type="radio" name="jak_alive" value="0"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) { if ($v["varname"] == 'nlsmtp_alive' && $v["value"] == '0') { ?> checked="checked"<?php } } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                </label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $tlnl["nletter"]["d30"]; ?></td>
-            <td>
-              <div class="radio">
-                <label class="checkbox-inline">
-                  <input type="radio" name="jak_auth" value="1"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) { if ($v["varname"] == 'nlsmtp_auth' && $v["value"] == '1') { ?> checked="checked"<?php } } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                </label>
-                <label class="checkbox-inline">
-                  <input type="radio" name="jak_auth" value="0"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) { if ($v["varname"] == 'nlsmtp_auth' && $v["value"] == '0') { ?> checked="checked"<?php } } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                </label>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $tlnl["nletter"]["d39"]; ?></td>
-            <td>
-              <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
-                <input type="text" class="form-control" name="jak_prefix" value="<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
-                 if ($v["varname"] == 'nlsmtp_prefix') {
-                   echo $v["value"];
-                 }
-               } ?>" placeholder="ssl/true/false"/>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $tl["login"]["l1"]; ?></td>
-            <td>
-              <input type="text" class="form-control" name="jak_username" value="<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
-               if ($v["varname"] == 'nlsmtpusername') {
-                 echo base64_decode($v["value"]);
-               }
-             } ?>"/>
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $tl["login"]["l2"]; ?></td>
-            <td>
-              <input type="text" class="form-control" name="jak_password" value="<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
-                 if ($v["varname"] == 'nlsmtppassword') {
-                   echo base64_decode($v["value"]);
-                 }
-               } ?>"/>
-            </td>
-          </tr>
-          <tr>
-            <td><?php echo $tlnl["nletter"]["d41"]; ?></td>
-            <td>
-              <input type="submit" name="testMail" class="btn btn-success" id="sendTM" value="<?php echo $tlnl["nletter"]["d42"]; ?>"/>              <span id="loader" style="display: none;">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title"><?php echo $tl["title"]["t4"]; ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="block">
+              <div class="block-content">
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["page"]["p"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?> no-margin">
+                      <input class="form-control" type="text" name="jak_title" value="<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
+                        if ($v["varname"] == 'nltitle') {
+                          echo $v["value"];
+                        }
+                      } ?>"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tlnl["nletter"]["d13"]; ?></strong></div>
+                  <div class="col-md-7">
+                <textarea class="jakEditorLight" id="jakEditor" rows="4" name="jak_description"><?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
+                    if ($v["varname"] == 'nlsignoff') {
+                      echo $v["value"];
+                    }
+                  } ?></textarea>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tlnl["nletter"]["d14"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
+                      <input class="form-control" type="text" name="jak_thankyou" value="<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
+                        if ($v["varname"] == 'nlthankyou') {
+                          echo $v["value"];
+                        }
+                      } ?>"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tlnl["nletter"]["d28"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="form-group<?php if (isset($errors["e4"])) echo " has-error"; ?> no-margin">
+                      <input type="text" name="jak_email" class="form-control" value="<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
+                        if ($v["varname"] == 'nlemail') {
+                          echo $v["value"];
+                        }
+                      } ?>" placeholder="<?php echo $tl["setting"]["s"]; ?>"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tlnl["nletter"]["d15"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="radio">
+                      <label class="checkbox-inline">
+                        <input type="radio" name="jak_smpt" value="0"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {if ($v["varname"] == 'nlsmtp_mail' && $v["value"] == '0') { ?> checked="checked"<?php } } ?> /> <?php echo $tlnl["nletter"]["d16"]; ?>
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="radio" name="jak_smpt" value="1"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) { if ($v["varname"] == 'nlsmtp_mail' && $v["value"] == '1') { ?> checked="checked"<?php } } ?> /> <?php echo $tlnl["nletter"]["d17"]; ?>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tlnl["nletter"]["d18"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <input type="text" class="form-control" name="jak_host" value="<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
+                      if ($v["varname"] == 'nlsmtphost') {
+                        echo $v["value"];
+                      }
+                    } ?>"/>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tlnl["nletter"]["d19"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
+                      <input type="text" class="form-control" name="jak_port" value="<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
+                        if ($v["varname"] == 'nlsmtpport') {
+                          echo $v["value"];
+                        }
+                      } ?>" placeholder="25"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tlnl["nletter"]["d29"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="radio">
+                      <label class="checkbox-inline">
+                        <input type="radio" name="jak_alive" value="1"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) { if ($v["varname"] == 'nlsmtp_alive' && $v["value"] == '1') { ?> checked="checked"<?php } } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="radio" name="jak_alive" value="0"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) { if ($v["varname"] == 'nlsmtp_alive' && $v["value"] == '0') { ?> checked="checked"<?php } } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tlnl["nletter"]["d30"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="radio">
+                      <label class="checkbox-inline">
+                        <input type="radio" name="jak_auth" value="1"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) { if ($v["varname"] == 'nlsmtp_auth' && $v["value"] == '1') { ?> checked="checked"<?php } } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="radio" name="jak_auth" value="0"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) { if ($v["varname"] == 'nlsmtp_auth' && $v["value"] == '0') { ?> checked="checked"<?php } } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tlnl["nletter"]["d39"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
+                      <input type="text" class="form-control" name="jak_prefix" value="<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
+                        if ($v["varname"] == 'nlsmtp_prefix') {
+                          echo $v["value"];
+                        }
+                      } ?>" placeholder="ssl/true/false"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["login"]["l1"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <input type="text" class="form-control" name="jak_username" value="<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
+                      if ($v["varname"] == 'nlsmtpusername') {
+                        echo base64_decode($v["value"]);
+                      }
+                    } ?>"/>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["login"]["l2"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <input type="text" class="form-control" name="jak_password" value="<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
+                      if ($v["varname"] == 'nlsmtppassword') {
+                        echo base64_decode($v["value"]);
+                      }
+                    } ?>"/>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tlnl["nletter"]["d41"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <input type="submit" name="testMail" class="btn btn-success" id="sendTM" value="<?php echo $tlnl["nletter"]["d42"]; ?>"/>                    <span id="loader" style="display: none;">
                 <img src="../../img/loader.gif" alt="loader" width="16" height="11"/>
               </span>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div class="box-footer">
-        <button type="submit" name="save" class="btn btn-primary pull-right">
-          <i class="fa fa-save margin-right-5"></i>
-          <?php echo $tl["general"]["g20"]; ?>
-        </button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="box-footer">
+            <button type="submit" name="save" class="btn btn-primary pull-right">
+              <i class="fa fa-save margin-right-5"></i>
+              <?php echo $tl["general"]["g20"]; ?>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </form>

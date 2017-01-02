@@ -57,9 +57,9 @@
             <tr>
               <th>#</th>
               <th><input type="checkbox" id="jak_delete_all"/></th>
-              <th><?php echo $tlbh["bh"]["d"]; ?></th>
-              <th><?php echo $tl["page"]["p2"]; ?></th>
-              <th><?php echo $tl["general_cmd"]["g9"]; ?></th>
+              <th><?php echo $tlbh["bh_box_table"]["bhtb"]; ?></th>
+              <th><?php echo $tlbh["bh_box_table"]["bhtb1"]; ?></th>
+              <th><?php echo $tlbh["bh_box_table"]["bhtb2"]; ?></th>
               <th>
                 <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
                   <i class="fa fa-lock"></i>
@@ -67,7 +67,7 @@
               </th>
               <th></th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tlbh["bh"]["al"]; ?>" disabled="disabled"><i class="fa fa-trash-o"></i></button>
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tlbh["bh_notification"]["delall"]; ?>" disabled="disabled"><i class="fa fa-trash-o"></i></button>
               </th>
             </tr>
             </thead>
@@ -100,7 +100,7 @@
                   </a>
                 </td>
                 <td>
-                  <a href="index.php?p=belowheader&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo sprintf($tlbh["bh"]["del"], $v["title"]); ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                  <a href="index.php?p=belowheader&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo sprintf($tlbh["bh_notification"]["del"], $v["title"]); ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                     <i class="fa fa-trash-o"></i>
                   </a>
                 </td>

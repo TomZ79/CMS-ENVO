@@ -53,7 +53,7 @@
   <div class="box box-default">
     <div class="box-header with-border">
       <i class="fa fa-bars"></i>
-      <h3 class="box-title"><?php echo $tl["menu"]["m5"]; ?></h3>
+      <h3 class="box-title"><?php echo $tl["submenu"]["sm110"]; ?></h3>
     </div>
     <div class="box-body">
 

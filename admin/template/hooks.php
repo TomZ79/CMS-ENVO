@@ -34,7 +34,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
   <div class="btn-toolbar margin-bottom">
     <div class="btn-group">
 
-      <button class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#" style="width: 100px;"><?php echo $tl["menu"]["m27"]; ?>
+      <button class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#" style="width: 100px;"><?php echo $tl["button"]["btn4"]; ?>
         <span class="caret"></span>
       </button>
       <div class="dropdown-menu livefilter">
@@ -48,7 +48,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
             <?php } ?>
           </ul>
           <div class="no-search-results">
-            <div class="no-results" role="alert">No entry was found.</div>
+            <div class="no-results" role="alert"><?php echo $tl["selection"]["sel6"]; ?></div>
           </div>
         </div>
       </div>
@@ -65,9 +65,9 @@ if ($page2 == "e" || $page2 == "edn") { ?>
             <tr>
               <th>#</th>
               <th><input type="checkbox" id="jak_delete_all"/></th>
-              <th><?php echo $tl["hook"]["h"]; ?></th>
-              <th><?php echo $tl["hook"]["h1"]; ?></th>
-              <th><?php echo $tl["tag"]["t1"]; ?></th>
+              <th><?php echo $tl["hook_box_table"]["hooktb"]; ?></th>
+              <th><?php echo $tl["hook_box_table"]["hooktb1"]; ?></th>
+              <th><?php echo $tl["hook_box_table"]["hooktb2"]; ?></th>
               <th>
                 <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
                   <i class="fa fa-lock"></i>
@@ -75,7 +75,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
               </th>
               <th></th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tl["hook"]["al"]; ?>" disabled="disabled">
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tl["hook_notification"]["delall"]; ?>" disabled="disabled">
                   <i class="fa fa-trash-o"></i>
                 </button>
               </th>
@@ -108,7 +108,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
                 </td>
                 <td>
                   <?php if ($v["id"] > 5) { ?>
-                  <a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=hooks&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["hook"]["al"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                  <a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=hooks&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo sprintf($tl["hook_notification"]["del"], $v["name"]); ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                       <i class="fa fa-trash-o"></i>
                     </a>
                   <?php } ?>

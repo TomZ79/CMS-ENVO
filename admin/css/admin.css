@@ -21,7 +21,6 @@
   width: 100%;
   float: left;
   position: relative;
-  margin-top: 10px;
 }
 .block-content,
 .block-footer {
@@ -39,7 +38,7 @@
   padding: 5px;
 }
 .row-form:nth-child(even) {
-  background: #f2f2f2
+  background: #f9f9f9
 }
 
 @media only screen and (min-width: 1024px) {
@@ -94,6 +93,68 @@
 .controls .row-form div[class^='col-md'] {
   line-height: 30px;
 }
+
+
+/**
+ * Responsive Bootstrap Tabs by @hayatbiralem
+ * 15 May 2015
+ */
+@media screen and (max-width: 479px) {
+  .nav-tabs-responsive > li {
+    display: none;
+    width: 23%;
+  }
+  .nav-tabs-responsive > li > a {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    width: 100%;
+    width: 100%;
+    text-align: center;
+    vertical-align: top;
+  }
+  .nav-tabs-responsive > li.active {
+    width: 54%;
+  }
+  .nav-tabs-responsive > li.active:first-child {
+    margin-left: 23%;
+  }
+  .nav-tabs-responsive > li.active, .nav-tabs-responsive > li.prev, .nav-tabs-responsive > li.next {
+    display: block;
+  }
+  .nav-tabs-responsive > li.prev, .nav-tabs-responsive > li.next {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  .nav-tabs-responsive > li.next > a, .nav-tabs-responsive > li.prev > a {
+    -webkit-transition: none;
+    transition: none;
+  }
+  .nav-tabs-responsive > li.next > a .text, .nav-tabs-responsive > li.prev > a .text {
+    display: none;
+  }
+  .nav-tabs-responsive > li.next > a:after, .nav-tabs-responsive > li.next > a:after, .nav-tabs-responsive > li.prev > a:after, .nav-tabs-responsive > li.prev > a:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'FontAwesome';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .nav-tabs-responsive > li.prev > a:after {
+    content: "\f053";
+  }
+  .nav-tabs-responsive > li.next > a:after {
+    content: "\f054";
+  }
+}
+
+
 
 /* 01. MODIFICATION - GENERAL STYLE
 ========================================================================*/
@@ -156,7 +217,7 @@ body {
   height: 1px;
 }
 
-/* XX. MODIFICATION - RADIO, CHECKBOX BUTTON
+/* XX. MODIFICATION - RADIO, CHECKBOX, BUTTON, ICONS
 ========================================================================*/
 .checkbox-inline, .radio-inline {
   margin-right: 15px;
@@ -179,6 +240,12 @@ body {
   line-height: 1.5;
 }
 
+/* Bootstrap FileInput - Icons */
+.kv-caption-icon {
+  margin-right: 10px;
+  margin-left: 20px;
+}
+
 /* XX. MODIFICATION - notetemplate.html
 ========================================================================*/
 .error-page {
@@ -197,11 +264,6 @@ body {
 
 /* XX. MODIFICATION - TABLES
 ========================================================================*/
-/* Bootstrap table - first column */
-table.first-column tr td:first-child {
-  width: 40%;
-}
-
 /* Tables padding in plugins */
 #plugins table > tbody > tr > td {
   padding: 0 8px !important;
@@ -347,14 +409,27 @@ hr {
 }
 
 /* BOOTSTRAP Same height for column */
-.row-table {
-  display: table;
-}
+@media (min-width: 769px) {
+  .row-table {
+    display: table;
+  }
 
-.col-table {
-  float: none;
-  display: table-cell;
-  vertical-align: top;
+  .col-table {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+  }
+}
+@media (max-width: 768px) {
+  .row-table {
+    display: table;
+  }
+
+  .col-table {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+  }
 }
 
 /* MARGIN and PADDING for Bootstrap */
@@ -1104,7 +1179,7 @@ pre[class*="language-"] {
 }
 
 /* Other */
-#cmsTab, #settTab {
+#cmsTab {
   margin-bottom: 20px;
 }
 
@@ -1120,7 +1195,7 @@ ul.todoList li:hover, ul.jak_cat_move li:hover, ul.jak_cat_move_fot li:hover, ul
 
 /* XX. GROWL PLUGIN - TABLE
 ========  ================================================================*/
-tr.disablerow.warning td {
+div.disablerow.warning {
   color: #999999;
 }
 
@@ -1578,7 +1653,7 @@ a:focus {
   font-weight: 300;
 }
 .content-header > h1 > small::before {
-  content: '/';
+  content: '-';
   margin: 0 10px 0 5px;
   color: #999;
 }

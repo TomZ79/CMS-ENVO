@@ -62,19 +62,34 @@ if ($errors) { ?>
     </div>
 
     <!-- Form Content -->
-    <ul class="nav nav-tabs" id="cmsTab">
-      <li class="active"><a href="#dlSett1"><?php echo $tl["menu"]["m2"]; ?></a></li>
-      <li><a href="#dlSett2"><?php echo $tl["general"]["g53"]; ?></a></li>
-      <li><a href="#dlSett3"><?php echo $tl["general"]["g100"]; ?></a></li>
-      <li><a href="#dlSett4"><?php echo $tl["general"]["g89"]; ?></a></li>
+    <ul id="cmsTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
+      <li role="presentation" class="active">
+        <a href="#cmsPage1" id="cmsPage1-tab" role="tab" data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
+          <span class="text"><?php echo $tl["submenu"]["sm10"]; ?></span>
+        </a>
+      </li>
+      <li role="presentation" class="next">
+        <a href="#cmsPage2" role="tab" id="cmsPage2-tab" data-toggle="tab" aria-controls="cmsPage2">
+          <span class="text"><?php echo $tl["general"]["g53"]; ?></span>
+        </a>
+      </li>
+      <li role="presentation">
+        <a href="#cmsPage3" role="tab" id="cmsPage3-tab" data-toggle="tab" aria-controls="cmsPage3">
+          <span class="text"><?php echo $tl["general"]["g100"]; ?></span>
+        </a>
+      </li>
+      <li role="presentation">
+        <a href="#cmsPage4" role="tab" id="cmsPage4-tab" data-toggle="tab" aria-controls="cmsPage4">
+          <span class="text"><?php echo $tl["general"]["g89"]; ?></span>
+        </a>
+      </li>
     </ul>
 
-    <div class="tab-content">
-      <div class="tab-pane active" id="dlSett1">
-
+    <div id="cmsTabContent" class="tab-content">
+      <div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
         <div class="row">
           <div class="col-md-7">
-            <div class="box box-primary">
+            <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tl["title"]["t4"]; ?></h3>
                 <div class="box-tools pull-right">
@@ -83,106 +98,103 @@ if ($errors) { ?>
                 </div>
               </div>
               <div class="box-body">
-                <table class="table table-striped first-column v-text-center">
-                  <tr>
-                    <td><?php echo $tl["page"]["p"]; ?></td>
-                    <td>
-                      <?php include_once APP_PATH . "admin/template/title_edit.php"; ?>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><?php echo $tl["page"]["p5"]; ?></td>
-                    <td>
-                      <textarea name="jak_lcontent" class="form-control" rows="4"><?php echo jak_edit_safe_userpost($JAK_FORM_DATA["content"]); ?></textarea>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><?php echo $tld["dload"]["d16"]; ?></td>
-                    <td>
-                      <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
-                        <input class="form-control" type="text" name="jak_email" value="<?php echo $jkv["downloademail"]; ?>"/>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><?php echo $tld["dload"]["d15"]; ?></td>
-                    <td>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <select name="jak_showdlordern" class="form-control selectpicker">
-                            <option value="id"<?php if ($JAK_SETTING['showdlwhat'] == "id") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tld["dload"]["d22"]; ?></option>
-                            <option value="name"<?php if ($JAK_SETTING['showdlwhat'] == "name") { ?> selected="selected"<?php } ?>><?php echo $tld["dload"]["d23"]; ?></option>
-                            <option value="time"<?php if ($JAK_SETTING['showdlwhat'] == "time") { ?> selected="selected"<?php } ?>><?php echo $tld["dload"]["d24"]; ?></option>
-                            <option value="hits"<?php if ($JAK_SETTING['showdlwhat'] == "hits") { ?> selected="selected"<?php } ?>><?php echo $tld["dload"]["d25"]; ?></option>
-                            <option value="countdl"<?php if ($JAK_SETTING['showdlwhat'] == "countdl") { ?> selected="selected"<?php } ?>><?php echo $tld["dload"]["d9"]; ?></option>
-                          </select>
-                        </div>
-                        <div class="col-md-6">
-                          <select name="jak_showdlorder" class="form-control selectpicker">
-                            <option value="ASC"<?php if ($JAK_SETTING['showdlorder'] == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g90"]; ?></option>
-                            <option value="DESC"<?php if ($JAK_SETTING['showdlorder'] == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g91"]; ?></option>
-                          </select>
+                <div class="block">
+                  <div class="block-content">
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tl["page"]["p"]; ?></strong></div>
+                      <div class="col-md-7"><?php include_once APP_PATH . "admin/template/title_edit.php"; ?></div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tl["page"]["p5"]; ?></strong></div>
+                      <div class="col-md-7"><textarea name="jak_lcontent" class="form-control" rows="4"><?php echo jak_edit_safe_userpost($JAK_FORM_DATA["content"]); ?></textarea></div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tld["dload"]["d16"]; ?></strong></div>
+                      <div class="col-md-7">
+                        <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
+                          <input class="form-control" type="text" name="jak_email" value="<?php echo $jkv["downloademail"]; ?>"/>
                         </div>
                       </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><?php echo $tld["dload"]["d14"]; ?></td>
-                    <td>
-                      <input type="text" name="jak_maxpost" class="form-control" value="<?php echo $jkv["downloadmaxpost"]; ?>"/>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><?php echo $tl["setting"]["s4"]; ?></td>
-                    <td>
-                      <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
-                        <input type="text" name="jak_date" class="form-control" value="<?php echo $jkv["downloaddateformat"]; ?>"/>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tld["dload"]["d15"]; ?></strong></div>
+                      <div class="col-md-7"><div class="row">
+                          <div class="col-md-6">
+                            <select name="jak_showdlordern" class="form-control selectpicker">
+                              <option value="id"<?php if ($JAK_SETTING['showdlwhat'] == "id") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tld["dload"]["d22"]; ?></option>
+                              <option value="name"<?php if ($JAK_SETTING['showdlwhat'] == "name") { ?> selected="selected"<?php } ?>><?php echo $tld["dload"]["d23"]; ?></option>
+                              <option value="time"<?php if ($JAK_SETTING['showdlwhat'] == "time") { ?> selected="selected"<?php } ?>><?php echo $tld["dload"]["d24"]; ?></option>
+                              <option value="hits"<?php if ($JAK_SETTING['showdlwhat'] == "hits") { ?> selected="selected"<?php } ?>><?php echo $tld["dload"]["d25"]; ?></option>
+                              <option value="countdl"<?php if ($JAK_SETTING['showdlwhat'] == "countdl") { ?> selected="selected"<?php } ?>><?php echo $tld["dload"]["d9"]; ?></option>
+                            </select>
+                          </div>
+                          <div class="col-md-6">
+                            <select name="jak_showdlorder" class="form-control selectpicker">
+                              <option value="ASC"<?php if ($JAK_SETTING['showdlorder'] == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g90"]; ?></option>
+                              <option value="DESC"<?php if ($JAK_SETTING['showdlorder'] == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g91"]; ?></option>
+                            </select>
+                          </div>
+                        </div></div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tld["dload"]["d14"]; ?></strong></div>
+                      <div class="col-md-7">
+                        <input type="text" name="jak_maxpost" class="form-control" value="<?php echo $jkv["downloadmaxpost"]; ?>"/>
                       </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><?php echo $tl["setting"]["s5"]; ?></td>
-                    <td>
-                      <div class="form-group<?php if (isset($errors["e4"])) echo " has-error"; ?> no-margin">
-                        <input type="text" name="jak_time" class="form-control" value="<?php echo $jkv["downloadtimeformat"]; ?>"/>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tl["setting"]["s4"]; ?></strong></div>
+                      <div class="col-md-7">
+                        <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
+                          <input type="text" name="jak_date" class="form-control" value="<?php echo $jkv["downloaddateformat"]; ?>"/>
+                        </div>
                       </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><?php echo $tld["dload"]["d7"]; ?></td>
-                    <td>
-                      <div class="radio">
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_downloadurl" value="1"<?php if ($jkv["downloadurl"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                        </label>
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_downloadurl" value="0"<?php if ($jkv["downloadurl"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                        </label>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tl["setting"]["s5"]; ?></strong></div>
+                      <div class="col-md-7">
+                        <div class="form-group<?php if (isset($errors["e4"])) echo " has-error"; ?> no-margin">
+                          <input type="text" name="jak_time" class="form-control" value="<?php echo $jkv["downloadtimeformat"]; ?>"/>
+                        </div>
                       </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><?php echo $tl["general"]["g40"]; ?> / <?php echo $tl["general"]["g41"]; ?></td>
-                    <td>
-                      <div class="form-group<?php if (isset($errors["e7"])) echo " has-error"; ?> no-margin">
-                        <input type="text" name="jak_rssitem" class="form-control" value="<?php echo $jkv["downloadrss"]; ?>"/>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tld["dload"]["d7"]; ?></strong></div>
+                      <div class="col-md-7">
+                        <div class="radio">
+                          <label class="checkbox-inline">
+                            <input type="radio" name="jak_downloadurl" value="1"<?php if ($jkv["downloadurl"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                          </label>
+                          <label class="checkbox-inline">
+                            <input type="radio" name="jak_downloadurl" value="0"<?php if ($jkv["downloadurl"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                          </label>
+                        </div>
                       </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><?php echo $tl["setting"]["s7"]; ?></td>
-                    <td>
-                      <div class="form-group<?php if (isset($errors["e6"])) echo " has-error"; ?> no-margin">
-                        <input type="text" class="form-control" name="jak_path" value="<?php echo $jkv["downloadpath"]; ?>"/>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tl["general"]["g40"]; ?> / <?php echo $tl["general"]["g41"]; ?></strong></div>
+                      <div class="col-md-7">
+                        <div class="form-group<?php if (isset($errors["e7"])) echo " has-error"; ?> no-margin">
+                          <input type="text" name="jak_rssitem" class="form-control" value="<?php echo $jkv["downloadrss"]; ?>"/>
+                        </div>
                       </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><?php echo $tld["dload"]["d30"]; ?></td>
-                    <td>
-                      <input type="text" name="jak_twitter" class="form-control" value="<?php echo $jkv["downloadtwitter"]; ?>"/></td>
-                  </tr>
-                </table>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tl["setting"]["s7"]; ?></strong></div>
+                      <div class="col-md-7">
+                        <div class="form-group<?php if (isset($errors["e6"])) echo " has-error"; ?> no-margin">
+                          <input type="text" class="form-control" name="jak_path" value="<?php echo $jkv["downloadpath"]; ?>"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tld["dload"]["d30"]; ?></strong></div>
+                      <div class="col-md-7">
+                        <input type="text" name="jak_twitter" class="form-control" value="<?php echo $jkv["downloadtwitter"]; ?>"/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="box-footer">
                 <button type="submit" name="save" class="btn btn-primary pull-right">
@@ -193,7 +205,7 @@ if ($errors) { ?>
             </div>
           </div>
           <div class="col-md-5">
-            <div class="box box-primary">
+            <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tl["title"]["t29"]; ?></h3>
                 <div class="box-tools pull-right">
@@ -202,40 +214,42 @@ if ($errors) { ?>
                 </div>
               </div>
               <div class="box-body">
-                <table class="table table-striped">
-                  <tr>
-                    <td><?php echo $tl["setting"]["s11"]; ?></td>
-                    <td>
-                      <div class="<?php if (isset($errors["e5"])) echo " has-error"; ?>">
-                        <select name="jak_mid" class="form-control selectpicker">
-                          <option value="2"<?php if ($jkv["downloadpagemid"] == 2) { ?> selected="selected"<?php } ?>>
-                            <?php echo $tl["option"]["o1"]; ?>
-                          </option>
-                          <option value="4"<?php if ($jkv["downloadpagemid"] == 4) { ?> selected="selected"<?php } ?>>
-                            <?php echo $tl["option"]["o2"]; ?>
-                          </option>
-                          <option value="6"<?php if ($jkv["downloadpagemid"] == 6) { ?> selected="selected"<?php } ?>>
-                            <?php echo $tl["option"]["o3"]; ?>
-                          </option>
-                          <option value="8"<?php if ($jkv["downloadpagemid"] == 8) { ?> selected="selected"<?php } ?>>
-                            <?php echo $tl["option"]["o4"]; ?>
-                          </option>
-                          <option value="10"<?php if ($jkv["downloadpagemid"] == 10) { ?> selected="selected"<?php } ?>>
-                            <?php echo $tl["option"]["o5"]; ?>
-                          </option>
-                        </select>
+                <div class="block">
+                  <div class="block-content">
+                    <div class="row-form">
+                      <div class="col-md-6"><strong><?php echo $tl["setting"]["s11"]; ?></strong></div>
+                      <div class="col-md-6">
+                        <div class="<?php if (isset($errors["e5"])) echo " has-error"; ?>">
+                          <select name="jak_mid" class="form-control selectpicker">
+                            <option value="2"<?php if ($jkv["downloadpagemid"] == 2) { ?> selected="selected"<?php } ?>>
+                              <?php echo $tl["option"]["o1"]; ?>
+                            </option>
+                            <option value="4"<?php if ($jkv["downloadpagemid"] == 4) { ?> selected="selected"<?php } ?>>
+                              <?php echo $tl["option"]["o2"]; ?>
+                            </option>
+                            <option value="6"<?php if ($jkv["downloadpagemid"] == 6) { ?> selected="selected"<?php } ?>>
+                              <?php echo $tl["option"]["o3"]; ?>
+                            </option>
+                            <option value="8"<?php if ($jkv["downloadpagemid"] == 8) { ?> selected="selected"<?php } ?>>
+                              <?php echo $tl["option"]["o4"]; ?>
+                            </option>
+                            <option value="10"<?php if ($jkv["downloadpagemid"] == 10) { ?> selected="selected"<?php } ?>>
+                              <?php echo $tl["option"]["o5"]; ?>
+                            </option>
+                          </select>
+                        </div>
                       </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><?php echo $tl["setting"]["s12"]; ?></td>
-                    <td>
-                      <div class="form-group<?php if (isset($errors["e5"])) echo " has-error"; ?> no-margin">
-                        <input type="text" name="jak_item" class="form-control" value="<?php echo $jkv["downloadpageitem"]; ?>"/>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-6"><strong><?php echo $tl["setting"]["s12"]; ?></strong></div>
+                      <div class="col-md-6">
+                        <div class="form-group<?php if (isset($errors["e5"])) echo " has-error"; ?> no-margin">
+                          <input type="text" name="jak_item" class="form-control" value="<?php echo $jkv["downloadpageitem"]; ?>"/>
+                        </div>
                       </div>
-                    </td>
-                  </tr>
-                </table>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="box-footer">
                 <button type="submit" name="save" class="btn btn-primary pull-right">
@@ -246,74 +260,82 @@ if ($errors) { ?>
             </div>
           </div>
         </div>
-
       </div>
-
-      <div class="tab-pane" id="dlSett2">
-        <div class="box box-primary">
-          <div class="box-header with-border">
-            <h3 class="box-title"><?php echo $tl["general"]["g53"]; ?></h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+      <div role="tabpanel" class="tab-pane fade" id="cmsPage2" aria-labelledby="cmsPage2-tab">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="box">
+              <div class="box-header with-border">
+                <h3 class="box-title"><?php echo $tl["general"]["g53"]; ?></h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+              </div>
+              <div class="box-body">
+                <a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
+                <a href="javascript:;" id="addCssBlock"><?php echo $tl["general"]["g101"]; ?></a><br/>
+                <div id="csseditor"></div>
+                <textarea name="jak_css" class="form-control hidden" id="jak_css" rows="20"><?php echo $jkv["download_css"]; ?></textarea>
+              </div>
+              <div class="box-footer">
+                <button type="submit" name="save" class="btn btn-primary pull-right">
+                  <i class="fa fa-save margin-right-5"></i>
+                  <?php echo $tl["general"]["g20"]; ?>
+                </button>
+              </div>
             </div>
-          </div>
-          <div class="box-body">
-            <a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
-            <a href="javascript:;" id="addCssBlock"><?php echo $tl["general"]["g101"]; ?></a><br/>
-            <div id="csseditor"></div>
-            <textarea name="jak_css" class="form-control hidden" id="jak_css" rows="20"><?php echo $jkv["download_css"]; ?></textarea>
-          </div>
-          <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right">
-              <i class="fa fa-save margin-right-5"></i>
-              <?php echo $tl["general"]["g20"]; ?>
-            </button>
           </div>
         </div>
       </div>
-
-      <div class="tab-pane" id="dlSett3">
-        <div class="box box-primary">
-          <div class="box-header with-border">
-            <h3 class="box-title"><?php echo $tl["general"]["g100"]; ?></h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+      <div role="tabpanel" class="tab-pane fade" id="cmsPage3" aria-labelledby="cmsPage3-tab">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="box">
+              <div class="box-header with-border">
+                <h3 class="box-title"><?php echo $tl["general"]["g100"]; ?></h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+              </div>
+              <div class="box-body">
+                <a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
+                <a href="javascript:;" id="addJavascriptBlock"><?php echo $tl["general"]["g102"]; ?></a><br/>
+                <div id="javaeditor"></div>
+                <textarea name="jak_javascript" class="form-control hidden" id="jak_javascript" rows="20"><?php echo $jkv["download_javascript"]; ?></textarea>
+              </div>
+              <div class="box-footer">
+                <button type="submit" name="save" class="btn btn-primary pull-right">
+                  <i class="fa fa-save margin-right-5"></i>
+                  <?php echo $tl["general"]["g20"]; ?>
+                </button>
+              </div>
             </div>
-          </div>
-          <div class="box-body">
-            <a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
-            <a href="javascript:;" id="addJavascriptBlock"><?php echo $tl["general"]["g102"]; ?></a><br/>
-            <div id="javaeditor"></div>
-            <textarea name="jak_javascript" class="form-control hidden" id="jak_javascript" rows="20"><?php echo $jkv["download_javascript"]; ?></textarea>
-          </div>
-          <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right">
-              <i class="fa fa-save margin-right-5"></i>
-              <?php echo $tl["general"]["g20"]; ?>
-            </button>
           </div>
         </div>
       </div>
-
-      <div class="tab-pane" id="dlSett4">
-        <div class="box box-primary">
-          <div class="box-header with-border">
-            <h3 class="box-title"><?php echo $tl["general"]["g89"]; ?></h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+      <div role="tabpanel" class="tab-pane fade" id="cmsPage4" aria-labelledby="cmsPage4-tab">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="box">
+              <div class="box-header with-border">
+                <h3 class="box-title"><?php echo $tl["general"]["g89"]; ?></h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+              </div>
+              <div class="box-body">
+                <?php include APP_PATH . "admin/template/sidebar_widget.php"; ?>
+              </div>
+              <div class="box-footer">
+                <button type="submit" name="save" class="btn btn-primary pull-right">
+                  <i class="fa fa-save margin-right-5"></i>
+                  <?php echo $tl["general"]["g20"]; ?>
+                </button>
+              </div>
             </div>
-          </div>
-          <div class="box-body">
-            <?php include APP_PATH . "admin/template/sidebar_widget.php"; ?>
-          </div>
-          <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right">
-              <i class="fa fa-save margin-right-5"></i>
-              <?php echo $tl["general"]["g20"]; ?>
-            </button>
           </div>
         </div>
       </div>
@@ -341,21 +363,11 @@ if ($errors) { ?>
      ========================================= */
     $(document).ready(function () {
 
-      /* Bootstrap Tab Activation */
-      $('#cmsTab a').click(function (e) {
-        e.preventDefault();
-        $(this).tab('show');
-      });
-
       $("#addCssBlock").click(function () {
-
         cssACE.insert(insert_cssblock());
-
       });
       $("#addJavascriptBlock").click(function () {
-
         jsACE.insert(insert_javascript());
-
       });
     });
 

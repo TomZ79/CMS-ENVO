@@ -6,7 +6,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["error"]["e3"];?>- <a href="index.php?p=setting"><?php echo $tl["menu"]["m2"];?></a>',
+        message: '<?php echo $tl["error"]["e3"];?>- <a href="index.php?p=setting"><?php echo $tl["submenu"]["sm10"];?></a>',
       }, {
         // settings
         type: 'danger',
@@ -43,12 +43,12 @@ if (!isset($jkv["cms_tpl"])) { ?>
       <div class="small-box bg-pink">
         <div class="inner">
           <h3><?php echo $totalhits; ?></h3>
-          <p><?php echo $tl["stat"]["s1"]; ?></p>
+          <p><?php echo $tl["dashb_box_stats"]["dbbs1"]; ?></p>
         </div>
         <div class="icon">
           <i class="fa fa-bar-chart"></i>
         </div>
-        <a href="index.php?p=page" class="small-box-footer"><?php echo $tl["stat"]["s6"]; ?> <i
+        <a href="index.php?p=page" class="small-box-footer"><?php echo $tl["dashb_box_stats"]["dbbs"]; ?> <i
             class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div><!-- ./col -->
@@ -57,12 +57,12 @@ if (!isset($jkv["cms_tpl"])) { ?>
       <div class="small-box bg-green">
         <div class="inner">
           <h3><?php echo $JAK_COUNTS["searchClog"]; ?></h3>
-          <p><?php echo $tl["stat"]["s3"]; ?></p>
+          <p><?php echo $tl["dashb_box_stats"]["dbbs2"]; ?></p>
         </div>
         <div class="icon">
           <i class="fa fa-search"></i>
         </div>
-        <a href="index.php?p=searchlog" class="small-box-footer"><?php echo $tl["stat"]["s6"]; ?> <i
+        <a href="index.php?p=searchlog" class="small-box-footer"><?php echo $tl["dashb_box_stats"]["dbbs"]; ?> <i
             class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div><!-- ./col -->
@@ -71,12 +71,12 @@ if (!isset($jkv["cms_tpl"])) { ?>
       <div class="small-box bg-orange">
         <div class="inner">
           <h3><?php echo $JAK_COUNTS["pluginCtotal"]; ?></h3>
-          <p><?php echo $tl["stat"]["s4"]; ?></p>
+          <p><?php echo $tl["dashb_box_stats"]["dbbs3"]; ?></p>
         </div>
         <div class="icon">
           <i class="fa fa-plug"></i>
         </div>
-        <a href="index.php?p=plugins" class="small-box-footer"><?php echo $tl["stat"]["s6"]; ?> <i
+        <a href="index.php?p=plugins" class="small-box-footer"><?php echo $tl["dashb_box_stats"]["dbbs"]; ?> <i
             class="fa fa-arrow-circle-right"></i></a>
       </div>
     </div><!-- ./col -->
@@ -86,24 +86,24 @@ if (!isset($jkv["cms_tpl"])) { ?>
         <div class="small-box bg-brown">
           <div class="inner">
             <h3><?php echo $JAK_COUNTS["tagsCtotal"]; ?></h3>
-            <p><?php echo $tl["stat"]["s5"]; ?></p>
+            <p><?php echo $tl["dashb_box_stats"]["dbbs4"]; ?></p>
           </div>
           <div class="icon">
             <i class="fa fa-tags"></i>
           </div>
-          <a href="index.php?p=tags" class="small-box-footer"><?php echo $tl["stat"]["s6"]; ?> <i
+          <a href="index.php?p=tags" class="small-box-footer"><?php echo $tl["dashb_box_stats"]["dbbs"]; ?> <i
               class="fa fa-arrow-circle-right"></i></a>
         </div>
       <?php } else { ?>
         <div class="small-box bg-slate">
           <div class="inner">
             <h3><?php echo $JAK_COUNTS["hookCtotal"]; ?></h3>
-            <p><?php echo $tl["stat"]["s7"]; ?></p>
+            <p><?php echo $tl["dashb_box_stats"]["s7"]; ?></p>
           </div>
           <div class="icon">
             <i class="fa fa-flash"></i>
           </div>
-          <a href="index.php?p=plugins&sp=hooks" class="small-box-footer"><?php echo $tl["stat"]["s6"]; ?> <i
+          <a href="index.php?p=plugins&sp=hooks" class="small-box-footer"><?php echo $tl["dashb_box_stats"]["dbbs"]; ?> <i
               class="fa fa-arrow-circle-right"></i></a>
         </div>
       <?php } ?>
@@ -112,10 +112,10 @@ if (!isset($jkv["cms_tpl"])) { ?>
 
   <div class="row">
     <div class="col-md-6">
-      <div class="box box-primary">
+      <div class="box">
         <div class="box-header">
           <i class="fa fa-paperclip"></i>
-          <h3 class="box-title"><?php echo $tl["title"]["t24"]; ?></h3>
+          <h3 class="box-title"><?php echo $tl["dashb_box_title"]["dbbt1"]; ?></h3>
         </div>
         <div class="box-body">
           <ul class="todoList">
@@ -125,13 +125,13 @@ if (!isset($jkv["cms_tpl"])) { ?>
           </ul>
         </div>
         <div class="box-footer clearfix no-border">
-          <a id="addButton" class="btn btn-default btodo pull-right" href="#"><?php echo $tl["general"]["g115"]; ?></a>
+          <a id="addButton" class="btn btn-default btodo pull-right" href="#"><?php echo $tl["button"]["btn"]; ?></a>
         </div>
       </div>
       <div class="box">
         <div class="box-header">
           <i class="fa fa-pie-chart"></i>
-          <h3 class="box-title"><?php echo $tl["title"]["t19"]; ?></h3>
+          <h3 class="box-title"><?php echo $tl["dashb_box_title"]["dbbt2"]; ?></h3>
         </div>
         <div class="box-body no-padding table-responsive">
           <div id="chart_total" class="charts"></div>
@@ -145,33 +145,33 @@ if (!isset($jkv["cms_tpl"])) { ?>
       <div class="box">
         <div class="box-header">
           <i class="fa fa-server"></i>
-          <h3 class="box-title"><?php echo $tl["title"]["t"]; ?></h3>
+          <h3 class="box-title"><?php echo $tl["dashb_box_title"]["dbbt3"]; ?></h3>
         </div>
         <div class="box-body no-padding">
           <div class="table-responsive">
             <table class="table table-striped first-column">
               <tr>
-                <td><?php echo $tl["general"]["g8"]; ?></td>
+                <td><?php echo $tl["dashb_box_content"]["dbbc"]; ?></td>
                 <td><?php echo $WEBS; ?></td>
               </tr>
               <tr>
-                <td><?php echo $tl["general"]["g9"]; ?></td>
+                <td><?php echo $tl["dashb_box_content"]["dbbc1"]; ?></td>
                 <td><?php echo $PHPV; ?></td>
               </tr>
               <tr>
-                <td><?php echo $tl["general"]["g10"]; ?></td>
+                <td><?php echo $tl["dashb_box_content"]["dbbc2"]; ?></td>
                 <td><?php echo $POSTM; ?></td>
               </tr>
               <tr>
-                <td><?php echo $tl["general"]["g11"]; ?></td>
+                <td><?php echo $tl["dashb_box_content"]["dbbc3"]; ?></td>
                 <td><?php echo $MEML; ?></td>
               </tr>
               <tr>
-                <td><?php echo $tl["general"]["g12"]; ?></td>
+                <td><?php echo $tl["dashb_box_content"]["dbbc4"]; ?></td>
                 <td><?php echo $MYV; ?></td>
               </tr>
               <tr>
-                <td><?php echo $tl["general"]["g13"]; ?></td>
+                <td><?php echo $tl["dashb_box_content"]["dbbc5"]; ?></td>
                 <td><?php echo $SRVIP; ?></td>
               </tr>
             </table>
@@ -181,21 +181,21 @@ if (!isset($jkv["cms_tpl"])) { ?>
       <div class="box">
         <div class="box-header">
           <i class="fa fa-info-circle"></i>
-          <h3 class="box-title"><?php echo $tl["title"]["t1"]; ?></h3>
+          <h3 class="box-title"><?php echo $tl["dashb_box_title"]["dbbt4"]; ?></h3>
         </div>
         <div class="box-body no-padding">
           <div class="table-responsive">
             <table class="table table-striped first-column">
               <tr>
-                <td><?php echo $tl["menu"]["m12"]; ?></td>
+                <td><?php echo $tl["dashb_box_content"]["dbbc6"]; ?></td>
                 <td><?php echo $jkv["version"]; ?></td>
               </tr>
               <tr>
-                <td><?php echo $tl["general"]["g14"]; ?></td>
+                <td><?php echo $tl["dashb_box_content"]["dbbc7"]; ?></td>
                 <td><a href="http://www.bluesat.cz" target="_blank">BLUESAT</a></td>
               </tr>
               <tr>
-                <td><?php echo $tl["general"]["g15"]; ?></td>
+                <td><?php echo $tl["dashb_box_content"]["dbbc8"]; ?></td>
                 <td>Tomas Zukal</td>
               </tr>
             </table>
@@ -216,10 +216,10 @@ if (!isset($jkv["cms_tpl"])) { ?>
           renderTo: 'chart_total'
         },
         title: {
-          text: '<?php echo $tl["title"]["t19"];?>'
+          text: '<?php echo $tl["dashb_charts_content"]["dbchc"];?>'
         },
         xAxis: {
-          categories: ['<?php echo $tl["stat"]["s2"];?>'],
+          categories: ['<?php echo $tl["dashb_charts_content"]["dbchc1"];?>'],
           title: {
             text: null
           }
@@ -227,7 +227,7 @@ if (!isset($jkv["cms_tpl"])) { ?>
         yAxis: {
           min: 0,
           title: {
-            text: '<?php echo $tl["stat"]["s"];?>',
+            text: '<?php echo $tl["dashb_charts_content"]["dbchc2"];?>',
             align: 'high'
           }
         },
@@ -236,7 +236,7 @@ if (!isset($jkv["cms_tpl"])) { ?>
             var s;
             if (this.point.name) { // the pie chart
               s = '' +
-                this.point.name + ': ' + this.y + ' <?php echo $tl["general"]["g56"];?>';
+                this.point.name + ': ' + this.y + ' <?php echo $tl["dashb_charts_content"]["dbchc3"];?>';
             } else {
               s = '' +
                 this.series.name + ': ' + this.y;
@@ -246,7 +246,7 @@ if (!isset($jkv["cms_tpl"])) { ?>
         },
         labels: {
           items: [{
-            html: '<?php echo $tl["stat"]["s1"];?>',
+            html: '<?php echo $tl["dashb_charts_content"]["dbchc4"];?>',
             style: {
               left: '5px',
               top: '5px',
@@ -256,27 +256,27 @@ if (!isset($jkv["cms_tpl"])) { ?>
         },
         series: [{
           type: 'column',
-          name: '<?php echo $tl["menu"]["m7"];?>',
+          name: '<?php echo $tl["dashb_charts_content"]["dbchc5"];?>',
           data: [<?php echo $JAK_COUNTS["pageCtotal"];?>]
         }, {
           type: 'column',
-          name: '<?php echo $tl["menu"]["t"];?>',
+          name: '<?php echo $tl["dashb_charts_content"]["dbchc6"];?>',
           data: [<?php echo $JAK_COUNTS["tagsCtotal"];?>]
         }, {
           type: 'column',
-          name: '<?php echo $tl["menu"]["m3"];?>',
+          name: '<?php echo $tl["dashb_charts_content"]["dbchc7"];?>',
           data: [<?php echo $JAK_COUNTS["userCtotal"];?>]
         }, {
           type: 'column',
-          name: '<?php echo $tl["menu"]["m14"];?>',
+          name: '<?php echo $tl["dashb_charts_content"]["dbchc8"];?>',
           data: [<?php echo $JAK_COUNTS["pluginCtotal"];?>]
         }, {
           type: 'column',
-          name: '<?php echo $tl["menu"]["m27"];?>',
+          name: '<?php echo $tl["dashb_charts_content"]["dbchc9"];?>',
           data: [<?php echo $JAK_COUNTS["hookCtotal"];?>]
         }, {
           type: 'pie',
-          name: '<?php echo $tl["stat"]["s1"];?>',
+          name: '<?php echo $tl["dashb_charts_content"]["dbchc4"];?>',
           data: [<?php echo $pageCdata;?>],
           center: [60, 80],
           size: 100,

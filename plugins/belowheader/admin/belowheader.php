@@ -103,8 +103,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tlbh["bh"]["m1"];
-    $SECTION_DESC = $tlbh["bh"]["t"];
+    $SECTION_TITLE = $tlbh["bh_sec_title"]["bht1"];
+    $SECTION_DESC = $tlbh["bh_sec_desc"]["bhd1"];
 
     // EN: Load the template
     // CZ: Načti template (šablonu)
@@ -226,8 +226,8 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlbh["bh"]["m2"];
-        $SECTION_DESC = $tlbh["bh"]["t1"];
+        $SECTION_TITLE = $tlbh["bh_sec_title"]["bht2"];
+        $SECTION_DESC = $tlbh["bh_sec_desc"]["bhd2"];
 
         // EN: Load the template
         // CZ: Načti template (šablonu)
@@ -296,8 +296,8 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlbh["bh"]["m"];
-        $SECTION_DESC = $tlbh["bh"]["t"];
+        $SECTION_TITLE = $tlbh["bh_sec_title"]["bht"];
+        $SECTION_DESC = $tlbh["bh_sec_desc"]["bhd"];
 
         // EN: Load the template
         // CZ: Načti template (šablonu)

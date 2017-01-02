@@ -22,15 +22,15 @@ switch ($page1) {
       $defaults = $_POST;
 
       if (empty($defaults['jak_oldurl']) && empty($defaults['jak_newurl']) && (($defaults['jak_baseurl'] == 0) || ($defaults['jak_baseurl'] == 1))) {
-        $errors['e1'] = $tlum['um']['e'];
+        $errors['e1'] = $tlum['urlmap_error']['urler'];
       }
 
       if (empty($defaults['jak_oldurl']) && !empty($defaults['jak_newurl']) && ($defaults['jak_baseurl'] == 0)) {
-        $errors['e2'] = $tlum['um']['e1'];
+        $errors['e2'] = $tlum['urlmap_error']['urler1'];
       }
 
       if (empty($defaults['jak_newurl']) && !empty($defaults['jak_oldurl']) && ($defaults['jak_baseurl'] == 0)) {
-        $errors['e3'] = $tlum['um']['e2'];
+        $errors['e3'] = $tlum['urlmap_error']['urler2'];
       }
 
       if (count($errors) == 0) {
@@ -56,15 +56,15 @@ switch ($page1) {
         }
       } else {
 
-        $errors['e'] = $tl['error']['e'];
+        $errors['e'] = $tl['urlmap_error']['urler'];
         $errors = $errors;
       }
     }
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tlum["um"]["m1"];
-    $SECTION_DESC = $tlum["um"]["t"];
+    $SECTION_TITLE = $tlum["urlmap_title"]["urlt1"];
+    $SECTION_DESC = $tlum["urlmap_desc"]["urld1"];
 
     // EN: Load the template
     // CZ: Načti template (šablonu)
@@ -122,15 +122,15 @@ switch ($page1) {
           $defaults = $_POST;
 
           if (empty($defaults['jak_oldurl']) && empty($defaults['jak_newurl']) && (($defaults['jak_baseurl'] == 0) || ($defaults['jak_baseurl'] == 1))) {
-            $errors['e1'] = $tlum['um']['e'];
+            $errors['e1'] = $tlum['urlmap_error']['urler'];
           }
 
           if (empty($defaults['jak_oldurl']) && !empty($defaults['jak_newurl']) && ($defaults['jak_baseurl'] == 0)) {
-            $errors['e2'] = $tlum['um']['e1'];
+            $errors['e2'] = $tlum['urlmap_error']['urler1'];
           }
 
           if (empty($defaults['jak_newurl']) && !empty($defaults['jak_oldurl']) && ($defaults['jak_baseurl'] == 0)) {
-            $errors['e3'] = $tlum['um']['e2'];
+            $errors['e3'] = $tlum['urlmap_error']['urler1'];
           }
 
           if (count($errors) == 0) {
@@ -161,7 +161,7 @@ switch ($page1) {
             }
 
           } else {
-            $errors['e'] = $tl['error']['e'];
+            $errors['e'] = $tl['urlmap_error']['urler'];
             $errors = $errors;
           }
         }
@@ -171,8 +171,8 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlum["um"]["m2"];
-        $SECTION_DESC = $tlum["um"]["t1"];
+        $SECTION_TITLE = $tlum["urlmap_title"]["urlt2"];
+        $SECTION_DESC = $tlum["urlmap_desc"]["urld2"];
 
         // EN: Load the template
         // CZ: Načti template (šablonu)
@@ -245,8 +245,8 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlum["um"]["m"];
-        $SECTION_DESC = $tlum["um"]["t"];
+        $SECTION_TITLE = $tlum["urlmap_title"]["urlt"];
+        $SECTION_DESC = $tlum["urlmap_desc"]["urld"];
 
         // EN: Load the template
         // CZ: Načti template (šablonu)

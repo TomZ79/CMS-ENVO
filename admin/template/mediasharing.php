@@ -43,7 +43,7 @@ if ($page1 == "e") { ?>
     <!-- Form Content -->
     <div class="row">
       <div class="col-md-12">
-        <div class="box box-primary">
+        <div class="box">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["mediasharing"]["ms"]; ?></h3>
             <div class="box-tools pull-right">
@@ -54,148 +54,152 @@ if ($page1 == "e") { ?>
           <div class="box-body">
             <div class="row">
               <div class="col-md-6">
-                <table class="table table-striped v-text-center">
-                  <tr>
-                    <td>Facebook</td>
-                    <td>
-                      <div class="radio">
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_md_facebook" value="1"<?php if ($jkv["md_facebook"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                        </label>
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_md_facebook" value="0"<?php if ($jkv["md_facebook"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                        </label>
+                <div class="block">
+                  <div class="block-content">
+                    <div class="row-form">
+                      <div class="col-md-5"><strong>Facebook</strong></div>
+                      <div class="col-md-7">
+                        <div class="radio">
+                          <label class="checkbox-inline">
+                            <input type="radio" name="jak_md_facebook" value="1"<?php if ($jkv["md_facebook"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                          </label>
+                          <label class="checkbox-inline">
+                            <input type="radio" name="jak_md_facebook" value="0"<?php if ($jkv["md_facebook"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                          </label>
+                        </div>
                       </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Google +</td>
-                    <td>
-                      <div class="radio">
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_md_googleplus" value="1"<?php if ($jkv["md_googleplus"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                        </label>
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_md_googleplus" value="0"<?php if ($jkv["md_googleplus"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                        </label>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong>Google +</strong></div>
+                      <div class="col-md-7">
+                        <div class="radio">
+                          <label class="checkbox-inline">
+                            <input type="radio" name="jak_md_googleplus" value="1"<?php if ($jkv["md_googleplus"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                          </label>
+                          <label class="checkbox-inline">
+                            <input type="radio" name="jak_md_googleplus" value="0"<?php if ($jkv["md_googleplus"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                          </label>
+                        </div>
                       </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Instagram</td>
-                    <td>
-                      <div class="radio">
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_md_instagram" value="1"<?php if ($jkv["md_instagram"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                        </label>
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_md_instagram" value="0"<?php if ($jkv["md_instagram"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                        </label>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong>Instagram</strong></div>
+                      <div class="col-md-7">
+                        <div class="radio">
+                          <label class="checkbox-inline">
+                            <input type="radio" name="jak_md_instagram" value="1"<?php if ($jkv["md_instagram"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                          </label>
+                          <label class="checkbox-inline">
+                            <input type="radio" name="jak_md_instagram" value="0"<?php if ($jkv["md_instagram"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                          </label>
+                        </div>
                       </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Twitter</td>
-                    <td>
-                      <div class="radio">
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_md_twitter" value="1"<?php if ($jkv["md_twitter"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                        </label>
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_md_twitter" value="0"<?php if ($jkv["md_twitter"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                        </label>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong>Twitter</strong></div>
+                      <div class="col-md-7">
+                        <div class="radio">
+                          <label class="checkbox-inline">
+                            <input type="radio" name="jak_md_twitter" value="1"<?php if ($jkv["md_twitter"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                          </label>
+                          <label class="checkbox-inline">
+                            <input type="radio" name="jak_md_twitter" value="0"<?php if ($jkv["md_twitter"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                          </label>
+                        </div>
                       </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Youtube</td>
-                    <td>
-                      <div class="radio">
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_md_youtube" value="1"<?php if ($jkv["md_youtube"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                        </label>
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_md_youtube" value="0"<?php if ($jkv["md_youtube"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                        </label>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong>Youtube</strong></div>
+                      <div class="col-md-7">
+                        <div class="radio">
+                          <label class="checkbox-inline">
+                            <input type="radio" name="jak_md_youtube" value="1"<?php if ($jkv["md_youtube"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                          </label>
+                          <label class="checkbox-inline">
+                            <input type="radio" name="jak_md_youtube" value="0"<?php if ($jkv["md_youtube"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                          </label>
+                        </div>
                       </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Vimeo</td>
-                    <td>
-                      <div class="radio">
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_md_vimeo" value="1"<?php if ($jkv["md_vimeo"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                        </label>
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_md_vimeo" value="0"<?php if ($jkv["md_vimeo"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                        </label>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong>Vimeo</strong></div>
+                      <div class="col-md-7"><div class="radio">
+                          <label class="checkbox-inline">
+                            <input type="radio" name="jak_md_vimeo" value="1"<?php if ($jkv["md_vimeo"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                          </label>
+                          <label class="checkbox-inline">
+                            <input type="radio" name="jak_md_vimeo" value="0"<?php if ($jkv["md_vimeo"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                          </label>
+                        </div></div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong>Email</strong></div>
+                      <div class="col-md-7">
+                        <div class="radio">
+                          <label class="checkbox-inline">
+                            <input type="radio" name="jak_md_email" value="1"<?php if ($jkv["md_email"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                          </label>
+                          <label class="checkbox-inline">
+                            <input type="radio" name="jak_md_email" value="0"<?php if ($jkv["md_email"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                          </label>
+                        </div>
                       </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Email</td>
-                    <td>
-                      <div class="radio">
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_md_email" value="1"<?php if ($jkv["md_email"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                        </label>
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_md_email" value="0"<?php if ($jkv["md_email"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                        </label>
-                      </div>
-                    </td>
-                  </tr>
-                </table>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="col-md-6">
-                <table class="table table-striped v-text-center">
-                  <tr>
-                    <td><?php echo $tl["mediasharing"]["ms1"]; ?></td>
-                    <td>
-                      <div class="form-group no-margin">
-                        <input type="text" name="jak_mediaSize" class="form-control" value="<?php echo $jkv["md_mediaSize"]; ?>"/>
+                <div class="block">
+                  <div class="block-content">
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tl["mediasharing"]["ms1"]; ?></strong></div>
+                      <div class="col-md-7">
+                        <div class="form-group no-margin">
+                          <input type="text" name="jak_mediaSize" class="form-control" value="<?php echo $jkv["md_mediaSize"]; ?>"/>
+                        </div>
                       </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><?php echo $tl["mediasharing"]["ms2"]; ?></td>
-                    <td>
-                      <div class="form-group no-margin">
-                        <input type="text" name="jak_iconSize" class="form-control" value="<?php echo $jkv["md_iconSize"]; ?>"/>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tl["mediasharing"]["ms2"]; ?></strong></div>
+                      <div class="col-md-7">
+                        <div class="form-group no-margin">
+                          <input type="text" name="jak_iconSize" class="form-control" value="<?php echo $jkv["md_iconSize"]; ?>"/>
+                        </div>
                       </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><?php echo $tl["mediasharing"]["ms3"]; ?></td>
-                    <td>
-                      <select name="jak_mediatheme" class="form-control selectpicker" data-size="5">
-                        <option value="lee-gargano-circle-color" <?php if ($jkv["md_mediatheme"] == 'lee-gargano-circle-color') { ?> selected="selected"<?php } ?>>Lee-gargano-circle-color</option>
-                        <option value="lee-gargano-square-color" <?php if ($jkv["md_mediatheme"] == 'lee-gargano-square-color') { ?> selected="selected"<?php } ?>>Lee-gargano-square-color</option>
-                        <option value="mikymeg-color" <?php if ($jkv["md_mediatheme"] == 'mikymeg-color') { ?> selected="selected"<?php } ?>>Mikymeg-color</option>
-                        <option value="mikymeg-grey" <?php if ($jkv["md_mediatheme"] == 'mikymeg-grey') { ?> selected="selected"<?php } ?>>Mikymeg-grey</option>
-                      </select>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><?php echo $tl["mediasharing"]["ms4"]; ?></td>
-                    <td>
-                      <select name="jak_mediahover" class="form-control selectpicker" data-size="5">
-                        <option value="fade-out" <?php if ($jkv["md_mediahover"] == 'fade-out') { ?> selected="selected"<?php } ?>>Fade-out</option>
-                        <option value="fade-in" <?php if ($jkv["md_mediahover"] == 'fade-in') { ?> selected="selected"<?php } ?>>Fade-in</option>
-                        <option value="rise" <?php if ($jkv["md_mediahover"] == 'rise') { ?> selected="selected"<?php } ?>>Rise</option>
-                        <option value="rotate" <?php if ($jkv["md_mediahover"] == 'rotate') { ?> selected="selected"<?php } ?>>Rotate</option>
-                        <option value="shrink" <?php if ($jkv["md_mediahover"] == 'shrink') { ?> selected="selected"<?php } ?>>Shrink</option>
-                        <option value="bounce" <?php if ($jkv["md_mediahover"] == 'bounce') { ?> selected="selected"<?php } ?>>Bounce</option>
-                        <option value="grow" <?php if ($jkv["md_mediahover"] == 'grow') { ?> selected="selected"<?php } ?>>Grow</option>
-                      </select>
-                    </td>
-                  </tr>
-                </table>
-                <div style="position: relative;height: 200px;">
-
-                  <div id="sollist-sharing" style="position: absolute;display: table-cell;top: 30%;left: 10%;"></div>
-
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tl["mediasharing"]["ms3"]; ?></strong></div>
+                      <div class="col-md-7">
+                        <select name="jak_mediatheme" class="form-control selectpicker" data-size="5">
+                          <option value="lee-gargano-circle-color" <?php if ($jkv["md_mediatheme"] == 'lee-gargano-circle-color') { ?> selected="selected"<?php } ?>>Lee-gargano-circle-color</option>
+                          <option value="lee-gargano-square-color" <?php if ($jkv["md_mediatheme"] == 'lee-gargano-square-color') { ?> selected="selected"<?php } ?>>Lee-gargano-square-color</option>
+                          <option value="mikymeg-color" <?php if ($jkv["md_mediatheme"] == 'mikymeg-color') { ?> selected="selected"<?php } ?>>Mikymeg-color</option>
+                          <option value="mikymeg-grey" <?php if ($jkv["md_mediatheme"] == 'mikymeg-grey') { ?> selected="selected"<?php } ?>>Mikymeg-grey</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tl["mediasharing"]["ms4"]; ?></strong></div>
+                      <div class="col-md-7">
+                        <select name="jak_mediahover" class="form-control selectpicker" data-size="5">
+                          <option value="fade-out" <?php if ($jkv["md_mediahover"] == 'fade-out') { ?> selected="selected"<?php } ?>>Fade-out</option>
+                          <option value="fade-in" <?php if ($jkv["md_mediahover"] == 'fade-in') { ?> selected="selected"<?php } ?>>Fade-in</option>
+                          <option value="rise" <?php if ($jkv["md_mediahover"] == 'rise') { ?> selected="selected"<?php } ?>>Rise</option>
+                          <option value="rotate" <?php if ($jkv["md_mediahover"] == 'rotate') { ?> selected="selected"<?php } ?>>Rotate</option>
+                          <option value="shrink" <?php if ($jkv["md_mediahover"] == 'shrink') { ?> selected="selected"<?php } ?>>Shrink</option>
+                          <option value="bounce" <?php if ($jkv["md_mediahover"] == 'bounce') { ?> selected="selected"<?php } ?>>Bounce</option>
+                          <option value="grow" <?php if ($jkv["md_mediahover"] == 'grow') { ?> selected="selected"<?php } ?>>Grow</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-12">
+                        <div style="position: relative;height: 200px;">
+                          <div id="sollist-sharing" style="position: absolute;display: table-cell;top: 30%;left: 10%;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -210,7 +214,6 @@ if ($page1 == "e") { ?>
         </div>
       </div>
     </div>
-
   </form>
 
   <script type="text/javascript">

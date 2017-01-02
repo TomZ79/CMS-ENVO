@@ -41,114 +41,140 @@ if ($JAK_FILE_ERROR) { ?>
     </div>
 
     <!-- Form Content -->
-    <ul class="nav nav-tabs" id="cmsTab">
-      <li class="active"><a href="#cmsPage1"><?php echo $tl["general_cmd"]["g14"]; ?></a></li>
-      <li><a href="#cmsPage2">Facebook Name</a></li>
-      <li><a href="#cmsPage3">Facebook Description</a></li>
+    <ul id="cmsTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
+      <li role="presentation" class="active">
+        <a href="#cmsPage1" id="cmsPage1-tab" role="tab" data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
+          <span class="text"><?php echo $tl["general_cmd"]["g14"]; ?></span>
+        </a>
+      </li>
+      <li role="presentation" class="next">
+        <a href="#cmsPage2" role="tab" id="cmsPage2-tab" data-toggle="tab" aria-controls="cmsPage2">
+          <span class="text">Facebook Name</span>
+        </a>
+      </li>
+      <li role="presentation">
+        <a href="#cmsPage3" role="tab" id="cmsPage3-tab" data-toggle="tab" aria-controls="cmsPage3">
+          <span class="text">Facebook Description</span>
+        </a>
+      </li>
     </ul>
 
-    <div class="tab-content">
-
-      <div id="cmsPage1" class="tab-pane active fade in">
-        <div class="box box-primary">
-          <div class="box-header with-border">
-            <h3 class="box-title"><?php echo $tl["general_cmd"]["g14"]; ?></h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+    <div id="cmsTabContent" class="tab-content">
+      <div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="box">
+              <div class="box-header with-border">
+                <h3 class="box-title"><?php echo $tl["general_cmd"]["g14"]; ?></h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+              </div>
+              <div class="box-body">
+                <div class="block">
+                  <div class="block-content">
+                    <div class="row-form">
+                      <div class="col-md-12 margin-bottom-20">
+                        <blockquote>
+                          <p><?php echo $tl["setting_cmd"]["s62"]; ?></p>
+                        </blockquote>
+                        <p><?php echo $tl["setting_cmd"]["s63"]; ?></p>
+                        <ul>
+                          <li>Plugin Download ( Pro sdílení webu před stažením dokumentu. Více v nastavení pluginu Download )</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-12">
+                        <textarea name="jak_facebookconnect" cols="60" rows="10" class="form-control txtautogrow"><?php echo $jkv["facebookconnect"]; ?></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="box-footer">
+                <button type="submit" name="save" class="btn btn-primary pull-right">
+                  <i class="fa fa-save margin-right-5"></i>
+                  <?php echo $tl["general"]["g20"]; ?>
+                </button>
+              </div>
             </div>
           </div>
-          <div class="box-body">
-            <div class="margin-bottom-20">
-              <blockquote>
-                <p><?php echo $tl["setting_cmd"]["s62"]; ?></p>
-              </blockquote>
-              <p><?php echo $tl["setting_cmd"]["s63"]; ?></p>
-              <ul>
-                <li>Plugin Download ( Pro sdílení webu před stažením dokumentu. Více v nastavení pluginu Download )</li>
-              </ul>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="cmsPage2" aria-labelledby="cmsPage2-tab">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="box">
+              <div class="box-header with-border">
+                <h3 class="box-title"><?php echo $tl["general"]["g50"]; ?></h3>
+              </div>
+              <div class="box-body">
+                <div class="block">
+                  <div class="block-content">
+                    <div class="row-form <?php if (!$JAK_FILECONTENT) { echo "hidden"; } ?>">
+                      <div class="col-md-12"><h4>File: <small><strong><?php echo $JAK_FILEURL; ?></strong></small></h4></div>
+                    </div>
+                    <?php if ($JAK_FILECONTENT) { ?>
+                      <div class="row-form">
+                        <div class="col-md-12">
+                          <label for="jak_filecontent"><?php echo $tl["general"]["g54"]; ?></label>
+                          <div id="txteditor"></div>
+                          <textarea name="jak_filecontent" id="jak_filecontent" class="form-control hidden"><?php echo $JAK_FILECONTENT; ?></textarea>
+                        </div>
+                      </div>
+                    <?php } ?>
+                  </div>
+                </div>
+              </div>
+              <div class="box-footer">
+                <button type="submit" name="save" class="btn btn-primary pull-right">
+                  <i class="fa fa-save margin-right-5"></i>
+                  <?php echo $tl["general"]["g20"]; ?>
+                </button>
+              </div>
             </div>
-            <table class="table table-striped">
-              <tr>
-                <td>
-                  <textarea name="jak_facebookconnect" cols="60" rows="10" class="form-control txtautogrow"><?php echo $jkv["facebookconnect"]; ?></textarea>
-                </td>
-              </tr>
-            </table>
-          </div>
-          <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right">
-              <i class="fa fa-save margin-right-5"></i>
-              <?php echo $tl["general"]["g20"]; ?>
-            </button>
+            <input type="hidden" name="jak_file" value="<?php echo $JAK_FILEURL; ?>"/>
           </div>
         </div>
       </div>
-
-      <div id="cmsPage2" class="tab-pane fade">
-        <div class="box box-primary">
-          <div class="box-header with-border">
-            <h3 class="box-title"><?php echo $tl["general"]["g50"]; ?></h3>
-          </div>
-          <div class="box-body">
-            <table class="table">
-              <tr <?php if (!$JAK_FILECONTENT) { ?> class="hidden"<?php } ?>>
-                <td><h4>File: <small><strong><?php echo $JAK_FILEURL; ?></strong></small></h4></td>
-              </tr>
-              <?php if ($JAK_FILECONTENT) { ?>
-                <tr>
-                  <td>
-                    <label for="jak_filecontent"><?php echo $tl["general"]["g54"]; ?></label>
-                    <div id="txteditor"></div>
-                    <textarea name="jak_filecontent" id="jak_filecontent" class="form-control hidden"><?php echo $JAK_FILECONTENT; ?></textarea>
-                  </td>
-                </tr>
-              <?php } ?>
-            </table>
-          </div>
-          <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right">
-              <i class="fa fa-save margin-right-5"></i>
-              <?php echo $tl["general"]["g20"]; ?>
-            </button>
-          </div>
-        </div>
-
-        <input type="hidden" name="jak_file" value="<?php echo $JAK_FILEURL; ?>"/>
-      </div>
-
-      <div id="cmsPage3" class="tab-pane fade">
-        <div class="box box-primary">
-          <div class="box-header with-border">
-            <h3 class="box-title"><?php echo $tl["general"]["g50"]; ?></h3>
-          </div>
-          <div class="box-body">
-            <table class="table">
-              <tr <?php if (!$JAK_FILECONTENT1) { ?> class="hidden"<?php } ?>>
-                <td><h4>File: <small><strong><?php echo $JAK_FILEURL1; ?></strong></small></h4></td>
-              </tr>
-              <?php if ($JAK_FILECONTENT1) { ?>
-                <tr>
-                  <td>
-                    <label for="jak_filecontent1"><?php echo $tl["general"]["g54"]; ?></label>
-                    <div id="txteditor1"></div>
-                    <textarea name="jak_filecontent1" id="jak_filecontent1" class="form-control hidden"><?php echo $JAK_FILECONTENT1; ?></textarea>
-                  </td>
-                </tr>
-              <?php } ?>
-            </table>
-          </div>
-          <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right">
-              <i class="fa fa-save margin-right-5"></i>
-              <?php echo $tl["general"]["g20"]; ?>
-            </button>
+      <div role="tabpanel" class="tab-pane fade" id="cmsPage3" aria-labelledby="cmsPage3-tab">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="box">
+              <div class="box-header with-border">
+                <h3 class="box-title"><?php echo $tl["general"]["g50"]; ?></h3>
+              </div>
+              <div class="box-body">
+                <div class="block">
+                  <div class="block-content">
+                    <div class="row-form <?php if (!$JAK_FILECONTENT1) { echo "hidden"; } ?>">
+                      <div class="col-md-12"><h4>File: <small><strong><?php echo $JAK_FILEURL1; ?></strong></small></h4></div>
+                    </div>
+                    <?php if ($JAK_FILECONTENT1) { ?>
+                      <div class="row-form">
+                        <div class="col-md-12">
+                          <label for="jak_filecontent1"><?php echo $tl["general"]["g54"]; ?></label>
+                          <div id="txteditor1"></div>
+                          <textarea name="jak_filecontent1" id="jak_filecontent1" class="form-control hidden"><?php echo $JAK_FILECONTENT1; ?></textarea>
+                        </div>
+                      </div>
+                    <?php } ?>
+                  </div>
+                </div>
+              </div>
+              <div class="box-footer">
+                <button type="submit" name="save" class="btn btn-primary pull-right">
+                  <i class="fa fa-save margin-right-5"></i>
+                  <?php echo $tl["general"]["g20"]; ?>
+                </button>
+              </div>
+            </div>
+            <input type="hidden" name="jak_file1" value="<?php echo $JAK_FILEURL1; ?>"/>
           </div>
         </div>
-
-        <input type="hidden" name="jak_file1" value="<?php echo $JAK_FILEURL1; ?>"/>
       </div>
-
     </div>
   </form>
 
@@ -192,18 +218,6 @@ if ($JAK_FILE_ERROR) { ?>
 
     textcontent1 = $("#jak_filecontent1").val();
     txtACE1.session.setValue(textcontent1);
-
-    /* Other config
-     ========================================= */
-    $(document).ready(function () {
-
-      /* Bootstrap Tab Activation */
-      $('#cmsTab a').click(function (e) {
-        e.preventDefault();
-        $(this).tab('show');
-      });
-
-    });
 
     /* Submit Form
      ========================================= */

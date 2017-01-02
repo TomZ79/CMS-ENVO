@@ -59,16 +59,24 @@ if ($errors) { ?>
     </div>
 
     <!-- Form Content -->
-    <ul class="nav nav-tabs" id="cmsTab">
-      <li class="active"><a href="#style_tabs-1"><?php echo $tl["menu"]["m2"]; ?></a></li>
-      <li><a href="#style_tabs-2"><?php echo $tl["general"]["g89"]; ?></a></li>
+    <ul id="cmsTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
+      <li role="presentation" class="active">
+        <a href="#cmsPage1" id="cmsPage1-tab" role="tab" data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
+          <span class="text"><?php echo $tl["submenu"]["sm10"]; ?></span>
+        </a>
+      </li>
+      <li role="presentation" class="next">
+        <a href="#cmsPage2" role="tab" id="cmsPage2-tab" data-toggle="tab" aria-controls="cmsPage2">
+          <span class="text"><?php echo $tl["general"]["g89"]; ?></span>
+        </a>
+      </li>
     </ul>
 
-    <div class="tab-content">
-      <div class="tab-pane active" id="style_tabs-1">
+    <div id="cmsTabContent" class="tab-content">
+      <div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
         <div class="row">
           <div class="col-md-6">
-            <div class="box box-primary">
+            <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tl["title"]["t4"]; ?></h3>
                 <div class="box-tools pull-right">
@@ -77,18 +85,20 @@ if ($errors) { ?>
                 </div>
               </div>
               <div class="box-body">
-                <table class="table table-striped">
-                  <tr>
-                    <td><?php echo $tl["page"]["p"]; ?></td>
-                    <td>
-                      <?php include_once "title_edit.php"; ?>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><?php echo $tl["page"]["p5"]; ?></td>
-                    <td><?php include_once "editorlight_edit.php"; ?></td>
-                  </tr>
-                </table>
+                <div class="block">
+                  <div class="block-content">
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tl["page"]["p"]; ?></strong></div>
+                      <div class="col-md-7">
+                        <?php include_once "title_edit.php"; ?>
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5"><strong><?php echo $tl["page"]["p5"]; ?></strong></div>
+                      <div class="col-md-7"><?php include_once "editorlight_edit.php"; ?></div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="box-footer">
                 <button type="submit" name="save" class="btn btn-primary pull-right">
@@ -99,7 +109,7 @@ if ($errors) { ?>
             </div>
           </div>
           <div class="col-md-6">
-            <div class="box box-primary">
+            <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title"><?php echo $tl["title"]["t5"]; ?></h3>
                 <div class="box-tools pull-right">
@@ -108,48 +118,50 @@ if ($errors) { ?>
                 </div>
               </div>
               <div class="box-body">
-                <table class="table table-striped v-text-center">
-                  <tr>
-                    <td><?php echo $tl["setting"]["s6"]; ?></td>
-                    <td>
-                      <div class="radio">
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_search" value="1"<?php if ($jkv["searchform"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                        </label>
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_search" value="0"<?php if ($jkv["searchform"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                        </label>
+                <div class="block">
+                  <div class="block-content">
+                    <div class="row-form">
+                      <div class="col-md-6"><strong><?php echo $tl["setting"]["s6"]; ?></strong></div>
+                      <div class="col-md-6">
+                        <div class="radio">
+                          <label class="checkbox-inline">
+                            <input type="radio" name="jak_search" value="1"<?php if ($jkv["searchform"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                          </label>
+                          <label class="checkbox-inline">
+                            <input type="radio" name="jak_search" value="0"<?php if ($jkv["searchform"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                          </label>
+                        </div>
                       </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><?php echo $tl["setting"]["s38"]; ?></td>
-                    <td>
-                      <div class="radio">
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_ajaxsearch" value="1"<?php if ($jkv["ajaxsearch"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                        </label>
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_ajaxsearch" value="0"<?php if ($jkv["ajaxsearch"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                        </label>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-6"><strong><?php echo $tl["setting"]["s38"]; ?></strong></div>
+                      <div class="col-md-6">
+                        <div class="radio">
+                          <label class="checkbox-inline">
+                            <input type="radio" name="jak_ajaxsearch" value="1"<?php if ($jkv["ajaxsearch"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                          </label>
+                          <label class="checkbox-inline">
+                            <input type="radio" name="jak_ajaxsearch" value="0"<?php if ($jkv["ajaxsearch"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                          </label>
+                        </div>
                       </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><?php echo $tl["setting"]["s37"]; ?></td>
-                    <td>
-                      <div class="radio">
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_fullsearch" value="1"<?php if ($jkv["fulltextsearch"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                        </label>
-                        <label class="checkbox-inline">
-                          <input type="radio" name="jak_fullsearch" value="0"<?php if ($jkv["fulltextsearch"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                        </label>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-6"><strong><?php echo $tl["setting"]["s37"]; ?></strong></div>
+                      <div class="col-md-6">
+                        <div class="radio">
+                          <label class="checkbox-inline">
+                            <input type="radio" name="jak_fullsearch" value="1"<?php if ($jkv["fulltextsearch"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                          </label>
+                          <label class="checkbox-inline">
+                            <input type="radio" name="jak_fullsearch" value="0"<?php if ($jkv["fulltextsearch"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                          </label>
+                        </div>
+                        <input type="hidden" name="jak_fullsearchold" value="<?php echo $jkv["fulltextsearch"]; ?>"/>
                       </div>
-                      <input type="hidden" name="jak_fullsearchold" value="<?php echo $jkv["fulltextsearch"]; ?>"/>
-                    </td>
-                  </tr>
-                </table>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="box-footer">
                 <button type="submit" name="save" class="btn btn-primary pull-right">
@@ -161,39 +173,31 @@ if ($errors) { ?>
           </div>
         </div>
       </div>
-      <div class="tab-pane" id="style_tabs-2">
-        <div class="box box-primary">
-          <div class="box-header with-border">
-            <h3 class="box-title"><?php echo $tl["general"]["g89"]; ?></h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+      <div role="tabpanel" class="tab-pane fade" id="cmsPage2" aria-labelledby="cmsPage2-tab">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="box">
+              <div class="box-header with-border">
+                <h3 class="box-title"><?php echo $tl["general"]["g89"]; ?></h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+              </div>
+              <div class="box-body">
+                <?php include 'sidebar_widget.php'; ?>
+              </div>
+              <div class="box-footer">
+                <button type="submit" name="save" class="btn btn-primary pull-right">
+                  <i class="fa fa-save margin-right-5"></i>
+                  <?php echo $tl["general"]["g20"]; ?>
+                </button>
+              </div>
             </div>
-          </div>
-          <div class="box-body">
-            <?php include 'sidebar_widget.php'; ?>
-          </div>
-          <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right">
-              <i class="fa fa-save margin-right-5"></i>
-              <?php echo $tl["general"]["g20"]; ?>
-            </button>
           </div>
         </div>
       </div>
     </div>
   </form>
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-
-      /* Bootstrap Tab Activation */
-      $('#cmsTab a').click(function (e) {
-        e.preventDefault();
-        $(this).tab('show');
-      });
-
-    });
-  </script>
 
 <?php include "footer.php"; ?>

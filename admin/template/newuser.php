@@ -45,7 +45,7 @@
     <!-- Form Content -->
     <div class="row">
       <div class="col-md-6">
-        <div class="box box-primary">
+        <div class="box">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["title"]["t9"]; ?></h3>
             <div class="box-tools pull-right">
@@ -54,58 +54,58 @@
             </div>
           </div>
           <div class="box-body">
-            <table class="table table-striped v-text-center">
-              <tr>
-                <td><?php echo $tl["user"]["u"]; ?></td>
-                <td>
-                  <div class="form-group no-margin">
-                    <input type="text" name="jak_name" class="form-control"
-                           value="<?php if (isset($_REQUEST["jak_name"])) echo $_REQUEST["jak_name"]; ?>"/>
+            <div class="block">
+              <div class="block-content">
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["user"]["u"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="form-group no-margin">
+                      <input type="text" name="jak_name" class="form-control" value="<?php if (isset($_REQUEST["jak_name"])) echo $_REQUEST["jak_name"]; ?>"/>
+                    </div>
                   </div>
-                </td>
-              </tr>
-              <tr>
-                <td><?php echo $tl["user"]["u1"]; ?></td>
-                <td>
-                  <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-                    <input type="text" name="jak_email" class="form-control"
-                           value="<?php if (isset($_REQUEST["jak_email"])) echo $_REQUEST["jak_email"]; ?>"/>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["user"]["u1"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+                      <input type="text" name="jak_email" class="form-control" value="<?php if (isset($_REQUEST["jak_email"])) echo $_REQUEST["jak_email"]; ?>"/>
+                    </div>
                   </div>
-                </td>
-              </tr>
-              <tr>
-                <td><?php echo $tl["user"]["u2"]; ?></td>
-                <td>
-                  <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-                    <input class="form-control" type="text" name="jak_username"
-                           value="<?php if (isset($_REQUEST["jak_username"])) echo $_REQUEST["jak_username"]; ?>"/>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["user"]["u2"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+                      <input class="form-control" type="text" name="jak_username" value="<?php if (isset($_REQUEST["jak_username"])) echo $_REQUEST["jak_username"]; ?>"/>
+                    </div>
                   </div>
-                </td>
-              </tr>
-              <tr>
-                <td><?php echo $tl["menu"]["m9"]; ?></td>
-                <td>
-                  <select name="jak_usergroup" class="form-control selectpicker" data-size="5">
-                    <?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
-                      if ($v["id"] != "1") { ?>
-                        <option value="<?php echo $v["id"]; ?>"<?php if (isset($_REQUEST["jak_usergroup"]) && $v["id"] == $_REQUEST["jak_usergroup"]) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php }
-                    } ?>
-                  </select></td>
-              </tr>
-              <tr>
-                <td><?php echo $tl["user"]["u3"]; ?></td>
-                <td>
-                  <div class="radio">
-                    <label class="checkbox-inline">
-                      <input type="radio" name="jak_access" value="1" checked="checked"/> <?php echo $tl["general"]["g18"]; ?>
-                    </label>
-                    <label class="checkbox-inline">
-                      <input type="radio" name="jak_access" value="0"/> <?php echo $tl["general"]["g19"]; ?>
-                    </label>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["submenu"]["sm100"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <select name="jak_usergroup" class="form-control selectpicker" data-size="5">
+                      <?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
+                        if ($v["id"] != "1") { ?>
+                          <option value="<?php echo $v["id"]; ?>"<?php if (isset($_REQUEST["jak_usergroup"]) && $v["id"] == $_REQUEST["jak_usergroup"]) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php }
+                      } ?>
+                    </select>
                   </div>
-                </td>
-              </tr>
-            </table>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["user"]["u3"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="radio">
+                      <label class="checkbox-inline">
+                        <input type="radio" name="jak_access" value="1" checked="checked"/> <?php echo $tl["general"]["g18"]; ?>
+                      </label>
+                      <label class="checkbox-inline">
+                        <input type="radio" name="jak_access" value="0"/> <?php echo $tl["general"]["g19"]; ?>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="box-footer">
             <button type="submit" name="save" class="btn btn-primary pull-right">
@@ -116,7 +116,7 @@
         </div>
       </div>
       <div class="col-md-6">
-        <div class="box box-primary">
+        <div class="box">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["title"]["t10"]; ?></h3>
             <div class="box-tools pull-right">
@@ -125,29 +125,31 @@
             </div>
           </div>
           <div class="box-body">
-            <table class="table table-striped v-text-center">
-              <tr>
-                <td><?php echo $tl["user"]["u4"]; ?></td>
-                <td>
-                  <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
-                    <div class="label-indicator-absolute">
-                      <input class="form-control" type="text" name="jak_password" value=""/>
-                      <span class="label password-indicator-label-absolute"></span>
+            <div class="block">
+              <div class="block-content">
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["user"]["u4"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
+                      <div class="label-indicator-absolute">
+                        <input class="form-control" type="text" name="jak_password" value=""/>
+                        <span class="label password-indicator-label-absolute"></span>
+                      </div>
                     </div>
                   </div>
-                </td>
-              </tr>
-              <tr>
-                <td><?php echo $tl["user"]["u5"]; ?></td>
-                <td>
-                  <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
-                    <div class="label-indicator-absolute">
-                      <input class="form-control" type="text" name="jak_confirm_password" value=""/>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["user"]["u5"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
+                      <div class="label-indicator-absolute">
+                        <input class="form-control" type="text" name="jak_confirm_password" value=""/>
+                      </div>
                     </div>
                   </div>
-                </td>
-              </tr>
-            </table>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="box-footer">
             <button type="button" class="btn btn-info generate-label-absolute">Generate 10 characters password</button>

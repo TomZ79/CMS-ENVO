@@ -323,7 +323,7 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tl["menu"]["m26"];
+        $SECTION_TITLE = $tl["submenu"]["sm130"];
         $SECTION_DESC = $tl["cform"]["c1"];
 
         // EN: Load the template

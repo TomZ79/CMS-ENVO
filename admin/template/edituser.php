@@ -62,7 +62,7 @@ if ($errors) { ?>
     <!-- Form Content -->
     <div class="row">
       <div class="col-md-6">
-        <div class="box box-primary">
+        <div class="box">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["title"]["t7"]; ?></h3>
             <div class="box-tools pull-right">
@@ -71,53 +71,51 @@ if ($errors) { ?>
             </div>
           </div>
           <div class="box-body">
-            <div class="table-responsive">
-              <table class="table table-striped v-text-center">
-                <tr>
-                  <td><?php echo $tl["user"]["u"]; ?></td>
-                  <td>
-                    <div class="form-group no-margin">
-                      <input type="text" name="jak_name" class="form-control" value="<?php echo $JAK_FORM_DATA["name"]; ?>"/>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><?php echo $tl["user"]["u1"]; ?></td>
-                  <td>
+            <div class="block">
+              <div class="block-content">
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["user"]["u"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <input type="text" name="jak_name" class="form-control" value="<?php echo $JAK_FORM_DATA["name"]; ?>"/>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["user"]["u1"]; ?></strong></div>
+                  <div class="col-md-7">
                     <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
                       <input type="text" name="jak_email" class="form-control" value="<?php echo $JAK_FORM_DATA["email"]; ?>"/>
                     </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><?php echo $tl["user"]["u2"]; ?></td>
-                  <td>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["user"]["u2"]; ?></strong></div>
+                  <div class="col-md-7">
                     <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
                       <input class="form-control" type="text" name="jak_username" value="<?php echo $JAK_FORM_DATA["username"]; ?>"/>
                       <input type="hidden" name="jak_username_old" value="<?php echo $JAK_FORM_DATA["username"]; ?>"/>
                     </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><?php echo $tl["menu"]["m9"]; ?></td>
-                  <td>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["submenu"]["sm100"]; ?></strong></div>
+                  <div class="col-md-7">
                     <select name="jak_usergroup" class="form-control selectpicker" data-size="5">
                       <?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
                         if ($v["id"] != "1") { ?>
                           <option value="<?php echo $v["id"]; ?>"<?php if ($v["id"] == $JAK_FORM_DATA["usergroupid"]) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php }
                       } ?>
                     </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td><?php echo $tl["user"]["u8"]; ?></td>
-                  <td>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["user"]["u8"]; ?></strong></div>
+                  <div class="col-md-7">
                     <input type="text" name="jak_backtime" id="datepicker" class="form-control" value="<?php echo $JAK_FORM_DATA["backtime"]; ?>" readonly />
-                  </td>
-                </tr>
-                <tr>
-                  <td><?php echo $tl["user"]["u7"]; ?></td>
-                  <td>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["user"]["u7"]; ?></strong></div>
+                  <div class="col-md-7">
                     <select name="jak_usergroupback" class="form-control selectpicker" data-size="5">
                       <option value="0"><?php echo $tl["general"]["g99"]; ?></option>
                       <?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
@@ -125,11 +123,11 @@ if ($errors) { ?>
                           <option value="<?php echo $v["id"]; ?>"<?php if ($v["id"] == $JAK_FORM_DATA["backtogroup"]) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php }
                       } ?>
                     </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td><?php echo $tl["user"]["u3"]; ?></td>
-                  <td>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["user"]["u3"]; ?></strong></div>
+                  <div class="col-md-7">
                     <div class="radio">
                       <label class="checkbox-inline">
                         <input type="radio" name="jak_access" value="1"<?php if ($JAK_FORM_DATA["access"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
@@ -138,33 +136,33 @@ if ($errors) { ?>
                         <input type="radio" name="jak_access" value="0"<?php if ($JAK_FORM_DATA["access"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
                       </label>
                     </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><?php echo $tl["user"]["u10"]; ?></td>
-                  <td>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["user"]["u10"]; ?></strong></div>
+                  <div class="col-md-7">
                     <div class="fileinput fileinput-new" data-provides="fileinput">
                       <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">
                         <img src="<?php echo BASE_URL_ORIG . basename(JAK_FILES_DIRECTORY) . '/userfiles/' . $JAK_FORM_DATA["picture"]; ?>" alt="avatar" class="img-polaroid"/>
                       </div>
                       <div>
-                    <span class="btn btn-default btn-file">
-                      <span class="fileinput-new"><?php echo $tl["general"]["g132"]; ?></span>
-                      <span class="fileinput-exists"><?php echo $tl["general"]["g131"]; ?></span>
-                      <input type="file" name="uploadpp" accept="image/*">
-                    </span>
+                        <span class="btn btn-default btn-file">
+                          <span class="fileinput-new"><?php echo $tl["general"]["g132"]; ?></span>
+                          <span class="fileinput-exists"><?php echo $tl["general"]["g131"]; ?></span>
+                          <input type="file" name="uploadpp" accept="image/*">
+                        </span>
                         <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput"><?php echo $tl["general"]["g130"]; ?></a>
                       </div>
                     </div>
-                  </td>
-                </tr>
+                  </div>
+                </div>
                 <?php if ($JAK_FORM_DATA["picture"] != "/standard.png") { ?>
-                  <tr>
-                    <td><?php echo $tl["user"]["u46"]; ?></td>
-                    <td><input type="checkbox" name="jak_delete_avatar"/></td>
-                  </tr>
+                  <div class="row-form">
+                    <div class="col-md-5"><strong><?php echo $tl["user"]["u46"]; ?></strong></div>
+                    <div class="col-md-7"><input type="checkbox" name="jak_delete_avatar"/></div>
+                  </div>
                 <?php } ?>
-              </table>
+              </div>
             </div>
           </div>
           <div class="box-footer">
@@ -176,7 +174,7 @@ if ($errors) { ?>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="box box-primary">
+        <div class="box">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["title"]["t8"]; ?></h3>
             <div class="box-tools pull-right">
@@ -185,29 +183,31 @@ if ($errors) { ?>
             </div>
           </div>
           <div class="box-body">
-            <table class="table table-striped v-text-center">
-              <tr>
-                <td><?php echo $tl["user"]["u4"]; ?></td>
-                <td>
-                  <div class="form-group no-margin<?php if (isset($errors["e5"]) || isset($errors["e6"])) echo " has-error"; ?>">
-                    <div class="label-indicator-absolute">
-                      <input class="form-control" type="text" name="jak_password" value=""/>
-                      <span class="label password-indicator-label-absolute"></span>
+            <div class="block">
+              <div class="block-content">
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["user"]["u4"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="form-group no-margin<?php if (isset($errors["e5"]) || isset($errors["e6"])) echo " has-error"; ?>">
+                      <div class="label-indicator-absolute">
+                        <input class="form-control" type="text" name="jak_password" value=""/>
+                        <span class="label password-indicator-label-absolute"></span>
+                      </div>
                     </div>
                   </div>
-                </td>
-              </tr>
-              <tr>
-                <td><?php echo $tl["user"]["u5"]; ?></td>
-                <td>
-                  <div class="form-group no-margin<?php if (isset($errors["e5"]) || isset($errors["e6"])) echo " has-error"; ?>">
-                    <div class="label-indicator-absolute">
-                      <input class="form-control" type="text" name="jak_confirm_password" value=""/>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["user"]["u5"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="form-group no-margin<?php if (isset($errors["e5"]) || isset($errors["e6"])) echo " has-error"; ?>">
+                      <div class="label-indicator-absolute">
+                        <input class="form-control" type="text" name="jak_confirm_password" value=""/>
+                      </div>
                     </div>
                   </div>
-                </td>
-              </tr>
-            </table>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="box-footer">
             <button type="button" class="btn btn-info generate-label-absolute">Generate 10 characters password</button>
@@ -221,7 +221,7 @@ if ($errors) { ?>
           include_once APP_PATH . $hsue['phpcode'];
         }
         if ($extrafields) { ?>
-          <div class="box box-primary">
+          <div class="box">
             <div class="box-header with-border">
               <h3 class="box-title"><?php echo $tl["general"]["g114"]; ?></h3>
               <div class="box-tools pull-right">
@@ -230,9 +230,13 @@ if ($errors) { ?>
               </div>
             </div>
             <div class="box-body">
-              <table class="table table-striped v-text-center">
-                <?php echo $extrafields; ?>
-              </table>
+              <div class="block">
+                <div class="block-content">
+                  <div class="row-form">
+                    <?php echo $extrafields; ?>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="box-footer">
               <button type="submit" name="save" class="btn btn-primary pull-right">

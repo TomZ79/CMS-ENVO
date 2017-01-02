@@ -34,7 +34,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
   <div class="btn-toolbar margin-bottom">
     <div class="btn-group">
 
-      <button class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#" style="width: 100px;"><?php echo $tl["menu"]["m27"]; ?>
+      <button class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#" style="width: 100px;"><?php echo $tl["button"]["btn4"]; ?>
         <span class="caret"></span>
       </button>
       <div class="dropdown-menu livefilter">
@@ -48,7 +48,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
             <?php } ?>
           </ul>
           <div class="no-search-results">
-            <div class="no-results" role="alert">No entry was found.</div>
+            <div class="no-results" role="alert"><?php echo $tl["selection"]["sel6"]; ?></div>
           </div>
         </div>
       </div>
@@ -67,9 +67,9 @@ if ($page2 == "e" || $page2 == "edn") { ?>
             <div class="text">#<?php echo $v["id"]; ?> <a
                 href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
             </div>
-            <div class="show"><?php echo $tl["hook"]["h1"]; ?>: <a
+            <div class="show"><?php echo $tl["hook_box_content"]["hookbc1"]; ?>: <a
                 href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["hook_name"]; ?>"><?php echo $v["hook_name"]; ?></a>
-              | <?php echo $tl["tag"]["t1"] . ':';
+              | <?php echo $tl["hook_box_content"]["hookbc4"] . ':';
               if ($v["pluginid"] != '0') { ?> <a
                 href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["pluginid"]; ?>"><?php echo $v["pluginname"]; ?></a><?php } else {
                 echo ' -';
@@ -83,7 +83,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
                 <i class="fa fa-edit"></i>
               </a>
               <?php if ($v["id"] > 5) { ?>
-              <a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=hooks&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>"  data-confirm="<?php echo $tl["hook"]["al"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+              <a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=hooks&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>"  data-confirm="<?php echo sprintf($tl["hook_notification"]["del"], $v["name"]); ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                   <i class="fa fa-trash-o"></i>
                 </a>
               <?php } ?>
