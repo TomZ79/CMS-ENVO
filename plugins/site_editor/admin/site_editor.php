@@ -31,7 +31,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'form1') {
 
     // EN: Redirect page
     // CZ: Přesměrování stránky
-    jak_redirect(BASE_URL . 'index.php?p=site_editor');
+    jak_redirect(BASE_URL . 'index.php?p=site-editor');
 
   }
 

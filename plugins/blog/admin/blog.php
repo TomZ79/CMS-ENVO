@@ -213,8 +213,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tlblog["blog"]["m2"];
-    $SECTION_DESC = $tlblog["blog"]["t1"];
+    $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt1"];
+    $SECTION_DESC = $tlblog["blog_sec_desc"]["blogd1"];
 
     // EN: Load the template
     // CZ: Načti template (šablonu)
@@ -337,8 +337,8 @@ switch ($page1) {
 
           // EN: Title and Description
           // CZ: Titulek a Popis
-          $SECTION_TITLE = $tl["submenu"]["sm112"];
-          $SECTION_DESC = $tl["cmdesc"]["d6"];
+          $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt5"];
+          $SECTION_DESC = $tlblog["blog_sec_desc"]["blogd5"];
 
           // EN: Load the template
           // CZ: Načti template (šablonu)
@@ -416,8 +416,8 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlblog["blog"]["m"] . ' - ' . '';
-        $SECTION_DESC = "";
+        $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt4"];
+        $SECTION_DESC = $tlblog["blog_sec_desc"]["blogd4"];
 
         // EN: Load the template
         // CZ: Načti template (šablonu)
@@ -495,8 +495,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["submenu"]["sm111"];
-    $SECTION_DESC = $tl["cmdesc"]["d8"];
+    $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt6"];
+    $SECTION_DESC = $tlblog["blog_sec_desc"]["blogd6"];
 
     // EN: Load the template
     // CZ: Načti template (šablonu)
@@ -580,8 +580,8 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlblog["blog"]["d20"];
-        $SECTION_DESC = $tlblog["blog"]["t2"];
+        $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt7"];
+        $SECTION_DESC = $tlblog["blog_sec_desc"]["blogd7"];
 
         // EN: Load the template
         // CZ: Načti template (šablonu)
@@ -613,8 +613,8 @@ switch ($page1) {
 
           // EN: Title and Description
           // CZ: Titulek a Popis
-          $SECTION_TITLE = $tlblog["blog"]["d20"];
-          $SECTION_DESC = $tlblog["blog"]["t2"];
+          $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt7"];
+          $SECTION_DESC = $tlblog["blog_sec_desc"]["blogd7"];
 
           // EN: Load the template
           // CZ: Načti template (šablonu)
@@ -674,8 +674,8 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlblog["blog"]["d19"];
-        $SECTION_DESC = $tlblog["blog"]["t2"];
+        $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt8"];
+        $SECTION_DESC = $tlblog["blog_sec_desc"]["blogd8"];
 
         // EN: Load the template
         // CZ: Načti template (šablonu)
@@ -868,8 +868,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tlblog["blog"]["m"] . ' - ' . $tl["submenu"]["sm10"];
-    $SECTION_DESC = $tl["cmdesc"]["d2"];
+    $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt9"];
+    $SECTION_DESC = $tlblog["blog_sec_desc"]["blogd9"];
 
     // EN: Load the template
     // CZ: Načti template (šablonu)
@@ -932,8 +932,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tlblog["blog"]["d18"];
-    $SECTION_DESC = $tlblog["blog"]["t2"];
+    $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt10"];
+    $SECTION_DESC = $tlblog["blog_sec_desc"]["blogd10"];
 
     // EN: Load the template
     // CZ: Načti template (šablonu)
@@ -1016,8 +1016,8 @@ switch ($page1) {
 
           // EN: Title and Description
           // CZ: Titulek a Popis
-          $SECTION_TITLE = $tlblog["blog"]["m1"];
-          $SECTION_DESC = $tlblog["blog"]["t"];
+          $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt2"];
+          $SECTION_DESC = $tlblog["blog_sec_desc"]["blogd2"];
 
           // EN: Load the template
           // CZ: Načti template (šablonu)
@@ -1399,8 +1399,8 @@ switch ($page1) {
 
           // EN: Title and Description
           // CZ: Titulek a Popis
-          $SECTION_TITLE = $tlblog["blog"]["m3"];
-          $SECTION_DESC = $tlblog["blog"]["t3"];
+          $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt3"];
+          $SECTION_DESC = $tlblog["blog_sec_desc"]["blogd3"];
 
           // EN: Load the template
           // CZ: Načti template (šablonu)
@@ -1437,8 +1437,8 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlblog["blog"]["m1"];
-        $SECTION_DESC = $tlblog["blog"]["t"];
+        $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt11"];
+        $SECTION_DESC = $tlblog["blog_sec_desc"]["blogd11"];
 
         // EN: Load the template
         // CZ: Načti template (šablonu)
@@ -1573,8 +1573,8 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlblog["blog"]["m1"];
-        $SECTION_DESC = $tlblog["blog"]["t"];
+        $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt"];
+        $SECTION_DESC = $tlblog["blog_sec_desc"]["blogd"];
 
         // EN: Load the template
         // CZ: Načti template (šablonu)

@@ -41,7 +41,7 @@
     </div>
 
     <!-- Form Content -->
-    <ul id="cmsTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
+    <ul id="cmsTab" class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
       <li role="presentation" class="active">
         <a href="#cmsPage1" id="cmsPage1-tab" role="tab" data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
           <span class="text">XXXXXX</span>
@@ -179,52 +179,5 @@
       </div>
     </div>
   </form>
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-
-      $('.nlprev').on('click', function (e) {
-        e.preventDefault();
-        frameSrc = $(this).attr("href");
-        $('#JAKModalLabel').html("FileManager");
-        $('#JAKModal').on('show.bs.modal', function () {
-          $('#JAKModal .modal-body').html('<iframe src="' + frameSrc + '" width="100%" height="400" frameborder="0">');
-        });
-        $('#JAKModal').on('hidden.bs.modal', function () {
-          $('#JAKModal .modal-body').html("");
-        });
-        $('#JAKModal').modal({show: true});
-      });
-
-      $(".nlTheme").click(function () {
-
-        if (!confirm('<?php echo $tlnl["nletter"]["skin"];?>')) return false;
-
-        $.ajax({
-          type: "POST",
-          url: '../plugins/newsletter/admin/ajax/loadskin.php',
-          data: "skinUrl=" + $(this).attr("id"),
-          dataType: 'json',
-          beforeSend: function (x) {
-            $('#loader').show();
-          },
-          success: function (msg) {
-
-            $('#loader').hide();
-
-            if (parseInt(msg.status) != 1) {
-              return false;
-
-            } else {
-
-              tinymce.activeEditor.insertContent(msg.rcontent);
-            }
-
-          }
-        });
-
-      });
-    });
-  </script>
 
 <?php include_once APP_PATH . 'admin/template/footer.php'; ?>

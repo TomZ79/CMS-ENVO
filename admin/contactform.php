@@ -83,8 +83,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["cform"]["c"];
-    $SECTION_DESC = $tl["cform"]["c4"];
+    $SECTION_TITLE = $tl["cf_sec_title"]["cft1"];
+    $SECTION_DESC = $tl["cf_sec_desc"]["cfd1"];
 
     // EN: Load the template
     // CZ: Načti template (šablonu)
@@ -290,8 +290,8 @@ switch ($page1) {
 
           // EN: Title and Description
           // CZ: Titulek a Popis
-          $SECTION_TITLE = $tl["cform"]["c15"];
-          $SECTION_DESC = $tl["cform"]["c22"];
+          $SECTION_TITLE = $tl["cf_sec_title"]["cft2"];
+          $SECTION_DESC = $tl["cf_sec_desc"]["cfd2"];
 
           // EN: Load the template
           // CZ: Načti template (šablonu)
@@ -312,7 +312,7 @@ switch ($page1) {
           $pages->items_total = $getTotal;
           $pages->mid_range = $jkv["adminpagemid"];
           $pages->items_per_page = $jkv["adminpageitem"];
-          $pages->jak_get_page = $page1;
+          $pages->jak_get_page = $pajs-live-chat-boardge1;
           $pages->jak_where = 'index.php?p=page';
           $pages->paginate();
           $JAK_PAGINATE = $pages->display_pages();
@@ -323,8 +323,8 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tl["submenu"]["sm130"];
-        $SECTION_DESC = $tl["cform"]["c1"];
+        $SECTION_TITLE = $tl["cf_sec_title"]["cft"];
+        $SECTION_DESC = $tl["cf_sec_desc"]["cfd"];
 
         // EN: Load the template
         // CZ: Načti template (šablonu)

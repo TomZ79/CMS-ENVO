@@ -53,9 +53,13 @@ if ($page2 == "e" || $page2 == "ene") { ?>
     <?php if ($JAK_TAGCLOUD) {
       echo $JAK_TAGCLOUD;
     } else { ?>
-      <div class="alert bg-info">
-        <?php echo $tl["errorpage"]["data"]; ?>
+
+      <div class="col-md-12">
+        <div class="alert bg-info text-white">
+          <?php echo $tl["errorpage"]["data"]; ?>
+        </div>
       </div>
+
     <?php } ?>
   </form>
 

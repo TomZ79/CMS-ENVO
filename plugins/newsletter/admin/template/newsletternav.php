@@ -1,61 +1,76 @@
-<li class="treeview<?php if ($page == 'newsletter') echo ' active'; ?>">
-  <a href="javascript:void(0)">
-    <i class="fa fa-envelope-o"></i>
-    <span><?php echo $tlnl["nletter"]["m"]; ?></span>
-    <i class="fa fa-angle-left pull-right"></i>
+<!-- START NEWSLETTER SECTION -->
+<li class="">
+  <a href="javascript:;">
+    <span class="title"><?php echo $tlnl["nletter"]["m"]; ?></span>
+    <span class="arrow"></span>
   </a>
+  <span class="icon-thumbnail <?php if ($page == 'newsletter') echo 'bg-success'; ?>"><i class="pg-mail"></i></span>
 
-  <ul class="treeview-menu">
-
-    <li<?php if ($page == 'newsletter') echo ' class="active"'; ?>>
-      <a href="index.php?p=newsletter">
-        <i class="fa fa-circle-o"></i> <?php echo $tlnl["nletter"]["m1"]; ?>
+  <ul class="sub-menu">
+    <li class="">
+      <a href="index.php?p=faq">
+        <?php echo $tlf["faq"]["m1"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tlf["faq"]["m1"]); ?></span>
     </li>
-    <li<?php if ($page == 'newsletter' && $page1 == 'new') echo ' class="active"'; ?>>
-      <a href="index.php?p=newsletter&amp;sp=new">
-        <i class="fa fa-circle-o"></i> <?php echo $tlnl["nletter"]["m2"]; ?>
+
+
+    <li class="">
+      <a href="index.php?p=newsletter">
+        <?php echo $tlnl["nletter"]["m1"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tlnl["nletter"]["m1"]); ?></span>
+    </li>
+    <li class="">
+      <a href="index.php?p=newsletter&amp;sp=new">
+        <?php echo $tlnl["nletter"]["m2"]; ?>
+      </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tlnl["nletter"]["m2"]); ?></span>
     </li>
     <?php if ($page == 'newsletter' && $page1 == 'edit') { ?>
-      <li class="active">
+      <li class="">
         <a href="index.php?p=newsletter&amp;sp=edit&amp;ssp=<?php echo $page2; ?>">
-          <i class="fa fa-circle-o"></i> <?php echo $tlnl["nletter"]["m3"]; ?>
+          <?php echo $tlnl["nletter"]["m3"]; ?>
         </a>
+        <span class="icon-thumbnail"><?php echo text_clipping_lower($tlnl["nletter"]["m3"]); ?></span>
       </li>
     <?php } ?>
     <li class="list-divider"></li>
 
-    <li<?php if ($page == 'newsletter' && $page1 == 'user') echo ' class="active"'; ?>>
+    <li class="">
       <a href="index.php?p=newsletter&amp;sp=user">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["menu"]["m3"]; ?>
+        <?php echo $tl["menu"]["m3"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tl["menu"]["m3"]); ?></span>
     </li>
-    <li<?php if ($page == 'newsletter' && $page2 == 'newuser') echo ' class="active"'; ?>>
+    <li class="">
       <a href="index.php?p=newsletter&amp;sp=user&amp;ssp=newuser">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["cmenu"]["c2"]; ?>
+        <?php echo $tl["cmenu"]["c2"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tl["cmenu"]["c2"]); ?></span>
     </li>
     <li class="list-divider"></li>
 
-    <li<?php if ($page == 'newsletter' && $page1 == 'usergroup') echo ' class="active"'; ?>>
+    <li class="">
       <a href="index.php?p=newsletter&amp;sp=usergroup">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["submenu"]["sm100"]; ?>
+        <?php echo $tl["submenu"]["sm100"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tl["submenu"]["sm100"]); ?></span>
     </li>
-    <li<?php if ($page == 'newsletter' && $page1 == 'usergroup' && $page2 == 'new') echo ' class="active"'; ?>>
+    <li class="">
       <a href="index.php?p=newsletter&amp;sp=usergroup&amp;ssp=new">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["submenu"]["sm101"]; ?>
+        <?php echo $tl["submenu"]["sm101"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tl["submenu"]["sm101"]); ?></span>
     </li>
     <li class="list-divider"></li>
 
-    <li<?php if ($page == 'newsletter' && $page1 == 'settings') echo ' class="active"'; ?>>
+    <li class="">
       <a href="index.php?p=newsletter&amp;sp=settings">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["submenu"]["sm10"]; ?>
+        <?php echo $tl["submenu"]["sm10"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tl["submenu"]["sm10"]); ?></span>
     </li>
-
   </ul>
-
 </li>
+<!-- END NEWSLETTER SECTION -->

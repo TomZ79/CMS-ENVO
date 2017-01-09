@@ -81,8 +81,10 @@
 
 <?php } else { ?>
 
-  <div class="alert bg-info">
-    <?php echo $tl["errorpage"]["data"]; ?>
+  <div class="col-md-12">
+    <div class="alert bg-info text-white">
+      <?php echo $tl["errorpage"]["data"]; ?>
+    </div>
   </div>
 
 <?php } ?>
@@ -97,29 +99,5 @@
 <?php if ($JAK_PAGINATE) {
   echo $JAK_PAGINATE;
 } ?>
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-
-      /* Check all checkbox */
-      $("#jak_delete_all").click(function () {
-        var checked_status = this.checked;
-        $(".highlight").each(function () {
-          this.checked = checked_status;
-        });
-      });
-
-      /* Disable submit button if checkbox is not checked */
-      var the_terms = $('.highlight');
-      the_terms.click(function() {
-        if ($(this).is(":checked")) {
-          $("#button_delete").removeAttr("disabled");
-        } else {
-          $("#button_delete").attr("disabled", "disabled");
-        }
-      });
-
-    });
-  </script>
 
 <?php include_once APP_PATH . 'admin/template/footer.php'; ?>

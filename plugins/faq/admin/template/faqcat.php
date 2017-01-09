@@ -79,9 +79,11 @@
 
 <?php } else { ?>
 
-  <div class="alert bg-info">
-    <?php echo $tl["errorpage"]["data"]; ?>
-  </div>
+	<div class="col-md-12">
+		<div class="alert bg-info text-white">
+			<?php echo $tl["errorpage"]["data"]; ?>
+		</div>
+	</div>
 
 <?php } ?>
 
@@ -93,37 +95,5 @@
     <i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>
     <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
   </div>
-
-  <script type="text/javascript" src="js/catorder.js"></script>
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-      $(".sortable").nestedSortable({maxLevels: 2});
-
-      $(".save-menu-plugin").on("click", function () {
-        mlist = $(this).data("menu");
-        serialized = $("#" + mlist).nestedSortable("serialize");
-
-        /* Sending the form fileds to any post request: */
-        var request = $.ajax({
-          url: "index.php?p=faq&amp;sp=categories",
-          type: "POST",
-          data: serialized,
-          dataType: "json",
-          cache: false
-        });
-        request.done(function (data) {
-          if (data.status == 1) {
-            $("#" + mlist + " li").animate({backgroundColor: '#c9ffc9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
-            $.notify({icon: 'fa fa-check-square-o', message: data.html}, {type: 'success'});
-          } else {
-            $("#" + mlist + " li").animate({backgroundColor: '#ffc9c9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
-            $.notify({icon: 'fa fa-exclamation-triangle', message: data.html}, {type: 'danger'});
-          }
-        });
-      });
-
-    });
-  </script>
 
 <?php include_once APP_PATH . 'admin/template/footer.php'; ?>

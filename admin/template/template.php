@@ -1,5 +1,5 @@
 <?php include "header.php"; ?>
-
+ 
 <?php if ($page1 == "s") { ?>
   <script type="text/javascript">
     // Notification
@@ -160,55 +160,5 @@ if ($page1 == "e") { ?>
       <?php } ?>
     </div>
   </form>
-
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-
-      $('.tempSett').on('click', function (e) {
-        e.preventDefault();
-        frameSrc = $(this).attr("href");
-        $('#JAKModalLabel').html("<?php echo ucwords($page);?>");
-        $('#JAKModal').on('show.bs.modal', function () {
-          $('<iframe src="' + frameSrc + '" width="100%" height="400px" frameborder="0">').appendTo('.modal-body');
-        });
-        $('#JAKModal').on('hidden.bs.modal', function () {
-          window.location.reload();
-        });
-        $('#JAKModal').modal({show: true});
-      });
-
-      $('.tempInst').on('click', function (e) {
-        e.preventDefault();
-        frameSrc = $(this).attr("href");
-        $('#JAKModalLabel').html("<?php echo ucwords($page);?>");
-        $('#JAKModal').on('show.bs.modal', function () {
-          $('<iframe src="' + frameSrc + '" width="100%" height="100%" frameborder="0">').appendTo('.modal-body');
-        });
-        $('#JAKModal').on('hidden.bs.modal', function () {
-          window.location.reload();
-        });
-        $('#JAKModal').modal({show: true});
-      });
-
-      $('.tempHelp').on('click', function (e) {
-        e.preventDefault();
-        frameSrc = $(this).attr("href");
-        $('#JAKModalLabel').html("<?php echo ucwords($page);?>");
-        $('#JAKModal').on('show.bs.modal', function () {
-          $('#JAKModal .modal-lg').css("width", "90%");
-          $('<iframe src="' + frameSrc + '" width="100%" height="400px" frameborder="0">').appendTo('.modal-body');
-        });
-        $('#JAKModal').on('hidden.bs.modal', function () {
-          window.location.reload();
-        });
-        $('#JAKModal').modal({show: true});
-      });
-
-      $('.disabled').click(function(e){
-        e.preventDefault();
-      })
-    });
-  </script>
 
 <?php include "footer.php"; ?>

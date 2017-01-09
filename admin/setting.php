@@ -218,8 +218,8 @@ $lang_files = jak_get_lang_files(false);
 
 // EN: Title and Description
 // CZ: Titulek a Popis
-$SECTION_TITLE = $tl["sec_title"]["sect5"];
-$SECTION_DESC = $tl["sec_desc"]["secd5"];
+$SECTION_TITLE = $tl["gs_sec_title"]["gst"];
+$SECTION_DESC = $tl["gs_sec_desc"]["gsd"];
 
 // EN: Load the template
 // CZ: Načti template (šablonu)

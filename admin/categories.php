@@ -96,8 +96,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["submenu"]["sm111"];
-    $SECTION_DESC = $tl["cmdesc"]["d8"];
+    $SECTION_TITLE = $tl["cat_sec_title"]["catt1"];
+    $SECTION_DESC = $tl["cat_sec_desc"]["catd1"];
 
     // EN: Load the template
     // CZ: Načti template (šablonu)
@@ -235,8 +235,8 @@ switch ($page1) {
 
           // EN: Title and Description
           // CZ: Titulek a Popis
-          $SECTION_TITLE = $tl["submenu"]["sm112"];
-          $SECTION_DESC = $tl["cmdesc"]["d6"];
+          $SECTION_TITLE = $tl["cat_sec_title"]["catt2"];
+          $SECTION_DESC = $tl["cat_sec_desc"]["catd2"];
 
           // EN: Load the template
           // CZ: Načti template (šablonu)
@@ -352,7 +352,7 @@ switch ($page1) {
 						' . ($catblank["exturl"] != '' ? '<i class="fa fa-link"></i>' : '') . '
 						
 						<a class="btn btn-default btn-xs" href="index.php?p=categories&amp;sp=edit&amp;ssp=' . $catblank["id"] . '" data-toggle="tooltip" data-placement="bottom" title="' . $tl["icons"]["i2"] . '"><i class="fa fa-edit"></i></a>
-						' . ($catblank["pluginid"] == 0 && $catblank["id"] != 1 ? '<a class="btn btn-danger btn-xs" href="index.php?p=categories&amp;sp=delete&amp;ssp=' . $catblank["id"] . '" data-confirm="' . $tl["cat"]["del"] . '" data-toggle="tooltip" data-placement="bottom" title="' . $tl["icons"]["i1"] . '"><i class="fa fa-trash-o"></i></a>' : '') . '
+						' . ($catblank["pluginid"] == 0 && $catblank["id"] != 1 ? '<a class="btn btn-danger btn-xs" href="index.php?p=categories&amp;sp=delete&amp;ssp=' . $catblank["id"] . '" data-confirm="' . $tl["cat_notification"]["del"] . '" data-toggle="tooltip" data-placement="bottom" title="' . $tl["icons"]["i1"] . '"><i class="fa fa-trash-o"></i></a>' : '') . '
 					</div></div></li>';
 
         }
@@ -365,8 +365,8 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tl["submenu"]["sm110"];
-        $SECTION_DESC = $tl["cmdesc"]["d5"];
+        $SECTION_TITLE = $tl["cat_sec_title"]["catt"];
+        $SECTION_DESC = $tl["cat_sec_desc"]["catd"];
 
         // EN: Load the template
         // CZ: Načti template (šablonu)

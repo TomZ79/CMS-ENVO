@@ -21,7 +21,7 @@ $serverinfo = (ini_get('file_uploads') == 0 OR strtolower(ini_get('file_uploads'
 $memorylimit = ini_get('memory_limit').'B';
 $postmax = ini_get('upload_max_filesize').'B';
 
-$mysqlversion = mysqli_get_client_info();
+$mysqlversion = jak_cut_text(mysqli_get_client_info(), 19, '...');
 
 $phpversion = PHP_VERSION;
 

@@ -34,14 +34,10 @@ if ($page1 == "e") { ?>
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="row">
       <div class="col-md-12">
-        <div class="box">
+        <div class="box box-success">
           <div class="box-header with-border">
             <i class="fa fa-plug"></i>
             <h3 class="box-title"><?php echo $tl["plug_box_title"]["plugbt"]; ?></h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
           </div>
           <div class="box-body">
             <ul class="jak_plugins_move">
@@ -115,7 +111,7 @@ if ($page1 == "e") { ?>
                 </li>
 
                 <?php
-// Get the installed plugin in a array
+                // Get the installed plugin in a array
                 $installedp[] = strtolower($v["pluginpath"]);
               } ?>
             </ul>
@@ -130,10 +126,6 @@ if ($page1 == "e") { ?>
                   <h3 class="box-title">
                     <?php echo str_replace('_', ' ', ucfirst($p)); ?>
                   </h3>
-                  <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
                 </div>
                 <div class="box-body">
                   <div class="block">
@@ -164,13 +156,9 @@ if ($page1 == "e") { ?>
             <?php }
           } ?>
 
-        <div class="box">
+        <div class="box box-success">
             <div class="box-header with-border">
               <h3 class="box-title"><?php echo $tl["plug_box_title"]["plugbt1"]; ?></h3>
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
             </div>
             <div class="box-body">
               <div class="block">
@@ -191,7 +179,7 @@ if ($page1 == "e") { ?>
               </div>
             </div>
             <div class="box-footer">
-              <button type="submit" name="save" class="btn btn-primary pull-right">
+              <button type="submit" name="save" class="btn btn-success pull-right">
                 <i class="fa fa-save margin-right-5"></i>
                 <?php echo $tl["button"]["btn1"]; ?>
               </button>
@@ -201,47 +189,15 @@ if ($page1 == "e") { ?>
     </div>
   </form>
 
-  <div class="icon_legend">
-    <h3><?php echo $tl["icons"]["i"]; ?></h3>
-    <i title="<?php echo $tl["icons"]["i12"]; ?>" class="fa fa-clock-o"></i>
-    <i title="<?php echo $tl["icons"]["i13"]; ?>" class="fa fa-flag"></i>
-    <i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
-    <i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
-    <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+  <div class="col-md-12">
+    <div class="icon_legend">
+      <h3><?php echo $tl["icons"]["i"]; ?></h3>
+      <i title="<?php echo $tl["icons"]["i12"]; ?>" class="fa fa-clock-o"></i>
+      <i title="<?php echo $tl["icons"]["i13"]; ?>" class="fa fa-flag"></i>
+      <i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
+      <i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
+      <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+    </div>
   </div>
-
-  <script src="js/pluginorder.js" type="text/javascript"></script>
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-      $('.plugInst').on('click', function (e) {
-        e.preventDefault();
-        frameSrc = $(this).attr("href");
-        $('#JAKModalLabel').html("<?php echo ucwords($page);?>");
-        $('#JAKModal').on('show.bs.modal', function () {
-          $('<iframe src="' + frameSrc + '" width="100%" height="400" frameborder="0">').appendTo('.modal-body');
-        });
-        $('#JAKModal').on('hidden.bs.modal', function () {
-          $(this).removeData();
-          window.location.reload();
-        });
-        $('#JAKModal').modal({show: true});
-      });
-
-      $('.plugHelp').on('click', function (e) {
-        e.preventDefault();
-        frameSrc = $(this).attr("href");
-        $('#JAKModalLabel').html("<?php echo ucwords($page);?>");
-        $('#JAKModal').on('show.bs.modal', function () {
-          $('<iframe src="' + frameSrc + '" width="100%" height="400" frameborder="0">').appendTo('.modal-body');
-        });
-        $('#JAKModal').on('hidden.bs.modal', function () {
-          $(this).removeData();
-          window.location.reload();
-        });
-        $('#JAKModal').modal({show: true});
-      });
-    });
-  </script>
 
 <?php include "footer.php"; ?>

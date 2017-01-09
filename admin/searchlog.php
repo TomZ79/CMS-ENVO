@@ -105,8 +105,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["sec_title"]["sect3"];
-    $SECTION_DESC = $tl["sec_desc"]["secd3"];
+    $SECTION_TITLE = $tl["slogs_sec_title"]["slogst"];
+    $SECTION_DESC = $tl["slogs_sec_desc"]["slogsd"];
 
     // EN: Load the template
     // CZ: Načti template (šablonu)

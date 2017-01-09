@@ -53,11 +53,11 @@ if ($errors) { ?>
     <table class="table table-striped">
       <thead>
       <tr>
-        <th colspan="2"><?php echo $tl["title"]["t13"]; ?></th>
+        <th colspan="2"><?php echo $tl["global_text"]["globaltxt15"]; ?></th>
       </tr>
       </thead>
       <tr>
-        <td><?php echo $tl["page"]["p"]; ?></td>
+        <td><?php echo $tl["global_text"]["globaltxt16"]; ?></td>
         <td>
           <?php include_once "title_edit.php"; ?>
         </td>
@@ -68,9 +68,9 @@ if ($errors) { ?>
 
     <hr>
 
-    <button type="submit" name="save" class="btn btn-primary pull-right">
+    <button type="submit" name="save" class="btn btn-success pull-right">
       <i class="fa fa-save margin-right-5"></i>
-      <?php echo $tl["general"]["g20"]; ?>
+      <?php echo $tl["button"]["btn1"]; ?>
     </button>
 
   </form>

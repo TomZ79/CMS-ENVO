@@ -1,20 +1,23 @@
 <!-- START URLMAPPING SECTION -->
 <li class="list-divider"></li>
-<li<?php if ($page == 'urlmapping') { ?> class="active"<?php } ?>>
+<li class="">
   <a href="index.php?p=urlmapping">
-    <i class="fa fa-circle-o"></i> <?php echo $tlum["urlmap_menu"]["urlmm"]; ?>
+    <?php echo $tlum["urlmap_menu"]["urlmm"]; ?>
   </a>
+  <span class="icon-thumbnail"><?php echo text_clipping_lower($tlum["urlmap_menu"]["urlmm"]); ?></span>
 </li>
-<li<?php if ($page == 'urlmapping' && $page1 == "new") { ?> class="active"<?php } ?>>
+<li class="">
   <a href="index.php?p=urlmapping&amp;sp=new">
-    <i class="fa fa-circle-o"></i> <?php echo $tlum["urlmap_menu"]["urlmm1"]; ?>
+    <?php echo $tlum["urlmap_menu"]["urlmm1"]; ?>
   </a>
+  <span class="icon-thumbnail"><?php echo text_clipping_lower($tlum["urlmap_menu"]["urlmm1"]); ?></span>
 </li>
 <?php if ($page == 'urlmapping' && $page1 == 'edit') { ?>
-<li class="active">
+<li class="">
   <a href="index.php?p=urlmapping&amp;sp=edit&amp;ssp=<?php echo $page2; ?>">
-    <i class="fa fa-circle-o"></i> <?php echo $tlum["urlmap_menu"]["urlmm2"]; ?>
+    <?php echo $tlum["urlmap_menu"]["urlmm2"]; ?>
   </a>
+  <span class="icon-thumbnail"><?php echo text_clipping_lower($tlum["urlmap_menu"]["urlmm2"]); ?></span>
 </li>
 <?php } ?>
 <!-- END URLMAPPING SECTION -->

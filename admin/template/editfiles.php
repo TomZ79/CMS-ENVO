@@ -43,7 +43,7 @@ if ($JAK_FILE_ERROR) { ?>
     </section>
 <?php } else { ?>
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-    <div class="box">
+    <div class="box box-success">
       <div class="box-header with-border">
         <h3 class="box-title"><?php echo $tl["tpl_box_title"]["tplbt"]; ?></h3>
       </div>
@@ -84,7 +84,7 @@ if ($JAK_FILE_ERROR) { ?>
         if (!$JAK_FILECONTENT) { ?>
           <button type="submit" name="edit" class="btn btn-primary pull-right"><?php echo $tl["button"]["btn12"]; ?></button>
         <?php } else { ?>
-          <button type="submit" name="save" class="btn btn-primary pull-right">
+          <button type="submit" name="save" class="btn btn-success pull-right">
             <i class="fa fa-save margin-right-5"></i>
             <?php echo $tl["button"]["btn1"]; ?>
           </button>
@@ -95,36 +95,6 @@ if ($JAK_FILE_ERROR) { ?>
     <input type="hidden" name="jak_file" value="<?php echo $JAK_FILEURL; ?>"/>
   </form>
 
-<?php } } if ($JAK_FILECONTENT) { ?>
-  <script src="js/ace/ace.js" type="text/javascript"></script>
-  <script type="text/javascript">
+<?php } } ?>
 
-    /* ACE Editor
-     ========================================= */
-    var htmlefACE = ace.edit("htmleditor");
-    htmlefACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
-    htmlefACE.session.setUseWrapMode(true);
-    htmlefACE.session.setWrapLimitRange(<?php echo $jkv["acewraplimit"] . ',' . $jkv["acewraplimit"]; ?>);
-    htmlefACE.setOptions({
-      // session options
-      mode: "ace/mode/<?php echo $acemode;?>",
-      tabSize: <?php echo $jkv["acetabSize"]; ?>,
-      useSoftTabs: true,
-      highlightActiveLine: <?php echo $jkv["aceactiveline"]; ?>,
-      // renderer options
-      showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
-      showGutter: <?php echo $jkv["acegutter"]; ?>,
-    });
-
-    texthtmlef = $("#jak_filecontent").val();
-    htmlefACE.session.setValue(texthtmlef);
-
-    /* Submit Form
-     ========================================= */
-    $('form').submit(function () {
-      $("#jak_filecontent").val(htmlefACE.getValue());
-    });
-  </script>
-<?php }
-
-include "footer.php"; ?>
+<?php include "footer.php"; ?>

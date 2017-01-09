@@ -15,76 +15,201 @@ if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die('You cannot 
 $succesfully = 0;
 
 // Set language for plugin
-if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_language.'.ini')) {
-  $tl = parse_ini_file(APP_PATH.'admin/lang/'.$site_language.'.ini', true);
+if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
+	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
 } else {
-  $tl = parse_ini_file(APP_PATH.'admin/lang/'.$jkv["lang"].'.ini', true);
-  $site_language = $jkv["lang"];
+	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
+	$site_language = $jkv["lang"];
 }
 
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <title><?php echo $tl["plugin"]["t13"];?></title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="/css/stylesheet.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="/admin/css/admin-color.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
+	<title><?php echo $tl["plugin"]["t13"]; ?></title>
+	<meta charset="utf-8">
+	<!-- BEGIN Vendor CSS-->
+	<link href="/admin/assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.4" rel="stylesheet" type="text/css"/>
+	<link href="/admin/assets/plugins/font-awesome/css/font-awesome.css?=4.5.0" rel="stylesheet" type="text/css"/>
+	<!-- BEGIN Pages CSS-->
+	<link href="/admin/pages/css/pages-icons.css?=v2.2.0" rel="stylesheet" type="text/css">
+	<link class="main-stylesheet" href="/admin/pages/css/pages.css?=v2.2.0" rel="stylesheet" type="text/css"/>
+	<!-- BEGIN CUSTOM MODIFICATION -->
+	<style type="text/css">
+		/* Fix 'jumping scrollbar' issue */
+		@media screen and (min-width: 960px) {
+			html {
+				margin-left: calc(100vw - 100%);
+				margin-right: 0;
+			}
+		}
+
+		/* Main body */
+		body {
+			background: transparent;
+		}
+
+		/* Notification */
+		#notificationcontainer {
+			position: relative;
+			z-index: 1000;
+			top: -21px;
+		}
+
+		.pgn-wrapper {
+			position: absolute;
+			z-index: 1000;
+		}
+
+		/* Button, input, checkbox ... */
+		input[type="text"]:hover {
+			background: #fafafa;
+			border-color: #c6c6c6;
+			color: #384343;
+		}
+
+		/* Portlet */
+		.portlet-collapse i {
+			font-size: 17px;
+			font-weight: bold;
+		}
+
+		/* Table */
+		.table-transparent tbody tr td {
+			background: transparent;
+		}
+	</style>
+	<!-- BEGIN VENDOR JS -->
+	<script src="/admin/assets/plugins/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
+	<script src="/admin/assets/plugins/bootstrapv3/js/bootstrap.min.js?=v3.3.4" type="text/javascript"></script>
+	<!-- BEGIN CORE TEMPLATE JS -->
+	<script src="/admin/pages/js/pages.js?=v2.2.0"></script>
 </head>
 <body>
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="well">
-        <h3><?php echo $tl["plugin"]["t13"];?></h3>
-      </div>
-      <div class="margin-bottom-30">
-        <h4>Growl Plugin - Info about uninstallation</h4>
-      </div>
+	<div class="row">
+		<div class="col-md-12 m-t-20">
+			<div class="jumbotron bg-master">
+				<h3 class="semi-bold text-white"><?php echo $tl["plugin"]["t13"]; ?></h3>
+			</div>
+			<hr>
+			<div id="notificationcontainer"></div>
+			<div class="m-b-30">
+				<h4 class="semi-bold">Growl Plugin - Info o odinstalačním procesu</h4>
 
-      <!-- Let's do the uninstall -->
-      <?php if (isset($_POST['uninstall'])) {
-// Validate
-      session_start();
-      if(isset($_POST["captcha"])&&$_POST["captcha"]!=""&&$_SESSION["code"]==$_POST["captcha"]) {
+				<div id="portlet-advance" class="panel panel-transparent">
+					<div class="panel-heading separator">
+						<div class="panel-title">Rozšířené informace
+						</div>
+						<div class="panel-controls">
+							<ul>
+								<li>
+									<a href="#" class="portlet-collapse" data-toggle="collapse">
+										<i class="portlet-icon portlet-icon-collapse"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="panel-body">
+						<h3><span class="semi-bold">Výpis</span> Komponentů</h3>
+						<p>Seznam komponent které budou odinstalovány v průběhu odinstalačního procesu tohoto pluginu</p>
+						<br>
+						<h5 class="text-uppercase">Prostudovat postup odinstalace</h5>
+					</div>
+				</div>
+			</div>
+			<hr>
 
+			<!-- UNINSTALLATION -->
+			<?php if (isset($_POST['uninstall'])) {
+				// Validate
+				session_start();
+				if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
 
-        $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Growl"');
+					// Now get the plugin id for futher use
+					$results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Growl"');
+					$rows = $results->fetch_assoc();
 
-        $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "growl"');
+					if ($rows) {
 
-        $jakdb->query('DROP TABLE ' . DB_PREFIX . 'growl');
+					$jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Growl"');
+					$jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "growl"');
+					$jakdb->query('DROP TABLE ' . DB_PREFIX . 'growl');
 
-        $succesfully = 1;
+					}
 
-        ?>
+					$succesfully = 1;
 
-        <div class="alert bg-success"><?php echo $tl["plugin"]["p15"];?></div>
+					?>
+					<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
+					<script>
+						$(document).ready(function () {
+							'use strict';
+							// Apply the plugin to the body
+							$('#notificationcontainer').pgNotification({
+								style: 'bar',
+								message: '<?php echo $tl["plugin"]["p15"];?>',
+								position: 'top',
+								timeout: 0,
+								type: 'success',
+							}).show();
 
-      <?php } else { ?>
-        <div>
-          <h4 class="text-danger-400">Wrong Code Entered - Please, enter right number !</h4>
-        </div>
-      <?php }}
-      if (!$succesfully) { ?>
-        <hr>
-        <form name="company" action="uninstall.php" method="post" enctype="multipart/form-data">
-          <div class="form-group form-inline">
-            <label for="text">Please read info about uninstallation and enter text: </label>
-            <input type="text" name="captcha" class="form-control" id="text">
-            <img src="../captcha.php" />
-          </div>
-          <button type="submit" name="uninstall" class="btn btn-danger btn-block"><?php echo $tl["plugin"]["p11"];?></button>
-        </form>
-      <?php } ?>
+							e.preventDefault();
+						});
+					</script>
+				<?php } else { ?>
+					<div>
+						<h5 class="text-danger bold">Wrong Code Entered - Please, enter right number !</h5>
+					</div>
+					<script>
+						$(document).ready(function () {
+							'use strict';
+							// Apply the plugin to the body
+							$('#notificationcontainer').pgNotification({
+								style: 'bar',
+								message: 'Wrong Code Entered - Please, enter right number !',
+								position: 'top',
+								timeout: 0,
+								type: 'danger',
+							}).show();
 
-    </div>
-  </div>
+							e.preventDefault();
+						});
+					</script>
+				<?php }
+			}
+			if (!$succesfully) { ?>
+				<form name="company" action="uninstall.php" method="post" enctype="multipart/form-data">
+					<div class="form-group form-inline">
+						<label for="text">Please read info about uninstallation and enter text: </label>
+						<input type="text" name="captcha" class="form-control" id="text">
+						<img src="../captcha.php" class="m-l-10"/>
+					</div>
+					<button type="submit" name="uninstall" class="btn btn-complete btn-block"><?php echo $tl["plugin"]["p11"]; ?></button>
+				</form>
+			<?php } ?>
 
-</div><!-- #container -->
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	(function ($) {
+		'use strict';
+		$('#portlet-advance').portlet({
+			onRefresh: function () {
+				setTimeout(function () {
+					// Throw any error you encounter while refreshing
+					$('#portlet-advance').portlet({
+						error: "Something went terribly wrong. Just keep calm and carry on!"
+					});
+				}, 2000);
+			}
+		});
+	})(window.jQuery);
+</script>
+
 </body>
 </html>

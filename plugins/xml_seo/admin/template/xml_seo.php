@@ -286,15 +286,4 @@ if (isset($error2)) { ?>
 	</form>
 <?php } ?>
 
-	<script>
-		$(document).ready(function(){
-			// BOOTSTRAP-SELECT
-			// To style all <select>s
-			$('.selectpicker').selectpicker({
-				size: false,
-				container: 'body'
-			});
-		});
-	</script>
-
 <?php include_once APP_PATH . 'admin/template/footer.php'; ?>

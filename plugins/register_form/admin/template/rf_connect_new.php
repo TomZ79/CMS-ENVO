@@ -5,10 +5,10 @@
       <label class="control-label"><?php echo $tlrf["reg_box_content"]["regbc"]; ?></label>
       <div class="radio">
         <label class="checkbox-inline">
-          <input type="radio" name="jak_rfconnect" value="1"<?php if ((isset($_REQUEST["jak_rfconnect"]) && $_REQUEST["jak_rfconnect"]) == '1' || (isset($JAK_FORM_DATA["showregister"]) && $JAK_FORM_DATA["showregister"] == '1')) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+          <input type="radio" name="jak_rfconnect" value="1"<?php if ((isset($_REQUEST["jak_rfconnect"]) && $_REQUEST["jak_rfconnect"]) == '1' || (isset($JAK_FORM_DATA["showregister"]) && $JAK_FORM_DATA["showregister"] == '1')) { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk"]; ?>
         </label>
         <label class="checkbox-inline">
-          <input type="radio" name="jak_rfconnect" value="0"<?php if ((isset($_REQUEST["jak_rfconnect"]) && $_REQUEST["jak_rfconnect"] != '1') || (isset($JAK_FORM_DATA["showregister"]) && $JAK_FORM_DATA["showregister"] != '1') || !isset($_REQUEST["jak_rfconnect"])) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+          <input type="radio" name="jak_rfconnect" value="0"<?php if ((isset($_REQUEST["jak_rfconnect"]) && $_REQUEST["jak_rfconnect"] != '1') || (isset($JAK_FORM_DATA["showregister"]) && $JAK_FORM_DATA["showregister"] != '1') || !isset($_REQUEST["jak_rfconnect"])) { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk1"]; ?>
         </label>
       </div>
     </div>

@@ -103,8 +103,8 @@ if (file_exists(APP_PATH . $facebookDescFile)) {
 
 // EN: Title and Description
 // CZ: Titulek a Popis
-$SECTION_TITLE = 'Facebook' . ' - ' . 'Nastavení';
-$SECTION_DESC = 'Editace souborů';
+$SECTION_TITLE = $tl["fb_sec_title"]["fbt"];
+$SECTION_DESC = $tl["fb_sec_desc"]["fbd"];
 
 // EN: Ace Mode
 $acemode = 'plain_text';

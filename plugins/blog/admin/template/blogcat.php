@@ -50,20 +50,20 @@
 
 <?php if (isset($JAK_BLOG_CAT_EXIST)) { ?>
 
-  <div class="box box-default">
+  <div class="box box-success">
     <div class="box-header with-border">
       <i class="fa fa-bars"></i>
-      <h3 class="box-title"><?php echo $tl["submenu"]["sm110"]; ?></h3>
+      <h3 class="box-title"><?php echo $tlblog["blog_box_table"]["blogtb5"]; ?></h3>
     </div>
     <div class="box-body">
 
       <?php
 
       // Build menu for categories header and header/footer
-      $lang = $tl["cat"]["del"];
+      $lang = $tlblog["blog_notification"]["catdel"];
       $title1 = $tl["icons"]["i5"];
       $title2 = $tl["icons"]["i6"];
-      $title3 = $tlblog["blog"]["q9"];
+      $title3 = $tl["icons"]["i21"];
       $title4 = $tl["icons"]["i2"];
       $title5 = $tl["icons"]["i1"];
 
@@ -73,58 +73,30 @@
 
     </div>
     <div class="box-footer">
-      <button type="submit" data-menu="mheader" name="save" class="btn btn-primary pull-right save-menu-plugin"><?php echo $tl["general"]["g20"]; ?></button>
+      <button type="submit" data-menu="mheader" name="save" class="btn btn-primary pull-right save-menu-plugin"><?php echo $tl["button"]["btn"]; ?></button>
     </div>
   </div>
 
 <?php } else { ?>
 
-  <div class="alert bg-info">
-    <?php echo $tl["errorpage"]["data"]; ?>
+  <div class="col-md-12">
+    <div class="alert bg-info text-white">
+      <?php echo $tl["errorpage"]["data"]; ?>
+    </div>
   </div>
 
 <?php } ?>
 
-  <div class="icon_legend">
-    <h3><?php echo $tl["icons"]["i"]; ?></h3>
-    <i title="<?php echo $tl["icons"]["i7"]; ?>" class="fa fa-plus"></i>
-    <i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
-    <i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
-    <i title="<?php echo $tlblog["blog"]["q9"]; ?>" class="fa fa-sticky-note-o"></i>
-    <i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>
-    <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+  <div class="col-md-12">
+    <div class="icon_legend">
+      <h3><?php echo $tl["icons"]["i"]; ?></h3>
+      <i title="<?php echo $tl["icons"]["i7"]; ?>" class="fa fa-plus"></i>
+      <i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
+      <i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
+      <i title="<?php echo $tl["blog"]["i21"]; ?>" class="fa fa-sticky-note-o"></i>
+      <i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>
+      <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+    </div>
   </div>
-
-  <script src="js/catorder.js" type="text/javascript"></script>
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-      $(".sortable").nestedSortable({maxLevels: 2});
-
-      $(".save-menu-plugin").on("click", function () {
-        mlist = $(this).data("menu");
-        serialized = $("#" + mlist).nestedSortable("serialize");
-
-        /* Sending the form fileds to any post request: */
-        var request = $.ajax({
-          url: "index.php?p=blog&amp;sp=categories",
-          type: "POST",
-          data: serialized,
-          dataType: "json",
-          cache: false
-        });
-        request.done(function (data) {
-          if (data.status == 1) {
-            $("#" + mlist + " li").animate({backgroundColor: '#c9ffc9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
-            $.notify({icon: 'fa fa-check-square-o', message: data.html}, {type: 'success'});
-          } else {
-            $("#" + mlist + " li").animate({backgroundColor: '#ffc9c9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
-            $.notify({icon: 'fa fa-exclamation-triangle', message: data.html}, {type: 'danger'});
-          }
-        });
-      });
-
-    });
-  </script>
 
 <?php include_once APP_PATH . 'admin/template/footer.php'; ?>

@@ -33,14 +33,14 @@
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton">
-      <button type="submit" name="save" class="btn btn-primary button">
+      <button type="submit" name="save" class="btn btn-success button">
         <i class="fa fa-save margin-right-5"></i>
-        <?php echo $tl["general"]["g20"]; ?> !!
+        <?php echo $tl["button"]["btn1"]; ?> !!
       </button>
     </div>
 
     <!-- Form Content -->
-    <ul id="cmsTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
+    <ul id="cmsTab" class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
       <li role="presentation" class="active">
         <a href="#cmsPage1" id="cmsPage1-tab" role="tab" data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
           <span class="text"><?php echo $tlrf["reg_section_tab"]["regtab"]; ?></span>
@@ -77,9 +77,9 @@
                 </div>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right">
+                <button type="submit" name="save" class="btn btn-success pull-right">
                   <i class="fa fa-save margin-right-5"></i>
-                  <?php echo $tl["general"]["g20"]; ?>
+                  <?php echo $tl["button"]["btn1"]; ?>
                 </button>
               </div>
             </div>
@@ -99,10 +99,10 @@
                       <div class="col-md-7">
                         <div class="radio">
                           <label class="checkbox-inline">
-                            <input type="radio" name="jak_register" value="1"<?php if ($jkv["rf_active"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                            <input type="radio" name="jak_register" value="1"<?php if ($jkv["rf_active"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk"]; ?>
                           </label>
                           <label class="checkbox-inline">
-                            <input type="radio" name="jak_register" value="0"<?php if ($jkv["rf_active"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                            <input type="radio" name="jak_register" value="0"<?php if ($jkv["rf_active"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk1"]; ?>
                           </label>
                         </div>
                       </div>
@@ -112,10 +112,10 @@
                       <div class="col-md-7">
                         <div class="radio">
                           <label class="checkbox-inline">
-                            <input type="radio" name="jak_simple" value="1"<?php if ($jkv["rf_simple"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                            <input type="radio" name="jak_simple" value="1"<?php if ($jkv["rf_simple"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk"]; ?>
                           </label>
                           <label class="checkbox-inline">
-                            <input type="radio" name="jak_simple" value="0"<?php if ($jkv["rf_simple"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                            <input type="radio" name="jak_simple" value="0"<?php if ($jkv["rf_simple"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk1"]; ?>
                           </label>
                         </div>
                       </div>
@@ -125,7 +125,7 @@
                       <div class="col-md-7">
                         <div class="radio">
                           <label class="checkbox-inline">
-                            <input type="radio" name="jak_usrapprove" value="1"<?php if ($jkv["rf_confirm"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                            <input type="radio" name="jak_usrapprove" value="1"<?php if ($jkv["rf_confirm"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk1"]; ?>
                           </label>
                           <label class="checkbox-inline">
                             <input type="radio" name="jak_usrapprove" value="2"<?php if ($jkv["rf_confirm"] == '2') { ?> checked="checked"<?php } ?> /> <?php echo $tlrf["reg_box_content"]["regbc11"]; ?>
@@ -140,7 +140,7 @@
                       <div class="col-md-5"><strong><?php echo $tlrf["reg_box_content"]["regbc7"]; ?></strong></div>
                       <div class="col-md-7">
                         <select name="jak_redirect" class="form-control selectpicker" data-size="5">
-                          <option value="0"><?php echo $tl["title"]["t12"]; ?></option>
+                          <option value="0"><?php echo $tl["reg_box_content"]["regbc16"]; ?></option>
                           <?php if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $c) { ?>
                             <option value="<?php echo $c["id"]; ?>"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $z) {
                               if ($z["varname"] == 'rf_redirect' && $c["id"] == $z["value"]) { ?> selected="selected"<?php }
@@ -169,9 +169,9 @@
                 </div>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right">
+                <button type="submit" name="save" class="btn btn-success pull-right">
                   <i class="fa fa-save margin-right-5"></i>
-                  <?php echo $tl["general"]["g20"]; ?>
+                  <?php echo $tl["button"]["btn1"]; ?>
                 </button>
               </div>
             </div>
@@ -183,7 +183,7 @@
           <div class="col-md-12">
             <div class="box">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["reg_box_title"]["regbt3"]; ?></h3>
+                <h3 class="box-title"><?php echo $tlrf["reg_box_title"]["regbt3"]; ?></h3>
                 <div class="box-tools pull-right">
                   <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                   <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -193,9 +193,9 @@
                 <?php include APP_PATH . 'admin/template/sidebar_widget.php'; ?>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right">
+                <button type="submit" name="save" class="btn btn-success pull-right">
                   <i class="fa fa-save margin-right-5"></i>
-                  <?php echo $tl["general"]["g20"]; ?>
+                  <?php echo $tl["button"]["btn1"]; ?>
                 </button>
               </div>
             </div>

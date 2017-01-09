@@ -53,9 +53,9 @@ if ($page3 == "e") { ?>
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton">
-      <button type="submit" name="save" class="btn btn-primary button">
+      <button type="submit" name="save" class="btn btn-success button">
         <i class="fa fa-save margin-right-5"></i>
-        <?php echo $tl["general"]["g20"]; ?> !!
+        <?php echo $tl["button"]["btn1"]; ?> !!
       </button>
     </div>
 
@@ -72,9 +72,9 @@ if ($page3 == "e") { ?>
             </div>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right">
+            <button type="submit" name="save" class="btn btn-success pull-right">
               <i class="fa fa-save margin-right-5"></i>
-              <?php echo $tl["general"]["g20"]; ?>
+              <?php echo $tl["button"]["btn1"]; ?>
             </button>
           </div>
         </div>
@@ -94,10 +94,10 @@ if ($page3 == "e") { ?>
                 <td>
                   <div class="radio">
                     <label class="checkbox-inline">
-                      <input type="radio" name="jak_baseurl" id="1" value="1"<?php if ($JAK_FORM_DATA["baseurl"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
+                      <input type="radio" name="jak_baseurl" id="1" value="1"<?php if ($JAK_FORM_DATA["baseurl"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk"]; ?>
                     </label>
                     <label class="checkbox-inline">
-                      <input type="radio" name="jak_baseurl" id="0" value="0"<?php if ($JAK_FORM_DATA["baseurl"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
+                      <input type="radio" name="jak_baseurl" id="0" value="0"<?php if ($JAK_FORM_DATA["baseurl"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk1"]; ?>
                     </label>
                   </div>
                 </td>
@@ -105,9 +105,9 @@ if ($page3 == "e") { ?>
             </table>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right">
+            <button type="submit" name="save" class="btn btn-success pull-right">
               <i class="fa fa-save margin-right-5"></i>
-              <?php echo $tl["general"]["g20"]; ?>
+              <?php echo $tl["button"]["btn1"]; ?>
             </button>
           </div>
         </div>
@@ -126,23 +126,14 @@ if ($page3 == "e") { ?>
             </div>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right">
+            <button type="submit" name="save" class="btn btn-success pull-right">
               <i class="fa fa-save margin-right-5"></i>
-              <?php echo $tl["general"]["g20"]; ?>
+              <?php echo $tl["button"]["btn1"]; ?>
             </button>
           </div>
         </div>
       </div>
     </div>
   </form>
-
-  <script type="text/javascript">
-    $('#jak_newurl').keyup(function () {
-      this.value = this.value.replace(/[^a-zA-Z0-9\-_.]/g,'');
-    });
-    $('#jak_newurl').bind("keypress click", function(){
-      $( "#0" ).prop( "checked", true );
-    });
-  </script>
 
 <?php include_once APP_PATH . 'admin/template/footer.php'; ?>

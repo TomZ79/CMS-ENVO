@@ -1,67 +1,76 @@
-<li class="treeview<?php if ($page == 'blog') echo ' active'; ?>">
-  <a href="javascript:void(0)">
-    <i class="fa fa-comments-o"></i>
-    <span><?php echo $tlblog["blog"]["m"]; ?></span>
-    <i class="fa fa-angle-left pull-right"></i>
+<!-- START BLOG SECTION -->
+<li class="">
+  <a href="javascript:;">
+    <span class="title"><?php echo $tlblog["blog_menu"]["blogm"]; ?></span>
+    <span class="arrow"></span>
   </a>
+  <span class="icon-thumbnail <?php if ($page == 'blog') echo 'bg-success'; ?>">BL</span>
 
-  <ul class="treeview-menu">
-
-    <li<?php if ($page == 'blog') echo ' class="active"'; ?>>
+  <ul class="sub-menu">
+    <li class="">
       <a href="index.php?p=blog">
-        <i class="fa fa-circle-o"></i> <?php echo $tlblog["blog"]["m1"]; ?>
+        <?php echo $tlblog["blog_menu"]["blogm1"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tlblog["blog_menu"]["blogm1"]); ?></span>
     </li>
-    <li<?php if ($page == 'blog' && $page1 == 'new') echo ' class="active"'; ?>>
+    <li class="">
       <a href="index.php?p=blog&amp;sp=new">
-        <i class="fa fa-circle-o"></i> <?php echo $tlblog["blog"]["m2"]; ?>
+        <?php echo $tlblog["blog_menu"]["blogm2"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tlblog["blog_menu"]["blogm2"]); ?></span>
     </li>
     <?php if ($page == 'blog' && $page1 == 'edit') { ?>
-      <li class="active">
+      <li class="">
         <a href="index.php?p=blog&amp;sp=edit&amp;ssp=<?php echo $page2; ?>">
-          <i class="fa fa-circle-o"></i> <?php echo $tlblog["blog"]["m3"]; ?>
+          <?php echo $tlblog["blog_menu"]["blogm3"]; ?>
         </a>
+        <span class="icon-thumbnail"><?php echo text_clipping_lower($tlblog["blog_menu"]["blogm3"]); ?></span>
       </li>
     <?php } ?>
     <li class="list-divider"></li>
 
-    <li<?php if ($page == 'blog' && $page1 == 'categories') echo ' class="active"'; ?>>
+    <li class="">
       <a href="index.php?p=blog&amp;sp=categories">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["submenu"]["sm110"]; ?>
+        <?php echo $tlblog["blog_menu"]["blogm4"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tlblog["blog_menu"]["blogm4"]); ?></span>
     </li>
-    <li<?php if ($page == 'blog' && $page1 == 'newcategory') echo ' class="active"'; ?>>
+    <li class="">
       <a href="index.php?p=blog&amp;sp=newcategory">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["submenu"]["sm111"]; ?>
+        <?php echo $tlblog["blog_menu"]["blogm5"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tlblog["blog_menu"]["blogm5"]); ?></span>
     </li>
     <?php if ($page == 'blog' && $page1 == 'categories' && $page2 == 'edit') { ?>
-    <li class="active">
-      <a href="index.php?p=blog&amp;sp=categories&amp;ssp=edit&amp;sssp=<?php echo $page3; ?>">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["submenu"]["sm112"]; ?>
-      </a>
-    </li>
+      <li class="">
+        <a href="index.php?p=blog&amp;sp=categories&amp;ssp=edit&amp;sssp=<?php echo $page3; ?>">
+          <?php echo $tlblog["blog_menu"]["blogm6"]; ?>
+        </a>
+        <span class="icon-thumbnail"><?php echo text_clipping_lower($tlblog["blog_menu"]["blogm6"]); ?></span>
+      </li>
     <?php } ?>
     <li class="list-divider"></li>
 
-    <li<?php if ($page == 'blog' && $page1 == 'comment' || $page == 'blog' && $page1 == 'trash') echo ' class="active"'; ?>>
+    <li class="">
       <a href="index.php?p=blog&amp;sp=comment">
-        <i class="fa fa-circle-o"></i> <?php echo $tlblog["blog"]["d19"]; ?>
+        <?php echo $tlblog["blog_menu"]["blogm7"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tlblog["blog_menu"]["blogm7"]); ?></span>
     </li>
-    <li<?php if ($page == 'blog' && $page1 == 'trash') echo ' class="active"'; ?>>
+    <li class="">
       <a href="index.php?p=blog&amp;sp=trash">
-        <i class="fa fa-circle-o"></i> <?php echo $tlblog["blog"]["d18"]; ?>
+        <?php echo $tlblog["blog_menu"]["blogm8"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tlblog["blog_menu"]["blogm8"]); ?></span>
     </li>
     <li class="list-divider"></li>
 
-    <li<?php if ($page == 'blog' && $page1 == 'setting') echo ' class="active"'; ?>>
+    <li class="">
       <a href="index.php?p=blog&amp;sp=setting">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["submenu"]["sm10"]; ?>
+        <?php echo $tlblog["blog_menu"]["blogm9"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tlblog["blog_menu"]["blogm9"]); ?></span>
     </li>
-
   </ul>
 </li>
+<!-- END BLOG SECTION -->

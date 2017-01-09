@@ -63,8 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // EN: Title and Description
 // CZ: Titulek a Popis
-$SECTION_TITLE = $tl["sec_title"]["sect16"];
-$SECTION_DESC = $tl["sec_desc"]["secd17"];
+$SECTION_TITLE = $tl["mtn_sec_title"]["mtnt"];
+$SECTION_DESC = $tl["mtn_sec_desc"]["mtnd"];
 
 // EN: Load the template
 // CZ: Načti template (šablonu)

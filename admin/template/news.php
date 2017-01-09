@@ -49,18 +49,34 @@ if ($page1 == "e" || $page1 == "ene") { ?>
   </script>
 <?php } ?>
 
+<?php
+$str = url_slug(
+  $tl["submenu"]["sm90"],
+  array(
+    'delimiter' => ' ',
+    'lowercase' => true,
+    'transliterate' => true,
+  )
+);
+
+echo 'Slova: ' . $str . ' - obsahují celkem slov: ' . str_word_count($str)
+
+?>
+
+
+
 <?php if (isset($JAK_NEWS) && is_array($JAK_NEWS)) { ?>
-  <div class="box">
+  <div class="box box-success">
     <div class="box-body no-padding">
       <div class="table-responsive">
         <table class="table table-striped table-hover">
           <thead>
             <tr>
               <th>#</th>
-              <th><?php echo $tl["page"]["p"]; ?></th>
-              <th><?php echo $tl["page"]["p2"]; ?></th>
-              <th><?php echo $tl["general"]["g56"]; ?></th>
-              <th><?php echo $tl["general_cmd"]["g9"]; ?></th>
+              <th><?php echo $tl["news_box_table"]["newstb"]; ?></th>
+              <th><?php echo $tl["news_box_table"]["newstb1"]; ?></th>
+              <th><?php echo $tl["news_box_table"]["newstb2"]; ?></th>
+              <th><?php echo $tl["news_box_table"]["newstb3"]; ?></th>
               <th>
                 <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs disabled">
                   <i class="fa fa-lock"></i>
@@ -92,19 +108,19 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                 // Control Active of article or content ...
                 if ($v["active"] == 1 ) {
                   if (empty($v["enddate"])) {
-                    echo $tl["general_cmd"]["g10"];
+                    echo $tl["news_box_content"]["newsbc7"];
                   } elseif (!empty($v["enddate"]) && $expire_time >= $today_time) {
-                    echo $tl["general_cmd"]["g10"];
+                    echo $tl["news_box_content"]["newsbc7"];
                   } else {
-                    echo $tl["general_cmd"]["g11"] . '<span class="small">  - ' . $tl["general_cmd"]["g13"] . '</span>';
+                    echo $tl["news_box_content"]["newsbc8"] . '<span class="small">  - ' . $tl["news_box_content"]["newsbc10"] . '</span>';
                   }
                 } else {
                   if (empty($v["enddate"])) {
-                    echo $tl["general_cmd"]["g11"] . '<span class="small">  - ' . $tl["general_cmd"]["g12"] . '</span>';
+                    echo $tl["news_box_content"]["newsbc8"] . '<span class="small">  - ' . $tl["news_box_content"]["newsbc9"] . '</span>';
                   } elseif (!empty($v["enddate"]) && $expire_time >= $today_time) {
-                    echo $tl["general_cmd"]["g11"] . '<span class="small">  - ' . $tl["general_cmd"]["g12"] . '</span>';
+                    echo $tl["news_box_content"]["newsbc8"] . '<span class="small">  - ' . $tl["news_box_content"]["newsbc9"] . '</span>';
                   } else {
-                    echo $tl["general_cmd"]["g11"] . '<span class="small"> - ' . $tl["general_cmd"]["g12"] . ', ' . $tl["general_cmd"]["g13"] . '</span>';
+                    echo $tl["news_box_content"]["newsbc8"] . '<span class="small"> - ' . $tl["news_box_content"]["newsbc9"] . ', ' . $tl["news_box_content"]["newsbc10"] . '</span>';
                   }
                 }
                 ?>
@@ -120,7 +136,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                 </a>
               </td>
               <td>
-                <a class="btn btn-default btn-xs" href="index.php?p=news&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["news"]["d"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                <a class="btn btn-default btn-xs" href="index.php?p=news&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["news_notification"]["del"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                   <i class="fa fa-trash-o"></i>
                 </a>
               </td>
@@ -133,12 +149,14 @@ if ($page1 == "e" || $page1 == "ene") { ?>
     </div>
   </div>
 
-  <div class="icon_legend">
-    <h3><?php echo $tl["icons"]["i"]; ?></h3>
-    <i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
-    <i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
-    <i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>
-    <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+  <div class="col-md-12">
+    <div class="icon_legend">
+      <h3><?php echo $tl["icons"]["i"]; ?></h3>
+      <i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
+      <i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
+      <i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>
+      <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+    </div>
   </div>
 
   <?php if ($JAK_PAGINATE) {
@@ -146,8 +164,10 @@ if ($page1 == "e" || $page1 == "ene") { ?>
   }
 } else { ?>
 
-  <div class="alert bg-info">
-    <?php echo $tl["errorpage"]["data"]; ?>
+  <div class="col-md-12">
+    <div class="alert bg-info text-white">
+      <?php echo $tl["errorpage"]["data"]; ?>
+    </div>
   </div>
 
 <?php } ?>

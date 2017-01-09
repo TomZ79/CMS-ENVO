@@ -178,8 +178,8 @@ $JAK_FORM_DATA["content"] = $jkv["searchdesc"];
 
 // EN: Title and Description
 // CZ: Titulek a Popis
-$SECTION_TITLE = $tl["title"]["t5"];
-$SECTION_DESC = "";
+$SECTION_TITLE = $tl["ss_sec_title"]["sst"];
+$SECTION_DESC = $tl["ss_sec_desc"]["ssd"];
 
 // EN: Load the template
 // CZ: Načti template (šablonu)

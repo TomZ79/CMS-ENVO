@@ -14,84 +14,215 @@ if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die('You cannot 
 $succesfully = 0;
 
 // Set language for plugin
-if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_language.'.ini')) {
-  $tl = parse_ini_file(APP_PATH.'admin/lang/'.$site_language.'.ini', true);
+if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
+	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
 } else {
-  $tl = parse_ini_file(APP_PATH.'admin/lang/'.$jkv["lang"].'.ini', true);
-  $site_language = $jkv["lang"];
+	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
+	$site_language = $jkv["lang"];
 }
 
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <title><?php echo $tl["plugin"]["t16"];?></title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="/css/stylesheet.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="/admin/css/admin-color.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
+	<title><?php echo $tl["plugin"]["t16"]; ?></title>
+	<meta charset="utf-8">
+	<!-- BEGIN Vendor CSS-->
+	<link href="/admin/assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.4" rel="stylesheet" type="text/css"/>
+	<link href="/admin/assets/plugins/font-awesome/css/font-awesome.css?=4.5.0" rel="stylesheet" type="text/css"/>
+	<!-- BEGIN Pages CSS-->
+	<link href="/admin/pages/css/pages-icons.css?=v2.2.0" rel="stylesheet" type="text/css">
+	<link class="main-stylesheet" href="/admin/pages/css/pages.css?=v2.2.0" rel="stylesheet" type="text/css"/>
+	<!-- BEGIN CUSTOM MODIFICATION -->
+	<style type="text/css">
+		/* Fix 'jumping scrollbar' issue */
+		@media screen and (min-width: 960px) {
+			html {
+				margin-left: calc(100vw - 100%);
+				margin-right: 0;
+			}
+		}
+
+		/* Main body */
+		body {
+			background: transparent;
+		}
+
+		/* Notification */
+		#notificationcontainer {
+			position: relative;
+			z-index: 1000;
+			top: -21px;
+		}
+
+		.pgn-wrapper {
+			position: absolute;
+			z-index: 1000;
+		}
+
+		/* Button, input, checkbox ... */
+		input[type="text"]:hover {
+			background: #fafafa;
+			border-color: #c6c6c6;
+			color: #384343;
+		}
+
+		/* Portlet */
+		.portlet-collapse i {
+			font-size: 17px;
+			font-weight: bold;
+		}
+
+		/* Table */
+		.table-transparent tbody tr td {
+			background: transparent;
+		}
+	</style>
+	<!-- BEGIN VENDOR JS -->
+	<script src="/admin/assets/plugins/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
+	<script src="/admin/assets/plugins/bootstrapv3/js/bootstrap.min.js?=v3.3.4" type="text/javascript"></script>
+	<!-- BEGIN CORE TEMPLATE JS -->
+	<script src="/admin/pages/js/pages.js?=v2.2.0"></script>
 </head>
 <body>
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="well">
-        <h3><?php echo $tl["plugin"]["t16"];?></h3>
-      </div>
-      <hr>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="col-md-12 m-t-20">
+				<div class="jumbotron bg-master">
+					<h3 class="semi-bold text-white"><?php echo $tl["plugin"]["t16"]; ?></h3>
+				</div>
+				<hr>
+				<div id="notificationcontainer"></div>
+				<div class="m-b-30">
+					<h4 class="semi-bold">OpenURL Blank Plugin - Info o instalačním procesu</h4>
 
-      <!-- Check if the plugin is already installed -->
-      <?php $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "openurl_blank"');
-      if ($jakdb->affected_rows > 0) { ?>
+					<div id="portlet-advance" class="panel panel-transparent">
+						<div class="panel-heading separator">
+							<div class="panel-title">Rozšířené informace
+							</div>
+							<div class="panel-controls">
+								<ul>
+									<li>
+										<a href="#" class="portlet-collapse" data-toggle="collapse">
+											<i class="portlet-icon portlet-icon-collapse"></i>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="panel-body">
+							<h3><span class="semi-bold">Výpis</span> Komponentů</h3>
+							<p>Seznam komponent které budou odinstalovány v průběhu odinstalačního procesu tohoto pluginu</p>
+							<br>
+							<h5 class="text-uppercase">Prostudovat postup odinstalace</h5>
+						</div>
+					</div>
+				</div>
+				<hr>
 
-        <div class="alert bg-info"><?php echo $tl["plugin"]["p12"];?></div>
 
-        <!-- Plugin is not installed let's display the installation script -->
-      <?php } else { ?>
+				<!-- Check if the plugin is already installed -->
+				<?php $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "openurl_blank"');
+				if ($jakdb->affected_rows > 0) { ?>
 
-        <!-- The installation button is hit -->
-        <?php if (isset($_POST['install'])) {
+					<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít
+					</button>
+					<script>
+						$(document).ready(function () {
+							'use strict';
+							// Apply the plugin to the body
+							$('#notificationcontainer').pgNotification({
+								style: 'bar',
+								message: 'Plugin je již nainstalován !!!',
+								position: 'top',
+								timeout: 0,
+								type: 'warning',
+							}).show();
 
-          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "openurl_blank", "Open all external links in a new window/tab.", 1, ' . JAK_USERID . ', 1, "openurl_blank", NULL, NULL, NULL, NULL, "uninstall.php", "1.0", NOW())');
+							e.preventDefault();
+						});
+					</script>
 
-// now get the plugin id for futher use
-          $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "openurl_blank"');
-          $rows = $results->fetch_assoc();
+					<!-- Plugin is not installed let's display the installation script -->
+				<?php } else { ?>
 
-          if ($rows['id']) {
+					<!-- INSTALLATION -->
+					<?php if (isset($_POST['install'])) {
 
-            $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+					$jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "openurl_blank", "Open all external links in a new window/tab.", 1, ' . JAK_USERID . ', 1, "openurl_blank", NULL, NULL, NULL, NULL, "uninstall.php", "1.0", NOW())');
+
+					// Now get the plugin id for futher use
+					$results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "openurl_blank"');
+					$rows = $results->fetch_assoc();
+
+				if ($rows['id']) {
+
+					$jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
             (NULL, "tpl_between_head", "Open URL jQuery", "plugins/openurl_blank/openurlhead.php", "openurlb", 1, 1, "' . $rows['id'] . '", NOW())');
 
-            $succesfully = 1;
+					$succesfully = 1;
 
-            ?>
+					?>
 
-            <div class="alert bg-success"><?php echo $tl["plugin"]["p13"];?></div>
+					<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít
+					</button>
+					<script>
+						$(document).ready(function () {
+							'use strict';
+							// Apply the plugin to the body
+							$('#notificationcontainer').pgNotification({
+								style: 'bar',
+								message: '<?php echo $tl["plugin"]["p13"]; ?>',
+								position: 'top',
+								timeout: 0,
+								type: 'success',
+							}).show();
 
-          <?php } else {
+							e.preventDefault();
+						});
+					</script>
 
-            $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "openurl_blank"');
+				<?php } else {
 
-            ?>
+				$result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "openurl_blank"');
 
-            <div class="alert bg-danger"><?php echo $tl["plugin"]["p14"];?></div>
+				?>
 
-          <?php }
-        }
-        if (!$succesfully) { ?>
-          <form name="company" method="post" action="install.php">
-            <button type="submit" name="install" class="btn btn-primary btn-block"><?php echo $tl["plugin"]["p10"];?></button>
-          </form>
-        <?php }
-      } ?>
+					<div class="alert bg-danger"><?php echo $tl["plugin"]["p16"]; ?></div>
+					<form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
+						<button type="submit" name="redirect" class="btn btn-danger btn-block"><?php echo $tl["plugin"]["p11"]; ?></button>
+					</form>
 
-    </div>
-  </div>
+				<?php }
+				}
+				if (!$succesfully) { ?>
+					<form name="company" method="post" action="install.php">
+						<button type="submit" name="install" class="btn btn-complete btn-block"><?php echo $tl["plugin"]["p10"]; ?></button>
+					</form>
+				<?php }
+				} ?>
 
-</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		(function ($) {
+			'use strict';
+			$('#portlet-advance').portlet({
+				onRefresh: function () {
+					setTimeout(function () {
+						// Throw any error you encounter while refreshing
+						$('#portlet-advance').portlet({
+							error: "Something went terribly wrong. Just keep calm and carry on!"
+						});
+					}, 2000);
+				}
+			});
+		})(window.jQuery);
+	</script>
 
 </body>
 </html>

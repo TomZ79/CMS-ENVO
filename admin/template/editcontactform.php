@@ -51,23 +51,19 @@ if ($errors) { ?>
 
   <form role="form" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <!-- Fixed Button for save form -->
-    <div class="savebutton">
-      <button type="submit" name="save" class="btn btn-primary button">
+    <div class="savebutton hidden-xs">
+      <button type="submit" name="save" class="btn btn-success button">
         <i class="fa fa-save margin-right-5"></i>
-        <?php echo $tl["general"]["g20"]; ?> !!
+        <?php echo $tl["button"]["btn1"]; ?> !!
       </button>
     </div>
 
     <!-- Form Content -->
-    <div class="row">
+    <div class="row tab-content-singel">
       <div class="col-md-12">
-        <div class="box">
+        <div class="box box-success">
           <div class="box-header with-border">
-            <h3 class="box-title"><?php echo $tl["title"]["t14"]; ?></h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
+            <h3 class="box-title"><?php echo $tl["cf_box_title"]["cfbt"]; ?></h3>
           </div>
           <div class="box-body">
             <div class="block">
@@ -81,13 +77,14 @@ if ($errors) { ?>
                 <div class="row-form">
                   <div class="col-md-5"><strong><?php echo $tl["page"]["p3"]; ?></strong></div>
                   <div class="col-md-7">
-                    <div class="radio">
-                      <label class="checkbox-inline">
-                        <input type="radio" name="jak_showtitle" value="1"<?php if ($JAK_FORM_DATA["showtitle"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                      </label>
-                      <label class="checkbox-inline">
-                        <input type="radio" name="jak_showtitle" value="0"<?php if ($JAK_FORM_DATA["showtitle"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                      </label>
+                    <div class="radio radio-success">
+
+                      <input type="radio" id="jak_showtitle1" name="jak_showtitle" value="1"<?php if ($JAK_FORM_DATA["showtitle"] == '1') { ?> checked="checked"<?php } ?> />
+                      <label for="jak_showtitle1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+
+                      <input type="radio" id="jak_showtitle2" name="jak_showtitle" value="0"<?php if ($JAK_FORM_DATA["showtitle"] == '0') { ?> checked="checked"<?php } ?> />
+                      <label for="jak_showtitle2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+
                     </div>
                   </div>
                 </div>
@@ -107,23 +104,18 @@ if ($errors) { ?>
             </div>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right">
+            <button type="submit" name="save" class="btn btn-success pull-right">
               <i class="fa fa-save margin-right-5"></i>
-              <?php echo $tl["general"]["g20"]; ?>
+              <?php echo $tl["button"]["btn1"]; ?>
             </button>
           </div>
         </div>
-        <div class="box">
+        <div class="box box-success">
           <div class="box-header with-border">
             <i class="fa fa-plus-square"></i>
-            <h3 class="box-title"><?php echo $tl["cform"]["c15"]; ?></h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
+            <h3 class="box-title"><?php echo $tl["cf_box_title"]["cfbt2"]; ?></h3>
           </div>
           <div class="box-body">
-
             <ul class="cform_drag">
               <li id="cform_drag">
                 <div class="row">
@@ -137,8 +129,8 @@ if ($errors) { ?>
                     <div class="form-group">
                       <?php echo $tl["cform"]["c9"]; ?>
                       <select name="jak_optionmandatory[]" class="form-control selectpicker" data-size="5">
-                        <option value="0"><?php echo $tl["general"]["g19"]; ?></option>
-                        <option value="1"><?php echo $tl["general"]["g18"]; ?></option>
+                        <option value="0"><?php echo $tl["checkbox"]["chk1"]; ?></option>
+                        <option value="1"><?php echo $tl["checkbox"]["chk"]; ?></option>
                         <option value="2"><?php echo $tl["cform"]["c16"]; ?></option>
                         <option value="3"><?php echo $tl["cform"]["c17"]; ?></option>
                       </select>
@@ -187,8 +179,8 @@ if ($errors) { ?>
                       <div class="form-group">
                         <?php echo $tl["cform"]["c9"]; ?>
                         <select name="jak_optionmandatory_old[]" class="form-control selectpicker" data-size="5">
-                          <option value="0"<?php if ($o["mandatory"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g19"]; ?></option>
-                          <option value="1"<?php if ($o["mandatory"] == 1) { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g18"]; ?></option>
+                          <option value="0"<?php if ($o["mandatory"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["checkbox"]["chk1"]; ?></option>
+                          <option value="1"<?php if ($o["mandatory"] == 1) { ?> selected="selected"<?php } ?>><?php echo $tl["checkbox"]["chk"]; ?></option>
                           <option value="2"<?php if ($o["mandatory"] == 2) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c16"]; ?></option>
                           <option value="3"<?php if ($o["mandatory"] == 3) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c17"]; ?></option>
                         </select>
@@ -214,10 +206,9 @@ if ($errors) { ?>
                       <input type="text" name="jak_options_old[]" value="<?php echo $o["options"]; ?>" class="form-control"/>
                     </div>
                     <div class="col-md-1">
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox" name="jak_sod[]" value="<?php echo $o["id"]; ?>"/> <i class="fa fa-trash-o"></i>
-                        </label>
+                      <div class="checkbox check-success">
+                        <input type="checkbox" id="jak_sod<?php echo $o["id"]; ?>" name="jak_sod[]" value="<?php echo $o["id"]; ?>"/>
+                        <label for="jak_sod<?php echo $o["id"]; ?>"><i class="fa fa-trash-o"></i></label>
                       </div>
                     </div>
                     <input type="hidden" name="jak_optionsort_old[]" class="cforder" value="<?php echo $o["forder"]; ?>"/>
@@ -231,9 +222,9 @@ if ($errors) { ?>
 
           </div>
           <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right">
+            <button type="submit" name="save" class="btn btn-success pull-right">
               <i class="fa fa-save margin-right-5"></i>
-              <?php echo $tl["general"]["g20"]; ?>
+              <?php echo $tl["button"]["btn1"]; ?>
             </button>
           </div>
         </div>

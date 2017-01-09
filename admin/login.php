@@ -51,12 +51,12 @@ if (!empty($_POST['action']) && $_POST['action'] == 'login') {
 if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
   $defaults = $_POST;
 
-  if ($defaults['jakE'] == '' || !filter_var($defaults['jakE'], FILTER_VALIDATE_EMAIL)) {
+  if ($defaults['email'] == '' || !filter_var($defaults['email'], FILTER_VALIDATE_EMAIL)) {
     $errors['e'] = $tl['error']['e19'];
   }
 
   // transform user email
-  $femail = filter_var($defaults['jakE'], FILTER_SANITIZE_EMAIL);
+  $femail = filter_var($defaults['email'], FILTER_SANITIZE_EMAIL);
   $fwhen = time();
 
   // Check if this user exist

@@ -95,8 +95,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["submenu"]["sm101"];
-    $SECTION_DESC = $tl["cmdesc"]["d15"];
+    $SECTION_TITLE = $tl["userg_sec_title"]["usergt3"];
+    $SECTION_DESC = $tl["userg_sec_desc"]["usergd3"];
 
     // EN: Load the template
     // CZ: Načti template (šablonu)
@@ -161,8 +161,8 @@ switch ($page1) {
 
           // EN: Title and Description
           // CZ: Titulek a Popis
-          $SECTION_TITLE = '';
-          $SECTION_DESC = '';
+          $SECTION_TITLE = $tl["userg_sec_title"]["usergt2"];
+          $SECTION_DESC = $tl["userg_sec_desc"]["usergd2"];
 
           // EN: Load the template
           // CZ: Načti template (šablonu)
@@ -254,8 +254,8 @@ switch ($page1) {
 
           // EN: Title and Description
           // CZ: Titulek a Popis
-          $SECTION_TITLE = $tl["submenu"]["sm102"];
-          $SECTION_DESC = $tl["cmdesc"]["d14"];
+          $SECTION_TITLE = $tl["userg_sec_title"]["usergt1"];
+          $SECTION_DESC = $tl["userg_sec_desc"]["usergd1"];
 
           // EN: Load the template
           // CZ: Načti template (šablonu)
@@ -272,8 +272,8 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tl["submenu"]["sm100"];
-        $SECTION_DESC = $tl["cmdesc"]["d14"];
+        $SECTION_TITLE = $tl["userg_sec_title"]["usergt"];
+        $SECTION_DESC = $tl["userg_sec_desc"]["usergd"];
 
         // EN: Load the template
         // CZ: Načti template (šablonu)

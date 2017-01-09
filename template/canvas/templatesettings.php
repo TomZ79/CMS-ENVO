@@ -1,14 +1,14 @@
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <!-- Fixed Button for save form -->
-    <div class="savebutton">
-      <button type="submit" name="save" class="btn btn-primary button">
+    <div class="savebutton hidden-xs">
+      <button type="submit" name="save" class="btn btn-success button">
         <i class="fa fa-save margin-right-5"></i>
-        <?php echo $tl["general"]["g20"]; ?> !!
+        <?php echo $tl["button"]["btn1"]; ?> !!
       </button>
     </div>
 
     <!-- Form Content -->
-    <ul id="cmsTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
+    <ul id="cmsTab" class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
       <li role="presentation" class="active">
         <a href="#cmsPage1" id="cmsPage1-tab" role="tab" data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
           <span class="text">Header</span>
@@ -38,10 +38,6 @@
             <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title">Mini Navbar Content</h3>
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
               </div>
               <div class="box-body">
                 <div class="block">
@@ -77,7 +73,7 @@
               <div class="box-footer">
                 <button type="submit" name="save" class="btn btn-primary pull-right">
                   <i class="fa fa-save margin-right-5"></i>
-                  <?php echo $tl["general"]["g20"]; ?>
+                  <?php echo $tl["button"]["btn1"]; ?>
                 </button>
               </div>
             </div>
@@ -86,10 +82,6 @@
             <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title">Navbar Style</h3>
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
               </div>
               <div class="box-body">
                 <div class="block">
@@ -135,7 +127,7 @@
               <div class="box-footer">
                 <button type="submit" name="save" class="btn btn-primary pull-right">
                   <i class="fa fa-save margin-right-5"></i>
-                  <?php echo $tl["general"]["g20"]; ?>
+                  <?php echo $tl["button"]["btn1"]; ?>
                 </button>
               </div>
             </div>
@@ -144,10 +136,6 @@
             <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title">Mini Navbar Content - Social Icons</h3>
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
               </div>
               <div class="box-body">
                 <div class="block">
@@ -260,7 +248,7 @@
               <div class="box-footer">
                 <button type="submit" name="save" class="btn btn-primary pull-right">
                   <i class="fa fa-save margin-right-5"></i>
-                  <?php echo $tl["general"]["g20"]; ?>
+                  <?php echo $tl["button"]["btn1"]; ?>
                 </button>
               </div>
             </div>
@@ -273,10 +261,6 @@
             <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title">Section</h3>
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
               </div>
               <div class="box-body">
                 <div class="block">
@@ -297,7 +281,7 @@
               <div class="box-footer">
                 <button type="submit" name="save" class="btn btn-primary pull-right">
                   <i class="fa fa-save margin-right-5"></i>
-                  <?php echo $tl["general"]["g20"]; ?>
+                  <?php echo $tl["button"]["btn1"]; ?>
                 </button>
               </div>
             </div>
@@ -310,10 +294,6 @@
             <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title">Footer Block 1</h3>
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
               </div>
               <div class="box-body">
 
@@ -321,7 +301,7 @@
               <div class="box-footer">
                 <button type="submit" name="save" class="btn btn-primary pull-right">
                   <i class="fa fa-save margin-right-5"></i>
-                  <?php echo $tl["general"]["g20"]; ?>
+                  <?php echo $tl["button"]["btn1"]; ?>
                 </button>
               </div>
             </div>
@@ -330,10 +310,6 @@
             <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title">Footer Block 2</h3>
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
               </div>
               <div class="box-body">
 
@@ -341,7 +317,7 @@
               <div class="box-footer">
                 <button type="submit" name="save" class="btn btn-primary pull-right">
                   <i class="fa fa-save margin-right-5"></i>
-                  <?php echo $tl["general"]["g20"]; ?>
+                  <?php echo $tl["button"]["btn1"]; ?>
                 </button>
               </div>
             </div>
@@ -350,10 +326,6 @@
             <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title">Footer Block 3</h3>
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
               </div>
               <div class="box-body">
 
@@ -361,7 +333,7 @@
               <div class="box-footer">
                 <button type="submit" name="save" class="btn btn-primary pull-right">
                   <i class="fa fa-save margin-right-5"></i>
-                  <?php echo $tl["general"]["g20"]; ?>
+                  <?php echo $tl["button"]["btn1"]; ?>
                 </button>
               </div>
             </div>
@@ -375,10 +347,6 @@
             <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title">Editace Souboru</h3>
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
               </div>
               <div class="box-body">
                 <div class="block">
@@ -401,7 +369,7 @@
               <div class="box-footer">
                 <button type="submit" name="save" class="btn btn-primary pull-right">
                   <i class="fa fa-save margin-right-5"></i>
-                  <?php echo $tl["general"]["g20"]; ?>
+                  <?php echo $tl["button"]["btn1"]; ?>
                 </button>
               </div>
             </div>
@@ -413,34 +381,3 @@
       </div>
     </div>
   </form>
-
-  <script src="js/ace/ace.js" type="text/javascript"></script>
-  <script type="text/javascript">
-
-    /* ACE Editor
-     ========================================= */
-    var htmlefACE = ace.edit("htmleditor");
-    htmlefACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
-    htmlefACE.session.setUseWrapMode(true);
-    htmlefACE.session.setWrapLimitRange(<?php echo $jkv["acewraplimit"] . ',' . $jkv["acewraplimit"]; ?>);
-    htmlefACE.setOptions({
-      // session options
-      mode: "ace/mode/<?php echo $acemode;?>",
-      tabSize: <?php echo $jkv["acetabSize"]; ?>,
-      useSoftTabs: true,
-      highlightActiveLine: <?php echo $jkv["aceactiveline"]; ?>,
-      // renderer options
-      showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
-      showGutter: <?php echo $jkv["acegutter"]; ?>,
-    });
-
-    texthtmlef = $("#jak_filecontent").val();
-    htmlefACE.session.setValue(texthtmlef);
-
-    /* Submit Form
-     ========================================= */
-    $('form').submit(function () {
-      $("#jak_filecontent").val(htmlefACE.getValue());
-    });
-
-  </script>

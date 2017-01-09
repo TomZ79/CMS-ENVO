@@ -1,7 +1,7 @@
 <li class="list-divider"></li>
-
-<li<?php if ($page == 'xml_seo') echo ' class="active"'; ?> >
+<li class="">
 	<a href="index.php?p=xml_seo">
-		<i class="fa fa-circle-o"></i> <?php echo $tlxml["xml_menu"]["xmlm"]; ?>
+		<?php echo $tlxml["xml_menu"]["xmlm"]; ?>
 	</a>
+	<span class="icon-thumbnail"><?php echo text_clipping_lower($tlxml["xml_menu"]["xmlm"]); ?></span>
 </li>

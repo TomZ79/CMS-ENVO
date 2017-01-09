@@ -52,9 +52,9 @@ if ($errors) { ?>
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton">
-      <button type="submit" name="save" class="btn btn-primary button">
+      <button type="submit" name="save" class="btn btn-success button">
         <i class="fa fa-save margin-right-5"></i>
-        <?php echo $tl["general"]["g20"]; ?> !!
+        <?php echo $tl["button"]["btn1"]; ?> !!
       </button>
     </div>
 
@@ -71,29 +71,29 @@ if ($errors) { ?>
               <li id="cform_drag" class="ui-state-highlight big-drag">
                 <div class="row">
                   <div class="col-md-4">
-                    <?php echo $tl["cform"]["c6"]; ?>
+                    <?php echo $tlrf["reg_box_content"]["regbc17"]; ?>
                     <input type="text" class="form-control jakread" readonly="readonly" name="jak_option[]">
                   </div>
                   <div class="col-md-2">
-                    <?php echo $tl["cform"]["c7"]; ?>
+                    <?php echo $tlrf["reg_box_content"]["regbc18"]; ?>
                     <select name="jak_optiontype[]" class="form-control">
-                      <option value="1"><?php echo $tl["cform"]["c10"]; ?></option>
-                      <option value="2"><?php echo $tl["cform"]["c11"]; ?></option>
-                      <option value="3"><?php echo $tl["cform"]["c12"]; ?></option>
-                      <option value="4"><?php echo $tl["cform"]["c13"]; ?></option>
+                      <option value="1"><?php echo $tlrf["reg_box_content"]["regbc19"]; ?></option>
+                      <option value="2"><?php echo $tlrf["reg_box_content"]["regbc20"]; ?></option>
+                      <option value="3"><?php echo $tlrf["reg_box_content"]["regbc21"]; ?></option>
+                      <option value="4"><?php echo $tlrf["reg_box_content"]["regbc22"]; ?></option>
                     </select>
                   </div>
                   <div class="col-md-3">
-                    <?php echo $tl["cform"]["c8"]; ?>
+                    <?php echo $tlrf["reg_box_content"]["regbc23"]; ?>
                     <input type="text" class="form-control jakread" readonly="readonly" value="female,male" name="jak_options[]">
                   </div>
                   <div class="col-md-2">
-                    <?php echo $tl["cform"]["c9"]; ?>
+                    <?php echo $tlrf["reg_box_content"]["regbc24"]; ?>
                     <select name="jak_optionmandatory[]" class="form-control">
-                      <option value="0"><?php echo $tl["general"]["g19"]; ?></option>
-                      <option value="1"><?php echo $tl["general"]["g18"]; ?></option>
-                      <option value="2"><?php echo $tl["cform"]["c16"]; ?></option>
-                      <option value="3"><?php echo $tl["cform"]["c17"]; ?></option>
+                      <option value="0"><?php echo $tl["checkbox"]["chk1"]; ?></option>
+                      <option value="1"><?php echo $tl["checkbox"]["chk"]; ?></option>
+                      <option value="2"><?php echo $tlrf["reg_box_content"]["regbc25"]; ?></option>
+                      <option value="3"><?php echo $tlrf["reg_box_content"]["regbc26"]; ?></option>
                       <option value="4"><?php echo $tlrf["reg_box_content"]["regbc13"]; ?></option>
                       <option value="5"><?php echo $tlrf["reg_box_content"]["regbc14"]; ?></option>
                     </select>
@@ -104,7 +104,7 @@ if ($errors) { ?>
             </ul>
 
             <div class="callout callout-info">
-              <i class="fa fa-arrow-up"></i> <?php echo $tl["cform"]["c21"]; ?> <i class="fa fa-arrow-down"></i>
+              <i class="fa fa-arrow-up"></i> <?php echo $tlrf["reg_box_content"]["regbc27"]; ?> <i class="fa fa-arrow-down"></i>
             </div>
 
             <ul id="cform_sort">
@@ -114,29 +114,29 @@ if ($errors) { ?>
                 <li class="jakcform">
                   <div class="row">
                     <div class="col-md-3">
-                      <?php echo $tl["cform"]["c6"]; ?>
+                      <?php echo $tlrf["reg_box_content"]["regbc17"]; ?>
                       <input type="text" class="form-control" name="jak_option_old[]" value="<?php echo $o["name"]; ?>">
                     </div>
                     <div class="col-md-2">
-                      <?php echo $tl["cform"]["c7"]; ?>
+                      <?php echo $tlrf["reg_box_content"]["regbc18"]; ?>
                       <select name="jak_optiontype_old[]" class="form-control">
-                        <option value="1"<?php if ($o["typeid"] == 1) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c10"]; ?></option>
-                        <option value="2"<?php if ($o["typeid"] == 2) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c11"]; ?></option>
-                        <option value="3"<?php if ($o["typeid"] == 3) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c12"]; ?></option>
-                        <option value="4"<?php if ($o["typeid"] == 4) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c13"]; ?></option>
+                        <option value="1"<?php if ($o["typeid"] == 1) { ?> selected="selected"<?php } ?>><?php echo $tlrf["reg_box_content"]["regbc19"]; ?></option>
+                        <option value="2"<?php if ($o["typeid"] == 2) { ?> selected="selected"<?php } ?>><?php echo $tlrf["reg_box_content"]["regbc20"]; ?></option>
+                        <option value="3"<?php if ($o["typeid"] == 3) { ?> selected="selected"<?php } ?>><?php echo $tlrf["reg_box_content"]["regbc21"]; ?></option>
+                        <option value="4"<?php if ($o["typeid"] == 4) { ?> selected="selected"<?php } ?>><?php echo $tlrf["reg_box_content"]["regbc22"]; ?></option>
                       </select>
                     </div>
                     <div class="col-md-3">
-                      <?php echo $tl["cform"]["c8"]; ?>
+                      <?php echo $tlrf["reg_box_content"]["regbc23"]; ?>
                       <input type="text" name="jak_options_old[]" class="form-control" value="<?php echo $o["options"]; ?>" placeholder="<?php echo $tlrf["reg_box_content"]["regbc15"]; ?>">
                     </div>
                     <div class="col-md-2">
-                      <?php echo $tl["cform"]["c9"]; ?>
+                      <?php echo $tlrf["reg_box_content"]["regbc24"]; ?>
                       <select name="jak_optionmandatory_old[]" class="form-control">
-                        <option value="0"<?php if ($o["mandatory"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g19"]; ?></option>
-                        <option value="1"<?php if ($o["mandatory"] == 1) { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g18"]; ?></option>
-                        <option value="2"<?php if ($o["mandatory"] == 2) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c16"]; ?></option>
-                        <option value="3"<?php if ($o["mandatory"] == 3) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c17"]; ?></option>
+                        <option value="0"<?php if ($o["mandatory"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["checkbox"]["chk1"]; ?></option>
+                        <option value="1"<?php if ($o["mandatory"] == 1) { ?> selected="selected"<?php } ?>><?php echo $tl["checkbox"]["chk"]; ?></option>
+                        <option value="2"<?php if ($o["mandatory"] == 2) { ?> selected="selected"<?php } ?>><?php echo $tlrf["reg_box_content"]["regbc25"]; ?></option>
+                        <option value="3"<?php if ($o["mandatory"] == 3) { ?> selected="selected"<?php } ?>><?php echo $tlrf["reg_box_content"]["regbc26"]; ?></option>
                         <option value="4"<?php if ($o["mandatory"] == 4) { ?> selected="selected"<?php } ?>><?php echo $tlrf["reg_box_content"]["regbc13"]; ?></option>
                         <option value="5"<?php if ($o["mandatory"] == 5) { ?> selected="selected"<?php } ?>><?php echo $tlrf["reg_box_content"]["regbc14"]; ?></option>
                       </select>
@@ -144,8 +144,8 @@ if ($errors) { ?>
                     <div class="col-md-1">
                       <i class="fa fa-user-plus"></i>
                       <select name="jak_showregister[]" class="form-control">
-                        <option value="0"<?php if ($o["showregister"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g19"]; ?></option>
-                        <option value="1"<?php if ($o["showregister"] == 1) { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g18"]; ?></option>
+                        <option value="0"<?php if ($o["showregister"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["checkbox"]["chk1"]; ?></option>
+                        <option value="1"<?php if ($o["showregister"] == 1) { ?> selected="selected"<?php } ?>><?php echo $tl["checkbox"]["chk"]; ?></option>
                       </select>
                     </div>
                     <div class="col-md-1">
@@ -169,9 +169,9 @@ if ($errors) { ?>
 
           </div>
           <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right">
+            <button type="submit" name="save" class="btn btn-success pull-right">
               <i class="fa fa-save margin-right-5"></i>
-              <?php echo $tl["general"]["g20"]; ?>
+              <?php echo $tl["button"]["btn1"]; ?>
             </button>
           </div>
         </div>

@@ -103,17 +103,4 @@ if ($errors) { ?>
     </div>
   </form>
 
-  <!-- JavaScript to disable send button and show loading.gif image -->
-  <script type="text/javascript">
-    $(document).ready(function () {
-      // onclick
-      $("input:submit").click(function () {
-        $("#loader").show();
-        $('#sendNL').val("<?php echo $tlnl["nletter"]["d31"];?>");
-        $('#sendNL').attr("disabled", "disabled");
-        $('.jak_form').submit();
-      });
-    });
-  </script>
-
 <?php include_once APP_PATH . 'admin/template/footer.php'; ?>

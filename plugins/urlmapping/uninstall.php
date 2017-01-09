@@ -15,98 +15,228 @@ if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die('You cannot 
 $succesfully = 0;
 
 // Set language for plugin
-if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_language.'.ini')) {
-  $tl = parse_ini_file(APP_PATH.'admin/lang/'.$site_language.'.ini', true);
+if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
+	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
 } else {
-  $tl = parse_ini_file(APP_PATH.'admin/lang/'.$jkv["lang"].'.ini', true);
-  $site_language = $jkv["lang"];
+	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
+	$site_language = $jkv["lang"];
 }
 
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <title><?php echo $tl["plugin"]["t31"];?></title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="/css/stylesheet.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="/admin/css/admin-color.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
+	<title><?php echo $tl["plugin"]["t31"]; ?></title>
+	<meta charset="utf-8">
+	<!-- BEGIN Vendor CSS-->
+	<link href="/admin/assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.4" rel="stylesheet" type="text/css"/>
+	<link href="/admin/assets/plugins/font-awesome/css/font-awesome.css?=4.5.0" rel="stylesheet" type="text/css"/>
+	<!-- BEGIN Pages CSS-->
+	<link href="/admin/pages/css/pages-icons.css?=v2.2.0" rel="stylesheet" type="text/css">
+	<link class="main-stylesheet" href="/admin/pages/css/pages.css?=v2.2.0" rel="stylesheet" type="text/css"/>
+	<!-- BEGIN CUSTOM MODIFICATION -->
+	<style type="text/css">
+		/* Fix 'jumping scrollbar' issue */
+		@media screen and (min-width: 960px) {
+			html {
+				margin-left: calc(100vw - 100%);
+				margin-right: 0;
+			}
+		}
+
+		/* Main body */
+		body {
+			background: transparent;
+		}
+
+		/* Notification */
+		#notificationcontainer {
+			position: relative;
+			z-index: 1000;
+			top: -21px;
+		}
+
+		.pgn-wrapper {
+			position: absolute;
+			z-index: 1000;
+		}
+
+		/* Button, input, checkbox ... */
+		input[type="text"]:hover {
+			background: #fafafa;
+			border-color: #c6c6c6;
+			color: #384343;
+		}
+
+		/* Portlet */
+		.portlet-collapse i {
+			font-size: 17px;
+			font-weight: bold;
+		}
+
+		/* Table */
+		.table-transparent tbody tr td {
+			background: transparent;
+		}
+	</style>
+	<!-- BEGIN VENDOR JS -->
+	<script src="/admin/assets/plugins/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
+	<script src="/admin/assets/plugins/bootstrapv3/js/bootstrap.min.js?=v3.3.4" type="text/javascript"></script>
+	<!-- BEGIN CORE TEMPLATE JS -->
+	<script src="/admin/pages/js/pages.js?=v2.2.0"></script>
 </head>
 <body>
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="well">
-        <h3><?php echo $tl["plugin"]["t31"];?></h3>
-      </div>
-      <hr>
-      <div class="margin-bottom-30">
-        <h4>URL Mapping Plugin - Info about uninstallation</h4>
-        <p>Info o procesu odinstalace. Výpis komponentů, které budou odinstalovány a které ne.</p>
-        <p>POZOR: Při odinstalování pluginu, budou odstraněny všechny uložené záznamy.</p>
-        <table class="table">
-          <thead>
-          <tr class="bg-teal-400">
-            <th>Process</th>
-            <th>Yes - will be uninstalled</th>
-            <th>No - Data will remain in the database</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td>Záznamy</td>
-            <td class="text-center"><i class="fa fa-check"></i></td>
-            <td></td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
+	<div class="row">
+		<div class="col-md-12 m-t-20">
+			<div class="jumbotron bg-master">
+				<h3 class="semi-bold text-white"><?php echo $tl["plugin"]["t31"]; ?></h3>
+			</div>
+			<hr>
+			<div id="notificationcontainer"></div>
+			<div class="m-b-30">
+				<h4 class="semi-bold">URL Mapping Plugin - Info o odinstalačním procesu</h4>
+				<p class="text-danger">
+					<i class="fa fa-exclamation-triangle"></i>
+					<span class="bold">POZOR: </span>
+					<span class="semi-bold">Při odinstalování tohoto pluginu, budou odstraněny všechny uložené záznamy.</span>
+				</p>
 
-      <!-- Let's do the uninstall -->
-      <?php if (isset($_POST['uninstall'])) {
-// Validate
-      session_start();
-      if(isset($_POST["captcha"])&&$_POST["captcha"]!=""&&$_SESSION["code"]==$_POST["captcha"]) {
+				<div id="portlet-advance" class="panel panel-transparent">
+					<div class="panel-heading separator">
+						<div class="panel-title">Rozšířené informace
+						</div>
+						<div class="panel-controls">
+							<ul>
+								<li>
+									<a href="#" class="portlet-collapse" data-toggle="collapse">
+										<i class="portlet-icon portlet-icon-collapse"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="panel-body">
+						<h3><span class="semi-bold">Výpis</span> Komponentů</h3>
+						<p>Seznam komponent které budou odinstalovány v průběhu odinstalačního procesu tohoto pluginu</p>
+						<br>
+						<div>
+							<table class="table table-transparent">
+								<thead>
+								<tr class="bg-complete-lighter">
+									<th>Koponenta</th>
+									<th class="text-center">Ano - bude odinstalováno</th>
+									<th class="text-center">Ne - data zůstanou v DB</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td>Tabulky DB pro práci s pluginem</td>
+									<td class="text-center"><i class="fa fa-check"></i></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>Datové záznamy</td>
+									<td class="text-center"><i class="fa fa-check"></i></td>
+									<td></td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
 
-// Now get the plugin id for futher use
-        $rows = $jakdb->queryRow('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "UrlMapping"');
+			</div>
+			<hr>
 
-        if ($rows) {
+			<!-- UNINSTALLATION -->
+			<?php if (isset($_POST['uninstall'])) {
+				// Validate
+				session_start();
+				if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
 
-          $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "UrlMapping"');
-          $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "urlmapping"');
-          $jakdb->query('DROP TABLE ' . DB_PREFIX . 'urlmapping');
+					// Now get the plugin id for futher use
+					$rows = $jakdb->queryRow('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "UrlMapping"');
 
-        }
+					if ($rows) {
 
-        $succesfully = 1;
+						$jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "UrlMapping"');
+						$jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "urlmapping"');
+						$jakdb->query('DROP TABLE ' . DB_PREFIX . 'urlmapping');
 
-        ?>
+					}
 
-        <div class="alert bg-success"><?php echo $tl["plugin"]["p15"];?></div>
+					$succesfully = 1;
 
-      <?php } else { ?>
-        <div>
-          <h4 class="text-danger-400">Wrong Code Entered - Please, enter right number !</h4>
-        </div>
-      <?php }}
-      if (!$succesfully) { ?>
-        <hr>
-        <form name="company" action="uninstall.php" method="post" enctype="multipart/form-data">
-          <div class="form-group form-inline">
-            <label for="text">Please read info about uninstallation and enter text: </label>
-            <input type="text" name="captcha" class="form-control" id="text">
-            <img src="../captcha.php" />
-          </div>
-          <button type="submit" name="uninstall" class="btn btn-danger btn-block"><?php echo $tl["plugin"]["p11"];?></button>
-        </form>
-      <?php } ?>
+					?>
+					<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
+					<script>
+						$(document).ready(function () {
+							'use strict';
+							// Apply the plugin to the body
+							$('#notificationcontainer').pgNotification({
+								style: 'bar',
+								message: '<?php echo $tl["plugin"]["p15"];?>',
+								position: 'top',
+								timeout: 0,
+								type: 'success',
+							}).show();
 
-    </div>
-  </div>
+							e.preventDefault();
+						});
+					</script>
+				<?php } else { ?>
+					<div>
+						<h5 class="text-danger bold">Wrong Code Entered - Please, enter right number !</h5>
+					</div>
+					<script>
+						$(document).ready(function () {
+							'use strict';
+							// Apply the plugin to the body
+							$('#notificationcontainer').pgNotification({
+								style: 'bar',
+								message: 'Wrong Code Entered - Please, enter right number !',
+								position: 'top',
+								timeout: 0,
+								type: 'danger',
+							}).show();
 
-</div><!-- #container -->
+							e.preventDefault();
+						});
+					</script>
+				<?php }
+			}
+			if (!$succesfully) { ?>
+				<form name="company" action="uninstall.php" method="post" enctype="multipart/form-data">
+					<div class="form-group form-inline">
+						<label for="text">Please read info about uninstallation and enter text: </label>
+						<input type="text" name="captcha" class="form-control" id="text">
+						<img src="../captcha.php" class="m-l-10"/>
+					</div>
+					<button type="submit" name="uninstall" class="btn btn-complete btn-block"><?php echo $tl["plugin"]["p11"]; ?></button>
+				</form>
+			<?php } ?>
+
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	(function ($) {
+		'use strict';
+		$('#portlet-advance').portlet({
+			onRefresh: function () {
+				setTimeout(function () {
+					// Throw any error you encounter while refreshing
+					$('#portlet-advance').portlet({
+						error: "Something went terribly wrong. Just keep calm and carry on!"
+					});
+				}, 2000);
+			}
+		});
+	})(window.jQuery);
+</script>
+
 </body>
 </html>

@@ -1,20 +1,23 @@
 <!-- START BELOWHEADER SECTION -->
 <li class="list-divider"></li>
-<li<?php if ($page == 'belowheader') { ?> class="active"<?php } ?>>
+<li class="">
   <a href="index.php?p=belowheader">
-    <i class="fa fa-circle-o"></i> <?php echo $tlbh["bh_menu"]["bhm"]; ?>
+    <?php echo $tlbh["bh_menu"]["bhm"]; ?>
   </a>
+  <span class="icon-thumbnail"><?php echo text_clipping_lower($tlbh["bh_menu"]["bhm"]); ?></span>
 </li>
-<li<?php if ($page == 'belowheader' && $page1 == "newbh") { ?> class="active"<?php } ?>>
+<li class="">
   <a href="index.php?p=belowheader&amp;sp=newbh">
-    <i class="fa fa-circle-o"></i> <?php echo $tlbh["bh_menu"]["bhm1"]; ?>
+    <?php echo $tlbh["bh_menu"]["bhm1"]; ?>
   </a>
+  <span class="icon-thumbnail"><?php echo text_clipping_lower($tlbh["bh_menu"]["bhm1"]); ?></span>
 </li>
 <?php if ($page == 'belowheader' && $page1 == 'edit') { ?>
-<li class="active">
-  <a href="index.php?p=belowheader&amp;sp=edit&amp;ssp=<?php echo $page2; ?>">
-    <i class="fa fa-circle-o"></i> <?php echo $tlbh["bh_menu"]["bhm2"]; ?>
-  </a>
-</li>
+  <li class="">
+    <a href="index.php?p=belowheader&amp;sp=edit&amp;ssp=<?php echo $page2; ?>">
+      <?php echo $tlbh["bh_menu"]["bhm2"]; ?>
+    </a>
+    <span class="icon-thumbnail"><?php echo text_clipping_lower($tlbh["bh_menu"]["bhm2"]); ?></span>
+  </li>
 <?php } ?>
 <!-- END BELOWHEADER SECTION -->

@@ -22,45 +22,152 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 }
 
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <title>Installation - Editor of basic files site</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="/css/stylesheet.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="/admin/css/admin-color.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
+	<meta charset="utf-8">
+	<!-- BEGIN Vendor CSS-->
+	<link href="/admin/assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.4" rel="stylesheet" type="text/css" />
+	<link href="/admin/assets/plugins/font-awesome/css/font-awesome.css?=4.5.0" rel="stylesheet" type="text/css" />
+	<!-- BEGIN Pages CSS-->
+	<link href="/admin/pages/css/pages-icons.css?=v2.2.0" rel="stylesheet" type="text/css">
+	<link class="main-stylesheet" href="/admin/pages/css/pages.css?=v2.2.0" rel="stylesheet" type="text/css" />
+	<!-- BEGIN CUSTOM MODIFICATION -->
+	<style type="text/css">
+		/* Fix 'jumping scrollbar' issue */
+		@media screen and (min-width: 960px) {
+			html {
+				margin-left: calc(100vw - 100%);
+				margin-right: 0;
+			}
+		}
+		/* Main body */
+		body {
+			background: transparent;
+		}
+		/* Notification */
+		#notificationcontainer {
+			position: relative;
+			z-index: 1000;
+			top: -21px;
+		}
+		.pgn-wrapper {
+			position: absolute;
+			z-index: 1000;
+		}
+		/* Button, input, checkbox ... */
+		input[type="text"]:hover {
+			background: #fafafa;
+			border-color: #c6c6c6;
+			color: #384343;
+		}
+		/* Portlet */
+		.portlet-collapse i {
+			font-size: 17px;
+			font-weight: bold;
+		}
+		/* Table */
+		.table-transparent tbody tr td {
+			background: transparent;
+		}
+	</style>
+	<!-- BEGIN VENDOR JS -->
+	<script src="/admin/assets/plugins/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
+	<script src="/admin/assets/plugins/bootstrapv3/js/bootstrap.min.js?=v3.3.4" type="text/javascript"></script>
+	<!-- BEGIN CORE TEMPLATE JS -->
+	<script src="/admin/pages/js/pages.js?=v2.2.0"></script>
 </head>
 <body>
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <div class="well">
-        <h3>Installation - Editor of basic files site</h3>
+    <div class="col-md-12 m-t-20">
+      <div class="jumbotron bg-master">
+        <h3 class="semi-bold text-white">Installation - Editor of basic files site</h3>
       </div>
       <hr>
+      <div id="notificationcontainer"></div>
+			<div class="m-b-30">
+				<h4 class="semi-bold">Site Editor Plugin - Info about installation</h4>
+				<p>Plugin umožní editaci souboru <strong>' robots.txt '</strong>.</p>
+
+				<div id="portlet-advance" class="panel panel-transparent">
+					<div class="panel-heading separator">
+						<div class="panel-title">Rozšířené informace
+						</div>
+						<div class="panel-controls">
+							<ul>
+								<li>
+									<a href="#" class="portlet-collapse" data-toggle="collapse">
+										<i class="portlet-icon portlet-icon-collapse"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="panel-body">
+						<h3><span class="semi-bold">Výpis</span> Komponentů</h3>
+						<p>Seznam komponent které budou instalovány v průběhu instalačního procesu tohoto pluginu</p>
+						<br>
+						<div>
+							<table class="table table-transparent">
+								<thead>
+								<tr class="bg-complete-lighter">
+									<th>Koponenta</th>
+									<th class="text-center">Ano</th>
+									<th class="text-center">Ne</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td>Tabulky DB pro práci s pluginem</td>
+									<td class="text-center"><i class="fa fa-check"></i></td>
+									<td></td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+      </div>
+			<hr>
 
       <!-- Check if the plugin is already installed -->
       <?php $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Site_editor"');
       if ($jakdb->affected_rows > 0) { ?>
 
-        <div class="alert bg-info">Plugin is already installed!!!</div>
+				<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
+        <script>
+          $(document).ready(function() {
+            'use strict';
+            // Apply the plugin to the body
+            $('#notificationcontainer').pgNotification({
+              style: 'bar',
+              message: 'Plugin je již nainstalován !!!',
+              position: 'top',
+              timeout: 0,
+              type: 'warning',
+            }).show();
 
-        <!-- Plugin is not installed let's display the installation script -->
+            e.preventDefault();
+          });
+        </script>
+
+      <!-- Plugin is not installed let's display the installation script -->
       <?php } else { ?>
 
-        <!-- The installation button is hit -->
+        <!-- INSTALLATION -->
         <?php if (isset($_POST['install'])) {
 
-          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Site_editor", "SITE Editor for edit basic site files.", 1, ' . JAK_USERID . ', 4, "site_editor", "NULL", "if ($page == \'site_editor\') {
+          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Site_editor", "SITE Editor for edit basic site files.", 1, ' . JAK_USERID . ', 4, "site_editor", "NULL", "if ($page == \'site-editor\') {
         require_once APP_PATH.\'plugins/site_editor/admin/site_editor.php\';
            $JAK_PROVED = 1;
            $checkp = 1;
-        }", "../plugins/site_editor/admin/template/site_editornav.php", "NULL", "uninstall.php", "1.0", NOW())');
+        }", "../plugins/site_editor/admin/template/site_editornav.php", "NULL", "uninstall.php", "1.1", NOW())');
 
-// Now get the plugin id for futher use
+					// Now get the plugin id for futher use
           $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Site_editor"');
           $rows = $results->fetch_assoc();
 
@@ -79,32 +186,61 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 
             ?>
 
-            <div class="alert bg-success"><?php echo $tl["plugin"]["p13"]; ?></div>
+            <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
+            <script>
+              $(document).ready(function() {
+                'use strict';
+                // Apply the plugin to the body
+                $('#notificationcontainer').pgNotification({
+                  style: 'bar',
+                  message: '<?php echo $tl["plugin"]["p13"]; ?>',
+                  position: 'top',
+                  timeout: 0,
+                  type: 'success',
+                }).show();
+
+                e.preventDefault();
+              });
+            </script>
 
           <?php } else {
 
             $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Site_editor"');
 
             ?>
-            <div class="alert bg-danger"><?php echo $tl["plugin"]["p14"]; ?></div>
+            <div class="alert bg-danger"><?php echo $tl["plugin"]["p16"]; ?></div>
             <form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
-              <button type="submit" name="redirect"
-                      class="btn btn-danger btn-block"><?php echo $tl["plugin"]["p11"]; ?></button>
+              <button type="submit" name="redirect" class="btn btn-danger btn-block"><?php echo $tl["plugin"]["p11"]; ?></button>
             </form>
-          <?php }
-        } ?>
+			<?php }
+			} ?>
 
         <?php if (!$succesfully) { ?>
           <form name="company" method="post" action="install.php" enctype="multipart/form-data">
-            <button type="submit" name="install"
-                    class="btn btn-primary btn-block"><?php echo $tl["plugin"]["p10"]; ?></button>
+            <button type="submit" name="install" class="btn btn-complete btn-block"><?php echo $tl["plugin"]["p10"]; ?></button>
           </form>
         <?php }
       } ?>
 
     </div>
   </div>
+</div>
 
-</div><!-- #container -->
+<script type="text/javascript">
+	(function($) {
+		'use strict';
+		$('#portlet-advance').portlet({
+			onRefresh: function() {
+				setTimeout(function() {
+					// Throw any error you encounter while refreshing
+					$('#portlet-advance').portlet({
+						error: "Something went terribly wrong. Just keep calm and carry on!"
+					});
+				}, 2000);
+			}
+		});
+	})(window.jQuery);
+</script>
+
 </body>
 </html>

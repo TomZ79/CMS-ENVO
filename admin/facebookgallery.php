@@ -30,8 +30,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["submenu"]["sm40"] . ' - ' . $tl["facebook"]["f1"];
-    $SECTION_DESC = $tl["facebook"]["f2"];
+    $SECTION_TITLE = $tl["fb_sec_title"]["fbt1"];
+    $SECTION_DESC = $tl["fb_sec_desc"]["fbd1"];
 
     // EN: Load the template
     // CZ: Načti template (šablonu)
@@ -86,8 +86,8 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tl["submenu"]["sm40"] . ' - ' . $tl["facebook"]["f3"];
-        $SECTION_DESC = $tl["facebook"]["f4"];
+        $SECTION_TITLE = $tl["fb_sec_title"]["fbt2"];
+        $SECTION_DESC = $tl["fb_sec_desc"]["fbd2"];
 
         // EN: Load the template
         // CZ: Načti template (šablonu)
@@ -98,8 +98,8 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tl["submenu"]["sm40"] . ' - ' . $tl["facebook"]["f5"];
-        $SECTION_DESC = $tl["facebook"]["f6"];
+        $SECTION_TITLE = $tl["fb_sec_title"]["fbt3"];
+        $SECTION_DESC = $tl["fb_sec_desc"]["fbd3"];
 
         // EN: Load the template
         // CZ: Načti template (šablonu)

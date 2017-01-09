@@ -22,26 +22,125 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 }
 
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <title><?php echo $tl["plugin"]["t14"];?></title>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="/css/stylesheet.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="/admin/css/admin-color.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
+  <!-- BEGIN Vendor CSS-->
+  <link href="/admin/assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.4" rel="stylesheet" type="text/css"/>
+  <link href="/admin/assets/plugins/font-awesome/css/font-awesome.css?=4.5.0" rel="stylesheet" type="text/css"/>
+  <!-- BEGIN Pages CSS-->
+  <link href="/admin/pages/css/pages-icons.css?=v2.2.0" rel="stylesheet" type="text/css">
+  <link class="main-stylesheet" href="/admin/pages/css/pages.css?=v2.2.0" rel="stylesheet" type="text/css"/>
+  <!-- BEGIN CUSTOM MODIFICATION -->
+  <style type="text/css">
+    /* Fix 'jumping scrollbar' issue */
+    @media screen and (min-width: 960px) {
+      html {
+        margin-left: calc(100vw - 100%);
+        margin-right: 0;
+      }
+    }
+    /* Main body */
+    body {
+      background: transparent;
+    }
+    /* Notification */
+    #notificationcontainer {
+      position: relative;
+      z-index: 1000;
+      top: -21px;
+    }
+    .pgn-wrapper {
+      position: absolute;
+      z-index: 1000;
+    }
+    /* Button, input, checkbox ... */
+    input[type="text"]:hover {
+      background: #fafafa;
+      border-color: #c6c6c6;
+      color: #384343;
+    }
+    /* Portlet */
+    .portlet-collapse i {
+      font-size: 17px;
+      font-weight: bold;
+    }
+    /* Table */
+    .table-transparent tbody tr td {
+      background: transparent;
+    }
+  </style>
+  <!-- BEGIN VENDOR JS -->
+  <script src="/admin/assets/plugins/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
+  <script src="/admin/assets/plugins/bootstrapv3/js/bootstrap.min.js?=v3.3.4" type="text/javascript"></script>
+  <!-- BEGIN CORE TEMPLATE JS -->
+  <script src="/admin/pages/js/pages.js?=v2.2.0"></script>
 </head>
 <body>
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <div class="well">
-        <h3><?php echo $tl["plugin"]["t14"];?></h3>
+    <div class="col-md-12 m-t-20">
+      <div class="jumbotron bg-master">
+        <h3 class="semi-bold text-white"><?php echo $tl["plugin"]["t14"];?></h3>
+      </div>
+      <hr>
+      <div id="notificationcontainer"></div>
+      <div class="m-b-30">
+        <h4 class="semi-bold">Newsletter Plugin - Info o instalačním procesu</h4>
+
+        <div id="portlet-advance" class="panel panel-transparent">
+          <div class="panel-heading separator">
+            <div class="panel-title">Rozšířené informace
+            </div>
+            <div class="panel-controls">
+              <ul>
+                <li>
+                  <a href="#" class="portlet-collapse" data-toggle="collapse">
+                    <i class="portlet-icon portlet-icon-collapse"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="panel-body">
+            <h3><span class="semi-bold">Výpis</span> Komponentů</h3>
+            <p>Seznam komponent které budou instalovány v průběhu instalačního procesu tohoto pluginu</p>
+            <br>
+            <h5 class="text-uppercase">Prostudovat postup odinstalace</h5>
+          </div>
+        </div>
+
       </div>
       <hr>
 
+      <!-- Check if the plugin is already installed -->
+      <?php $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Newsletter"');
+      if ($jakdb->affected_rows > 0) { ?>
+
+        <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
+        <script>
+          $(document).ready(function() {
+            'use strict';
+            // Apply the plugin to the body
+            $('#notificationcontainer').pgNotification({
+              style: 'bar',
+              message: 'Plugin je již nainstalován !!!',
+              position: 'top',
+              timeout: 0,
+              type: 'warning',
+            }).show();
+
+            e.preventDefault();
+          });
+        </script>
+
+        <!-- Plugin is not installed let's display the installation script -->
+      <?php } else { ?>
+
+      <!-- INSTALLATION -->
       <?php if (isset($_POST['install'])) {
 
         $jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Newsletter", "Run your own newsletter database, let user newsletter direct from your server or link.", 1, ' . JAK_USERID . ', 4, "newsletter", "require_once APP_PATH.\'plugins/newsletter/newsletter.php\';", "if ($page == \'newsletter\') {
@@ -82,7 +181,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 (NULL, "tpl_sidebar", "Newsletter SignUp", "plugins/newsletter/template/newslettersidebar.php", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_footer_widgets", "Footer - Newsletter Form", "plugins/newsletter/template/footer_widget.php", "newsletter", 1, 3, "' . $rows['id'] . '", NOW())');
 
-// Insert tables into settings
+          // Insert tables into settings
           $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
 ("nlsmtp_mail", "newsletter", 0, 0, "yesno", "boolean", "newsletter"),
 ("nlsmtpport", "newsletter", 25, 25, "input", "number", "newsletter"),
@@ -100,10 +199,10 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 // Insert into usergroup
           $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `newsletter` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
 
-// Member Newsletter
+          // Member Newsletter
           $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'user ADD `newsletter` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 1 AFTER `lastactivity`');
 
-// Insert Category
+          // Insert Category
           $jakdb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES (NULL, "Newsletter", "newsletter", NULL, 0, 0, 8, 0, 0, 1, "' . $rows['id'] . '")');
 
           $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'newsletter (
@@ -156,7 +255,22 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 
           ?>
 
-          <div class="alert bg-success"><?php echo $tl["plugin"]["p13"];?></div>
+        <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
+        <script>
+          $(document).ready(function() {
+            'use strict';
+            // Apply the plugin to the body
+            $('#notificationcontainer').pgNotification({
+              style: 'bar',
+              message: '<?php echo $tl["plugin"]["p13"]; ?>',
+              position: 'top',
+              timeout: 0,
+              type: 'success',
+            }).show();
+
+            e.preventDefault();
+          });
+        </script>
 
         <?php } else {
 
@@ -174,13 +288,30 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH.'admin/lang/'.$site_l
 
       <?php if (!$succesfully) { ?>
         <form name="company" method="post" action="install.php" enctype="multipart/form-data">
-          <button type="submit" name="install" class="btn btn-primary btn-block"><?php echo $tl["plugin"]["p10"];?></button>
+          <button type="submit" name="install" class="btn btn-complete btn-block"><?php echo $tl["plugin"]["p10"];?></button>
         </form>
-      <?php } ?>
+      <?php }
+      } ?>
 
     </div>
   </div>
+</div>
 
-</div><!-- #container -->
+<script type="text/javascript">
+  (function($) {
+    'use strict';
+    $('#portlet-advance').portlet({
+      onRefresh: function() {
+        setTimeout(function() {
+          // Throw any error you encounter while refreshing
+          $('#portlet-advance').portlet({
+            error: "Something went terribly wrong. Just keep calm and carry on!"
+          });
+        }, 2000);
+      }
+    });
+  })(window.jQuery);
+</script>
+
 </body>
 </html>

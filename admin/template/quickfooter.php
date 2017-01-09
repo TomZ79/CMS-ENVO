@@ -29,7 +29,7 @@
 
 <?php if (!$jkv["adv_editor"]) { ?>
   <script type="text/javascript" src="../js/editor/tinymce.min.js"></script>
-  <?php include_once('js/editor.php');
+  <?php include_once('pages/js/tiny.editor.php');
 } ?>
 
 <!-- Import all hooks for footer just before /body -->

@@ -54,7 +54,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
       <form role="form" method="post" action="/admin/index.php?p=page&amp;sp=search&amp;ssp=go">
         <div class="input-group">
           <span class="input-group-btn">
-            <button class="btn btn-info" name="search" type="submit"><?php echo $tl["title"]["t30"]; ?></button>
+            <button class="btn btn-info" name="search" type="submit"><?php echo $tl["button"]["btn21"]; ?></button>
           </span>
           <input type="text" name="jakSH" class="form-control" placeholder="<?php echo $tl["placeholder"]["p1"]; ?>">
         </div><!-- /input-group -->
@@ -67,16 +67,21 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 <?php if (isset($JAK_PAGE_ALL) && is_array($JAK_PAGE_ALL))  { ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-    <div class="box">
+    <div class="box box-success">
       <div class="box-body no-padding">
         <div class="table-responsive">
           <table class="table table-striped table-hover">
             <thead>
             <tr>
               <th>#</th>
-              <th><input type="checkbox" id="jak_delete_all"/></th>
               <th>
-                <?php echo $tl["page"]["p"]; ?>
+                <div class="checkbox-singel check-success">
+                  <input type="checkbox" id="jak_delete_all"/>
+                  <label for="jak_delete_all"></label>
+                </div>
+              </th>
+              <th>
+                <?php echo $tl["page_box_table"]["pagetb"]; ?>
                 <a class="btn btn-warning btn-xs" href="index.php?p=page&amp;sp=sort&amp;ssp=title&amp;sssp=DESC">
                   <i class="fa fa-arrow-up"></i>
                 </a>
@@ -84,10 +89,10 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   <i class="fa fa-arrow-down"></i>
                 </a>
               </th>
-              <th><?php echo $tl["page"]["p1"]; ?></th>
-              <th><?php echo $tl["page"]["p2"]; ?></th>
+              <th><?php echo $tl["page_box_table"]["pagetb1"]; ?></th>
+              <th><?php echo $tl["page_box_table"]["pagetb2"]; ?></th>
               <th>
-                <?php echo $tl["general"]["g56"]; ?>
+                <?php echo $tl["page_box_table"]["pagetb3"]; ?>
                 <a class="btn btn-warning btn-xs" href="index.php?p=page&amp;sp=sort&amp;ssp=hits&amp;sssp=DESC">
                   <i class="fa fa-arrow-up"></i>
                 </a>
@@ -95,7 +100,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   <i class="fa fa-arrow-down"></i>
                 </a>
               </th>
-              <th><?php echo $tl["general_cmd"]["g9"]; ?></th>
+              <th><?php echo $tl["page_box_table"]["pagetb4"]; ?></th>
               <th>
                 <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
                   <i class="fa fa-lock"></i>
@@ -103,7 +108,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
               </th>
               <th></th>
               <th>
-                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tl["page"]["al"]; ?>" disabled="disabled">
+                <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tl["page_notification"]["delall"]; ?>" disabled="disabled">
                   <i class="fa fa-trash-o"></i>
                 </button>
               </th>
@@ -112,7 +117,11 @@ if ($page1 == "e" || $page1 == "ene") { ?>
             <?php foreach ($JAK_PAGE_ALL as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
-                <td><input type="checkbox" name="jak_delete_page[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
+                <td>
+                  <div class="checkbox-singel check-success">
+                    <input type="checkbox" id="jak_delete_page<?php echo $v["id"]; ?>" name="jak_delete_page[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
+                    <label for="jak_delete_page<?php echo $v["id"]; ?>"></label>
+                  </div>
                 </td>
                 <td>
                   <a href="index.php?p=page&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a>
@@ -125,19 +134,19 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                       if ($v["catid"] == $z["id"]) { ?>
                         <a href="index.php?p=categories&amp;sp=edit&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a><?php }
                     }
-                  } else { ?><?php echo $tl["general"]["g24"]; ?><?php } ?></td>
+                  } else { ?><?php echo $tl["page_box_content"]["pagebc"]; ?><?php } ?></td>
                 <td><?php echo $v["time"]; ?></td>
                 <td><?php echo $v["hits"]; ?></td>
                 <td>
                   <?php
                     if ($v["active"] == 1 && $v["catid"] != 0) {
-                      echo $tl["general_cmd"]["g10"];
+                      echo $tl["page_box_content"]["pagebc1"];
                     } elseif ($v["active"] == 1 && $v["catid"] == 0) {
-                      echo $tl["general_cmd"]["g11"] . '<span class="small">  - Archiv</span>';
+                      echo $tl["page_box_content"]["pagebc2"] . '<span class="small">  - Archiv</span>';
                     } elseif ($v["active"] == 0 && $v["catid"] == 0) {
-                      echo $tl["general_cmd"]["g11"] . '<span class="small">  - Archiv, Uzamčeno</span>';
+                      echo $tl["page_box_content"]["pagebc2"] . '<span class="small">  - Archiv, Uzamčeno</span>';
                     } else {
-                      echo $tl["general_cmd"]["g11"] . '<span class="small">  - Uzamčeno</span>';
+                      echo $tl["page_box_content"]["pagebc2"] . '<span class="small">  - Uzamčeno</span>';
                     }
                   ?>
                 </td>
@@ -152,7 +161,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   </a>
                 </td>
                 <td>
-                  <a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo sprintf($tl["page"]["del"], $v["title"]);?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                  <a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo sprintf($tl["page_notification"]["del"], $v["title"]);?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                     <i class="fa fa-trash-o"></i>
                   </a>
                 </td>
@@ -166,46 +175,26 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
 <?php } else { ?>
 
-  <div class="alert bg-info">
-    <?php echo $tl["errorpage"]["data"]; ?>
+  <div class="col-md-12">
+    <div class="alert bg-info text-white">
+      <?php echo $tl["errorpage"]["data"]; ?>
+    </div>
   </div>
 
 <?php } ?>
 
-  <div class="icon_legend">
-    <h3><?php echo $tl["icons"]["i"]; ?></h3>
-    <i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
-    <i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
-    <i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>
-    <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+  <div class="col-md-12">
+    <div class="icon_legend">
+      <h3><?php echo $tl["icons"]["i"]; ?></h3>
+      <i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
+      <i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
+      <i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>
+      <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+    </div>
   </div>
 
 <?php if ($JAK_PAGINATE) {
   echo $JAK_PAGINATE;
 } ?>
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-
-      /* Check all checkbox */
-      $("#jak_delete_all").click(function () {
-        var checked_status = this.checked;
-        $(".highlight").each(function () {
-          this.checked = checked_status;
-        });
-      });
-
-      /* Disable submit button if checkbox is not checked */
-      var the_terms = $('.highlight');
-      the_terms.click(function() {
-        if ($(this).is(":checked")) {
-          $("#button_delete").removeAttr("disabled");
-        } else {
-          $("#button_delete").attr("disabled", "disabled");
-        }
-      });
-
-    });
-  </script>
 
 <?php include "footer.php"; ?>

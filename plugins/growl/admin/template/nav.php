@@ -1,20 +1,23 @@
 <!-- START GROWL -->
 <li class="list-divider"></li>
-<li<?php if ($page == 'growl') echo ' class="active"'; ?>>
+<li class="">
   <a href="index.php?p=growl">
-    <i class="fa fa-circle-o"></i> <?php echo $tlgwl["gwl_menu"]["gwlm"]; ?>
+    <?php echo $tlgwl["gwl_menu"]["gwlm"]; ?>
   </a>
+  <span class="icon-thumbnail"><?php echo text_clipping_lower($tlgwl["gwl_menu"]["gwlm"]); ?></span>
 </li>
-<li<?php if ($page == 'growl' && $page1 == 'new') echo ' class="active"'; ?>>
+<li class="">
   <a href="index.php?p=growl&amp;sp=new">
-    <i class="fa fa-circle-o"></i> <?php echo $tlgwl["gwl_menu"]["gwlm1"]; ?>
+    <?php echo $tlgwl["gwl_menu"]["gwlm1"]; ?>
   </a>
+  <span class="icon-thumbnail"><?php echo text_clipping_lower($tlgwl["gwl_menu"]["gwlm1"]); ?></span>
 </li>
 <?php if ($page == 'growl' && $page1 == 'edit') { ?>
-  <li class="active">
+  <li class="">
     <a href="index.php?p=growl&amp;sp=edit&amp;ssp=<?php echo $page2; ?>">
-      <i class="fa fa-circle-o"></i> <?php echo $tlgwl["gwl_menu"]["gwlm2"]; ?>
+      <?php echo $tlgwl["gwl_menu"]["gwlm2"]; ?>
     </a>
+    <span class="icon-thumbnail"><?php echo text_clipping_lower($tlgwl["gwl_menu"]["gwlm2"]); ?></span>
   </li>
 <?php } ?>
 <!-- END GROWL -->

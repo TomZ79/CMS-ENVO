@@ -58,7 +58,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 
 <?php if (isset($JAK_HOOKS) && is_array($JAK_HOOKS)) { ?>
 
-  <div class="box">
+  <div class="box box-success">
     <div class="box-body">
       <ul class="jak_hooks_move">
         <?php foreach ($JAK_HOOKS as $v) { ?>
@@ -98,18 +98,22 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 
 <?php } else { ?>
 
-  <div class="alert bg-info">
-    <?php echo $tl["errorpage"]["data"]; ?>
+  <div class="col-md-12">
+    <div class="alert bg-info text-white">
+      <?php echo $tl["errorpage"]["data"]; ?>
+    </div>
   </div>
 
 <?php } ?>
 
-  <div class="icon_legend">
-    <h3><?php echo $tl["icons"]["i"]; ?></h3>
-    <i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
-    <i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
-    <i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>
-    <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+  <div class="col-md-12">
+    <div class="icon_legend">
+      <h3><?php echo $tl["icons"]["i"]; ?></h3>
+      <i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
+      <i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
+      <i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>
+      <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+    </div>
   </div>
 
   <script src="js/hookorder.js" type="text/javascript"></script>

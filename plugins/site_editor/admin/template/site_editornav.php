@@ -1,8 +1,9 @@
 <!-- START SITE EDIT -->
 <li class="list-divider"></li>
-<li<?php if ($page == 'site_editor') echo ' class="active"'; ?>>
-  <a href="index.php?p=site_editor">
-    <i class="fa fa-circle-o"></i> <?php echo $tlsedi["siteedit_menu"]["sem"]; ?>
+<li class="">
+  <a href="index.php?p=site-editor">
+    <?php echo $tlsedi["siteedit_menu"]["sem"]; ?>
   </a>
+  <span class="icon-thumbnail"><?php echo text_clipping_lower($tlsedi["siteedit_menu"]["sem"]); ?></span>
 </li>
 <!-- END SITE EDIT -->

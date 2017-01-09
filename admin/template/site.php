@@ -50,37 +50,34 @@ if ($errors) { ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <!-- Fixed Button for save form -->
-    <div class="savebutton">
-      <button type="submit" name="save" class="btn btn-primary button">
+    <div class="savebutton hidden-xs">
+      <button type="submit" name="save" class="btn btn-success button">
         <i class="fa fa-save margin-right-5"></i>
         <?php echo $tl["button"]["btn1"]; ?> !!
       </button>
     </div>
 
     <!-- Form Content -->
-    <div class="row">
+    <div class="row tab-content-singel">
       <div class="col-md-6">
-        <div class="box">
+        <div class="box box-success">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["site_box_title"]["sitebt"]; ?></h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
           </div>
           <div class="box-body">
             <div class="block">
               <div class="block-content">
                 <div class="row-form">
-                  <div class="col-md-5 col-xs-6"><strong><?php echo $tl["site_box_content"]["sitebc"]; ?></strong></div>
-                  <div class="col-md-7 col-xs-6">
-                    <div class="radio">
-                      <label class="checkbox-inline">
-                        <input type="radio" name="jak_online" value="1"<?php if ($jkv["offline"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk"]; ?>
-                      </label>
-                      <label class="checkbox-inline">
-                        <input type="radio" name="jak_online" value="0"<?php if ($jkv["offline"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk1"]; ?>
-                      </label>
+                  <div class="col-md-5"><strong><?php echo $tl["site_box_content"]["sitebc"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="radio radio-success">
+
+                      <input type="radio" id="jak_online1" name="jak_online" value="1"<?php if ($jkv["offline"] == '1') { ?> checked="checked"<?php } ?> />
+                      <label for="jak_online1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+
+                      <input type="radio" id="jak_online2" name="jak_online" value="0"<?php if ($jkv["offline"] == '0') { ?> checked="checked"<?php } ?> />
+                      <label for="jak_online2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+
                     </div>
                   </div>
                 </div>
@@ -112,7 +109,7 @@ if ($errors) { ?>
             </div>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right">
+            <button type="submit" name="save" class="btn btn-success pull-right">
               <i class="fa fa-save margin-right-5"></i>
               <?php echo $tl["button"]["btn1"]; ?>
             </button>
@@ -120,13 +117,9 @@ if ($errors) { ?>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="box">
+        <div class="box box-success">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["site_box_title"]["sitebt"]; ?></h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
           </div>
           <div class="box-body">
             <div class="block">
@@ -160,13 +153,14 @@ if ($errors) { ?>
                 <div class="row-form">
                   <div class="col-md-5"><strong><?php echo $tl["site_box_content"]["sitebc7"]; ?></strong></div>
                   <div class="col-md-7">
-                    <div class="radio">
-                      <label class="checkbox-inline">
-                        <input type="radio" name="jak_robots" value="1"<?php if ($jkv["robots"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk"]; ?>
-                      </label>
-                      <label class="checkbox-inline">
-                        <input type="radio" name="jak_robots" value="0"<?php if ($jkv["robots"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk1"]; ?>
-                      </label>
+                    <div class="radio radio-success">
+
+                      <input type="radio" id="jak_robots1" name="jak_robots" value="1"<?php if ($jkv["robots"] == '1') { ?> checked="checked"<?php } ?> />
+                      <label for="jak_robots1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+
+                      <input type="radio" id="jak_robots2" name="jak_robots" value="0"<?php if ($jkv["robots"] == '0') { ?> checked="checked"<?php } ?> />
+                      <label for="jak_robots2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+
                     </div>
                   </div>
                 </div>
@@ -180,7 +174,7 @@ if ($errors) { ?>
             </div>
           </div>
           <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right">
+            <button type="submit" name="save" class="btn btn-success pull-right">
               <i class="fa fa-save margin-right-5"></i>
               <?php echo $tl["button"]["btn1"]; ?>
             </button>
@@ -189,48 +183,5 @@ if ($errors) { ?>
       </div>
     </div>
   </form>
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <div class="row-fluid" style="margin-top: 20px;">
-      <div class="container-fluid">
-        <h5><strong><?php echo $tl["site"]["s"]; ?></strong></h5>
-        <p>Přepnutí sítě do režimu Offline. Využíváme pro update webové sítě. Pro aktivaci, musíme vybrat stránku pro zobrazení v režimu offline. Pokud tak neučiníme, tak síť nepřejde do režimu offline. </p>
-
-        <h5><strong><?php echo $tl["site"]["s1"]; ?></strong></h5>
-        <p>Výběr offline stránky. Offline stránka se zobrazí při aktivaci sítě do režimu offline. Můžeme tak vytvořit stránku např. "Comming Soon".</p>
-
-        <h5><strong><?php echo $tl["site"]["s7"]; ?></strong></h5>
-        <p>Výběr chybové stránky. Pokud uživatel zadá chybný název stránky, CMS zobrazí chybovou stránku. V seznamu můžeme vybrat námi definovanou stránku. Pokud není nic vybráno, tak základní chybová hláška je 404.php v daném template.</p>
-
-        <h5><strong><?php echo $tl["site"]["s2"]; ?></strong></h5>
-        <p>Základní jméno webové sítě. Zobrazí se v tagu <span class="text-primary-400">'title'</span> v každé stránce sítě.</p>
-
-        <h5><strong><?php echo $tl["site"]["s3"]; ?></strong></h5>
-        <p><span class="text-danger-400">???</span></p>
-
-        <h5><strong><?php echo $tl["site"]["s4"]; ?></strong></h5>
-        <p>Nastavení globálních klíčových slov. Slova jsou automaticky oddělena po stisknutí kláves:</p>
-        <ul>
-          <li>Mezerník</li>
-          <li>Enter</li>
-          <li>Znak ' , '</li>
-        </ul>
-
-        <h5><strong><?php echo $tl["site"]["s5"]; ?></strong></h5>
-        <p>Meta tag se zobrazí v každé stránce webové sítě.</p>
-
-        <h5><strong><?php echo $tl["site"]["s6"]; ?></strong></h5>
-        <p><span class="text-danger-400">???</span></p>
-
-        <h5><strong><?php echo $tl["setting"]["s3"]; ?></strong></h5>
-        <p>Text se zobrazí v zápatí stránek webové sítě. Lze používat i html kód.</p>
-      </div>
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
 
 <?php include "footer.php"; ?>

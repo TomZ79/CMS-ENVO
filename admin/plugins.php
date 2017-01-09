@@ -95,8 +95,8 @@ switch ($page1) {
 
           // EN: Title and Description
           // CZ: Titulek a Popis
-          $SECTION_TITLE = $tl["sec_title"]["sect7"];
-          $SECTION_DESC = $tl["sec_desc"]["secd7"];
+          $SECTION_TITLE = $tl["hook_sec_title"]["hookt"];
+          $SECTION_DESC = $tl["hook_sec_desc"]["hookd"];
 
           // EN: Load the template
           // CZ: Načti template (šablonu)
@@ -205,8 +205,8 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tl["sec_title"]["sect8"];
-        $SECTION_DESC = $tl["sec_desc"]["secd8"];
+        $SECTION_TITLE = $tl["hook_sec_title"]["hookt1"];
+        $SECTION_DESC = $tl["hook_sec_desc"]["hookd1"];
 
         // EN: Load the template
         // CZ: Načti template (šablonu)
@@ -238,8 +238,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["sec_title"]["sect9"];
-    $SECTION_DESC = (is_numeric($page2) ? $tl["sec_desc"]["secd9"] . ': ' . $JAK_PLUGIN_NAME : $tl["sec_desc"]["secd10"] . ': ' . $page2);
+    $SECTION_TITLE = $tl["hook_sec_title"]["hookt2"];
+    $SECTION_DESC = (is_numeric($page2) ? $tl["hook_sec_desc"]["hookd2"] . ': ' . $JAK_PLUGIN_NAME : $tl["hook_sec_desc"]["hookd3"] . ': ' . $page2);
 
     // EN: Load the template
     // CZ: Načti template (šablonu)
@@ -294,8 +294,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["sec_title"]["sect10"];
-    $SECTION_DESC = $tl["sec_desc"]["secd11"];
+    $SECTION_TITLE = $tl["hook_sec_title"]["hookt3"];
+    $SECTION_DESC = $tl["hook_sec_desc"]["hookd4"];
 
     // EN: Load the template
     // CZ: Načti template (šablonu)
@@ -372,8 +372,8 @@ switch ($page1) {
 
         // EN: Title and Description
         // CZ: Titulek a Popis
-        $SECTION_TITLE = $tl["sec_title"]["sect6"];
-        $SECTION_DESC = $tl["sec_desc"]["secd6"];
+        $SECTION_TITLE = $tl["plug_sec_title"]["plugt"];
+        $SECTION_DESC = $tl["plug_sec_desc"]["plugd"];
 
         // EN: Load the template
         // CZ: Načti template (šablonu)

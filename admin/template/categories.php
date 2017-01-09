@@ -63,21 +63,17 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
   <div class="row">
     <div class="col-md-6">
       <!-- Header or Header/Footer -->
-      <div class="box box-default">
+      <div class="box box-success">
         <div class="box-header with-border">
           <i class="fa fa-bars"></i>
-          <h3 class="box-title"><?php echo $tl["general"]["g116"]; ?></h3>
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-          </div>
+          <h3 class="box-title"><?php echo $tl["cat_box_title"]["catbt"]; ?></h3>
         </div>
         <div class="box-body">
 
           <?php if ($JAK_CAT1_EXIST) {
 
           // Build menu for categories header and header/footer
-          $lang = $tl["cat"]["del"];
+          $lang = $tl["cat_notification"]["del"]; // Notification
           $title1 = $tl["icons"]["i11"];  // Add page
           $title2 = $tl["icons"]["i10"];  //
           $title3 = $tl["icons"]["i8"];   //
@@ -96,27 +92,23 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
 
         </div>
         <div class="box-footer">
-          <button type="submit" data-menu="mheader" name="save" class="btn btn-primary pull-right save-menu"><?php echo $tl["general"]["g20"]; ?></button>
+          <button type="submit" data-menu="mheader" name="save" class="btn btn-success pull-right save-menu"><?php echo $tl["button"]["btn1"]; ?></button>
         </div>
       </div>
     </div>
     <div class="col-md-6">
       <!-- Footer Only -->
-      <div class="box box-default">
+      <div class="box box-success">
         <div class="box-header with-border">
           <i class="fa fa-clone"></i>
-          <h3 class="box-title"><?php echo $tl["cat"]["f"]; ?></h3>
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-          </div>
+          <h3 class="box-title"><?php echo $tl["cat_box_title"]["catbt1"]; ?></h3>
         </div>
         <div class="box-body">
 
           <?php if ($JAK_CAT2_EXIST) {
 
           // Build menu for categories
-          $lang = $tl["cat"]["del"];
+          $lang = $tl["cat_notification"]["del"]; // Notification
           $title1 = $tl["icons"]["i11"];  // Add page
           $title2 = $tl["icons"]["i10"];  //
           $title3 = $tl["icons"]["i8"];   //
@@ -135,7 +127,7 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
 
         </div>
         <div class="box-footer">
-          <button type="submit" data-menu="mfooter" name="save" class="btn btn-primary pull-right save-menu"><?php echo $tl["general"]["g20"]; ?></button>
+          <button type="submit" data-menu="mfooter" name="save" class="btn btn-success pull-right save-menu"><?php echo $tl["button"]["btn1"]; ?></button>
         </div>
       </div>
     </div>
@@ -144,14 +136,10 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
   <div class="row">
     <div class="col-md-12">
       <!-- Not Visible -->
-      <div class="box box-default">
+      <div class="box box-success">
         <div class="box-header with-border">
           <i class="fa fa-clone"></i>
-          <h3 class="box-title"><?php echo $tl["general"]["g117"]; ?></h3>
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-          </div>
+          <h3 class="box-title"><?php echo $tl["cat_box_title"]["catbt2"]; ?></h3>
         </div>
         <div class="box-body">
           <?php if ($JAK_CAT3_EXIST) {
@@ -172,23 +160,25 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
 
 <?php } else { ?>
 
-  <div class="alert bg-info">
-    <?php echo $tl["errorpage"]["data"]; ?>
+  <div class="col-md-12">
+    <div class="alert bg-info text-white">
+      <?php echo $tl["errorpage"]["data"]; ?>
+    </div>
   </div>
 
 <?php } ?>
 
-  <div class="icon_legend">
-    <h3><?php echo $tl["icons"]["i"]; ?></h3>
-    <i title="<?php echo $tl["icons"]["i7"]; ?>" class="fa fa-plus"></i>
-    <i title="<?php echo $tl["icons"]["i9"]; ?>" class="fa fa-link"></i>
-    <i title="<?php echo $tl["icons"]["i8"]; ?>" class="fa fa-eyedropper"></i>
-    <i title="<?php echo $tl["icons"]["i10"]; ?>" class="fa fa-pencil"></i>
-    <i title="<?php echo $tl["icons"]["i11"]; ?>" class="fa fa-sticky-note-o"></i>
-    <i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>
-    <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+  <div class="col-md-12">
+    <div class="icon_legend">
+      <h3><?php echo $tl["icons"]["i"]; ?></h3>
+      <i title="<?php echo $tl["icons"]["i7"]; ?>" class="fa fa-plus"></i>
+      <i title="<?php echo $tl["icons"]["i9"]; ?>" class="fa fa-link"></i>
+      <i title="<?php echo $tl["icons"]["i8"]; ?>" class="fa fa-eyedropper"></i>
+      <i title="<?php echo $tl["icons"]["i10"]; ?>" class="fa fa-pencil"></i>
+      <i title="<?php echo $tl["icons"]["i11"]; ?>" class="fa fa-sticky-note-o"></i>
+      <i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>
+      <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+    </div>
   </div>
-
-  <script src="js/catorder.js" type="text/javascript"></script>
 
 <?php include "footer.php"; ?>

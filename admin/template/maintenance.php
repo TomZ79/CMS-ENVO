@@ -34,13 +34,9 @@ if ($errors) { ?>
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data">
     <div class="row">
       <div class="col-md-12">
-        <div class="box">
+        <div class="box box-success">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["mtn_box_title"]["mtnbt"]; ?></h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
           </div>
           <div class="box-body">
             <div class="block">
@@ -76,13 +72,9 @@ if ($errors) { ?>
             </div>
           </div>
         </div>
-        <div class="box">
+        <div class="box box-success">
           <div class="box-header with-border">
             <h3 class="box-title"><?php echo $tl["mtn_box_title"]["mtnbt1"]; ?></h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
           </div>
           <div class="box-body">
             <div class="block">
@@ -104,11 +96,5 @@ if ($errors) { ?>
       </div>
     </div>
   </form>
-
-  <script type="text/javascript">
-    jakCMS.main_url = "<?php echo BASE_URL;?>";
-    jakCMS.main_lang = "<?php echo $jkv["lang"];?>";
-    jakCMS.jakrequest_uri = "<?php echo JAK_PARSE_REQUEST;?>";
-  </script>
 
 <?php include "footer.php"; ?>

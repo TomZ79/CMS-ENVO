@@ -70,14 +70,19 @@ if ($page1 == "e") { ?>
 <?php if (isset($JAK_SEARCHLOG_ALL) && is_array($JAK_SEARCHLOG_ALL)) { ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-    <div class="box">
+    <div class="box box-success">
       <div class="box-body no-padding">
         <div class="table-responsive">
           <table class="table table-striped table-hover">
             <thead>
             <tr>
               <th>#</th>
-              <th><input type="checkbox" id="jak_delete_all"/></th>
+              <th>
+                <div class="checkbox-singel check-success">
+                  <input type="checkbox" id="jak_delete_all"/>
+                  <label for="jak_delete_all"></label>
+                </div>
+              </th>
               <th><?php echo $tl["slogs_box_table"]["slogstb"]; ?></th>
               <th><?php echo $tl["slogs_box_table"]["slogstb1"]; ?></th>
               <th><?php echo $tl["slogs_box_table"]["slogstb2"]; ?></th>
@@ -97,7 +102,11 @@ if ($page1 == "e") { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
                 <td>
-                  <input type="checkbox" name="jak_delete_search[]" class="highlight" value="<?php echo $v["id"]; ?>"/></td>
+                  <div class="checkbox-singel check-success">
+                    <input type="checkbox" id="jak_delete_search<?php echo $v["id"]; ?>" name="jak_delete_search[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
+                    <label for="jak_delete_search<?php echo $v["id"]; ?>"></label>
+                  </div>
+                </td>
                 <td><?php echo $v["tag"]; ?></td>
                 <td><?php echo $v["time"]; ?></td>
                 <td><?php echo $v["count"]; ?></td>
@@ -117,44 +126,24 @@ if ($page1 == "e") { ?>
 
 <?php } else { ?>
 
-  <div class="alert bg-info">
-    <?php echo $tl["errorpage"]["data"]; ?>
+  <div class="col-md-12">
+    <div class="alert bg-info text-white">
+      <?php echo $tl["errorpage"]["data"]; ?>
+    </div>
   </div>
 
 <?php } ?>
 
-  <div class="icon_legend">
-    <h3><?php echo $tl["icons"]["i"]; ?></h3>
-    <i title="<?php echo $tl["icons"]["i15"]; ?>" class="fa fa-exclamation-triangle"></i>
-    <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+  <div class="col-md-12">
+    <div class="icon_legend">
+      <h3><?php echo $tl["icons"]["i"]; ?></h3>
+      <i title="<?php echo $tl["icons"]["i15"]; ?>" class="fa fa-exclamation-triangle"></i>
+      <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+    </div>
   </div>
 
 <?php if ($JAK_PAGINATE) {
   echo $JAK_PAGINATE;
 } ?>
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-
-      /* Check all checkbox */
-      $("#jak_delete_all").click(function () {
-        var checked_status = this.checked;
-        $(".highlight").each(function () {
-          this.checked = checked_status;
-        });
-      });
-
-      /* Disable submit button if checkbox is not checked */
-      var the_terms = $('.highlight');
-      the_terms.click(function() {
-        if ($(this).is(":checked")) {
-          $("#button_delete").removeAttr("disabled");
-        } else {
-          $("#button_delete").attr("disabled", "disabled");
-        }
-      });
-
-    });
-  </script>
 
 <?php include "footer.php"; ?>

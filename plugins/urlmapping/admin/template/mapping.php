@@ -91,9 +91,9 @@
                 <td>
                   <?php
                   if ($v["active"] == 1) {
-                    echo $tl["general_cmd"]["g10"];
+                    echo $tlum["url_box_content"]["urlbc4"];
                   } else {
-                    echo $tl["general_cmd"]["g11"] . '<span class="small">  - ' . $tl["general_cmd"]["g12"] . '</span>';
+                    echo $tlum["url_box_content"]["urlbc5"] . '<span class="small">  - ' . $tlum["url_box_content"]["urlbc6"] . '</span>';
                   }
                   ?>
                 </td>
@@ -122,8 +122,10 @@
 
 <?php } else { ?>
 
-  <div class="alert bg-info">
-    <?php echo $tl["errorpage"]["data"]; ?>
+  <div class="col-md-12">
+    <div class="alert bg-info text-white">
+      <?php echo $tl["errorpage"]["data"]; ?>
+    </div>
   </div>
 
 <?php } ?>
@@ -135,29 +137,5 @@
     <i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>
     <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
   </div>
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-
-      /* Check all checkbox */
-      $("#jak_delete_all").click(function () {
-        var checked_status = this.checked;
-        $(".highlight").each(function () {
-          this.checked = checked_status;
-        });
-      });
-
-      /* Disable submit button if checkbox is not checked */
-      var the_terms = $('.highlight');
-      the_terms.click(function() {
-        if ($(this).is(":checked")) {
-          $("#button_delete").removeAttr("disabled");
-        } else {
-          $("#button_delete").attr("disabled", "disabled");
-        }
-      });
-
-    });
-  </script>
 
 <?php include_once APP_PATH . 'admin/template/footer.php'; ?>

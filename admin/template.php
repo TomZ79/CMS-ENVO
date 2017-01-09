@@ -104,8 +104,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["sec_title"]["sect12"];
-    $SECTION_DESC = $tl["sec_desc"]["secd13"];
+    $SECTION_TITLE = $tl["tpl_sec_title"]["tplt1"];
+    $SECTION_DESC = $tl["tpl_sec_desc"]["tpld1"];
 
     // EN: Ace Mode
     $acemode = 'ini';
@@ -176,8 +176,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["sec_title"]["sect14"];
-    $SECTION_DESC = $tl["sec_desc"]["secd15"];
+    $SECTION_TITLE = $tl["tpl_sec_title"]["tplt3"];
+    $SECTION_DESC = $tl["tpl_sec_desc"]["tpld3"];
 
     // EN: Ace Mode
     $acemode = 'css';
@@ -244,8 +244,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["sec_title"]["sect15"];
-    $SECTION_DESC = $tl["sec_desc"]["secd16"];
+    $SECTION_TITLE = $tl["tpl_sec_title"]["tplt4"];
+    $SECTION_DESC = $tl["tpl_sec_desc"]["tpld4"];
 
     // EN: Ace Mode
     $acemode = 'ini';
@@ -312,8 +312,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["sec_title"]["sect13"];
-    $SECTION_DESC = $tl["sec_desc"]["secd14"];
+    $SECTION_TITLE = $tl["tpl_sec_title"]["tplt2"];
+    $SECTION_DESC = $tl["tpl_sec_desc"]["tpld2"];
 
     // EN: Ace Mode
     $acemode = 'php';
@@ -370,8 +370,8 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["sec_title"]["sect11"];
-    $SECTION_DESC = $tl["sec_desc"]["secd12"];
+    $SECTION_TITLE = $tl["tpl_sec_title"]["tplt"];
+    $SECTION_DESC = $tl["tpl_sec_desc"]["tpld"];
 
     // EN: Load the template
     // CZ: Načti template (šablonu)

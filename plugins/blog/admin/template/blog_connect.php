@@ -2,12 +2,12 @@
 
   <li class="jakcontent">
     <div class="form-group">
-      <label class="control-label"><?php echo $tlblog["blog"]["d27"]; ?></label>
+      <label class="control-label"><?php echo $tlblog["blog_connect"]["blogc"]; ?></label>
       <div class="row">
         <div class="col-md-6">
           <select name="jak_showblogorder" class="form-control selectpicker" data-size="5">
-            <option value="ASC"<?php if (isset($JAK_FORM_DATA["showblogorder"]) && $JAK_FORM_DATA["showblogorder"] == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g90"]; ?></option>
-            <option value="DESC"<?php if (isset($JAK_FORM_DATA["showblogorder"]) && $JAK_FORM_DATA["showblogorder"] == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g91"]; ?></option>
+            <option value="ASC"<?php if (isset($JAK_FORM_DATA["showblogorder"]) && $JAK_FORM_DATA["showblogorder"] == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel13"]; ?></option>
+            <option value="DESC"<?php if (isset($JAK_FORM_DATA["showblogorder"]) && $JAK_FORM_DATA["showblogorder"] == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel14"]; ?></option>
           </select>
         </div>
         <div class="col-md-6">
@@ -21,9 +21,9 @@
     </div>
 
     <div class="form-group">
-      <label class="control-label"><?php echo $tl["general"]["g68"]; ?></label>
+      <label class="control-label"><?php echo $tlblog["blog_connect"]["blogc1"]; ?></label>
       <select name="jak_showblog[]" multiple="multiple" class="form-control">
-        <option value="0"<?php if (isset($JAK_FORM_DATA["showblog"]) && $JAK_FORM_DATA["showblog"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c18"]; ?></option>
+        <option value="0"<?php if (isset($JAK_FORM_DATA["showblog"]) && $JAK_FORM_DATA["showblog"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tlblog["blog_connect"]["blogc2"]; ?></option>
         <?php if (isset($JAK_GET_BLOG) && is_array($JAK_GET_BLOG)) foreach ($JAK_GET_BLOG as $fq) { ?>
           <option value="<?php echo $fq["id"]; ?>"<?php if (isset($JAK_FORM_DATA["showblog"]) && $JAK_FORM_DATA["showblog"] == $fq["id"]) { ?> selected="selected"<?php } ?>><?php echo $fq["title"]; ?></option>
         <?php } ?>

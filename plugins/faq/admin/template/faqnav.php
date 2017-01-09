@@ -1,68 +1,76 @@
-<li class="treeview<?php if ($page == 'faq' || $page == 'faq' && in_array($page1, array("new", "categories", "newcategory","categories", "comment", "trash", "setting")) || $page == 'faq' && $page1 == 'categories' && $page2 == 'edit') echo ' active'; ?>">
-  <a href="javascript:void(0)">
-    <i class="fa fa-question-circle"></i>
-    <span><?php echo $tlf["faq"]["m"]; ?></span>
-    <i class="fa fa-angle-left pull-right"></i>
+<!-- START FAQ SECTION -->
+<li class="">
+  <a href="javascript:;">
+    <span class="title"><?php echo $tlf["faq"]["m"]; ?></span>
+    <span class="arrow"></span>
   </a>
+  <span class="icon-thumbnail <?php if ($page == 'faq') echo 'bg-success'; ?>"><i class="fa fa-question"></i></span>
 
-  <ul class="treeview-menu">
-
-    <li<?php if ($page == 'faq') echo ' class="active"'; ?>>
+  <ul class="sub-menu">
+    <li class="">
       <a href="index.php?p=faq">
-        <i class="fa fa-circle-o"></i> <?php echo $tlf["faq"]["m1"]; ?>
+        <?php echo $tlf["faq"]["m1"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tlf["faq"]["m1"]); ?></span>
     </li>
-    <li<?php if ($page == 'faq' && $page1 == 'new') echo ' class="active"'; ?>>
+    <li class="">
       <a href="index.php?p=faq&amp;sp=new">
-        <i class="fa fa-circle-o"></i> <?php echo $tlf["faq"]["m2"]; ?>
+        <?php echo $tlf["faq"]["m2"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tlf["faq"]["m2"]); ?></span>
     </li>
     <?php if ($page == 'faq' && $page1 == 'edit') { ?>
-    <li class="active">
-      <a href="index.php?p=faq&amp;sp=edit&amp;ssp=<?php echo $page2; ?>">
-        <i class="fa fa-circle-o"></i> <?php echo $tlf["faq"]["m3"]; ?>
-      </a>
-    </li>
+      <li class="">
+        <a href="index.php?p=faq&amp;sp=edit&amp;ssp=<?php echo $page2; ?>">
+          <?php echo $tlf["faq"]["m3"]; ?>
+        </a>
+        <span class="icon-thumbnail"><?php echo text_clipping_lower($tlf["faq"]["m3"]); ?></span>
+      </li>
     <?php } ?>
     <li class="list-divider"></li>
 
-    <li<?php if ($page == 'faq' && $page1 == 'categories') echo ' class="active"'; ?>>
+    <li class="">
       <a href="index.php?p=faq&amp;sp=categories">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["submenu"]["sm110"]; ?>
+        <?php echo $tl["submenu"]["sm110"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tl["submenu"]["sm110"]); ?></span>
     </li>
-    <li<?php if ($page == 'faq' && $page1 == 'newcategory') echo ' class="active"'; ?>>
+    <li class="">
       <a href="index.php?p=faq&amp;sp=newcategory">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["submenu"]["sm111"]; ?>
+        <?php echo $tl["submenu"]["sm111"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tl["submenu"]["sm111"]); ?></span>
     </li>
     <?php if ($page == 'faq' && $page1 == 'categories' && $page2 == 'edit') { ?>
-    <li class="active">
-      <a href="index.php?p=faq&amp;sp=categories&amp;ssp=edit&amp;sssp=<?php echo $page3; ?>">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["submenu"]["sm112"]; ?>
-      </a>
-    </li>
+      <li class="">
+        <a href="index.php?p=faq&amp;sp=categories&amp;ssp=edit&amp;sssp=<?php echo $page3; ?>">
+          <?php echo $tl["submenu"]["sm112"]; ?>
+        </a>
+        <span class="icon-thumbnail"><?php echo text_clipping_lower($tl["submenu"]["sm112"]); ?></span>
+      </li>
     <?php } ?>
     <li class="list-divider"></li>
 
-    <li<?php if ($page == 'faq' && $page1 == 'comment' || $page == 'faq' && $page1 == 'trash') echo ' class="active"'; ?>>
+    <li class="">
       <a href="index.php?p=faq&amp;sp=comment">
-        <i class="fa fa-circle-o"></i> <?php echo $tlf["faq"]["d19"]; ?>
+        <?php echo $tlf["faq"]["d19"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tlf["faq"]["d19"]); ?></span>
     </li>
-    <li<?php if ($page == 'faq' && $page1 == 'trash') echo ' class="active"'; ?>>
+    <li class="">
       <a href="index.php?p=faq&amp;sp=trash">
-        <i class="fa fa-circle-o"></i> <?php echo $tlf["faq"]["d18"]; ?>
+        <?php echo $tlf["faq"]["d18"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tlf["faq"]["d18"]); ?></span>
     </li>
     <li class="list-divider"></li>
 
-    <li<?php if ($page == 'faq' && $page1 == 'setting') echo ' class="active"'; ?>>
+    <li class="">
       <a href="index.php?p=faq&amp;sp=setting">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["submenu"]["sm10"]; ?>
+        <?php echo $tl["submenu"]["sm10"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tl["submenu"]["sm10"]); ?></span>
     </li>
-
   </ul>
-
 </li>
+<!-- END FAQ SECTION -->

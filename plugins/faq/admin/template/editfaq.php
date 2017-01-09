@@ -58,7 +58,7 @@ if ($errors) { ?>
     </div>
 
     <!-- Form Content -->
-    <ul id="cmsTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
+    <ul id="cmsTab" class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
       <li role="presentation" class="active">
         <a href="#cmsPage1" id="cmsPage1-tab" role="tab" data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
           <span class="text"><?php echo $tl["page"]["p4"]; ?></span>
@@ -362,51 +362,6 @@ if ($errors) { ?>
     </div>
 
     <input type="hidden" name="jak_oldcatid" value="<?php echo $JAK_FORM_DATA["catid"]; ?>"/>
-
   </form>
-
-<?php if ($jkv["adv_editor"]) { ?>
-  <script src="js/ace/ace.js" type="text/javascript"></script>
-<?php } ?>
-  <script type="text/javascript">
-
-    // ACE editor
-    <?php if ($jkv["adv_editor"]) { ?>
-    var htmlACE = ace.edit("htmleditor");
-    htmlACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
-    htmlACE.session.setUseWrapMode(true);
-    htmlACE.session.setWrapLimitRange(<?php echo $jkv["acewraplimit"] . ',' . $jkv["acewraplimit"]; ?>);
-    htmlACE.setOptions({
-      // session options
-      mode: "ace/mode/html",
-      tabSize: <?php echo $jkv["acetabSize"]; ?>,
-      useSoftTabs: true,
-      highlightActiveLine: <?php echo $jkv["aceactiveline"]; ?>,
-      // renderer options
-      showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
-      showGutter: <?php echo $jkv["acegutter"]; ?>,
-    });
-
-    texthtml = $("#jak_editor").val();
-    htmlACE.session.setValue(texthtml);
-    <?php } ?>
-
-    // Responsive Filemanager
-    <?php if ($jkv["adv_editor"]) { ?>
-    function responsive_filemanager_callback(field_id) {
-
-      if (field_id == "htmleditor") {
-        // get the path for the ace file
-        var acefile = jQuery('#' + field_id).val();
-        htmlACE.insert(acefile);
-      }
-    }
-
-    // Submit Form
-    $('form').submit(function () {
-      $("#jak_editor").val(htmlACE.getValue());
-    });
-    <?php } ?>
-  </script>
 
 <?php include_once APP_PATH . 'admin/template/footer.php'; ?>

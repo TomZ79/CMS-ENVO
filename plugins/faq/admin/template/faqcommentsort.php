@@ -95,16 +95,16 @@
 
       /* Check all checkbox */
       $("#jak_delete_all").click(function () {
-        var checked_status = this.checked;
+        var checkedStatus = this.checked;
         $(".highlight").each(function () {
-          this.checked = checked_status;
+          $(this).prop('checked', checkedStatus);
         });
+        $('#button_delete').prop('disabled', function(i, v) { return !v; });
       });
 
       /* Disable submit button if checkbox is not checked */
-      var the_terms = $('.highlight');
-      the_terms.click(function() {
-        if ($(this).is(":checked")) {
+      $(".highlight").change(function() {
+        if(this.checked) {
           $("#button_delete").removeAttr("disabled");
         } else {
           $("#button_delete").attr("disabled", "disabled");

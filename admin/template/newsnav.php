@@ -1,34 +1,39 @@
-<li class="treeview<?php if ($page == 'news') echo " active"; ?>">
-  <a href="javascript:void(0)">
-    <i class="fa fa-newspaper-o"></i>
-    <span><?php echo $tl["menu"]["mm4"]; ?></span>
-    <i class="fa fa-angle-left pull-right"></i>
+<!-- START NEWS SECTION -->
+<li class="">
+  <a href="javascript:;">
+    <span class="title"><?php echo $tl["menu"]["mm4"]; ?></span>
+    <span class="arrow"></span>
   </a>
+  <span class="icon-thumbnail <?php if ($page == 'news') echo 'bg-success'; ?>"><i class="fa fa-newspaper-o"></i></span>
 
-  <ul class="treeview-menu">
-    <li<?php if ($page == 'news') echo ' class="active"'; ?>>
+  <ul class="sub-menu">
+    <li class="">
       <a href="index.php?p=news">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["submenu"]["sm160"]; ?>
+        <?php echo $tl["submenu"]["sm160"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tl["submenu"]["sm160"]); ?></span>
     </li>
-    <li<?php if ($page == 'news' && $page1 == 'new') echo ' class="active"'; ?>>
+    <li class="">
       <a href="index.php?p=news&amp;sp=new">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["submenu"]["sm161"]; ?>
+        <?php echo $tl["submenu"]["sm161"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tl["submenu"]["sm161"]); ?></span>
     </li>
     <?php if ($page == 'news' && $page1 == 'edit') { ?>
-    <li class="active">
-      <a href="index.php?p=news&amp;sp=edit&amp;ssp=<?php echo $page2; ?>">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["submenu"]["sm162"]; ?>
-      </a>
-    </li>
+      <li class="">
+        <a href="index.php?p=news&amp;sp=edit&amp;ssp=<?php echo $page2; ?>">
+          <?php echo $tl["submenu"]["sm162"]; ?>
+        </a>
+        <span class="icon-thumbnail"><?php echo text_clipping_lower($tl["submenu"]["sm162"]); ?></span>
+      </li>
     <?php } ?>
-    <li<?php if ($page == 'news' && $page1 == 'setting') echo ' class="active"'; ?>>
+    <li class="">
       <a href="index.php?p=news&amp;sp=setting">
-        <i class="fa fa-circle-o"></i> <?php echo $tl["submenu"]["sm163"]; ?>
+        <?php echo $tl["submenu"]["sm163"]; ?>
       </a>
+      <span class="icon-thumbnail"><?php echo text_clipping_lower($tl["submenu"]["sm163"]); ?></span>
     </li>
-
   </ul>
 
 </li>
+<!-- END NEWS SECTION -->

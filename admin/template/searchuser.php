@@ -23,7 +23,7 @@
       <form role="form" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
         <div class="input-group">
           <span class="input-group-btn">
-              <button class="btn btn-info" name="search" type="submit"><?php echo $tl["title"]["t30"]; ?></button>
+              <button class="btn btn-info" name="search" type="submit"><?php echo $tl["button"]["btn21"]; ?></button>
           </span>
           <input type="text" name="jakSH" class="form-control" placeholder="<?php echo $tl["placeholder"]["p2"]; ?>">
         </div><!-- /input-group -->
@@ -38,7 +38,7 @@
           } ?>
         </select>
         <span class="input-group-btn">
-          <button type="submit" name="move" class="btn btn-warning"><?php echo $tl["general"]["g35"]; ?></button>
+          <button type="submit" name="move" class="btn btn-warning"><?php echo $tl["button"]["btn20"]; ?></button>
         </span>
       </div>
     </div>
@@ -48,31 +48,36 @@
 
 <?php if ($JAK_SEARCH || $JAK_LIST_USER) { ?>
 
-  <div class="box">
+  <div class="box box-success">
     <div class="box-body no-padding">
       <div class="table-responsive">
         <table class="table table-striped">
           <thead>
           <tr>
             <th>#</th>
-            <th><input type="checkbox" id="jak_delete_all"/></th>
-            <th><?php echo $tl["user"]["u"]; ?></th>
-            <th><?php echo $tl["user"]["u1"]; ?></th>
-            <th><?php echo $tl["user"]["u2"]; ?></th>
-            <th><?php echo $tl["submenu"]["sm100"]; ?></th>
+            <th>
+              <div class="checkbox-singel check-success">
+                <input type="checkbox" id="jak_delete_all"/>
+                <label for="jak_delete_all"></label>
+              </div>
+            </th>
+            <th><?php echo $tl["user_box_table"]["usertb"]; ?></th>
+            <th><?php echo $tl["user_box_table"]["usertb1"]; ?></th>
+            <th><?php echo $tl["user_box_table"]["usertb2"]; ?></th>
+            <th><?php echo $tl["user_box_table"]["usertb3"]; ?></th>
             <th>
               <button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
                 <i class="fa fa-lock"></i>
               </button>
             </th>
             <th>
-              <button type="submit" name="password" id="button_key" class="btn btn-default btn-xs" onclick="if(!confirm('<?php echo $tl["user"]["pass"]; ?>'))return false;">
+              <button type="submit" name="password" id="button_key" class="btn btn-default btn-xs" onclick="if(!confirm('<?php echo $tl["user_notification"]["pass1"]; ?>'))return false;">
                 <i class="fa fa-key"></i>
               </button>
             </th>
             <th></th>
             <th>
-              <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tl["user"]["al"]; ?>'))return false;" disabled="disabled">
+              <button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tl["user_notification"]["delall"]; ?>'))return false;" disabled="disabled">
                 <i class="fa fa-trash-o"></i>
               </button>
             </th>
@@ -82,7 +87,11 @@
             <?php if (isset($JAK_SEARCH) && is_array($JAK_SEARCH)) foreach ($JAK_SEARCH as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
-                <td><input type="checkbox" name="jak_delete_user[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
+                <td>
+                  <div class="checkbox-singel check-success">
+                    <input type="checkbox" id="jak_delete_user<?php echo $v["id"]; ?>" name="jak_delete_user[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
+                    <label for="jak_delete_user<?php echo $v["id"]; ?>"></label>
+                  </div>
                 </td>
                 <td><a href="index.php?p=user&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
                 </td>
@@ -100,7 +109,7 @@
                   </a>
                 </td>
                 <td>
-                  <a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=password&amp;ssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["user"]["pass"]; ?>'))return false;">
+                  <a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=password&amp;ssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["user_notification"]["pass"]; ?>'))return false;">
                     <i class="fa fa-key"></i>
                   </a>
                 </td>
@@ -110,7 +119,7 @@
                   </a>
                 </td>
                 <td>
-                  <a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["user"]["al"]; ?>'))return false;">
+                  <a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["user_notification"]["del"]; ?>'))return false;">
                     <i class="fa fa-trash-o"></i>
                   </a>
                 </td>
@@ -121,7 +130,11 @@
             <?php if (isset($JAK_LIST_USER) && is_array($JAK_LIST_USER)) foreach ($JAK_LIST_USER as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
-                <td><input type="checkbox" name="jak_delete_user[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
+                <td>
+                  <div class="checkbox-singel check-success">
+                    <input type="checkbox" id="jak_delete_user<?php echo $v["id"]; ?>" name="jak_delete_user[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
+                    <label for="jak_delete_user<?php echo $v["id"]; ?>"></label>
+                  </div>
                 </td>
                 <td><a href="index.php?p=user&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
                 </td>
@@ -137,7 +150,7 @@
                   </a>
                 </td>
                 <td>
-                  <a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=password&amp;ssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["user"]["pass"]; ?>'))return false;">
+                  <a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=password&amp;ssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["user_notification"]["pass"]; ?>'))return false;">
                     <i class="fa fa-key"></i>
                   </a>
                 </td>
@@ -147,7 +160,7 @@
                   </a>
                 </td>
                 <td>
-                  <a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["user"]["al"]; ?>'))return false;">
+                  <a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["user_notification"]["del"]; ?>'))return false;">
                     <i class="fa fa-trash-o"></i>
                   </a>
                 </td>
@@ -167,39 +180,15 @@
   </div>
 <?php } ?>
 
-
-  <div class="icon_legend">
-    <h3><?php echo $tl["icons"]["i"]; ?></h3>
-    <i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
-    <i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
-    <i title="<?php echo $tl["icons"]["i14"]; ?>" class="fa fa-key"></i>
-    <i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>
-    <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+  <div class="col-md-12">
+    <div class="icon_legend">
+      <h3><?php echo $tl["icons"]["i"]; ?></h3>
+      <i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
+      <i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
+      <i title="<?php echo $tl["icons"]["i14"]; ?>" class="fa fa-key"></i>
+      <i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>
+      <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+    </div>
   </div>
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-
-      /* Check all checkbox */
-      $("#jak_delete_all").click(function () {
-        var checked_status = this.checked;
-        $(".highlight").each(function () {
-          this.checked = checked_status;
-        });
-      });
-
-      /* Disable submit button if checkbox is not checked */
-      var the_terms = $('.highlight');
-      the_terms.click(function() {
-        if ($(this).is(":checked")) {
-          $("#button_delete").removeAttr("disabled");
-        } else {
-          $("#button_delete").attr("disabled", "disabled");
-        }
-      });
-
-    });
-  </script>
-
 
 <?php include "footer.php"; ?>

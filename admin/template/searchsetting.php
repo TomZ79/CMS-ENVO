@@ -51,23 +51,23 @@ if ($errors) { ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <!-- Fixed Button for save form -->
-    <div class="savebutton">
-      <button type="submit" name="save" class="btn btn-primary button">
+    <div class="savebutton hidden-xs">
+      <button type="submit" name="save" class="btn btn-success button">
         <i class="fa fa-save margin-right-5"></i>
-        <?php echo $tl["general"]["g20"]; ?> !!
+        <?php echo $tl["button"]["btn1"]; ?> !!
       </button>
     </div>
 
     <!-- Form Content -->
-    <ul id="cmsTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
+    <ul id="cmsTabSearchS" class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
       <li role="presentation" class="active">
         <a href="#cmsPage1" id="cmsPage1-tab" role="tab" data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
-          <span class="text"><?php echo $tl["submenu"]["sm10"]; ?></span>
+          <span class="text"><?php echo $tl["ss_section_tab"]["sstab"]; ?></span>
         </a>
       </li>
       <li role="presentation" class="next">
         <a href="#cmsPage2" role="tab" id="cmsPage2-tab" data-toggle="tab" aria-controls="cmsPage2">
-          <span class="text"><?php echo $tl["general"]["g89"]; ?></span>
+          <span class="text"><?php echo $tl["ss_section_tab"]["sstab1"]; ?></span>
         </a>
       </li>
     </ul>
@@ -76,86 +76,81 @@ if ($errors) { ?>
       <div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
         <div class="row">
           <div class="col-md-6">
-            <div class="box">
+            <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["title"]["t4"]; ?></h3>
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
+                <h3 class="box-title"><?php echo $tl["ss_box_title"]["ssbt"]; ?></h3>
               </div>
               <div class="box-body">
                 <div class="block">
                   <div class="block-content">
                     <div class="row-form">
-                      <div class="col-md-5"><strong><?php echo $tl["page"]["p"]; ?></strong></div>
+                      <div class="col-md-5"><strong><?php echo $tl["ss_box_content"]["ssbc"]; ?></strong></div>
                       <div class="col-md-7">
                         <?php include_once "title_edit.php"; ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5"><strong><?php echo $tl["page"]["p5"]; ?></strong></div>
+                      <div class="col-md-5"><strong><?php echo $tl["ss_box_content"]["ssbc1"]; ?></strong></div>
                       <div class="col-md-7"><?php include_once "editorlight_edit.php"; ?></div>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right">
+                <button type="submit" name="save" class="btn btn-success pull-right">
                   <i class="fa fa-save margin-right-5"></i>
-                  <?php echo $tl["general"]["g20"]; ?>
+                  <?php echo $tl["button"]["btn1"]; ?>
                 </button>
               </div>
             </div>
           </div>
           <div class="col-md-6">
-            <div class="box">
+            <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["title"]["t5"]; ?></h3>
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
+                <h3 class="box-title"><?php echo $tl["ss_box_title"]["ssbt1"]; ?></h3>
               </div>
               <div class="box-body">
                 <div class="block">
                   <div class="block-content">
                     <div class="row-form">
-                      <div class="col-md-6"><strong><?php echo $tl["setting"]["s6"]; ?></strong></div>
+                      <div class="col-md-6"><strong><?php echo $tl["ss_box_content"]["ssbc2"]; ?></strong></div>
                       <div class="col-md-6">
-                        <div class="radio">
-                          <label class="checkbox-inline">
-                            <input type="radio" name="jak_search" value="1"<?php if ($jkv["searchform"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                          </label>
-                          <label class="checkbox-inline">
-                            <input type="radio" name="jak_search" value="0"<?php if ($jkv["searchform"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                          </label>
+                        <div class="radio radio-success">
+
+                          <input type="radio" id="jak_search1" name="jak_search" value="1"<?php if ($jkv["searchform"] == 1) { ?> checked="checked"<?php } ?> />
+                          <label for="jak_search1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+
+                          <input type="radio" id="jak_search2" name="jak_search" value="0"<?php if ($jkv["searchform"] == 0) { ?> checked="checked"<?php } ?> />
+                          <label for="jak_search2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+
                         </div>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-6"><strong><?php echo $tl["setting"]["s38"]; ?></strong></div>
+                      <div class="col-md-6"><strong><?php echo $tl["ss_box_content"]["ssbc3"]; ?></strong></div>
                       <div class="col-md-6">
-                        <div class="radio">
-                          <label class="checkbox-inline">
-                            <input type="radio" name="jak_ajaxsearch" value="1"<?php if ($jkv["ajaxsearch"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                          </label>
-                          <label class="checkbox-inline">
-                            <input type="radio" name="jak_ajaxsearch" value="0"<?php if ($jkv["ajaxsearch"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                          </label>
+                        <div class="radio radio-success">
+
+                          <input type="radio" id="jak_ajaxsearch1" name="jak_ajaxsearch" value="1"<?php if ($jkv["ajaxsearch"] == 1) { ?> checked="checked"<?php } ?> />
+                          <label for="jak_ajaxsearch1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+
+                          <input type="radio" id="jak_ajaxsearch2" name="jak_ajaxsearch" value="0"<?php if ($jkv["ajaxsearch"] == 0) { ?> checked="checked"<?php } ?> />
+                          <label for="jak_ajaxsearch2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+
                         </div>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-6"><strong><?php echo $tl["setting"]["s37"]; ?></strong></div>
+                      <div class="col-md-6"><strong><?php echo $tl["ss_box_content"]["ssbc4"]; ?></strong></div>
                       <div class="col-md-6">
-                        <div class="radio">
-                          <label class="checkbox-inline">
-                            <input type="radio" name="jak_fullsearch" value="1"<?php if ($jkv["fulltextsearch"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                          </label>
-                          <label class="checkbox-inline">
-                            <input type="radio" name="jak_fullsearch" value="0"<?php if ($jkv["fulltextsearch"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                          </label>
+                        <div class="radio radio-success">
+
+                          <input type="radio" id="jak_fullsearch1" name="jak_fullsearch" value="1"<?php if ($jkv["fulltextsearch"] == 1) { ?> checked="checked"<?php } ?> />
+                          <label for="jak_fullsearch1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+
+                          <input type="radio" id="jak_fullsearch2" name="jak_fullsearch" value="0"<?php if ($jkv["fulltextsearch"] == 0) { ?> checked="checked"<?php } ?> />
+                          <label for="jak_fullsearch2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+
                         </div>
                         <input type="hidden" name="jak_fullsearchold" value="<?php echo $jkv["fulltextsearch"]; ?>"/>
                       </div>
@@ -164,9 +159,9 @@ if ($errors) { ?>
                 </div>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right">
+                <button type="submit" name="save" class="btn btn-success pull-right">
                   <i class="fa fa-save margin-right-5"></i>
-                  <?php echo $tl["general"]["g20"]; ?>
+                  <?php echo $tl["button"]["btn1"]; ?>
                 </button>
               </div>
             </div>
@@ -176,21 +171,17 @@ if ($errors) { ?>
       <div role="tabpanel" class="tab-pane fade" id="cmsPage2" aria-labelledby="cmsPage2-tab">
         <div class="row">
           <div class="col-md-12">
-            <div class="box">
+            <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["general"]["g89"]; ?></h3>
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
+                <h3 class="box-title"><?php echo $tl["ss_box_title"]["ssbt2"]; ?></h3>
               </div>
               <div class="box-body">
                 <?php include 'sidebar_widget.php'; ?>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right">
+                <button type="submit" name="save" class="btn btn-success pull-right">
                   <i class="fa fa-save margin-right-5"></i>
-                  <?php echo $tl["general"]["g20"]; ?>
+                  <?php echo $tl["button"]["btn1"]; ?>
                 </button>
               </div>
             </div>

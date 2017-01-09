@@ -33,23 +33,19 @@ if ($page1 == "e") { ?>
 
   <form method="post" class="jak_form" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <!-- Fixed Button for save form -->
-    <div class="savebutton">
-      <button type="submit" name="save" class="btn btn-primary button">
+    <div class="savebutton hidden-xs">
+      <button type="submit" name="save" class="btn btn-success button">
         <i class="fa fa-save margin-right-5"></i>
-        <?php echo $tl["general"]["g20"]; ?> !!
+        <?php echo $tl["button"]["btn1"]; ?> !!
       </button>
     </div>
 
     <!-- Form Content -->
-    <div class="row">
+    <div class="row tab-content-singel">
       <div class="col-md-12">
-        <div class="box">
+        <div class="box box-success">
           <div class="box-header with-border">
-            <h3 class="box-title"><?php echo $tl["mediasharing"]["ms"]; ?></h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
+            <h3 class="box-title"><?php echo $tl["sms_box_title"]["smsbt"]; ?></h3>
           </div>
           <div class="box-body">
             <div class="row">
@@ -57,91 +53,101 @@ if ($page1 == "e") { ?>
                 <div class="block">
                   <div class="block-content">
                     <div class="row-form">
-                      <div class="col-md-5"><strong>Facebook</strong></div>
+                      <div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc"]; ?></strong></div>
                       <div class="col-md-7">
-                        <div class="radio">
-                          <label class="checkbox-inline">
-                            <input type="radio" name="jak_md_facebook" value="1"<?php if ($jkv["md_facebook"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                          </label>
-                          <label class="checkbox-inline">
-                            <input type="radio" name="jak_md_facebook" value="0"<?php if ($jkv["md_facebook"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                          </label>
+                        <div class="radio radio-success">
+
+                          <input type="radio" id="jak_md_facebook1" name="jak_md_facebook" value="1"<?php if ($jkv["md_facebook"] == 1) { ?> checked="checked"<?php } ?> />
+                          <label for="jak_md_facebook1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+
+                          <input type="radio" id="jak_md_facebook2" name="jak_md_facebook" value="0"<?php if ($jkv["md_facebook"] == 0) { ?> checked="checked"<?php } ?> />
+                          <label for="jak_md_facebook2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+
                         </div>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5"><strong>Google +</strong></div>
+                      <div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc1"]; ?></strong></div>
                       <div class="col-md-7">
-                        <div class="radio">
-                          <label class="checkbox-inline">
-                            <input type="radio" name="jak_md_googleplus" value="1"<?php if ($jkv["md_googleplus"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                          </label>
-                          <label class="checkbox-inline">
-                            <input type="radio" name="jak_md_googleplus" value="0"<?php if ($jkv["md_googleplus"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                          </label>
+                        <div class="radio radio-success">
+
+                          <input type="radio" id="jak_md_googleplus1" name="jak_md_googleplus" value="1"<?php if ($jkv["md_googleplus"] == 1) { ?> checked="checked"<?php } ?> />
+                          <label for="jak_md_googleplus1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+
+                          <input type="radio" id="jak_md_googleplus2" name="jak_md_googleplus" value="0"<?php if ($jkv["md_googleplus"] == 0) { ?> checked="checked"<?php } ?> />
+                          <label for="jak_md_googleplus2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+
                         </div>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5"><strong>Instagram</strong></div>
+                      <div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc2"]; ?></strong></div>
                       <div class="col-md-7">
-                        <div class="radio">
-                          <label class="checkbox-inline">
-                            <input type="radio" name="jak_md_instagram" value="1"<?php if ($jkv["md_instagram"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                          </label>
-                          <label class="checkbox-inline">
-                            <input type="radio" name="jak_md_instagram" value="0"<?php if ($jkv["md_instagram"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                          </label>
+                        <div class="radio radio-success">
+
+                          <input type="radio" id="jak_md_instagram1" name="jak_md_instagram" value="1"<?php if ($jkv["md_instagram"] == 1) { ?> checked="checked"<?php } ?> />
+                          <label for="jak_md_instagram1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+
+                          <input type="radio" id="jak_md_instagram2" name="jak_md_instagram" value="0"<?php if ($jkv["md_instagram"] == 0) { ?> checked="checked"<?php } ?> />
+                          <label for="jak_md_instagram2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+
                         </div>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5"><strong>Twitter</strong></div>
+                      <div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc3"]; ?></strong></div>
                       <div class="col-md-7">
-                        <div class="radio">
-                          <label class="checkbox-inline">
-                            <input type="radio" name="jak_md_twitter" value="1"<?php if ($jkv["md_twitter"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                          </label>
-                          <label class="checkbox-inline">
-                            <input type="radio" name="jak_md_twitter" value="0"<?php if ($jkv["md_twitter"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                          </label>
+
+                        <div class="radio radio-success">
+
+                          <input type="radio" id="jak_md_twitter1" name="jak_md_twitter" value="1"<?php if ($jkv["md_twitter"] == 1) { ?> checked="checked"<?php } ?> />
+                          <label for="jak_md_twitter1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+
+                          <input type="radio" id="jak_md_twitter2" name="jak_md_twitter" value="0"<?php if ($jkv["md_twitter"] == 0) { ?> checked="checked"<?php } ?> />
+                          <label for="jak_md_twitter2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+
                         </div>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5"><strong>Youtube</strong></div>
+                      <div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc4"]; ?></strong></div>
                       <div class="col-md-7">
-                        <div class="radio">
-                          <label class="checkbox-inline">
-                            <input type="radio" name="jak_md_youtube" value="1"<?php if ($jkv["md_youtube"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                          </label>
-                          <label class="checkbox-inline">
-                            <input type="radio" name="jak_md_youtube" value="0"<?php if ($jkv["md_youtube"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                          </label>
+                        <div class="radio radio-success">
+
+                          <input type="radio" id="jak_md_youtube1" name="jak_md_youtube" value="1"<?php if ($jkv["md_youtube"] == 1) { ?> checked="checked"<?php } ?> />
+                          <label for="jak_md_youtube1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+
+                          <input type="radio" id="jak_md_youtube2" name="jak_md_youtube" value="0"<?php if ($jkv["md_youtube"] == 0) { ?> checked="checked"<?php } ?> />
+                          <label for="jak_md_youtube2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+
                         </div>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5"><strong>Vimeo</strong></div>
-                      <div class="col-md-7"><div class="radio">
-                          <label class="checkbox-inline">
-                            <input type="radio" name="jak_md_vimeo" value="1"<?php if ($jkv["md_vimeo"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                          </label>
-                          <label class="checkbox-inline">
-                            <input type="radio" name="jak_md_vimeo" value="0"<?php if ($jkv["md_vimeo"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                          </label>
-                        </div></div>
+                      <div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc5"]; ?></strong></div>
+                      <div class="col-md-7">
+                        <div class="radio radio-success">
+
+                          <input type="radio" id="jak_md_vimeo1" name="jak_md_vimeo" value="1"<?php if ($jkv["md_vimeo"] == 1) { ?> checked="checked"<?php } ?> />
+                          <label for="jak_md_vimeo1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+
+                          <input type="radio" id="jak_md_vimeo2" name="jak_md_vimeo" value="0"<?php if ($jkv["md_vimeo"] == 0) { ?> checked="checked"<?php } ?> />
+                          <label for="jak_md_vimeo2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+
+                        </div>
+                      </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5"><strong>Email</strong></div>
+                      <div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc6"]; ?></strong></div>
                       <div class="col-md-7">
-                        <div class="radio">
-                          <label class="checkbox-inline">
-                            <input type="radio" name="jak_md_email" value="1"<?php if ($jkv["md_email"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-                          </label>
-                          <label class="checkbox-inline">
-                            <input type="radio" name="jak_md_email" value="0"<?php if ($jkv["md_email"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-                          </label>
+                        <div class="radio radio-success">
+
+                          <input type="radio" id="jak_md_email1" name="jak_md_email" value="1"<?php if ($jkv["md_email"] == 1) { ?> checked="checked"<?php } ?> />
+                          <label for="jak_md_email1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+
+                          <input type="radio" id="jak_md_email2" name="jak_md_email" value="0"<?php if ($jkv["md_email"] == 0) { ?> checked="checked"<?php } ?> />
+                          <label for="jak_md_email2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+
                         </div>
                       </div>
                     </div>
@@ -152,7 +158,7 @@ if ($page1 == "e") { ?>
                 <div class="block">
                   <div class="block-content">
                     <div class="row-form">
-                      <div class="col-md-5"><strong><?php echo $tl["mediasharing"]["ms1"]; ?></strong></div>
+                      <div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc7"]; ?></strong></div>
                       <div class="col-md-7">
                         <div class="form-group no-margin">
                           <input type="text" name="jak_mediaSize" class="form-control" value="<?php echo $jkv["md_mediaSize"]; ?>"/>
@@ -160,7 +166,7 @@ if ($page1 == "e") { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5"><strong><?php echo $tl["mediasharing"]["ms2"]; ?></strong></div>
+                      <div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc8"]; ?></strong></div>
                       <div class="col-md-7">
                         <div class="form-group no-margin">
                           <input type="text" name="jak_iconSize" class="form-control" value="<?php echo $jkv["md_iconSize"]; ?>"/>
@@ -168,7 +174,7 @@ if ($page1 == "e") { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5"><strong><?php echo $tl["mediasharing"]["ms3"]; ?></strong></div>
+                      <div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc9"]; ?></strong></div>
                       <div class="col-md-7">
                         <select name="jak_mediatheme" class="form-control selectpicker" data-size="5">
                           <option value="lee-gargano-circle-color" <?php if ($jkv["md_mediatheme"] == 'lee-gargano-circle-color') { ?> selected="selected"<?php } ?>>Lee-gargano-circle-color</option>
@@ -179,7 +185,7 @@ if ($page1 == "e") { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-5"><strong><?php echo $tl["mediasharing"]["ms4"]; ?></strong></div>
+                      <div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc10"]; ?></strong></div>
                       <div class="col-md-7">
                         <select name="jak_mediahover" class="form-control selectpicker" data-size="5">
                           <option value="fade-out" <?php if ($jkv["md_mediahover"] == 'fade-out') { ?> selected="selected"<?php } ?>>Fade-out</option>
@@ -206,9 +212,9 @@ if ($page1 == "e") { ?>
 
           </div>
           <div class="box-footer">
-            <button type="submit" name="save" class="btn btn-primary pull-right">
+            <button type="submit" name="save" class="btn btn-success pull-right">
               <i class="fa fa-save margin-right-5"></i>
-              <?php echo $tl["general"]["g20"]; ?>
+              <?php echo $tl["button"]["btn1"]; ?>
             </button>
           </div>
         </div>
@@ -216,24 +222,5 @@ if ($page1 == "e") { ?>
     </div>
   </form>
 
-  <script type="text/javascript">
-    $(function(){
-      $("#sollist-sharing").sollist({
-        pixelsBetweenItems: <?php echo $jkv["md_mediaSize"] ?>,
-        size: <?php echo $jkv["md_iconSize"] ?>,
-        theme: '<?php echo $jkv["md_mediatheme"] ?>',
-        hoverEffect: '<?php echo $jkv["md_mediahover"] ?>',
-        profiles: {
-          facebook: '',
-          googleplus: '',
-          instagram: '',
-          twitter: '',
-          youtube: '',
-          vimeo: '',
-          email: '',
-        }
-      });
-    });
-  </script>
 <?php include "footer.php"; ?>
 

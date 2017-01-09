@@ -62,7 +62,7 @@ if ($errors) { ?>
     </div>
 
     <!-- Form Content -->
-    <ul id="cmsTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
+    <ul id="cmsTab" class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
       <li role="presentation" class="active">
         <a href="#cmsPage1" id="cmsPage1-tab" role="tab" data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
           <span class="text"><?php echo $tl["submenu"]["sm10"]; ?></span>
@@ -341,59 +341,5 @@ if ($errors) { ?>
       </div>
     </div>
   </form>
-
-  <script src="js/ace/ace.js" type="text/javascript"></script>
-  <script type="text/javascript">
-
-    /* ACE Editor
-     ========================================= */
-    var jsACE = ace.edit("javaeditor");
-    jsACE.setTheme("ace/theme/chrome");
-    jsACE.session.setMode("ace/mode/html");
-    textjs = $("#jak_javascript").val();
-    jsACE.session.setValue(textjs);
-
-    var cssACE = ace.edit("csseditor");
-    cssACE.setTheme("ace/theme/chrome");
-    cssACE.session.setMode("ace/mode/html");
-    textcss = $("#jak_css").val();
-    cssACE.session.setValue(textcss);
-
-    /* Other config
-     ========================================= */
-    $(document).ready(function () {
-
-      $("#addCssBlock").click(function () {
-        cssACE.insert(insert_cssblock());
-      });
-      $("#addJavascriptBlock").click(function () {
-        jsACE.insert(insert_javascript());
-      });
-    });
-
-    /* Responsive Filemanager
-     ========================================= */
-    function responsive_filemanager_callback(field_id) {
-
-      if (field_id == "csseditor" || field_id == "javaeditor") {
-
-        // get the path for the ace file
-        var acefile = jQuery('#' + field_id).val();
-
-        if (field_id == "csseditor") {
-          cssACE.insert('<link rel="stylesheet" href="' + acefile + '" type="text/css" />');
-        } else if (field_id == "javaeditor") {
-          jsACE.insert('<script src="' + acefile + '"><\/script>');
-        }
-      }
-    }
-
-    /* Submit Form
-     ========================================= */
-    $('form').submit(function () {
-      $("#jak_css").val(cssACE.getValue());
-      $("#jak_javascript").val(jsACE.getValue());
-    });
-  </script>
 
 <?php include_once APP_PATH . 'admin/template/footer.php'; ?>

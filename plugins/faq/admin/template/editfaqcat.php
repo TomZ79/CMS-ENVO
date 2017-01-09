@@ -165,29 +165,4 @@
     </div>
   </form>
 
-  <script src="js/slug.js" type="text/javascript"></script>
-  <script type="text/javascript">
-    $(document).ready(function () {
-      $("#jak_name").keyup(function () {
-        // Checked, copy values
-        $("#jak_varname").val(jakSlug($("#jak_name").val()));
-      });
-
-      /* Bootstrap Icon Picker */
-      $('.iconpicker').iconpicker({
-        iconset: 'fontawesome',
-        icon: '<?php if (isset($JAK_FORM_DATA["catimg"])) { echo $JAK_FORM_DATA["catimg"]; } else { echo 'fa-font'; }?>',
-        searchText: '<?php echo $tl["placeholder"]["p4"]; ?>',
-        arrowPrevIconClass: 'fa fa-chevron-left',
-        arrowNextIconClass: 'fa fa-chevron-right',
-        rows: 5,
-        cols: 6,
-      });
-      $('.iconpicker').on('change', function(e) {
-        $("#jak_img").val(e.icon);
-      });
-
-    });
-  </script>
-
 <?php include_once APP_PATH . 'admin/template/footer.php'; ?>
