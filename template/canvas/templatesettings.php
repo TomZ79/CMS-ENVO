@@ -143,13 +143,14 @@
                     <div class="row-form">
                       <div class="col-md-2"><strong>Faceebook</strong></div>
                       <div class="col-md-3">
-                        <div class="radio">
-                          <label class="checkbox-inline">
-                            <input type="radio" name="facebookShow" value="1" <?php if ($jktpl["facebookShow_canvas_tpl"] == 1) { ?> checked="checked"<?php } ?> /> Show
-                          </label>
-                          <label class="checkbox-inline">
-                            <input type="radio" name="facebookShow" value="0" <?php if ($jktpl["facebookShow_canvas_tpl"] == 0) { ?> checked="checked"<?php } ?> /> Hide
-                          </label>
+                        <div class="radio radio-success">
+
+                          <input type="radio" id="facebookShow1" name="facebookShow" value="1" <?php if ($jktpl["facebookShow_canvas_tpl"] == 1) { ?> checked="checked"<?php } ?> />
+                          <label for="facebookShow1">Show</label>
+
+                          <input type="radio" id="facebookShow2" name="facebookShow" value="0" <?php if ($jktpl["facebookShow_canvas_tpl"] == 0) { ?> checked="checked"<?php } ?> />
+                          <label for="facebookShow2">Hide</label>
+
                         </div>
                       </div>
                       <div class="col-md-2">Links</div>
@@ -160,13 +161,14 @@
                     <div class="row-form">
                       <div class="col-md-2"><strong>Twitter</strong></div>
                       <div class="col-md-3">
-                        <div class="radio">
-                          <label class="checkbox-inline">
-                            <input type="radio" name="twitterShow" value="1" <?php if ($jktpl["twitterShow_canvas_tpl"] == 1) { ?> checked="checked"<?php } ?> /> Show
-                          </label>
-                          <label class="checkbox-inline">
-                            <input type="radio" name="twitterShow" value="0" <?php if ($jktpl["twitterShow_canvas_tpl"] == 0) { ?> checked="checked"<?php } ?> /> Hide
-                          </label>
+                        <div class="radio radio-success">
+
+                          <input type="radio" id="twitterShow1" name="twitterShow" value="1" <?php if ($jktpl["twitterShow_canvas_tpl"] == 1) { ?> checked="checked"<?php } ?> />
+                          <label for="twitterShow1">Show</label>
+
+                          <input type="radio" id="twitterShow2" name="twitterShow" value="0" <?php if ($jktpl["twitterShow_canvas_tpl"] == 0) { ?> checked="checked"<?php } ?> />
+                          <label for="twitterShow2">Hide</label>
+
                         </div>
                       </div>
                       <div class="col-md-2">Links</div>
@@ -177,13 +179,14 @@
                     <div class="row-form">
                       <div class="col-md-2"><strong>Google Plus</strong></div>
                       <div class="col-md-3">
-                        <div class="radio">
-                          <label class="checkbox-inline">
-                            <input type="radio" name="googleShow" value="1" <?php if ($jktpl["googleShow_canvas_tpl"] == 1) { ?> checked="checked"<?php } ?> /> Show
-                          </label>
-                          <label class="checkbox-inline">
-                            <input type="radio" name="googleShow" value="0" <?php if ($jktpl["googleShow_canvas_tpl"] == 0) { ?> checked="checked"<?php } ?> /> Hide
-                          </label>
+                        <div class="radio radio-success">
+
+                          <input type="radio" id="googleShow1" name="googleShow" value="1" <?php if ($jktpl["googleShow_canvas_tpl"] == 1) { ?> checked="checked"<?php } ?> />
+                          <label for="googleShow1">Show</label>
+
+                          <input type="radio" id="googleShow2" name="googleShow" value="0" <?php if ($jktpl["googleShow_canvas_tpl"] == 0) { ?> checked="checked"<?php } ?> />
+                          <label for="googleShow2">Hide</label>
+
                         </div>
                       </div>
                       <div class="col-md-2">Links</div>
@@ -194,13 +197,14 @@
                     <div class="row-form">
                       <div class="col-md-2"><strong>Instagram</strong></div>
                       <div class="col-md-3">
-                        <div class="radio">
-                          <label class="checkbox-inline">
-                            <input type="radio" name="instagramShow" value="1" <?php if ($jktpl["instagramShow_canvas_tpl"] == 1) { ?> checked="checked"<?php } ?> /> Show
-                          </label>
-                          <label class="checkbox-inline">
-                            <input type="radio" name="instagramShow" value="0" <?php if ($jktpl["instagramShow_canvas_tpl"] == 0) { ?> checked="checked"<?php } ?> /> Hide
-                          </label>
+                        <div class="radio radio-success">
+
+                          <input type="radio" id="instagramShow1" name="instagramShow" value="1" <?php if ($jktpl["instagramShow_canvas_tpl"] == 1) { ?> checked="checked"<?php } ?> />
+                          <label for="instagramShow1">Show</label>
+
+                          <input type="radio" id="instagramShow2" name="instagramShow" value="0" <?php if ($jktpl["instagramShow_canvas_tpl"] == 0) { ?> checked="checked"<?php } ?> />
+                          <label for="instagramShow2">Hide</label>
+
                         </div>
                       </div>
                       <div class="col-md-2">Links</div>
@@ -211,13 +215,14 @@
                     <div class="row-form">
                       <div class="col-md-2"><strong>Phone</strong></div>
                       <div class="col-md-3">
-                        <div class="radio">
-                          <label class="checkbox-inline">
-                            <input type="radio" name="phoneShow" value="1" <?php if ($jktpl["phoneShow_canvas_tpl"] == 1) { ?> checked="checked"<?php } ?> /> Show
-                          </label>
-                          <label class="checkbox-inline">
-                            <input type="radio" name="phoneShow" value="0" <?php if ($jktpl["phoneShow_canvas_tpl"] == 0) { ?> checked="checked"<?php } ?> /> Hide
-                          </label>
+                        <div class="radio radio-success">
+
+                          <input type="radio" id="phoneShow1" name="phoneShow" value="1" <?php if ($jktpl["phoneShow_canvas_tpl"] == 1) { ?> checked="checked"<?php } ?> />
+                          <label for="phoneShow1">Show</label>
+
+                          <input type="radio" id="phoneShow2" name="phoneShow" value="0" <?php if ($jktpl["phoneShow_canvas_tpl"] == 0) { ?> checked="checked"<?php } ?> />
+                          <label for="phoneShow2">Hide</label>
+
                         </div>
                       </div>
                       <div class="col-md-2">Phone Number</div>
@@ -228,13 +233,14 @@
                     <div class="row-form">
                       <div class="col-md-2"><strong>Email</strong></div>
                       <div class="col-md-3">
-                        <div class="radio">
-                          <label class="checkbox-inline">
-                            <input type="radio" name="emailShow" value="1" <?php if ($jktpl["emailShow_canvas_tpl"] == 1) { ?> checked="checked"<?php } ?> /> Show
-                          </label>
-                          <label class="checkbox-inline">
-                            <input type="radio" name="emailShow" value="0" <?php if ($jktpl["emailShow_canvas_tpl"] == 0) { ?> checked="checked"<?php } ?> /> Hide
-                          </label>
+                        <div class="radio radio-success">
+
+                          <input type="radio" id="emailShow1" name="emailShow" value="1" <?php if ($jktpl["emailShow_canvas_tpl"] == 1) { ?> checked="checked"<?php } ?> />
+                          <label for="emailShow1">Show</label>
+
+                          <input type="radio" id="emailShow2" name="emailShow" value="0" <?php if ($jktpl["emailShow_canvas_tpl"] == 0) { ?> checked="checked"<?php } ?> />
+                          <label for="emailShow2">Hide</label>
+
                         </div>
                       </div>
                       <div class="col-md-2">Email</div>
@@ -246,7 +252,7 @@
                 </div>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right">
+                <button type="submit" name="save" class="btn btn-success pull-right">
                   <i class="fa fa-save margin-right-5"></i>
                   <?php echo $tl["button"]["btn1"]; ?>
                 </button>
@@ -279,7 +285,7 @@
                 </div>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right">
+                <button type="submit" name="save" class="btn btn-success pull-right">
                   <i class="fa fa-save margin-right-5"></i>
                   <?php echo $tl["button"]["btn1"]; ?>
                 </button>
@@ -299,7 +305,7 @@
 
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right">
+                <button type="submit" name="save" class="btn btn-success pull-right">
                   <i class="fa fa-save margin-right-5"></i>
                   <?php echo $tl["button"]["btn1"]; ?>
                 </button>
@@ -315,7 +321,7 @@
 
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right">
+                <button type="submit" name="save" class="btn btn-success pull-right">
                   <i class="fa fa-save margin-right-5"></i>
                   <?php echo $tl["button"]["btn1"]; ?>
                 </button>
@@ -331,7 +337,7 @@
 
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right">
+                <button type="submit" name="save" class="btn btn-success pull-right">
                   <i class="fa fa-save margin-right-5"></i>
                   <?php echo $tl["button"]["btn1"]; ?>
                 </button>
@@ -367,7 +373,7 @@
                 </div>
               </div>
               <div class="box-footer">
-                <button type="submit" name="save" class="btn btn-primary pull-right">
+                <button type="submit" name="save" class="btn btn-success pull-right">
                   <i class="fa fa-save margin-right-5"></i>
                   <?php echo $tl["button"]["btn1"]; ?>
                 </button>
