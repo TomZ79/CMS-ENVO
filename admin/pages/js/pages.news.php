@@ -1,12 +1,12 @@
 <?php if ($jkv["adv_editor"]) { ?>
-<script src="assets/plugins/ace/ace.js" type="text/javascript"></script>
+	<script src="assets/plugins/ace/ace.js" type="text/javascript"></script>
 <?php } ?>
 <script type="text/javascript">
 
 	/* ACE Editor
 	 ========================================= */
 	<?php if ($jkv["adv_editor"]) { ?>
-	if ($('#htmleditor').length ) {
+	if ($('#htmleditor').length) {
 		var htmlACE = ace.edit("htmleditor");
 		htmlACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
 		htmlACE.session.setUseWrapMode(true);
@@ -27,7 +27,7 @@
 	}
 	<?php } ?>
 
-	if ($('#javaeditor').length ) {
+	if ($('#javaeditor').length) {
 		var jsACE = ace.edit("javaeditor");
 		jsACE.setTheme("ace/theme/chrome");
 		jsACE.session.setMode("ace/mode/html");
@@ -35,7 +35,7 @@
 		jsACE.session.setValue(textjs);
 	}
 
-	if ($('#csseditor').length ) {
+	if ($('#csseditor').length) {
 		var cssACE = ace.edit("csseditor");
 		cssACE.setTheme("ace/theme/chrome");
 		cssACE.session.setMode("ace/mode/html");
@@ -56,41 +56,41 @@
 
 		/* DateTimePicker
 		 =========================================
-		$('#datepickerFrom').datetimepicker({
-			// Language
-			locale: '<?php echo $site_language;?>',
-			// Date-Time format
-			format: 'YYYY-MM-DD HH:mm',
-			// Show Button
-			showTodayButton: true,
-			showClear: true,
-			// Other
-			ignoreReadonly: true,
-			keepInvalid: true,
-			minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>
-		});
+		 $('#datepickerFrom').datetimepicker({
+		 // Language
+		 locale: '<?php echo $site_language;?>',
+		 // Date-Time format
+		 format: 'YYYY-MM-DD HH:mm',
+		 // Show Button
+		 showTodayButton: true,
+		 showClear: true,
+		 // Other
+		 ignoreReadonly: true,
+		 keepInvalid: true,
+		 minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date ("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>
+		 });
 
 
-		$('#datepickerTo').datetimepicker({
-			// Language
-			locale: '<?php echo $site_language;?>',
-			// Date-Time format
-			format: 'YYYY-MM-DD HH:mm',
-			// Show Button
-			showTodayButton: true,
-			showClear: true,
-			// Other
-			ignoreReadonly: true,
-			minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>,
-			useCurrent: false //Important! See issue #1075
-		});
+		 $('#datepickerTo').datetimepicker({
+		 // Language
+		 locale: '<?php echo $site_language;?>',
+		 // Date-Time format
+		 format: 'YYYY-MM-DD HH:mm',
+		 // Show Button
+		 showTodayButton: true,
+		 showClear: true,
+		 // Other
+		 ignoreReadonly: true,
+		 minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date ("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>,
+		 useCurrent: false //Important! See issue #1075
+		 });
 
-		$("#datepickerFrom").on("dp.change", function (e) {
-			$('#datepickerTo').data("DateTimePicker").minDate(e.date);
-		});
-		$("#datepickerTo").on("dp.change", function (e) {
-			$('#datepickerFrom').data("DateTimePicker").maxDate(e.date);
-		});
+		 $("#datepickerFrom").on("dp.change", function (e) {
+		 $('#datepickerTo').data("DateTimePicker").minDate(e.date);
+		 });
+		 $("#datepickerTo").on("dp.change", function (e) {
+		 $('#datepickerFrom').data("DateTimePicker").maxDate(e.date);
+		 });
 		 */
 	});
 
@@ -119,7 +119,7 @@
 		$("#jak_css").val(cssACE.getValue());
 		$("#jak_javascript").val(jsACE.getValue());
 		<?php if ($jkv["adv_editor"]) { ?>
-		if ($('#jak_editor').length ) {
+		if ($('#jak_editor').length) {
 			$("#jak_editor").val(htmlACE.getValue());
 		}
 		<?php } ?>

@@ -2,23 +2,23 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists('../../config.php')) die('[install.php] config.php not found');
+if (!file_exists ('../../config.php')) die('[install.php] config.php not found');
 require_once '../../config.php';
 
 // Check if the file is accessed only from a admin if not stop the script from running
 if (!JAK_USERID) die('You cannot access this file directly.');
 
 // If not logged in and not admin, block access
-if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die('You cannot access this file directly.');
+if (!$jakuser->jakAdminaccess ($jakuser->getVar ("usergroupid"))) die('You cannot access this file directly.');
 
 // Set successfully to zero
 $succesfully = 0;
 
 // Set language for plugin
-if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
-	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
+if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
+	$tl = parse_ini_file (APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
 } else {
-	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
+	$tl            = parse_ini_file (APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
 	$site_language = $jkv["lang"];
 }
 
@@ -123,7 +123,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 			<hr>
 
 			<!-- Check if the plugin is already installed -->
-			<?php $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "BelowHeader"');
+			<?php $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "BelowHeader"');
 			if ($jakdb->affected_rows > 0) { ?>
 
 				<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
@@ -143,22 +143,22 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 					});
 				</script>
 
-			<!-- Plugin is not installed let's display the installation script -->
+				<!-- Plugin is not installed let's display the installation script -->
 			<?php } else { ?>
 
 				<!-- INSTALLATION -->
 				<?php if (isset($_POST['install'])) {
 
-				$jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "BelowHeader", "Run your own Layer Slider.", 1, ' . JAK_USERID . ', 4, "belowheader", "", "if ($page == \'belowheader\') {
+				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "BelowHeader", "Run your own Layer Slider.", 1, ' . JAK_USERID . ', 4, "belowheader", "", "if ($page == \'belowheader\') {
         require_once APP_PATH.\'plugins/belowheader/admin/belowheader.php\';
         $JAK_PROVED = 1;
         $checkp = 1;
       }", "../plugins/belowheader/admin/template/bhnav.php", "1", "uninstall.php", "1.1", NOW())');
 
 				// Now get the plugin id for futher use
-				$sqls = 'SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "BelowHeader"';
-				$results = $jakdb->query($sqls);
-				$rows = $results->fetch_assoc();
+				$sqls    = 'SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "BelowHeader"';
+				$results = $jakdb->query ($sqls);
+				$rows    = $results->fetch_assoc ();
 
 			if ($rows['id']) {
 
@@ -169,15 +169,15 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 }';
 
 				// The file who does the job
-				$belowheader = 'plugins/belowheader/bhinput.php';
+				$belowheader  = 'plugins/belowheader/bhinput.php';
 				$belowcontent = 'plugins/belowheader/bhinputb.php';
 
-				$jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "BelowHeader Admin Language", "' . $adminlang . '", "belowheader", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_below_header", "BelowHeader Input", "' . $belowheader . '", "belowheader", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_below_content", "BelowHeader / Content", "' . $belowcontent . '", "belowheader", 1, 1, "' . $rows['id'] . '", NOW())');
 
-				$jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'belowheader (
+				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'belowheader (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `pageid` varchar(100) DEFAULT NULL,
   `newsid` varchar(100) DEFAULT NULL,
@@ -201,7 +201,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 
 				<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
 				<script>
-					$(document).ready(function() {
+					$(document).ready(function () {
 						'use strict';
 						// Apply the plugin to the body
 						$('#notificationcontainer').pgNotification({
@@ -218,9 +218,9 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 
 			<?php } else {
 
-				$result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "BelowHeader"');
+			$result = $jakdb->query ('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "BelowHeader"');
 
-				?>
+			?>
 				<div class="alert bg-danger"><?php echo $tl["plugin"]["p14"]; ?></div>
 				<form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
 					<button type="submit" name="redirect" class="btn btn-danger btn-block"><?php echo $tl["plugin"]["p11"]; ?></button>
@@ -228,10 +228,10 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 			<?php }
 			} ?>
 
-				<?php if (!$succesfully) { ?>
+			<?php if (!$succesfully) { ?>
 				<form name="company" method="post" action="install.php" enctype="multipart/form-data">
 					<button type="submit" name="install"
-									class="btn btn-primary btn-block"><?php echo $tl["plugin"]["p10"]; ?></button>
+						class="btn btn-primary btn-block"><?php echo $tl["plugin"]["p10"]; ?></button>
 				</form>
 			<?php }
 			} ?>

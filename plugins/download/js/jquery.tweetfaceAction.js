@@ -1,123 +1,123 @@
 (function ($) {
 
-  var win = null;
+	var win = null;
 
-  $.fn.tweetAction = function (options, callback) {
+	$.fn.tweetAction = function (options, callback) {
 
-    // Default parameters of the tweet popup:
+		// Default parameters of the tweet popup:
 
-    options = $.extend({
-      url: window.location.href
-    }, options);
+		options = $.extend({
+			url: window.location.href
+		}, options);
 
-    return this.click(function (e) {
+		return this.click(function (e) {
 
-      if (win) {
-        // If a popup window is already shown,
-        // do nothing;
-        e.preventDefault();
-        return;
-      }
+			if (win) {
+				// If a popup window is already shown,
+				// do nothing;
+				e.preventDefault();
+				return;
+			}
 
-      var width = 550,
-        height = 350,
-        top = (window.screen.height - height) / 2,
-        left = (window.screen.width - width) / 2;
+			var width = 550,
+				height = 350,
+				top = (window.screen.height - height) / 2,
+				left = (window.screen.width - width) / 2;
 
-      var config = [
-        'scrollbars=yes', 'resizable=yes', 'toolbar=no', 'location=yes',
-        'width=' + width, 'height=' + height, 'left=' + left, 'top=' + top
-      ].join(',');
+			var config = [
+				'scrollbars=yes', 'resizable=yes', 'toolbar=no', 'location=yes',
+				'width=' + width, 'height=' + height, 'left=' + left, 'top=' + top
+			].join(',');
 
-      // Opening a popup window pointing to the twitter intent API:
-      win = window.open('http://twitter.com/intent/tweet?' + $.param(options),
-        'TweetWindow', config);
+			// Opening a popup window pointing to the twitter intent API:
+			win = window.open('http://twitter.com/intent/tweet?' + $.param(options),
+				'TweetWindow', config);
 
-      // Checking whether the window is closed every 100 milliseconds.
-      (function checkWindow() {
+			// Checking whether the window is closed every 100 milliseconds.
+			(function checkWindow() {
 
-        try {
-          // Opera raises a security exception, so we
-          // need to put this code in a try/catch:
+				try {
+					// Opera raises a security exception, so we
+					// need to put this code in a try/catch:
 
-          if (!win || win.closed) {
-            throw "Closed!";
-          }
-          else {
-            setTimeout(checkWindow, 100);
-          }
-        }
-        catch (e) {
-          // Executing the callback, passed
-          // as an argument to the plugin.
+					if (!win || win.closed) {
+						throw "Closed!";
+					}
+					else {
+						setTimeout(checkWindow, 100);
+					}
+				}
+				catch (e) {
+					// Executing the callback, passed
+					// as an argument to the plugin.
 
-          win = null;
-          callback();
-        }
+					win = null;
+					callback();
+				}
 
-      })();
+			})();
 
-      e.preventDefault();
-    });
+			e.preventDefault();
+		});
 
-  };
+	};
 
-  $.fn.faceAction = function (options, callback) {
+	$.fn.faceAction = function (options, callback) {
 
-    return this.click(function (e) {
+		return this.click(function (e) {
 
-      if (win) {
-        // If a popup window is already shown,
-        // do nothing;
-        e.preventDefault();
-        return;
-      }
+			if (win) {
+				// If a popup window is already shown,
+				// do nothing;
+				e.preventDefault();
+				return;
+			}
 
-      var width = 550,
-        height = 350,
-        top = (window.screen.height - height) / 2,
-        left = (window.screen.width - width) / 2;
+			var width = 550,
+				height = 350,
+				top = (window.screen.height - height) / 2,
+				left = (window.screen.width - width) / 2;
 
-      var config = [
-        'scrollbars=yes', 'resizable=yes', 'toolbar=no', 'location=yes',
-        'width=' + width, 'height=' + height, 'left=' + left, 'top=' + top
-      ].join(',');
+			var config = [
+				'scrollbars=yes', 'resizable=yes', 'toolbar=no', 'location=yes',
+				'width=' + width, 'height=' + height, 'left=' + left, 'top=' + top
+			].join(',');
 
-      var url = $.param(options).replace("url=", "");
+			var url = $.param(options).replace("url=", "");
 
-      var decode_url = decodeURIComponent(url);
+			var decode_url = decodeURIComponent(url);
 
-      // Opening a popup window pointing to the twitter intent API:
-      win = window.open('http://www.facebook.com/sharer/sharer.php?u=' + decode_url,
-        'FaceWindow', config);
+			// Opening a popup window pointing to the twitter intent API:
+			win = window.open('http://www.facebook.com/sharer/sharer.php?u=' + decode_url,
+				'FaceWindow', config);
 
-      // Checking whether the window is closed every 100 milliseconds.
-      (function checkWindow() {
+			// Checking whether the window is closed every 100 milliseconds.
+			(function checkWindow() {
 
-        try {
-          // Opera raises a security exception, so we
-          // need to put this code in a try/catch:
+				try {
+					// Opera raises a security exception, so we
+					// need to put this code in a try/catch:
 
-          if (!win || win.closed) {
-            throw "Closed!";
-          }
-          else {
-            setTimeout(checkWindow, 100);
-          }
-        }
-        catch (e) {
-          // Executing the callback, passed
-          // as an argument to the plugin.
+					if (!win || win.closed) {
+						throw "Closed!";
+					}
+					else {
+						setTimeout(checkWindow, 100);
+					}
+				}
+				catch (e) {
+					// Executing the callback, passed
+					// as an argument to the plugin.
 
-          win = null;
-          callback();
-        }
+					win = null;
+					callback();
+				}
 
-      })();
+			})();
 
-      e.preventDefault();
-    });
+			e.preventDefault();
+		});
 
-  };
+	};
 
 })(jQuery);

@@ -2,23 +2,23 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists('../../config.php')) die('[install.php] config.php not found');
+if (!file_exists ('../../config.php')) die('[install.php] config.php not found');
 require_once '../../config.php';
 
 // Check if the file is accessed only from a admin if not stop the script from running
 if (!JAK_USERID) die('You cannot access this file directly.');
 
 // If not logged in and not admin, block access
-if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die('You cannot access this file directly.');
+if (!$jakuser->jakAdminaccess ($jakuser->getVar ("usergroupid"))) die('You cannot access this file directly.');
 
 // Set successfully to zero
 $succesfully = 0;
 
 // Set language for plugin
-if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
-	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
+if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
+	$tl = parse_ini_file (APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
 } else {
-	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
+	$tl            = parse_ini_file (APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
 	$site_language = $jkv["lang"];
 }
 
@@ -123,7 +123,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 			<hr>
 
 			<!-- Check if the plugin is already installed -->
-			<?php $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "UrlMapping"');
+			<?php $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "UrlMapping"');
 			if ($jakdb->affected_rows > 0) { ?>
 
 				<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
@@ -149,15 +149,15 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 				<!-- INSTALLATION -->
 				<?php if (isset($_POST['install'])) {
 
-				$jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Blog", "Run your own blog.", 1, ' . JAK_USERID . ', 4, "blog", "require_once APP_PATH.\'plugins/blog/blog.php\';", "if ($page == \'blog\') {
+				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Blog", "Run your own blog.", 1, ' . JAK_USERID . ', 4, "blog", "require_once APP_PATH.\'plugins/blog/blog.php\';", "if ($page == \'blog\') {
         require_once APP_PATH.\'plugins/blog/admin/blog.php\';
            $JAK_PROVED = 1;
            $checkp = 1;
         }", "../plugins/blog/admin/template/blognav.php", "blog", "uninstall.php", "1.1", NOW())');
 
 				// Now get the plugin id for futher use
-				$results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blog"');
-				$rows = $results->fetch_assoc();
+				$results = $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blog"');
+				$rows    = $results->fetch_assoc ();
 
 			if ($rows['id']) {
 
@@ -218,7 +218,7 @@ $JAK_BLOG_ALL = jak_get_blog(\'\', $jkv[\"blogorder\"], \'\', \'\', $jkv[\"blogu
 $PAGE_TITLE = JAK_PLUGIN_NAME_BLOG;';
 
 				// Fulltext search query
-				$sqlfull = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'blog ADD FULLTEXT(`title`, `content`)\');';
+				$sqlfull       = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'blog ADD FULLTEXT(`title`, `content`)\');';
 				$sqlfullremove = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'blog DROP INDEX `title`\');';
 
 				// Connect to pages/news
@@ -267,7 +267,7 @@ include_once APP_PATH.\'plugins/blog/template/\'.$jkv[\"sitestyle\"].\'/pages_ne
 
 				$adminphpmassdel = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'blogcomments SET userid = 0 WHERE userid = \'.$locked.\'\');';
 
-				$jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_usergroup", "Blog Usergroup", "' . $insertphpcode . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_lang", "Blog Admin Language", "' . $adminlang . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Blog Site Language", "' . $sitelang . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
@@ -296,8 +296,8 @@ include_once APP_PATH.\'plugins/blog/template/\'.$jkv[\"sitestyle\"].\'/pages_ne
 (NULL, "tpl_footer_widgets", "Blog - 3 Latest Files", "plugins/blog/template/footer_widget.php", "blog", 1, 3, "' . $row['id'] . '", NOW()),
 (NULL, "tpl_footer_widgets", "Blog - Show Categories", "plugins/blog/template/footer_widget1.php", "blog", 1, 3, "' . $row['id'] . '", NOW())');
 
-// Insert tables into settings
-				$jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+				// Insert tables into settings
+				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
 ("blogtitle", "blog", "Blog", "Blog", "input", "free", "blog"),
 ("blogdesc", "blog", "Write something about your Blog", "Write something about your Blog", "textarea", "free", "blog"),
 ("blogemail", "blog", NULL, NULL, "input", "free", "blog"),
@@ -313,22 +313,22 @@ include_once APP_PATH.\'plugins/blog/template/\'.$jkv[\"sitestyle\"].\'/pages_ne
 ("blog_css", "blog", "", "", "textarea", "free", "blog"),
 ("blog_javascript", "blog", "", "", "textarea", "free", "blog")');
 
-// Insert into usergroup
-				$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `blog` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`, ADD `blogpost` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `blog`, ADD `blogpostdelete` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `blogpost`, ADD `blogpostapprove` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `blogpostdelete`, ADD `blograte` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `blogpostdelete`, ADD `blogmoderate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `blograte`');
+				// Insert into usergroup
+				$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `blog` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`, ADD `blogpost` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `blog`, ADD `blogpostdelete` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `blogpost`, ADD `blogpostapprove` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `blogpostdelete`, ADD `blograte` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `blogpostdelete`, ADD `blogmoderate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `blograte`');
 
 				// Pages/News alter Table
-				$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showblog varchar(100) DEFAULT NULL AFTER showcontact');
-				$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'news ADD showblog varchar(100) DEFAULT NULL AFTER showcontact');
-				$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pagesgrid ADD blogid INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER newsid');
+				$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'pages ADD showblog varchar(100) DEFAULT NULL AFTER showcontact');
+				$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'news ADD showblog varchar(100) DEFAULT NULL AFTER showcontact');
+				$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'pagesgrid ADD blogid INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER newsid');
 
 				// Backup content from blog
-				$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'backup_content ADD blogid INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER pageid');
+				$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'backup_content ADD blogid INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER pageid');
 
 				// Insert Category
-				$jakdb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES
+				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES
 (NULL, "Blog", "blog", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
 
-				$jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'blog (
+				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'blog (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `catid` varchar(100) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
@@ -352,7 +352,7 @@ include_once APP_PATH.\'plugins/blog/template/\'.$jkv[\"sitestyle\"].\'/pages_ne
   KEY `catid` (`catid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-				$jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'blogcategories (
+				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'blogcategories (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `varname` varchar(100) DEFAULT NULL,
@@ -367,7 +367,7 @@ include_once APP_PATH.\'plugins/blog/template/\'.$jkv[\"sitestyle\"].\'/pages_ne
   KEY `catorder` (`catorder`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-				$jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'blogcomments (
+				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'blogcomments (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `blogid` int(11) unsigned NOT NULL DEFAULT 0,
   `commentid` int(11) unsigned NOT NULL DEFAULT 0,
@@ -387,7 +387,7 @@ include_once APP_PATH.\'plugins/blog/template/\'.$jkv[\"sitestyle\"].\'/pages_ne
 
 				// Full text search is activated we do so for the blog table as well
 				if ($jkv["fulltextsearch"]) {
-					$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'blog ADD FULLTEXT(`title`, `content`)');
+					$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'blog ADD FULLTEXT(`title`, `content`)');
 				}
 
 				$succesfully = 1;
@@ -411,9 +411,9 @@ include_once APP_PATH.\'plugins/blog/template/\'.$jkv[\"sitestyle\"].\'/pages_ne
 				</script>
 			<?php } else {
 
-				$result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Blog"');
+			$result = $jakdb->query ('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Blog"');
 
-				?>
+			?>
 				<div class="alert bg-danger"><?php echo $tl["plugin"]["p16"]; ?></div>
 				<form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
 					<button type="submit" name="redirect" class="btn btn-danger btn-block"><?php echo $tl["plugin"]["p11"]; ?></button>
@@ -421,7 +421,7 @@ include_once APP_PATH.\'plugins/blog/template/\'.$jkv[\"sitestyle\"].\'/pages_ne
 			<?php }
 			} ?>
 
-				<?php if (!$succesfully) { ?>
+			<?php if (!$succesfully) { ?>
 				<form name="company" method="post" action="install.php" enctype="multipart/form-data">
 					<button type="submit" name="install" class="btn btn-complete btn-block"><?php echo $tl["plugin"]["p10"]; ?></button>
 				</form>

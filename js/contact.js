@@ -1,58 +1,58 @@
 $(document).ready(function () {
-  /* The following code is executed once the DOM is loaded */
+	/* The following code is executed once the DOM is loaded */
 
-  /* This flag will prevent multiple comment submits: */
-  var working = false;
+	/* This flag will prevent multiple comment submits: */
+	var working = false;
 
-  /* Listening for the submit event of the form: */
-  $('.jak-ajaxform').submit(function (e) {
+	/* Listening for the submit event of the form: */
+	$('.jak-ajaxform').submit(function (e) {
 
-    e.preventDefault();
-    if (working) return false;
+		e.preventDefault();
+		if (working) return false;
 
-    working = true;
-    var jakform = $(this);
-    var button = $(this).find('.jak-submit');
-    $(this).find('.form-group').removeClass("has-error");
-    $(this).find('.form-group').removeClass("has-success");
+		working = true;
+		var jakform = $(this);
+		var button = $(this).find('.jak-submit');
+		$(this).find('.form-group').removeClass("has-error");
+		$(this).find('.form-group').removeClass("has-success");
 
-    $(button).html(jakWeb.jak_submitwait);
+		$(button).html(jakWeb.jak_submitwait);
 
-    // Now this is ajax
-    var data = $(this).serializeArray(); // convert form to array
-    data.push({name: "jakajax", value: "yes"});
+		// Now this is ajax
+		var data = $(this).serializeArray(); // convert form to array
+		data.push({name: "jakajax", value: "yes"});
 
-    /* Sending the form fields to any post request: */
-    $.post(jakWeb.jak_url + jakWeb.jakrequest_uri, $.param(data), function (msg) {
+		/* Sending the form fields to any post request: */
+		$.post(jakWeb.jak_url + jakWeb.jakrequest_uri, $.param(data), function (msg) {
 
-      working = false;
-      $(button).html(jakWeb.jak_submit);
+			working = false;
+			$(button).html(jakWeb.jak_submit);
 
-      if (msg.status) {
+			if (msg.status) {
 
-        $(jakform).find('.jak-thankyou').fadeIn(1000).html('<div class="alert bg-success">' + msg.html + '</div>');
-        $(jakform)[0].reset();
+				$(jakform).find('.jak-thankyou').fadeIn(1000).html('<div class="alert bg-success">' + msg.html + '</div>');
+				$(jakform)[0].reset();
 
-        // Fade out the form
-        $(button).fadeOut().delay('500');
+				// Fade out the form
+				$(button).fadeOut().delay('500');
 
 
-      } else if (msg.login) {
+			} else if (msg.login) {
 
-        window.location.replace(msg.link);
+				window.location.replace(msg.link);
 
-      } else {
-        /*
-         /	If there were errors, loop through the
-         /	msg.errors object and display them on the page
-         /*/
+			} else {
+				/*
+				 /	If there were errors, loop through the
+				 /	msg.errors object and display them on the page
+				 /*/
 
-        $.each(msg.errors, function (k, v) {
-          $(jakform).find('label[for=' + k + ']').closest(".form-group").addClass("has-error");
-        });
-      }
-    }, 'json');
+				$.each(msg.errors, function (k, v) {
+					$(jakform).find('label[for=' + k + ']').closest(".form-group").addClass("has-error");
+				});
+			}
+		}, 'json');
 
-  });
+	});
 
 });

@@ -1,5 +1,5 @@
 <script>
-	$(document).ready(function(){
+	$(document).ready(function () {
 		// BOOTSTRAP-SELECT
 		// To style all <select>s
 		$('.selectpicker').selectpicker({

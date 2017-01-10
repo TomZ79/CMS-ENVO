@@ -2,22 +2,22 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists('../../config.php')) die('[install.php] config.php not found');
+if (!file_exists ('../../config.php')) die('[install.php] config.php not found');
 require_once '../../config.php';
 
 // Check if the file is accessed only from a admin if not stop the script from running
 if (!JAK_USERID) die('You cannot access this file directly.');
 
-if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die('You cannot access this file directly.');
+if (!$jakuser->jakAdminaccess ($jakuser->getVar ("usergroupid"))) die('You cannot access this file directly.');
 
 // Set successfully to zero
 $succesfully = 0;
 
 // Set language for plugin
-if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
-	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
+if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
+	$tl = parse_ini_file (APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
 } else {
-	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
+	$tl            = parse_ini_file (APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
 	$site_language = $jkv["lang"];
 }
 
@@ -121,7 +121,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 			</div>
 
 			<!-- UNINSTALLATION -->
-			<?php $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "register_form"');
+			<?php $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "register_form"');
 			if ($jakdb->affected_rows > 0) { ?>
 
 				<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
@@ -141,21 +141,21 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 					});
 				</script>
 
-			<!-- Plugin is not installed let's display the installation script -->
+				<!-- Plugin is not installed let's display the installation script -->
 			<?php } else { ?>
 
 				<!-- INSTALLATION -->
 				<?php if (isset($_POST['install'])) {
 
-				$jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "register_form", "Create a register form and connect it to any page you like", 1, ' . JAK_USERID . ', 4, "register_form", "require_once APP_PATH.\'plugins/register_form/register.php\';", "if ($page == \'register-form\') {
+				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "register_form", "Create a register form and connect it to any page you like", 1, ' . JAK_USERID . ', 4, "register_form", "require_once APP_PATH.\'plugins/register_form/register.php\';", "if ($page == \'register-form\') {
         require_once APP_PATH.\'plugins/register_form/admin/register.php\';
         $JAK_PROVED = 1;
         $checkp = 1;
      }", "", "../plugins/register_form/admin/template/registerfnav.php", 1, "uninstall.php", "1.0", NOW())');
 
 				// Now get the plugin id for futher use
-				$results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "register_form"');
-				$rows = $results->fetch_assoc();
+				$results = $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "register_form"');
+				$rows    = $results->fetch_assoc ();
 
 			if ($rows['id']) {
 
@@ -231,7 +231,7 @@ if (!$result) {
 				// Insert code into index.php
 				$insertadminindex = 'plugins/register_form/admin/template/stat.php';
 
-				$jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "tpl_admin_page_news", "Register Form Admin - Page/News", "' . $pages . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_page_news_new", "Register Form Admin - Page/News - New", "plugins/register_form/admin/template/rf_connect_new.php", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_sidebar", "Profile/Login Form Sidebar", "plugins/register_form/template/rf_sidebar.php", "registerf", 1, 5, "' . $rows['id'] . '", NOW()),
@@ -244,8 +244,8 @@ if (!$result) {
 (NULL, "php_index_page", "Register User Validate", "' . $index_page . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_index", "Register Statistics Admin", "' . $insertadminindex . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW())');
 
-// Insert tables into settings
-				$jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+				// Insert tables into settings
+				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
 ("rf_title", "register_form", NULL, NULL, "input", "free", "registerf"),
 ("rf_active", "register_form", 1, 1, "yesno", "boolean", "registerf"),
 ("rf_simple", "register_form", 1, 1, "yesno", "boolean", "registerf"),
@@ -256,14 +256,14 @@ if (!$result) {
 ("rf_redirect", "register_form", NULL, NULL, "number", "select", "registerf")');
 
 				// Write into categories
-				$jakdb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `permission`, `activeplugin`, `pluginid`) VALUES (NULL, "Edit Profile", "edit-profile", NULL, 1, 0, 5, 0, 0, "2,3,4", 1, "' . $rows['id'] . '")');
+				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `permission`, `activeplugin`, `pluginid`) VALUES (NULL, "Edit Profile", "edit-profile", NULL, 1, 0, 5, 0, 0, "2,3,4", 1, "' . $rows['id'] . '")');
 
 				// Prepare the tables
-				$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showregister SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER showcontact');
-				$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'news ADD showregister SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER showcontact');
-				$jakdb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET active = 0 WHERE id = 3');
+				$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'pages ADD showregister SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER showcontact');
+				$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'news ADD showregister SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER showcontact');
+				$jakdb->query ('UPDATE ' . DB_PREFIX . 'pluginhooks SET active = 0 WHERE id = 3');
 
-				$jakdb->query('CREATE TABLE ' . DB_PREFIX . 'registeroptions (
+				$jakdb->query ('CREATE TABLE ' . DB_PREFIX . 'registeroptions (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `typeid` smallint(2) unsigned NOT NULL DEFAULT 1,
@@ -274,7 +274,7 @@ if (!$result) {
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-				$jakdb->query('INSERT INTO ' . DB_PREFIX . 'registeroptions (`id`, `name`, `typeid`, `options`, `showregister`, `mandatory`, `forder`) VALUES (NULL, \'Username\', 1, NULL, 1, 1, 1), (NULL, \'Email\', 1, NULL, 1, 3, 2), (NULL, \'Password\', 1, NULL, 1, 1, 3)');
+				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'registeroptions (`id`, `name`, `typeid`, `options`, `showregister`, `mandatory`, `forder`) VALUES (NULL, \'Username\', 1, NULL, 1, 1, 1), (NULL, \'Email\', 1, NULL, 1, 3, 2), (NULL, \'Password\', 1, NULL, 1, 1, 3)');
 
 				$succesfully = 1;
 
@@ -282,7 +282,7 @@ if (!$result) {
 
 				<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
 				<script>
-					$(document).ready(function() {
+					$(document).ready(function () {
 						'use strict';
 						// Apply the plugin to the body
 						$('#notificationcontainer').pgNotification({
@@ -299,9 +299,9 @@ if (!$result) {
 
 			<?php } else {
 
-				$result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "register_form"');
+			$result = $jakdb->query ('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "register_form"');
 
-				?>
+			?>
 
 				<div class="alert bg-danger"><?php echo $tl["plugin"]["p16"]; ?></div>
 				<form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
@@ -311,7 +311,7 @@ if (!$result) {
 			<?php }
 			} ?>
 
-				<?php if (!$succesfully) { ?>
+			<?php if (!$succesfully) { ?>
 				<form name="company" method="post" action="install.php" enctype="multipart/form-data">
 					<button type="submit" name="install" class="btn btn-complete btn-block"><?php echo $tl["plugin"]["p10"]; ?></button>
 				</form>
@@ -323,11 +323,11 @@ if (!$result) {
 </div>
 
 <script type="text/javascript">
-	(function($) {
+	(function ($) {
 		'use strict';
 		$('#portlet-advance').portlet({
-			onRefresh: function() {
-				setTimeout(function() {
+			onRefresh: function () {
+				setTimeout(function () {
 					// Throw any error you encounter while refreshing
 					$('#portlet-advance').portlet({
 						error: "Something went terribly wrong. Just keep calm and carry on!"

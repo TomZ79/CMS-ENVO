@@ -25,7 +25,7 @@
 		 */
 
 		/* Copy Value */
-		$("#copy1").click(function() {
+		$("#copy1").click(function () {
 			$("#jak_editor_light_meta_desc").val($("#content").val());
 		});
 	});

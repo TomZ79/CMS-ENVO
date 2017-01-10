@@ -2,23 +2,23 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists('../../config.php')) die('[install.php] config.php not found');
+if (!file_exists ('../../config.php')) die('[install.php] config.php not found');
 require_once '../../config.php';
 
 // Check if the file is accessed only from a admin if not stop the script from running
 if (!JAK_USERID) die('You cannot access this file directly.');
 
 // If not logged in and not admin, block access
-if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die('You cannot access this file directly.');
+if (!$jakuser->jakAdminaccess ($jakuser->getVar ("usergroupid"))) die('You cannot access this file directly.');
 
 // Set successfully to zero
 $succesfully = 0;
 
 // Set language for plugin
-if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
-	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
+if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
+	$tl = parse_ini_file (APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
 } else {
-	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
+	$tl            = parse_ini_file (APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
 	$site_language = $jkv["lang"];
 }
 
@@ -147,7 +147,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 			<hr>
 
 			<!-- Check if the plugin is already installed -->
-			<?php $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "UrlMapping"');
+			<?php $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "UrlMapping"');
 			if ($jakdb->affected_rows > 0) { ?>
 
 				<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
@@ -173,14 +173,14 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 				<!-- INSTALLATION -->
 				<?php if (isset($_POST['install'])) {
 
-				$jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "UrlMapping", "URL Mapping the smart way.", 1, ' . JAK_USERID . ', 4, "urlmapping", "", "if ($page == \'urlmapping\') {
+				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "UrlMapping", "URL Mapping the smart way.", 1, ' . JAK_USERID . ', 4, "urlmapping", "", "if ($page == \'urlmapping\') {
         require_once APP_PATH.\'plugins/urlmapping/admin/urlmapping.php\';
         $JAK_PROVED = 1;
         $checkp = 1;
      }", "../plugins/urlmapping/admin/template/nav.php", "1", "uninstall.php", "1.1", NOW())');
 
 				// Now get the plugin id for futher use
-				$rows = $jakdb->queryRow('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "UrlMapping"');
+				$rows = $jakdb->queryRow ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "UrlMapping"');
 
 			if ($rows['id']) {
 
@@ -193,11 +193,11 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 				// The file who does the job
 				$index_top = 'include_once APP_PATH.\'plugins/urlmapping/mapping.php\';';
 
-				$jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "BelowHeader Admin Language", "' . $adminlang . '", "urlmapping", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_index_top", "URL Mappling Index", "' . $index_top . '", "urlmapping", 1, 1, "' . $rows['id'] . '", NOW())');
 
-				$jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'urlmapping (
+				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'urlmapping (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `urlold` varchar(255) DEFAULT NULL,
   `urlnew` varchar(255) DEFAULT NULL,
@@ -232,7 +232,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 
 			<?php } else {
 
-			$result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "UrlMapping"');
+			$result = $jakdb->query ('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "UrlMapping"');
 
 			?>
 

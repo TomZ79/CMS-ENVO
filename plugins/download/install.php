@@ -2,23 +2,23 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists('../../config.php')) die('[index.php] config.php not found');
+if (!file_exists ('../../config.php')) die('[index.php] config.php not found');
 require_once '../../config.php';
 
 // Check if the file is accessed only from a admin if not stop the script from running
 if (!JAK_USERID) die('You cannot access this file directly.');
 
 // Not logged in sorry
-if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die('You cannot access this file directly.');
+if (!$jakuser->jakAdminaccess ($jakuser->getVar ("usergroupid"))) die('You cannot access this file directly.');
 
 // Set successfully to zero
 $succesfully = 0;
 
 // Set language for plugin
-if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
-	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
+if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
+	$tl = parse_ini_file (APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
 } else {
-	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
+	$tl            = parse_ini_file (APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
 	$site_language = $jkv["lang"];
 }
 
@@ -146,7 +146,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 			<hr>
 
 			<!-- Check if the plugin is already installed -->
-			<?php $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
+			<?php $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
 			if ($jakdb->affected_rows > 0) { ?>
 
 				<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
@@ -172,15 +172,15 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 				<!-- INSTALLATION -->
 				<?php if (isset($_POST['install'])) {
 
-				$jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Download", "Run your own download database, let user download direct from your server or link.", 1, ' . JAK_USERID . ', 4, "download", "require_once APP_PATH.\'plugins/download/download.php\';", "if ($page == \'download\') {
+				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Download", "Run your own download database, let user download direct from your server or link.", 1, ' . JAK_USERID . ', 4, "download", "require_once APP_PATH.\'plugins/download/download.php\';", "if ($page == \'download\') {
         require_once APP_PATH.\'plugins/download/admin/download.php\';
            $JAK_PROVED = 1;
            $checkp = 1;
         }", "../plugins/download/admin/template/downloadnav.php", "download", "uninstall.php", "1.1", NOW())');
 
 				// Now get the plugin id for futher use
-				$results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
-				$rows = $results->fetch_assoc();
+				$results = $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
+				$rows    = $results->fetch_assoc ();
 
 			if ($rows['id']) {
 
@@ -224,7 +224,7 @@ $JAK_DOWNLOAD_ALL = jak_get_download(\'\', $jkv[\"downloadorder\"], \'\', \'\', 
 $PAGE_TITLE = JAK_PLUGIN_NAME_DOWNLOAD;';
 
 				// Fulltext search query
-				$sqlfull = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'download ADD FULLTEXT(`title`, `content`)\');';
+				$sqlfull       = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'download ADD FULLTEXT(`title`, `content`)\');';
 				$sqlfullremove = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'download DROP INDEX `title`\');';
 
 				// Connect to pages/news
@@ -288,7 +288,7 @@ include_once APP_PATH.\'plugins/download/template/\'.$jkv[\"sitestyle\"].\'/page
 	
 }';
 
-				$jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_usergroup", "Download Usergroup", "' . $insertphpcode . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_lang", "Download Admin Language", "' . $adminlang . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Download Site Language", "' . $sitelang . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
@@ -318,7 +318,7 @@ include_once APP_PATH.\'plugins/download/template/\'.$jkv[\"sitestyle\"].\'/page
 (NULL, "tpl_footer_widgets", "Download - Show Categories", "plugins/download/template/footer_widget1.php", "download", 1, 3, "' . $rows['id'] . '", NOW())');
 
 				// Insert tables into settings
-				$jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
 ("downloadtitle", "download", "Download", "Download", "input", "free", "download"),
 ("downloaddesc", "download", "Write something about your Download", "Write something about your Download", "textarea", "free", "download"),
 ("downloademail", "download", NULL, NULL, "input", "free", "download"),
@@ -336,17 +336,17 @@ include_once APP_PATH.\'plugins/download/template/\'.$jkv[\"sitestyle\"].\'/page
 ("downloadrss", "download", 5, 5, "select", "number", "download")');
 
 				// Insert into usergroup
-				$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `download` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`, ADD `downloadcan` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `download`, ADD `downloadpost` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `download`, ADD `downloadpostdelete` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `downloadpost`, ADD `downloadpostapprove` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `downloadpostdelete`, ADD `downloadrate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `downloadpostdelete`, ADD `downloadmoderate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `downloadrate`');
+				$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `download` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`, ADD `downloadcan` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `download`, ADD `downloadpost` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `download`, ADD `downloadpostdelete` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `downloadpost`, ADD `downloadpostapprove` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `downloadpostdelete`, ADD `downloadrate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `downloadpostdelete`, ADD `downloadmoderate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `downloadrate`');
 
 				// Pages/News alter Table
-				$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showdownload varchar(100) DEFAULT NULL AFTER showcontact');
-				$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'news ADD showdownload varchar(100) DEFAULT NULL AFTER showcontact');
-				$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pagesgrid ADD fileid INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER newsid');
+				$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'pages ADD showdownload varchar(100) DEFAULT NULL AFTER showcontact');
+				$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'news ADD showdownload varchar(100) DEFAULT NULL AFTER showcontact');
+				$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'pagesgrid ADD fileid INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER newsid');
 
 				// Insert Category
-				$jakdb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES (NULL, "Download", "download", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
+				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES (NULL, "Download", "download", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
 
-				$jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'download (
+				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'download (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `catid` int(11) unsigned NOT NULL DEFAULT 0,
   `candownload` VARCHAR(100) NOT NULL DEFAULT 0,
@@ -374,7 +374,7 @@ include_once APP_PATH.\'plugins/download/template/\'.$jkv[\"sitestyle\"].\'/page
   KEY `catid` (`catid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-				$jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'downloadcategories (
+				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'downloadcategories (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `varname` varchar(100) DEFAULT NULL,
@@ -389,7 +389,7 @@ include_once APP_PATH.\'plugins/download/template/\'.$jkv[\"sitestyle\"].\'/page
   KEY `catorder` (`catorder`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-				$jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'downloadcomments (
+				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'downloadcomments (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `fileid` int(11) unsigned NOT NULL DEFAULT 0,
   `userid` int(11) NOT NULL DEFAULT 0,
@@ -405,7 +405,7 @@ include_once APP_PATH.\'plugins/download/template/\'.$jkv[\"sitestyle\"].\'/page
   KEY `fileid` (`fileid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1');
 
-				$jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'downloadhistory (
+				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'downloadhistory (
 	`id` BIGINT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
 	`fileid` INT(11) UNSIGNED NOT NULL DEFAULT 0,
 	`userid` INT(11) UNSIGNED NOT NULL DEFAULT 0,
@@ -419,7 +419,7 @@ include_once APP_PATH.\'plugins/download/template/\'.$jkv[\"sitestyle\"].\'/page
 
 				// Full text search is activated we do so for the download table as well
 				if ($jkv["fulltextsearch"]) {
-					$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'download ADD FULLTEXT(`title`, `content`)');
+					$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'download ADD FULLTEXT(`title`, `content`)');
 				}
 
 				$succesfully = 1;
@@ -445,7 +445,7 @@ include_once APP_PATH.\'plugins/download/template/\'.$jkv[\"sitestyle\"].\'/page
 
 			<?php } else {
 
-			$result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
+			$result = $jakdb->query ('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
 
 			?>
 
@@ -457,7 +457,7 @@ include_once APP_PATH.\'plugins/download/template/\'.$jkv[\"sitestyle\"].\'/page
 			<?php }
 			} ?>
 
-				<?php if (!$succesfully) { ?>
+			<?php if (!$succesfully) { ?>
 				<form name="company" method="post" action="install.php" enctype="multipart/form-data">
 					<button type="submit" name="install" class="btn btn-complete btn-block"><?php echo $tl["plugin"]["p10"]; ?></button>
 				</form>

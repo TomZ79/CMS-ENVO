@@ -1,6 +1,6 @@
 <script>
 	/* Toggle list and grid view */
-	$('.button-icon').click(function(){
+	$('.button-icon').click(function () {
 		$('.toggle').toggleClass('hidden visible');
 		$('.button-icon i').toggleClass("fa-th-list fa-th");
 	});
@@ -15,6 +15,7 @@
 		border: 1px solid #ddd;
 		border-radius: 4px;
 	}
+
 	.gridview .caption {
 		padding: 9px;
 		color: #333;
@@ -25,6 +26,7 @@
 		height: 150px;
 		overflow: hidden;
 	}
+
 	.center-cropped img {
 		width: 100%;
 		top: 50%;
@@ -32,25 +34,25 @@
 	}
 
 	.hovereffect.gridview {
-		float:left;
-		overflow:hidden;
-		position:relative;
-		cursor:default;
+		float: left;
+		overflow: hidden;
+		position: relative;
+		cursor: default;
 		text-align: left;
 	}
 
 	.hovereffect.gridview img {
-		display:block;
-		-webkit-transition:all .4s linear;
-		transition:all .4s linear;
+		display: block;
+		-webkit-transition: all .4s linear;
+		transition: all .4s linear;
 	}
 
 	.hovereffect.gridview:hover img {
 		top: 0;
 		left: 0;
-		-ms-transform:scale(1.2);
-		-webkit-transform:scale(1.2);
-		transform:scale(1.2);
+		-ms-transform: scale(1.2);
+		-webkit-transform: scale(1.2);
+		transform: scale(1.2);
 	}
 
 	.actionbutton {
@@ -62,9 +64,11 @@
 		width: 114px;
 		height: 50px;
 	}
+
 	.actionbutton button {
 		margin: 10px 17px;
 	}
+
 	.button-icon {
 		color: #94a7b1;
 		border: 2px solid #D0D8DC;
@@ -72,6 +76,7 @@
 		padding: 3px 6px 2px 6px !important;
 		line-height: 20px !important;
 	}
+
 	.button-icon:hover {
 		color: #26A69A;
 	}
@@ -109,7 +114,7 @@
 	}
 
 	.table tbody > tr > td:first-child,
-	.table thead > tr > th:first-child{
+	.table thead > tr > th:first-child {
 		padding-left: 30px;
 	}
 

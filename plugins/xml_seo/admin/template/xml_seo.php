@@ -77,7 +77,7 @@ if (isset($error2)) { ?>
 	</script>
 	<div>
 		<p><strong><?php echo $tlxml["xml_box_content"]["xmlbc23"]; ?></strong></p>
-		<pre style="overflow: auto; max-height: 30em; white-space: pre;"><code class="language-xml"><?php echo htmlentities($xml_result); ?></code></pre>
+		<pre style="overflow: auto; max-height: 30em; white-space: pre;"><code class="language-xml"><?php echo htmlentities ($xml_result); ?></code></pre>
 	</div>
 <?php } else { ?>
 
@@ -108,18 +108,18 @@ if (isset($error2)) { ?>
 							<?php
 							// Content of file
 							$file = APP_PATH . "robots.txt";
-							if (file_exists($file)) {
+							if (file_exists ($file)) {
 								// File exist, get content
-								$content = file_get_contents($file);
+								$content = file_get_contents ($file);
 							} else {
 								// File not exist, create new file
-								file_put_contents($file, '');
+								file_put_contents ($file, '');
 							}
 							?>
 							<h4><?php echo $tlxml["xml_box_content"]["xmlbc4"]; ?></h4>
 							<div class="form-group">
 								<label><?php echo $tlxml["xml_box_content"]["xmlbc5"]; ?></label>
-								<textarea name="jak_filetxt" rows="8" placeholder="<?php echo $tlxml["xml_box_content"]["xmlbc6"]; ?>" class="form-control"><?php echo htmlspecialchars($content); ?></textarea>
+								<textarea name="jak_filetxt" rows="8" placeholder="<?php echo $tlxml["xml_box_content"]["xmlbc6"]; ?>" class="form-control"><?php echo htmlspecialchars ($content); ?></textarea>
 							</div>
 							<div>
 								<p><?php echo $tlxml["xml_box_content"]["xmlbc7"]; ?></p>
@@ -273,7 +273,7 @@ if (isset($error2)) { ?>
 							</div>
 							<div>
 								<p><strong><?php echo $tlxml["xml_box_content"]["xmlbc23"]; ?></strong></p>
-								<pre style="overflow: auto; max-height: 30em; white-space: pre;"><code class="language-xml"><?php echo htmlentities($contentxml); ?></code></pre>
+								<pre style="overflow: auto; max-height: 30em; white-space: pre;"><code class="language-xml"><?php echo htmlentities ($contentxml); ?></code></pre>
 							</div>
 						<?php } ?>
 					</div>

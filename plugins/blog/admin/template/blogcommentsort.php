@@ -31,7 +31,7 @@ if ($page5 == "e") { ?>
 	</script>
 <?php } ?>
 
-<?php if (isset($JAK_BLOGCOM_SORT) && is_array($JAK_BLOGCOM_SORT)) { ?>
+<?php if (isset($JAK_BLOGCOM_SORT) && is_array ($JAK_BLOGCOM_SORT)) { ?>
 
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 		<div class="box box-success">
@@ -56,7 +56,7 @@ if ($page5 == "e") { ?>
 							</th>
 							<th>
 								<button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs"
-												data-confirm-del="<?php echo $tlblog["blog_notification"]["codelall"]; ?>" disabled="disabled">
+									data-confirm-del="<?php echo $tlblog["blog_notification"]["codelall"]; ?>" disabled="disabled">
 									<i class="fa fa-trash-o"></i></button>
 							</th>
 						</tr>
@@ -67,12 +67,12 @@ if ($page5 == "e") { ?>
 								<td>
 									<div class="checkbox-singel check-success">
 										<input type="checkbox" id="jak_delete_comment<?php echo $v["id"]; ?>" name="jak_delete_comment[]"
-													 class="highlight" value="<?php echo $v["id"]; ?>"/>
+											class="highlight" value="<?php echo $v["id"]; ?>"/>
 										<label for="jak_delete_comment<?php echo $v["id"]; ?>"></label>
 									</div>
 								</td>
-								<td><?php echo jak_clean_comment($v["message"]); ?></td>
-								<td><?php if (isset($JAK_BLOG_ALL) && is_array($JAK_BLOG_ALL)) foreach ($JAK_BLOG_ALL as $z) {
+								<td><?php echo jak_clean_comment ($v["message"]); ?></td>
+								<td><?php if (isset($JAK_BLOG_ALL) && is_array ($JAK_BLOG_ALL)) foreach ($JAK_BLOG_ALL as $z) {
 										if ($v["blogid"] == $z["id"]) { ?>
 											<a
 											href="index.php?p=blog&amp;sp=comment&amp;ssp=sort&amp;sssp=blog&amp;ssssp=<?php echo $z["id"]; ?>"><?php echo $z["title"]; ?></a><?php }
@@ -83,21 +83,21 @@ if ($page5 == "e") { ?>
 								</td>
 								<td>
 									<a class="btn btn-default btn-xs"
-										 href="index.php?p=blog&amp;sp=comment&amp;ssp=approve&amp;sssp=<?php echo $v["id"]; ?>"
-										 class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom"
-										 title="<?php if ($v["approve"] == '0') {
-											 echo $tl["icons"]["i5"];
-										 } else {
-											 echo $tl["icons"]["i6"];
-										 } ?>">
+										href="index.php?p=blog&amp;sp=comment&amp;ssp=approve&amp;sssp=<?php echo $v["id"]; ?>"
+										class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom"
+										title="<?php if ($v["approve"] == '0') {
+											echo $tl["icons"]["i5"];
+										} else {
+											echo $tl["icons"]["i6"];
+										} ?>">
 										<i class="fa fa-<?php if ($v["approve"] == '0') { ?>lock<?php } else { ?>check<?php } ?>"></i>
 									</a>
 								</td>
 								<td>
 									<a class="btn btn-default btn-xs"
-										 href="index.php?p=blog&amp;sp=comment&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>"
-										 class="btn btn-default btn-xs" data-confirm="<?php echo $tlblog["blog_notification"]["codel"]; ?>"
-										 data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+										href="index.php?p=blog&amp;sp=comment&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>"
+										class="btn btn-default btn-xs" data-confirm="<?php echo $tlblog["blog_notification"]["codel"]; ?>"
+										data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
 										<i class="fa fa-trash-o"></i>
 									</a>
 								</td>

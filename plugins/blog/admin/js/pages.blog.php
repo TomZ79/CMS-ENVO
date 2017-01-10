@@ -8,12 +8,14 @@
 			$(".highlight").each(function () {
 				$(this).prop('checked', checkedStatus);
 			});
-			$('#button_delete').prop('disabled', function(i, v) { return !v; });
+			$('#button_delete').prop('disabled', function (i, v) {
+				return !v;
+			});
 		});
 
 		/* Disable submit button if checkbox is not checked */
-		$(".highlight").change(function() {
-			if(this.checked) {
+		$(".highlight").change(function () {
+			if (this.checked) {
 				$("#button_delete").removeAttr("disabled");
 			} else {
 				$("#button_delete").attr("disabled", "disabled");
@@ -157,7 +159,7 @@
 			// Other
 			ignoreReadonly: true,
 			keepInvalid: true,
-			minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>
+			minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date ("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>
 		});
 
 		$('#datepickerTo').datetimepicker({
@@ -170,7 +172,7 @@
 			showClear: true,
 			// Other
 			ignoreReadonly: true,
-			minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>,
+			minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date ("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>,
 			useCurrent: false //Important! See issue #1075
 		});
 
@@ -207,14 +209,18 @@
 		/* Bootstrap Icon Picker */
 		$('.iconpicker').iconpicker({
 			iconset: 'fontawesome',
-			icon: '<?php if (isset($JAK_FORM_DATA["catimg"])) { echo $JAK_FORM_DATA["catimg"]; } else { echo 'fa-font'; }?>',
+			icon: '<?php if (isset($JAK_FORM_DATA["catimg"])) {
+				echo $JAK_FORM_DATA["catimg"];
+			} else {
+				echo 'fa-font';
+			}?>',
 			searchText: '<?php echo $tl["placeholder"]["p4"]; ?>',
 			arrowPrevIconClass: 'fa fa-chevron-left',
 			arrowNextIconClass: 'fa fa-chevron-right',
 			rows: 5,
 			cols: 6,
 		});
-		$('.iconpicker').on('change', function(e) {
+		$('.iconpicker').on('change', function (e) {
 			$("#jak_img").val(e.icon);
 		});
 

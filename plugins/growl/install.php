@@ -2,23 +2,23 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists('../../config.php')) die('[install.php] config.php not found');
+if (!file_exists ('../../config.php')) die('[install.php] config.php not found');
 require_once '../../config.php';
 
 // Check if the file is accessed only from a admin if not stop the script from running
 if (!JAK_USERID) die('You cannot access this file directly.');
 
 // Not logged in and not admin, sorry...
-if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die('You cannot access this file directly.');
+if (!$jakuser->jakAdminaccess ($jakuser->getVar ("usergroupid"))) die('You cannot access this file directly.');
 
 // Set successfully to zero
 $succesfully = 0;
 
 // Set language for plugin
-if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
-	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
+if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
+	$tl = parse_ini_file (APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
 } else {
-	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
+	$tl            = parse_ini_file (APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
 	$site_language = $jkv["lang"];
 }
 
@@ -123,7 +123,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 			<hr>
 
 			<!-- Check if the plugin is already installed -->
-			<?php $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Growl"');
+			<?php $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Growl"');
 			if ($jakdb->affected_rows > 0) { ?>
 
 				<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
@@ -149,15 +149,15 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 				<!-- INSTALLATION -->
 				<?php if (isset($_POST['install'])) {
 
-				$jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Growl", "Growl for your CMS.", 1, ' . JAK_USERID . ', 4, "growl", "", "if ($page == \'growl\') {
+				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Growl", "Growl for your CMS.", 1, ' . JAK_USERID . ', 4, "growl", "", "if ($page == \'growl\') {
         require_once APP_PATH.\'plugins/growl/admin/growl.php\';
         $JAK_PROVED = 1;
         $checkp = 1;
      }", "../plugins/growl/admin/template/nav.php", "1", "uninstall.php", "1.1", NOW())');
 
 				// Now get the plugin id for futher use
-				$results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Growl"');
-				$rows = $results->fetch_assoc();
+				$results = $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Growl"');
+				$rows    = $results->fetch_assoc ();
 
 			if ($rows['id']) {
 
@@ -171,12 +171,12 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 				$growlheader = 'plugins/growl/template/header.php';
 				$growlfooter = 'plugins/growl/template/footer.php';
 
-				$jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "Growl Admin Language", "' . $adminlang . '", "growl", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_between_head", "Growl CSS", "' . $growlheader . '", "growl", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_footer_end", "Growl Javascript", "' . $growlfooter . '", "growl", 1, 1, "' . $rows['id'] . '", NOW())');
 
-				$jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'growl (
+				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'growl (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `everywhere` smallint(1) unsigned NOT NULL DEFAULT 0,
   `pageid` varchar(100) DEFAULT NULL,
@@ -224,7 +224,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 				</script>
 			<?php } else {
 
-			$result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Growl"');
+			$result = $jakdb->query ('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Growl"');
 
 			?>
 

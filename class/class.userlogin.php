@@ -3,269 +3,271 @@
 class JAK_userlogin
 {
 
-  protected $name = '', $email = '', $pass = '', $time = '';
-  var $username;     //Username given on sign-up
+	var       $username;
+	protected $name = '', $email = '', $pass = '', $time = '';     //Username given on sign-up
 
-  public function __construct()
-  {
-    $this->username = '';
-  }
+	public function __construct ()
+	{
+		$this->username = '';
+	}
 
-  function jakChecklogged()
-  {
+	public static function jakCheckuserdata ($username, $pass)
+	{
 
-    /* Check if user has been remembered */
-    if (isset($_COOKIE['cmsName']) && isset($_COOKIE['cmsId'])) {
-      $_SESSION['username'] = $_COOKIE['cmsName'];
-      $_SESSION['idhash'] = $_COOKIE['cmsId'];
-    }
+		// The new password encrypt with hash_hmac
+		$passcrypt = hash_hmac ('sha256', $pass, DB_PASS_HASH);
 
-    /* Username and idhash have been set */
-    if (isset($_SESSION['username']) && isset($_SESSION['idhash']) && $_SESSION['username'] != $this->username) {
-      /* Confirm that username and userid are valid */
-      if (!JAK_userlogin::jakConfirmidhash($_SESSION['username'], $_SESSION['idhash'])) {
-        /* Variables are incorrect, user not logged in */
-        unset($_SESSION['username']);
-        unset($_SESSION['idhash']);
+		if (!filter_var ($username, FILTER_VALIDATE_EMAIL)) {
 
-        return false;
-      }
+			if (!preg_match ('/^([a-zA-Z0-9\-_])+$/', $username)) {
+				return false;
+			}
 
-      // Return the user data
-      return JAK_userlogin::jakUserinfo($_SESSION['username']);
-    } /* User not logged in */
-    else {
-      return false;
-    }
-  }
+		}
 
-  public static function jakCheckuserdata($username, $pass)
-  {
+		global $jakdb;
+		$result = $jakdb->query ('SELECT username FROM ' . DB_PREFIX . 'user WHERE (LOWER(username) = "' . strtolower ($username) . '" OR email = "' . strtolower ($username) . '") AND password = "' . $passcrypt . '" AND access = 1');
+		if ($jakdb->affected_rows > 0) {
+			$row = $result->fetch_assoc ();
 
-    // The new password encrypt with hash_hmac
-    $passcrypt = hash_hmac('sha256', $pass, DB_PASS_HASH);
+			return $row['username'];
+		} else {
+			return false;
+		}
 
-    if (!filter_var($username, FILTER_VALIDATE_EMAIL)) {
+	}
 
-      if (!preg_match('/^([a-zA-Z0-9\-_])+$/', $username)) {
-        return false;
-      }
+	public static function jakLogin ($name, $pass, $remember)
+	{
 
-    }
+		// The new password encrypt with hash_hmac
+		$passcrypt = hash_hmac ('sha256', $pass, DB_PASS_HASH);
 
-    global $jakdb;
-    $result = $jakdb->query('SELECT username FROM ' . DB_PREFIX . 'user WHERE (LOWER(username) = "' . strtolower($username) . '" OR email = "' . strtolower($username) . '") AND password = "' . $passcrypt . '" AND access = 1');
-    if ($jakdb->affected_rows > 0) {
-      $row = $result->fetch_assoc();
-      return $row['username'];
-    } else {
-      return false;
-    }
+		global $jakdb;
 
-  }
+		$result = $jakdb->query ('SELECT idhash, logins FROM ' . DB_PREFIX . 'user WHERE username = "' . smartsql ($name) . '" AND password = "' . smartsql ($passcrypt) . '"');
+		$row    = $result->fetch_assoc ();
 
-  public static function jakLogin($name, $pass, $remember)
-  {
+		if ($row['logins'] % 10 == 0) {
 
-    // The new password encrypt with hash_hmac
-    $passcrypt = hash_hmac('sha256', $pass, DB_PASS_HASH);
+			// Generate new idhash
+			$nidhash = JAK_userlogin::generateRandID ();
 
-    global $jakdb;
+		} else {
 
-    $result = $jakdb->query('SELECT idhash, logins FROM ' . DB_PREFIX . 'user WHERE username = "' . smartsql($name) . '" AND password = "' . smartsql($passcrypt) . '"');
-    $row = $result->fetch_assoc();
+			if (!empty($row['idhash'])) {
 
-    if ($row['logins'] % 10 == 0) {
+				// Take old idhash
+				$nidhash = $row['idhash'];
 
-      // Generate new idhash
-      $nidhash = JAK_userlogin::generateRandID();
+			} else {
 
-    } else {
+				// Generate new idhash
+				$nidhash = JAK_userlogin::generateRandID ();
 
-      if (!empty($row['idhash'])) {
+			}
 
-        // Take old idhash
-        $nidhash = $row['idhash'];
+		}
 
-      } else {
+		// Set session in database
+		$result = $jakdb->query ('UPDATE ' . DB_PREFIX . 'user SET session = "' . smartsql (session_id ()) . '", idhash = "' . smartsql ($nidhash) . '", logins = logins + 1, lastactivity = NOW(), forgot = IF (forgot != 0, 0, 0) WHERE username = "' . smartsql ($name) . '" AND password = "' . smartsql ($passcrypt) . '"');
 
-        // Generate new idhash
-        $nidhash = JAK_userlogin::generateRandID();
+		$_SESSION['username'] = $name;
+		$_SESSION['idhash']   = $nidhash;
 
-      }
+		// Check if cookies are set previous (wrongly) and delete
+		if (isset($_COOKIE['cmsName']) || isset($_COOKIE['cmsId'])) {
+			setcookie ("cmsName", "", time () - JAK_COOKIE_TIME, JAK_COOKIE_PATH);
+			setcookie ("cmsId", "", time () - JAK_COOKIE_TIME, JAK_COOKIE_PATH);
+		}
 
-    }
+		// Now check if remember is selected and set cookies new...
+		if ($remember) {
+			setcookie ("cmsName", $name, time () + JAK_COOKIE_TIME, JAK_COOKIE_PATH, "", false, true);
+			setcookie ("cmsId", $nidhash, time () + JAK_COOKIE_TIME, JAK_COOKIE_PATH, "", false, true);
+		}
 
-    // Set session in database
-    $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'user SET session = "' . smartsql(session_id()) . '", idhash = "' . smartsql($nidhash) . '", logins = logins + 1, lastactivity = NOW(), forgot = IF (forgot != 0, 0, 0) WHERE username = "' . smartsql($name) . '" AND password = "' . smartsql($passcrypt) . '"');
+	}
 
-    $_SESSION['username'] = $name;
-    $_SESSION['idhash'] = $nidhash;
+	public static function generateRandID ()
+	{
+		return md5 (JAK_userlogin::generateRandStr (16));
+	}
 
-    // Check if cookies are set previous (wrongly) and delete
-    if (isset($_COOKIE['cmsName']) || isset($_COOKIE['cmsId'])) {
-      setcookie("cmsName", "", time() - JAK_COOKIE_TIME, JAK_COOKIE_PATH);
-      setcookie("cmsId", "", time() - JAK_COOKIE_TIME, JAK_COOKIE_PATH);
-    }
+	public static function generateRandStr ($length)
+	{
+		$randstr = "";
+		for ($i = 0; $i < $length; $i ++) {
+			$randnum = mt_rand (0, 61);
+			if ($randnum < 10) {
+				$randstr .= chr ($randnum + 48);
+			} else if ($randnum < 36) {
+				$randstr .= chr ($randnum + 55);
+			} else {
+				$randstr .= chr ($randnum + 61);
+			}
+		}
 
-    // Now check if remember is selected and set cookies new...
-    if ($remember) {
-      setcookie("cmsName", $name, time() + JAK_COOKIE_TIME, JAK_COOKIE_PATH, "", false, true);
-      setcookie("cmsId", $nidhash, time() + JAK_COOKIE_TIME, JAK_COOKIE_PATH, "", false, true);
-    }
+		return $randstr;
+	}
 
-  }
+	public static function jakUpdatelastactivity ($userid)
+	{
 
-  public static function jakConfirmidhash($username, $idhash)
-  {
+		global $jakdb;
+		$jakdb->query ('UPDATE ' . DB_PREFIX . 'user SET lastactivity = NOW() WHERE id = "' . smartsql ($userid) . '"');
 
-    global $jakdb;
+	}
 
-    if (isset($username)) {
+	public static function jakForgotpassword ($email, $time)
+	{
 
-      $result = $jakdb->queryRow('SELECT backtogroup, backtime, idhash FROM ' . DB_PREFIX . 'user WHERE LOWER(username) = "' . smartsql(strtolower($username)) . '" AND access = 1');
+		global $jakdb;
+		$row = $jakdb->queryRow ('SELECT id, username FROM ' . DB_PREFIX . 'user WHERE email = "' . smartsql ($email) . '" AND access = 1 LIMIT 1');
 
-      if ($jakdb->affected_rows < 1) {
+		if ($jakdb->affected_rows > 0) {
 
-        return false;
+			if ($time != 0) {
+				$jakdb->query ('UPDATE ' . DB_PREFIX . 'user SET forgot = "' . smartsql ($time) . '" WHERE id = "' . smartsql ($row["id"]) . '"');
+			}
 
-      } else {
+			return $row["username"];
+		} else {
+			return false;
+		}
 
-        $result['idhash'] = stripslashes($result['idhash']);
-        $idhash = stripslashes($idhash);
+	}
 
-        /* Validate that userid is correct */
-        if (!is_null($result['idhash']) && $idhash == $result['idhash']) {
+	public static function jakForgotactive ($forgotid)
+	{
 
-          // Now let's check if we need to move this user to a different usergroup
-          if ($result['backtime'] != "0000-00-00" && is_numeric($result['backtogroup']) && (time() >= strtotime($result['backtime']))) {
-            $jakdb->query('UPDATE ' . DB_PREFIX . 'user SET usergroupid = "' . $result['backtogroup'] . '", backtime = "0000-00-00", backtogroup = 0 WHERE LOWER(username) = "' . smartsql(strtolower($username)) . '" AND access = 1');
-          }
+		global $jakdb;
+		$jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'user WHERE forgot = "' . smartsql ($forgotid) . '" AND access = 1 LIMIT 1');
+		if ($jakdb->affected_rows > 0) {
+			return true;
+		} else
+			return false;
 
-          return true; //Success! Username and idhash confirmed
+	}
 
-        } else {
-          return false; //Indicates idhash invalid
-        }
+	public static function jakWriteloginlog ($username, $url, $ip, $agent, $success)
+	{
 
-      }
-    } else {
-      return false;
-    }
+		global $jakdb;
+		if ($success == 1) {
 
-  }
+			$jakdb->query ('UPDATE ' . DB_PREFIX . 'loginlog SET access = 1 WHERE ip = "' . smartsql ($ip) . '" AND time = NOW()');
+		} else {
 
-  public static function jakUserinfo($username)
-  {
+			$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'loginlog SET name = "' . smartsql ($username) . '", fromwhere = "' . smartsql ($url) . '", ip = "' . smartsql ($ip) . '", usragent = "' . smartsql ($agent) . '", time = NOW(), access = 0');
+		}
 
-    global $jakdb;
-    $result = $jakdb->queryRow('SELECT * FROM ' . DB_PREFIX . 'user WHERE LOWER(username) = "' . smartsql(strtolower($username)) . '" AND access = 1');
-    if (!$result || $jakdb->affected_rows < 1) {
-      return NULL;
-    } else {
-      return $result;
-    }
+	}
 
-  }
+	public static function jakLogout ($userid)
+	{
 
-  public static function jakUpdatelastactivity($userid)
-  {
+		global $jakdb;
 
-    global $jakdb;
-    $jakdb->query('UPDATE ' . DB_PREFIX . 'user SET lastactivity = NOW() WHERE id = "' . smartsql($userid) . '"');
+		// Delete cookies from this page
+		if (isset($_COOKIE['cmsName']) || isset($_COOKIE['cmsId'])) {
+			setcookie ('cmsName', "", time () - JAK_COOKIE_TIME, JAK_COOKIE_PATH);
+			setcookie ('cmsId', "", time () - JAK_COOKIE_TIME, JAK_COOKIE_PATH);
+		}
 
-  }
+		// Update Database to session NULL
+		$jakdb->query ('UPDATE ' . DB_PREFIX . 'user SET session = NULL, idhash = NULL WHERE id = "' . $userid . '"');
 
-  public static function jakForgotpassword($email, $time)
-  {
+		// Unset the main sessions
+		unset($_SESSION['username']);
+		unset($_SESSION['idhash']);
 
-    global $jakdb;
-    $row = $jakdb->queryRow('SELECT id, username FROM ' . DB_PREFIX . 'user WHERE email = "' . smartsql($email) . '" AND access = 1 LIMIT 1');
+		// Destroy session and generate new one for that user
+		session_destroy ();
+		session_start ();
+		session_regenerate_id ();
 
-    if ($jakdb->affected_rows > 0) {
+	}
 
-      if ($time != 0) {
-        $jakdb->query('UPDATE ' . DB_PREFIX . 'user SET forgot = "' . smartsql($time) . '" WHERE id = "' . smartsql($row["id"]) . '"');
-      }
+	function jakChecklogged ()
+	{
 
-      return $row["username"];
-    } else {
-      return false;
-    }
+		/* Check if user has been remembered */
+		if (isset($_COOKIE['cmsName']) && isset($_COOKIE['cmsId'])) {
+			$_SESSION['username'] = $_COOKIE['cmsName'];
+			$_SESSION['idhash']   = $_COOKIE['cmsId'];
+		}
 
-  }
+		/* Username and idhash have been set */
+		if (isset($_SESSION['username']) && isset($_SESSION['idhash']) && $_SESSION['username'] != $this->username) {
+			/* Confirm that username and userid are valid */
+			if (!JAK_userlogin::jakConfirmidhash ($_SESSION['username'], $_SESSION['idhash'])) {
+				/* Variables are incorrect, user not logged in */
+				unset($_SESSION['username']);
+				unset($_SESSION['idhash']);
 
-  public static function jakForgotactive($forgotid)
-  {
+				return false;
+			}
 
-    global $jakdb;
-    $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'user WHERE forgot = "' . smartsql($forgotid) . '" AND access = 1 LIMIT 1');
-    if ($jakdb->affected_rows > 0) {
-      return true;
-    } else
-      return false;
+			// Return the user data
+			return JAK_userlogin::jakUserinfo ($_SESSION['username']);
+		} /* User not logged in */
+		else {
+			return false;
+		}
+	}
 
-  }
+	public static function jakConfirmidhash ($username, $idhash)
+	{
 
-  public static function jakWriteloginlog($username, $url, $ip, $agent, $success)
-  {
+		global $jakdb;
 
-    global $jakdb;
-    if ($success == 1) {
+		if (isset($username)) {
 
-      $jakdb->query('UPDATE ' . DB_PREFIX . 'loginlog SET access = 1 WHERE ip = "' . smartsql($ip) . '" AND time = NOW()');
-    } else {
+			$result = $jakdb->queryRow ('SELECT backtogroup, backtime, idhash FROM ' . DB_PREFIX . 'user WHERE LOWER(username) = "' . smartsql (strtolower ($username)) . '" AND access = 1');
 
-      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'loginlog SET name = "' . smartsql($username) . '", fromwhere = "' . smartsql($url) . '", ip = "' . smartsql($ip) . '", usragent = "' . smartsql($agent) . '", time = NOW(), access = 0');
-    }
+			if ($jakdb->affected_rows < 1) {
 
-  }
+				return false;
 
-  public static function jakLogout($userid)
-  {
+			} else {
 
-    global $jakdb;
+				$result['idhash'] = stripslashes ($result['idhash']);
+				$idhash           = stripslashes ($idhash);
 
-    // Delete cookies from this page
-    if (isset($_COOKIE['cmsName']) || isset($_COOKIE['cmsId'])) {
-      setcookie('cmsName', "", time() - JAK_COOKIE_TIME, JAK_COOKIE_PATH);
-      setcookie('cmsId', "", time() - JAK_COOKIE_TIME, JAK_COOKIE_PATH);
-    }
+				/* Validate that userid is correct */
+				if (!is_null ($result['idhash']) && $idhash == $result['idhash']) {
 
-    // Update Database to session NULL
-    $jakdb->query('UPDATE ' . DB_PREFIX . 'user SET session = NULL, idhash = NULL WHERE id = "' . $userid . '"');
+					// Now let's check if we need to move this user to a different usergroup
+					if ($result['backtime'] != "0000-00-00" && is_numeric ($result['backtogroup']) && (time () >= strtotime ($result['backtime']))) {
+						$jakdb->query ('UPDATE ' . DB_PREFIX . 'user SET usergroupid = "' . $result['backtogroup'] . '", backtime = "0000-00-00", backtogroup = 0 WHERE LOWER(username) = "' . smartsql (strtolower ($username)) . '" AND access = 1');
+					}
 
-    // Unset the main sessions
-    unset($_SESSION['username']);
-    unset($_SESSION['idhash']);
+					return true; //Success! Username and idhash confirmed
 
-    // Destroy session and generate new one for that user
-    session_destroy();
-    session_start();
-    session_regenerate_id();
+				} else {
+					return false; //Indicates idhash invalid
+				}
 
-  }
+			}
+		} else {
+			return false;
+		}
 
-  public static function generateRandStr($length)
-  {
-    $randstr = "";
-    for ($i = 0; $i < $length; $i++) {
-      $randnum = mt_rand(0, 61);
-      if ($randnum < 10) {
-        $randstr .= chr($randnum + 48);
-      } else if ($randnum < 36) {
-        $randstr .= chr($randnum + 55);
-      } else {
-        $randstr .= chr($randnum + 61);
-      }
-    }
-    return $randstr;
-  }
+	}
 
-  public static function generateRandID()
-  {
-    return md5(JAK_userlogin::generateRandStr(16));
-  }
+	public static function jakUserinfo ($username)
+	{
+
+		global $jakdb;
+		$result = $jakdb->queryRow ('SELECT * FROM ' . DB_PREFIX . 'user WHERE LOWER(username) = "' . smartsql (strtolower ($username)) . '" AND access = 1');
+		if (!$result || $jakdb->affected_rows < 1) {
+			return NULL;
+		} else {
+			return $result;
+		}
+
+	}
 }
 
 ?>

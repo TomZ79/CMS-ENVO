@@ -7,12 +7,14 @@
 			$(".highlight").each(function () {
 				$(this).prop('checked', checkedStatus);
 			});
-			$('#button_delete').prop('disabled', function(i, v) { return !v; });
+			$('#button_delete').prop('disabled', function (i, v) {
+				return !v;
+			});
 		});
 
 		/* Disable submit button if checkbox is not checked */
-		$(".highlight").change(function() {
-			if(this.checked) {
+		$(".highlight").change(function () {
+			if (this.checked) {
 				$("#button_delete").removeAttr("disabled");
 			} else {
 				$("#button_delete").attr("disabled", "disabled");
@@ -26,14 +28,14 @@
 	$(document).ready(function () {
 		/* Sticky active
 		 ========================================= */
-		var $stickyName= 'input[name="jak_sticky"]';
+		var $stickyName = 'input[name="jak_sticky"]';
 		var $stickyVal = ($('input[name="jak_sticky"]:checked').val());
 		if ($stickyVal == '1') {
 			$('tr.disablerow').addClass('warning');
 			$('tr.disablerow select').attr("disabled", "disabled");
 		}
 		$($stickyName).change(
-			function(){
+			function () {
 				if ($(this).is(':checked') && $(this).val() == '1') {
 					$('tr.disablerow').addClass('warning');
 					$('tr.disablerow button').addClass('disabled');
@@ -58,7 +60,7 @@
 			// Other
 			ignoreReadonly: true,
 			keepInvalid: true,
-			minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>
+			minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date ("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>
 		});
 
 		$('#datepickerTo').datetimepicker({
@@ -71,7 +73,7 @@
 			showClear: true,
 			// Other
 			ignoreReadonly: true,
-			minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>,
+			minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date ("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>,
 			useCurrent: false //Important! See issue #1075
 		});
 

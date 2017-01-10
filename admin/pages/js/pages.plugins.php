@@ -1,13 +1,13 @@
 <?php
 // Load 'ace.js'  - only for selected pages
 if ($jkv["adv_editor"] && ($page1 == 'newhook' || ($page1 == 'hooks' && $page2 == 'edit'))) {
-?>
-<script src="assets/plugins/ace/ace.js" type="text/javascript"></script>
+	?>
+	<script src="assets/plugins/ace/ace.js" type="text/javascript"></script>
 <?php }
 // Load 'pluginorder.js'  - only for selected pages
 if ($page == 'plugins' && $page1 == '') {
-?>
-<script src="assets/js/pluginorder.js" type="text/javascript"></script>
+	?>
+	<script src="assets/js/pluginorder.js" type="text/javascript"></script>
 <?php } ?>
 <script type="text/javascript">
 	<?php
@@ -57,7 +57,7 @@ if ($page == 'plugins' && $page1 == '') {
 		$('.plugInst').on('click', function (e) {
 			e.preventDefault();
 			frameSrc = $(this).attr("href");
-			$('#JAKModalLabel').html("<?php echo ucwords($page);?>");
+			$('#JAKModalLabel').html("<?php echo ucwords ($page);?>");
 			$('#JAKModal').on('show.bs.modal', function () {
 				$('#JAKModal .modal-dialog').addClass('modal-w-90p');
 				$('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">').appendTo('.body-content');
@@ -73,7 +73,7 @@ if ($page == 'plugins' && $page1 == '') {
 		$('.plugHelp').on('click', function (e) {
 			e.preventDefault();
 			frameSrc = $(this).attr("href");
-			$('#JAKModalLabel').html("<?php echo ucwords($page);?>");
+			$('#JAKModalLabel').html("<?php echo ucwords ($page);?>");
 			$('#JAKModal').on('show.bs.modal', function () {
 				$('#JAKModal .modal-dialog').addClass('modal-w-90p');
 				$('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">').appendTo('.body-content');

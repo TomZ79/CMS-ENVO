@@ -1,6 +1,6 @@
 <script type="text/javascript">
 	$(document).ready(function () {
-		$("#editfile1").click(function(event){
+		$("#editfile1").click(function (event) {
 			event.preventDefault();
 			$('#jak_file1, button[name="save1"]').removeAttr("disabled");
 			$('button[name="reset1"]').removeClass("hidden");
@@ -16,7 +16,7 @@
 
 			} else {
 
-				txt.val("#CMS Robots File\n#Last change - " + time +"\n\n" + txt.val());
+				txt.val("#CMS Robots File\n#Last change - " + time + "\n\n" + txt.val());
 			}
 		});
 	});

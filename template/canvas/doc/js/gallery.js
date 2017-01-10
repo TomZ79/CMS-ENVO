@@ -1,29 +1,29 @@
-(function( $ ) {
-	$.fn.lsTransitionPreview = function(options) {
+(function ($) {
+	$.fn.lsTransitionPreview = function (options) {
 
-		return this.each( function(){
-			if( typeof options === 'string' ){
+		return this.each(function () {
+			if (typeof options === 'string') {
 
 				var tpData = $(this).data('transitionPreview');
 
-				switch( options ){
+				switch (options) {
 					case 'stop':
 						tpData.stop();
-					break;
+						break;
 				}
-			}else{
+			} else {
 				new transitionPreview(this, options);
 			}
 		});
 	};
 
-	var transitionPreview = function(el, options){
+	var transitionPreview = function (el, options) {
 
 		var tp = this;
 		tp.$el = $(el);
 		tp.$el.data('transitionPreview', tp);
 
-		tp.init = function(){
+		tp.init = function () {
 
 			// Parse settings
 			var settings = $.extend({
@@ -34,35 +34,38 @@
 				skinPath: '../layerslider/skins/',
 				transitionType: '2d',
 				transitionObject: null
-			}, options );
+			}, options);
 
 			// Add slider HTML markup
-			$(el).append( $('<div>', { 'class' : 'transitionpreview', 'style' : 'width: '+settings.width+'px; height: '+settings.height+'px;'})
-				.append( $('<div>', { 'class' : 'ls-layer', 'data-ls' : 'slidedelay: '+settings.delay+';'})
-					.append( $('<img>', { 'src' : ''+settings.imgPath+'sample_slide_1.png', 'class' : 'ls-bg'})))
-				.append( $('<div>', { 'class' : 'ls-layer', 'data-ls' : 'slidedelay: '+settings.delay+';'})
-					.append( $('<img>', { 'src' : ''+settings.imgPath+'sample_slide_2.png', 'class' : 'ls-bg'})))
+			$(el).append($('<div>', {
+					'class': 'transitionpreview',
+					'style': 'width: ' + settings.width + 'px; height: ' + settings.height + 'px;'
+				})
+				.append($('<div>', {'class': 'ls-layer', 'data-ls': 'slidedelay: ' + settings.delay + ';'})
+					.append($('<img>', {'src': '' + settings.imgPath + 'sample_slide_1.png', 'class': 'ls-bg'})))
+				.append($('<div>', {'class': 'ls-layer', 'data-ls': 'slidedelay: ' + settings.delay + ';'})
+					.append($('<img>', {'src': '' + settings.imgPath + 'sample_slide_2.png', 'class': 'ls-bg'})))
 			);
 
 			// Initialize the slider
 			$(el).find('.transitionpreview').layerSlider({
-				showCircleTimer : false,
-				pauseOnHover : false,
-				skin : 'noskin',
-				slidedelay : 100,
-				skinsPath : settings.skinsPath,
-				slideTransition : {
-					type : settings.transitionType,
-					obj : settings.transitionObject
+				showCircleTimer: false,
+				pauseOnHover: false,
+				skin: 'noskin',
+				slidedelay: 100,
+				skinsPath: settings.skinsPath,
+				slideTransition: {
+					type: settings.transitionType,
+					obj: settings.transitionObject
 				}
 			});
 		};
 
-		tp.stop = function(){
+		tp.stop = function () {
 
 			$(el).find('.transitionpreview').layerSlider('forceStop').remove();
 		};
 
 		tp.init();
 	};
-}( jQuery ));
+}(jQuery));

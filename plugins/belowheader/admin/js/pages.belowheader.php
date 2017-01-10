@@ -1,5 +1,5 @@
 <?php if ($jkv["adv_editor"]) { ?>
-<script src="assets/plugins/ace/ace.js" type="text/javascript"></script>
+	<script src="assets/plugins/ace/ace.js" type="text/javascript"></script>
 <?php } ?>
 <script type="text/javascript">
 	<?php if ($jkv["adv_editor"]) { ?>

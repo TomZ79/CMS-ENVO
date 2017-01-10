@@ -7,12 +7,14 @@
 			$(".highlight").each(function () {
 				$(this).prop('checked', checkedStatus);
 			});
-			$('#button_delete').prop('disabled', function(i, v) { return !v; });
+			$('#button_delete').prop('disabled', function (i, v) {
+				return !v;
+			});
 		});
 
 		/* Disable submit button if checkbox is not checked */
-		$(".highlight").change(function() {
-			if(this.checked) {
+		$(".highlight").change(function () {
+			if (this.checked) {
 				$("#button_delete").removeAttr("disabled");
 			} else {
 				$("#button_delete").attr("disabled", "disabled");
@@ -21,19 +23,19 @@
 
 		/* DateTimePicker
 		 =========================================
-		$('#datepicker').datetimepicker({
-			// Language
-			locale: '<?php echo $site_language;?>',
-			// Date-Time format
-			format: 'YYYY-MM-DD',
-			// Show Button
-			showTodayButton: true,
-			showClear: true,
-			// Other
-			ignoreReadonly: true,
-			keepInvalid: true,
-			minDate: moment()
-		});
+		 $('#datepicker').datetimepicker({
+		 // Language
+		 locale: '<?php echo $site_language;?>',
+		 // Date-Time format
+		 format: 'YYYY-MM-DD',
+		 // Show Button
+		 showTodayButton: true,
+		 showClear: true,
+		 // Other
+		 ignoreReadonly: true,
+		 keepInvalid: true,
+		 minDate: moment()
+		 });
 		 */
 
 	});
@@ -43,6 +45,7 @@
 	.label-indicator-absolute {
 		position: relative;
 	}
+
 	.label-indicator-absolute .password-indicator-label-absolute {
 		position: absolute;
 		top: 50%;

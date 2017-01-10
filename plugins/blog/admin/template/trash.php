@@ -31,7 +31,7 @@ if ($page4 == "e") { ?>
 	</script>
 <?php } ?>
 
-<?php if (isset($JAK_TRASH_ALL) && is_array($JAK_TRASH_ALL)) { ?>
+<?php if (isset($JAK_TRASH_ALL) && is_array ($JAK_TRASH_ALL)) { ?>
 
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 		<div class="box box-success">
@@ -50,13 +50,13 @@ if ($page4 == "e") { ?>
 						<th><?php echo $tlblog["blog_box_table"]["blogtb7"]; ?></th>
 						<th>
 							<button type="submit" name="untrash" id="button_lock" class="btn btn-default btn-xs"
-											onclick="if(!confirm('<?php echo $tlblog["blog_notification"]["untrash"]; ?>'))return false;">
+								onclick="if(!confirm('<?php echo $tlblog["blog_notification"]["untrash"]; ?>'))return false;">
 								<i class="fa fa-thumbs-up"></i>
 							</button>
 						</th>
 						<th>
 							<button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs"
-											data-confirm-del="<?php echo $tlblog["blog_notification"]["codelall"]; ?>" disabled="disabled"><i
+								data-confirm-del="<?php echo $tlblog["blog_notification"]["codelall"]; ?>" disabled="disabled"><i
 									class="fa fa-trash-o"></i></button>
 						</th>
 					</tr>
@@ -67,11 +67,11 @@ if ($page4 == "e") { ?>
 							<td>
 								<div class="checkbox-singel check-success">
 									<input type="checkbox" id="jak_delete_trash<?php echo $v["id"]; ?>" name="jak_delete_trash[]"
-												 class="highlight" value="<?php echo $v["id"]; ?>"/>
+										class="highlight" value="<?php echo $v["id"]; ?>"/>
 									<label for="jak_delete_trash<?php echo $v["id"]; ?>"></label>
 								</div>
 							</td>
-							<td><?php echo jak_clean_comment($v["message"]); ?></td>
+							<td><?php echo jak_clean_comment ($v["message"]); ?></td>
 							<td><?php if ($v["userid"] == '0') {
 									echo $tlblog["blog_box_content"]["blogbc40"];
 								} else {

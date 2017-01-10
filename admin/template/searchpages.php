@@ -12,7 +12,7 @@
 			}, {
 				// settings
 				type: 'danger',
-				delay: 5000000,
+				delay: 5000,
 			});
 		}, 1000);
 	</script>
@@ -57,61 +57,51 @@
 						<th></th>
 					</tr>
 					</thead>
-					<?php if ($JAK_SEARCH) { ?>
-						<?php if (isset($JAK_SEARCH) && is_array($JAK_SEARCH)) foreach ($JAK_SEARCH as $v) { ?>
-							<tr>
-								<td><?php echo $v["id"]; ?></td>
-								<td>
-									<div class="checkbox-singel check-success">
-										<input type="checkbox" id="jak_delete_page<?php echo $v["id"]; ?>" name="jak_delete_page[]"
-													 class="highlight" value="<?php echo $v["id"]; ?>"/>
-										<label for="jak_delete_page<?php echo $v["id"]; ?>"></label>
-									</div>
-								</td>
-								<td><a
-										href="index.php?p=page&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a><?php if ($v["password"]) { ?>
-										<i class="fa fa-key"></i><?php } ?></td>
-								<td><?php if ($v["catid"] != '0') {
-										if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $z) {
-											if ($v["catid"] == $z["id"]) { ?>
-												<a
-												href="index.php?p=categories&amp;sp=edit&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a><?php }
-										}
-									} else { ?><?php echo $tl["page_box_content"]["pagebc"]; ?><?php } ?></td>
-								<td><?php echo $v["time"]; ?></td>
-								<td><?php echo $v["hits"]; ?></td>
-								<td>
-									<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>"
-										 data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') {
-										echo $tl["icons"]["i5"];
-									} else {
-										echo $tl["icons"]["i6"];
-									} ?>"
-									><i class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i>
-									</a>
-								</td>
-								<td>
-									<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"
-										 data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i2"]; ?>">
-										<i class="fa fa-edit"></i>
-									</a>
-								</td>
-								<td>
-									<a class="btn btn-default btn-xs"
-										 href="index.php?p=page&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>"
-										 data-confirm="<?php echo sprintf($tl["page_notification"]["del"], $v["title"]); ?>"
-										 data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
-										<i class="fa fa-trash-o"></i>
-									</a>
-								</td>
-							</tr>
-						<?php }
+					<?php if ($JAK_SEARCH) { ?><?php if (isset($JAK_SEARCH) && is_array ($JAK_SEARCH)) foreach ($JAK_SEARCH as $v) { ?>
+						<tr>
+							<td><?php echo $v["id"]; ?></td>
+							<td>
+								<div class="checkbox-singel check-success">
+									<input type="checkbox" id="jak_delete_page<?php echo $v["id"]; ?>" name="jak_delete_page[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
+									<label for="jak_delete_page<?php echo $v["id"]; ?>"></label>
+								</div>
+							</td>
+							<td>
+								<a href="index.php?p=page&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a><?php if ($v["password"]) { ?>
+									<i class="fa fa-key"></i><?php } ?></td>
+							<td><?php if ($v["catid"] != '0') {
+									if (isset($JAK_CAT) && is_array ($JAK_CAT)) foreach ($JAK_CAT as $z) {
+										if ($v["catid"] == $z["id"]) { ?>
+											<a												href="index.php?p=categories&amp;sp=edit&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a><?php }
+									}
+								} else { ?><?php echo $tl["page_box_content"]["pagebc"]; ?><?php } ?></td>
+							<td><?php echo $v["time"]; ?></td>
+							<td><?php echo $v["hits"]; ?></td>
+							<td>
+								<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') {
+									echo $tl["icons"]["i5"];
+								} else {
+									echo $tl["icons"]["i6"];
+								} ?>"><i class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i>
+								</a>
+							</td>
+							<td>
+								<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i2"]; ?>">
+									<i class="fa fa-edit"></i>
+								</a>
+							</td>
+							<td>
+								<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo sprintf ($tl["page_notification"]["del"], $v["title"]); ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+									<i class="fa fa-trash-o"></i>
+								</a>
+							</td>
+						</tr>
+					<?php }
 					} ?>
 				</table>
 			</div>
 		</div>
-	</div>
-	</form>
+	</div>	</form>
 
 <?php } else if ($SEARCH_WORD) { ?>
 	<div class="alert bg-danger text-white">
@@ -119,7 +109,7 @@
 	</div>
 <?php } ?>
 
-	<div class="col-md-12">
+	<div class="col-md-12 m-b-30">
 		<div class="icon_legend">
 			<h3><?php echo $tl["icons"]["i"]; ?></h3>
 			<i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>

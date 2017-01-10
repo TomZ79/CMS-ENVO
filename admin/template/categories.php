@@ -168,7 +168,7 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
 
 <?php } ?>
 
-  <div class="col-md-12">
+  <div class="col-md-12 m-b-30">
     <div class="icon_legend">
       <h3><?php echo $tl["icons"]["i"]; ?></h3>
       <i title="<?php echo $tl["icons"]["i7"]; ?>" class="fa fa-plus"></i>

@@ -28,8 +28,8 @@
 				<div class="icon">
 					<i class="fa fa-search"></i>
 				</div>
-				<a href="index.php?p=searchlog" class="dashboard-box-footer"><?php echo $tl["dashb_box_stats"]["dbbs"]; ?> <i
-						class="fa fa-arrow-circle-right"></i></a>
+				<a href="index.php?p=searchlog" class="dashboard-box-footer"><?php echo $tl["dashb_box_stats"]["dbbs"]; ?>
+					<i class="fa fa-arrow-circle-right"></i></a>
 			</div>
 		</div>
 		<div class="col-lg-3 col-xs-12">
@@ -42,8 +42,8 @@
 				<div class="icon">
 					<i class="fa fa-plug"></i>
 				</div>
-				<a href="index.php?p=plugins" class="dashboard-box-footer"><?php echo $tl["dashb_box_stats"]["dbbs"]; ?> <i
-						class="fa fa-arrow-circle-right"></i></a>
+				<a href="index.php?p=plugins" class="dashboard-box-footer"><?php echo $tl["dashb_box_stats"]["dbbs"]; ?>
+					<i class="fa fa-arrow-circle-right"></i></a>
 			</div>
 		</div>
 		<div class="col-lg-3 col-xs-12">
@@ -57,8 +57,8 @@
 					<div class="icon">
 						<i class="fa fa-tags"></i>
 					</div>
-					<a href="index.php?p=tags" class="dashboard-box-footer"><?php echo $tl["dashb_box_stats"]["dbbs"]; ?> <i
-							class="fa fa-arrow-circle-right"></i></a>
+					<a href="index.php?p=tags" class="dashboard-box-footer"><?php echo $tl["dashb_box_stats"]["dbbs"]; ?>
+						<i class="fa fa-arrow-circle-right"></i></a>
 				</div>
 			<?php } else { ?>
 				<div class="dashboard-box bg-info">
@@ -69,8 +69,8 @@
 					<div class="icon">
 						<i class="fa fa-flash"></i>
 					</div>
-					<a href="index.php?p=plugins&sp=hooks" class="dashboard-box-footer"><?php echo $tl["dashb_box_stats"]["dbbs"]; ?> <i
-							class="fa fa-arrow-circle-right"></i></a>
+					<a href="index.php?p=plugins&sp=hooks" class="dashboard-box-footer"><?php echo $tl["dashb_box_stats"]["dbbs"]; ?>
+						<i class="fa fa-arrow-circle-right"></i></a>
 				</div>
 			<?php } ?>
 		</div>
@@ -85,7 +85,7 @@
 				</div>
 				<div class="box-body">
 					<ul class="todoList">
-						<?php if (isset($todos) && is_array($todos)) foreach ($todos as $item) {
+						<?php if (isset($todos) && is_array ($todos)) foreach ($todos as $item) {
 							echo $item;
 						} ?>
 					</ul>
@@ -103,7 +103,7 @@
 					<div id="chart_total" class="charts"></div>
 				</div>
 			</div>
-			<?php if (isset($JAK_HOOK_ADMIN_INDEX) && is_array($JAK_HOOK_ADMIN_INDEX)) foreach ($JAK_HOOK_ADMIN_INDEX as $hspi) {
+			<?php if (isset($JAK_HOOK_ADMIN_INDEX) && is_array ($JAK_HOOK_ADMIN_INDEX)) foreach ($JAK_HOOK_ADMIN_INDEX as $hspi) {
 				include_once APP_PATH . $hspi['phpcode'];
 			} ?>
 		</div>

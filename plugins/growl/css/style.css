@@ -46,7 +46,7 @@
 
 .gritter-item {
   display: block;
-  color: #eee;
+  color: #EEE;
   padding: 10px;
 }
 
@@ -62,12 +62,12 @@
   top: 5px;
   right: 7px;
   cursor: pointer;
-  color: #fff;
+  color: #FFF;
   font-size: 1.5em;
 }
 
 .gritter-close:hover {
-  color: #d2d2d2;
+  color: #D2D2D2;
 }
 
 .gritter-title {

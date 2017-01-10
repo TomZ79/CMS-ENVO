@@ -1,88 +1,88 @@
 <?php
 
 // Prevent direct php access
-define('JAK_ADMIN_PREVENT_ACCESS', 1);
+define ('JAK_ADMIN_PREVENT_ACCESS', 1);
 
 // Access not allowed
 $JAK_PROVED = false;
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists('config.php')) die('[index.php] config.php not found');
+if (!file_exists ('config.php')) die('[index.php] config.php not found');
 require_once 'config.php';
 
 // Now check if there is more then one language
-$page = ($temppa ? jak_input_filter($temppa) : '');
-$page1 = ($temppa1 ? jak_input_filter($temppa1) : '');
-$page2 = ($temppa2 ? jak_input_filter($temppa2) : '');
-$page3 = ($temppa3 ? jak_input_filter($temppa3) : '');
-$page4 = ($temppa4 ? jak_input_filter($temppa4) : '');
-$page5 = ($temppa5 ? jak_input_filter($temppa5) : '');
-$page6 = ($temppa6 ? jak_input_filter($temppa6) : '');
+$page  = ($temppa ? jak_input_filter ($temppa) : '');
+$page1 = ($temppa1 ? jak_input_filter ($temppa1) : '');
+$page2 = ($temppa2 ? jak_input_filter ($temppa2) : '');
+$page3 = ($temppa3 ? jak_input_filter ($temppa3) : '');
+$page4 = ($temppa4 ? jak_input_filter ($temppa4) : '');
+$page5 = ($temppa5 ? jak_input_filter ($temppa5) : '');
+$page6 = ($temppa6 ? jak_input_filter ($temppa6) : '');
 
 // Only the SuperAdmin in the config file see everything
-if (JAK_USERID && $jakuser->jakSuperadminaccess(JAK_USERID)) {
-  define('JAK_SUPERADMINACCESS', true);
+if (JAK_USERID && $jakuser->jakSuperadminaccess (JAK_USERID)) {
+	define ('JAK_SUPERADMINACCESS', true);
 } else {
-  define('JAK_SUPERADMINACCESS', false);
+	define ('JAK_SUPERADMINACCESS', false);
 }
 
 // Get the redirect into a sessions for better login handler
 if ($page && $page != '404') $_SESSION['JAKRedirect'] = $_SERVER['REQUEST_URI'];
 
 // All other user will be redirect to the homepage, nothing else to do for this people
-if (JAK_USERID && !JAK_ADMINACCESS) jak_redirect(BASE_URL_ORIG);
+if (JAK_USERID && !JAK_ADMINACCESS) jak_redirect (BASE_URL_ORIG);
 
-if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
-  $tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
+if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
+	$tl = parse_ini_file (APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
 } else {
-  $tl = parse_ini_file(APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
-  $site_language = $jkv["lang"];
+	$tl            = parse_ini_file (APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
+	$site_language = $jkv["lang"];
 }
 
 // We need the template folder, title, author and lang as template variable
 $JAK_CONTACT_FORM = $jkv["contactform"];
-define('JAK_PAGINATE_ADMIN', 1);
+define ('JAK_PAGINATE_ADMIN', 1);
 
 // First check if the user is logged in
 if (JAK_USERID) {
 
-  // Get all the Plugins
-  $jakplugins = new JAK_plugins(2, '');
+	// Get all the Plugins
+	$jakplugins = new JAK_plugins(2, '');
 
-  // Get all the Hooks
-  $jakhooks = new JAK_hooks(1, '');
+	// Get all the Hooks
+	$jakhooks = new JAK_hooks(1, '');
 
-  // First load the language from the hook
-  $hookadminlang = $jakhooks->jakGethook("php_admin_lang");
-  if ($hookadminlang) foreach ($hookadminlang as $halang) {
-    eval($halang['phpcode']);
-  }
+	// First load the language from the hook
+	$hookadminlang = $jakhooks->jakGethook ("php_admin_lang");
+	if ($hookadminlang) foreach ($hookadminlang as $halang) {
+		eval($halang['phpcode']);
+	}
 
-  // Get the admin head hook for implementing css or other stuff belongs into the head section
-  $JAK_HOOK_HEAD_ADMIN = $jakhooks->jakGethook("tpl_admin_head");
-  $JAK_HOOK_FOOTER_ADMIN = $jakhooks->jakGethook("tpl_admin_footer");
+	// Get the admin head hook for implementing css or other stuff belongs into the head section
+	$JAK_HOOK_HEAD_ADMIN   = $jakhooks->jakGethook ("tpl_admin_head");
+	$JAK_HOOK_FOOTER_ADMIN = $jakhooks->jakGethook ("tpl_admin_footer");
 
-  // Get all plugins out the databse
-  $JAK_PLUGINS = $jakplugins->jakGetarray();
-  $JAK_PLUGINS_TOPNAV = $jakplugins->jakAdmintopnav();
-  $JAK_PLUGINS_MANAGENAV = $jakplugins->jakAdminmanagenav();
-  // We need the tags if active right in the beginning
-  define('JAK_TAGS', $jakplugins->getPHPcodeid(3, "active"));
+	// Get all plugins out the databse
+	$JAK_PLUGINS           = $jakplugins->jakGetarray ();
+	$JAK_PLUGINS_TOPNAV    = $jakplugins->jakAdmintopnav ();
+	$JAK_PLUGINS_MANAGENAV = $jakplugins->jakAdminmanagenav ();
+	// We need the tags if active right in the beginning
+	define ('JAK_TAGS', $jakplugins->getPHPcodeid (3, "active"));
 
-  // Show links in template only the user have access
-  $JAK_MODULES = $jakuser->jakModuleaccess(JAK_USERID, $jkv["accessgeneral"]);
-  $JAK_MODULEM = $jakuser->jakModuleaccess(JAK_USERID, $jkv["accessmanage"]);
+	// Show links in template only the user have access
+	$JAK_MODULES = $jakuser->jakModuleaccess (JAK_USERID, $jkv["accessgeneral"]);
+	$JAK_MODULEM = $jakuser->jakModuleaccess (JAK_USERID, $jkv["accessmanage"]);
 
-  // Get the name from the user for the welcome message
-  $JAK_WELCOME_NAME = $jakuser->getVar("name");
+	// Get the name from the user for the welcome message
+	$JAK_WELCOME_NAME = $jakuser->getVar ("name");
 }
 
 // We do not need code highlighting
 $CODE_HIGHLIGHT = $JAK_PAGINATE = false;
 
 // Errors
-$errors = array();
+$errors = array ();
 
 // db insert
 $insert = $updatesql = $updatesql1 = '';
@@ -96,253 +96,253 @@ if (!isset($_SERVER['HTTP_REFERER'])) $_SERVER['HTTP_REFERER'] = '';
 // Now run the php code from the plugin section only when we logged in
 if (JAK_USERID) {
 
-  // Run the hook admin index top for sidebar widgets
-  // Admin index hook
-  $hookadminit = $jakhooks->jakGethook("php_admin_index_top");
-  if ($hookadminit) foreach ($hookadminit as $hait) {
-    eval($hait['phpcode']);
-  }
+	// Run the hook admin index top for sidebar widgets
+	// Admin index hook
+	$hookadminit = $jakhooks->jakGethook ("php_admin_index_top");
+	if ($hookadminit) foreach ($hookadminit as $hait) {
+		eval($hait['phpcode']);
+	}
 
-  $pluginadminphp = $jakplugins->jakAdminindex();
-  if ($pluginadminphp) foreach ($pluginadminphp as $pl) {
-    // Page name upper case
-    $plname = strtoupper($pl['name']);
+	$pluginadminphp = $jakplugins->jakAdminindex ();
+	if ($pluginadminphp) foreach ($pluginadminphp as $pl) {
+		// Page name upper case
+		$plname = strtoupper ($pl['name']);
 
-    // define the plugin id first
-    define('JAK_PLUGIN_' . $plname, $pl['id']);
+		// define the plugin id first
+		define ('JAK_PLUGIN_' . $plname, $pl['id']);
 
-    // Get the access out into define
-    define('JAK_ACCESS' . $plname, $pl['access']);
+		// Get the access out into define
+		define ('JAK_ACCESS' . $plname, $pl['access']);
 
-    // then load the php code
-    eval($pl['phpcode']);
-  }
+		// then load the php code
+		eval($pl['phpcode']);
+	}
 }
 
 // Get statistics for Navbar
-$jaktable = DB_PREFIX . 'pages';
+$jaktable  = DB_PREFIX . 'pages';
 $jaktable1 = DB_PREFIX . 'user';
 $jaktable2 = DB_PREFIX . 'usergroup';
 
-$JAK_COUNTS_NAVBAR = $jakdb->queryRow('SELECT
-  (SELECT COUNT(*) FROM ' . $jaktable . ') AS COUNT_PAGES,
-  (SELECT COUNT(*) FROM ' . $jaktable1 . ') AS COUNT_USER,
-  (SELECT COUNT(*) FROM ' . $jaktable2 . ') AS COUNT_USERGROUP');
+$JAK_COUNTS_NAVBAR = $jakdb->queryRow ('SELECT
+																			(SELECT COUNT(*) FROM ' . $jaktable . ') AS COUNT_PAGES,
+																			(SELECT COUNT(*) FROM ' . $jaktable1 . ') AS COUNT_USER,
+																			(SELECT COUNT(*) FROM ' . $jaktable2 . ') AS COUNT_USERGROUP');
 
 // Home
 if ($page == '') {
-  #show login page only if the admin is not logged in
-  #else show homepage
-  if (!JAK_USERID) {
-    require_once 'login.php';
-  } else {
-    require_once 'include/serverconfig.php';
-    $JAK_SETTING = jak_get_setting('version');
-    $JAK_PROVED = 1;
-    $JAK_PAGE_ACTIVE = 1;
-    $html_title = $tl['login']['l'];
+	#show login page only if the admin is not logged in
+	#else show homepage
+	if (!JAK_USERID) {
+		require_once 'login.php';
+	} else {
+		require_once 'include/serverconfig.php';
+		$JAK_SETTING     = jak_get_setting ('version');
+		$JAK_PROVED      = 1;
+		$JAK_PAGE_ACTIVE = 1;
+		$html_title      = $tl['login']['l'];
 
-    // Admin index hook
-    $hookadmini = $jakhooks->jakGethook("php_admin_index");
-    if ($hookadmini)
-      foreach ($hookadmini as $hai) {
-        eval($hai['phpcode']);
-      }
-    // Admin index template
-    $JAK_HOOK_ADMIN_INDEX = $jakhooks->jakGethook("tpl_admin_index");
+		// Admin index hook
+		$hookadmini = $jakhooks->jakGethook ("php_admin_index");
+		if ($hookadmini)
+			foreach ($hookadmini as $hai) {
+				eval($hai['phpcode']);
+			}
+		// Admin index template
+		$JAK_HOOK_ADMIN_INDEX = $jakhooks->jakGethook ("tpl_admin_index");
 
-    // Get the to-do list
-    require "../class/class.todo.php";
-    // Select all the todos, ordered by position:
-    $todo = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'todo_list ORDER BY `position` ASC');
+		// Get the to-do list
+		require "../class/class.todo.php";
+		// Select all the todos, ordered by position:
+		$todo = $jakdb->query ('SELECT * FROM ' . DB_PREFIX . 'todo_list ORDER BY `position` ASC');
 
-    // to-do is an array and get the while
-    $todos = array();
-    while ($rowtd = $todo->fetch_assoc()) {
-      $todos[] = new JAK_ToDo($rowtd);
-    }
+		// to-do is an array and get the while
+		$todos = array ();
+		while ($rowtd = $todo->fetch_assoc ()) {
+			$todos[] = new JAK_ToDo($rowtd);
+		}
 
-    // Get the stats
-    $JAK_COUNTS = $jakdb->queryRow('SELECT
-        		(SELECT COUNT(*) FROM ' . DB_PREFIX . 'pages WHERE active = 1) AS pageCtotal,
-        		(SELECT COUNT(*) FROM ' . DB_PREFIX . 'user) AS userCtotal,
-        		(SELECT COUNT(*) FROM ' . DB_PREFIX . 'tags) AS tagsCtotal,
-        			(SELECT COUNT(*) FROM ' . DB_PREFIX . 'plugins) AS pluginCtotal,
-        			(SELECT COUNT(*) FROM ' . DB_PREFIX . 'pluginhooks) AS hookCtotal,
-        			(SELECT COUNT(*) FROM ' . DB_PREFIX . 'searchlog) AS searchClog');
+		// Get the stats
+		$JAK_COUNTS = $jakdb->queryRow ('SELECT
+																	(SELECT COUNT(*) FROM ' . DB_PREFIX . 'pages WHERE active = 1) AS pageCtotal,
+																	(SELECT COUNT(*) FROM ' . DB_PREFIX . 'user) AS userCtotal,
+																	(SELECT COUNT(*) FROM ' . DB_PREFIX . 'tags) AS tagsCtotal,
+																	(SELECT COUNT(*) FROM ' . DB_PREFIX . 'plugins) AS pluginCtotal,
+																	(SELECT COUNT(*) FROM ' . DB_PREFIX . 'pluginhooks) AS hookCtotal,
+																	(SELECT COUNT(*) FROM ' . DB_PREFIX . 'searchlog) AS searchClog');
 
-    // Get the page hits
-    $result = $jakdb->query('SELECT title, hits FROM ' . DB_PREFIX . 'pages ORDER BY hits DESC LIMIT 10');
+		// Get the page hits
+		$result = $jakdb->query ('SELECT title, hits FROM ' . DB_PREFIX . 'pages ORDER BY hits DESC LIMIT 10');
 
-    // Iterate through the rows
-    $totalhits = 0;
-    while ($row = $result->fetch_assoc()) {
+		// Iterate through the rows
+		$totalhits = 0;
+		while ($row = $result->fetch_assoc ()) {
 
-      $pageCdata[] = "['" . $row['title'] . "', " . $row['hits'] . "]";
-      $totalhits += $row["hits"];
-    }
+			$pageCdata[] = "['" . $row['title'] . "', " . $row['hits'] . "]";
+			$totalhits += $row["hits"];
+		}
 
-    if ($pageCdata) $pageCdata = join(", ", $pageCdata);
+		if ($pageCdata) $pageCdata = join (", ", $pageCdata);
 
-    // EN: Title and Description
-    // CZ: Titulek a Popis
-    $SECTION_TITLE = '';
-    $SECTION_DESC = '';
+		// EN: Title and Description
+		// CZ: Titulek a Popis
+		$SECTION_TITLE = '';
+		$SECTION_DESC  = '';
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
-    $template = 'index.php';
-  }
-  $checkp = 1;
+		// EN: Load the template
+		// CZ: Načti template (šablonu)
+		$template = 'index.php';
+	}
+	$checkp = 1;
 }
 if ($page == 'logout') {
-  $checkp = 1;
-  if (!JAK_USERID) {
-    jak_redirect(BASE_URL);
-  }
-  if (JAK_USERID) {
-    $jakuserlogin->jakLogout(JAK_USERID);
-    jak_redirect(BASE_URL);
-  }
+	$checkp = 1;
+	if (!JAK_USERID) {
+		jak_redirect (BASE_URL);
+	}
+	if (JAK_USERID) {
+		$jakuserlogin->jakLogout (JAK_USERID);
+		jak_redirect (BASE_URL);
+	}
 }
 if ($page == '404') {
-  if (!JAK_USERID) {
-    jak_redirect(BASE_URL);
-  }
-  // Go to the 404 Page
-  $JAK_PROVED = 1;
-  $html_title = '404 / ' . $jkv["title"];
+	if (!JAK_USERID) {
+		jak_redirect (BASE_URL);
+	}
+	// Go to the 404 Page
+	$JAK_PROVED = 1;
+	$html_title = '404 / ' . $jkv["title"];
 
-  // EN: Title and Description
-  // CZ: Titulek a Popis
-  $SECTION_TITLE = "404";
-  $SECTION_DESC = $jkv["title"];
+	// EN: Title and Description
+	// CZ: Titulek a Popis
+	$SECTION_TITLE = "404";
+	$SECTION_DESC  = $jkv["title"];
 
-  // EN: Load the template
-  // CZ: Načti template (šablonu)
-  $template = '404.php';
-  $checkp = 1;
+	// EN: Load the template
+	// CZ: Načti template (šablonu)
+	$template = '404.php';
+	$checkp   = 1;
 }
 if ($page == 'site') {
-  require_once 'site.php';
-  $JAK_PROVED = 1;
-  $JAK_PAGE_ACTIVE = 1;
-  $checkp = 1;
+	require_once 'site.php';
+	$JAK_PROVED      = 1;
+	$JAK_PAGE_ACTIVE = 1;
+	$checkp          = 1;
 }
 if ($page == 'logs') {
-  require_once 'logs.php';
-  $JAK_PROVED = 1;
-  $JAK_PAGE_ACTIVE = 1;
-  $checkp = 1;
+	require_once 'logs.php';
+	$JAK_PROVED      = 1;
+	$JAK_PAGE_ACTIVE = 1;
+	$checkp          = 1;
 }
 if ($page == 'searchlog') {
-  require_once 'searchlog.php';
-  $JAK_PROVED = 1;
-  $JAK_PAGE_ACTIVE = 1;
-  $checkp = 1;
+	require_once 'searchlog.php';
+	$JAK_PROVED      = 1;
+	$JAK_PAGE_ACTIVE = 1;
+	$checkp          = 1;
 }
 if ($page == 'changelog') {
-  require_once 'changelog.php';
-  $JAK_PROVED = 1;
-  $JAK_PAGE_ACTIVE = 1;
-  $checkp = 1;
+	require_once 'changelog.php';
+	$JAK_PROVED      = 1;
+	$JAK_PAGE_ACTIVE = 1;
+	$checkp          = 1;
 }
 if ($page == 'setting') {
-  require_once 'setting.php';
-  $JAK_PROVED = 1;
-  $JAK_PAGE_ACTIVE = 1;
-  $checkp = 1;
+	require_once 'setting.php';
+	$JAK_PROVED      = 1;
+	$JAK_PAGE_ACTIVE = 1;
+	$checkp          = 1;
 }
 if ($page == 'settingfacebook') {
-  require_once 'settingfacebook.php';
-  $JAK_PROVED = 1;
-  $JAK_PAGE_ACTIVE = 1;
-  $checkp = 1;
+	require_once 'settingfacebook.php';
+	$JAK_PROVED      = 1;
+	$JAK_PAGE_ACTIVE = 1;
+	$checkp          = 1;
 }
 if ($page == 'facebookgallery') {
-  require_once 'facebookgallery.php';
-  $JAK_PROVED = 1;
-  $JAK_PAGE_ACTIVE = 1;
-  $checkp = 1;
+	require_once 'facebookgallery.php';
+	$JAK_PROVED      = 1;
+	$JAK_PAGE_ACTIVE = 1;
+	$checkp          = 1;
 }
 if ($page == 'mediasharing') {
-  require_once 'mediasharing.php';
-  $JAK_PROVED = 1;
-  $JAK_PAGE_ACTIVE = 1;
-  $checkp = 1;
+	require_once 'mediasharing.php';
+	$JAK_PROVED      = 1;
+	$JAK_PAGE_ACTIVE = 1;
+	$checkp          = 1;
 }
 if ($page == 'user') {
-  require_once 'user.php';
-  $JAK_PROVED = 1;
-  $JAK_PAGE_ACTIVE = 1;
-  $checkp = 1;
+	require_once 'user.php';
+	$JAK_PROVED      = 1;
+	$JAK_PAGE_ACTIVE = 1;
+	$checkp          = 1;
 }
 if ($page == 'categories') {
-  require_once 'categories.php';
-  $JAK_PROVED = 1;
-  $JAK_PAGE_ACTIVE1 = 1;
-  $checkp = 1;
+	require_once 'categories.php';
+	$JAK_PROVED       = 1;
+	$JAK_PAGE_ACTIVE1 = 1;
+	$checkp           = 1;
 }
 if ($page == 'page') {
-  require_once 'page.php';
-  $JAK_PROVED = 1;
-  $JAK_PAGE_ACTIVE1 = 1;
-  $checkp = 1;
+	require_once 'page.php';
+	$JAK_PROVED       = 1;
+	$JAK_PAGE_ACTIVE1 = 1;
+	$checkp           = 1;
 }
 if ($page == 'contactform') {
-  require_once 'contactform.php';
-  $JAK_PROVED = 1;
-  $JAK_PAGE_ACTIVE1 = 1;
-  $checkp = 1;
+	require_once 'contactform.php';
+	$JAK_PROVED       = 1;
+	$JAK_PAGE_ACTIVE1 = 1;
+	$checkp           = 1;
 }
 if ($page == 'sitemap') {
-  require_once 'sitemap.php';
-  $JAK_PROVED = 1;
-  $JAK_PAGE_ACTIVE1 = 1;
-  $checkp = 1;
+	require_once 'sitemap.php';
+	$JAK_PROVED       = 1;
+	$JAK_PAGE_ACTIVE1 = 1;
+	$checkp           = 1;
 }
 if ($page == 'searchsetting') {
-  require_once 'searchsetting.php';
-  $JAK_PROVED = 1;
-  $JAK_PAGE_ACTIVE1 = 1;
-  $checkp = 1;
+	require_once 'searchsetting.php';
+	$JAK_PROVED       = 1;
+	$JAK_PAGE_ACTIVE1 = 1;
+	$checkp           = 1;
 }
 if ($page == 'plugins') {
-  require_once 'plugins.php';
-  $JAK_PROVED = 1;
-  $JAK_PAGE_ACTIVE = 1;
-  $checkp = 1;
+	require_once 'plugins.php';
+	$JAK_PROVED      = 1;
+	$JAK_PAGE_ACTIVE = 1;
+	$checkp          = 1;
 }
 if ($page == 'template') {
-  require_once 'template.php';
-  $JAK_PROVED = 1;
-  $JAK_PAGE_ACTIVE = 1;
-  $checkp = 1;
+	require_once 'template.php';
+	$JAK_PROVED      = 1;
+	$JAK_PAGE_ACTIVE = 1;
+	$checkp          = 1;
 }
 if ($page == 'usergroup') {
-  require_once 'usergroup.php';
-  $JAK_PROVED = 1;
-  $JAK_PAGE_ACTIVE = 1;
-  $checkp = 1;
+	require_once 'usergroup.php';
+	$JAK_PROVED      = 1;
+	$JAK_PAGE_ACTIVE = 1;
+	$checkp          = 1;
 }
 if ($page == 'maintenance') {
-  require_once 'maintenance.php';
-  $JAK_PROVED = 1;
-  $JAK_PAGE_ACTIVE = 1;
-  $checkp = 1;
+	require_once 'maintenance.php';
+	$JAK_PROVED      = 1;
+	$JAK_PAGE_ACTIVE = 1;
+	$checkp          = 1;
 }
 
 // If page not found
-if ($checkp == 0) jak_redirect(BASE_URL . 'index.php?p=404');
+if ($checkp == 0) jak_redirect (BASE_URL . 'index.php?p=404');
 
 if (isset($template) && $template != '') {
-  include_once APP_PATH . 'admin/template/' . $template;
+	include_once APP_PATH . 'admin/template/' . $template;
 }
 
 // Get the plugin template
 if (isset($plugin_template) && $plugin_template != '') {
 
-  include_once APP_PATH . $plugin_template;
+	include_once APP_PATH . $plugin_template;
 }
 
 // Reset success and errors session for next use
@@ -352,5 +352,5 @@ unset($_SESSION["infomsg"]);
 unset($_SESSION["loginmsg"]);
 
 // Finally close all db connections
-$jakdb->jak_close();
+$jakdb->jak_close ();
 ?>

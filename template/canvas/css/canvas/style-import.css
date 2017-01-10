@@ -10,14 +10,10 @@
 	CSS Stylesheet
 
 -----------------------------------------------------------------------------------*/
-
-
 /*  Core CSS */
 @import url("css/imports/typography.css");
 @import url("css/imports/helpers.css");
 @import url("css/imports/layouts.css");
-
-
 /*  Content Blocks */
 @import url("css/imports/topbar.css");
 @import url("css/imports/header.css");
@@ -28,19 +24,11 @@
 @import url("css/imports/blog.css");
 @import url("css/imports/shop.css");
 @import url("css/imports/events.css");
-
-
 /*  Shortcodes */
 @import url("css/imports/shortcodes.css");
-
-
 /*  Footer */
 @import url("css/imports/footer.css");
-
-
 /*  Widgets */
 @import url("css/imports/widgets.css");
-
-
 /*  Extras */
 @import url("css/imports/extras.css");

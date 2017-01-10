@@ -1,5 +1,5 @@
 <script type="text/javascript">
-	$(function(){
+	$(function () {
 		$("#sollist-sharing").sollist({
 			pixelsBetweenItems: <?php echo $jkv["md_mediaSize"] ?>,
 			size: <?php echo $jkv["md_iconSize"] ?>,

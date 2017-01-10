@@ -2,22 +2,22 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists('../../config.php')) die('[install.php] config.php not found');
+if (!file_exists ('../../config.php')) die('[install.php] config.php not found');
 require_once '../../config.php';
 
 // Check if the file is accessed only from a admin if not stop the script from running
 if (!JAK_USERID) die('You cannot access this file directly.');
 
-if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die('You cannot access this file directly.');
+if (!$jakuser->jakAdminaccess ($jakuser->getVar ("usergroupid"))) die('You cannot access this file directly.');
 
 // Set successfully to zero
 $succesfully = 0;
 
 // Set language for plugin
-if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
-	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
+if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
+	$tl = parse_ini_file (APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
 } else {
-	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
+	$tl            = parse_ini_file (APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
 	$site_language = $jkv["lang"];
 }
 
@@ -124,34 +124,34 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 			<!-- UNINSTALLATION -->
 			<?php if (isset($_POST['uninstall'])) {
 				// Validate
-				session_start();
+				session_start ();
 				if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
 
 					// Now get the plugin id for futher use
-						$results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "register_form"');
-						$rows = $results->fetch_assoc();
+					$results = $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "register_form"');
+					$rows    = $results->fetch_assoc ();
 
-						if ($rows) {
+					if ($rows) {
 
-						$jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "register_form"');
+						$jakdb->query ('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "register_form"');
 
-						$resultsp = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "registerf"');
-						while ($rowsp = $resultsp->fetch_assoc()) {
+						$resultsp = $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "registerf"');
+						while ($rowsp = $resultsp->fetch_assoc ()) {
 
-							$jakdb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE hookid = ' . $rowsp['id']);
+							$jakdb->query ('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE hookid = ' . $rowsp['id']);
 						}
 
-						$jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "registerf"');
-						$jakdb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "registerf"');
-						$jakdb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE pluginid = ' . $rows['id']);
-						$jakdb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . $rows['id']);
-						$jakdb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . $rows['id']);
+						$jakdb->query ('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "registerf"');
+						$jakdb->query ('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "registerf"');
+						$jakdb->query ('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE pluginid = ' . $rows['id']);
+						$jakdb->query ('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . $rows['id']);
+						$jakdb->query ('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . $rows['id']);
 
 						// Clean up database
-						$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pages DROP showregister');
-						$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'news DROP showregister');
-						$jakdb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET active = 1 WHERE id = 3');
-						$jakdb->query('DROP TABLE ' . DB_PREFIX . 'registeroptions');
+						$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'pages DROP showregister');
+						$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'news DROP showregister');
+						$jakdb->query ('UPDATE ' . DB_PREFIX . 'pluginhooks SET active = 1 WHERE id = 3');
+						$jakdb->query ('DROP TABLE ' . DB_PREFIX . 'registeroptions');
 
 					}
 

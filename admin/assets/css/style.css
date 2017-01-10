@@ -19,9 +19,6 @@
   top: 10px !important;
   opacity: 1;
 }
-[data-notify="container"].alert span {
-  color: #FFF;
-}
 
 /*
  * Component: Box
@@ -437,6 +434,15 @@
 
 .box-input {
   max-width: 200px;
+}
+
+/* 00. ERROR PAGE
+========================================================================*/
+.error-page > .headline {
+  float: none;
+  font-size: 85px;
+  font-weight: 700;
+  line-height: 85px;
 }
 
 /* 00. BOX and ROW OF FORMS IN BOX

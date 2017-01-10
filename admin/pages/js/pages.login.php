@@ -1,5 +1,5 @@
 <script type="text/javascript">
-	$(function() {
+	$(function () {
 		// Switch buttons from "Log In" to "Forget password"
 		$(".lost-pwd").click(function (e) {
 			e.preventDefault();

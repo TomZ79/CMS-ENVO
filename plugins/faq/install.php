@@ -2,22 +2,22 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists('../../config.php')) die('[install.php] config.php not found');
+if (!file_exists ('../../config.php')) die('[install.php] config.php not found');
 require_once '../../config.php';
 
 // Check if the file is accessed only from a admin if not stop the script from running
 if (!JAK_USERID) die('You cannot access this file directly.');
 
-if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die('You cannot access this file directly.');
+if (!$jakuser->jakAdminaccess ($jakuser->getVar ("usergroupid"))) die('You cannot access this file directly.');
 
 // Set successfully to zero
 $succesfully = 0;
 
 // Set language for plugin
-if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
-	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
+if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
+	$tl = parse_ini_file (APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
 } else {
-	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
+	$tl            = parse_ini_file (APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
 	$site_language = $jkv["lang"];
 }
 
@@ -122,7 +122,7 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 			<hr>
 
 			<!-- Check if the plugin is already installed -->
-			<?php $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "FAQ"');
+			<?php $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "FAQ"');
 			if ($jakdb->affected_rows > 0) { ?>
 
 				<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
@@ -148,15 +148,15 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 				<!-- INSTALLATION -->
 				<?php if (isset($_POST['install'])) {
 
-				$jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "FAQ", "Run your own faq database.", 1, ' . JAK_USERID . ', 4, "faq", "require_once APP_PATH.\'plugins/faq/faq.php\';", "if ($page == \'faq\') {
+				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "FAQ", "Run your own faq database.", 1, ' . JAK_USERID . ', 4, "faq", "require_once APP_PATH.\'plugins/faq/faq.php\';", "if ($page == \'faq\') {
         require_once APP_PATH.\'plugins/faq/admin/faq.php\';
            $JAK_PROVED = 1;
            $checkp = 1;
         }", "../plugins/faq/admin/template/faqnav.php", "faq", "uninstall.php", "1.0", NOW())');
 
 				// Now get the plugin id for futher use
-				$results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "FAQ"');
-				$rows = $results->fetch_assoc();
+				$results = $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "FAQ"');
+				$rows    = $results->fetch_assoc ();
 
 			if ($rows['id']) {
 
@@ -216,11 +216,11 @@ $JAK_TAG_FAQ_DATA = $faqtagData;
 $JAK_FAQ_ALL = jak_get_faq(\'\', $jkv[\"faqorder\"], \'\', \'\', $jkv[\"faqurl\"], $tl[\'general\'][\'g56\']);
 $PAGE_TITLE = JAK_PLUGIN_NAME_FAQ;';
 
-// Fulltext search query
-				$sqlfull = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'faq ADD FULLTEXT(`title`, `content`)\');';
+				// Fulltext search query
+				$sqlfull       = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'faq ADD FULLTEXT(`title`, `content`)\');';
 				$sqlfullremove = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'faq DROP INDEX `title`\');';
 
-// Connect to pages/news
+				// Connect to pages/news
 				$pages = 'if ($pg[\'pluginid\'] == JAK_PLUGIN_FAQ) {
 
 include_once APP_PATH.\'plugins/faq/admin/template/faq_connect.php\';
@@ -256,7 +256,7 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
 	
 } }';
 
-// Eval code for display connect
+				// Eval code for display connect
 				$get_fqconnect = 'if ($pg[\'pluginid\'] == JAK_PLUGIN_ID_FAQ && JAK_PLUGIN_ID_FAQ && !empty($row[\'showfaq\'])) {
 include_once APP_PATH.\'plugins/faq/template/\'.$jkv[\"sitestyle\"].\'/page_news.php\';}';
 
@@ -266,7 +266,7 @@ include_once APP_PATH.\'plugins/faq/template/\'.$jkv[\"sitestyle\"].\'/page_news
 
 				$adminphpmassdel = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'faqcomments SET userid = 0 WHERE userid = \'.$locked);';
 
-				$jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_usergroup", "Faq Usergroup", "' . $insertphpcode . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_lang", "Faq Admin Language", "' . $adminlang . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Faq Site Language", "' . $sitelang . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
@@ -294,8 +294,8 @@ include_once APP_PATH.\'plugins/faq/template/\'.$jkv[\"sitestyle\"].\'/page_news
 (NULL, "php_admin_user_delete_mass", "FAQ Delete User Mass", "' . $adminphpmassdel . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_footer_widgets", "FAQ - 3 Latest Entries", "plugins/faq/template/footer_widget.php", "faq", 1, 3, "' . $rows['id'] . '", NOW())');
 
-// Insert tables into settings
-				$jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+				// Insert tables into settings
+				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
 ("faqtitle", "faq", "FAQ", "FAQ", "input", "free", "faq"),
 ("faqdesc", "faq", "Write something about your FAQ", "Write something about your FAQ", "textarea", "free", "faq"),
 ("faqemail", "faq", NULL, NULL, "input", "free", "faq"),
@@ -310,17 +310,17 @@ include_once APP_PATH.\'plugins/faq/template/\'.$jkv[\"sitestyle\"].\'/page_news
 ("faqhlimit", "faq", 5, 5, "select", "number", "faq")');
 
 				// Insert into usergroup
-				$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `faq` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`, ADD `faqpost` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faq`, ADD `faqpostdelete` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faqpost`, ADD `faqpostapprove` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faqpostdelete`, ADD `faqrate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faqpostdelete`, ADD `faqmoderate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faqrate`');
+				$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `faq` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`, ADD `faqpost` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faq`, ADD `faqpostdelete` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faqpost`, ADD `faqpostapprove` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faqpostdelete`, ADD `faqrate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faqpostdelete`, ADD `faqmoderate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `faqrate`');
 
 				// Pages/News alter Table
-				$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showfaq varchar(100) DEFAULT NULL AFTER showcontact');
-				$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'news ADD showfaq varchar(100) DEFAULT NULL AFTER showcontact');
-				$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pagesgrid ADD faqid INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER newsid');
+				$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'pages ADD showfaq varchar(100) DEFAULT NULL AFTER showcontact');
+				$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'news ADD showfaq varchar(100) DEFAULT NULL AFTER showcontact');
+				$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'pagesgrid ADD faqid INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER newsid');
 
 				// Insert Category
-				$jakdb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES (NULL, "FAQ", "faq", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
+				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES (NULL, "FAQ", "faq", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
 
-				$jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'faq (
+				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'faq (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `catid` int(11) unsigned NOT NULL DEFAULT 0,
   `title` varchar(255) DEFAULT NULL,
@@ -339,7 +339,7 @@ include_once APP_PATH.\'plugins/faq/template/\'.$jkv[\"sitestyle\"].\'/page_news
   KEY `catid` (`catid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-				$jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'faqcategories (
+				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'faqcategories (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `varname` varchar(255) DEFAULT NULL,
@@ -354,7 +354,7 @@ include_once APP_PATH.\'plugins/faq/template/\'.$jkv[\"sitestyle\"].\'/page_news
   KEY `catorder` (`catorder`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-				$jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'faqcomments (
+				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'faqcomments (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `faqid` int(11) unsigned NOT NULL DEFAULT 0,
   `userid` int(11) NOT NULL DEFAULT 0,
@@ -372,7 +372,7 @@ include_once APP_PATH.\'plugins/faq/template/\'.$jkv[\"sitestyle\"].\'/page_news
 
 				// Full text search is activated we do so for the faq table as well
 				if ($jkv["fulltextsearch"]) {
-					$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'faq ADD FULLTEXT(`title`, `content`)');
+					$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'faq ADD FULLTEXT(`title`, `content`)');
 				}
 
 				$succesfully = 1;
@@ -398,9 +398,9 @@ include_once APP_PATH.\'plugins/faq/template/\'.$jkv[\"sitestyle\"].\'/page_news
 
 			<?php } else {
 
-				$result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Faq"');
+			$result = $jakdb->query ('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Faq"');
 
-				?>
+			?>
 
 				<div class="alert bg-danger"><?php echo $tl["plugin"]["p16"]; ?></div>
 				<form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
@@ -410,7 +410,7 @@ include_once APP_PATH.\'plugins/faq/template/\'.$jkv[\"sitestyle\"].\'/page_news
 			<?php }
 			} ?>
 
-				<?php if (!$succesfully) { ?>
+			<?php if (!$succesfully) { ?>
 				<form name="company" method="post" action="install.php" enctype="multipart/form-data">
 					<button type="submit" name="install" class="btn btn-complete btn-block"><?php echo $tl["plugin"]["p10"]; ?></button>
 				</form>

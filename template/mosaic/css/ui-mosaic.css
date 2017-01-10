@@ -3125,7 +3125,7 @@ hr.arrow-down:after {
 
 .headline {
   padding-bottom: 1px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #EEE;
   margin-bottom: 30px;
   line-height: 50px;
 }
@@ -3145,7 +3145,7 @@ h3.headline span {
 .topic {
   margin-top: -20px;
   margin-bottom: 40px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #EEE;
 }
 
 .topic h3 {
@@ -3184,7 +3184,7 @@ h3.headline span {
 }
 
 .panel-green > .panel-heading {
-  color: #fff;
+  color: #FFF;
   background-color: #94BA65;
   border-color: #94BA65;
 }
@@ -3209,7 +3209,7 @@ h3.headline span {
 }
 
 .panel-blue > .panel-heading {
-  color: #fff;
+  color: #FFF;
   background-color: #2790B0;
   border-color: #2790B0;
 }
@@ -3234,7 +3234,7 @@ h3.headline span {
 }
 
 .panel-red > .panel-heading {
-  color: #fff;
+  color: #FFF;
   background-color: #E35E54;
   border-color: #E35E54;
 }
@@ -3259,7 +3259,7 @@ h3.headline span {
 }
 
 .panel-orange > .panel-heading {
-  color: #fff;
+  color: #FFF;
   background-color: #D26C22;
   border-color: #D26C22;
 }
@@ -3282,7 +3282,7 @@ h3.headline span {
 .info-board {
   margin: 20px 0;
   padding: 15px 30px 15px 15px;
-  border-left: 5px solid #eee;
+  border-left: 5px solid #EEE;
 }
 
 .info-board h4 {
@@ -3330,9 +3330,9 @@ h3.headline span {
 }
 
 .nav-tabs > li > a {
-  border-bottom: 1px solid #dedede;
+  border-bottom: 1px solid #DEDEDE;
   border-radius: 0;
-  background: #fff;
+  background: #FFF;
   color: #999;
   -webkit-transition: color 200ms;
   transition: color 200ms;
@@ -3340,8 +3340,8 @@ h3.headline span {
 
 .nav-tabs > li > a:hover, .nav > li > a:focus {
   text-decoration: none;
-  background-color: #fff;
-  border-color: #fff #fff #dedede;
+  background-color: #FFF;
+  border-color: #FFF #FFF #DEDEDE;
   color: #515151;
 }
 
@@ -3350,7 +3350,7 @@ h3.headline span {
 .nav-tabs > li.active > a:focus {
   color: #515151;
   cursor: default;
-  background-color: #fff;
+  background-color: #FFF;
   border: 1px solid transparent;
 }
 
@@ -3378,10 +3378,10 @@ h3.headline span {
 }
 
 .nav-pills > li > a {
-  background-color: #f5f5f5;
+  background-color: #F5F5F5;
 }
 
 .nav.nav-pills > li > a:hover, .nav > li > a:focus {
   text-decoration: none;
-  background-color: #f0f0f0;
+  background-color: #F0F0F0;
 }

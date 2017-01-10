@@ -67,7 +67,7 @@ if ($page1 == "e") { ?>
 	</script>
 <?php } ?>
 
-<?php if (isset($JAK_LOGINLOG_ALL) && is_array($JAK_LOGINLOG_ALL)) { ?>
+<?php if (isset($JAK_LOGINLOG_ALL) && is_array ($JAK_LOGINLOG_ALL)) { ?>
 
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 		<div class="box box-success">
@@ -90,14 +90,12 @@ if ($page1 == "e") { ?>
 							<th><?php echo $tl["logs_box_table"]["logstb4"]; ?></th>
 							<th class="text-center"><?php echo $tl["logs_box_table"]["logstb5"]; ?></th>
 							<th>
-								<a href="index.php?p=logs&amp;sp=truncate&amp;ssp=go" id="button_truncate"
-									 class="btn btn-warning btn-xs" data-confirm-trunc="<?php echo $tl["notification"]["n4"]; ?>">
+								<a href="index.php?p=logs&amp;sp=truncate&amp;ssp=go" id="button_truncate" class="btn btn-warning btn-xs" data-confirm-trunc="<?php echo $tl["notification"]["n4"]; ?>">
 									<i class="fa fa-exclamation-triangle"></i>
 								</a>
 							</th>
 							<th>
-								<button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs"
-												data-confirm-del="<?php echo $tl["notification"]["n5"]; ?>" disabled="disabled">
+								<button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tl["notification"]["n5"]; ?>" disabled="disabled">
 									<i class="fa fa-trash-o"></i>
 								</button>
 							</th>
@@ -108,15 +106,14 @@ if ($page1 == "e") { ?>
 								<td><?php echo $v["id"]; ?></td>
 								<td>
 									<div class="checkbox-singel check-success">
-										<input type="checkbox" id="jak_delete_log<?php echo $v["id"]; ?>" name="jak_delete_log[]"
-													 class="highlight" value="<?php echo $v["id"]; ?>"/>
+										<input type="checkbox" id="jak_delete_log<?php echo $v["id"]; ?>" name="jak_delete_log[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
 										<label for="jak_delete_log<?php echo $v["id"]; ?>">&nbsp;</label>
 									</div>
 								</td>
-								<td><?php echo jak_cut_text($v["name"], 8, '...'); ?></td>
+								<td><?php echo jak_cut_text ($v["name"], 8, '...'); ?></td>
 								<td><?php echo $v["fromwhere"]; ?></td>
 								<td><?php echo $v["ip"]; ?></td>
-								<td><?php echo jak_cut_text($v["usragent"], 20, '...'); ?></td>
+								<td><?php echo jak_cut_text ($v["usragent"], 20, '...'); ?></td>
 								<td><?php echo $v["time"]; ?></td>
 								<td class="text-center">
 									<?php if ($v["access"] == '1') { ?>
@@ -127,18 +124,13 @@ if ($page1 == "e") { ?>
 								</td>
 								<td></td>
 								<td class="call-button">
-									<a class="btn btn-default btn-xs"
-										 href="index.php?p=logs&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>"
-										 data-confirm="<?php echo $tl["notification"]["n6"]; ?>" data-toggle="tooltip"
-										 data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+									<a class="btn btn-default btn-xs" href="index.php?p=logs&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["notification"]["n6"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
 										<i class="fa fa-trash-o"></i>
 									</a>
 								</td>
-							</tr>
-							<!-- Detail of login user -->
+							</tr>							<!-- Detail of login user -->
 							<tr>
-								<td colspan="11"
-										style="background: #edf7ee; border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc;">
+								<td colspan="11" style="background: #edf7ee; border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc;">
 									<table style="width: 100%;">
 										<tbody>
 										<tr>
@@ -150,7 +142,7 @@ if ($page1 == "e") { ?>
 																: </strong> <?php echo $v["name"]; ?></td>
 														<!-- Login page -->
 														<td style="border: none;"><strong><?php echo $tl["logs_box_table"]["logstb1"]; ?>
-																: </strong> <?php echo rtrim(BASE_URL_ORIG, "/") . $v["fromwhere"]; ?></td>
+																: </strong> <?php echo rtrim (BASE_URL_ORIG, "/") . $v["fromwhere"]; ?></td>
 													</tr>
 												</table>
 											</td>
@@ -171,7 +163,7 @@ if ($page1 == "e") { ?>
 		</div>
 	</form>
 
-	<div class="col-md-12">
+	<div class="col-md-12 m-b-30">
 		<div class="icon_legend">
 			<h3><?php echo $tl["icons"]["i"]; ?></h3>
 			<i title="<?php echo $tl["icons"]["i16"]; ?>" class="fa fa-check"></i>

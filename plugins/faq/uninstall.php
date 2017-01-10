@@ -2,23 +2,23 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists('../../config.php')) die('[install.php] config.php not found');
+if (!file_exists ('../../config.php')) die('[install.php] config.php not found');
 require_once '../../config.php';
 
 // Check if the file is accessed only from a admin if not stop the script from running
 if (!JAK_USERID) die('You cannot access this file directly.');
 
 // Not logged in, sorry...
-if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die('You cannot access this file directly.');
+if (!$jakuser->jakAdminaccess ($jakuser->getVar ("usergroupid"))) die('You cannot access this file directly.');
 
 // Set successfully to zero
 $succesfully = 0;
 
 // Set language for plugin
-if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
-	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
+if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
+	$tl = parse_ini_file (APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
 } else {
-	$tl = parse_ini_file(APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
+	$tl            = parse_ini_file (APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
 	$site_language = $jkv["lang"];
 }
 
@@ -125,43 +125,43 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 			<!-- UNINSTALLATION -->
 			<?php if (isset($_POST['uninstall'])) {
 				// Validate
-				session_start();
+				session_start ();
 				if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
 
 					// Now get the plugin id for futher use
-					$results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "FAQ"');
-					$rows = $results->fetch_assoc();
+					$results = $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "FAQ"');
+					$rows    = $results->fetch_assoc ();
 
 					if ($rows) {
 
-						$jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "FAQ"');
-						$jakdb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql($rows['id']) . '"');
-						$jakdb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE pluginid = "' . smartsql($rows['id']) . '"');
-						$jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "faq"');
-						$jakdb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "faq"');
-						$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `faq`, DROP `faqpost`, DROP `faqpostdelete`, DROP `faqpostapprove`, DROP `faqrate`, DROP `faqmoderate`');
+						$jakdb->query ('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "FAQ"');
+						$jakdb->query ('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql ($rows['id']) . '"');
+						$jakdb->query ('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE pluginid = "' . smartsql ($rows['id']) . '"');
+						$jakdb->query ('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "faq"');
+						$jakdb->query ('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "faq"');
+						$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `faq`, DROP `faqpost`, DROP `faqpostdelete`, DROP `faqpostapprove`, DROP `faqrate`, DROP `faqmoderate`');
 
-						$jakdb->query('DROP TABLE ' . DB_PREFIX . 'faq, ' . DB_PREFIX . 'faqcategories, ' . DB_PREFIX . 'faqcomments');
-						$jakdb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
-						$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pages DROP showfaq');
-						$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'news DROP showfaq');
-						$jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pagesgrid DROP faqid');
+						$jakdb->query ('DROP TABLE ' . DB_PREFIX . 'faq, ' . DB_PREFIX . 'faqcategories, ' . DB_PREFIX . 'faqcomments');
+						$jakdb->query ('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql ($rows['id']) . '"');
+						$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'pages DROP showfaq');
+						$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'news DROP showfaq');
+						$jakdb->query ('ALTER TABLE ' . DB_PREFIX . 'pagesgrid DROP faqid');
 
 						// Now delete all tags
-						$result = $jakdb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE pluginid = "' . smartsql($rows['id']) . '"');
-						while ($row = $result->fetch_assoc()) {
-							$result1 = $jakdb->query('SELECT count FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($row['tag']) . '" LIMIT 1');
-							$count = $result1->fetch_assoc();
+						$result = $jakdb->query ('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE pluginid = "' . smartsql ($rows['id']) . '"');
+						while ($row = $result->fetch_assoc ()) {
+							$result1 = $jakdb->query ('SELECT count FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql ($row['tag']) . '" LIMIT 1');
+							$count   = $result1->fetch_assoc ();
 
 							if ($count['count'] <= '1') {
-								$jakdb->query('DELETE FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($row['tag']) . '"');
+								$jakdb->query ('DELETE FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql ($row['tag']) . '"');
 							} else {
-								$jakdb->query('UPDATE ' . DB_PREFIX . 'tagcloud SET count = count - 1 WHERE tag = "' . smartsql($row['tag']) . '"');
+								$jakdb->query ('UPDATE ' . DB_PREFIX . 'tagcloud SET count = count - 1 WHERE tag = "' . smartsql ($row['tag']) . '"');
 
 							}
 						}
 
-						$jakdb->query('DELETE FROM ' . DB_PREFIX . 'tags WHERE pluginid = "' . smartsql($rows['id']) . '"');
+						$jakdb->query ('DELETE FROM ' . DB_PREFIX . 'tags WHERE pluginid = "' . smartsql ($rows['id']) . '"');
 
 					}
 
