@@ -174,7 +174,10 @@
 <script src="assets/plugins/jquery-ios-list/jquery.ioslist.min.js" type="text/javascript"></script>
 <script src="assets/plugins/imagesloaded/imagesloaded.pkgd.min.js"></script>
 <script src="assets/plugins/jquery-actual/jquery.actual.min.js"></script>
-<script src="assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js"></script><!-- Validadion -->
+<script src="assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+<!-- Prism -->
+<script src="assets/plugins/prism/prism.js"></script>
+<!-- Validadion -->
 <script src="assets/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
 <?php if ($site_language = 'cs') { ?>
 	<script src="assets/plugins/jquery-validation/js/localization/messages_cs.js" type="text/javascript"></script>
@@ -187,9 +190,12 @@
 	jakWeb.jak_path = "<?php echo BASE_PATH_ORIG;?>";
 	jakWeb.jak_lang = "<?php echo $site_language;?>";
 	jakWeb.jak_template = "<?php echo $jkv["sitestyle"];?>";
-</script><!-- BEGIN CORE TEMPLATE JS -->
-<script src="pages/js/pages.js" type="text/javascript"></script><!-- BEGIN PAGE LEVEL JS -->
-<script src="assets/js/scripts.js" type="text/javascript"></script><!-- BEGIN JS FOR GENERAL PAGE and PLUGINS -->
+</script>
+<!-- BEGIN CORE TEMPLATE JS -->
+<script src="pages/js/pages.js" type="text/javascript"></script>
+<!-- BEGIN PAGE LEVEL JS -->
+<script src="assets/js/scripts.js" type="text/javascript"></script>
+<!-- BEGIN JS FOR GENERAL PAGE and PLUGINS -->
 <?php
 $notify =
 	'<script type="text/javascript">' .

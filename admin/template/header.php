@@ -21,6 +21,7 @@
 	<link href="assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css" media="screen"/>
 	<link href="assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen"/>
 	<link href="assets/plugins/switchery/css/switchery.min.css" rel="stylesheet" type="text/css" media="screen"/>
+	<link href="assets/plugins/prism/prism.css" rel="stylesheet" type="text/css" media="screen"/>
 	<link href="assets/css/animate.min.css" rel="stylesheet" type="text/css">
 	<!-- BEGIN Pages CSS-->
 	<link href="pages/css/pages-icons.css" rel="stylesheet" type="text/css">
@@ -42,7 +43,7 @@
 		include_once APP_PATH . $headt['phpcode'];
 	} ?>
 </head>
-<body class="fixed-header has-detached-right" data-spy="scroll" data-target=".sidebar-detached">
+<body class="fixed-header has-detached-right" data-spy="scroll" data-target=".sidebar-detached" data-offset-top="70">
 <?php if ($JAK_PROVED) { ?>
 <!-- BEGIN SIDEBAR -->
 <div class="page-sidebar" data-pages="sidebar">

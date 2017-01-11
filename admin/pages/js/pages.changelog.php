@@ -1,5 +1,11 @@
 <script>
-	$('body').scrollspy({target: '.sidebar-detached'});
+	$( document ).ready(function() {
+		//Scrollspy offset
+		$('body').scrollspy({
+			target: '.sidebar-detached',
+			offset: 70
+		});
+	});
 
 	$(function () {
 		/* Resize sidebar on scroll
@@ -41,3 +47,12 @@
 
 	});
 </script>
+<style type="text/css">
+	body {
+		position: relative;
+	}
+	.scrollspyoffset {
+		padding-top: 65px;
+		margin-top: -55px;
+	}
+</style>
