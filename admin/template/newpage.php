@@ -87,18 +87,34 @@ if ($errors) { ?>
 												<strong><?php echo $tl["page_box_content"]["pagebc3"]; ?></strong>
 												<span class="star-item text-danger-800 m-l-10">*</span>
 											</div>
-											<div class="col-md-7"><?php include_once "title_new.php"; ?></div>
+											<div class="col-md-7">
+												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													echo $htmlE->addInput ('text', 'jak_title', '', 'form-control', $_REQUEST["jak_name"], '');
+													?>
+
+												</div>
+											</div>
 										</div>
 										<div class="row-form">
 											<div class="col-md-5"><strong><?php echo $tl["page_box_content"]["pagebc4"]; ?></strong></div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_showtitle1" name="jak_showtitle" />
-													<label for="jak_showtitle1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													((isset($_REQUEST["jak_showtitle"]) && $_REQUEST["jak_showtitle"] == '1')) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_showtitle', 'jak_showtitle1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_showtitle1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_showtitle2" name="jak_showtitle" value="0" checked="checked" />
-													<label for="jak_showtitle2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													((isset($_REQUEST["jak_showtitle"]) && $_REQUEST["jak_showtitle"] == '0') || !isset($_REQUEST["jak_showtitle"])) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_showtitle', 'jak_showtitle2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_showtitle2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
@@ -108,11 +124,19 @@ if ($errors) { ?>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_shownav1" name="jak_shownav" value="1" />
-													<label for="jak_shownav1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													((isset($_REQUEST["jak_shownav"]) && $_REQUEST["jak_shownav"] == '1')) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_shownav', 'jak_shownav1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_shownav1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_shownav2" name="jak_shownav" value="0" checked="checked" />
-													<label for="jak_shownav2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													((isset($_REQUEST["jak_shownav"]) && $_REQUEST["jak_shownav"] == '0') || !isset($_REQUEST["jak_shownav"])) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_shownav', 'jak_shownav2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_shownav2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
@@ -122,11 +146,19 @@ if ($errors) { ?>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_showfooter1" name="jak_showfooter" value="1" />
-													<label for="jak_showfooter1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													((isset($_REQUEST["jak_showfooter"]) && $_REQUEST["jak_showfooter"] == '1')) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_showfooter', 'jak_showfooter1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_showfooter1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_showfooter2" name="jak_showfooter" value="0" checked="checked" />
-													<label for="jak_showfooter2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													((isset($_REQUEST["jak_showfooter"]) && $_REQUEST["jak_showfooter"] == '0') || !isset($_REQUEST["jak_showfooter"])) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_showfooter', 'jak_showfooter2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_showfooter2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
@@ -136,11 +168,19 @@ if ($errors) { ?>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_showdate1" name="jak_showdate" value="1" />
-													<label for="jak_showdate1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													((isset($_REQUEST["jak_showdate"]) && $_REQUEST["jak_showdate"] == '1')) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_showdate', 'jak_showdate1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_showdate1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_showdate2" name="jak_showdate" value="0" checked="checked" />
-													<label for="jak_showdate2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													((isset($_REQUEST["jak_showdate"]) && $_REQUEST["jak_showdate"] == '0') || !isset($_REQUEST["jak_showdate"])) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_showdate', 'jak_showdate2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_showdate2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
@@ -150,11 +190,19 @@ if ($errors) { ?>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_sidebar1" name="jak_sidebar" value="1" />
-													<label for="jak_sidebar1"><?php echo $tl["page_box_content"]["pagebc9"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													((isset($_REQUEST["jak_sidebar"]) && $_REQUEST["jak_sidebar"] == '1')) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_sidebar', 'jak_sidebar1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_sidebar1', $tl["page_box_content"]["pagebc9"]);
 
-													<input type="radio" id="jak_sidebar2" name="jak_sidebar" value="0" checked="checked" />
-													<label for="jak_sidebar2"><?php echo $tl["page_box_content"]["pagebc10"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													((isset($_REQUEST["jak_sidebar"]) && $_REQUEST["jak_sidebar"] == '0') || !isset($_REQUEST["jak_sidebar"])) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_sidebar', 'jak_sidebar2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_sidebar2', $tl["page_box_content"]["pagebc10"]);
+													?>
 
 												</div>
 											</div>
@@ -164,11 +212,19 @@ if ($errors) { ?>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_social1" name="jak_social" value="1" />
-													<label for="jak_social1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													((isset($_REQUEST["jak_social"]) && $_REQUEST["jak_social"] == '1')) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_social', 'jak_social1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_social1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_social2" name="jak_social" value="0" checked="checked" />
-													<label for="jak_social2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													((isset($_REQUEST["jak_social"]) && $_REQUEST["jak_social"] == '0') || !isset($_REQUEST["jak_social"])) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_social', 'jak_social2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_social2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
@@ -178,11 +234,19 @@ if ($errors) { ?>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_vote1" name="jak_vote" value="1" />
-													<label for="jak_vote1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													((isset($_REQUEST["jak_vote"]) && $_REQUEST["jak_vote"] == '1')) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_vote', 'jak_vote1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_vote1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_vote2" name="jak_vote" value="0" checked="checked" />
-													<label for="jak_vote2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													((isset($_REQUEST["jak_vote"]) && $_REQUEST["jak_vote"] == '0') || !isset($_REQUEST["jak_vote"])) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_vote', 'jak_vote2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_vote2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
@@ -192,11 +256,19 @@ if ($errors) { ?>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_showtags1" name="jak_showtags" value="1" />
-													<label for="jak_showtags1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													((isset($_REQUEST["jak_showtags"]) && $_REQUEST["jak_showtags"] == '1')) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_showtags', 'jak_showtags1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_showtags1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_showtags2" name="jak_showtags" value="0" checked="checked" />
-													<label for="jak_showtags2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													((isset($_REQUEST["jak_showtags"]) && $_REQUEST["jak_showtags"] == '0') || !isset($_REQUEST["jak_showtags"])) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_showtags', 'jak_showtags2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_showtags2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
@@ -206,11 +278,19 @@ if ($errors) { ?>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_showlogin1" name="jak_showlogin" value="1" />
-													<label for="jak_showlogin1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													((isset($_REQUEST["jak_showlogin"]) && $_REQUEST["jak_showlogin"] == '1')) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_showlogin', 'jak_showlogin1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_showlogin1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_showlogin2" name="jak_showlogin" value="0" checked="checked" />
-													<label for="jak_showlogin2"><?php echo $tl["general"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													((isset($_REQUEST["jak_showlogin"]) && $_REQUEST["jak_showlogin"] == '0') || !isset($_REQUEST["jak_showlogin"])) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_showlogin', 'jak_showlogin2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_showlogin2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
@@ -218,7 +298,12 @@ if ($errors) { ?>
 										<div class="row-form">
 											<div class="col-md-5"><strong><?php echo $tl["page_box_content"]["pagebc15"]; ?></strong></div>
 											<div class="col-md-7">
-												<input type="text" name="jak_password" value="" class="form-control"/>
+
+												<?php
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												echo $htmlE->addInput ('text', 'jak_password', '', 'form-control', $_REQUEST["jak_password"], '');
+												?>
+
 											</div>
 										</div>
 									</div>
@@ -302,7 +387,12 @@ if ($errors) { ?>
 											</div>
 											<div class="row-form">
 												<div class="col-md-12">
-													<input type="text" name="jak_tags" id="jak_tags" class="tags form-control" value="" data-role="tagsinput"/>
+
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													echo $htmlE->addInput ('text', 'jak_tags', 'jak_tags', 'form-control tags', $_REQUEST["jak_tags"], '', array ('data-role' => 'tagsinput'));
+													?>
+
 												</div>
 											</div>
 										</div>
@@ -337,7 +427,12 @@ if ($errors) { ?>
 								<a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
 								<a href="javascript:;" id="addCssBlock"><?php echo $tl["global_text"]["globaltxt6"]; ?></a><br/>
 								<div id="csseditor"></div>
-                <textarea name="jak_css" id="jak_css" class="hidden"></textarea>
+
+								<?php
+								// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+								echo $htmlE->addTextArea ('jak_css', '', '', $_REQUEST["jak_css"], array ('id' => 'jak_css', 'class' => 'hidden'));
+								?>
+
 							</div>
 							<div class="box-footer">
 								<button type="submit" name="save" class="btn btn-success pull-right">
@@ -360,7 +455,12 @@ if ($errors) { ?>
 								<a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
 								<a href="javascript:;" id="addJavascriptBlock"><?php echo $tl["global_text"]["globaltxt7"]; ?></a><br/>
 								<div id="javaeditor"></div>
-                <textarea name="jak_javascript" id="jak_javascript" class="hidden"></textarea>
+
+								<?php
+								// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+								echo $htmlE->addTextArea ('jak_javascript', '', '', $_REQUEST["jak_javascript"], array ('id' => 'jak_javascript', 'class' => 'hidden'));
+								?>
+
 							</div>
 							<div class="box-footer">
 								<button type="submit" name="save" class="btn btn-success pull-right">
