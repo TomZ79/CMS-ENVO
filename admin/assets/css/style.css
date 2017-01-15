@@ -539,6 +539,31 @@ li.filter-item > a:hover {
   max-width: 200px;
 }
 
+/* 00. BOOTSTRAP Same height for column
+========================================================================*/
+@media (min-width: 769px) {
+  .row-table {
+    display: table;
+  }
+
+  .col-table {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+  }
+}
+@media (max-width: 768px) {
+  .row-table {
+    display: table;
+  }
+
+  .col-table {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+  }
+}
+
 /* 00. ERROR PAGE
 ========================================================================*/
 .error-page > .headline {
