@@ -89,6 +89,7 @@ if ($errors) { ?>
 											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+
 													<?php
 													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
 													echo $htmlE->addInput ('text', 'jak_title', '', 'form-control', $_REQUEST["jak_name"], '');
@@ -192,13 +193,13 @@ if ($errors) { ?>
 
 													<?php
 													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													((isset($_REQUEST["jak_sidebar"]) && $_REQUEST["jak_sidebar"] == '1')) ? $checked = 'yes' : $checked = 'no';
+													((isset($_REQUEST["jak_sidebar"]) && $_REQUEST["jak_sidebar"] == '1') || !isset($_REQUEST["jak_sidebar"])) ? $checked = 'yes' : $checked = 'no';
 													echo $htmlE->addInput ('radio', 'jak_sidebar', 'jak_sidebar1', '', '1', $checked);
 													// Arguments: for (id of associated form element), text
 													echo $htmlE->addLabelFor ('jak_sidebar1', $tl["page_box_content"]["pagebc9"]);
 
 													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													((isset($_REQUEST["jak_sidebar"]) && $_REQUEST["jak_sidebar"] == '0') || !isset($_REQUEST["jak_sidebar"])) ? $checked = 'yes' : $checked = 'no';
+													((isset($_REQUEST["jak_sidebar"]) && $_REQUEST["jak_sidebar"] == '0')) ? $checked = 'yes' : $checked = 'no';
 													echo $htmlE->addInput ('radio', 'jak_sidebar', 'jak_sidebar2', '', '0', $checked);
 													// Arguments: for (id of associated form element), text
 													echo $htmlE->addLabelFor ('jak_sidebar2', $tl["page_box_content"]["pagebc10"]);

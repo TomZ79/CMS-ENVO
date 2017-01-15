@@ -125,7 +125,10 @@ if ($errors) { ?>
 						<div class="block">
 							<div class="block-content">
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["site_box_content"]["sitebc3"]; ?></strong></div>
+									<div class="col-md-5">
+										<strong><?php echo $tl["site_box_content"]["sitebc3"]; ?></strong>
+										<span class="star-item text-danger-800 m-l-10">*</span>
+									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin <?php if (isset($errors["e2"])) echo "has-error"; ?>">
 											<input type="text" name="jak_title" id="sitetitle" class="form-control" value="<?php echo $jkv["title"]; ?>"/>

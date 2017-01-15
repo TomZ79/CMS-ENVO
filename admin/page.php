@@ -39,7 +39,7 @@ switch ($page1) {
 			if (isset($defaults['save'])) {
 
 				if (empty($defaults['jak_title'])) {
-					$errors['e1'] = $tl['error']['e2'];
+					$errors['e1'] = $tl['page_error']['pageerror'] . '<br>';
 				}
 
 				// Now do the dirty stuff in mysql
@@ -156,7 +156,7 @@ switch ($page1) {
 						jak_redirect (BASE_URL . 'index.php?p=page&sp=edit&ssp=' . $rowid . '&sssp=s');
 					}
 				} else {
-					$errors['e'] = $tl['error']['e'];
+					$errors['e'] = $tl['general_error']['generror'] . '<br>';
 					$errors      = $errors;
 				}
 			}
@@ -204,15 +204,15 @@ switch ($page1) {
 					if (isset($defaults['search'])) {
 
 						if ($defaults['jakSH'] == '' or $defaults['jakSH'] == $tl['search']['s']) {
-							$errors['e'] = $tl['search']['s1'];
+							$errors['e'] = $tl['search']['s1'] . '<br>';
 						}
 
 						if (strlen ($defaults['jakSH']) < '1') {
-							$errors['e1'] = $tl['search']['s2'];
+							$errors['e1'] = $tl['search']['s2'] . '<br>';
 						}
 
 						if (count ($errors) > 0) {
-							$errors['e2'] = $tl['search']['s3'];
+							$errors['e2'] = $tl['search']['s3'] . '<br>';
 							$errors       = $errors;
 						} else {
 							$secureIn    = smartsql (strip_tags ($defaults['jakSH']));
@@ -350,7 +350,7 @@ switch ($page1) {
 						}
 
 						if (empty($defaults['jak_title'])) {
-							$errors['e1'] = $tl['error']['e2'];
+							$errors['e1'] = $tl['page_error']['pageerror'] . '<br>';
 						}
 
 						// Now do the dirty stuff
@@ -562,7 +562,7 @@ switch ($page1) {
 
 						} else {
 
-							$errors['e'] = $tl['error']['e'];
+							$errors['e'] = $tl['general_error']['generror'] . '<br>';
 							$errors      = $errors;
 						}
 					}
@@ -638,7 +638,7 @@ switch ($page1) {
 						$defaults = $_POST;
 
 						if (empty($defaults['jak_title'])) {
-							$errors['e1'] = $tl['error']['e2'];
+							$errors['e1'] = $tl['page_error']['pageerror'] . '<br>';
 						}
 
 						// Now do the dirty stuff in mysql
@@ -660,7 +660,7 @@ switch ($page1) {
 							}
 						} else {
 
-							$errors['e'] = $tl['error']['e'];
+							$errors['e'] = $tl['general_error']['generror'] . '<br>';
 							$errors      = $errors;
 						}
 					}

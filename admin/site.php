@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$defaults = $_POST;
 
 	if (empty($defaults['jak_title'])) {
-		$errors['e2'] = $tl['error']['e2'];
+		$errors['e2'] = $tl['general_error']['generror11'] . '<br>';
 	}
 
 	if (count ($errors) == 0) {
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	} else {
 
-		$errors['e'] = $tl['error']['e'];
+		$errors['e'] = $tl['general_error']['generror'];
 		$errors      = $errors;
 
 	}

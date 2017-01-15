@@ -23,11 +23,11 @@ switch ($page1) {
 			$defaults = $_POST;
 
 			if (empty($defaults['jak_title'])) {
-				$errors['e1'] = $tl['error']['e2'];
+				$errors['e1'] = $tl['cf_error']['cferror'] . '<br>';
 			}
 
 			if (empty($defaults['jak_lcontent'])) {
-				$errors['e2'] = $tl['error']['e6'];
+				$errors['e2'] = $tl['cf_error']['cferror1'] . '<br>';
 			}
 
 			if (count ($errors) == 0) {
@@ -76,7 +76,7 @@ switch ($page1) {
 				}
 			} else {
 
-				$errors['e'] = $tl['error']['e'];
+				$errors['e'] = $tl['general_error']['generror'] . '<br>';
 				$errors      = $errors;
 			}
 		}
@@ -201,11 +201,11 @@ switch ($page1) {
 
 						// Check the form
 						if (empty($defaults['jak_title'])) {
-							$errors['e1'] = $tl['error']['e2'];
+							$errors['e1'] = $tl['cf_error']['cferror'] . '<br>';
 						}
 
 						if (empty($defaults['jak_lcontent'])) {
-							$errors['e2'] = $tl['error']['e6'];
+							$errors['e2'] = $tl['cf_error']['cferror1'] . '<br>';
 						}
 
 						// No errors keep going with the sql queries
@@ -280,7 +280,7 @@ switch ($page1) {
 							}
 
 						} else {
-							$errors['e'] = $tl['error']['e'];
+							$errors['e'] = $tl['general_error']['generror'] . '<br>';
 							$errors      = $errors;
 						}
 					}

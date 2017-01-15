@@ -31,7 +31,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 	</script>
 <?php } ?>
 
-	<div class="btn-toolbar margin-bottom">
+	<div class="btn-toolbar m-b-20">
 		<div class="btn-group">
 
 			<button class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#" style="width: 100px;"><?php echo $tl["button"]["btn4"]; ?>

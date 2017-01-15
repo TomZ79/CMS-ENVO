@@ -213,15 +213,15 @@ switch ($page1) {
 			$defaults = $_POST;
 
 			if (empty($defaults['jak_date'])) {
-				$errors['e1'] = $tl['error']['e4'];
+				$errors['e1'] = $tl['error']['e4'] . '<br>';
 			}
 
 			if (!is_numeric ($defaults['jak_item'])) {
-				$errors['e2'] = $tl['error']['e15'];
+				$errors['e2'] = $tl['error']['e15'] . '<br>';
 			}
 
 			if (!is_numeric ($defaults['jak_mid'])) {
-				$errors['e3'] = $tl['error']['e15'];
+				$errors['e3'] = $tl['error']['e15'] . '<br>';
 			}
 
 			if (count ($errors) == 0) {
@@ -334,7 +334,7 @@ switch ($page1) {
 				}
 			} else {
 
-				$errors['e'] = $tl['error']['e'];
+				$errors['e'] = $tl['error']['e'] . '<br>';
 				$errors      = $errors;
 			}
 		}
@@ -472,7 +472,7 @@ switch ($page1) {
 						}
 
 						if (empty($defaults['jak_title'])) {
-							$errors['e1'] = $tl['error']['e2'];
+							$errors['e1'] = $tl['error']['e2'] . '<br>';
 						}
 
 						if (!empty($defaults['jak_datefrom'])) {
@@ -484,7 +484,7 @@ switch ($page1) {
 						}
 
 						if (isset($finalto) && isset($finalfrom) && $finalto < $finalfrom) {
-							$errors['e2'] = $tl['error']['e28'];
+							$errors['e2'] = $tl['error']['e28'] . '<br>';
 						}
 
 						// Now do the dirty stuff in mysql
@@ -677,7 +677,7 @@ switch ($page1) {
 							}
 						} else {
 
-							$errors['e'] = $tl['error']['e'];
+							$errors['e'] = $tl['error']['e'] . '<br>';
 							$errors      = $errors;
 						}
 					}
@@ -731,7 +731,7 @@ switch ($page1) {
 						$defaults = $_POST;
 
 						if (empty($defaults['jak_title'])) {
-							$errors['e1'] = $tl['error']['e2'];
+							$errors['e1'] = $tl['error']['e2'] . '<br>';
 						}
 
 						// Now do the dirty stuff in mysql
@@ -753,7 +753,7 @@ switch ($page1) {
 							}
 						} else {
 
-							$errors['e'] = $tl['error']['e'];
+							$errors['e'] = $tl['error']['e'] . '<br>';
 							$errors      = $errors;
 						}
 					}

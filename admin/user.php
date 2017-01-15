@@ -28,26 +28,22 @@ switch ($page1) {
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$defaults = $_POST;
 
-			/* if (empty($defaults['jak_name'])) {
-					$errors['e1'] = $tl['error']['e7'];
-			} */
-
 			if ($defaults['jak_email'] == '' || !filter_var ($defaults['jak_email'], FILTER_VALIDATE_EMAIL)) {
-				$errors['e2'] = $tl['error']['e3'];
+				$errors['e2'] = $tl['general_error']['generror7'] . '<br>';
 			}
 
 			if (!preg_match ('/^([a-zA-Z0-9\-_])+$/', $defaults['jak_username'])) {
-				$errors['e1'] = $tl['error']['e14'];
+				$errors['e1'] = $tl['general_error']['generror12'] . '<br>';
 			}
 
 			if (jak_field_not_exist (strtolower ($defaults['jak_username']), $jaktable, $jakfield)) {
-				$errors['e1'] = $tl['error']['e9'];
+				$errors['e1'] = $tl['general_error']['generror13'] . '<br>';
 			}
 
 			if ($defaults['jak_password'] != $defaults['jak_confirm_password']) {
-				$errors['e3'] = $tl['error']['e10'];
+				$errors['e3'] = $tl['general_error']['generror14'] . '<br>';
 			} elseif (strlen ($defaults['jak_password']) <= '5') {
-				$errors['e3'] = $tl['error']['e11'];
+				$errors['e3'] = $tl['general_error']['generror15'] . '<br>';
 			} else {
 				$updatepass = 1;
 			}
@@ -93,7 +89,7 @@ switch ($page1) {
 				}
 			} else {
 
-				$errors['e'] = $tl['error']['e'];
+				$errors['e'] = $tl['general_error']['generror'] . '<br>';
 				$errors      = $errors;
 			}
 		}
@@ -122,15 +118,15 @@ switch ($page1) {
 					if (isset($defaults['search'])) {
 
 						if ($defaults['jakSH'] == '' or $defaults['jakSH'] == $tl['search']['s']) {
-							$errors['e'] = $tl['search']['s1'];
+							$errors['e'] = $tl['search']['s1'] . '<br>';
 						}
 
 						if (strlen ($defaults['jakSH']) < '1') {
-							$errors['e1'] = $tl['search']['s2'];
+							$errors['e1'] = $tl['search']['s2'] . '<br>';
 						}
 
 						if (count ($errors) > 0) {
-							$errors['e2'] = $tl['search']['s3'];
+							$errors['e2'] = $tl['search']['s3'] . '<br>';
 							$errors       = $errors;
 						} else {
 							$secureIn    = smartsql (strip_tags ($defaults['jakSH']));
@@ -516,22 +512,22 @@ switch ($page1) {
 						$defaults = $_POST;
 
 						if ($defaults['jak_email'] == '' || !filter_var ($defaults['jak_email'], FILTER_VALIDATE_EMAIL)) {
-							$errors['e2'] = $tl['error']['e3'];
+							$errors['e2'] = $tl['general_error']['generror7'] . '<br>';
 						}
 
-						if (empty($defaults['jak_username'])) {
-							$errors['e1'] = $tl['error']['e8'];
+						if (!preg_match ('/^([a-zA-Z0-9\-_])+$/', $defaults['jak_username'])) {
+							$errors['e1'] = $tl['general_error']['generror12'] . '<br>';
 						}
 
 						if (jak_field_not_exist_id ($defaults['jak_username'], $page2, $jaktable, $jakfield)) {
-							$errors['e1'] = $tl['error']['e9'];
+							$errors['e1'] = $tl['general_error']['generror13'] . '<br>';
 						}
 
 						if (!empty($defaults['jak_password']) || !empty($defaults['jak_confirm_password'])) {
 							if ($defaults['jak_password'] != $defaults['jak_confirm_password']) {
-								$errors['e3'] = $tl['error']['e10'];
+								$errors['e3'] = $tl['general_error']['generror14'] . '<br>';
 							} elseif (strlen ($defaults['jak_password']) <= '5') {
-								$errors['e3'] = $tl['error']['e11'];
+								$errors['e3'] = $tl['general_error']['generror15'] . '<br>';
 							} else {
 								$updatepass = 1;
 							}
@@ -615,22 +611,22 @@ switch ($page1) {
 											$jakdb->query ('UPDATE ' . $jaktable . ' SET picture = "' . $dbSmall . '" WHERE id = "' . $page2 . '" LIMIT 1');
 
 										} else {
-											$errors['e4'] = $tl['error']['e24'] . '<br />';
+											$errors['e4'] = $tl['search']['s7'] . '<br />';
 											$errors       = $errors;
 										}
 
 									} else {
-										$errors['e4'] = $tl['error']['e24'] . '<br />';
+										$errors['e4'] = $tl['search']['s7'] . '<br />';
 										$errors       = $errors;
 									}
 
 								} else {
-									$errors['e4'] = $tl['error']['e24'] . '<br />';
+									$errors['e4'] = $tl['search']['s7'] . '<br />';
 									$errors       = $errors;
 								}
 
 							} else {
-								$errors['e4'] = $tl['error']['e24'] . '<br />';
+								$errors['e4'] = $tl['search']['s7'] . '<br />';
 								$errors       = $errors;
 							}
 
@@ -702,7 +698,7 @@ switch ($page1) {
 							// Output the errors
 						} else {
 
-							$errors['e'] = $tl['error']['e'];
+							$errors['e'] = $tl['general_error']['generror'] . '<br>';
 							$errors      = $errors;
 						}
 					}

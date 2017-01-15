@@ -43,7 +43,8 @@ if ($errors) { ?>
 					if (isset($errors["e4"])) echo $errors["e4"];
 					if (isset($errors["e5"])) echo $errors["e5"];
 					if (isset($errors["e6"])) echo $errors["e6"];
-					if (isset($errors["e7"])) echo $errors["e7"];?>',
+					if (isset($errors["e7"])) echo $errors["e7"];
+					if (isset($errors["e8"])) echo $errors["e8"];?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -125,7 +126,10 @@ if ($success) { ?>
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc"]; ?></strong></div>
+											<div class="col-md-5">
+												<strong><?php echo $tl["gs_box_content"]["gsbc"]; ?></strong>
+												<span class="star-item text-danger-800 m-l-10">*</span>
+											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 													<input type="text" name="jak_email" class="form-control" value="<?php if (isset($JAK_SETTING) && is_array ($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
@@ -155,12 +159,17 @@ if ($success) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc2"]; ?></strong></div>
+											<div class="col-md-5">
+												<strong><?php echo $tl["gs_box_content"]["gsbc2"]; ?></strong>
+												<span class="star-item text-danger-800 m-l-10">*</span>
+											</div>
 											<div class="col-md-7">
-												<select name="jak_lang" class="form-control selectpicker" data-size="5">
-													<?php if (isset($acp_lang_files) && is_array ($lang_files)) foreach ($lang_files as $lf) { ?>
-														<option value="<?php echo $lf; ?>"<?php if ($jkv["lang"] == $lf) { ?> selected="selected"<?php } ?>><?php echo ucwords ($lf); ?></option><?php } ?>
-												</select>
+												<div class="<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+													<select name="jak_lang" class="form-control selectpicker" data-size="5">
+														<?php if (isset($acp_lang_files) && is_array ($lang_files)) foreach ($lang_files as $lf) { ?>
+															<option value="<?php echo $lf; ?>"<?php if ($jkv["lang"] == $lf) { ?> selected="selected"<?php } ?>><?php echo ucwords ($lf); ?></option><?php } ?>
+													</select>
+												</div>
 											</div>
 										</div>
 										<div class="row-form">
@@ -179,9 +188,12 @@ if ($success) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc8"]; ?></strong></div>
+											<div class="col-md-5">
+												<strong><?php echo $tl["gs_box_content"]["gsbc8"]; ?></strong>
+												<span class="star-item text-danger-800 m-l-10">*</span>
+											</div>
 											<div class="col-md-7">
-												<div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+												<div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
 													<input type="text" name="jak_date" class="form-control" value="<?php echo $jkv["dateformat"]; ?>"/>
 												</div>
 											</div>
@@ -189,7 +201,7 @@ if ($success) { ?>
 										<div class="row-form">
 											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc9"]; ?></strong></div>
 											<div class="col-md-7">
-												<div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+												<div class="form-group no-margin">
 													<input type="text" name="jak_time" class="form-control" value="<?php echo $jkv["timeformat"]; ?>"/>
 												</div>
 											</div>
@@ -252,7 +264,7 @@ if ($success) { ?>
 										<div class="row-form">
 											<div class="col-md-6"><strong><?php echo $tl["gs_box_content"]["gsbc13"]; ?></strong></div>
 											<div class="col-md-6">
-												<div class="<?php if (isset($errors["e4"])) echo " has-error"; ?>">
+												<div class="<?php if (isset($errors["e6"])) echo " has-error"; ?>">
 													<select name="jak_mid" class="form-control selectpicker">
 														<option value="2"<?php if ($jkv["adminpagemid"] == 2) { ?> selected="selected"<?php } ?>>
 															<?php echo $tl["selection"]["sel1"]; ?>
@@ -276,7 +288,7 @@ if ($success) { ?>
 										<div class="row-form">
 											<div class="col-md-6"><strong><?php echo $tl["gs_box_content"]["gsbc14"]; ?></strong></div>
 											<div class="col-md-6">
-												<div class="form-group no-margin<?php if (isset($errors["e4"])) echo " has-error"; ?>">
+												<div class="form-group no-margin<?php if (isset($errors["e5"])) echo " has-error"; ?>">
 													<input type="text" name="jak_item" class="form-control" value="<?php echo $jkv["adminpageitem"]; ?>"/>
 												</div>
 											</div>
@@ -360,7 +372,7 @@ if ($success) { ?>
 									<div class="block-content">
 										<div class="row-form">
 											<div class="col-md-12">
-												<div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
+												<div class="form-group no-margin<?php if (isset($errors["e4"])) echo " has-error"; ?>">
 													<input type="text" name="jak_shortmsg" class="form-control" value="<?php echo $jkv["shortmsg"]; ?>"/>
 												</div>
 											</div>
@@ -400,7 +412,7 @@ if ($success) { ?>
 										<div class="row-form">
 											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc18"]; ?></strong></div>
 											<div class="col-md-7">
-												<div class="form-group no-margin<?php if (isset($errors["e5"])) echo " has-error"; ?>">
+												<div class="form-group no-margin<?php if (isset($errors["e7"])) echo " has-error"; ?>">
 													<input type="text" name="jak_rssitem" class="form-control" value="<?php echo $jkv["rssitem"]; ?>"/>
 												</div>
 											</div>
@@ -460,7 +472,7 @@ if ($success) { ?>
 										<div class="row-form">
 											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc24"]; ?></strong></div>
 											<div class="col-md-7">
-												<div class="form-group no-margin<?php if (isset($errors["e4"])) echo " has-error"; ?>">
+												<div class="form-group no-margin">
 													<input type="text" name="jak_acetabSize" class="form-control" value="<?php echo $jkv["acetabSize"]; ?>"/>
 												</div>
 											</div>
@@ -468,7 +480,7 @@ if ($success) { ?>
 										<div class="row-form">
 											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc25"]; ?></strong></div>
 											<div class="col-md-7">
-												<div class="form-group no-margin<?php if (isset($errors["e4"])) echo " has-error"; ?>">
+												<div class="form-group no-margin">
 													<input type="text" name="jak_acewraplimit" class="form-control" value="<?php echo $jkv["acewraplimit"]; ?>"/>
 												</div>
 											</div>
@@ -686,7 +698,7 @@ if ($success) { ?>
 										<div class="row-form">
 											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc53"]; ?></strong></div>
 											<div class="col-md-7">
-												<div class="form-group no-margin<?php if (isset($errors["e7"])) echo " has-error"; ?>">
+												<div class="form-group no-margin<?php if (isset($errors["e8"])) echo " has-error"; ?>">
 													<div class="row">
 														<div class="col-md-6">
 															<input type="text" name="jak_avatwidth" class="form-control" value="<?php if (isset($JAK_SETTING) && is_array ($JAK_SETTING)) foreach ($JAK_SETTING as $v) {

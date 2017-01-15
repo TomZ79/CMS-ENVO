@@ -53,35 +53,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		}
 
 		if ($defaults['jak_email'] == '' || !filter_var ($defaults['jak_email'], FILTER_VALIDATE_EMAIL)) {
-			$errors['e1'] = $tl['error']['e3'];
+			$errors['e1'] = $tl['general_error']['generror7'] . '<br>';
 		}
 
 		if ($defaults['jak_lang'] == '') {
-			$errors['e6'] = $tl['error']['e29'];
+			$errors['e2'] = $tl['general_error']['generror8'] . '<br>';
 		}
 
 		if (empty($defaults['jak_date'])) {
-			$errors['e2'] = $tl['error']['e4'];
+			$errors['e3'] = $tl['general_error']['generror9'] . '<br>';
 		}
 
 		if (!is_numeric ($defaults['jak_shortmsg'])) {
-			$errors['e3'] = $tl['error']['e15'];
+			$errors['e4'] = $tl['general_error']['generror10'] . '<br>';
 		}
 
 		if (!is_numeric ($defaults['jak_item'])) {
-			$errors['e4'] = $tl['error']['e15'];
+			$errors['e5'] = $tl['general_error']['generror10'] . '<br>';
 		}
 
 		if (!is_numeric ($defaults['jak_mid'])) {
-			$errors['e4'] = $tl['error']['e15'];
+			$errors['e6'] = $tl['general_error']['generror10'] . '<br>';
 		}
 
 		if (!is_numeric ($defaults['jak_rssitem'])) {
-			$errors['e5'] = $tl['error']['e15'];
+			$errors['e7'] = $tl['general_error']['generror10'] . '<br>';
 		}
 
 		if (!is_numeric ($defaults['jak_avatwidth']) || !is_numeric ($defaults['jak_avatheight'])) {
-			$errors['e7'] = $tl['error']['e15'];
+			$errors['e8'] = $tl['general_error']['generror10'] . '<br>';
 		}
 
 		if (count ($errors) == 0) {
@@ -143,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			}
 		} else {
 
-			$errors['e'] = $tl['error']['e'];
+			$errors['e'] = $tl['general_error']['generror'] . '<br>';
 			$errors      = $errors;
 		}
 
@@ -151,16 +151,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		// Do the dirty work in mysql
 		$jakdb->query ('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-    	    WHEN "smtp_or_mail" THEN "' . smartsql ($defaults['jak_smpt']) . '"
-    	    WHEN "smtp_host" THEN "' . smartsql ($defaults['jak_host']) . '"
-    	    WHEN "smtp_port" THEN "' . smartsql ($defaults['jak_port']) . '"
-    	    WHEN "smtp_alive" THEN "' . smartsql ($defaults['jak_alive']) . '"
-    	    WHEN "smtp_auth" THEN "' . smartsql ($defaults['jak_auth']) . '"
-    	    WHEN "smtp_prefix" THEN "' . smartsql ($defaults['jak_prefix']) . '"
-    	    WHEN "smtp_user" THEN "' . smartsql ($defaults['jak_smtpusername']) . '"
-    	    WHEN "smtp_password" THEN "' . smartsql ($defaults['jak_smtppassword']) . '"
-    	END
-    		WHERE varname IN ("smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password")');
+										WHEN "smtp_or_mail" THEN "' . smartsql ($defaults['jak_smpt']) . '"
+										WHEN "smtp_host" THEN "' . smartsql ($defaults['jak_host']) . '"
+										WHEN "smtp_port" THEN "' . smartsql ($defaults['jak_port']) . '"
+										WHEN "smtp_alive" THEN "' . smartsql ($defaults['jak_alive']) . '"
+										WHEN "smtp_auth" THEN "' . smartsql ($defaults['jak_auth']) . '"
+										WHEN "smtp_prefix" THEN "' . smartsql ($defaults['jak_prefix']) . '"
+										WHEN "smtp_user" THEN "' . smartsql ($defaults['jak_smtpusername']) . '"
+										WHEN "smtp_password" THEN "' . smartsql ($defaults['jak_smtppassword']) . '"
+								END
+									WHERE varname IN ("smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password")');
 
 		$mail = new PHPMailer(true); // the true param means it will throw exceptions on errors, which we need to catch
 

@@ -150,7 +150,7 @@ if ($page1 == "e") { ?>
 								else { ?>
 							<div class="col-md-5">
 								<div class="row">
-									<div class="alert bg-danger" style="width: 100%; padding: 5px 10px; text-align: center;">
+									<div class="alert alert-danger" style="width: 100%; padding: 6px 10px; text-align: center;">
 										<?php echo str_replace ("%s", $jkv["sitestyle"], $tl["tpl_box_content"]["tplbc1"]); ?>
 									</div>
 								</div>

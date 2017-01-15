@@ -95,7 +95,16 @@ if ($errors) { ?>
 									<div class="block-content">
 										<div class="row-form">
 											<div class="col-md-5"><strong><?php echo $tl["news_box_content"]["newsbc"]; ?></strong></div>
-											<div class="col-md-7"><?php include_once "title_edit.php"; ?></div>
+											<div class="col-md-7">
+												<div class="form-group no-margin">
+
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													echo $htmlE->addInput ('text', 'jak_title', '', 'form-control', $JAK_FORM_DATA["title"], '');
+													?>
+
+												</div>
+											</div>
 										</div>
 										<div class="row-form">
 											<div class="col-md-5"><strong><?php echo $tl["news_box_content"]["newsbc1"]; ?></strong></div>
