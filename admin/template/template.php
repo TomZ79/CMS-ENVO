@@ -59,6 +59,18 @@ if ($page1 == "e") { ?>
 	</script>
 <?php } ?>
 
+<?php if (is_dir_empty('../template/')) { ?>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 error-page">
+			<h1 class="text-warning bold"><?php echo $tl["notetemplate"]["nh"]; ?></h1>
+			<div class="error-content">
+				<h3><i class="fa fa-warning text-warning"></i> <?php echo $tl["notetemplate"]["n1"]; ?></h3>
+				<p><?php echo $tl["notetemplate"]["n4"]; ?></p>
+			</div>
+		</div>
+	</div>
+<?php } else { ?>
+
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 		<div class="row">
 			<?php if (isset($site_style_files) && is_array ($site_style_files)) foreach ($site_style_files as $l) {
@@ -161,5 +173,7 @@ if ($page1 == "e") { ?>
 			<?php } ?>
 		</div>
 	</form>
+
+<?php } ?>
 
 <?php include "footer.php"; ?>
