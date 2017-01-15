@@ -40,7 +40,7 @@ if ($errors) { ?>
 					if (isset($errors["e1"])) echo $errors["e1"];?>',
 			}, {
 				// settings
-				type: 'success',
+				type: 'danger',
 				delay: 5000,
 			});
 		}, 1000);

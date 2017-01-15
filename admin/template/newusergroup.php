@@ -95,7 +95,7 @@ if ($errors) { ?>
 												<span class="star-item text-danger-800 m-l-10">*</span>
 											</div>
 											<div class="col-md-7">
-												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+												<div class="form-group no-margin<?php if (isset($errors["e1"]) || isset($errors["e2"])) echo " has-error"; ?>">
 
 													<?php
 													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
@@ -128,9 +128,9 @@ if ($errors) { ?>
 
 													<?php
 													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													if (isset($_REQUEST["jak_advs"]) && $_REQUEST["jak_advs"] == '1') {
+													if (isset($JAK_FORM_DATA["advsearch"]) && ($JAK_FORM_DATA["advsearch"] == '1')) {
 														$checked = 'yes';
-													} elseif (isset($JAK_FORM_DATA["advsearch"]) && $JAK_FORM_DATA["advsearch"] == '1') {
+													} elseif (isset($_REQUEST["jak_advs"]) && ($_REQUEST["jak_advs"] == '1')) {
 														$checked = 'yes';
 													} else {
 														$checked = 'no';
@@ -140,12 +140,14 @@ if ($errors) { ?>
 													echo $htmlE->addLabelFor ('jak_advs1', $tl["checkbox"]["chk"]);
 
 													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													if (isset($_REQUEST["jak_advs"]) && $_REQUEST["jak_advs"] == '0') {
+													if (isset($JAK_FORM_DATA["advsearch"]) && ($JAK_FORM_DATA["advsearch"] == '0')) {
 														$checked = 'yes';
-													} elseif (isset($JAK_FORM_DATA["advsearch"]) && $JAK_FORM_DATA["advsearch"] == '0') {
+													} elseif (isset($_REQUEST["jak_advs"]) && ($_REQUEST["jak_advs"] == '0')) {
 														$checked = 'yes';
-													} else {
+													} elseif (($JAK_FORM_DATA["advsearch"] == '1') || ($_REQUEST["jak_advs"] == '1')) {
 														$checked = 'no';
+													} else {
+														$checked = 'yes';
 													}
 													echo $htmlE->addInput ('radio', 'jak_advs', 'jak_advs2', '', '0', $checked);
 													// Arguments: for (id of associated form element), text
@@ -162,9 +164,9 @@ if ($errors) { ?>
 
 													<?php
 													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													if (isset($_REQUEST["jak_rate"]) && $_REQUEST["jak_rate"] == '1') {
+													if (isset($JAK_FORM_DATA["canrate"]) && ($JAK_FORM_DATA["canrate"] == '1')) {
 														$checked = 'yes';
-													} elseif (isset($JAK_FORM_DATA["canrate"]) && $JAK_FORM_DATA["canrate"] == '1') {
+													} elseif (isset($_REQUEST["jak_rate"]) && ($_REQUEST["jak_rate"] == '1')) {
 														$checked = 'yes';
 													} else {
 														$checked = 'no';
@@ -174,12 +176,14 @@ if ($errors) { ?>
 													echo $htmlE->addLabelFor ('jak_rate1', $tl["checkbox"]["chk"]);
 
 													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													if (isset($_REQUEST["jak_rate"]) && $_REQUEST["jak_rate"] == '0') {
+													if (isset($JAK_FORM_DATA["canrate"]) && ($JAK_FORM_DATA["canrate"] == '0')) {
 														$checked = 'yes';
-													} elseif (isset($JAK_FORM_DATA["canrate"]) && $JAK_FORM_DATA["canrate"] == '0') {
+													} elseif (isset($_REQUEST["jak_rate"]) && ($_REQUEST["jak_rate"] == '0')) {
 														$checked = 'yes';
-													} else {
+													} elseif (($JAK_FORM_DATA["canrate"] == '1') || ($_REQUEST["jak_rate"] == '1')) {
 														$checked = 'no';
+													} else {
+														$checked = 'yes';
 													}
 													echo $htmlE->addInput ('radio', 'jak_rate', 'jak_rate2', '', '0', $checked);
 													// Arguments: for (id of associated form element), text
@@ -215,9 +219,9 @@ if ($errors) { ?>
 
 														<?php
 														// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-														if (isset($_REQUEST["jak_tags"]) && $_REQUEST["jak_tags"] == '1') {
+														if (isset($JAK_FORM_DATA["tags"]) && ($JAK_FORM_DATA["tags"] == '1')) {
 															$checked = 'yes';
-														} elseif (isset($JAK_FORM_DATA["tags"]) && $JAK_FORM_DATA["tags"] == '1') {
+														} elseif (isset($_REQUEST["jak_tags"]) && ($_REQUEST["jak_tags"] == '1')) {
 															$checked = 'yes';
 														} else {
 															$checked = 'no';
@@ -227,12 +231,14 @@ if ($errors) { ?>
 														echo $htmlE->addLabelFor ('jak_tags1', $tl["checkbox"]["chk"]);
 
 														// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-														if (isset($_REQUEST["jak_tags"]) && $_REQUEST["jak_tags"] == '0') {
+														if (isset($JAK_FORM_DATA["tags"]) && ($JAK_FORM_DATA["tags"] == '0')) {
 															$checked = 'yes';
-														} elseif (isset($JAK_FORM_DATA["tags"]) && $JAK_FORM_DATA["tags"] == '0') {
+														} elseif (isset($_REQUEST["jak_tags"]) && ($_REQUEST["jak_tags"] == '0')) {
 															$checked = 'yes';
-														} else {
+														} elseif (($JAK_FORM_DATA["tags"] == '1') || ($_REQUEST["jak_tags"] == '1')) {
 															$checked = 'no';
+														} else {
+															$checked = 'yes';
 														}
 														echo $htmlE->addInput ('radio', 'jak_tags', 'jak_tags2', '', '0', $checked);
 														// Arguments: for (id of associated form element), text

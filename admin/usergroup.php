@@ -46,11 +46,11 @@ switch ($page1) {
 			if (isset($defaults['save'])) {
 
 				if (empty($defaults['jak_name'])) {
-					$errors['e1'] = $tl['error']['e7'];
+					$errors['e1'] = $tl['general_error']['generror4'] . '<br>';
 				}
 
 				if (jak_field_not_exist ($defaults['jak_name'], $jaktable, "name")) {
-					$errors['e2'] = str_replace ("%s", $defaults['jak_name'], $tl['error']['e40']);
+					$errors['e2'] = str_replace ("%s", $defaults['jak_name'], $tl['general_error']['generror5']) . '<br>';
 				}
 
 				if (count ($errors) == 0) {
@@ -86,7 +86,7 @@ switch ($page1) {
 					}
 				} else {
 
-					$errors['e'] = $tl['error']['e'];
+					$errors['e'] = $tl['general_error']['generror'] . '<br>';
 					$errors      = $errors;
 				}
 
@@ -209,7 +209,7 @@ switch ($page1) {
 						$defaults = $_POST;
 
 						if (empty($defaults['jak_name'])) {
-							$errors['e1'] = $tl['error']['e7'];
+							$errors['e1'] = $tl['general_error']['generror4'] . '<br>';
 						}
 
 						if (count ($errors) == 0) {
@@ -244,7 +244,7 @@ switch ($page1) {
 							}
 						} else {
 
-							$errors['e'] = $tl['error']['e'];
+							$errors['e'] = $tl['general_error']['generror'] . '<br>';
 							$errors      = $errors;
 						}
 					}
