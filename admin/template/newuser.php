@@ -57,7 +57,12 @@ if ($errors) { ?>
 									<div class="col-md-5"><strong><?php echo $tl["user_box_content"]["userbc3"]; ?></strong></div>
 									<div class="col-md-7">
 										<div class="form-group no-margin">
-											<input type="text" name="jak_name" class="form-control" value=""/>
+
+											<?php
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											echo $htmlE->addInput ('text', 'jak_name', '', 'form-control', $_REQUEST["jak_name"], '');
+											?>
+
 										</div>
 									</div>
 								</div>
@@ -68,7 +73,12 @@ if ($errors) { ?>
 									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-											<input type="text" name="jak_email" class="form-control" value=""/>
+
+											<?php
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											echo $htmlE->addInput ('text', 'jak_email', '', 'form-control', $_REQUEST["jak_email"], '');
+											?>
+
 										</div>
 									</div>
 								</div>
@@ -79,7 +89,12 @@ if ($errors) { ?>
 									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-											<input class="form-control" type="text" name="jak_username" value=""/>
+
+											<?php
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											echo $htmlE->addInput ('text', 'jak_username', '', 'form-control', $_REQUEST["jak_username"], '');
+											?>
+
 										</div>
 									</div>
 								</div>
@@ -99,11 +114,19 @@ if ($errors) { ?>
 									<div class="col-md-7">
 										<div class="radio radio-success">
 
-											<input type="radio" id="jak_access1" name="jak_access" value="1" checked="checked"/>
-											<label for="jak_access1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+											<?php
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											((isset($_REQUEST["jak_access"]) && $_REQUEST["jak_access"] == '1') || !isset($_REQUEST["jak_access"])) ? $checked = 'yes' : $checked = 'no';
+											echo $htmlE->addInput ('radio', 'jak_access', 'jak_access1', '', '1', $checked);
+											// Arguments: for (id of associated form element), text
+											echo $htmlE->addLabelFor ('jak_access1', $tl["checkbox"]["chk"]);
 
-											<input type="radio" id="jak_access2" name="jak_access" value="0"/>
-											<label for="jak_access2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											((isset($_REQUEST["jak_access"]) && $_REQUEST["jak_access"] == '0')) ? $checked = 'yes' : $checked = 'no';
+											echo $htmlE->addInput ('radio', 'jak_access', 'jak_access2', '', '0', $checked);
+											// Arguments: for (id of associated form element), text
+											echo $htmlE->addLabelFor ('jak_access2', $tl["checkbox"]["chk1"]);
+											?>
 
 										</div>
 									</div>
@@ -135,7 +158,12 @@ if ($errors) { ?>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
 											<div class="label-indicator-absolute">
-												<input class="form-control" type="text" name="jak_password" value=""/>
+
+												<?php
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												echo $htmlE->addInput ('text', 'jak_password', '', 'form-control', $_REQUEST["jak_password"], '');
+												?>
+
 												<span class="label password-indicator-label-absolute"></span>
 											</div>
 										</div>
@@ -149,7 +177,11 @@ if ($errors) { ?>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
 											<div class="label-indicator-absolute">
-												<input class="form-control" type="text" name="jak_confirm_password" value=""/>
+												<?php
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												echo $htmlE->addInput ('text', 'jak_confirm_password', '', 'form-control', $_REQUEST["jak_confirm_password"], '');
+												?>
+
 											</div>
 										</div>
 									</div>
