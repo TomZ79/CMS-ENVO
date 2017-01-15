@@ -50,7 +50,8 @@ if ($page == 'template' && $page1 == '') {
 				frameSrc = $(this).attr("href");
 				$('#JAKModalLabel').html("<?php echo ucwords ($page);?>");
 				$('#JAKModal').on('show.bs.modal', function () {
-					$('<iframe src="' + frameSrc + '" width="100%" height="400px" frameborder="0">').appendTo('.modal-body');
+					$('#JAKModal .modal-dialog').addClass('modal-w-90p');
+					$('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">').appendTo('.body-content');
 				});
 				$('#JAKModal').on('hidden.bs.modal', function () {
 					window.location.reload();
@@ -63,7 +64,8 @@ if ($page == 'template' && $page1 == '') {
 				frameSrc = $(this).attr("href");
 				$('#JAKModalLabel').html("<?php echo ucwords ($page);?>");
 				$('#JAKModal').on('show.bs.modal', function () {
-					$('<iframe src="' + frameSrc + '" width="100%" height="100%" frameborder="0">').appendTo('.modal-body');
+					$('#JAKModal .modal-dialog').addClass('modal-w-90p');
+					$('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">').appendTo('.body-content');
 				});
 				$('#JAKModal').on('hidden.bs.modal', function () {
 					window.location.reload();
@@ -76,8 +78,8 @@ if ($page == 'template' && $page1 == '') {
 				frameSrc = $(this).attr("href");
 				$('#JAKModalLabel').html("<?php echo ucwords ($page);?>");
 				$('#JAKModal').on('show.bs.modal', function () {
-					$('#JAKModal .modal-lg').css("width", "90%");
-					$('<iframe src="' + frameSrc + '" width="100%" height="400px" frameborder="0">').appendTo('.modal-body');
+					$('#JAKModal .modal-dialog').addClass('modal-w-90p');
+					$('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">').appendTo('.body-content');
 				});
 				$('#JAKModal').on('hidden.bs.modal', function () {
 					window.location.reload();
@@ -91,3 +93,11 @@ if ($page == 'template' && $page1 == '') {
 		});
 	</script>
 <?php } ?>
+<style type="text/css">
+	/* Bootstrap Modal Dialog */
+	@media screen and (min-width: 768px) {
+		.modal-w-90p {
+			width: 90%; /* either % (e.g. 60%) or px (400px) */
+		}
+	}
+</style>
