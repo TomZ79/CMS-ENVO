@@ -138,7 +138,7 @@ require_once 'config.php';
 											<input type="password" class="form-control" name="jakP" id="password" placeholder="<?php echo $tl["login"]["l2"]; ?>"/>
 										</div>
 										<label class="checkbox">
-											<input type="checkbox" name="lcookies" value="1"> <?php echo $tl["general"]["g7"]; ?>
+											<input type="checkbox" name="lcookies" value="1"> <?php echo $tl["notification"]["n7"]; ?>
 										</label>
 										<button type="submit" name="login" class="button button-3d button-mini button-rounded button-green nomargin btn-block"><?php echo $tl["general"]["g146"]; ?></button>
 										<input type="hidden" name="home" value="0"/>

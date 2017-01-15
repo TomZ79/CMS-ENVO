@@ -65,7 +65,7 @@
 			if ($page3 == "e") { ?>
 				<div class="alert bg-danger fade in">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					<?php echo $tl["errorpage"]["not"]; ?>
+					<?php echo $tl["general_error"]["generror2"]; ?>
 				</div>
 			<?php } ?>
 

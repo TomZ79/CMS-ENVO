@@ -6,7 +6,7 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general"]["g7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>',
 			}, {
 				// settings
 				type: 'success',
@@ -22,13 +22,13 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 			$.notify({
 				// options
 				message: '<?php if ($page2 == "e") {
-					$tl["errorpage"]["sql"];
+					$tl["general_error"]["generror1"];
 				} elseif ($page2 == "epc") {
-					echo $tl["errorpage"]["pluginc"];
+					echo $tlblog["blog_error"]["blogerror1"];
 				} elseif ($page2 == "ene") {
-					echo $tl["errorpage"]["not"];
+					echo $tl["general_error"]["generror2"];
 				} else {
-					echo $tl["errorpage"]["cat"];
+					echo $tlblog["blog_error"]["blogerror"];
 				} ?>',
 			}, {
 				// settings
@@ -82,7 +82,7 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 
 		</div>
 		<div class="box-footer">
-			<button type="submit" data-menu="mheader" name="save" class="btn btn-primary pull-right save-menu-plugin"><?php echo $tl["button"]["btn"]; ?></button>
+			<button type="submit" data-menu="mheader" name="save" class="btn btn-success pull-right save-menu-plugin"><?php echo $tl["button"]["btn1"]; ?></button>
 		</div>
 	</div>
 
@@ -90,7 +90,7 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 
 	<div class="col-md-12">
 		<div class="alert bg-info text-white">
-			<?php echo $tl["errorpage"]["data"]; ?>
+			<?php echo $tl["general_error"]["generror3"]; ?>
 		</div>
 	</div>
 

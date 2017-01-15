@@ -6,7 +6,7 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general"]["g7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>',
 			}, {
 				// settings
 				type: 'success',
@@ -21,7 +21,7 @@ if ($page1 == "e") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["errorpage"]["sql"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -132,7 +132,7 @@ if ($success) { ?>
 														if ($v["varname"] == 'email') {
 															echo $v["value"];
 														}
-													} ?>" placeholder="<?php echo $tl["setting"]["s"]; ?>"/>
+													} ?>" placeholder="<?php echo $tl["placeholder"]["p13"]; ?>"/>
 												</div>
 											</div>
 										</div>
@@ -391,7 +391,7 @@ if ($success) { ?>
 													<label for="jak_rss1"><?php echo $tl["checkbox"]["chk"]; ?></label>
 
 													<input type="radio" id="jak_rss2" name="jak_rss" value="0"<?php if ($jkv["rss"] == 0) { ?> checked="checked"<?php } ?> />
-													<label for="jak_rss"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													<label for="jak_rss2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
 
 												</div>
 

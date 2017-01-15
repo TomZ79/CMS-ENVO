@@ -15,13 +15,11 @@ if ($hookadminws)
 
 		<li id="widget-<?php echo $v["id"]; ?>" class="jakwidget">
 			<div class="sidebar-widget">
-				<div class="checkbox">
-					<label>
-						<input type="checkbox" name="jak_hookshow[]" value="<?php echo $v["id"]; ?>"<?php if (isset($JAK_ACTIVE_GRID) && is_array ($JAK_ACTIVE_GRID)) foreach ($JAK_ACTIVE_GRID as $ag) {
-							if ($ag["hookid"] == $v["id"]) echo ' checked="checked"';
-						} ?> />
-						<a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
-					</label>
+				<div class="checkbox check-success">
+					<input type="checkbox" id="jak_hookshow<?php echo $v["id"]; ?>" name="jak_hookshow[]" value="<?php echo $v["id"]; ?>"<?php if (isset($JAK_ACTIVE_GRID) && is_array ($JAK_ACTIVE_GRID)) foreach ($JAK_ACTIVE_GRID as $ag) {
+						if ($ag["hookid"] == $v["id"]) echo ' checked="checked"';
+					} ?> />
+					<label for="jak_hookshow<?php echo $v["id"]; ?>"><a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a></label>
 				</div>
 			</div>
 			<div class="actions">

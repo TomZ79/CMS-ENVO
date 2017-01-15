@@ -6,7 +6,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general"]["g7"];?>',
+        message: '<?php echo $tl["notification"]["n7"];?>',
       }, {
         // settings
         type: 'success',
@@ -22,13 +22,13 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
       $.notify({
         // options
         message: '<?php if ($page1 == "e") {
-          $tl["errorpage"]["sql"];
+          $tl["general_error"]["generror1"];
         } elseif ($page1 == "epc") {
-          echo $tl["errorpage"]["pluginc"];
+          echo $tl["cat_error"]["caterror1"];
         } elseif ($page1 == "ene") {
-          echo $tl["errorpage"]["not"];
+          echo $tl["general_error"]["generror2"];
         } else {
-          echo $tl["errorpage"]["cat"];
+          echo $tl["cat_error"]["caterror"];
         } ?>',
       }, {
         // settings
@@ -85,7 +85,7 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
           } else { ?>
 
             <div class="alert bg-slate-300">
-              <?php echo $tl["errorpage"]["data"]; ?>
+              <?php echo $tl["general_error"]["generror3"]; ?>
             </div>
 
           <?php } ?>
@@ -120,7 +120,7 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
           } else { ?>
 
             <div class="alert bg-slate-300">
-              <?php echo $tl["errorpage"]["data"]; ?>
+              <?php echo $tl["general_error"]["generror3"]; ?>
             </div>
 
           <?php } ?>
@@ -149,7 +149,7 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
           } else { ?>
 
             <div class="alert bg-slate-300">
-              <?php echo $tl["errorpage"]["data"]; ?>
+              <?php echo $tl["general_error"]["generror3"]; ?>
             </div>
 
           <?php } ?>
@@ -162,7 +162,7 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
 
   <div class="col-md-12">
     <div class="alert bg-info text-white">
-      <?php echo $tl["errorpage"]["data"]; ?>
+      <?php echo $tl["general_error"]["generror3"]; ?>
     </div>
   </div>
 

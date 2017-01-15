@@ -301,7 +301,7 @@ foreach ($jakcategories as $ca) {
 // Logout
 if ($page == 'logout') {
 	if (!JAK_USERID) {
-		$_SESSION["errormsg"] = $tl["errorpage"]["sql"];
+		$_SESSION["errormsg"] = $tl["general_error"]["generror1"];
 		jak_redirect (BASE_URL);
 	}
 	if (JAK_USERID) {
@@ -385,7 +385,7 @@ if ($page == 'forgot-password') {
 
 	if (!$result) {
 
-		$_SESSION["errormsg"] = $tl["errorpage"]["sql"];
+		$_SESSION["errormsg"] = $tl["general_error"]["generror1"];
 		// redirect back to home
 		jak_redirect (BASE_URL);
 
@@ -407,7 +407,7 @@ if ($page == 'forgot-password') {
 
 	}
 
-	$_SESSION["errormsg"] = $tl["errorpage"]["sql"];
+	$_SESSION["errormsg"] = $tl["general_error"]["generror1"];
 	jak_redirect (BASE_URL);
 }
 

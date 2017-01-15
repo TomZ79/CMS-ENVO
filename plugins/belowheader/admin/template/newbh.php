@@ -5,7 +5,7 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general"]["g7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>',
 			}, {
 				// settings
 				type: 'success',
@@ -19,7 +19,7 @@ if ($page3 == "e") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["errorpage"]["sql"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -35,10 +35,7 @@ if ($page3 == "e") { ?>
 			$.notify({
 				// options
 				message: '<?php if (isset($errors["e"])) echo $errors["e"];
-					if (isset($errors["e1"])) echo $errors["e1"];
-					if (isset($errors["e2"])) echo $errors["e2"];
-					if (isset($errors["e3"])) echo $errors["e3"];
-					if (isset($errors["e4"])) echo $errors["e4"];?>',
+					if (isset($errors["e1"])) echo $errors["e1"];?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -88,9 +85,13 @@ if ($page3 == "e") { ?>
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-12">
+											<div class="col-md-5">
+												<strong><?php echo $tlbh["bh_box_content"]["bhbc"]; ?></strong>
+												<span class="star-item text-danger-800 m-l-10">*</span>
+											</div>
+											<div class="col-md-7">
 												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-													<input class="form-control" type="text" name="jak_title" value="<?php if (isset($_REQUEST["jak_title"])) echo $_REQUEST["jak_title"]; ?>"/>
+													<input class="form-control" type="text" name="jak_title" value=""/>
 												</div>
 											</div>
 										</div>
@@ -114,7 +115,7 @@ if ($page3 == "e") { ?>
 										<div class="row-form">
 											<div class="col-md-12">
 												<select name="jak_pageid[]" multiple="multiple" class="form-control" style="min-height: 330px;">
-													<option value="0"<?php if (isset($_REQUEST["jak_pageid"]) && $_REQUEST["jak_pageid"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tlbh["bh_box_content"]["bhbc1"]; ?></option>
+													<option value="0" selected="selected"><?php echo $tlbh["bh_box_content"]["bhbc1"]; ?></option>
 
 													<?php if (isset($JAK_PAGES) && is_array ($JAK_PAGES)) foreach ($JAK_PAGES as $v) { ?>
 														<option value="<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></option>
@@ -148,9 +149,9 @@ if ($page3 == "e") { ?>
 										<div class="row-form">
 											<div class="col-md-12">
 												<select name="jak_permission[]" multiple="multiple" class="form-control">
-													<option value="0"<?php if (isset($_REQUEST["jak_permission"]) && $_REQUEST["jak_permission"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tlbh["bh_box_content"]["bhbc2"]; ?></option>
+													<option value="0" selected="selected"><?php echo $tlbh["bh_box_content"]["bhbc2"]; ?></option>
 													<?php if (isset($JAK_USERGROUP) && is_array ($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) { ?>
-														<option value="<?php echo $v["id"]; ?>"<?php if (isset($_REQUEST["jak_permission"]) && $v["id"] == $_REQUEST["jak_permission"]) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php } ?>
+														<option value="<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></option><?php } ?>
 												</select>
 											</div>
 										</div>
@@ -175,7 +176,7 @@ if ($page3 == "e") { ?>
 											<div class="col-md-5"><strong><?php echo $tlbh["bh_box_content"]["bhbc3"]; ?></strong></div>
 											<div class="col-md-7">
 												<select name="jak_newsid[]" multiple="multiple" class="form-control">
-													<option value="0"<?php if (isset($_REQUEST["jak_newsid"]) && $_REQUEST["jak_newsid"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tlbh["bh_box_content"]["bhbc1"]; ?></option>
+													<option value="0" selected="selected"><?php echo $tlbh["bh_box_content"]["bhbc1"]; ?></option>
 
 													<?php if (isset($JAK_NEWS) && is_array ($JAK_NEWS)) foreach ($JAK_NEWS as $n) { ?>
 														<option value="<?php echo $n["id"]; ?>"><?php echo $n["title"]; ?></option>
@@ -188,10 +189,10 @@ if ($page3 == "e") { ?>
 											<div class="col-md-5">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_mainnews1" name="jak_mainnews" value="1"<?php if (isset($_REQUEST["jak_mainnews"]) && $_REQUEST["jak_mainnews"] == '1') { ?> checked="checked"<?php } ?> />
+													<input type="radio" id="jak_mainnews1" name="jak_mainnews" value="1" />
 													<label for="jak_mainnews1"><?php echo $tl["checkbox"]["chk"]; ?></label>
 
-													<input type="radio" id="jak_mainnews2" name="jak_mainnews" value="0"<?php if ((isset($_REQUEST["jak_mainnews"]) && $_REQUEST["jak_mainnews"] == '0') || !isset($_REQUEST["jak_mainnews"])) { ?> checked="checked"<?php } ?> />
+													<input type="radio" id="jak_mainnews2" name="jak_mainnews" value="0" checked="checked" />
 													<label for="jak_mainnews2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
 
 												</div>
@@ -203,10 +204,10 @@ if ($page3 == "e") { ?>
 												<div class="col-md-5">
 													<div class="radio radio-success">
 
-														<input type="radio" id="jak_tags1" name="jak_tags" value="1"<?php if (isset($_REQUEST["jak_tags"]) && $_REQUEST["jak_tags"] == '1') { ?> checked="checked"<?php } ?> />
+														<input type="radio" id="jak_tags1" name="jak_tags" value="1" />
 														<label for="jak_tags1"><?php echo $tl["checkbox"]["chk"]; ?></label>
 
-														<input type="radio" id="jak_tags2" name="jak_tags" value="0"<?php if ((isset($_REQUEST["jak_tags"]) && $_REQUEST["jak_tags"] == '0') || !isset($_REQUEST["jak_tags"])) { ?> checked="checked"<?php } ?> />
+														<input type="radio" id="jak_tags2" name="jak_tags" value="0" checked="checked" />
 														<label for="jak_tags2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
 
 													</div>
@@ -218,10 +219,10 @@ if ($page3 == "e") { ?>
 											<div class="col-md-5">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_search1" name="jak_search" value="1"<?php if (isset($_REQUEST["jak_search"]) && $_REQUEST["jak_search"] == '1') { ?> checked="checked"<?php } ?> />
+													<input type="radio" id="jak_search1" name="jak_search" value="1" />
 													<label for="jak_search1"><?php echo $tl["checkbox"]["chk"]; ?></label>
 
-													<input type="radio" id="jak_search2" name="jak_search" value="0"<?php if ((isset($_REQUEST["jak_search"]) && $_REQUEST["jak_search"] == '0') || !isset($_REQUEST["jak_search"])) { ?> checked="checked"<?php } ?> />
+													<input type="radio" id="jak_search2" name="jak_search" value="0" checked="checked" />
 													<label for="jak_search2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
 
 												</div>
@@ -232,10 +233,10 @@ if ($page3 == "e") { ?>
 											<div class="col-md-5">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_sitemap1" name="jak_sitemap" value="1"<?php if (isset($_REQUEST["jak_sitemap"]) && $_REQUEST["jak_sitemap"] == '1') { ?> checked="checked"<?php } ?> />
+													<input type="radio" id="jak_sitemap1" name="jak_sitemap" value="1" />
 													<label for="jak_sitemap1"><?php echo $tl["checkbox"]["chk"]; ?></label>
 
-													<input type="radio" id="jak_sitemap2" name="jak_sitemap" value="0"<?php if ((isset($_REQUEST["jak_sitemap"]) && $_REQUEST["jak_sitemap"] == '0') || !isset($_REQUEST["jak_sitemap"])) { ?> checked="checked"<?php } ?> />
+													<input type="radio" id="jak_sitemap2" name="jak_sitemap" value="0" checked="checked" />
 													<label for="jak_sitemap2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
 
 												</div>
@@ -285,9 +286,9 @@ if ($page3 == "e") { ?>
 														<div id="htmleditor2"></div>
 													</div>
 												</div>
-												<textarea name="jak_contentb" class="form-control hidden" id="jak_editor2"><?php if (isset($_REQUEST["jak_contentb"])) echo jak_edit_safe_userpost (htmlspecialchars ($_REQUEST["jak_contentb"])); ?></textarea>
+												<textarea name="jak_contentb" class="form-control hidden" id="jak_editor2"></textarea>
 											<?php } else { ?>
-												<textarea name="jak_contentb" class="form-control jakEditor" id="jakEditor2" rows="40"><?php if (isset($_REQUEST["jak_contentb"])) echo jak_edit_safe_userpost ($_REQUEST["jak_contentb"]); ?></textarea>
+												<textarea name="jak_contentb" class="form-control jakEditor" id="jakEditor2" rows="40"></textarea>
 											<?php } ?>
 										</td>
 									</tr>

@@ -57,8 +57,9 @@
 		$("#jak_filecontent").val(txtACE.getValue());
 		$("#jak_filecontent1").val(txtACE1.getValue());
 	});
-</script>
-<script type="text/javascript">
+
+	/* Other config
+	 ========================================= */
 	$(document).ready(function () {
 		$(".txtautogrow").autoGrow();
 	});

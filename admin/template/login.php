@@ -38,16 +38,14 @@
 								<input type="password" name="password" class="form-control" id="password" placeholder="<?php echo $tl["placeholder"]["p11"]; ?>" required>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-md-6 no-padding">
-								<div class="checkbox check-success">
-									<input type="checkbox" name="lcookies" id="remember">
-									<label for="remember"><?php echo $tl["log_in"]["login3"]; ?></label>
-								</div>
+						<div class="col-md-6 col-xs-6 no-padding">
+							<div class="checkbox check-success">
+								<input type="checkbox" name="lcookies" id="remember">
+								<label for="remember"><?php echo $tl["log_in"]["login3"]; ?></label>
 							</div>
-							<div class="col-md-6 text-right">
-								<a href="#" class="text-info small lost-pwd"><?php echo $tl["log_in"]["login4"]; ?></a>
-							</div>
+						</div>
+						<div class="col-md-6 col-xs-6 no-padding text-right">
+							<a href="#" class="lost-pwd"><?php echo $tl["log_in"]["login4"]; ?></a>
 						</div>
 						<input type="hidden" name="action" value="login"/>
 						<button type="submit" name="logID" class="btn btn-primary btn-cons m-t-10"><?php echo $tl["button"]["btn28"]; ?></button>

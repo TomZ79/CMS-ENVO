@@ -6,7 +6,7 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general"]["g7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>',
 			}, {
 				// settings
 				type: 'success',
@@ -21,7 +21,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo ($page1 == "e" ? $tl["errorpage"]["sql"] : $tl["errorpage"]["not"]);?>',
+				message: '<?php echo ($page1 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -48,20 +48,6 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 		}, 2000);
 	</script>
 <?php } ?>
-
-<?php
-$str = url_slug (
-	$tl["submenu"]["sm90"],
-	array (
-		'delimiter' => ' ',
-		'lowercase' => true,
-		'transliterate' => true,
-	)
-);
-
-echo 'Slova: ' . $str . ' - obsahují celkem slov: ' . str_word_count ($str)
-
-?>
 
 <?php if (isset($JAK_NEWS) && is_array ($JAK_NEWS)) { ?>
 	<div class="box box-success">
@@ -169,7 +155,7 @@ echo 'Slova: ' . $str . ' - obsahují celkem slov: ' . str_word_count ($str)
 
 	<div class="col-md-12">
 		<div class="alert bg-info text-white">
-			<?php echo $tl["errorpage"]["data"]; ?>
+			<?php echo $tl["general_error"]["generror3"]; ?>
 		</div>
 	</div>
 

@@ -6,7 +6,7 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general"]["g7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>',
 			}, {
 				// settings
 				type: 'success',

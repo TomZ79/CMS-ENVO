@@ -5,7 +5,7 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general"]["g7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>',
 			}, {
 				// settings
 				type: 'success',
@@ -19,7 +19,7 @@ if ($page3 == "e") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["errorpage"]["sql"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -35,10 +35,7 @@ if ($page3 == "e") { ?>
 			$.notify({
 				// options
 				message: '<?php if (isset($errors["e"])) echo $errors["e"];
-					if (isset($errors["e1"])) echo $errors["e1"];
-					if (isset($errors["e2"])) echo $errors["e2"];
-					if (isset($errors["e3"])) echo $errors["e3"];
-					if (isset($errors["e4"])) echo $errors["e4"];?>',
+					if (isset($errors["e1"])) echo $errors["e1"];?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -88,7 +85,11 @@ if ($page3 == "e") { ?>
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-12">
+											<div class="col-md-5">
+												<strong><?php echo $tlbh["bh_box_content"]["bhbc"]; ?></strong>
+												<span class="star-item text-danger-800 m-l-10">*</span>
+											</div>
+											<div class="col-md-7">
 												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 													<input class="form-control" type="text" name="jak_title" value="<?php echo $JAK_FORM_DATA["title"]; ?>"/>
 												</div>

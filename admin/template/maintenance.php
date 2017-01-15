@@ -65,7 +65,7 @@ if ($errors) { ?>
 											<span class="fileinput-filename"></span>
 											<a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
 										</div>
-										<button type="submit" name="import" class="btn btn-warning" onclick="if(!confirm('<?php echo $tl["error"]["e35"]; ?>'))return false;"><?php echo $tl["button"]["btn17"]; ?></button>
+										<button type="submit" name="import" class="btn btn-warning" data-confirm="<?php echo $tl["mtn_notification"]["import"]; ?>"><?php echo $tl["button"]["btn17"]; ?></button>
 									</div>
 								</div>
 							</div>

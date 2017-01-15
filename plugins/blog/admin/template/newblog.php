@@ -6,7 +6,7 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["errorpage"]["sql"]; ?>',
+				message: '<?php echo $tl["general_error"]["generror1"]; ?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -85,7 +85,10 @@
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tlblog["blog_box_content"]["blogbc"]; ?></strong></div>
+											<div class="col-md-5">
+												<strong><?php echo $tlblog["blog_box_content"]["blogbc"]; ?></strong>
+												<span class="star-item text-danger-800 m-l-10">*</span>
+											</div>
 											<div class="col-md-7">
 												<?php include_once APP_PATH . "admin/template/title_new.php"; ?>
 											</div>
@@ -96,10 +99,10 @@
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_showtitle1" name="jak_showtitle" value="1"<?php if (isset($_REQUEST["jak_showtitle"]) && $_REQUEST["jak_showtitle"] == '1') { ?> checked="checked"<?php } ?> />
+													<input type="radio" id="jak_showtitle1" name="jak_showtitle" value="1" />
 													<label for="jak_showtitle1"><?php echo $tl["checkbox"]["chk"]; ?></label>
 
-													<input type="radio" id="jak_showtitle2" name="jak_showtitle" value="0"<?php if (isset($_REQUEST["jak_showtitle"]) && $_REQUEST["jak_showtitle"] == '0') { ?> checked="checked"<?php } ?> />
+													<input type="radio" id="jak_showtitle2" name="jak_showtitle" value="0" checked="checked" />
 													<label for="jak_showtitle2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
 
 												</div>
@@ -110,10 +113,11 @@
 												<div class="col-md-5"><strong><?php echo $tlblog["blog_box_content"]["blogbc26"]; ?></strong>
 												</div>
 												<div class="col-md-7"><select name="jak_showcontact" class="form-control selectpicker">
-														<option value="0"<?php if (isset($_REQUEST["jak_showcontact"]) && $_REQUEST["jak_showcontact"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tlblog["blog_box_content"]["blogbc27"]; ?></option>
+														<option value="0"selected="selected"><?php echo $tlblog["blog_box_content"]["blogbc27"]; ?></option>
 														<?php foreach ($JAK_CONTACT_FORMS as $cf) { ?>
-															<option value="<?php echo $cf["id"]; ?>"<?php if (isset($_REQUEST["jak_showcontact"]) && $cf["id"] == $_REQUEST["jak_showcontact"]) { ?> selected="selected"<?php } ?>><?php echo $cf["title"]; ?></option><?php } ?>
-													</select></div>
+															<option value="<?php echo $cf["id"]; ?>"><?php echo $cf["title"]; ?></option><?php } ?>
+													</select>
+												</div>
 											</div>
 										<?php } ?>
 										<div class="row-form">
@@ -122,10 +126,10 @@
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_showdate1" name="jak_showdate" value="1"<?php if (isset($_REQUEST["jak_showdate"]) && $_REQUEST["jak_showdate"] == '1') { ?> checked="checked"<?php } ?> />
+													<input type="radio" id="jak_showdate1" name="jak_showdate" value="1" />
 													<label for="jak_showdate1"><?php echo $tl["checkbox"]["chk"]; ?></label>
 
-													<input type="radio" id="jak_showdate2" name="jak_showdate" value="0"<?php if (isset($_REQUEST["jak_showdate"]) && $_REQUEST["jak_showdate"] == '0') { ?> checked="checked"<?php } ?> />
+													<input type="radio" id="jak_showdate2" name="jak_showdate" value="0" checked="checked" />
 													<label for="jak_showdate2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
 
 												</div>
@@ -137,10 +141,10 @@
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_comment1" name="jak_comment" value="1"<?php if (isset($_REQUEST["jak_comment"]) && $_REQUEST["jak_comment"] == '1') { ?> checked="checked"<?php } ?> />
+													<input type="radio" id="jak_comment1" name="jak_comment" value="1" />
 													<label for="jak_comment1"><?php echo $tl["checkbox"]["chk"]; ?></label>
 
-													<input type="radio" id="jak_comment2" name="jak_comment" value="0"<?php if (isset($_REQUEST["jak_comment"]) && $_REQUEST["jak_comment"] == '0') { ?> checked="checked"<?php } ?> />
+													<input type="radio" id="jak_comment2" name="jak_comment" value="0" checked="checked" />
 													<label for="jak_comment2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
 
 												</div>
@@ -152,10 +156,10 @@
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_vote1" name="jak_vote" value="1"<?php if (isset($_REQUEST["jak_vote"]) && $_REQUEST["jak_vote"] == '1') { ?> checked="checked"<?php } ?> />
+													<input type="radio" id="jak_vote1" name="jak_vote" value="1" />
 													<label for="jak_vote"><?php echo $tl["checkbox"]["chk"]; ?></label>
 
-													<input type="radio" id="jak_vote2" name="jak_vote" value="0"<?php if (isset($_REQUEST["jak_vote"]) && $_REQUEST["jak_vote"] == '0') { ?> checked="checked"<?php } ?> />
+													<input type="radio" id="jak_vote2" name="jak_vote" value="0" checked="checked" />
 													<label for="jak_vote2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
 
 												</div>
@@ -167,10 +171,10 @@
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_social1" name="jak_social" value="1"<?php if (isset($_REQUEST["jak_social"]) && $_REQUEST["jak_social"] == '1') { ?> checked="checked"<?php } ?> />
+													<input type="radio" id="jak_social1" name="jak_social" value="1" />
 													<label for="jak_social1"><?php echo $tl["checkbox"]["chk"]; ?></label>
 
-													<input type="radio" id="jak_social2" name="jak_social" value="0"<?php if (isset($_REQUEST["jak_social"]) && $_REQUEST["jak_social"] == '0') { ?> checked="checked"<?php } ?> />
+													<input type="radio" id="jak_social2" name="jak_social" value="0" checked="checked" />
 													<label for="jak_social2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
 
 												</div>
@@ -182,10 +186,10 @@
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" name="jak_sidebar" value="1"<?php if (isset($_REQUEST["jak_sidebar"]) && $_REQUEST["jak_sidebar"] == '1') { ?> checked="checked"<?php } ?> />
+													<input type="radio" name="jak_sidebar" value="1" checked="checked" />
 													<label for="yes"><?php echo $tl["checkbox"]["chk2"]; ?></label>
 
-													<input type="radio" name="jak_sidebar" value="0"<?php if (isset($_REQUEST["jak_sidebar"]) && $_REQUEST["jak_sidebar"] == '0') { ?> checked="checked"<?php } ?> />
+													<input type="radio" name="jak_sidebar" value="0" />
 													<label for="no"><?php echo $tl["checkbox"]["chk3"]; ?></label>
 
 												</div>
@@ -196,7 +200,7 @@
 											</div>
 											<div class="col-md-7">
 												<div class="input-group">
-													<input type="text" name="jak_img" id="jak_img" class="form-control" value="<?php if (isset($_REQUEST["jak_img"])) echo $_REQUEST["jak_img"]; ?>"/>
+													<input type="text" name="jak_img" id="jak_img" class="form-control" value=""/>
                         <span class="input-group-btn">
                           <a class="btn btn-info ifManager" type="button"
 														href="../js/editor/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_img"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
@@ -230,10 +234,10 @@
 										<div class="row-form">
 											<div class="col-md-12">
 												<select name="jak_catid[]" multiple="multiple" class="form-control">
-													<option value="0"<?php if (isset($_REQUEST["jak_catid"]) && $_REQUEST["jak_catid"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tlblog["blog_box_content"]["blogbc37"]; ?></option>
+													<option value="0" selected="selected"><?php echo $tlblog["blog_box_content"]["blogbc37"]; ?></option>
 
 													<?php if (isset($JAK_CAT) && is_array ($JAK_CAT)) foreach ($JAK_CAT as $v) { ?>
-														<option value="<?php echo $v["id"]; ?>"<?php if ($v["id"] == $page2) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option>
+														<option value="<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></option>
 													<?php } ?>
 												</select>
 											</div>
@@ -284,7 +288,7 @@
 											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-													<input type="text" name="jak_datefrom" id="datepickerFrom" class="form-control" value="<?php if (isset($_REQUEST["jak_datefrom"])) echo $_REQUEST["jak_datefrom"]; ?>" readonly/>
+													<input type="text" name="jak_datefrom" id="datepickerFrom" class="form-control" value="" readonly/>
 												</div>
 											</div>
 										</div>
@@ -293,7 +297,7 @@
 											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-													<input type="text" name="jak_dateto" id="datepickerTo" class="form-control" value="<?php if (isset($_REQUEST["jak_dateto"])) echo $_REQUEST["jak_dateto"]; ?>" readonly/>
+													<input type="text" name="jak_dateto" id="datepickerTo" class="form-control" value="" readonly/>
 												</div>
 											</div>
 										</div>
@@ -350,7 +354,7 @@
 											</div>
 											<div class="row-form">
 												<div class="col-md-12">
-													<input type="text" name="jak_tags" id="jak_tags" class="tags form-control" value="<?php if (isset($_REQUEST["jak_tags"])) echo $_REQUEST["jak_tags"]; ?>" data-role="tagsinput"/>
+													<input type="text" name="jak_tags" id="jak_tags" class="tags form-control" value="" data-role="tagsinput"/>
 												</div>
 											</div>
 										</div>
@@ -386,7 +390,7 @@
 								<a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
 								<a href="javascript:;" id="addCssBlock"><?php echo $tl["global_text"]["globaltxt6"]; ?></a><br/>
 								<div id="csseditor"></div>
-								<textarea name="jak_css" id="jak_css" class="hidden"><?php if (isset($_REQUEST["jak_css"])) echo $_REQUEST["jak_css"]; ?></textarea>
+								<textarea name="jak_css" id="jak_css" class="hidden"></textarea>
 							</div>
 							<div class="box-footer">
 								<button type="submit" name="save" class="btn btn-success pull-right">
@@ -409,7 +413,7 @@
 								<a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
 								<a href="javascript:;" id="addJavascriptBlock"><?php echo $tl["global_text"]["globaltxt7"]; ?></a><br/>
 								<div id="javaeditor"></div>
-								<textarea name="jak_javascript" id="jak_javascript" class="hidden"><?php if (isset($_REQUEST["jak_javascript"])) echo $_REQUEST["jak_javascript"]; ?></textarea>
+								<textarea name="jak_javascript" id="jak_javascript" class="hidden"></textarea>
 							</div>
 							<div class="box-footer">
 								<button type="submit" name="save" class="btn btn-success pull-right">

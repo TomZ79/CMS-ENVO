@@ -6,7 +6,7 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general"]["g7"];?>',
+        message: '<?php echo $tl["notification"]["n7"];?>',
       }, {
         // settings
         type: 'success',
@@ -21,7 +21,7 @@ if ($page3 == "e") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["errorpage"]["sql"];?>',
+        message: '<?php echo $tl["general_error"]["generror1"];?>',
       }, {
         // settings
         type: 'success',
@@ -42,7 +42,7 @@ if ($errors) { ?>
           if (isset($errors["e3"])) echo $errors["e3"];?>',
       }, {
         // settings
-        type: 'success',
+        type: 'danger',
         delay: 5000,
       });
     }, 1000);
@@ -69,7 +69,10 @@ if ($errors) { ?>
             <div class="block">
               <div class="block-content">
                 <div class="row-form">
-                  <div class="col-md-5"><strong><?php echo $tl["cform"]["c2"]; ?></strong></div>
+                  <div class="col-md-5">
+                    <strong><?php echo $tl["cform"]["c2"]; ?></strong>
+                    <span class="star-item text-danger-800 m-l-10">*</span>
+                  </div>
                   <div class="col-md-7">
                     <?php include_once "title_edit.php"; ?>
                   </div>
@@ -89,15 +92,22 @@ if ($errors) { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5"><strong><?php echo $tl["cform"]["c20"]; ?></strong></div>
-                  <div class="col-md-7"><div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
+                  <div class="col-md-5">
+                    <strong><?php echo $tl["cform"]["c20"]; ?></strong>
+                  </div>
+                  <div class="col-md-7">
+                    <div class="form-group no-margin">
                       <input type="text" name="jak_email" class="form-control" value="<?php echo $JAK_FORM_DATA["email"]; ?>" placeholder="email@domain.com,email1@domain.com,email2@domain.com"/>
-                    </div></div>
+                    </div>
+                  </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5"><strong><?php echo $tl["cform"]["c3"]; ?></strong></div>
-                  <div class="col-md-7">
-                    <?php include_once "editorlight_edit.php"; ?>
+                  <div class="col-md-5">
+                    <strong><?php echo $tl["cform"]["c3"]; ?></strong>
+                    <span class="star-item text-danger-800 m-l-10">*</span>
+                  </div>
+                  <div class="col-md-7 <?php if (isset($errors["e2"])) echo " has-error"; ?>">
+                    <textarea name="jak_lcontent" class="jakEditorLight form-control" id="jakEditor" rows="5" style="width:100%;"><?php echo jak_edit_safe_userpost ($JAK_FORM_DATA["content"]); ?></textarea>
                   </div>
                 </div>
               </div>

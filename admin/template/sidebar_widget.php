@@ -20,11 +20,9 @@ $hid = array ();
 
 				<li id="widget-<?php echo $pgh["id"]; ?>" class="jakwidget">
 					<div class="sidebar-widget">
-						<div class="checkbox">
-							<label>
-								<input type="checkbox" name="jak_hookshow[]" value="<?php echo $pgh["id"]; ?>" checked="checked"/>
-								<a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
-							</label>
+						<div class="checkbox check-success  ">
+							<input type="checkbox" id="jak_hookshow<?php echo $pgh["id"]; ?>" name="jak_hookshow[]" value="<?php echo $pgh["id"]; ?>" checked="checked"/>
+							<label for="jak_hookshow<?php echo $pgh["id"]; ?>"><a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a></label>
 						</div>
 					</div>
 					<div class="actions">
@@ -46,11 +44,9 @@ $hid = array ();
 
 			<li id="widget-<?php echo $v["id"]; ?>" class="jakwidget">
 				<div class="sidebar-widget">
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" name="jak_hookshow_new[]" value="<?php echo $v["id"]; ?>"/>
-							<a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
-						</label>
+					<div class="checkbox check-success  ">
+						<input type="checkbox" id="jak_hookshow_new<?php echo $v["id"]; ?>" name="jak_hookshow_new[]" value="<?php echo $v["id"]; ?>"/>
+						<label for="jak_hookshow_new<?php echo $v["id"]; ?>"><a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a></label>
 					</div>
 				</div>
 				<div class="actions">

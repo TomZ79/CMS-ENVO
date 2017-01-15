@@ -6,7 +6,7 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general"]["g7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>',
 			}, {
 				// settings
 				type: 'success',
@@ -21,7 +21,7 @@ if ($page1 == "e") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["errorpage"]["sql"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -32,7 +32,7 @@ if ($page1 == "e") { ?>
 <?php } ?>
 
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-		<div class="row">
+		<div class="row tab-content-singel">
 			<div class="col-md-12">
 				<div class="box box-success">
 					<div class="box-header with-border">
@@ -44,26 +44,26 @@ if ($page1 == "e") { ?>
 							<?php if (isset($JAK_PLUGINS) && is_array ($JAK_PLUGINS)) foreach ($JAK_PLUGINS as $v) { ?>
 
 								<li id="plugin-<?php echo $v["id"]; ?>" class="jakplugins">
-									<div class="row">
-										<div class="col-md-1 text">
+									<div class="row sm-no-margin">
+										<div class="col-md-1 col-xs-3 text">
 											<span># </span>
 											<a href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["id"]; ?></a>
 										</div>
-										<div class="col-md-2 text plugins-name">
-                  <span title="<?php echo $v["description"]; ?>">
-                    <?php
-										$name = $v["name"];
-										echo "<strong>" . str_replace ('_', ' ', $name) . "</strong>";
-										?>
-                  </span>
+										<div class="col-md-2 col-xs-5 text plugins-name">
+											<span title="<?php echo $v["description"]; ?>">
+												<?php
+												$name = $v["name"];
+												echo "<strong>" . str_replace ('_', ' ', $name) . "</strong>";
+												?>
+											</span>
 										</div>
-										<div class="col-md-2 text">
+										<div class="col-md-2 col-xs-4 text">
 											<?php if ($v['pluginversion']) {
 												echo '(' . sprintf ($tl["plug_box_content"]["plugbc6"], $v["pluginversion"]) . ')';
 											} ?>
 											<input type="hidden" name="real_id[]" value="<?php echo $v["id"]; ?>"/>
 										</div>
-										<div class="col-md-1 text text-center">
+										<div class="col-md-1 hidden-xs text text-center">
 											<?php
 											$filename = '../plugins/' . strtolower ($v["name"]) . '/help.php';
 
@@ -74,13 +74,13 @@ if ($page1 == "e") { ?>
 											}
 											?>
 										</div>
-										<div class="col-md-4 show">
+										<div class="col-md-4 hidden-xs show">
 											<div class="form-group form-inline">
 												<label><?php echo $tl["plug_box_content"]["plugbc"]; ?></label>
 												<input type="text" class="form-control" name="access[]" value="<?php echo $v["access"]; ?>"/>
 											</div>
 										</div>
-										<div class="col-md-2 actions">
+										<div class="col-md-2 hidden-xs actions">
 
 											<?php if (isset($site_plugins) && is_array ($site_plugins)) foreach ($site_plugins as $p) {
 												if (strtolower ($v["pluginpath"]) == strtolower ($p)) {
@@ -124,7 +124,7 @@ if ($page1 == "e") { ?>
 				<?php if (isset($site_plugins) && is_array ($site_plugins) && isset($installedp) && is_array ($installedp)) foreach ($site_plugins as $p) {
 					if (!in_array (strtolower ($p), $installedp)) { ?>
 
-						<div class="box box-solid">
+						<div class="box box-default box-solid">
 							<div class="box-header with-border">
 								<i class="fa fa-plug"></i>
 								<h3 class="box-title">
@@ -135,11 +135,11 @@ if ($page1 == "e") { ?>
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-3">
+											<div class="col-md-3 col-sm-6">
 												<?php echo $tl["plug_box_content"]["plugbc1"]; ?>:
 												<a class="plugInst" href="../plugins/<?php echo $p; ?>/install.php"><?php echo str_replace ('_', ' ', ucfirst ($p)); ?></a>
 											</div>
-											<div class="col-md-9">
+											<div class="col-md-9 col-sm-6">
 												<?php echo $tl["plug_box_content"]["plugbc2"]; ?>:
 
 												<?php

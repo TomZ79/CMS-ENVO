@@ -29,19 +29,21 @@
 				</div><!-- /input-group -->
 			</form>
 		</div>
-		<div class="col-md-6">
-			<div class="input-group">
-				<select name="jak_group" class="form-control selectpicker" data-size="5">
-					<?php if (isset($JAK_USERGROUP_ALL) && is_array ($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $z) {
-						if ($z["id"] != 1) { ?>
-							<option value="<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></option><?php }
-					} ?>
-				</select>
+
+		<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+			<div class="col-md-6">
+				<div class="input-group">
+					<select name="jak_group" class="form-control selectpicker" data-size="5">
+						<?php if (isset($JAK_USERGROUP_ALL) && is_array ($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $z) {
+							if ($z["id"] != 1) { ?>
+								<option value="<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></option><?php }
+						} ?>
+					</select>
         <span class="input-group-btn">
           <button type="submit" name="move" class="btn btn-warning"><?php echo $tl["button"]["btn20"]; ?></button>
         </span>
+				</div>
 			</div>
-		</div>
 	</div>
 
 	<hr>
@@ -71,13 +73,13 @@
 							</button>
 						</th>
 						<th>
-							<button type="submit" name="password" id="button_key" class="btn btn-default btn-xs" onclick="if(!confirm('<?php echo $tl["user_notification"]["pass1"]; ?>'))return false;">
+							<button type="submit" name="password" id="button_key" class="btn btn-default btn-xs" data-confirm="<?php echo $tl["user_notification"]["pass1"]; ?>">
 								<i class="fa fa-key"></i>
 							</button>
 						</th>
 						<th></th>
 						<th>
-							<button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" onclick="if(!confirm('<?php echo $tl["user_notification"]["delall"]; ?>'))return false;" disabled="disabled">
+							<button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tl["user_notification"]["delall"]; ?>" disabled="disabled">
 								<i class="fa fa-trash-o"></i>
 							</button>
 						</th>
@@ -104,22 +106,26 @@
 								} ?>
 							</td>
 							<td>
-								<a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>">
+								<a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["access"] == '1') {
+									echo $tl["icons"]["i6"];
+								} else {
+									echo $tl["icons"]["i5"];
+								} ?>">
 									<i class="fa fa-<?php if ($v["access"] == '1') { ?>check<?php } else { ?>lock<?php } ?>"></i>
 								</a>
 							</td>
 							<td>
-								<a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=password&amp;ssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["user_notification"]["pass"]; ?>'))return false;">
+								<a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=password&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["user_notification"]["pass"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i14"]; ?>">
 									<i class="fa fa-key"></i>
 								</a>
 							</td>
 							<td>
-								<a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>">
+								<a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i2"]; ?>">
 									<i class="fa fa-edit"></i>
 								</a>
 							</td>
 							<td>
-								<a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["user_notification"]["del"]; ?>'))return false;">
+								<a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo sprintf ($tl["user_notification"]["del"], $v["name"]); ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
 									<i class="fa fa-trash-o"></i>
 								</a>
 							</td>
@@ -149,7 +155,7 @@
 								</a>
 							</td>
 							<td>
-								<a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=password&amp;ssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["user_notification"]["pass"]; ?>'))return false;">
+								<a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=password&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["user_notification"]["pass"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i14"]; ?>">
 									<i class="fa fa-key"></i>
 								</a>
 							</td>
@@ -159,7 +165,7 @@
 								</a>
 							</td>
 							<td>
-								<a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" onclick="if(!confirm('<?php echo $tl["user_notification"]["del"]; ?>'))return false;">
+								<a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo sprintf ($tl["user_notification"]["del"], $v["username"]); ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
 									<i class="fa fa-trash-o"></i>
 								</a>
 							</td>
@@ -169,12 +175,14 @@
 				</table>
 			</div>
 		</div>
-	</div></form>
+	</div>
+	</form>
 
 <?php } else if ($SEARCH_WORD) { ?>
-	<hr>
-	<div class="alert bg-danger">
-		<?php echo $tl["search"]["s6"]; ?> <strong><?php echo $SEARCH_WORD; ?></strong>
+	<div class="col-md-12">
+		<div class="alert bg-info text-white">
+			<?php echo sprintf ($tl["search"]["s6"], $SEARCH_WORD); ?>
+		</div>
 	</div>
 <?php } ?>
 

@@ -19,7 +19,8 @@
 	<link href="assets/plugins/bootstrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 	<link href="assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
 	<link href="assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css" media="screen"/>
-	<link href="assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen"/>
+	<link href="assets/plugins/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" type="text/css" media="screen"/>
+	<link href="assets/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" media="screen"/>
 	<link href="assets/plugins/switchery/css/switchery.min.css" rel="stylesheet" type="text/css" media="screen"/>
 	<link href="assets/plugins/prism/prism.css" rel="stylesheet" type="text/css" media="screen"/>
 	<link href="assets/css/animate.min.css" rel="stylesheet" type="text/css">
@@ -42,6 +43,7 @@
 	<?php if (isset($JAK_HOOK_HEAD_ADMIN) && is_array ($JAK_HOOK_HEAD_ADMIN)) foreach ($JAK_HOOK_HEAD_ADMIN as $headt) {
 		include_once APP_PATH . $headt['phpcode'];
 	} ?>
+
 </head>
 <body class="fixed-header has-detached-right" data-spy="scroll" data-target=".sidebar-detached" data-offset-top="70">
 <?php if ($JAK_PROVED) { ?>
@@ -113,16 +115,6 @@
 					</div>
 				</div>
 			</div>
-			<!-- RIGHT SIDE -->
-			<div class="pull-right full-height visible-sm visible-xs">
-				<!-- START ACTION BAR -->
-				<div class="header-inner">
-					<a href="#" class="btn-link visible-sm-inline-block visible-xs-inline-block" data-toggle="quickview" data-toggle-element="#quickview">
-						<span class="icon-set menu-hambuger-plus"></span>
-					</a>
-				</div>
-				<!-- END ACTION BAR -->
-			</div>
 		</div>
 		<!-- END MOBILE CONTROLS -->
 		<div class=" pull-left sm-table hidden-xs hidden-sm">
@@ -176,23 +168,22 @@
 			<!-- START JUMBOTRON -->
 			<div class="jumbotron" data-pages="parallax">
 				<div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+					<?php if ($page != '404' && !empty($page))	{ ?>
 					<div class="inner">
 						<!-- START BREADCRUMB -->
 						<ul class="breadcrumb">
-							<li>
-								<p>Pages</p>
-							</li>
-							<li><a href="#" class="active">Barebone template</a>
-							</li>
+							<li><h5 class="title bold"><?php echo $SECTION_TITLE; ?></h5></li>
+							<li><span class="desc"><?php echo $SECTION_DESC; ?></span></li>
 						</ul>
 						<!-- END BREADCRUMB -->
 					</div>
+					<?php } ?>
 				</div>
 			</div>
 			<!-- END JUMBOTRON -->
 			<!-- START CONTAINER FLUID -->
 			<div class="container-fluid container-fixed-lg">
-				<!-- BEGIN PlACE PAGE CONTENT HERE -->
+				<!-- BEGIN PLACE PAGE CONTENT HERE -->
 
 				<?php } else { ?>
 

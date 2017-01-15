@@ -1,4 +1,7 @@
-<?php if ($jkv["adv_editor"]) { ?>
+<?php
+// Load 'ace.js'  - only for selected pages
+if ($jkv["adv_editor"] && (($page == 'page' && $page1 == 'newpage') || ($page == 'page' && $page1 == 'edit'))) {
+	?>
 	<script src="assets/plugins/ace/ace.js" type="text/javascript"></script>
 <?php } ?>
 <script type="text/javascript">
@@ -21,6 +24,10 @@
 			showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
 			showGutter: <?php echo $jkv["acegutter"]; ?>,
 		});
+		// This is to remove following warning message on console:
+		// Automatically scrolling cursor into view after selection change this will be disabled in the next version
+		// set editor.$blockScrolling = Infinity to disable this message
+		htmlACE.$blockScrolling = Infinity;
 
 		texthtml = $("#jak_editor").val();
 		htmlACE.session.setValue(texthtml);
@@ -85,6 +92,9 @@
 			jsACE.insert(insert_javascript());
 		});
 
+		<?php
+		if ($page == 'page' && $page1 == 'edit') {
+		?>
 		$("#restorcontent").change(function () {
 			if ($(this).val() != 0) {
 				if (!confirm('<?php echo $tl["page_notification"]["restore"];?>')) {
@@ -95,6 +105,7 @@
 				}
 			}
 		});
+		<?php } ?>
 
 		/* Check all checkbox */
 		$("#jak_delete_all").click(function () {

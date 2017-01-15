@@ -6,7 +6,7 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["errorpage"]["sql"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -54,21 +54,33 @@ if ($errors) { ?>
 						<div class="block">
 							<div class="block-content">
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["hook_box_content"]["hookbc"]; ?></strong></div>
+									<div class="col-md-5">
+										<strong><?php echo $tl["hook_box_content"]["hookbc"]; ?></strong>
+										<span class="star-item text-danger-800 m-l-10">*</span>
+									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-											<input type="text" name="jak_name" class="form-control" value="<?php if (isset($_REQUEST["jak_showhook"])) echo $_REQUEST["jak_name"]; ?>"/>
+
+											<?php
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											echo $htmlE->addInput ('text', 'jak_name', '', 'form-control', $_REQUEST["jak_name"], '');
+											?>
+
 										</div>
 									</div>
 								</div>
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["hook_box_content"]["hookbc1"]; ?></strong></div>
+									<div class="col-md-5">
+										<strong><?php echo $tl["hook_box_content"]["hookbc1"]; ?></strong>
+										<span class="star-item text-danger-800 m-l-10">*</span>
+									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
 											<select name="jak_hook" class="form-control selectpicker" data-live-search="true" data-size="5">
-												<option value="0"<?php if (isset($_REQUEST["jak_showhook"]) && $_REQUEST["jak_showhook"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel7"]; ?></option>
+												<option value="0" selected="selected"><?php echo $tl["selection"]["sel7"]; ?></option>
 												<?php if (isset($JAK_HOOK_LOCATIONS) && is_array ($JAK_HOOK_LOCATIONS)) foreach ($JAK_HOOK_LOCATIONS as $h) { ?>
-													<option value="<?php echo $h; ?>"<?php if (isset($_REQUEST["jak_showhook"]) && $h == $_REQUEST["jak_hook"]) { ?> selected="selected"<?php } ?>><?php echo $h; ?></option><?php } ?>
+													<option value="<?php echo $h; ?>"><?php echo $h; ?></option>
+												<?php } ?>
 											</select>
 										</div>
 									</div>
@@ -77,19 +89,27 @@ if ($errors) { ?>
 									<div class="col-md-5"><strong><?php echo $tl["hook_box_content"]["hookbc2"]; ?></strong></div>
 									<div class="col-md-7">
 										<select name="jak_plugin" class="form-control selectpicker" data-live-search="true" data-size="5">
-											<option value="0"<?php if (isset($_REQUEST["jak_showhook"]) && $_REQUEST["jak_plugin"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c18"]; ?></option>
+											<option value="0" selected="selected"><?php echo $tl["cform"]["c18"]; ?></option>
 											<?php if (isset($JAK_PLUGINS) && is_array ($JAK_PLUGINS)) foreach ($JAK_PLUGINS as $p) { ?>
-												<option value="<?php echo $p["id"]; ?>"<?php if (isset($_REQUEST["jak_showhook"]) && $p["id"] == $_REQUEST["jak_plugin"]) { ?> selected="selected"<?php } ?>><?php echo $p["name"]; ?></option><?php } ?>
+												<option value="<?php echo $p["id"]; ?>"><?php echo $p["name"]; ?></option>
+											<?php } ?>
 										</select>
 									</div>
 								</div>
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["hook_box_content"]["hookbc3"]; ?></strong></div>
+									<div class="col-md-5">
+										<strong><?php echo $tl["hook_box_content"]["hookbc3"]; ?></strong>
+										<span class="star-item text-danger-800 m-l-10">*</span>
+									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
-											<input type="text" name="jak_exorder" class="form-control" value="<?php if (isset($_REQUEST["jak_exorder)"])) {
-												echo $_REQUEST["jak_exorder"];
-											} else { ?>4<?php } ?>" maxlength="5"/>
+
+											<?php
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											(isset($_REQUEST["jak_exorder"]) && (!empty($_REQUEST["jak_exorder"]))) ? $value = $_REQUEST["jak_exorder"] : $value = '4';
+											echo $htmlE->addInput ('text', 'jak_exorder', '', 'form-control', $value, '', array ('maxlength' => '5'));
+											?>
+
 										</div>
 									</div>
 								</div>
@@ -110,7 +130,11 @@ if ($errors) { ?>
 					<div class="box-body">
 
 						<div id="htmleditor"></div>
-						<textarea name="jak_phpcode" id="jak_phpcode" class="form-control hidden"><?php if (isset($_REQUEST["jak_phpcode"])) echo $_REQUEST["jak_phpcode"]; ?></textarea>
+
+						<?php
+						// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+						echo $htmlE->addTextArea ('jak_phpcode', '', '', $_REQUEST["jak_phpcode"], array ('id' => 'jak_phpcode', 'class' => 'form-control hidden'));
+						?>
 
 					</div>
 					<div class="box-footer">

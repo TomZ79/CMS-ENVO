@@ -6,7 +6,7 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general"]["g7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>',
 			}, {
 				// settings
 				type: 'success',
@@ -21,7 +21,7 @@ if ($page4 == "e") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["errorpage"]["sql"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -69,7 +69,10 @@ if ($errors) { ?>
 						<div class="block">
 							<div class="block-content">
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["hook_box_content"]["hookbc"]; ?></strong></div>
+									<div class="col-md-5">
+										<strong><?php echo $tl["hook_box_content"]["hookbc"]; ?></strong>
+										<span class="star-item text-danger-800 m-l-10">*</span>
+									</div>
 									<div class="col-md-7">
 										<div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?> no-margin">
 											<input type="text" name="jak_name" class="form-control" value="<?php echo $JAK_FORM_DATA["name"]; ?>"/>
@@ -77,7 +80,10 @@ if ($errors) { ?>
 									</div>
 								</div>
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["hook_box_content"]["hookbc1"]; ?></strong></div>
+									<div class="col-md-5">
+										<strong><?php echo $tl["hook_box_content"]["hookbc1"]; ?></strong>
+										<span class="star-item text-danger-800 m-l-10">*</span>
+									</div>
 									<div class="col-md-7">
 										<div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
 											<select name="jak_hook" class="form-control selectpicker" data-live-search="true" data-size="5">
@@ -99,7 +105,10 @@ if ($errors) { ?>
 									</div>
 								</div>
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["hook_box_content"]["hookbc3"]; ?></strong></div>
+									<div class="col-md-5">
+										<strong><?php echo $tl["hook_box_content"]["hookbc3"]; ?></strong>
+										<span class="star-item text-danger-800 m-l-10">*</span>
+									</div>
 									<div class="col-md-7">
 										<div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
 											<input type="text" name="jak_exorder" class="form-control" value="<?php echo $JAK_FORM_DATA["exorder"]; ?>" maxlength="5"/>

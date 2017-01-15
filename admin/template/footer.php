@@ -162,12 +162,14 @@
 
 <!-- BEGIN VENDOR JS -->
 <script src="assets/plugins/pace/pace.min.js" type="text/javascript"></script>
-<script src="assets/plugins/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
 <script src="assets/plugins/modernizr.custom.js" type="text/javascript"></script>
-<script src="assets/plugins/jquery-ui/jquery-ui3.min.js" type="text/javascript"></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
 <script src="assets/plugins/bootstrapv3/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="assets/plugins/bootstrap-notify/bootstrap-notify.js" type="text/javascript"></script>
 <script src="assets/plugins/bootstrap-bootboxjs/bootbox.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-select/js/i18n/defaults-cs_CZ.min.js" type="text/javascript"></script>
 <script src="assets/plugins/jquery/jquery-easy.js" type="text/javascript"></script>
 <script src="assets/plugins/jquery-unveil/jquery.unveil.min.js" type="text/javascript"></script>
 <script src="assets/plugins/jquery-bez/jquery.bez.min.js"></script>
@@ -176,6 +178,7 @@
 <script src="assets/plugins/jquery-actual/jquery.actual.min.js"></script>
 <script src="assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 <!-- Prism -->
+<script src="assets/plugins/prism/preCode.js"></script>
 <script src="assets/plugins/prism/prism.js"></script>
 <!-- Validadion -->
 <script src="assets/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>

@@ -138,15 +138,15 @@ class Jak_ToDo
 
 		// The string we return is outputted by the echo statement
 
-		$actionB = '<div class="actions">';
+		$actionB = '<div class="pull-right actions">';
 
 		if ($this->data['adminid'] == JAK_USERID) {
 
-			$actionB .= '<a href="#" class="btn btn-default btn-xs edit"><i class="fa fa-pencil"></i></a><a href="#" class="btn btn-default btn-xs delete"><i class="fa fa-trash-o"></i></a>';
+			$actionB .= '<a href="#" class="btn btn-default btn-xs edit"><i class="fa fa-pencil"></i></a><a href="#" class="btn btn-danger btn-xs delete"><i class="fa fa-trash-o"></i></a>';
 
 		}
 
-		if (isset($this->data['work_done'])) {
+		if (isset($this->data['work_done']) && $this->data['work_done'] == 1) {
 
 			$actionB .= '<a href="#" class="btn btn-default btn-xs done"><i class="fa fa-check"></i></a>';
 
@@ -158,11 +158,24 @@ class Jak_ToDo
 
 		$actionB .= '</div>';
 
-		return '<li id="todo-' . $this->data['id'] . '" class="todo">
 
-				<div class="text">' . $this->data['text'] . '</div>
+		if (isset($this->data['work_done']) && $this->data['work_done'] == 1) {
 
-				' . $actionB . '
+			$textT = '<div class="pull-left text"><span style="text-decoration: line-through; color: #CCC;">' . $this->data['text'] . '</span></div>';
+
+		} else {
+
+			$textT = '<div class="pull-left text"><span>' . $this->data['text'] . '</span></div>';
+
+		}
+
+		return '<li id="todo-' . $this->data['id'] . '" class="row todo">
+
+				<div class="col-md-12">
+
+				' . $textT . $actionB . '
+
+				</div>
 
 			</li>';
 	}

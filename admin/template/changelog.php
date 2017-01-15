@@ -19,96 +19,95 @@
 							<div class="panel-body">
 								<p class="content-group">Version 1.2 includes bug fixing for reported issues, new components and updated plugins/libraries to the latest stable versions. </p>
 
-<pre class="language-markup">
-	<code id="foo">
-		// # List of new components
-		// ------------------------------
+								<pre><code class="language-markup">
+										// # List of new components
+										// ------------------------------
 
-		[new] ACP - Changelog
-		[new] ACP - Settings for ACE Editor
-		[new] ACP - Popup modal dialog is in fullscreen mode
-		[new] Site - Quick Edit dialog is in fullscreen mode
-		[new] ACP - Add new Jquery plugin PACE.js
-		[new] ACP - some settings are in extra custom card
-		[new] Translate language
-		[new] Add new tamplate 'Bluesat'
-		[new] Add new color theme for PACE Jquery script
-		[new] ACP - Ace Editor - Add resize buttons to fullscreen mode
-		[new] Add new function for blog article (edit time)
-		[new] ACP - Categories - extra settings for meta description and keywords
-		[new] ACP - Datetimepicker - change plugin to better
-		http://eonasdan.github.io/bootstrap-datetimepicker/
-		[new] ACP - Bootstrap Tags Input
-		https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/
-		[new] Social Media Sharing Plugin
-		88z.github.io/sollist/
-		[new] Add new template Canvas
-		[new] ACP - Plugins - added captcha (security number) for uninstallation
-		http://99webtools.com/blog/php-simple-captcha-script/
-		[new] Password generator for Users
-		[new] New Plugin XML SEO Sitemap v1.3
-		[new] Add search page by title in Pages
-		[new] Add Bootstrap Tooltip to Action icons
-		[new] Add new plugin for scrolling vertical menu (Perfect ScrollBar)
-		[new] Add new plugin Bootbox
-		[new] Add new button for saving forms
-		[new] Add new design for ACP - 'Pages' Template
+										[new] ACP - Changelog
+										[new] ACP - Settings for ACE Editor
+										[new] ACP - Popup modal dialog is in fullscreen mode
+										[new] Site - Quick Edit dialog is in fullscreen mode
+										[new] ACP - Add new Jquery plugin PACE.js
+										[new] ACP - some settings are in extra custom card
+										[new] Translate language
+										[new] Add new tamplate 'Bluesat'
+										[new] Add new color theme for PACE Jquery script
+										[new] ACP - Ace Editor - Add resize buttons to fullscreen mode
+										[new] Add new function for blog article (edit time)
+										[new] ACP - Categories - extra settings for meta description and keywords
+										[new] ACP - Datetimepicker - change plugin to better
+										http://eonasdan.github.io/bootstrap-datetimepicker/
+										[new] ACP - Bootstrap Tags Input
+										https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/
+										[new] Social Media Sharing Plugin
+										88z.github.io/sollist/
+										[new] Add new template Canvas
+										[new] ACP - Plugins - added captcha (security number) for uninstallation
+										http://99webtools.com/blog/php-simple-captcha-script/
+										[new] Password generator for Users
+										[new] New Plugin XML SEO Sitemap v1.3
+										[new] Add search page by title in Pages
+										[new] Add Bootstrap Tooltip to Action icons
+										[new] Add new plugin for scrolling vertical menu (Perfect ScrollBar)
+										[new] Add new plugin Bootbox
+										[new] Add new button for saving forms
+										[new] Add new design for ACP - 'Pages' Template
 
-		// # List of updated components
-		// ------------------------------
+										// # List of updated components
+										// ------------------------------
 
-		[updated] Update basic original code from JakWeb - from 2.2 to 2.2.1
-		[updated] Update ACE Editor
-		[updated] Login Form in site - after 3 times bad login, redirect to base url
-		(in original JakWeb CMS is setting after 10 times redirect to base url)
-		[updated] Update basic original code from JakWeb from CMS 2.3
-		[updated] Update Jquery script
-		[updated] Update Font-Awesome (4.7.0)
+										[updated] Update basic original code from JakWeb - from 2.2 to 2.2.1
+										[updated] Update ACE Editor
+										[updated] Login Form in site - after 3 times bad login, redirect to base url
+										(in original JakWeb CMS is setting after 10 times redirect to base url)
+										[updated] Update basic original code from JakWeb from CMS 2.3
+										[updated] Update Jquery script
+										[updated] Update Font-Awesome (4.7.0)
 
-		// # List of fixed bugs
-		// ------------------------------
+										// # List of fixed bugs
+										// ------------------------------
 
-		[fixed] Reformat code
-		[fixed] ACP - Vertical text in table row is middle
-		[fixed] ACP - Radio button is inline
-		[fixed] ACP - Remove blank space after 'input' tags
-		[fixed] Fix typo
-		[fixed] ACP - Plugin Gallery - better solution in sort photo table
-		[fixed] Fixed various small bugs
-		[fixed] ACP - color settings for navbar
-		[fixed] ACP - Navbar - User Header - time by setting in Global Settings
-		[fixed] ACP - Datetimepicker (Add language cs,de)
-		[fixed] ACP - fix other bug
+										[fixed] Reformat code
+										[fixed] ACP - Vertical text in table row is middle
+										[fixed] ACP - Radio button is inline
+										[fixed] ACP - Remove blank space after 'input' tags
+										[fixed] Fix typo
+										[fixed] ACP - Plugin Gallery - better solution in sort photo table
+										[fixed] Fixed various small bugs
+										[fixed] ACP - color settings for navbar
+										[fixed] ACP - Navbar - User Header - time by setting in Global Settings
+										[fixed] ACP - Datetimepicker (Add language cs,de)
+										[fixed] ACP - fix other bug
 
-		// # List of enhancements
-		// ------------------------------
+										// # List of enhancements
+										// ------------------------------
 
-		[enhanced] ACP - Changelog
-		[enhanced] ACP - Datetimepicker - change plugin
-		http://eonasdan.github.io/bootstrap-datetimepicker/
-		[enhanced] ACP - Plugin - added info about uninstallation
-		[enhanced] ACP - Help for each page
-		[enhanced] Social Media Sharing Plugin
-		[enhanced] ACP - Plugins - added captcha (security number) for uninstallation
-		http://99webtools.com/blog/php-simple-captcha-script/
-		[enhanced] Installation of CMS with better Step Wizard
+										[enhanced] ACP - Changelog
+										[enhanced] ACP - Datetimepicker - change plugin
+										http://eonasdan.github.io/bootstrap-datetimepicker/
+										[enhanced] ACP - Plugin - added info about uninstallation
+										[enhanced] ACP - Help for each page
+										[enhanced] Social Media Sharing Plugin
+										[enhanced] ACP - Plugins - added captcha (security number) for uninstallation
+										http://99webtools.com/blog/php-simple-captcha-script/
+										[enhanced] Installation of CMS with better Step Wizard
 
-		// # List of new pages
-		// ------------------------------
+										// # List of new pages
+										// ------------------------------
 
-		[new page] ACP - Changelog - new pages for changelog
+										[new page] ACP - Changelog - new pages for changelog
 
-		// # List of removed components
-		// ------------------------------
+										// # List of removed components
+										// ------------------------------
 
-		[removed] Remove unnecessary code in *.css
-		[removed] Remove Jak Tags Input
-		[removed] jQuery.share - social media sharing plugin
-		[removed] Remove Bluesat template
-		[removed] Jquery slimScroll plugins
-		[removed] Remove plugins - Ecommerce, Owl, Retailer, Ticketing, Gallery, Slider, Social Buttons
-		[removed] Admin LTE Template
-	</code></pre>
+										[removed] Remove unnecessary code in *.css
+										[removed] Remove Jak Tags Input
+										[removed] jQuery.share - social media sharing plugin
+										[removed] Remove Bluesat template
+										[removed] Jquery slimScroll plugins
+										[removed] Remove plugins - Ecommerce, Owl, Retailer, Ticketing, Gallery, Slider, Social Buttons
+										[removed] Admin LTE Template
+									</code></pre>
 							</div>
 						</div>
 					</div>
@@ -128,32 +127,32 @@
 							<div class="panel-body">
 								<p class="content-group">First update is the most simplified and includes urgent bug fixes of core components, plugins and libraries. Also version 1.1 includes updates of some components to the latest stable versions. Below you can find general list of all changes and details about upgrading.</p>
 
-<pre class="language-markup"><code>
-		// # List of new components
-		// ------------------------------
+								<pre><code class="language-markup">
+										// # List of new components
+										// ------------------------------
 
-		[new] Better notify
-		[new] Added czech language translate
-		[new] Redesign
-		[new] Added Bootstrap Select
-		[new] Added new plugin ' Site Editor ' for editing robots.txt
-		[new] Added help for each plugin
-		[new] Added .htaccess file
+										[new] Better notify
+										[new] Added czech language translate
+										[new] Redesign
+										[new] Added Bootstrap Select
+										[new] Added new plugin ' Site Editor ' for editing robots.txt
+										[new] Added help for each plugin
+										[new] Added .htaccess file
 
-		// # List of updated plugins
-		// ------------------------------
+										// # List of updated plugins
+										// ------------------------------
 
-		[updated] Update Bootstrap to 3.3.7
+										[updated] Update Bootstrap to 3.3.7
 
-		// # List of fixed bugs
-		// ------------------------------
+										// # List of fixed bugs
+										// ------------------------------
 
-		[fixed] Remove unnecessary files
-		[fixed] Fix typo and bug
-		[fixed] Reformat code
-		[fixed] Remove extra installation (Modern, Mosaic) - only one typo of install ( Plain)
-		[fixed] Bootstrap is in external file (move from stylsheet.css)
-	</code></pre>
+										[fixed] Remove unnecessary files
+										[fixed] Fix typo and bug
+										[fixed] Reformat code
+										[fixed] Remove extra installation (Modern, Mosaic) - only one typo of install ( Plain)
+										[fixed] Bootstrap is in external file (move from stylsheet.css)
+									</code></pre>
 							</div>
 						</div>
 					</div>
@@ -212,15 +211,9 @@
 												<i class="pg-arrow_right"></i></a>
 										</dd>
 
-										<dt>perfectScrollBar</dt>
-										<dd>perfectScrollBar is jQuery plugin that transforms any div into a scrollable area with a nice scrollbar - similar to the one Facebook and Google started using in their products recently.
-											<a href="https://github.com/noraesae/perfect-scrollbar" class="pull-right" target="_blank">Preview
-												<i class="pg-arrow_right"></i></a>
-										</dd>
-
 										<dt>Sollist - Share social media plugin</dt>
 										<dd>jQuery plugin builds easy customisable lists of social links.
-											<a href="88z.github.io/sollist/" class="pull-right" target="_blank">Preview
+											<a href="http://88z.github.io/sollist/" class="pull-right" target="_blank">Preview
 												<i class="pg-arrow_right"></i></a>
 										</dd>
 
@@ -310,15 +303,6 @@
 			<div class="sidebar-detached">
 				<div class="sidebar-two sidebar-default">
 					<div class="sidebar-content">
-
-						<!-- Support -->
-						<div class="sidebar-category no-margin">
-							<div class="category-title">
-								<span>Changelog</span>
-							</div>
-						</div>
-						<!-- /support -->
-
 						<!-- Navigation -->
 						<div class="sidebar-category">
 							<div class="category-content no-padding">

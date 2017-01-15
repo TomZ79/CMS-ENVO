@@ -265,7 +265,7 @@ $jakdb->query("INSERT INTO " . DB_PREFIX . "setting VALUES
 ('usr_smilies', 'setting', '0', '0', 'yesno', 'boolean', 'cms'),
 ('adv_editor', 'setting', '1', '0', 'yesno', 'boolean', 'cms'),
 ('rssitem', 'setting', '10', '10', 'input', 'number', 'cms'),
-('lang', 'setting', 'en', 'en', 'input', 'free', 'cms'),
+('lang', 'setting', 'cs', 'cs', 'input', 'free', 'cms'),
 ('langdirection', 'setting', '1', '1', 'yesno', 'boolean', 'cms'),
 ('heatmap', 'setting', '0', '0', 'yesno', 'boolean', 'cms'),
 ('hvm', 'hvm', '1', '1', 'select', 'boolean', 'cms'),

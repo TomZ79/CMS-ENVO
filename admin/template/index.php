@@ -1,4 +1,7 @@
-<?php include "header.php"; ?>
+<?php
+include "header.php";
+// include "analytic.php";
+?>
 
 	<!-- Small boxes (Stat box) -->
 	<div class="row">
@@ -76,63 +79,76 @@
 		</div>
 	</div>
 
-	<div class="row padding-15">
-		<div class="col-md-6">
-			<div class="box box-success">
-				<div class="box-header">
-					<i class="fa fa-paperclip"></i>
-					<h3 class="box-title"><?php echo $tl["dashb_box_title"]["dbbt1"]; ?></h3>
-				</div>
-				<div class="box-body">
-					<ul class="todoList">
-						<?php if (isset($todos) && is_array ($todos)) foreach ($todos as $item) {
-							echo $item;
-						} ?>
-					</ul>
-				</div>
-				<div class="box-footer clearfix no-border">
-					<a id="addButton" class="btn btn-default btodo pull-right" href="#"><?php echo $tl["button"]["btn"]; ?></a>
-				</div>
-			</div>
-			<div class="box box-success">
-				<div class="box-header">
-					<i class="fa fa-pie-chart"></i>
-					<h3 class="box-title"><?php echo $tl["dashb_box_title"]["dbbt2"]; ?></h3>
-				</div>
-				<div class="box-body no-padding table-responsive">
-					<div id="chart_total" class="charts"></div>
-				</div>
-			</div>
-			<?php if (isset($JAK_HOOK_ADMIN_INDEX) && is_array ($JAK_HOOK_ADMIN_INDEX)) foreach ($JAK_HOOK_ADMIN_INDEX as $hspi) {
-				include_once APP_PATH . $hspi['phpcode'];
-			} ?>
-		</div>
-		<div class="col-md-6">
-			<div class="box box-success">
-				<div class="box-header">
-					<i class="fa fa-info-circle"></i>
-					<h3 class="box-title"><?php echo $tl["dashb_box_title"]["dbbt4"]; ?></h3>
-				</div>
-				<div class="box-body no-padding">
-					<div class="table-responsive">
-						<table class="table table-striped first-column">
-							<tr>
-								<td><?php echo $tl["dashb_box_content"]["dbbc6"]; ?></td>
-								<td><?php echo $jkv["version"]; ?></td>
-							</tr>
-							<tr>
-								<td><?php echo $tl["dashb_box_content"]["dbbc7"]; ?></td>
-								<td><a href="http://www.bluesat.cz" target="_blank">BLUESAT</a></td>
-							</tr>
-							<tr>
-								<td><?php echo $tl["dashb_box_content"]["dbbc8"]; ?></td>
-								<td>Tomas Zukal</td>
-							</tr>
-						</table>
+	<!-- Content -->
+	<ul id="cmsTabDash" class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+		<li role="presentation" class="active">
+			<a href="#cmsPage1" id="cmsPage1-tab" role="tab" data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
+				<span class="text"><?php echo $tl["dashb_section_tab"]["dashbtab"]; ?></span>
+			</a>
+		</li>
+		<li role="presentation" class="next">
+			<a href="#cmsPage2" id="cmsPage2-tab" role="tab" data-toggle="tab" aria-controls="cmsPage2" aria-expanded="true">
+				<span class="text"><?php echo $tl["dashb_section_tab"]["dashbtab1"]; ?></span>
+			</a>
+		</li>
+		<?php if (isset($JAK_HOOK_ADMIN_INDEX)) { ?>
+			<li role="presentation">
+				<a href="#cmsPage3" role="tab" id="cmsPage3-tab" data-toggle="tab" aria-controls="cmsPage3">
+					<span class="text"><?php echo $tl["dashb_section_tab"]["dashbtab2"]; ?></span>
+				</a>
+			</li>
+		<?php } ?>
+	</ul>
+
+	<div id="cmsTabContent" class="tab-content">
+		<div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="box box-success">
+						<div class="box-header">
+							<i class="fa fa-pie-chart"></i>
+							<h3 class="box-title"><?php echo $tl["dashb_box_title"]["dbbt2"]; ?></h3>
+						</div>
+						<div class="box-body no-padding table-responsive">
+							<div id="chart_total" class="charts"></div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div role="tabpanel" class="tab-pane fade" id="cmsPage2" aria-labelledby="cmsPage2-tab">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="box box-success">
+						<div class="box-header">
+							<i class="fa fa-paperclip"></i>
+							<h3 class="box-title"><?php echo $tl["dashb_box_title"]["dbbt1"]; ?></h3>
+						</div>
+						<div class="box-body">
+							<ul class="todoList">
+								<?php if (isset($todos) && is_array ($todos)) foreach ($todos as $item) {
+									echo $item;
+								} ?>
+							</ul>
+						</div>
+						<div class="box-footer clearfix no-border">
+							<a id="addButton" class="btn btn-default btodo pull-right" href="#"><?php echo $tl["button"]["btn"]; ?></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php if (isset($JAK_HOOK_ADMIN_INDEX)) { ?>
+			<div role="tabpanel" class="tab-pane fade" id="cmsPage3" aria-labelledby="cmsPage3-tab">
+				<div class="row">
+					<div class="col-md-12">
+						<?php if (isset($JAK_HOOK_ADMIN_INDEX) && is_array ($JAK_HOOK_ADMIN_INDEX)) foreach ($JAK_HOOK_ADMIN_INDEX as $hspi) {
+							include_once APP_PATH . $hspi['phpcode'];
+						} ?>
+					</div>
+				</div>
+			</div>
+		<?php } ?>
 	</div>
 
 	<div class="row padding-15 m-t-30">

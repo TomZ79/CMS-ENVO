@@ -6,7 +6,7 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general"]["g7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>',
 			}, {
 				// settings
 				type: 'success',
@@ -21,7 +21,7 @@ if ($page3 == "e") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["errorpage"]["sql"]; ?>',
+				message: '<?php echo $tl["general_error"]["generror1"]; ?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -101,7 +101,10 @@ if ($page3 == "e") { ?>
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tlblog["blog_box_content"]["blogbc"]; ?></strong></div>
+											<div class="col-md-5">
+												<strong><?php echo $tlblog["blog_box_content"]["blogbc"]; ?></strong>
+												<span class="star-item text-danger-800 m-l-10">*</span>
+											</div>
 											<div class="col-md-7">
 												<?php include_once APP_PATH . "admin/template/title_edit.php"; ?>
 											</div>
@@ -248,7 +251,7 @@ if ($page3 == "e") { ?>
 										</div>
 										<div class="row-form">
 											<div class="col-md-5">
-												<strong><?php echo $tlblog["blog_box_content"]["Smazat Komentáře"]; ?></strong></div>
+												<strong><?php echo $tlblog["blog_box_content"]["blogbc41"]; ?></strong></div>
 											<div class="col-md-7">
 												<div class="checkbox-singel check-success">
 													<input type="checkbox" id="jak_delete_comment" name="jak_delete_comment"/>

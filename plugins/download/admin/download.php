@@ -353,22 +353,22 @@ switch ($page1) {
 						/* Outputtng the success messages */
 						if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])) {
 							header ('Cache-Control: no-cache');
-							die(json_encode (array ("status" => 1, "html" => $tl["general"]["g7"])));
+							die(json_encode (array ("status" => 1, "html" => $tl["notification"]["n7"])));
 						} else {
 							// EN: Redirect page
 							// CZ: Přesměrování stránky
-							$_SESSION["successmsg"] = $tl["general"]["g7"];
+							$_SESSION["successmsg"] = $tl["notification"]["n7"];
 							jak_redirect (BASE_URL . 'index.php?p=b2b&sp=categories');
 						}
 					} else {
 						/* Outputtng the success messages */
 						if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])) {
 							header ('Cache-Control: no-cache');
-							die(json_encode (array ("status" => 0, "html" => $tl["errorpage"]["sql"])));
+							die(json_encode (array ("status" => 0, "html" => $tl["general_error"]["generror1"])));
 						} else {
 							// EN: Redirect page
 							// CZ: Přesměrování stránky
-							$_SESSION["errormsg"] = $tl["errorpage"]["sql"];
+							$_SESSION["errormsg"] = $tl["general_error"]["generror1"];
 							jak_redirect (BASE_URL . 'index.php?p=b2b&sp=categories');
 						}
 					}

@@ -6,7 +6,7 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["errorpage"]["sql"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -69,8 +69,20 @@ if ($errors) { ?>
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["cat_box_content"]["catbc"]; ?></strong></div>
-											<div class="col-md-7"><?php include_once "cat_new.php"; ?></div>
+											<div class="col-md-5">
+												<strong><?php echo $tl["cat_box_content"]["catbc"]; ?></strong>
+												<span class="star-item text-danger-800 m-l-10">*</span>
+											</div>
+											<div class="col-md-7">
+												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													echo $htmlE->addInput ('text', 'jak_name', 'jak_name', 'form-control', $_REQUEST["jak_name"], '');
+													?>
+
+												</div>
+											</div>
 										</div>
 										<div class="row-form">
 											<div class="col-md-5">
@@ -78,10 +90,16 @@ if ($errors) { ?>
 												<a class="cms-help" data-content="<?php echo $tl["cat_help"]["cath1"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tl["cat_help"]["cath"]; ?>">
 													<i class="fa fa-question-circle"></i>
 												</a>
+												<span class="star-item text-danger-800 m-l-10">*</span>
 											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
-													<input type="text" name="jak_varname" id="jak_varname" class="form-control" value="<?php if (isset($_REQUEST["jak_varname"])) echo $_REQUEST["jak_varname"]; ?>"/>
+
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													echo $htmlE->addInput ('text', 'jak_varname', 'jak_varname', 'form-control', $_REQUEST["jak_varname"], '');
+													?>
+
 												</div>
 											</div>
 										</div>
@@ -93,13 +111,23 @@ if ($errors) { ?>
 												</a>
 											</div>
 											<div class="col-md-7">
-												<input type="text" name="jak_url" class="form-control" value="<?php if (isset($_REQUEST["jak_url"])) echo $_REQUEST["jak_url"]; ?>"/>
+
+												<?php
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												echo $htmlE->addInput ('text', 'jak_url', '', 'form-control', $_REQUEST["jak_url"], '');
+												?>
+
 											</div>
 										</div>
 										<div class="row-form">
 											<div class="col-md-5"><strong><?php echo $tl["cat_box_content"]["catbc3"]; ?></strong></div>
 											<div class="col-md-7">
-												<textarea name="jak_lcontent" id="content" class="form-control" rows="4"><?php if (isset($_REQUEST["jak_lcontent"])) echo jak_edit_safe_userpost ($_REQUEST["jak_lcontent"]); ?></textarea>
+
+												<?php
+												// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+												echo $htmlE->addTextArea ('jak_lcontent', '4', '', jak_edit_safe_userpost ($_REQUEST["jak_lcontent"]), array ('id' => 'content', 'class' => 'form-control'));
+												?>
+
 											</div>
 										</div>
 										<div class="row-form">
@@ -107,11 +135,19 @@ if ($errors) { ?>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_menu1" name="jak_menu" value="1"<?php if ((isset($_REQUEST["jak_menu"]) && $_REQUEST["jak_menu"] == '1') || !isset($_REQUEST["jak_menu"])) { ?> checked="checked"<?php } ?> />
-													<label for="jak_menu1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													((isset($_REQUEST["jak_menu"]) && $_REQUEST["jak_menu"] == '1') || !isset($_REQUEST["jak_menu"])) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_menu', 'jak_menu1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_menu1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_menu2" name="jak_menu" value="0"<?php if (isset($_REQUEST["jak_menu"]) && $_REQUEST["jak_menu"] == '0') { ?> checked="checked"<?php } ?> />
-													<label for="jak_menu2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													((isset($_REQUEST["jak_menu"]) && $_REQUEST["jak_menu"] == '0')) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_menu', 'jak_menu2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_menu2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
@@ -121,11 +157,19 @@ if ($errors) { ?>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_footer1" name="jak_footer" value="1"<?php if (isset($_REQUEST["jak_footer"]) && $_REQUEST["jak_footer"] == '1') { ?> checked="checked"<?php } ?> />
-													<label for="jak_footer1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													((isset($_REQUEST["jak_footer"]) && $_REQUEST["jak_footer"] == '1')) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_footer', 'jak_footer1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_footer1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_footer2" name="jak_footer" value="0"<?php if ((isset($_REQUEST["jak_footer"]) && $_REQUEST["jak_footer"] == '0') || !isset($_REQUEST["jak_footer"])) { ?> checked="checked"<?php } ?> />
-													<label for="jak_footer2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													((isset($_REQUEST["jak_footer"]) && $_REQUEST["jak_footer"] == '0') || !isset($_REQUEST["jak_footer"])) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_footer', 'jak_footer2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_footer2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
@@ -134,8 +178,13 @@ if ($errors) { ?>
 											<div class="col-md-5"><strong><?php echo $tl["cat_box_content"]["catbc6"]; ?></strong></div>
 											<div class="col-md-7">
 												<div class="input-group">
-													<input type="text" name="jak_img" id="jak_img" class="form-control" value="<?php if (isset($_REQUEST["jak_img"])) echo $_REQUEST["jak_img"]; ?>"/>
-                        <span class="input-group-btn">
+
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													echo $htmlE->addInput ('text', 'jak_img', 'jak_img', 'form-control', $_REQUEST["jak_img"], '');
+													?>
+
+													<span class="input-group-btn">
                           <button class="btn btn-default iconpicker" data-placement="top" role="iconpicker"></button>
                         </span>
 												</div>
@@ -167,9 +216,9 @@ if ($errors) { ?>
 										<div class="row-form">
 											<div class="col-md-12">
 												<select name="jak_permission[]" multiple="multiple" class="form-control">
-													<option value="0"<?php if (isset($_REQUEST["jak_permission"]) && in_array (0, $_REQUEST["jak_permission"])) { ?> selected="selected"<?php } ?>><?php echo $tl["cat_box_content"]["catbc7"]; ?></option>
+													<option value="0" selected="selected"><?php echo $tl["cat_box_content"]["catbc7"]; ?></option>
 													<?php if (isset($JAK_USERGROUP) && is_array ($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) { ?>
-														<option value="<?php echo $v["id"]; ?>"<?php if (isset($_REQUEST["jak_permission"]) && in_array ($v["id"], $_REQUEST["jak_permission"])) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php } ?>
+														<option value="<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></option><?php } ?>
 												</select>
 											</div>
 										</div>
@@ -198,12 +247,17 @@ if ($errors) { ?>
 									<div class="block-content">
 										<div class="row-form">
 											<div class="col-md-12">
-												<button id="copy1" class="btn btn-success btn-xs pull-right margin-bottom-10" type="button"><?php echo $tl["button"]["btn25"]; ?></button>
+												<button id="copy1" class="btn btn-primary btn-xs pull-right margin-bottom-10" type="button"><?php echo $tl["button"]["btn25"]; ?></button>
 											</div>
 										</div>
 										<div class="row-form">
 											<div class="col-md-12">
-												<textarea name="jak_lcontent_meta_desc" class="form-control" id="jak_editor_light_meta_desc" rows="4" maxlength="400"><?php if (isset($_REQUEST["jak_lcontent_meta_desc"])) echo jak_edit_safe_userpost (htmlspecialchars ($_REQUEST["jak_lcontent_meta_desc"])); ?></textarea>
+
+												<?php
+												// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+												echo $htmlE->addTextArea ('jak_lcontent_meta_desc', '4', '', $_REQUEST["jak_lcontent_meta_desc"], array ('id' => 'jak_editor_light_meta_desc', 'class' => 'form-control', 'maxlength' => '400'));
+												?>
+
 											</div>
 										</div>
 									</div>
@@ -227,7 +281,12 @@ if ($errors) { ?>
 									<div class="block-content">
 										<div class="row-form">
 											<div class="col-md-12">
-												<input type="text" name="jak_lcontent_meta_key" class="form-control" id="jak_editor_light_meta_key" value="<?php echo jak_edit_safe_userpost (htmlspecialchars ($JAK_FORM_DATA["metakey"])); ?>"/>
+
+												<?php
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												echo $htmlE->addInput ('text', 'jak_lcontent_meta_key', 'jak_editor_light_meta_key', 'form-control', $_REQUEST["jak_lcontent_meta_key"], '');
+												?>
+
 											</div>
 										</div>
 									</div>

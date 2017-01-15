@@ -1,10 +1,52 @@
+<?php
+// Load FileInput Jquery Plugin  - only for selected pages
+if ($page1 == 'newfacebook') {
+?>
+<script src="assets/plugins/bootstrap-fileinput/js/fileinput.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-fileinput/js/locales/cz.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-fileinput/themes/fa/theme.js" type="text/javascript"></script>
 <script>
-	/* Toggle list and grid view */
-	$('.button-icon').click(function () {
-		$('.toggle').toggleClass('hidden visible');
-		$('.button-icon i').toggleClass("fa-th-list fa-th");
+	$(document).on("ready", function () {
+		$("#images").fileinput({
+			theme: 'fa',
+			language: 'cz',
+			maxFileSize: 4500,
+			allowedFileExtensions: ['jpg', 'png', 'gif'],
+			uploadAsync: false,
+			uploadUrl: "ajax/uploadfacebook.php", // your upload server url
+			maxFileCount: 3,
+			layoutTemplates: {
+				main1: '{preview}\n' +
+				'<div class="input-group {class}">\n' +
+				'   <div class="input-group-btn">\n' +
+				'       {browse}\n' +
+				'       {upload}\n' +
+				'       {remove}\n' +
+				'   </div>\n' +
+				'   {caption}\n' +
+				'</div>',
+				actions: '<div class="file-actions">\n' +
+				'    <div class="file-footer-buttons">\n' +
+				'        {upload} {delete} {zoom} {other}' +
+				'    </div>\n' +
+				'    {drag}\n' +
+				'    <div class="file-upload-indicator" title="{indicatorTitle}">{indicator}</div>\n' +
+				'    <div class="clearfix"></div>\n' +
+				'</div>'
+			},
+		});
 	});
 </script>
+<?php } ?>
+
+<script>
+	/* Toggle list and grid view */
+	$('.btn-toggle').click(function () {
+		$('.toggle').toggleClass('hidden visible');
+		$('.btn-toggle i').toggleClass("fa-th-list fa-th");
+	});
+</script>
+
 <style type="text/css">
 	.gridview {
 		display: block;
@@ -53,32 +95,6 @@
 		-ms-transform: scale(1.2);
 		-webkit-transform: scale(1.2);
 		transform: scale(1.2);
-	}
-
-	.actionbutton {
-		position: fixed;
-		right: 0px;
-		top: 54px;
-		z-index: 1000;
-		background: #f7f7f7;
-		width: 114px;
-		height: 50px;
-	}
-
-	.actionbutton button {
-		margin: 10px 17px;
-	}
-
-	.button-icon {
-		color: #94a7b1;
-		border: 2px solid #D0D8DC;
-		font-size: 14px !important;
-		padding: 3px 6px 2px 6px !important;
-		line-height: 20px !important;
-	}
-
-	.button-icon:hover {
-		color: #26A69A;
 	}
 
 	/* USER LIST TABLE */

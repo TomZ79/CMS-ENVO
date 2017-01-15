@@ -6,7 +6,7 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general"]["g7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>',
 			}, {
 				// settings
 				type: 'success',
@@ -21,7 +21,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo ($page2 == "e" ? $tl["errorpage"]["sql"] : $tl["errorpage"]["plugin"]);?>',
+				message: '<?php echo ($page2 == "e" ? $tl["general_error"]["generror1"] : $tl["hook_error"]["hookerror4"]);?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -31,7 +31,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 	</script>
 <?php } ?>
 
-	<div class="btn-toolbar margin-bottom">
+	<div class="btn-toolbar m-b-20">
 		<div class="btn-group">
 
 			<button class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#" style="width: 100px;"><?php echo $tl["button"]["btn4"]; ?>

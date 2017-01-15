@@ -6,7 +6,7 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general"]["g7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>',
 			}, {
 				// settings
 				type: 'success',
@@ -22,11 +22,11 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 			$.notify({
 				// options
 				message: '<?php if ($page1 == "e") {
-					$tl["errorpage"]["sql"];
+					$tl["general_error"]["generror1"];
 				} elseif ($page1 == "ene") {
-					echo $tl["errorpage"]["not"];
+					echo $tl["general_error"]["generror2"];
 				} else {
-					echo $tl["errorpage"]["ug"];
+					echo $tl["userg_error"]["usergerror"];
 				} ?>',
 			}, {
 				// settings

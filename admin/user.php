@@ -116,7 +116,32 @@ switch ($page1) {
 		switch ($page1) {
 			case 'search':
 
-				if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+				if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['search'])) {
+					$defaults = $_POST;
+
+					if (isset($defaults['search'])) {
+
+						if ($defaults['jakSH'] == '' or $defaults['jakSH'] == $tl['search']['s']) {
+							$errors['e'] = $tl['search']['s1'];
+						}
+
+						if (strlen ($defaults['jakSH']) < '1') {
+							$errors['e1'] = $tl['search']['s2'];
+						}
+
+						if (count ($errors) > 0) {
+							$errors['e2'] = $tl['search']['s3'];
+							$errors       = $errors;
+						} else {
+							$secureIn    = smartsql (strip_tags ($defaults['jakSH']));
+							$SEARCH_WORD = $secureIn;
+							$JAK_SEARCH  = jak_admin_search ($secureIn, $jaktable, 'user');
+						}
+					}
+
+				}
+
+				if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jak_delete_user'])) {
 					$defaults = $_POST;
 
 					if (isset($defaults['move'])) {
@@ -259,26 +284,6 @@ switch ($page1) {
 							jak_redirect (BASE_URL . 'index.php?p=user&sp=s');
 						}
 
-					}
-
-					if (isset($defaults['search'])) {
-
-						if ($defaults['jakSH'] == '' or $defaults['jakSH'] == $tl['search']['s']) {
-							$errors['e'] = $tl['search']['s1'];
-						}
-
-						if (strlen ($defaults['jakSH']) < '1') {
-							$errors['e1'] = $tl['search']['s2'];
-						}
-
-						if (count ($errors) > 0) {
-							$errors['e2'] = $tl['search']['s3'];
-							$errors       = $errors;
-						} else {
-							$secureIn    = smartsql (strip_tags ($defaults['jakSH']));
-							$SEARCH_WORD = $secureIn;
-							$JAK_SEARCH  = jak_admin_search ($secureIn, $jaktable, 'user');
-						}
 					}
 
 				}

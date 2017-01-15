@@ -28,7 +28,7 @@
 				<div class="form-group">
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" name="lcookies" value="1"> <?php echo $tl["general"]["g7"]; ?>
+							<input type="checkbox" name="lcookies" value="1"> <?php echo $tl["notification"]["n7"]; ?>
 						</label>
 					</div>
 					<button type="submit" name="login"

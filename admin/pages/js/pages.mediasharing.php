@@ -1,3 +1,5 @@
+<link href="assets/plugins/jquery-sollist/jquery.sollist.min.css" rel="stylesheet" type="text/css" media="screen"/>
+<script src="assets/plugins/jquery-sollist/jquery.sollist.min.js"></script>
 <script type="text/javascript">
 	$(function () {
 		$("#sollist-sharing").sollist({

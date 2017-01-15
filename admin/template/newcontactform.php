@@ -6,7 +6,7 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["errorpage"]["sql"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -54,9 +54,19 @@ if ($errors) { ?>
 						<div class="block">
 							<div class="block-content">
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["cform"]["c2"]; ?></strong></div>
+									<div class="col-md-5">
+										<strong><?php echo $tl["cform"]["c2"]; ?></strong>
+										<span class="star-item text-danger-800 m-l-10">*</span>
+									</div>
 									<div class="col-md-7">
-										<?php include_once "title_new.php"; ?>
+										<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+
+											<?php
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											echo $htmlE->addInput ('text', 'jak_title', 'jak_title', 'form-control', $_REQUEST["jak_title"], '');
+											?>
+
+										</div>
 									</div>
 								</div>
 								<div class="row-form">
@@ -64,27 +74,50 @@ if ($errors) { ?>
 									<div class="col-md-7">
 										<div class="radio radio-success">
 
-											<input type="radio" id="jak_showtitle1" name="jak_showtitle" value="1"<?php if (isset($_REQUEST["showtitle"]) && $_REQUEST["showtitle"] == '1') { ?> checked="checked"<?php } ?> />
-											<label for="jak_showtitle1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+											<?php
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											((isset($_REQUEST["jak_showtitle"]) && $_REQUEST["jak_showtitle"] == '1')) ? $checked = 'yes' : $checked = 'no';
+											echo $htmlE->addInput ('radio', 'jak_showtitle', 'jak_showtitle1', '', '1', $checked);
+											// Arguments: for (id of associated form element), text
+											echo $htmlE->addLabelFor ('jak_showtitle1', $tl["checkbox"]["chk"]);
 
-											<input type="radio" id="jak_showtitle2" name="jak_showtitle" value="0"<?php if (isset($_REQUEST["showtitle"]) && $_REQUEST["showtitle"] == '0') { ?> checked="checked"<?php } ?> />
-											<label for="jak_showtitle2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											((isset($_REQUEST["jak_showtitle"]) && $_REQUEST["jak_showtitle"] == '0') || !isset($_REQUEST["jak_showtitle"])) ? $checked = 'yes' : $checked = 'no';
+											echo $htmlE->addInput ('radio', 'jak_showtitle', 'jak_showtitle2', '', '0', $checked);
+											// Arguments: for (id of associated form element), text
+											echo $htmlE->addLabelFor ('jak_showtitle2', $tl["checkbox"]["chk1"]);
+											?>
 
 										</div>
 									</div>
 								</div>
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["cform"]["c20"]; ?></strong></div>
+									<div class="col-md-5">
+										<strong><?php echo $tl["cform"]["c20"]; ?></strong>
+									</div>
 									<div class="col-md-7">
-										<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-											<input class="form-control" type="text" name="jak_email" value="<?php if (isset($_REQUEST["jak_email"])) echo $_REQUEST["jak_email"]; ?>" placeholder="email@domain.com,email1@domain.com,email2@domain.com"/>
+										<div class="form-group no-margin">
+
+											<?php
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											echo $htmlE->addInput ('text', 'jak_email', 'jak_email', 'form-control', $_REQUEST["jak_email"], '', array('placeholder'=>$tl["placeholder"]["p14"]));
+											?>
+
 										</div>
 									</div>
 								</div>
-								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["cform"]["c3"]; ?></strong></div>
+								<div class="row-form <?php if (isset($errors["e2"])) echo " has-error"; ?>">
+									<div class="col-md-5">
+										<strong><?php echo $tl["cform"]["c3"]; ?></strong>
+										<span class="star-item text-danger-800 m-l-10">*</span>
+									</div>
 									<div class="col-md-7">
-										<?php include_once "editorlight_new.php"; ?>
+
+										<?php
+										// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+										echo $htmlE->addTextArea ('jak_lcontent', '4', '', jak_edit_safe_userpost ($_REQUEST["jak_lcontent"]), array ('id' => 'jakEditor', 'class' => 'jakEditorLight form-control', 'style' => 'width:100%;'));
+										?>
+
 									</div>
 								</div>
 							</div>

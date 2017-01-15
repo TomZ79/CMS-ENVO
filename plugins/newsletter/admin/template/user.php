@@ -6,7 +6,7 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general"]["g7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>',
 			}, {
 				// settings
 				type: 'success',
@@ -21,7 +21,7 @@ if ($page2 == "e") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["errorpage"]["sql"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -101,7 +101,7 @@ if ($page2 == "e") { ?>
 
 	<div class="col-md-12">
 		<div class="alert bg-info text-white">
-			<?php echo $tl["errorpage"]["data"]; ?>
+			<?php echo $tl["general_error"]["generror3"]; ?>
 		</div>
 	</div>
 

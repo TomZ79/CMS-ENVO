@@ -30,7 +30,7 @@
 						placeholder="<?php echo $tl["login"]["l2"]; ?>"/>
 				</div>
 				<div class="checkbox">
-					<label><input type="checkbox" name="lcookies" value="1"> <?php echo $tl["general"]["g7"]; ?></label>
+					<label><input type="checkbox" name="lcookies" value="1"> <?php echo $tl["notification"]["n7"]; ?></label>
 				</div>
 				<button type="submit" name="login"
 					class="btn btn-success btn-block"><?php echo $tl["general"]["g146"]; ?></button>

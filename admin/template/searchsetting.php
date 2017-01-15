@@ -6,7 +6,7 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general"]["g7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>',
 			}, {
 				// settings
 				type: 'success',
@@ -21,7 +21,7 @@ if ($page1 == "e") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["errorpage"]["sql"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -91,7 +91,9 @@ if ($errors) { ?>
 										</div>
 										<div class="row-form">
 											<div class="col-md-5"><strong><?php echo $tl["ss_box_content"]["ssbc1"]; ?></strong></div>
-											<div class="col-md-7"><?php include_once "editorlight_edit.php"; ?></div>
+											<div class="col-md-7">
+												<textarea name="jak_lcontent" class="jakEditorLight form-control" id="jakEditor" rows="5" style="width:100%;"><?php echo jak_edit_safe_userpost ($JAK_FORM_DATA["content"]); ?></textarea>
+											</div>
 										</div>
 									</div>
 								</div>

@@ -1,6 +1,6 @@
 <?php
 // Load 'ace.js'  - only for selected pages
-if ($jkv["adv_editor"] && ($page1 == 'newhook' || ($page1 == 'hooks' && $page2 == 'edit'))) {
+if ($page1 == 'newhook' || ($page1 == 'hooks' && $page2 == 'edit')) {
 	?>
 	<script src="assets/plugins/ace/ace.js" type="text/javascript"></script>
 <?php }
@@ -12,7 +12,7 @@ if ($page == 'plugins' && $page1 == '') {
 <script type="text/javascript">
 	<?php
 	// Init ACE Editor  - only for selected pages
-	if ($jkv["adv_editor"] && ($page1 == 'newhook' || ($page1 == 'hooks' && $page2 == 'edit'))) {
+	if ($page1 == 'newhook' || ($page1 == 'hooks' && $page2 == 'edit')) {
 	?>
 
 	/* ACE Editor
@@ -32,6 +32,10 @@ if ($page == 'plugins' && $page1 == '') {
 			showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
 			showGutter: <?php echo $jkv["acegutter"]; ?>,
 		});
+		// This is to remove following warning message on console:
+		// Automatically scrolling cursor into view after selection change this will be disabled in the next version
+		// set editor.$blockScrolling = Infinity to disable this message
+		htmlefACE.$blockScrolling = Infinity;
 
 		texthtmlef = $("#jak_phpcode").val();
 		htmlefACE.session.setValue(texthtmlef);
@@ -106,6 +110,7 @@ if ($page == 'plugins' && $page1 == '') {
 		});
 
 	});
+
 </script>
 
 <style type="text/css">

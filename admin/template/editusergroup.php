@@ -6,7 +6,7 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general"]["g7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>',
 			}, {
 				// settings
 				type: 'success',
@@ -21,7 +21,7 @@ if ($page3 == "e") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["errorpage"]["sql"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -84,7 +84,10 @@ if ($errors) { ?>
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["userg_box_content"]["usergbc1"]; ?></strong></div>
+											<div class="col-md-5">
+												<strong><?php echo $tl["userg_box_content"]["usergbc1"]; ?></strong>
+												<span class="star-item text-danger-800 m-l-10">*</span>
+											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 													<input type="text" name="jak_name" class="form-control" value="<?php echo $JAK_FORM_DATA["name"]; ?>"/>

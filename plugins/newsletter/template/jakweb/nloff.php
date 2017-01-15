@@ -41,7 +41,7 @@
 						<input type="password" name="jakP" id="password" maxlength="18" class="form-control" value="" placeholder="<?php echo $tl["login"]["l2"]; ?>"/>
 					</div>
 					<div class="form-group<?php if ($errornl) echo " has-error"; ?>">
-						<label class="control-label" for="lcookies"><?php echo $tl["general"]["g7"]; ?></label>
+						<label class="control-label" for="lcookies"><?php echo $tl["notification"]["n7"]; ?></label>
 						<div class="controls">
 							<input type="radio" name="lcookies" value="1"/> <?php echo $tl["general"]["g98"]; ?>
 							<input type="radio" name="lcookies" value="0" checked="checked"/>

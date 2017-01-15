@@ -6,7 +6,7 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general"]["g7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>',
 			}, {
 				// settings
 				type: 'success',
@@ -22,11 +22,11 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
 			$.notify({
 				// options
 				message: '<?php if ($page1 == "e") {
-					$tl["errorpage"]["sql"];
+					$tl["general_error"]["generror1"];
 				} elseif ($page1 == "ene") {
-					echo $tl["errorpage"]["not"];
+					echo $tl["general_error"]["generror2"];
 				} else {
-					echo $tl["errorpage"]["u"];
+					echo $tl["user_error"]["usererror"];
 				} ?>',
 			}, {
 				// settings
@@ -137,7 +137,7 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
 							<td>
 								<?php if (isset($JAK_USERGROUP_ALL) && is_array ($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $z) {
 									if ($va["usergroupid"] == $z["id"]) { ?>
-										<a										href="index.php?p=usergroup&amp;sp=user&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a><?php }
+										<a href="index.php?p=usergroup&amp;sp=user&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a><?php }
 								} ?>
 							</td>
 							<td class="content-go">
@@ -156,8 +156,8 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
 								</a>
 							</td>
 							<td>
-								<a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=delete&amp;ssp=<?php echo $va["id"]; ?>" data-confirm="<?php echo $tl["user_notification"]["del"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>" )return false;">
-								<i class="fa fa-trash-o"></i>
+								<a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=delete&amp;ssp=<?php echo $va["id"]; ?>" data-confirm="<?php echo sprintf ($tl["user_notification"]["del"], $va["username"]); ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+									<i class="fa fa-trash-o"></i>
 								</a>
 							</td>
 						</tr>
@@ -273,7 +273,7 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
 								</a>
 							</td>
 							<td>
-								<a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["user_notification"]["del"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+								<a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo sprintf ($tl["user_notification"]["del"], $v["username"]); ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
 									<i class="fa fa-trash-o"></i>
 								</a>
 							</td>
@@ -282,7 +282,8 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
 				</table>
 			</div>
 		</div>
-	</div>	</form>
+	</div>
+	</form>
 
 	<div class="col-md-12 m-b-30">
 		<div class="icon_legend">

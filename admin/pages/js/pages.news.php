@@ -126,3 +126,11 @@
 	});
 
 </script>
+<style type="text/css">
+	/* Bootstrap Modal Dialog */
+	@media screen and (min-width: 768px) {
+		.modal-w-90p {
+			width: 90%; /* either % (e.g. 60%) or px (400px) */
+		}
+	}
+</style>

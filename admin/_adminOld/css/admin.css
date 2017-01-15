@@ -5338,8 +5338,8 @@ table.text-center th {
 * Copyright 2015 jQuery Foundation and other contributors; Licensed MIT */
 
 .ui-helper-hidden {
-  display: none
-}
+   display: none
+ }
 
 .ui-helper-hidden-accessible {
   border: 0;

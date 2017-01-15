@@ -1,43 +1,43 @@
-$(document).ready(function() {
+$(document).ready(function () {
 	$(".sortable").nestedSortable({
 		forcePlaceholderSize: true,
-	    handle: "div",
-	    items: "li",
-	    toleranceElement: "> div",
-	    helper:	"clone",
-	    opacity: .6,
-	    placeholder: "placeholder",
-	    revert: 250,
-	    tabSize: 25,
-	    tolerance: "pointer",
-	    expandOnHover: 700,
-	    startCollapsed: false,
-	    isTree: true,
-	    maxLevels: 5
+		handle: "div",
+		items: "li",
+		toleranceElement: "> div",
+		helper: "clone",
+		opacity: .6,
+		placeholder: "placeholder",
+		revert: 250,
+		tabSize: 25,
+		tolerance: "pointer",
+		expandOnHover: 700,
+		startCollapsed: false,
+		isTree: true,
+		maxLevels: 5
 	});
-	$(".save-menu").on("click", function() {
+	$(".save-menu").on("click", function () {
 		mlist = $(this).data("menu");
-		serialized = $("#"+mlist).nestedSortable("serialize");
-		
+		serialized = $("#" + mlist).nestedSortable("serialize");
+
 		/* Sending the form fileds to any post request: */
 		var request = $.ajax({
-		  url: "index.php?p=categories",
-		  type: "POST",
-		  data: serialized,
-		  dataType: "json",
-		  cache: false
+			url: "index.php?p=categories",
+			type: "POST",
+			data: serialized,
+			dataType: "json",
+			cache: false
 		});
-		request.done(function(data) {
+		request.done(function (data) {
 			if (data.status == 1) {
-				$("#"+mlist+" li").animate({backgroundColor: '#c9ffc9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
+				$("#" + mlist + " li").animate({backgroundColor: '#e7fdfb'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
 				$.notify({icon: 'fa fa-check-square-o', message: data.html}, {type: 'success'});
 			} else {
-				$("#"+mlist+" li").animate({backgroundColor: '#ffc9c9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
+				$("#" + mlist + " li").animate({backgroundColor: '#fccfcf'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
 				$.notify({icon: 'fa fa-exclamation-triangle', message: data.html}, {type: 'danger'});
 			}
 		});
 	});
-	
+
 });
 
 /*!
@@ -50,7 +50,41 @@ $(document).ready(function() {
  *  jquery.ui.widget.js
  *  jquery.ui.mouse.js
  */
-!function(a){function f(a,b){if(!(a.originalEvent.touches.length>1)){a.preventDefault();var c=a.originalEvent.changedTouches[0],d=document.createEvent("MouseEvents");d.initMouseEvent(b,!0,!0,window,1,c.screenX,c.screenY,c.clientX,c.clientY,!1,!1,!1,!1,0,null),a.target.dispatchEvent(d)}}if(a.support.touch="ontouchend"in document,a.support.touch){var e,b=a.ui.mouse.prototype,c=b._mouseInit,d=b._mouseDestroy;b._touchStart=function(a){var b=this;!e&&b._mouseCapture(a.originalEvent.changedTouches[0])&&(e=!0,b._touchMoved=!1,f(a,"mouseover"),f(a,"mousemove"),f(a,"mousedown"))},b._touchMove=function(a){e&&(this._touchMoved=!0,f(a,"mousemove"))},b._touchEnd=function(a){e&&(f(a,"mouseup"),f(a,"mouseout"),this._touchMoved||f(a,"click"),e=!1)},b._mouseInit=function(){var b=this;b.element.bind({touchstart:a.proxy(b,"_touchStart"),touchmove:a.proxy(b,"_touchMove"),touchend:a.proxy(b,"_touchEnd")}),c.call(b)},b._mouseDestroy=function(){var b=this;b.element.unbind({touchstart:a.proxy(b,"_touchStart"),touchmove:a.proxy(b,"_touchMove"),touchend:a.proxy(b,"_touchEnd")}),d.call(b)}}}(jQuery);
+!function (a) {
+	function f(a, b) {
+		if (!(a.originalEvent.touches.length > 1)) {
+			a.preventDefault();
+			var c = a.originalEvent.changedTouches[0], d = document.createEvent("MouseEvents");
+			d.initMouseEvent(b, !0, !0, window, 1, c.screenX, c.screenY, c.clientX, c.clientY, !1, !1, !1, !1, 0, null), a.target.dispatchEvent(d)
+		}
+	}
+
+	if (a.support.touch = "ontouchend" in document, a.support.touch) {
+		var e, b = a.ui.mouse.prototype, c = b._mouseInit, d = b._mouseDestroy;
+		b._touchStart = function (a) {
+			var b = this;
+			!e && b._mouseCapture(a.originalEvent.changedTouches[0]) && (e = !0, b._touchMoved = !1, f(a, "mouseover"), f(a, "mousemove"), f(a, "mousedown"))
+		}, b._touchMove = function (a) {
+			e && (this._touchMoved = !0, f(a, "mousemove"))
+		}, b._touchEnd = function (a) {
+			e && (f(a, "mouseup"), f(a, "mouseout"), this._touchMoved || f(a, "click"), e = !1)
+		}, b._mouseInit = function () {
+			var b = this;
+			b.element.bind({
+				touchstart: a.proxy(b, "_touchStart"),
+				touchmove: a.proxy(b, "_touchMove"),
+				touchend: a.proxy(b, "_touchEnd")
+			}), c.call(b)
+		}, b._mouseDestroy = function () {
+			var b = this;
+			b.element.unbind({
+				touchstart: a.proxy(b, "_touchStart"),
+				touchmove: a.proxy(b, "_touchMove"),
+				touchend: a.proxy(b, "_touchEnd")
+			}), d.call(b)
+		}
+	}
+}(jQuery);
 
 /*
  * jQuery UI Nested Sortable
@@ -64,22 +98,22 @@ $(document).ready(function() {
  * Licensed under the MIT License
  * http://www.opensource.org/licenses/mit-license.php
  */
-(function( factory ) {
-	if ( typeof define === "function" && define.amd ) {
+(function (factory) {
+	if (typeof define === "function" && define.amd) {
 
 		// AMD. Register as an anonymous module.
 		define([
 			"jquery",
 			"jquery-ui/sortable"
-		], factory );
+		], factory);
 	} else {
 
 		// Browser globals
-		factory( jQuery );
+		factory(jQuery);
 	}
-}(function($) {
+}(function ($) {
 
-	function isOverAxis( x, reference, size ) {
+	function isOverAxis(x, reference, size) {
 		return ( x > reference ) && ( x < ( reference + size ) );
 	}
 
@@ -89,7 +123,9 @@ $(document).ready(function() {
 			disableParentChange: false,
 			doNotClear: false,
 			expandOnHover: 700,
-			isAllowed: function(placeholder, placeholderParent, originalItem) { return true; },
+			isAllowed: function (placeholder, placeholderParent, originalItem) {
+				return true;
+			},
 			isTree: false,
 			listType: 'ul',
 			maxLevels: 0,
@@ -109,7 +145,7 @@ $(document).ready(function() {
 			disabledClass: 'mjs-nestedSortable-disabled'
 		},
 
-		_create: function() {
+		_create: function () {
 			this.element.data('ui-sortable', this.element.data('mjs-nestedSortable'));
 
 			// mjs - prevent browser from freezing if the HTML is not correct
@@ -126,12 +162,12 @@ $(document).ready(function() {
 			// mjs - prepare the tree by applying the right classes (the CSS is responsible for actual hide/show functionality)
 			if (this.options.isTree) {
 				var self = this;
-				$(this.items).each(function() {
+				$(this.items).each(function () {
 					var $li = this.item;
 					if ($li.children(self.options.listType).length) {
 						$li.addClass(self.options.branchClass);
 						// expand/collapse class only if they have children
-						if ( ! $li.hasClass( self.options.collapsedClass ) && ( ! $li.hasClass( self.options.expandedClass ) ) ) {
+						if (!$li.hasClass(self.options.collapsedClass) && ( !$li.hasClass(self.options.expandedClass) )) {
 							if (self.options.startCollapsed) $li.addClass(self.options.collapsedClass);
 							else $li.addClass(self.options.expandedClass);
 						}
@@ -142,14 +178,14 @@ $(document).ready(function() {
 			}
 		},
 
-		_destroy: function() {
+		_destroy: function () {
 			this.element
 				.removeData("mjs-nestedSortable")
 				.removeData("ui-sortable");
 			return $.ui.sortable.prototype._destroy.apply(this, arguments);
 		},
 
-		_mouseDrag: function(event) {
+		_mouseDrag: function (event) {
 			var i, item, itemElement, intersection,
 				o = this.options,
 				scrolled = false;
@@ -163,38 +199,38 @@ $(document).ready(function() {
 			}
 
 			//Do scrolling
-			if(this.options.scroll) {
-				if(this.scrollParent[0] != document && this.scrollParent[0].tagName != 'HTML') {
+			if (this.options.scroll) {
+				if (this.scrollParent[0] != document && this.scrollParent[0].tagName != 'HTML') {
 
-					if((this.overflowOffset.top + this.scrollParent[0].offsetHeight) - event.pageY < o.scrollSensitivity) {
+					if ((this.overflowOffset.top + this.scrollParent[0].offsetHeight) - event.pageY < o.scrollSensitivity) {
 						this.scrollParent[0].scrollTop = scrolled = this.scrollParent[0].scrollTop + o.scrollSpeed;
-					} else if(event.pageY - this.overflowOffset.top < o.scrollSensitivity) {
+					} else if (event.pageY - this.overflowOffset.top < o.scrollSensitivity) {
 						this.scrollParent[0].scrollTop = scrolled = this.scrollParent[0].scrollTop - o.scrollSpeed;
 					}
 
-					if((this.overflowOffset.left + this.scrollParent[0].offsetWidth) - event.pageX < o.scrollSensitivity) {
+					if ((this.overflowOffset.left + this.scrollParent[0].offsetWidth) - event.pageX < o.scrollSensitivity) {
 						this.scrollParent[0].scrollLeft = scrolled = this.scrollParent[0].scrollLeft + o.scrollSpeed;
-					} else if(event.pageX - this.overflowOffset.left < o.scrollSensitivity) {
+					} else if (event.pageX - this.overflowOffset.left < o.scrollSensitivity) {
 						this.scrollParent[0].scrollLeft = scrolled = this.scrollParent[0].scrollLeft - o.scrollSpeed;
 					}
 
 				} else {
 
-					if(event.pageY - $(document).scrollTop() < o.scrollSensitivity) {
+					if (event.pageY - $(document).scrollTop() < o.scrollSensitivity) {
 						scrolled = $(document).scrollTop($(document).scrollTop() - o.scrollSpeed);
-					} else if($(window).height() - (event.pageY - $(document).scrollTop()) < o.scrollSensitivity) {
+					} else if ($(window).height() - (event.pageY - $(document).scrollTop()) < o.scrollSensitivity) {
 						scrolled = $(document).scrollTop($(document).scrollTop() + o.scrollSpeed);
 					}
 
-					if(event.pageX - $(document).scrollLeft() < o.scrollSensitivity) {
+					if (event.pageX - $(document).scrollLeft() < o.scrollSensitivity) {
 						scrolled = $(document).scrollLeft($(document).scrollLeft() - o.scrollSpeed);
-					} else if($(window).width() - (event.pageX - $(document).scrollLeft()) < o.scrollSensitivity) {
+					} else if ($(window).width() - (event.pageX - $(document).scrollLeft()) < o.scrollSensitivity) {
 						scrolled = $(document).scrollLeft($(document).scrollLeft() + o.scrollSpeed);
 					}
 
 				}
 
-				if(scrolled !== false && $.ui.ddmanager && !o.dropBehaviour)
+				if (scrolled !== false && $.ui.ddmanager && !o.dropBehaviour)
 					$.ui.ddmanager.prepareOffsets(this, event);
 			}
 
@@ -205,11 +241,11 @@ $(document).ready(function() {
 			var previousTopOffset = this.placeholder.offset().top;
 
 			//Set the helper position
-			if(!this.options.axis || this.options.axis !== "y") {
-				this.helper[0].style.left = this.position.left+"px";
+			if (!this.options.axis || this.options.axis !== "y") {
+				this.helper[0].style.left = this.position.left + "px";
 			}
-			if(!this.options.axis || this.options.axis !== "x") {
-				this.helper[0].style.top = this.position.top+"px";
+			if (!this.options.axis || this.options.axis !== "x") {
+				this.helper[0].style.top = this.position.top + "px";
 			}
 
 			// mjs - check and reset hovering state at each cycle
@@ -218,11 +254,11 @@ $(document).ready(function() {
 
 			// mjs - let's start caching some variables
 			var parentItem = (this.placeholder[0].parentNode.parentNode &&
-							 $(this.placeholder[0].parentNode.parentNode).closest('.ui-sortable').length)
-				       			? $(this.placeholder[0].parentNode.parentNode)
-				       			: null,
-			    level = this._getLevel(this.placeholder),
-			    childLevels = this._getChildLevels(this.helper);
+				$(this.placeholder[0].parentNode.parentNode).closest('.ui-sortable').length)
+					? $(this.placeholder[0].parentNode.parentNode)
+					: null,
+				level = this._getLevel(this.placeholder),
+				childLevels = this._getChildLevels(this.helper);
 
 			var newList = document.createElement(o.listType);
 
@@ -255,15 +291,15 @@ $(document).ready(function() {
 					if (intersection === 2) {
 						// Going down
 						var itemAfter = this.items[i + 1];
-						if (itemAfter && itemAfter.item[0].className.indexOf(o.disabledClass) !== -1){
+						if (itemAfter && itemAfter.item[0].className.indexOf(o.disabledClass) !== -1) {
 							continue;
 						}
-						
+
 					}
 					else if (intersection === 1) {
 						// Going up
 						var itemBefore = this.items[i - 1];
-						if (itemBefore && itemBefore.item[0].className.indexOf(o.disabledClass) !== -1){
+						if (itemBefore && itemBefore.item[0].className.indexOf(o.disabledClass) !== -1) {
 							continue;
 						}
 					}
@@ -273,8 +309,7 @@ $(document).ready(function() {
 				// no useless actions that have been done before
 				// no action if the item moved is the parent of the item checked
 				if (itemElement !== this.currentItem[0] &&
-					this.placeholder[intersection === 1 ? "next" : "prev"]()[0] !== itemElement &&
-					!$.contains(this.placeholder[0], itemElement) &&
+					this.placeholder[intersection === 1 ? "next" : "prev"]()[0] !== itemElement && !$.contains(this.placeholder[0], itemElement) &&
 					(this.options.type === "semi-dynamic" ? !$.contains(this.element[0], itemElement) : true)
 				) {
 
@@ -289,7 +324,7 @@ $(document).ready(function() {
 						if (!this.hovering) {
 							$(itemElement).addClass(o.hoveringClass);
 							var self = this;
-							this.hovering = window.setTimeout(function() {
+							this.hovering = window.setTimeout(function () {
 								$(itemElement).removeClass(o.collapsedClass).addClass(o.expandedClass);
 								self.refreshPositions();
 								self._trigger("expand", event, self._uiHash());
@@ -310,14 +345,14 @@ $(document).ready(function() {
 						// mjs - do not switch container if it's a root item and 'protectRoot' is true
 						// or if it's not a root item but we are trying to make it root
 						if (o.protectRoot
-							&& ! (this.currentItem[0].parentNode == this.element[0] // it's a root item
-								  && itemElement.parentNode != this.element[0]) // it's intersecting a non-root item
+							&& !(this.currentItem[0].parentNode == this.element[0] // it's a root item
+							&& itemElement.parentNode != this.element[0]) // it's intersecting a non-root item
 						) {
 							if (this.currentItem[0].parentNode != this.element[0]
-							   	&& itemElement.parentNode == this.element[0]
+								&& itemElement.parentNode == this.element[0]
 							) {
 
-								if ( ! $(itemElement).children(o.listType).length) {
+								if (!$(itemElement).children(o.listType).length) {
 									itemElement.appendChild(newList);
 									o.isTree && $(itemElement).removeClass(o.leafClass).addClass(o.branchClass + ' ' + o.expandedClass);
 								}
@@ -330,7 +365,7 @@ $(document).ready(function() {
 							} else {
 								this._rearrange(event, item);
 							}
-						} else if ( ! o.protectRoot) {
+						} else if (!o.protectRoot) {
 							this._rearrange(event, item);
 						}
 					} else {
@@ -376,59 +411,59 @@ $(document).ready(function() {
 			// mjs - if the item is moved to the left, send it one level up but only if it's at the bottom of the list
 			if (parentItem != null
 				&& nextItem == null
-				&& ! (o.protectRoot && parentItem[0].parentNode == this.element[0])
+				&& !(o.protectRoot && parentItem[0].parentNode == this.element[0])
 				&&
-					(o.rtl && (this.positionAbs.left + this.helper.outerWidth() > parentItem.offset().left + parentItem.outerWidth())
-					 || ! o.rtl && (this.positionAbs.left < parentItem.offset().left))
+				(o.rtl && (this.positionAbs.left + this.helper.outerWidth() > parentItem.offset().left + parentItem.outerWidth())
+				|| !o.rtl && (this.positionAbs.left < parentItem.offset().left))
 			) {
 
 				parentItem.after(this.placeholder[0]);
 				if (o.isTree && parentItem.children(o.listItem).children('li:visible:not(.ui-sortable-helper)').length < 1) {
 					parentItem.removeClass(this.options.branchClass + ' ' + this.options.expandedClass)
-							  .addClass(this.options.leafClass);
+						.addClass(this.options.leafClass);
 				}
 				this._clearEmpty(parentItem[0]);
 				this._trigger("change", event, this._uiHash());
 			}
 			// mjs - if the item is below a sibling and is moved to the right, make it a child of that sibling
 			else if (previousItem != null
-					 && ! previousItem.hasClass(o.disableNestingClass)
-					 &&
-						(previousItem.children(o.listType).length && previousItem.children(o.listType).is(':visible')
-						 || ! previousItem.children(o.listType).length)
-					 && ! (o.protectRoot && this.currentItem[0].parentNode == this.element[0])
-					 &&
-						(o.rtl && (this.positionAbs.left + this.helper.outerWidth() < previousItem.offset().left + previousItem.outerWidth() - o.tabSize)
-						 || ! o.rtl && (this.positionAbs.left > previousItem.offset().left + o.tabSize))
+				&& !previousItem.hasClass(o.disableNestingClass)
+				&&
+				(previousItem.children(o.listType).length && previousItem.children(o.listType).is(':visible')
+				|| !previousItem.children(o.listType).length)
+				&& !(o.protectRoot && this.currentItem[0].parentNode == this.element[0])
+				&&
+				(o.rtl && (this.positionAbs.left + this.helper.outerWidth() < previousItem.offset().left + previousItem.outerWidth() - o.tabSize)
+				|| !o.rtl && (this.positionAbs.left > previousItem.offset().left + o.tabSize))
 			) {
 
-				this._isAllowed(previousItem, level, level+childLevels+1);
+				this._isAllowed(previousItem, level, level + childLevels + 1);
 
 				if (!previousItem.children(o.listType).length) {
 					previousItem[0].appendChild(newList);
 					o.isTree && previousItem.removeClass(o.leafClass).addClass(o.branchClass + ' ' + o.expandedClass);
 				}
 
-		        // mjs - if this item is being moved from the top, add it to the top of the list.
-		        if (previousTopOffset && (previousTopOffset <= previousItem.offset().top)) {
-		        	previousItem.children(o.listType).prepend(this.placeholder);
-		        }
-		        // mjs - otherwise, add it to the bottom of the list.
-		        else {
+				// mjs - if this item is being moved from the top, add it to the top of the list.
+				if (previousTopOffset && (previousTopOffset <= previousItem.offset().top)) {
+					previousItem.children(o.listType).prepend(this.placeholder);
+				}
+				// mjs - otherwise, add it to the bottom of the list.
+				else {
 					previousItem.children(o.listType)[0].appendChild(this.placeholder[0]);
 				}
 
 				this._trigger("change", event, this._uiHash());
 			}
 			else {
-				this._isAllowed(parentItem, level, level+childLevels);
+				this._isAllowed(parentItem, level, level + childLevels);
 			}
 
 			//Post events to containers
 			this._contactContainers(event);
 
 			//Interconnect with droppables
-			if($.ui.ddmanager) {
+			if ($.ui.ddmanager) {
 				$.ui.ddmanager.drag(this, event);
 			}
 
@@ -440,7 +475,7 @@ $(document).ready(function() {
 
 		},
 
-		_mouseStop: function(event, noPropagation) {
+		_mouseStop: function (event, noPropagation) {
 
 			// mjs - if the item is in a position not allowed, send it back
 			if (this.beyondMaxLevels) {
@@ -459,17 +494,17 @@ $(document).ready(function() {
 
 
 			// mjs - clear the hovering timeout, just to be sure
-			$('.'+this.options.hoveringClass).mouseleave().removeClass(this.options.hoveringClass);
+			$('.' + this.options.hoveringClass).mouseleave().removeClass(this.options.hoveringClass);
 			this.mouseentered = false;
 			this.hovering && window.clearTimeout(this.hovering);
 			this.hovering = null;
 
 			$.ui.sortable.prototype._mouseStop.apply(this, arguments);
-			
+
 			var pid = $(this.domPosition.parent).parent().attr("id");
 			var sort = this.domPosition.prev ? $(this.domPosition.prev).next().index() : 0;
-			
-			if(!(pid == this._uiHash().item.parent().parent().attr("id") && 
+
+			if (!(pid == this._uiHash().item.parent().parent().attr("id") &&
 				sort == this._uiHash().item.index())) {
 				this._trigger("relocate", event, this._uiHash());
 			}
@@ -477,13 +512,13 @@ $(document).ready(function() {
 		},
 
 		// mjs - this function is slightly modified to make it easier to hover over a collapsed element and have it expand
-		_intersectsWithSides: function(item) {
+		_intersectsWithSides: function (item) {
 
 			var half = this.options.isTree ? .8 : .5;
 
-			var isOverBottomHalf = isOverAxis(this.positionAbs.top + this.offset.click.top, item.top + (item.height*half), item.height),
-				isOverTopHalf = isOverAxis(this.positionAbs.top + this.offset.click.top, item.top - (item.height*half), item.height),
-				isOverRightHalf = isOverAxis(this.positionAbs.left + this.offset.click.left, item.left + (item.width/2), item.width),
+			var isOverBottomHalf = isOverAxis(this.positionAbs.top + this.offset.click.top, item.top + (item.height * half), item.height),
+				isOverTopHalf = isOverAxis(this.positionAbs.top + this.offset.click.top, item.top - (item.height * half), item.height),
+				isOverRightHalf = isOverAxis(this.positionAbs.left + this.offset.click.left, item.left + (item.width / 2), item.width),
 				verticalDirection = this._getDragVerticalDirection(),
 				horizontalDirection = this._getDragHorizontalDirection();
 
@@ -495,9 +530,9 @@ $(document).ready(function() {
 
 		},
 
-		_contactContainers: function(event) {
+		_contactContainers: function (event) {
 
-			if (this.options.protectRoot && this.currentItem[0].parentNode == this.element[0] ) {
+			if (this.options.protectRoot && this.currentItem[0].parentNode == this.element[0]) {
 				return;
 			}
 
@@ -505,7 +540,7 @@ $(document).ready(function() {
 
 		},
 
-		_clear: function(event, noPropagation) {
+		_clear: function (event, noPropagation) {
 
 			$.ui.sortable.prototype._clear.apply(this, arguments);
 
@@ -517,16 +552,16 @@ $(document).ready(function() {
 
 		},
 
-		serialize: function(options) {
+		serialize: function (options) {
 
 			var o = $.extend({}, this.options, options),
 				items = this._getItemsAsjQuery(o && o.connected),
-			    str = [];
+				str = [];
 
-			$(items).each(function() {
+			$(items).each(function () {
 				var res = ($(o.item || this).attr(o.attribute || 'id') || '')
-						.match(o.expression || (/(.+)[-=_](.+)/)),
-				    pid = ($(o.item || this).parent(o.listType)
+					.match(o.expression || (/(.+)[-=_](.+)/)),
+					pid = ($(o.item || this).parent(o.listType)
 						.parent(o.items)
 						.attr(o.attribute || 'id') || '')
 						.match(o.expression || (/(.+)[-=_](.+)/));
@@ -538,7 +573,7 @@ $(document).ready(function() {
 				}
 			});
 
-			if(!str.length && o.key) {
+			if (!str.length && o.key) {
 				str.push(o.key + '=');
 			}
 
@@ -546,11 +581,11 @@ $(document).ready(function() {
 
 		},
 
-		toHierarchy: function(options) {
+		toHierarchy: function (options) {
 
 			var o = $.extend({}, this.options, options),
 				sDepth = o.startDepthCount || 0,
-			    ret = [];
+				ret = [];
 
 			$(this.element).children(o.items).each(function () {
 				var level = _recursiveItems(this);
@@ -562,10 +597,10 @@ $(document).ready(function() {
 			function _recursiveItems(item) {
 				var id = ($(item).attr(o.attribute || 'id') || '').match(o.expression || (/(.+)[-=_](.+)/));
 				if (id) {
-					var currentItem = {"id" : id[2]};
+					var currentItem = {"id": id[2]};
 					if ($(item).children(o.listType).children(o.items).length > 0) {
 						currentItem.children = [];
-						$(item).children(o.listType).children(o.items).each(function() {
+						$(item).children(o.listType).children(o.items).each(function () {
 							var level = _recursiveItems(this);
 							currentItem.children.push(level);
 						});
@@ -575,12 +610,12 @@ $(document).ready(function() {
 			}
 		},
 
-		toArray: function(options) {
+		toArray: function (options) {
 
 			var o = $.extend({}, this.options, options),
 				sDepth = o.startDepthCount || 0,
-			    ret = [],
-			    left = 1;
+				ret = [],
+				left = 1;
 
 			if (!o.excludeRoot) {
 				ret.push({
@@ -597,22 +632,24 @@ $(document).ready(function() {
 				left = _recursiveArray(this, sDepth + 1, left);
 			});
 
-			ret = ret.sort(function(a,b){ return (a.left - b.left); });
+			ret = ret.sort(function (a, b) {
+				return (a.left - b.left);
+			});
 
 			return ret;
 
 			function _recursiveArray(item, depth, left) {
 
 				var right = left + 1,
-				    id,
-				    pid;
+					id,
+					pid;
 
 				if ($(item).children(o.listType).children(o.items).length > 0) {
-					depth ++;
+					depth++;
 					$(item).children(o.listType).children(o.items).each(function () {
 						right = _recursiveArray($(this), depth, right);
 					});
-					depth --;
+					depth--;
 				}
 
 				id = ($(item).attr(o.attribute || 'id')).match(o.expression || (/(.+)[-=_](.+)/));
@@ -621,14 +658,14 @@ $(document).ready(function() {
 					pid = o.rootID;
 				} else {
 					var parentItem = ($(item).parent(o.listType)
-											 .parent(o.items)
-											 .attr(o.attribute || 'id'))
-											 .match(o.expression || (/(.+)[-=_](.+)/));
+						.parent(o.items)
+						.attr(o.attribute || 'id'))
+						.match(o.expression || (/(.+)[-=_](.+)/));
 					pid = parentItem[2];
 				}
 
 				if (id) {
-						ret.push({"item_id": id[2], "parent_id": pid, "depth": depth, "left": left, "right": right});
+					ret.push({"item_id": id[2], "parent_id": pid, "depth": depth, "left": left, "right": right});
 				}
 
 				left = right + 1;
@@ -637,7 +674,7 @@ $(document).ready(function() {
 
 		},
 
-		_clearEmpty: function(item) {
+		_clearEmpty: function (item) {
 			var o = this.options;
 
 			var emptyList = $(item).children(o.listType);
@@ -653,14 +690,13 @@ $(document).ready(function() {
 
 		},
 
-		_getLevel: function(item) {
+		_getLevel: function (item) {
 
 			var level = 1;
 
 			if (this.options.listType) {
 				var list = item.closest(this.options.listType);
-				while (list && list.length > 0 &&
-                    	!list.is('.ui-sortable')) {
+				while (list && list.length > 0 && !list.is('.ui-sortable')) {
 					level++;
 					list = list.parent().closest(this.options.listType);
 				}
@@ -669,38 +705,38 @@ $(document).ready(function() {
 			return level;
 		},
 
-		_getChildLevels: function(parent, depth) {
+		_getChildLevels: function (parent, depth) {
 			var self = this,
-			    o = this.options,
-			    result = 0;
+				o = this.options,
+				result = 0;
 			depth = depth || 0;
 
 			$(parent).children(o.listType).children(o.items).each(function (index, child) {
-					result = Math.max(self._getChildLevels(child, depth + 1), result);
+				result = Math.max(self._getChildLevels(child, depth + 1), result);
 			});
 
 			return depth ? result + 1 : result;
 		},
 
-		_isAllowed: function(parentItem, level, levels) {
+		_isAllowed: function (parentItem, level, levels) {
 			var o = this.options,
 				maxLevels = this.placeholder.closest('.ui-sortable').nestedSortable('option', 'maxLevels'); // this takes into account the maxLevels set to the recipient list
 
-			 // Check if the parent has changed to prevent it, when o.disableParentChange is true
+			// Check if the parent has changed to prevent it, when o.disableParentChange is true
 			var oldParent = this.currentItem.parent().parent();
 			var disabledByParentchange = o.disableParentChange && (
-				parentItem !== null && !oldParent.is(parentItem)//From somewhere to somewhere else, except the root
-			||	parentItem === null && oldParent.is('li')	//From somewhere to the root
-			);
+					parentItem !== null && !oldParent.is(parentItem)//From somewhere to somewhere else, except the root
+					|| parentItem === null && oldParent.is('li')	//From somewhere to the root
+				);
 			// mjs - is the root protected?
 			// mjs - are we nesting too deep?
-			if (disabledByParentchange || ! o.isAllowed(this.placeholder, parentItem, this.currentItem)) {
-					this.placeholder.addClass(o.errorClass);
-					if (maxLevels < levels && maxLevels != 0) {
-						this.beyondMaxLevels = levels - maxLevels;
-					} else {
-						this.beyondMaxLevels = 1;
-					}
+			if (disabledByParentchange || !o.isAllowed(this.placeholder, parentItem, this.currentItem)) {
+				this.placeholder.addClass(o.errorClass);
+				if (maxLevels < levels && maxLevels != 0) {
+					this.beyondMaxLevels = levels - maxLevels;
+				} else {
+					this.beyondMaxLevels = 1;
+				}
 			} else {
 				if (maxLevels < levels && maxLevels != 0) {
 					this.placeholder.addClass(o.errorClass);

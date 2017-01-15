@@ -6,7 +6,7 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["errorpage"]["sql"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -57,23 +57,29 @@ if ($errors) { ?>
 									<div class="col-md-5"><strong><?php echo $tl["user_box_content"]["userbc3"]; ?></strong></div>
 									<div class="col-md-7">
 										<div class="form-group no-margin">
-											<input type="text" name="jak_name" class="form-control" value="<?php if (isset($_REQUEST["jak_name"])) echo $_REQUEST["jak_name"]; ?>"/>
+											<input type="text" name="jak_name" class="form-control" value=""/>
 										</div>
 									</div>
 								</div>
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["user_box_content"]["userbc4"]; ?></strong></div>
+									<div class="col-md-5">
+										<strong><?php echo $tl["user_box_content"]["userbc4"]; ?></strong>
+										<span class="star-item text-danger-800 m-l-10">*</span>
+									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-											<input type="text" name="jak_email" class="form-control" value="<?php if (isset($_REQUEST["jak_email"])) echo $_REQUEST["jak_email"]; ?>"/>
+											<input type="text" name="jak_email" class="form-control" value=""/>
 										</div>
 									</div>
 								</div>
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["user_box_content"]["userbc5"]; ?></strong></div>
+									<div class="col-md-5">
+										<strong><?php echo $tl["user_box_content"]["userbc5"]; ?></strong>
+										<span class="star-item text-danger-800 m-l-10">*</span>
+									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-											<input class="form-control" type="text" name="jak_username" value="<?php if (isset($_REQUEST["jak_username"])) echo $_REQUEST["jak_username"]; ?>"/>
+											<input class="form-control" type="text" name="jak_username" value=""/>
 										</div>
 									</div>
 								</div>
@@ -83,7 +89,7 @@ if ($errors) { ?>
 										<select name="jak_usergroup" class="form-control selectpicker" data-size="5">
 											<?php if (isset($JAK_USERGROUP_ALL) && is_array ($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
 												if ($v["id"] != "1") { ?>
-													<option value="<?php echo $v["id"]; ?>"<?php if (isset($_REQUEST["jak_usergroup"]) && $v["id"] == $_REQUEST["jak_usergroup"]) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php }
+													<option value="<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></option><?php }
 											} ?>
 										</select>
 									</div>
@@ -122,7 +128,10 @@ if ($errors) { ?>
 						<div class="block">
 							<div class="block-content">
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["user_box_content"]["userbc12"]; ?></strong></div>
+									<div class="col-md-5">
+										<strong><?php echo $tl["user_box_content"]["userbc12"]; ?></strong>
+										<span class="star-item text-danger-800 m-l-10">*</span>
+									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
 											<div class="label-indicator-absolute">
@@ -133,7 +142,10 @@ if ($errors) { ?>
 									</div>
 								</div>
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["user_box_content"]["userbc13"]; ?></strong></div>
+									<div class="col-md-5">
+										<strong><?php echo $tl["user_box_content"]["userbc13"]; ?></strong>
+										<span class="star-item text-danger-800 m-l-10">*</span>
+									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
 											<div class="label-indicator-absolute">

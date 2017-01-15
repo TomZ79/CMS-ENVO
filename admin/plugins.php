@@ -50,15 +50,15 @@ switch ($page1) {
 						$defaults = $_POST;
 
 						if (empty($defaults['jak_name'])) {
-							$errors['e1'] = $tl['hook']['e'];
+							$errors['e1'] = $tl['hook_error']['hookerror1'];
 						}
 
 						if (empty($defaults['jak_hook'])) {
-							$errors['e2'] = $tl['hook']['e1'];
+							$errors['e2'] = $tl['hook_error']['hookerror2'];
 						}
 
 						if (!is_numeric ($defaults['jak_exorder'])) {
-							$errors['e3'] = $tl['error']['e15'];
+							$errors['e3'] = $tl['hook_error']['hookerror3'];
 						}
 
 						if (count ($errors) == 0) {
@@ -85,7 +85,7 @@ switch ($page1) {
 							}
 						} else {
 
-							$errors['e'] = $tl['error']['e'];
+							$errors['e'] = $tl['general_error']['generror'];
 							$errors      = $errors;
 						}
 					}
@@ -252,15 +252,15 @@ switch ($page1) {
 			$defaults = $_POST;
 
 			if (empty($defaults['jak_name'])) {
-				$errors['e1'] = $tl['hook']['e'];
+				$errors['e1'] = $tl['hook_error']['hookerror1'];
 			}
 
 			if (empty($defaults['jak_hook'])) {
-				$errors['e2'] = $tl['hook']['e1'];
+				$errors['e2'] = $tl['hook_error']['hookerror2'];
 			}
 
 			if (!is_numeric ($defaults['jak_exorder'])) {
-				$errors['e3'] = $tl['error']['e15'];
+				$errors['e3'] = $tl['hook_error']['hookerror3'];
 			}
 
 			if (count ($errors) == 0) {

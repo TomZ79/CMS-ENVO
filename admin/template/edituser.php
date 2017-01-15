@@ -6,7 +6,7 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general"]["g7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>',
 			}, {
 				// settings
 				type: 'success',
@@ -21,7 +21,7 @@ if ($page3 == "e") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["errorpage"]["sql"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -76,7 +76,10 @@ if ($errors) { ?>
 									</div>
 								</div>
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["user_box_content"]["userbc4"]; ?></strong></div>
+									<div class="col-md-5">
+										<strong><?php echo $tl["user_box_content"]["userbc4"]; ?></strong>
+										<span class="star-item text-danger-800 m-l-10">*</span>
+									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
 											<input type="text" name="jak_email" class="form-control" value="<?php echo $JAK_FORM_DATA["email"]; ?>"/>
@@ -84,7 +87,10 @@ if ($errors) { ?>
 									</div>
 								</div>
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["user_box_content"]["userbc5"]; ?></strong></div>
+									<div class="col-md-5">
+										<strong><?php echo $tl["user_box_content"]["userbc5"]; ?></strong>
+										<span class="star-item text-danger-800 m-l-10">*</span>
+									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 											<input class="form-control" type="text" name="jak_username" value="<?php echo $JAK_FORM_DATA["username"]; ?>"/>

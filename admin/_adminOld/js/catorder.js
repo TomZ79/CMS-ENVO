@@ -18,7 +18,7 @@ $(document).ready(function() {
 	$(".save-menu").on("click", function() {
 		mlist = $(this).data("menu");
 		serialized = $("#"+mlist).nestedSortable("serialize");
-		
+
 		/* Sending the form fileds to any post request: */
 		var request = $.ajax({
 		  url: "index.php?p=categories",
@@ -37,7 +37,7 @@ $(document).ready(function() {
 			}
 		});
 	});
-	
+
 });
 
 /*!
@@ -258,7 +258,7 @@ $(document).ready(function() {
 						if (itemAfter && itemAfter.item[0].className.indexOf(o.disabledClass) !== -1){
 							continue;
 						}
-						
+
 					}
 					else if (intersection === 1) {
 						// Going up
@@ -465,11 +465,11 @@ $(document).ready(function() {
 			this.hovering = null;
 
 			$.ui.sortable.prototype._mouseStop.apply(this, arguments);
-			
+
 			var pid = $(this.domPosition.parent).parent().attr("id");
 			var sort = this.domPosition.prev ? $(this.domPosition.prev).next().index() : 0;
-			
-			if(!(pid == this._uiHash().item.parent().parent().attr("id") && 
+
+			if(!(pid == this._uiHash().item.parent().parent().attr("id") &&
 				sort == this._uiHash().item.index())) {
 				this._trigger("relocate", event, this._uiHash());
 			}

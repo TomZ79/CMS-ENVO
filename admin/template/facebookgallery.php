@@ -6,7 +6,7 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general"]["g7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>',
 			}, {
 				// settings
 				type: 'success',
@@ -21,7 +21,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo ($page1 == "e" ? $tl["errorpage"]["sql"] : $tl["errorpage"]["not"]);?>',
+				message: '<?php echo ($page1 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -49,9 +49,9 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 	</script>
 <?php } ?>
 
-	<!-- Fixed Button -->
-	<div class="actionbutton">
-		<button type="submit" name="save" class="btn btn-default button-icon" data-toggle="tooltip" data-placement="bottom" title="Toggle grid and list view">
+	<!-- Fixed Button for save form -->
+	<div class="actionbutton hidden-xs">
+		<button type="submit" name="button" class="btn btn-toggle" data-toggle="tooltip" data-placement="bottom" title="Toggle grid and list view">
 			<i class="fa fa-th-list"></i>
 		</button>
 	</div>
@@ -145,7 +145,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
 	<div class="col-md-12">
 		<div class="alert bg-info text-white">
-			<?php echo $tl["errorpage"]["data"]; ?>
+			<?php echo $tl["general_error"]["generror3"]; ?>
 		</div>
 	</div>
 

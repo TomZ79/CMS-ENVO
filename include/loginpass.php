@@ -107,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
     $mail->AltBody = strip_tags($body);
 
     if ($mail->Send()) {
-      $_SESSION["infomsg"] = $tl["login"]["l7"];
+      $_SESSION["infomsg"] = $tl["log_in"]["login11"];
       jak_redirect($_SERVER['HTTP_REFERER']);
     }
 

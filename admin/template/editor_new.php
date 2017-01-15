@@ -20,10 +20,17 @@
 							</div>
 						</div>
 
-						<textarea name="jak_content" class="form-control hidden" id="jak_editor"><?php if (isset($_REQUEST["jak_content"])) echo jak_edit_safe_userpost (htmlspecialchars ($_REQUEST["jak_content"])); ?></textarea>
-					<?php } else { ?>
-						<textarea name="jak_content" class="form-control jakEditor" id="jakEditor" rows="40"><?php if (isset($_REQUEST["jak_content"])) echo jak_edit_safe_userpost ($_REQUEST["jak_content"]); ?></textarea>
-					<?php } ?>
+						<?php
+						// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+						echo $htmlE->addTextArea ('jak_content', '', '', $_REQUEST["jak_content"], array ('id' => 'jak_editor', 'class' => 'form-control hidden'));
+						?>
+
+					<?php } else {
+
+						// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+						echo $htmlE->addTextArea ('jak_content', '40', '', $_REQUEST["jak_content"], array ('id' => 'jak_editor', 'class' => 'form-control jakEditor'));
+
+					 } ?>
 				</td>
 			</tr>
 		</table>

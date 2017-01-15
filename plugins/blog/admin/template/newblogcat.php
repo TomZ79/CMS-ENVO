@@ -6,7 +6,7 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["errorpage"]["sql"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -69,14 +69,14 @@ if ($errors) { ?>
 									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
-											<input type="text" name="jak_varname" id="jak_varname" class="form-control" value="<?php if (isset($_REQUEST["jak_varname"])) echo $_REQUEST["jak_varname"]; ?>"/>
+											<input type="text" name="jak_varname" id="jak_varname" class="form-control" value=""/>
 										</div>
 									</div>
 								</div>
 								<div class="row-form">
 									<div class="col-md-5"><strong><?php echo $tlblog["blog_box_content"]["blogbc21"]; ?></strong></div>
 									<div class="col-md-7">
-										<textarea name="jak_lcontent" class="form-control" rows="4"><?php if (isset($_REQUEST["jak_lcontent"])) echo jak_edit_safe_userpost ($_REQUEST["jak_lcontent"]); ?></textarea>
+										<textarea name="jak_lcontent" class="form-control" rows="4"></textarea>
 									</div>
 								</div>
 								<div class="row-form">
@@ -84,10 +84,10 @@ if ($errors) { ?>
 									<div class="col-md-7">
 										<div class="radio radio-success">
 
-											<input type="radio" id="jak_active1" name="jak_active" value="1"<?php if (isset($_REQUEST["jak_active"]) && $_REQUEST["jak_active"] == '1') { ?> checked="checked"<?php } ?> />
+											<input type="radio" id="jak_active1" name="jak_active" value="1" />
 											<label for="jak_active1"><?php echo $tl["checkbox"]["chk"]; ?></label>
 
-											<input type="radio" id="jak_active2" name="jak_active" value="0"<?php if (isset($_REQUEST["jak_active"]) && $_REQUEST["jak_active"] == '0') { ?> checked="checked"<?php } ?> />
+											<input type="radio" id="jak_active2" name="jak_active" value="0" />
 											<label for="jak_active2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
 
 										</div>
@@ -97,7 +97,7 @@ if ($errors) { ?>
 									<div class="col-md-5"><strong><?php echo $tlblog["blog_box_content"]["blogbc23"]; ?></strong></div>
 									<div class="col-md-7">
 										<div class="input-group">
-											<input type="text" name="jak_img" id="jak_img" class="form-control" value="<?php if (isset($_REQUEST["jak_img"])) echo $_REQUEST["jak_img"]; ?>"/>
+											<input type="text" name="jak_img" id="jak_img" class="form-control" value=""/>
                     <span class="input-group-btn">
                       <button class="btn btn-default iconpicker" data-placement="top" role="iconpicker"></button>
                     </span>
@@ -130,9 +130,9 @@ if ($errors) { ?>
 								<div class="row-form">
 									<div class="col-md-12">
 										<select name="jak_permission[]" multiple="multiple" class="form-control">
-											<option value="0"<?php if (isset($_REQUEST["jak_permission"]) && $_REQUEST["jak_permission"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tlblog["blog_box_content"]["blogbc24"]; ?></option>
+											<option value="0" selected="selected"><?php echo $tlblog["blog_box_content"]["blogbc24"]; ?></option>
 											<?php if (isset($JAK_USERGROUP) && is_array ($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) { ?>
-												<option value="<?php echo $v["id"]; ?>"<?php if (isset($_REQUEST["jak_permission"]) && $v["id"] == $_REQUEST["jak_permission"]) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php } ?>
+												<option value="<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></option><?php } ?>
 										</select>
 									</div>
 								</div>

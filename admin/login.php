@@ -30,7 +30,7 @@ if (!empty($_POST['action']) && $_POST['action'] == 'login') {
 		// Write the log file each time someone login after to show success
 		$jakuserlogin->jakWriteloginlog ($username, '', $valid_ip, '', 1);
 
-		$_SESSION["loginmsg"] = $tl["general_cmd"]["g8"];
+		$_SESSION["loginmsg"] = $tl["log_in"]["login14"];
 
 		if (isset($_SESSION['JAKRedirect'])) {
 			// EN: Redirect page
@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
 		$errors['e'] = $tl['error']['e19'];
 	}
 
-	// transform user email
+	// Transform user email
 	$femail = filter_var ($defaults['email'], FILTER_SANITIZE_EMAIL);
 	$fwhen  = time ();
 
@@ -64,11 +64,12 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
 
 	if (!$user_check) {
 		$errors['e'] = $tl['error']['e19'];
+		$_SESSION["errormsg"] = $tl["log_in"]["login13"];
 	}
 
 	if (count ($errors) == 0) {
 
-		$body = sprintf ($tl['login']['l14'], $user_check, '<a href="' . (JAK_USE_APACHE ? substr (BASE_URL_ORIG, 0, - 1) : BASE_URL_ORIG) . html_entity_decode (JAK_rewrite::jakParseurl ('forgot-password', $fwhen, '', '', '')) . '">' . (JAK_USE_APACHE ? substr (BASE_URL_ORIG, 0, - 1) : BASE_URL_ORIG) . html_entity_decode (JAK_rewrite::jakParseurl ('forgot-password', $fwhen, '', '', '')) . '</a>', $jkv["title"]);
+		$body = sprintf ($tl['log_in']['login12'], $user_check, '<a href="' . (JAK_USE_APACHE ? substr (BASE_URL_ORIG, 0, - 1) : BASE_URL_ORIG) . html_entity_decode (JAK_rewrite::jakParseurl ('forgot-password', $fwhen, '', '', '')) . '">' . (JAK_USE_APACHE ? substr (BASE_URL_ORIG, 0, - 1) : BASE_URL_ORIG) . html_entity_decode (JAK_rewrite::jakParseurl ('forgot-password', $fwhen, '', '', '')) . '</a>', $jkv["title"]);
 
 		$mail = new PHPMailer(); // defaults to using php "mail()"
 		$mail->SetFrom ($jkv["email"], $jkv["title"]);
@@ -80,8 +81,9 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
 		if ($mail->Send ()) {
 			// EN: Redirect page
 			// CZ: Přesměrování stránky/
-			$_SESSION["infomsg"] = $tl["login"]["l7"];
+			$_SESSION["infomsg"] = $tl["log_in"]["login11"];
 			jak_redirect (BASE_URL);
+
 		}
 
 	} else {

@@ -45,6 +45,10 @@ include_once 'class/class.paginator.php';
 include_once 'class/class.tags.php';
 include_once 'class/class.resizeimage.php';
 include_once 'class/class.debug.php';
+include_once 'class/class.htmlelement.php';
+
+// Create instance of HTML_Form from htmlelement.php Class
+$htmlE = new HTML_Form();
 
 // Now launch the rewrite class, depending on the settings in db.
 $getURL = New JAK_rewrite($_SERVER['REQUEST_URI']);
