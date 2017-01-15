@@ -284,6 +284,25 @@ if (isset($_SESSION["errormsg"])) { ?>
 			icon: 'fa fa-exclamation-triangle',
 			message: '<?php echo $_SESSION["errormsg"];?>'
 		}, {type: 'danger'});</script>
+<?php }
+if (!isset($jkv["cms_tpl"])) { ?>
+	<script type="text/javascript">
+		// Notification
+		$.notify({
+			// options
+			icon: 'fa fa-exclamation-triangle fa-lg',
+			message: '<?php echo $tl["general_error"]["generror6"];?>',
+		}, {
+			// settings
+			type: 'danger',
+			delay: 0,
+			template:
+			'<div data-notify="container" class="col-xs-11 col-sm-5 alert alert-{0}" role="alert">' +
+			'<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+			'<span data-notify="icon"></span> ' +
+			'<span data-notify="message">{2}</span>' +
+			'</div>'
+		});</script>
 <?php } ?>
 <!-- BEGIN TINYMCE EDITOR -->
 <?php if ($JAK_PROVED && (!$jkv["adv_editor"])) { ?>
