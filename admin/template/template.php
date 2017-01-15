@@ -83,7 +83,7 @@ if ($page1 == "e") { ?>
 
 				?>
 
-				<div class="col-sm-6 col-md-12 margin-bottom-20 row-table">
+				<div class="col-sm-6 col-md-12 m-b-20 row-table no-padding">
 					<div class="col-md-3 col-table">
 						<div class="thumbnail" style="background: rgb(217, 217, 217) none repeat scroll 0% 0%; border: medium none; border-radius: 0px; margin: 0px; padding: 24px;">
 							<div class="thumbnail-container">
