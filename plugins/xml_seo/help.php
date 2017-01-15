@@ -3,7 +3,7 @@
 <head>
 	<title>Help - XML SEO Plugin</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="/css/stylesheet.css" type="text/css" media="screen"/>
+	<link rel="stylesheet" href="/assets/css/stylesheet.css" type="text/css" media="screen"/>
 	<link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
 	<link rel="stylesheet" href="/admin/css/admin-color.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
 </head>

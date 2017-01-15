@@ -28,7 +28,7 @@
 </script>
 
 <?php if (!$jkv["adv_editor"]) { ?>
-	<script type="text/javascript" src="../js/editor/tinymce.min.js"></script>
+	<script type="text/javascript" src="../assets/plugins/tinymce/tinymce.min.js"></script>
 	<?php include_once ('pages/js/tiny.editor.php');
 } ?>
 

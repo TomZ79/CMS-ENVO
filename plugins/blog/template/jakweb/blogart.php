@@ -83,7 +83,7 @@ if ($jkv["printme"]) $printme = 1; ?>
 		<?php } ?>
 	</ul>
 
-	<script src="<?php echo BASE_URL; ?>js/comments.js?=<?php echo $jkv["updatetime"]; ?>"
+	<script src="<?php echo BASE_URL; ?>assets/js/comments.js?=<?php echo $jkv["updatetime"]; ?>"
 		type="text/javascript"></script>
 
 <?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/footer.php'; ?>

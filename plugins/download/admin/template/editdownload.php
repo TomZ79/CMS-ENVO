@@ -106,7 +106,9 @@ if ($errors) { ?>
 										<div class="row-form">
 											<div class="col-md-5"><strong><?php echo $tld["dload"]["d8"]; ?></strong></div>
 											<div class="col-md-7">
-												<?php include_once APP_PATH . "admin/template/title_edit.php"; ?>
+												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+													<input type="text" name="jak_title" class="form-control" value="<?php echo $JAK_FORM_DATA["title"]; ?>"/>
+												</div>
 											</div>
 										</div>
 										<div class="row-form">
@@ -223,7 +225,7 @@ if ($errors) { ?>
 												<div class="input-group">
 													<input type="text" name="jak_img" id="jak_img" class="form-control" value="<?php echo $JAK_FORM_DATA["previmg"]; ?>"/>
                         <span class="input-group-btn">
-                          <a class="btn btn-info ifManager" type="button" href="../js/editor/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_img"><?php echo $tl["general"]["g69"]; ?></a>
+                          <a class="btn btn-info ifManager" type="button" href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_img"><?php echo $tl["general"]["g69"]; ?></a>
                         </span>
 												</div>
 											</div>
@@ -387,7 +389,7 @@ if ($errors) { ?>
 												<input type="text" name="jak_extfile" id="ext_file" class="form-control" value="<?php echo $JAK_FORM_DATA["extfile"]; ?>"/>
                       <span class="input-group-btn">
                         <a class="btn btn-info ifManager" type="button"
-													href="../js/editor/plugins/filemanager/dialog.php?type=2&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=ext_file"><?php echo $tl["general"]["g69"]; ?></a>
+													href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=ext_file"><?php echo $tl["general"]["g69"]; ?></a>
                       </span>
 											</div><!-- /input-group -->
 										</td>
@@ -535,7 +537,7 @@ if ($errors) { ?>
 								</div>
 							</div>
 							<div class="box-body">
-								<a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
+								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
 								<a href="javascript:;" id="addCssBlock"><?php echo $tl["general"]["g101"]; ?></a><br/>
 								<div id="csseditor"></div>
 								<textarea name="jak_css" id="jak_css" class="hidden"><?php echo $JAK_FORM_DATA["dl_css"]; ?></textarea>
@@ -564,7 +566,7 @@ if ($errors) { ?>
 								</div>
 							</div>
 							<div class="box-body">
-								<a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
+								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
 								<a href="javascript:;" id="addJavascriptBlock"><?php echo $tl["general"]["g102"]; ?></a><br/>
 								<div id="javaeditor"></div>
 								<textarea name="jak_javascript" id="jak_javascript" class="hidden"><?php echo $JAK_FORM_DATA["dl_javascript"]; ?></textarea>

@@ -75,7 +75,12 @@ if ($errors) { ?>
 									</div>
 									<div class="col-md-7">
 										<div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?> no-margin">
-											<input type="text" name="jak_name" class="form-control" value="<?php echo $JAK_FORM_DATA["name"]; ?>"/>
+
+											<?php
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											echo $htmlE->addInput ('text', 'jak_name', '', 'form-control', $JAK_FORM_DATA["name"], '');
+											?>
+
 										</div>
 									</div>
 								</div>
@@ -111,7 +116,12 @@ if ($errors) { ?>
 									</div>
 									<div class="col-md-7">
 										<div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
-											<input type="text" name="jak_exorder" class="form-control" value="<?php echo $JAK_FORM_DATA["exorder"]; ?>" maxlength="5"/>
+
+											<?php
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											echo $htmlE->addInput ('text', 'jak_exorder', '', 'form-control', $JAK_FORM_DATA["exorder"], '', array ('maxlength' => '5'));
+											?>
+
 										</div>
 									</div>
 								</div>
@@ -131,7 +141,12 @@ if ($errors) { ?>
 					</div>
 					<div class="box-body">
 						<div id="htmleditor"></div>
-						<textarea name="jak_phpcode" id="jak_phpcode" class="form-control hidden"><?php echo $JAK_FORM_DATA["phpcode"]; ?></textarea>
+
+						<?php
+						// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+						echo $htmlE->addTextArea ('jak_phpcode', '', '', $JAK_FORM_DATA["phpcode"], array ('id' => 'jak_phpcode', 'class' => 'form-control hidden'));
+						?>
+
 					</div>
 					<div class="box-footer">
 						<button type="submit" name="save" class="btn btn-success pull-right">

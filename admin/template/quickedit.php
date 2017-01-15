@@ -59,7 +59,9 @@ if ($errors) { ?>
 			<tr>
 				<td><?php echo $tl["global_text"]["globaltxt16"]; ?></td>
 				<td>
-					<?php include_once "title_edit.php"; ?>
+					<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+						<input type="text" name="jak_title" class="form-control" value="<?php echo $JAK_FORM_DATA["title"]; ?>"/>
+					</div>
 				</td>
 			</tr>
 		</table>

@@ -243,7 +243,7 @@ if ($success) { ?>
 									<div class="col-md-5"><strong><?php echo $tlnl["nletter"]["d41"]; ?></strong></div>
 									<div class="col-md-7">
 										<input type="submit" name="testMail" class="btn btn-success" id="sendTM" value="<?php echo $tlnl["nletter"]["d42"]; ?>"/>                    <span id="loader" style="display: none;">
-                <img src="../../img/loader.gif" alt="loader" width="16" height="11"/>
+                <img src="../../assets/img/loader.gif" alt="loader" width="16" height="11"/>
               </span>
 									</div>
 								</div>

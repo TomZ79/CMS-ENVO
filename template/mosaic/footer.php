@@ -198,7 +198,7 @@ if (JAK_ASACCESS && $jkv["styleswitcher_tpl"]) include_once APP_PATH . 'template
 
 <?php if ($jkv["printme"]) { ?>
 	<script type="text/javascript"
-		src="<?php echo BASE_URL; ?>js/jakprint.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+		src="<?php echo BASE_URL; ?>assets/js/jakprint.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function () {
@@ -238,7 +238,7 @@ if (JAK_ASACCESS && $jkv["styleswitcher_tpl"]) include_once APP_PATH . 'template
 
 <?php if ($jkv["heatmap"] && JAK_ASACCESS) { ?>
 
-	<script src="<?php echo BASE_URL; ?>js/heatmap.js" type="text/javascript"></script>
+	<script src="<?php echo BASE_URL; ?>assets/js/heatmap.js" type="text/javascript"></script>
 
 	<script type="text/javascript">
 

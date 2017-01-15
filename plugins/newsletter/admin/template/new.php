@@ -102,7 +102,7 @@ if ($errors) { ?>
 				<div class="box">
 					<div class="box-header with-border">
 						<h3 class="box-title"><?php echo $tlnl["nletter"]["d1"]; ?>
-							<span id="loader"><img src="../../img/loader.gif" alt="loader" width="16" height="11" style="display: none;"/></span>
+							<span id="loader"><img src="../../assets/img/loader.gif" alt="loader" width="16" height="11" style="display: none;"/></span>
 						</h3>
 						<div class="box-tools pull-right">
 							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>

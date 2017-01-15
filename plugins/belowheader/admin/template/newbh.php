@@ -278,7 +278,7 @@ if ($page3 == "e") { ?>
 											<?php if ($jkv["adv_editor"]) { ?>
 												<div id="cover2">
 													<div class="cover-header">
-														<a href="../js/editor/plugins/filemanager/dialog.php?type=0&editor=mce_0&lang=eng&fldr=&field_id=htmleditor2" class="btn btn-primary btn-xs ifManager" title="Show Filemanager">
+														<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=0&editor=mce_0&lang=eng&fldr=&field_id=htmleditor2" class="btn btn-primary btn-xs ifManager" title="Show Filemanager">
 															<i class="fa fa-files-o"></i>
 														</a>
 													</div>

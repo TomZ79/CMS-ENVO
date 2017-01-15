@@ -20,9 +20,9 @@
 
 	<link rel="canonical"
 		href="<?php echo (JAK_USE_APACHE ? substr (BASE_URL, 0, - 1) : BASE_URL) . JAK_rewrite::jakParseurl ($page, $page1, $page2, $page3, $page4, $page5, $page6); ?>">
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>css/stylesheet.css?=<?php echo $jkv["updatetime"]; ?>"
+	<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/stylesheet.css?=<?php echo $jkv["updatetime"]; ?>"
 		type="text/css">
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>css/bootstrap/bootstrap.min.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css">
+	<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/plugins/bootstrapv3/css/bootstrap.min.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css">
 
 	<?php if ($JAK_SHOW_NAVBAR) include_once APP_PATH . 'template/jakweb/customstyle.php'; ?>
 
@@ -45,9 +45,9 @@
 			type="text/css">
 	<?php } ?>
 
-	<script src="<?php echo BASE_URL; ?>js/jquery.js?=<?php echo $jkv["updatetime"]; ?>"></script>
-	<script type="text/javascript" src="<?php echo BASE_URL; ?>/js/bootstrap/bootstrap.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
-	<script type="text/javascript" src="<?php echo BASE_URL; ?>js/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+	<script src="<?php echo BASE_URL; ?>assets/plugins/jquery/jquery.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+	<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/plugins/bootstrapv3/js/bootstrap.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+	<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>

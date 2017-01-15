@@ -86,13 +86,25 @@ if ($errors) { ?>
 										<div class="row-form">
 											<div class="col-md-5"><strong><?php echo $tl["ss_box_content"]["ssbc"]; ?></strong></div>
 											<div class="col-md-7">
-												<?php include_once "title_edit.php"; ?>
+												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													echo $htmlE->addInput ('text', 'jak_title', '', 'form-control', $JAK_FORM_DATA["title"], '');
+													?>
+
+												</div>
 											</div>
 										</div>
 										<div class="row-form">
 											<div class="col-md-5"><strong><?php echo $tl["ss_box_content"]["ssbc1"]; ?></strong></div>
 											<div class="col-md-7">
-												<textarea name="jak_lcontent" class="jakEditorLight form-control" id="jakEditor" rows="5" style="width:100%;"><?php echo jak_edit_safe_userpost ($JAK_FORM_DATA["content"]); ?></textarea>
+
+												<?php
+												// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+												echo $htmlE->addTextArea ('jak_lcontent', '5', '', jak_edit_safe_userpost ($JAK_FORM_DATA["content"]), array ('id' => 'jakEditor', 'class' => 'jakEditorLight form-control'));
+												?>
+
 											</div>
 										</div>
 									</div>
@@ -119,11 +131,19 @@ if ($errors) { ?>
 											<div class="col-md-6">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_search1" name="jak_search" value="1"<?php if ($jkv["searchform"] == 1) { ?> checked="checked"<?php } ?> />
-													<label for="jak_search1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["searchform"] == 1) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_search', 'jak_search1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_search1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_search2" name="jak_search" value="0"<?php if ($jkv["searchform"] == 0) { ?> checked="checked"<?php } ?> />
-													<label for="jak_search2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["searchform"] == 0) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_search', 'jak_search2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_search2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
@@ -133,11 +153,19 @@ if ($errors) { ?>
 											<div class="col-md-6">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_ajaxsearch1" name="jak_ajaxsearch" value="1"<?php if ($jkv["ajaxsearch"] == 1) { ?> checked="checked"<?php } ?> />
-													<label for="jak_ajaxsearch1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["ajaxsearch"] == 1) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_ajaxsearch', 'jak_ajaxsearch1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_ajaxsearch1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_ajaxsearch2" name="jak_ajaxsearch" value="0"<?php if ($jkv["ajaxsearch"] == 0) { ?> checked="checked"<?php } ?> />
-													<label for="jak_ajaxsearch2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["ajaxsearch"] == 0) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_ajaxsearch', 'jak_ajaxsearch2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_ajaxsearch2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
@@ -147,11 +175,19 @@ if ($errors) { ?>
 											<div class="col-md-6">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_fullsearch1" name="jak_fullsearch" value="1"<?php if ($jkv["fulltextsearch"] == 1) { ?> checked="checked"<?php } ?> />
-													<label for="jak_fullsearch1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["fulltextsearch"] == 1) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_fullsearch', 'jak_fullsearch1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_fullsearch1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_fullsearch2" name="jak_fullsearch" value="0"<?php if ($jkv["fulltextsearch"] == 0) { ?> checked="checked"<?php } ?> />
-													<label for="jak_fullsearch2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["fulltextsearch"] == 0) ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput ('radio', 'jak_fullsearch', 'jak_fullsearch2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor ('jak_fullsearch2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 												<input type="hidden" name="jak_fullsearchold" value="<?php echo $jkv["fulltextsearch"]; ?>"/>

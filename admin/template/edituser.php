@@ -72,7 +72,12 @@ if ($errors) { ?>
 								<div class="row-form">
 									<div class="col-md-5"><strong><?php echo $tl["user_box_content"]["userbc3"]; ?></strong></div>
 									<div class="col-md-7">
-										<input type="text" name="jak_name" class="form-control" value="<?php echo $JAK_FORM_DATA["name"]; ?>"/>
+
+										<?php
+										// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+										echo $htmlE->addInput ('text', 'jak_name', '', 'form-control', $JAK_FORM_DATA["name"], '');
+										?>
+
 									</div>
 								</div>
 								<div class="row-form">
@@ -82,7 +87,12 @@ if ($errors) { ?>
 									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-											<input type="text" name="jak_email" class="form-control" value="<?php echo $JAK_FORM_DATA["email"]; ?>"/>
+
+											<?php
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											echo $htmlE->addInput ('text', 'jak_email', '', 'form-control', $JAK_FORM_DATA["email"], '');
+											?>
+
 										</div>
 									</div>
 								</div>
@@ -93,8 +103,13 @@ if ($errors) { ?>
 									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-											<input class="form-control" type="text" name="jak_username" value="<?php echo $JAK_FORM_DATA["username"]; ?>"/>
-											<input type="hidden" name="jak_username_old" value="<?php echo $JAK_FORM_DATA["username"]; ?>"/>
+
+											<?php
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											echo $htmlE->addInput ('text', 'jak_username', '', 'form-control', $JAK_FORM_DATA["username"], '');
+											echo $htmlE->addInput ('hidden', 'jak_username_old', '', 'form-control', $JAK_FORM_DATA["username"], '');
+											?>
+
 										</div>
 									</div>
 								</div>
@@ -112,7 +127,12 @@ if ($errors) { ?>
 								<div class="row-form">
 									<div class="col-md-5"><strong><?php echo $tl["user_box_content"]["userbc8"]; ?></strong></div>
 									<div class="col-md-7">
-										<input type="text" name="jak_backtime" id="datepicker" class="form-control" value="<?php echo $JAK_FORM_DATA["backtime"]; ?>" readonly/>
+
+										<?php
+										// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+										echo $htmlE->addInput ('text', 'jak_backtime', 'datepicker', 'form-control', $JAK_FORM_DATA["backtime"], '', array ('readonly' => 'readonly'));
+										?>
+
 									</div>
 								</div>
 								<div class="row-form">
@@ -132,11 +152,19 @@ if ($errors) { ?>
 									<div class="col-md-7">
 										<div class="radio radio-success">
 
-											<input type="radio" id="jak_access1" name="jak_access" value="1"<?php if ($JAK_FORM_DATA["access"] == 1) { ?> checked="checked"<?php } ?> />
-											<label for="jak_access1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+											<?php
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											($JAK_FORM_DATA["access"] == 1) ? $checked = 'yes' : $checked = 'no';
+											echo $htmlE->addInput ('radio', 'jak_access', 'jak_access1', '', '1', $checked);
+											// Arguments: for (id of associated form element), text
+											echo $htmlE->addLabelFor ('jak_access1', $tl["checkbox"]["chk"]);
 
-											<input type="radio" id="jak_access2" name="jak_access" value="0"<?php if ($JAK_FORM_DATA["access"] == 0) { ?> checked="checked"<?php } ?> />
-											<label for="jak_access2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											($JAK_FORM_DATA["access"] == 0) ? $checked = 'yes' : $checked = 'no';
+											echo $htmlE->addInput ('radio', 'jak_access', 'jak_access2', '', '0', $checked);
+											// Arguments: for (id of associated form element), text
+											echo $htmlE->addLabelFor ('jak_access2', $tl["checkbox"]["chk1"]);
+											?>
 
 										</div>
 									</div>
@@ -152,7 +180,12 @@ if ($errors) { ?>
                         <span class="btn btn-default btn-file">
                           <span class="fileinput-new"><?php echo $tl["button"]["btn22"]; ?></span>
                           <span class="fileinput-exists"><?php echo $tl["button"]["btn16"]; ?></span>
-                          <input type="file" name="uploadpp" accept="image/*">
+
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													echo $htmlE->addInput ('file', 'uploadpp', '', '', '', '', array ('accept' => 'image/*'));
+													?>
+
                         </span>
 												<a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput"><?php echo $tl["button"]["btn23"]; ?></a>
 											</div>
@@ -189,7 +222,12 @@ if ($errors) { ?>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e5"]) || isset($errors["e6"])) echo " has-error"; ?>">
 											<div class="label-indicator-absolute">
-												<input class="form-control" type="text" name="jak_password" value=""/>
+
+												<?php
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												echo $htmlE->addInput ('text', 'jak_password', '', 'form-control', '', '');
+												?>
+
 												<span class="label password-indicator-label-absolute"></span>
 											</div>
 										</div>
@@ -200,7 +238,12 @@ if ($errors) { ?>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e5"]) || isset($errors["e6"])) echo " has-error"; ?>">
 											<div class="label-indicator-absolute">
-												<input class="form-control" type="text" name="jak_confirm_password" value=""/>
+
+												<?php
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												echo $htmlE->addInput ('text', 'jak_confirm_password', '', 'form-control', '', '');
+												?>
+
 											</div>
 										</div>
 									</div>

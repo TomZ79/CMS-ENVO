@@ -9,10 +9,10 @@
 	<meta name="author" content="<?php echo $jkv["metaauthor"]; ?>"/>
 	<meta name="robots" content="<?php echo $jkv["robots"]; ?>"/>
 
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>css/stylesheet.css?=<?php echo $jkv["updatetime"]; ?>"
+	<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/stylesheet.css?=<?php echo $jkv["updatetime"]; ?>"
 		type="text/css"/>
 	<link rel="stylesheet"
-		href="<?php echo BASE_URL; ?>css/bootstrap/bootstrap.min.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css"
+		href="<?php echo BASE_URL; ?>assets/plugins/bootstrapv3/css/bootstrap.min.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css"
 		media="screen"/>
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>template/canvas/css/screen.css?=<?php echo $jkv["updatetime"]; ?>"
 		type="text/css"/>
@@ -97,16 +97,16 @@
 
 </div>
 
-<script src="<?php echo BASE_URL; ?>js/jquery.js?=<?php echo $jkv["updatetime"]; ?>"></script>
-<script type="text/javascript" src="<?php echo BASE_URL; ?>js/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+<script src="<?php echo BASE_URL; ?>assets/plugins/jquery/jquery.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 
 <script type="text/javascript">
 	jakWeb.jak_lang = "<?php echo $site_language;?>";
 </script>
 
-<script type="text/javascript" src="<?php echo BASE_URL; ?>js/post.js"></script>
-<script type="text/javascript" src="<?php echo BASE_URL; ?>js/editor/tinymce.min.js"></script>
-<script type="text/javascript" src="<?php echo BASE_URL; ?>js/usreditor.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/post.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/plugins/tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/usreditor.js"></script>
 
 </body>
 </html>

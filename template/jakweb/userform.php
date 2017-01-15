@@ -65,6 +65,6 @@
 	jakWeb.jak_submitwait = "<?php echo $tl['general']['g99'];?>";
 </script>
 
-<script type="text/javascript" src="<?php echo BASE_URL; ?>js/post.js"></script>
-<script type="text/javascript" src="<?php echo BASE_URL; ?>js/editor/tinymce.min.js"></script>
-<script type="text/javascript" src="<?php echo BASE_URL; ?>js/usreditor.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/post.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/plugins/tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/usreditor.js"></script>

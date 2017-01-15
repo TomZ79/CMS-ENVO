@@ -31,7 +31,7 @@
 		<button type="submit" class="btn btn-primary btn-block jak-submit"><?php echo $tl["contact"]["s"]; ?></button>
 
 	</form>
-	<script type="text/javascript" src="<?php echo BASE_URL; ?>js/contact.js"></script>
+	<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/contact.js"></script>
 	<script type="text/javascript">
 
 		<?php if ($jkv["hvm"]) { ?>

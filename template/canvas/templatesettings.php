@@ -92,7 +92,7 @@
 											<div class="input-group">
 												<input type="text" name="standardlogo" id="sclogo1" class="form-control" value="<?php echo $jktpl["logo1_canvas_tpl"]; ?>"/>
                         <span class="input-group-btn">
-                          <a class="btn btn-info ifManager" type="button" href="../../js/editor/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=sclogo1"><i class="fa fa-photo"></i></a>
+                          <a class="btn btn-info ifManager" type="button" href="../../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=sclogo1"><i class="fa fa-photo"></i></a>
                         </span>
 											</div>
 										</div>
@@ -103,7 +103,7 @@
 											<div class="input-group">
 												<input type="text" name="retinalogo" id="sclogo2" class="form-control" value="<?php echo $jktpl["logo2_canvas_tpl"]; ?>"/>
                           <span class="input-group-btn">
-                            <a class="btn btn-info ifManager" type="button" href="../../js/editor/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=sclogo2"><i class="fa fa-photo"></i></a>
+                            <a class="btn btn-info ifManager" type="button" href="../../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=sclogo2"><i class="fa fa-photo"></i></a>
                           </span>
 											</div>
 										</div>

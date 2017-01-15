@@ -92,7 +92,9 @@ if ($page2 == "e") { ?>
 										<div class="row-form">
 											<div class="col-md-5"><strong><?php echo $tlblog["blog_box_content"]["blogbc"]; ?></strong></div>
 											<div class="col-md-7">
-												<?php include_once APP_PATH . "admin/template/title_edit.php"; ?>
+												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+													<input type="text" name="jak_title" class="form-control" value="<?php echo $JAK_FORM_DATA["title"]; ?>"/>
+												</div>
 											</div>
 										</div>
 										<div class="row-form">
@@ -260,7 +262,7 @@ if ($page2 == "e") { ?>
 								<h3 class="box-title"><?php echo $tlblog["blog_box_title"]["blogbt2"]; ?></h3>
 							</div>
 							<div class="box-body">
-								<a href="../../../../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
+								<a href="../../../../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
 								<a href="javascript:;" id="addCssBlock"><?php echo $tl["global_text"]["globaltxt6"]; ?></a><br/>
 								<div id="csseditor"></div>
 								<textarea name="jak_css" class="form-control hidden" id="jak_css" rows="20"><?php echo $jkv["blog_css"]; ?></textarea>
@@ -283,7 +285,7 @@ if ($page2 == "e") { ?>
 								<h3 class="box-title"><?php echo $tlblog["blog_box_title"]["blogbt3"]; ?></h3>
 							</div>
 							<div class="box-body">
-								<a href="../../../../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
+								<a href="../../../../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
 								<a href="javascript:;" id="addJavascriptBlock"><?php echo $tl["global_text"]["globaltxt7"]; ?></a><br/>
 								<div id="javaeditor"></div>
 								<textarea name="jak_javascript" class="form-control hidden" id="jak_javascript" rows="20"><?php echo $jkv["blog_javascript"]; ?></textarea>

@@ -9,10 +9,10 @@
 	<meta name="author" content="<?php echo $jkv["metaauthor"]; ?>"/>
 	<meta name="robots" content="<?php echo $jkv["robots"]; ?>"/>
 
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>css/stylesheet.css?=<?php echo $jkv["updatetime"]; ?>"
+	<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/stylesheet.css?=<?php echo $jkv["updatetime"]; ?>"
 		type="text/css"/>
 	<link rel="stylesheet"
-		href="<?php echo BASE_URL; ?>css/bootstrap/bootstrap.min.css?=<?php echo $jkv["updatetime"]; ?>"
+		href="<?php echo BASE_URL; ?>assets/plugins/bootstrapv3/css/bootstrap.min.css?=<?php echo $jkv["updatetime"]; ?>"
 		type="text/css">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>template/jakweb/css/screen.css?=<?php echo $jkv["updatetime"]; ?>"
 		type="text/css"/>
@@ -93,8 +93,8 @@
 
 </div>
 
-<script src="<?php echo BASE_URL; ?>js/jquery.js?=<?php echo $jkv["updatetime"]; ?>"></script>
-<script type="text/javascript" src="<?php echo BASE_URL; ?>js/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+<script src="<?php echo BASE_URL; ?>assets/plugins/jquery/jquery.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 
 <script type="text/javascript">
 	<?php if ($jkv["hvm"]) { ?>

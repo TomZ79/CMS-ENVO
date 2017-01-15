@@ -96,7 +96,9 @@ if ($errors) { ?>
 										<div class="row-form">
 											<div class="col-md-5"><strong><?php echo $tlf["faq"]["d8"]; ?></strong></div>
 											<div class="col-md-7">
-												<?php include_once APP_PATH . "admin/template/title_edit.php"; ?>
+												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+													<input type="text" name="jak_title" class="form-control" value="<?php echo $JAK_FORM_DATA["title"]; ?>"/>
+												</div>
 											</div>
 										</div>
 										<div class="row-form">
@@ -183,7 +185,7 @@ if ($errors) { ?>
 													<input type="text" name="jak_img" id="jak_img" class="form-control" value="<?php echo $JAK_FORM_DATA["previmg"]; ?>"/>
                     <span class="input-group-btn">
                       <a class="btn btn-info ifManager" type="button"
-												href="../js/editor/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_img"><?php echo $tl["general"]["g69"]; ?></a>
+												href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_img"><?php echo $tl["general"]["g69"]; ?></a>
                     </span>
 												</div>
 											</div>

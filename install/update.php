@@ -19,8 +19,8 @@ $succesfully = 0;
   <title>Update CMS to 2.1</title>
   <meta charset="utf-8">
   <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
-  <link rel="stylesheet" href="../css/stylesheet.css" type="text/css" media="screen"/>
-  <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="../assets/css/stylesheet.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="../assets/plugins/bootstrapv3/css/bootstrap.min.css" type="text/css" media="screen"/>
 </head>
 <style>
   body {

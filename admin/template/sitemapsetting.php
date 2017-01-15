@@ -68,7 +68,9 @@ if ($page1 == "e") { ?>
 										<div class="row-form">
 											<div class="col-md-5"><strong><?php echo $tl["sm_box_content"]["smbc"]; ?></strong></div>
 											<div class="col-md-7">
-												<?php include_once "title_edit.php"; ?>
+												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+													<input type="text" name="jak_title" class="form-control" value="<?php echo $JAK_FORM_DATA["title"]; ?>"/>
+												</div>
 											</div>
 										</div>
 										<div class="row-form">

@@ -10,8 +10,8 @@
 	<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
 
 	<!-- General Stylesheet with custom modifications -->
-	<link rel="stylesheet" href="../css/stylesheet.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
-	<link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
+	<link rel="stylesheet" href="../assets/css/stylesheet.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
+	<link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.min.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
 	<link rel="stylesheet" href="css/admin.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
 
 	<?php if (!$jkv["langdirection"]) { ?>
@@ -22,7 +22,7 @@
 	<!--js-->
 
 	<script src="../js/jquery.js?=<?php echo $jkv["updatetime"]; ?>"></script>
-	<script type="text/javascript" src="../js/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+	<script type="text/javascript" src="../assets/js/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 	<script type="text/javascript" src="js/cms.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 
 	<!-- Import all hooks for in between head -->

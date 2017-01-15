@@ -46,16 +46,16 @@ require_once 'config.php';
 	<!-- Stylesheets
 	============================================= -->
 	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css"/>
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>css/stylesheet.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css">
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>css/bootstrap/bootstrap.min.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css">
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>/template/canvas/css/canvas/style.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css">
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>/template/canvas/css/canvas/dark.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css">
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>/template/canvas/css/canvas/font-icons.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css">
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>/template/canvas/css/canvas/animate.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css">
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>template/canvas/css/screen.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css"/>
+	<link rel="stylesheet" href="/assets/css/stylesheet.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css">
+	<link rel="stylesheet" href="/assets/plugins/bootstrapv3/css/bootstrap.min.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css">
+	<link rel="stylesheet" href="/template/canvas/css/canvas/style.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css">
+	<link rel="stylesheet" href="/template/canvas/css/canvas/dark.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css">
+	<link rel="stylesheet" href="/template/canvas/css/canvas/font-icons.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css">
+	<link rel="stylesheet" href="/template/canvas/css/canvas/animate.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css">
+	<link rel="stylesheet" href="/template/canvas/css/screen.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css"/>
 
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>/template/canvas/css/canvas/responsive.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css">
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>template/canvas/css/canvas.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css"/>
+	<link rel="stylesheet" href="/template/canvas/css/canvas/responsive.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css">
+	<link rel="stylesheet" href="/template/canvas/css/canvas.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<!--[if lt IE 9]>
 	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
@@ -63,9 +63,9 @@ require_once 'config.php';
 
 	<!-- Basic Jquery
 	============================================= -->
-	<script type="text/javascript" src="<?php echo BASE_URL; ?>template/canvas/js/canvas/jquery.js?=<?php echo $jkv["updatetime"]; ?>"></script>
-	<script type="text/javascript" src="<?php echo BASE_URL; ?>/js/bootstrap/bootstrap.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
-	<script type="text/javascript" src="<?php echo BASE_URL; ?>js/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+	<script type="text/javascript" src="/template/canvas/js/canvas/jquery.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+	<script type="text/javascript" src="/assets/plugins/bootstrapv3/js/bootstrap.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+	<script type="text/javascript" src="/assets/js/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 
 	<!-- Document Title
 	============================================= -->

@@ -103,7 +103,9 @@ if ($errors) { ?>
 												<span class="star-item text-danger-800 m-l-10">*</span>
 											</div>
 											<div class="col-md-7">
-												<?php include_once "title_edit.php"; ?>
+												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+													<input type="text" name="jak_title" class="form-control" value="<?php echo $JAK_FORM_DATA["title"]; ?>"/>
+												</div>
 											</div>
 										</div>
 										<div class="row-form">
@@ -196,7 +198,7 @@ if ($errors) { ?>
 												<div class="input-group">
 													<input type="text" name="jak_img" id="jak_img" class="form-control" value="<?php echo $JAK_FORM_DATA["previmg"]; ?>"/>
                           <span class="input-group-btn">
-                            <a class="btn btn-info ifManager" type="button" href="../js/editor/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_img"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
+                            <a class="btn btn-info ifManager" type="button" href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_img"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
                           </span>
 												</div>
 											</div>
@@ -394,7 +396,7 @@ if ($errors) { ?>
 								<h3 class="box-title"><?php echo $tl["news_box_title"]["newsbt2"]; ?></h3>
 							</div>
 							<div class="box-body">
-								<a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
+								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
 								<a href="javascript:;" id="addCssBlock"><?php echo $tl["global_text"]["globaltxt6"]; ?></a><br/>
 								<div id="csseditor"></div>
 								<textarea name="jak_css" id="jak_css" class="hidden"><?php echo $JAK_FORM_DATA["news_css"]; ?></textarea>
@@ -417,7 +419,7 @@ if ($errors) { ?>
 								<h3 class="box-title"><?php echo $tl["news_box_title"]["newsbt3"]; ?></h3>
 							</div>
 							<div class="box-body">
-								<a href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
+								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
 								<a href="javascript:;" id="addJavascriptBlock"><?php echo $tl["global_text"]["globaltxt7"]; ?></a><br/>
 								<div id="javaeditor"></div>
 								<textarea name="jak_javascript" id="jak_javascript" class="hidden"><?php echo $JAK_FORM_DATA["news_javascript"]; ?></textarea>

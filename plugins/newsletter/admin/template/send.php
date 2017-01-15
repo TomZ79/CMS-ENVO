@@ -94,7 +94,7 @@ if ($errors) { ?>
 			</div>
 			<div class="box-footer">
         <span id="loader" style="display: none;">
-          <img src="../../img/loader.gif" alt="loader" width="16" height="11"/>
+          <img src="../../assets/img/loader.gif" alt="loader" width="16" height="11"/>
         </span>
 				<button type="submit" name="save" id="sendNL" class="btn btn-primary pull-right">
 					<?php echo $tl["general"]["g39"]; ?>

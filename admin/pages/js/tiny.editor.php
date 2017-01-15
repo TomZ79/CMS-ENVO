@@ -2,9 +2,9 @@
 
 // Get the stylesheets
 if (isset($tpl_customcss)) {
-	$customCSS = "../css/stylesheet.css," . $tpl_customcss . ",../css/editorcustom.css";
+	$customCSS = "../assets/css/stylesheet.css," . $tpl_customcss . ",../assets/css/editorcustom.css";
 } else {
-	$customCSS = "../css/stylesheet.css,../css/editorcustom.css";
+	$customCSS = "../assets/css/stylesheet.css,../css/editorcustom.css";
 }
 
 ?>
@@ -28,7 +28,7 @@ if (isset($tpl_customcss)) {
 		remove_script_host: true,
 		document_base_url: "/",
 		valid_elements: "*[*]",
-		external_filemanager_path: "../js/editor/plugins/filemanager/",
+		external_filemanager_path: "../assets/plugins/tinymce/plugins/filemanager/",
 		filemanager_title: "Filemanager",
 		external_plugins: {"filemanager": "plugins/filemanager/plugin.min.js"}
 	});
@@ -51,7 +51,7 @@ if (isset($tpl_customcss)) {
 		remove_script_host: true,
 		document_base_url: "/",
 		valid_elements: "*[*]",
-		external_filemanager_path: "../js/editor/plugins/filemanager/",
+		external_filemanager_path: "../assets/plugins/tinymce/plugins/filemanager/",
 		filemanager_title: "Filemanager",
 		external_plugins: {"filemanager": "plugins/filemanager/plugin.min.js"}
 	});
@@ -74,7 +74,7 @@ if (isset($tpl_customcss)) {
 		remove_script_host: true,
 		document_base_url: "/",
 		valid_elements: "*[*]",
-		external_filemanager_path: "../js/editor/plugins/filemanager/",
+		external_filemanager_path: "../assets/plugins/tinymce/plugins/filemanager/",
 		filemanager_title: "Filemanager",
 		external_plugins: {"filemanager": "plugins/filemanager/plugin.min.js"}
 	});

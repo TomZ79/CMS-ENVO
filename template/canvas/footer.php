@@ -378,9 +378,9 @@ if (!$JAK_SHOW_FOOTER && JAK_ASACCESS) { ?>
 
 <!-- External JavaScripts
 ============================================= -->
-<script type="text/javascript" src="<?php echo BASE_URL; ?>template/canvas/js/canvas/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
-<script type="text/javascript" src="<?php echo BASE_URL; ?>template/canvas/js/canvas/plugins.js?=<?php echo $jkv["updatetime"]; ?>"></script>
-<script type="text/javascript" src="<?php echo BASE_URL; ?>template/canvas/js/canvas.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+<script type="text/javascript" src="/template/canvas/js/canvas/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+<script type="text/javascript" src="/template/canvas/js/canvas/plugins.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+<script type="text/javascript" src="/template/canvas/js/canvas.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 
 <script type="text/javascript" src="https://raw.githubusercontent.com/stevenschobert/instafeed.js/master/instafeed.min.js"></script>
 <!-- Footer Scripts
@@ -398,7 +398,7 @@ if (!$JAK_SHOW_FOOTER && JAK_ASACCESS) { ?>
 </script>
 
 <?php if ($jkv["printme"]) { ?>
-	<script type="text/javascript" src="<?php echo BASE_URL; ?>js/jakprint.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+	<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/jakprint.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function () {
@@ -439,7 +439,7 @@ if (!$JAK_SHOW_FOOTER && JAK_ASACCESS) { ?>
 
 <?php if ($jkv["heatmap"] && JAK_ASACCESS) { ?>
 
-	<script src="<?php echo BASE_URL; ?>js/heatmap.js" type="text/javascript"></script>
+	<script src="/assets/js/heatmap.js" type="text/javascript"></script>
 
 	<script type="text/javascript">
 

@@ -76,7 +76,9 @@ if ($errors) { ?>
 										<div class="row-form">
 											<div class="col-md-4"><strong><?php echo $tlgwl["gwl_box_content"]["gwlbc"]; ?></strong></div>
 											<div class="col-md-8">
-												<?php include_once APP_PATH . "admin/template/title_new.php"; ?>
+												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+													<input type="text" name="jak_title" class="form-control" value=""/>
+												</div>
 											</div>
 										</div>
 										<div class="row-form">
@@ -85,7 +87,7 @@ if ($errors) { ?>
 												<div class="input-group">
 													<input type="text" name="jak_img" id="jak_img" class="form-control" value="<?php if (isset($_REQUEST["jak_img"])) echo $_REQUEST["jak_img"]; ?>"/>
                         <span class="input-group-btn">
-                          <a class="btn btn-info ifManager" type="button" href="../js/editor/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_img"><?php echo $tl["gwl_box_content"]["globaltxt8"]; ?></a>
+                          <a class="btn btn-info ifManager" type="button" href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_img"><?php echo $tl["gwl_box_content"]["globaltxt8"]; ?></a>
                         </span>
 												</div>
 											</div>

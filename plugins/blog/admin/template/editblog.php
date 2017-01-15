@@ -106,7 +106,9 @@ if ($page3 == "e") { ?>
 												<span class="star-item text-danger-800 m-l-10">*</span>
 											</div>
 											<div class="col-md-7">
-												<?php include_once APP_PATH . "admin/template/title_edit.php"; ?>
+												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+													<input type="text" name="jak_title" class="form-control" value="<?php echo $JAK_FORM_DATA["title"]; ?>"/>
+												</div>
 											</div>
 										</div>
 										<div class="row-form">
@@ -234,7 +236,7 @@ if ($page3 == "e") { ?>
 														value="<?php echo $JAK_FORM_DATA["previmg"]; ?>"/>
                         <span class="input-group-btn">
                           <a class="btn btn-info ifManager" type="button"
-														href="../js/editor/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_img"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
+														href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_img"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
                         </span>
 												</div>
 											</div>
@@ -480,7 +482,7 @@ if ($page3 == "e") { ?>
 							</div>
 							<div class="box-body">
 								<a
-									href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor"
+									href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor"
 									class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a> <a href="javascript:;"
 									id="addCssBlock"><?php echo $tl["global_text"]["globaltxt6"]; ?></a><br/>
 								<div id="csseditor"></div>
@@ -506,7 +508,7 @@ if ($page3 == "e") { ?>
 							</div>
 							<div class="box-body">
 								<a
-									href="../js/editor/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor"
+									href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor"
 									class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a> <a href="javascript:;"
 									id="addJavascriptBlock"><?php echo $tl["global_text"]["globaltxt7"]; ?></a><br/>
 								<div id="javaeditor"></div>

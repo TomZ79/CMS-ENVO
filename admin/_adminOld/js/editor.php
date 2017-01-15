@@ -2,9 +2,9 @@
 
 // Get the stylesheets
 if (isset($tpl_customcss)) {
-	$customCSS = "../css/stylesheet.css,".$tpl_customcss.",../css/editorcustom.css";
+	$customCSS = "../assets/css/stylesheet.css,".$tpl_customcss.",../css/editorcustom.css";
 } else {
-	$customCSS = "../css/stylesheet.css,../css/editorcustom.css";
+	$customCSS = "../assets/css/stylesheet.css,../css/editorcustom.css";
 }
 
 ?>

@@ -53,7 +53,9 @@ if ($page4 == "e") { ?>
 								<div class="row-form">
 									<div class="col-md-5"><strong><?php echo $tlblog["blog_box_content"]["blogbc19"]; ?></strong></div>
 									<div class="col-md-7">
-										<?php include_once APP_PATH . "admin/template/cat_edit.php"; ?>
+										<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+											<input type="text" name="jak_name" id="jak_name" class="form-control" value="<?php echo $JAK_FORM_DATA["name"]; ?>"/>
+										</div>
 									</div>
 								</div>
 								<div class="row-form">

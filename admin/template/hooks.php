@@ -39,7 +39,12 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 			</button>
 			<div class="dropdown-menu livefilter">
 				<div class="search-box">
-					<input type="text" placeholder="<?php echo $tl["placeholder"]["p3"]; ?>" id="input-bts-ex-1" class="form-control live-search" aria-describedby="search-icon1"/>
+
+					<?php
+					// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+					echo $htmlE->addInput ('text', 'jak_tags', 'input-bts-ex-1', 'form-control live-search', '', '', array ('placeholder' => $tl["placeholder"]["p3"], 'aria-describedby' => 'search-icon1'));
+					?>
+
 				</div>
 				<div class="list-to-filter">
 					<ul class="list-unstyled overflow">

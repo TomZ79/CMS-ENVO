@@ -186,7 +186,7 @@
 	<script src="assets/plugins/jquery-validation/js/localization/messages_cs.js" type="text/javascript"></script>
 <?php } ?>
 <!-- BEGIN JS FUNCTION -->
-<script src="../js/functions.js?=<?php echo $jkv["updatetime"]; ?>" type="text/javascript"></script>
+<script src="../assets/js/functions.js?=<?php echo $jkv["updatetime"]; ?>" type="text/javascript"></script>
 <script type="text/javascript">
 	jakWeb.jak_url_orig = "<?php echo BASE_URL_ORIG;?>";
 	jakWeb.jak_url = "<?php echo BASE_URL_ADMIN;?>";
@@ -306,7 +306,7 @@ if (!isset($jkv["cms_tpl"])) { ?>
 <?php } ?>
 <!-- BEGIN TINYMCE EDITOR -->
 <?php if ($JAK_PROVED && (!$jkv["adv_editor"])) { ?>
-	<script type="text/javascript" src="../js/editor/tinymce.min.js?=v4.5.2"></script>
+	<script type="text/javascript" src="../assets/plugins/tinymce/tinymce.min.js?=v4.5.2"></script>
 	<?php include_once ('pages/js/tiny.editor.php');
 } ?>
 <!-- BEGIN HOOKS - FOOTER -->

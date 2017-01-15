@@ -85,7 +85,7 @@ while ($row = $result->fetch_assoc ()) {
 							value="<?php echo $jktpl["logo_jakweb_tpl"]; ?>"/>
 		    		<span class="input-group-btn">
 		    		  <a class="btn btn-info ifManager" type="button"
-								href="../../js/editor/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=sclogo"><i
+								href="../../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=sclogo"><i
 									class="fa fa-photo"></i></a>
 		    		</span>
 					</div><!-- /input-group -->

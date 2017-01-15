@@ -21,25 +21,25 @@ if (isset($_GET['aid']) && is_numeric($_GET['aid'])) {
     $lb = "";
 
     if ($row["blike"]) {
-      $lb = '<span><img src="/img/like/like_btn.png" alt="like button" /> <b class="label label-default">' . $row["blike"] . '</b></span>';
+      $lb = '<span><img src="/assets/img/like/like_btn.png" alt="like button" /> <b class="label label-default">' . $row["blike"] . '</b></span>';
     }
     if ($row["blove"]) {
-      $lb .= '<span><img src="/img/like/love_btn.png" alt="love button" /> <b class="label label-default">' . $row["blove"] . '</b></span>';
+      $lb .= '<span><img src="/assets/img/like/love_btn.png" alt="love button" /> <b class="label label-default">' . $row["blove"] . '</b></span>';
     }
     if ($row["brofl"]) {
-      $lb .= '<span><img src="/img/like/funny_btn.png" alt="funny button" /> <b class="label label-default">' . $row["brofl"] . '</b></span>';
+      $lb .= '<span><img src="/assets/img/like/funny_btn.png" alt="funny button" /> <b class="label label-default">' . $row["brofl"] . '</b></span>';
     }
     if ($row["bsmile"]) {
-      $lb .= '<span><img src="/img/like/smile_btn.png" alt="smile button" /> <b class="label label-default">' . $row["bsmile"] . '</b></span>';
+      $lb .= '<span><img src="/assets/img/like/smile_btn.png" alt="smile button" /> <b class="label label-default">' . $row["bsmile"] . '</b></span>';
     }
     if ($row["bwow"]) {
-      $lb .= '<span><img src="/img/like/what_btn.png" alt="what button" /> <b class="label label-default">' . $row["bwow"] . '</b></span>';
+      $lb .= '<span><img src="/assets/img/like/what_btn.png" alt="what button" /> <b class="label label-default">' . $row["bwow"] . '</b></span>';
     }
     if ($row["bsad"]) {
-      $lb .= '<span><img src="/img/like/cry_btn.png" alt="sad button" /> <b class="label label-default">' . $row["bsad"] . '</b></span>';
+      $lb .= '<span><img src="/assets/img/like/cry_btn.png" alt="sad button" /> <b class="label label-default">' . $row["bsad"] . '</b></span>';
     }
     if ($row["bangry"]) {
-      $lb .= '<span><img src="/img/like/angry_btn.png" alt="angry button" /> <b class="label label-default">' . $row["bangry"] . '</b></span>';
+      $lb .= '<span><img src="/assets/img/like/angry_btn.png" alt="angry button" /> <b class="label label-default">' . $row["bangry"] . '</b></span>';
     }
 
     die(json_encode(array("status" => true, "content" => $lb)));

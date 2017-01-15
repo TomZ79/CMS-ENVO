@@ -29,13 +29,23 @@
 						<div class="form-group form-group-default">
 							<label><?php echo $tl["log_in"]["login1"]; ?></label>
 							<div class="controls">
-								<input type="text" name="username" class="form-control" id="username" placeholder="<?php echo $tl["placeholder"]["p10"]; ?>" required>
+
+								<?php
+								// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+								echo $htmlE->addInput ('text', 'username', 'username', 'form-control', '', '', array ('placeholder' => $tl["placeholder"]["p10"], 'required' => 'required'));
+								?>
+
 							</div>
 						</div>
 						<div class="form-group form-group-default">
 							<label><?php echo $tl["log_in"]["login2"]; ?></label>
 							<div class="controls">
-								<input type="password" name="password" class="form-control" id="password" placeholder="<?php echo $tl["placeholder"]["p11"]; ?>" required>
+
+								<?php
+								// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+								echo $htmlE->addInput ('password', 'password', 'password', 'form-control', '', '', array ('placeholder' => $tl["placeholder"]["p11"], 'required' => 'required'));
+								?>
+
 							</div>
 						</div>
 						<div class="col-md-6 col-xs-6 no-padding">
@@ -58,7 +68,12 @@
 						<div class="form-group form-group-default">
 							<label><?php echo $tl["log_in"]["login7"]; ?></label>
 							<div class="controls">
-								<input type="email" name="email" class="form-control" id="email" placeholder="<?php echo $tl["placeholder"]["p12"]; ?>" required>
+
+								<?php
+								// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+								echo $htmlE->addInput ('email', 'email', 'email', 'form-control', '', '', array ('placeholder' => $tl["placeholder"]["p12"], 'required' => 'required'));
+								?>
+
 							</div>
 						</div>
 						<button type="submit" name="forgotP" class="btn btn-info btn-block m-t-20"><?php echo $tl["button"]["btn26"]; ?></button>

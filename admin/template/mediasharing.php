@@ -57,11 +57,19 @@ if ($page1 == "e") { ?>
 										<div class="col-md-7">
 											<div class="radio radio-success">
 
-												<input type="radio" id="jak_md_facebook1" name="jak_md_facebook" value="1"<?php if ($jkv["md_facebook"] == 1) { ?> checked="checked"<?php } ?> />
-												<label for="jak_md_facebook1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+												<?php
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												($jkv["md_facebook"] == 1) ? $checked = 'yes' : $checked = 'no';
+												echo $htmlE->addInput ('radio', 'jak_md_facebook', 'jak_md_facebook1', '', '1', $checked);
+												// Arguments: for (id of associated form element), text
+												echo $htmlE->addLabelFor ('jak_md_facebook1', $tl["checkbox"]["chk"]);
 
-												<input type="radio" id="jak_md_facebook2" name="jak_md_facebook" value="0"<?php if ($jkv["md_facebook"] == 0) { ?> checked="checked"<?php } ?> />
-												<label for="jak_md_facebook2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												($jkv["md_facebook"] == 0) ? $checked = 'yes' : $checked = 'no';
+												echo $htmlE->addInput ('radio', 'jak_md_facebook', 'jak_md_facebook2', '', '0', $checked);
+												// Arguments: for (id of associated form element), text
+												echo $htmlE->addLabelFor ('jak_md_facebook2', $tl["checkbox"]["chk1"]);
+												?>
 
 											</div>
 										</div>
@@ -71,11 +79,19 @@ if ($page1 == "e") { ?>
 										<div class="col-md-7">
 											<div class="radio radio-success">
 
-												<input type="radio" id="jak_md_googleplus1" name="jak_md_googleplus" value="1"<?php if ($jkv["md_googleplus"] == 1) { ?> checked="checked"<?php } ?> />
-												<label for="jak_md_googleplus1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+												<?php
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												($jkv["md_googleplus"] == 1) ? $checked = 'yes' : $checked = 'no';
+												echo $htmlE->addInput ('radio', 'jak_md_googleplus', 'jak_md_googleplus1', '', '1', $checked);
+												// Arguments: for (id of associated form element), text
+												echo $htmlE->addLabelFor ('jak_md_googleplus1', $tl["checkbox"]["chk"]);
 
-												<input type="radio" id="jak_md_googleplus2" name="jak_md_googleplus" value="0"<?php if ($jkv["md_googleplus"] == 0) { ?> checked="checked"<?php } ?> />
-												<label for="jak_md_googleplus2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												($jkv["md_googleplus"] == 0) ? $checked = 'yes' : $checked = 'no';
+												echo $htmlE->addInput ('radio', 'jak_md_googleplus', 'jak_md_googleplus2', '', '0', $checked);
+												// Arguments: for (id of associated form element), text
+												echo $htmlE->addLabelFor ('jak_md_googleplus2', $tl["checkbox"]["chk1"]);
+												?>
 
 											</div>
 										</div>
@@ -85,11 +101,19 @@ if ($page1 == "e") { ?>
 										<div class="col-md-7">
 											<div class="radio radio-success">
 
-												<input type="radio" id="jak_md_instagram1" name="jak_md_instagram" value="1"<?php if ($jkv["md_instagram"] == 1) { ?> checked="checked"<?php } ?> />
-												<label for="jak_md_instagram1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+												<?php
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												($jkv["md_instagram"] == 1) ? $checked = 'yes' : $checked = 'no';
+												echo $htmlE->addInput ('radio', 'jak_md_instagram', 'jak_md_instagram1', '', '1', $checked);
+												// Arguments: for (id of associated form element), text
+												echo $htmlE->addLabelFor ('jak_md_instagram1', $tl["checkbox"]["chk"]);
 
-												<input type="radio" id="jak_md_instagram2" name="jak_md_instagram" value="0"<?php if ($jkv["md_instagram"] == 0) { ?> checked="checked"<?php } ?> />
-												<label for="jak_md_instagram2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												($jkv["md_instagram"] == 0) ? $checked = 'yes' : $checked = 'no';
+												echo $htmlE->addInput ('radio', 'jak_md_instagram', 'jak_md_instagram2', '', '0', $checked);
+												// Arguments: for (id of associated form element), text
+												echo $htmlE->addLabelFor ('jak_md_instagram2', $tl["checkbox"]["chk1"]);
+												?>
 
 											</div>
 										</div>
@@ -100,11 +124,19 @@ if ($page1 == "e") { ?>
 
 											<div class="radio radio-success">
 
-												<input type="radio" id="jak_md_twitter1" name="jak_md_twitter" value="1"<?php if ($jkv["md_twitter"] == 1) { ?> checked="checked"<?php } ?> />
-												<label for="jak_md_twitter1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+												<?php
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												($jkv["md_twitter"] == 1) ? $checked = 'yes' : $checked = 'no';
+												echo $htmlE->addInput ('radio', 'jak_md_twitter', 'jak_md_twitter1', '', '1', $checked);
+												// Arguments: for (id of associated form element), text
+												echo $htmlE->addLabelFor ('jak_md_twitter1', $tl["checkbox"]["chk"]);
 
-												<input type="radio" id="jak_md_twitter2" name="jak_md_twitter" value="0"<?php if ($jkv["md_twitter"] == 0) { ?> checked="checked"<?php } ?> />
-												<label for="jak_md_twitter2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												($jkv["md_twitter"] == 0) ? $checked = 'yes' : $checked = 'no';
+												echo $htmlE->addInput ('radio', 'jak_md_twitter', 'jak_md_twitter2', '', '0', $checked);
+												// Arguments: for (id of associated form element), text
+												echo $htmlE->addLabelFor ('jak_md_twitter2', $tl["checkbox"]["chk1"]);
+												?>
 
 											</div>
 										</div>
@@ -114,11 +146,19 @@ if ($page1 == "e") { ?>
 										<div class="col-md-7">
 											<div class="radio radio-success">
 
-												<input type="radio" id="jak_md_youtube1" name="jak_md_youtube" value="1"<?php if ($jkv["md_youtube"] == 1) { ?> checked="checked"<?php } ?> />
-												<label for="jak_md_youtube1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+												<?php
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												($jkv["md_youtube"] == 1) ? $checked = 'yes' : $checked = 'no';
+												echo $htmlE->addInput ('radio', 'jak_md_youtube', 'jak_md_youtube1', '', '1', $checked);
+												// Arguments: for (id of associated form element), text
+												echo $htmlE->addLabelFor ('jak_md_youtube1', $tl["checkbox"]["chk"]);
 
-												<input type="radio" id="jak_md_youtube2" name="jak_md_youtube" value="0"<?php if ($jkv["md_youtube"] == 0) { ?> checked="checked"<?php } ?> />
-												<label for="jak_md_youtube2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												($jkv["md_youtube"] == 0) ? $checked = 'yes' : $checked = 'no';
+												echo $htmlE->addInput ('radio', 'jak_md_youtube', 'jak_md_youtube2', '', '0', $checked);
+												// Arguments: for (id of associated form element), text
+												echo $htmlE->addLabelFor ('jak_md_youtube2', $tl["checkbox"]["chk1"]);
+												?>
 
 											</div>
 										</div>
@@ -128,11 +168,19 @@ if ($page1 == "e") { ?>
 										<div class="col-md-7">
 											<div class="radio radio-success">
 
-												<input type="radio" id="jak_md_vimeo1" name="jak_md_vimeo" value="1"<?php if ($jkv["md_vimeo"] == 1) { ?> checked="checked"<?php } ?> />
-												<label for="jak_md_vimeo1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+												<?php
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												($jkv["md_vimeo"] == 1) ? $checked = 'yes' : $checked = 'no';
+												echo $htmlE->addInput ('radio', 'jak_md_vimeo', 'jak_md_vimeo1', '', '1', $checked);
+												// Arguments: for (id of associated form element), text
+												echo $htmlE->addLabelFor ('jak_md_vimeo1', $tl["checkbox"]["chk"]);
 
-												<input type="radio" id="jak_md_vimeo2" name="jak_md_vimeo" value="0"<?php if ($jkv["md_vimeo"] == 0) { ?> checked="checked"<?php } ?> />
-												<label for="jak_md_vimeo2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												($jkv["md_vimeo"] == 0) ? $checked = 'yes' : $checked = 'no';
+												echo $htmlE->addInput ('radio', 'jak_md_vimeo', 'jak_md_vimeo2', '', '0', $checked);
+												// Arguments: for (id of associated form element), text
+												echo $htmlE->addLabelFor ('jak_md_vimeo2', $tl["checkbox"]["chk1"]);
+												?>
 
 											</div>
 										</div>
@@ -142,11 +190,19 @@ if ($page1 == "e") { ?>
 										<div class="col-md-7">
 											<div class="radio radio-success">
 
-												<input type="radio" id="jak_md_email1" name="jak_md_email" value="1"<?php if ($jkv["md_email"] == 1) { ?> checked="checked"<?php } ?> />
-												<label for="jak_md_email1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+												<?php
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												($jkv["md_email"] == 1) ? $checked = 'yes' : $checked = 'no';
+												echo $htmlE->addInput ('radio', 'jak_md_email', 'jak_md_email1', '', '1', $checked);
+												// Arguments: for (id of associated form element), text
+												echo $htmlE->addLabelFor ('jak_md_email1', $tl["checkbox"]["chk"]);
 
-												<input type="radio" id="jak_md_email2" name="jak_md_email" value="0"<?php if ($jkv["md_email"] == 0) { ?> checked="checked"<?php } ?> />
-												<label for="jak_md_email2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												($jkv["md_email"] == 0) ? $checked = 'yes' : $checked = 'no';
+												echo $htmlE->addInput ('radio', 'jak_md_email', 'jak_md_email2', '', '0', $checked);
+												// Arguments: for (id of associated form element), text
+												echo $htmlE->addLabelFor ('jak_md_email2', $tl["checkbox"]["chk1"]);
+												?>
 
 											</div>
 										</div>
@@ -161,7 +217,12 @@ if ($page1 == "e") { ?>
 										<div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc7"]; ?></strong></div>
 										<div class="col-md-7">
 											<div class="form-group no-margin">
-												<input type="text" name="jak_mediaSize" class="form-control" value="<?php echo $jkv["md_mediaSize"]; ?>"/>
+
+												<?php
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												echo $htmlE->addInput ('text', 'jak_mediaSize', '', 'form-control', $jkv["md_mediaSize"], '');
+												?>
+
 											</div>
 										</div>
 									</div>
@@ -169,7 +230,12 @@ if ($page1 == "e") { ?>
 										<div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc8"]; ?></strong></div>
 										<div class="col-md-7">
 											<div class="form-group no-margin">
-												<input type="text" name="jak_iconSize" class="form-control" value="<?php echo $jkv["md_iconSize"]; ?>"/>
+
+												<?php
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												echo $htmlE->addInput ('text', 'jak_iconSize', '', 'form-control', $jkv["md_iconSize"], '');
+												?>
+
 											</div>
 										</div>
 									</div>
