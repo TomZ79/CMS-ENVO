@@ -1,29 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo $site_language; ?>">
 <head>
 	<meta charset="utf-8">
-	<title><?php if ($page) echo ucwords ($page) . ' - '; ?>ACP - <?php echo $jkv["title"]; ?></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="CMS,Adminpanel,CMS,JAKWEB"/>
-	<meta name="keywords" content="Your premium CMS from JAKWEB HTML5/CSS3"/>
-	<meta name="author" content="JAKWEB (http://www.jakweb.ch, http://www.jakweb.ch)"/>
-	<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
 
-	<!-- General Stylesheet with custom modifications -->
-	<link rel="stylesheet" href="../assets/css/stylesheet.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
-	<link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.min.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
-	<link rel="stylesheet" href="css/admin.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
+	<!-- BEGIN Vendor CSS-->
+	<link rel="stylesheet" href="../assets/plugins/bootstrapv3/css/bootstrap.min.css" type="text/css" media="screen"/>
+	<link rel="stylesheet" href="../assets/css/stylesheet.css" type="text/css" media="screen"/>
 
-	<?php if (!$jkv["langdirection"]) { ?>
-		<!-- RTL Support -->
-		<link rel="stylesheet" href="css/rtl/screen.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/><!-- End RTL Support -->
-	<?php } ?>
-
-	<!--js-->
-
-	<script src="../js/jquery.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+	<!-- BEGIN VENDOR JS -->
+	<script src="../assets/plugins/jquery/jquery.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 	<script type="text/javascript" src="../assets/js/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
-	<script type="text/javascript" src="js/cms.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 
 	<!-- Import all hooks for in between head -->
 	<?php if (isset($JAK_HOOK_HEAD_ADMIN) && is_array ($JAK_HOOK_HEAD_ADMIN)) foreach ($JAK_HOOK_HEAD_ADMIN as $headt) {

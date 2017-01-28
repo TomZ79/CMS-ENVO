@@ -25,7 +25,7 @@ if ($page1 == "e") { ?>
 			}, {
 				// settings
 				type: 'danger',
-				delay: 5000,
+				delay: 10000,
 			});
 		}, 1000);
 	</script>
@@ -43,7 +43,7 @@ if ($errors) { ?>
 			}, {
 				// settings
 				type: 'danger',
-				delay: 5000,
+				delay: 10000,
 			});
 		}, 1000);
 	</script>

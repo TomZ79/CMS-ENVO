@@ -52,6 +52,11 @@
 										[new] Add new plugin Bootbox
 										[new] Add new button for saving forms
 										[new] Add new design for ACP - 'Pages' Template
+										[new] Add 'class.htmlelement.php' for create html element over Class
+										[new] Add 'class.debug.php' for debug php code to console log
+										[new] Add new settings for SDK Facebook connection
+
+										[new] ... and other more ...
 
 										// # List of updated components
 										// ------------------------------

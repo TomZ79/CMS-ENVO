@@ -162,10 +162,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 								END
 									WHERE varname IN ("smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password")');
 
+		// SEND TEST EMAIL
+		// Retrieve the email template required
+		$message = file_get_contents('template/template_email/setting_testemail.html');
+
+		// Replace the % with the actual information
+		$message = str_replace('%version%', $jkv["version"], $message);
+		$message = str_replace('%baseurllink%', BASE_URL_ADMIN, $message);
+
 		$mail = new PHPMailer(true); // the true param means it will throw exceptions on errors, which we need to catch
 
 		// Send email the smpt way or else the mail way
 		if ($jkv["smtp_or_mail"]) {
+
+			// SMTP
+
+			// Replace the % with the actual information
+			$message = str_replace('%protocol%', 'SMTP', $message);
 
 			try {
 				$mail->IsSMTP (); // telling the class to use SMTP
@@ -192,13 +205,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		} else {
 
+			// PHPMAILER
+
+			// Replace the % with the actual information
+			$message = str_replace('%protocol%', 'PHP Mail()', $message);
+
 			try {
 				$mail->SetFrom ($jkv["email"], $jkv["title"]);
 				$mail->AddReplyTo ($jkv["email"], $jkv["title"]);
 				$mail->AddAddress ($jkv["email"], $jkv["title"]);
-				$mail->AltBody = "PHP Mail()"; // optional, comment out and test
+				// Set the subject
 				$mail->Subject = $tl["setting"]["s43"];
-				$mail->MsgHTML (sprintf ($tl["setting"]["s44"], 'PHP Mail()'));
+				//Set the message
+				$mail->MsgHTML($message);
+				$mail->AltBody = "PHP Mail()";
+				// Send the email
 				$mail->Send ();
 				$success['e'] = sprintf ($tl["setting"]["s44"], 'PHP Mail()');
 			} catch (phpmailerException $e) {

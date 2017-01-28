@@ -25,22 +25,23 @@ if ($JAK_FILE_ERROR) { ?>
 			}, {
 				// settings
 				type: 'danger',
-				delay: 5000,
+				delay: 10000,
 			});
 		}, 1000);
 	</script>
 <?php } else { ?>
 
 	<?php if (!isset($jkv["cms_tpl"])) { ?>
-		<section class="content">
-			<div class="error-page">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 error-page">
+				<h1 class="text-warning bold"><?php echo $tl["notetemplate"]["nh"]; ?></h1>
 				<div class="error-content">
-					<h3><i class="fa fa-warning text-warning-800"></i> <?php echo $tl["notetemplate"]["nh"]; ?></h3>
-					<h4><?php echo $tl["notetemplate"]["n1"]; ?></h4>
+					<h3><i class="fa fa-warning text-warning"></i> <?php echo $tl["notetemplate"]["n1"]; ?></h3>
 					<p><?php echo $tl["notetemplate"]["n2"]; ?></p>
 				</div>
 			</div>
-		</section>
+		</div>
+
 	<?php } else { ?>
 		<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 			<div class="box box-success">

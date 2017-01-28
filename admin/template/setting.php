@@ -25,7 +25,7 @@ if ($page1 == "e") { ?>
 			}, {
 				// settings
 				type: 'danger',
-				delay: 5000,
+				delay: 10000,
 			});
 		}, 1000);
 	</script>
@@ -36,6 +36,7 @@ if ($errors) { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
+				icon: 'fa fa-warning',
 				message: '<?php if (isset($errors["e"])) echo $errors["e"];
 					if (isset($errors["e1"])) echo $errors["e1"];
 					if (isset($errors["e2"])) echo $errors["e2"];
@@ -48,7 +49,7 @@ if ($errors) { ?>
 			}, {
 				// settings
 				type: 'danger',
-				delay: 5000,
+				delay: 10000,
 			});
 		}, 1000);
 	</script>
@@ -59,11 +60,12 @@ if ($success) { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
+				icon: 'pg-mail',
 				message: '<?php if (isset($success["e"])) echo $success["e"];?>',
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 10000,
 			});
 		}, 1000);
 	</script>

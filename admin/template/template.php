@@ -53,13 +53,13 @@ if ($page1 == "e") { ?>
 			}, {
 				// settings
 				type: 'danger',
-				delay: 5000,
+				delay: 10000,
 			});
 		}, 1000);
 	</script>
 <?php } ?>
 
-<?php if (is_dir_empty('../template/')) { ?>
+<?php if (is_dir_empty ('../template/')) { ?>
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3 error-page">
 			<h1 class="text-warning bold"><?php echo $tl["notetemplate"]["nh"]; ?></h1>

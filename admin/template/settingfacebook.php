@@ -25,7 +25,7 @@ if ($JAK_FILE_ERROR) { ?>
 			}, {
 				// settings
 				type: 'danger',
-				delay: 5000,
+				delay: 10000,
 			});
 		}, 1000);
 	</script>

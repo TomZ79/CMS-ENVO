@@ -25,7 +25,7 @@ if ($page3 == "e") { ?>
 			}, {
 				// settings
 				type: 'danger',
-				delay: 5000,
+				delay: 10000,
 			});
 		}, 1000);
 	</script>
@@ -41,7 +41,7 @@ if ($errors) { ?>
 			}, {
 				// settings
 				type: 'danger',
-				delay: 5000,
+				delay: 10000,
 			});
 		}, 1000);
 	</script>
@@ -105,7 +105,7 @@ if ($errors) { ?>
 
 												<?php
 												// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
-												echo $htmlE->addTextArea ('jak_lcontent', '4', '', jak_edit_safe_userpost ($JAK_FORM_DATA["content"]));
+												echo $htmlE->addTextArea ('jak_lcontent', '4', '', jak_edit_safe_userpost($JAK_FORM_DATA["content"]), array ('class' => 'form-control'));
 												?>
 
 											</div>

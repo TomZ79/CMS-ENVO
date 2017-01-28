@@ -31,7 +31,7 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
 			}, {
 				// settings
 				type: 'danger',
-				delay: 5000,
+				delay: 10000,
 			});
 		}, 1000);
 	</script>

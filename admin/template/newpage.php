@@ -10,7 +10,7 @@
 			}, {
 				// settings
 				type: 'danger',
-				delay: 5000,
+				delay: 10000,
 			});
 		}, 1000);
 	</script>
@@ -27,7 +27,7 @@ if ($errors) { ?>
 			}, {
 				// settings
 				type: 'danger',
-				delay: 5000,
+				delay: 10000,
 			});
 		}, 1000);
 	</script>
@@ -74,7 +74,7 @@ if ($errors) { ?>
 		<div id="cmsTabContent" class="tab-content">
 			<div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
 				<div class="row">
-					<div class="col-md-7">
+					<div class="col-md-6">
 						<div class="box box-success">
 							<div class="box-header with-border">
 								<h3 class="box-title"><?php echo $tl["page_box_title"]["pagebt"]; ?></h3>
@@ -318,7 +318,7 @@ if ($errors) { ?>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-5">
+					<div class="col-md-6">
 						<div class="box box-success">
 							<div class="box-header with-border">
 								<h3 class="box-title"><?php echo $tl["page_box_title"]["pagebt1"]; ?></h3>

@@ -25,7 +25,7 @@ if ($page1 == "e") { ?>
 			}, {
 				// settings
 				type: 'danger',
-				delay: 5000,
+				delay: 10000,
 			});
 		}, 1000);
 	</script>
@@ -42,7 +42,7 @@ if ($errors) { ?>
 			}, {
 				// settings
 				type: 'danger',
-				delay: 5000,
+				delay: 10000,
 			});
 		}, 1000);
 	</script>
@@ -119,7 +119,7 @@ if ($errors) { ?>
 			<div class="col-md-6">
 				<div class="box box-success">
 					<div class="box-header with-border">
-						<h3 class="box-title"><?php echo $tl["site_box_title"]["sitebt"]; ?></h3>
+						<h3 class="box-title"><?php echo $tl["site_box_title"]["sitebt1"]; ?></h3>
 					</div>
 					<div class="box-body">
 						<div class="block">
