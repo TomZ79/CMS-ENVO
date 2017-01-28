@@ -22,19 +22,19 @@
 	<link href='http://fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
 
 	<!-- Neko framework  -->
-	<link type="text/css" rel="stylesheet" href="../files/neko-framework/font-icons/custom-icons/css/custom-icons.css">
-	<link type="text/css" rel="stylesheet" href="neko-framework/external-plugins/external-plugins.min.css">
-	<link type="text/css" rel="stylesheet" href="neko-framework/css/layout/neko-framework-layout.css">
-	<link type="text/css" rel="stylesheet" id="color" href="neko-framework/css/color/neko-framework-color.css">
+	<link type="text/css" rel="stylesheet" href="/template/<?php echo $jkv["sitestyle"];?>/icons/custom-icons/css/custom-icons.css">
+	<link type="text/css" rel="stylesheet" href="/template/<?php echo $jkv["sitestyle"];?>/js-plugins/external-plugins.min.css">
+	<link type="text/css" rel="stylesheet" href="/template/<?php echo $jkv["sitestyle"];?>/css/layout/neko-framework-layout.css">
+	<link type="text/css" rel="stylesheet" id="color" href="/template/<?php echo $jkv["sitestyle"];?>/css/color/neko-framework-green.css">
 
 	<!-- Favicons ================================================== -->
-	<link rel="shortcut icon" href="images/favicon.ico">
-	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="images/apple-touch-icon-144x144.png">
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
 
-	<script src="neko-framework/external-plugins/modernizr/modernizr.custom.js"></script>
+	<script src="/template/<?php echo $jkv["sitestyle"];?>/js-plugins/modernizr/modernizr.custom.js"></script>
 
 </head>
 <body class="activate-appear-animation header-1">
@@ -82,7 +82,7 @@
 					<!-- / hamburger button -->
 
 					<!-- Logo -->
-					<a class="navbar-brand" href="../index.html"><img src="images/main-logo.png" alt="Q.E.D. website template"/></a>
+					<a class="navbar-brand" href="/"><img src="/template/<?php echo $jkv["sitestyle"];?>/img/main-logo.png" alt="Q.E.D. website template"/></a>
 					<!-- /Logo -->
 				</div>
 				<div class="collapse navbar-collapse">
