@@ -112,9 +112,11 @@ if ($page1 == "e") { ?>
 
 								<?php if ($jkv["sitestyle"] != $l && !$template_addon) { ?>
 									<button value="<?php echo $l; ?>" name="save" class="btn btn-primary btn-sm"><?php echo $tl["button"]["btn5"]; ?></button>
-									<a class="btn btn-info btn-sm tempSett" href="../template/<?php echo $l; ?>/help.html">
-										<?php echo $tl["button"]["btn6"]; ?>
-									</a>
+									<?php if (file_exists ('../template/' . $l . '/help.html')) { ?>
+										<a class="btn btn-info btn-sm tempSett" href="../template/<?php echo $l; ?>/help.html">
+											<?php echo $tl["button"]["btn6"]; ?>
+										</a>
+									<?php } ?>
 								<?php } elseif ($jkv["sitestyle"] == $l && file_exists ('../template/' . $l . '/install.php') && !$template_addon) { ?>
 
 									<a class="btn btn-success btn-sm tempInst" href="../template/<?php echo $l; ?>/install.php">
