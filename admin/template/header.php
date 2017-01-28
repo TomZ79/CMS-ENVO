@@ -141,12 +141,12 @@
             </span>
 					</button>
 					<ul class="dropdown-menu profile-dropdown" role="menu">
-						<li><a href="#"><i class="pg-settings_small"></i> Settings</a>
+						<li>
+							<a href="index.php?p=user&amp;sp=edit&amp;ssp=<?php echo JAK_USERID; ?>">
+								<i class="pg-settings_small"></i> <?php echo $tl["hf_text"]["hftxt4"]; ?>
+							</a>
 						</li>
-						<li><a href="#"><i class="pg-outdent"></i> Feedback</a>
-						</li>
-						<li><a href="#"><i class="pg-signals"></i> Help</a>
-						</li>
+						<li><a href="#"><i class="fa fa-info"></i> <?php echo $tl["hf_text"]["hftxt5"]; ?></a></li>
 						<li class="bg-master-lighter">
 							<a href="index.php?p=logout" data-confirm-logout="<?php echo $tl["log_out"]["logout1"]; ?>" class="clearfix">
 								<span class="pull-left"><?php echo $tl["log_out"]["logout"]; ?></span>
@@ -169,14 +169,14 @@
 			<div class="jumbotron" data-pages="parallax">
 				<div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
 					<?php if ($page != '404' && !empty($page))	{ ?>
-					<div class="inner">
-						<!-- START BREADCRUMB -->
-						<ul class="breadcrumb">
-							<li><h5 class="title bold"><?php echo $SECTION_TITLE; ?></h5></li>
-							<li><span class="desc"><?php echo $SECTION_DESC; ?></span></li>
-						</ul>
-						<!-- END BREADCRUMB -->
-					</div>
+						<div class="inner">
+							<!-- START BREADCRUMB -->
+							<ul class="breadcrumb">
+								<li><h5 class="title bold"><?php echo $SECTION_TITLE; ?></h5></li>
+								<li><span class="desc"><?php echo $SECTION_DESC; ?></span></li>
+							</ul>
+							<!-- END BREADCRUMB -->
+						</div>
 					<?php } ?>
 				</div>
 			</div>
