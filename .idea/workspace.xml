@@ -22,11 +22,79 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="template.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/admin/template/template.php">
+      <file leaf-file-name="help.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugins/belowheader/help.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.27533785">
-              <caret line="114" column="100" selection-start-line="114" selection-start-column="100" selection-end-line="114" selection-end-column="100" />
+            <state vertical-scroll-proportion="1.2439024">
+              <caret line="33" column="2" selection-start-line="33" selection-start-column="2" selection-end-line="33" selection-end-column="100" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="help.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/template/qed/help.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.9615383">
+              <caret line="93" column="23" selection-start-line="93" selection-start-column="23" selection-end-line="93" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="footer.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/template/footer.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3268921">
+              <caret line="254" column="56" selection-start-line="254" selection-start-column="56" selection-end-line="254" selection-end-column="56" />
+              <folding>
+                <marker date="1485711930024" expanded="true" signature="9139:9844" placeholder="..." />
+                <marker date="1485711930024" expanded="true" signature="9256:9705" placeholder="{&quot;type&quot;: &quot;danger&quot;...}" />
+                <marker date="1485711930024" expanded="true" signature="11424:11461" placeholder="..." />
+                <marker date="1485711930024" expanded="true" signature="11555:11580" placeholder="..." />
+                <marker date="1485711930024" expanded="true" signature="11840:11873" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="doc.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/template/qed/doc/css/doc.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.517857">
+              <caret line="346" column="23" selection-start-line="346" selection-start-column="23" selection-end-line="346" selection-end-column="23" />
+              <folding>
+                <element signature="e#5882#6545#2" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pages.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/pages/css/pages.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.413793">
+              <caret line="636" column="15" selection-start-line="636" selection-start-column="15" selection-end-line="636" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="help.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/template/canvas/help.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.1923075">
+              <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="12" selection-end-column="84" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Downloads/themeforest-9694847-pages-admin-dashboard-template-web-app/bundle/docs/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.9615384">
+              <caret line="3" column="26" selection-start-line="0" selection-start-column="0" selection-end-line="449" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -40,17 +108,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/plugins/blog/admin/template/newblog.php" />
-        <option value="$PROJECT_DIR$/plugins/blog/admin/template/newblogcat.php" />
-        <option value="$PROJECT_DIR$/plugins/blog/admin/template/trash.php" />
-        <option value="$PROJECT_DIR$/plugins/download/admin/template/cat.php" />
-        <option value="$PROJECT_DIR$/plugins/download/admin/template/catsort.php" />
-        <option value="$PROJECT_DIR$/plugins/download/admin/template/comment.php" />
-        <option value="$PROJECT_DIR$/plugins/download/admin/template/commentsort.php" />
-        <option value="$PROJECT_DIR$/plugins/download/admin/template/download.php" />
-        <option value="$PROJECT_DIR$/plugins/download/admin/template/editcat.php" />
-        <option value="$PROJECT_DIR$/plugins/download/admin/template/editdownload.php" />
-        <option value="$PROJECT_DIR$/plugins/download/admin/template/newcat.php" />
         <option value="$PROJECT_DIR$/plugins/download/admin/template/newdownload.php" />
         <option value="$PROJECT_DIR$/plugins/download/admin/template/setting.php" />
         <option value="$PROJECT_DIR$/plugins/download/admin/template/trash.php" />
@@ -90,7 +147,18 @@
         <option value="$PROJECT_DIR$/admin/template/setting.php" />
         <option value="$PROJECT_DIR$/admin/template/site.php" />
         <option value="$PROJECT_DIR$/.htaccess" />
+        <option value="$PROJECT_DIR$/template/qed/description.txt" />
+        <option value="$PROJECT_DIR$/template/qed/install.php" />
+        <option value="$PROJECT_DIR$/admin/pages/js/pages.template.php" />
+        <option value="$PROJECT_DIR$/plugins/belowheader/uninstall.php" />
+        <option value="$PROJECT_DIR$/template/qed/uninstall.php" />
+        <option value="$PROJECT_DIR$/plugins/belowheader/help.php" />
+        <option value="$PROJECT_DIR$/template/canvas/help.html" />
         <option value="$PROJECT_DIR$/admin/template/template.php" />
+        <option value="$PROJECT_DIR$/template/qed/doc/js/doc.js" />
+        <option value="$PROJECT_DIR$/template/qed/doc/css/doc.css" />
+        <option value="$PROJECT_DIR$/template/qed/help.php" />
+        <option value="$PROJECT_DIR$/admin/template/footer.php" />
       </list>
     </option>
   </component>
@@ -191,6 +259,80 @@
               <option name="myItemId" value="template" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="qed" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="qed" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="qed" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -234,7 +376,13 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Github\CMS-Bluesat\template\qed\doc\js" />
+      <recent name="D:\Github\CMS-Bluesat\template\qed" />
+      <recent name="D:\Github\CMS-Bluesat\template" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Github\CMS-Bluesat\assets\plugins\captcha\simple" />
       <recent name="C:\xampp\htdocs\CMS-Bluesat\plugins\blog" />
       <recent name="C:\xampp\htdocs\CMS-Bluesat\admin\css" />
       <recent name="C:\xampp\htdocs\CMS-Bluesat\admin\lang" />
@@ -283,7 +431,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -322,349 +470,11 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/plugins/download/admin/template/setting.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.615385">
-          <caret line="48" column="28" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/download/admin/template/trash.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.923077">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/uninstall.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.269231">
-          <caret line="199" column="32" selection-start-line="199" selection-start-column="32" selection-end-line="199" selection-end-column="32" />
-          <folding>
-            <marker date="1485602954918" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
-            <marker date="1485602954918" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602954918" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602954918" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602954918" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602954918" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602954918" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
-            <marker date="1485602954918" expanded="true" signature="-1:-1" placeholder="DROP TABLE $..." />
-            <marker date="1485602954918" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602954918" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
-            <marker date="1485602954918" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
-            <marker date="1485602954918" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
-            <marker date="1485602954918" expanded="true" signature="-1:-1" placeholder="SELECT tag F..." />
-            <marker date="1485602954918" expanded="true" signature="-1:-1" placeholder="SELECT count..." />
-            <marker date="1485602954918" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602954918" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/js/pages.faq.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.038462">
-          <caret line="123" column="88" selection-start-line="123" selection-start-column="88" selection-end-line="123" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/editfaq.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.615385">
-          <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/editfaqcat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.615385">
-          <caret line="46" column="28" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/faq.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.923077">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/faqcat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.923077">
-          <caret line="35" column="28" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/faqcatsort.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.923077">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/faqcomment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.923077">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/faqcommentsort.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.923077">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/faqsetting.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.923077">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/newfaq.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.615385">
-          <caret line="30" column="27" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/newfaqcat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.615385">
-          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/trash.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.923077">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/growl/uninstall.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.269231">
-          <caret line="174" column="32" selection-start-line="174" selection-start-column="32" selection-end-line="174" selection-end-column="32" />
-          <folding>
-            <marker date="1485602958130" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
-            <marker date="1485602958130" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602958130" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602958130" expanded="true" signature="-1:-1" placeholder="DROP TABLE $..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/growl/admin/template/edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.615385">
-          <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/growl/admin/template/growl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.923077">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/growl/admin/template/new.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.615385">
-          <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/newsletter/uninstall.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.269231">
-          <caret line="183" column="32" selection-start-line="183" selection-start-column="32" selection-end-line="183" selection-end-column="32" />
-          <folding>
-            <marker date="1485602964179" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
-            <marker date="1485602964179" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602964179" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602964179" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602964179" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602964179" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602964179" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
-            <marker date="1485602964179" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
-            <marker date="1485602964179" expanded="true" signature="-1:-1" placeholder="DROP TABLE $..." />
-            <marker date="1485602964179" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.615385">
-          <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/editgroup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.615385">
-          <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/edituser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.615385">
-          <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/new.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.615385">
-          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/newgroup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.615385">
-          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/newsletter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.923077">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/newuser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.615385">
-          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/settings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.615385">
-          <caret line="46" column="28" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.923077">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/usergroup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.923077">
-          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/openurl_blank/uninstall.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.269231">
-          <caret line="172" column="32" selection-start-line="172" selection-start-column="32" selection-end-line="172" selection-end-column="32" />
-          <folding>
-            <marker date="1485602964587" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
-            <marker date="1485602964587" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602964587" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/register_form/uninstall.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.269231">
-          <caret line="189" column="32" selection-start-line="189" selection-start-column="32" selection-end-line="189" selection-end-column="32" />
-          <folding>
-            <marker date="1485602966950" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
-            <marker date="1485602966950" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602966950" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
-            <marker date="1485602966950" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602966950" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602966950" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602966950" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602966950" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602966950" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602966950" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
-            <marker date="1485602966950" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
-            <marker date="1485602966950" expanded="true" signature="-1:-1" placeholder="DROP TABLE $..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/register_form/admin/template/rfcreate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.615385">
-          <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/register_form/admin/template/settings.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.923077">
           <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/site_editor/uninstall.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.269231">
-          <caret line="185" column="32" selection-start-line="185" selection-start-column="32" selection-end-line="185" selection-end-column="32" />
-          <folding>
-            <marker date="1485602967543" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602967543" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/urlmapping/uninstall.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.269231">
-          <caret line="201" column="32" selection-start-line="201" selection-start-column="32" selection-end-line="201" selection-end-column="32" />
-          <folding>
-            <marker date="1485602968744" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
-            <marker date="1485602968744" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602968744" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602968744" expanded="true" signature="-1:-1" placeholder="DROP TABLE $..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -742,16 +552,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41867954">
-          <caret line="302" column="54" selection-start-line="302" selection-start-column="54" selection-end-line="302" selection-end-column="54" />
-          <folding>
-            <marker date="1485607942006" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/template/editusergroup.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3614865">
@@ -784,11 +584,424 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/template/canvas/description.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/qed/description.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.026275115">
+          <caret line="0" column="201" selection-start-line="0" selection-start-column="201" selection-end-line="0" selection-end-column="201" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/pages/js/pages.template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.030303">
+          <caret line="81" column="36" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/pages/js/pages.plugins.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23671497">
+          <caret line="75" column="4" selection-start-line="75" selection-start-column="4" selection-end-line="75" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4158576">
+          <caret line="1357" column="3" selection-start-line="1357" selection-start-column="0" selection-end-line="1357" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/belowheader/install.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16047297">
+          <caret line="124" column="45" selection-start-line="124" selection-start-column="45" selection-end-line="124" selection-end-column="45" />
+          <folding>
+            <marker date="1485602934733" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
+            <marker date="1485602934733" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1485602934733" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
+            <marker date="1485602934733" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1485602934733" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..IF..." />
+            <marker date="1485602934733" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/qed/install.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.5365853">
+          <caret line="103" column="10" selection-start-line="103" selection-start-column="10" selection-end-line="103" selection-end-column="121" />
+          <folding>
+            <marker date="1485621278914" expanded="true" signature="-1:-1" placeholder="SELECT value..." />
+            <marker date="1485621278914" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485621278914" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1485621278914" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/qed/uninstall.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.4339623">
+          <caret line="88" column="24" selection-start-line="88" selection-start-column="24" selection-end-line="88" selection-end-column="24" />
+          <folding>
+            <marker date="1485622748852" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622748852" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/plugins/captcha/simple/captcha.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/belowheader/uninstall.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.9615383">
+          <caret line="187" column="58" selection-start-line="187" selection-start-column="58" selection-end-line="187" selection-end-column="58" />
+          <folding>
+            <marker date="1485622806871" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
+            <marker date="1485622806871" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622806871" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622806871" expanded="true" signature="-1:-1" placeholder="DROP TABLE $..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/uninstall.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.6153846">
+          <caret line="217" column="61" selection-start-line="217" selection-start-column="61" selection-end-line="217" selection-end-column="61" />
+          <folding>
+            <marker date="1485622807559" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
+            <marker date="1485622807559" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622807559" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622807559" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622807559" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622807559" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622807559" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
+            <marker date="1485622807559" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622807559" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
+            <marker date="1485622807559" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
+            <marker date="1485622807559" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
+            <marker date="1485622807559" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
+            <marker date="1485622807559" expanded="true" signature="-1:-1" placeholder="SELECT tag F..." />
+            <marker date="1485622807559" expanded="true" signature="-1:-1" placeholder="SELECT count..." />
+            <marker date="1485622807559" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622807559" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/urlmapping/uninstall.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09983897">
+          <caret line="205" column="15" selection-start-line="205" selection-start-column="15" selection-end-line="205" selection-end-column="15" />
+          <folding>
+            <marker date="1485622807200" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
+            <marker date="1485622807200" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622807200" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622807200" expanded="true" signature="-1:-1" placeholder="DROP TABLE $..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/xml_seo/uninstall.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34621578">
+          <caret line="211" column="57" selection-start-line="211" selection-start-column="57" selection-end-line="211" selection-end-column="57" />
+          <folding>
+            <marker date="1485622807039" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
+            <marker date="1485622807039" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622807039" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622807039" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.32850242">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/_adminOld/template/404.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/site_editor/uninstall.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4009662">
+          <caret line="201" column="55" selection-start-line="201" selection-start-column="55" selection-end-line="201" selection-end-column="55" />
+          <folding>
+            <marker date="1485622807379" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622807379" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/growl/uninstall.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34621578">
+          <caret line="187" column="58" selection-start-line="187" selection-start-column="58" selection-end-line="187" selection-end-column="58" />
+          <folding>
+            <marker date="1485622807467" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
+            <marker date="1485622807467" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622807467" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622807467" expanded="true" signature="-1:-1" placeholder="DROP TABLE $..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/faq/uninstall.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4283414">
+          <caret line="215" column="15" selection-start-line="215" selection-start-column="15" selection-end-line="215" selection-end-column="15" />
+          <folding>
+            <marker date="1485622806316" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
+            <marker date="1485622806316" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622806316" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622806316" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622806316" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622806316" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622806316" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
+            <marker date="1485622806316" expanded="true" signature="-1:-1" placeholder="DROP TABLE $..." />
+            <marker date="1485622806316" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622806316" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
+            <marker date="1485622806316" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
+            <marker date="1485622806316" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
+            <marker date="1485622806316" expanded="true" signature="-1:-1" placeholder="SELECT tag F..." />
+            <marker date="1485622806316" expanded="true" signature="-1:-1" placeholder="SELECT count..." />
+            <marker date="1485622806316" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622806316" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/download/uninstall.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29146537">
+          <caret line="211" column="25" selection-start-line="211" selection-start-column="25" selection-end-line="211" selection-end-column="25" />
+          <folding>
+            <marker date="1485622807137" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
+            <marker date="1485622807137" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622807137" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622807137" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622807137" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622807137" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622807137" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
+            <marker date="1485622807137" expanded="true" signature="-1:-1" placeholder="DROP TABLE $..." />
+            <marker date="1485622807137" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622807137" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
+            <marker date="1485622807137" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
+            <marker date="1485622807137" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
+            <marker date="1485622807137" expanded="true" signature="-1:-1" placeholder="SELECT tag F..." />
+            <marker date="1485622807137" expanded="true" signature="-1:-1" placeholder="SELECT count..." />
+            <marker date="1485622807137" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622807137" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/uninstall.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5378422">
+          <caret line="203" column="8" selection-start-line="203" selection-start-column="8" selection-end-line="203" selection-end-column="8" />
+          <folding>
+            <marker date="1485622806972" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
+            <marker date="1485622806972" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622806972" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622806972" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622806972" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622806972" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622806972" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
+            <marker date="1485622806972" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
+            <marker date="1485622806972" expanded="true" signature="-1:-1" placeholder="DROP TABLE $..." />
+            <marker date="1485622806972" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/openurl_blank/uninstall.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5652174">
+          <caret line="193" column="6" selection-start-line="193" selection-start-column="6" selection-end-line="193" selection-end-column="6" />
+          <folding>
+            <marker date="1485622806683" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
+            <marker date="1485622806683" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622806683" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/register_form/uninstall.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34621578">
+          <caret line="202" column="58" selection-start-line="202" selection-start-column="58" selection-end-line="202" selection-end-column="58" />
+          <folding>
+            <marker date="1485622806503" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
+            <marker date="1485622806503" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622806503" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
+            <marker date="1485622806503" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622806503" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622806503" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622806503" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622806503" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622806503" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485622806503" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
+            <marker date="1485622806503" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
+            <marker date="1485622806503" expanded="true" signature="-1:-1" placeholder="DROP TABLE $..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/themeforest-9694847-pages-admin-dashboard-template-web-app/bundle/docs/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.9615384">
+          <caret line="3" column="26" selection-start-line="0" selection-start-column="0" selection-end-line="449" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/admin/template/template.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27533785">
-          <caret line="114" column="100" selection-start-line="114" selection-start-column="100" selection-end-line="114" selection-end-column="100" />
+        <state vertical-scroll-proportion="0.33277026">
+          <caret line="145" column="69" selection-start-line="145" selection-start-column="65" selection-end-line="145" selection-end-column="69" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/assets/plugins/highlight/highlight.pack.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/assets/plugins/highlight/styles/arta.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.70942813">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/canvas/help.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.1923075">
+          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="12" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/belowheader/help.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2439024">
+          <caret line="33" column="2" selection-start-line="33" selection-start-column="2" selection-end-line="33" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/qed/doc/js/doc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1576507">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/qed/doc/js/syntaxhighlighter/styles/shCoreKreatura.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10510046">
+          <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/qed/doc/js/syntaxhighlighter/styles/shCoreDefault.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/qed/doc/js/syntaxhighlighter/styles/shCore.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/pages/css/pages.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.413793">
+          <caret line="636" column="15" selection-start-line="636" selection-start-column="15" selection-end-line="636" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/qed/doc/css/doc.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.517857">
+          <caret line="346" column="23" selection-start-line="346" selection-start-column="23" selection-end-line="346" selection-end-column="23" />
+          <folding>
+            <element signature="e#5882#6545#2" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2431562">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/qed/help.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.9615383">
+          <caret line="93" column="23" selection-start-line="93" selection-start-column="23" selection-end-line="93" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3268921">
+          <caret line="254" column="56" selection-start-line="254" selection-start-column="56" selection-end-line="254" selection-end-column="56" />
+          <folding>
+            <marker date="1485711930024" expanded="true" signature="9139:9844" placeholder="..." />
+            <marker date="1485711930024" expanded="true" signature="9256:9705" placeholder="{&quot;type&quot;: &quot;danger&quot;...}" />
+            <marker date="1485711930024" expanded="true" signature="11424:11461" placeholder="..." />
+            <marker date="1485711930024" expanded="true" signature="11555:11580" placeholder="..." />
+            <marker date="1485711930024" expanded="true" signature="11840:11873" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

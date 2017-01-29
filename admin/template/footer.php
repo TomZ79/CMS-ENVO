@@ -252,7 +252,7 @@ if (!empty($page)) {
 	<script type="text/javascript">
 		$.notify({
 			// Options
-			title: '<?php echo $tl["hf_text"]["hftxt6"] . ',' . $JAK_WELCOME_NAME; ?>!',
+			title: '<?php echo $tl["hf_text"]["hftxt6"] . ' , ' . $JAK_WELCOME_NAME; ?>!',
 			message: '<?php echo $_SESSION["loginmsg"];?>',
 		}, {
 			// Settings

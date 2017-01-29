@@ -45,6 +45,11 @@ if ($page == 'template' && $page1 == '') {
 	<script type="text/javascript">
 		$(document).ready(function () {
 
+			// Close modal dialog from iFrame - call this by onclick="window.parent.closeModal(); from iFrame"
+			window.closeModal = function () {
+				$('#JAKModal').modal('hide');
+			};
+
 			$('.tempSett').on('click', function (e) {
 				e.preventDefault();
 				frameSrc = $(this).attr("href");
@@ -59,6 +64,7 @@ if ($page == 'template' && $page1 == '') {
 				$('#JAKModal').modal({show: true});
 			});
 
+			// Show iFrame in modal - install and uninstall
 			$('.tempInst').on('click', function (e) {
 				e.preventDefault();
 				frameSrc = $(this).attr("href");
@@ -73,6 +79,7 @@ if ($page == 'template' && $page1 == '') {
 				$('#JAKModal').modal({show: true});
 			});
 
+			// Show iFrame in modal - help
 			$('.tempHelp').on('click', function (e) {
 				e.preventDefault();
 				frameSrc = $(this).attr("href");

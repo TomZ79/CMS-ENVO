@@ -112,8 +112,8 @@ if ($page1 == "e") { ?>
 
 								<?php if ($jkv["sitestyle"] != $l && !$template_addon) { ?>
 									<button value="<?php echo $l; ?>" name="save" class="btn btn-primary btn-sm"><?php echo $tl["button"]["btn5"]; ?></button>
-									<?php if (file_exists ('../template/' . $l . '/help.html')) { ?>
-										<a class="btn btn-info btn-sm tempSett" href="../template/<?php echo $l; ?>/help.html">
+									<?php if (file_exists ('../template/' . $l . '/help.php')) { ?>
+										<a class="btn btn-info btn-sm tempHelp" href="../template/<?php echo $l; ?>/help.php">
 											<?php echo $tl["button"]["btn6"]; ?>
 										</a>
 									<?php } ?>
@@ -122,8 +122,8 @@ if ($page1 == "e") { ?>
 									<a class="btn btn-success btn-sm tempInst" href="../template/<?php echo $l; ?>/install.php">
 										<?php echo $tl["button"]["btn7"]; ?>
 									</a>
-									<?php if (file_exists ('../template/' . $l . '/help.html')) { ?>
-										<a class="btn btn-info btn-sm tempSett" href="../template/<?php echo $l; ?>/help.html">
+									<?php if (file_exists ('../template/' . $l . '/help.php')) { ?>
+										<a class="btn btn-info btn-sm tempHelp" href="../template/<?php echo $l; ?>/help.php">
 											<?php echo $tl["button"]["btn6"]; ?>
 										</a>
 									<?php } ?>
@@ -143,8 +143,8 @@ if ($page1 == "e") { ?>
 									<a class="btn btn-primary btn-sm <?php if (!file_exists ('../template/' . $l . '/templatesettings.php')) echo 'disabled'; ?>" href="index.php?p=template&amp;sp=settings">
 										<?php echo $tl["button"]["btn10"]; ?>
 									</a>
-									<?php if (file_exists ('../template/' . $l . '/help.html')) { ?>
-										<a class="btn btn-info btn-sm tempHelp" href="../template/<?php echo $l; ?>/help.html">
+									<?php if (file_exists ('../template/' . $l . '/help.php')) { ?>
+										<a class="btn btn-info btn-sm tempHelp" href="../template/<?php echo $l; ?>/help.php">
 											<?php echo $tl["button"]["btn6"]; ?>
 										</a>
 									<?php }
@@ -157,9 +157,9 @@ if ($page1 == "e") { ?>
 									</div>
 								</div>
 							</div>
-							<?php if (file_exists ('../template/' . $l . '/help.html')) { ?>
+							<?php if (file_exists ('../template/' . $l . '/help.php')) { ?>
 								<div class="col-md-2">
-									<a class="btn btn-info btn-sm tempHelp" href="../template/<?php echo $l; ?>/help.html">
+									<a class="btn btn-info btn-sm tempHelp" href="../template/<?php echo $l; ?>/help.php">
 										<?php echo $tl["button"]["btn6"]; ?>
 									</a>
 								</div>

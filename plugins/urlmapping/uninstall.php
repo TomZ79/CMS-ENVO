@@ -212,7 +212,7 @@ if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $s
 					<div class="form-group form-inline">
 						<label for="text">Please read info about uninstallation and enter text: </label>
 						<input type="text" name="captcha" class="form-control" id="text">
-						<img src="../captcha.php" class="m-l-10"/>
+						<img src="../../assets/plugins/captcha/simple/captcha.php" class="m-l-10"/>
 					</div>
 					<button type="submit" name="uninstall" class="btn btn-complete btn-block"><?php echo $tl["plugin"]["p11"]; ?></button>
 				</form>

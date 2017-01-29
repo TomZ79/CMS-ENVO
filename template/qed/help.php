@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Canvas Template Documentation</title>
+  <title>QED Template Documentation</title>
 
   <!-- ======= FONTS ======= -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&subset=latin-ext" rel="stylesheet">
@@ -12,15 +12,13 @@
   <link rel="stylesheet" href="doc/js/syntaxhighlighter/styles/shCoreKreatura.css">
   <link rel="stylesheet" href="doc/js/syntaxhighlighter/styles/shThemeKreatura.css">
   <!--[if lt IE 9]>
-  <script src="assets/js/html5.js"></script>
+  <script src="doc/js/html5.js"></script>
   <![endif]-->
 
 </head>
 <body>
 
 <header>
-  <h1>Template Canvas Help</h1>
-  <h2>Template for CMS<p>Version: 1.0</p></h2>
   <div class="clear"></div>
 </header>
 
@@ -33,9 +31,9 @@
   <nav>
     <ul id="sidebar">
       <li class="active">
-        <span>About Canvas Template</span>
+        <span>About QED Template</span>
         <ul>
-          <li data-deeplink="basic-information">Basic Information</li>
+          <li data-deeplink="getting-started">Getting Started</li>
           <li data-deeplink="folders-files">Folders-Files</li>
           <li data-deeplink="Site-layout">Site Layout</li>
           <li data-deeplink="styleswitcher">Styleswitcher</li>
@@ -62,7 +60,39 @@
 
       <!-- Basic Information -->
       <article class="active">
-        <h4>Basic Information</h4>
+        <h4>Getting Started</h4>
+        <p><strong>QED is a clean and professional multipurpose template for any business or portfolio website</strong>, perfect for business, corporate, agencies and creative studios. It comes with a business/corporate style, agency/portfolio layout and exclusive one page infographics. </p>
+        <h5>Extends Bootstrap 3 with Neko CSS framework</h5>
+        <hr>
+        <p>QED is based on Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web. To make customization even more easy, we build an addon that extends Bootstrap with an exclusive color systems and tons of components and utilities. </p>
+        <h5>Make a difference</h5>
+        <hr>
+        <p>The clean and modern UI of QED premium template will make your project stand out.</p>
+        <ul>
+          <li>HTML5 and CSS3</li>
+          <li>Bootstrap 3 responsive grid system</li>
+          <li>10 color schemes</li>
+          <li>Easy to customize</li>
+          <li>Bootstrap components</li>
+          <li>Neko CSS framework additional component and utilities</li>
+          <li>30+ HTML Files</li>
+          <li>Blog pages design</li>
+          <li>Portfolio pages</li>
+          <li>Clean minimal Pop up</li>
+          <li>Google Fonts Support</li>
+          <li>Owl Carousel</li>
+          <li>Magnific popup</li>
+          <li>Royal Slider included</li>
+          <li>Custom icons fonts set, easy to expand with hundred of icons</li>
+          <li>Working PHP contact form</li>
+          <li>Google maps integration</li>
+          <li>Responsive pricing tables</li>
+          <li>Css animations</li>
+          <li>Touch support</li>
+          <li>SEO optimized</li>
+          <li>Crossbrowser compatible</li>
+          <li>and more…</li>
+        </ul>
 
       </article>
 
@@ -216,20 +246,21 @@
 
         <p><strong>Footer Block 2</strong></p>
 					<pre name="code" class="brush: xml;">
-						<h5><span>Nejnovější zprávy</span></h5>
+<h5><span>Nejnovější zprávy</span></h5>
 					</pre>
+
         <p><strong>Footer Block 3</strong></p>
-					<pre name="code" class="brush: xml;">
-						<h5>Kontaktujte nás</h5>
-						<span class="phone">000 000 000</span>
-						<ul class="list list-icons mt-xl">
-              <li><i class="fa fa-envelope"></i> <strong>Email:</strong>
-                <a href="mailto:mail@mail.com">mail@mail.com</a></li>
-            </ul>
-						<div class="margin-bottom-10">
-              <img src="/template/bluesat/img/logo-skylink.png" alt="Bluesat - logo Skylink">
-              <img src="/template/bluesat/img/logo-freesat.png" alt="Bluesat - logo freeSAT">
-            </div>
+					<pre name="code" class="brush: html;">
+<h5>Kontaktujte nás</h5>
+<span class="phone">000 000 000</span>
+<ul class="list list-icons mt-xl">
+  <li><i class="fa fa-envelope"></i> <strong>Email:</strong>
+    <a href="mailto:mail@mail.com">mail@mail.com</a></li>
+</ul>
+<div class="margin-bottom-10">
+  <img src="/template/bluesat/img/logo-skylink.png" alt="Bluesat - logo Skylink">
+  <img src="/template/bluesat/img/logo-freesat.png" alt="Bluesat - logo freeSAT">
+</div>
 					</pre>
 
       </article>
@@ -265,13 +296,19 @@
 </div>
 
 <!-- ======= JQUERY SCRIPT ======= -->
-<script src="../../../../js/jquery.js"></script>
+<script src="/admin/assets/plugins/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
 <script src="doc/js/syntaxhighlighter/scripts/shCore.js" type="text/javascript"></script>
 <script src="doc/js/syntaxhighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
 <script src="doc/js/syntaxhighlighter/scripts/shBrushXml.js" type="text/javascript"></script>
 <script src="doc/js/syntaxhighlighter/scripts/shBrushCss.js" type="text/javascript"></script>
-<script src="doc/js/gallery.js"></script>
 <script src="doc/js/doc.js"></script>
+
+<script>
+  $(document).ready(function() {
+    //Initialize Pages core
+    hljs.initHighlightingOnLoad();
+  });
+</script>
 
 </body>
 </html>
