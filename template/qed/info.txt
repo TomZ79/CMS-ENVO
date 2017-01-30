@@ -1,0 +1,8 @@
+Odstranit z Pluginù napojení na 'vote result'. Tato funkce není v tomto template dostupná
+-------------------------------------------------------------------------------------------
+Odstranìno z page.php
+
+<!-- Show vote result -->
+<?php if ($SHOWVOTE && $USR_CAN_RATE) {
+  include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/voteresult.php';
+} ?>

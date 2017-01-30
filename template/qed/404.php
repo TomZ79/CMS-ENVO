@@ -1,22 +1,17 @@
 <?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/header.php'; ?>
 
-	<section class="pt-large pb-large light-color">
+	<section class="main-color pt-medium pb-medium">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="text-center">
-						<h1><?php echo $tl["general_error"]["generror6"]; ?></h1>
-						<?php echo $tl["general_error"]["generror7"]; ?>
+						<h1 class="x-large"><span class="counter" data-counterend="404"><?php echo $tl["general_error"]["generror"]; ?></span></h1>
+						<p class="lead"><?php echo $tl["general_error"]["generror4"]; ?></p>
+						<p><?php echo $tl["general_error"]["generror5"]; ?></p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
-<?php if ($USR_IP_BLOCKED) { ?>
-	<div class="alert bg-info">
-		<p><?php echo $USR_IP_BLOCKED; ?></p>
-	</div>
-<?php } ?>
 
 <?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/footer.php'; ?>

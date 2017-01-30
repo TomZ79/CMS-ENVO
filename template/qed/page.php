@@ -107,33 +107,39 @@
 			include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/loginpage.php';
 		} ?>
 
-		<!-- Show vote result -->
-		<?php if ($SHOWVOTE && $USR_CAN_RATE) {
-			include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/voteresult.php';
-		} ?>
-
 		<!-- Show date, social buttons and tag list -->
 		<?php if ($SHOWDATE || $SHOWSOCIALBUTTON || ($JAK_TAGLIST && $SHOWTAGS)) { ?>
-			<div class="well well-sm">
-				<div class="row">
-					<?php if ($SHOWSOCIALBUTTON) { ?>
-						<div class="col-md-4">
-							<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/socialbutton.php'; ?>
+			<section class="pt-small pb-small">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+
+							<?php if ($SHOWDATE) { ?>
+								<div class="col-md-3">
+									<i class="icon-clock-1"></i>
+									<time datetime="<?php echo $PAGE_TIME_HTML5; ?>"><?php echo $PAGE_TIME; ?></time>
+								</div>
+							<?php }
+							if ($JAK_TAGLIST && $SHOWTAGS) { ?>
+								<div class="col-md-5">
+									<i class="icon-tags"></i> <?php echo $JAK_TAGLIST; ?>
+								</div>
+							<?php }
+							if ($SHOWSOCIALBUTTON) { ?>
+								<div class="col-md-4">
+									<div style="display: table;">
+										<div style="display: table-cell;vertical-align: middle;/*! margin-right: 20px; */padding-right: 20px;">
+											<strong>Share this post:</strong></div>
+										<div id="sollist-sharing"></div>
+									</div>
+								</div>
+							<?php } ?>
+
 						</div>
-					<?php }
-					if ($JAK_TAGLIST && $SHOWTAGS) { ?>
-						<div class="col-md-5">
-							<i class="fa fa-tags"></i> <?php echo $JAK_TAGLIST; ?>
-						</div>
-					<?php }
-					if ($SHOWDATE) { ?>
-						<div class="col-md-3">
-							<i class="fa fa-clock-o"></i>
-							<time datetime="<?php echo $PAGE_TIME_HTML5; ?>"><?php echo $PAGE_TIME; ?></time>
-						</div>
-					<?php } ?>
+					</div>
 				</div>
-			</div>
+			</section>
+
 		<?php }
 	}
 	if ($jkv["printme"]) { ?>
