@@ -1,0 +1,11 @@
+/* ===== Alert Offline ===== */
+
+.alert-offline {
+    background-color: #263238;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+.alert-offline [data-notify="icon"] {
+    float: left;
+}

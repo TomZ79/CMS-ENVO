@@ -1,48 +1,114 @@
+<?php
+
+// EN: Include the config file ...
+// CZ: Vložení konfiguraèního souboru ...
+if (!file_exists ('config.php')) die('[index.php] config.php not found');
+require_once 'config.php';
+
+?>
+
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if lt IE 7 ]><html class="ie ie6" lang="<?php echo $site_language; ?>"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="<?php echo $site_language; ?>"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="<?php echo $site_language; ?>"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
-<html lang="en">
+<html lang="<?php echo $site_language; ?>">
 <!--<![endif]-->
 <head>
 
-	<!-- Basic Page Needs ================================================== -->
 	<meta charset="utf-8">
-	<title>Neko</title>
-	<meta name="description" content="neko-description">
-	<meta name="author" content="Little NEKO">
+	<!-- Document Title
+	============================================= -->
+	<title><?php echo $jkv["title"];
+		if ($jkv["title"]) { ?> &raquo; <?php }
+		echo $PAGE_TITLE; ?></title>
 
-	<!-- Mobile Specific Metas ================================================== -->
+	<!-- Share Social Network
+	============================================= -->
+	<!-- for Google -->
+	<meta name="keywords" content="<?php echo trim ($PAGE_KEYWORDS); ?>">
+	<meta name="description" content="<?php echo trim ($PAGE_DESCRIPTION); ?>">
+	<meta name="author" content="<?php echo $jkv["metaauthor"]; ?>">
+
+	<!-- for Facebook -->
+	<meta property="og:title" content="<?php echo $PAGE_TITLE; ?>"/>
+	<meta property="og:type" content="article"/>
+	<meta property="og:image" content="<?php echo (($PAGE_IMAGE) ? $PAGE_IMAGE : $SHOWIMG); ?>"/>
+	<meta property="og:description" content="<?php echo trim ($PAGE_DESCRIPTION); ?>"/>
+
+	<!-- for Twitter -->
+	<meta name="twitter:card" content="summary"/>
+	<meta name="twitter:title" content=""/>
+	<meta name="twitter:description" content=""/>
+	<meta name="twitter:image" content=""/>
+
+<?php if ($page == '404') { ?>
+	<meta name="robots" content="noindex, follow">
+<?php } else { ?>
+	<meta name="robots" content="<?php echo $jk_robots; ?>">
+<?php }
+if ($page == "success" or $page == "logout") { ?>
+	<meta http-equiv="refresh" content="1;URL=<?php echo $_SERVER['HTTP_REFERER']; ?>">
+<?php } ?>
+	<link rel="canonical" href="<?php echo (JAK_USE_APACHE ? substr (BASE_URL, 0, - 1) : BASE_URL) . JAK_rewrite::jakParseurl ($page, $page1, $page2, $page3, $page4, $page5, $page6); ?>">
+
+<?php if (isset($JAK_RSS_DISPLAY) && isset($JAK_RSS_TITLE)) { ?>
+	<link rel="alternate" type="application/rss+xml" title="<?php echo $JAK_RSS_TITLE; ?> RSS 2.0" href="<?php echo $P_RSS_LINK; ?>">
+<?php } ?>
+
+	<!-- Mobile Specific Metas
+	================================================== -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-	<!-- CSS ================================================== -->
-
-	<!-- web font  -->
+	<!-- CSS and FONTS
+	================================================== -->
 	<link href='http://fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
-
-	<!-- Neko framework  -->
 	<link type="text/css" rel="stylesheet" href="/template/<?php echo $jkv["sitestyle"];?>/icons/custom-icons/css/custom-icons.css">
 	<link type="text/css" rel="stylesheet" href="/template/<?php echo $jkv["sitestyle"];?>/js-plugins/external-plugins.min.css">
 	<link type="text/css" rel="stylesheet" href="/template/<?php echo $jkv["sitestyle"];?>/css/layout/neko-framework-layout.css">
 	<link type="text/css" rel="stylesheet" id="color" href="/template/<?php echo $jkv["sitestyle"];?>/css/color/neko-framework-green.css">
 
-	<!-- Favicons ================================================== -->
+	<link rel="stylesheet" href="/template/<?php echo $jkv["sitestyle"];?>/css/screen.css" type="text/css"/>
+
+	<!-- CUSTOM CSS
+	================================================== -->
+<?php if (!$JAK_SHOW_NAVBAR) { ?>
+	<style type="text/css">
+		/* Fix 'body padding' if navbar is hidden */
+		body {
+			padding-top: 0;
+		}
+	</style>
+<?php } ?>
+
+	<!-- Favicons
+	================================================== -->
 	<link rel="shortcut icon" href="img/favicon.ico">
 	<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
 	<link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
 
+	<!-- Basic Jquery
+	============================================= -->
 	<script src="/template/<?php echo $jkv["sitestyle"];?>/js-plugins/modernizr/modernizr.custom.js"></script>
 
+	<!-- Import templates for in between head
+	============================================= -->
+	<?php if (isset($JAK_HOOK_HEAD_TOP) && is_array ($JAK_HOOK_HEAD_TOP)) foreach ($JAK_HOOK_HEAD_TOP as $headt) {
+		include_once APP_PATH . $headt['phpcode'];
+	}
+	echo $JAK_HEADER_CSS; ?>
+
 </head>
-<body class="activate-appear-animation header-1">
+<body class="activate-appear-animation header-2">
 
 <!-- global-wrapper -->
 <div id="global-wrapper">
-	<!-- header -->
 
+<?php if ($JAK_SHOW_NAVBAR) { ?>
+
+	<!-- header -->
 	<header class="menu-header navbar-fixed-top" role="banner">
 		<section id="pre-header">
 			<div class="container">
@@ -288,9 +354,9 @@
 		</div>
 
 	</header>
-
-
 	<!-- header -->
+
+<?php } ?>
 
 	<!-- content -->
 	<main id="content">

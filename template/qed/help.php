@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="doc/css/doc.css">
   <link rel="stylesheet" href="doc/js/syntaxhighlighter/styles/shCoreKreatura.css">
   <link rel="stylesheet" href="doc/js/syntaxhighlighter/styles/shThemeKreatura.css">
+
   <!--[if lt IE 9]>
   <script src="doc/js/html5.js"></script>
   <![endif]-->
@@ -35,17 +36,15 @@
         <ul>
           <li data-deeplink="getting-started">Getting Started</li>
           <li data-deeplink="folders-files">Folders-Files</li>
-          <li data-deeplink="Site-layout">Site Layout</li>
-          <li data-deeplink="styleswitcher">Styleswitcher</li>
-          <li data-deeplink="code-page">Code for Page</li>
-          <li data-deeplink="jquery-plugins">Jquery Plugins</li>
         </ul>
       </li>
       <li>
-        <span>Typography</span>
+        <span>HTML Structure</span>
         <ul>
-          <li data-deeplink="blog">Blog</li>
-          <li data-deeplink="download">Download</li>
+          <li data-deeplink="html-structure">HTML Structure</li>
+          <li data-deeplink="section">Section</li>
+          <li data-deeplink="shortcodes">Shortcodes and components</li>
+          <li data-deeplink="xxxx">XXXX</li>
         </ul>
       </li>
     </ul>
@@ -55,10 +54,10 @@
 <div id="content">
   <div>
 
-    <!-- About Bluesat Template -->
+    <!-- About QED Template -->
     <section class="active">
 
-      <!-- Basic Information -->
+      <!-- Getting Started -->
       <article class="active">
         <h4>Getting Started</h4>
         <p><strong>QED is a clean and professional multipurpose template for any business or portfolio website</strong>, perfect for business, corporate, agencies and creative studios. It comes with a business/corporate style, agency/portfolio layout and exclusive one page infographics. </p>
@@ -181,113 +180,141 @@
         </div>
       </article>
 
-      <!-- Site Layout -->
-      <article>
-        <h4>Site Layout</h4>
-
-      </article>
-
-      <!-- Styleswitcher -->
-      <article>
-        <h4>Styleswitcher</h4>
-
-      </article>
-
-      <!-- Code for Page -->
-      <article>
-        <h4>Code for Page</h4>
-        <p><strong>Mininavbar text</strong></p>
-					<pre name="code" class="brush: xml;">
-					<div class="header-column pull-left">
-            <ul class="header-extra-info">
-              <li>
-                <div class="feature-box feature-box-style-2">
-                  <div class="feature-box-icon">
-                    <i class="fa fa-phone"></i>
-                  </div>
-                  <div class="feature-box-info">
-                    <h4 class="mb-none">000 000 000</h4>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="feature-box feature-box-style-2">
-                  <div class="feature-box-icon">
-                    <i class="fa fa-envelope"></i>
-                  </div>
-                  <div class="feature-box-info">
-                    <h4 class="mb-none">mail@mail.com</h4>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-					</pre>
-
-        <p><strong>Footer Block 1</strong></p>
-					<pre name="code" class="brush: xml;">
-						<h5>Satelitní TV</h5>
-						<ul class="list list-icons list-icons-sm">
-              <li><i class="fa fa-caret-right"></i>
-                <a href="http://cz.freesattv.tv/satelitni-televize/" target="_blank">freeSAT</a></li>
-              <li><i class="fa fa-caret-right"></i> <a href="http://www.skylink.cz/" target="_blank">Skylink</a></li>
-              <li><i class="fa fa-caret-right"></i> <a href="http://cz.digi.tv/" target="_blank">Digi TV</a></li>
-            </ul>
-						<h5>Jak naladit programy</h5>
-						<ul class="list list-icons list-icons-sm">
-              <li><i class="fa fa-caret-right"></i>
-                <a href="/_files/Bluesat/Documents/Seznam_frekvenci_freeSAT.pdf?1462224028557" target="_blank">freeSAT</a>
-              </li>
-              <li><i class="fa fa-caret-right"></i>
-                <a href="http://www.skylink.cz/prakticke-informace-a-kontakty/satelitni-prijimace#N%C3%A1vod%3A+Jak+naladit+programy" target="_blank">Skylink</a>
-              </li>
-            </ul>
-					</pre>
-
-        <p><strong>Footer Block 2</strong></p>
-					<pre name="code" class="brush: xml;">
-<h5><span>Nejnovější zprávy</span></h5>
-					</pre>
-
-        <p><strong>Footer Block 3</strong></p>
-					<pre name="code" class="brush: html;">
-<h5>Kontaktujte nás</h5>
-<span class="phone">000 000 000</span>
-<ul class="list list-icons mt-xl">
-  <li><i class="fa fa-envelope"></i> <strong>Email:</strong>
-    <a href="mailto:mail@mail.com">mail@mail.com</a></li>
-</ul>
-<div class="margin-bottom-10">
-  <img src="/template/bluesat/img/logo-skylink.png" alt="Bluesat - logo Skylink">
-  <img src="/template/bluesat/img/logo-freesat.png" alt="Bluesat - logo freeSAT">
-</div>
-					</pre>
-
-      </article>
-
-      <!-- Jquery Plugins -->
-      <article>
-        <h4>Jquery Plugins</h4>
-        <h5>Bootstrap Select</h5>
-        <p>Custom modification for 'select' tag</p>
-        <p>Links: <a href="https://github.com/silviomoreto/bootstrap-select" target="_blank">Bootstrap Select</a></p>
-
-      </article>
-
     </section>
 
     <!-- Plugins Template -->
     <section>
 
-      <!-- Blog -->
+      <!-- HTML Structure -->
       <article>
-        <h4>Blog</h4>
+        <h4>HTML Structure</h4>
+        <p>This theme has a responsive layout with a variation of column layouts depending on the page. This theme uses <strong>TWITTER BOOTSTRAP 3</strong> Framework (12 columns) which will help streamline any customization you wish to make. </p>
+        <p>Bootstrap includes a responsive, mobile first fluid grid system that appropriately scales up to 12 columns as the device or viewport size increases. It includes predefined classes for easy layout options. </p>
+        <p>Grid systems are used for creating page layouts through a series of rows and columns that house your content. Here's how the Bootstrap grid system works: </p>
+        <ul>
+          <li>Rows must be placed within a <code>.container</code> for proper alignment and padding.</li>
+          <li>Use rows to create horizontal groups of columns.</li>
+          <li>Content should be placed within columns, and only columns may be immediate children of rows.</li>
+          <li>Columns create gutters (gaps between column content) via <code>padding</code>. That padding is offset in rows for the first and last column via negative margin on <code>.row</code>s.</li>
+          <li>Grid columns are created by specifying the number of twelve available columns you wish to span. For example, three equal columns would use three <code>.col-xs-4</code>.</li>
+        </ul>
+        <div class="km-notification info cf b">
+            If you're unfamiliar with the Bootstrap system, be sure to read about it <strong><a href="http://getbootstrap.com/css/#grid" target="_blank">here</a></strong>.
+        </div>
+        <p>The main structure of this site is wrapped in a '.gobalWrapper' div. Inside of that div you will find: </p>
+        <ul>
+          <li>a 'header' with menu inside</li>
+          <li>each major sections of the site wrapped into 'sections'.</li>
+          <li>a 'footer'</li>
+        </ul>
+        <p>Each section follow the bootstrap logic. </p>
+        <pre name="code" class="brush: html;">
 
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+        The content
+
+      </div>
+    </div>
+  </div>
+</section>
+
+        </pre>
       </article>
 
-      <!-- Download -->
+      <!-- Section -->
       <article>
-        <h4>Download</h4>
+        <h4>Section</h4>
+        <h5>Basic Section</h5>
+        <hr>
+        <p>Default section</p>
+        <pre name="code" class="brush: html;">
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+        The content
+
+      </div>
+    </div>
+  </div>
+</section>
+
+        </pre>
+        <h5>Section with padding</h5>
+        <hr>
+        <p>Section with padding top-bottom. We have some <code>class=""</code> with padding.</p>
+        <p>Padding TOP:</p>
+        <ul>
+          <li><code>.pt</code> - padding-top: 24px;</li>
+          <li><code>.pt-large</code> - padding-top: 60px;</li>
+          <li><code>.pt-medium</code> - padding-top: 36px;</li>
+          <li><code>.pt-small</code> - padding-top: 16px;</li>
+        </ul>
+        <p>Padding BOTTOM:</p>
+        <ul>
+          <li><code>.pb</code> - padding-bottom: 24px;</li>
+          <li><code>.pb-large</code> - padding-bottom: 60px;</li>
+          <li><code>.pb-medium</code> - padding-bottom: 36px;</li>
+          <li><code>.pb-small</code> - padding-bottom: 16px;</li>
+        </ul>
+        <pre name="code" class="brush: html;">
+
+<section class="pt-medium pb-medium">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+        The content
+
+      </div>
+    </div>
+  </div>
+</section>
+
+        </pre>
+        <h5>Section with padding and background color</h5>
+        <hr>
+        <p>Section with padding top-bottom and background color. We have some <code>class=""</code> with background color.</p>
+        <ul>
+          <li><code>.dark-color</code></li>
+          <li><code>.dark-main-color</code></li>
+          <li><code>.light-color</code></li>
+          <li><code>.main-color</code></li>
+          <li><code>.light-main-color</code></li>
+        </ul>
+        <pre name="code" class="brush: html;">
+
+<section class="pt-medium pb-medium light-color">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+        The content
+
+      </div>
+    </div>
+  </div>
+</section>
+
+        </pre>
+      </article>
+
+      <!-- Shortcodes and components -->
+      <article>
+        <h4>Shortcodes and components</h4>
+        <p>We have included all bootstrap shortcodes, classes and javascript plugins so that you can easly customize your theme. You can find a complete explanation of how it works <a href="http://getbootstrap.com/" target="_blank">here</a>
+        </p>
+      </article>
+
+      <!-- XXXX -->
+      <article>
+        <h4>XXXX</h4>
 
       </article>
 

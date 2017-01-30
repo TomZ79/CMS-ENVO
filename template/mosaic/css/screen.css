@@ -283,7 +283,7 @@ html.sb-scroll-lock.sb-active:not(.sb-static) {
 }
 
 /* Left */
-sb-menu li .sb-open-right, .sb-menu li small {
+.sb-menu li .sb-open-right, .sb-menu li small {
   display: inline-block;
   padding: 14px;
 }

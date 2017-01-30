@@ -13,7 +13,7 @@ if (isset($jkv["color_mosaic_tpl"]) && $jkv["color_mosaic_tpl"] == "dark") {
 /* ### FUNCTION FILE ### */
 
 // Menu builder function, parentId 0 is the root - custom modification
-function jak_build_menu_canvas ($parent, $menu, $active, $mainclass, $dropdown, $dropclass, $subclass, $admin)
+function jak_build_menu_qed ($parent, $menu, $active, $mainclass, $dropdown, $dropclass, $subclass, $admin)
 {
 	$html = '';
 	if (isset($menu['parents'][ $parent ])) {

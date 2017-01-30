@@ -18,8 +18,7 @@
 		<meta http-equiv="refresh" content="1;URL=<?php echo $_SERVER['HTTP_REFERER']; ?>">
 	<?php } ?>
 
-	<link rel="canonical"
-		href="<?php echo (JAK_USE_APACHE ? substr (BASE_URL, 0, - 1) : BASE_URL) . JAK_rewrite::jakParseurl ($page, $page1, $page2, $page3, $page4, $page5, $page6); ?>">
+	<link rel="canonical" href="<?php echo (JAK_USE_APACHE ? substr (BASE_URL, 0, - 1) : BASE_URL) . JAK_rewrite::jakParseurl ($page, $page1, $page2, $page3, $page4, $page5, $page6); ?>">
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/stylesheet.css?=<?php echo $jkv["updatetime"]; ?>"
 		type="text/css">
 

@@ -1,6 +1,6 @@
 /*
  *
- * BLUESAT.CZ
+ * CMS ENVO
  * JS for Admin Control Panel and Site with custom modification
  * Copyright © 2016 Bluesat.cz
  *

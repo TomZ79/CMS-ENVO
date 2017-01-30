@@ -1,5 +1,7 @@
 </main>
-<!-- content -->
+<!-- / content -->
+
+<?php if ($JAK_SHOW_FOOTER) { ?>
 
 <!-- footer -->
 <footer id="main-footer">
@@ -64,6 +66,8 @@
 	</div>
 </footer>
 <!-- / footer -->
+
+<?php } ?>
 </div>
 <!-- global wrapper -->
 
@@ -73,14 +77,34 @@
 <script type="text/javascript" src="/template/<?php echo $jkv["sitestyle"];?>/js-plugins/jquery/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="/template/<?php echo $jkv["sitestyle"];?>/js-plugins/jquery-ui/jquery-ui-1.8.23.custom.min.js"></script>
 
-<!-- external framework plugins -->
+<!-- External framework plugins -->
 <script type="application/javascript" src="/template/<?php echo $jkv["sitestyle"];?>/js-plugins/external-plugins.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/bootstap-notify/bootstrap-notify.min.js"></script>
 
-<!-- neko framework script -->
+<!-- Neko framework script -->
 <script type="text/javascript" src="/template/<?php echo $jkv["sitestyle"];?>/js/neko-framework.js"></script>
 
-<!-- neko custom script -->
-<script src="js/custom.js"></script>
+<?php if ($jkv["offline"] == 1 && JAK_ASACCESS) { ?>
+<!-- Offline Website -->
+<script type="text/javascript">
+	$.notify({
+		// Options
+		icon: 'icon-flash',
+		message: '<?php echo $tl["title"]["t10"];?>',
+	}, {
+		// Settings
+		type: 'offline',
+		timer: 0,
+		template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+		'<button type="button" aria-hidden="true" class="close" data-notify="dismiss" style="color: #fff;opacity: 0.8;">×</button>' +
+		'<span data-notify="icon"></span> ' +
+		'<span data-notify="title" style="display: block;font-weight: bold;">{1}</span> ' +
+		'<span data-notify="message">{2}</span>' +
+		'</div>' +
+		'</div>'
+	});
+</script>
+<?php } ?>
 
 </body>
 </html>
