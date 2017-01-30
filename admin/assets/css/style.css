@@ -675,10 +675,14 @@ li.filter-item > a:hover {
 ========================================================================*/
 /* Singel content without Tabs & Accordian
  * Content is same as content with Tabs & Accordians */
+.nav-tabs-fillup ~ .tab-content {
+  background: transparent;
+}
+
 .tab-content-singel {
   overflow: hidden;
   padding: 15px;
-  background: #FFF;
+  background: transparent;
   border-top: 1px solid #DDD;
 }
 
@@ -724,7 +728,7 @@ table.table-expandable > tbody > tr div.table-expandable-arrow.up {
   position: fixed;
   right: 0;
   top: 71px;
-  z-index: 1000;
+  z-index: 690;
   background: #F0F0F0;
   width: 114px;
   height: 55px;
@@ -752,6 +756,12 @@ table.table-expandable > tbody > tr div.table-expandable-arrow.up {
 .btn-toggle:active {
   color: #26A69A;
   border: 2px solid #D0D8DC;
+}
+
+/* Button for Selectpicker - Restore Content */
+.table thead tr th .bootstrap-select .btn {
+  margin-top: inherit;
+  margin-bottom: inherit;
 }
 
 /* Bootstrap FileInput - Icons */
