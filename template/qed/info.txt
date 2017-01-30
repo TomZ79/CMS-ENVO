@@ -6,3 +6,9 @@ Odstranìno z page.php
 <?php if ($SHOWVOTE && $USR_CAN_RATE) {
   include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/voteresult.php';
 } ?>
+
+Odstranìno z newsart.php
+
+<?php if ($SHOWVOTE && $USR_CAN_RATE) {
+	include_once APP_PATH . 'template/mosaic/voteresult.php';
+} ?>

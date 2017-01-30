@@ -74,6 +74,7 @@ switch ($page1) {
 				$PAGE_ACTIVE                 = $row['active'];
 				$PAGE_HITS                   = $row['hits'];
 				$PAGE_TIME                   = JAK_base::jakTimesince ($row['time'], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['general']['g56']);
+				$DATE_TIME                  = $row['time'];
 				$PAGE_TIME_HTML5             = date ("Y-m-d", strtotime ($row['time']));
 				$JAK_HEATMAPLOC              = "news_" . $row['id'];
 

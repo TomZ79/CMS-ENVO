@@ -60,6 +60,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$errors['e2'] = $tl['general_error']['generror8'] . '<br>';
 		}
 
+		if ($defaults['jak_locale'] == '') {
+			$errors['e9'] = $tl['general_error']['generror16'] . '<br>';
+		}
+
 		if (empty($defaults['jak_date'])) {
 			$errors['e3'] = $tl['general_error']['generror9'] . '<br>';
 		}
@@ -91,6 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         WHEN "email" THEN "' . smartsql ($defaults['jak_email']) . '"
         WHEN "sitehttps" THEN "' . smartsql ($defaults['jak_shttp']) . '"
         WHEN "lang" THEN "' . smartsql ($defaults['jak_lang']) . '"
+        WHEN "locale" THEN "' . smartsql ($defaults['jak_locale']) . '"
         WHEN "langdirection" THEN "' . smartsql ($defaults['jak_langd']) . '"
         WHEN "showloginside" THEN "' . smartsql ($defaults['jak_loginside']) . '"
         WHEN "useravatwidth" THEN "' . smartsql ($defaults['jak_avatwidth']) . '"
@@ -130,7 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         WHEN "acewraplimit" THEN "' . smartsql ($defaults['jak_acewraplimit']) . '"
         WHEN "aceactiveline" THEN "' . smartsql ($defaults['jak_aceactiveline']) . '"
     END
-    	WHERE varname IN ("email","sitehttps","lang","langdirection","showloginside","loginside","useravatwidth","useravatheight","userpath","printme","shortmsg","dateformat","timeformat","time_ago_show","timezoneserver","hvm","adv_editor","usr_smilies","contactform","shownews","rss","rssitem","adminpagemid","adminpageitem","ip_block","email_block","username_block","analytics","heatmap","smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password","acetheme","acetabSize","acegutter","aceinvisible","acewraplimit","aceactiveline")');
+    	WHERE varname IN ("email","sitehttps","lang","locale","langdirection","showloginside","loginside","useravatwidth","useravatheight","userpath","printme","shortmsg","dateformat","timeformat","time_ago_show","timezoneserver","hvm","adv_editor","usr_smilies","contactform","shownews","rss","rssitem","adminpagemid","adminpageitem","ip_block","email_block","username_block","analytics","heatmap","smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password","acetheme","acetabSize","acegutter","aceinvisible","acewraplimit","aceactiveline")');
 
 			if (!$result) {
 				// EN: Redirect page

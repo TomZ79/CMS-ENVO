@@ -348,7 +348,7 @@ function jak_get_news($jakvar, $where, $plname, $order, $datef, $timef, $timeago
     $parseurl = JAK_rewrite::jakParseurl($plname, 'a', $row['id'], JAK_base::jakCleanurl($PAGE_TITLE), '');
 
     // collect each record into $jakdata
-    $jakdata[] = array('id' => $row['id'], 'title' => jak_secure_site($PAGE_TITLE), 'content' => jak_secure_site($PAGE_CONTENT), 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'showhits' => $row['showhits'], 'created' => JAK_base::jakTimesince($row['time'], $datef, $timef, $timeago), 'titleurl' => JAK_base::jakCleanurl($row['title']), 'hits' => $row['hits'], 'previmg' => $row['previmg'], 'contentshort' => $shortmsg, 'parseurl' => $parseurl);
+    $jakdata[] = array('id' => $row['id'], 'title' => jak_secure_site($PAGE_TITLE), 'content' => jak_secure_site($PAGE_CONTENT), 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'showhits' => $row['showhits'], 'created' => JAK_base::jakTimesince($row['time'], $datef, $timef, $timeago), 'titleurl' => JAK_base::jakCleanurl($row['title']), 'hits' => $row['hits'], 'previmg' => $row['previmg'], 'contentshort' => $shortmsg, 'parseurl' => $parseurl, 'date-time' => $row['time']);
 
   }
 

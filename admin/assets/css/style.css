@@ -1023,11 +1023,17 @@ pre[class*="language-"] {
   color: #444;
 }
 
-/* Bootstrap modal dialog - color for overlay */
+/* Bootstrap Modal dialog - color for overlay */
 .modal.fade.fill-in.in {
   background-color: rgba(255, 255, 255, 0.95);
 }
 
+/* Bootstrap Modal Dialog */
+@media screen and (min-width: 768px) {
+  .modal-w-90p {
+    width: 90%; /* either % (e.g. 60%) or px (400px) */
+  }
+}
 /* 00. BOOTSTRAP NOTIFY
 ========================================================================*/
 [data-notify="container"].alert .close {

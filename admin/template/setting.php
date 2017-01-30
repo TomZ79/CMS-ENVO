@@ -45,7 +45,8 @@ if ($errors) { ?>
 					if (isset($errors["e5"])) echo $errors["e5"];
 					if (isset($errors["e6"])) echo $errors["e6"];
 					if (isset($errors["e7"])) echo $errors["e7"];
-					if (isset($errors["e8"])) echo $errors["e8"];?>',
+					if (isset($errors["e8"])) echo $errors["e8"];
+					if (isset($errors["e9"])) echo $errors["e9"];?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -175,6 +176,20 @@ if ($success) { ?>
 											</div>
 										</div>
 										<div class="row-form">
+											<div class="col-md-5">
+												<strong><?php echo $tl["gs_box_content"]["gsbc19"]; ?></strong>
+												<span class="star-item text-danger-800 m-l-10">*</span>
+											</div>
+											<div class="col-md-7">
+												<div class="<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+													<select name="jak_locale" class="form-control selectpicker" data-size="5">
+														<option value="cs_CZ" <?php if ($jkv["locale"] == 'cs_CZ') { ?> selected="selected"<?php } ?>>cs_CZ</option>
+														<option value="en_GB" <?php if ($jkv["locale"] == 'en_GB') { ?> selected="selected"<?php } ?>>en_GB</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="row-form">
 											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc5"]; ?></strong></div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
@@ -224,7 +239,7 @@ if ($success) { ?>
 													<input type="radio" id="jak_time_ago1" name="jak_time_ago" value="1"<?php if ($jkv["time_ago_show"] == 1) { ?> checked="checked"<?php } ?> />
 													<label for="jak_time_ago1"><?php echo $tl["checkbox"]["chk"]; ?></label>
 
-													<input type="radio" name="jak_time_ago" value="0"<?php if ($jkv["time_ago_show"] == 0) { ?> checked="checked"<?php } ?> />
+													<input type="radio" id="jak_time_ago2" name="jak_time_ago" value="0"<?php if ($jkv["time_ago_show"] == 0) { ?> checked="checked"<?php } ?> />
 													<label for="jak_time_ago2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
 
 												</div>
