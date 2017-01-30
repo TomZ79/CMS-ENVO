@@ -148,204 +148,16 @@ if ($page == "success" or $page == "logout") { ?>
 					<!-- / hamburger button -->
 
 					<!-- Logo -->
-					<a class="navbar-brand" href="/"><img src="/template/<?php echo $jkv["sitestyle"];?>/img/main-logo.png" alt="Q.E.D. website template"/></a>
+					<a class="navbar-brand" href="<?php echo BASE_URL; ?>"><img src="/template/<?php echo $jkv["sitestyle"];?>/img/main-logo.png" alt="Q.E.D. website template"/></a>
 					<!-- /Logo -->
 				</div>
 				<div class="collapse navbar-collapse">
 					<!-- Main navigation -->
-					<ul class="nav navbar-nav navbar-right">
-						<li>
-							<a href="index.html" class="active has-sub-menu">Home</a>
-							<ul class="sub-menu">
-								<li><a href="index.html">Home default</a></li>
-								<li><a href="home-1.html">Home Boxed slider</a></li>
-								<li><a href="home-2.html">Home Video gallery</a></li>
-								<li><a href="home-4.html">Home Royal slider</a></li>
-								<li><a href="home-9.html">Home Fullscreen slider</a></li>
-								<li><a href="home-5.html">Home Carousel</a></li>
-								<li><a href="home-3.html">Home No slider</a></li>
-								<li><a href="home-7.html">Home No slider 2</a></li>
-								<li><a href="home-6.html">Home Masonry</a></li>
-								<li><a href="home-14.html">Home Mosaic</a></li>
-								<li><a href="home-13.html">Home Agency</a></li>
-								<li><a href="home-8.html">Home Blog</a></li>
-								<li><a href="home-10.html">Home Boxed</a></li>
-								<li><a href="home-11.html">Home Sidebar</a></li>
-								<li><a href="home-12.html">Home Video</a></li>
-								<li class="last">
-									<a href="index-one-page.html" class="has-sub-menu">Smenu 3</a>
-									<ul class="sub-menu">
-										<li><a href="index.html">SSmenu 1</a></li>
-										<li><a href="home1.html">SSmenu 2</a></li>
-										<li class="last">
-											<a href="index-one-page.html" class="has-sub-menu">SSmenu 3</a>
-											<ul class="sub-menu">
-												<li><a href="index.html">SSSmenu 1</a></li>
-												<li><a href="home1.html">SSSmenu 2</a></li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-
-						<li>
-							<a href="features.html">Features</a>
-						</li>
-
-						<li class="neko-mega-menu-trigger">
-							<a href="#" class="has-sub-menu">Templates</a>
-							<div class="neko-mega-menu sub-menu">
-								<div class="col-md-3">
-									<div class="mega-inner">
-										<h2>About us</h2>
-										<ul>
-											<li><a href="template-about.html">About us 1</a></li>
-											<li><a href="template-about-2.html">About us 2</a></li>
-											<li><a href="template-about-3.html">About us 3</a></li>
-											<li><a href="template-about-4.html">About us 4</a></li>
-										</ul>
-
-										<h2>Team</h2>
-										<ul>
-											<li><a href="template-team.html">Team 1</a></li>
-											<li><a href="template-team-2.html">Team 2</a></li>
-											<li><a href="template-team-3.html">Team 3</a></li>
-											<li><a href="template-team-4.html">Team 4</a></li>
-										</ul>
-									</div>
-								</div>
-
-								<div class="col-md-3">
-									<div class="mega-inner">
-										<h2>Sidebars</h2>
-										<ul>
-											<li><a href="template-menu-left.html">Menu left</a></li>
-											<li><a href="template-sidebar-right.html">Sidebar right</a></li>
-											<li><a href="template-2-sidebars.html">2 sidebars</a></li>
-										</ul>
-										<h2>FAQ</h2>
-										<ul>
-											<li><a href="template-faq.html">FAQ 1</a></li>
-											<li><a href="template-faq-2.html">FAQ 2</a></li>
-										</ul>
-									</div>
-								</div>
-
-								<div class="col-md-3">
-									<div class="mega-inner">
-										<h2>Miscellanious</h2>
-										<ul>
-											<li><a href="template-full-width.html">Full width</a></li>
-											<li><a href="template-big-header.html">Big page header</a></li>
-											<li><a href="template-plans.html">Our plans</a></li>
-											<li><a href="template-parallax-header.html">Parallax header</a></li>
-											<li><a href="template-services.html">Services</a></li>
-											<li><a href="template-clients.html">Clients</a></li>
-											<li><a href="template-404.html">404 error</a></li>
-											<li><a href="template-site-map.html">Site map</a></li>
-										</ul>
-									</div>
-								</div>
-
-								<div class="col-md-3">
-									<div class="mega-inner">
-										<h2>Contact</h2>
-										<ul>
-											<li><a href="template-contact.html">Contact 1</a></li>
-											<li><a href="template-contact-2.html">Contact 2</a></li>
-											<li><a href="template-contact-3.html">Contact 3</a></li>
-											<li><a href="template-contact-4.html">Contact 4</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<a href="portfolio-masonry.html" class="has-sub-menu">Portfolio</a>
-							<ul class="sub-menu">
-								<li><a href="portfolio-masonry.html">Masonry</a></li>
-
-								<li>
-									<a href="portfolio-2columns.html" class="has-sub-menu">Classic</a>
-									<ul class="sub-menu">
-										<li><a href="portfolio-2columns.html">2 columns</a></li>
-										<li><a href="portfolio-3columns.html">3 columns</a></li>
-										<li><a href="portfolio-4columns.html">4 columns</a></li>
-									</ul>
-								</li>
-
-								<li>
-									<a href="portfolio-2columns-mosaic.html" class="has-sub-menu">Mosaic</a>
-									<ul class="sub-menu">
-										<li><a href="portfolio-2columns-mosaic.html">2 columns</a></li>
-										<li><a href="portfolio-3columns-mosaic.html">3 columns</a></li>
-										<li><a href="portfolio-4columns-mosaic.html">4 columns</a></li>
-										<li><a href="portfolio-5columns-mosaic.html">5 columns</a></li>
-									</ul>
-								</li>
-
-								<li>
-									<a href="portfolio-2columns-sidebar.html" class="has-sub-menu">Classic with sidebar</a>
-									<ul class="sub-menu">
-										<li><a href="portfolio-2columns-sidebar.html">2 columns</a></li>
-										<li><a href="portfolio-3columns-sidebar.html">3 columns</a></li>
-										<li><a href="portfolio-4columns-sidebar.html">4 columns</a></li>
-									</ul>
-								</li>
-
-								<li>
-									<a href="portfolio-masonry-filter.html" class="has-sub-menu">Filterable</a>
-									<ul class="sub-menu">
-										<li><a href="portfolio-masonry-filter.html">Masonry</a></li>
-										<li><a href="portfolio-2columns-filter.html">2 columns</a></li>
-										<li><a href="portfolio-3columns-filter.html">3 columns</a></li>
-										<li><a href="portfolio-4columns-filter.html">4 columns</a></li>
-									</ul>
-								</li>
-
-								<li>
-									<a href="portfolio-2columns-filter-sidebar.html" class="has-sub-menu">Filterable with sidebar</a>
-									<ul class="sub-menu">
-										<li><a href="portfolio-2columns-filter-sidebar.html">2 columns</a></li>
-										<li><a href="portfolio-3columns-filter-sidebar.html">3 columns</a></li>
-										<li><a href="portfolio-4columns-filter-sidebar.html">4 columns</a></li>
-									</ul>
-								</li>
-
-								<li>
-									<a href="portfolio-project-image.html" class="has-sub-menu">Single project</a>
-									<ul class="sub-menu">
-										<li><a href="portfolio-project-image.html">Image</a></li>
-										<li><a href="portfolio-project-carousel.html">Carousel</a></li>
-										<li><a href="portfolio-project-video.html">Video</a></li>
-									</ul>
-								</li>
-								<li>
-									<a href="portfolio-project-fullwidth-image.html" class="has-sub-menu last">Single project full width</a>
-									<ul class="sub-menu">
-										<li><a href="portfolio-project-fullwidth-image.html">Image</a></li>
-										<li><a href="portfolio-project-fullwidth-carousel.html">Carousel</a></li>
-										<li ><a href="portfolio-project-fullwidth-video.html">Video</a></li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-
-						<li>
-							<a href="blog-home-sidebar-right.html" class="has-sub-menu">Blog</a>
-							<ul class="sub-menu">
-								<li><a href="blog-home-sidebar-right.html">Blog sidebar right</a></li>
-								<li><a href="blog-home-sidebar-left.html">Blog sidebar left</a></li>
-								<li><a href="blog-home-full.html">Blog full width</a></li>
-								<li class="last"><a href="blog-post.html">Post</a></li>
-							</ul>
-						</li>
-
-						<li><a href="template-contact.html">Contact</a></li>
-						<li><a href="http://themeforest.net/item/qed-responsive-bootstrap-3-html-template/8804734?ref=Little-Neko" class="btn border small" target="_blank">Download</a></li>
-
-					</ul>
+					<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/navbar.php'; ?>
+					<!-- Hook -->
+					<?php if (isset($JAK_HOOK_HEADER) && is_array ($JAK_HOOK_HEADER)) foreach ($JAK_HOOK_HEADER as $hheader) {
+						include_once APP_PATH . $hheader['phpcode'];
+					} ?>
 					<!-- / End main navigation -->
 				</div>
 
@@ -360,3 +172,56 @@ if ($page == "success" or $page == "logout") { ?>
 
 	<!-- content -->
 	<main id="content">
+
+		<!-- Page Title -->
+		<?php if ($JAK_SHOW_NAVBAR) { if (!isset($page) || empty($page) || ($page == 'offline')) { // Code for homepage ?>
+
+		<?php } elseif (isset($page)) { // Code for all page without home page ?>
+
+			<header class="page-header light-color">
+
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<h1><?php echo $PAGE_TITLE; ?></h1>
+						</div>
+						<div class="col-md-6">
+							<ol class="breadcrumb">
+								<li>
+									<a href="<?php echo BASE_URL; ?>"><?php foreach ($jakcategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) {
+											echo $ca["name"];
+										} ?></a>
+								</li>
+								<?php if ($JAK_TPL_PLUG_T && !empty($page1) && !is_numeric ($page1)) { ?>
+									<li><a href="<?php echo $JAK_TPL_PLUG_URL; ?>"><?php echo $JAK_TPL_PLUG_T; ?></a></li>
+								<?php } ?>
+								<li class="active">
+									<?php if ($page == "edit-profile") {
+										echo sprintf ($tl["login"]["l15"], $jakuser->getVar ("username"));
+									} else {
+										echo $PAGE_TITLE;
+									} ?>
+								</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+
+			</header>
+
+		<?php } } ?>
+
+		<?php if (isset($JAK_HOOK_BELOW_HEADER) && is_array ($JAK_HOOK_BELOW_HEADER)) foreach ($JAK_HOOK_BELOW_HEADER as $bheader) {
+			// Import templates below header
+			include_once APP_PATH . $bheader['phpcode'];
+		} ?>
+
+		<section class="pt-medium">
+
+			<div class="container">
+				<div class="row">
+
+					<!-- Sidebar if left -->
+					<?php if (!empty($JAK_HOOK_SIDE_GRID) && $jkv["sidebar_location_tpl"] == "left") include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/sidebar.php'; ?>
+					<!-- / sidebar -->
+					<div class="<?php echo ($JAK_HOOK_SIDE_GRID ? "col-md-9" : "col-md-12"); ?>">

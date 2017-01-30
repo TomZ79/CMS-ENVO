@@ -78,8 +78,7 @@ if ($JAK_SHOW_NAVBAR && $jkv["style_mosaic_tpl"] == "boxed") echo " boxed-layout
 
 <?php if ($JAK_SHOW_NAVBAR) { ?>
 <!-- Navbar -->
-<nav
-	class="navbar navbar-<?php echo $jkv["navbarbw_mosaic_tpl"]; ?><?php if ($jkv["navbarstyle_mosaic_tpl"]) echo ' navbar-fixed-top'; ?> sb-slide">
+<nav class="navbar navbar-<?php echo $jkv["navbarbw_mosaic_tpl"]; ?><?php if ($jkv["navbarstyle_mosaic_tpl"]) echo ' navbar-fixed-top'; ?> sb-slide">
 	<?php if ($jkv["mininavbarshow_mosaic_tpl"]) { ?>
 		<!-- Extra Bar -->
 		<div class="mini-navbar mini-navbar-<?php echo $jkv["mininavbarcolour_mosaic_tpl"]; ?> hidden-xs">

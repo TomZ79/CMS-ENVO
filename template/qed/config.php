@@ -21,15 +21,15 @@ function jak_build_menu_qed ($parent, $menu, $active, $mainclass, $dropdown, $dr
 		foreach ($menu['parents'][ $parent ] as $itemId) {
 			// IF MENU DONT HAVE SUBMENU
 			if (!isset($menu['parents'][ $itemId ])) {
-				$html .= '<li' . ($active == $menu["items"][ $itemId ]["pagename"] ? ' class="current"' : '') . '><a href="' . $menu["items"][ $itemId ]["varname"] . '">' . ($menu["items"][ $itemId ]["catimg"] ? '<i class="fa ' . $menu["items"][ $itemId ]["catimg"] . '"></i> ' : '') . $menu["items"][ $itemId ]["name"] . '</a></li>';
+				$html .= '<li' . ($active == $menu["items"][ $itemId ]["pagename"] ? ' class="active"' : '') . '><a href="' . $menu["items"][ $itemId ]["varname"] . '">' . ($menu["items"][ $itemId ]["catimg"] ? '<i class="fa ' . $menu["items"][ $itemId ]["catimg"] . '"></i> ' : '') . $menu["items"][ $itemId ]["name"] . '</a></li>';
 			}
 
 			// IF MENU HAS SUBMENU
 			// Není řešen případ kdy $menu['parents'][$itemId] je rovno NULL, tento případ nastává pro titulní HOMEPAGE
 			// Tudíž nelze přidat class="current" do HOME linku
 			if (isset($menu['parents'][ $itemId ])) {
-				$html .= '<li' . ($active == $menu["items"][ $itemId ]["pagename"] ? ($dropdown ? ' class="current ' . $dropdown . '"' : '') : ($dropdown ? ' class="' . $dropdown . '"' : '')) . '><a href="' . $menu["items"][ $itemId ]["varname"] . '">' . ($menu["items"][ $itemId ]["catimg"] ? '<i class="fa ' . $menu["items"][ $itemId ]["catimg"] . '"></i> ' : '') . $menu["items"][ $itemId ]["name"] . '</a>';
-				$html .= jak_build_menu ($itemId, $menu, $active, $dropclass, $subclass, $dropclass, $subclass, $admin);
+				$html .= '<li' . ($active == $menu["items"][ $itemId ]["pagename"] ? ($dropdown ? ' class="active ' . $dropdown . '"' : '') : ($dropdown ? ' class="' . $dropdown . '"' : '')) . '><a href="' . $menu["items"][ $itemId ]["varname"] . '"' . ($active == $menu["items"][ $itemId ]["pagename"] ? ' class="active"' : '') . '>' . ($menu["items"][ $itemId ]["catimg"] ? '<i class="fa ' . $menu["items"][ $itemId ]["catimg"] . '"></i> ' : '') . $menu["items"][ $itemId ]["name"] . '</a>';
+				$html .= jak_build_menu_qed ($itemId, $menu, $active, $dropclass, $subclass, $dropclass, $subclass, $admin);
 				$html .= '</li>';
 			}
 		}
