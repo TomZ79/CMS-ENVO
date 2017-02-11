@@ -12,6 +12,7 @@
  *
  */
 
+
 /* Login Page */
 .lost-pwd {
   margin-top: 10px;
@@ -23,7 +24,8 @@
 /*** General Small Screen Desktops ***/
 /*** General tablets and phones ***/
 
-.breadcrumb li .title { }
+.breadcrumb li .title {
+}
 
 .breadcrumb li .desc {
   text-transform: initial;
@@ -92,6 +94,7 @@
 .bootstrap-select .dropdown-menu > li.selected > a {
   color: #FFF !important;
   background-color: #4DB6AC;
+  border-radius: 0;
 }
 
 .bootstrap-select .dropdown-menu > li.selected > a:focus,
@@ -109,6 +112,11 @@
 .bootstrap-select .dropdown-menu > li:hover {
   border: none !important;
   box-shadow: none !important;
+  background-color: #FAFAFA;
+}
+
+.bootstrap-select .dropdown-menu > li a:hover {
+  background-color: #FAFAFA;
 }
 
 .bootstrap-select .dropdown-menu > li.selected > a > span.text {
@@ -251,7 +259,8 @@ li.filter-item > a:hover {
   border-top: 0;
 }
 
-.box.box-solid.box-default { }
+.box.box-solid.box-default {
+}
 
 .box.box-solid.box-default > .box-header {
   color: #5E5E5E;
@@ -259,7 +268,8 @@ li.filter-item > a:hover {
   background-color: #F2F2F2;
 }
 
-.box.box-solid.box-primary { }
+.box.box-solid.box-primary {
+}
 
 .box.box-solid.box-primary > .box-header {
   color: #FFF;
@@ -267,7 +277,8 @@ li.filter-item > a:hover {
   background-color: #3C8DBC;
 }
 
-.box.box-solid.box-info { }
+.box.box-solid.box-info {
+}
 
 .box.box-solid.box-info > .box-header {
   color: #FFF;
@@ -275,7 +286,8 @@ li.filter-item > a:hover {
   background-color: #00C0EF;
 }
 
-.box.box-solid.box-danger { }
+.box.box-solid.box-danger {
+}
 
 .box.box-solid.box-danger > .box-header {
   color: #FFF;
@@ -283,7 +295,8 @@ li.filter-item > a:hover {
   background-color: #DD4B39;
 }
 
-.box.box-solid.box-warning { }
+.box.box-solid.box-warning {
+}
 
 .box.box-solid.box-warning > .box-header {
   color: #FFF;
@@ -291,7 +304,8 @@ li.filter-item > a:hover {
   background-color: #F39C12;
 }
 
-.box.box-solid.box-success { }
+.box.box-solid.box-success {
+}
 
 .box.box-solid.box-success > .box-header {
   color: #FFF;
@@ -551,6 +565,7 @@ li.filter-item > a:hover {
     vertical-align: top;
   }
 }
+
 @media (max-width: 768px) {
   .row-table {
     display: table;
@@ -702,6 +717,14 @@ li.filter-item > a:hover {
 
 .table tbody tr td {
   padding: 8px !important;
+}
+
+.table.table-striped tbody tr td {
+  vertical-align: middle;
+}
+
+.table.table-striped tbody tr td:first-child {
+  padding-left: 18px !important;
 }
 
 /* BOOTSTRAP - Expand table rows */
@@ -983,6 +1006,71 @@ pre[class*="language-"] {
   border-left-color: #2B6A94;
 }
 
+/* 00. MODIFICATION - LIST of TAGs
+========================================================================*/
+/* Bootstrap-tagsinput */
+.bootstrap-tagsinput {
+  width: 100%;
+  height: 100px;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: auto;
+}
+.bootstrap-tagsinput .tag {
+  margin: 0 4px 6px 0;
+  font-size: 11px;
+  padding: 1px 4px 1px 6px;
+  line-height: 20px;
+}
+
+.bootstrap-tagsinput input[type="text"] {
+  border: none;
+}
+
+.bootstrap-tagsinput .tag [data-role="remove"]:hover::after {
+  color: #626262;
+}
+
+/* Fancy-checkbox */
+.fancy-checkbox  {
+  position: relative;
+  text-transform: lowercase !important;
+  font-size: 12px !important;
+}
+
+.fancy-checkbox label {
+  position: relative;
+  top: -2px;
+}
+
+.fancy-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.fancy-checkbox .checked,
+.fancy-checkbox .unchecked{
+  position: absolute;
+  left: 2px;
+  top: 4px;
+}
+
+.fancy-checkbox .checked {
+  display: none;
+  font-size: 14px;
+}
+
+.fancy-checkbox .unchecked {
+  font-size: 14px;
+}
+
+.fancy-checkbox input[type="checkbox"]:checked ~ .checked {
+  display: inline-block;
+}
+
+.fancy-checkbox input[type="checkbox"]:checked ~ .unchecked {
+  display: none;
+}
+
 /* 00. ACE EDITOR
 ========================================================================*/
 #javaeditor, #csseditor, #htmleditor, #htmleditor2, #htmleditor3, #htmleditor4, #htmleditorlight, #htmleditorlight2, #txteditor, #txteditor1 {
@@ -1034,6 +1122,7 @@ pre[class*="language-"] {
     width: 90%; /* either % (e.g. 60%) or px (400px) */
   }
 }
+
 /* 00. BOOTSTRAP NOTIFY
 ========================================================================*/
 [data-notify="container"].alert .close {
@@ -1489,7 +1578,8 @@ ul.todoList li:hover {
   width: 80%;
 }
 
-.todo .actions { }
+.todo .actions {
+}
 
 .todo .actions a {
   margin: 1px;
