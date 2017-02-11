@@ -70,31 +70,64 @@
 			// Load News
 			if ($pg["pluginid"] == '9998' && $JAK_NEWS_IN_CONTENT) {
 				if (isset($JAK_NEWS_IN_CONTENT) && is_array ($JAK_NEWS_IN_CONTENT)) { ?>
+					<section class="pt-medium">
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-12">
+									<h2><?php echo $jkv["newstitle"]; ?></h2>
+									<hr>
+									<div class="owl-carousel owl-theme show-nav-title">
 
-					<h2><?php echo $jkv["newstitle"]; ?></h2>
+										<!-- Show news -->
+										<?php foreach ($JAK_NEWS_IN_CONTENT as $n) { ?>
 
-					<div class="row">
+											<div class="feature-box media-left mt item">
+												<div class="post-date">
+													<?php
+													//set locale,
+													setlocale(LC_ALL,$site_locale);
+													//set the date to be converted
+													$mydate = $n["date-time"];
+													//convert date to month name
+													$month_name =  ucfirst(strftime("%B", strtotime($mydate)));
+													?>
+													<span class="date-day"><?php echo date("d",strtotime($mydate)); ?></span>
+													<span class="date-month"><?php echo $month_name; ?></span>
+												</div>
+												<div class="feature-box-content">
+													<h3><a href="<?php echo $n["parseurl"]; ?>"><?php echo jak_cut_text ($n["title"], 30, "..."); ?></a></h3>
+													<h6><i class="icon-eye"></i> <?php echo $n["news"]["news2"] . ' ' . $n["hits"]; ?></h6>
+													<hr class="mt-small mb-small">
+													<p>
+														<?php echo $n["contentshort"]; ?>
+													</p>
+													<p class="pull-right">
+														<a href="<?php echo $v["parseurl"]; ?>"><?php echo $tl["news"]["news1"]; ?> <i class="icon-angle-circled-right"></i></a>
+													</p>
+													<div class="clearfix"></div>
+													<div class="system-icons">
+														<hr class="mt-small mb-small">
+														<?php if (JAK_ASACCESS) { ?>
+															<div class="pull-right">
+																<a href="<?php echo BASE_URL; ?>admin/index.php?p=news&amp;sp=edit&amp;id=<?php echo $n["id"]; ?>" title="<?php echo $tl["general"]["g"]; ?>" class="btn btn-info btn-xs jaktip">
+																	<i class="icon-pencil"></i>
+																</a>
+																<a class="btn btn-info btn-xs jaktip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=news&amp;sp=quickedit&amp;id=<?php echo $n["id"]; ?>" title="<?php echo $tl["general"]["g176"]; ?>">
+																	<i class="icon-edit"></i>
+																</a>
+															</div>
+														<?php } ?>
+													</div>
+												</div>
+											</div>
+										<?php } ?>
 
-						<!-- Show news -->
-						<?php foreach ($JAK_NEWS_IN_CONTENT as $n) { ?>
-
-							<div class="col-md-3 col-sm-6">
-								<div class="service-wrapper">
-									<?php if ($n["previmg"]) { ?>
-										<a href="<?php echo $n["parseurl"]; ?>"><img src="<?php echo BASE_URL . $n["previmg"]; ?>" alt="news"
-												class="img-responsive"></a>
-									<?php } ?>
-									<h3><a href="<?php echo $n["parseurl"]; ?>"><?php echo $n["title"]; ?></a></h3>
-									<p><?php echo $n["contentshort"]; ?></p>
+									</div>
+									<hr>
 								</div>
 							</div>
-
-						<?php } ?>
-
-					</div>
-
-					<hr>
-
+						</div>
+					</section>
 				<?php }
 			}
 			if (isset($JAK_HOOK_PAGE_GRID) && is_array ($JAK_HOOK_PAGE_GRID)) foreach ($JAK_HOOK_PAGE_GRID as $hpagegrid) {
@@ -126,10 +159,11 @@
 								</div>
 							<?php }
 							if ($SHOWSOCIALBUTTON) { ?>
-								<div class="col-md-4">
+								<div class="col-md-4 pull-right">
 									<div style="display: table;">
 										<div style="display: table-cell;vertical-align: middle;/*! margin-right: 20px; */padding-right: 20px;">
-											<strong>Share this post:</strong></div>
+											<strong><?php echo $tl["share"]["share"] . ' '; ?></strong>
+										</div>
 										<div id="sollist-sharing"></div>
 									</div>
 								</div>

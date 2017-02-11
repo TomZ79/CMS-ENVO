@@ -12,7 +12,7 @@
 				<div class="<?php echo ($JAK_HOOK_SIDE_GRID ? "col-md-6" : "col-md-4"); ?> col-sm-12">
 					<article class="mb-xs">
 						<a href="<?php echo $v["parseurl"]; ?>">
-							<img src="<?php echo (($v["previmg"]) ? BASE_URL . $v["previmg"] : BASE_URL . 'template/' . $jkv["sitestyle"] . '/img/news/news-feature-1.jpg') ?>" alt="News-preview" class="post-image img-responsive">
+							<img src="<?php echo (($v["previmg"]) ? BASE_URL . $v["previmg"] : BASE_URL . 'template/' . $jkv["sitestyle"] . '/img/news/' . $site_language . '-news-feature-1.jpg') ?>" alt="<?php echo $v["title"]; ?>" class="post-image img-responsive">
 						</a>
 						<div class="feature-box media-left mt">
 							<div class="post-date">
@@ -28,8 +28,8 @@
 								<span class="date-month"><?php echo $month_name; ?></span>
 							</div>
 							<div class="feature-box-content">
-								<h3><a href="<?php echo $v["parseurl"]; ?>"><?php echo jak_cut_text ($v["title"], 30, ""); ?></a></h3>
-								<h6><i class="icon-eye"></i> <?php echo $tl["news"]["news2"] . $v["hits"]; ?></h6>
+								<h3><a href="<?php echo $v["parseurl"]; ?>"><?php echo jak_cut_text ($v["title"], 30, "..."); ?></a></h3>
+								<h6><i class="icon-eye"></i> <?php echo $tl["news"]["news2"] . ' ' . $v["hits"]; ?></h6>
 								<hr class="mt-small mb-small">
 								<p>
 									<?php echo $v["contentshort"]; ?>
@@ -62,7 +62,7 @@
 	</section>
 
 	<section class="pb-small">
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">
 

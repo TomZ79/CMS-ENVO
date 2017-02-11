@@ -42,6 +42,7 @@
         <span>HTML Structure</span>
         <ul>
           <li data-deeplink="html-structure">HTML Structure</li>
+          <li data-deeplink="Slider">Slider</li>
           <li data-deeplink="section">Section</li>
           <li data-deeplink="shortcodes">Shortcodes and components</li>
           <li data-deeplink="xxxx">XXXX</li>
@@ -182,7 +183,7 @@
 
     </section>
 
-    <!-- Plugins Template -->
+    <!-- HTML Structure -->
     <section>
 
       <!-- HTML Structure -->
@@ -217,6 +218,71 @@
 
         The content
 
+      </div>
+    </div>
+  </div>
+</section>
+
+        </pre>
+      </article>
+
+      <!-- Slider -->
+      <article>
+        <h4>Slider</h4>
+        <h5>Fullscreen Slider</h5>
+        <hr>
+        <pre name="code" class="brush: html;">
+
+<section id="slider-wrapper" class="main-color fullscreen">
+  <div id="slider">
+    <div class="superslides superslide-neko-theme-2">
+      <div class="slides-container">
+        <img src="images/slider/super/supersized-1.jpg" alt="Cinelli">
+        <img src="images/slider/super/supersized-2.jpg" alt="Surly">
+        <img src="images/slider/super/supersized-3.jpg" alt="Cinelli">
+      </div>
+      <nav class="slides-navigation">
+        <a href="#" class="next"><span>Next</span></a>
+        <a href="#" class="prev"><span>Previous</span></a>
+      </nav>
+    </div>
+  </div>
+</section>
+
+        </pre>
+        <h5>Statics image with text</h5>
+        <hr>
+        <p>Section uses the following <code>class=""</code>:</p>
+        <p>Opacity:</p>
+        <ul>
+          <li><code>opacity-1</code> - opacity 10%</li>
+          <li><code>opacity-2</code> - opacity 20%</li>
+          <li><code>opacity-3</code> - opacity 30%</li>
+          <li><code>opacity-4</code> - opacity 40%</li>
+          <li><code>opacity-5</code> - opacity 50%</li>
+          <li><code>opacity-6</code> - opacity 60%</li>
+          <li><code>opacity-7</code> - opacity 70%</li>
+          <li><code>opacity-8</code> - opacity 80%</li>
+          <li><code>opacity-9</code> - opacity 90%</li>
+        </ul>
+        <p>Background color:</p>
+        <ul>
+          <li><code>dark-color</code></li>
+          <li><code>dark-main-color</code></li>
+          <li><code>light-color</code></li>
+          <li><code>main-color</code></li>
+          <li><code>light-main-color</code></li>
+        </ul>
+        <pre name="code" class="brush: html">
+
+<section class="dark-color image-background responsive fullscreen" style="background-image: url('../img/theme-pics/big-photos/home-pic-5.jpg');">
+  <div class="mask opacity-3">
+    <div class="container pt-large pb-large v-align-center">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1 class="x-large mb text-light" data-nekoanim="fadeInUp" data-nekodelay="100">Kickstart your website with Q.E.D.</h1>
+          <a href="#circles"  class="anchor-link btn primary" data-nekoanim="fadeInUp" dat-neko="250">Start now!</a>
+        </div>
       </div>
     </div>
   </div>

@@ -162,10 +162,10 @@ $(window).on("load resize",function(e){
 		/* on scroll detection */
 		$window.scroll(function(){
 			if($window.scrollTop() > 40){
-				$('body:not(.header-1):not(.header-2) #pre-header').stop(true, false).slideUp(150).end();
+				$('body:not(.header-1):not(.header-1) #pre-header').stop(true, false).slideUp(150).end();
 				$('.menu-header').addClass('scroll-header');
 			}else{
-				$('body:not(.header-1):not(.header-2) #pre-header').slideDown(150).end();
+				$('body:not(.header-1):not(.header-1) #pre-header').slideDown(150).end();
 				$('.menu-header').removeClass('scroll-header');
 			} 	
 		});

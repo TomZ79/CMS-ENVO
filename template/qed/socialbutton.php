@@ -17,7 +17,6 @@ if ($jkv["md_vimeo"] == 1) array_push ($stack, $vimeo);
 if ($jkv["md_email"] == 1) array_push ($stack, $email);
 ?>
 
-<link href="/assets/plugins/jquery-sollist/jquery.sollist.min.css" rel="stylesheet" type="text/css" media="screen"/>
 <script src="/assets/plugins/jquery-sollist/jquery.sollist.min.js"></script>
 <script type="text/javascript">
 	$(function () {

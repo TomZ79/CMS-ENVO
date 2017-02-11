@@ -91,9 +91,49 @@ $succesfully = 0;
 					 * styleswitcher_tpl => show or hide styleswitcher in site
 					 */
 					$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
-("sidebar_location_tpl", "jakweb", "left", "left", "input", "free", "tpl_qed"),
+("sidebar_location_tpl", "qed", "left", "left", "input", "free", "tpl_qed"),
 ("styleswitcher_tpl", "qed", "1", "1", "yesno", "boolean", "tpl_qed"),
-("cms_tpl", "qed", "1", "1", "yesno", "boolean", "tpl_qed")');
+("cms_tpl", "qed", "1", "1", "yesno", "boolean", "tpl_qed"),
+
+
+("sitemapShow_qed_tpl", "qed", "1", "1", "yesno", "boolean", "tpl_qed"),
+("loginShow_qed_tpl", "qed", "1", "1", "yesno", "boolean", "tpl_qed"),
+("facebookShow_qed_tpl", "qed", "1", "1", "yesno", "boolean", "tpl_qed"),
+("facebookLinks_qed_tpl", "qed", "https://www.facebook.com/", "https://www.facebook.com/", "input", "free", "tpl_qed"),
+("twitterShow_qed_tpl", "qed", "1", "1", "yesno", "boolean", "tpl_qed"),
+("twitterLinks_qed_tpl", "qed", "https://twitter.com/", "https://twitter.com/", "input", "free", "tpl_qed"),
+("googleShow_qed_tpl", "qed", "1", "1", "yesno", "boolean", "tpl_qed"),
+("googleLinks_qed_tpl", "qed", "https://plus.google.com/", "https://plus.google.com/", "input", "free", "tpl_qed"),
+("instagramShow_qed_tpl", "qed", "1", "1", "yesno", "boolean", "tpl_qed"),
+("instagramLinks_qed_tpl", "qed", "https://www.instagram.com/", "https://www.instagram.com/", "input", "free", "tpl_qed"),
+("phoneShow_qed_tpl", "qed", "1", "1", "yesno", "boolean", "tpl_qed"),
+("phoneLinks_qed_tpl", "qed", "+420 000 000 000", "+420 000 000 000", "input", "free", "tpl_qed"),
+("emailShow_qed_tpl", "qed", "1", "1", "yesno", "boolean", "tpl_qed"),
+("emailLinks_qed_tpl", "qed", "info@qed.com", "info@qed.com", "input", "free", "tpl_qed"),
+("logo1_qed_tpl", "qed", "/template/qed/img/main-logo.png", "/template/qed/img/main-logo.png", "input", "free", "tpl_qed"),
+
+("activeroyalslider_qed_tpl", "qed", "0", "0", "yesno", "boolean", "tpl_qed"),
+("arrowsNav_qed_tpl", "qed", "true", "true", "yesno", "boolean", "tpl_qed"),
+("arrowsNavAutoHide_qed_tpl", "qed", "false", "false", "yesno", "boolean", "tpl_qed"),
+("arrowsNavHideOnTouch_qed_tpl", "qed", "false", "false", "yesno", "boolean", "tpl_qed"),
+("controlNavigation_qed_tpl", "qed", "bullets", "bullets", "select", "free", "tpl_qed"),
+
+("enabledAU_qed_tpl", "qed", "true", "true", "yesno", "boolean", "tpl_qed"),
+("pauseOnHoverAU_qed_tpl", "qed", "true", "true", "yesno", "boolean", "tpl_qed"),
+("delayAU_qed_tpl", "qed", "6000", "6000", "input", "free", "tpl_qed"),
+
+("autoScaleSlider_qed_tpl", "qed", "true", "true", "yesno", "boolean", "tpl_qed"),
+("autoScaleSliderWidth_qed_tpl", "qed", "960", "960", "input", "free", "tpl_qed"),
+("autoScaleSliderHeight_qed_tpl", "qed", "350", "350", "input", "free", "tpl_qed"),
+("imageAlignCenter_qed_tpl", "qed", "true", "true", "yesno", "boolean", "tpl_qed"),
+("imgWidth_qed_tpl", "qed", "null", "null", "input", "free", "tpl_qed"),
+("imgHeight_qed_tpl", "qed", "null", "null", "input", "free", "tpl_qed"),
+("numImagesToPreload_qed_tpl", "qed", "4", "4", "input", "free", "tpl_qed"),
+
+("fadeinLoadedSlide_qed_tpl", "qed", "true", "true", "yesno", "boolean", "tpl_qed"),
+("transitionType_qed_tpl", "qed", "fade", "fade", "select", "free", "tpl_qed"),
+("transitionSpeed_qed_tpl", "qed", "3000", "3000", "input", "free", "tpl_qed")
+');
 
 					$succesfully = 1;
 

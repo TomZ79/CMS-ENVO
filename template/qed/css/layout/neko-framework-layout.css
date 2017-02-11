@@ -5033,67 +5033,67 @@ figure.caption-over figcaption {
   background-position: bottom center;
 }
 .image-0 {
-  background-image: url('../../../images/theme-pics/parallax/parallax-4.jpg');
+  background-image: url('../../img/theme-pics/parallax/parallax-4.jpg');
 }
 .image-1 {
-  background-image: url('../../../images/theme-pics/parallax/parallax-1.jpg');
+  background-image: url('../../img/theme-pics/parallax/parallax-1.jpg');
 }
 .image-2 {
-  background-image: url('../../../images/theme-pics/parallax/parallax-2.jpg');
+  background-image: url('../../img/theme-pics/parallax/parallax-2.jpg');
 }
 .image-3 {
-  background-image: url('../../../images/theme-pics/parallax/parallax-3.jpg');
+  background-image: url('../../img/theme-pics/parallax/parallax-3.jpg');
 }
 .image-4 {
-  background-image: url('../../../images/theme-pics/textures/map.png');
+  background-image: url('../../img/theme-pics/textures/map.png');
 }
 .image-5 {
-  background-image: url('../../../images/theme-pics/textures/map-dark.png');
+  background-image: url('../../img/theme-pics/textures/map-dark.png');
 }
 .image-6 {
-  background-image: url('../../../images/theme-pics/thanxs-pic.jpg');
+  background-image: url('../../img/theme-pics/thanxs-pic.jpg');
 }
 .image-7 {
-  background-image: url('../../../images/theme-pics/home-pic.jpg');
+  background-image: url('../../img/theme-pics/home-pic.jpg');
 }
 .image-8 {
-  background-image: url('../../../images/slider/carousel/img-1.jpg');
+  background-image: url('../../img/slider/carousel/img-1.jpg');
 }
 .image-9 {
-  background-image: url('../../../images/slider/carousel/img-2.jpg');
+  background-image: url('../../img/slider/carousel/img-2.jpg');
 }
 .image-10 {
-  background-image: url('../../../images/slider/carousel/img-3.jpg');
+  background-image: url('../../img/slider/carousel/img-3.jpg');
 }
 .image-11 {
-  background-image: url('../../../images/theme-pics/parallax/parallax-5.jpg');
+  background-image: url('../../img/theme-pics/parallax/parallax-5.jpg');
 }
 .image-12 {
-  background-image: url('../../../images/theme-pics/big-photos/home-pic.jpg');
+  background-image: url('../../img/theme-pics/big-photos/home-pic.jpg');
 }
 .image-13 {
-  background-image: url('../../../images/theme-pics/big-photos/home-pic-3.jpg');
+  background-image: url('../../img/theme-pics/big-photos/home-pic-3.jpg');
 }
 .image-14 {
-  background-image: url('../../../images/theme-pics/big-photos/home-pic-4.jpg');
+  background-image: url('../../img/theme-pics/big-photos/home-pic-4.jpg');
 }
 .image-15 {
-  background-image: url('../../../images/theme-pics/big-photos/home-pic-5.jpg');
+  background-image: url('../../img/theme-pics/big-photos/home-pic-5.jpg');
 }
 .image-16 {
-  background-image: url('../../../images/theme-pics/big-photos/home-pic-6.jpg');
+  background-image: url('../../img/theme-pics/big-photos/home-pic-6.jpg');
 }
 .image-17 {
-  background-image: url('../../../images/theme-pics/big-photos/home-pic-8.jpg');
+  background-image: url('../../img/theme-pics/big-photos/home-pic-8.jpg');
 }
 .image-18 {
-  background-image: url('../../../images/image.jpg');
+  background-image: url('../../img/image.jpg');
 }
 .image-19 {
-  background-image: url('../../../images/image.jpg');
+  background-image: url('../../img/image.jpg');
 }
 .image-20 {
-  background-image: url('../../../images/image.jpg');
+  background-image: url('../../img/image.jpg');
 }
 .mask {
   position: relative;
@@ -6450,8 +6450,8 @@ ul.entry-meta li {
 }
 /*** Common to all royal sliders ***/
 .rsPreloader {
-  background: transparent url('../../../images/theme-pics/loading.gif') no-repeat top left !important;
-  width: 44px;
+  background: transparent url('../../img/theme-pics/loading.gif') no-repeat top left !important;
+  width: 44px !important;
   margin: 0 auto;
   height: 11px !important;
 }
@@ -6763,7 +6763,7 @@ a.btnSwitcher {
   z-index: 9999;
 }
 .neko-preloader {
-  background: transparent url('../../../images/theme-pics/loading.gif') no-repeat top left !important;
+  background: transparent url('../../img/theme-pics/loading.gif') no-repeat top left !important;
   width: 44px;
   margin: 0 auto;
   height: 11px !important;
@@ -7268,7 +7268,7 @@ html:not(.ie9) .charts {
 .svg-icon.charts-icon {
   width: 250px;
   height: 250px;
-  background-image: url(../images/svg/rising9.svg);
+  background-image: url(img/svg/rising9.svg);
   background-size: contain;
 }
 /*** embed video ***/
@@ -7290,37 +7290,37 @@ html:not(.ie9) .charts {
 }
 /*** Portfolio masonry ***/
 .fw-image1 {
-  background-image: url('../../../images/portfolio/vign-large1.jpg');
+  background-image: url('../../img/portfolio/vign-large1.jpg');
 }
 .fw-image2 {
-  background-image: url('../../../images/portfolio/vign8.jpg');
+  background-image: url('../../img/portfolio/vign8.jpg');
 }
 .fw-image3 {
-  background-image: url('../../../images/portfolio/vign-large2.jpg');
+  background-image: url('../../img/portfolio/vign-large2.jpg');
 }
 .fw-image4 {
-  background-image: url('../../../images/portfolio/vign2.jpg');
+  background-image: url('../../img/portfolio/vign2.jpg');
 }
 .fw-image5 {
-  background-image: url('../../../images/portfolio/vign-big1.jpg');
+  background-image: url('../../img/portfolio/vign-big1.jpg');
 }
 .fw-image6 {
-  background-image: url('../../../images/portfolio/vign7.jpg');
+  background-image: url('../../img/portfolio/vign7.jpg');
 }
 .fw-image7 {
-  background-image: url('../../../images/portfolio/vign-big2.jpg');
+  background-image: url('../../img/portfolio/vign-big2.jpg');
 }
 .fw-image8 {
-  background-image: url('../../../images/portfolio/vign4.jpg');
+  background-image: url('../../img/portfolio/vign4.jpg');
 }
 .fw-image9 {
-  background-image: url('../../../images/portfolio/vign8.jpg');
+  background-image: url('../../img/portfolio/vign8.jpg');
 }
 .fw-image10 {
-  background-image: url('../../../images/portfolio/vign-large3.jpg');
+  background-image: url('../../img/portfolio/vign-large3.jpg');
 }
 .fw-image11 {
-  background-image: url('../../../images/portfolio/vign10.jpg');
+  background-image: url('../../img/portfolio/vign10.jpg');
 }
 /*** Portfolio masonry ***/
 /*** prelaoder custom infografix ***/

@@ -1,1 +1,1 @@
-<?php echo jak_build_menu_qed (0, $mheader, $page, 'nav navbar-nav navbar-right', '', 'sub-menu', '', false); ?>
+<?php echo jak_build_menu_qed (0, $mheader, $page, 'nav navbar-nav navbar-right', 'drop', 'sub-menu', '', false); ?>

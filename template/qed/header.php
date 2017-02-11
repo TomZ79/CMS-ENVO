@@ -1,7 +1,7 @@
 <?php
 
 // EN: Include the config file ...
-// CZ: Vložení konfiguraèního souboru ...
+// CZ: VloÅ¾enÃ­ konfiguraÄnÃ­ho souboru ...
 if (!file_exists ('config.php')) die('[index.php] config.php not found');
 require_once 'config.php';
 
@@ -63,10 +63,20 @@ if ($page == "success" or $page == "logout") { ?>
 	<!-- CSS and FONTS
 	================================================== -->
 	<link href='http://fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
+	<?php if ($jkv["activeroyalslider_qed_tpl"] == 1) { ?>
+	<link rel="stylesheet" type="text/css" href="/template/<?php echo $jkv["sitestyle"];?>/js-plugins/royalslider/royalslider.css" />
+	<link rel="stylesheet" type="text/css" href="/template/<?php echo $jkv["sitestyle"];?>/js-plugins/royalslider/skins/minimal-white/rs-minimal-white.css">
+	<?php } ?>
 	<link type="text/css" rel="stylesheet" href="/template/<?php echo $jkv["sitestyle"];?>/icons/custom-icons/css/custom-icons.css">
 	<link type="text/css" rel="stylesheet" href="/template/<?php echo $jkv["sitestyle"];?>/js-plugins/external-plugins.min.css">
 	<link type="text/css" rel="stylesheet" href="/template/<?php echo $jkv["sitestyle"];?>/css/layout/neko-framework-layout.css">
 	<link type="text/css" rel="stylesheet" id="color" href="/template/<?php echo $jkv["sitestyle"];?>/css/color/neko-framework-green.css">
+	<link type="text/css" rel="stylesheet" id="color" href="/assets/plugins/owl.carousel/assets/owl.carousel.css">
+	<link type="text/css" rel="stylesheet" id="color" href="/assets/plugins/owl.carousel/assets/owl.theme.green.css">
+
+	<?php if ($SHOWSOCIALBUTTON) { ?>
+	<link href="/assets/plugins/jquery-sollist/jquery.sollist.min.css" rel="stylesheet" type="text/css" media="screen"/>
+	<?php } ?>
 
 	<link rel="stylesheet" href="/template/<?php echo $jkv["sitestyle"];?>/css/screen.css" type="text/css"/>
 
@@ -115,21 +125,52 @@ if ($page == "success" or $page == "logout") { ?>
 				<div class="row">
 					<div class="col-sm-6 hidden-xs">
 						<ul class="quick-menu">
-							<li><a href="template-site-map.html" class="linkLeft">Site map</a></li>
-							<li><a href="template-about.html">About us</a></li>
-							<li><a href="template-team.html">Our team</a></li>
-							<li><a href="template-contact.html">Contact</a></li>
+							<?php if ($jkv["sitemapShow_qed_tpl"] == 1) { ?>
+								<li><a href="/" class="linkLeft">Site map</a></li>
+							<?php }
+							if ($jkv["loginShow_qed_tpl"] == 1) {
+								if (!JAK_USERID) { ?>
+								<li><a href="/" id="login">Login</a></li>
+							<?php } else { ?>
+								<li><a href="<?php echo $P_USR_LOGOUT; ?>" id="logout"><?php echo $tl["title"]["t6"]; ?></a></li>
+								<li><a href="<?php echo BASE_URL; ?>admin/">Admin</a></li>
+							<?php	} } ?>
 						</ul>
 					</div>
 					<div class="col-sm-6 col-xs-12 quick-contact">
-						<div class="contact-phone"> <i class="icon-mobile"></i>615.987.1234 </div>
+						<?php if ($jkv["phoneShow_qed_tpl"] == 1) { ?>
+							<div class="contact-phone">
+								<i class="icon-mobile"></i>
+								<a href="tel:<?php echo $jkv["phoneLinks_qed_tpl"]; ?>"><?php echo $jkv["phoneLinks_qed_tpl"]; ?></span></a>
+							</div>
+						<?php } ?>
+
 						<ul class="social-icons">
-							<li><a href="#" class="rss" title="rss"><i class="icon-rss"></i></a></li>
-							<li><a href="#" class="facebook" title="facebook"><i class="icon-facebook"></i></a></li>
-							<li><a href="#" class="twitter" title="twitter"><i class="icon-twitter"></i></a></li>
-							<li><a href="#" class="gplus" title="gplus"><i class="icon-gplus"></i></a></li>
-							<li><a href="#" class="dribbble" title="dribbble"><i class="icon-dribbble"></i></a></li>
-							<li><a href="#" class="linkedin" title="linkedin"><i class="icon-linkedin"></i></a></li>
+							<?php if ($jkv["facebookShow_qed_tpl"] == 1) { ?>
+								<li>
+									<a href="<?php echo $jkv["facebookLinks_qed_tpl"]; ?>" target="_blank"><i class="icon-facebook"></i></a>
+								</li>
+							<?php }
+							if ($jkv["twitterShow_qed_tpl"] == 1) { ?>
+								<li>
+									<a href="<?php echo $jkv["twitterLinks_qed_tpl"]; ?>" target="_blank"><i class="icon-twitter"></i></a>
+								</li>
+							<?php }
+							if ($jkv["googleShow_qed_tpl"] == 1) { ?>
+								<li>
+									<a href="<?php echo $jkv["googleLinks_qed_tpl"]; ?>" target="_blank"><i class="icon-gplus"></i></a>
+								</li>
+							<?php }
+							if ($jkv["instagramShow_qed_tpl"] == 1) { ?>
+								<li>
+									<a href="<?php echo $jkv["instagramLinks_qed_tpl"]; ?>" target="_blank"><i class="icon-instagramm"></i></a>
+								</li>
+							<?php }
+							if ($jkv["emailShow_qed_tpl"] == 1) { ?>
+								<li>
+									<a href="mailto:<?php echo $jkv["emailLinks_qed_tpl"]; ?>" target="_blank"><i class="icon-mail"></i></a>
+								</li>
+							<?php } ?>
 						</ul>
 					</div>
 				</div>
@@ -148,7 +189,7 @@ if ($page == "success" or $page == "logout") { ?>
 					<!-- / hamburger button -->
 
 					<!-- Logo -->
-					<a class="navbar-brand" href="<?php echo BASE_URL; ?>"><img src="/template/<?php echo $jkv["sitestyle"];?>/img/main-logo.png" alt="Q.E.D. website template"/></a>
+					<a class="navbar-brand" href="<?php echo BASE_URL; ?>"><img src="<?php echo $jkv["logo1_qed_tpl"]; ?>" alt="Q.E.D. website template"/></a>
 					<!-- /Logo -->
 				</div>
 				<div class="collapse navbar-collapse">
@@ -158,6 +199,7 @@ if ($page == "success" or $page == "logout") { ?>
 					<?php if (isset($JAK_HOOK_HEADER) && is_array ($JAK_HOOK_HEADER)) foreach ($JAK_HOOK_HEADER as $hheader) {
 						include_once APP_PATH . $hheader['phpcode'];
 					} ?>
+
 					<!-- / End main navigation -->
 				</div>
 
@@ -183,7 +225,7 @@ if ($page == "success" or $page == "logout") { ?>
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6">
-							<h1><?php echo $PAGE_TITLE; ?></h1>
+							<h1><?php echo jak_cut_text ($PAGE_TITLE, 30, "..."); ?></h1>
 						</div>
 						<div class="col-md-6">
 							<ol class="breadcrumb">
@@ -199,7 +241,7 @@ if ($page == "success" or $page == "logout") { ?>
 									<?php if ($page == "edit-profile") {
 										echo sprintf ($tl["login"]["l15"], $jakuser->getVar ("username"));
 									} else {
-										echo $PAGE_TITLE;
+										echo jak_cut_text ($PAGE_TITLE, 30, "...");
 									} ?>
 								</li>
 							</ol>
@@ -216,6 +258,23 @@ if ($page == "success" or $page == "logout") { ?>
 			include_once APP_PATH . $bheader['phpcode'];
 		} ?>
 
+
+		<?php if (empty($JAK_HOOK_SIDE_GRID) && (!empty($page))) { ?>
+
+		<section class="pt-medium">
+
+			<div class="container">
+				<div class="row">
+
+		<?php } ?>
+
+		<?php if (empty($JAK_HOOK_SIDE_GRID) && (empty($page))) { ?>
+
+		<?php } ?>
+
+
+		<?php if (!empty($JAK_HOOK_SIDE_GRID)) { ?>
+
 		<section class="pt-medium">
 
 			<div class="container">
@@ -225,3 +284,7 @@ if ($page == "success" or $page == "logout") { ?>
 					<?php if (!empty($JAK_HOOK_SIDE_GRID) && $jkv["sidebar_location_tpl"] == "left") include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/sidebar.php'; ?>
 					<!-- / sidebar -->
 					<div class="<?php echo ($JAK_HOOK_SIDE_GRID ? "col-md-9" : "col-md-12"); ?>">
+
+		<?php } ?>
+
+

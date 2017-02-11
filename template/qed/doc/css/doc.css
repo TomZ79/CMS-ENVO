@@ -361,6 +361,10 @@ article > *:first-child,
   margin-top: 0px;
 }
 
+section li {
+  padding: 2px 0px;
+}
+
 table thead:first-child tr th:first-child {
   -webkit-border-top-left-radius: 4px;
   -moz-border-radius-topleft: 4px;
