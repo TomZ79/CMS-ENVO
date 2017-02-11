@@ -52,7 +52,7 @@
 		position: relative;
 	}
 	.scrollspyoffset {
-		padding-top: 65px;
-		margin-top: -55px;
+		padding-top: 56px;
+		margin-top: -56px;
 	}
 </style>
