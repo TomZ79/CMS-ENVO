@@ -568,23 +568,37 @@ li.filter-item > a:hover {
 
 @media (max-width: 768px) {
   .row-table {
-    display: table;
+    display: block;
   }
 
   .col-table {
     float: none;
-    display: table-cell;
+    display: block;
     vertical-align: top;
+  }
+}
+
+/* 00. BOOTSTRAP - vertical center
+========================================================================*/
+@media (min-width: 768px) {
+  .vertical-center {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+
+    display: flex;
+    align-items: center;
   }
 }
 
 /* 00. ERROR PAGE
 ========================================================================*/
-.error-page > .headline {
-  float: none;
-  font-size: 85px;
-  font-weight: 700;
-  line-height: 85px;
+@media (min-width: 768px) {
+  .error-page .headline {
+    float: none;
+    font-size: 55px;
+    font-weight: 700;
+    line-height: 55px;
+  }
 }
 
 /* 00. BOX and ROW OF FORMS IN BOX, SPAN IN BOX

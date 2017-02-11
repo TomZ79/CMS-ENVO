@@ -20,18 +20,48 @@ $succesfully = 0;
 <head>
 	<title>Uninstallation - JAKWEB / Template</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="../../assets/css/stylesheet.css" type="text/css" media="screen"/>
-	<link rel="stylesheet" href="../../assets/plugins/bootstrapv3/css/bootstrap.min.css" type="text/css" media="screen"/>
+	<!-- BEGIN Vendor CSS-->
+	<link href="/admin/assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.4" rel="stylesheet" type="text/css"/>
+	<link href="/admin/assets/plugins/font-awesome/css/font-awesome.css?=4.5.0" rel="stylesheet" type="text/css"/>
+	<!-- BEGIN Pages CSS-->
+	<link href="/admin/pages/css/pages-icons.css?=v2.2.0" rel="stylesheet" type="text/css">
+	<link class="main-stylesheet" href="/admin/pages/css/pages.css?=v2.2.0" rel="stylesheet" type="text/css"/>
+	<!-- BEGIN CUSTOM MODIFICATION -->
+	<style type="text/css">
+		/* Fix 'jumping scrollbar' issue */
+		@media screen and (min-width: 960px) {
+			html {
+				margin-left: calc(100vw - 100%);
+				margin-right: 0;
+			}
+		}
+
+		/* Main body */
+		body {
+			background: transparent;
+		}
+	</style>
+	<!-- BEGIN VENDOR JS -->
+	<script src="/admin/assets/plugins/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
+	<script src="/admin/assets/plugins/bootstrapv3/js/bootstrap.min.js?=v3.3.4" type="text/javascript"></script>
+	<!-- BEGIN CORE TEMPLATE JS -->
+	<script src="/admin/pages/js/pages.js?=v2.2.0"></script>
 </head>
 <body>
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-12">
-			<h3>Uninstallation - JAKWEB / Template</h3>
+		<div class="col-md-12 m-t-20">
+			<div class="jumbotron bg-master">
+				<h3 class="semi-bold text-white">Uninstallation - JAKWEB / Template</h3>
+			</div>
+			<hr>
 
-			<!-- Let's do the uninstall -->
+			<!-- UNINSTALLATION -->
 			<?php if (isset($_POST['uninstall'])) {
+				// Validate
+				session_start ();
+				if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
 
 				$jakdb->query ('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "tpl_jakweb"');
 
@@ -39,14 +69,24 @@ $succesfully = 0;
 
 				?>
 
-				<div class="alert bg-success fade in">
+				<div class="alert alert-success fade in">
 					Template successfully uninstalled!
 				</div>
+				<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
 
-			<?php }
+			<?php } else { ?>
+				<div>
+					<h5 class="text-danger bold">Wrong Code Entered - Please, enter right number !</h5>
+				</div>
+			<?php } }
 			if (!$succesfully) { ?>
-				<form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
-					<button type="submit" name="uninstall" class="btn btn-danger btn-block">Uninstall Template</button>
+				<form name="company" action="uninstall.php" method="post" enctype="multipart/form-data">
+					<div class="form-group form-inline">
+						<label for="text">Please read info about uninstallation and enter text: </label>
+						<input type="text" name="captcha" class="form-control" id="text">
+						<img src="../../assets/plugins/captcha/simple/captcha.php" class="m-l-10"/>
+					</div>
+					<button type="submit" name="uninstall" class="btn btn-complete btn-block">Uninstall Template</button>
 				</form>
 			<?php } ?>
 

@@ -1,7 +1,7 @@
 <?php include "header.php"; ?>
 
 	<div class="row">
-		<div class="col-md-6 col-md-offset-3 error-page">
+		<div class="col-md-6 col-sm-offset-3 text-center error-page">
 			<h2 class="headline text-warning">404</h2>
 			<div class="error-content">
 				<h3><i class="fa fa-warning text-warning"></i> <?php echo $tl["error"]["404"]; ?></h3>
