@@ -13,6 +13,20 @@ $(function () {
         .mousedown(function() {
             $("#password").attr('type','text');
         });
+
+
+});
+
+$(function () {
+    $("#full-screen-search").FSNav({
+        animation: "none"
+    });
+
+    $("#show-nav").click(function(){
+        $("#full-screen-search").data("FSNav").showNav();
+        $('#Jajaxs').focus();
+    });
+
 });
 
 /*

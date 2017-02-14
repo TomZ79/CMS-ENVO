@@ -1,13 +1,13 @@
-Odstranit z Pluginù napojení na 'vote result'. Tato funkce není v tomto template dostupná
+Odstranit z PluginÅ¯ napojenÃ­ na 'vote result'. Tato funkce nenÃ­ v tomto template dostupnÃ¡
 -------------------------------------------------------------------------------------------
-Odstranìno z page.php
+OdstranÄ›no z page.php
 
 <!-- Show vote result -->
 <?php if ($SHOWVOTE && $USR_CAN_RATE) {
   include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/voteresult.php';
 } ?>
 
-Odstranìno z newsart.php
+OdstranÄ›no z newsart.php
 
 <?php if ($SHOWVOTE && $USR_CAN_RATE) {
 	include_once APP_PATH . 'template/mosaic/voteresult.php';

@@ -170,6 +170,7 @@
 <script src="assets/plugins/bootstrap-bootboxjs/bootbox.min.js" type="text/javascript"></script>
 <script src="assets/plugins/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
 <script src="assets/plugins/bootstrap-select/js/i18n/defaults-cs_CZ.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js" type="text/javascript"></script>
 <script src="assets/plugins/jquery/jquery-easy.js" type="text/javascript"></script>
 <script src="assets/plugins/jquery-unveil/jquery.unveil.min.js" type="text/javascript"></script>
 <script src="assets/plugins/jquery-bez/jquery.bez.min.js"></script>
@@ -218,10 +219,11 @@ $notify =
 	'});' .
 	'</script>';
 
+// Init debug mode - debug to console.log
+$debug = new PHPDebug();
+
 if (!empty($page)) {
 	$ap = array ("logs", "searchlog", "changelog", "site", "setting", "plugins", "template", "maintenance", "facebookgallery", "settingfacebook", "mediasharing", "user", "usergroup", "categories", "page", "contactform", "sitemap", "searchsetting", "news", "tags");
-	// Init debug mode - debug to console.log
-	$debug = new PHPDebug();
 
 	if (in_array ($page, $ap)) {
 		$jscodefile = 'pages/js/pages.' . $page . '.php';
@@ -246,6 +248,18 @@ if (!empty($page)) {
 } else {
 	include_once 'pages/js/pages.index.php';
 }
+
+// JS pages for Template Settings
+if ($page == 'template' && $page1 == 'settings') {
+	$jscodefile = APP_PATH . '/template/' . $jkv["sitestyle"] . '/js/pages.templatesettings.php';
+	if (file_exists ($jscodefile)) {
+		include_once ($jscodefile);
+	} else {
+		echo sprintf ($notify, $jscodefile);
+	}
+	$debug->debug ("JS Script path template settings page: " . $jscodefile, NULL, INFO);
+}
+
 ?>
 <!-- BEGIN NOTIFY CONFIG JS -->
 <?php if (isset($_SESSION["loginmsg"])) { ?>
@@ -285,7 +299,7 @@ if (isset($_SESSION["errormsg"])) { ?>
 			message: '<?php echo $_SESSION["errormsg"];?>'
 		}, {type: 'danger'});</script>
 <?php }
-if (!isset($jkv["cms_tpl"])) { ?>
+if ($JAK_PROVED && !isset($jkv["cms_tpl"])) { ?>
 	<script type="text/javascript">
 		// Notification
 		$.notify({

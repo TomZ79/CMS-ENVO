@@ -5,11 +5,18 @@
 
 	<!-- BEGIN Vendor CSS-->
 	<link rel="stylesheet" href="../assets/plugins/bootstrapv3/css/bootstrap.min.css" type="text/css" media="screen"/>
-	<link rel="stylesheet" href="../assets/css/stylesheet.css" type="text/css" media="screen"/>
+	<link rel="stylesheet" href="assets/css/style.css" type="text/css" media="screen"/>
+
+	<!-- CUSTOM CSS -->
+	<style type="text/css">
+		/* Style for iframe */
+		body {
+			background-color: transparent;
+		}
+	</style>
 
 	<!-- BEGIN VENDOR JS -->
-	<script src="../assets/plugins/jquery/jquery.js?=<?php echo $jkv["updatetime"]; ?>"></script>
-	<script type="text/javascript" src="../assets/js/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+	<script src="assets/plugins/jquery/jquery-1.11.1.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 
 	<!-- Import all hooks for in between head -->
 	<?php if (isset($JAK_HOOK_HEAD_ADMIN) && is_array ($JAK_HOOK_HEAD_ADMIN)) foreach ($JAK_HOOK_HEAD_ADMIN as $headt) {
@@ -28,4 +35,3 @@
 		<div class="col-md-12">
 			<section class="content-header">
 				<h1><?php echo $tl["general"]["g135"]; ?></h1>
-			</section>

@@ -53,8 +53,8 @@ switch ($page1) {
 						$news = join (',', $defaults['jak_shownews']);
 					}
 
-					if (empty($news) && !empty($defaults['jak_shownewsmany'])) {
-						$news = $defaults['jak_shownewsorder'] . ':' . $defaults['jak_shownewsmany'];
+					if (empty($news) && !empty($defaults['jak_shownewsordern']) && !empty($defaults['jak_shownewsmany'])) {
+						$news = $defaults['jak_shownewsordern'] . ':' . $defaults['jak_shownewsorder'] . ':' . $defaults['jak_shownewsmany'];
 					}
 
 					// The new password encrypt with hash_hmac
@@ -369,8 +369,8 @@ switch ($page1) {
 								$news = join (',', $defaults['jak_shownews']);
 							}
 
-							if (empty($news) && !empty($defaults['jak_shownewsmany'])) {
-								$news = $defaults['jak_shownewsorder'] . ':' . $defaults['jak_shownewsmany'];
+							if (empty($news) && !empty($defaults['jak_shownewsordern']) && !empty($defaults['jak_shownewsmany'])) {
+								$news = $defaults['jak_shownewsordern'] . ':' . $defaults['jak_shownewsorder'] . ':' . $defaults['jak_shownewsmany'];
 							}
 
 							// The new password encrypt with hash_hmac
@@ -567,18 +567,19 @@ switch ($page1) {
 						}
 					}
 
+					// Get the data
 					$JAK_FORM_DATA   = jak_get_data ($page2, $jaktable);
 					$JAK_GET_NEWS    = jak_get_page_info ($jaktable4, '');
 					$JAK_CAT_NOTUSED = jak_get_cat_notused ();
-
 
 					// Now let's check if we display news with second option
 					$shownewsarray = explode (":", $JAK_FORM_DATA['shownews']);
 
 					if (is_array ($shownewsarray) && in_array ("ASC", $shownewsarray) || in_array ("DESC", $shownewsarray)) {
 
-						$JAK_FORM_DATA['shownewsorder'] = $shownewsarray[0];
-						$JAK_FORM_DATA['shownewsmany']  = $shownewsarray[1];
+						$JAK_FORM_DATA['shownewswhat']  = $shownewsarray[0];
+						$JAK_FORM_DATA['shownewsorder'] = $shownewsarray[1];
+						$JAK_FORM_DATA['shownewsmany']  = $shownewsarray[2];
 
 					}
 

@@ -1,6 +1,5 @@
 <?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/header.php'; ?>
 
-	<!-- Show alert messages, url to edit and quick edit -->
 <?php if (!$PAGE_ACTIVE) { ?>
 	<div class="alert bg-danger">
 		<?php echo $tl["errorpage"]["ep"]; ?>

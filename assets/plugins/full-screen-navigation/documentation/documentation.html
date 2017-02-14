@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>Full Screen Navigation</title>
+		
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+		<link href="assets/css/style.css" rel="stylesheet">
+		<link href="assets/css/rainbow.github.css" rel="stylesheet">
+		<link href="assets/css/rainbow.linenumbers.css" rel="stylesheet">			
+		
+	</head>
+	
+	<body>
+		
+		<header>
+			<h1>Full Screen Navigation</h1>
+			<h4>Plugin documentation</h4>
+			<h5>By <a target="_blank" href="http://codecanyon.net/user/marcoarib">marcoarib</a></h5>
+			
+			<nav>
+				<ul>
+					<li><a data-scroll href="#getting-started">1. Getting Started</a></li>
+					<li><a data-scroll href="#installation">2. Installation</a></li>
+					<li><a data-scroll href="#markup">3. Markup</a></li>
+					<li><a data-scroll href="#javascript">4. Javascript Options</a></li>
+					<li><a data-scroll href="#color">5. Color Schemes</a></li>
+					<li><a data-scroll href="#methods">6. Methods</a></li>
+					<li><a data-scroll href="#callbacks">7. Callbacks</a></li>
+					<li><a data-scroll href="#important-info">8. Important Info</a></li>
+				</ul>
+			</nav>
+		</header>	
+		<div class="content">
+		
+			<div id="getting-started" class="doc-section">
+				<h2>1. Getting Started</h2>
+				<p>
+					First of all, thank you so much for purchasing this plugin. You are entitled to get free updates to this product.
+					This documentation is to help you understand the plugin structure and usage. Please go through the documentation 
+					carefully to understand how this plugin is made and how to use it properly.
+				</p>
+			</div>
+			
+			<div id="installation" class="doc-section">
+				<h2>2. Installation</h2>
+				<p>
+					To start, you have to put the basic files inside your project folders. After that, put the reference to these files 
+					in your page:
+				</p>
+				<h4>2.1 CSS reference</h4>		
+
+<pre><code data-language="html">
+<link href="css/FSNav.css" rel="stylesheet">
+</code>
+</pre>
+				
+				<p>
+					You need to put the CSS reference inside the HEAD section of the page.
+				</p>
+				<h4>2.2 Javascript reference</h4>
+				
+<pre><code data-language="html">
+<script type="text/javascript" src="js/jquery.min.js"></script> 
+<script type="text/javascript" src="js/FSNav.js"></script>
+</code>
+</pre>
+			
+				<p>
+					You can put the Javascript reference in the HEAD section or for better performance at the bottom of the page, 
+					before the body closing tag. Make sure that you are using jQuery 1.8 or higher.
+				</p>
+				<p class="warning">
+					The code above assumes that you have a folder named <b>"css"</b> for the styles and a folder named <b>"js"</b> 
+					for the scripts.
+				</p>
+			
+				<h4>2.3 Script initialization</h4>
+				
+				<p>
+					Call the plugin initializer function:
+				</p>
+			
+<pre><code data-language="javascript">
+jQuery(document).ready(function(){  
+    jQuery("#full-screen-nav").FSNav();
+});
+</code>
+</pre>
+			
+				<p class="warning">
+					Don't forget to enclose the code with script tags
+				</p>
+			</div>
+			
+			<div id="markup" class="doc-section">
+				<h2>3. Markup</h2>
+				<p>
+					You have <b>4 options</b> of navigations:
+				</p>
+				
+				<h4>3.1 Normal menu</h4>
+				<p>
+					A navigation with one list. Used to simple navigation purposes:
+				</p>
+				
+<pre><code data-language="html">
+<div id="full-screen-nav" class="full-screen-nav">
+    <span class="full-screen-nav-close"></span>
+    <div class="full-screen-nav-content">
+        <ul class="full-screen-nav-menu">
+            <li><a href="#">Item 1</a></li>
+            <li><a href="#">Item 2</a></li>
+            <li><a href="#">Item 3</a></li>
+            <li><a href="#">Item 4</a></li>
+            <li><a href="#">Item 5</a></li>
+        </ul>
+    </div>
+</div>
+</code>
+</pre>
+
+				<h4>3.2 Menu of Lists</h4>
+				<p>
+					A set of lists. Used to more complex navigation purposes. The navigation can be divided in several lists with a header:
+				</p>
+				
+<pre><code data-language="html">
+<div id="full-screen-nav" class="full-screen-nav">
+    <span class="full-screen-nav-close"></span>
+    <div class="full-screen-nav-content">
+        <div class="full-screen-nav-lists">
+            <ul class="full-screen-nav-list">
+                <li class="full-screen-nav-list-header"><a href="#">List 1</a></li>
+                <li><a href="#">Item 1</a></li>
+                <li><a href="#">Item 2</a></li>
+                <li><a href="#">Item 3</a></li>
+                <li><a href="#">Item 4</a></li>
+                <li><a href="#">Item 5</a></li>
+            </ul>
+            <ul class="full-screen-nav-list">
+                <li class="full-screen-nav-list-header"><a href="#">List 2</a></li>
+                <li><a href="#">Item 1</a></li>
+                <li><a href="#">Item 2</a></li>
+                <li><a href="#">Item 3</a></li>
+                <li><a href="#">Item 4</a></li>
+                <li><a href="#">Item 5</a></li>
+            </ul>
+            <ul class="full-screen-nav-list">
+                <li class="full-screen-nav-list-header"><a href="#">List 3</a></li>
+                <li><a href="#">Item 1</a></li>
+                <li><a href="#">Item 2</a></li>
+                <li><a href="#">Item 3</a></li>
+                <li><a href="#">Item 4</a></li>
+                <li><a href="#">Item 5</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</code>
+</pre>
+
+				<h4>3.3 Menu of Boxes</h4>
+				<p>
+					A set of boxes. Used to simple navigation purposes. Each link is represented by a box with an icon and a text.
+					The collection of icons used here is the <a target="_blank" href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>.
+				</p>
+				
+<pre><code data-language="html">
+<div id="full-screen-nav" class="full-screen-nav">
+    <span class="full-screen-nav-close"></span>
+    <div class="full-screen-nav-content">
+        <ul class="full-screen-nav-boxes">
+            <li>
+                <a href="#">
+                    <i class="fa fa-home"></i>
+                    Item 1
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-cog"></i>
+                    Item 2
+                </a>
+            </li>
+			<li>
+                <a href="#">
+                    <i class="fa fa-user"></i>
+                    Item 3
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-envelope"></i>
+                    Item 4
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+</code>
+</pre>
+				
+				<h4>3.4 Menu of Circles</h4>
+				<p>
+					A set of circles. Used to simple navigation purposes. Each link is represented by a circle with an icon and a text.
+					The collection of icons used here is the <a target="_blank" href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>.
+				</p>
+				
+<pre><code data-language="html">
+<div id="full-screen-nav" class="full-screen-nav">
+    <span class="full-screen-nav-close"></span>
+    <div class="full-screen-nav-content">
+        <ul class="full-screen-nav-circles">
+            <li>
+                <a href="#">
+                    <i class="fa fa-home"></i>
+                    Item 1
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-cog"></i>
+                    Item 2
+                </a>
+            </li>
+			<li>
+                <a href="#">
+                    <i class="fa fa-user"></i>
+                    Item 3
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-envelope"></i>
+                    Item 4
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+</code>
+</pre>
+				
+				<p class="info">
+					You can <b>copy and paste</b> the code above to make your changes.
+				</p>
+				<p class="warning">
+					All options have a span element with the class named <b>"full-screen-nav-close"</b>. This element represents the button 
+					to close the navigation.
+				</p>
+				
+				<h4>3.5 Menu of general content</h4>
+				<p>
+					You can put a general content inside the navigation like a login or a search form. This expands the use of the navigation. 
+					To do this you must use the markup below:
+				</p>
+				
+<pre><code data-language="html">
+<div id="full-screen-nav" class="full-screen-nav">
+    <span class="full-screen-nav-close"></span>
+    <div class="full-screen-nav-content">
+        <div class="full-screen-nav-general">
+            
+        <!-- your content here -->
+			
+        </div>
+    </div>
+</div>
+</code>
+</pre>
+				
+				<p class="warning">
+					<b>If you decide to use any html element different from the markups shown before, you must define the proper CSS code. 
+					Using general content, you are free to play with the CSS code.</b>
+				</p>
+				
+				<h4>3.6 Showing the navigation</h4>
+				<p>
+					To show the navigation you can use an element like a button:
+				</p>
+			
+<pre><code data-language="html">
+<button id="show-nav">Navigation</button>
+</code>
+</pre>
+			
+			<p>
+				And then attach the event on the element and call the function to show the navigation:
+			</p>
+			
+<pre><code data-language="javascript">
+$("#show-nav").click(function(){
+    $("#full-screen-nav").data("FSNav").showNav();
+});
+</code>
+</pre>
+				
+			</div>
+			
+			<div id="javascript" class="doc-section">
+				<h2>4. Javascript Options</h2>
+				<p>
+					All of the options below are available to enhance the plugin usage. Change the values to customize it:
+				</p>
+				<table class="table table-full">
+					<tr>
+						<th>Option</th>
+						<th>Type</th>
+						<th>Default value</th>
+						<th>Possible values</th>
+						<th>Description</th>
+					</tr>
+					<tr>
+						<td>showSpeed</td>
+						<td>Integer (ms)</td>
+						<td>300</td>
+						<td>0 or greater</td>
+						<td>The speed that the navigation show up</td>
+					</tr>
+					<tr>
+						<td>hideSpeed</td>
+						<td>Integer (ms)</td>
+						<td>300</td>
+						<td>0 or greater</td>
+						<td>The speed that the navigation hide up</td>
+					</tr>
+					<tr>
+						<td>animation</td>
+						<td>String</td>
+						<td>"zoom"</td>
+						<td>"none", "zoom", "slide" and "dropdown"</td>
+						<td>The CSS animation effect when the navigation show up</td>
+					</tr>
+				</table> 
+				
+				<p>
+					Example of use:
+				</p>
+				
+<pre><code data-language="javascript">
+jQuery(document).ready(function(){  
+    jQuery("#full-screen-nav").FSNav({
+        showSpeed: 200,
+        hideSpeed: 500,
+        animation: "slide"
+    });
+});
+</code>
+</pre>
+				
+			</div>
+			
+			<div id="color" class="doc-section">
+				<h2>5. Color Schemes</h2>
+				<p>
+					The plugin provides some preset color schemes. Choose the css file and put the reference in your page:
+				</p>
+				
+				<table class="table table-small">
+					<tr>
+						<th>Color</th>
+						<th>CSS File</th>
+					</tr>
+					<tr>
+						<td class="black">Black (default)</td>
+						<td>---</td>
+					</tr>
+					<tr>
+						<td class="blue">Blue</td>
+						<td>FSNav-blue.css</td>
+					</tr>
+					<tr>
+						<td class="green">Green</td>
+						<td>FSNav-green.css</td>
+					</tr>
+					<tr>
+						<td class="red">Red</td>
+						<td>FSNav-red.css</td>
+					</tr>
+					<tr>
+						<td class="orange">Orange</td>
+						<td>FSNav-orange.css</td>
+					</tr>
+					<tr>
+						<td class="yellow">Yellow</td>
+						<td>FSNav-yellow.css</td>
+					</tr>
+					<tr>
+						<td style="color: #dedede"><b>White</b></td>
+						<td>FSNav-white.css</td>
+					</tr>
+				</table> 
+				
+			</div>
+			
+			<div id="methods" class="doc-section">
+				<h2>6. Methods</h2>
+				<p>
+					Some methods are available to interact with the plugin's instances.
+				</p> 
+				<div class="method">
+					<span class="name">showNav()</span>
+					<p>
+						Show the navigation
+					</p>
+				</div>
+				
+				<p>
+					Example:
+				</p>
+				
+<pre><code data-language="javascript">
+$("#full-screen-nav").data("FSNav").showNav();
+</code>
+</pre>
+				
+				<div class="method">
+					<span class="name">hideNav()</span>
+					<p>
+						Hide the navigation
+					</p>
+				</div>
+				
+				<p>
+					Example:
+				</p>
+				
+<pre><code data-language="javascript">
+$("#full-screen-nav").data("FSNav").hideNav();
+</code>
+</pre>
+
+			<div class="method">
+				<span class="name">setShowSpeed(speed)</span>
+				<p>
+					Set the speed that the navigation show up
+				</p>
+				<span class="parameter"><span class="parameter-name">speed: </span> the speed in milliseconds</span>
+			</div>
+			
+			<p>
+				Example:
+			</p>
+			
+<pre><code data-language="javascript">
+$("#full-screen-nav").data("FSNav").setShowSpeed(1000);
+</code>
+</pre>
+			
+			<div class="method">
+				<span class="name">setHideSpeed(speed)</span>
+				<p>
+					Set the speed that the navigation hide up
+				</p>
+				<span class="parameter"><span class="parameter-name">speed: </span> the speed in milliseconds</span>
+			</div>
+			
+			<p>
+				Example:
+			</p>
+			
+<pre><code data-language="javascript">
+$("#full-screen-nav").data("FSNav").setHideSpeed(700);
+</code>
+</pre>
+			
+			<div class="method">
+				<span class="name">setAnimation(animation)</span>
+				<p>
+					Set the navigation animation
+				</p>
+				<span class="parameter"><span class="parameter-name">animation: </span> the name of the animation ("zoom", "slide" or "dropdown")</span>
+			</div>
+			
+			<p>
+				Example:
+			</p>
+			
+<pre><code data-language="javascript">
+$("#full-screen-nav").data("FSNav").setAnimation("slide");
+</code>
+</pre>
+			
+			</div>
+			
+			<div id="callbacks" class="doc-section">
+				<h2>7. Callbacks</h2>
+				<p>
+					Are available some callback functions that could be invoked:
+				</p>
+				<div class="callback">
+					<span class="name">onShow</span>
+					<p>
+						Custom code executed when the navigation show up
+					</p>
+				</div>
+				
+				<p>
+					Example of use:
+				</p>
+				
+<pre><code data-language="javascript">
+jQuery(document).ready(function(){  
+    jQuery("#full-screen-nav").FSNav({
+        onShow: function(){
+            /* your code here */
+        }
+    });
+});
+</code>
+</pre>
+			
+				<div class="callback">
+					<span class="name">onHide</span>
+					<p>
+						Custom code executed when the navigation hide up
+					</p>
+				</div>
+				
+				<p>
+					Example of use:
+				</p>
+				
+<pre><code data-language="javascript">
+jQuery(document).ready(function(){  
+    jQuery("#full-screen-nav").FSNav({
+        onHide: function(){
+            /* your code here */
+        }
+    });
+});
+</code>
+</pre>
+			
+			</div>
+			
+			<div id="important-info" class="doc-section">
+				<h2>8. Important Info</h2>
+				<h4>8.1 Browser compatibility</h4>
+				<ul>
+					<li>IE9+, Chrome, Firefox, Safari</li>
+					<li>Safari on Ipad/Iphone</li>
+					<li>Chrome/Firefox on Android</li>
+				</ul>
+				
+				<h4>8.2 jQuery compatibility</h4>
+				<p>
+					Tested on version 1.8+ (included 2.0)
+				</p>
+				
+				<h4>8.3 Support</h4>
+				<ul>
+					<li>The support includes help with bugs or installation (except on CMS systems like WP)</li>
+					<li>Customisations <b>ARE NOT</b> included in support</li>
+					<li>If you have a problem, a live preview to reproduce the issue is <b>VERY IMPORTANT</b></li>
+				</ul>
+			</div>
+			
+		
+		</div>
+		
+		
+		<script type="text/javascript" src="assets/js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="assets/js/jquery-scrolltofixed-min.js"></script>
+		<script type="text/javascript" src="assets/js/smooth-scroll.min.js"></script>
+		<script type="text/javascript" src="assets/js/rainbow.min.js"></script>
+		<script type="text/javascript" src="assets/js/rainbow.linenumbers.min.js"></script>
+		<script type="text/javascript" src="assets/js/rainbow.html.js"></script>
+		<script type="text/javascript" src="assets/js/rainbow.javascript.js"></script>
+		
+		<script type="text/javascript">
+			//posiciona a página no topo depois do carregamento
+			$(window).on('beforeunload', function(){
+				$(window).scrollTop(0);
+			});
+			// ajusta posição to menu
+			$("nav").scrollToFixed();
+			// scroll suave para os links
+			var topSection = 50;
+			smoothScroll.init({
+				offset: topSection - 10
+			});
+			// ativa os links do menu
+			var listItems = $("nav ul li");
+			var sections = $(".doc-section");
+			$(listItems).click(function(){
+				$(listItems).removeClass("active");
+				$(this).addClass("active");
+			});
+			$(window).bind("scroll", function(){
+				for(i = 0; i < sections.length; i++){
+					if($(sections[i]).offset().top - $(document).scrollTop() <= topSection && $(sections[i]).offset().top - $(document).scrollTop() >= 0){
+						$(listItems).removeClass("active");
+						$(listItems[i]).addClass("active");
+					}
+				}
+				
+			});
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,296 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+caption, tbody, tfoot, thead,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* GENERAL
+*****************************************************/
+body{
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+	color: #555;
+	background-color: #333;
+}
+a{
+	color: black;
+	transition: all .2s linear;
+}
+a:hover{
+	color: #22A7F0;
+}
+*{
+	outline: none;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+h1{
+	font-size: 40px;
+}
+h2{
+	font-size: 32px;
+}
+h3{
+	font-size: 26px;
+}
+h4{
+	font-size: 20px;
+}
+h5{
+	font-size: 14px;
+}
+h6{
+	font-size: 10px;
+}
+.table{
+	margin-bottom: 20px;
+	line-height: 2;
+}
+.table.table-full{
+	width: 100%;
+}
+.table.table-small{
+	width: 50%;
+}
+.table,
+.table th,
+.table td {
+	font-size: 13px !important;
+    border: 1px solid #ccc;
+	text-align: center;
+}
+.table th{
+	font-weight: bold;
+}
+.table td.blue{
+	color: blue;
+	font-weight: bold;
+}
+.table td.green{
+	color: green;
+	font-weight: bold;
+}
+.table td.red{
+	color: #ff7400;
+	font-weight: bold;
+}
+.table td.orange{
+	color: orange;
+	font-weight: bold;
+}
+.table td.yellow{
+	color: #febf04;
+	font-weight: bold;
+}
+.table td.black{
+	color: black;
+	font-weight: bold;
+}
+.table td.purple{
+	color: purple;
+	font-weight: bold;
+}
+
+/* HEADER
+*****************************************************/
+header{
+	height: 250px;
+	text-align: center;
+	background-color: #22A7F0;
+}
+header h1{
+	padding-top: 70px;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #fff;
+}
+header h4{
+	padding-top: 10px;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #fff;
+}
+header h5{
+	padding-top: 20px;
+	color: #fff;
+}
+header a,
+header a:hover{
+	color: #fff;
+}
+
+/* NAVIGATION
+*****************************************************/
+nav{
+	width: 220px;
+	top: 300px;
+	position: absolute;
+}
+nav ul{
+	margin: 0;
+	list-style: none;
+}
+nav ul li a{
+	width: 100%;
+	padding: 12px 30px;
+	display: block;
+	color: #dedede;
+	font-size: 14px;
+	text-decoration: none;
+	text-align: left;
+}
+nav ul li:hover a,
+nav ul li.active a{
+	color: #fff;
+	background-color: #22A7F0;
+}
+
+/* CONTENT
+*****************************************************/
+.content{
+	width: calc(100% - 220px);
+	padding: 50px 30px 2000px;
+	float: right;
+	background-color: #fff;
+}
+
+/* DOC SECTION
+*****************************************************/
+.doc-section{
+	margin: 0 0 50px;
+	font-size: 14px;
+}
+.doc-section:first-of-type{
+	margin-top: 0;
+}
+.doc-section h2{
+	margin-bottom: 20px;
+}
+.doc-section h4{
+	margin: 18px 0;
+	font-weight: bold;
+}
+.doc-section p{
+	margin: 0 0 5px;
+	line-height: 2;
+}
+.doc-section .subtitle{
+	margin-bottom: 10px;
+	font-size: 20px;
+	font-weight: bold;
+}
+.doc-section .warning,
+.doc-section .info{
+	margin: 5px 0;
+	padding: 5px 10px;
+}
+.doc-section .warning{
+	background-color: #fceabb;
+}
+.doc-section .info{
+	background-color: #36D7B7;
+}
+.doc-section b{
+	font-weight: bold;
+}
+
+/* methods wrapper */
+.method{
+	padding: 10px;
+	margin-bottom: 10px;
+	background-color: #D2D7D3;
+}
+.method .name{
+	font-weight: bold;
+	font-size: 16px;
+}
+.method .parameter{
+	width: 100%;
+	display: block;
+	line-height: 1.4;
+}
+.method .parameter-name{
+	font-style: italic;
+	font-weight: bold;
+	color: #757D75;
+}
+.method p{
+	margin: 0;
+}
+
+/* callbacks wrapper */
+.callback{
+	padding: 10px;
+	margin-bottom: 10px;
+	background-color: #dedede;
+}
+.callback .name{
+	font-weight: bold;
+	font-size: 16px;
+}
+.callback p{
+	margin: 0;
+}
+
+/* section list */
+.doc-section ul{
+	list-style: square;
+	margin-left: 15px;
+	padding: 0;
+}
+.doc-section ul li{
+	padding: 5px 0;
+}
+
+
+
+
+
+
+
+
+
+
+

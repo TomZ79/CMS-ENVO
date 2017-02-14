@@ -516,13 +516,21 @@ if ($errors) { ?>
 										<div class="form-group">
 											<label><?php echo $tl["global_text"]["globaltxt9"]; ?></label>
 											<div class="row">
-												<div class="col-md-6">
+												<div class="col-md-4">
 													<select name="jak_shownewsorder" class="form-control selectpicker" data-size="5">
 														<option value="ASC" selected="selected"><?php echo $tl["global_text"]["globaltxt10"]; ?></option>
 														<option value="DESC"><?php echo $tl["global_text"]["globaltxt11"]; ?></option>
 													</select>
 												</div>
-												<div class="col-md-6">
+												<div class="col-md-4">
+													<select name="jak_shownewsordern" class="form-control selectpicker">
+														<option value="id" selected="selected"><?php echo $tl["selection"]["sel9"]; ?></option>
+														<option value="title"><?php echo $tl["selection"]["sel10"]; ?></option>
+														<option value="time"><?php echo $tl["selection"]["sel11"]; ?></option>
+														<option value="hits"><?php echo $tl["selection"]["sel12"]; ?></option>
+													</select>
+												</div>
+												<div class="col-md-4">
 													<select name="jak_shownewsmany" class="form-control selectpicker" data-size="5">
 														<?php for ($i = 0; $i <= 10; $i ++) { ?>
 															<option value="<?php echo $i ?>"<?php if ($i == 0) { ?> selected="selected"<?php } ?>><?php echo $i; ?></option>

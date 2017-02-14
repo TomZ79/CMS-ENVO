@@ -108,7 +108,7 @@ class JAK_tags
 		$result = $jakdb->query ('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql ($jakvar) . '" AND pluginid = "' . smartsql ($jakvar1) . '" AND active = 1 ORDER BY id DESC');
 
 		while ($row = $result->fetch_assoc ()) {
-			$tags[] = '<a class="' . $class . '" href="' . JAK_rewrite::jakParseurl ($where, JAK_base::jakCleanurl ($row['tag']), '', '', '') . '">' . $row['tag'] . '</a>';
+			$tags[] = '<li><a class="' . $class . '" href="' . JAK_rewrite::jakParseurl ($where, JAK_base::jakCleanurl ($row['tag']), '', '', '') . '">' . $row['tag'] . '</a></li>';
 		}
 
 		if (!empty($tags)) {

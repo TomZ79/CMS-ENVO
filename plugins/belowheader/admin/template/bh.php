@@ -96,7 +96,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 									if ($v["active"] == 1) {
 										echo $tlbh["bh_box_content"]["bhbc8"];
 									} else {
-										echo $tlbh["bh_box_content"]["bhbc9"] . '<span class="small">  - ' . $tl["bh_box_content"]["bhbc10"] . '</span>';
+										echo $tlbh["bh_box_content"]["bhbc9"] . '<span class="small">  - ' . $tlbh["bh_box_content"]["bhbc10"] . '</span>';
 									}
 									?>
 								</td>

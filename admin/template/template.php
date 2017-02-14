@@ -62,10 +62,10 @@ if ($page1 == "e") { ?>
 <?php if (is_dir_empty ('../template/')) { ?>
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3 error-page">
-			<h1 class="text-warning bold"><?php echo $tl["notetemplate"]["nh"]; ?></h1>
+			<h1 class="text-warning bold"><?php echo $tl["notetemplate"]["ntpl"]; ?></h1>
 			<div class="error-content">
-				<h3><i class="fa fa-warning text-warning"></i> <?php echo $tl["notetemplate"]["n1"]; ?></h3>
-				<p><?php echo $tl["notetemplate"]["n4"]; ?></p>
+				<h3><i class="fa fa-warning text-warning"></i> <?php echo $tl["notetemplate"]["ntpl2"]; ?></h3>
+				<p><?php echo $tl["notetemplate"]["ntpl5"]; ?></p>
 			</div>
 		</div>
 	</div>

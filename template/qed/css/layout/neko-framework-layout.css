@@ -3732,17 +3732,44 @@ ul.border li {
   padding-bottom: 0.5em;
 }
 /** icon lists **/
+ul.arrow,
+ul.star,
+ul.hyphen,
+ul.plus {
+  padding-left: 20px;
+  list-style: none;
+}
 .arrow li:before {
+  font-family: 'custom-icons';
   content: '\e89e';
+  font-size: 10px;
+  float: left;
+  margin-top: 6px;
+  margin-left: -17px;
 }
 .star li:before {
+  font-family: 'custom-icons';
   content: '\e815';
+  font-size: 10px;
+  float: left;
+  margin-top: 6px;
+  margin-left: -17px;
 }
 .hyphen li:before {
+  font-family: 'custom-icons';
   content: '\e824';
+  font-size: 10px;
+  float: left;
+  margin-top: 6px;
+  margin-left: -17px;
 }
 .plus li:before {
+  font-family: 'custom-icons';
   content: '\e81c';
+  font-size: 10px;
+  float: left;
+  margin-top: 6px;
+  margin-left: -17px;
 }
 /* standard */
 .list-icon li {

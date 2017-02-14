@@ -67,7 +67,7 @@ include "header.php";
 				<div class="dashboard-box bg-info">
 					<div class="inner">
 						<h3><?php echo $JAK_COUNTS["hookCtotal"]; ?></h3>
-						<p><?php echo $tl["dashb_box_stats"]["s7"]; ?></p>
+						<p><?php echo $tl["dashb_box_stats"]["dbbs5"]; ?></p>
 					</div>
 					<div class="icon">
 						<i class="fa fa-flash"></i>

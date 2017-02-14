@@ -13,6 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	$result1 = $jakdb->query ('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
 
+			WHEN "color_qed_tpl" THEN "' . smartsql ($defaults['colorQed']) . '"
+			WHEN "header_qed_tpl" THEN "' . smartsql ($defaults['headerQed']) . '"
+			WHEN "boxed_qed_tpl" THEN "' . smartsql ($defaults['boxedQed']) . '"
+			WHEN "fsocialstyle_qed_tpl" THEN "' . smartsql ($defaults['fsocialstyleQed']) . '"
+			WHEN "fsocialsize_qed_tpl" THEN "' . smartsql ($defaults['fsocialsizeQed']) . '"
+
 			WHEN "sitemapShow_qed_tpl" THEN "' . smartsql ($defaults['sitemapShow']) . '"
 			WHEN "loginShow_qed_tpl" THEN "' . smartsql ($defaults['loginShow']) . '"
 			WHEN "facebookShow_qed_tpl" THEN "' . smartsql ($defaults['facebookShow']) . '"
@@ -51,8 +57,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       WHEN "transitionType_qed_tpl" THEN "' . smartsql ($defaults['transitionType']) . '"
       WHEN "transitionSpeed_qed_tpl" THEN "' . smartsql ($defaults['transitionSpeed']) . '"
 
+      WHEN "onefooterblock_qed_tpl" THEN "' . smartsql ($defaults['onefooterblock']) . '"
+      WHEN "onefooterblocktext_qed_tpl" THEN "' . smartsql ($defaults['onefooterblocktext']) . '"
+      WHEN "footer1text_qed_tpl" THEN "' . smartsql ($defaults['footer1text']) . '"
+      WHEN "footer2text_qed_tpl" THEN "' . smartsql ($defaults['footer2text']) . '"
+
+      WHEN "companyName_qed_tpl" THEN "' . smartsql ($defaults['companyName']) . '"
+      WHEN "companyPhone_qed_tpl" THEN "' . smartsql ($defaults['companyPhone']) . '"
+      WHEN "companySite_qed_tpl" THEN "' . smartsql ($defaults['companySite']) . '"
+      WHEN "companyEmail_qed_tpl" THEN "' . smartsql ($defaults['companyEmail']) . '"
+
+      WHEN "socialfooterText_qed_tpl" THEN "' . smartsql ($defaults['socialfooterText']) . '"
+      WHEN "facebookfooterShow_qed_tpl" THEN "' . smartsql ($defaults['facebookfooterShow']) . '"
+      WHEN "facebookfooterLinks_qed_tpl" THEN "' . smartsql ($defaults['facebookfooterLinks']) . '"
+      WHEN "twitterfooterShow_qed_tpl" THEN "' . smartsql ($defaults['twitterfooterShow']) . '"
+      WHEN "twitterfooterLinks_qed_tpl" THEN "' . smartsql ($defaults['twitterfooterLinks']) . '"
+      WHEN "googlefooterShow_qed_tpl" THEN "' . smartsql ($defaults['googlefooterShow']) . '"
+      WHEN "googlefooterLinks_qed_tpl" THEN "' . smartsql ($defaults['googlefooterLinks']) . '"
+      WHEN "instagramfooterShow_qed_tpl" THEN "' . smartsql ($defaults['instagramfooterShow']) . '"
+      WHEN "instagramfooterLinks_qed_tpl" THEN "' . smartsql ($defaults['instagramfooterLinks']) . '"
+
       END
-        WHERE varname IN ("sitemapShow_qed_tpl", "loginShow_qed_tpl", "facebookShow_qed_tpl", "facebookLinks_qed_tpl", "twitterShow_qed_tpl", "twitterLinks_qed_tpl", "googleShow_qed_tpl", "googleLinks_qed_tpl", "instagramShow_qed_tpl", "instagramLinks_qed_tpl", "phoneShow_qed_tpl", "phoneLinks_qed_tpl", "emailShow_qed_tpl", "emailLinks_qed_tpl", "logo1_qed_tpl", "activeroyalslider_qed_tpl", "arrowsNav_qed_tpl", "arrowsNavAutoHide_qed_tpl", "arrowsNavHideOnTouch_qed_tpl", "controlNavigation_qed_tpl", "enabledAU_qed_tpl", "pauseOnHoverAU_qed_tpl", "delayAU_qed_tpl", "autoScaleSlider_qed_tpl", "autoScaleSliderWidth_qed_tpl", "autoScaleSliderHeight_qed_tpl", "imageAlignCenter_qed_tpl", "imgWidth_qed_tpl", "imgHeight_qed_tpl", "numImagesToPreload_qed_tpl", "fadeinLoadedSlide_qed_tpl", "transitionType_qed_tpl", "transitionSpeed_qed_tpl" )');
+        WHERE varname IN ("fsocialsize_qed_tpl", "fsocialstyle_qed_tpl", "boxed_qed_tpl", "header_qed_tpl", "color_qed_tpl", "sitemapShow_qed_tpl", "loginShow_qed_tpl", "facebookShow_qed_tpl", "facebookLinks_qed_tpl", "twitterShow_qed_tpl", "twitterLinks_qed_tpl", "googleShow_qed_tpl", "googleLinks_qed_tpl", "instagramShow_qed_tpl", "instagramLinks_qed_tpl", "phoneShow_qed_tpl", "phoneLinks_qed_tpl", "emailShow_qed_tpl", "emailLinks_qed_tpl", "logo1_qed_tpl", "activeroyalslider_qed_tpl", "arrowsNav_qed_tpl", "arrowsNavAutoHide_qed_tpl", "arrowsNavHideOnTouch_qed_tpl", "controlNavigation_qed_tpl", "enabledAU_qed_tpl", "pauseOnHoverAU_qed_tpl", "delayAU_qed_tpl", "autoScaleSlider_qed_tpl", "autoScaleSliderWidth_qed_tpl", "autoScaleSliderHeight_qed_tpl", "imageAlignCenter_qed_tpl", "imgWidth_qed_tpl", "imgHeight_qed_tpl", "numImagesToPreload_qed_tpl", "fadeinLoadedSlide_qed_tpl", "transitionType_qed_tpl", "transitionSpeed_qed_tpl", "onefooterblock_qed_tpl", "onefooterblocktext_qed_tpl", "footer1text_qed_tpl", "footer2text_qed_tpl", "companyName_qed_tpl", "companyPhone_qed_tpl", "companySite_qed_tpl", "companyEmail_qed_tpl", "socialfooterText_qed_tpl", "facebookfooterShow_qed_tpl", "facebookfooterLinks_qed_tpl", "twitterfooterShow_qed_tpl", "twitterfooterLinks_qed_tpl", "googlefooterShow_qed_tpl", "googlefooterLinks_qed_tpl", "instagramfooterShow_qed_tpl", "instagramfooterLinks_qed_tpl" )');
 
 	$openfedit = fopen ($defaults['jak_file'], "w+");
 	$datasave  = $defaults['jak_filecontent'];

@@ -30,7 +30,7 @@
 	<div class="error-page">
 		<h3 class="headline text-red">Template (Šablona) pro Plugin <?php echo $JAK_TPL_PLUG_T; ?> není nainstalována</h3>
 		<div class="error-content">
-			<h3><i class="fa fa-warning text-red"></i><?php echo $tl["notetemplate"]["n1"]; ?></h3>
+			<h3><i class="fa fa-warning text-red"></i><?php echo $tl["notetemplate"]["ntpl2"]; ?></h3>
 			<p>Prosím nainstalujte šablonu <?php echo "<strong>" . $jkv["sitestyle"] . "</strong>"; ?> pro plugin <?php echo "<strong>" . $JAK_TPL_PLUG_T . "</strong>"; ?> v administraci (ACP) webové sítě</p>
 		</div>
 	</div>

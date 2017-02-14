@@ -99,7 +99,7 @@ setcookie ('usrsession', session_id (), time () + 60 * 60 * 24 * 10, JAK_COOKIE_
 $site_language = $jkv["lang"];
 
 // Standard Locale
-$site_locale = $jkv["locale"];
+$site_locale = $jkv["locale"] . '.utf8';
 
 // Check if user is logged in
 $jakuserlogin = new JAK_userlogin();

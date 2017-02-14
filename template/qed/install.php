@@ -96,6 +96,12 @@ $succesfully = 0;
 ("cms_tpl", "qed", "1", "1", "yesno", "boolean", "tpl_qed"),
 
 
+("color_qed_tpl", "qed", "blue", "blue", "select", "free", "tpl_qed"),
+("header_qed_tpl", "qed", "", "", "select", "free", "tpl_qed"),
+("boxed_qed_tpl", "qed", "0", "0", "yesno", "boolean", "tpl_qed"),
+("fsocialstyle_qed_tpl", "qed", "circle", "circle", "select", "free", "tpl_qed"),
+("fsocialsize_qed_tpl", "qed", "medium", "medium", "select", "free", "tpl_qed"),
+
 ("sitemapShow_qed_tpl", "qed", "1", "1", "yesno", "boolean", "tpl_qed"),
 ("loginShow_qed_tpl", "qed", "1", "1", "yesno", "boolean", "tpl_qed"),
 ("facebookShow_qed_tpl", "qed", "1", "1", "yesno", "boolean", "tpl_qed"),
@@ -132,7 +138,28 @@ $succesfully = 0;
 
 ("fadeinLoadedSlide_qed_tpl", "qed", "true", "true", "yesno", "boolean", "tpl_qed"),
 ("transitionType_qed_tpl", "qed", "fade", "fade", "select", "free", "tpl_qed"),
-("transitionSpeed_qed_tpl", "qed", "3000", "3000", "input", "free", "tpl_qed")
+("transitionSpeed_qed_tpl", "qed", "3000", "3000", "input", "free", "tpl_qed"),
+
+("onefooterblock_qed_tpl", "qed", "1", "1", "yesno", "boolean", "tpl_qed"),
+("onefooterblocktext_qed_tpl", "qed", NULL, NULL, "textarea", "free", "tpl_qed"),
+("footer1text_qed_tpl", "qed", NULL, NULL, "textarea", "free", "tpl_qed"),
+("footer2text_qed_tpl", "qed", NULL, NULL, "textarea", "free", "tpl_qed"),
+
+("companyName_qed_tpl", "qed", "BLUESAT.cz", "BLUESAT.cz", "input", "free", "tpl_qed"),
+("companyPhone_qed_tpl", "qed", "+420 000 000 000", "+420 000 000 000", "input", "free", "tpl_qed"),
+("companySite_qed_tpl", "qed", "http://www.qed.com", "http://www.qed.com", "input", "free", "tpl_qed"),
+("companyEmail_qed_tpl", "qed", "info@qed.com", "info@qed.com", "input", "free", "tpl_qed"),
+
+("socialfooterText_qed_tpl", "qed", "Follow us, we are social", "Follow us, we are social", "input", "free", "tpl_qed"),
+("facebookfooterShow_qed_tpl", "qed", "1", "1", "yesno", "boolean", "tpl_qed"),
+("facebookfooterLinks_qed_tpl", "qed", "https://www.facebook.com/", "https://www.facebook.com/", "input", "free", "tpl_qed"),
+("twitterfooterShow_qed_tpl", "qed", "1", "1", "yesno", "boolean", "tpl_qed"),
+("twitterfooterLinks_qed_tpl", "qed", "https://twitter.com/", "https://twitter.com/", "input", "free", "tpl_qed"),
+("googlefooterShow_qed_tpl", "qed", "1", "1", "yesno", "boolean", "tpl_qed"),
+("googlefooterLinks_qed_tpl", "qed", "https://plus.google.com/", "https://plus.google.com/", "input", "free", "tpl_qed"),
+("instagramfooterShow_qed_tpl", "qed", "1", "1", "yesno", "boolean", "tpl_qed"),
+("instagramfooterLinks_qed_tpl", "qed", "https://www.instagram.com/", "https://www.instagram.com/", "input", "free", "tpl_qed")
+
 ');
 
 					$succesfully = 1;

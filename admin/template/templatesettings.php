@@ -33,11 +33,11 @@ if ($page3 == "e") { ?>
 
 <?php if (!isset($jkv["cms_tpl"])) { ?>
 	<div class="row">
-		<div class="col-md-6 col-md-offset-3 error-page">
-			<h1 class="text-warning bold"><?php echo $tl["notetemplate"]["nh"]; ?></h1>
+		<div class="col-md-6 col-sm-offset-3 text-center error-page">
+			<h1 class="text-warning bold"><?php echo $tl["notetemplate"]["ntpl"]; ?></h1>
 			<div class="error-content">
-				<h3><i class="fa fa-warning text-warning"></i> <?php echo $tl["notetemplate"]["n1"]; ?></h3>
-				<p><?php echo $tl["notetemplate"]["n2"]; ?></p>
+				<h3><i class="fa fa-warning text-warning"></i> <?php echo $tl["notetemplate"]["ntpl2"]; ?></h3>
+				<p><?php echo $tl["notetemplate"]["ntpl3"]; ?></p>
 			</div>
 		</div>
 	</div>
@@ -47,16 +47,16 @@ if ($page3 == "e") { ?>
 	$filename = '../template/' . $jkv["sitestyle"] . '/templatesettings.php';
 
 	if (file_exists ($filename)) {
-		include $filename;
+		include_once $filename;
 	} else { ?>
 
 		<section class="content">
-			<div class="error-page">
+			<div class="col-md-6 col-sm-offset-3 text-center error-page">
 				<div class="error-content">
 					<h3>
-						<i class="fa fa-warning text-warning-800"></i> <?php echo sprintf ($tl["notetemplate"]["nh1"], $jkv["sitestyle"]); ?>
+						<i class="fa fa-warning text-warning-800"></i> <?php echo sprintf ($tl["notetemplate"]["ntpl1"], $jkv["sitestyle"]); ?>
 					</h3>
-					<?php echo sprintf ($tl["notetemplate"]["n3"], $filename); ?>
+					<?php echo sprintf ($tl["notetemplate"]["ntpl4"], $filename); ?>
 				</div>
 			</div>
 		</section>

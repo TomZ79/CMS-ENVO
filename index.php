@@ -480,7 +480,7 @@ if ($SHOWDATE == '1') define ('SHOWDATE', 1);
 if (!JAK_TAGS && !JAK_USER_TAGS) $JAK_TAGLIST = false;
 
 // Get the normal or plugin template
-if (isset($jkv["sitestyle"]) && !empty($jkv["sitestyle"]) && isset($template) && $template != '') {
+if (isset($jkv["sitestyle"]) && !empty($jkv["sitestyle"]) && isset($jkv["cms_tpl"]) && isset($template) && $template != '') {
 	include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/' . $template;
 	// Get the plugin template
 } elseif (isset($plugin_template) && $plugin_template != '') {

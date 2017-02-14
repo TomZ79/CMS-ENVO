@@ -146,7 +146,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "pages (
   KEY `catid` (`catid`,`active`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2");
 
-$jakdb->query("INSERT INTO " . DB_PREFIX . "pages VALUES(1, 1, 'CMS - BLUESAT', '<div class=\"jumbotron\"><h1>CMS - BLUESAT</h1>\r\n<p>Welcome to your very own CMS installation.</p>\r\n</div>', '', '', 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, NULL, 1, NOW())");
+$jakdb->query("INSERT INTO " . DB_PREFIX . "pages VALUES(1, 1, 'CMS - ENVO', '<div class=\"jumbotron\"><h1>CMS - ENVO</h1>\r\n<p>Welcome to your very own CMS installation.</p>\r\n</div>', '', '', 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, NULL, 1, NOW())");
 
 $jakdb->query("CREATE TABLE " . DB_PREFIX . "pagesgrid (
   `id` int(11) NOT NULL AUTO_INCREMENT,

@@ -322,6 +322,7 @@ function jak_get_id_name($jakvar, $jakvar1, $jakvar2, $jakvar3)
 // Get News out the database
 function jak_get_news($jakvar, $where, $plname, $order, $datef, $timef, $timeago)
 {
+
   if (!empty($jakvar)) {
     $sqlin = 'active = 1 ORDER BY ' . $order . ' ';
   } else if (empty($jakvar) && is_numeric($where)) {

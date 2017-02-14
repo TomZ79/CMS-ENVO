@@ -1,0 +1,37 @@
+pre {
+  padding: 0;
+}
+.rainbow {
+  margin: 0 !important;
+  padding: 0 !important;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+.rainbow td, 
+.rainbow tr,
+.rainbow th {
+  line-height: 1;
+}
+.rainbow .line,
+.rainbow .line .line-number  {
+  transition: all .1s linear;
+}
+.rainbow .line:hover {
+  background-color: #f5f5f5;
+}
+.rainbow .line:hover .line-number {
+  background-color: #ccc;
+}
+.rainbow .line .line-number {
+  text-align: right;
+  background-color: #f0f0f0;
+  padding-left: 0.8em;
+  padding-right: 0.8em;
+}
+.rainbow .line .line-number:before {
+  content: attr(data-line-number);
+}
+.rainbow .line .line-code {
+  padding-left: 1em;
+  width: 100%;
+}

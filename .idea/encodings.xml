@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/admin/template/editcontactform.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/admin/template/edituser.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/admin/template/editusergroup.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/admin/template/header.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/admin/template/mediasharing.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/admin/template/newcontactform.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/admin/template/newuser.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/admin/template/newusergroup.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/admin/template/quickheader.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/admin/template/searchsetting.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/admin/template/setting.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/admin/template/site.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/admin/template/templatesettings.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/template/canvas/styleswitcher.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/template/qed/header.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/template/qed/info.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/template/qed/news.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/template/qed/newsart.php" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/template/qed/templatesettings.php" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

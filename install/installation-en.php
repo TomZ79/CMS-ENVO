@@ -32,7 +32,7 @@
     <div class="col-md-6">
       <div class="jumbotron">
         <h3>Installation Guide - Manual</h3>
-        Welcome to the installation guide for CMS - Bluesat.
+        Welcome to the installation guide for CMS - Envo.
       </div>
 
       <strong>Please follow all the steps carefully.</strong><br/><br/>
@@ -79,7 +79,7 @@
     <div class="col-md-6">
       <div class="jumbotron">
         <h3>Installation Guide - Video</h3>
-        Watch the video how to install CMS - Bluesat.
+        Watch the video how to install CMS - Envo.
       </div>
 
       <h4>Installation Video</h4>

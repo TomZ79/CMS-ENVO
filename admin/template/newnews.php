@@ -218,13 +218,13 @@ if ($errors) { ?>
 													((isset($_REQUEST["jak_sidebar"]) && $_REQUEST["jak_sidebar"] == '1')) ? $checked = 'yes' : $checked = 'no';
 													echo $htmlE->addInput ('radio', 'jak_sidebar', 'jak_sidebar1', '', '1', $checked);
 													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_sidebar1', $tl["checkbox"]["chk"]);
+													echo $htmlE->addLabelFor ('jak_sidebar1', $tl["checkbox"]["chk2"]);
 
 													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
 													((isset($_REQUEST["jak_sidebar"]) && $_REQUEST["jak_sidebar"] == '0') || !isset($_REQUEST["jak_sidebar"])) ? $checked = 'yes' : $checked = 'no';
 													echo $htmlE->addInput ('radio', 'jak_sidebar', 'jak_sidebar2', '', '0', $checked);
 													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_sidebar2', $tl["checkbox"]["chk1"]);
+													echo $htmlE->addLabelFor ('jak_sidebar2', $tl["checkbox"]["chk3"]);
 													?>
 
 												</div>

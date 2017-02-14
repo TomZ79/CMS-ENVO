@@ -175,7 +175,7 @@
 							</div>
 
 							<div class="panel-body">
-								Bluesat CMS is in active development. Bluesat have good basic code from Jerome by JakWeb.ch.<br>
+								CMS ENVO is in active development. ENVO have good basic code from Jerome by JakWeb.ch.<br>
 								Basic original version is CMS JakWeb 2.2
 							</div>
 

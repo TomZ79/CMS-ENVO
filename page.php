@@ -71,7 +71,7 @@ if (!empty($row['shownews'])) {
 
 	if (is_array ($shownewsarray) && in_array ("ASC", $shownewsarray) || in_array ("DESC", $shownewsarray)) {
 
-		$JAK_NEWS_IN_CONTENT = jak_get_news ('LIMIT ' . $shownewsarray[1], '', JAK_PLUGIN_VAR_NEWS, $shownewsarray[0], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['general']['g56']);
+		$JAK_NEWS_IN_CONTENT = jak_get_news ('LIMIT ' . $shownewsarray[2], '', JAK_PLUGIN_VAR_NEWS, $shownewsarray[0] . ' ' . $shownewsarray[1], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['general']['g56']);
 
 	} else {
 

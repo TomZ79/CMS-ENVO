@@ -626,7 +626,7 @@ if (DB_USER && DB_PASS) {
 
 <div id="footer">
   <div class="container">
-    <p class="muted credit">Copyright 2008 - <?php echo date('Y'); ?> by <a href="http://www.bluesat.cz" target="_blank">CMS / BLUESAT</a></p>
+    <p class="muted credit">Copyright 2016 - <?php echo date('Y'); ?> by <a href="http://www.bluesat.cz" target="_blank">BLUESAT</a></p>
   </div>
 </div>
 

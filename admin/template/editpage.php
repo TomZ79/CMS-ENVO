@@ -369,7 +369,7 @@ if ($errors) { ?>
 												<div class="row-form">
 													<div class="col-md-12">
 														<div class="form-group">
-															<label for="tags"><?php echo $tl["general"]["g27"]; ?></label>
+															<label><?php echo $tl["general"]["g27"]; ?></label>
 															<span>Zaškrté tagy budou při uložení smazány</span>
 															<div class="controls">
 																<?php echo $JAK_TAGLIST; ?>
@@ -501,13 +501,21 @@ if ($errors) { ?>
 													<div class="form-group">
 														<label><?php echo $tl["global_text"]["globaltxt9"]; ?></label>
 														<div class="row">
-															<div class="col-md-6">
+															<div class="col-md-4">
 																<select name="jak_shownewsorder" class="form-control selectpicker" data-size="5">
 																	<option value="ASC"<?php if (isset($JAK_FORM_DATA["shownewsorder"]) && $JAK_FORM_DATA["shownewsorder"] == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["global_text"]["globaltxt10"]; ?></option>
 																	<option value="DESC"<?php if (isset($JAK_FORM_DATA["shownewsorder"]) && $JAK_FORM_DATA["shownewsorder"] == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["global_text"]["globaltxt11"]; ?></option>
 																</select>
 															</div>
-															<div class="col-md-6">
+															<div class="col-md-4">
+																<select name="jak_shownewsordern" class="form-control selectpicker">
+																	<option value="id"<?php if ($JAK_FORM_DATA['shownewswhat'] == "id") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel9"]; ?></option>
+																	<option value="title"<?php if ($JAK_FORM_DATA['shownewswhat'] == "title") { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel10"]; ?></option>
+																	<option value="time"<?php if ($JAK_FORM_DATA['shownewswhat'] == "time") { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel11"]; ?></option>
+																	<option value="hits"<?php if ($JAK_FORM_DATA['shownewswhat'] == "hits") { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel12"]; ?></option>
+																</select>
+															</div>
+															<div class="col-md-4">
 																<select name="jak_shownewsmany" class="form-control selectpicker" data-size="5">
 																	<?php for ($i = 0; $i <= 10; $i ++) { ?>
 																		<option value="<?php echo $i ?>"<?php if (isset($JAK_FORM_DATA["shownewsmany"]) && $JAK_FORM_DATA["shownewsmany"] == $i) { ?> selected="selected"<?php } ?>><?php echo $i; ?></option>
@@ -522,7 +530,7 @@ if ($errors) { ?>
 														<select name="jak_shownews[]" multiple="multiple" class="form-control">
 															<option value="0"<?php if (isset($JAK_FORM_DATA["shownews"]) && $JAK_FORM_DATA["shownews"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["global_text"]["globaltxt13"]; ?></option>
 															<?php if (isset($JAK_GET_NEWS) && is_array ($JAK_GET_NEWS)) foreach ($JAK_GET_NEWS as $gn) { ?>
-																<option value="<?php echo $gn["id"]; ?>"<?php if (isset($JAK_FORM_DATA["shownews"]) && $JAK_FORM_DATA["shownews"] == $gn["id"]) { ?> selected="selected"<?php } ?>><?php echo $gn["title"]; ?></option>
+																<option value="<?php echo $gn["id"]; ?>"<?php if (isset($JAK_FORM_DATA["shownews"]) && (in_array ($gn["id"], explode (',', $JAK_FORM_DATA["shownews"]))) ) { ?> selected="selected"<?php } ?>><?php echo $gn["title"]; ?></option>
 															<?php } ?>
 														</select>
 													</div>

@@ -1,10 +1,10 @@
-		<?php if (empty($JAK_HOOK_SIDE_GRID) && (!empty($page))) { ?>
+		<?php if (empty($JAK_HOOK_SIDE_GRID) && (!empty($page)) && ($page != 'offline')  && ($page != '404')) { ?>
 						</div>
 					</div>
 				</section>
 				<?php } ?>
 
-		<?php if (empty($JAK_HOOK_SIDE_GRID) && (empty($page))) { ?>
+		<?php if ((empty($JAK_HOOK_SIDE_GRID) && (empty($page))) || ($page == 'offline') || ($page == '404')) { ?>
 
 		<?php } ?>
 
@@ -34,23 +34,27 @@
 			<div class="container">
 				<div class="row">
 
-					<div class="col-sm-6">
+					<div class="col-sm-<?php echo ($jkv["onefooterblock_qed_tpl"] == 1 ?  '6' : '3');  ?>">
 						<div class="footer-widget">
-							<img src="images/neko-logo.png" alt="latest Little Neko news" id="footerLogo" class="mb-small">
-							<p><a href="http://www.little-neko.com" title="Little Neko, website template creation">Little Neko</a> is a web design and development studio. We build responsive HTML5 and CSS3 templates, integrating best web design practises and up-to-date web technologies to create great user experiences. We love what we do and we hope you too ! </p>
+							<?php echo ($jkv["onefooterblock_qed_tpl"] == 1 ?  $jkv["onefooterblocktext_qed_tpl"] : $jkv["footer1text_qed_tpl"]);  ?>
+						</div>
+					</div>
+
+					<div class="<?php echo ($jkv["onefooterblock_qed_tpl"] == 1 ?  'hidden' : 'col-sm-3'); ?>">
+						<div class="footer-widget">
+							<?php echo ($jkv["onefooterblock_qed_tpl"] == 1 ?  '' : $jkv["footer2text_qed_tpl"]);  ?>
 						</div>
 					</div>
 
 					<div class="col-sm-3">
-						<div class="footer-widget">
+						<div class="col-md-offset-2 footer-widget">
 
-							<h3>Little NEKO</h3>
+							<h3><?php echo $jkv["companyName_qed_tpl"]; ?></h3>
 							<address>
 								<p>
-									<i class="icon-location"></i>1600 Pennsylvania Avenue NW<br>
-									Washington, DC 20500 <br>
-									<i class="icon-phone"></i>256.478.3252 <br>
-									<i class="icon-mail-alt"></i>&nbsp;<a href="mailto:contact@template.com">contact@template.com</a>
+									<i class="icon-phone"></i><?php echo $jkv["companyPhone_qed_tpl"]; ?><br>
+									<i class="icon-globe"></i><a href="<?php echo $jkv["companySite_qed_tpl"]; ?>" target="_blank"><?php echo $jkv["companySite_qed_tpl"]; ?></a><br>
+									<i class="icon-mail-alt"></i>&nbsp;<a href="mailto:<?php echo $jkv["companyEmail_qed_tpl"]; ?>"><?php echo $jkv["companyEmail_qed_tpl"]; ?></a>
 								</p>
 							</address>
 						</div>
@@ -58,21 +62,34 @@
 
 					<div class="col-sm-3">
 						<div class="footer-widget mb-small">
-							<h3>Follow us, we are social</h3>
+							<h3><?php echo $jkv["socialfooterText_qed_tpl"]; ?></h3>
 
-							<ul class="social-icons dark-main-color circle medium">
-								<li>
-									<a href="#" class="rss " title="rss"><i class="icon-rss"></i></a>
-								</li>
-								<li>
-									<a href="#" class="facebook" title="facebook"><i class="icon-facebook"></i></a>
-								</li>
-								<li>
-									<a href="#" class="twitter" title="twitter"><i class="icon-twitter"></i></a>
-								</li>
-								<li>
-									<a href="#" class="gplus" title="gplus"><i class="icon-gplus"></i></a>
-								</li>
+							<ul class="social-icons dark-main-color <?php echo $jkv["fsocialstyle_qed_tpl"] . ' ' . $jkv["fsocialsize_qed_tpl"];?>">
+								<?php if ($jkv["facebookfooterShow_qed_tpl"] == 1) { ?>
+									<li>
+										<a href="<?php echo $jkv["facebookfooterLinks_qed_tpl"]; ?>" class="facebook" target="_blank"><i class="icon-facebook"></i></a>
+									</li>
+								<?php }
+								if ($jkv["twitterfooterShow_qed_tpl"] == 1) { ?>
+									<li>
+										<a href="<?php echo $jkv["twitterfooterLinks_qed_tpl"]; ?>" class="twitter" target="_blank"><i class="icon-twitter"></i></a>
+									</li>
+								<?php }
+								if ($jkv["googlefooterShow_qed_tpl"] == 1) { ?>
+									<li>
+										<a href="<?php echo $jkv["googlefooterLinks_qed_tpl"]; ?>" class="gplus" target="_blank"><i class="icon-gplus"></i></a>
+									</li>
+								<?php }
+								if ($jkv["instagramfooterShow_qed_tpl"] == 1) { ?>
+									<li>
+										<a href="<?php echo $jkv["instagramfooterLinks_qed_tpl"]; ?>" class="facebook" target="_blank"><i class="icon-instagramm"></i></a>
+									</li>
+								<?php }
+								if ($JAK_RSS_DISPLAY) { ?>
+									<li>
+										<a href="<?php echo $P_RSS_LINK; ?>" class="rss" target="_blank"><i class="icon-rss"></i></a>
+									</li>
+								<?php } ?>
 							</ul>
 						</div>
 						<div class="footer-widget mb-small system-icons">
@@ -111,7 +128,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6">
-							<?php echo jak_build_menu_qed (0, $mfooter, $page, 'footer-list-style', '', '', '', JAK_ASACCESS); ?>
+							<?php echo jak_build_menu_qed (0, $mfooter, $page, 'footer-list-style', '', '', '', '', JAK_ASACCESS); ?>
 						</div>
 						<div class="col-md-6">
 							<p><?php echo $jkv["copyright"]; ?></p>
@@ -187,69 +204,7 @@
 		</footer>
 		<!-- / footer -->
 	<?php } } if (!$JAK_SHOW_FOOTER) { ?>
-		<!-- footer -->
-		<footer id="main-footer">
-			<div class="container">
-				<div class="row">
 
-					<div class="col-sm-6">
-						<div class="footer-widget">
-							<img src="images/neko-logo.png" alt="latest Little Neko news" id="footerLogo" class="mb-small">
-							<p><a href="http://www.little-neko.com" title="Little Neko, website template creation">Little Neko</a> is a web design and development studio. We build responsive HTML5 and CSS3 templates, integrating best web design practises and up-to-date web technologies to create great user experiences. We love what we do and we hope you too ! </p>
-						</div>
-					</div>
-
-					<div class="col-sm-3">
-						<div class="footer-widget">
-
-							<h3>Little NEKO</h3>
-							<address>
-								<p>
-									<i class="icon-location"></i>1600 Pennsylvania Avenue NW<br>
-									Washington, DC 20500 <br>
-									<i class="icon-phone"></i>256.478.3252 <br>
-									<i class="icon-mail-alt"></i>&nbsp;<a href="mailto:contact@template.com">contact@template.com</a>
-								</p>
-							</address>
-						</div>
-					</div>
-
-					<div class="col-sm-3">
-						<div class="footer-widget">
-							<h3>Follow us, we are social</h3>
-
-							<ul class="social-icons dark-main-color circle medium">
-								<li>
-									<a href="#" class="rss " title="rss"><i class="icon-rss"></i></a>
-								</li>
-								<li>
-									<a href="#" class="facebook" title="facebook"><i class="icon-facebook"></i></a>
-								</li>
-								<li>
-									<a href="#" class="twitter" title="twitter"><i class="icon-twitter"></i></a>
-								</li>
-								<li>
-									<a href="#" class="gplus" title="gplus"><i class="icon-gplus"></i></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-
-				</div>
-			</div>
-
-			<div id="footer-rights">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<p>Copyright © 2012 <a href="http://www.little-neko.com" target="blank">Little NEKO</a> / All rights reserved.</p>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</footer>
-		<!-- / footer -->
 	<?php } ?>
 
 </div>
@@ -268,6 +223,7 @@
 <script type="application/javascript" src="/template/<?php echo $jkv["sitestyle"];?>/js-plugins/external-plugins.min.js"></script>
 <script type="text/javascript" src="/assets/plugins/bootstap-notify/bootstrap-notify.min.js"></script>
 <script type="text/javascript" src="/assets/plugins/owl.carousel/owl.carousel.min.js"></script>
+<script type="text/javascript" src="/assets/plugins/full-screen-navigation/js/FSNav.js"></script>
 
 <!-- Neko framework script -->
 <script type="text/javascript" src="/template/<?php echo $jkv["sitestyle"];?>/js/neko-framework.js"></script>
@@ -400,6 +356,22 @@ if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT;
 	</div>
 </div>
 <?php } } ?>
+
+<!-- Search box -->
+<div id="full-screen-search" class="full-screen-nav">
+	<span class="full-screen-nav-close"></span>
+	<div class="full-screen-nav-content">
+		<div class="full-screen-nav-general">
+			<div class="full-screen-nav-wrapper">
+				<p>Zadejte hledaný výraz a stikněte Enter</p>
+				<form class="form-search" action="/search" method="post">
+					<input type="text" name="jakSH" id="Jajaxs" class="search" placeholder="Vyhledat ...">
+					<button type="submit"><i class="icon-search"></i></button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
 
 </body>
 </html>

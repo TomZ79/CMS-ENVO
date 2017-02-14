@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="<?php echo $site_language; ?>">
 <head>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
@@ -21,6 +21,7 @@
 	<link href="assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css" media="screen"/>
 	<link href="assets/plugins/bootstrap-fileinput/css/fileinput.min.css" rel="stylesheet" type="text/css" media="screen"/>
 	<link href="assets/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" media="screen"/>
+	<link href="assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" type="text/css" media="screen"/>
 	<link href="assets/plugins/switchery/css/switchery.min.css" rel="stylesheet" type="text/css" media="screen"/>
 	<link href="assets/plugins/prism/prism.css" rel="stylesheet" type="text/css" media="screen"/>
 	<link href="assets/css/animate.min.css" rel="stylesheet" type="text/css">

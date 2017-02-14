@@ -70,9 +70,10 @@ if ($page == "success" or $page == "logout") { ?>
 	<link type="text/css" rel="stylesheet" href="/template/<?php echo $jkv["sitestyle"];?>/icons/custom-icons/css/custom-icons.css">
 	<link type="text/css" rel="stylesheet" href="/template/<?php echo $jkv["sitestyle"];?>/js-plugins/external-plugins.min.css">
 	<link type="text/css" rel="stylesheet" href="/template/<?php echo $jkv["sitestyle"];?>/css/layout/neko-framework-layout.css">
-	<link type="text/css" rel="stylesheet" id="color" href="/template/<?php echo $jkv["sitestyle"];?>/css/color/neko-framework-green.css">
+	<link type="text/css" rel="stylesheet" id="color" href="/template/<?php echo $jkv["sitestyle"];?>/css/color/neko-framework-<?php echo $jkv["color_qed_tpl"];?>.css">
 	<link type="text/css" rel="stylesheet" id="color" href="/assets/plugins/owl.carousel/assets/owl.carousel.css">
 	<link type="text/css" rel="stylesheet" id="color" href="/assets/plugins/owl.carousel/assets/owl.theme.green.css">
+	<link href="/assets/plugins/full-screen-navigation/css/FSNav.css" rel="stylesheet">
 
 	<?php if ($SHOWSOCIALBUTTON) { ?>
 	<link href="/assets/plugins/jquery-sollist/jquery.sollist.min.css" rel="stylesheet" type="text/css" media="screen"/>
@@ -111,7 +112,7 @@ if ($page == "success" or $page == "logout") { ?>
 	echo $JAK_HEADER_CSS; ?>
 
 </head>
-<body class="activate-appear-animation header-2">
+<body class="activate-appear-animation <?php if($jkv["boxed_qed_tpl"] == 1) echo ' boxed-layout '; echo $jkv["header_qed_tpl"]; ?> color-<?php echo $jkv["color_qed_tpl"];?>">
 
 <!-- global-wrapper -->
 <div id="global-wrapper">
@@ -133,8 +134,9 @@ if ($page == "success" or $page == "logout") { ?>
 								<li><a href="/" id="login">Login</a></li>
 							<?php } else { ?>
 								<li><a href="<?php echo $P_USR_LOGOUT; ?>" id="logout"><?php echo $tl["title"]["t6"]; ?></a></li>
+								<?php	if (JAK_ASACCESS) { ?>
 								<li><a href="<?php echo BASE_URL; ?>admin/">Admin</a></li>
-							<?php	} } ?>
+							<?php	} } } ?>
 						</ul>
 					</div>
 					<div class="col-sm-6 col-xs-12 quick-contact">
@@ -192,18 +194,31 @@ if ($page == "success" or $page == "logout") { ?>
 					<a class="navbar-brand" href="<?php echo BASE_URL; ?>"><img src="<?php echo $jkv["logo1_qed_tpl"]; ?>" alt="Q.E.D. website template"/></a>
 					<!-- /Logo -->
 				</div>
-				<div class="collapse navbar-collapse">
+				<div class="collapse navbar-collapse pull-right">
 					<!-- Main navigation -->
 					<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/navbar.php'; ?>
 					<!-- Hook -->
 					<?php if (isset($JAK_HOOK_HEADER) && is_array ($JAK_HOOK_HEADER)) foreach ($JAK_HOOK_HEADER as $hheader) {
 						include_once APP_PATH . $hheader['phpcode'];
 					} ?>
+					<!-- Search -->
+					<div class="search-box pull-right hidden-xs">
+						<div id="show-nav"><i class="icon-search"></i></div>
+					</div>
 
+					<div class="responsive-search-box pull-right visible-xs">
+						<hr>
+						<form class="form-search" action="/search" method="post">
+							<div class="form-group">
+								<div class="input-group">
+									<input type="text" name="jakSH" id="Jajaxs" class="form-control search" placeholder="Vyhledat ...">
+									<span class="input-group-addon"><button type="submit" class="icon-search"></button></span>
+								</div>
+							</div>
+						</form>
+					</div>
 					<!-- / End main navigation -->
 				</div>
-
-
 			</nav>
 		</div>
 
@@ -216,7 +231,7 @@ if ($page == "success" or $page == "logout") { ?>
 	<main id="content">
 
 		<!-- Page Title -->
-		<?php if ($JAK_SHOW_NAVBAR) { if (!isset($page) || empty($page) || ($page == 'offline')) { // Code for homepage ?>
+		<?php if ($JAK_SHOW_NAVBAR) { if (!isset($page) || empty($page) || ($page == 'offline') || ($page == '404')) { // Code for homepage ?>
 
 		<?php } elseif (isset($page)) { // Code for all page without home page ?>
 
@@ -259,7 +274,7 @@ if ($page == "success" or $page == "logout") { ?>
 		} ?>
 
 
-		<?php if (empty($JAK_HOOK_SIDE_GRID) && (!empty($page))) { ?>
+		<?php if (empty($JAK_HOOK_SIDE_GRID) && (!empty($page)) && ($page != 'offline')  && ($page != '404')) { ?>
 
 		<section class="pt-medium">
 
@@ -268,7 +283,7 @@ if ($page == "success" or $page == "logout") { ?>
 
 		<?php } ?>
 
-		<?php if (empty($JAK_HOOK_SIDE_GRID) && (empty($page))) { ?>
+		<?php if ((empty($JAK_HOOK_SIDE_GRID) && (empty($page))) || ($page == 'offline') || ($page == '404')) { ?>
 
 		<?php } ?>
 

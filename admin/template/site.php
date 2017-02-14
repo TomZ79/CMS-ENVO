@@ -170,7 +170,7 @@ if ($errors) { ?>
 								<div class="row-form">
 									<div class="col-md-5"><strong><?php echo $tl["site_box_content"]["sitebc8"]; ?></strong></div>
 									<div class="col-md-7">
-										<textarea name="jak_copy" id="copyright" class="form-control" rows="1"><?php echo $jkv["copyright"]; ?></textarea>
+										<textarea name="jak_copy" id="copyright" rows="4" class="form-control" rows="1"><?php echo $jkv["copyright"]; ?></textarea>
 									</div>
 								</div>
 							</div>
