@@ -80,8 +80,15 @@ $succesfully = 0;
 } else {
     $tlqed = parse_ini_file(APP_PATH.\'template/qed/lang/en.ini\', true);
 }';
+					$adminlang = 'if (file_exists(APP_PATH.\'template/qed/lang/\'.$site_language.\'.ini\')) {
+    $tlqed = parse_ini_file(APP_PATH.\'template/qed/lang/\'.$site_language.\'.ini\', true);
+} else {
+    $tlqed = parse_ini_file(APP_PATH.\'template/qed/lang/en.ini\', true);
+}';
+
 					$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
-(NULL, "php_lang", "QED Template Site Language", "' . $sitelang . '", "tpl_qed", 1, 4, "0", NOW())');
+(NULL, "php_lang", "QED Template Site Language", "' . $sitelang . '", "tpl_qed", 1, 4, "0", NOW()),
+(NULL, "php_admin_lang", "QED Template Admin Language", "' . $adminlang . '", "tpl_qed", 1, 4, "0", NOW())');
 
 					// Insert tables into settings
 					/* Table of varname

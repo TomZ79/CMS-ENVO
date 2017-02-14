@@ -29,6 +29,24 @@ if ($page4 == "e") { ?>
 			});
 		}, 1000);
 	</script>
+<?php }
+if ($errors) { ?>
+	<script type="text/javascript">
+		// Notification
+		setTimeout(function () {
+			$.notify({
+				// options
+				message: '<?php if (isset($errors["e"])) echo $errors["e"];
+					if (isset($errors["e1"])) echo $errors["e1"];
+					if (isset($errors["e2"])) echo $errors["e2"];
+					if (isset($errors["e3"])) echo $errors["e3"];?>',
+			}, {
+				// settings
+				type: 'danger',
+				delay: 10000,
+			});
+		}, 1000);
+	</script>
 <?php } ?>
 
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
@@ -54,7 +72,12 @@ if ($page4 == "e") { ?>
 									<div class="col-md-5"><strong><?php echo $tlblog["blog_box_content"]["blogbc19"]; ?></strong></div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-											<input type="text" name="jak_name" id="jak_name" class="form-control" value="<?php echo $JAK_FORM_DATA["name"]; ?>"/>
+
+											<?php
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											echo $htmlE->addInput ('text', 'jak_name', 'jak_name', 'form-control', $JAK_FORM_DATA["name"], '');
+											?>
+
 										</div>
 									</div>
 								</div>
@@ -67,14 +90,24 @@ if ($page4 == "e") { ?>
 									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
-											<input type="text" name="jak_varname" id="jak_varname" class="form-control" value="<?php echo $JAK_FORM_DATA["varname"]; ?>"/>
+
+											<?php
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											echo $htmlE->addInput ('text', 'jak_varname', 'jak_varname', 'form-control', $JAK_FORM_DATA["varname"], '');
+											?>
+
 										</div>
 									</div>
 								</div>
 								<div class="row-form">
 									<div class="col-md-5"><strong><?php echo $tlblog["blog_box_content"]["blogbc21"]; ?></strong></div>
 									<div class="col-md-7">
-										<textarea name="jak_lcontent" class="form-control" rows="4"><?php echo jak_edit_safe_userpost ($JAK_FORM_DATA["content"]); ?></textarea>
+
+										<?php
+										// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+										echo $htmlE->addTextArea ('jak_lcontent', '4', '', jak_edit_safe_userpost ($JAK_FORM_DATA["content"]), array ('id' => 'content', 'class' => 'form-control'));
+										?>
+
 									</div>
 								</div>
 								<div class="row-form">
@@ -82,11 +115,19 @@ if ($page4 == "e") { ?>
 									<div class="col-md-7">
 										<div class="radio radio-success">
 
-											<input type="radio" id="jak_active1" name="jak_active" value="1"<?php if ($JAK_FORM_DATA["active"] == '1') { ?> checked="checked"<?php } ?> />
-											<label for="jak_active1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+											<?php
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											($JAK_FORM_DATA["active"] == '1') ? $checked = 'yes' : $checked = 'no';
+											echo $htmlE->addInput ('radio', 'jak_active', 'jak_active1', '', '1', $checked);
+											// Arguments: for (id of associated form element), text
+											echo $htmlE->addLabelFor ('jak_active1', $tl["checkbox"]["chk"]);
 
-											<input type="radio" id="jak_active2" name="jak_active" value="0"<?php if ($JAK_FORM_DATA["active"] == '0') { ?> checked="checked"<?php } ?> />
-											<label for="jak_active2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											($JAK_FORM_DATA["active"] == '0') ? $checked = 'yes' : $checked = 'no';
+											echo $htmlE->addInput ('radio', 'jak_active', 'jak_active2', '', '0', $checked);
+											// Arguments: for (id of associated form element), text
+											echo $htmlE->addLabelFor ('jak_active2', $tl["checkbox"]["chk1"]);
+											?>
 
 										</div>
 									</div>
@@ -95,7 +136,12 @@ if ($page4 == "e") { ?>
 									<div class="col-md-5"><strong><?php echo $tlblog["blog_box_content"]["blogbc23"]; ?></strong></div>
 									<div class="col-md-7">
 										<div class="input-group">
-											<input type="text" name="jak_img" id="jak_img" class="form-control" value="<?php echo $JAK_FORM_DATA["catimg"]; ?>">
+
+											<?php
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											echo $htmlE->addInput ('text', 'jak_img', 'jak_img', 'form-control', $JAK_FORM_DATA["catimg"], '');
+											?>
+
                     <span class="input-group-btn">
                       <button class="btn btn-default iconpicker" data-placement="top" role="iconpicker"></button>
                     </span>

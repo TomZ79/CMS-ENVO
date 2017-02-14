@@ -1,7 +1,7 @@
 <?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/header.php'; ?>
 
 <?php if (!$PAGE_ACTIVE) { ?>
-	<div class="alert bg-danger">
+	<div class="alert alert-danger">
 		<?php echo $tl["errorpage"]["ep"]; ?>
 	</div>
 <?php } else {
@@ -27,7 +27,7 @@
 		if ($errorpp) { ?>
 
 			<!-- Show password error -->
-			<div class="alert bg-danger fade in">
+			<div class="alert alert-danger fade in">
 				<button type="button" class="close" data-dismiss="alert">×</button>
 				<h4><?php echo $errorpp["e"]; ?></h4>
 			</div>

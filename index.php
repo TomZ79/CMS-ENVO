@@ -313,9 +313,10 @@ if ($page == 'logout') {
 
 // Search
 if ($page == 'search') {
-	if (!$jkv["searchform"] || !JAK_USER_SEARCH) {
-		jak_redirect (BASE_URL);
-	}
+	/* Redirect to base url if search isn't
+	 * if (!$jkv["searchform"] || !JAK_USER_SEARCH) { jak_redirect (BASE_URL); }
+	*/
+
 	// Get the url session
 	$_SESSION['jak_lastURL'] = JAK_rewrite::jakParseurl ('search');
 	require_once 'search.php';

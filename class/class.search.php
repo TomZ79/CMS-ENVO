@@ -53,7 +53,7 @@ class JAK_search
 
 	}
 
-	function jakFieldstoselect ($select)
+	function  jakFieldstoselect ($select)
 	{
 		// What fields should we select
 		$this->select = '';

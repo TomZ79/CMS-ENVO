@@ -24,7 +24,7 @@
 	<![endif]-->
 
 </head>
-<body class="hold-transition skin-teal">
+<body>
 
 <!-- Main content -->
 <section class="content">

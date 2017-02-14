@@ -1,10 +1,10 @@
-		<?php if (empty($JAK_HOOK_SIDE_GRID) && (!empty($page)) && ($page != 'offline')  && ($page != '404')) { ?>
+		<?php if (empty($JAK_HOOK_SIDE_GRID) && (!empty($page)) && ($page != 'offline')  && ($page != '404') && ($jkv["searchform"])) { ?>
 						</div>
 					</div>
 				</section>
 				<?php } ?>
 
-		<?php if ((empty($JAK_HOOK_SIDE_GRID) && (empty($page))) || ($page == 'offline') || ($page == '404')) { ?>
+		<?php if ((empty($JAK_HOOK_SIDE_GRID) && (empty($page))) || ($page == 'offline') || ($page == '404') || (!$jkv["searchform"])) { ?>
 
 		<?php } ?>
 

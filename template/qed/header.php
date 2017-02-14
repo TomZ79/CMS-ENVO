@@ -231,7 +231,7 @@ if ($page == "success" or $page == "logout") { ?>
 	<main id="content">
 
 		<!-- Page Title -->
-		<?php if ($JAK_SHOW_NAVBAR) { if (!isset($page) || empty($page) || ($page == 'offline') || ($page == '404')) { // Code for homepage ?>
+		<?php if ($JAK_SHOW_NAVBAR) { if (!isset($page) || empty($page) || ($page == 'offline') || ($page == '404') || (!$jkv["searchform"] || !JAK_USER_SEARCH)) {// Code for homepage and other blank page ?>
 
 		<?php } elseif (isset($page)) { // Code for all page without home page ?>
 
@@ -274,7 +274,7 @@ if ($page == "success" or $page == "logout") { ?>
 		} ?>
 
 
-		<?php if (empty($JAK_HOOK_SIDE_GRID) && (!empty($page)) && ($page != 'offline')  && ($page != '404')) { ?>
+		<?php if (empty($JAK_HOOK_SIDE_GRID) && (!empty($page)) && ($page != 'offline')  && ($page != '404') && ($jkv["searchform"])) { ?>
 
 		<section class="pt-medium">
 
@@ -283,7 +283,7 @@ if ($page == "success" or $page == "logout") { ?>
 
 		<?php } ?>
 
-		<?php if ((empty($JAK_HOOK_SIDE_GRID) && (empty($page))) || ($page == 'offline') || ($page == '404')) { ?>
+		<?php if ((empty($JAK_HOOK_SIDE_GRID) && (empty($page))) || ($page == 'offline') || ($page == '404') || (!$jkv["searchform"])) { ?>
 
 		<?php } ?>
 
@@ -301,5 +301,4 @@ if ($page == "success" or $page == "logout") { ?>
 					<div class="<?php echo ($JAK_HOOK_SIDE_GRID ? "col-md-9" : "col-md-12"); ?>">
 
 		<?php } ?>
-
 

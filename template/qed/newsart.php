@@ -1,7 +1,7 @@
 <?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/header.php'; ?>
 
 <?php if (!$PAGE_ACTIVE) { ?>
-	<div class="alert bg-danger">
+	<div class="alert alert-danger">
 		<?php echo $tl["errorpage"]["ep"]; ?>
 	</div>
 <?php }

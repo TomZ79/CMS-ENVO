@@ -10,28 +10,28 @@
 	<!-- Form Content -->
 	<ul id="cmsTab" class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
 		<li role="presentation" class="active">
-			<a href="#cmsPage1" role="tab" id="cmsPage1-tab" data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
-				<span class="text">Basic</span>
+			<a href="#cmsPage1" id="cmsPage1-tab" role="tab"  data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
+				<span class="text"><?php echo $tlqed["tplset_section_tab"]["tplsettab"]; ?></span>
 			</a>
 		</li>
 		<li role="presentation" class="next">
 			<a href="#cmsPage2" role="tab" id="cmsPage2-tab" data-toggle="tab" aria-controls="cmsPage2">
-				<span class="text">Header</span>
+				<span class="text"><?php echo $tlqed["tplset_section_tab"]["tplsettab1"]; ?></span>
 			</a>
 		</li>
-		<li role="presentation" class="next">
+		<li role="presentation">
 			<a href="#cmsPage3" role="tab" id="cmsPage3-tab" data-toggle="tab" aria-controls="cmsPage3">
-				<span class="text">RoyalSlider</span>
+				<span class="text"><?php echo $tlqed["tplset_section_tab"]["tplsettab2"]; ?></span>
 			</a>
 		</li>
 		<li role="presentation">
 			<a href="#cmsPage4" role="tab" id="cmsPage4-tab" data-toggle="tab" aria-controls="cmsPage4">
-				<span class="text">Footer</span>
+				<span class="text"><?php echo $tlqed["tplset_section_tab"]["tplsettab3"]; ?></span>
 			</a>
 		</li>
 		<li role="presentation">
 			<a href="#cmsPage5" role="tab" id="cmsPage5-tab" data-toggle="tab" aria-controls="cmsPage5">
-				<span class="text">Language</span>
+				<span class="text"><?php echo $tlqed["tplset_section_tab"]["tplsettab4"]; ?></span>
 			</a>
 		</li>
 	</ul>
@@ -42,13 +42,13 @@
 				<div class="col-md-6">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title">Template Color Style</h3>
+							<h3 class="box-title"><?php echo $tlqed["sb_box_title"]["sbbt"]; ?></h3>
 						</div>
 						<div class="box-body">
 							<div class="block">
 								<div class="block-content">
 									<div class="row-form">
-										<div class="col-md-5"><strong>Color style</strong></div>
+										<div class="col-md-5"><strong><?php echo $tlqed["sb_box_content"]["sbbc"]; ?></strong></div>
 										<div class="col-md-7">
 											<select name="colorQed" class="form-control selectpicker" data-size="5">
 												<option value="blue"<?php if ($jktpl["color_qed_tpl"] == 'blue') { ?> selected="selected"<?php } ?>>Blue</option>
@@ -80,13 +80,13 @@
 				<div class="col-md-6">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title">Header Style</h3>
+							<h3 class="box-title"><?php echo $tlqed["sb_box_title"]["sbbt1"]; ?></h3>
 						</div>
 						<div class="box-body">
 							<div class="block">
 								<div class="block-content">
 									<div class="row-form">
-										<div class="col-md-5"><strong>Header Color style</strong></div>
+										<div class="col-md-5"><strong><?php echo $tlqed["sb_box_content"]["sbbc1"]; ?></strong></div>
 										<div class="col-md-7">
 											<select name="headerQed" class="form-control selectpicker" data-size="5">
 												<option value=""<?php if ($jktpl["header_qed_tpl"] == '') { ?> selected="selected"<?php } ?>>Basic Header</option>
@@ -113,13 +113,13 @@
 				<div class="col-md-6">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title">General Style</h3>
+							<h3 class="box-title"><?php echo $tlqed["sb_box_title"]["sbbt2"]; ?></h3>
 						</div>
 						<div class="box-body">
 							<div class="block">
 								<div class="block-content">
 									<div class="row-form">
-										<div class="col-md-5"><strong>Boxed layout</strong></div>
+										<div class="col-md-5"><strong><?php echo $tlqed["sb_box_content"]["sbbc2"]; ?></strong></div>
 										<div class="col-md-7">
 											<div class="radio radio-success">
 
@@ -146,13 +146,13 @@
 				<div class="col-md-6">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title">Footer Style</h3>
+							<h3 class="box-title"><?php echo $tlqed["sb_box_title"]["sbbt3"]; ?></h3>
 						</div>
 						<div class="box-body">
 							<div class="block">
 								<div class="block-content">
 									<div class="row-form">
-										<div class="col-md-5"><strong>Social icons style</strong></div>
+										<div class="col-md-5"><strong><?php echo $tlqed["sb_box_content"]["sbbc3"]; ?></strong></div>
 										<div class="col-md-7">
 											<select name="fsocialstyleQed" class="form-control selectpicker" data-size="5">
 												<option value="squared"<?php if ($jktpl["fsocialstyle_qed_tpl"] == 'squared') { ?> selected="selected"<?php } ?>>Squared</option>
@@ -190,13 +190,13 @@
 				<div class="col-md-6">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title">Mini Navbar Content</h3>
+							<h3 class="box-title"><?php echo $tlqed["sh_box_title"]["shbt"]; ?></h3>
 						</div>
 						<div class="box-body">
 							<div class="block">
 								<div class="block-content">
 									<div class="row-form">
-										<div class="col-md-5"><strong>Sitemap</strong></div>
+										<div class="col-md-5"><strong><?php echo $tlqed["sh_box_content"]["shbc"]; ?></strong></div>
 										<div class="col-md-7">
 											<div class="radio radio-success">
 
@@ -210,7 +210,7 @@
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-5"><strong>'Login / Logout' Links</strong></div>
+										<div class="col-md-5"><strong><?php echo $tlqed["sh_box_content"]["shbc1"]; ?></strong></div>
 										<div class="col-md-7">
 											<div class="radio radio-success">
 
@@ -238,13 +238,13 @@
 				<div class="col-md-6">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title">Navbar Logo</h3>
+							<h3 class="box-title"><?php echo $tlqed["sh_box_title"]["shbt1"]; ?></h3>
 						</div>
 						<div class="box-body">
 							<div class="block">
 								<div class="block-content">
 									<div class="row-form">
-										<div class="col-md-5"><strong>Standard Logo</strong></div>
+										<div class="col-md-5"><strong><?php echo $tlqed["sh_box_content"]["shbc2"]; ?></strong></div>
 										<div class="col-md-7">
 											<div class="input-group">
 												<input type="text" name="standardlogo" id="sclogo1" class="form-control" value="<?php echo $jktpl["logo1_qed_tpl"]; ?>"/>
@@ -271,13 +271,13 @@
 				<div class="col-md-12">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title">Mini Navbar Content - Social Icons</h3>
+							<h3 class="box-title"><?php echo $tlqed["sh_box_title"]["shbt2"]; ?></h3>
 						</div>
 						<div class="box-body">
 							<div class="block">
 								<div class="block-content">
 									<div class="row-form">
-										<div class="col-md-2"><strong>Faceebook</strong></div>
+										<div class="col-md-2"><strong><?php echo $tlqed["sh_box_content"]["shbc3"]; ?></strong></div>
 										<div class="col-md-3">
 											<div class="radio radio-success">
 
@@ -295,7 +295,7 @@
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-2"><strong>Twitter</strong></div>
+										<div class="col-md-2"><strong><?php echo $tlqed["sh_box_content"]["shbc4"]; ?></strong></div>
 										<div class="col-md-3">
 											<div class="radio radio-success">
 
@@ -313,7 +313,7 @@
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-2"><strong>Google Plus</strong></div>
+										<div class="col-md-2"><strong><?php echo $tlqed["sh_box_content"]["shbc5"]; ?></strong></div>
 										<div class="col-md-3">
 											<div class="radio radio-success">
 
@@ -331,7 +331,7 @@
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-2"><strong>Instagram</strong></div>
+										<div class="col-md-2"><strong><?php echo $tlqed["sh_box_content"]["shbc6"]; ?></strong></div>
 										<div class="col-md-3">
 											<div class="radio radio-success">
 
@@ -349,7 +349,7 @@
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-2"><strong>Phone</strong></div>
+										<div class="col-md-2"><strong><?php echo $tlqed["sh_box_content"]["shbc7"]; ?></strong></div>
 										<div class="col-md-3">
 											<div class="radio radio-success">
 
@@ -367,7 +367,7 @@
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-2"><strong>Email</strong></div>
+										<div class="col-md-2"><strong><?php echo $tlqed["sh_box_content"]["shbc8"]; ?></strong></div>
 										<div class="col-md-3">
 											<div class="radio radio-success">
 
@@ -402,7 +402,7 @@
 				<div class="col-md-6">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title">RoyalSlider</h3>
+							<h3 class="box-title"><?php echo $tlqed["srs_box_title"]["srsbt"]; ?></h3>
 						</div>
 						<div class="box-body">
 							<div class="block">
@@ -433,7 +433,7 @@
 					</div>
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title">Navigation</h3>
+							<h3 class="box-title"><?php echo $tlqed["srs_box_title"]["srsbt1"]; ?></h3>
 						</div>
 						<div class="box-body">
 							<div class="block">
@@ -501,7 +501,7 @@
 					</div>
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title">Autoplay options</h3>
+							<h3 class="box-title"><?php echo $tlqed["srs_box_title"]["srsbt2"]; ?></h3>
 						</div>
 						<div class="box-body">
 							<div class="block">
@@ -554,7 +554,7 @@
 				<div class="col-md-6">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title">Slider scale and image</h3>
+							<h3 class="box-title"><?php echo $tlqed["srs_box_title"]["srsbt3"]; ?></h3>
 						</div>
 						<div class="box-body">
 							<div class="block">
@@ -629,7 +629,7 @@
 					</div>
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title">Fade, Load and Loop</h3>
+							<h3 class="box-title"><?php echo $tlqed["srs_box_title"]["srsbt4"]; ?></h3>
 						</div>
 						<div class="box-body">
 							<div class="block">
@@ -681,7 +681,7 @@
 				<div class="col-md-12">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title">Footer Block 1 and 2 as a one block</h3>
+							<h3 class="box-title"><?php echo $tlqed["sf_box_title"]["sfbt"]; ?></h3>
 						</div>
 						<div class="box-body">
 							<div class="row-form">
@@ -718,7 +718,7 @@
 				<div class="col-md-6">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title">Footer Block 1</h3>
+							<h3 class="box-title"><?php echo $tlqed["sf_box_title"]["sfbt1"]; ?></h3>
 						</div>
 						<div class="box-body">
 							<div class="row-form">
@@ -741,7 +741,7 @@
 				<div class="col-md-6">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title">Footer Block 2</h3>
+							<h3 class="box-title"><?php echo $tlqed["sf_box_title"]["sfbt2"]; ?></h3>
 						</div>
 						<div class="box-body">
 							<div class="row-form">
@@ -766,7 +766,7 @@
 				<div class="col-md-12">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title">Footer Block 3 - Address</h3>
+							<h3 class="box-title"><?php echo $tlqed["sf_box_title"]["sfbt3"]; ?></h3>
 						</div>
 						<div class="box-body">
 							<div class="col-md-5">
@@ -812,7 +812,7 @@
 				<div class="col-md-12">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title">Footer Block 4 - Social Icons</h3>
+							<h3 class="box-title"><?php echo $tlqed["sf_box_title"]["sfbt4"]; ?></h3>
 						</div>
 						<div class="box-body">
 							<div class="block">
@@ -914,7 +914,7 @@
 
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title">Editace Souboru</h3>
+							<h3 class="box-title"><?php echo $tlqed["sl_box_title"]["slbt"]; ?></h3>
 						</div>
 						<div class="box-body">
 							<div class="block">

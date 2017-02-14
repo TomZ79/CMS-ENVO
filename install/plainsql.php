@@ -78,6 +78,8 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "galleryfacebook (
   `title` varchar(255) DEFAULT NULL,
   `paththumb` varchar(255) DEFAULT NULL,
   `pathoriginal` varchar(255) DEFAULT NULL,
+  `width` varchar(255) DEFAULT NULL,
+  `height` varchar(255) DEFAULT NULL,
   `size` varchar(255) DEFAULT NULL,
   `time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)

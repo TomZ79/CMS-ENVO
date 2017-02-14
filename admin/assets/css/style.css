@@ -757,6 +757,19 @@ table.table-expandable > tbody > tr div.table-expandable-arrow.up {
   background-position: 0 0;
 }
 
+/* 00. MODIFICATION - BOOTSTRAP FILEINPUT
+========================================================================*/
+/* Bootstrap FileInput - Icons */
+.kv-caption-icon {
+  margin-right: 10px;
+  margin-left: 20px;
+}
+/* FileInput progress bar */
+.file-thumb-progress {
+  position: inherit;
+  top: 0;
+}
+
 /* 00. MODIFICATION - RADIO, CHECKBOX, BUTTON, ICONS, INPUT, DL List
 ========================================================================*/
 /* External button for save form */
@@ -799,12 +812,6 @@ table.table-expandable > tbody > tr div.table-expandable-arrow.up {
 .table thead tr th .bootstrap-select .btn {
   margin-top: inherit;
   margin-bottom: inherit;
-}
-
-/* Bootstrap FileInput - Icons */
-.kv-caption-icon {
-  margin-right: 10px;
-  margin-left: 20px;
 }
 
 /* Icons in table header */
@@ -1162,7 +1169,8 @@ pre[class*="language-"] {
 }
 
 .bootbox-confirm-del .bootbox-body,
-.bootbox-confirm-trunc .bootbox-body {
+.bootbox-confirm-trunc .bootbox-body,
+.bootbox-confirm-logout .bootbox-body{
   margin-top: 15px;
 }
 

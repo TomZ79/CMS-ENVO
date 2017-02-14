@@ -1,4 +1,4 @@
-<script src="js/catorder.js" type="text/javascript"></script>
+<script src="assets/js/catorder.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
 
@@ -25,7 +25,7 @@
 	});
 </script>
 
-<script src="js/ace/ace.js" type="text/javascript"></script>
+<script src="assets/plugins/js/ace/ace.js" type="text/javascript"></script>
 <script type="text/javascript">
 
 	/* ACE Editor
@@ -198,7 +198,7 @@
 	});
 </script>
 
-<script src="js/slug.js" type="text/javascript"></script>
+<script src="assets/js/slug.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
 		$("#jak_name").keyup(function () {

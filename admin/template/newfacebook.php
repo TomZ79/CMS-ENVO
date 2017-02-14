@@ -1,6 +1,6 @@
 <?php include "header.php"; ?>
 
-	<div class="container-fluid kv-main">
+	<div class="col-md-12 kv-main">
 		<input id="images" name="images[]" type="file" multiple>
 	</div>
 

@@ -58,7 +58,12 @@ if ($errors) { ?>
 									<div class="col-md-5"><strong><?php echo $tlblog["blog_box_content"]["blogbc19"]; ?></strong></div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-											<input type="text" name="jak_name" id="jak_name" class="form-control" value=""/>
+
+											<?php
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											echo $htmlE->addInput ('text', 'jak_name', 'jak_name', 'form-control', $_REQUEST["jak_name"], '');
+											?>
+
 										</div>
 									</div>
 								</div>
@@ -71,14 +76,24 @@ if ($errors) { ?>
 									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
-											<input type="text" name="jak_varname" id="jak_varname" class="form-control" value=""/>
+
+											<?php
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											echo $htmlE->addInput ('text', 'jak_varname', 'jak_varname', 'form-control', $_REQUEST["jak_varname"], '');
+											?>
+
 										</div>
 									</div>
 								</div>
 								<div class="row-form">
 									<div class="col-md-5"><strong><?php echo $tlblog["blog_box_content"]["blogbc21"]; ?></strong></div>
 									<div class="col-md-7">
-										<textarea name="jak_lcontent" class="form-control" rows="4"></textarea>
+
+										<?php
+										// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+										echo $htmlE->addTextArea ('jak_lcontent', '4', '', jak_edit_safe_userpost ($_REQUEST["jak_lcontent"]), array ('id' => 'content', 'class' => 'form-control'));
+										?>
+
 									</div>
 								</div>
 								<div class="row-form">
@@ -86,11 +101,19 @@ if ($errors) { ?>
 									<div class="col-md-7">
 										<div class="radio radio-success">
 
-											<input type="radio" id="jak_active1" name="jak_active" value="1" />
-											<label for="jak_active1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+											<?php
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											((isset($_REQUEST["jak_active"]) && $_REQUEST["jak_active"] == '1') || !isset($_REQUEST["jak_active"])) ? $checked = 'yes' : $checked = 'no';
+											echo $htmlE->addInput ('radio', 'jak_active', 'jak_active1', '', '1', $checked);
+											// Arguments: for (id of associated form element), text
+											echo $htmlE->addLabelFor ('jak_active1', $tl["checkbox"]["chk"]);
 
-											<input type="radio" id="jak_active2" name="jak_active" value="0" />
-											<label for="jak_active2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											((isset($_REQUEST["jak_active"]) && $_REQUEST["jak_active"] == '0')) ? $checked = 'yes' : $checked = 'no';
+											echo $htmlE->addInput ('radio', 'jak_active', 'jak_active2', '', '0', $checked);
+											// Arguments: for (id of associated form element), text
+											echo $htmlE->addLabelFor ('jak_active2', $tl["checkbox"]["chk1"]);
+											?>
 
 										</div>
 									</div>
@@ -99,7 +122,12 @@ if ($errors) { ?>
 									<div class="col-md-5"><strong><?php echo $tlblog["blog_box_content"]["blogbc23"]; ?></strong></div>
 									<div class="col-md-7">
 										<div class="input-group">
-											<input type="text" name="jak_img" id="jak_img" class="form-control" value=""/>
+
+											<?php
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											echo $htmlE->addInput ('text', 'jak_img', 'jak_img', 'form-control', $_REQUEST["jak_img"], '');
+											?>
+
                     <span class="input-group-btn">
                       <button class="btn btn-default iconpicker" data-placement="top" role="iconpicker"></button>
                     </span>
