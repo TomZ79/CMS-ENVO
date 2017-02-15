@@ -82,8 +82,14 @@ if ($errors) { ?>
 								</div>
 								<div class="row-form">
 									<div class="col-md-5">
-										<strong><?php echo $tl["user_box_content"]["userbc4"]; ?></strong>
-										<span class="star-item text-danger-800 m-l-10">*</span>
+
+										<?php
+										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+										// Add Html Element -> endTag (Arguments: tag)
+										echo $htmlE->startTag('strong') . $tl["user_box_content"]["userbc4"] . $htmlE->endTag('strong');
+										echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+										?>
+
 									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
@@ -98,8 +104,14 @@ if ($errors) { ?>
 								</div>
 								<div class="row-form">
 									<div class="col-md-5">
-										<strong><?php echo $tl["user_box_content"]["userbc5"]; ?></strong>
-										<span class="star-item text-danger-800 m-l-10">*</span>
+
+										<?php
+										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+										// Add Html Element -> endTag (Arguments: tag)
+										echo $htmlE->startTag('strong') . $tl["user_box_content"]["userbc5"] . $htmlE->endTag('strong');
+										echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+										?>
+
 									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
@@ -114,7 +126,15 @@ if ($errors) { ?>
 									</div>
 								</div>
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["user_box_content"]["userbc6"]; ?></strong></div>
+									<div class="col-md-5">
+
+										<?php
+										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+										// Add Html Element -> endTag (Arguments: tag)
+										echo $htmlE->startTag('strong') . $tl["user_box_content"]["userbc6"] . $htmlE->endTag('strong');
+										?>
+
+									</div>
 									<div class="col-md-7">
 										<select name="jak_usergroup" class="form-control selectpicker" data-size="5">
 											<?php if (isset($JAK_USERGROUP_ALL) && is_array ($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
@@ -125,7 +145,15 @@ if ($errors) { ?>
 									</div>
 								</div>
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["user_box_content"]["userbc8"]; ?></strong></div>
+									<div class="col-md-5">
+
+										<?php
+										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+										// Add Html Element -> endTag (Arguments: tag)
+										echo $htmlE->startTag('strong') . $tl["user_box_content"]["userbc8"] . $htmlE->endTag('strong');
+										?>
+
+									</div>
 									<div class="col-md-7">
 
 										<?php
@@ -136,7 +164,15 @@ if ($errors) { ?>
 									</div>
 								</div>
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["user_box_content"]["userbc9"]; ?></strong></div>
+									<div class="col-md-5">
+
+										<?php
+										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+										// Add Html Element -> endTag (Arguments: tag)
+										echo $htmlE->startTag('strong') . $tl["user_box_content"]["userbc9"] . $htmlE->endTag('strong');
+										?>
+
+									</div>
 									<div class="col-md-7">
 										<select name="jak_usergroupback" class="form-control selectpicker" data-size="5">
 											<option value="0"><?php echo $tl["selection"]["sel8"]; ?></option>
@@ -148,7 +184,15 @@ if ($errors) { ?>
 									</div>
 								</div>
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["user_box_content"]["userbc7"]; ?></strong></div>
+									<div class="col-md-5">
+
+										<?php
+										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+										// Add Html Element -> endTag (Arguments: tag)
+										echo $htmlE->startTag('strong') . $tl["user_box_content"]["userbc7"] . $htmlE->endTag('strong');
+										?>
+
+									</div>
 									<div class="col-md-7">
 										<div class="radio radio-success">
 
@@ -170,7 +214,15 @@ if ($errors) { ?>
 									</div>
 								</div>
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["user_box_content"]["userbc10"]; ?></strong></div>
+									<div class="col-md-5">
+
+										<?php
+										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+										// Add Html Element -> endTag (Arguments: tag)
+										echo $htmlE->startTag('strong') . $tl["user_box_content"]["userbc10"] . $htmlE->endTag('strong');
+										?>
+
+									</div>
 									<div class="col-md-7">
 										<div class="fileinput fileinput-new" data-provides="fileinput">
 											<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">
@@ -194,7 +246,15 @@ if ($errors) { ?>
 								</div>
 								<?php if ($JAK_FORM_DATA["picture"] != "/standard.png") { ?>
 									<div class="row-form">
-										<div class="col-md-5"><strong><?php echo $tl["user_box_content"]["userbc11"]; ?></strong></div>
+										<div class="col-md-5">
+
+											<?php
+											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+											// Add Html Element -> endTag (Arguments: tag)
+											echo $htmlE->startTag('strong') . $tl["user_box_content"]["userbc11"] . $htmlE->endTag('strong');
+											?>
+
+										</div>
 										<div class="col-md-7"><input type="checkbox" name="jak_delete_avatar"/></div>
 									</div>
 								<?php } ?>
@@ -218,7 +278,15 @@ if ($errors) { ?>
 						<div class="block">
 							<div class="block-content">
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["user_box_content"]["userbc12"]; ?></strong></div>
+									<div class="col-md-5">
+
+										<?php
+										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+										// Add Html Element -> endTag (Arguments: tag)
+										echo $htmlE->startTag('strong') . $tl["user_box_content"]["userbc12"] . $htmlE->endTag('strong');
+										?>
+
+									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e5"]) || isset($errors["e6"])) echo " has-error"; ?>">
 											<div class="label-indicator-absolute">
@@ -234,7 +302,15 @@ if ($errors) { ?>
 									</div>
 								</div>
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["user_box_content"]["userbc13"]; ?></strong></div>
+									<div class="col-md-5">
+
+										<?php
+										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+										// Add Html Element -> endTag (Arguments: tag)
+										echo $htmlE->startTag('strong') . $tl["user_box_content"]["userbc13"] . $htmlE->endTag('strong');
+										?>
+
+									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e5"]) || isset($errors["e6"])) echo " has-error"; ?>">
 											<div class="label-indicator-absolute">

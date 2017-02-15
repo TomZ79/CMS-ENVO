@@ -84,7 +84,15 @@ if ($errors) { ?>
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["ss_box_content"]["ssbc"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["ss_box_content"]["ssbc"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 
@@ -97,7 +105,15 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["ss_box_content"]["ssbc1"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["ss_box_content"]["ssbc1"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 
 												<?php
@@ -127,7 +143,15 @@ if ($errors) { ?>
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-6"><strong><?php echo $tl["ss_box_content"]["ssbc2"]; ?></strong></div>
+											<div class="col-md-6">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["ss_box_content"]["ssbc2"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-6">
 												<div class="radio radio-success">
 
@@ -149,7 +173,15 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-6"><strong><?php echo $tl["ss_box_content"]["ssbc3"]; ?></strong></div>
+											<div class="col-md-6">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["ss_box_content"]["ssbc3"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-6">
 												<div class="radio radio-success">
 
@@ -171,7 +203,15 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-6"><strong><?php echo $tl["ss_box_content"]["ssbc4"]; ?></strong></div>
+											<div class="col-md-6">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["ss_box_content"]["ssbc4"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-6">
 												<div class="radio radio-success">
 
@@ -190,7 +230,12 @@ if ($errors) { ?>
 													?>
 
 												</div>
-												<input type="hidden" name="jak_fullsearchold" value="<?php echo $jkv["fulltextsearch"]; ?>"/>
+
+												<?php
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												echo $htmlE->addInput('hidden', 'jak_fullsearchold', '', '', $jkv["fulltextsearch"], '');
+												?>
+
 											</div>
 										</div>
 									</div>

@@ -17,27 +17,75 @@
 							<div class="block">
 								<div class="block-content">
 									<div class="row-form">
-										<div class="col-md-5"><strong><?php echo $tl["fb_box_content"]["fbbc"]; ?></strong></div>
+										<div class="col-md-5">
+
+											<?php
+											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+											// Add Html Element -> endTag (Arguments: tag)
+											echo $htmlE->startTag('strong') . $tl["fb_box_content"]["fbbc"] . $htmlE->endTag('strong');
+											?>
+
+										</div>
 										<div class="col-md-7"><?php echo $JAK_FORM_DATA["title"]; ?></div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-5"><strong><?php echo $tl["fb_box_content"]["fbbc1"]; ?></strong></div>
+										<div class="col-md-5">
+
+											<?php
+											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+											// Add Html Element -> endTag (Arguments: tag)
+											echo $htmlE->startTag('strong') . $tl["fb_box_content"]["fbbc1"] . $htmlE->endTag('strong');
+											?>
+
+										</div>
 										<div class="col-md-7"><?php echo $JAK_FORM_DATA["pathoriginal"]; ?></div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-5"><strong><?php echo $tl["fb_box_content"]["fbbc2"]; ?></strong></div>
+										<div class="col-md-5">
+
+											<?php
+											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+											// Add Html Element -> endTag (Arguments: tag)
+											echo $htmlE->startTag('strong') . $tl["fb_box_content"]["fbbc2"] . $htmlE->endTag('strong');
+											?>
+
+										</div>
 										<div class="col-md-7"><?php echo $JAK_FORM_DATA["paththumb"]; ?></div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-5"><strong><?php echo $tl["fb_box_content"]["fbbc3"]; ?></strong></div>
+										<div class="col-md-5">
+
+											<?php
+											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+											// Add Html Element -> endTag (Arguments: tag)
+											echo $htmlE->startTag('strong') . $tl["fb_box_content"]["fbbc3"] . $htmlE->endTag('strong');
+											?>
+
+										</div>
 										<div class="col-md-7"><?php echo formatSizeUnits ($JAK_FORM_DATA["size"]); ?></div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-5"><strong><?php echo $tl["fb_box_content"]["fbbc4"]; ?></strong></div>
+										<div class="col-md-5">
+
+											<?php
+											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+											// Add Html Element -> endTag (Arguments: tag)
+											echo $htmlE->startTag('strong') . $tl["fb_box_content"]["fbbc4"] . $htmlE->endTag('strong');
+											?>
+
+										</div>
 										<div class="col-md-7"><?php echo $JAK_FORM_DATA["width"] . ' x ' . $JAK_FORM_DATA["height"]; ?></div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-5"><strong><?php echo $tl["fb_box_content"]["fbbc5"]; ?></strong></div>
+										<div class="col-md-5">
+
+											<?php
+											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+											// Add Html Element -> endTag (Arguments: tag)
+											echo $htmlE->startTag('strong') . $tl["fb_box_content"]["fbbc5"] . $htmlE->endTag('strong');
+											?>
+
+										</div>
 										<div class="col-md-7"><?php echo date ("d.m.Y - H:i", strtotime ($JAK_FORM_DATA["time"])); ?></div>
 									</div>
 								</div>

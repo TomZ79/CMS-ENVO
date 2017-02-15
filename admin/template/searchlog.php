@@ -79,8 +79,14 @@ if ($page1 == "e") { ?>
 							<th>#</th>
 							<th>
 								<div class="checkbox-singel check-success">
-									<input type="checkbox" id="jak_delete_all"/>
-									<label for="jak_delete_all"></label>
+
+									<?php
+									// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+									echo $htmlE->addInput('checkbox', 'jak_delete_all', '', '', '', '');
+									// Arguments: for (id of associated form element), text
+									echo $htmlE->addLabelFor('jak_delete_all', '');
+									?>
+
 								</div>
 							</th>
 							<th><?php echo $tl["slogs_box_table"]["slogstb"]; ?></th>
@@ -127,9 +133,12 @@ if ($page1 == "e") { ?>
 <?php } else { ?>
 
 	<div class="col-md-12">
-		<div class="alert bg-info text-white">
-			<?php echo $tl["general_error"]["generror3"]; ?>
-		</div>
+
+		<?php
+		// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
+		echo $htmlE->addSimpleDiv ('', $tl["general_error"]["generror3"],  array ('class' => 'alert bg-info text-white'));
+		?>
+
 	</div>
 
 <?php } ?>

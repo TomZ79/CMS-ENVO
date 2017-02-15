@@ -69,7 +69,10 @@ if ($errors) { ?>
 						<div class="block">
 							<div class="block-content">
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tlblog["blog_box_content"]["blogbc19"]; ?></strong></div>
+									<div class="col-md-5">
+										<strong><?php echo $tlblog["blog_box_content"]["blogbc19"]; ?></strong>
+										<span class="star-item text-danger-800 m-l-10">*</span>
+									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 
@@ -87,6 +90,7 @@ if ($errors) { ?>
 										<a class="cms-help" data-content="<?php echo $tlblog["blog_help"]["blogh2"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tlblog["blog_help"]["blogh"]; ?>">
 											<i class="fa fa-question-circle"></i>
 										</a>
+										<span class="star-item text-danger-800 m-l-10">*</span>
 									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">

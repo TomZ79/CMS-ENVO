@@ -328,7 +328,6 @@ switch ($page1) {
 						}
 					}
 
-					$JAK_FORM_DATA = jak_get_data ($page3, $jaktable1);
 					$JAK_USERGROUP = jak_get_usergroup_all ('usergroup');
 
 					// EN: Title and Description

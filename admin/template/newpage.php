@@ -84,8 +84,14 @@ if ($errors) { ?>
 									<div class="block-content">
 										<div class="row-form">
 											<div class="col-md-5">
-												<strong><?php echo $tl["page_box_content"]["pagebc3"]; ?></strong>
-												<span class="star-item text-danger-800 m-l-10">*</span>
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["page_box_content"]["pagebc3"] . $htmlE->endTag('strong');
+												echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+												?>
+
 											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
@@ -99,7 +105,15 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["page_box_content"]["pagebc4"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["page_box_content"]["pagebc4"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
@@ -121,7 +135,15 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["page_box_content"]["pagebc5"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["page_box_content"]["pagebc5"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
@@ -143,7 +165,15 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["page_box_content"]["pagebc6"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["page_box_content"]["pagebc6"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
@@ -165,7 +195,15 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["page_box_content"]["pagebc7"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["page_box_content"]["pagebc7"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
@@ -187,7 +225,15 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["page_box_content"]["pagebc8"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["page_box_content"]["pagebc8"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
@@ -209,7 +255,15 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["page_box_content"]["pagebc11"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["page_box_content"]["pagebc11"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
@@ -231,7 +285,15 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["page_box_content"]["pagebc12"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["page_box_content"]["pagebc12"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
@@ -253,7 +315,15 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["page_box_content"]["pagebc13"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["page_box_content"]["pagebc13"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
@@ -275,7 +345,15 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["page_box_content"]["pagebc14"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["page_box_content"]["pagebc14"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
@@ -297,7 +375,15 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["page_box_content"]["pagebc15"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["page_box_content"]["pagebc15"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 
 												<?php
@@ -354,7 +440,15 @@ if ($errors) { ?>
 									<div class="block">
 										<div class="block-content">
 											<div class="row-form">
-												<div class="col-md-5"><strong>Choose tags from predefined list</strong></div>
+												<div class="col-md-5">
+
+													<?php
+													// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+													// Add Html Element -> endTag (Arguments: tag)
+													echo $htmlE->startTag('strong') . 'Choose tags from predefined list' . $htmlE->endTag('strong');
+													?>
+
+												</div>
 												<div class="col-md-7">
 													<select name="" id="selecttags1" class="form-control selectpicker" title="Choose tags ..." data-size="7" data-live-search="true">
 														<optgroup label="Poskytovatelé TV">
@@ -372,7 +466,15 @@ if ($errors) { ?>
 												</div>
 											</div>
 											<div class="row-form">
-												<div class="col-md-5"><strong>Choose tags from list</strong></div>
+												<div class="col-md-5">
+
+													<?php
+													// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+													// Add Html Element -> endTag (Arguments: tag)
+													echo $htmlE->startTag('strong') . 'Choose tags from list' . $htmlE->endTag('strong');
+													?>
+
+												</div>
 												<div class="col-md-7">
 													<?php $JAK_TAG_ALL = jak_tag_name_admin ();
 													if ($JAK_TAG_ALL) { ?>
@@ -427,9 +529,10 @@ if ($errors) { ?>
 							<div class="box-body">
 								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
 								<a href="javascript:;" id="addCssBlock"><?php echo $tl["global_text"]["globaltxt6"]; ?></a><br/>
-								<div id="csseditor"></div>
 
 								<?php
+								// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
+								echo $htmlE->addSimpleDiv ('csseditor', '');
 								// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
 								echo $htmlE->addTextArea ('jak_css', '', '', $_REQUEST["jak_css"], array ('id' => 'jak_css', 'class' => 'hidden'));
 								?>
@@ -455,9 +558,10 @@ if ($errors) { ?>
 							<div class="box-body">
 								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
 								<a href="javascript:;" id="addJavascriptBlock"><?php echo $tl["global_text"]["globaltxt7"]; ?></a><br/>
-								<div id="javaeditor"></div>
 
 								<?php
+								// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
+								echo $htmlE->addSimpleDiv ('javaeditor', '');
 								// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
 								echo $htmlE->addTextArea ('jak_javascript', '', '', $_REQUEST["jak_javascript"], array ('id' => 'jak_javascript', 'class' => 'hidden'));
 								?>

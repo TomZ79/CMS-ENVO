@@ -9,7 +9,7 @@ include "header.php";
 			<!-- small box -->
 			<div class="dashboard-box bg-success">
 				<div class="inner">
-					<h3><?php echo $totalhits; ?></h3>
+					<h3><span class="counter" data-counterend="<?php echo $totalhits; ?>"><?php echo $totalhits; ?></span></h3>
 					<p><?php echo $tl["dashb_box_stats"]["dbbs1"]; ?></p>
 				</div>
 				<div class="icon">
@@ -25,7 +25,7 @@ include "header.php";
 			<!-- small box -->
 			<div class="dashboard-box bg-complete-dark">
 				<div class="inner">
-					<h3><?php echo $JAK_COUNTS["searchClog"]; ?></h3>
+					<h3><span class="counter" data-counterend="<?php echo $JAK_COUNTS["searchClog"]; ?>"><?php echo $JAK_COUNTS["searchClog"]; ?></span></h3>
 					<p><?php echo $tl["dashb_box_stats"]["dbbs2"]; ?></p>
 				</div>
 				<div class="icon">
@@ -39,7 +39,7 @@ include "header.php";
 			<!-- small box -->
 			<div class="dashboard-box bg-warning">
 				<div class="inner">
-					<h3><?php echo $JAK_COUNTS["pluginCtotal"]; ?></h3>
+					<h3><span class="counter" data-counterend="<?php echo $JAK_COUNTS["pluginCtotal"]; ?>"><?php echo $JAK_COUNTS["pluginCtotal"]; ?></span></h3>
 					<p><?php echo $tl["dashb_box_stats"]["dbbs3"]; ?></p>
 				</div>
 				<div class="icon">
@@ -54,7 +54,7 @@ include "header.php";
 			<?php if (JAK_TAGS) { ?>
 				<div class="dashboard-box bg-danger">
 					<div class="inner">
-						<h3><?php echo $JAK_COUNTS["tagsCtotal"]; ?></h3>
+						<h3><span class="counter" data-counterend="<?php echo $JAK_COUNTS["tagsCtotal"]; ?>"><?php echo $JAK_COUNTS["tagsCtotal"]; ?></span></h3>
 						<p><?php echo $tl["dashb_box_stats"]["dbbs4"]; ?></p>
 					</div>
 					<div class="icon">
@@ -66,7 +66,7 @@ include "header.php";
 			<?php } else { ?>
 				<div class="dashboard-box bg-info">
 					<div class="inner">
-						<h3><?php echo $JAK_COUNTS["hookCtotal"]; ?></h3>
+						<h3><span class="counter" data-counterend="<?php echo $JAK_COUNTS["hookCtotal"]; ?>"><?php echo $JAK_COUNTS["hookCtotal"]; ?></span></h3>
 						<p><?php echo $tl["dashb_box_stats"]["dbbs5"]; ?></p>
 					</div>
 					<div class="icon">

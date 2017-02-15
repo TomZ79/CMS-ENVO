@@ -51,24 +51,31 @@ if ($page1 == "e") { ?>
 										</div>
 										<div class="col-md-2 col-xs-5 text plugins-name">
 											<span title="<?php echo $v["description"]; ?>">
+
 												<?php
-												$name = $v["name"];
-												echo "<strong>" . str_replace ('_', ' ', $name) . "</strong>";
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . str_replace ('_', ' ', $v["name"]) . $htmlE->endTag('strong');
 												?>
+
 											</span>
 										</div>
 										<div class="col-md-2 col-xs-4 text">
 											<?php if ($v['pluginversion']) {
 												echo '(' . sprintf ($tl["plug_box_content"]["plugbc6"], $v["pluginversion"]) . ')';
-											} ?>
-											<input type="hidden" name="real_id[]" value="<?php echo $v["id"]; ?>"/>
+											}
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											echo $htmlE->addInput('hidden', 'real_id[]', '', '', $v["id"], '');
+											?>
+
 										</div>
 										<div class="col-md-1 hidden-xs text text-center">
 											<?php
 											$filename = '../plugins/' . strtolower ($v["name"]) . '/help.php';
 
 											if (file_exists ($filename)) {
-												echo "<a class=\"plugHelp\" href=\"" . $filename . "\">" . $tl["plug_box_content"]["plugbc2"] . "</a>";
+												// Add Html Element -> addAnchor (Arguments: link, id, class, text, optional assoc. array)
+												echo $htmlE->addAnchor($filename, '', 'plugHelp',  $tl["plug_box_content"]["plugbc2"]);
 											} else {
 												echo "-";
 											}
@@ -76,8 +83,15 @@ if ($page1 == "e") { ?>
 										</div>
 										<div class="col-md-4 hidden-xs show">
 											<div class="form-group form-inline">
-												<label><?php echo $tl["plug_box_content"]["plugbc"]; ?></label>
-												<input type="text" class="form-control" name="access[]" value="<?php echo $v["access"]; ?>"/>
+
+												<?php
+												// Arguments: for (id of associated form element), text
+												echo $htmlE->addLabelFor('', $tl["plug_box_content"]["plugbc"]);
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												echo $htmlE->addInput('text', 'access[]', '', 'form-control', $v["access"], '');
+
+												?>
+
 											</div>
 										</div>
 										<div class="col-md-2 hidden-xs actions">
@@ -169,15 +183,41 @@ if ($page1 == "e") { ?>
 						<div class="block">
 							<div class="block-content">
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["plug_box_content"]["plugbc4"]; ?></strong></div>
+									<div class="col-md-5">
+
+										<?php
+										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+										// Add Html Element -> endTag (Arguments: tag)
+										echo $htmlE->startTag('strong') . $tl["plug_box_content"]["plugbc4"] . $htmlE->endTag('strong');
+										?>
+
+									</div>
 									<div class="col-md-7">
-										<input type="text" name="jak_generala" class="form-control" value="<?php echo $jkv["accessgeneral"]; ?>"/>
+
+										<?php
+										// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+										echo $htmlE->addInput('text', 'jak_generala', '', 'form-control', $jkv["accessgeneral"], '');
+										?>
+
 									</div>
 								</div>
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["plug_box_content"]["plugbc5"]; ?></strong></div>
+									<div class="col-md-5">
+
+										<?php
+										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+										// Add Html Element -> endTag (Arguments: tag)
+										echo $htmlE->startTag('strong') . $tl["plug_box_content"]["plugbc5"] . $htmlE->endTag('strong');
+										?>
+
+									</div>
 									<div class="col-md-7">
-										<input type="text" name="jak_managea" class="form-control" value="<?php echo $jkv["accessmanage"]; ?>"/>
+
+										<?php
+										// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+										echo $htmlE->addInput('text', 'jak_managea', '', 'form-control', $jkv["accessmanage"], '');
+										?>
+
 									</div>
 								</div>
 							</div>

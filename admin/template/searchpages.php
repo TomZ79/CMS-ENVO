@@ -44,8 +44,14 @@
 						<th>#</th>
 						<th>
 							<div class="checkbox-singel check-success">
-								<input type="checkbox" id="jak_delete_all"/>
-								<label for="jak_delete_all"></label>
+
+								<?php
+								// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+								echo $htmlE->addInput('checkbox', 'jak_delete_all', '', '', '', '');
+								// Arguments: for (id of associated form element), text
+								echo $htmlE->addLabelFor('jak_delete_all', '');
+								?>
+
 							</div>
 						</th>
 						<th><?php echo $tl["page_box_table"]["pagetb"]; ?></th>
@@ -101,7 +107,8 @@
 				</table>
 			</div>
 		</div>
-	</div>	</form>
+	</div>
+			</form>
 
 <?php } else if ($SEARCH_WORD) { ?>
 	<div class="alert bg-danger text-white">

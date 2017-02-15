@@ -94,7 +94,15 @@ if ($errors) { ?>
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["news_box_content"]["newsbc"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["news_box_content"]["newsbc"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin">
 
@@ -107,13 +115,34 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["news_box_content"]["newsbc1"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["news_box_content"]["newsbc1"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
-												<textarea name="jak_lcontent" class="form-control" rows="4"><?php echo jak_edit_safe_userpost ($JAK_FORM_DATA["content"]); ?></textarea>
+
+												<?php
+												// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+												echo $htmlE->addTextArea('jak_lcontent', '4', '', jak_edit_safe_userpost($JAK_FORM_DATA["content"]), array('class' => 'form-control'));
+												?>
+
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["news_box_content"]["newsbc2"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["news_box_content"]["newsbc2"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="row">
 													<div class="col-md-6">
@@ -134,18 +163,44 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["news_box_content"]["newsbc3"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["news_box_content"]["newsbc3"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin <?php if (isset($errors["e1"])) echo "has-error"; ?>">
-													<input class="form-control" type="text" name="jak_date" value="<?php echo $jkv["newsdateformat"]; ?>"/>
+
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													echo $htmlE->addInput('text', 'jak_date', '', 'form-control', $jkv["newsdateformat"], '');
+													?>
+
 												</div>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["news_box_content"]["newsbc4"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["news_box_content"]["newsbc4"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin <?php if (isset($errors["e3"])) echo "has-error"; ?>">
-													<input class="form-control" type="text" name="jak_time" value="<?php echo $jkv["newstimeformat"]; ?>"/>
+
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													echo $htmlE->addInput('text', 'jak_time', '', 'form-control', $jkv["newstimeformat"], '');
+													?>
+
 												</div>
 											</div>
 										</div>
@@ -169,7 +224,15 @@ if ($errors) { ?>
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-6"><strong><?php echo $tl["news_box_content"]["newsbc5"]; ?></strong></div>
+											<div class="col-md-6">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["news_box_content"]["newsbc5"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-6 <?php if (isset($errors["e2"])) echo "has-error"; ?>">
 												<select name="jak_mid" class="form-control selectpicker">
 													<option value="2"<?php if ($jkv["newspagemid"] == 2) { ?> selected="selected"<?php } ?>>
@@ -191,9 +254,22 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-6"><strong><?php echo $tl["news_box_content"]["newsbc6"]; ?></strong></div>
+											<div class="col-md-6">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["news_box_content"]["newsbc6"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-6 <?php if (isset($errors["e3"])) echo "has-error"; ?>">
-												<input class="form-control" type="text" name="jak_item" value="<?php echo $jkv["newspageitem"]; ?>"/>
+
+												<?php
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												echo $htmlE->addInput('text', 'jak_item', '', 'form-control', $jkv["newspageitem"], '');
+												?>
+
 											</div>
 										</div>
 									</div>
@@ -219,8 +295,14 @@ if ($errors) { ?>
 							<div class="box-body">
 								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
 								<a href="javascript:;" id="addCssBlock"><?php echo $tl["global_text"]["globaltxt6"]; ?></a><br/>
-								<div id="csseditor"></div>
-								<textarea name="jak_css" class="form-control hidden" id="jak_css" rows="20"><?php echo $jkv["news_css"]; ?></textarea>
+
+								<?php
+								// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
+								echo $htmlE->addSimpleDiv ('csseditor', '');
+								// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+								echo $htmlE->addTextArea ('jak_css', '20', '', $jkv["news_css"], array ('id' => 'jak_css', 'class' => 'hidden'));
+								?>
+
 							</div>
 							<div class="box-footer">
 								<button type="submit" name="save" class="btn btn-success pull-right">
@@ -242,8 +324,14 @@ if ($errors) { ?>
 							<div class="box-body">
 								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
 								<a href="javascript:;" id="addJavascriptBlock"><?php echo $tl["global_text"]["globaltxt7"]; ?></a><br/>
-								<div id="javaeditor"></div>
-								<textarea name="jak_javascript" class="form-control hidden" id="jak_javascript" rows="20"><?php echo $jkv["news_javascript"]; ?></textarea>
+
+								<?php
+								// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
+								echo $htmlE->addSimpleDiv ('javaeditor', '');
+								// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+								echo $htmlE->addTextArea ('jak_javascript', '20', '', $jkv["news_javascript"], array ('id' => 'jak_javascript', 'class' => 'hidden'));
+								?>
+
 							</div>
 							<div class="box-footer">
 								<button type="submit" name="save" class="btn btn-success pull-right">

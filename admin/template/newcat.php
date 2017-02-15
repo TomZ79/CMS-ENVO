@@ -70,8 +70,14 @@ if ($errors) { ?>
 									<div class="block-content">
 										<div class="row-form">
 											<div class="col-md-5">
-												<strong><?php echo $tl["cat_box_content"]["catbc"]; ?></strong>
-												<span class="star-item text-danger-800 m-l-10">*</span>
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["cat_box_content"]["catbc"] . $htmlE->endTag('strong');
+												echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+												?>
+
 											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
@@ -86,11 +92,23 @@ if ($errors) { ?>
 										</div>
 										<div class="row-form">
 											<div class="col-md-5">
-												<strong><?php echo $tl["cat_box_content"]["catbc1"]; ?></strong>
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["cat_box_content"]["catbc1"] . $htmlE->endTag('strong');
+												?>
+
 												<a class="cms-help" data-content="<?php echo $tl["cat_help"]["cath1"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tl["cat_help"]["cath"]; ?>">
 													<i class="fa fa-question-circle"></i>
 												</a>
-												<span class="star-item text-danger-800 m-l-10">*</span>
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+												?>
+
 											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
@@ -105,7 +123,13 @@ if ($errors) { ?>
 										</div>
 										<div class="row-form">
 											<div class="col-md-5">
-												<strong><?php echo $tl["cat_box_content"]["catbc2"]; ?></strong>
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["cat_box_content"]["catbc2"] . $htmlE->endTag('strong');
+												?>
+
 												<a href="javascript:void(0)" class="cms-help" data-content="<?php echo $tl["cat_help"]["cath2"]; ?>" data-original-title="<?php echo $tl["cat_help"]["cath"]; ?>">
 													<i class="fa fa-question-circle"></i>
 												</a>
@@ -120,7 +144,15 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["cat_box_content"]["catbc3"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["cat_box_content"]["catbc3"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 
 												<?php
@@ -131,7 +163,15 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["cat_box_content"]["catbc4"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["cat_box_content"]["catbc4"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
@@ -153,7 +193,15 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["cat_box_content"]["catbc5"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["cat_box_content"]["catbc5"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
@@ -175,7 +223,15 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["cat_box_content"]["catbc6"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["cat_box_content"]["catbc6"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="input-group">
 

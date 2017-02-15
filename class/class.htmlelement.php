@@ -79,6 +79,24 @@ class HTML_Form {
 		return $str;
 	}
 
+	function addSimpleDiv($id, $value = '', $attr_ar = array() ) {
+		$str = "<div id=\"$id\"";
+		if ($attr_ar) {
+			$str .= $this->addAttributes( $attr_ar );
+		}
+		$str .= ">$value</div>";
+		return $str;
+	}
+
+	function addAnchor($link, $id, $class, $text = '', $attr_ar = array() ) {
+		$str = "<a href=\"$link\" id=\"$id\" class=\"$class\"";
+		if ($attr_ar) {
+			$str .= $this->addAttributes( $attr_ar );
+		}
+		$str .= ">$text</a>";
+		return $str;
+	}
+
 	// for attribute refers to id of associated form element
 	function addLabelFor($forID, $text, $attr_ar = array() ) {
 		$str = "<label for=\"$forID\"";

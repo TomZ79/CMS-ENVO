@@ -130,8 +130,14 @@ if ($success) { ?>
 									<div class="block-content">
 										<div class="row-form">
 											<div class="col-md-5">
-												<strong><?php echo $tl["gs_box_content"]["gsbc"]; ?></strong>
-												<span class="star-item text-danger-800 m-l-10">*</span>
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc"] . $htmlE->endTag('strong');
+												echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+												?>
+
 											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
@@ -144,7 +150,15 @@ if ($success) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc1"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc1"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
@@ -163,8 +177,14 @@ if ($success) { ?>
 										</div>
 										<div class="row-form">
 											<div class="col-md-5">
-												<strong><?php echo $tl["gs_box_content"]["gsbc2"]; ?></strong>
-												<span class="star-item text-danger-800 m-l-10">*</span>
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc2"] . $htmlE->endTag('strong');
+												echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+												?>
+
 											</div>
 											<div class="col-md-7">
 												<div class="<?php if (isset($errors["e2"])) echo " has-error"; ?>">
@@ -177,8 +197,14 @@ if ($success) { ?>
 										</div>
 										<div class="row-form">
 											<div class="col-md-5">
-												<strong><?php echo $tl["gs_box_content"]["gsbc19"]; ?></strong>
-												<span class="star-item text-danger-800 m-l-10">*</span>
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc19"] . $htmlE->endTag('strong');
+												echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+												?>
+
 											</div>
 											<div class="col-md-7">
 												<div class="<?php if (isset($errors["e2"])) echo " has-error"; ?>">
@@ -190,7 +216,15 @@ if ($success) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc5"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc5"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
@@ -206,8 +240,14 @@ if ($success) { ?>
 										</div>
 										<div class="row-form">
 											<div class="col-md-5">
-												<strong><?php echo $tl["gs_box_content"]["gsbc8"]; ?></strong>
-												<span class="star-item text-danger-800 m-l-10">*</span>
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc8"] . $htmlE->endTag('strong');
+												echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+												?>
+
 											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
@@ -216,7 +256,15 @@ if ($success) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc9"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc9"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin">
 													<input type="text" name="jak_time" class="form-control" value="<?php echo $jkv["timeformat"]; ?>"/>
@@ -224,7 +272,15 @@ if ($success) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc10"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc10"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<select name="jak_timezone_server" class="form-control selectpicker" data-live-search="true" data-size="5">
 													<?php include_once "timezoneserver.php"; ?>
@@ -232,7 +288,15 @@ if ($success) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc11"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc11"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
@@ -247,7 +311,15 @@ if ($success) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc12"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc12"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
@@ -279,7 +351,15 @@ if ($success) { ?>
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-6"><strong><?php echo $tl["gs_box_content"]["gsbc13"]; ?></strong></div>
+											<div class="col-md-6">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc13"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-6">
 												<div class="<?php if (isset($errors["e6"])) echo " has-error"; ?>">
 													<select name="jak_mid" class="form-control selectpicker">
@@ -303,7 +383,15 @@ if ($success) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-6"><strong><?php echo $tl["gs_box_content"]["gsbc14"]; ?></strong></div>
+											<div class="col-md-6">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc14"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-6">
 												<div class="form-group no-margin<?php if (isset($errors["e5"])) echo " has-error"; ?>">
 													<input type="text" name="jak_item" class="form-control" value="<?php echo $jkv["adminpageitem"]; ?>"/>
@@ -330,15 +418,31 @@ if ($success) { ?>
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-6"><strong><?php echo $tl["gs_box_content"]["gsbc15"]; ?></strong></div>
+											<div class="col-md-6">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc15"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-6">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_contact1" name="jak_contact" value="1"<?php if ($jkv["contactform"] == 1) { ?> checked="checked"<?php } ?> />
-													<label for="jak_contact1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["contactform"] == '1') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_contact', 'jak_contact1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_contact1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_contact2" name="jak_contact" value="0"<?php if ($jkv["contactform"] == 0) { ?> checked="checked"<?php } ?> />
-													<label for="jak_contact2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["contactform"] == '0') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_contact', 'jak_contact2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_contact2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
@@ -361,7 +465,15 @@ if ($success) { ?>
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-6"><strong><?php echo $tl["gs_box_content"]["gsbc16"]; ?></strong></div>
+											<div class="col-md-6">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc16"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-6">
 												<select name="jak_shownews" class="form-control selectpicker" data-size="5">
 													<?php for ($i = 0; $i <= 10; $i ++) { ?>
@@ -390,7 +502,12 @@ if ($success) { ?>
 										<div class="row-form">
 											<div class="col-md-12">
 												<div class="form-group no-margin<?php if (isset($errors["e4"])) echo " has-error"; ?>">
-													<input type="text" name="jak_shortmsg" class="form-control" value="<?php echo $jkv["shortmsg"]; ?>"/>
+
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													echo $htmlE->addInput('text', 'jak_shortmsg', '', 'form-control', $jkv["shortmsg"], '');
+													?>
+
 												</div>
 											</div>
 										</div>
@@ -412,25 +529,45 @@ if ($success) { ?>
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc17"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc17"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_rss1" name="jak_rss" value="1"<?php if ($jkv["rss"] == 1) { ?> checked="checked"<?php } ?> />
-													<label for="jak_rss1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["rss"] == '1') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_rss', 'jak_rss1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_rss1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_rss2" name="jak_rss" value="0"<?php if ($jkv["rss"] == 0) { ?> checked="checked"<?php } ?> />
-													<label for="jak_rss2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["rss"] == '0') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_rss', 'jak_rss2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_rss2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
-
 											</div>
 										</div>
 										<div class="row-form">
 											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc18"]; ?></strong></div>
 											<div class="col-md-7">
 												<div class="form-group no-margin<?php if (isset($errors["e7"])) echo " has-error"; ?>">
-													<input type="text" name="jak_rssitem" class="form-control" value="<?php echo $jkv["rssitem"]; ?>"/>
+
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													echo $htmlE->addInput('text', 'jak_rssitem', '', 'form-control', $jkv["rssitem"], '');
+													?>
+
 												</div>
 											</div>
 										</div>
@@ -458,21 +595,45 @@ if ($success) { ?>
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc20"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc20"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_editor1" name="jak_editor" value="1"<?php if ($jkv["adv_editor"] == 1) { ?> checked="checked"<?php } ?> />
-													<label for="jak_editor1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["adv_editor"] == '1') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_editor', 'jak_editor1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_editor1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_editor2" name="jak_editor" value="0"<?php if ($jkv["adv_editor"] == 0) { ?> checked="checked"<?php } ?> />
-													<label for="jak_editor2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["adv_editor"] == '0') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_editor', 'jak_editor2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_editor2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc21"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc21"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<select name="jak_acetheme" class="form-control selectpicker" data-live-search="true" data-size="5">
 													<optgroup label="<?php echo $tl["gs_box_content"]["gsbc22"]; ?>">
@@ -487,59 +648,133 @@ if ($success) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc24"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc24"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin">
-													<input type="text" name="jak_acetabSize" class="form-control" value="<?php echo $jkv["acetabSize"]; ?>"/>
+
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													echo $htmlE->addInput('text', 'jak_acetabSize', '', 'form-control', $jkv["acetabSize"], '');
+													?>
+
 												</div>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc25"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc25"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin">
-													<input type="text" name="jak_acewraplimit" class="form-control" value="<?php echo $jkv["acewraplimit"]; ?>"/>
-												</div>
-											</div>
-										</div>
-										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc26"]; ?></strong></div>
-											<div class="col-md-7">
-												<div class="radio radio-success">
 
-													<input type="radio" id="jak_acegutter1" name="jak_acegutter" value="1"<?php if ($jkv["acegutter"] == 1) { ?> checked="checked"<?php } ?> />
-													<label for="jak_acegutter1"><?php echo $tl["checkbox"]["chk"]; ?></label>
-
-													<input type="radio" id="jak_acegutter2" name="jak_acegutter" value="0"<?php if ($jkv["acegutter"] == 0) { ?> checked="checked"<?php } ?> />
-													<label for="jak_acegutter2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													echo $htmlE->addInput('text', 'jak_acewraplimit', '', 'form-control', $jkv["acewraplimit"], '');
+													?>
 
 												</div>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc27"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc26"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_aceactiveline1" name="jak_aceactiveline" value="1"<?php if ($jkv["aceactiveline"] == 1) { ?> checked="checked"<?php } ?> />
-													<label for="jak_aceactiveline1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["acegutter"] == '1') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_acegutter', 'jak_acegutter1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_acegutter1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_aceactiveline2" name="jak_aceactiveline" value="0"<?php if ($jkv["aceactiveline"] == 0) { ?> checked="checked"<?php } ?> />
-													<label for="jak_aceactiveline2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["acegutter"] == '0') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_acegutter', 'jak_acegutter2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_acegutter2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc28"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc27"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_aceinvisible1" name="jak_aceinvisible" value="1"<?php if ($jkv["aceinvisible"] == 1) { ?> checked="checked"<?php } ?> />
-													<label for="jak_aceinvisible1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["aceactiveline"] == '1') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_aceactiveline', 'jak_aceactiveline1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_aceactiveline1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_aceinvisible2" name="jak_aceinvisible" value="0"<?php if ($jkv["aceinvisible"] == 0) { ?> checked="checked"<?php } ?> />
-													<label for="jak_aceinvisible2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["aceactiveline"] == '0') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_aceactiveline', 'jak_aceactiveline2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_aceactiveline2', $tl["checkbox"]["chk1"]);
+													?>
+
+												</div>
+											</div>
+										</div>
+										<div class="row-form">
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc28"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
+											<div class="col-md-7">
+												<div class="radio radio-success">
+
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["aceinvisible"] == '1') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_aceinvisible', 'jak_aceinvisible1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_aceinvisible1', $tl["checkbox"]["chk"]);
+
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["aceinvisible"] == '0') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_aceinvisible', 'jak_aceinvisible2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_aceinvisible2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
@@ -568,79 +803,200 @@ if ($success) { ?>
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc30"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc30"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_smpt1" name="jak_smpt" value="0"<?php if ($jkv["smtp_or_mail"] == 0) { ?> checked="checked"<?php } ?> />
-													<label for="jak_smpt1"><?php echo $tl["gs_box_content"]["gsbc39"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["smtp_or_mail"] == '0') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_smpt', 'jak_smpt1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_smpt1', $tl["gs_box_content"]["gsbc39"]);
 
-													<input type="radio" id="jak_smpt2" name="jak_smpt" value="1"<?php if ($jkv["smtp_or_mail"] == 1) { ?> checked="checked"<?php } ?> />
-													<label for="jak_smpt2"><?php echo $tl["gs_box_content"]["gsbc40"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["smtp_or_mail"] == '1') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_smpt', 'jak_smpt2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_smpt2', $tl["gs_box_content"]["gsbc40"]);
+													?>
 
 												</div>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc31"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc31"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
-												<input type="text" class="form-control" name="jak_host" value="<?php echo $jkv["smtp_host"]; ?>"/>
+
+												<?php
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												echo $htmlE->addInput('text', 'jak_host', '', 'form-control', $jkv["smtp_host"], '');
+												?>
+
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc32"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc32"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
-												<input type="text" name="jak_port" class="form-control" value="<?php echo $jkv["smtp_port"]; ?>" placeholder="25"/>
+
+												<?php
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												echo $htmlE->addInput('text', 'jak_port', '', 'form-control', $jkv["smtp_port"], '', array('placeholder' => '25'));
+												?>
+
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc33"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc33"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_alive1" name="jak_alive" value="1"<?php if ($jkv["smtp_alive"] == 1) { ?> checked="checked"<?php } ?> />
-													<label for="jak_alive1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["smtp_alive"] == '1') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_alive', 'jak_alive1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_alive1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_alive2" name="jak_alive" value="0"<?php if ($jkv["smtp_alive"] == 0) { ?> checked="checked"<?php } ?> />
-													<label for="jak_alive2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["smtp_alive"] == '0') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_alive', 'jak_alive2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_alive2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc34"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc34"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_auth1" name="jak_auth" value="1"<?php if ($jkv["smtp_auth"] == 1) { ?> checked="checked"<?php } ?> />
-													<label for="jak_auth1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["smtp_auth"] == '1') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_auth', 'jak_auth1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_auth1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_auth2" name="jak_auth" value="0"<?php if ($jkv["smtp_auth"] == 0) { ?> checked="checked"<?php } ?> />
-													<label for="jak_auth2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["smtp_auth"] == '0') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_auth', 'jak_auth2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_auth2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc35"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc35"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
-												<input type="text" name="jak_prefix" class="form-control" value="<?php echo $jkv["smtp_prefix"]; ?>" placeholder="ssl/tls/true/false"/>
+
+												<?php
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												echo $htmlE->addInput('text', 'jak_prefix', '', 'form-control', $jkv["smtp_prefix"], '', array('placeholder' => 'ssl/tls/true/false'));
+												?>
+
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc36"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc36"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
-												<input type="text" name="jak_smtpusername" class="form-control" value="<?php echo $jkv["smtp_user"]; ?>"/>
+
+												<?php
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												echo $htmlE->addInput('text', 'jak_smtpusername', '', 'form-control', $jkv["smtp_user"], '');
+												?>
+
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc37"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc37"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
-												<input type="password" name="jak_smtppassword" class="form-control" value="<?php echo $jkv["smtp_password"]; ?>"/>
+
+												<?php
+												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+												echo $htmlE->addInput('password', 'jak_smtppassword', '', 'form-control', $jkv["smtp_password"], '');
+												?>
+
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc38"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc38"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<button type="submit" name="testMail" class="btn btn-success" id="sendTM">
 													<i id="loader" class="fa fa-spinner fa-pulse"></i> <?php echo $tl["button"]["btn3"]; ?>
@@ -671,49 +1027,105 @@ if ($success) { ?>
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-6"><strong><?php echo $tl["gs_box_content"]["gsbc50"]; ?></strong></div>
+											<div class="col-md-6">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc50"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-6">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_loginside1" name="jak_loginside" value="1"<?php if ($jkv["showloginside"] == 1) { ?> checked="checked"<?php } ?> />
-													<label for="jak_loginside1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["showloginside"] == '1') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_loginside', 'jak_loginside1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_loginside1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_loginside2" name="jak_loginside" value="0"<?php if ($jkv["showloginside"] == 0) { ?> checked="checked"<?php } ?> />
-													<label for="jak_loginside2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["showloginside"] == '0') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_loginside', 'jak_loginside2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_loginside2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-6"><strong><?php echo $tl["gs_box_content"]["gsbc51"]; ?></strong></div>
+											<div class="col-md-6">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc51"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-6">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_sprint1" name="jak_sprint" value="1"<?php if ($jkv["printme"] == 1) { ?> checked="checked"<?php } ?> />
-													<label for="jak_sprint1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["printme"] == '1') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_sprint', 'jak_sprint1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_sprint1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_sprint2" name="jak_sprint" value="0"<?php if ($jkv["printme"] == 0) { ?> checked="checked"<?php } ?> />
-													<label for="jak_sprint2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["printme"] == '0') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_sprint', 'jak_sprint2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_sprint2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-6"><strong><?php echo $tl["gs_box_content"]["gsbc52"]; ?></strong></div>
+											<div class="col-md-6">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc52"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-6">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_smilies1" name="jak_smilies" value="1"<?php if ($jkv["usr_smilies"] == 1) { ?> checked="checked"<?php } ?> />
-													<label for="jak_smilies1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["usr_smilies"] == '1') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_smilies', 'jak_smilies1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_smilies1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_smilies2" name="jak_smilies" value="0"<?php if ($jkv["usr_smilies"] == 0) { ?> checked="checked"<?php } ?> />
-													<label for="jak_smilies2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["usr_smilies"] == '0') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_smilies', 'jak_smilies2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_smilies2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["gs_box_content"]["gsbc53"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["gs_box_content"]["gsbc53"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin<?php if (isset($errors["e8"])) echo " has-error"; ?>">
 													<div class="row">
@@ -756,20 +1168,38 @@ if ($success) { ?>
 									<div class="block-content">
 										<div class="row-form">
 											<div class="col-md-12">
-												<label for=""><?php echo $tl["gs_box_content"]["gsbc54"]; ?></label>
-												<textarea name="ip_block" cols="50" rows="5" class="form-control txtautogrow" placeholder="<?php echo $tl["placeholder"]["p7"]; ?>"><?php echo $jkv["ip_block"]; ?></textarea>
+
+												<?php
+												// Arguments: for (id of associated form element), text
+												echo $htmlE->addLabelFor('', $tl["gs_box_content"]["gsbc54"]);
+												// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+												echo $htmlE->addTextArea('ip_block', '5', '50', $jkv["ip_block"], array('class' => 'form-control txtautogrow', 'placeholder' => $tl["placeholder"]["p7"]));
+												?>
+
 											</div>
 										</div>
 										<div class="row-form">
 											<div class="col-md-12">
-												<label for=""><?php echo $tl["gs_box_content"]["gsbc55"]; ?></label>
-												<textarea name="email_block" cols="50" rows="4" class="form-control txtautogrow" placeholder="<?php echo $tl["placeholder"]["p8"]; ?>"><?php echo $jkv["email_block"]; ?></textarea>
+
+												<?php
+												// Arguments: for (id of associated form element), text
+												echo $htmlE->addLabelFor('', $tl["gs_box_content"]["gsbc55"]);
+												// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+												echo $htmlE->addTextArea('email_block', '4', '50', $jkv["email_block"], array('class' => 'form-control txtautogrow', 'placeholder' => $tl["placeholder"]["p8"]));
+												?>
+
 											</div>
 										</div>
 										<div class="row-form">
 											<div class="col-md-12">
-												<label for=""><?php echo $tl["gs_box_content"]["gsbc56"]; ?></label>
-												<textarea name="username_block" cols="50" rows="3" class="form-control txtautogrow" placeholder="<?php echo $tl["placeholder"]["p9"]; ?>"><?php echo $jkv["username_block"]; ?></textarea>
+
+												<?php
+												// Arguments: for (id of associated form element), text
+												echo $htmlE->addLabelFor('', $tl["gs_box_content"]["gsbc56"]);
+												// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+												echo $htmlE->addTextArea('username_block', '3', '50', $jkv["username_block"], array('class' => 'form-control txtautogrow', 'placeholder' => $tl["placeholder"]["p9"]));
+												?>
+
 											</div>
 										</div>
 									</div>
@@ -797,10 +1227,14 @@ if ($success) { ?>
 									<div class="block-content">
 										<div class="row-form">
 											<div class="col-md-12">
-												<textarea name="jak_analytics" cols="60" rows="5" class="form-control txtautogrow"><?php echo $jkv["analytics"]; ?></textarea>
+
+												<?php
+												// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+												echo $htmlE->addTextArea('jak_analytics', '5', '60', $jkv["analytics"], array('class' => 'form-control txtautogrow'));
+												?>
+
 											</div>
 										</div>
-
 									</div>
 								</div>
 							</div>
@@ -824,11 +1258,19 @@ if ($success) { ?>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_heatmap1" name="jak_heatmap" value="1"<?php if ($jkv["heatmap"] == 1) { ?> checked="checked"<?php } ?> />
-													<label for="jak_heatmap1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["heatmap"] == '1') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_heatmap', 'jak_heatmap1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_heatmap1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_heatmap2" name="jak_heatmap" value="0"<?php if ($jkv["heatmap"] == 0) { ?> checked="checked"<?php } ?> />
-													<label for="jak_heatmap2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["heatmap"] == '0') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_heatmap', 'jak_heatmap2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_heatmap2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>

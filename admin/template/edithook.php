@@ -70,8 +70,14 @@ if ($errors) { ?>
 							<div class="block-content">
 								<div class="row-form">
 									<div class="col-md-5">
-										<strong><?php echo $tl["hook_box_content"]["hookbc"]; ?></strong>
-										<span class="star-item text-danger-800 m-l-10">*</span>
+
+										<?php
+										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+										// Add Html Element -> endTag (Arguments: tag)
+										echo $htmlE->startTag('strong') . $tl["hook_box_content"]["hookbc"] . $htmlE->endTag('strong');
+										echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+										?>
+
 									</div>
 									<div class="col-md-7">
 										<div class="form-group<?php if (isset($errors["e1"])) echo " has-error"; ?> no-margin">
@@ -86,8 +92,14 @@ if ($errors) { ?>
 								</div>
 								<div class="row-form">
 									<div class="col-md-5">
-										<strong><?php echo $tl["hook_box_content"]["hookbc1"]; ?></strong>
-										<span class="star-item text-danger-800 m-l-10">*</span>
+
+										<?php
+										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+										// Add Html Element -> endTag (Arguments: tag)
+										echo $htmlE->startTag('strong') . $tl["hook_box_content"]["hookbc1"] . $htmlE->endTag('strong');
+										echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+										?>
+
 									</div>
 									<div class="col-md-7">
 										<div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
@@ -111,8 +123,14 @@ if ($errors) { ?>
 								</div>
 								<div class="row-form">
 									<div class="col-md-5">
-										<strong><?php echo $tl["hook_box_content"]["hookbc3"]; ?></strong>
-										<span class="star-item text-danger-800 m-l-10">*</span>
+
+										<?php
+										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+										// Add Html Element -> endTag (Arguments: tag)
+										echo $htmlE->startTag('strong') . $tl["hook_box_content"]["hookbc3"] . $htmlE->endTag('strong');
+										echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+										?>
+
 									</div>
 									<div class="col-md-7">
 										<div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
@@ -140,9 +158,10 @@ if ($errors) { ?>
 						<h3 class="box-title"><?php echo $tl["hook_box_title"]["hookbt2"]; ?></h3>
 					</div>
 					<div class="box-body">
-						<div id="htmleditor"></div>
 
 						<?php
+						// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
+						echo $htmlE->addSimpleDiv ('htmleditor', '');
 						// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
 						echo $htmlE->addTextArea ('jak_phpcode', '', '', $JAK_FORM_DATA["phpcode"], array ('id' => 'jak_phpcode', 'class' => 'form-control hidden'));
 						?>

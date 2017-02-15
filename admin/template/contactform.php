@@ -43,8 +43,14 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 							<th>#</th>
 							<th>
 								<div class="checkbox-singel check-success">
-									<input type="checkbox" id="jak_delete_all"/>
-									<label for="jak_delete_all"></label>
+
+									<?php
+									// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+									echo $htmlE->addInput('checkbox', 'jak_delete_all', '', '', '', '');
+									// Arguments: for (id of associated form element), text
+									echo $htmlE->addLabelFor('jak_delete_all', '');
+									?>
+
 								</div>
 							</th>
 							<th><?php echo $tl["cf_box_table"]["cftb"]; ?></th>
@@ -67,8 +73,14 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 								<td><?php echo $v["id"]; ?></td>
 								<td>
 									<div class="checkbox-singel check-success">
-										<input type="checkbox" id="jak_delete_contact<?php echo $v["id"]; ?>" name="jak_delete_contact[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
-										<label for="jak_delete_contact<?php echo $v["id"]; ?>"></label>
+
+										<?php
+										// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+										echo $htmlE->addInput('checkbox', 'jak_delete_contact[]', 'jak_delete_contact' . $v["id"], 'highlight', $v["id"], '');
+										// Arguments: for (id of associated form element), text
+										echo $htmlE->addLabelFor('jak_delete_contact' . $v["id"], '');
+										?>
+
 									</div>
 								</td>
 								<td>
@@ -118,9 +130,12 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 } else { ?>
 
 	<div class="col-md-12">
-		<div class="alert bg-info text-white">
-			<?php echo $tl["general_error"]["generror3"]; ?>
-		</div>
+
+		<?php
+		// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
+		echo $htmlE->addSimpleDiv ('', $tl["general_error"]["generror3"],  array ('class' => 'alert bg-info text-white'));
+		?>
+
 	</div>
 
 <?php } ?>

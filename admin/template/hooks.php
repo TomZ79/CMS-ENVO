@@ -72,8 +72,14 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 							<th>#</th>
 							<th>
 								<div class="checkbox-singel check-success">
-									<input type="checkbox" id="jak_delete_all"/>
-									<label for="jak_delete_all"></label>
+
+									<?php
+									// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+									echo $htmlE->addInput('checkbox', 'jak_delete_all', '', '', '', '');
+									// Arguments: for (id of associated form element), text
+									echo $htmlE->addLabelFor('jak_delete_all', '');
+									?>
+
 								</div>
 							</th>
 							<th><?php echo $tl["hook_box_table"]["hooktb"]; ?></th>
@@ -97,8 +103,14 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 								<td><?php echo $v["id"]; ?></td>
 								<td>
 									<div class="checkbox-singel check-success">
-										<input type="checkbox" id="jak_delete_hook<?php echo $v["id"]; ?>" name="jak_delete_hook[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
-										<label for="jak_delete_hook<?php echo $v["id"]; ?>"></label>
+
+										<?php
+										// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+										echo $htmlE->addInput('checkbox', 'jak_delete_hook[]', 'jak_delete_hook' . $v["id"], 'highlight', $v["id"], '');
+										// Arguments: for (id of associated form element), text
+										echo $htmlE->addLabelFor('jak_delete_hook' . $v["id"], '');
+										?>
+
 									</div>
 								</td>
 								<td>
@@ -107,7 +119,8 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 								<td>
 									<a href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["hook_name"]; ?>"><?php echo $v["hook_name"]; ?></a>
 								</td>
-								<td><?php if ($v["pluginid"] != '0') { ?>
+								<td>
+									<?php if ($v["pluginid"] != '0') { ?>
 										<a href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["pluginid"]; ?>"><?php echo $v["pluginid"]; ?></a><?php } else { ?><?php echo $v["pluginid"];
 									} ?>
 								</td>

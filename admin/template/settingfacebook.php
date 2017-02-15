@@ -83,7 +83,12 @@ if ($JAK_FILE_ERROR) { ?>
 									</div>
 									<div class="row-form">
 										<div class="col-md-12">
-											<textarea name="jak_facebookconnect" cols="60" rows="10" class="form-control txtautogrow"><?php echo $jkv["facebookconnect"]; ?></textarea>
+
+											<?php
+											// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+											echo $htmlE->addTextArea('jak_facebookconnect', '10', '60', $jkv["facebookconnect"], array('class' => 'form-control txtautogrow'));
+											?>
+
 										</div>
 									</div>
 								</div>
@@ -121,9 +126,16 @@ if ($JAK_FILE_ERROR) { ?>
 									<?php if ($JAK_FILECONTENT) { ?>
 										<div class="row-form">
 											<div class="col-md-12">
-												<label for="jak_filecontent"><?php echo $tl["fb_box_content"]["fbbc10"]; ?></label>
-												<div id="txteditor"></div>
-												<textarea name="jak_filecontent" id="jak_filecontent" class="form-control hidden"><?php echo $JAK_FILECONTENT; ?></textarea>
+
+												<?php
+												// Arguments: for (id of associated form element), text
+												echo $htmlE->addLabelFor ('jak_filecontent', $tl["fb_box_content"]["fbbc10"]);
+												// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
+												echo $htmlE->addSimpleDiv ('txteditor', '');
+												// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+												echo $htmlE->addTextArea ('jak_filecontent', '', '', $JAK_FILECONTENT, array ('id' => 'jak_filecontent', 'class' => 'form-control hidden'));
+												?>
+
 											</div>
 										</div>
 									<?php } ?>
@@ -137,7 +149,12 @@ if ($JAK_FILE_ERROR) { ?>
 							</button>
 						</div>
 					</div>
-					<input type="hidden" name="jak_file" value="<?php echo $JAK_FILEURL; ?>"/>
+
+					<?php
+					// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+					echo $htmlE->addInput('hidden', 'jak_file', '', '', $JAK_FILEURL, '');
+					?>
+
 				</div>
 			</div>
 		</div>
@@ -163,9 +180,16 @@ if ($JAK_FILE_ERROR) { ?>
 									<?php if ($JAK_FILECONTENT1) { ?>
 										<div class="row-form">
 											<div class="col-md-12">
-												<label for="jak_filecontent1"><?php echo $tl["fb_box_content"]["fbbc10"]; ?></label>
-												<div id="txteditor1"></div>
-												<textarea name="jak_filecontent1" id="jak_filecontent1" class="form-control hidden"><?php echo $JAK_FILECONTENT1; ?></textarea>
+
+												<?php
+												// Arguments: for (id of associated form element), text
+												echo $htmlE->addLabelFor ('jak_filecontent1', $tl["fb_box_content"]["fbbc10"]);
+												// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
+												echo $htmlE->addSimpleDiv ('txteditor1', '');
+												// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+												echo $htmlE->addTextArea ('jak_filecontent1', '', '', $JAK_FILECONTENT1, array ('id' => 'jak_filecontent1', 'class' => 'form-control hidden'));
+												?>
+
 											</div>
 										</div>
 									<?php } ?>

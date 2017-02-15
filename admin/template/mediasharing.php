@@ -53,7 +53,15 @@ if ($page1 == "e") { ?>
 							<div class="block">
 								<div class="block-content">
 									<div class="row-form">
-										<div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc"]; ?></strong></div>
+										<div class="col-md-5">
+
+											<?php
+											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+											// Add Html Element -> endTag (Arguments: tag)
+											echo $htmlE->startTag('strong') . $tl["sms_box_content"]["smsbc"] . $htmlE->endTag('strong');
+											?>
+
+										</div>
 										<div class="col-md-7">
 											<div class="radio radio-success">
 
@@ -75,7 +83,15 @@ if ($page1 == "e") { ?>
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc1"]; ?></strong></div>
+										<div class="col-md-5">
+
+											<?php
+											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+											// Add Html Element -> endTag (Arguments: tag)
+											echo $htmlE->startTag('strong') . $tl["sms_box_content"]["smsbc1"] . $htmlE->endTag('strong');
+											?>
+
+										</div>
 										<div class="col-md-7">
 											<div class="radio radio-success">
 
@@ -97,7 +113,15 @@ if ($page1 == "e") { ?>
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc2"]; ?></strong></div>
+										<div class="col-md-5">
+
+											<?php
+											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+											// Add Html Element -> endTag (Arguments: tag)
+											echo $htmlE->startTag('strong') . $tl["sms_box_content"]["smsbc2"] . $htmlE->endTag('strong');
+											?>
+
+										</div>
 										<div class="col-md-7">
 											<div class="radio radio-success">
 
@@ -119,7 +143,15 @@ if ($page1 == "e") { ?>
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc3"]; ?></strong></div>
+										<div class="col-md-5">
+
+											<?php
+											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+											// Add Html Element -> endTag (Arguments: tag)
+											echo $htmlE->startTag('strong') . $tl["sms_box_content"]["smsbc3"] . $htmlE->endTag('strong');
+											?>
+
+										</div>
 										<div class="col-md-7">
 
 											<div class="radio radio-success">
@@ -142,7 +174,15 @@ if ($page1 == "e") { ?>
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc4"]; ?></strong></div>
+										<div class="col-md-5">
+
+											<?php
+											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+											// Add Html Element -> endTag (Arguments: tag)
+											echo $htmlE->startTag('strong') . $tl["sms_box_content"]["smsbc4"] . $htmlE->endTag('strong');
+											?>
+
+										</div>
 										<div class="col-md-7">
 											<div class="radio radio-success">
 
@@ -164,7 +204,15 @@ if ($page1 == "e") { ?>
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc5"]; ?></strong></div>
+										<div class="col-md-5">
+
+											<?php
+											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+											// Add Html Element -> endTag (Arguments: tag)
+											echo $htmlE->startTag('strong') . $tl["sms_box_content"]["smsbc5"] . $htmlE->endTag('strong');
+											?>
+
+										</div>
 										<div class="col-md-7">
 											<div class="radio radio-success">
 
@@ -186,7 +234,15 @@ if ($page1 == "e") { ?>
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc6"]; ?></strong></div>
+										<div class="col-md-5">
+
+											<?php
+											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+											// Add Html Element -> endTag (Arguments: tag)
+											echo $htmlE->startTag('strong') . $tl["sms_box_content"]["smsbc6"] . $htmlE->endTag('strong');
+											?>
+
+										</div>
 										<div class="col-md-7">
 											<div class="radio radio-success">
 
@@ -214,7 +270,15 @@ if ($page1 == "e") { ?>
 							<div class="block">
 								<div class="block-content">
 									<div class="row-form">
-										<div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc7"]; ?></strong></div>
+										<div class="col-md-5">
+
+											<?php
+											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+											// Add Html Element -> endTag (Arguments: tag)
+											echo $htmlE->startTag('strong') . $tl["sms_box_content"]["smsbc7"] . $htmlE->endTag('strong');
+											?>
+
+										</div>
 										<div class="col-md-7">
 											<div class="form-group no-margin">
 
@@ -227,7 +291,15 @@ if ($page1 == "e") { ?>
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc8"]; ?></strong></div>
+										<div class="col-md-5">
+
+											<?php
+											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+											// Add Html Element -> endTag (Arguments: tag)
+											echo $htmlE->startTag('strong') . $tl["sms_box_content"]["smsbc8"] . $htmlE->endTag('strong');
+											?>
+
+										</div>
 										<div class="col-md-7">
 											<div class="form-group no-margin">
 
@@ -240,7 +312,15 @@ if ($page1 == "e") { ?>
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc9"]; ?></strong></div>
+										<div class="col-md-5">
+
+											<?php
+											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+											// Add Html Element -> endTag (Arguments: tag)
+											echo $htmlE->startTag('strong') . $tl["sms_box_content"]["smsbc9"] . $htmlE->endTag('strong');
+											?>
+
+										</div>
 										<div class="col-md-7">
 											<select name="jak_mediatheme" class="form-control selectpicker" data-size="5">
 												<option value="lee-gargano-circle-color" <?php if ($jkv["md_mediatheme"] == 'lee-gargano-circle-color') { ?> selected="selected"<?php } ?>>Lee-gargano-circle-color</option>
@@ -251,7 +331,15 @@ if ($page1 == "e") { ?>
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-5"><strong><?php echo $tl["sms_box_content"]["smsbc10"]; ?></strong></div>
+										<div class="col-md-5">
+
+											<?php
+											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+											// Add Html Element -> endTag (Arguments: tag)
+											echo $htmlE->startTag('strong') . $tl["sms_box_content"]["smsbc10"] . $htmlE->endTag('strong');
+											?>
+
+										</div>
 										<div class="col-md-7">
 											<select name="jak_mediahover" class="form-control selectpicker" data-size="5">
 												<option value="fade-out" <?php if ($jkv["md_mediahover"] == 'fade-out') { ?> selected="selected"<?php } ?>>Fade-out</option>

@@ -71,9 +71,16 @@ if ($JAK_FILE_ERROR) { ?>
 						<?php if ($JAK_FILECONTENT) { ?>
 							<tr>
 								<td>
-									<label for="jak_filecontent"><?php echo $tl["tpl_box_content"]["tplbc3"]; ?></label>
-									<div id="htmleditor"></div>
-									<textarea name="jak_filecontent" id="jak_filecontent" class="form-control hidden"><?php echo $JAK_FILECONTENT; ?></textarea>
+
+									<?php
+									// Arguments: for (id of associated form element), text
+									echo $htmlE->addLabelFor ('jak_filecontent', $tl["tpl_box_content"]["tplbc3"]);
+									// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
+									echo $htmlE->addSimpleDiv ('htmleditor', '');
+									// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+									echo $htmlE->addTextArea ('jak_filecontent', '', '', $JAK_FILECONTENT, array ('id' => 'jak_filecontent', 'class' => 'form-control hidden'));
+									?>
+
 								</td>
 							</tr>
 						<?php } ?>

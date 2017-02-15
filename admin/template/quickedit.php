@@ -60,7 +60,12 @@ if ($errors) { ?>
 				<td><?php echo $tl["global_text"]["globaltxt16"]; ?></td>
 				<td>
 					<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-						<input type="text" name="jak_title" class="form-control" value="<?php echo $JAK_FORM_DATA["title"]; ?>"/>
+
+						<?php
+						// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+						echo $htmlE->addInput('text', 'jak_title', '', 'form-control', $JAK_FORM_DATA["title"], '');
+						?>
+
 					</div>
 				</td>
 			</tr>

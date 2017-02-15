@@ -19,6 +19,10 @@
 			showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
 			showGutter: <?php echo $jkv["acegutter"]; ?>,
 		});
+		// This is to remove following warning message on console:
+		// Automatically scrolling cursor into view after selection change this will be disabled in the next version
+		// set editor.$blockScrolling = Infinity to disable this message
+		htmlACE.$blockScrolling = Infinity;
 
 		texthtml = $("#jak_editor").val();
 		htmlACE.session.setValue(texthtml);

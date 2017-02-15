@@ -1033,3 +1033,46 @@ $.fn.timedDisable = function(time) {
 		}, 1000);
 	});
 };
+
+/* 00. OTHER FUNCTION
+ ======================================================================== */
+$('.cms-help').popover({
+	container: 'body',
+	placement: 'top',
+	trigger: 'hover',
+	html: true,
+	template: '<div class="popover style-1">' +
+	'<div class="arrow"></div>' +
+	'<h3 class="popover-title"></h3>' +
+	'<div class="popover-content"></div>' +
+	'</div>'
+});
+
+ /* 00. Counter trigger
+ ======================================================================== */
+if($('.counter').length){
+	$('.counter').each( function(index, val) {
+		var $this = $(this);
+		if($(window).width() > 1024) {
+			$this.html(0);
+			increment($this);
+		}
+	});
+
+}
+
+/* Counter Increment */
+function increment(obj){
+	$({increment: 0}).animate({increment: obj.data('counterend')}, {
+		duration: (obj.data('counterduration'))?obj.data('counterduration'):3000,
+		easing:'swing',
+		step: function() {
+			if(obj.data('countertype') === 'float'){
+				obj.html(Math.abs(this.increment).toFixed(1));
+			}else{
+				obj.html(Math.ceil(this.increment));
+			}
+
+		}
+	});
+}

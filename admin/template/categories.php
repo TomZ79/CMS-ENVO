@@ -82,13 +82,12 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
 
           echo jak_build_menu_admin(0, $mheader, $lang, $title1, $title2, $title3, $title4, $title5, ' class="sortable jak_cat_move"', ' id="mheader"');
 
-          } else { ?>
+          } else {
 
-            <div class="alert bg-slate-300">
-              <?php echo $tl["general_error"]["generror3"]; ?>
-            </div>
+            // Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
+            echo $htmlE->addSimpleDiv ('', $tl["general_error"]["generror3"],  array ('class' => 'alert bg-info text-white'));
 
-          <?php } ?>
+          } ?>
 
         </div>
         <div class="box-footer">
@@ -117,13 +116,12 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
 
           echo jak_build_menu_admin(0, $mfooter, $lang, $title1, $title2, $title3, $title4, $title5, ' class="sortable jak_cat_move"', ' id="mfooter"');
 
-          } else { ?>
+          } else {
 
-            <div class="alert bg-slate-300">
-              <?php echo $tl["general_error"]["generror3"]; ?>
-            </div>
+            // Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
+            echo $htmlE->addSimpleDiv ('', $tl["general_error"]["generror3"],  array ('class' => 'alert bg-info text-white'));
 
-          <?php } ?>
+          } ?>
 
         </div>
         <div class="box-footer">
@@ -146,13 +144,12 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
 
             echo '<ul class="list-group">' . $ucatblank . '</ul>';
 
-          } else { ?>
+          } else {
 
-            <div class="alert bg-slate-300">
-              <?php echo $tl["general_error"]["generror3"]; ?>
-            </div>
+            // Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
+            echo $htmlE->addSimpleDiv ('', $tl["general_error"]["generror3"],  array ('class' => 'alert bg-info text-white'));
 
-          <?php } ?>
+          } ?>
         </div>
       </div>
     </div>
@@ -161,9 +158,12 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
 <?php } else { ?>
 
   <div class="col-md-12">
-    <div class="alert bg-info text-white">
-      <?php echo $tl["general_error"]["generror3"]; ?>
-    </div>
+
+    <?php
+    // Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
+    echo $htmlE->addSimpleDiv ('', $tl["general_error"]["generror3"],  array ('class' => 'alert bg-info text-white'));
+    ?>
+
   </div>
 
 <?php } ?>

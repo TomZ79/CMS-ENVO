@@ -25,29 +25,35 @@
 	});
 </script>
 
-<script src="assets/plugins/js/ace/ace.js" type="text/javascript"></script>
+<script src="assets/plugins/ace/ace.js" type="text/javascript"></script>
 <script type="text/javascript">
 
 	/* ACE Editor
 	 ========================================= */
 	<?php if ($jkv["adv_editor"]) { ?>
-	var htmlACE = ace.edit("htmleditor");
-	htmlACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
-	htmlACE.session.setUseWrapMode(true);
-	htmlACE.session.setWrapLimitRange(<?php echo $jkv["acewraplimit"] . ',' . $jkv["acewraplimit"]; ?>);
-	htmlACE.setOptions({
-		// session options
-		mode: "ace/mode/html",
-		tabSize: <?php echo $jkv["acetabSize"]; ?>,
-		useSoftTabs: true,
-		highlightActiveLine: <?php echo $jkv["aceactiveline"]; ?>,
-		// renderer options
-		showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
-		showGutter: <?php echo $jkv["acegutter"]; ?>,
-	});
+	if ($('#htmleditor').length) {
+		var htmlACE = ace.edit("htmleditor");
+		htmlACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
+		htmlACE.session.setUseWrapMode(true);
+		htmlACE.session.setWrapLimitRange(<?php echo $jkv["acewraplimit"] . ',' . $jkv["acewraplimit"]; ?>);
+		htmlACE.setOptions({
+			// session options
+			mode: "ace/mode/html",
+			tabSize: <?php echo $jkv["acetabSize"]; ?>,
+			useSoftTabs: true,
+			highlightActiveLine: <?php echo $jkv["aceactiveline"]; ?>,
+			// renderer options
+			showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
+			showGutter: <?php echo $jkv["acegutter"]; ?>,
+		});
+		// This is to remove following warning message on console:
+		// Automatically scrolling cursor into view after selection change this will be disabled in the next version
+		// set editor.$blockScrolling = Infinity to disable this message
+		htmlACE.$blockScrolling = Infinity;
 
-	texthtml = $("#jak_editor").val();
-	htmlACE.session.setValue(texthtml);
+		texthtml = $("#jak_editor").val();
+		htmlACE.session.setValue(texthtml);
+	}
 	<?php } ?>
 
 	var jsACE = ace.edit("javaeditor");
@@ -136,7 +142,7 @@
 	$(document).ready(function () {
 
 		/* DateTimePicker
-		 ========================================= */
+		 =========================================
 		$('#datepickerTime').datetimepicker({
 			// Language
 			locale: '<?php echo $site_language;?>',
@@ -182,6 +188,7 @@
 		$("#datepickerTo").on("dp.change", function (e) {
 			$('#datepickerFrom').data("DateTimePicker").maxDate(e.date);
 		});
+		 */
 
 		/* RestoreContent
 		 ========================================= */
@@ -206,7 +213,7 @@
 			$("#jak_varname").val(jakSlug($("#jak_name").val()));
 		});
 
-		/* Bootstrap Icon Picker */
+		/* Bootstrap Icon Picker
 		$('.iconpicker').iconpicker({
 			iconset: 'fontawesome',
 			icon: '<?php if (isset($JAK_FORM_DATA["catimg"])) {
@@ -223,6 +230,7 @@
 		$('.iconpicker').on('change', function (e) {
 			$("#jak_img").val(e.icon);
 		});
+		 */
 
 	});
 </script>
