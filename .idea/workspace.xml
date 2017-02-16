@@ -2,51 +2,119 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b8aa82b5-15ec-43ea-899e-c96d2cb494f0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template/qed/plugintemplate/blog/blog.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template/qed/plugintemplate/blog/blogart.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template/jakweb/plugintemplate/blog/blogsidebar.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template/mosaic/plugintemplate/blog/blogsidebar.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template/qed/plugintemplate/blog/blogsidebar.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/assets/js/hookorder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template/jakweb/plugintemplate/blog/search.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template/mosaic/plugintemplate/blog/search.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template/jakweb/plugintemplate/blog/sitemap.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template/mosaic/plugintemplate/blog/sitemap.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template/qed/plugintemplate/blog/sitemap.php" />
+      <change type="DELETED" beforePath="D:\Github\CMS-Bluesat\plugins\blog\css\style.css" afterPath="" />
+      <change type="DELETED" beforePath="D:\Github\CMS-Bluesat\plugins\blog\template\canvas\blog.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\Github\CMS-Bluesat\plugins\blog\template\canvas\blogart.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\Github\CMS-Bluesat\plugins\blog\template\canvas\blogsidebar.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\Github\CMS-Bluesat\plugins\blog\template\cssheader.php" afterPath="" />
+      <change type="DELETED" beforePath="D:\Github\CMS-Bluesat\plugins\blog\template\qed\index.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/admin/template/bh.php" afterPath="$PROJECT_DIR$/plugins/belowheader/admin/template/bh.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/blog.php" afterPath="$PROJECT_DIR$/plugins/blog/blog.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/blog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/blog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/categories.php" afterPath="$PROJECT_DIR$/admin/template/categories.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blog.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blogcat.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blogcat.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blogcatsort.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blogcatsort.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blogcomment.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blogcomment.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blogcommentsort.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blogcommentsort.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blogsetting.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blogsetting.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/class/class.htmlelement.php" afterPath="$PROJECT_DIR$/class/class.htmlelement.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/contactform.php" afterPath="$PROJECT_DIR$/admin/template/contactform.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/admin/template/editbh.php" afterPath="$PROJECT_DIR$/plugins/belowheader/admin/template/editbh.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/editblog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/editblog.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/editblogcat.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/editblogcat.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editcat.php" afterPath="$PROJECT_DIR$/admin/template/editcat.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editcontactform.php" afterPath="$PROJECT_DIR$/admin/template/editcontactform.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editfacebook.php" afterPath="$PROJECT_DIR$/admin/template/editfacebook.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editfiles.php" afterPath="$PROJECT_DIR$/admin/template/editfiles.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/edithook.php" afterPath="$PROJECT_DIR$/admin/template/edithook.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editnews.php" afterPath="$PROJECT_DIR$/admin/template/editnews.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editorlight_edit.php" afterPath="$PROJECT_DIR$/admin/template/editorlight_edit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editorlight_new.php" afterPath="$PROJECT_DIR$/admin/template/editorlight_new.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editor_edit.php" afterPath="$PROJECT_DIR$/admin/template/editor_edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editor_new.php" afterPath="$PROJECT_DIR$/admin/template/editor_new.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editpage.php" afterPath="$PROJECT_DIR$/admin/template/editpage.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/edituser.php" afterPath="$PROJECT_DIR$/admin/template/edituser.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editusergroup.php" afterPath="$PROJECT_DIR$/admin/template/editusergroup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/header.php" afterPath="$PROJECT_DIR$/template/qed/header.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/hooks.php" afterPath="$PROJECT_DIR$/admin/template/hooks.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/index.php" afterPath="$PROJECT_DIR$/admin/template/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/info.txt" afterPath="$PROJECT_DIR$/template/qed/info.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/install.php" afterPath="$PROJECT_DIR$/plugins/blog/install.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/logs.php" afterPath="$PROJECT_DIR$/admin/template/logs.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/mediasharing.php" afterPath="$PROJECT_DIR$/admin/template/mediasharing.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/admin/template/newbh.php" afterPath="$PROJECT_DIR$/plugins/belowheader/admin/template/newbh.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/newblog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/newblog.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/newblogcat.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/newblogcat.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newcat.php" afterPath="$PROJECT_DIR$/admin/template/newcat.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newcontactform.php" afterPath="$PROJECT_DIR$/admin/template/newcontactform.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newhook.php" afterPath="$PROJECT_DIR$/admin/template/newhook.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newnews.php" afterPath="$PROJECT_DIR$/admin/template/newnews.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newpage.php" afterPath="$PROJECT_DIR$/admin/template/newpage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/news.php" afterPath="$PROJECT_DIR$/admin/template/news.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newssetting.php" afterPath="$PROJECT_DIR$/admin/template/newssetting.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newuser.php" afterPath="$PROJECT_DIR$/admin/template/newuser.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newusergroup.php" afterPath="$PROJECT_DIR$/admin/template/newusergroup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/noplugintemplate.php" afterPath="$PROJECT_DIR$/noplugintemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/notemplate.php" afterPath="$PROJECT_DIR$/notemplate.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/js/pages.blog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/js/pages.blog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.news.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.news.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/pages.php" afterPath="$PROJECT_DIR$/admin/template/pages.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.plugins.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.plugins.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/plugins.php" afterPath="$PROJECT_DIR$/admin/template/plugins.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/quickedit.php" afterPath="$PROJECT_DIR$/admin/template/quickedit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/js/scripts.js" afterPath="$PROJECT_DIR$/admin/assets/js/scripts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/canvas/search.php" afterPath="$PROJECT_DIR$/template/canvas/search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/jakweb/search.php" afterPath="$PROJECT_DIR$/template/jakweb/search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/mosaic/search.php" afterPath="$PROJECT_DIR$/template/mosaic/search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/search.php" afterPath="$PROJECT_DIR$/template/qed/search.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/searchlog.php" afterPath="$PROJECT_DIR$/admin/template/searchlog.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/searchpages.php" afterPath="$PROJECT_DIR$/admin/template/searchpages.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/searchsetting.php" afterPath="$PROJECT_DIR$/admin/template/searchsetting.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/searchuser.php" afterPath="$PROJECT_DIR$/admin/template/searchuser.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/setting.php" afterPath="$PROJECT_DIR$/admin/template/setting.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/settingfacebook.php" afterPath="$PROJECT_DIR$/admin/template/settingfacebook.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/canvas/sidebar.php" afterPath="$PROJECT_DIR$/template/canvas/sidebar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/jakweb/sidebar.php" afterPath="$PROJECT_DIR$/template/jakweb/sidebar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/mosaic/sidebar.php" afterPath="$PROJECT_DIR$/template/mosaic/sidebar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/sidebar.php" afterPath="$PROJECT_DIR$/template/qed/sidebar.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/site.php" afterPath="$PROJECT_DIR$/admin/template/site.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/css/style.css" afterPath="$PROJECT_DIR$/admin/assets/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/canvas/sitemap.php" afterPath="$PROJECT_DIR$/template/canvas/sitemap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/jakweb/sitemap.php" afterPath="$PROJECT_DIR$/template/jakweb/sitemap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/mosaic/sitemap.php" afterPath="$PROJECT_DIR$/template/mosaic/sitemap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/sitemap.php" afterPath="$PROJECT_DIR$/template/qed/sitemap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/sitemapsetting.php" afterPath="$PROJECT_DIR$/admin/template/sitemapsetting.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/sorthooks.php" afterPath="$PROJECT_DIR$/admin/template/sorthooks.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/tag.php" afterPath="$PROJECT_DIR$/admin/template/tag.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/tagcloud.php" afterPath="$PROJECT_DIR$/admin/template/tagcloud.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/tagsetting.php" afterPath="$PROJECT_DIR$/admin/template/tagsetting.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/trash.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/trash.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/user.php" afterPath="$PROJECT_DIR$/admin/template/user.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/usergroup.php" afterPath="$PROJECT_DIR$/admin/template/usergroup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/usergroup_edit.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/usergroup_edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/usergroup_new.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/usergroup_new.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="D:\Github\CMS-Bluesat\plugins\blog\css\index.html" afterPath="$PROJECT_DIR$/template/canvas/plugintemplate/blog/index.html" />
+      <change type="MOVED" beforePath="D:\Github\CMS-Bluesat\plugins\blog\template\blogsidebar.php" afterPath="$PROJECT_DIR$/template/canvas/plugintemplate/blog/blogsidebar.php" />
+      <change type="MOVED" beforePath="D:\Github\CMS-Bluesat\plugins\blog\template\canvas\index.html" afterPath="$PROJECT_DIR$/template/jakweb/plugintemplate/blog/index.html" />
+      <change type="MOVED" beforePath="D:\Github\CMS-Bluesat\plugins\blog\template\canvas\pages_news.php" afterPath="$PROJECT_DIR$/template/canvas/plugintemplate/blog/pages_news.php" />
+      <change type="MOVED" beforePath="D:\Github\CMS-Bluesat\plugins\blog\template\jakweb\blog.php" afterPath="$PROJECT_DIR$/template/jakweb/plugintemplate/blog/blog.php" />
+      <change type="MOVED" beforePath="D:\Github\CMS-Bluesat\plugins\blog\template\jakweb\blogart.php" afterPath="$PROJECT_DIR$/template/jakweb/plugintemplate/blog/blogart.php" />
+      <change type="MOVED" beforePath="D:\Github\CMS-Bluesat\plugins\blog\template\jakweb\index.html" afterPath="$PROJECT_DIR$/template/mosaic/plugintemplate/blog/index.html" />
+      <change type="MOVED" beforePath="D:\Github\CMS-Bluesat\plugins\blog\template\jakweb\pages_news.php" afterPath="$PROJECT_DIR$/template/jakweb/plugintemplate/blog/pages_news.php" />
+      <change type="MOVED" beforePath="D:\Github\CMS-Bluesat\plugins\blog\template\mosaic\blog.php" afterPath="$PROJECT_DIR$/template/canvas/plugintemplate/blog/blog.php" />
+      <change type="MOVED" beforePath="D:\Github\CMS-Bluesat\plugins\blog\template\mosaic\blogart.php" afterPath="$PROJECT_DIR$/template/canvas/plugintemplate/blog/blogart.php" />
+      <change type="MOVED" beforePath="D:\Github\CMS-Bluesat\plugins\blog\template\mosaic\index.html" afterPath="$PROJECT_DIR$/template/qed/plugintemplate/blog/index.html" />
+      <change type="MOVED" beforePath="D:\Github\CMS-Bluesat\plugins\blog\template\mosaic\pages_news.php" afterPath="$PROJECT_DIR$/template/mosaic/plugintemplate/blog/pages_news.php" />
+      <change type="MOVED" beforePath="D:\Github\CMS-Bluesat\plugins\blog\template\qed\blog.php" afterPath="$PROJECT_DIR$/template/mosaic/plugintemplate/blog/blog.php" />
+      <change type="MOVED" beforePath="D:\Github\CMS-Bluesat\plugins\blog\template\qed\blogart.php" afterPath="$PROJECT_DIR$/template/mosaic/plugintemplate/blog/blogart.php" />
+      <change type="MOVED" beforePath="D:\Github\CMS-Bluesat\plugins\blog\template\qed\pages_news.php" afterPath="$PROJECT_DIR$/template/qed/plugintemplate/blog/pages_news.php" />
+      <change type="MOVED" beforePath="D:\Github\CMS-Bluesat\plugins\blog\template\search.php" afterPath="$PROJECT_DIR$/template/canvas/plugintemplate/blog/search.php" />
+      <change type="MOVED" beforePath="D:\Github\CMS-Bluesat\plugins\blog\template\sitemap.php" afterPath="$PROJECT_DIR$/template/canvas/plugintemplate/blog/sitemap.php" />
     </list>
     <ignored path="CMS-Bluesat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,110 +136,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="blog.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/blog.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-21.423077">
+              <caret line="210" column="0" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="editcat.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/template/editcat.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.4727273">
-              <caret line="204" column="47" selection-start-line="204" selection-start-column="42" selection-end-line="204" selection-end-column="47" />
-              <folding>
-                <marker date="1487162462139" expanded="true" signature="5043:5388" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="5938:6238" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="5985:6238" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="6704:6913" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="7146:7436" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="7191:7436" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="7610:7807" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="8063:8353" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="8108:8353" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="8527:8803" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="8585:8803" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="9780:10070" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="9825:10070" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="10244:10522" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="10302:10522" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="11513:11803" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="11558:11803" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="11977:12236" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="12027:12236" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="12399:12549" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="12744:12992" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="12830:12971" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="13061:13935" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="13103:13935" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="13154:13543" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="13193:13522" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="13580:13935" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="13616:13935" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="13662:13935" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="13705:13935" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="13751:13935" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="13849:13935" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="14573:14821" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="14659:14800" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="14980:15955" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="15006:15955" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="15039:15955" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="15081:15955" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="15132:15242" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="15279:15955" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="15315:15955" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="15361:15955" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="15404:15669" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="15450:15642" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="15712:15955" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="15758:15955" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="16346:16594" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="16432:16573" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="16663:17277" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="16705:17277" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="16756:16866" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="16903:17277" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="16939:17277" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="16985:17277" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="17028:17277" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="17074:17277" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="17620:17868" placeholder="..." />
-                <marker date="1487162462139" expanded="true" signature="17706:17847" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="editfiles.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/template/editfiles.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.576923">
-              <caret line="54" column="97" selection-start-line="54" selection-start-column="92" selection-end-line="54" selection-end-column="97" />
+            <state vertical-scroll-proportion="-3.709091">
+              <caret line="149" column="26" selection-start-line="149" selection-start-column="26" selection-end-line="153" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editnews.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/template/editnews.php">
+      <file leaf-file-name="blogsetting.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/blogsetting.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.576923">
-              <caret line="338" column="62" selection-start-line="338" selection-start-column="57" selection-end-line="338" selection-end-column="62" />
+            <state vertical-scroll-proportion="-1.1341463">
+              <caret line="405" column="16" selection-start-line="405" selection-start-column="16" selection-end-line="408" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setting.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/admin/template/setting.php">
+      <file leaf-file-name="editblog.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/editblog.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.81914896">
-              <caret line="1176" column="26" selection-start-line="1176" selection-start-column="26" selection-end-line="1176" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.20731707">
+              <caret line="310" column="26" selection-start-line="310" selection-start-column="26" selection-end-line="322" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settingfacebook.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/template/settingfacebook.php">
+      <file leaf-file-name="usergroup_edit.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/usergroup_edit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-35.660378">
-              <caret line="182" column="0" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
+            <state vertical-scroll-proportion="-6.792453">
+              <caret line="192" column="4" selection-start-line="192" selection-start-column="4" selection-end-line="195" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newpage.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/template/newpage.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.11505922">
+              <caret line="355" column="26" selection-start-line="355" selection-start-column="26" selection-end-line="355" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -193,57 +212,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/notemplate.php" />
-        <option value="$PROJECT_DIR$/lang/cs.ini" />
-        <option value="$PROJECT_DIR$/noplugintemplate.php" />
-        <option value="$PROJECT_DIR$/plugins/belowheader/admin/js/pages.belowheader.php" />
-        <option value="$PROJECT_DIR$/plugins/blog/admin/template/editblogcat.php" />
-        <option value="$PROJECT_DIR$/admin/pages/js/pages.news.php" />
-        <option value="$PROJECT_DIR$/plugins/blog/admin/js/pages.blog.php" />
-        <option value="$PROJECT_DIR$/admin/assets/css/style.css" />
-        <option value="$PROJECT_DIR$/plugins/blog/admin/template/newblogcat.php" />
-        <option value="$PROJECT_DIR$/template/qed/js/neko-framework.js" />
-        <option value="$PROJECT_DIR$/admin/assets/js/scripts.js" />
-        <option value="$PROJECT_DIR$/admin/template/index.php" />
-        <option value="$PROJECT_DIR$/admin/template/categories.php" />
-        <option value="$PROJECT_DIR$/admin/template/editcontactform.php" />
-        <option value="$PROJECT_DIR$/admin/template/editfacebook.php" />
-        <option value="$PROJECT_DIR$/admin/template/edithook.php" />
-        <option value="$PROJECT_DIR$/admin/template/editorlight_edit.php" />
-        <option value="$PROJECT_DIR$/admin/template/editorlight_new.php" />
-        <option value="$PROJECT_DIR$/admin/template/editpage.php" />
-        <option value="$PROJECT_DIR$/admin/template/edituser.php" />
-        <option value="$PROJECT_DIR$/admin/template/editusergroup.php" />
-        <option value="$PROJECT_DIR$/admin/template/header.php" />
-        <option value="$PROJECT_DIR$/admin/template/hooks.php" />
-        <option value="$PROJECT_DIR$/admin/template/contactform.php" />
-        <option value="$PROJECT_DIR$/admin/template/logs.php" />
-        <option value="$PROJECT_DIR$/admin/template/mediasharing.php" />
-        <option value="$PROJECT_DIR$/admin/template/newcat.php" />
-        <option value="$PROJECT_DIR$/admin/template/newcontactform.php" />
-        <option value="$PROJECT_DIR$/admin/template/editcat.php" />
-        <option value="$PROJECT_DIR$/admin/template/newfacebook.php" />
-        <option value="$PROJECT_DIR$/admin/template/editfiles.php" />
-        <option value="$PROJECT_DIR$/admin/template/newhook.php" />
-        <option value="$PROJECT_DIR$/admin/template/newnews.php" />
-        <option value="$PROJECT_DIR$/admin/template/editnews.php" />
-        <option value="$PROJECT_DIR$/admin/template/newpage.php" />
-        <option value="$PROJECT_DIR$/admin/template/news.php" />
         <option value="$PROJECT_DIR$/admin/template/newssetting.php" />
         <option value="$PROJECT_DIR$/admin/template/newuser.php" />
         <option value="$PROJECT_DIR$/admin/template/newusergroup.php" />
-        <option value="$PROJECT_DIR$/admin/template/pages.php" />
-        <option value="$PROJECT_DIR$/class/class.htmlelement.php" />
         <option value="$PROJECT_DIR$/admin/template/plugins.php" />
-        <option value="$PROJECT_DIR$/plugins/blog/admin/blog.php" />
         <option value="$PROJECT_DIR$/admin/template/quickedit.php" />
-        <option value="$PROJECT_DIR$/admin/template/searchlog.php" />
-        <option value="$PROJECT_DIR$/admin/template/searchpages.php" />
         <option value="$PROJECT_DIR$/admin/template/searchsetting.php" />
-        <option value="$PROJECT_DIR$/admin/template/searchuser.php" />
-        <option value="$PROJECT_DIR$/admin/template/setting.php" />
         <option value="$PROJECT_DIR$/admin/template/settingfacebook.php" />
         <option value="$PROJECT_DIR$/admin/template/site.php" />
+        <option value="$PROJECT_DIR$/admin/template/sitemapsetting.php" />
+        <option value="$PROJECT_DIR$/admin/template/tagsetting.php" />
+        <option value="$PROJECT_DIR$/plugins/belowheader/admin/template/editbh.php" />
+        <option value="$PROJECT_DIR$/plugins/belowheader/admin/template/newbh.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/template/blog.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/template/blogcat.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/template/blogcatsort.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/template/blogcomment.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/template/blogcommentsort.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/template/trash.php" />
+        <option value="$PROJECT_DIR$/template/canvas/sidebar.php" />
+        <option value="$PROJECT_DIR$/template/jakweb/sidebar.php" />
+        <option value="$PROJECT_DIR$/template/mosaic/sidebar.php" />
+        <option value="$PROJECT_DIR$/template/qed/header.php" />
+        <option value="$PROJECT_DIR$/notemplate.php" />
+        <option value="$PROJECT_DIR$/noplugintemplate.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/blog.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/template/qed/sidebar.php" />
+        <option value="$PROJECT_DIR$/template/qed/sitemap.php" />
+        <option value="$PROJECT_DIR$/template/qed/plugintemplate/blog/sitemap.php" />
+        <option value="$PROJECT_DIR$/template/mosaic/sitemap.php" />
+        <option value="$PROJECT_DIR$/template/jakweb/sitemap.php" />
+        <option value="$PROJECT_DIR$/template/canvas/sitemap.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/js/pages.blog.php" />
+        <option value="$PROJECT_DIR$/template/qed/info.txt" />
+        <option value="$PROJECT_DIR$/plugins/blog/install.php" />
+        <option value="$PROJECT_DIR$/template/qed/search.php" />
+        <option value="$PROJECT_DIR$/template/mosaic/search.php" />
+        <option value="$PROJECT_DIR$/template/jakweb/search.php" />
+        <option value="$PROJECT_DIR$/template/canvas/search.php" />
+        <option value="$PROJECT_DIR$/template/qed/plugintemplate/blog/search.php" />
+        <option value="$PROJECT_DIR$/class/class.htmlelement.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/template/blogsetting.php" />
+        <option value="$PROJECT_DIR$/admin/template/setting.php" />
+        <option value="$USER_HOME$/Downloads/editblogcat.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/blog.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/template/editblogcat.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/template/newblogcat.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/template/editblog.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/template/newblog.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/template/usergroup_edit.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/template/usergroup_new.php" />
       </list>
     </option>
   </component>
@@ -321,7 +340,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
+              <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="qed" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -335,7 +358,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
+              <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="qed" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugintemplate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -343,10 +388,42 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -359,11 +436,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Github\CMS-Bluesat\plugins\blog\template" />
-      <recent name="D:\Github\CMS-Bluesat\plugins\blog\template\mosaic" />
-      <recent name="D:\Github\CMS-Bluesat\template\qed" />
-      <recent name="D:\Github\CMS-Bluesat\assets\plugins" />
-      <recent name="D:\Github\CMS-Bluesat\template\qed\doc\js" />
+      <recent name="D:\Github\CMS-Bluesat\template\canvas\plugintemplate\blog" />
+      <recent name="D:\Github\CMS-Bluesat\template\jakweb\plugintemplate\blog" />
+      <recent name="D:\Github\CMS-Bluesat\template\mosaic\plugintemplate\blog" />
+      <recent name="D:\Github\CMS-Bluesat\template\qed\plugintemplate\blog" />
+      <recent name="D:\Github\CMS-Bluesat\template\canvas" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Github\CMS-Bluesat\assets\plugins\captcha\simple" />
@@ -415,14 +492,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2035139" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2035139" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2284041" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3499268" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32868218" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -475,7 +552,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/template/editor_new.php">
+    <entry file="file://$PROJECT_DIR$/template/mosaic/plugintemplate/blog/sitemap.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -483,7 +560,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/editorlight_new.php">
+    <entry file="file://$PROJECT_DIR$/template/jakweb/plugintemplate/blog/sitemap.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -491,128 +568,202 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/editorlight_edit.php">
+    <entry file="file://$PROJECT_DIR$/template/canvas/plugintemplate/blog/sitemap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05752961">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/lang/cs.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.9310346">
-          <caret line="1063" column="4" selection-start-line="1063" selection-start-column="0" selection-end-line="1063" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/editpage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14205608">
-          <caret line="796" column="41" selection-start-line="796" selection-start-column="41" selection-end-line="796" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/edituser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="11.169811">
-          <caret line="306" column="20" selection-start-line="306" selection-start-column="20" selection-end-line="310" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/usergroup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.5">
-          <caret line="210" column="41" selection-start-line="210" selection-start-column="33" selection-end-line="210" selection-end-column="41" />
-          <folding>
-            <element signature="e#1112#3215#0#PHP" expanded="false" />
-            <element signature="e#3229#4174#0#PHP" expanded="false" />
-            <element signature="e#4199#5270#0#PHP" expanded="false" />
-            <element signature="e#5274#6025#0#PHP" expanded="false" />
-            <marker date="1485602906025" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1485602906025" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1485602906025" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/facebookgallery.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.279188">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/footer.php">
+    <entry file="file://$PROJECT_DIR$/template/qed/plugintemplate/blog/pages_news.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.4788494">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#div#2;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <marker date="1486929694731" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1486929694731" expanded="true" signature="-1:-1" placeholder="{&quot;type&quot;: &quot;danger&quot;...}" />
-            <marker date="1486929694731" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1486929694731" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1486929694731" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/header.php">
+    <entry file="file://$PROJECT_DIR$/template/qed/sidebar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.9230769">
+          <caret line="6" column="27" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/mosaic/sitemap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.74111676">
+          <caret line="56" column="27" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/jakweb/sitemap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7123519">
+          <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/canvas/sitemap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.74111676">
+          <caret line="56" column="27" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/qed/sitemap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25531915">
+          <caret line="48" column="19" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/js/pages.blog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6903553">
+          <caret line="102" column="32" selection-start-line="102" selection-start-column="32" selection-end-line="102" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/qed/plugintemplate/blog/sitemap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25888324">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/mosaic/plugintemplate/blog/search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/jakweb/plugintemplate/blog/search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11505922">
+          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/canvas/plugintemplate/blog/search.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14382403">
-          <caret line="17" column="7" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="7" />
+          <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/help.php">
+    <entry file="file://$PROJECT_DIR$/template/qed/search.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1218274">
+        <state vertical-scroll-proportion="0.4467005">
+          <caret line="96" column="6" selection-start-line="96" selection-start-column="6" selection-end-line="97" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/qed/page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20135364">
+          <caret line="132" column="8" selection-start-line="132" selection-start-column="8" selection-end-line="132" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/mosaic/search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20135364">
+          <caret line="73" column="27" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/jakweb/search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46023688">
+          <caret line="73" column="27" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/canvas/search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28764805">
+          <caret line="73" column="27" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/canvas/tagsidebar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/hooks.php">
+    <entry file="file://$PROJECT_DIR$/template/qed/info.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8794326">
-          <caret line="150" column="14" selection-start-line="150" selection-start-column="14" selection-end-line="150" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.38573745">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/index.php">
+    <entry file="file://$PROJECT_DIR$/template/qed/plugintemplate/blog/search.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.106599">
-          <caret line="68" column="61" selection-start-line="68" selection-start-column="61" selection-end-line="68" selection-end-column="61" />
+        <state vertical-scroll-proportion="0.34517765">
+          <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/login.php">
+    <entry file="file://$PROJECT_DIR$/plugins/blog/install.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.17258883">
+        <state vertical-scroll-proportion="0.5780142">
+          <caret line="293" column="54" selection-start-line="293" selection-start-column="54" selection-end-line="293" selection-end-column="54" />
+          <folding>
+            <marker date="1487266287542" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
+            <marker date="1487266287542" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1487266287542" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
+            <marker date="1487266287542" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1487266287542" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1487266287542" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
+            <marker date="1487266287542" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
+            <marker date="1487266287542" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
+            <marker date="1487266287542" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
+            <marker date="1487266287542" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
+            <marker date="1487266287542" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1487266287542" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..IF..." />
+            <marker date="1487266287542" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..IF..." />
+            <marker date="1487266287542" expanded="true" signature="-1:-1" placeholder="CREATE TABLE..IF..." />
+            <marker date="1487266287542" expanded="true" signature="-1:-1" placeholder="ALTER TABLE ..." />
+            <marker date="1487266287542" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/blognav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/logs.php">
+    <entry file="file://$PROJECT_DIR$/plugins/belowheader/admin/template/bhnav.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.927242">
-          <caret line="131" column="14" selection-start-line="131" selection-start-column="14" selection-end-line="131" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/maintenance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1218274">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -620,501 +771,344 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/template/navbar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.8984772">
+        <state vertical-scroll-proportion="-0.6903553">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/newcat.php">
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/blog.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2801418">
-          <caret line="227" column="24" selection-start-line="227" selection-start-column="24" selection-end-line="231" selection-end-column="26" />
+        <state vertical-scroll-proportion="-21.423077">
+          <caret line="210" column="0" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/newcontactform.php">
+    <entry file="file://$PROJECT_DIR$/admin/categories.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.1294327">
-          <caret line="138" column="24" selection-start-line="138" selection-start-column="24" selection-end-line="138" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/newfacebook.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18085106">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/newhook.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2464539">
-          <caret line="157" column="0" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/newnews.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7677305">
-          <caret line="513" column="16" selection-start-line="513" selection-start-column="16" selection-end-line="518" selection-end-column="18" />
+        <state vertical-scroll-proportion="-9.959391">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487168217534" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1485602865303" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1485602865303" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
+            <marker date="1485602865303" expanded="true" signature="-1:-1" placeholder="SELECT catpa..." />
+            <marker date="1485602865303" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1485602865303" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1485602865303" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1485602865303" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1485602865303" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1485602865303" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1485602865303" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/news.php">
+    <entry file="file://$PROJECT_DIR$/admin/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.852837">
-          <caret line="161" column="4" selection-start-line="161" selection-start-column="4" selection-end-line="161" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/newpage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12588653">
-          <caret line="675" column="18" selection-start-line="675" selection-start-column="18" selection-end-line="675" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/mediasharing.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.53723407">
-          <caret line="335" column="22" selection-start-line="335" selection-start-column="22" selection-end-line="339" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/editusergroup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6523365">
-          <caret line="163" column="26" selection-start-line="163" selection-start-column="26" selection-end-line="163" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/newsnav.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.23688664">
+        <state vertical-scroll-proportion="-9.384095">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1485602866070" expanded="true" signature="-1:-1" placeholder="SELECT (SELE..." />
+            <marker date="1485602866070" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
+            <marker date="1485602866070" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
+            <marker date="1485602866070" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
+            <marker date="1485602866070" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1485602866070" expanded="true" signature="-1:-1" placeholder="SELECT (SELE..." />
+            <marker date="1485602866070" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
+            <marker date="1485602866070" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
+            <marker date="1485602866070" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
+            <marker date="1485602866070" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
+            <marker date="1485602866070" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
+            <marker date="1485602866070" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
+            <marker date="1485602866070" expanded="true" signature="-1:-1" placeholder="SELECT title..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/newssetting.php">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.20567375">
-          <caret line="334" column="20" selection-start-line="334" selection-start-column="20" selection-end-line="334" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/newuser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.17553191">
-          <caret line="223" column="24" selection-start-line="223" selection-start-column="24" selection-end-line="223" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/newusergroup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.9485815">
-          <caret line="184" column="24" selection-start-line="184" selection-start-column="24" selection-end-line="188" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/categories.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24377224">
-          <caret line="157" column="17" selection-start-line="157" selection-start-column="17" selection-end-line="157" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/pages.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39716312">
-          <caret line="193" column="4" selection-start-line="193" selection-start-column="4" selection-end-line="193" selection-end-column="4" />
-          <folding />
+        <state vertical-scroll-proportion="0.4788494">
+          <caret line="486" column="35" selection-start-line="486" selection-start-column="33" selection-end-line="486" selection-end-column="35" />
+          <folding>
+            <marker date="1487265021291" expanded="true" signature="-1:-1" placeholder="SELECT id, n..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/class/class.htmlelement.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47340426">
-          <caret line="90" column="20" selection-start-line="90" selection-start-column="11" selection-end-line="90" selection-end-column="20" />
-          <folding>
-            <element signature="e#7#853#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/plugins.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.226415">
-          <caret line="220" column="24" selection-start-line="220" selection-start-column="24" selection-end-line="220" selection-end-column="24" />
-          <folding>
-            <marker date="1487170603363" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487170603363" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487170603363" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487170603363" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487170603363" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487170603363" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487170603363" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487170603363" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487170603363" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487170603363" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487170603363" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487170603363" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487170603363" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487170603363" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487170603363" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487170603363" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487170603363" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487170603363" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487170603363" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487170603363" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487170603363" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487170603363" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1487170603363" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/blog.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33225283">
-          <caret line="330" column="10" selection-start-line="330" selection-start-column="10" selection-end-line="330" selection-end-column="10" />
-          <folding>
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT id, n..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT hooki..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT plugi..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT id, h..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT id, n..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT catid..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT catid..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT conte..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT plugi..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT id, p..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT id, n..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT id, t..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT catid..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT catid..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/blog.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3468697">
-          <caret line="330" column="10" selection-start-line="330" selection-start-column="10" selection-end-line="330" selection-end-column="10" />
-          <folding>
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT id, n..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT hooki..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT plugi..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT id, h..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT id, n..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT catid..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT catid..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT conte..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT plugi..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT id, p..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT id, n..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT id, t..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT catid..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="SELECT catid..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1487170741277" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/quickfooter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.4314721">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/searchlog.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3067376">
-          <caret line="140" column="4" selection-start-line="140" selection-start-column="4" selection-end-line="140" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/searchpages.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.92907804">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/quickedit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.5849056">
-          <caret line="68" column="16" selection-start-line="68" selection-start-column="16" selection-end-line="68" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/searchsetting.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.471698">
-          <caret line="238" column="24" selection-start-line="238" selection-start-column="24" selection-end-line="238" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/searchuser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="35.226414">
-          <caret line="68" column="16" selection-start-line="68" selection-start-column="16" selection-end-line="68" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/contactform.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0379062">
-          <caret line="53" column="22" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/sidebar_widget.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.035533">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/editcat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4727273">
-          <caret line="204" column="47" selection-start-line="204" selection-start-column="42" selection-end-line="204" selection-end-column="47" />
-          <folding>
-            <marker date="1487162462139" expanded="true" signature="5043:5388" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="5938:6238" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="5985:6238" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="6704:6913" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="7146:7436" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="7191:7436" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="7610:7807" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="8063:8353" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="8108:8353" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="8527:8803" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="8585:8803" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="9780:10070" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="9825:10070" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="10244:10522" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="10302:10522" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="11513:11803" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="11558:11803" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="11977:12236" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="12027:12236" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="12399:12549" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="12744:12992" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="12830:12971" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="13061:13935" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="13103:13935" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="13154:13543" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="13193:13522" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="13580:13935" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="13616:13935" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="13662:13935" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="13705:13935" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="13751:13935" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="13849:13935" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="14573:14821" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="14659:14800" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="14980:15955" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="15006:15955" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="15039:15955" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="15081:15955" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="15132:15242" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="15279:15955" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="15315:15955" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="15361:15955" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="15404:15669" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="15450:15642" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="15712:15955" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="15758:15955" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="16346:16594" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="16432:16573" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="16663:17277" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="16705:17277" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="16756:16866" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="16903:17277" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="16939:17277" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="16985:17277" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="17028:17277" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="17074:17277" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="17620:17868" placeholder="..." />
-            <marker date="1487162462139" expanded="true" signature="17706:17847" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/editfiles.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.576923">
-          <caret line="54" column="97" selection-start-line="54" selection-start-column="92" selection-end-line="54" selection-end-column="97" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/editnews.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.576923">
-          <caret line="338" column="62" selection-start-line="338" selection-start-column="57" selection-end-line="338" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/site.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.7429078">
-          <caret line="201" column="24" selection-start-line="201" selection-start-column="24" selection-end-line="201" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/sitemapsetting.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5380712">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/settingfacebook.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-35.660378">
-          <caret line="182" column="0" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
+        <state vertical-scroll-proportion="-2.792683">
+          <caret line="64" column="6" selection-start-line="64" selection-start-column="6" selection-end-line="64" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/template/setting.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.81914896">
-          <caret line="1176" column="26" selection-start-line="1176" selection-start-column="26" selection-end-line="1176" selection-end-column="26" />
+        <state vertical-scroll-proportion="-27.062057">
+          <caret line="420" column="30" selection-start-line="420" selection-start-column="30" selection-end-line="420" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/blogsetting.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1341463">
+          <caret line="405" column="16" selection-start-line="405" selection-start-column="16" selection-end-line="408" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/editnews.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4">
+          <caret line="115" column="26" selection-start-line="115" selection-start-column="26" selection-end-line="118" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/editcat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.709091">
+          <caret line="149" column="26" selection-start-line="149" selection-start-column="26" selection-end-line="153" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/editblogcat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5384617">
+          <caret line="67" column="18" selection-start-line="0" selection-start-column="0" selection-end-line="144" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/blog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.327273">
+          <caret line="306" column="8" selection-start-line="306" selection-start-column="8" selection-end-line="306" selection-end-column="57" />
+          <folding>
+            <element signature="e#7611#9286#0#PHP" expanded="false" />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="SELECT id, n..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="SELECT hooki..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="SELECT plugi..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="SELECT id, h..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="SELECT id, n..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="SELECT catid..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="SELECT catid..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="SELECT conte..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="SELECT plugi..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="SELECT id, p..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="SELECT id, n..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="SELECT id, t..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="SELECT catid..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="SELECT catid..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274273443" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/blog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.106542">
+          <caret line="330" column="59" selection-start-line="330" selection-start-column="59" selection-end-line="330" selection-end-column="59" />
+          <folding>
+            <element signature="e#7020#7478#0#PHP" expanded="false" />
+            <element signature="e#7482#8341#0#PHP" expanded="false" />
+            <element signature="e#13379#15565#0#PHP" expanded="false" />
+            <element signature="e#15567#20903#0#PHP" expanded="false" />
+            <element signature="e#20905#28169#0#PHP" expanded="false" />
+            <element signature="e#28171#29952#0#PHP" expanded="false" />
+            <element signature="e#29954#31215#0#PHP" expanded="false" />
+            <element signature="e#31395#32581#0#PHP" expanded="false" />
+            <element signature="e#32585#33973#0#PHP" expanded="false" />
+            <element signature="e#33977#35485#0#PHP" expanded="false" />
+            <element signature="e#35489#45797#0#PHP" expanded="false" />
+            <element signature="e#35577#44063#0#PHP" expanded="false" />
+            <element signature="e#45801#46890#0#PHP" expanded="false" />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="SELECT id, n..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="SELECT hooki..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="SELECT plugi..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="SELECT id, h..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="SELECT id, n..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="SELECT catid..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="SELECT catid..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="SELECT conte..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="SELECT id FR..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="SELECT plugi..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="SELECT id, p..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="SELECT id, n..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="SELECT id, t..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="SELECT catid..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="SELECT catid..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1487274294054" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/newblogcat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21631205">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/editblogcat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.497196">
+          <caret line="203" column="12" selection-start-line="203" selection-start-column="12" selection-end-line="206" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/newblog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5233645">
+          <caret line="419" column="24" selection-start-line="419" selection-start-column="24" selection-end-line="423" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/usergroup_edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.792453">
+          <caret line="192" column="4" selection-start-line="192" selection-start-column="4" selection-end-line="195" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/editblog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20731707">
+          <caret line="310" column="26" selection-start-line="310" selection-start-column="26" selection-end-line="322" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/blog_connect.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/usergroup_new.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54787236">
+          <caret line="160" column="12" selection-start-line="160" selection-start-column="12" selection-end-line="164" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/include/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.9492386">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1485602935727" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+            <marker date="1485602935727" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6395939">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1485602942550" expanded="true" signature="-1:-1" placeholder="SELECT t1.id..." />
+            <marker date="1485602942550" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/ajaxsearch.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.12182741">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1485602942462" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/newpage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11505922">
+          <caret line="355" column="26" selection-start-line="355" selection-start-column="26" selection-end-line="355" selection-end-column="26" />
           <folding />
         </state>
       </provider>

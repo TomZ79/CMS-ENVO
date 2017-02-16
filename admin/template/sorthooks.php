@@ -39,7 +39,12 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 			</button>
 			<div class="dropdown-menu livefilter">
 				<div class="search-box">
-					<input type="text" placeholder="<?php echo $tl["placeholder"]["p3"]; ?>" id="input-bts-ex-1" class="form-control live-search" aria-describedby="search-icon1"/>
+
+					<?php
+					// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+					echo $htmlE->addInput('text', '', 'input-bts-ex-1', 'form-control live-search','', '', array('placeholder' => $tl["placeholder"]["p3"], 'aria-describedby' => 'search-icon1'));
+					?>
+
 				</div>
 				<div class="list-to-filter">
 					<ul class="list-unstyled overflow">
@@ -104,9 +109,12 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 <?php } else { ?>
 
 	<div class="col-md-12">
-		<div class="alert bg-info text-white">
-			<?php echo $tl["general_error"]["generror3"]; ?>
-		</div>
+
+		<?php
+		// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
+		echo $htmlE->addSimpleDiv ('', $tl["general_error"]["generror3"],  array ('class' => 'alert bg-info text-white'));
+		?>
+
 	</div>
 
 <?php } ?>
@@ -120,7 +128,5 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 			<i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
 		</div>
 	</div>
-
-	<script src="js/hookorder.js" type="text/javascript"></script>
 
 <?php include "footer.php"; ?>

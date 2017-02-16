@@ -79,7 +79,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
 									<?php
 									// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-									echo $htmlE->addInput('checkbox', 'jak_delete_all', '', '', '', '');
+									echo $htmlE->addInput('checkbox', '', 'jak_delete_all', '', '', '');
 									// Arguments: for (id of associated form element), text
 									echo $htmlE->addLabelFor('jak_delete_all', '');
 									?>
@@ -108,15 +108,21 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 							</th>
 							<th><?php echo $tl["page_box_table"]["pagetb4"]; ?></th>
 							<th>
-								<button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
-									<i class="fa fa-lock"></i>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('lock', 'button_lock', 'btn btn-default btn-xs', '<i class="fa fa-lock"></i>');
+								?>
+
 							</th>
 							<th></th>
 							<th>
-								<button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tl["page_notification"]["delall"]; ?>" disabled="disabled">
-									<i class="fa fa-trash-o"></i>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('delete', 'button_delete', 'btn btn-danger btn-xs', '<i class="fa fa-trash-o"></i>', array('data-confirm-del' => $tlbh["page_notification"]["delall"], 'disabled' => 'disabled'));
+								?>
+								
 							</th>
 						</tr>
 						</thead>

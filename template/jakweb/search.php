@@ -70,7 +70,8 @@ if (isset($JAK_SEARCH_USED)) { ?>
 
 		<?php }
 		if (isset($JAK_HOOK_SEARCH) && is_array ($JAK_HOOK_SEARCH)) foreach ($JAK_HOOK_SEARCH as $hs) {
-			include_once APP_PATH . $hs["phpcode"];
+			// include_once APP_PATH . $hs["phpcode"];
+			eval($hs["phpcode"]);
 		} ?>
 
 	</div>

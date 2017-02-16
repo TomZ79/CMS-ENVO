@@ -8,7 +8,13 @@ if ($page1 == 'newhook' || ($page1 == 'hooks' && $page2 == 'edit')) {
 if ($page == 'plugins' && $page1 == '') {
 	?>
 	<script src="assets/js/pluginorder.js" type="text/javascript"></script>
+<?php }
+// Load 'pluginorder.js'  - only for selected pages
+if ($page == 'plugins' && $page1 == 'sorthooks') {
+?>
+<script src="assets/js/hookorder.js" type="text/javascript"></script>w
 <?php } ?>
+
 <script type="text/javascript">
 	<?php
 	// Init ACE Editor  - only for selected pages

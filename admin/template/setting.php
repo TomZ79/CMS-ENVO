@@ -75,10 +75,12 @@ if ($success) { ?>
 	<form method="post" class="jak_form" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 		<!-- Fixed Button for save form -->
 		<div class="savebutton hidden-xs">
-			<button type="submit" name="save" class="btn btn-success button">
-				<i class="fa fa-save margin-right-5"></i>
-				<?php echo $tl["button"]["btn1"]; ?> !!
-			</button>
+
+			<?php
+			// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+			echo $htmlE->addButtonSubmit('save', '', 'btn btn-success button', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ');
+			?>
+
 		</div>
 
 		<!-- Form Content -->
@@ -300,14 +302,21 @@ if ($success) { ?>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_time_ago1" name="jak_time_ago" value="1"<?php if ($jkv["time_ago_show"] == 1) { ?> checked="checked"<?php } ?> />
-													<label for="jak_time_ago1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["time_ago_show"] == '1') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_time_ago', 'jak_time_ago1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_time_ago1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_time_ago2" name="jak_time_ago" value="0"<?php if ($jkv["time_ago_show"] == 0) { ?> checked="checked"<?php } ?> />
-													<label for="jak_time_ago2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["time_ago_show"] == '0') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_time_ago', 'jak_time_ago2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_time_ago2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
-
 											</div>
 										</div>
 										<div class="row-form">
@@ -323,24 +332,33 @@ if ($success) { ?>
 											<div class="col-md-7">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_hvm1" name="jak_hvm" value="1"<?php if ($jkv["hvm"] == 1) { ?> checked="checked"<?php } ?> />
-													<label for="jak_hvm1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["hvm"] == '1') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_hvm', 'jak_hvm1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_hvm1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_hvm2" name="jak_hvm" value="0"<?php if ($jkv["hvm"] == 0) { ?> checked="checked"<?php } ?> />
-													<label for="jak_hvm2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($jkv["hvm"] == '0') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_hvm', 'jak_hvm2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_hvm', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
-
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-success pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["button"]["btn1"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								?>
+
 							</div>
 						</div>
 						<div class="box box-success">
@@ -394,7 +412,12 @@ if ($success) { ?>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group no-margin<?php if (isset($errors["e5"])) echo " has-error"; ?>">
-													<input type="text" name="jak_item" class="form-control" value="<?php echo $jkv["adminpageitem"]; ?>"/>
+
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													echo $htmlE->addInput('text', 'jak_item', '', 'form-control', $jkv["adminpageitem"], '');
+													?>
+
 												</div>
 											</div>
 										</div>
@@ -402,10 +425,12 @@ if ($success) { ?>
 								</div>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-success pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["button"]["btn1"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								?>
+
 							</div>
 						</div>
 					</div>
@@ -451,10 +476,12 @@ if ($success) { ?>
 								</div>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-success pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["button"]["btn1"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								?>
+
 							</div>
 						</div>
 						<div class="box box-success">
@@ -486,10 +513,12 @@ if ($success) { ?>
 								</div>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-success pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["button"]["btn1"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								?>
+
 							</div>
 						</div>
 						<div class="box box-success">
@@ -515,10 +544,12 @@ if ($success) { ?>
 								</div>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-success pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["button"]["btn1"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								?>
+
 							</div>
 						</div>
 						<div class="box box-success">
@@ -575,10 +606,12 @@ if ($success) { ?>
 								</div>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-success pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["button"]["btn1"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								?>
+
 							</div>
 						</div>
 					</div>
@@ -783,10 +816,12 @@ if ($success) { ?>
 								</div>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-success pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["button"]["btn1"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								?>
+
 							</div>
 						</div>
 					</div>
@@ -1007,10 +1042,12 @@ if ($success) { ?>
 								</div>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-success pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["button"]["btn1"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								?>
+
 							</div>
 						</div>
 					</div>
@@ -1151,10 +1188,12 @@ if ($success) { ?>
 								</div>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-success pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["button"]["btn1"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								?>
+
 							</div>
 						</div>
 					</div>
@@ -1206,10 +1245,12 @@ if ($success) { ?>
 								</div>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-success pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["button"]["btn1"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								?>
+
 							</div>
 						</div>
 					</div>
@@ -1239,10 +1280,12 @@ if ($success) { ?>
 								</div>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-success pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["button"]["btn1"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								?>
+
 							</div>
 						</div>
 					</div>
@@ -1280,10 +1323,12 @@ if ($success) { ?>
 							</div>
 							<div class="box-footer">
 								<a href="index.php?p=setting&amp;sp=trunheat" class="btn btn-warning btn-sm"><?php echo $tl["button"]["btn2"]; ?></a>
-								<button type="submit" name="save" class="btn btn-success pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["button"]["btn1"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								?>
+
 							</div>
 						</div>
 					</div>

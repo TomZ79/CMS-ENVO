@@ -37,10 +37,12 @@ if ($errors) { ?>
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 		<!-- Fixed Button for save form -->
 		<div class="savebutton hidden-xs">
-			<button type="submit" name="save" class="btn btn-success button">
-				<i class="fa fa-save margin-right-5"></i>
-				<?php echo $tl["button"]["btn1"]; ?> !!
-			</button>
+
+			<?php
+			// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+			echo $htmlE->addButtonSubmit('save', '', 'btn btn-success button', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ');
+			?>
+
 		</div>
 
 		<!-- Form Content -->
@@ -171,10 +173,12 @@ if ($errors) { ?>
 						</div>
 					</div>
 					<div class="box-footer">
-						<button type="submit" name="save" class="btn btn-success pull-right">
-							<i class="fa fa-save margin-right-5"></i>
-							<?php echo $tl["button"]["btn1"]; ?>
-						</button>
+
+						<?php
+						// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+						echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+						?>
+
 					</div>
 				</div>
 			</div>
@@ -241,10 +245,12 @@ if ($errors) { ?>
 						<button type="button" class="btn btn-info generate-label-absolute">
 							<?php echo $tl["button"]["btn24"]; ?>
 						</button>
-						<button type="submit" name="save" class="btn btn-success pull-right">
-							<i class="fa fa-save margin-right-5"></i>
-							<?php echo $tl["button"]["btn1"]; ?>
-						</button>
+
+						<?php
+						// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+						echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+						?>
+
 					</div>
 				</div>
 			</div>

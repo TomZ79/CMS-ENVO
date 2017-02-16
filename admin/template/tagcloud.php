@@ -50,14 +50,18 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 <?php } ?>
 
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-		<?php if ($JAK_TAGCLOUD) {
+		<?php
+		if ($JAK_TAGCLOUD) {
 			echo $JAK_TAGCLOUD;
 		} else { ?>
 
 			<div class="col-md-12">
-				<div class="alert bg-info text-white">
-					<?php echo $tl["general_error"]["generror3"]; ?>
-				</div>
+
+				<?php
+				// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
+				echo $htmlE->addSimpleDiv ('', $tl["general_error"]["generror3"],  array ('class' => 'alert bg-info text-white'));
+				?>
+
 			</div>
 
 		<?php } ?>

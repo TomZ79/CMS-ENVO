@@ -54,7 +54,8 @@
 					<?php } ?>
 
 					<?php if (isset($JAK_HOOK_SITEMAP) && is_array ($JAK_HOOK_SITEMAP)) foreach ($JAK_HOOK_SITEMAP as $hs) {
-						include_once APP_PATH . $hs['phpcode'];
+						// include_once APP_PATH . $hs['phpcode'];
+						eval($hs["phpcode"]);
 					} ?>
 				</div>
 

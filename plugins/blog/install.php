@@ -256,10 +256,13 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
 		$JAK_FORM_DATA[\'showblogmany\'] = $showblogarray[1];
 	
 } }';
-
 				// Eval code for display connect
 				$get_blconnect = 'if (JAK_PLUGIN_ACCESS_BLOG && $pg[\'pluginid\'] == JAK_PLUGIN_ID_BLOG && !empty($row[\'showblog\'])) {
 include_once APP_PATH.\'plugins/blog/template/\'.$jkv[\"sitestyle\"].\'/pages_news.php\';}';
+
+				$get_blsidebar = 'include_once APP_PATH.\'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/blogsidebar.php\';';
+				$get_blsitemap = 'include_once APP_PATH.\'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/sitemap.php\';';
+				$get_blsearch = 'include_once APP_PATH.\'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/search.php\';';
 
 				$adminphpdelete = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'blogcomments SET userid = 0 WHERE userid = \'.$page2.\'\');';
 
@@ -275,12 +278,11 @@ include_once APP_PATH.\'plugins/blog/template/\'.$jkv[\"sitestyle\"].\'/pages_ne
 (NULL, "php_rss", "Blog RSS PHP", "' . $sitephprss . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_tags", "Blog Tags PHP", "' . $sitephptag . '", "blog", 1, 8, "' . $rows['id'] . '", NOW()),
 (NULL, "php_sitemap", "Blog Sitemap PHP", "' . $sitephpsitemap . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_between_head", "Blog CSS", "plugins/blog/template/cssheader.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup", "Blog Usergroup New", "plugins/blog/admin/template/usergroup_new.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup_edit", "Blog Usergroup Edit", "plugins/blog/admin/template/usergroup_edit.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_tags", "Blog Tags", "plugins/blog/template/tag.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_sitemap", "Blog Sitemap", "plugins/blog/template/sitemap.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_sidebar", "Blog Sidebar Categories", "plugins/blog/template/$site_style/blogsidebar.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_sitemap", "Blog Sitemap", "' . $get_blsitemap . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_sidebar", "Blog Sidebar Categories", "' . $get_blsidebar . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_fulltext_add", "Blog Full Text Search", "' . $sqlfull . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_fulltext_remove", "Blog Remove Full Text Search", "' . $sqlfullremove . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_page_news", "Blog Admin - Page/News", "' . $pages . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
@@ -289,7 +291,7 @@ include_once APP_PATH.\'plugins/blog/template/\'.$jkv[\"sitestyle\"].\'/pages_ne
 (NULL, "php_admin_news_sql", "Blog News SQL", "' . $sqlinsert . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_pages_news_info", "Blog Pages/News Info", "' . $getblog . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_page_news_grid", "Blog Pages/News Display", "' . $get_blconnect . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_search", "Blog Search", "plugins/blog/template/search.php", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_search", "Blog Search", "' . $get_blsearch . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_user_delete", "Blog Delete User", "' . $adminphpdelete . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_user_rename", "Blog Rename User", "' . $adminphprename . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_user_delete_mass", "Blog Delete User Mass", "' . $adminphpmassdel . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),

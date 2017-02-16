@@ -45,10 +45,12 @@
 		</table>
 	</div>
 	<div class="box-footer">
-		<button type="submit" name="save" class="btn btn-success pull-right">
-			<i class="fa fa-save margin-right-5"></i>
-			<?php echo $tl["button"]["btn1"]; ?>
-		</button>
+
+		<?php
+		// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+		echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+		?>
+
 	</div>
 </div>
 <style type="text/css">

@@ -61,8 +61,14 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 							<th>#</th>
 							<th>
 								<div class="checkbox-singel check-success">
-									<input type="checkbox" id="jak_delete_all"/>
-									<label for="jak_delete_all"></label>
+
+									<?php
+									// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+									echo $htmlE->addInput('checkbox', '', 'jak_delete_all', '', '', '');
+									// Arguments: for (id of associated form element), text
+									echo $htmlE->addLabelFor('jak_delete_all', '');
+									?>
+
 								</div>
 							</th>
 							<th><?php echo $tlblog["blog_box_table"]["blogtb"]; ?>
@@ -85,14 +91,21 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 							</th>
 							<th><?php echo $tlblog["blog_box_table"]["blogtb4"]; ?></th>
 							<th>
-								<button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
-									<i class="fa fa-lock"></i></button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('lock', 'button_lock', 'btn btn-default btn-xs', '<i class="fa fa-lock"></i>');
+								?>
+
 							</th>
 							<th></th>
 							<th>
-								<button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tlblog["blog_notification"]["delall"]; ?>" disabled="disabled">
-									<i class="fa fa-trash-o"></i>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('delete', 'button_delete', 'btn btn-danger btn-xs', '<i class="fa fa-trash-o"></i>', array('data-confirm-del' => $tlblog["blog_notification"]["delall"], 'disabled' => 'disabled'));
+								?>
+
 							</th>
 						</tr>
 						</thead>
@@ -190,9 +203,12 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 <?php } else { ?>
 
 	<div class="col-md-12">
-		<div class="alert bg-info text-white">
-			<?php echo $tl["general_error"]["generror3"]; ?>
-		</div>
+
+		<?php
+		// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
+		echo $htmlE->addSimpleDiv ('', $tl["general_error"]["generror3"],  array ('class' => 'alert bg-info text-white'));
+		?>
+
 	</div>
 
 <?php } ?>

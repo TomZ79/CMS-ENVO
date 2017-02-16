@@ -113,7 +113,7 @@ switch ($page1) {
 
 			// EN: Load the template
 			// CZ: Načti template (šablonu)
-			$plugin_template = 'plugins/blog/template/' . $jkv["sitestyle"] . '/blog.php';
+			$plugin_template = 'template/' . $jkv["sitestyle"] . '/plugintemplate/blog/blog.php';
 
 		} else {
 			jak_redirect ($backtoblog);
@@ -366,7 +366,7 @@ switch ($page1) {
 
 		// EN: Load the template
 		// CZ: Načti template (šablonu)
-		$plugin_template = 'plugins/blog/template/' . $jkv["sitestyle"] . '/blogart.php';
+		$plugin_template = 'template/' . $jkv["sitestyle"] . '/plugintemplate/blog/blogart.php';
 
 		break;
 	case 'del':
@@ -526,6 +526,6 @@ switch ($page1) {
 
 		// EN: Load the template
 		// CZ: Načti template (šablonu)
-		$plugin_template = 'plugins/blog/template/' . $jkv["sitestyle"] . '/blog.php';
+		$plugin_template = 'template/' . $jkv["sitestyle"] . '/plugintemplate/blog/blog.php';
 }
 ?>

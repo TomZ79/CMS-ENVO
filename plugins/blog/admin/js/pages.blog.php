@@ -100,6 +100,7 @@
 	/* Submit Form
 	 ========================================= */
 	$('form').submit(function () {
+		$("#jak_editor").val(htmlACE.getValue());
 		$("#jak_css").val(cssACE.getValue());
 		$("#jak_javascript").val(jsACE.getValue());
 	});

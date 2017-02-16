@@ -328,6 +328,7 @@ switch ($page1) {
 						}
 					}
 
+					$JAK_FORM_DATA = jak_get_data($page3,$jaktable1);
 					$JAK_USERGROUP = jak_get_usergroup_all ('usergroup');
 
 					// EN: Title and Description
@@ -702,7 +703,7 @@ switch ($page1) {
 			}
 
 			if (!is_numeric ($defaults['jak_mid'])) {
-				$errors['e5'] = $tl['error']['e15'];
+				$errors['e6'] = $tl['error']['e15'];
 			}
 
 			if (!is_numeric ($defaults['jak_rssitem'])) {

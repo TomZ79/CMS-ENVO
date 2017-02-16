@@ -9,11 +9,11 @@
 
 	<!-- CSS STYLE ================================================================================================ -->
 	<!-- Bootstrap -->
-	<link rel="stylesheet" href="assets/plugins/bootstrapv3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/assets/plugins/bootstrapv3/css/bootstrap.min.css">
 	<!-- Theme style -->
-	<link href="admin/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
-	<link class="main-stylesheet" href="admin/pages/css/pages.css" rel="stylesheet" type="text/css"/>
-	<link href="admin/assets/css/style.css" rel="stylesheet" type="text/css">
+	<link href="/admin/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+	<link class="main-stylesheet" href="/admin/pages/css/pages.css" rel="stylesheet" type="text/css"/>
+	<link href="/admin/assets/css/style.css" rel="stylesheet" type="text/css">
 
 	<!-- JQUERY SCRIPT and PLUGINS ================================================================================ -->
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

@@ -38,10 +38,12 @@ if ($errors) { ?>
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 		<!-- Fixed Button for save form -->
 		<div class="savebutton hidden-xs">
-			<button type="submit" name="save" class="btn btn-success button">
-				<i class="fa fa-save margin-right-5"></i>
-				<?php echo $tl["button"]["btn1"]; ?> !!
-			</button>
+
+			<?php
+			// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+			echo $htmlE->addButtonSubmit('save', '', 'btn btn-success button', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ');
+			?>
+
 		</div>
 
 		<!-- Form Content -->
@@ -56,8 +58,14 @@ if ($errors) { ?>
 							<div class="block-content">
 								<div class="row-form">
 									<div class="col-md-5">
-										<strong><?php echo $tlblog["blog_box_content"]["blogbc19"]; ?></strong>
-										<span class="star-item text-danger-800 m-l-10">*</span>
+
+										<?php
+										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+										// Add Html Element -> endTag (Arguments: tag)
+										echo $htmlE->startTag('strong') . $tlblog["blog_box_content"]["blogbc19"] . $htmlE->endTag('strong');
+										echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+										?>
+
 									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
@@ -72,11 +80,23 @@ if ($errors) { ?>
 								</div>
 								<div class="row-form">
 									<div class="col-md-5">
-										<strong><?php echo $tlblog["blog_box_content"]["blogbc20"]; ?></strong>
+
+										<?php
+										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+										// Add Html Element -> endTag (Arguments: tag)
+										echo $htmlE->startTag('strong') . $tlblog["blog_box_content"]["blogbc20"] . $htmlE->endTag('strong');
+										?>
+
 										<a class="cms-help" data-content="<?php echo $tlblog["blog_help"]["blogh2"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tlblog["blog_help"]["blogh"]; ?>">
 											<i class="fa fa-question-circle"></i>
 										</a>
-										<span class="star-item text-danger-800 m-l-10">*</span>
+
+										<?php
+										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+										// Add Html Element -> endTag (Arguments: tag)
+										echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+										?>
+
 									</div>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
@@ -90,7 +110,15 @@ if ($errors) { ?>
 									</div>
 								</div>
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tlblog["blog_box_content"]["blogbc21"]; ?></strong></div>
+									<div class="col-md-5">
+
+										<?php
+										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+										// Add Html Element -> endTag (Arguments: tag)
+										echo $htmlE->startTag('strong') . $tlblog["blog_box_content"]["blogbc21"] . $htmlE->endTag('strong');
+										?>
+
+									</div>
 									<div class="col-md-7">
 
 										<?php
@@ -101,7 +129,15 @@ if ($errors) { ?>
 									</div>
 								</div>
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tlblog["blog_box_content"]["blogbc22"]; ?></strong></div>
+									<div class="col-md-5">
+
+										<?php
+										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+										// Add Html Element -> endTag (Arguments: tag)
+										echo $htmlE->startTag('strong') . $tlblog["blog_box_content"]["blogbc22"] . $htmlE->endTag('strong');
+										?>
+
+									</div>
 									<div class="col-md-7">
 										<div class="radio radio-success">
 
@@ -123,7 +159,15 @@ if ($errors) { ?>
 									</div>
 								</div>
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tlblog["blog_box_content"]["blogbc23"]; ?></strong></div>
+									<div class="col-md-5">
+
+										<?php
+										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+										// Add Html Element -> endTag (Arguments: tag)
+										echo $htmlE->startTag('strong') . $tlblog["blog_box_content"]["blogbc23"] . $htmlE->endTag('strong');
+										?>
+
+									</div>
 									<div class="col-md-7">
 										<div class="input-group">
 
@@ -142,10 +186,12 @@ if ($errors) { ?>
 						</div>
 					</div>
 					<div class="box-footer">
-						<button type="submit" name="save" class="btn btn-success pull-right">
-							<i class="fa fa-save margin-right-5"></i>
-							<?php echo $tl["button"]["btn1"]; ?>
-						</button>
+
+						<?php
+						// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+						echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+						?>
+
 					</div>
 				</div>
 			</div>
@@ -174,10 +220,12 @@ if ($errors) { ?>
 						</div>
 					</div>
 					<div class="box-footer">
-						<button type="submit" name="save" class="btn btn-success pull-right">
-							<i class="fa fa-save margin-right-5"></i>
-							<?php echo $tl["button"]["btn1"]; ?>
-						</button>
+
+						<?php
+						// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+						echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+						?>
+
 					</div>
 				</div>
 			</div>

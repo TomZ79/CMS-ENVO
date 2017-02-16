@@ -79,8 +79,14 @@ if ($page1 == "e") { ?>
               <th>#</th>
               <th>
                 <div class="checkbox-singel check-success">
-                  <input type="checkbox" id="jak_delete_all"/>
-                  <label for="jak_delete_all">&nbsp;</label>
+
+                  <?php
+                  // Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+                  echo $htmlE->addInput('checkbox', '', 'jak_delete_all', '', '', '');
+                  // Arguments: for (id of associated form element), text
+                  echo $htmlE->addLabelFor('jak_delete_all', '');
+                  ?>
+
                 </div>
               </th>
               <th><?php echo $tl["logs_box_table"]["logstb"]; ?></th>

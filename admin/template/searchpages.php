@@ -46,11 +46,11 @@
 							<div class="checkbox-singel check-success">
 
 								<?php
-								// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-								echo $htmlE->addInput('checkbox', 'jak_delete_all', '', '', '', '');
-								// Arguments: for (id of associated form element), text
-								echo $htmlE->addLabelFor('jak_delete_all', '');
-								?>
+                  // Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+                  echo $htmlE->addInput('checkbox', '', 'jak_delete_all', '', '', '');
+                  // Arguments: for (id of associated form element), text
+                  echo $htmlE->addLabelFor('jak_delete_all', '');
+                  ?>
 
 							</div>
 						</th>

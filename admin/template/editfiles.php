@@ -94,12 +94,11 @@ if ($JAK_FILE_ERROR) { ?>
 				<?php }
 					if (!$JAK_FILECONTENT) { ?>
 						<button type="submit" name="edit" class="btn btn-primary pull-right"><?php echo $tl["button"]["btn12"]; ?></button>
-					<?php } else { ?>
-						<button type="submit" name="save" class="btn btn-success pull-right">
-							<i class="fa fa-save margin-right-5"></i>
-							<?php echo $tl["button"]["btn1"]; ?>
-						</button>
-					<?php }
+					<?php } else {
+
+						// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+						echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+					}
 				} ?>
 			</div>
 

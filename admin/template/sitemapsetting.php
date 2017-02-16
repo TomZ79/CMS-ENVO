@@ -34,10 +34,12 @@ if ($page1 == "e") { ?>
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 		<!-- Fixed Button for save form -->
 		<div class="savebutton hidden-xs">
-			<button type="submit" name="save" class="btn btn-success button">
-				<i class="fa fa-save margin-right-5"></i>
-				<?php echo $tl["button"]["btn1"]; ?> !!
-			</button>
+
+			<?php
+			// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+			echo $htmlE->addButtonSubmit('save', '', 'btn btn-success button', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ');
+			?>
+
 		</div>
 
 		<!-- Form Content -->
@@ -66,27 +68,55 @@ if ($page1 == "e") { ?>
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["sm_box_content"]["smbc"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["sm_box_content"]["smbc"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-													<input type="text" name="jak_title" class="form-control" value="<?php echo $JAK_FORM_DATA["title"]; ?>"/>
+
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													echo $htmlE->addInput('text', 'jak_title', '', 'form-control', $JAK_FORM_DATA["title"], '');
+													?>
+
 												</div>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["sm_box_content"]["smbc1"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tl["sm_box_content"]["smbc1"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
-												<textarea name="jak_lcontent" class="jakEditorLight form-control" id="jakEditor" rows="5" style="width:100%;"><?php echo jak_edit_safe_userpost ($JAK_FORM_DATA["content"]); ?></textarea>
+
+												<?php
+												// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+												echo $htmlE->addTextArea('jak_lcontent', '5', '', jak_edit_safe_userpost ($JAK_FORM_DATA["content"]), array('id' => 'jakEditor', 'class' => 'jakEditorLight form-control', 'style' => 'width:100%;'));
+												?>
+
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-success pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["button"]["btn1"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								?>
+
 							</div>
 						</div>
 					</div>
@@ -103,10 +133,12 @@ if ($page1 == "e") { ?>
 								<?php include 'sidebar_widget.php'; ?>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-success pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["button"]["btn1"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								?>
+
 							</div>
 						</div>
 					</div>

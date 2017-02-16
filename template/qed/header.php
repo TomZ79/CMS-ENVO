@@ -301,4 +301,3 @@ if ($page == "success" or $page == "logout") { ?>
 					<div class="<?php echo ($JAK_HOOK_SIDE_GRID ? "col-md-9" : "col-md-12"); ?>">
 
 		<?php } ?>
-

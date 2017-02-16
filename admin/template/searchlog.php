@@ -82,7 +82,7 @@ if ($page1 == "e") { ?>
 
 									<?php
 									// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-									echo $htmlE->addInput('checkbox', 'jak_delete_all', '', '', '', '');
+									echo $htmlE->addInput('checkbox', '', 'jak_delete_all', '', '', '');
 									// Arguments: for (id of associated form element), text
 									echo $htmlE->addLabelFor('jak_delete_all', '');
 									?>

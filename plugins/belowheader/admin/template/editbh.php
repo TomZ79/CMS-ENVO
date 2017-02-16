@@ -48,10 +48,12 @@ if ($page3 == "e") { ?>
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 		<!-- Fixed Button for save form -->
 		<div class="savebutton hidden-xs">
-			<button type="submit" name="save" class="btn btn-success button">
-				<i class="fa fa-save margin-right-5"></i>
-				<?php echo $tl["button"]["btn1"]; ?> !!
-			</button>
+
+			<?php
+			// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+			echo $htmlE->addButtonSubmit('save', '', 'btn btn-success button', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ');
+			?>
+
 		</div>
 
 		<!-- Form Content -->
@@ -86,12 +88,23 @@ if ($page3 == "e") { ?>
 									<div class="block-content">
 										<div class="row-form">
 											<div class="col-md-5">
-												<strong><?php echo $tlbh["bh_box_content"]["bhbc"]; ?></strong>
-												<span class="star-item text-danger-800 m-l-10">*</span>
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tlbh["bh_box_content"]["bhbc"] . $htmlE->endTag('strong');
+												echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+												?>
+
 											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-													<input class="form-control" type="text" name="jak_title" value="<?php echo $JAK_FORM_DATA["title"]; ?>"/>
+
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													echo $htmlE->addInput('text', 'jak_title', '', 'form-control', $JAK_FORM_DATA["title"], '');
+													?>
+
 												</div>
 											</div>
 										</div>
@@ -99,10 +112,12 @@ if ($page3 == "e") { ?>
 								</div>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-success pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["button"]["btn1"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								?>
+
 							</div>
 						</div>
 						<div class="box box-success">
@@ -126,10 +141,12 @@ if ($page3 == "e") { ?>
 								</div>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-success pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["button"]["btn1"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								?>
+
 							</div>
 						</div>
 					</div>
@@ -158,10 +175,12 @@ if ($page3 == "e") { ?>
 								</div>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-success pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["button"]["btn1"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								?>
+
 							</div>
 						</div>
 						<div class="box box-success">
@@ -172,7 +191,15 @@ if ($page3 == "e") { ?>
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tlbh["bh_box_content"]["bhbc3"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tlbh["bh_box_content"]["bhbc3"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<select name="jak_newsid[]" multiple="multiple" class="form-control">
 													<option value="0"<?php if ($JAK_FORM_DATA["newsid"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tlbh["bh_box_content"]["bhbc1"]; ?></option>
@@ -183,59 +210,123 @@ if ($page3 == "e") { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-7"><strong><?php echo $tlbh["bh_box_content"]["bhbc4"]; ?></strong></div>
+											<div class="col-md-7">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tlbh["bh_box_content"]["bhbc4"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-5">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_mainnews1" name="jak_mainnews" value="1"<?php if ($JAK_FORM_DATA["newsmain"] == '1') { ?> checked="checked"<?php } ?> />
-													<label for="jak_mainnews1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($JAK_FORM_DATA["newsmain"] == '1') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_mainnews', 'jak_mainnews1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_mainnews1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_mainnews2" name="jak_mainnews" value="0"<?php if ($JAK_FORM_DATA["newsmain"] == '0') { ?> checked="checked"<?php } ?> />
-													<label for="jak_mainnews2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($JAK_FORM_DATA["newsmain"] == '0') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_mainnews', 'jak_mainnews2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_mainnews2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
 										</div>
 										<?php if (JAK_TAGS) { ?>
 											<div class="row-form">
-												<div class="col-md-7"><strong><?php echo $tlbh["bh_box_content"]["bhbc5"]; ?></strong></div>
+												<div class="col-md-7">
+
+													<?php
+													// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+													// Add Html Element -> endTag (Arguments: tag)
+													echo $htmlE->startTag('strong') . $tlbh["bh_box_content"]["bhbc5"] . $htmlE->endTag('strong');
+													?>
+
+												</div>
 												<div class="col-md-5">
 													<div class="radio radio-success">
 
-														<input type="radio" id="jak_tags1" name="jak_tags" value="1"<?php if ($JAK_FORM_DATA["tags"] == '1') { ?> checked="checked"<?php } ?> />
-														<label for="jak_tags1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+														<?php
+														// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+														($JAK_FORM_DATA["tags"] == '1') ? $checked = 'yes' : $checked = 'no';
+														echo $htmlE->addInput('radio', 'jak_tags', 'jak_tags1', '', '1', $checked);
+														// Arguments: for (id of associated form element), text
+														echo $htmlE->addLabelFor('jak_tags1', $tl["checkbox"]["chk"]);
 
-														<input type="radio" id="jak_tags2" name="jak_tags" value="0"<?php if ($JAK_FORM_DATA["tags"] == '0') { ?> checked="checked"<?php } ?> />
-														<label for="jak_tags2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+														// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+														($JAK_FORM_DATA["tags"] == '0') ? $checked = 'yes' : $checked = 'no';
+														echo $htmlE->addInput('radio', 'jak_tags', 'jak_tags2', '', '0', $checked);
+														// Arguments: for (id of associated form element), text
+														echo $htmlE->addLabelFor('jak_tags2', $tl["checkbox"]["chk1"]);
+														?>
 
 													</div>
 												</div>
 											</div>
 										<?php } ?>
 										<div class="row-form">
-											<div class="col-md-7"><strong><?php echo $tlbh["bh_box_content"]["bhbc6"]; ?></strong></div>
+											<div class="col-md-7">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tlbh["bh_box_content"]["bhbc6"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-5">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_search1" name="jak_search" value="1"<?php if ($JAK_FORM_DATA["search"] == '1') { ?> checked="checked"<?php } ?> />
-													<label for="jak_search1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($JAK_FORM_DATA["search"] == '1') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_search', 'jak_search1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_search1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_search2" name="jak_search" value="0"<?php if ($JAK_FORM_DATA["search"] == '0') { ?> checked="checked"<?php } ?> />
-													<label for="jak_search2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($JAK_FORM_DATA["search"] == '0') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_search', 'jak_search2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_search2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-7"><strong><?php echo $tlbh["bh_box_content"]["bhbc7"]; ?></strong></div>
+											<div class="col-md-7">
+
+												<?php
+												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+												// Add Html Element -> endTag (Arguments: tag)
+												echo $htmlE->startTag('strong') . $tlbh["bh_box_content"]["bhbc7"] . $htmlE->endTag('strong');
+												?>
+
+											</div>
 											<div class="col-md-5">
 												<div class="radio radio-success">
 
-													<input type="radio" id="jak_sitemap1" name="jak_sitemap" value="1"<?php if ($JAK_FORM_DATA["sitemap"] == '1') { ?> checked="checked"<?php } ?> />
-													<label for="jak_sitemap1"><?php echo $tl["checkbox"]["chk"]; ?></label>
+													<?php
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($JAK_FORM_DATA["sitemap"] == '1') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_sitemap', 'jak_sitemap1', '', '1', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_sitemap1', $tl["checkbox"]["chk"]);
 
-													<input type="radio" id="jak_sitemap2" name="jak_sitemap" value="0"<?php if ($JAK_FORM_DATA["sitemap"] == '0') { ?> checked="checked"<?php } ?> />
-													<label for="jak_sitemap2"><?php echo $tl["checkbox"]["chk1"]; ?></label>
+													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+													($JAK_FORM_DATA["sitemap"] == '0') ? $checked = 'yes' : $checked = 'no';
+													echo $htmlE->addInput('radio', 'jak_sitemap', 'jak_sitemap2', '', '0', $checked);
+													// Arguments: for (id of associated form element), text
+													echo $htmlE->addLabelFor('jak_sitemap2', $tl["checkbox"]["chk1"]);
+													?>
 
 												</div>
 											</div>
@@ -244,10 +335,12 @@ if ($page3 == "e") { ?>
 								</div>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-success pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["button"]["btn1"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								?>
+
 							</div>
 						</div>
 					</div>
@@ -293,10 +386,12 @@ if ($page3 == "e") { ?>
 								</table>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-success pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["button"]["btn1"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								?>
+
 							</div>
 						</div>
 					</div>

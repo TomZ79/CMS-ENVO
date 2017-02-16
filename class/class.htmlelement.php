@@ -57,10 +57,15 @@ class HTML_Form {
 	}
 
 	function addInput($type, $name, $id, $class, $value, $checked, $attr_ar = array() ) {
+
+		$str = "<input type=\"$type\"" .
+			(empty($name) ? '' : 'name="' . $name .'"') .
+			(empty($id) ? '' : 'id="' . $id .'"') .
+			(empty($class) ? '' : 'class="' . $class .'"') .
+			'value="' . $value .'"' . "";
+
 		if (($type == 'radio') && ($checked == 'yes')) {
-			$str = "<input type=\"$type\" name=\"$name\" id=\"$id\" class=\"$class\" value=\"$value\" checked=\"checked\"";
-		} else {
-			$str = "<input type=\"$type\" name=\"$name\" id=\"$id\" class=\"$class\" value=\"$value\"";
+			$str .= " checked=\"checked\"";
 		}
 
 		if ($attr_ar) {
@@ -166,6 +171,27 @@ class HTML_Form {
 		$str .= $this->xhtml? ' />': '>';
 		return $str;
 	}
+
+	/**
+	 * Create a submit button
+	 *
+	 * @param   string			  $name
+	 * @param   string        $id
+	 * @param   string        $class
+	 * @param   string        $value
+	 * @param   array         $attr_ar
+	 * @return  string
+	 */
+	public function addButtonSubmit($name, $id, $class, $value, $attr_ar = array())
+	{
+		$html = "<button type=\"submit\" name=\"$name\"" . (empty($id) ? '' : 'id="' . $id .'"') ." class=\"$class\"";
+		if ($attr_ar) {
+			$html .= $this->addAttributes( $attr_ar );
+		}
+		$html .= ">$value</button>";
+		return $html;
+	}
+
 
 }
 

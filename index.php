@@ -484,7 +484,7 @@ if (!JAK_TAGS && !JAK_USER_TAGS) $JAK_TAGLIST = false;
 if (isset($jkv["sitestyle"]) && !empty($jkv["sitestyle"]) && isset($jkv["cms_tpl"]) && isset($template) && $template != '') {
 	include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/' . $template;
 	// Get the plugin template
-} elseif (isset($plugin_template) && $plugin_template != '') {
+} elseif (isset($jkv["cms_tpl"]) && isset($plugin_template) && $plugin_template != '') {
 	// Check if plugin template files exist or not
 	if (!file_exists (APP_PATH . $plugin_template)) {
 		include_once APP_PATH . 'noplugintemplate.php';

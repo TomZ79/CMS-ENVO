@@ -34,10 +34,12 @@ if ($JAK_FILE_ERROR) { ?>
 <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 	<!-- Fixed Button for save form -->
 	<div class="savebutton hidden-xs">
-		<button type="submit" name="save" class="btn btn-success button">
-			<i class="fa fa-save margin-right-5"></i>
-			<?php echo $tl["button"]["btn1"]; ?> !!
-		</button>
+
+		<?php
+		// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+		echo $htmlE->addButtonSubmit('save', '', 'btn btn-success button', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ');
+		?>
+
 	</div>
 
 	<!-- Form Content -->
@@ -95,10 +97,12 @@ if ($JAK_FILE_ERROR) { ?>
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" name="save" class="btn btn-success pull-right">
-								<i class="fa fa-save margin-right-5"></i>
-								<?php echo $tl["button"]["btn1"]; ?>
-							</button>
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+							echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+							?>
+
 						</div>
 					</div>
 				</div>
@@ -143,10 +147,12 @@ if ($JAK_FILE_ERROR) { ?>
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" name="save" class="btn btn-success pull-right">
-								<i class="fa fa-save margin-right-5"></i>
-								<?php echo $tl["button"]["btn1"]; ?>
-							</button>
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+							echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+							?>
+
 						</div>
 					</div>
 
@@ -197,10 +203,12 @@ if ($JAK_FILE_ERROR) { ?>
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" name="save" class="btn btn-success pull-right">
-								<i class="fa fa-save margin-right-5"></i>
-								<?php echo $tl["button"]["btn1"]; ?>
-							</button>
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+							echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+							?>
+
 						</div>
 					</div>
 					<input type="hidden" name="jak_file1" value="<?php echo $JAK_FILEURL1; ?>"/>
