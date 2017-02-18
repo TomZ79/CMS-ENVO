@@ -76,8 +76,8 @@ switch ($page1) {
 				$dlc->items_per_page = $jkv["downloadpageitem"];
 				$dlc->jak_get_page   = $getPage;
 				$dlc->jak_where      = $getWhere;
-				$dlc->jak_prevtext   = $tl["general"]["g171"];
-				$dlc->jak_nexttext   = $tl["general"]["g172"];
+				$dlc->jak_prevtext   = $tl["pagination"]["pagin"];
+				$dlc->jak_nexttext   = $tl["pagination"]["pagin1"];
 				$dlc->paginate ();
 				$JAK_PAGINATE = $dlc->display_pages ();
 
@@ -268,7 +268,6 @@ switch ($page1) {
 					$SHOWIMG                     = $row['previmg'];
 					$SHOWDATE                    = $row['showdate'];
 					$FT_SHARE                    = $row['ftshare'];
-					$SHOWVOTE                    = $row['showvote'];
 					$SHOWSOCIALBUTTON            = $row['socialbutton'];
 					$DL_HITS                     = $row['hits'];
 					$DL_DOWNLOADS                = $row['countdl'];
@@ -317,10 +316,6 @@ switch ($page1) {
 					$JAK_COMMENT_FORM   = false;
 
 				}
-
-				// Get the likes
-				$PLUGIN_LIKE_ID = JAK_PLUGIN_ID_DOWNLOAD;
-				$USR_CAN_RATE   = $jakusergroup->getVar ("downloadrate");
 
 				// Get the sort orders for the grid
 				$grid = $jakdb->query ('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE fileid = "' . smartsql ($row['id']) . '" ORDER BY orderid ASC');
@@ -560,8 +555,8 @@ switch ($page1) {
 			$dl->items_per_page = $jkv["downloadpageitem"];
 			$dl->jak_get_page   = $page1;
 			$dl->jak_where      = $backtodl;
-			$dl->jak_prevtext   = $tl["general"]["g171"];
-			$dl->jak_nexttext   = $tl["general"]["g172"];
+			$dl->jak_prevtext   = $tl["pagination"]["pagin"];
+			$dl->jak_nexttext   = $tl["pagination"]["pagin1"];
 			$dl->paginate ();
 
 			// Pagination

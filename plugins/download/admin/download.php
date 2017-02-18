@@ -110,7 +110,6 @@ switch ($page1) {
 		showcontact = "' . smartsql ($jakcon) . '",
 		comments = "' . smartsql ($comment) . '",
 		ftshare = "' . smartsql ($ftshare) . '",
-		showvote = "' . smartsql ($defaults['jak_vote']) . '",
 		socialbutton = "' . smartsql ($defaults['jak_social']) . '",
 		' . $insert . '
 		time = NOW()');
@@ -1112,7 +1111,6 @@ switch ($page1) {
 		hits = "' . smartsql ($defaults['jak_hitstotal']) . '",
 		' . $insert . '
 		ftshare = "' . smartsql ($defaults['jak_ftshare']) . '",
-		showvote = "' . smartsql ($defaults['jak_vote']) . '",
 		socialbutton = "' . smartsql ($defaults['jak_social']) . '"
 		WHERE id = "' . smartsql ($page2) . '"');
 

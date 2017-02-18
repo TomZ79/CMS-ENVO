@@ -180,19 +180,6 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["general"]["g85"]; ?></strong></div>
-											<div class="col-md-7">
-												<div class="radio">
-													<label class="checkbox-inline">
-														<input type="radio" name="jak_vote" value="1"<?php if (isset($_REQUEST["jak_vote"]) && $_REQUEST["jak_vote"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-													</label>
-													<label class="checkbox-inline">
-														<input type="radio" name="jak_vote" value="0"<?php if (isset($_REQUEST["jak_vote"]) && $_REQUEST["jak_vote"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-													</label>
-												</div>
-											</div>
-										</div>
-										<div class="row-form">
 											<div class="col-md-5"><strong><?php echo $tl["general"]["g124"]; ?></strong></div>
 											<div class="col-md-7">
 												<div class="radio">

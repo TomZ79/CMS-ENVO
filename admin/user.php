@@ -500,7 +500,7 @@ switch ($page1) {
 					// Now get the fields not orignal in user
 
 					//First an array with existing fields
-					$existf = array ('id', 'usergroupid', 'username', 'password', 'idhash', 'session', 'email', 'name', 'ulang', 'picture', 'time', 'lastactivity', 'backtogroup', 'backtime', 'logins', 'access', 'activatenr', 'forgot');
+					$existf = array ('id', 'usergroupid', 'username', 'password', 'idhash', 'session', 'email', 'name', 'ulang', 'picture', 'time', 'lastactivity', 'backtogroup', 'backtime', 'logins', 'access', 'activatenr', 'forgot', 'phone' , 'description');
 
 					$queryfields = $jakdb->query ('DESCRIBE ' . $jaktable);
 					while ($rowf = $queryfields->fetch_assoc ()) {
@@ -531,6 +531,10 @@ switch ($page1) {
 							} else {
 								$updatepass = 1;
 							}
+						}
+
+						if (!preg_match ('/^([0-9\-_])+$/', $defaults['jak_phone'])) {
+							$errors['e5'] = $tl['general_error']['generror17'] . '<br>';
 						}
 
 						// Get the php hook for display stuff in user - pass it with $insert .= to the query
@@ -670,7 +674,9 @@ switch ($page1) {
 			email = "' . filter_var ($defaults['jak_email'], FILTER_SANITIZE_EMAIL) . '",
 			' . $insert . '
 			usergroupid = "' . smartsql ($defaults['jak_usergroup']) . '",
-			activatenr = 0
+			activatenr = 0,
+			phone = "' . smartsql ($defaults['jak_phone']) . '",
+			description = "' . smartsql ($defaults['jak_description']) . '"
 			WHERE id = ' . smartsql ($page2));
 
 							if (!$result) {
@@ -712,8 +718,8 @@ switch ($page1) {
 
 						if (!in_array ($f, $existf)) {
 
-							$extrafields .= '<div class="col-md-5"><strong>' . ucfirst ($f) . '</strong></div>
-						<div class="col-md-7"><input type="text" class="form-control" name="' . $f . '" value="' . $JAK_FORM_DATA[ $f ] . '" /></div>';
+							$extrafields .= '<div class="row-form"><div class="col-md-5"><strong>' . ucfirst ($f) . '</strong></div>
+						<div class="col-md-7"><input type="text" class="form-control" name="' . $f . '" value="' . $JAK_FORM_DATA[ $f ] . '" /></div></div>';
 
 						}
 

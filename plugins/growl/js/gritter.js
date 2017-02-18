@@ -7,7 +7,6 @@
  *
  * Date: February 24, 2012
  * Version: 1.7.4
- * Modified by BLUESAT for CMS
  */
 
 (function ($) {
@@ -79,7 +78,7 @@
 		_custom_timer: 0,
 		_item_count: 0,
 		_is_setup: 0,
-		_tpl_close: '<a class="gritter-close" href="javascript:void(0)" tabindex="1"><i class="fa fa-remove"></i></a>',
+		_tpl_close: '<a class="gritter-close" href="javascript:void(0)" tabindex="1"><i class="fa fa-times"></i></a>',
 		_tpl_title: '<span class="gritter-title">[[title]]</span>',
 		_tpl_item: '<div id="gritter-item-[[number]]" class="gritter-item-wrapper [[item_class]]" style="display:none" role="alert"><div class="gritter-item">[[close]][[image]]<div class="[[class_name]]">[[title]]<p>[[text]]</p></div><div style="clear:both"></div></div></div>',
 		_tpl_wrap: '<div id="gritter-notice-wrapper"></div>',

@@ -258,7 +258,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
 } }';
 				// Eval code for display connect
 				$get_blconnect = 'if (JAK_PLUGIN_ACCESS_BLOG && $pg[\'pluginid\'] == JAK_PLUGIN_ID_BLOG && !empty($row[\'showblog\'])) {
-include_once APP_PATH.\'plugins/blog/template/\'.$jkv[\"sitestyle\"].\'/pages_news.php\';}';
+include_once APP_PATH.\'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/pages_news.php\';}';
 
 				$get_blsidebar = 'include_once APP_PATH.\'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/blogsidebar.php\';';
 				$get_blsitemap = 'include_once APP_PATH.\'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/sitemap.php\';';
@@ -346,7 +346,6 @@ include_once APP_PATH.\'plugins/blog/template/\'.$jkv[\"sitestyle\"].\'/pages_ne
   `comments` smallint(1) unsigned NOT NULL DEFAULT 0,
   `socialbutton` smallint(1) unsigned NOT NULL DEFAULT 0,
   `hits` int(10) unsigned NOT NULL DEFAULT 0,
-  `showvote` smallint(1) unsigned NOT NULL DEFAULT 0,
   `time` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
   `startdate` INT(10) UNSIGNED NOT NULL DEFAULT 0,
   `enddate` INT(10) UNSIGNED NOT NULL DEFAULT 0,

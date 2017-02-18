@@ -114,7 +114,7 @@ if ($page1 == "e") { ?>
 									</div>
 								</td>
 								<td><?php echo $v["tag"]; ?></td>
-								<td><?php echo $v["time"]; ?></td>
+								<td><?php echo date ("d.m.Y - H:i:s", strtotime ($v["time"])); ?></td>
 								<td><?php echo $v["count"]; ?></td>
 								<td></td>
 								<td>

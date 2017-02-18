@@ -26,13 +26,9 @@ if ($jkv["printme"]) $printme = 1; ?>
 } ?>
 
 	<!-- Show date, socialbuttons and tag list -->
-<?php if ($SHOWSOCIALBUTTON || (JAK_FAQRATE && $SHOWVOTE && $USR_CAN_RATE)) { ?>
+<?php if ($SHOWSOCIALBUTTON) { ?>
 	<div class="row">
-		<div class="col-md-6">
-			<?php if (JAK_FAQRATE && $SHOWVOTE && $USR_CAN_RATE) {
-				include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/voteresult.php';
-			} ?>
-		</div>
+		<div class="col-md-6"></div>
 		<div class="col-md-6">
 			<?php if ($SHOWSOCIALBUTTON) include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/socialbutton.php'; ?>
 		</div>

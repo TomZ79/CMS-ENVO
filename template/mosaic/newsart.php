@@ -34,10 +34,6 @@ if (isset($JAK_PAGE_GRID) && is_array ($JAK_PAGE_GRID)) foreach ($JAK_PAGE_GRID 
 	}
 } ?>
 
-<?php if ($SHOWVOTE && $USR_CAN_RATE) {
-	include_once APP_PATH . 'template/mosaic/voteresult.php';
-} ?>
-
 	<!-- Show date, socialbuttons and tag list -->
 <?php if ($SHOWDATE || $JAK_TAGLIST) { ?>
 	<div class="well well-sm">

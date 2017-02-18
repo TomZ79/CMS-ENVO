@@ -333,7 +333,6 @@ include_once APP_PATH.\'plugins/faq/template/\'.$jkv[\"sitestyle\"].\'/page_news
   `comments` smallint(1) unsigned NOT NULL DEFAULT 0,
   `socialbutton` smallint(1) unsigned NOT NULL DEFAULT 0,
   `hits` int(10) unsigned NOT NULL DEFAULT 0,
-  `showvote` smallint(1) unsigned NOT NULL DEFAULT 0,
   `time` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`)

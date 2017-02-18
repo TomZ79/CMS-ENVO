@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jakU'])) {
     $jakuserlogin->jakWriteloginlog($user_check, '', $valid_ip, '', 1);
 
     // Success
-    $_SESSION["infomsg"] = $tl["general"]["s"];
+    $_SESSION["infomsg"] = $tl["notification"]["n3"];
     if (isset($_SESSION["logintries"])) unset($_SESSION["logintries"]);
 
     if (isset($_POST['home']) && $_POST['home']) {

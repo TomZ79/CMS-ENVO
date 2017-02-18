@@ -52,29 +52,48 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 <?php if (isset($JAK_UM_ALL) && is_array ($JAK_UM_ALL)) { ?>
 
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-		<div class="box">
+		<div class="box box-success">
 			<div class="box-body no-padding">
 				<div class="table-responsive">
 					<table class="table table-striped table-hover">
 						<thead>
 						<tr>
 							<th>#</th>
-							<th><input type="checkbox" id="jak_delete_all"/></th>
+							<th>
+
+								<div class="checkbox-singel check-success">
+
+									<?php
+									// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+									echo $htmlE->addInput('checkbox', '', 'jak_delete_all', '', '', '');
+									// Arguments: for (id of associated form element), text
+									echo $htmlE->addLabelFor('jak_delete_all', '');
+									?>
+
+								</div>
+
+							</th>
 							<th><?php echo $tlum["url_box_table"]["urltb"]; ?></th>
 							<th><?php echo $tlum["url_box_table"]["urltb1"]; ?></th>
 							<th><?php echo $tlum["url_box_table"]["urltb2"]; ?></th>
 							<th><?php echo $tlum["url_box_table"]["urltb3"]; ?></th>
 							<th><?php echo $tlum["url_box_table"]["urltb4"]; ?></th>
 							<th>
-								<button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
-									<i class="fa fa-lock"></i>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('lock', 'button_lock', 'btn btn-default btn-xs', '<i class="fa fa-lock"></i>');
+								?>
+
 							</th>
 							<th></th>
 							<th>
-								<button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tlum["url_notification"]["delall"]; ?>" disabled="disabled">
-									<i class="fa fa-trash-o"></i>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+								echo $htmlE->addButtonSubmit('delete', 'button_delete', 'btn btn-danger btn-xs', '<i class="fa fa-trash-o"></i>', array('data-confirm-del' => $tlum["url_notification"]["delall"], 'disabled' => 'disabled'));
+								?>
+
 							</th>
 						</tr>
 						</thead>
@@ -82,7 +101,10 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 							<tr>
 								<td><?php echo $v["id"]; ?></td>
 								<td>
-									<input type="checkbox" name="jak_delete_urlmapping[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
+									<div class="checkbox-singel check-success">
+										<input type="checkbox" id="jak_delete_urlmapping<?php echo $v["id"]; ?>" name="jak_delete_urlmapping[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
+										<label for="jak_delete_urlmapping<?php echo $v["id"]; ?>"></label>
+									</div>
 								</td>
 								<td>
 									<a href="index.php?p=urlmapping&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["urlold"]; ?></a>
@@ -95,7 +117,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 									} else {
 										echo $tlum["url_box_content"]["urlbc2"];
 									} ?></td>
-								<td><?php echo $v["time"]; ?></td>
+								<td><?php echo date ("d.m.Y - H:i:s", strtotime ($v["time"])); ?></td>
 								<td>
 									<?php
 									if ($v["active"] == 1) {
@@ -135,9 +157,12 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 <?php } else { ?>
 
 	<div class="col-md-12">
-		<div class="alert bg-info text-white">
-			<?php echo $tl["general_error"]["generror3"]; ?>
-		</div>
+
+		<?php
+		// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
+		echo $htmlE->addSimpleDiv ('', $tl["general_error"]["generror3"],  array ('class' => 'alert bg-info text-white'));
+		?>
+
 	</div>
 
 <?php } ?>

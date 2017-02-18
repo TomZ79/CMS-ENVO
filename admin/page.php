@@ -87,7 +87,6 @@ switch ($page1) {
 																		showtags = "' . smartsql ($defaults['jak_showtags']) . '",
 																		showlogin = "' . smartsql ($defaults['jak_showlogin']) . '",
 																		socialbutton = "' . smartsql ($defaults['jak_social']) . '",
-																		showvote = "' . smartsql ($defaults['jak_vote']) . '",
 																		' . $insert . '
 																		time = NOW()');
 
@@ -412,7 +411,6 @@ switch ($page1) {
 																			showlogin = "' . smartsql ($defaults['jak_showlogin']) . '",
 																			socialbutton = "' . smartsql ($defaults['jak_social']) . '",
 																			' . $insert . '
-																			showvote = "' . smartsql ($defaults['jak_vote']) . '"
 																			WHERE id = "' . smartsql ($page2) . '"');
 
 							// Insert new stuff first if exist order for extra stuff

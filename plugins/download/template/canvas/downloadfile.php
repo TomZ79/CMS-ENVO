@@ -82,11 +82,7 @@ if ($DL_PASSWORD && !JAK_ASACCESS && $DL_PASSWORD != $_SESSION[ 'dlsecurehash' .
 	} ?>
 
 	<div class="row">
-		<div class="col-sm-6">
-			<?php if (JAK_DOWNLOADRATE && $SHOWVOTE && $USR_CAN_RATE) {
-				include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/voteresult.php';
-			} ?>
-		</div>
+		<div class="col-sm-6"></div>
 		<div class="col-sm-6">
 			<?php if ($SHOWSOCIALBUTTON) include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/socialbutton.php'; ?>
 		</div>

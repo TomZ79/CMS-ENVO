@@ -84,15 +84,6 @@ if ($jkv["printme"]) $printme = 1; ?>
 	include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/contact.php';
 } ?>
 
-	<!-- Like Button -->
-<?php if (JAK_BLOGRATE && $SHOWVOTE && $USR_CAN_RATE) { ?>
-	<div class="style-msg errormsg">
-		<div class="sb-msg">
-			<i class="icon-remove"></i><strong>Oooh!</strong> Like button is not available in Canvas template for Blog Plugin.
-		</div>
-	</div>
-<?php } ?>
-
 	<!-- Comment -->
 <?php if (JAK_BLOGPOST && $JAK_COMMENT_FORM) { ?>
 	<!-- Comments -->

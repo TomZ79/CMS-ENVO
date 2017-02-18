@@ -81,13 +81,13 @@
 							<?php
 							// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
 							($JAK_FORM_DATA["blogpostapprove"] == '0') ? $checked = 'yes' : $checked = 'no';
-							echo $htmlE->addInput ('radio', 'jak_blogpostapprove', 'jak_blogpostapprove1', '', '1', $checked);
+							echo $htmlE->addInput ('radio', 'jak_blogpostapprove', 'jak_blogpostapprove1', '', '0', $checked);
 							// Arguments: for (id of associated form element), text
 							echo $htmlE->addLabelFor ('jak_blogpostapprove1', $tl["checkbox"]["chk"]);
 
 							// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
 							($JAK_FORM_DATA["blogpostapprove"] == '1') ? $checked = 'yes' : $checked = 'no';
-							echo $htmlE->addInput ('radio', 'jak_blogpostapprove', 'jak_blogpostapprove2', '', '0', $checked);
+							echo $htmlE->addInput ('radio', 'jak_blogpostapprove', 'jak_blogpostapprove2', '', '1', $checked);
 							// Arguments: for (id of associated form element), text
 							echo $htmlE->addLabelFor ('jak_blogpostapprove2', $tl["checkbox"]["chk1"]);
 							?>

@@ -93,9 +93,8 @@ $(window).on("load resize",function(e){
 	| TIPS
 	|--------------------------------------------------------------------------
 	*/
-	if($('.tips').length)
-	$('.tips').tooltip({placement:'auto'});
-	
+	if($('.tips').length) $('.tips').tooltip({placement:'auto'});
+
 
 	/*
 	|--------------------------------------------------------------------------

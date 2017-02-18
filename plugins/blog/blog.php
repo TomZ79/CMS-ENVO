@@ -75,8 +75,8 @@ switch ($page1) {
 				$blogc->items_per_page = $jkv["blogpageitem"];
 				$blogc->jak_get_page   = $getPage;
 				$blogc->jak_where      = $getWhere;
-				$blogc->jak_prevtext   = $tl["general"]["g171"];
-				$blogc->jak_nexttext   = $tl["general"]["g172"];
+				$blogc->jak_prevtext   = $tl["pagination"]["pagin"];
+				$blogc->jak_nexttext   = $tl["pagination"]["pagin1"];
 				$blogc->paginate ();
 				$JAK_PAGINATE = $blogc->display_pages ();
 			}
@@ -240,7 +240,6 @@ switch ($page1) {
 					$SHOWTITLE                   = $row['showtitle'];
 					$SHOWIMG                     = $row['previmg'];
 					$SHOWDATE                    = $row['showdate'];
-					$SHOWVOTE                    = $row['showvote'];
 					$SHOWSOCIALBUTTON            = $row['socialbutton'];
 					$BLOG_HITS                   = $row['hits'];
 					$JAK_HEADER_CSS              = $row['blog_css'];
@@ -295,10 +294,6 @@ switch ($page1) {
 
 				}
 
-				// Get the likes
-				$PLUGIN_LIKE_ID = JAK_PLUGIN_ID_BLOG;
-				$USR_CAN_RATE   = $jakusergroup->getVar ("blograte");
-
 				// Get the sort orders for the grid
 				$grid = $jakdb->query ('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE blogid = "' . $row['id'] . '" ORDER BY orderid ASC');
 				while ($grow = $grid->fetch_assoc ()) {
@@ -343,7 +338,7 @@ switch ($page1) {
 						$seoc = JAK_base::jakCleanurl ($rowc['varname']);
 					}
 
-					$catids[] = '<a class="label label-default" href="' . JAK_rewrite::jakParseurl (JAK_PLUGIN_VAR_BLOG, 'c', $rowc['id'], $seoc, '', '') . '">' . $rowc['name'] . '</a>';
+					$catids[] = '<a class="category-label"  href="' . JAK_rewrite::jakParseurl (JAK_PLUGIN_VAR_BLOG, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tlblog["blog_frontend"]["blog1"] . '">' . $rowc['name'] . '</a>';
 				}
 
 				if (!empty($catids)) {
@@ -476,8 +471,8 @@ switch ($page1) {
 			$blog->items_per_page = $jkv["blogpageitem"];
 			$blog->jak_get_page   = $page1;
 			$blog->jak_where      = $backtoblog;
-			$blog->jak_prevtext   = $tl["general"]["g171"];
-			$blog->jak_nexttext   = $tl["general"]["g172"];
+			$blog->jak_prevtext   = $tl["pagination"]["pagin"];
+			$blog->jak_nexttext   = $tl["pagination"]["pagin1"];
 			$blog->paginate ();
 
 			// Pagination

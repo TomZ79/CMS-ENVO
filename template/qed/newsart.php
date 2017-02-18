@@ -20,12 +20,10 @@ if (JAK_ASACCESS) {
 								<?php
 								//set locale,
 								setlocale(LC_ALL,$site_locale);
-								//set the date to be converted
-								$mydate = $DATE_TIME;
 								//convert date to month name
-								$month_name =  ucfirst(strftime("%B", strtotime($mydate)));
+								$month_name =  ucfirst(strftime("%B", strtotime($DATE_TIME)));
 								?>
-								<span class="date-day"><?php echo date("d",strtotime($mydate)); ?></span>
+								<span class="date-day"><?php echo date("d",strtotime($DATE_TIME)); ?></span>
 								<span class="date-month"><?php echo $month_name; ?></span>
 							</div>
 						<?php } ?>

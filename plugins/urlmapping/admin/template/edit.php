@@ -53,67 +53,100 @@ if ($page3 == "e") { ?>
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 		<!-- Fixed Button for save form -->
 		<div class="savebutton">
-			<button type="submit" name="save" class="btn btn-success button">
-				<i class="fa fa-save margin-right-5"></i>
-				<?php echo $tl["button"]["btn1"]; ?> !!
-			</button>
+
+			<?php
+			// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+			echo $htmlE->addButtonSubmit('save', '', 'btn btn-success button', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ');
+			?>
+
 		</div>
 
 		<!-- Form Content -->
 		<div class="row">
 			<div class="col-md-6">
-				<div class="box">
+				<div class="box box-success">
 					<div class="box-header with-border">
 						<h3 class="box-title"><?php echo $tlum["url_box_title"]["urlbt"]; ?></h3>
 					</div>
 					<div class="box-body boxbody-height110">
 						<div class="form-group no-margin<?php if (isset($errors["e1"]) || isset($errors["e2"])) echo " has-error"; ?>">
-							<input class="form-control" type="text" name="jak_oldurl" value="<?php echo $JAK_FORM_DATA["urlold"]; ?>"/>
+
+							<?php
+							// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+							echo $htmlE->addInput ('text', 'jak_oldurl', '', 'form-control', $JAK_FORM_DATA["urlold"], '');
+							?>
+
 						</div>
 					</div>
 					<div class="box-footer">
-						<button type="submit" name="save" class="btn btn-success pull-right">
-							<i class="fa fa-save margin-right-5"></i>
-							<?php echo $tl["button"]["btn1"]; ?>
-						</button>
+
+						<?php
+						// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+						echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+						?>
+
 					</div>
 				</div>
 			</div>
 			<div class="col-md-6">
-				<div class="box">
+				<div class="box box-success">
 					<div class="box-header with-border">
 						<h3 class="box-title"><?php echo $tlum["url_box_title"]["urlbt1"]; ?></h3>
 					</div>
 					<div class="box-body boxbody-height110">
 						<div class="form-group no-margin<?php if (isset($errors["e1"]) || isset($errors["e3"])) echo " has-error"; ?>">
-							<input class="form-control" type="text" name="jak_newurl" id="jak_newurl" value="<?php echo $JAK_FORM_DATA["urlnew"]; ?>"/>
+
+							<?php
+							// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+							echo $htmlE->addInput ('text', 'jak_newurl', '', 'form-control', $JAK_FORM_DATA["urlnew"], '');
+							?>
+
 						</div>
-						<table class="table first-column v-text-center">
+						<table class="table">
 							<tr>
-								<td><?php echo $tlum["url_box_content"]["urlbc"]; ?></td>
+								<td style="vertical-align: middle">
+
+									<?php
+									// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+									// Add Html Element -> endTag (Arguments: tag)
+									echo $htmlE->startTag('strong') . $tlum["url_box_content"]["urlbc"] . $htmlE->endTag('strong');
+									?>
+
+								</td>
 								<td>
-									<div class="radio">
-										<label class="checkbox-inline">
-											<input type="radio" name="jak_baseurl" id="1" value="1"<?php if ($JAK_FORM_DATA["baseurl"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk"]; ?>
-										</label>
-										<label class="checkbox-inline">
-											<input type="radio" name="jak_baseurl" id="0" value="0"<?php if ($JAK_FORM_DATA["baseurl"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk1"]; ?>
-										</label>
+									<div class="radio radio-success">
+
+										<?php
+										// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+										($JAK_FORM_DATA["baseurl"] == '1') ? $checked = 'yes' : $checked = 'no';
+										echo $htmlE->addInput ('radio', 'jak_baseurl', 'jak_baseurl1', '', '1', $checked);
+										// Arguments: for (id of associated form element), text
+										echo $htmlE->addLabelFor ('jak_baseurl1', $tl["checkbox"]["chk"]);
+
+										// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+										($JAK_FORM_DATA["baseurl"] == '0') ? $checked = 'yes' : $checked = 'no';
+										echo $htmlE->addInput ('radio', 'jak_baseurl', 'jak_baseurl2', '', '0', $checked);
+										// Arguments: for (id of associated form element), text
+										echo $htmlE->addLabelFor ('jak_baseurl2', $tl["checkbox"]["chk1"]);
+										?>
+
 									</div>
 								</td>
 							</tr>
 						</table>
 					</div>
 					<div class="box-footer">
-						<button type="submit" name="save" class="btn btn-success pull-right">
-							<i class="fa fa-save margin-right-5"></i>
-							<?php echo $tl["button"]["btn1"]; ?>
-						</button>
+
+						<?php
+						// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+						echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+						?>
+
 					</div>
 				</div>
 			</div>
 			<div class="col-md-12">
-				<div class="box">
+				<div class="box box-success">
 					<div class="box-header with-border">
 						<h3 class="box-title"><?php echo $tlum["url_box_title"]["urlbt2"]; ?></h3>
 					</div>
@@ -126,10 +159,12 @@ if ($page3 == "e") { ?>
 						</div>
 					</div>
 					<div class="box-footer">
-						<button type="submit" name="save" class="btn btn-success pull-right">
-							<i class="fa fa-save margin-right-5"></i>
-							<?php echo $tl["button"]["btn1"]; ?>
-						</button>
+
+						<?php
+						// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+						echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+						?>
+
 					</div>
 				</div>
 			</div>

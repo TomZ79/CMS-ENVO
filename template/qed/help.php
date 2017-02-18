@@ -48,6 +48,13 @@
           <li data-deeplink="xxxx">XXXX</li>
         </ul>
       </li>
+      <li>
+        <span>Plugins</span>
+        <ul>
+          <li data-deeplink="blog">Blog</li>
+          <li data-deeplink="xxxx">XXXX</li>
+        </ul>
+      </li>
     </ul>
   </nav>
 </aside>
@@ -200,7 +207,7 @@
           <li>Grid columns are created by specifying the number of twelve available columns you wish to span. For example, three equal columns would use three <code>.col-xs-4</code>.</li>
         </ul>
         <div class="km-notification info cf b">
-            If you're unfamiliar with the Bootstrap system, be sure to read about it <strong><a href="http://getbootstrap.com/css/#grid" target="_blank">here</a></strong>.
+          If you're unfamiliar with the Bootstrap system, be sure to read about it <strong><a href="http://getbootstrap.com/css/#grid" target="_blank">here</a></strong>.
         </div>
         <p>The main structure of this site is wrapped in a '.gobalWrapper' div. Inside of that div you will find: </p>
         <ul>
@@ -376,6 +383,29 @@
         <h4>Shortcodes and components</h4>
         <p>We have included all bootstrap shortcodes, classes and javascript plugins so that you can easly customize your theme. You can find a complete explanation of how it works <a href="http://getbootstrap.com/" target="_blank">here</a>
         </p>
+      </article>
+
+      <!-- XXXX -->
+      <article>
+        <h4>XXXX</h4>
+
+      </article>
+
+    </section>
+
+    <!-- Plugins -->
+    <section>
+
+      <!-- Blog -->
+      <article>
+        <h4>Blog</h4>
+        <p>Umožňuje vkládat recenze, články, novinky. "Blog" je dostupný po doinstalování jako plugin.</p>
+        <h5>Obrázky</h5>
+        <hr>
+        <p>Velikost obrázku, který je použit jako hlavní obrázek v blogu, je nejvhodnější kolem W x H = 1180px x 350px .</p>
+        <p>Můžeme použít i větší rozměr obrazu, při zachování poměru cca 2,30.</p>
+        <p><img src="/template/qed/doc/img/image1.png" alt=""></p>
+
       </article>
 
       <!-- XXXX -->

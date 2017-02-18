@@ -24,7 +24,7 @@ $(function () {
 
     $("#show-nav").click(function(){
         $("#full-screen-search").data("FSNav").showNav();
-        $('#Jajaxs').focus();
+        $('#Jajaxs2').focus();
     });
 
 });
@@ -101,3 +101,11 @@ $(function () {
     });
 
 });
+
+/*
+ |--------------------------------------------------------------------------
+ | TIPS
+ |--------------------------------------------------------------------------
+ */
+
+if($('.category-label').length) $('.category-label').tooltip({placement:'auto'});

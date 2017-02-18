@@ -37,10 +37,6 @@ if ($DL_PASSWORD && !JAK_ASACCESS && $DL_PASSWORD != $_SESSION[ 'dlsecurehash' .
 				<p class="text-muted"><?php if ($SHOWDATE) { ?><i class="fa fa-clock-o"></i> <?php echo $PAGE_TIME . '<br>';
 					} ?><i class="fa fa-download"></i> <?php echo $DL_DOWNLOADS; ?></p>
 
-				<?php if (JAK_DOWNLOADRATE && $SHOWVOTE && $USR_CAN_RATE) {
-					include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/voteresult.php';
-				} ?>
-
 				<?php if ($SHOWSOCIALBUTTON) include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/socialbutton.php'; ?>
 			</div>
 			<!-- End Project Info Column -->

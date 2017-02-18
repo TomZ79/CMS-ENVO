@@ -120,7 +120,7 @@ if ($page1 == "e") { ?>
                 <td><?php echo $v["fromwhere"]; ?></td>
                 <td><?php echo $v["ip"]; ?></td>
                 <td><?php echo jak_cut_text($v["usragent"], 20, '...'); ?></td>
-                <td><?php echo $v["time"]; ?></td>
+                <td><?php echo date ("d.m.Y - H:i:s", strtotime ($v["time"])); ?></td>
                 <td class="text-center">
                   <?php if ($v["access"] == '1') { ?>
                     <i class="fa fa-check"></i>

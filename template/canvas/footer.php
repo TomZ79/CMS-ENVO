@@ -429,12 +429,6 @@ if (!$JAK_SHOW_FOOTER && JAK_ASACCESS) { ?>
 	$.notify({icon: 'fa fa-exclamation-triangle', message: '<?php echo $_SESSION["errormsg"];?>'}, {type: 'danger'});
 	<?php } ?>
 
-	<?php if (isset($SHOWVOTE) && isset($PLUGIN_LIKE_ID)) { ?>
-	$(document).ready(function () {
-		getLikeCounter(<?php echo $PAGE_ID;?>, <?php echo $PLUGIN_LIKE_ID;?>);
-	});
-	<?php } ?>
-
 </script>
 
 <?php if ($jkv["heatmap"] && JAK_ASACCESS) { ?>

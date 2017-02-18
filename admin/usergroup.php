@@ -137,8 +137,6 @@ switch ($page1) {
 				}
 
 			}
-
-
 		}
 
 		switch ($page1) {

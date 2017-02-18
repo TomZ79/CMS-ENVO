@@ -1,3 +1,45 @@
+<?php if ($jkv["adv_editor"]) { ?>
+<script src="assets/plugins/ace/ace.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+	// ACE editor
+	<?php if ($jkv["adv_editor"]) { ?>
+	var htmlACE = ace.edit("htmleditor");
+	htmlACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
+	htmlACE.session.setUseWrapMode(true);
+	htmlACE.session.setWrapLimitRange(<?php echo $jkv["acewraplimit"] . ',' . $jkv["acewraplimit"]; ?>);
+	htmlACE.setOptions({
+		// session options
+		mode: "ace/mode/html",
+		tabSize: <?php echo $jkv["acetabSize"]; ?>,
+		useSoftTabs: true,
+		highlightActiveLine: <?php echo $jkv["aceactiveline"]; ?>,
+		// renderer options
+		showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
+		showGutter: <?php echo $jkv["acegutter"]; ?>,
+	});
+
+	texthtml = $("#jak_editor").val();
+	htmlACE.session.setValue(texthtml);
+	<?php } ?>
+
+	// Responsive Filemanager
+	function responsive_filemanager_callback(field_id) {
+
+		if (field_id == "htmleditor") {
+			// get the path for the ace file
+			var acefile = jQuery('#' + field_id).val();
+			htmlACE.insert(acefile);
+		}
+	}
+
+	// Submit Form
+	$('form').submit(function () {
+		$("#jak_editor").val(htmlACE.getValue());
+	});
+</script>
+<?php } ?>
+
 <script type="text/javascript">
 	$(document).ready(function () {
 
@@ -26,27 +68,6 @@
 
 <script type="text/javascript">
 	$(document).ready(function () {
-		/* Sticky active
-		 ========================================= */
-		var $stickyName = 'input[name="jak_sticky"]';
-		var $stickyVal = ($('input[name="jak_sticky"]:checked').val());
-		if ($stickyVal == '1') {
-			$('tr.disablerow').addClass('warning');
-			$('tr.disablerow select').attr("disabled", "disabled");
-		}
-		$($stickyName).change(
-			function () {
-				if ($(this).is(':checked') && $(this).val() == '1') {
-					$('tr.disablerow').addClass('warning');
-					$('tr.disablerow button').addClass('disabled');
-				} else {
-					$('tr.disablerow').removeClass('warning');
-					$('tr.disablerow select').removeAttr("disabled");
-					$('tr.disablerow button').removeClass('disabled');
-				}
-			}
-		);
-
 		/* DateTimePicker
 		 ========================================= */
 		$('#datepickerFrom').datetimepicker({

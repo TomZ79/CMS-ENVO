@@ -145,9 +145,9 @@ function jak_get_user_all($jakvar,$jakvar1,$jakvar2) {
 	
 	global $jakdb;
 	$user = array();
-    $result = $jakdb->query('SELECT id, usergroupid, username, email, access FROM '.DB_PREFIX.$jakvar.' WHERE access <= 1 '.$sqlwhere.$jakvar1);
+    $result = $jakdb->query('SELECT id, usergroupid, username, email, time, access FROM '.DB_PREFIX.$jakvar.' WHERE access <= 1 '.$sqlwhere.$jakvar1);
     while ($row = $result->fetch_assoc()) {
-        $user[] = array('id' => $row['id'], 'usergroupid' => $row['usergroupid'], 'username' => $row['username'], 'email' => $row['email'], 'access' => $row['access']);
+        $user[] = array('id' => $row['id'], 'usergroupid' => $row['usergroupid'], 'username' => $row['username'], 'email' => $row['email'], 'time' => $row['time'], 'access' => $row['access']);
     }
     
     return $user;

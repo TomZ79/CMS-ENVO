@@ -69,7 +69,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 												href="index.php?p=faq&amp;sp=showcat&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a><?php }
 										}
 									} else { ?><?php echo $tl["general"]["g24"]; ?><?php } ?></td>
-								<td><?php echo $v["time"]; ?></td>
+								<td><?php echo date ("d.m.Y - H:i:s", strtotime ($v["time"])); ?></td>
 								<td>
 									<a href="index.php?p=faq&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') {
 										echo $tl["icons"]["i5"];

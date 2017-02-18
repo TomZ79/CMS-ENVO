@@ -5,6 +5,14 @@
 *  Version: 1.0
 *  Latest update: May 25, 2015
 * ---------------------------------------------------------------------------- */
+
+/* Modification of basic css style from CMS ENVO */
+.page-container .page-content-wrapper .content {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* Wizard  */
 .wizard {
   width: 100%;
   overflow: hidden;
@@ -72,7 +80,7 @@
   top: 43px;
   width: 50%;
   height: 2px;
-  background-color: #00BCD4;
+  background-color: #0DA899;
   z-index: 9;
 }
 
@@ -102,9 +110,9 @@
 
 .wizard > .steps > ul > li.current .number {
   font-size: 0;
-  border-color: #00BCD4;
+  border-color: #0DA899;
   background-color: #FFF;
-  color: #00BCD4;
+  color: #0DA899;
 }
 
 .wizard > .steps > ul > li.current .number:after {
@@ -135,8 +143,8 @@
 
 .wizard > .steps > ul > li.done .number {
   font-size: 0;
-  background-color: #00BCD4;
-  border-color: #00BCD4;
+  background-color: #0DA899;
+  border-color: #0DA899;
   color: #FFF;
 }
 
@@ -253,40 +261,79 @@
 }
 
 .wizard > .actions > ul > li > a {
-  background: #2196F3;
   color: #FFF;
+  background-color: #6D5CAE;
+  border: 1px solid #6D5CAE;
   display: block;
-  padding: 7px 12px;
-  border-radius: 2px;
-  border: 1px solid transparent;
+  padding: 6px 17px;
+  border-radius: 3px;
 }
 
 .wizard > .actions > ul > li > a:hover,
 .wizard > .actions > ul > li > a:focus {
-  -webkit-box-shadow: 0 0 0 100px rgba(0, 0, 0, 0.05) inset;
-  box-shadow: 0 0 0 100px rgba(0, 0, 0, 0.05) inset;
+  color: #FFF;
+  background-color: #8A7DBE;
+  border: 1px solid #8A7DBE;
 }
 
 .wizard > .actions > ul > li > a:active {
-  -webkit-box-shadow: 0 0 0 100px rgba(0, 0, 0, 0.1) inset;
-  box-shadow: 0 0 0 100px rgba(0, 0, 0, 0.1) inset;
+  color: #FFF;
+  background-color: #584B8D;
+  border: 1px solid #584B8D;
 }
 
 .wizard > .actions > ul > li > a[href="#previous"] {
+  color: #FFF;
+  background-color: #6D5CAE;
+  border-color: #6D5CAE;
+}
+
+.wizard > .actions > ul > li.disabled > a[href="#previous"],
+.wizard > .actions > ul > li.disabled > a[href="#previous"]:hover,
+.wizard > .actions > ul > li.disabled > a[href="#previous"]:focus,
+.wizard > .actions > ul > li.disabled > a[href="#previous"]:active{
   background-color: #FCFCFC;
-  color: #333;
   border: 1px solid #DDD;
+  cursor: not-allowed;
 }
 
 .wizard > .actions > ul > li > a[href="#previous"]:hover,
 .wizard > .actions > ul > li > a[href="#previous"]:focus {
-  -webkit-box-shadow: 0 0 0 100px rgba(0, 0, 0, 0.02) inset;
-  box-shadow: 0 0 0 100px rgba(0, 0, 0, 0.02) inset;
+  color: #FFF;
+  background-color: #8A7DBE;
+  border: 1px solid #8A7DBE;
 }
 
 .wizard > .actions > ul > li > a[href="#previous"]:active {
-  -webkit-box-shadow: 0 0 0 100px rgba(0, 0, 0, 0.04) inset;
-  box-shadow: 0 0 0 100px rgba(0, 0, 0, 0.04) inset;
+  color: #FFF;
+  background-color: #584B8D;
+  border: 1px solid #584B8D;
+}
+
+.wizard > .actions > ul > li > a[href="#finish"] {
+  color: #FFF;
+  background-color: #10CFBD;
+  border-color: #10CFBD;
+}
+
+.wizard > .actions > ul > li > a[href="#finish"]::before {
+  font-family: "FontAwesome";
+  content: "\f0c7";
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.wizard > .actions > ul > li > a[href="#finish"]:hover,
+.wizard > .actions > ul > li > a[href="#finish"]:focus {
+  color: #FFF;
+  background-color: #40D9CA;
+  border: 1px solid #40D9CA;
+}
+
+.wizard > .actions > ul > li > a[href="#finish"]:active {
+  color: #FFF;
+  background-color: #0DA899;
+  border: 1px solid #0DA899;
 }
 
 .wizard > .actions > ul > li.disabled > a,

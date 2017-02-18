@@ -96,7 +96,6 @@ switch ($page1) {
 																	showdate = "' . $defaults['jak_showdate'] . '",
 																	showhits = "' . $defaults['jak_showhits'] . '",
 																	socialbutton = "' . $defaults['jak_social'] . '",
-																	showvote = "' . $defaults['jak_vote'] . '",
 																	newsorder = 1,
 																	time = NOW(),
 																	permission = "' . smartsql ($permission) . '",
@@ -534,7 +533,6 @@ switch ($page1) {
 																				socialbutton = "' . smartsql ($defaults['jak_social']) . '",
 																				' . $insert . '
 																				permission = "' . smartsql ($permission) . '",
-																				showvote = "' . smartsql ($defaults['jak_vote']) . '"
 																				WHERE id = "' . smartsql ($page2) . '"');
 
 							// Insert new stuff first if exist order for extra stuff

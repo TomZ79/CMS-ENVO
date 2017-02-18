@@ -33,6 +33,7 @@ require_once 'config.php';
 	<!-- for Facebook -->
 	<meta property="og:title" content="<?php echo $PAGE_TITLE; ?>"/>
 	<meta property="og:type" content="article"/>
+	<meta property="og:url" content="https://www.creative-tim.com/" />
 	<meta property="og:image" content="<?php echo (($PAGE_IMAGE) ? $PAGE_IMAGE : $SHOWIMG); ?>"/>
 	<meta property="og:description" content="<?php echo trim ($PAGE_DESCRIPTION); ?>"/>
 
@@ -211,7 +212,7 @@ if ($page == "success" or $page == "logout") { ?>
 						<form class="form-search" action="/search" method="post">
 							<div class="form-group">
 								<div class="input-group">
-									<input type="text" name="jakSH" id="Jajaxs" class="form-control search" placeholder="Vyhledat ...">
+									<input type="text" name="jakSH" id="Jajaxs1" class="form-control search" placeholder="Vyhledat ...">
 									<span class="input-group-addon"><button type="submit" class="icon-search"></button></span>
 								</div>
 							</div>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Bluesat Template Documentation</title>
+	<title>ENVO Template Documentation</title>
 
 	<!-- ======= FONTS ======= -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&subset=latin-ext" rel="stylesheet">
@@ -19,20 +19,20 @@
 <body>
 
 <header>
-	<h1>CMS - Bluesat Help</h1>
+	<h1>CMS - ENVO Help</h1>
 	<div class="clear"></div>
 </header>
 
 <nav id="subnav">
 	<h3>Table of Contents</h3>
-	<h3>Current Chapter: <span id="curnav" class="light">About CMS - Bluesat / Requirements</span></h3>
+	<h3>Current Chapter: <span id="curnav" class="light">About CMS - ENVO / Requirements</span></h3>
 </nav>
 
 <aside>
 	<nav>
 		<ul id="sidebar">
 			<li class="active">
-				<span>About CMS - Bluesat</span>
+				<span>About CMS - ENVO</span>
 				<ul>
 					<li data-deeplink="requirements">Requirements</li>
 					<li data-deeplink="about-cms">About CMS</li>
@@ -118,7 +118,7 @@
 <div id="content">
 	<div>
 
-		<!-- About Bluesat Template -->
+		<!-- About ENVO Template -->
 		<section class="active">
 
 			<!-- Requirements -->

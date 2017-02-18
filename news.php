@@ -70,7 +70,6 @@ switch ($page1) {
 				$SHOWDATE                    = $row['showdate'];
 				$SHOWHITS                    = $row['showhits'];
 				$SHOWSOCIALBUTTON            = $row['socialbutton'];
-				$SHOWVOTE                    = $row['showvote'];
 				$PAGE_ACTIVE                 = $row['active'];
 				$PAGE_HITS                   = $row['hits'];
 				$PAGE_TIME                   = JAK_base::jakTimesince ($row['time'], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['general']['g56']);
@@ -85,11 +84,6 @@ switch ($page1) {
 					$JAK_SHOW_C_FORM_NAME = jak_contact_form_title ($row['showcontact']);
 
 				}
-
-				// Get the likes
-				$PLUGIN_LIKE_ID = 1;
-				// get the rating permission
-				$USR_CAN_RATE = $jakusergroup->getVar ("canrate");
 
 				// Inject some code for news
 				$hna = $jakhooks->jakGethook ("php_pages_news");
@@ -168,8 +162,8 @@ switch ($page1) {
 			$news->items_per_page = $jkv["newspageitem"];
 			$news->jak_get_page   = $page1;
 			$news->jak_where      = $backtonews;
-			$news->jak_prevtext   = $tl["general"]["g171"];
-			$news->jak_nexttext   = $tl["general"]["g172"];
+			$news->jak_prevtext   = $tl["pagination"]["pagin"];
+			$news->jak_nexttext   = $tl["pagination"]["pagin1"];
 			$news->paginate ();
 
 			$JAK_PAGINATE = $news->display_pages ();

@@ -29,10 +29,6 @@ if ($jkv["printme"]) $printme = 1; ?>
 		<?php if ($JAK_SHOW_C_FORM) {
 			include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/contact.php';
 		} ?>
-
-		<?php if (JAK_BLOGRATE && $SHOWVOTE && $USR_CAN_RATE) {
-			include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/voteresult.php';
-		} ?>
 		<hr>
 		<?php if (JAK_BLOGPOST && $JAK_COMMENT_FORM) { ?>
 			<!-- Comments -->

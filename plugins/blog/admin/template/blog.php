@@ -127,7 +127,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 												<a href="index.php?p=blog&amp;sp=showcat&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a> <?php }
 										}
 									} else { ?><?php echo $tlblog["blog_box_content"]["blogbc13"]; ?><?php } ?></td>
-								<td><?php echo $v["time"]; ?></td>
+								<td><?php echo date ("d.m.Y - H:i:s", strtotime ($v["time"])); ?></td>
 								<td><?php echo $v["hits"]; ?></td>
 								<td>
 									<?php

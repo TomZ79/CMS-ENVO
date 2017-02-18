@@ -119,7 +119,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 										}
 									} else { ?><?php echo $tl["general"]["g24"]; ?><?php } ?>
 								</td>
-								<td><?php echo $v["time"]; ?></td>
+								<td><?php echo date ("d.m.Y - H:i:s", strtotime ($v["time"])); ?></td>
 								<td><?php echo $v["hits"]; ?></td>
 								<td><?php echo $v["countdl"]; ?></td>
 								<td>

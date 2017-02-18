@@ -74,8 +74,8 @@ switch ($page1) {
 				$faqc->items_per_page = $jkv["faqpageitem"];
 				$faqc->jak_get_page   = $getPage;
 				$faqc->jak_where      = $getWhere;
-				$faqc->jak_prevtext   = $tl["general"]["g171"];
-				$faqc->jak_nexttext   = $tl["general"]["g172"];
+				$faqc->jak_prevtext   = $tl["pagination"]["pagin"];
+				$faqc->jak_nexttext   = $tl["pagination"]["pagin1"];
 				$faqc->paginate ();
 				$JAK_PAGINATE = $faqc->display_pages ();
 			}
@@ -231,7 +231,6 @@ switch ($page1) {
 					$MAIN_DESCRIPTION = $jkv["faqdesc"];
 					$SHOWTITLE        = $row['showtitle'];
 					$SHOWDATE         = $row['showdate'];
-					$SHOWVOTE         = $row['showvote'];
 					$SHOWCOMMENTFORM  = $row['comments'];
 					$SHOWSOCIALBUTTON = $row['socialbutton'];
 					$FAQ_HITS         = $row['hits'];
@@ -265,10 +264,6 @@ switch ($page1) {
 					$JAK_COMMENT_FORM   = false;
 
 				}
-
-				// Get the likes
-				$PLUGIN_LIKE_ID = JAK_PLUGIN_ID_FAQ;
-				$USR_CAN_RATE   = $jakusergroup->getVar ("faqrate");
 
 				// Get the sort orders for the grid
 				$grid = $jakdb->query ('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE faqid = "' . $row['id'] . '" ORDER BY orderid ASC');
@@ -439,8 +434,8 @@ switch ($page1) {
 			$faq->items_per_page = $jkv["faqpageitem"];
 			$faq->jak_get_page   = $page1;
 			$faq->jak_where      = $backtofaq;
-			$faq->jak_prevtext   = $tl["general"]["g171"];
-			$faq->jak_nexttext   = $tl["general"]["g172"];
+			$faq->jak_prevtext   = $tl["pagination"]["pagin"];
+			$faq->jak_nexttext   = $tl["pagination"]["pagin1"];
 			$faq->paginate ();
 
 			// Pagination

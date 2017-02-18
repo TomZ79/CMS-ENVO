@@ -107,11 +107,6 @@
 			include_once APP_PATH . 'template/mosaic/loginpage.php';
 		} ?>
 
-		<!-- Show vote result -->
-		<?php if ($SHOWVOTE && $USR_CAN_RATE) {
-			include_once APP_PATH . 'template/mosaic/voteresult.php';
-		} ?>
-
 		<!-- Show date, social buttons and tag list -->
 		<?php if ($SHOWDATE || $SHOWSOCIALBUTTON || ($JAK_TAGLIST && $SHOWTAGS)) { ?>
 			<div class="well well-sm">

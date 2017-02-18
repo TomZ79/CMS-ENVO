@@ -40,7 +40,8 @@ if ($errors) { ?>
 					if (isset($errors["e1"])) echo $errors["e1"];
 					if (isset($errors["e2"])) echo $errors["e2"];
 					if (isset($errors["e3"])) echo $errors["e3"];
-					if (isset($errors["e4"])) echo $errors["e4"];?>',
+					if (isset($errors["e4"])) echo $errors["e4"];
+					if (isset($errors["e5"])) echo $errors["e5"];?>',
 			}, {
 				// settings
 				type: 'danger',
@@ -228,7 +229,7 @@ if ($errors) { ?>
 									<div class="col-md-7">
 										<div class="fileinput fileinput-new" data-provides="fileinput">
 											<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">
-												<img src="<?php echo BASE_URL_ORIG . basename (JAK_FILES_DIRECTORY) . '/userfiles/' . $JAK_FORM_DATA["picture"]; ?>" alt="avatar" class="img-polaroid"/>
+												<img src="<?php echo BASE_URL_ORIG . basename (JAK_FILES_DIRECTORY) . '/userfiles/' . $JAK_FORM_DATA["picture"]; ?>" alt="avatar" class=""/>
 											</div>
 											<div>
                         <span class="btn btn-default btn-file">
@@ -292,7 +293,7 @@ if ($errors) { ?>
 
 									</div>
 									<div class="col-md-7">
-										<div class="form-group no-margin<?php if (isset($errors["e5"]) || isset($errors["e6"])) echo " has-error"; ?>">
+										<div class="form-group no-margin">
 											<div class="label-indicator-absolute">
 
 												<?php
@@ -316,7 +317,7 @@ if ($errors) { ?>
 
 									</div>
 									<div class="col-md-7">
-										<div class="form-group no-margin<?php if (isset($errors["e5"]) || isset($errors["e6"])) echo " has-error"; ?>">
+										<div class="form-group no-margin">
 											<div class="label-indicator-absolute">
 
 												<?php
@@ -343,20 +344,83 @@ if ($errors) { ?>
 
 					</div>
 				</div>
+				<div class="box box-success">
+					<div class="box-header with-border">
+						<h3 class="box-title"><?php echo $tl["user_box_title"]["userbt2"]; ?></h3>
+					</div>
+					<div class="box-body">
+						<div class="block">
+							<div class="block-content">
+
+								<div class="row-form">
+									<div class="col-md-5">
+
+										<?php
+										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+										// Add Html Element -> endTag (Arguments: tag)
+										echo $htmlE->startTag('strong') . $tl["user_box_content"]["userbc14"] . $htmlE->endTag('strong');
+										?>
+
+									</div>
+									<div class="col-md-7">
+										<div class="form-group no-margin<?php if (isset($errors["e5"])) echo " has-error"; ?>">
+
+											<?php
+											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
+											echo $htmlE->addInput ('text', 'jak_phone', '', 'form-control', $JAK_FORM_DATA["phone"], '');
+											?>
+
+										</div>
+									</div>
+								</div>
+								<div class="row-form">
+									<div class="col-md-5">
+
+										<?php
+										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+										// Add Html Element -> endTag (Arguments: tag)
+										echo $htmlE->startTag('strong') . $tl["user_box_content"]["userbc15"] . $htmlE->endTag('strong');
+										?>
+
+									</div>
+									<div class="col-md-7">
+										<div class="form-group no-margin">
+
+											<?php
+											// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+											echo $htmlE->addTextArea ('jak_description', '4', '', $JAK_FORM_DATA["description"], array ('class' => 'form-control'));
+											?>
+
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="box-footer">
+
+						<?php
+						// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
+						echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+						?>
+
+					</div>
+				</div>
 				<?php if (isset($JAK_HOOK_ADMIN_USER_EDIT) && is_array ($JAK_HOOK_ADMIN_USER_EDIT)) foreach ($JAK_HOOK_ADMIN_USER_EDIT as $hsue) {
 					include_once APP_PATH . $hsue['phpcode'];
 				}
 				if ($extrafields) { ?>
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title"><?php echo $tl["user_box_title"]["userbt2"]; ?></h3>
+							<h3 class="box-title"><?php echo $tl["user_box_title"]["userbt3"]; ?></h3>
 						</div>
 						<div class="box-body">
 							<div class="block">
 								<div class="block-content">
-									<div class="row-form">
+
 										<?php echo $extrafields; ?>
-									</div>
+
 								</div>
 							</div>
 						</div>

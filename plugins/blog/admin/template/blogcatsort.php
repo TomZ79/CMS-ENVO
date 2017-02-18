@@ -24,8 +24,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 				message: '<?php echo ($page1 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>',
 			}, {
 				// settings
-				type: 'success',
-				delay: 5000,
+				type: 'danger',
+				delay: 10000,
 			});
 		}, 1000);
 	</script>
@@ -92,7 +92,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 												<a href="index.php?p=blog&amp;sp=showcat&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a><?php }
 										}
 									} else { ?><?php echo $tlblog["blog_box_content"]["blogbc16"]; ?><?php } ?></td>
-								<td><?php echo $v["time"]; ?></td>
+								<td><?php echo date ("d.m.Y - H:i:s", strtotime ($v["time"])); ?></td>
 								<td>
 									<?php
 									// Time Control - variable

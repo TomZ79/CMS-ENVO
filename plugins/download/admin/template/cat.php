@@ -89,9 +89,12 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 <?php } else { ?>
 
 	<div class="col-md-12">
-		<div class="alert bg-info text-white">
-			<?php echo $tl["general_error"]["generror3"]; ?>
-		</div>
+
+		<?php
+		// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
+		echo $htmlE->addSimpleDiv ('', $tl["general_error"]["generror3"],  array ('class' => 'alert bg-info text-white'));
+		?>
+
 	</div>
 <?php } ?>
 

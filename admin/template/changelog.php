@@ -30,7 +30,7 @@
 										[new] ACP - Add new Jquery plugin PACE.js
 										[new] ACP - some settings are in extra custom card
 										[new] Translate language
-										[new] Add new tamplate 'Bluesat'
+										[new] Add new tamplate 'QED'
 										[new] Add new color theme for PACE Jquery script
 										[new] ACP - Ace Editor - Add resize buttons to fullscreen mode
 										[new] Add new function for blog article (edit time)

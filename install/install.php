@@ -537,7 +537,7 @@ if (DB_USER && DB_PASS) {
               $mail->SetFrom($_POST['email']);
               $mail->AddReplyTo($_POST['email']);
               $mail->AddAddress('bluesatkv@gmail.com');
-              $mail->Subject = 'Info about installation - Bluesat CMS';
+              $mail->Subject = 'Info about installation - Bluesat ENVO';
               $mail->AltBody = 'HTML Format - ' . strip_tags($email_body);
               $mail->MsgHTML($body);
               $mail->Send();

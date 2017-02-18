@@ -5,7 +5,7 @@
   position: fixed;
   top: 40px;
   right: 40px;
-  width: 301px;
+  width: auto;
   height: auto;
   z-index: 9999;
 }
@@ -30,10 +30,16 @@
 }
 
 #gritter-notice-wrapper.center {
+  position: fixed;
   top: 50%;
   left: 50%;
-  margin-top: -100px;
-  margin-left: -150px;
+  width: auto;
+  height: auto;
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
 }
 
 .gritter-item-wrapper {

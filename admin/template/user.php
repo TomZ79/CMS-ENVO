@@ -215,6 +215,7 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
 							</a>
 						</th>
 						<th><?php echo $tl["user_box_table"]["usertb2"]; ?></th>
+						<th><?php echo $tl["user_box_table"]["usertb6"]; ?></th>
 						<th><?php echo $tl["user_box_table"]["usertb3"]; ?></th>
 						<th>
 							<button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
@@ -256,6 +257,7 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
 									<?php }
 								} ?>
 							</td>
+							<td><?php echo date ("d.m.Y", strtotime ($v["time"])); ?></td>
 							<td>
 								<?php
 								if ($v["access"] == 1) {

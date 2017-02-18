@@ -81,7 +81,7 @@
 											<a												href="index.php?p=categories&amp;sp=edit&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a><?php }
 									}
 								} else { ?><?php echo $tl["page_box_content"]["pagebc"]; ?><?php } ?></td>
-							<td><?php echo $v["time"]; ?></td>
+							<td><?php echo date ("d.m.Y - H:i:s", strtotime ($v["time"])); ?></td>
 							<td><?php echo $v["hits"]; ?></td>
 							<td>
 								<a class="btn btn-default btn-xs" href="index.php?p=page&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') {

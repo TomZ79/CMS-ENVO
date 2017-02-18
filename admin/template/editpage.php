@@ -91,7 +91,7 @@ if ($errors) { ?>
 		<div id="cmsTabContent" class="tab-content">
 			<div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
 				<div class="row">
-					<div class="col-md-7">
+					<div class="col-md-6">
 						<div class="box box-success">
 							<div class="box-header with-border">
 								<h3 class="box-title"><?php echo $tl["page_box_title"]["pagebt"]; ?></h3>
@@ -307,36 +307,6 @@ if ($errors) { ?>
 												<?php
 												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
 												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["page_box_content"]["pagebc12"] . $htmlE->endTag('strong');
-												?>
-
-											</div>
-											<div class="col-md-7">
-												<div class="radio radio-success">
-
-													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													($JAK_FORM_DATA["showvote"] == '1') ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput('radio', 'jak_vote', 'jak_vote1', '', '1', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor('jak_vote1', $tl["checkbox"]["chk"]);
-
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													($JAK_FORM_DATA["showvote"] == '0') ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput('radio', 'jak_vote', 'jak_vote2', '', '0', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor('jak_vote2', $tl["checkbox"]["chk1"]);
-													?>
-
-												</div>
-											</div>
-										</div>
-										<div class="row-form">
-											<div class="col-md-5">
-
-												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
 												echo $htmlE->startTag('strong') . $tl["page_box_content"]["pagebc13"] . $htmlE->endTag('strong');
 												?>
 
@@ -494,7 +464,7 @@ if ($errors) { ?>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-5">
+					<div class="col-md-6">
 						<div class="box box-success">
 							<div class="box-header with-border">
 								<h3 class="box-title"><?php echo $tl["page_box_title"]["pagebt1"]; ?></h3>
@@ -636,8 +606,14 @@ if ($errors) { ?>
 							<div class="box-body">
 								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
 								<a href="javascript:;" id="addCssBlock"><?php echo $tl["global_text"]["globaltxt6"]; ?></a><br/>
-								<div id="csseditor"></div>
-								<textarea name="jak_css" id="jak_css" class="form-control hidden"><?php echo $JAK_FORM_DATA["page_css"]; ?></textarea>
+
+								<?php
+								// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
+								echo $htmlE->addSimpleDiv ('csseditor', '');
+								// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+								echo $htmlE->addTextArea ('jak_css', '', '', $JAK_FORM_DATA["page_css"], array ('id' => 'jak_css', 'class' => 'hidden'));
+								?>
+
 							</div>
 							<div class="box-footer">
 
@@ -661,8 +637,14 @@ if ($errors) { ?>
 							<div class="box-body">
 								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
 								<a href="javascript:;" id="addJavascriptBlock"><?php echo $tl["global_text"]["globaltxt7"]; ?></a><br/>
-								<div id="javaeditor"></div>
-								<textarea name="jak_javascript" id="jak_javascript" class="form-control hidden"><?php echo $JAK_FORM_DATA["page_javascript"]; ?></textarea>
+
+								<?php
+								// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
+								echo $htmlE->addSimpleDiv ('javaeditor', '');
+								// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
+								echo $htmlE->addTextArea ('jak_javascript', '', '', $JAK_FORM_DATA["page_javascript"], array ('id' => 'jak_javascript', 'class' => 'hidden'));
+								?>
+
 							</div>
 							<div class="box-footer">
 

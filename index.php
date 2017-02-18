@@ -306,7 +306,7 @@ if ($page == 'logout') {
 	}
 	if (JAK_USERID) {
 		$jakuserlogin->jakLogout (JAK_USERID);
-		$_SESSION["infomsg"] = $tl["general"]["s"];
+		$_SESSION["infomsg"] = $tl["notification"]["n4"];
 		jak_redirect ($_SERVER['HTTP_REFERER']);
 	}
 }

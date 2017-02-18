@@ -112,7 +112,6 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "news (
   `showhits` smallint(1) unsigned NOT NULL DEFAULT 0,
   `shownews` smallint(1) unsigned NOT NULL DEFAULT 0,
   `socialbutton` smallint(1) unsigned NOT NULL DEFAULT 0,
-  `showvote` smallint(1) unsigned NOT NULL DEFAULT 0,
   `time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `startdate` INT(10) UNSIGNED NOT NULL DEFAULT 0,
   `enddate` INT(10) UNSIGNED NOT NULL DEFAULT 0,
@@ -140,7 +139,6 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "pages (
   `showtags` tinyint(1) unsigned NOT NULL DEFAULT 1,
   `showlogin` tinyint(1) unsigned NOT NULL DEFAULT 1,
   `socialbutton` tinyint(1) unsigned NOT NULL DEFAULT 0,
-  `showvote` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `password` char(64) DEFAULT NULL,
   `hits` int(11) unsigned NOT NULL DEFAULT 0,
   `time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -186,7 +184,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "pluginhooks (
 
 $jakdb->query("INSERT INTO " . DB_PREFIX . "pluginhooks VALUES
 (1, 'tpl_sidebar', 'Tags', 'tagsidebar.php', '', 'cms', 1, 3, 3, NOW()),
-(2, 'tpl_sidebar', 'News', 'newssidebar.php', '', 'cms', 1, 2, 1, NOW()),
+(2, 'tpl_sidebar', 'News', 'include_once \"newssidebar.php\";', '', 'cms', 1, 2, 1, NOW()),
 (3, 'tpl_sidebar', 'Login Form', 'loginsidebar.php', '', 'cms', 1, 4, 0, NOW()),
 (4, 'tpl_sidebar', 'Search Form', 'searchsidebar.php', '', 'cms', 1, 1, 0, NOW()),
 (5, 'tpl_footer_widgets', 'News - Footer Widget', 'newsfooter.php', '', 'cms', 1, 1, 1, NOW()),

@@ -367,7 +367,6 @@ include_once APP_PATH.\'plugins/download/template/\'.$jkv[\"sitestyle\"].\'/page
   `ftshare` smallint(1) unsigned NOT NULL DEFAULT 0,
   `socialbutton` smallint(1) unsigned NOT NULL DEFAULT 0,
   `hits` int(10) unsigned NOT NULL DEFAULT 0,
-  `showvote` smallint(1) unsigned NOT NULL DEFAULT 0,
   `password` char(64) DEFAULT NULL,
   `time` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
   PRIMARY KEY (`id`),

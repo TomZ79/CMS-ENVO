@@ -80,7 +80,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 							<td><?php echo $v["id"]; ?></td>
 							<td><a href="index.php?p=news&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a>
 							</td>
-							<td><?php echo $v["time"]; ?></td>
+							<td><?php echo date ("d.m.Y - H:i:s", strtotime ($v["time"])); ?></td>
 							<td><?php echo $v["hits"]; ?></td>
 							<td>
 								<?php

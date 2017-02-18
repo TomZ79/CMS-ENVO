@@ -104,14 +104,6 @@ if (JAK_ASACCESS) {
 
 			<!-- Show other settings
 			============================================= -->
-			<?php if ($SHOWVOTE && $USR_CAN_RATE) { ?>
-				<div class="style-msg errormsg">
-					<div class="sb-msg">
-						<i class="icon-remove"></i><strong>Oooh!</strong> Like button is not available in Canvas template for News Plugin.
-					</div>
-				</div>
-			<?php } ?>
-
 			<?php if (isset($JAK_HOOK_PAGE) && is_array ($JAK_HOOK_PAGE)) { ?>
 				<div class="style-msg errormsg">
 					<div class="sb-msg">

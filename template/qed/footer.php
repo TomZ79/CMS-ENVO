@@ -228,7 +228,34 @@
 <!-- Neko framework script -->
 <script type="text/javascript" src="/template/<?php echo $jkv["sitestyle"];?>/js/neko-framework.js"></script>
 
+<!-- Definition Function and Notification -->
+<script type="text/javascript">
+	jakWeb.jak_lang = "<?php echo $site_language;?>";
+	jakWeb.jak_url = "<?php echo BASE_URL;?>";
+	jakWeb.jak_url_orig = "<?php echo BASE_URL;?>";
+	jakWeb.jak_search_link = "<?php echo $JAK_SEARCH_LINK;?>";
+	jakWeb.jakrequest_uri = "<?php echo JAK_PARSE_REQUEST;?>";
+	jakWeb.jak_quickedit = "<?php echo $tl["general"]["g176"];?>"
+</script>
+
 <?php include_once APP_PATH . '/template/' . $jkv["sitestyle"] . '/js/neko-royalSlider.php' ?>
+
+<!-- Comments Script -->
+<?php if ($JAK_COMMENT_FORM) { ?>
+<script type="text/javascript">
+	<?php if ($jkv["hvm"]) { ?>
+	jQuery(document).ready(function () {
+		jQuery(".cFrom").append('<input type="hidden" name="<?php echo $random_name;?>" value="<?php echo $random_value;?>" />');
+	});
+	<?php } ?>
+	jakWeb.jak_submit = "<?php echo $tl['general']['g10'];?>";
+	jakWeb.jak_submitwait = "<?php echo $tl['general']['g99'];?>";
+</script>
+
+<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/post.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/plugins/tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/usreditor.js"></script>
+<?php } ?>
 
 <?php
 if (isset($JAK_HOOK_FOOTER_END) && is_array ($JAK_HOOK_FOOTER_END)) foreach ($JAK_HOOK_FOOTER_END as $hfootere) {
@@ -238,10 +265,9 @@ if (isset($JAK_HOOK_FOOTER_END) && is_array ($JAK_HOOK_FOOTER_END)) foreach ($JA
 if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT;
 ?>
 
-
 <!-- Social Buttons Script -->
 <?php if ($SHOWSOCIALBUTTON) {
-	include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/socialbutton.php';
+	include APP_PATH . 'template/' . $jkv["sitestyle"] . '/socialbutton.php';
 } ?>
 
 <?php if (isset($JAK_NEWS_IN_CONTENT) && is_array ($JAK_NEWS_IN_CONTENT)) { ?>
@@ -273,26 +299,41 @@ if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT;
 		});
 	</script>
 <?php } ?>
+
+<!-- Notification -->
+<?php if (isset($_SESSION["infomsg"])) { ?>
+<script type="text/javascript">
+	$.notify({icon: 'fa fa-info-circle', message: '<?php echo $_SESSION["infomsg"];?>'}, {type: 'info'});
+</script>
+<?php } if (isset($_SESSION["successmsg"])) { ?>
+<script type="text/javascript">
+	$.notify({icon: 'fa fa-check-square-o', message: '<?php echo $_SESSION["successmsg"];?>'}, {type: 'success'});
+</script>
+<?php } if (isset($_SESSION["errormsg"])) { ?>
+<script type="text/javascript">
+	$.notify({icon: 'fa fa-exclamation-triangle', message: '<?php echo $_SESSION["errormsg"];?>'}, {type: 'danger'});
+</script>
+<?php } ?>
+
 <?php if ($jkv["offline"] == 1 && JAK_ASACCESS) { ?>
-	<!-- Offline Website -->
-	<script type="text/javascript">
-		$.notify({
-			// Options
-			icon: 'icon-flash',
-			message: '<?php echo $tl["notification"]["n1"];?>',
-		}, {
-			// Settings
-			type: 'offline',
-			timer: 0,
-			template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
-			'<button type="button" aria-hidden="true" class="close" data-notify="dismiss" style="color: #fff;opacity: 0.8;">×</button>' +
-			'<span data-notify="icon"></span> ' +
-			'<span data-notify="title" style="display: block;font-weight: bold;">{1}</span> ' +
-			'<span data-notify="message">{2}</span>' +
-			'</div>' +
-			'</div>'
-		});
-	</script>
+<script type="text/javascript">
+	$.notify({
+		// Options
+		icon: 'icon-flash',
+		message: '<?php echo $tl["notification"]["n1"];?>',
+	}, {
+		// Settings
+		type: 'offline',
+		timer: 0,
+		template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+		'<button type="button" aria-hidden="true" class="close" data-notify="dismiss" style="color: #fff;opacity: 0.8;">×</button>' +
+		'<span data-notify="icon"></span> ' +
+		'<span data-notify="title" style="display: block;font-weight: bold;">{1}</span> ' +
+		'<span data-notify="message">{2}</span>' +
+		'</div>' +
+		'</div>'
+	});
+</script>
 <?php } ?>
 
 <!-- Neko Custom script -->
@@ -365,7 +406,7 @@ if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT;
 			<div class="full-screen-nav-wrapper">
 				<p>Zadejte hledaný výraz a stikněte Enter</p>
 				<form class="form-search" action="/search" method="post">
-					<input type="text" name="jakSH" id="Jajaxs" class="search" placeholder="Vyhledat ...">
+					<input type="text" name="jakSH" id="Jajaxs2" class="search" placeholder="Vyhledat ...">
 					<button type="submit"><i class="icon-search"></i></button>
 				</form>
 			</div>

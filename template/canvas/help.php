@@ -57,7 +57,7 @@
 <div id="content">
   <div>
 
-    <!-- About Bluesat Template -->
+    <!-- About Canvas Template -->
     <section class="active">
 
       <!-- Basic Information -->

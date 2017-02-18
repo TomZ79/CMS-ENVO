@@ -31,7 +31,6 @@ $MAIN_DESCRIPTION            = $row['content'];
 $SHOWDATE                    = $row['showdate'];
 $SHOWTAGS                    = $row['showtags'];
 $SHOWSOCIALBUTTON            = $row['socialbutton'];
-$SHOWVOTE                    = $row['showvote'];
 $PAGE_ACTIVE                 = $row['active'];
 $PAGE_PASSWORD               = $row['password'];
 $JAK_HEADER_CSS              = $row['page_css'];
@@ -81,11 +80,6 @@ if (!empty($row['shownews'])) {
 	// Set news load to false
 	$newsloadonce = false;
 }
-
-// Get the likes
-$PLUGIN_LIKE_ID = 999;
-// get the rating permission
-$USR_CAN_RATE = $jakusergroup->getVar ("canrate");
 
 // Get the php hook for display stuff in pages
 $hookpages = $jakhooks->jakGethook ("php_pages_news");

@@ -337,10 +337,10 @@ if ($JAK_PROVED && !isset($jkv["cms_tpl"])) { ?>
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header"></div>
-			<div class="modal-body">
+			<div class="modal-body padding-0">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="body-content" style="display: flex;flex-direction: column;min-height: 80vh;"></div>
+						<div class="body-content" style="display: flex;flex-direction: column;min-height: 90vh;"></div>
 					</div>
 				</div>
 			</div>

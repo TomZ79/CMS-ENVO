@@ -1,8 +1,5 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
-	<link rel="stylesheet" href="<?php echo BASE_URL_ORIG; ?>plugins/xml_seo/admin/css/style.css" type="text/css"/>
-	<script type="text/javascript" src="<?php echo BASE_URL_ORIG; ?>plugins/xml_seo/admin/js/xml_seo.js?=<?php echo $jkv["updatetime"]; ?>"></script>
-
 <?php if (isset($succes1)) { ?>
 	<script type="text/javascript">
 		setTimeout(function () {
@@ -83,7 +80,7 @@ if (isset($error2)) { ?>
 
 	<div class="row">
 		<div class="col-md-12">
-			<div class="box">
+			<div class="box box-success">
 				<div class="box-header with-border">
 					<h3 class="box-title"><?php echo $tlxml["xml_box_title"]["xmlbt"]; ?></h3>
 				</div>
@@ -93,7 +90,7 @@ if (isset($error2)) { ?>
 						<h3><?php echo $tlxml["xml_box_content"]["xmlbc"]; ?></h3>
 						<section>
 							<h4><?php echo $tlxml["xml_box_content"]["xmlbc3"]; ?></h4>
-							<table class="table no-border first-column">
+							<table class="table no-border">
 								<tr>
 									<td class="form-inline">
 										<label for="folder"><?php echo BASE_URL_ORIG; ?></label>
@@ -234,7 +231,7 @@ if (isset($error2)) { ?>
 		<div class="row">
 			<div class="col-md-12">
 				<input type="hidden" name="action" value="form2"/>
-				<div class="box">
+				<div class="box box-success">
 					<div class="box-header with-border">
 						<h3 class="box-title"><?php echo $tlxml["xml_box_title"]["xmlbt1"]; ?></h3>
 					</div>
@@ -258,7 +255,7 @@ if (isset($error2)) { ?>
 		<div class="row">
 			<div class="col-md-12">
 				<input type="hidden" name="action" value="form3"/>
-				<div class="box">
+				<div class="box box-success">
 					<div class="box-header with-border">
 						<h3 class="box-title"><?php echo $tlxml["xml_box_title"]["xmlbt2"]; ?></strong></h3>
 					</div>

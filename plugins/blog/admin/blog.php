@@ -119,7 +119,6 @@ switch ($page1) {
 			showdate = "' . smartsql ($showdate) . '",
 			showcontact = "' . smartsql ($jakcon) . '",
 			comments = "' . smartsql ($comment) . '",
-			showvote = "' . smartsql ($defaults['jak_vote']) . '",
 			socialbutton = "' . smartsql ($defaults['jak_social']) . '",
 			' . $insert);
 
@@ -1230,7 +1229,6 @@ switch ($page1) {
 			showdate = "' . smartsql ($defaults['jak_showdate']) . '",
 			comments = "' . smartsql ($defaults['jak_comment']) . '",
 			' . $insert . '
-			showvote = "' . smartsql ($defaults['jak_vote']) . '",
 			socialbutton = "' . smartsql ($defaults['jak_social']) . '"
 			WHERE id = "' . smartsql ($page2) . '"');
 

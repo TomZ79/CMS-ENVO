@@ -25,10 +25,6 @@ if ($jkv["printme"]) $printme = 1; ?>
 					include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/contact.php';
 				} ?>
 
-				<?php if (JAK_BLOGRATE && $SHOWVOTE && $USR_CAN_RATE) {
-					include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/voteresult.php';
-				} ?>
-
 				<!-- Show date, socialbuttons and tag list -->
 				<?php if ($SHOWSOCIALBUTTON || $JAK_TAGLIST) { ?>
 					<div class="row">

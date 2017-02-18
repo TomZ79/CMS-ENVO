@@ -70,7 +70,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 									} else {
 										echo $tlnl["nletter"]["d5"];
 									} ?></td>
-								<td><?php echo $v["time"]; ?></td>
+								<td><?php echo date ("d.m.Y - H:i:s", strtotime ($v["time"])); ?></td>
 								<td><?php if ($v["sent"]) echo '<a href="index.php?p=newsletter&amp;sp=stat&amp;ssp=' . $v["id"] . '" class="btn btn-default btn-xs"><i class="fa fa-bar-chart"></i></a>'; ?></td>
 								<td>
 									<a href="index.php?p=newsletter&amp;sp=preview&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs nlbox">
