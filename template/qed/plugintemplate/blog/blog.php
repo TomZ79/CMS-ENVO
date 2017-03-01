@@ -29,10 +29,14 @@
         <h3><a href="<?php echo $v["parseurl"]; ?>"><?php echo jak_cut_text($v["title"], 100, ""); ?></a></h3>
         <ul class="entry-meta">
           <li>
-            <i class="icon-calendar"></i> <?php echo $v["created"]; ?>
+            <i class="icon-clock-1"></i> <?php echo $v["created"]; ?>
+          </li>
+          <li>
+            <i class="icon-eye"></i> <?php echo $tl["global_text"]["gtxt"] . ' ' .  $v["hits"]; ?>
           </li>
         </ul>
         <p><?php echo jak_cut_text($v['content'], 200, '....') ?></p>
+
         <p class="pull-right">
           <a href="<?php echo $v["parseurl"]; ?>">
             <?php echo $tlblog["blog_frontend"]["blog"]; ?>
@@ -45,11 +49,11 @@
         <div class="col-md-12">
           <div class="system-icons">
             <hr class="mt-small mb-small">
-              <div class="pull-right">
-                <a href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["general"]["g"]; ?>" class="btn btn-info btn-xs jaktip"><i class="icon-pencil"></i></a>
+            <div class="pull-right">
+              <a href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["general"]["g"]; ?>" class="btn btn-info btn-xs jaktip"><i class="icon-pencil"></i></a>
 
-                <a href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["general"]["g176"]; ?>" class="btn btn-info btn-xs jaktip quickedit"><i class="icon-edit"></i></a>
-              </div>
+              <a href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["general"]["g176"]; ?>" class="btn btn-info btn-xs jaktip quickedit"><i class="icon-edit"></i></a>
+            </div>
           </div>
         </div>
       <?php } ?>

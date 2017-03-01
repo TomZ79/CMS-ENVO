@@ -53,9 +53,8 @@ if ($page1 == "e") { ?>
 											<span title="<?php echo $v["description"]; ?>">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . str_replace ('_', ' ', $v["name"]) . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', str_replace ('_', ' ', $v["name"]));
 												?>
 
 											</span>
@@ -64,8 +63,8 @@ if ($page1 == "e") { ?>
 											<?php if ($v['pluginversion']) {
 												echo '(' . sprintf ($tl["plug_box_content"]["plugbc6"], $v["pluginversion"]) . ')';
 											}
-											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-											echo $htmlE->addInput('hidden', 'real_id[]', '', '', $v["id"], '');
+											// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+											echo $Html->addInput('hidden', 'real_id[]', $v["id"], '', '');
 											?>
 
 										</div>
@@ -74,8 +73,8 @@ if ($page1 == "e") { ?>
 											$filename = '../plugins/' . strtolower ($v["name"]) . '/help.php';
 
 											if (file_exists ($filename)) {
-												// Add Html Element -> addAnchor (Arguments: link, id, class, text, optional assoc. array)
-												echo $htmlE->addAnchor($filename, '', 'plugHelp',  $tl["plug_box_content"]["plugbc2"]);
+												// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+												echo $Html->addAnchor($filename, $tl["plug_box_content"]["plugbc2"], 'plugHelp');
 											} else {
 												echo "-";
 											}
@@ -85,11 +84,10 @@ if ($page1 == "e") { ?>
 											<div class="form-group form-inline">
 
 												<?php
-												// Arguments: for (id of associated form element), text
-												echo $htmlE->addLabelFor('', $tl["plug_box_content"]["plugbc"]);
-												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-												echo $htmlE->addInput('text', 'access[]', '', 'form-control', $v["access"], '');
-
+												// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+												echo $Html->addLabel('', $tl["plug_box_content"]["plugbc"]);
+												// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+												echo $Html->addInput('text', 'access[]', $v["access"], '', 'form-control');
 												?>
 
 											</div>
@@ -186,17 +184,16 @@ if ($page1 == "e") { ?>
 									<div class="col-md-5">
 
 										<?php
-										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-										// Add Html Element -> endTag (Arguments: tag)
-										echo $htmlE->startTag('strong') . $tl["plug_box_content"]["plugbc4"] . $htmlE->endTag('strong');
+										// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+										echo $Html->addTag('strong', $tl["plug_box_content"]["plugbc4"]);
 										?>
 
 									</div>
 									<div class="col-md-7">
 
 										<?php
-										// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-										echo $htmlE->addInput('text', 'jak_generala', '', 'form-control', $jkv["accessgeneral"], '');
+										// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+										echo $Html->addInput('text', 'jak_generala', $jkv["accessgeneral"], '', 'form-control');
 										?>
 
 									</div>
@@ -205,17 +202,16 @@ if ($page1 == "e") { ?>
 									<div class="col-md-5">
 
 										<?php
-										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-										// Add Html Element -> endTag (Arguments: tag)
-										echo $htmlE->startTag('strong') . $tl["plug_box_content"]["plugbc5"] . $htmlE->endTag('strong');
+										// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+										echo $Html->addTag('strong', $tl["plug_box_content"]["plugbc5"]);
 										?>
 
 									</div>
 									<div class="col-md-7">
 
 										<?php
-										// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-										echo $htmlE->addInput('text', 'jak_managea', '', 'form-control', $jkv["accessmanage"], '');
+										// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+										echo $Html->addInput('text', 'jak_managea', $jkv["accessmanage"], '', 'form-control');
 										?>
 
 									</div>
@@ -226,8 +222,8 @@ if ($page1 == "e") { ?>
 					<div class="box-footer">
 
 						<?php
-						// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-						echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+						// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+						echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 						?>
 
 					</div>
@@ -238,12 +234,17 @@ if ($page1 == "e") { ?>
 
 	<div class="col-md-12 m-b-30">
 		<div class="icon_legend">
-			<h3><?php echo $tl["icons"]["i"]; ?></h3>
-			<i title="<?php echo $tl["icons"]["i12"]; ?>" class="fa fa-clock-o"></i>
-			<i title="<?php echo $tl["icons"]["i13"]; ?>" class="fa fa-flag"></i>
-			<i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
-			<i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
-			<i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+
+			<?php
+			// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+			echo $Html->addTag('h3', $tl["icons"]["i"]);
+			echo $Html->addTag('i', '', 'fa fa-clock-o', array('title' => $tl["icons"]["i12"]));
+			echo $Html->addTag('i', '', 'fa fa-flag', array('title' => $tl["icons"]["i13"]));
+			echo $Html->addTag('i', '', 'fa fa-check', array('title' => $tl["icons"]["i6"]));
+			echo $Html->addTag('i', '', 'fa fa-lock', array('title' => $tl["icons"]["i5"]));
+			echo $Html->addTag('i', '', 'fa fa-trash-o', array('title' => $tl["icons"]["i1"]));
+			?>
+
 		</div>
 	</div>
 

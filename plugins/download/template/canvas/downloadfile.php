@@ -16,8 +16,7 @@ if ($DL_PASSWORD && !JAK_ASACCESS && $DL_PASSWORD != $_SESSION[ 'dlsecurehash' .
 
 	<form role="form" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 
-		<input type="password" name="dlpass" class="form-control" value=""
-			placeholder="<?php echo $tl["general"]["g29"]; ?>"/>
+		<input type="password" name="dlpass" class="form-control" value="" placeholder="<?php echo $tl["placeholder"]["plc2"]; ?>"/>
 		<input type="hidden" name="dlsec" value="<?php echo $PAGE_ID; ?>"/>
 		<button type="submit" name="dlprotect" class="btn btn-primary"><?php echo $tl["general"]["g10"]; ?></button>
 

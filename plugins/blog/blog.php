@@ -305,7 +305,7 @@ switch ($page1) {
 				}
 
 				// Show Tags
-				$JAK_TAGLIST = JAK_tags::jakGettaglist_class ($page2, JAK_PLUGIN_ID_BLOG, JAK_PLUGIN_VAR_TAGS, '');
+				$JAK_TAGLIST = JAK_tags::jakGettaglist_class ($page2, JAK_PLUGIN_ID_BLOG, JAK_PLUGIN_VAR_TAGS, 'tips', $tl["title_element"]["tel"]);
 
 				// Page Nav
 				$nextp = jak_next_page ($page2, 'title', $jaktable, 'id', ' AND catid != 0', '', 'active');
@@ -339,6 +339,8 @@ switch ($page1) {
 					}
 
 					$catids[] = '<a class="category-label"  href="' . JAK_rewrite::jakParseurl (JAK_PLUGIN_VAR_BLOG, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tlblog["blog_frontend"]["blog1"] . '">' . $rowc['name'] . '</a>';
+
+					$BLOG_CAT = $rowc['varname'];
 				}
 
 				if (!empty($catids)) {

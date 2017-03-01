@@ -161,54 +161,79 @@
 <?php } ?>
 
 <!-- BEGIN VENDOR JS -->
-<script src="assets/plugins/pace/pace.min.js" type="text/javascript"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
-<script src="assets/plugins/modernizr.custom.js" type="text/javascript"></script>
-<script src='//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
-<script src="assets/plugins/bootstrapv3/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="assets/plugins/bootstrap-notify/bootstrap-notify.js" type="text/javascript"></script>
-<script src="assets/plugins/bootstrap-bootboxjs/bootbox.min.js" type="text/javascript"></script>
-<script src="assets/plugins/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
-<script src="assets/plugins/bootstrap-select/js/i18n/defaults-cs_CZ.min.js" type="text/javascript"></script>
-<script src="assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js" type="text/javascript"></script>
-<script src="assets/plugins/jquery/jquery-easy.js" type="text/javascript"></script>
-<script src="assets/plugins/jquery-unveil/jquery.unveil.min.js" type="text/javascript"></script>
-<script src="assets/plugins/jquery-bez/jquery.bez.min.js"></script>
-<script src="assets/plugins/jquery-ios-list/jquery.ioslist.min.js" type="text/javascript"></script>
-<script src="assets/plugins/imagesloaded/imagesloaded.pkgd.min.js"></script>
-<script src="assets/plugins/jquery-actual/jquery.actual.min.js"></script>
-<script src="assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+<?php
+// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+echo $Html->addScript('assets/plugins/pace/pace.min.js');
+echo $Html->addScript('https://code.jquery.com/jquery-2.1.1.min.js');
+echo $Html->addScript('assets/plugins/modernizr.custom.js');
+echo $Html->addScript('//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js');
+echo $Html->addScript('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js');
+echo $Html->addScript('assets/plugins/bootstrapv3/js/bootstrap.min.js');
+echo $Html->addScript('assets/plugins/bootstrap-notify/bootstrap-notify.js');
+echo $Html->addScript('assets/plugins/bootstrap-bootboxjs/bootbox.min.js');
+echo $Html->addScript('assets/plugins/bootstrap-select/js/bootstrap-select.min.js');
+echo $Html->addScript('assets/plugins/bootstrap-select/js/i18n/defaults-cs_CZ.min.js');
+echo $Html->addScript('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js');
+echo $Html->addScript('//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js');
+echo $Html->addScript('assets/plugins/jquery/jquery-easy.js');
+echo $Html->addScript('assets/plugins/jquery-unveil/jquery.unveil.min.js');
+echo $Html->addScript('assets/plugins/jquery-bez/jquery.bez.min.js');
+echo $Html->addScript('assets/plugins/jquery-ios-list/jquery.ioslist.min.js');
+echo $Html->addScript('assets/plugins/imagesloaded/imagesloaded.pkgd.min.js');
+echo $Html->addScript('assets/plugins/jquery-actual/jquery.actual.min.js');
+echo $Html->addScript('assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js');
+?>
+
 <!-- Prism -->
-<script src="assets/plugins/prism/preCode.js"></script>
-<script src="assets/plugins/prism/prism.js"></script>
+<?php
+// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+echo $Html->addScript('assets/plugins/prism/preCode.js');
+echo $Html->addScript('assets/plugins/prism/prism.js');
+?>
+
 <!-- Validadion -->
-<script src="assets/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
-<?php if ($site_language = 'cs') { ?>
-	<script src="assets/plugins/jquery-validation/js/localization/messages_cs.js" type="text/javascript"></script>
-<?php } ?>
+<?php
+// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+echo $Html->addScript('assets/plugins/jquery-validation/js/jquery.validate.min.js');
+if ($site_language = 'cs') {
+  echo $Html->addScript('assets/plugins/jquery-validation/js/localization/messages_cs.js');
+} ?>
+
 <!-- BEGIN JS FUNCTION -->
-<script src="../assets/js/functions.js?=<?php echo $jkv["updatetime"]; ?>" type="text/javascript"></script>
+<?php
+// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+echo $Html->addScript('../assets/js/functions.js?=' . $jkv["updatetime"]);
+?>
+
 <script type="text/javascript">
-	jakWeb.jak_url_orig = "<?php echo BASE_URL_ORIG;?>";
-	jakWeb.jak_url = "<?php echo BASE_URL_ADMIN;?>";
-	jakWeb.jak_path = "<?php echo BASE_PATH_ORIG;?>";
-	jakWeb.jak_lang = "<?php echo $site_language;?>";
-	jakWeb.jak_template = "<?php echo $jkv["sitestyle"];?>";
+  jakWeb.jak_url_orig = "<?php echo BASE_URL_ORIG;?>";
+  jakWeb.jak_url = "<?php echo BASE_URL_ADMIN;?>";
+  jakWeb.jak_path = "<?php echo BASE_PATH_ORIG;?>";
+  jakWeb.jak_lang = "<?php echo $site_language;?>";
+  jakWeb.jak_template = "<?php echo $jkv["sitestyle"];?>";
 </script>
 <!-- BEGIN CORE TEMPLATE JS -->
-<script src="pages/js/pages.js" type="text/javascript"></script>
+<?php
+// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+echo $Html->addScript('pages/js/pages.js');
+?>
+
 <!-- BEGIN PAGE LEVEL JS -->
-<script src="assets/js/scripts.js" type="text/javascript"></script>
+<?php
+// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+echo $Html->addScript('assets/js/scripts.js');
+?>
+
 <!-- BEGIN JS FOR GENERAL PAGE and PLUGINS -->
 <?php
 $notify =
-	'<script type="text/javascript">' .
-	'$.notify({' .
-	'  message: "Soubor <strong>%s\</strong> neexistuje.<br>Kontaktujte vývojáře CMS !!!",' .
-	'}, {' .
-	' type: "danger",' .
-	' delay: 5000,' .
-	' template: "<div data-notify=\"container\" role=\"alert\" class=\"col-xs-11 col-sm-2 col-md-5 alert alert-{0}\">\
+  '<script type="text/javascript">' .
+  '$.notify({' .
+  '  message: "Soubor <strong>%s\</strong> neexistuje.<br>Kontaktujte vývojáře CMS !!!",' .
+  '}, {' .
+  ' type: "danger",' .
+  ' delay: 5000,' .
+  ' template: "<div data-notify=\"container\" role=\"alert\" class=\"col-xs-11 col-sm-2 col-md-5 alert alert-{0}\">\
                 <button type=\"button\" class=\"close\" data-notify=\"dismiss\">\
                   <span aria-hidden=\"true\">×</span>\
                   <span class=\"sr-only\">Close</span>\
@@ -216,137 +241,137 @@ $notify =
                 <span data-notify=\"message\" style=\"padding-right:15px\">{2}</span>\
                 <a href=\"{3}\" target=\"{4}\" data-notify=\"url\"></a>\
                </div>",' .
-	'});' .
-	'</script>';
+  '});' .
+  '</script>';
 
 // Init debug mode - debug to console.log
 $debug = new PHPDebug();
 
 if (!empty($page)) {
-	$ap = array ("logs", "searchlog", "changelog", "site", "setting", "plugins", "template", "maintenance", "facebookgallery", "settingfacebook", "mediasharing", "user", "usergroup", "categories", "page", "contactform", "sitemap", "searchsetting", "news", "tags");
+  $ap = array("logs", "searchlog", "changelog", "site", "setting", "plugins", "template", "maintenance", "facebookgallery", "settingfacebook", "mediasharing", "user", "usergroup", "categories", "page", "contactform", "sitemap", "searchsetting", "news", "tags");
 
-	if (in_array ($page, $ap)) {
-		$jscodefile = 'pages/js/pages.' . $page . '.php';
-		if (file_exists ($jscodefile)) {
-			include_once ($jscodefile);
-		} else {
-			echo sprintf ($notify, $jscodefile);
-		}
-		$debug->debug ("JS Script path for this plugin or page: " . $jscodefile, NULL, INFO);
-	} elseif (!in_array ($page, $ap) && !empty($page) && ($page != '404')) {
-		$jscodefile = '../plugins/' . str_replace ('-', '_', $page) . '/admin/js/pages.' . $page . '.php';
-		if (file_exists ($jscodefile)) {
-			include_once ($jscodefile);
-		} else {
-			echo sprintf ($notify, $jscodefile);
-		}
-		$debug->debug ("JS Script path for this plugin or page: " . $jscodefile, NULL, INFO);
-	}
+  if (in_array($page, $ap)) {
+    $jscodefile = 'pages/js/pages.' . $page . '.php';
+    if (file_exists($jscodefile)) {
+      include_once($jscodefile);
+    } else {
+      echo sprintf($notify, $jscodefile);
+    }
+    $debug->debug("JS Script path for this plugin or page: " . $jscodefile, NULL, INFO);
+  } elseif (!in_array($page, $ap) && !empty($page) && ($page != '404')) {
+    $jscodefile = '../plugins/' . str_replace('-', '_', $page) . '/admin/js/pages.' . $page . '.php';
+    if (file_exists($jscodefile)) {
+      include_once($jscodefile);
+    } else {
+      echo sprintf($notify, $jscodefile);
+    }
+    $debug->debug("JS Script path for this plugin or page: " . $jscodefile, NULL, INFO);
+  }
 
 } elseif (empty($page) && !JAK_USERID) {
-	include_once 'pages/js/pages.login.php';
+  include_once 'pages/js/pages.login.php';
 } else {
-	include_once 'pages/js/pages.index.php';
+  include_once 'pages/js/pages.index.php';
 }
 
 // JS pages for Template Settings
 if ($page == 'template' && $page1 == 'settings') {
-	$jscodefile = APP_PATH . '/template/' . $jkv["sitestyle"] . '/js/pages.templatesettings.php';
-	if (file_exists ($jscodefile)) {
-		include_once ($jscodefile);
-	} else {
-		echo sprintf ($notify, $jscodefile);
-	}
-	$debug->debug ("JS Script path template settings page: " . $jscodefile, NULL, INFO);
+  $jscodefile = APP_PATH . '/template/' . $jkv["sitestyle"] . '/js/pages.templatesettings.php';
+  if (file_exists($jscodefile)) {
+    include_once($jscodefile);
+  } else {
+    echo sprintf($notify, $jscodefile);
+  }
+  $debug->debug("JS Script path template settings page: " . $jscodefile, NULL, INFO);
 }
 
 ?>
 <!-- BEGIN NOTIFY CONFIG JS -->
 <?php if (isset($_SESSION["loginmsg"])) { ?>
-	<script type="text/javascript">
-		$.notify({
-			// Options
-			title: '<?php echo $tl["hf_text"]["hftxt6"] . ' , ' . $JAK_WELCOME_NAME; ?>!',
-			message: '<?php echo $_SESSION["loginmsg"];?>',
-		}, {
-			// Settings
-			timer: 8000,
-			template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert" role="alert" style="background-color: #263238;color: #fff">' +
-			'<button type="button" aria-hidden="true" class="close" data-notify="dismiss" style="color: #fff;opacity: 0.8;">×</button>' +
-			'<div style="float: left;margin-right: 20px;"><img src="<?php echo BASE_URL_ORIG . basename (JAK_FILES_DIRECTORY) . "/userfiles/" . $jakuser->getVar ("picture"); ?>" alt="" style="width: 40px;"></div>' +
-			'<span data-notify="title" style="display: block;font-weight: bold;">{1}</span> ' +
-			'<span data-notify="message">{2}</span>' +
-			'</div>' +
-			'</div>'
-		});
-	</script>
+  <script type="text/javascript">
+    $.notify({
+      // Options
+      title: '<?php echo $tl["hf_text"]["hftxt6"] . ' , ' . $JAK_WELCOME_NAME; ?>!',
+      message: '<?php echo $_SESSION["loginmsg"];?>',
+    }, {
+      // Settings
+      timer: 8000,
+      template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert" role="alert" style="background-color: #263238;color: #FFF">' +
+      '<button type="button" aria-hidden="true" class="close" data-notify="dismiss" style="color: #FFF;opacity: 0.8;">×</button>' +
+      '<div style="float: left;margin-right: 20px;"><img src="<?php echo BASE_URL_ORIG . basename (JAK_FILES_DIRECTORY) . "/userfiles/" . $jakuser->getVar ("picture"); ?>" alt="" style="width: 40px;"></div>' +
+      '<span data-notify="title" style="display: block;font-weight: bold;">{1}</span> ' +
+      '<span data-notify="message">{2}</span>' +
+      '</div>' +
+      '</div>'
+    });
+  </script>
 <?php }
 if (isset($_SESSION["infomsg"])) { ?>
-	<script type="text/javascript">$.notify({
-			icon: 'fa fa-info-circle',
-			message: '<?php echo $_SESSION["infomsg"];?>'
-		}, {type: 'info'});</script>
+  <script type="text/javascript">$.notify({
+      icon: 'fa fa-info-circle',
+      message: '<?php echo $_SESSION["infomsg"];?>'
+    }, {type: 'info'});</script>
 <?php }
 if (isset($_SESSION["successmsg"])) { ?>
-	<script type="text/javascript">$.notify({
-			icon: 'fa fa-check-square-o',
-			message: '<?php echo $_SESSION["successmsg"];?>'
-		}, {type: 'success'});</script>
+  <script type="text/javascript">$.notify({
+      icon: 'fa fa-check-square-o',
+      message: '<?php echo $_SESSION["successmsg"];?>'
+    }, {type: 'success'});</script>
 <?php }
 if (isset($_SESSION["errormsg"])) { ?>
-	<script type="text/javascript">$.notify({
-			icon: 'fa fa-exclamation-triangle',
-			message: '<?php echo $_SESSION["errormsg"];?>'
-		}, {type: 'danger'});</script>
+  <script type="text/javascript">$.notify({
+      icon: 'fa fa-exclamation-triangle',
+      message: '<?php echo $_SESSION["errormsg"];?>'
+    }, {type: 'danger'});</script>
 <?php }
 if ($JAK_PROVED && !isset($jkv["cms_tpl"])) { ?>
-	<script type="text/javascript">
-		// Notification
-		$.notify({
-			// options
-			icon: 'fa fa-exclamation-triangle fa-lg',
-			message: '<?php echo $tl["general_error"]["generror6"];?>',
-		}, {
-			// settings
-			type: 'danger',
-			delay: 0,
-			template:
-			'<div data-notify="container" class="col-xs-11 col-sm-5 alert alert-{0}" role="alert">' +
-			'<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
-			'<span data-notify="icon"></span> ' +
-			'<span data-notify="message">{2}</span>' +
-			'</div>'
-		});</script>
+  <script type="text/javascript">
+    // Notification
+    $.notify({
+      // options
+      icon: 'fa fa-exclamation-triangle fa-lg',
+      message: '<?php echo $tl["general_error"]["generror6"];?>',
+    }, {
+      // settings
+      type: 'danger',
+      delay: 0,
+      template: '<div data-notify="container" class="col-xs-11 col-sm-5 alert alert-{0}" role="alert">' +
+      '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+      '<span data-notify="icon"></span> ' +
+      '<span data-notify="message">{2}</span>' +
+      '</div>'
+    });</script>
 <?php } ?>
 <!-- BEGIN TINYMCE EDITOR -->
-<?php if ($JAK_PROVED && (!$jkv["adv_editor"])) { ?>
-	<script type="text/javascript" src="../assets/plugins/tinymce/tinymce.min.js?=v4.5.2"></script>
-	<?php include_once ('pages/js/tiny.editor.php');
+<?php if ($JAK_PROVED && (!$jkv["adv_editor"])) {
+  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
+  echo $Html->addScript('../assets/plugins/tinymce/tinymce.min.js?=v4.5.2');
+  include_once('pages/js/tiny.editor.php');
 } ?>
 <!-- BEGIN HOOKS - FOOTER -->
-<?php if (isset($JAK_HOOK_FOOTER_ADMIN) && is_array ($JAK_HOOK_FOOTER_ADMIN)) foreach ($JAK_HOOK_FOOTER_ADMIN as $foota) {
-	// Import all hooks for footer just before /body
-	include_once APP_PATH . $foota["phpcode"];
+<?php if (isset($JAK_HOOK_FOOTER_ADMIN) && is_array($JAK_HOOK_FOOTER_ADMIN)) foreach ($JAK_HOOK_FOOTER_ADMIN as $foota) {
+  // Import all hooks for footer just before /body
+  include_once APP_PATH . $foota["phpcode"];
 } ?>
 
 <!-- MODAL DIALOG -->
 <div class="modal fade fill-in" id="JAKModal" tabindex="-1" role="dialog" aria-labelledby="JAKModalLabel" aria-hidden="true">
-	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-		<i class="pg-close"></i>
-	</button>
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header"></div>
-			<div class="modal-body padding-0">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="body-content" style="display: flex;flex-direction: column;min-height: 90vh;"></div>
-					</div>
-				</div>
-			</div>
-			<div class="modal-footer"></div>
-		</div>
-	</div>
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+    <i class="pg-close"></i>
+  </button>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"></div>
+      <div class="modal-body padding-0">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="body-content" style="display: flex;flex-direction: column;min-height: 90vh;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
 </div>
 
 </body>

@@ -108,7 +108,7 @@ switch ($page1) {
 				}
 
 				// Show Tags
-				$JAK_TAGLIST = JAK_tags::jakGettaglist_class ($page2, JAK_PLUGIN_ID_NEWS, JAK_PLUGIN_VAR_TAGS, '');
+				$JAK_TAGLIST = JAK_tags::jakGettaglist_class ($page2, JAK_PLUGIN_ID_NEWS, JAK_PLUGIN_VAR_TAGS, '', $tl["title_element"]["tel"]);
 
 				// Page Nav
 				$nextp = jak_next_page ($page2, 'title', $jaktable, 'id', '', '', 'active');

@@ -66,7 +66,7 @@
 if ($JAK_SHOW_NAVBAR && $jkv["style_mosaic_tpl"] == "boxed") echo " boxed-layout container"; ?>">
 
 <?php if ($jkv["offline"] == 1 && JAK_ASACCESS) { ?>
-	<div class="alert-offline"><?php echo $tl["title"]["t10"]; ?></div>
+	<div class="alert-offline"><?php echo $tl["general_error"]["generror6"]; ?></div>
 <?php } ?>
 
 <!-- Import templates before everything -->

@@ -209,15 +209,29 @@ $(function () {
 		e.preventDefault();
 		frameSrc = $(this).attr("href");
 		$('#JAKModalLabel').html("FileManager");
-		$('#JAKModal').on('show.bs.modal', function () {
-			$('#JAKModal .modal-dialog').addClass('modal-w-90p');
-			$('#JAKModal .modal-body').html('<iframe src="' + frameSrc + '" width="100%" height="500" frameborder="0" style="flex-grow: 1;">');
 
-		});
-		$('#JAKModal').on('hidden.bs.modal', function () {
-			$('#JAKModal .modal-body').html("");
-		});
-		$('#JAKModal').modal({show: true});
+		$('#JAKModal').one('shown.bs.modal', function (e) {
+			$('#JAKModal .modal-dialog').addClass('modal-w-90p');
+			$('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
+		}).one('hidden.bs.modal', function(e) {
+			$(".body-content").html('');
+		}).modal('show');
+
+	});
+
+	// Initializes search overlay plugin for editor help.php
+	$('.contentHelp').on('click', function (e) {
+		e.preventDefault();
+		frameSrc = $(this).attr("href");
+		$('#JAKModalLabel').html("Helpcontent");
+
+		$('#JAKModal').one('shown.bs.modal', function (e) {
+			$('#JAKModal .modal-dialog').addClass('modal-w-90p');
+			$('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
+		}).one('hidden.bs.modal', function(e) {
+			$(".body-content").html('');
+		}).modal('show');
+
 	});
 
 });

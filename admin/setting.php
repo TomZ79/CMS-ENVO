@@ -88,9 +88,61 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$errors['e8'] = $tl['general_error']['generror10'] . '<br>';
 		}
 
+		// EN: Color settings for EU Cookie by theme
+		// CZ: Nastavení barev pro EU Cookie podle vybraného tématu
+		if ($defaults['jak_eucookie_theme'] == 'eucookie_theme1') {
+			$eucookie_pbck = '#000';
+			$eucookie_ptxt = '#FFF';
+			$eucookie_bbck = '#F1D600';
+			$eucookie_btxt = '#000';
+		}
+
+		if ($defaults['jak_eucookie_theme'] == 'eucookie_theme2') {
+			$eucookie_pbck = '#000';
+			$eucookie_ptxt = '#FFF';
+			$eucookie_bbck = '#FFF';
+			$eucookie_btxt = '#000';
+		}
+
+		if ($defaults['jak_eucookie_theme'] == 'eucookie_theme3') {
+			$eucookie_pbck = '#EAF7F7';
+			$eucookie_ptxt = '#5C7291';
+			$eucookie_bbck = '#56CBDB';
+			$eucookie_btxt = '#FFF';
+		}
+
+		if ($defaults['jak_eucookie_theme'] == 'eucookie_theme4') {
+			$eucookie_pbck = '#252E39';
+			$eucookie_ptxt = '#FFF';
+			$eucookie_bbck = '#14A7D0';
+			$eucookie_btxt = '#FFF';
+		}
+
+		if ($defaults['jak_eucookie_theme'] == 'eucookie_theme5') {
+			$eucookie_pbck = '#237AFC';
+			$eucookie_ptxt = '#FFF';
+			$eucookie_bbck = '#FFF';
+			$eucookie_btxt = '#237AFC';
+		}
+
+		if ($defaults['jak_eucookie_theme'] == 'eucookie_theme6') {
+			$eucookie_pbck = '#EDEFF5';
+			$eucookie_ptxt = '#838391';
+			$eucookie_bbck = '#4B81E8';
+			$eucookie_btxt = '#FFF';
+		}
+
+		if ($defaults['jak_eucookie_theme'] == 'eucookie_theme7') {
+			$eucookie_pbck = '#000';
+			$eucookie_ptxt = '#FFF';
+			$eucookie_bbck = '#80AA1D';
+			$eucookie_btxt = '#000';
+		}
+
+		// EN: Write data to MySQL DB
+		// CZ: Zápis dat do databáze MySQL a vyhodnocení výsledku zápisu
 		if (count ($errors) == 0) {
 
-			// Do the dirty work in mysql
 			$result = $jakdb->query ('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
         WHEN "email" THEN "' . smartsql ($defaults['jak_email']) . '"
         WHEN "sitehttps" THEN "' . smartsql ($defaults['jak_shttp']) . '"
@@ -134,8 +186,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         WHEN "aceinvisible" THEN "' . smartsql ($defaults['jak_aceinvisible']) . '"
         WHEN "acewraplimit" THEN "' . smartsql ($defaults['jak_acewraplimit']) . '"
         WHEN "aceactiveline" THEN "' . smartsql ($defaults['jak_aceactiveline']) . '"
+        WHEN "eucookie_enabled" THEN "' . smartsql ($defaults['jak_eucookie_enabled']) . '"
+        WHEN "eucookie_name" THEN "' . smartsql ($defaults['jak_eucookie_name']) . '"
+        WHEN "eucookie_expiryDays" THEN "' . smartsql ($defaults['jak_eucookie_expiryDays']) . '"
+        WHEN "eucookie_position" THEN "' . smartsql ($defaults['jak_eucookie_position']) . '"
+        WHEN "eucookie_style" THEN "' . smartsql ($defaults['jak_eucookie_style']) . '"
+        WHEN "eucookie_theme" THEN "' . smartsql ($defaults['jak_eucookie_theme']) . '"
+        WHEN "eucookie_pbck" THEN "' . $eucookie_pbck . '"
+        WHEN "eucookie_ptxt" THEN "' . $eucookie_ptxt . '"
+        WHEN "eucookie_bbck" THEN "' . $eucookie_bbck . '"
+        WHEN "eucookie_btxt" THEN "' . $eucookie_btxt . '"
+        WHEN "eucookie_alpha" THEN "' . smartsql ($defaults['jak_eucookie_alpha']) . '"
+        WHEN "eucookie_message" THEN "' . smartsql ($defaults['jak_eucookie_message']) . '"
+        WHEN "eucookie_dismiss" THEN "' . smartsql ($defaults['jak_eucookie_dismiss']) . '"
+        WHEN "eucookie_link" THEN "' . smartsql ($defaults['jak_eucookie_link']) . '"
+        WHEN "eucookie_href" THEN "' . smartsql ($defaults['jak_eucookie_href']) . '"
     END
-    	WHERE varname IN ("email","sitehttps","lang","locale","langdirection","showloginside","loginside","useravatwidth","useravatheight","userpath","printme","shortmsg","dateformat","timeformat","time_ago_show","timezoneserver","hvm","adv_editor","usr_smilies","contactform","shownews","rss","rssitem","adminpagemid","adminpageitem","ip_block","email_block","username_block","analytics","heatmap","smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password","acetheme","acetabSize","acegutter","aceinvisible","acewraplimit","aceactiveline")');
+    	WHERE varname IN ("email","sitehttps","lang","locale","langdirection","showloginside","loginside","useravatwidth","useravatheight","userpath","printme","shortmsg","dateformat","timeformat","time_ago_show","timezoneserver","hvm","adv_editor","usr_smilies","contactform","shownews","rss","rssitem","adminpagemid","adminpageitem","ip_block","email_block","username_block","analytics","heatmap","smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password","acetheme","acetabSize","acegutter","aceinvisible","acewraplimit","aceactiveline","eucookie_enabled","eucookie_name","eucookie_expiryDays","eucookie_position","eucookie_style","eucookie_theme","eucookie_pbck","eucookie_ptxt","eucookie_bbck","eucookie_btxt","eucookie_alpha","eucookie_message","eucookie_dismiss","eucookie_link","eucookie_href")');
 
 			if (!$result) {
 				// EN: Redirect page

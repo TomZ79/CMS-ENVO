@@ -15,7 +15,7 @@
 								alt="blog-preview" class="post-image img-responsive">
 							<div class="mask">
 								<?php if ($v["showdate"]) { ?><i class="fa fa-clock-o"></i> <?php echo $v["created"]; ?><?php } ?>
-								<span class="pull-right"><i class="fa fa-eye"></i> <?php echo $tl["general"]["g13"] . $v["hits"]; ?></span>
+								<span class="pull-right"><i class="fa fa-eye"></i> <?php echo $tl["global_text"]["gtxt"] . $v["hits"]; ?></span>
 							</div>
 						</a>
 					</div>

@@ -409,8 +409,8 @@ switch ($page1) {
 																			showdate = "' . smartsql ($defaults['jak_showdate']) . '",
 																			showtags = "' . smartsql ($defaults['jak_showtags']) . '",
 																			showlogin = "' . smartsql ($defaults['jak_showlogin']) . '",
-																			socialbutton = "' . smartsql ($defaults['jak_social']) . '",
 																			' . $insert . '
+																			socialbutton = "' . smartsql ($defaults['jak_social']) . '"
 																			WHERE id = "' . smartsql ($page2) . '"');
 
 							// Insert new stuff first if exist order for extra stuff

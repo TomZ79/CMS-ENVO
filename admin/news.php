@@ -532,7 +532,7 @@ switch ($page1) {
 																				showhits = "' . smartsql ($defaults['jak_showhits']) . '",
 																				socialbutton = "' . smartsql ($defaults['jak_social']) . '",
 																				' . $insert . '
-																				permission = "' . smartsql ($permission) . '",
+																				permission = "' . smartsql ($permission) . '"
 																				WHERE id = "' . smartsql ($page2) . '"');
 
 							// Insert new stuff first if exist order for extra stuff

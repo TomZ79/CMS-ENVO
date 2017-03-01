@@ -3,7 +3,7 @@
 	<div class="page-header">
 
 		<!-- Heading -->
-		<h1><?php echo $tl["title"]["t10"]; ?></h1>
+		<h1><?php echo $tl["general_error"]["generror6"]; ?></h1>
 
 		<?php echo $tl["errorpage"]["ep"]; ?>
 

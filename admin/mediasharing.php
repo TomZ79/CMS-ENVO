@@ -14,7 +14,7 @@ $success = array ();
 
 // EN: Import important settings for the template from the DB
 // CZ: Importuj důležité nastavení pro šablonu z DB
-$JAK_SETTING = jak_get_setting ('mediasharing');
+$JAK_SETTING = jak_get_setting_val ('mediasharing');
 
 // Let's go on with the script
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

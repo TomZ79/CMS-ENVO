@@ -58,10 +58,14 @@
                 <td><?php echo $v["id"]; ?></td>
                 <td><input type="checkbox" name="jak_delete_page[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
                 </td>
-                <td><a
-                    href="index.php?p=page&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a><?php if ($v["password"]) { ?>
-                    <i class="fa fa-key"></i><?php } ?></td>
-                <td><?php if ($v["catid"] != '0') {
+                <td>
+                <a href="index.php?p=page&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a>
+                <?php if ($v["password"]) { ?>
+                    <i class="fa fa-key"></i>
+                <?php } ?>
+                </td>
+                <td>
+                <?php if ($v["catid"] != '0') {
                     if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $z) {
                       if ($v["catid"] == $z["id"]) { ?>
                         <a href="index.php?p=categories&amp;sp=edit&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a><?php }

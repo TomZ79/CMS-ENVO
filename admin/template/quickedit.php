@@ -62,8 +62,8 @@ if ($errors) { ?>
 					<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 
 						<?php
-						// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-						echo $htmlE->addInput('text', 'jak_title', '', 'form-control', $JAK_FORM_DATA["title"], '');
+						// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+						echo $Html->addInput('text', 'jak_title', $JAK_FORM_DATA["title"], '', 'form-control');
 						?>
 
 					</div>
@@ -76,8 +76,8 @@ if ($errors) { ?>
 		<hr>
 
 		<?php
-		// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-		echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+		// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+		echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 		?>
 
 	</form>

@@ -1,7 +1,12 @@
 <?php include "header.php"; ?>
 
 	<div class="col-md-12 kv-main">
-		<input id="images" name="images[]" type="file" multiple>
+
+		<?php
+		// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+		echo $Html->addInput('file', 'images[]', '', 'images', '',  array ('multiple' => 'multiple'));
+		?>
+
 	</div>
 
 <?php include "footer.php"; ?>

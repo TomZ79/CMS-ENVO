@@ -2902,3 +2902,9 @@ a.btnSwitcher {
 .line {
   stroke: white
 }
+
+.nav-side-menu ul li.active a,
+.nav-side-menu ul li a.active,
+.nav-side-menu ul .sub-menu li a.active {
+  color: #93C220;
+}

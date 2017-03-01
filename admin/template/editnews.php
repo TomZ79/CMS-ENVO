@@ -53,8 +53,8 @@ if ($errors) { ?>
 		<div class="savebutton hidden-xs">
 
 			<?php
-			// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-			echo $htmlE->addButtonSubmit('save', '', 'btn btn-success button', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ');
+			// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+			echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button');
 			?>
 
 		</div>
@@ -103,10 +103,9 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["news_box_content"]["newsbc11"] . $htmlE->endTag('strong');
-												echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["news_box_content"]["newsbc11"]);
+												echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
 												?>
 
 											</div>
@@ -114,8 +113,8 @@ if ($errors) { ?>
 												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													echo $htmlE->addInput ('text', 'jak_title', '', 'form-control', $JAK_FORM_DATA["title"], '');
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html->addInput('text', 'jak_title', $JAK_FORM_DATA["title"], '', 'form-control');
 													?>
 
 												</div>
@@ -125,9 +124,8 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["news_box_content"]["newsbc12"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["news_box_content"]["newsbc12"]);
 												?>
 
 											</div>
@@ -135,17 +133,15 @@ if ($errors) { ?>
 												<div class="radio radio-success">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													($JAK_FORM_DATA["showtitle"] == '1') ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_showtitle', 'jak_showtitle1', '', '1', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_showtitle1', $tl["checkbox"]["chk"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_showtitle', '1', ($JAK_FORM_DATA["showtitle"] == '1') ? TRUE : FALSE, 'jak_showtitle1');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_showtitle1', $tl["checkbox"]["chk"]);
 
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													($JAK_FORM_DATA["showtitle"] == '0') ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_showtitle', 'jak_showtitle2', '', '0', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_showtitle2', $tl["checkbox"]["chk1"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_showtitle', '0', ($JAK_FORM_DATA["showtitle"] == '0') ? TRUE : FALSE, 'jak_showtitle2');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_showtitle2', $tl["checkbox"]["chk1"]);
 													?>
 
 												</div>
@@ -155,9 +151,8 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["news_box_content"]["newsbc13"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["news_box_content"]["newsbc13"]);
 												?>
 
 											</div>
@@ -165,17 +160,15 @@ if ($errors) { ?>
 												<div class="radio radio-success">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													($JAK_FORM_DATA["showdate"] == '1') ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_showdate', 'jak_showdate1', '', '1', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_showdate1', $tl["checkbox"]["chk"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_showdate', '1', ($JAK_FORM_DATA["showdate"] == '1') ? TRUE : FALSE, 'jak_showdate1');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_showdate1', $tl["checkbox"]["chk"]);
 
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													($JAK_FORM_DATA["showdate"] == '0') ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_showdate', 'jak_showdate2', '', '0', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_showdate2', $tl["checkbox"]["chk1"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_showdate', '0', ($JAK_FORM_DATA["showdate"] == '0') ? TRUE : FALSE, 'jak_showdate2');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_showdate2', $tl["checkbox"]["chk1"]);
 													?>
 
 												</div>
@@ -185,9 +178,8 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["news_box_content"]["newsbc14"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["news_box_content"]["newsbc14"]);
 												?>
 
 											</div>
@@ -195,17 +187,15 @@ if ($errors) { ?>
 												<div class="radio radio-success">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													($JAK_FORM_DATA["showhits"] == '1') ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_showhits', 'jak_showhits1', '', '1', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_showhits1', $tl["checkbox"]["chk"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_showhits', '1', ($JAK_FORM_DATA["showhits"] == '1') ? TRUE : FALSE, 'jak_showhits1');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_showhits1', $tl["checkbox"]["chk"]);
 
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													($JAK_FORM_DATA["showhits"] == '0') ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_showhits', 'jak_showhits2', '', '0', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_showhits2', $tl["checkbox"]["chk1"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_showhits', '0', ($JAK_FORM_DATA["showhits"] == '0') ? TRUE : FALSE, 'jak_showhits2');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_showhits2', $tl["checkbox"]["chk1"]);
 													?>
 
 												</div>
@@ -215,9 +205,8 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["news_box_content"]["newsbc15"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["news_box_content"]["newsbc15"]);
 												?>
 
 											</div>
@@ -225,17 +214,15 @@ if ($errors) { ?>
 												<div class="radio radio-success">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													($JAK_FORM_DATA["socialbutton"] == '1') ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_social', 'jak_social1', '', '1', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_social1', $tl["checkbox"]["chk"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_social', '1', ($JAK_FORM_DATA["socialbutton"] == '1') ? TRUE : FALSE, 'jak_social1');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_social1', $tl["checkbox"]["chk"]);
 
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													($JAK_FORM_DATA["socialbutton"] == '0') ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_social', 'jak_social2', '', '0', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_social2', $tl["checkbox"]["chk1"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_social', '0', ($JAK_FORM_DATA["socialbutton"] == '0') ? TRUE : FALSE, 'jak_social2');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_social2', $tl["checkbox"]["chk1"]);
 													?>
 
 												</div>
@@ -245,9 +232,8 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["news_box_content"]["newsbc17"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["news_box_content"]["newsbc17"]);
 												?>
 
 											</div>
@@ -255,17 +241,15 @@ if ($errors) { ?>
 												<div class="radio radio-success">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													($JAK_FORM_DATA["sidebar"] == '1') ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_sidebar', 'jak_sidebar1', '', '1', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_sidebar1', $tl["checkbox"]["chk"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_sidebar', '1', ($JAK_FORM_DATA["sidebar"] == '1') ? TRUE : FALSE, 'jak_sidebar1');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_sidebar1', $tl["checkbox"]["chk"]);
 
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													($JAK_FORM_DATA["sidebar"] == '0') ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_sidebar', 'jak_sidebar2', '', '0', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_sidebar2', $tl["checkbox"]["chk1"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_sidebar', '0', ($JAK_FORM_DATA["sidebar"] == '0') ? TRUE : FALSE, 'jak_sidebar2');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_sidebar2', $tl["checkbox"]["chk1"]);
 													?>
 
 												</div>
@@ -275,9 +259,8 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["news_box_content"]["newsbc18"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["news_box_content"]["newsbc18"]);
 												?>
 
 											</div>
@@ -285,12 +268,17 @@ if ($errors) { ?>
 												<div class="input-group">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													echo $htmlE->addInput ('text', 'jak_img', 'jak_img', 'form-control', $JAK_FORM_DATA["previmg"], '');
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html->addInput('text', 'jak_img', $JAK_FORM_DATA["previmg"], 'jak_img', 'form-control');
 													?>
 
                           <span class="input-group-btn">
-                            <a class="btn btn-info ifManager" type="button" href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_img"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
+
+														<?php
+														// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+														echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_img', $tl["global_text"]["globaltxt8"], '', 'btn btn-info ifManager', array('type' => 'button'));
+														?>
+
                           </span>
 												</div>
 											</div>
@@ -299,16 +287,21 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["news_box_content"]["newsbc19"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["news_box_content"]["newsbc19"]);
 												?>
 
 											</div>
 											<div class="col-md-7">
 												<div class="checkbox-singel check-success">
-													<input type="checkbox" id="jak_delete_rate" name="jak_delete_rate"/>
-													<label for="jak_delete_rate"></label>
+
+													<?php
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addCheckbox('jak_delete_rate', '', FALSE, 'jak_delete_rate');
+													echo $Html->addLabel('jak_delete_rate', '');
+													?>
+
 												</div>
 											</div>
 										</div>
@@ -316,16 +309,21 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["news_box_content"]["newsbc20"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["news_box_content"]["newsbc20"]);
 												?>
 
 											</div>
 											<div class="col-md-7">
 												<div class="checkbox-singel check-success">
-													<input type="checkbox" id="jak_delete_hits" name="jak_delete_hits"/>
-													<label for="jak_delete_hits"></label>
+
+													<?php
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addCheckbox('jak_delete_hits', '', FALSE, 'jak_delete_hits');
+													echo $Html->addLabel('jak_delete_hits', '');
+													?>
+
 												</div>
 											</div>
 										</div>
@@ -333,16 +331,21 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["news_box_content"]["newsbc21"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["news_box_content"]["newsbc21"]);
 												?>
 
 											</div>
 											<div class="col-md-7">
 												<div class="checkbox-singel check-success">
-													<input type="checkbox" id="jak_update_time" name="jak_update_time"/>
-													<label for="jak_update_time"></label>
+
+													<?php
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addCheckbox('jak_update_time', '', FALSE, 'jak_update_time');
+													echo $Html->addLabel('jak_update_time', '');
+													?>
+
 												</div>
 											</div>
 										</div>
@@ -352,8 +355,8 @@ if ($errors) { ?>
 							<div class="box-footer">
 
 								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 								?>
 
 							</div>
@@ -387,8 +390,8 @@ if ($errors) { ?>
 							<div class="box-footer">
 
 								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 								?>
 
 							</div>
@@ -405,15 +408,19 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["news_box_content"]["newsbc23"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["news_box_content"]["newsbc23"]);
 												?>
 
 											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin <?php if (isset($errors["e2"])) echo "has-error"; ?>">
-													<input type="text" name="jak_datefrom" class="form-control" id="datepickerFrom" value="<?php if ($JAK_FORM_DATA["startdate"]) echo date ("Y-m-d H:i", $JAK_FORM_DATA["startdate"]); ?>" readonly/>
+
+													<?php
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html->addInput('text', 'jak_datefrom', ($JAK_FORM_DATA["startdate"]) ? date ("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) : '', 'datepickerFrom', 'form-control', array('readonly' => 'readonly'));
+													?>
+
 												</div>
 											</div>
 										</div>
@@ -421,15 +428,19 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["news_box_content"]["newsbc24"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["news_box_content"]["newsbc24"]);
 												?>
 
 											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin <?php if (isset($errors["e2"])) echo "has-error"; ?>">
-													<input type="text" name="jak_dateto" class="form-control" id="datepickerTo" value="<?php if ($JAK_FORM_DATA["enddate"]) echo date ("Y-m-d H:i", $JAK_FORM_DATA["enddate"]); ?>" readonly/>
+
+													<?php
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html->addInput('text', 'jak_dateto', ($JAK_FORM_DATA["enddate"]) ? date ("Y-m-d H:i", $JAK_FORM_DATA["enddate"]) : '', 'datepickerTo', 'form-control', array('readonly' => 'readonly'));
+													?>
+
 												</div>
 											</div>
 										</div>
@@ -439,8 +450,8 @@ if ($errors) { ?>
 							<div class="box-footer">
 
 								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 								?>
 
 							</div>
@@ -458,9 +469,8 @@ if ($errors) { ?>
 												<div class="col-md-5">
 
 													<?php
-													// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-													// Add Html Element -> endTag (Arguments: tag)
-													echo $htmlE->startTag('strong') . 'Choose tags from predefined list' . $htmlE->endTag('strong');
+													// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+													echo $Html->addTag('strong', 'Choose tags from predefined list');
 													?>
 
 												</div>
@@ -484,9 +494,8 @@ if ($errors) { ?>
 												<div class="col-md-5">
 
 													<?php
-													// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-													// Add Html Element -> endTag (Arguments: tag)
-													echo $htmlE->startTag('strong') . 'Choose tags from list' . $htmlE->endTag('strong');
+													// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+													echo $Html->addTag('strong', 'Choose tags from list');
 													?>
 
 												</div>
@@ -507,8 +516,8 @@ if ($errors) { ?>
 												<div class="col-md-12">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													echo $htmlE->addInput ('text', 'jak_tags', '', 'form-control tags', '', '', array ('data-role' => 'tagsinput'));
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html->addInput('text', 'jak_tags', '', '', 'form-control tags', array ('data-role' => 'tagsinput'));
 													?>
 
 												</div>
@@ -532,8 +541,8 @@ if ($errors) { ?>
 								<div class="box-footer">
 
 									<?php
-									// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-									echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+									// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+									echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 									?>
 
 								</div>
@@ -561,18 +570,18 @@ if ($errors) { ?>
 								<a href="javascript:;" id="addCssBlock"><?php echo $tl["global_text"]["globaltxt6"]; ?></a><br/>
 
 								<?php
-								// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
-								echo $htmlE->addSimpleDiv ('csseditor', '');
-								// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
-								echo $htmlE->addTextArea ('jak_css', '', '', $JAK_FORM_DATA["news_css"], array ('id' => 'jak_css', 'class' => 'hidden'));
+								// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+								echo $Html->addDiv('', 'csseditor');
+								// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+								echo $Html->addTextarea('jak_css', $JAK_FORM_DATA["news_css"], '', '', array('id' => 'jak_css', 'class' => 'hidden'));
 								?>
 
 							</div>
 							<div class="box-footer">
 
 								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 								?>
 
 							</div>
@@ -592,18 +601,18 @@ if ($errors) { ?>
 								<a href="javascript:;" id="addJavascriptBlock"><?php echo $tl["global_text"]["globaltxt7"]; ?></a><br/>
 
 								<?php
-								// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
-								echo $htmlE->addSimpleDiv ('javaeditor', '');
-								// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
-								echo $htmlE->addTextArea ('jak_javascript', '', '', $JAK_FORM_DATA["news_javascript"], array ('id' => 'jak_javascript', 'class' => 'hidden'));
+								// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+								echo $Html->addDiv('', 'javaeditor');
+								// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+								echo $Html->addTextarea('jak_javascript', $JAK_FORM_DATA["news_javascript"], '', '', array('id' => 'jak_javascript', 'class' => 'hidden'));
 								?>
 
 							</div>
 							<div class="box-footer">
 
 								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 								?>
 
 							</div>
@@ -666,8 +675,8 @@ if ($errors) { ?>
 							<div class="box-footer">
 
 								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 								?>
 
 							</div>
@@ -684,8 +693,8 @@ if ($errors) { ?>
 							<div class="box-footer">
 
 								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 								?>
 
 							</div>
@@ -694,7 +703,12 @@ if ($errors) { ?>
 				</div>
 			</div>
 		</div>
-		<input type="hidden" name="jak_active" value="<?php echo $JAK_FORM_DATA["active"]; ?>"/>
+
+		<?php
+		// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+		echo $Html->addInput('hidden', 'jak_active', $JAK_FORM_DATA["active"]);
+		?>
+
 	</form>
 
 <?php include "footer.php"; ?>

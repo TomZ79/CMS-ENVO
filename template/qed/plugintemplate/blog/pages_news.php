@@ -24,7 +24,7 @@ if (is_array ($showblogarray) && in_array ("ASC", $showblogarray) || in_array ("
 				<div class="post-info">
 					<div class="info-details">
 						<?php if ($bl["showdate"]) { ?><i class="fa fa-clock-o"></i> <?php echo $bl["created"]; ?><br><?php } ?><i
-							class="fa fa-eye"></i> <?php echo $tl["general"]["g13"] . $bl["hits"]; ?>
+							class="fa fa-eye"></i> <?php echo $tl["global_text"]["gtxt"] . $bl["hits"]; ?>
 					</div>
 				</div>
 				<!-- End Post Info -->

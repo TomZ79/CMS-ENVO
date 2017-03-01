@@ -45,7 +45,7 @@ if (isset($JAK_PAGE_GRID) && is_array ($JAK_PAGE_GRID)) foreach ($JAK_PAGE_GRID 
 				<?php } ?>
 			</div>
 			<div class="col-md-3">
-				<i class="fa fa-users"></i> <?php echo $tl["general"]["g13"] . $PAGE_HITS; ?>
+				<i class="fa fa-users"></i> <?php echo $tl["global_text"]["gtxt"] . $PAGE_HITS; ?>
 			</div>
 			<div class="col-md-3">
 				<?php if ($SHOWDATE) { ?>

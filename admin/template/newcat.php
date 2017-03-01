@@ -39,8 +39,8 @@ if ($errors) { ?>
 		<div class="savebutton hidden-xs">
 
 			<?php
-			// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-			echo $htmlE->addButtonSubmit('save', '', 'btn btn-success button', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ');
+			// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+			echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button');
 			?>
 
 		</div>
@@ -74,10 +74,9 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["cat_box_content"]["catbc"] . $htmlE->endTag('strong');
-												echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["cat_box_content"]["catbc"]);
+												echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
 												?>
 
 											</div>
@@ -85,8 +84,8 @@ if ($errors) { ?>
 												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													echo $htmlE->addInput ('text', 'jak_name', 'jak_name', 'form-control', $_REQUEST["jak_name"], '');
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html->addInput('text', 'jak_name', $_REQUEST["jak_name"], 'jak_name', 'form-control');
 													?>
 
 												</div>
@@ -96,19 +95,11 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["cat_box_content"]["catbc1"] . $htmlE->endTag('strong');
-												?>
-
-												<a class="cms-help" data-content="<?php echo $tl["cat_help"]["cath1"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tl["cat_help"]["cath"]; ?>">
-													<i class="fa fa-question-circle"></i>
-												</a>
-
-												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["cat_box_content"]["catbc1"]);
+												echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help',  array ('data-content' => $tl["cat_help"]["cath1"], 'data-original-title' => $tl["cat_help"]["cath"]));
+												echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
 												?>
 
 											</div>
@@ -116,8 +107,8 @@ if ($errors) { ?>
 												<div class="form-group no-margin<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													echo $htmlE->addInput ('text', 'jak_varname', 'jak_varname', 'form-control', $_REQUEST["jak_varname"], '');
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html->addInput('text', 'jak_varname', $_REQUEST["jak_varname"], 'jak_varname', 'form-control');
 													?>
 
 												</div>
@@ -127,20 +118,18 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["cat_box_content"]["catbc2"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["cat_box_content"]["catbc2"]);
+												echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help',  array ('data-content' => $tl["cat_help"]["cath2"], 'data-original-title' => $tl["cat_help"]["cath"]));
 												?>
 
-												<a href="javascript:void(0)" class="cms-help" data-content="<?php echo $tl["cat_help"]["cath2"]; ?>" data-original-title="<?php echo $tl["cat_help"]["cath"]; ?>">
-													<i class="fa fa-question-circle"></i>
-												</a>
 											</div>
 											<div class="col-md-7">
 
 												<?php
-												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-												echo $htmlE->addInput ('text', 'jak_url', '', 'form-control', $_REQUEST["jak_url"], '');
+												// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+												echo $Html->addInput('text', 'jak_url', $_REQUEST["jak_url"], '', 'form-control');
 												?>
 
 											</div>
@@ -149,17 +138,16 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["cat_box_content"]["catbc3"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["cat_box_content"]["catbc3"]);
 												?>
 
 											</div>
 											<div class="col-md-7">
 
 												<?php
-												// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
-												echo $htmlE->addTextArea ('jak_lcontent', '4', '', jak_edit_safe_userpost ($_REQUEST["jak_lcontent"]), array ('id' => 'content', 'class' => 'form-control'));
+												// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+												echo $Html->addTextarea('jak_lcontent', jak_edit_safe_userpost($_REQUEST["jak_lcontent"]), '4', '', array('id' => 'content', 'class' => 'form-control'));
 												?>
 
 											</div>
@@ -168,9 +156,8 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["cat_box_content"]["catbc4"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["cat_box_content"]["catbc4"]);
 												?>
 
 											</div>
@@ -178,17 +165,15 @@ if ($errors) { ?>
 												<div class="radio radio-success">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													((isset($_REQUEST["jak_menu"]) && $_REQUEST["jak_menu"] == '1') || !isset($_REQUEST["jak_menu"])) ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_menu', 'jak_menu1', '', '1', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_menu1', $tl["checkbox"]["chk"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_menu', '1', ((isset($_REQUEST["jak_menu"]) && $_REQUEST["jak_menu"] == '1') || !isset($_REQUEST["jak_menu"])) ? TRUE : FALSE, 'jak_menu1');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_menu1', $tl["checkbox"]["chk"]);
 
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													((isset($_REQUEST["jak_menu"]) && $_REQUEST["jak_menu"] == '0')) ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_menu', 'jak_menu2', '', '0', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_menu2', $tl["checkbox"]["chk1"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_menu', '0', ((isset($_REQUEST["jak_menu"]) && $_REQUEST["jak_menu"] == '0')) ? TRUE : FALSE, 'jak_menu2');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_menu2', $tl["checkbox"]["chk1"]);
 													?>
 
 												</div>
@@ -198,9 +183,8 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["cat_box_content"]["catbc5"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["cat_box_content"]["catbc5"]);
 												?>
 
 											</div>
@@ -208,17 +192,15 @@ if ($errors) { ?>
 												<div class="radio radio-success">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													((isset($_REQUEST["jak_footer"]) && $_REQUEST["jak_footer"] == '1')) ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_footer', 'jak_footer1', '', '1', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_footer1', $tl["checkbox"]["chk"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_footer', '1', ((isset($_REQUEST["jak_footer"]) && $_REQUEST["jak_footer"] == '1')) ? TRUE : FALSE, 'jak_footer1');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_footer1', $tl["checkbox"]["chk"]);
 
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													((isset($_REQUEST["jak_footer"]) && $_REQUEST["jak_footer"] == '0') || !isset($_REQUEST["jak_footer"])) ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_footer', 'jak_footer2', '', '0', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_footer2', $tl["checkbox"]["chk1"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_footer', '0', ((isset($_REQUEST["jak_footer"]) && $_REQUEST["jak_footer"] == '0') || !isset($_REQUEST["jak_footer"])) ? TRUE : FALSE, 'jak_footer2');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_footer2', $tl["checkbox"]["chk1"]);
 													?>
 
 												</div>
@@ -228,9 +210,8 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["cat_box_content"]["catbc6"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["cat_box_content"]["catbc6"]);
 												?>
 
 											</div>
@@ -238,8 +219,8 @@ if ($errors) { ?>
 												<div class="input-group">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													echo $htmlE->addInput ('text', 'jak_img', 'jak_img', 'form-control', $_REQUEST["jak_img"], '');
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html->addInput('text', 'jak_img', $_REQUEST["jak_img"], 'jak_img', 'form-control');
 													?>
 
 													<span class="input-group-btn">
@@ -254,8 +235,8 @@ if ($errors) { ?>
 							<div class="box-footer">
 
 								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 								?>
 
 							</div>
@@ -288,8 +269,8 @@ if ($errors) { ?>
 							<div class="box-footer">
 
 								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 								?>
 
 							</div>
@@ -316,8 +297,8 @@ if ($errors) { ?>
 											<div class="col-md-12">
 
 												<?php
-												// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
-												echo $htmlE->addTextArea ('jak_lcontent_meta_desc', '4', '', $_REQUEST["jak_lcontent_meta_desc"], array ('id' => 'jak_editor_light_meta_desc', 'class' => 'form-control', 'maxlength' => '400'));
+												// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+												echo $Html->addTextarea('jak_lcontent_meta_desc', $_REQUEST["jak_lcontent_meta_desc"], '4', '', array('id' => 'jak_editor_light_meta_desc', 'class' => 'form-control', 'maxlength' => '400'));
 												?>
 
 											</div>
@@ -328,8 +309,8 @@ if ($errors) { ?>
 							<div class="box-footer">
 
 								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 								?>
 
 							</div>
@@ -347,8 +328,8 @@ if ($errors) { ?>
 											<div class="col-md-12">
 
 												<?php
-												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-												echo $htmlE->addInput ('text', 'jak_lcontent_meta_key', 'jak_editor_light_meta_key', 'form-control', $_REQUEST["jak_lcontent_meta_key"], '');
+												// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+												echo $Html->addInput('text', 'jak_lcontent_meta_key', $_REQUEST["jak_lcontent_meta_key"], 'jak_editor_light_meta_key', 'form-control');
 												?>
 
 											</div>
@@ -359,8 +340,8 @@ if ($errors) { ?>
 							<div class="box-footer">
 
 								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 								?>
 
 							</div>

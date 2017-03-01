@@ -46,15 +46,16 @@
 							<div class="checkbox-singel check-success">
 
 								<?php
-                  // Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-                  echo $htmlE->addInput('checkbox', '', 'jak_delete_all', '', '', '');
-                  // Arguments: for (id of associated form element), text
-                  echo $htmlE->addLabelFor('jak_delete_all', '');
-                  ?>
+								// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+								// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+								echo $Html->addCheckbox('', '', false, 'jak_delete_all');
+								echo $Html->addLabel('jak_delete_all', '');
+								?>
 
 							</div>
 						</th>
 						<th><?php echo $tl["page_box_table"]["pagetb"]; ?></th>
+						<th><?php echo $tl["page_box_table"]["pagetb5"]; ?></th>
 						<th><?php echo $tl["page_box_table"]["pagetb1"]; ?></th>
 						<th><?php echo $tl["page_box_table"]["pagetb2"]; ?></th>
 						<th><?php echo $tl["page_box_table"]["pagetb3"]; ?></th>
@@ -68,17 +69,30 @@
 							<td><?php echo $v["id"]; ?></td>
 							<td>
 								<div class="checkbox-singel check-success">
-									<input type="checkbox" id="jak_delete_page<?php echo $v["id"]; ?>" name="jak_delete_page[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
-									<label for="jak_delete_page<?php echo $v["id"]; ?>"></label>
+
+									<?php
+									// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+									// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+									echo $Html->addCheckbox('jak_delete_page[]', $v["id"], false, 'jak_delete_page' . $v["id"], 'highlight');
+									echo $Html->addLabel('jak_delete_page' . $v["id"], '');
+									?>
+
 								</div>
 							</td>
 							<td>
-								<a href="index.php?p=page&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a><?php if ($v["password"]) { ?>
-									<i class="fa fa-key"></i><?php } ?></td>
-							<td><?php if ($v["catid"] != '0') {
+								<a href="index.php?p=page&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a>
+							</td>
+							<td>
+									<?php if ($v["password"]) { ?>
+										<i class="fa fa-key"></i>
+									<?php } ?>
+								</td>
+							<td>
+							<?php if ($v["catid"] != '0') {
 									if (isset($JAK_CAT) && is_array ($JAK_CAT)) foreach ($JAK_CAT as $z) {
 										if ($v["catid"] == $z["id"]) { ?>
-											<a												href="index.php?p=categories&amp;sp=edit&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a><?php }
+											<a href="index.php?p=categories&amp;sp=edit&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a>
+										<?php }
 									}
 								} else { ?><?php echo $tl["page_box_content"]["pagebc"]; ?><?php } ?></td>
 							<td><?php echo date ("d.m.Y - H:i:s", strtotime ($v["time"])); ?></td>
@@ -110,20 +124,29 @@
 	</div>
 			</form>
 
-<?php } else if ($SEARCH_WORD) { ?>
-	<div class="alert bg-danger text-white">
-		<?php echo $tl["search"]["s6"]; ?> <strong><?php echo $SEARCH_WORD; ?></strong>
-	</div>
-<?php } ?>
-
 	<div class="col-md-12 m-b-30">
 		<div class="icon_legend">
-			<h3><?php echo $tl["icons"]["i"]; ?></h3>
-			<i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
-			<i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
-			<i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>
-			<i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+
+			<?php
+			// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+			echo $Html->addTag('h3', $tl["icons"]["i"]);
+			echo $Html->addTag('i', '', 'fa fa-check', array('title' => $tl["icons"]["i6"]));
+			echo $Html->addTag('i', '', 'fa fa-lock', array('title' => $tl["icons"]["i5"]));
+			echo $Html->addTag('i', '', 'fa fa-edit', array('title' => $tl["icons"]["i2"]));
+			echo $Html->addTag('i', '', 'fa fa-trash-o', array('title' => $tl["icons"]["i1"]));
+			?>
+
 		</div>
 	</div>
+
+<?php } else if ($SEARCH_WORD) { ?>
+
+		<?php
+		// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+		echo $Html->addDiv($tl["search"]["s6"] . $Html->addTag('strong', $SEARCH_WORD) , '', array('class' => 'alert bg-danger text-white'));
+		?>
+
+<?php } ?>
+
 
 <?php include "footer.php"; ?>

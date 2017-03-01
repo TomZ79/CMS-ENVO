@@ -153,9 +153,14 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
 	<div class="col-md-12 m-b-30">
 		<div class="icon_legend">
-			<h3><?php echo $tl["icons"]["i"]; ?></h3>
-			<i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>
-			<i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+
+			<?php
+			// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+			echo $Html->addTag('h3', $tl["icons"]["i"]);
+			echo $Html->addTag('i', '', 'fa fa-edit', array('title' => $tl["icons"]["i2"]));
+			echo $Html->addTag('i', '', 'fa fa-trash-o', array('title' => $tl["icons"]["i1"]));
+			?>
+
 		</div>
 	</div>
 

@@ -331,6 +331,12 @@ if ($page == 'maintenance') {
 	$JAK_PAGE_ACTIVE = 1;
 	$checkp          = 1;
 }
+if ($page == 'testpage') {
+	require_once 'testpage.php';
+	$JAK_PROVED      = 1;
+	$JAK_PAGE_ACTIVE = 1;
+	$checkp          = 1;
+}
 
 // If page not found
 if ($checkp == 0) jak_redirect (BASE_URL . 'index.php?p=404');

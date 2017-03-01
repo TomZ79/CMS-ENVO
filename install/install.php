@@ -124,7 +124,7 @@ if (DB_USER && DB_PASS) {
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <div class="logo pull-left"><img src="include/logo_light_blue.png" alt=""></div>
+        <div class="logo pull-left"><img src="include/logo_white.png" alt=""></div>
         <?php include 'include/install-version.php'; ?>
       </div>
     </div>

@@ -133,7 +133,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['pageprotect'])) {
   $page_check = JAK_base::jakCheckprotectedArea($passcrypt, 'pages', $defaults['pagesec']);
 
   if (!$page_check) {
-    $errors['e'] = $tl['error']['e28'];
+    $errors['e'] = $tl['general_error']['generror8'];
   }
 
   if (count($errors) == 0) {

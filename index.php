@@ -462,7 +462,7 @@ if (JAK_NEWS_ACTIVE && $newsloadonce && $jkv["shownews"]) {
 }
 
 // We have tags
-if (JAK_TAGS) $JAK_GET_TAG_CLOUD = JAK_tags::jakGettagcloud (JAK_PLUGIN_VAR_TAGS, 'tagcloud', $jkv["taglimit"], $jkv["tagmaxfont"], $jkv["tagminfont"]);
+if (JAK_TAGS) $JAK_GET_TAG_CLOUD = JAK_tags::jakGettagcloud (JAK_PLUGIN_VAR_TAGS, 'tagcloud', $jkv["taglimit"], $jkv["tagmaxfont"], $jkv["tagminfont"], $tl["title_element"]["tel"]);
 
 // SEARCH, NEWS and Mobile/Web LINK
 $P_SEAERCH_LINK = JAK_rewrite::jakParseurl ('search', '', '', '', '');

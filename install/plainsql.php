@@ -5,7 +5,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "backup_content (
 `pageid` INT( 11 ) NOT NULL DEFAULT  '0',
 `content` mediumtext NULL,
 `time` DATETIME NOT NULL DEFAULT  '0000-00-00 00:00:00'
-) ENGINE = MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1");
+) ENGINE = MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci COLLATE utf8_czech_ci AUTO_INCREMENT=1");
 
 $jakdb->query("CREATE TABLE " . DB_PREFIX . "categories (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -26,13 +26,14 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "categories (
   `pluginid` int(11) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `showmenu` (`showmenu`, `showfooter`, `catorder`, `catparent`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=5");
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci COLLATE utf8_czech_ci AUTO_INCREMENT=5");
 
 $jakdb->query("INSERT INTO " . DB_PREFIX . "categories VALUES
 (1, 'Home', 'home', NULL, NULL, NULL, NULL, NULL, 1, 0, 1, 0, 1, 0, 1, 0),
 (2, 'Sitemap', 'sitemap', NULL, NULL, NULL, NULL, NULL, 0, 1, 3, 0, 0, 0, 1, 2),
 (3, 'Tags', 'tag', NULL, NULL, NULL, NULL, NULL, 0, 0, 4, 0, 0, 0, 1, 3),
-(4, 'News', 'news', NULL, NULL, NULL, NULL, NULL,1, 0, 2, 0, 0, 0, 1, 1)");
+(4, 'News', 'news', NULL, NULL, NULL, NULL, NULL,1, 0, 2, 0, 0, 0, 1, 1),
+(5, 'EU-cookies', 'eu-cookies', NULL, NULL, NULL, NULL, NULL,0, 0, 2, 0, 2, 0, 1, 0)");
 
 $jakdb->query("CREATE TABLE " . DB_PREFIX . "clickstat (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -40,7 +41,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "clickstat (
   `yaxis` smallint(4) unsigned NOT NULL DEFAULT 0,
   `location` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1");
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=1");
 
 $jakdb->query("CREATE TABLE " . DB_PREFIX . "contactform (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -51,7 +52,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "contactform (
   `active` smallint(1) unsigned NOT NULL DEFAULT 1,
   `time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2");
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=2");
 
 $jakdb->query("INSERT INTO " . DB_PREFIX . "contactform VALUES
 (1, 'Standard Contact Form', '<p>Thank you very much, you enquiry has been sent. We will return to you as soon as possible.</p>', NULL, 1, 1, NOW())");
@@ -65,7 +66,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "contactoptions (
   `mandatory` smallint(1) NOT NULL DEFAULT 0,
   `forder` int(11) unsigned NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5");
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=5");
 
 $jakdb->query("INSERT INTO " . DB_PREFIX . "contactoptions VALUES
 (1, 1, 'Name', 1, '', 1, 1),
@@ -83,7 +84,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "galleryfacebook (
   `size` varchar(255) DEFAULT NULL,
   `time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1");
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=1");
 
 $jakdb->query("CREATE TABLE " . DB_PREFIX . "loginlog (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -94,7 +95,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "loginlog (
   `time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `access` smallint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1");
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=1");
 
 $jakdb->query("CREATE TABLE " . DB_PREFIX . "news (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -119,7 +120,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "news (
   `hits` int(11) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `newsorder` (`newsorder`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1");
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=1");
 
 $jakdb->query("CREATE TABLE " . DB_PREFIX . "pages (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -144,9 +145,11 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "pages (
   `time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   KEY `catid` (`catid`,`active`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2");
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=2");
 
-$jakdb->query("INSERT INTO " . DB_PREFIX . "pages VALUES(1, 1, 'CMS - ENVO', '<div class=\"jumbotron\"><h1>CMS - ENVO</h1>\r\n<p>Welcome to your very own CMS installation.</p>\r\n</div>', '', '', 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, NULL, 1, NOW())");
+$jakdb->query("INSERT INTO " . DB_PREFIX . "pages VALUES
+(1, 1, 'CMS - ENVO', '<div class=\"jumbotron\">\r\n<p>CMS - ENVO</p>\r\n</div>', '', '', 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, NULL, 1, NOW()),
+(2, 5, 'EU Cookies', '<div class=\"jumbotron\">\r\n<p>EU Cookies</p>\r\n</div>', '', '', 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, NULL, 1, NOW())");
 
 $jakdb->query("CREATE TABLE " . DB_PREFIX . "pagesgrid (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -159,13 +162,16 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "pagesgrid (
   `orderid` int(11) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `pageid` (`pageid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5");
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=5");
 
 $jakdb->query("INSERT INTO " . DB_PREFIX . "pagesgrid VALUES
 (1, 1, 1, 9999, 0, 0, 0, 1),
 (2, 1, 0, 9998, 0, 0, 0, 2),
 (3, 1, 0, 9997, 0, 0, 0, 3),
-(4, 0, 1, 9997, 0, 0, 0, 4)");
+(4, 0, 1, 9997, 0, 0, 0, 4),
+(5, 2, 1, 9999, 0, 0, 0, 1),
+(6, 2, 0, 9998, 0, 0, 0, 2),
+(7, 2, 0, 9997, 0, 0, 0, 3)");
 
 $jakdb->query("CREATE TABLE " . DB_PREFIX . "pluginhooks (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -180,13 +186,13 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "pluginhooks (
   `time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   KEY `hook_name` (`hook_name`,`active`,`pluginid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5");
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=5");
 
 $jakdb->query("INSERT INTO " . DB_PREFIX . "pluginhooks VALUES
-(1, 'tpl_sidebar', 'Tags', 'tagsidebar.php', '', 'cms', 1, 3, 3, NOW()),
+(1, 'tpl_sidebar', 'Tags', 'include_once \"tagsidebar.php\";', '', 'cms', 1, 3, 3, NOW()),
 (2, 'tpl_sidebar', 'News', 'include_once \"newssidebar.php\";', '', 'cms', 1, 2, 1, NOW()),
-(3, 'tpl_sidebar', 'Login Form', 'loginsidebar.php', '', 'cms', 1, 4, 0, NOW()),
-(4, 'tpl_sidebar', 'Search Form', 'searchsidebar.php', '', 'cms', 1, 1, 0, NOW()),
+(3, 'tpl_sidebar', 'Login Form', 'include_once \"loginsidebar.php\";', '', 'cms', 1, 4, 0, NOW()),
+(4, 'tpl_sidebar', 'Search Form', 'include_once \"searchsidebar.php\";', '', 'cms', 1, 1, 0, NOW()),
 (5, 'tpl_footer_widgets', 'News - Footer Widget', 'newsfooter.php', '', 'cms', 1, 1, 1, NOW()),
 (6, 'tpl_footer_widgets', 'Tags - Footer Widget', 'tagsfooter.php', '', 'cms', 1, 1, 3, NOW()),
 (7, 'tpl_footer_widgets', 'Footer - Search Form', 'searchfooter.php', '', 'cms', 1, 1, 0, NOW())");
@@ -209,7 +215,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "plugins (
   `time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4");
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=4");
 
 $jakdb->query("INSERT INTO " . DB_PREFIX . "plugins VALUES
 (1, 'News', 'Create and publish news', 1, '1', 1, NULL, 'require_once \"news.php\";', 'if (\$page == \"news\") {\r\nrequire_once ''news.php'';\r\n\$JAK_PROVED = true;\r\n\$checkp = 1;\r\n}', 'newsnav.php', NULL, '1', NULL, NULL, NOW()),
@@ -222,7 +228,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "searchlog (
   `count` int(11) unsigned NOT NULL DEFAULT 1,
   `time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1");
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=1");
 
 $jakdb->query("CREATE TABLE " . DB_PREFIX . "setting (
   `varname` varchar(100) NOT NULL DEFAULT '',
@@ -233,7 +239,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "setting (
   `datatype` enum('free','number','boolean','bitfield','username','integer','posint') NOT NULL DEFAULT 'free',
   `product` varchar(25) DEFAULT '',
   PRIMARY KEY (`varname`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8");
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci COLLATE utf8_czech_ci");
 
 $jakdb->query("INSERT INTO " . DB_PREFIX . "setting VALUES
 ('version', 'version', '1.2', '1.2', NULL, 'free', 'cms'),
@@ -325,7 +331,22 @@ $jakdb->query("INSERT INTO " . DB_PREFIX . "setting VALUES
 ('acegutter', 'setting', '1', '1', 'yesno', 'boolean', 'cms'),
 ('aceinvisible', 'setting', '0', '0', 'yesno', 'boolean', 'cms'),
 ('acewraplimit', 'setting', '100', '100', 'input', 'free', 'cms'),
-('aceactiveline', 'setting', '1', '1', 'yesno', 'boolean', 'cms')
+('aceactiveline', 'setting', '1', '1', 'yesno', 'boolean', 'cms'),
+('eucookie_enabled', 'setting', '0', '0', 'yesno', 'boolean', 'cms'),
+('eucookie_name', 'setting', 'cookieconsent_status', 'cookieconsent_status', 'input', 'free', 'cms'),
+('eucookie_expiryDays', 'setting', '365', '365', 'input', 'free', 'cms'),
+('eucookie_position', 'setting', 'bottom', 'bottom', 'select', 'boolean', 'cms'),
+('eucookie_style', 'setting', 'block', 'block', 'select', 'boolean', 'cms'),
+('eucookie_theme', 'setting', 'eucookie_theme1', 'eucookie_theme1', 'input', 'free', 'cms'),
+('eucookie_pbck', 'setting', '#000', '#000', 'input', 'free', 'cms'),
+('eucookie_ptxt', 'setting', '#FFF', '#FFF', 'input', 'free', 'cms'),
+('eucookie_bbck', 'setting', '#F1D600', '#F1D600', 'input', 'free', 'cms'),
+('eucookie_btxt', 'setting', '#000', '#000', 'input', 'free', 'cms'),
+('eucookie_alpha', 'setting', '0.95', '0.95', 'input', 'free', 'cms'),
+('eucookie_message', 'setting', 'Používáme cookies, abyste si z našich stránek odnesli co nejlepší možnou zkušenost.', 'Používáme cookies, abyste si z našich stránek odnesli co nejlepší možnou zkušenost.', 'input', 'free', 'cms'),
+('eucookie_dismiss', 'setting', 'OK!', 'OK!', 'input', 'free', 'cms'),
+('eucookie_link', 'setting', 'Více informací', 'Více informací', 'input', 'free', 'cms'),
+('eucookie_href', 'setting', 'eu-cookies', 'eu-cookies', 'input', 'free', 'cms')
 ");
 
 
@@ -335,7 +356,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "tagcloud (
   `count` int(11) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   KEY `tag` (`tag`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1");
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=1");
 
 $jakdb->query("CREATE TABLE " . DB_PREFIX . "tags (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -345,7 +366,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "tags (
   `active` smallint(1) unsigned NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`),
   KEY `module` (`pluginid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1");
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=1");
 
 $jakdb->query("CREATE TABLE " . DB_PREFIX . "todo_list (
  `id` INT(8) UNSIGNED NOT NULL AUTO_INCREMENT ,
@@ -356,7 +377,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "todo_list (
  `dt_added` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
 PRIMARY KEY (`id`),
 KEY  `position` (`position`)
-) ENGINE=MYISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;");
+) ENGINE=MYISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=1;");
 
 $jakdb->query("CREATE TABLE " . DB_PREFIX . "user (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -381,7 +402,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "user (
   `forgot` int(11) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `usergroupid` (`usergroupid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1");
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=1");
 
 $jakdb->query("CREATE TABLE " . DB_PREFIX . "usergroup (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -391,7 +412,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "usergroup (
   `tags` smallint(1) unsigned NOT NULL DEFAULT 0,
   `advsearch` smallint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=6");
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=6");
 
 $jakdb->query("INSERT INTO " . DB_PREFIX . "usergroup VALUES
 (1, 'Guest', 'Usergroup for all the guests.', 1, 1, 1),
@@ -415,7 +436,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "like_counter (
   `lastentered` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   KEY `btnid` (`btnid`,`locid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8");
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci");
 
 $jakdb->query("CREATE TABLE " . DB_PREFIX . "like_client (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -430,6 +451,6 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "like_client (
   `time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`),
   KEY `btnid` (`btnid`,`userid`,`sessionid`,`ip`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8");
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci");
 
 ?>

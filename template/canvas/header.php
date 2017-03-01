@@ -90,7 +90,7 @@ require_once 'config.php';
 	<!-- Offline Website
 	============================================= -->
 	<?php if ($jkv["offline"] == 1 && JAK_ASACCESS) { ?>
-		<div class="alert-offline"><?php echo $tl["title"]["t10"]; ?></div>
+		<div class="alert-offline"><?php echo $tl["general_error"]["generror6"]; ?></div>
 	<?php } ?>
 
 	<?php if ($JAK_SHOW_NAVBAR) { ?>
@@ -263,8 +263,8 @@ require_once 'config.php';
 						<a href="#" id="top-search-trigger" class="cluseSearch"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
 						<?php if (JAK_SEARCH && JAK_USER_SEARCH) { ?>
 							<form class="form-search" action="<?php echo $P_SEAERCH_LINK; ?>" method="post">
-								<input type="text" name="jakSH" id="Jajaxs" class="search" placeholder="<?php echo $tlcanvas["header"]["h7"];
-								if ($jkv["fulltextsearch"]) echo $tl["search"]["s5"]; ?>">
+								<input type="text" name="jakSH" id="Jajaxs" class="search" placeholder="<?php echo $tl["placeholder"]["plc"];
+								if ($jkv["fulltextsearch"]) echo $tl["placeholder"]["plc1"]; ?>">
 							</form>
 							<?php if (isset($JAK_HOOK_SEARCH_SIDEBAR) && is_array ($JAK_HOOK_SEARCH_SIDEBAR)) foreach ($JAK_HOOK_SEARCH_SIDEBAR as $hss) {
 								include_once $hss;

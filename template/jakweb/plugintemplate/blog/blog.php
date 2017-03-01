@@ -18,7 +18,7 @@
 							</div>
 						<?php } ?>
 						<div class="post-comments-count">
-							<i class="fa fa-eye"></i> <?php echo $tl["general"]["g13"] . $v["hits"]; ?>
+							<i class="fa fa-eye"></i> <?php echo $tl["global_text"]["gtxt"] . $v["hits"]; ?>
 						</div>
 					</div>
 					<!-- End Post Info -->

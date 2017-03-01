@@ -20,9 +20,8 @@
 										<div class="col-md-5">
 
 											<?php
-											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-											// Add Html Element -> endTag (Arguments: tag)
-											echo $htmlE->startTag('strong') . $tl["fb_box_content"]["fbbc"] . $htmlE->endTag('strong');
+											// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+											echo $Html->addTag('strong', $tl["fb_box_content"]["fbbc"]);
 											?>
 
 										</div>
@@ -32,9 +31,8 @@
 										<div class="col-md-5">
 
 											<?php
-											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-											// Add Html Element -> endTag (Arguments: tag)
-											echo $htmlE->startTag('strong') . $tl["fb_box_content"]["fbbc1"] . $htmlE->endTag('strong');
+											// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+											echo $Html->addTag('strong', $tl["fb_box_content"]["fbbc1"]);
 											?>
 
 										</div>
@@ -44,9 +42,8 @@
 										<div class="col-md-5">
 
 											<?php
-											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-											// Add Html Element -> endTag (Arguments: tag)
-											echo $htmlE->startTag('strong') . $tl["fb_box_content"]["fbbc2"] . $htmlE->endTag('strong');
+											// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+											echo $Html->addTag('strong', $tl["fb_box_content"]["fbbc2"]);
 											?>
 
 										</div>
@@ -56,9 +53,8 @@
 										<div class="col-md-5">
 
 											<?php
-											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-											// Add Html Element -> endTag (Arguments: tag)
-											echo $htmlE->startTag('strong') . $tl["fb_box_content"]["fbbc3"] . $htmlE->endTag('strong');
+											// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+											echo $Html->addTag('strong', $tl["fb_box_content"]["fbbc3"]);
 											?>
 
 										</div>
@@ -68,9 +64,8 @@
 										<div class="col-md-5">
 
 											<?php
-											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-											// Add Html Element -> endTag (Arguments: tag)
-											echo $htmlE->startTag('strong') . $tl["fb_box_content"]["fbbc4"] . $htmlE->endTag('strong');
+											// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+											echo $Html->addTag('strong', $tl["fb_box_content"]["fbbc4"]);
 											?>
 
 										</div>
@@ -80,9 +75,8 @@
 										<div class="col-md-5">
 
 											<?php
-											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-											// Add Html Element -> endTag (Arguments: tag)
-											echo $htmlE->startTag('strong') . $tl["fb_box_content"]["fbbc5"] . $htmlE->endTag('strong');
+											// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+											echo $Html->addTag('strong', $tl["fb_box_content"]["fbbc5"]);
 											?>
 
 										</div>
@@ -93,7 +87,12 @@
 						</div>
 					</div>
 					<div class="box-footer">
-						<a href="index.php?p=facebookgallery&amp;sp=delete&amp;ssp=<?php echo $JAK_FORM_DATA["id"]; ?>" class="btn btn-danger pull-right" data-confirm="<?php echo sprintf ($tl["fb_notification"]["del"], $JAK_FORM_DATA["title"]); ?>">Delete</a>
+
+						<?php
+						// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+						echo $Html->addAnchor('index.php?p=facebookgallery&amp;sp=delete&amp;ssp=' . $JAK_FORM_DATA["id"], 'Delete', '', 'btn btn-danger pull-right',  array ('data-confirm' => sprintf ($tl["fb_notification"]["del"], $JAK_FORM_DATA["title"])));
+						?>
+
 					</div>
 				</div>
 			</div>

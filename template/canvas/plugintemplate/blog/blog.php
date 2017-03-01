@@ -17,7 +17,7 @@
 					</div>
 					<ul class="entry-meta clearfix">
 						<li><i class="icon-calendar3"></i> <?php echo $v["created"]; ?></li>
-						<li><i class="fa fa-eye"></i> <?php echo $tl["general"]["g13"] . $v["hits"]; ?></li>
+						<li><i class="fa fa-eye"></i> <?php echo $tl["global_text"]["gtxt"] . $v["hits"]; ?></li>
 					</ul>
 					<div class="entry-content">
 						<p><?php echo $v["contentshort"]; ?></p>

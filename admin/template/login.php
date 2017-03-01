@@ -31,8 +31,8 @@
 							<div class="controls">
 
 								<?php
-								// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-								echo $htmlE->addInput ('text', 'username', 'username', 'form-control', '', '', array ('placeholder' => $tl["placeholder"]["p10"], 'required' => 'required'));
+								// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+								echo $Html->addInput('text', 'username', '', 'username', 'form-control', array ('placeholder' => $tl["placeholder"]["p10"], 'required' => 'required'));
 								?>
 
 							</div>
@@ -42,23 +42,35 @@
 							<div class="controls">
 
 								<?php
-								// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-								echo $htmlE->addInput ('password', 'password', 'password', 'form-control', '', '', array ('placeholder' => $tl["placeholder"]["p11"], 'required' => 'required'));
+								// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+								echo $Html->addInput('password', 'password', '', 'password', 'form-control', array ('placeholder' => $tl["placeholder"]["p11"], 'required' => 'required'));
 								?>
 
 							</div>
 						</div>
 						<div class="col-md-6 col-xs-6 no-padding">
 							<div class="checkbox check-success">
-								<input type="checkbox" name="lcookies" id="remember">
-								<label for="remember"><?php echo $tl["log_in"]["login3"]; ?></label>
+
+								<?php
+								// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+								// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+								echo $Html->addCheckbox('lcookies', '', true, 'remember');
+								echo $Html->addLabel('remember', $tl["log_in"]["login3"]);
+								?>
+
 							</div>
 						</div>
 						<div class="col-md-6 col-xs-6 no-padding text-right">
 							<a href="#" class="lost-pwd"><?php echo $tl["log_in"]["login4"]; ?></a>
 						</div>
-						<input type="hidden" name="action" value="login"/>
-						<button type="submit" name="logID" class="btn btn-primary btn-cons m-t-10"><?php echo $tl["button"]["btn28"]; ?></button>
+
+						<?php
+						// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+						echo $Html->addInput('hidden', 'action', 'login');
+						// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+						echo $Html->addButtonSubmit('logID', $tl["button"]["btn28"], '', 'btn btn-primary btn-cons m-t-10');
+						?>
+
 					</form>
 				</div>
 
@@ -70,18 +82,28 @@
 							<div class="controls">
 
 								<?php
-								// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-								echo $htmlE->addInput ('email', 'email', 'email', 'form-control', '', '', array ('placeholder' => $tl["placeholder"]["p12"], 'required' => 'required'));
+								// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+								echo $Html->addInput('email', 'email', '', 'email', 'form-control', array ('placeholder' => $tl["placeholder"]["p12"], 'required' => 'required'));
 								?>
 
 							</div>
 						</div>
-						<button type="submit" name="forgotP" class="btn btn-info btn-block m-t-20"><?php echo $tl["button"]["btn26"]; ?></button>
+
+						<?php
+						// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+						echo $Html->addButtonSubmit('forgotP', $tl["button"]["btn26"], '', 'btn btn-info btn-block m-t-20');
+						?>
+
 					</form>
 					<hr>
 					<button class="btn btn-block btn-warning lost-pwd" type="button">
-						<span class="pull-left"><i class="fa fa-lightbulb-o"></i></span>
-						<span class="bold"><?php echo $tl["button"]["btn27"]; ?></span>
+
+						<?php
+						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+						echo $Html->addTag('span', '<i class="fa fa-lightbulb-o"></i>', 'pull-left');
+						echo $Html->addTag('span', $tl["button"]["btn27"], 'bold');
+						?>
+
 					</button>
 				</div>
 

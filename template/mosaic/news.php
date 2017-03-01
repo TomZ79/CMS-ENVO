@@ -16,7 +16,7 @@
 					<div class="post-info">
 						<div class="info-details">
 							<i class="fa fa-clock-o"></i> <?php echo $v["created"]; ?> <i
-								class="fa fa-eye"></i> <?php echo $tl["general"]["g13"] . $v["hits"]; ?>
+								class="fa fa-eye"></i> <?php echo $tl["global_text"]["gtxt"] . $v["hits"]; ?>
 						</div>
 					</div>
 					<!-- End Post Info -->

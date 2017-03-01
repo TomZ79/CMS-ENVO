@@ -73,12 +73,12 @@ if ($JAK_FILE_ERROR) { ?>
 								<td>
 
 									<?php
-									// Arguments: for (id of associated form element), text
-									echo $htmlE->addLabelFor ('jak_filecontent', $tl["tpl_box_content"]["tplbc3"]);
-									// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
-									echo $htmlE->addSimpleDiv ('htmleditor', '');
-									// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
-									echo $htmlE->addTextArea ('jak_filecontent', '', '', $JAK_FILECONTENT, array ('id' => 'jak_filecontent', 'class' => 'form-control hidden'));
+									// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+									echo $Html->addLabel('jak_filecontent', $tl["tpl_box_content"]["tplbc3"]);
+									// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+									echo $Html->addDiv('', 'htmleditor');
+									// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+									echo $Html->addTextarea('jak_filecontent', $JAK_FILECONTENT, '', '', array('id' => 'jak_filecontent', 'class' => 'form-control hidden'));
 									?>
 
 								</td>
@@ -89,20 +89,30 @@ if ($JAK_FILE_ERROR) { ?>
 			</div>
 
 			<div class="form-actions">
-				<?php if ($JAK_GET_TEMPLATE_FILES) { ?><?php if ($JAK_FILEURL) { ?>
-					<button type="submit" name="reset" class="btn btn-success"><?php echo $tl["button"]["btn11"]; ?></button>
-				<?php }
-					if (!$JAK_FILECONTENT) { ?>
-						<button type="submit" name="edit" class="btn btn-primary pull-right"><?php echo $tl["button"]["btn12"]; ?></button>
-					<?php } else {
+				<?php if ($JAK_GET_TEMPLATE_FILES) { ?><?php if ($JAK_FILEURL) {
 
-						// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-						echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+					// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+					echo $Html->addButtonSubmit('reset', $tl["button"]["btn11"], '', 'btn btn-success');
+
+				}
+					if (!$JAK_FILECONTENT) {
+
+						// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+						echo $Html->addButtonSubmit('edit', $tl["button"]["btn12"], '', 'btn btn-primary pull-right');
+
+					} else {
+
+						// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+						echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 					}
 				} ?>
 			</div>
 
-			<input type="hidden" name="jak_file" value="<?php echo $JAK_FILEURL; ?>"/>
+			<?php
+			// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+			echo $Html->addInput('hidden', 'jak_file', $JAK_FILEURL);
+			?>
+
 		</form>
 
 	<?php }

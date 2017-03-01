@@ -1,11 +1,16 @@
-<!DOCTYPE html>
+<?php
+echo $Html->addDoctype('html5');
+?>
 <html lang="<?php echo $site_language; ?>">
 <head>
 	<meta charset="utf-8">
 
 	<!-- BEGIN Vendor CSS-->
-	<link rel="stylesheet" href="../assets/plugins/bootstrapv3/css/bootstrap.min.css" type="text/css" media="screen"/>
-	<link rel="stylesheet" href="assets/css/style.css" type="text/css" media="screen"/>
+	<?php
+	// Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+	echo $Html->addStylesheet('../assets/plugins/bootstrapv3/css/bootstrap.min.css', 'screen');
+	echo $Html->addStylesheet('assets/css/style.css', 'screen');
+	?>
 
 	<!-- CUSTOM CSS -->
 	<style type="text/css">
@@ -16,7 +21,10 @@
 	</style>
 
 	<!-- BEGIN VENDOR JS -->
-	<script src="assets/plugins/jquery/jquery-1.11.1.min.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+	<?php
+	// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+	echo $Html->addScript('assets/plugins/jquery/jquery-1.11.1.min.js');
+	?>
 
 	<!-- Import all hooks for in between head -->
 	<?php if (isset($JAK_HOOK_HEAD_ADMIN) && is_array ($JAK_HOOK_HEAD_ADMIN)) foreach ($JAK_HOOK_HEAD_ADMIN as $headt) {

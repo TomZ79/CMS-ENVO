@@ -65,33 +65,39 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
       <!-- Header or Header/Footer -->
       <div class="box box-success">
         <div class="box-header with-border">
-          <i class="fa fa-bars"></i>
-          <h3 class="box-title"><?php echo $tl["cat_box_title"]["catbt"]; ?></h3>
+          <?php
+          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+          echo $Html->addTag('i', '', 'fa fa-bars');
+          echo $Html->addTag('h3', $tl["cat_box_title"]["catbt"], 'box-title');
+          ?>
         </div>
         <div class="box-body">
 
           <?php if ($JAK_CAT1_EXIST) {
 
-          // Build menu for categories header and header/footer
-          $lang = $tl["cat_notification"]["del"]; // Notification
-          $title1 = $tl["icons"]["i11"];  // Add page
-          $title2 = $tl["icons"]["i10"];  //
-          $title3 = $tl["icons"]["i8"];   //
-          $title4 = $tl["icons"]["i2"];   // Edit
-          $title5 = $tl["icons"]["i1"];   // Trash
+            // Build menu for categories header and header/footer
+            $lang = $tl["cat_notification"]["del"]; // Notification
+            $title1 = $tl["icons"]["i11"];  // Add page
+            $title2 = $tl["icons"]["i10"];  //
+            $title3 = $tl["icons"]["i8"];   //
+            $title4 = $tl["icons"]["i2"];   // Edit
+            $title5 = $tl["icons"]["i1"];   // Trash
 
-          echo jak_build_menu_admin(0, $mheader, $lang, $title1, $title2, $title3, $title4, $title5, ' class="sortable jak_cat_move"', ' id="mheader"');
+            echo jak_build_menu_admin(0, $mheader, $lang, $title1, $title2, $title3, $title4, $title5, ' class="sortable jak_cat_move"', ' id="mheader"');
 
           } else {
 
-            // Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
-            echo $htmlE->addSimpleDiv ('', $tl["general_error"]["generror3"],  array ('class' => 'alert bg-info text-white'));
+            // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+            echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
 
           } ?>
 
         </div>
         <div class="box-footer">
-          <button type="submit" data-menu="mheader" name="save" class="btn btn-success pull-right save-menu"><?php echo $tl["button"]["btn1"]; ?></button>
+          <?php
+          // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+          echo $Html->addButtonSubmit('save', $tl["button"]["btn1"], '', 'btn btn-success pull-right save-menu', array('data-menu' => 'mheader'));
+          ?>
         </div>
       </div>
     </div>
@@ -99,33 +105,39 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
       <!-- Footer Only -->
       <div class="box box-success">
         <div class="box-header with-border">
-          <i class="fa fa-clone"></i>
-          <h3 class="box-title"><?php echo $tl["cat_box_title"]["catbt1"]; ?></h3>
+          <?php
+          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+          echo $Html->addTag('i', '', 'fa fa-clone');
+          echo $Html->addTag('h3', $tl["cat_box_title"]["catbt1"], 'box-title');
+          ?>
         </div>
         <div class="box-body">
 
           <?php if ($JAK_CAT2_EXIST) {
 
-          // Build menu for categories
-          $lang = $tl["cat_notification"]["del"]; // Notification
-          $title1 = $tl["icons"]["i11"];  // Add page
-          $title2 = $tl["icons"]["i10"];  //
-          $title3 = $tl["icons"]["i8"];   //
-          $title4 = $tl["icons"]["i2"];   // Edit
-          $title5 = $tl["icons"]["i1"];   // Trash
+            // Build menu for categories
+            $lang = $tl["cat_notification"]["del"]; // Notification
+            $title1 = $tl["icons"]["i11"];  // Add page
+            $title2 = $tl["icons"]["i10"];  //
+            $title3 = $tl["icons"]["i8"];   //
+            $title4 = $tl["icons"]["i2"];   // Edit
+            $title5 = $tl["icons"]["i1"];   // Trash
 
-          echo jak_build_menu_admin(0, $mfooter, $lang, $title1, $title2, $title3, $title4, $title5, ' class="sortable jak_cat_move"', ' id="mfooter"');
+            echo jak_build_menu_admin(0, $mfooter, $lang, $title1, $title2, $title3, $title4, $title5, ' class="sortable jak_cat_move"', ' id="mfooter"');
 
           } else {
 
-            // Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
-            echo $htmlE->addSimpleDiv ('', $tl["general_error"]["generror3"],  array ('class' => 'alert bg-info text-white'));
+            // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+            echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
 
           } ?>
 
         </div>
         <div class="box-footer">
-          <button type="submit" data-menu="mfooter" name="save" class="btn btn-success pull-right save-menu"><?php echo $tl["button"]["btn1"]; ?></button>
+          <?php
+          // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+          echo $Html->addButtonSubmit('save', $tl["button"]["btn1"], '', 'btn btn-success pull-right save-menu', array('data-menu' => 'mfooter'));
+          ?>
         </div>
       </div>
     </div>
@@ -136,8 +148,11 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
       <!-- Not Visible -->
       <div class="box box-success">
         <div class="box-header with-border">
-          <i class="fa fa-clone"></i>
-          <h3 class="box-title"><?php echo $tl["cat_box_title"]["catbt2"]; ?></h3>
+          <?php
+          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+          echo $Html->addTag('i', '', 'fa fa-clone');
+          echo $Html->addTag('h3', $tl["cat_box_title"]["catbt2"], 'box-title');
+          ?>
         </div>
         <div class="box-body">
           <?php if ($JAK_CAT3_EXIST) {
@@ -146,8 +161,8 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
 
           } else {
 
-            // Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
-            echo $htmlE->addSimpleDiv ('', $tl["general_error"]["generror3"],  array ('class' => 'alert bg-info text-white'));
+            // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+            echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
 
           } ?>
         </div>
@@ -160,8 +175,8 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
   <div class="col-md-12">
 
     <?php
-    // Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
-    echo $htmlE->addSimpleDiv ('', $tl["general_error"]["generror3"],  array ('class' => 'alert bg-info text-white'));
+    // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+    echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
     ?>
 
   </div>
@@ -170,14 +185,19 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
 
   <div class="col-md-12 m-b-30">
     <div class="icon_legend">
-      <h3><?php echo $tl["icons"]["i"]; ?></h3>
-      <i title="<?php echo $tl["icons"]["i7"]; ?>" class="fa fa-plus"></i>
-      <i title="<?php echo $tl["icons"]["i9"]; ?>" class="fa fa-link"></i>
-      <i title="<?php echo $tl["icons"]["i8"]; ?>" class="fa fa-eyedropper"></i>
-      <i title="<?php echo $tl["icons"]["i10"]; ?>" class="fa fa-pencil"></i>
-      <i title="<?php echo $tl["icons"]["i11"]; ?>" class="fa fa-sticky-note-o"></i>
-      <i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>
-      <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+
+      <?php
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('h3', $tl["icons"]["i"]);
+      echo $Html->addTag('i', '', 'fa fa-plus', array('title' => $tl["icons"]["i7"]));
+      echo $Html->addTag('i', '', 'fa fa-link', array('title' => $tl["icons"]["i9"]));
+      echo $Html->addTag('i', '', 'fa fa-eyedropper', array('title' => $tl["icons"]["i8"]));
+      echo $Html->addTag('i', '', 'fa fa-pencil', array('title' => $tl["icons"]["i10"]));
+      echo $Html->addTag('i', '', 'fa fa-sticky-note-o', array('title' => $tl["icons"]["i11"]));
+      echo $Html->addTag('i', '', 'fa fa-edit', array('title' => $tl["icons"]["i2"]));
+      echo $Html->addTag('i', '', 'fa fa-trash-o', array('title' => $tl["icons"]["i1"]));
+      ?>
+
     </div>
   </div>
 

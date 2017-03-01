@@ -45,10 +45,10 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 								<div class="checkbox-singel check-success">
 
 									<?php
-									// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-									echo $htmlE->addInput('checkbox', '', 'jak_delete_all', '', '', '');
-									// Arguments: for (id of associated form element), text
-									echo $htmlE->addLabelFor('jak_delete_all', '');
+									// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+									// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+									echo $Html->addCheckbox('', '', false, 'jak_delete_all');
+									echo $Html->addLabel('jak_delete_all', '');
 									?>
 
 								</div>
@@ -56,15 +56,21 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 							<th><?php echo $tl["cf_box_table"]["cftb"]; ?></th>
 							<th><?php echo $tl["cf_box_table"]["cftb1"]; ?></th>
 							<th>
-								<button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
-									<i class="fa fa-lock"></i>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('lock', '<i class="fa fa-lock"></i>', 'button_lock', 'btn btn-default btn-xs');
+								?>
+
 							</th>
 							<th></th>
 							<th>
-								<button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tl["cf_notification"]["delall"]; ?>" disabled="disabled">
-									<i class="fa fa-trash-o"></i>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array ('disabled' => 'disabled', 'data-confirm-del' => $tl["cf_notification"]["delall"]));
+								?>
+
 							</th>
 						</tr>
 						</thead>
@@ -75,16 +81,21 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 									<div class="checkbox-singel check-success">
 
 										<?php
-										// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-										echo $htmlE->addInput('checkbox', 'jak_delete_contact[]', 'jak_delete_contact' . $v["id"], 'highlight', $v["id"], '');
-										// Arguments: for (id of associated form element), text
-										echo $htmlE->addLabelFor('jak_delete_contact' . $v["id"], '');
+										// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+										// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+										echo $Html->addCheckbox('jak_delete_contact[]', $v["id"], false, 'jak_delete_contact' . $v["id"], 'highlight');
+										echo $Html->addLabel('jak_delete_contact' . $v["id"], '');
 										?>
 
 									</div>
 								</td>
 								<td>
-									<a href="index.php?p=contactform&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a>
+
+									<?php
+									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+									echo $Html->addAnchor('index.php?p=contactform&amp;sp=edit&amp;ssp=' . $v["id"], $v["title"]);
+									?>
+
 								</td>
 								<td><?php echo $v["content"]; ?></td>
 								<td>
@@ -116,11 +127,16 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
 	<div class="col-md-12 m-b-30">
 		<div class="icon_legend">
-			<h3><?php echo $tl["icons"]["i"]; ?></h3>
-			<i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
-			<i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
-			<i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>
-			<i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+
+			<?php
+			// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+			echo $Html->addTag('h3', $tl["icons"]["i"]);
+			echo $Html->addTag('i', '', 'fa fa-check', array('title' => $tl["icons"]["i6"]));
+			echo $Html->addTag('i', '', 'fa fa-lock', array('title' => $tl["icons"]["i5"]));
+			echo $Html->addTag('i', '', 'fa fa-edit', array('title' => $tl["icons"]["i2"]));
+			echo $Html->addTag('i', '', 'fa fa-trash-o', array('title' => $tl["icons"]["i1"]));
+			?>
+
 		</div>
 	</div>
 
@@ -132,8 +148,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 	<div class="col-md-12">
 
 		<?php
-		// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
-		echo $htmlE->addSimpleDiv ('', $tl["general_error"]["generror3"],  array ('class' => 'alert bg-info text-white'));
+		// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+		echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
 		?>
 
 	</div>

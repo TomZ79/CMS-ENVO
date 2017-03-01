@@ -207,6 +207,27 @@ function jak_get_setting($group)
   return $setting;
 }
 
+// Get the setting variable as well the default variable as array
+function jak_get_setting_val($group)
+{
+  global $jakdb;
+  $setting = array();
+  $result = $jakdb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE groupname = "' . smartsql($group) . '"');
+  while ($row = $result->fetch_assoc()) {
+    // collect each record into a define
+
+    // Now check if sting contains html and do something about it!
+    if (strlen ($row['value']) != strlen (filter_var ($row['value'], FILTER_SANITIZE_STRING))) {
+      $defvar = htmlspecialchars_decode (htmlspecialchars ($row['value']));
+    } else {
+      $defvar = $row["value"];
+    }
+
+    $setting[ $row['varname'] ] = $defvar;
+  }
+  return $setting;
+}
+
 // Get total from a table
 function jak_get_total($jakvar, $jakvar1, $jakvar2, $jakvar3)
 {
@@ -707,5 +728,57 @@ function formatSizeUnits($bytes) {
   }
 
   return $bytes;
+}
+
+
+/* Convert hexdec color string to rgb(a) string
+ *
+ * Usage example how to use this function for dynamicaly created CSS
+ * -------------------------
+ * $color = '#ffa226';
+ * $rgb = hex2rgba($color);
+ * $rgba = hex2rgba($color, 0.7);
+ *
+ * CSS output
+ * -------------------------
+ * echo '	div.example { background: '.$rgb.'; color: '.$rgba.'; }';
+ *
+*/
+function hex2rgba($color, $opacity = false) {
+
+  $default = 'rgb(0,0,0)';
+
+  //Return default if no color provided
+  if(empty($color))
+    return $default;
+
+  //Sanitize $color if "#" is provided
+  if ($color[0] == '#' ) {
+    $color = substr( $color, 1 );
+  }
+
+  //Check if color has 6 or 3 characters and get values
+  if (strlen($color) == 6) {
+    $hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
+  } elseif ( strlen( $color ) == 3 ) {
+    $hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
+  } else {
+    return $default;
+  }
+
+  //Convert hexadec to rgb
+  $rgb =  array_map('hexdec', $hex);
+
+  //Check if opacity is set(rgba or rgb)
+  if($opacity){
+    if(abs($opacity) > 1)
+      $opacity = 1.0;
+    $output = 'rgba('.implode(",",$rgb).','.$opacity.')';
+  } else {
+    $output = 'rgb('.implode(",",$rgb).')';
+  }
+
+  //Return rgb(a) color string
+  return $output;
 }
 ?>

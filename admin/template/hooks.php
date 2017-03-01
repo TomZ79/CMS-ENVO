@@ -34,15 +34,16 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 	<div class="btn-toolbar m-b-20">
 		<div class="btn-group">
 
-			<button class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#" style="width: 100px;"><?php echo $tl["button"]["btn4"]; ?>
+			<button class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#" style="width: 100px;">
+				<?php echo $tl["button"]["btn4"]; ?>
 				<span class="caret"></span>
 			</button>
 			<div class="dropdown-menu livefilter">
 				<div class="search-box">
 
 					<?php
-					// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-					echo $htmlE->addInput ('text', 'jak_tags', 'input-bts-ex-1', 'form-control live-search', '', '', array ('placeholder' => $tl["placeholder"]["p3"], 'aria-describedby' => 'search-icon1'));
+					// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+					echo $Html->addInput('text', 'jak_tags', '', 'input-bts-ex-1', 'form-control live-search', array ('placeholder' => $tl["placeholder"]["p3"], 'aria-describedby' => 'search-icon1'));
 					?>
 
 				</div>
@@ -54,7 +55,12 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 						<?php } ?>
 					</ul>
 					<div class="no-search-results">
-						<div class="no-results" role="alert"><?php echo $tl["selection"]["sel6"]; ?></div>
+
+						<?php
+						// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+						echo $Html->addDiv($tl["selection"]["sel6"], '',  array ('class' => 'no-results', 'role' => 'alert'));
+						?>
+
 					</div>
 				</div>
 			</div>
@@ -74,10 +80,10 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 								<div class="checkbox-singel check-success">
 
 									<?php
-									// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-									echo $htmlE->addInput('checkbox', '', 'jak_delete_all', '', '', '');
-									// Arguments: for (id of associated form element), text
-									echo $htmlE->addLabelFor('jak_delete_all', '');
+									// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+									// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+									echo $Html->addCheckbox('', '', FALSE, 'jak_delete_all');
+									echo $Html->addLabel('jak_delete_all', '');
 									?>
 
 								</div>
@@ -105,10 +111,10 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 									<div class="checkbox-singel check-success">
 
 										<?php
-										// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-										echo $htmlE->addInput('checkbox', 'jak_delete_hook[]', 'jak_delete_hook' . $v["id"], 'highlight', $v["id"], '');
-										// Arguments: for (id of associated form element), text
-										echo $htmlE->addLabelFor('jak_delete_hook' . $v["id"], '');
+										// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+										// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+										echo $Html->addCheckbox('jak_delete_hook[]', $v["id"], FALSE, 'jak_delete_hook' . $v["id"], 'highlight');
+										echo $Html->addLabel('jak_delete_hook' . $v["id"], '');
 										?>
 
 									</div>
@@ -155,11 +161,16 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 
 	<div class="col-md-12 m-b-30">
 		<div class="icon_legend">
-			<h3><?php echo $tl["icons"]["i"]; ?></h3>
-			<i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
-			<i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
-			<i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>
-			<i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+
+			<?php
+			// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+			echo $Html->addTag('h3', $tl["icons"]["i"]);
+			echo $Html->addTag('i', '', 'fa fa-check', array('title' => $tl["icons"]["i6"]));
+			echo $Html->addTag('i', '', 'fa fa-lock', array('title' => $tl["icons"]["i5"]));
+			echo $Html->addTag('i', '', 'fa fa-edit', array('title' => $tl["icons"]["i2"]));
+			echo $Html->addTag('i', '', 'fa fa-trash-o', array('title' => $tl["icons"]["i1"]));
+			?>
+
 		</div>
 	</div>
 

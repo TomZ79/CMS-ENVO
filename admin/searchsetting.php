@@ -15,7 +15,7 @@ $jaktable2 = DB_PREFIX . 'pluginhooks';
 
 // EN: Import important settings for the template from the DB
 // CZ: Importuj důležité nastavení pro šablonu z DB
-$JAK_SETTING = jak_get_setting ('search');
+$JAK_SETTING = jak_get_setting_val ('search');
 
 // Let's go on with the script
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

@@ -1,4 +1,5 @@
 <script src="assets/js/catorder.js" type="text/javascript"></script>
+<script src="assets/js/slug.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
 
@@ -135,25 +136,20 @@
 
 	});
 </script>
-
 <script type="text/javascript">
-
-	/* Other config
-	 ========================================= */
-	$(document).ready(function () {
-
+	$(function () {
 		/* DateTimePicker
-		 =========================================
-		$('#datepickerTime').datetimepicker({
-			// Language
-			locale: '<?php echo $site_language;?>',
-			// Date-Time format
-			format: 'YYYY-MM-DD HH:mm:ss',
-			// Show Button
-			showTodayButton: true,
-			// Other
-			ignoreReadonly: true
-		});
+		 ========================================= */
+		 $('#datepickerTime').datetimepicker({
+			 // Language
+			 locale: '<?php echo $site_language;?>',
+			 // Date-Time format
+			 format: 'YYYY-MM-DD HH:mm:ss',
+			 // Show Button
+			 showTodayButton: true,
+			 // Other
+			 ignoreReadonly: true,
+		 });
 
 		$('#datepickerFrom').datetimepicker({
 			// Language
@@ -189,7 +185,13 @@
 		$("#datepickerTo").on("dp.change", function (e) {
 			$('#datepickerFrom').data("DateTimePicker").maxDate(e.date);
 		});
-		 */
+	});
+</script>
+<script type="text/javascript">
+
+	/* Other config
+	 ========================================= */
+	$(document).ready(function () {
 
 		/* RestoreContent
 		 ========================================= */
@@ -206,7 +208,6 @@
 	});
 </script>
 
-<script src="assets/js/slug.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
 		$("#jak_name").keyup(function () {

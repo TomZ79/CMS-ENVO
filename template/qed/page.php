@@ -23,28 +23,31 @@
 
 	<?php } ?>
 
-	<?php if ($PAGE_PASSWORD && !JAK_ASACCESS && $PAGE_PASSWORD != $_SESSION[ 'pagesecurehash' . $PAGE_ID ]) {
-		if ($errorpp) { ?>
+	<?php if ($PAGE_PASSWORD && !JAK_ASACCESS && $PAGE_PASSWORD != $_SESSION[ 'pagesecurehash' . $PAGE_ID ]) { ?>
 
-			<!-- Show password error -->
-			<div class="alert alert-danger fade in">
-				<button type="button" class="close" data-dismiss="alert">×</button>
-				<h4><?php echo $errorpp["e"]; ?></h4>
+		<section class="light-color pt-medium pb-medium">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="text-center">
+							<h1 class="large"><?php echo $tl["global_text"]["gtxt1"]; ?></h1>
+							<p class="lead"><?php echo $tl["global_text"]["gtxt2"]; ?></p>
+							<!-- Show password form -->
+							<form class="form-inline" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+								<div class="input-group">
+									<input type="password" name="pagepass" class="form-control" value="" placeholder="<?php echo $tl["placeholder"]["plc2"]; ?>"/>
+									<span class="input-group-btn">
+										<button class="btn btn-default" name="pageprotect" type="submit"><?php echo $tl["general"]["g83"]; ?></button>
+									</span>
+								</div>
+								<input type="hidden" name="pagesec" value="<?php echo $PAGE_ID; ?>"/>
+
+							</form>
+						</div>
+					</div>
+				</div>
 			</div>
-
-		<?php } ?>
-
-		<!-- Show password form -->
-		<form class="form-inline" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-			<div class="input-group">
-				<input type="password" name="pagepass" class="form-control" value="" placeholder="<?php echo $tl["general"]["g29"]; ?>"/>
-				<span class="input-group-btn">
-					<button class="btn btn-default" name="pageprotect" type="submit"><?php echo $tl["general"]["g83"]; ?></button>
-				</span>
-			</div>
-			<input type="hidden" name="pagesec" value="<?php echo $PAGE_ID; ?>"/>
-
-		</form>
+		</section>
 
 	<?php } else {
 		if (isset($JAK_HOOK_PAGE) && is_array ($JAK_HOOK_PAGE)) foreach ($JAK_HOOK_PAGE as $hpage) {

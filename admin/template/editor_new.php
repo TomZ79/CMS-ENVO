@@ -14,23 +14,29 @@
 								</a>
 								<a href="#" id="resizeContainer" class="btn btn-primary btn-xs" title="<?php echo $tl["global_text"]["globaltxt4"]; ?>"><?php echo $tl["global_text"]["globaltxt4"]; ?></a>
 								<a href="#" id="resizeContainerAndEditor" class="btn btn-primary btn-xs" title="<?php echo $tl["global_text"]["globaltxt5"]; ?>"><?php echo $tl["global_text"]["globaltxt5"]; ?></a>
+								<a href="/admin/template/editor_help.php" class="btn btn-primary btn-xs pull-right contentHelp">Nápověda</a>
 							</div>
 							<div id="editorContainer">
-								<div id="htmleditor"></div>
+
+								<?php
+								// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+								echo $Html->addDiv('', 'htmleditor');
+								?>
+
 							</div>
 						</div>
 
 						<?php
-						// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
-						echo $htmlE->addTextArea ('jak_content', '', '', $_REQUEST["jak_content"], array ('id' => 'jak_editor', 'class' => 'form-control hidden'));
-						?>
+						// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+						echo $Html->addTextarea('jak_lcontent', $_REQUEST["jak_content"], '', '', array('id' => 'jak_editor', 'class' => 'form-control hidden'));
 
-					<?php } else {
+						} else {
 
-						// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
-						echo $htmlE->addTextArea ('jak_content', '40', '', $_REQUEST["jak_content"], array ('id' => 'jak_editor', 'class' => 'form-control jakEditor'));
+						// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+						echo $Html->addTextarea('jak_content', $_REQUEST["jak_content"], '40', '', array('id' => 'jak_editor', 'class' => 'form-control hidden'));
 
 					 } ?>
+
 				</td>
 			</tr>
 		</table>
@@ -38,8 +44,8 @@
 	<div class="box-footer">
 
 		<?php
-		// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-		echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+		// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+		echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 		?>
 
 	</div>

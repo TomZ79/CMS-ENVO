@@ -81,10 +81,10 @@ if ($page1 == "e") { ?>
                 <div class="checkbox-singel check-success">
 
                   <?php
-                  // Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-                  echo $htmlE->addInput('checkbox', '', 'jak_delete_all', '', '', '');
-                  // Arguments: for (id of associated form element), text
-                  echo $htmlE->addLabelFor('jak_delete_all', '');
+                  // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                  // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                  echo $Html->addCheckbox('', '', false, 'jak_delete_all');
+                  echo $Html->addLabel('jak_delete_all', '');
                   ?>
 
                 </div>
@@ -172,11 +172,16 @@ if ($page1 == "e") { ?>
 
   <div class="col-md-12 m-b-30">
     <div class="icon_legend">
-      <h3><?php echo $tl["icons"]["i"]; ?></h3>
-      <i title="<?php echo $tl["icons"]["i16"]; ?>" class="fa fa-check"></i>
-      <i title="<?php echo $tl["icons"]["i17"]; ?>" class="fa fa-exclamation"></i>
-      <i title="<?php echo $tl["icons"]["i15"]; ?>" class="fa fa-exclamation-triangle"></i>
-      <i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+
+      <?php
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('h3', $tl["icons"]["i"]);
+      echo $Html->addTag('i', '', 'fa fa-check', array('title' => $tl["icons"]["i16"]));
+      echo $Html->addTag('i', '', 'fa fa-exclamation', array('title' => $tl["icons"]["i17"]));
+      echo $Html->addTag('i', '', 'fa fa-exclamation-triangle', array('title' => $tl["icons"]["i15"]));
+      echo $Html->addTag('i', '', 'fa fa-trash-o', array('title' => $tl["icons"]["i1"]));
+      ?>
+
     </div>
   </div>
 
@@ -188,8 +193,8 @@ if ($page1 == "e") { ?>
   <div class="col-md-12">
 
     <?php
-    // Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
-    echo $htmlE->addSimpleDiv('', $tl["general_error"]["generror3"], array('class' => 'alert bg-info text-white'));
+    // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+    echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
     ?>
 
   </div>

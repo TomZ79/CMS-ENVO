@@ -33,7 +33,7 @@ if ($jkv["printme"]) $printme = 1; ?>
 							<li><i class="icon-calendar3"></i> <?php echo $PAGE_TIME; ?></li>
 						<?php } ?>
 						<!-- Show Hits -->
-						<li><i class="fa fa-eye"></i> <?php echo $tl["general"]["g13"] . $BLOG_HITS; ?></li>
+						<li><i class="fa fa-eye"></i> <?php echo $tl["global_text"]["gtxt"] . $BLOG_HITS; ?></li>
 					</ul><!-- .entry-meta end -->
 				<?php } ?>
 

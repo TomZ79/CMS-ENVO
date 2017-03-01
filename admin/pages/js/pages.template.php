@@ -55,14 +55,15 @@ if ($page == 'template') { ?>
 			e.preventDefault();
 			frameSrc = $(this).attr("href");
 			$('#JAKModalLabel').html("<?php echo ucwords ($page);?>");
-			$('#JAKModal').on('show.bs.modal', function () {
+
+			$('#JAKModal').one('shown.bs.modal', function (e) {
 				$('#JAKModal .modal-dialog').addClass('modal-w-90p');
-				$('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">').appendTo('.body-content');
-			});
-			$('#JAKModal').on('hidden.bs.modal', function () {
+				$('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
+			}).one('hidden.bs.modal', function(e) {
+				$(".body-content").html('');
 				window.location.reload();
-			});
-			$('#JAKModal').modal({show: true});
+			}).modal('show');
+
 		});
 
 		// Show iFrame in modal - install and uninstall
@@ -70,14 +71,15 @@ if ($page == 'template') { ?>
 			e.preventDefault();
 			frameSrc = $(this).attr("href");
 			$('#JAKModalLabel').html("<?php echo ucwords ($page);?>");
-			$('#JAKModal').on('show.bs.modal', function () {
+
+			$('#JAKModal').one('shown.bs.modal', function (e) {
 				$('#JAKModal .modal-dialog').addClass('modal-w-90p');
-				$('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">').appendTo('.body-content');
-			});
-			$('#JAKModal').on('hidden.bs.modal', function () {
+				$('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
+			}).one('hidden.bs.modal', function(e) {
+				$(".body-content").html('');
 				window.location.reload();
-			});
-			$('#JAKModal').modal({show: true});
+			}).modal('show');
+
 		});
 
 		// Show iFrame in modal - help
@@ -85,14 +87,14 @@ if ($page == 'template') { ?>
 			e.preventDefault();
 			frameSrc = $(this).attr("href");
 			$('#JAKModalLabel').html("<?php echo ucwords ($page);?>");
-			$('#JAKModal').on('show.bs.modal', function () {
+
+			$('#JAKModal').one('shown.bs.modal', function (e) {
 				$('#JAKModal .modal-dialog').addClass('modal-w-90p');
-				$('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">').appendTo('.body-content');
-			});
-			$('#JAKModal').on('hidden.bs.modal', function () {
-				window.location.reload();
-			});
-			$('#JAKModal').modal({show: true});
+				$('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
+			}).one('hidden.bs.modal', function(e) {
+				$(".body-content").html('');
+			}).modal('show');
+
 		});
 
 		$('.disabled').click(function (e) {

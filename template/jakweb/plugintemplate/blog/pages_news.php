@@ -26,7 +26,7 @@ if (is_array ($showblogarray) && in_array ("ASC", $showblogarray) || in_array ("
 						<div class="date"><?php echo $bl["created"]; ?></div>
 					</div>
 					<div class="post-comments-count">
-						<i class="fa fa-eye"></i> <?php echo $tl["general"]["g13"] . $bl["hits"]; ?>
+						<i class="fa fa-eye"></i> <?php echo $tl["global_text"]["gtxt"] . $bl["hits"]; ?>
 					</div>
 				</div>
 				<!-- End Post Info -->

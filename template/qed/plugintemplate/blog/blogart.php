@@ -34,7 +34,7 @@ if ($jkv["printme"])
           <ul class="entry-meta">
             <?php if ($SHOWDATE) { ?>
               <li class="entry-date">
-                <i class="icon-calendar"></i><?php echo $PAGE_TIME; ?>
+                <i class="icon-clock-1"></i><?php echo $PAGE_TIME; ?>
               </li>
             <?php } ?>
             <li class="entry-category">

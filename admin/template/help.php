@@ -8,11 +8,11 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&subset=latin-ext" rel="stylesheet">
 
 	<!-- ======= CSS STYLE ======= -->
-	<link rel="stylesheet" href="/admin/doc/css/doc.css">
-	<link rel="stylesheet" href="/admin/doc/js/syntaxhighlighter/styles/shCoreKreatura.css">
-	<link rel="stylesheet" href="/admin/doc/js/syntaxhighlighter/styles/shThemeKreatura.css">
+	<link rel="stylesheet" href="../assets/doc/css/doc.css">
+	<link rel="stylesheet" href="../assets/doc/js/syntaxhighlighter/styles/shCoreKreatura.css">
+	<link rel="stylesheet" href="../assets/doc/js/syntaxhighlighter/styles/shThemeKreatura.css">
 	<!--[if lt IE 9]>
-	<script src="assets/js/html5.js"></script>
+	<script src="../assets/doc/js/html5.js"></script>
 	<![endif]-->
 
 </head>
@@ -109,6 +109,13 @@
 					<li data-deeplink="phpfunctions">Useful PHP Functions</li>
 					<li data-deeplink="menubuilder">Menu Builder Function</li>
 					<li data-deeplink="member_guest">Content for Members/Guests</li>
+				</ul>
+			</li>
+			<li>
+				<span>Class for creating element</span>
+				<ul>
+					<li data-deeplink="phpfunctions">HTML Element</li>
+					<li data-deeplink="xxxxx">xxxxx</li>
 				</ul>
 			</li>
 		</ul>
@@ -529,10 +536,10 @@ APP_PATH.'plugins/yourplugin/file_to_include.php';
 
 				<p>For example:</p>
         <pre name="code" class="brush: php;">
-if (file_exists(APP_PATH.'plugins/yourplugin/admin/lang/'.$jkv["lang"].'.ini')) {
-    $tld = parse_ini_file(APP_PATH.'plugins/yourplugin/admin/lang/'.$jkv["lang"].'.ini', true);
+if (file_exists(APP_PATH.'plugins/yourplugin../assets/lang/'.$jkv["lang"].'.ini')) {
+    $tld = parse_ini_file(APP_PATH.'plugins/yourplugin../assets/lang/'.$jkv["lang"].'.ini', true);
 } else {
-    $tld = parse_ini_file(APP_PATH.'plugins/yourplugin/admin/lang/en.ini', true);
+    $tld = parse_ini_file(APP_PATH.'plugins/yourplugin../assets/lang/en.ini', true);
 }
         </pre>
 
@@ -947,7 +954,7 @@ plugins/yourplugin/template/my_copyright.php
 				<p>You can include a file, for example:</p>
         <pre name="code" class="brush: php;">
 if ($pg['pluginid'] == JAK_PLUGIN_FAQ) {
-  include_once APP_PATH.'plugins/faq/admin/template/faq_connect.php';
+  include_once APP_PATH.'plugins/faq../assets/template/faq_connect.php';
 }
         </pre>
 
@@ -961,7 +968,7 @@ if ($pg['pluginid'] == JAK_PLUGIN_FAQ) {
 
 				<p>You can include a file, for example:</p>
         <pre name="code" class="brush: php;">
-plugins/faq/admin/template/connect_new.php
+plugins/faq../assets/template/connect_new.php
         </pre>
 
 			</article>
@@ -1230,19 +1237,685 @@ jak_build_menu(0, $mheader, $page, 'nav nav-main navbar-nav navbar-right', 'drop
 
 		</section>
 
+		<!-- Class for creating element -->
+		<section>
+
+			<!-- HTML Element -->
+			<article>
+				<h4>Html Class</h4>
+				<p>The Html class is an HTML wrapper for nearly all HTML tags..</p>
+				<hr>
+
+				<form id="live-search" action="" class="live-search" method="post">
+					<p>Enter text to filter tags:</p>
+					<input type="text" class="text-input" id="filter" value="" placeholder="Live Search ..."/>
+				</form>
+
+				<div class="show-tag">
+					<h5>addMeta($name, $content = '', $type = 'name')</h5>
+					<hr>
+					<p>The <strong>meta</strong> method returns meta tag or tags if multi-level array is supplied.</p>
+					<table class="method">
+						<tbody>
+						<tr>
+							<th>Static</th>
+							<td>Yes</td>
+						</tr>
+						<tr>
+							<th>Parameters</th>
+							<td>
+								<table class="parameters">
+									<tbody><tr>
+										<th>Param</th>
+										<th>Default</th>
+										<th class="description">Description</th>
+									</tr>
+									<tr>
+										<th><kbd>$name</kbd></th>
+										<td><i>required</i></td>
+										<td>Can be array containing single or multiple meta parameters or can be name/http-equiv value.</td>
+									</tr>
+									<tr>
+										<th><kbd>$content</kbd></th>
+										<td><i>required</i></td>
+										<td>If no array is supplied on the $name parameter, $content equals to the meta attribute content's value.</td>
+									</tr>
+									<tr>
+										<th><kbd>$type</kbd></th>
+										<td><strong>'name'</strong></td>
+										<td>If no value is supplied will default to name. Can be name or http-equiv.</td>
+									</tr>
+									</tbody></table>
+							</td>
+						</tr>
+						<tr>
+							<th>Returns</th>
+							<td>String containing the correctly formated meta tags.</td>
+						</tr>
+						<tr>
+							<th>Example</th>
+							<td>
+							<pre name="code" class="brush: php;">
+//returns &lt;meta name="description" content="Meta Example!" /&gt
+echo $Html->addMeta('description', 'Meta Example!');
+
+//returns &lt;meta name="robots" content="no-cache" /&gt
+echo $Html->addMeta('robots', 'no-cache');
+
+$meta = array(
+	array('name' => 'robots', 'content' => 'no-cache'),
+	array('name' => 'description', 'content' => 'Meta Example'),
+	array('name' => 'keywords', 'content' => 'fuel, rocks'),
+);
+
+//returns &lt;meta name="robots" content="no-cache" /&gt
+//returns &lt;meta name="description" content="Meta Example!" /&gt
+//returns &lt;meta name="keywords" content="fuel, rocks" /&gt
+echo $Html->addMeta($meta);
+							</pre>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="show-tag">
+					<h5>addAnchorFuel($href, $text, $attributes = array(), $secure = null)</h5>
+					<hr>
+					<p>The <strong>anchor</strong> method returns an HTML anchor tag.</p>
+					<table class="method">
+						<tbody>
+						<tr>
+							<th>Static</th>
+							<td>Yes</td>
+						</tr>
+						<tr>
+							<th>Parameters</th>
+							<td>
+								<table class="parameters">
+									<tr>
+										<th>Param</th>
+										<th>Default</th>
+										<th class="description">Description</th>
+									</tr>
+									<tr>
+										<th><kbd>$href</kbd></th>
+										<td><i>required</i></td>
+										<td>Target url</td>
+									</tr>
+									<tr>
+										<th><kbd>$text</kbd></th>
+										<td><i>required</i></td>
+										<td>Anchor value</td>
+									</tr>
+									<tr>
+										<th><kbd>$attributes</kbd></th>
+										<td><strong>false</strong></td>
+										<td>Array of attributes to be applied to the anchor tag.</td>
+									</tr>
+									<tr>
+										<th><kbd>$secure</kbd></th>
+										<td><i>null</i></td>
+										<td>Set to false to force http, or to true to force https on the created URL</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<th>Returns</th>
+							<td>String containing the correctly formatted anchor tag (and attributes if supplied).</td>
+						</tr>
+						<tr>
+							<th>Example</th>
+							<td>
+							<pre name="code" class="brush: php;">
+//returns &lt;a href="http://www.domain.com/example"&gt;Example&lt;/a&gt;
+echo $Html->addAnchorFuel('example', 'Example');
+
+//returns &lt;a href="http://www.otherdomain.com/example"&gt;Example&lt;/a&gt;
+echo $Html->addAnchorFuel('http://www.otherdomain.com/example', 'Example');
+
+//returns &lt;a href="http://www.domain.com/example" id="a1" class="sample" style="color:red;"&gt;Example&lt;/a&gt;
+echo $Html->addAnchorFuel('example', 'Example', array('id' => 'a1', 'class' => 'sample', 'style' => 'color:red'));
+
+//returns &lt;a href="https://www.domain.com/example" id="a1" class="sample" style="color:red;"&gt;Example&lt;/a&gt;
+echo $Html->addAnchorFuel('example', 'Example', array('id' => 'a1', 'class' => 'sample', 'style' => 'color:red'), true);
+							</pre>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="show-tag">
+					<h5>addImgFuel($src, $attr = array())</h5>
+					<hr>
+					<p>The <strong>img</strong> method returns an image tag.</p>
+					<table class="method">
+						<tbody>
+						<tr>
+							<th>Static</th>
+							<td>Yes</td>
+						</tr>
+						<tr>
+							<th>Parameters</th>
+							<td>
+								<table class="parameters">
+									<tr>
+										<th>Param</th>
+										<th>Default</th>
+										<th class="description">Description</th>
+									</tr>
+									<tr>
+										<th><kbd>$src</kbd></th>
+										<td><i>required</i></td>
+										<td>Path to image.</td>
+									</tr>
+									<tr>
+										<th><kbd>$attr</kbd></th>
+										<td><strong>array()</strong></td>
+										<td>Attributes array. If no alt attribute is supplied, the alt attribute defaults to the filename.</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<th>Returns</th>
+							<td>String containing the correctly formatted image tag.</td>
+						</tr>
+						<tr>
+							<th>Example</th>
+							<td>
+							<pre name="code" class="brush: php;">
+//returns &lt;img src="http://example.com/path/to/image.png" alt="image.png" /&gt;
+echo $Html->addImgFuel('path/to/image.png');
+
+//returns &lt;img src="http://example.com/path/to/image.png" alt="Alt Message" class="myclass" /&gt;
+echo $Html->addImgFuel('path/to/image.png', array("alt" => "Alt Message", 'class' => "myclass"));
+								</pre>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="show-tag">
+					<h5>addUl($list, $style = false)</h5>
+					<hr>
+					<p>The <strong>ul</strong> method returns a correctly formatted single or multi-level unordered list.</p>
+					<table class="method">
+						<tbody>
+						<tr>
+							<th>Static</th>
+							<td>Yes</td>
+						</tr>
+						<tr>
+							<th>Parameters</th>
+							<td>
+								<table class="parameters">
+									<tr>
+										<th>Param</th>
+										<th>Default</th>
+										<th class="description">Description</th>
+									</tr>
+									<tr>
+										<th><kbd>$list</kbd></th>
+										<td><i>required</i></td>
+										<td>Array containing single or multi-level items to be outputted as list items.</td>
+									</tr>
+									<tr>
+										<th><kbd>$style</kbd></th>
+										<td><strong>false</strong></td>
+										<td>Array of attributes to be applied to the ul tag.</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<th>Returns</th>
+							<td>String containing the correctly formated list.</td>
+						</tr>
+						<tr>
+							<th>Example</th>
+							<td>
+							<pre name="code" class="brush: php;">
+/* returns
+&lt;ul id="todo" class="pending"&gt;
+	&lt;li&gt;red&lt;/li&gt;
+	&lt;li&gt;blue&lt;/li&gt;
+	&lt;li&gt;green&lt;/li&gt;
+	&lt;li&gt;yellow&lt;/li&gt;
+&lt;/ul&gt;
+*/
+$items = array('red', 'blue', 'green', 'yellow');
+$attr = array('id' => 'todo','class' => 'pending');
+echo $Html->addUl($items, $attr);
+
+/* returns
+&lt;ul class="order"&gt;
+	&lt;li&gt;colors
+		&lt;ul&gt;
+			&lt;li&gt;blue&lt;/li&gt;
+			&lt;li&gt;red&lt;/li&gt;
+			&lt;li&gt;green&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	&lt;li&gt;sky&lt;/li&gt;
+	&lt;li&gt;tools
+		&lt;ul&gt;
+			&lt;li&gt;screwdriver&lt;/li&gt;
+			&lt;li&gt;hammer&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+*/
+$items = array(
+'colors' => array('blue', 'red', 'green'),
+'sky',
+'tools' => array('screwdriver','hammer')
+);
+$attr = array('class' => 'order');
+echo $Html->addUl($items, $attr);
+							</pre>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="show-tag">
+					<h5>addOl($list, $style = false)</h5>
+					<hr>
+					<p>The <strong>ol</strong> method returns a correctly formatted single or multi-level ordered list.</p>
+					<table class="method">
+						<tbody>
+						<tr>
+							<th>Static</th>
+							<td>Yes</td>
+						</tr>
+						<tr>
+							<th>Parameters</th>
+							<td>
+								<table class="parameters">
+									<tr>
+										<th>Param</th>
+										<th>Default</th>
+										<th class="description">Description</th>
+									</tr>
+									<tr>
+										<th><kbd>$list</kbd></th>
+										<td><i>required</i></td>
+										<td>Array containing single or multi-level items to be outputted as list items.</td>
+									</tr>
+									<tr>
+										<th><kbd>$style</kbd></th>
+										<td><strong>false</strong></td>
+										<td>(Optional) Array of attributes to be applied to the ol tag.</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<th>Returns</th>
+							<td>String containing the correctly formated list.</td>
+						</tr>
+						<tr>
+							<th>Example</th>
+							<td>
+							<pre name="code" class="brush: php;">
+/* returns
+&lt;ol id="todo" class="pending"&gt;
+	&lt;li&gt;red&lt;/li&gt;
+	&lt;li&gt;blue&lt;/li&gt;
+	&lt;li&gt;green&lt;/li&gt;
+	&lt;li&gt;yellow&lt;/li&gt;
+&lt;/ol&gt;
+*/
+$items = array('red', 'blue', 'green', 'yellow');
+$attr = array('id' => 'todo','class' => 'pending');
+echo $Html->addOl($items, $attr);
+
+/* returns
+&lt;ol class="order"&gt;
+	&lt;li&gt;colors
+		&lt;ol&gt;
+			&lt;li&gt;blue&lt;/li&gt;
+			&lt;li&gt;red&lt;/li&gt;
+			&lt;li&gt;green&lt;/li&gt;
+		&lt;/ol&gt;
+	&lt;/li&gt;
+	&lt;li&gt;sky&lt;/li&gt;
+	&lt;li&gt;tools
+		&lt;ol&gt;
+			&lt;li&gt;screwdriver&lt;/li&gt;
+			&lt;li&gt;hammer&lt;/li&gt;
+		&lt;/ol&gt;
+	&lt;/li&gt;
+&lt;/ol&gt;
+*/
+$items = array(
+'colors' => array('blue', 'red', 'green'),
+'sky',
+'tools' => array('screw driver','hammer'));
+$attr = array('class' => 'order');
+echo $Html->addOl($items, $attr);</pre>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="show-tag">
+					<h5>addButtonFuel($field, $value = null, $attributes = array())</h5>
+					<hr>
+					<p>Creates an html button element. It can be set using the fieldname, its value and tag attributes or all in one array as the first argument. </p>
+					<table class="method">
+						<tbody>
+						<tr>
+							<th class="legend">Static</th>
+							<td>Yes</td>
+						</tr>
+						<tr>
+							<th>Parameters</th>
+							<td>
+								<table class="parameters">
+									<tr>
+										<th>Param</th>
+										<th>Default</th>
+										<th class="description">Description</th>
+									</tr>
+									<tr>
+										<th><kbd>$field</kbd></th>
+										<td><i>Required</i></td>
+										<td>Either a string for the fieldname or an array of tag attributes.</td>
+									</tr>
+									<tr>
+										<th><kbd>$value</kbd></th>
+										<td><strong>null</strong></td>
+										<td>Field value, will be ignored when the first param is an array.</td>
+									</tr>
+									<tr>
+										<th><kbd>$attributes</kbd></th>
+										<td><strong>array()</strong></td>
+										<td>These will be used as html tag properties.</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<th>Returns</th>
+							<td>string</td>
+						</tr>
+						<tr>
+							<th>Example</th>
+							<td>
+								<pre name="code" class="brush: php;">
+echo $Html->addButtonFuel('name', 'value', array('style' => 'border: 2px;'));
+								</pre>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="show-tag">
+					<h5>addSubmitFuel($field, $value = null, $attributes = array())</h5>
+					<hr>
+					<p>Creates an html button element, sets the type attribute to 'submit', its value and tag attributes or all in one array as the first argument. </p>
+					<table class="method">
+						<tbody>
+						<tr>
+							<th class="legend">Static</th>
+							<td>Yes</td>
+						</tr>
+						<tr>
+							<th>Parameters</th>
+							<td>
+								<table class="parameters">
+									<tr>
+										<th>Param</th>
+										<th>Default</th>
+										<th class="description">Description</th>
+									</tr>
+									<tr>
+										<th><kbd>$field</kbd></th>
+										<td><i>Required</i></td>
+										<td>Either a string for the fieldname or an array of tag attributes.</td>
+									</tr>
+									<tr>
+										<th><kbd>$value</kbd></th>
+										<td><strong>null</strong></td>
+										<td>Field value, will be ignored when the first param is an array.</td>
+									</tr>
+									<tr>
+										<th><kbd>$attributes</kbd></th>
+										<td><strong>array()</strong></td>
+										<td>These will be used as html tag properties.</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<th>Returns</th>
+							<td>string</td>
+						</tr>
+						<tr>
+							<th>Example</th>
+							<td>
+								<pre name="code" class="brush: php;">
+echo $Html->addSubmitFuel('name', 'value', array('style' => 'border: 2px;'));
+								</pre>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="show-tag">
+					<h5>addTextareaFuel($field, $value = null, $attributes = array())</h5>
+					<hr>
+					<p>Creates an html textarea element. It can be set using the fieldname, its value and tag attributes or all in one attribute for the first argument.</p>
+					<table class="method">
+						<tbody>
+						<tr>
+							<th class="legend">Static</th>
+							<td>Yes</td>
+						</tr>
+						<tr>
+							<th>Parameters</th>
+							<td>
+								<table class="parameters">
+									<tr>
+										<th>Param</th>
+										<th>Default</th>
+										<th class="description">Description</th>
+									</tr>
+									<tr>
+										<th><kbd>$field</kbd></th>
+										<td><i>Required</i></td>
+										<td>Either a string for the fieldname or an array of tag attributes.</td>
+									</tr>
+									<tr>
+										<th><kbd>$value</kbd></th>
+										<td><strong>null</strong></td>
+										<td>Field value, will be ignored when the first param is an array.</td>
+									</tr>
+									<tr>
+										<th><kbd>$attributes</kbd></th>
+										<td><strong>array()</strong></td>
+										<td>These will be used as html tag properties.</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<th>Returns</th>
+							<td>string</td>
+						</tr>
+						<tr>
+							<th>Example</th>
+							<td>
+							<pre name="code" class="brush: php;">
+echo $Html->addTextareaFuel('description', 'enter here', array('rows' => 6, 'cols' => 8));
+// more to be added
+							</pre>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<h4>Procedural helpers</h4>
+				<div class="show-tag">
+					<h5>html_tag($tag, $attr = array(), $content = false)</h5>
+					<hr>
+					<p>The <strong>html_tag</strong> function generates an HTML tag based on the attributes provided.</p>
+					<table class="method">
+						<tbody>
+						<tr>
+							<th class="legend">Static</th>
+							<td>Yes</td>
+						</tr>
+						<tr>
+							<th>Parameters</th>
+							<td>
+								<table class="parameters">
+									<tbody><tr>
+										<th>Param</th>
+										<th>Default</th>
+										<th class="description">Description</th>
+									</tr>
+									<tr>
+										<th><kbd>$field</kbd></th>
+										<td><i>Required</i></td>
+										<td>Either a string for the fieldname or an array of tag attributes.</td>
+									</tr>
+									<tr>
+										<th><kbd>$value</kbd></th>
+										<td><pre class="php"><code class="php" data-result="[object Object]"><span class="keyword">null</span></code></pre></td>
+										<td>Field value, will be ignored when the first param is an array.</td>
+									</tr>
+									<tr>
+										<th><kbd>$attributes</kbd></th>
+										<td><pre class="php"><code class="php" data-result="[object Object]"><span class="keyword">array</span>()</code></pre></td>
+										<td>These will be used as html tag properties.</td>
+									</tr>
+									</tbody></table>
+							</td>
+						</tr>
+						<tr>
+							<th>Returns</th>
+							<td>string</td>
+						</tr>
+						<tr>
+							<th>Example</th>
+							<td>
+								<pre class="php"><code class="php" data-result="[object Object]"><span class="keyword">echo</span> Form::button(<span class="string">'name'</span>, <span class="string">'value'</span>, <span class="keyword">array</span>(<span class="string">'style'</span> =&gt; <span class="string">'border: 2px;'</span>));</code></pre>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="show-tag">
+					<h5>array_to_attr($attr)</h5>
+					<hr>
+					<p>The <strong>array_to_attr</strong> function generates an attributes string.</p>
+					<table class="method">
+						<tbody>
+						<tr>
+							<th>Parameters</th>
+							<td>
+								<table class="parameters col4">
+									<tr>
+										<th>Param</th>
+										<th>Type</th>
+										<th>Default</th>
+										<th class="description">Description</th>
+									</tr>
+									<tr>
+										<th><kbd>$attr</kbd></th>
+										<td><em>array</em></td>
+										<td><em>required</em></td>
+										<td>an array of attributes</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<th>Returns</th>
+							<td>string</td>
+						</tr>
+						<tr>
+							<th>Example</th>
+							<td>
+							<pre name="code" class="brush: php;">
+echo array_to_attr(array(
+	'href' => 'http://somedomain.com/',
+	'class' => 'my_class'
+	));
+
+// href="http://somedomain.com/" class="my_class"
+							</pre>
+
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+
+
+			</article>
+
+			<!-- xxxxx -->
+			<article>
+				<h4>xxxxx</h4>
+				<p>xxxxx.</p>
+        <pre name="code" class="brush: php;">
+xxxxx
+        </pre>
+
+			</article>
+
+		</section>
+
 	</div>
 </div>
 
 <!-- ======= JQUERY SCRIPT ======= -->
-<script src="/js/jquery.js"></script>
-<script src="/admin/doc/js/syntaxhighlighter/scripts/shCore.js" type="text/javascript"></script>
-<script src="/admin/doc/js/syntaxhighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
-<script src="/admin/doc/js/syntaxhighlighter/scripts/shBrushXml.js" type="text/javascript"></script>
-<script src="/admin/doc/js/syntaxhighlighter/scripts/shBrushCss.js" type="text/javascript"></script>
-<script src="/admin/doc/js/syntaxhighlighter/scripts/shBrushPhp.js" type="text/javascript"></script>
-<script src="/admin/doc/js/syntaxhighlighter/scripts/shBrushPlain.js" type="text/javascript"></script>
-<script src="/admin/doc/js/gallery.js"></script>
-<script src="/admin/doc/js/doc.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script src="../assets/doc/js/syntaxhighlighter/scripts/shCore.js" type="text/javascript"></script>
+<script src="../assets/doc/js/syntaxhighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
+<script src="../assets/doc/js/syntaxhighlighter/scripts/shBrushXml.js" type="text/javascript"></script>
+<script src="../assets/doc/js/syntaxhighlighter/scripts/shBrushCss.js" type="text/javascript"></script>
+<script src="../assets/doc/js/syntaxhighlighter/scripts/shBrushPhp.js" type="text/javascript"></script>
+<script src="../assets/doc/js/syntaxhighlighter/scripts/shBrushPlain.js" type="text/javascript"></script>
+<script src="../assets/doc/js/gallery.js"></script>
+<script src="../assets/doc/js/doc.js"></script>
+
+<script>
+	$(document).ready(function(){
+		$("#filter").keyup(function(){
+
+			// Retrieve the input field text and reset the count to zero
+			var filter = $(this).val();
+
+			// Loop through the comment list
+			$(".show-tag h5").each(function(){
+				var parent = $(this).parent()
+
+				// If the list item does not contain the text phrase fade it out
+				if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+					parent.hide();
+
+					// Show the list item if the phrase matches and increase the count by 1
+				} else {
+					parent.show();
+				}
+			});
+		});
+	});
+</script>
 <script type="text/javascript">
 	// Init syntax highlighter
 	SyntaxHighlighter.defaults['toolbar'] = false;

@@ -35,7 +35,7 @@ if (JAK_ASACCESS) {
 								<ul class="list-unstyled list-inline">
 									<!-- Show Date -->
 									<?php if ($SHOWDATE) { ?>
-										<li style="font-size: 80%; font-weight: 700"><i class="icon-calendar"></i>
+										<li style="font-size: 80%; font-weight: 700"><i class="icon-clock-1"></i>
 											<time datetime="<?php echo $PAGE_TIME_HTML5; ?>"><?php echo $PAGE_TIME; ?></time>
 										</li>
 									<?php } ?>
@@ -48,7 +48,7 @@ if (JAK_ASACCESS) {
 
 							<?php if ($JAK_TAGLIST) { ?>
 								<ul class="entry-meta">
-									<?php echo JAK_tags::jakGettaglist_class ($page2, JAK_PLUGIN_ID_NEWS, JAK_PLUGIN_VAR_TAGS, 'tips'); ?>
+									<?php echo JAK_tags::jakGettaglist_class ($page2, JAK_PLUGIN_ID_NEWS, JAK_PLUGIN_VAR_TAGS, 'tips', $tl["title_element"]["tel"]); ?>
 								</ul>
 							<?php } ?>
 
@@ -96,14 +96,15 @@ if (JAK_ASACCESS) {
 					<?php if ($JAK_NAV_PREV) { ?>
 						<li class="previous">
 							<a href="<?php echo $JAK_NAV_PREV; ?>">
-								<i class="fa fa-arrow-left"></i> <?php echo $JAK_NAV_PREV_TITLE; ?>
+								<i class="icon-left-dir"></i>
+								<?php echo jak_cut_text($JAK_NAV_PREV_TITLE, 50, "...");?>
 							</a>
 						</li>
 					<?php }
 					if ($JAK_NAV_NEXT) { ?>
 						<li class="next">
 							<a href="<?php echo $JAK_NAV_NEXT; ?>">
-								<?php echo $JAK_NAV_NEXT_TITLE; ?> <i class="fa fa-arrow-right"></i>
+								<?php echo jak_cut_text($JAK_NAV_NEXT_TITLE, 50, "...");?> <i class="icon-right-dir"></i>
 							</a>
 						</li>
 					<?php } ?>

@@ -564,3 +564,238 @@ footer#main-footer #footer-rights p {
   text-align: right;
 }
 
+/* NAVIGATION SIDEBAR MENU
+======================================================================== */
+.nav-side-menu {
+  width: 100%;
+}
+
+.nav-side-menu li.panel {
+  border: none;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.nav-side-menu .brand {
+  display: block;
+}
+
+.nav-side-menu .toggle-btn {
+  display: none;
+}
+
+.nav-side-menu ul,
+.nav-side-menu li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 35px;
+  cursor: pointer;
+}
+
+.nav-side-menu ul .sub-menu li {
+  border: none;
+  border-bottom: 1px solid #EDEDDE;
+  margin: 0 0 0 25px;
+}
+
+.nav-side-menu ul .sub-menu li a {
+  padding: 8px 0 8px 22px;
+  font-size: 0.9em;
+  line-height: 20px;
+}
+
+.nav-side-menu ul .sub-menu li:hover {
+  background-color: #eee;
+}
+
+.nav-side-menu li {
+  padding-left: 0;
+}
+
+.nav-side-menu li a:hover {
+  text-decoration: underline;
+}
+
+.nav-side-menu li,
+.nav-side-menu li a {
+  text-decoration: none;
+  color: #666;
+}
+
+.nav-side-menu li a {
+  display: block;
+  padding: 7px 5px 7px 10px;
+}
+
+.nav-side-menu li .panel-heading a {
+  display: block;
+  padding: 10px 5px 10px 10px;
+}
+
+.nav-side-menu li a i {
+  padding-left: 10px;
+  width: 20px;
+  padding-right: 20px;
+}
+
+/* Other modification */
+.panel-heading {
+  padding: 0;
+}
+
+/* Count in sidebar */
+.count {
+  float: right;
+  margin-right: 20px;
+  line-height: normal;
+  padding: 3px;
+  border-radius: 5px;
+  margin-top: 6px;
+  background-color: #f5f5f5;
+  font-weight: 700;
+}
+
+.count-small {
+  padding: 3px 7px;
+}
+
+.nav-side-menu ul .sub-menu li a .count {
+  margin-top: 0;
+}
+
+/* Colors */
+.nav-side-menu ul li.active a,
+.nav-side-menu ul li a.active,
+.nav-side-menu ul .sub-menu li a.active {  }
+
+/* Icons */
+.nav-side-menu ul .sub-menu li a:before {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid #333;
+  margin: 7px 0 0 -12px;
+  position: absolute;
+}
+
+.panel-title > a:before {
+  font-family: FontAwesome;
+  content: "\f078";
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 0;
+  vertical-align: middle;
+  float: right;
+  font-size: 14px;
+}
+
+.panel-title > a.collapsed:before {
+  content: "\f054";
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .nav-side-menu {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .nav-side-menu .toggle-btn {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 10 !important;
+    padding: 3px;
+    background-color: #fff;
+    color: #384045;
+    width: 40px;
+    text-align: center;
+  }
+
+  .brand {
+    text-align: left !important;
+    font-size: 22px;
+    padding-left: 20px;
+    line-height: 50px !important;
+  }
+}
+
+@media (min-width: 767px) {
+  .nav-side-menu .menu-list .menu-content {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .nav-side-menu .brand {
+    background-color: #263238;
+    color: #fff;
+    line-height: 50px;
+    display: block;
+    text-align: center;
+  }
+  .nav-side-menu span.toggle-btn:before {
+    font-family: 'custom-icons';
+    content: '\e866';
+    color: #263238;
+    font-size: 18px;
+    margin: 0;
+  }
+
+  .nav-side-menu span.toggle-btn.is-active:before {
+    font-family: 'custom-icons';
+    content: '\e816';
+    color: #263238;
+    font-size: 18px;
+    margin: 0;
+  }
+}
+
+/* SIDEBAR
+======================================================================== */
+/* Sidebar - block */
+.nav-sidebar {
+  width: 100%;
+}
+
+.nav-sidebar ul {
+  padding-left: 10px;
+}
+
+.nav-sidebar li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 30px;
+  cursor: pointer;
+}
+
+/* Sidebar - inline */
+.nav-sidebar-inline {
+  width: 100%;
+}
+.nav-sidebar-inline ul {
+  padding-left: 10px;
+}
+.nav-sidebar-inline li {
+  display: inline-block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-sidebar-inline li.tag-cloud a {
+  color: #111;
+  background: #C7CFB6;
+  border-color: transparent;
+  padding: 5px;
+  font-size: 14px !important;
+}

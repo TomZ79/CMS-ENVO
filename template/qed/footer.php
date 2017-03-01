@@ -1,21 +1,38 @@
-		<?php if (empty($JAK_HOOK_SIDE_GRID) && (!empty($page)) && ($page != 'offline')  && ($page != '404') && ($jkv["searchform"])) { ?>
+		<?php
+
+		/* GRID SYSTEM FOR DIFFERENT PAGE - show main section without sidebar - END TAG */
+
+		if ((empty($JAK_HOOK_SIDE_GRID) && (!empty($page)) && (!$PAGE_PASSWORD)) &&
+       ($page != 'offline') &&
+       ($page != '404') &&
+       ($jkv["searchform"]) ||
+       (empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSION[ 'pagesecurehash' . $PAGE_ID ]) ||
+       (empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && JAK_ASACCESS)) {
+		?>
 						</div>
 					</div>
 				</section>
-				<?php } ?>
-
-		<?php if ((empty($JAK_HOOK_SIDE_GRID) && (empty($page))) || ($page == 'offline') || ($page == '404') || (!$jkv["searchform"])) { ?>
-
 		<?php } ?>
 
-		<?php if (!empty($JAK_HOOK_SIDE_GRID)) { ?>
+		<?php
+
+		/* GRID SYSTEM FOR DIFFERENT PAGE - show main section with sidebar - END TAG */
+
+		if ((!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && ($PAGE_PASSWORD == $_SESSION[ 'pagesecurehash' . $PAGE_ID ])) ||
+       (!empty($JAK_HOOK_SIDE_GRID) && !$PAGE_PASSWORD) ||
+       (!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && JAK_ASACCESS) ||
+       (!empty($JAK_HOOK_SIDE_GRID) && (!empty($page)) && (!$PAGE_PASSWORD))) {
+    ?>
+							</div>
+
+			<!-- Sidebar if right -->
+			<?php if (!empty($JAK_HOOK_SIDE_GRID) && $jkv["sidebar_location_tpl"] == "right") {
+				include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/sidebar.php';
+			} ?>
+
+						</div>
 					</div>
-
-					<!-- Sidebar if right -->
-					<?php if (!empty($JAK_HOOK_SIDE_GRID) && $jkv["sidebar_location_tpl"] == "right") {
-						include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/sidebar.php';
-					} ?>
-
+				</section>
 		<?php } ?>
 
 	</main>
@@ -208,14 +225,13 @@
 	<?php } ?>
 
 </div>
-<!-- global wrapper -->
+<!-- Global wrapper -->
 
 <!-- End Document  ================================================== -->
 
 <!-- Placed at the end of the document so the pages load faster -->
 <script type="text/javascript" src="/template/<?php echo $jkv["sitestyle"];?>/js-plugins/jquery/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="/template/<?php echo $jkv["sitestyle"];?>/js-plugins/jquery-ui/jquery-ui-1.8.23.custom.min.js"></script>
-
 <!-- External framework plugins -->
 <?php if ($jkv["activeroyalslider_qed_tpl"] == 1) { ?>
 <script type="text/javascript" src="/template/<?php echo $jkv["sitestyle"];?>/js-plugins/royalslider/jquery.royalslider.min.js"></script>
@@ -303,19 +319,25 @@ if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT;
 <!-- Notification -->
 <?php if (isset($_SESSION["infomsg"])) { ?>
 <script type="text/javascript">
-	$.notify({icon: 'fa fa-info-circle', message: '<?php echo $_SESSION["infomsg"];?>'}, {type: 'info'});
+	$.notify({icon: 'icon-info', message: '<?php echo $_SESSION["infomsg"];?>'}, {type: 'info'});
 </script>
 <?php } if (isset($_SESSION["successmsg"])) { ?>
 <script type="text/javascript">
-	$.notify({icon: 'fa fa-check-square-o', message: '<?php echo $_SESSION["successmsg"];?>'}, {type: 'success'});
+	$.notify({icon: 'icon-check', message: '<?php echo $_SESSION["successmsg"];?>'}, {type: 'success'});
 </script>
 <?php } if (isset($_SESSION["errormsg"])) { ?>
 <script type="text/javascript">
-	$.notify({icon: 'fa fa-exclamation-triangle', message: '<?php echo $_SESSION["errormsg"];?>'}, {type: 'danger'});
+	$.notify({icon: 'icon-attention', message: '<?php echo $_SESSION["errormsg"];?>'}, {type: 'danger'});
 </script>
-<?php } ?>
-
-<?php if ($jkv["offline"] == 1 && JAK_ASACCESS) { ?>
+<?php } if ($errorpp) { ?>
+	<script type="text/javascript">
+		$.notify({icon: 'icon-attention', message: '<?php echo $errorpp["e"];?>'}, {type: 'danger'});
+	</script>
+<?php } if ($PAGE_PASSWORD && JAK_ASACCESS) { ?>
+	<script type="text/javascript">
+		$.notify({icon: 'icon-info', message: '<?php echo $tl["notification"]["n5"];?>'}, {type: 'info',delay: 0});
+	</script>
+<?php } if ($jkv["offline"] == 1 && JAK_ASACCESS) { ?>
 <script type="text/javascript">
 	$.notify({
 		// Options
@@ -358,41 +380,35 @@ if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT;
 
 <?php if ($jkv["loginShow_qed_tpl"] == 1) { if (!JAK_USERID) { ?>
 <!-- Modal - Login -->
-<div class="modal centermodal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginModal" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h4 class="modal-title">&nbsp;</h4>
-			</div>
-			<div class="modal-body">
-				<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-sm-8 col-sm-offset-2">
-								<div class="input-group mb-small" id="top-login-username">
-									<span class="input-group-addon"><i class="icon-user-md"></i></span>
-									<input type="text" class="form-control" name="jakU" id="username" value="<?php if (isset($_REQUEST["jakU"])) echo $_REQUEST["jakU"]; ?>" placeholder="<?php echo $tl["login"]["l1"]; ?>"/>
-								</div>
-								<div class="input-group mb-small" id="top-login-password">
-									<span class="input-group-addon"><i class="icon-key"></i></span>
-									<span class="show-pass"><i class="icon-eye"></i></span>
-									<input type="password" class="form-control" name="jakP" id="password" placeholder="<?php echo $tl["login"]["l2"]; ?>"/>
-								</div>
-								<div class="form-group">
-									<label class="checkbox-inline">
-									<input type="checkbox" name="lcookies" value="1"> <?php echo $tl["notification"]["n2"]; ?>
-									</label>
-								</div>
-								<button type="submit" name="login" class="btn btn-default btn-sm btn-block"><?php echo $tl["general"]["g146"]; ?></button>
-								<input type="hidden" name="home" value="0"/>
+<div id="LoginModal" class="full-screen-nav">
+	<span class="full-screen-nav-close"></span>
+	<div class="full-screen-nav-content">
+		<div class="full-screen-nav-general">
+			<h1>Login to web</h1>
+			<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-4 col-sm-offset-4">
+							<div class="input-group mb-small" id="top-login-username">
+								<span class="input-group-addon"><i class="icon-user-md"></i></span>
+								<input type="text" class="form-control" name="jakU" id="username" value="<?php if (isset($_REQUEST["jakU"])) echo $_REQUEST["jakU"]; ?>" placeholder="<?php echo $tl["login"]["l1"]; ?>"/>
 							</div>
+							<div class="input-group mb-small" id="top-login-password">
+								<span class="input-group-addon"><i class="icon-key"></i></span>
+								<span class="show-pass"><i class="icon-eye"></i></span>
+								<input type="password" class="form-control" name="jakP" id="password" placeholder="<?php echo $tl["login"]["l2"]; ?>"/>
+							</div>
+							<div class="form-group">
+								<label class="checkbox-inline">
+									<input type="checkbox" name="lcookies" value="1"> <?php echo $tl["notification"]["n2"]; ?>
+								</label>
+							</div>
+							<button type="submit" name="login" class="btn btn-default btn-sm btn-block"><?php echo $tl["general"]["g146"]; ?></button>
+							<input type="hidden" name="home" value="0"/>
 						</div>
 					</div>
-				</form>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default btn-sm" data-dismiss="modal"><?php echo $tl["general"]["g177"]; ?></button>
-			</div>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>
@@ -413,6 +429,28 @@ if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT;
 		</div>
 	</div>
 </div>
+
+<!-- Search script -->
+<?php if ($jkv["ajaxsearch"] && $AJAX_SEARCH_PLUGIN_URL) { ?>
+<script type="text/javascript">
+	$(document).ready(function () {
+
+		$('#ajaxsearchForm').ajaxSearch({
+			apiURL: '<?php echo BASE_URL . $AJAX_SEARCH_PLUGIN_URL;?>',
+			msg: '<?php echo $tl["general"]["g158"];?>',
+			seo: <?php echo $AJAX_SEARCH_PLUGIN_SEO;?>});
+
+		$('#Jajaxs').alphanumeric({nocaps: false, allow: ' +*'});
+		$('.hideAdvSearchResult').fadeIn();
+
+	});
+</script>
+<?php } ?>
+
+<!-- EU Cookies -->
+<?php if ($jkv["eucookie_enabled"] == 1) {
+	include APP_PATH . '/assets/js/eu-cookies.php';
+} ?>
 
 </body>
 </html>

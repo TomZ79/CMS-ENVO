@@ -39,8 +39,8 @@ if ($errors) { ?>
 		<div class="savebutton hidden-xs">
 
 			<?php
-			// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-			echo $htmlE->addButtonSubmit('save', '', 'btn btn-success button', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ');
+			// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+			echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button');
 			?>
 
 		</div>
@@ -59,10 +59,9 @@ if ($errors) { ?>
 									<div class="col-md-5">
 
 										<?php
-										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-										// Add Html Element -> endTag (Arguments: tag)
-										echo $htmlE->startTag('strong') . $tl["hook_box_content"]["hookbc"] . $htmlE->endTag('strong');
-										echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+										// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+										echo $Html->addTag('strong', $tl["hook_box_content"]["hookbc"]);
+										echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
 										?>
 
 									</div>
@@ -70,8 +69,8 @@ if ($errors) { ?>
 										<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 
 											<?php
-											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-											echo $htmlE->addInput ('text', 'jak_name', '', 'form-control', $_REQUEST["jak_name"], '');
+											// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+											echo $Html->addInput('text', 'jak_name', $_REQUEST["jak_name"], '', 'form-control');
 											?>
 
 										</div>
@@ -81,10 +80,9 @@ if ($errors) { ?>
 									<div class="col-md-5">
 
 										<?php
-										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-										// Add Html Element -> endTag (Arguments: tag)
-										echo $htmlE->startTag('strong') . $tl["hook_box_content"]["hookbc1"] . $htmlE->endTag('strong');
-										echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+										// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+										echo $Html->addTag('strong', $tl["hook_box_content"]["hookbc1"]);
+										echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
 										?>
 
 									</div>
@@ -103,9 +101,8 @@ if ($errors) { ?>
 									<div class="col-md-5">
 
 										<?php
-										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-										// Add Html Element -> endTag (Arguments: tag)
-										echo $htmlE->startTag('strong') . $tl["hook_box_content"]["hookbc2"] . $htmlE->endTag('strong');
+										// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+										echo $Html->addTag('strong', $tl["hook_box_content"]["hookbc2"]);
 										?>
 
 									</div>
@@ -122,10 +119,9 @@ if ($errors) { ?>
 									<div class="col-md-5">
 
 										<?php
-										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-										// Add Html Element -> endTag (Arguments: tag)
-										echo $htmlE->startTag('strong') . $tl["hook_box_content"]["hookbc3"] . $htmlE->endTag('strong');
-										echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+										// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+										echo $Html->addTag('strong', $tl["hook_box_content"]["hookbc3"]);
+										echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
 										?>
 
 									</div>
@@ -133,9 +129,9 @@ if ($errors) { ?>
 										<div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
 
 											<?php
-											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
 											(isset($_REQUEST["jak_exorder"]) && (!empty($_REQUEST["jak_exorder"]))) ? $value = $_REQUEST["jak_exorder"] : $value = '4';
-											echo $htmlE->addInput ('text', 'jak_exorder', '', 'form-control', $value, '', array ('maxlength' => '5'));
+											// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+											echo $Html->addInput('text', 'jak_exorder', $value, '', 'form-control', array ('maxlength' => '5'));
 											?>
 
 										</div>
@@ -147,8 +143,8 @@ if ($errors) { ?>
 					<div class="box-footer">
 
 						<?php
-						// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-						echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+						// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+						echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 						?>
 
 					</div>
@@ -160,18 +156,18 @@ if ($errors) { ?>
 					<div class="box-body">
 
 						<?php
-						// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
-						echo $htmlE->addSimpleDiv ('htmleditor', '');
-						// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
-						echo $htmlE->addTextArea ('jak_phpcode', '', '', $_REQUEST["jak_phpcode"], array ('id' => 'jak_phpcode', 'class' => 'form-control hidden'));
+						// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+						echo $Html->addDiv('', 'htmleditor');
+						// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+						echo $Html->addTextarea('jak_phpcode', $_REQUEST["jak_phpcode"], '', '', array('id' => 'jak_phpcode', 'class' => 'form-control hidden'));
 						?>
 
 					</div>
 					<div class="box-footer">
 
 						<?php
-						// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-						echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+						// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+						echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 						?>
 
 					</div>

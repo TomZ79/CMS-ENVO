@@ -84,10 +84,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jakSH']) || !empty($pa
 	}
 }
 
-
 // Always tell the searchword
 $JAK_SEARCH_WORD_RESULT = $SearchInput;
-$JAK_SEARCH_CLOUD       = JAK_tags::jakGettagcloud ('search', 'searchlog', $jkv["taglimit"], $jkv["tagmaxfont"], $jkv["tagminfont"]);
+$JAK_SEARCH_CLOUD       = JAK_tags::jakGettagcloud ('search', 'searchlog', $jkv["taglimit"], $jkv["tagmaxfont"], $jkv["tagminfont"], $tl["title_element"]["tel"]);
 
 // Check if we have a language and display the right stuff
 $PAGE_TITLE   = $jkv["searchtitle"];
@@ -105,7 +104,7 @@ while ($grow = $grid->fetch_assoc ()) {
 }
 
 // Now get the new meta keywords and description maker
-$PAGE_KEYWORDS    = str_replace (" ", "", JAK_Base::jakCleanurl ($tl["search"]["s"]) . ($JAK_SEARCH_CLOUD ? "," . strip_tags ($JAK_SEARCH_CLOUD) : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+$PAGE_KEYWORDS    = str_replace (" ", "", JAK_Base::jakCleanurl ($tl["placeholder"]["plc"]) . ($JAK_SEARCH_CLOUD ? "," . strip_tags ($JAK_SEARCH_CLOUD) : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
 $PAGE_DESCRIPTION = $jkv["metadesc"];
 
 // EN: Load the template

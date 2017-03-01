@@ -40,7 +40,7 @@ if (JAK_ASACCESS) {
 						<?php } ?>
 						<!-- Show Hits -->
 						<?php if ($SHOWHITS) { ?>
-							<li><i class="fa fa-eye"></i> <?php echo $tl["general"]["g13"] . $PAGE_HITS; ?></li>
+							<li><i class="fa fa-eye"></i> <?php echo $tl["global_text"]["gtxt"] . $PAGE_HITS; ?></li>
 						<?php } ?>
 					</ul><!-- .entry-meta end -->
 				<?php } ?>

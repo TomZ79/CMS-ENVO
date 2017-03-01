@@ -1,0 +1,10 @@
+/*!
+ * Color Teal Datetimepicker for Bootstrap 3
+ * version : 4.17.42
+ * https://github.com/Eonasdan/bootstrap-datetimepicker/
+ */
+
+.bootstrap-datetimepicker-widget table td.active,
+.bootstrap-datetimepicker-widget table td.active:hover {
+  background-color: #00897B;
+}
