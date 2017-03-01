@@ -70,22 +70,27 @@ if ($errors) { ?>
 						<div class="block">
 							<div class="block-content">
 								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["site_box_content"]["sitebc"]; ?></strong></div>
+									<div class="col-md-5">
+
+										<?php
+										// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+										echo $Html->addTag('strong', $tl["site_box_content"]["sitebc"]);
+										?>
+
+									</div>
 									<div class="col-md-7">
 										<div class="radio radio-success">
 
 											<?php
-											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-											($jkv["offline"] == '1') ? $checked = 'yes' : $checked = 'no';
-											echo $htmlE->addInput('radio', 'jak_online', 'jak_online1', '', '1', $checked);
-											// Arguments: for (id of associated form element), text
-											echo $htmlE->addLabelFor('jak_online1', $tl["checkbox"]["chk"]);
+											// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+											echo $Html->addRadio('jak_online', '1', ($jkv["offline"] == '1') ? TRUE : FALSE, 'jak_online1');
+											// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+											echo $Html->addLabel('jak_online1', $tl["checkbox"]["chk"]);
 
-											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-											($jkv["offline"] == '0') ? $checked = 'yes' : $checked = 'no';
-											echo $htmlE->addInput('radio', 'jak_online', 'jak_online2', '', '0', $checked);
-											// Arguments: for (id of associated form element), text
-											echo $htmlE->addLabelFor('jak_online2', $tl["checkbox"]["chk1"]);
+											// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+											echo $Html->addRadio('jak_online', '0', ($jkv["offline"] == '0') ? TRUE : FALSE, 'jak_online2');
+											// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+											echo $Html->addLabel('jak_online2', $tl["checkbox"]["chk1"]);
 											?>
 
 										</div>
@@ -95,9 +100,8 @@ if ($errors) { ?>
 									<div class="col-md-5">
 
 										<?php
-										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-										// Add Html Element -> endTag (Arguments: tag)
-										echo $htmlE->startTag('strong') . $tl["site_box_content"]["sitebc1"] . $htmlE->endTag('strong');
+										// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+										echo $Html->addTag('strong', $tl["site_box_content"]["sitebc1"]);
 										?>
 
 									</div>
@@ -115,9 +119,8 @@ if ($errors) { ?>
 									<div class="col-md-5">
 
 										<?php
-										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-										// Add Html Element -> endTag (Arguments: tag)
-										echo $htmlE->startTag('strong') . $tl["site_box_content"]["sitebc2"] . $htmlE->endTag('strong');
+										// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+										echo $Html->addTag('strong', $tl["site_box_content"]["sitebc2"]);
 										?>
 
 									</div>
@@ -156,10 +159,9 @@ if ($errors) { ?>
 									<div class="col-md-5">
 
 										<?php
-										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-										// Add Html Element -> endTag (Arguments: tag)
-										echo $htmlE->startTag('strong') . $tl["site_box_content"]["sitebc3"] . $htmlE->endTag('strong');
-										echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+										// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+										echo $Html->addTag('strong', $tl["site_box_content"]["sitebc3"]);
+										echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
 										?>
 
 									</div>
@@ -167,8 +169,8 @@ if ($errors) { ?>
 										<div class="form-group no-margin <?php if (isset($errors["e2"])) echo "has-error"; ?>">
 
 											<?php
-											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-											echo $htmlE->addInput('text', 'jak_title', 'sitetitle', 'form-control', $jkv["title"], '');
+											// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+											echo $Html->addInput('text', 'jak_title', $jkv["title"], 'sitetitle', 'form-control');
 											?>
 
 										</div>
@@ -178,17 +180,16 @@ if ($errors) { ?>
 									<div class="col-md-5">
 
 										<?php
-										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-										// Add Html Element -> endTag (Arguments: tag)
-										echo $htmlE->startTag('strong') . $tl["site_box_content"]["sitebc4"] . $htmlE->endTag('strong');
+										// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+										echo $Html->addTag('strong', $tl["site_box_content"]["sitebc4"]);
 										?>
 
 									</div>
 									<div class="col-md-7">
 
 										<?php
-										// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-										echo $htmlE->addInput('text', 'jak_description', 'metadesc', 'form-control', $jkv["metadesc"], '');
+										// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+										echo $Html->addInput('text', 'jak_description', $jkv["metadesc"], 'metadesc', 'form-control');
 										?>
 
 									</div>
@@ -197,10 +198,10 @@ if ($errors) { ?>
 									<div class="col-md-12">
 
 										<?php
-										// Arguments: for (id of associated form element), text
-										echo $htmlE->addLabelFor('', '<strong>' . $tl["site_box_content"]["sitebc5"] . '</strong>');
-										// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-										echo $htmlE->addInput('text', 'jak_keywords', 'metakey', 'form-control', $jkv["metakey"], '');
+										// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+										echo $Html->addLabel('', '<strong>' . $tl["site_box_content"]["sitebc5"] . '</strong>');
+										// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+										echo $Html->addInput('text', 'jak_keywords', $jkv["metakey"], 'metakey', 'form-control');
 										?>
 
 									</div>
@@ -209,17 +210,16 @@ if ($errors) { ?>
 									<div class="col-md-5">
 
 										<?php
-										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-										// Add Html Element -> endTag (Arguments: tag)
-										echo $htmlE->startTag('strong') . $tl["site_box_content"]["sitebc6"] . $htmlE->endTag('strong');
+										// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+										echo $Html->addTag('strong', $tl["site_box_content"]["sitebc6"]);
 										?>
 
 									</div>
 									<div class="col-md-7">
 
 										<?php
-										// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-										echo $htmlE->addInput('text', 'jak_author', 'metaauthor', 'form-control', $jkv["metaauthor"], '');
+										// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+										echo $Html->addInput('text', 'jak_author', $jkv["metaauthor"], 'metaauthor', 'form-control');
 										?>
 
 									</div>
@@ -228,9 +228,8 @@ if ($errors) { ?>
 									<div class="col-md-5">
 
 										<?php
-										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-										// Add Html Element -> endTag (Arguments: tag)
-										echo $htmlE->startTag('strong') . $tl["site_box_content"]["sitebc7"] . $htmlE->endTag('strong');
+										// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+										echo $Html->addTag('strong', $tl["site_box_content"]["sitebc7"]);
 										?>
 
 									</div>
@@ -238,17 +237,15 @@ if ($errors) { ?>
 										<div class="radio radio-success">
 
 											<?php
-											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-											($jkv["robots"] == '1') ? $checked = 'yes' : $checked = 'no';
-											echo $htmlE->addInput('radio', 'jak_robots', 'jak_robots1', '', '1', $checked);
-											// Arguments: for (id of associated form element), text
-											echo $htmlE->addLabelFor('jak_robots1', $tl["checkbox"]["chk"]);
+											// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+											echo $Html->addRadio('jak_robots', '1', ($jkv["robots"] == '1') ? TRUE : FALSE, 'jak_robots1');
+											// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+											echo $Html->addLabel('jak_robots1', $tl["checkbox"]["chk"]);
 
-											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-											($jkv["robots"] == '0') ? $checked = 'yes' : $checked = 'no';
-											echo $htmlE->addInput('radio', 'jak_robots', 'jak_robots2', '', '0', $checked);
-											// Arguments: for (id of associated form element), text
-											echo $htmlE->addLabelFor('jak_robots2', $tl["checkbox"]["chk1"]);
+											// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+											echo $Html->addRadio('jak_robots', '0', ($jkv["robots"] == '0') ? TRUE : FALSE, 'jak_robots2');
+											// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+											echo $Html->addLabel('jak_robots2', $tl["checkbox"]["chk1"]);
 											?>
 
 										</div>
@@ -258,17 +255,16 @@ if ($errors) { ?>
 									<div class="col-md-5">
 
 										<?php
-										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-										// Add Html Element -> endTag (Arguments: tag)
-										echo $htmlE->startTag('strong') . $tl["site_box_content"]["sitebc8"] . $htmlE->endTag('strong');
+										// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+										echo $Html->addTag('strong', $tl["site_box_content"]["sitebc8"]);
 										?>
 
 									</div>
 									<div class="col-md-7">
 
 										<?php
-										// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
-										echo $htmlE->addTextArea('jak_copy', '4', '', jak_edit_safe_userpost($jkv["copyright"]), array('id' => 'copyright', 'class' => 'form-control'));
+										// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+										echo $Html->addTextarea('jak_copy', jak_edit_safe_userpost($jkv["copyright"]), '4', '', array('id' => 'copyright', 'class' => 'form-control'));
 										?>
 
 									</div>

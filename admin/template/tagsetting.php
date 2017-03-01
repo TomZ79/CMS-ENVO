@@ -98,9 +98,8 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["tag_box_content"]["tagbc"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["tag_box_content"]["tagbc"]);
 												?>
 
 											</div>
@@ -108,8 +107,8 @@ if ($errors) { ?>
 												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													echo $htmlE->addInput('text', 'jak_title', '', 'form-control', $JAK_FORM_DATA["title"], '');
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html->addInput('text', 'jak_title', $JAK_FORM_DATA["title"], '', 'form-control');
 													?>
 
 												</div>
@@ -119,17 +118,16 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["tag_box_content"]["tagbc1"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["tag_box_content"]["tagbc1"]);
 												?>
 
 											</div>
 											<div class="col-md-7">
 
 												<?php
-												// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
-												echo $htmlE->addTextArea('jak_lcontent', '4', '', jak_edit_safe_userpost($JAK_FORM_DATA["content"]), array('class' => 'form-control'));
+												// Add Html Element -> addTextArea (Arguments: name, value, rows, cols, optional assoc. array)
+												echo $Html->addTextarea('jak_lcontent',  jak_edit_safe_userpost($JAK_FORM_DATA["content"]), '4', '', array('class' => 'form-control'));
 												?>
 
 											</div>
@@ -159,9 +157,8 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["tag_box_content"]["tagbc2"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["tag_box_content"]["tagbc2"]);
 												?>
 
 											</div>
@@ -169,8 +166,8 @@ if ($errors) { ?>
 												<div class="form-group no-margin <?php if (isset($errors["e1"])) echo "has-error"; ?>">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													echo $htmlE->addInput('text', 'jak_limit', '', 'form-control', $jkv["taglimit"], '');
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html->addInput('text', 'jak_limit', $jkv["taglimit"], '', 'form-control');
 													?>
 
 												</div>
@@ -180,9 +177,8 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["tag_box_content"]["tagbc3"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["tag_box_content"]["tagbc3"]);
 												?>
 
 											</div>
@@ -190,8 +186,8 @@ if ($errors) { ?>
 												<div class="form-group no-margin <?php if (isset($errors["e2"])) echo "has-error"; ?>">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													echo $htmlE->addInput('text', 'jak_min', '', 'form-control', $jkv["tagminfont"], '');
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html->addInput('text', 'jak_min', $jkv["tagminfont"], '', 'form-control');
 													?>
 
 												</div>
@@ -201,17 +197,16 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["tag_box_content"]["tagbc4"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["tag_box_content"]["tagbc4"]);
 												?>
 
 											</div>
 											<div class="col-md-7" <?php if (isset($errors["e3"])) echo "has-error"; ?>>
 
 												<?php
-												// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-												echo $htmlE->addInput('text', 'jak_max', '', 'form-control', $jkv["tagmaxfont"], '');
+												// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+												echo $Html->addInput('text', 'jak_max', $jkv["tagmaxfont"], '', 'form-control');
 												?>
 
 											</div>

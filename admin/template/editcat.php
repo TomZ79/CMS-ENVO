@@ -322,7 +322,7 @@ if ($errors) { ?>
                       <div class="col-md-12">
 
                         <?php
-                        // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+                        // Add Html Element -> addTextArea (Arguments: name, value, rows, cols, optional assoc. array)
                         echo $Html->addTextarea('jak_lcontent_meta_desc', jak_edit_safe_userpost(htmlspecialchars($JAK_FORM_DATA["metadesc"])), '4', '', array('id' => 'jak_editor_light_meta_desc', 'class' => 'form-control', 'maxlength' => '400'));
                         ?>
 

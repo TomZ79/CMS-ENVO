@@ -71,9 +71,8 @@ if ($page1 == "e") { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["sm_box_content"]["smbc"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["sm_box_content"]["smbc"]);
 												?>
 
 											</div>
@@ -81,8 +80,8 @@ if ($page1 == "e") { ?>
 												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													echo $htmlE->addInput('text', 'jak_title', '', 'form-control', $JAK_FORM_DATA["title"], '');
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html->addInput('text', 'jak_title', $JAK_FORM_DATA["title"], '', 'form-control');
 													?>
 
 												</div>
@@ -92,17 +91,16 @@ if ($page1 == "e") { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tl["sm_box_content"]["smbc1"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tl["sm_box_content"]["smbc1"]);
 												?>
 
 											</div>
 											<div class="col-md-7">
 
 												<?php
-												// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
-												echo $htmlE->addTextArea('jak_lcontent', '5', '', jak_edit_safe_userpost ($JAK_FORM_DATA["content"]), array('id' => 'jakEditor', 'class' => 'jakEditorLight form-control', 'style' => 'width:100%;'));
+												// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+												echo $Html->addTextarea('jak_lcontent', jak_edit_safe_userpost($JAK_FORM_DATA["content"]), '5', '', array('id' => 'jakEditor', 'class' => 'jakEditorLight form-control', 'style' => 'width:100%;'));
 												?>
 
 											</div>

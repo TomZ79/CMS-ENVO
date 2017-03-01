@@ -50,8 +50,8 @@ if ($page3 == "e") { ?>
 		<div class="savebutton hidden-xs">
 
 			<?php
-			// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-			echo $htmlE->addButtonSubmit('save', '', 'btn btn-success button', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ');
+			// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+			echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button');
 			?>
 
 		</div>
@@ -90,10 +90,9 @@ if ($page3 == "e") { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tlbh["bh_box_content"]["bhbc"] . $htmlE->endTag('strong');
-												echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlbh["bh_box_content"]["bhbc"]);
+												echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
 												?>
 
 											</div>
@@ -101,8 +100,8 @@ if ($page3 == "e") { ?>
 												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													echo $htmlE->addInput('text', 'jak_title', '', 'form-control', $JAK_FORM_DATA["title"], '');
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html->addInput('text', 'jak_title', $JAK_FORM_DATA["title"], '', 'form-control');
 													?>
 
 												</div>
@@ -114,8 +113,8 @@ if ($page3 == "e") { ?>
 							<div class="box-footer">
 
 								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 								?>
 
 							</div>
@@ -143,8 +142,8 @@ if ($page3 == "e") { ?>
 							<div class="box-footer">
 
 								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 								?>
 
 							</div>
@@ -177,8 +176,8 @@ if ($page3 == "e") { ?>
 							<div class="box-footer">
 
 								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 								?>
 
 							</div>
@@ -194,9 +193,8 @@ if ($page3 == "e") { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tlbh["bh_box_content"]["bhbc3"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlbh["bh_box_content"]["bhbc3"]);
 												?>
 
 											</div>
@@ -213,9 +211,8 @@ if ($page3 == "e") { ?>
 											<div class="col-md-7">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tlbh["bh_box_content"]["bhbc4"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlbh["bh_box_content"]["bhbc4"]);
 												?>
 
 											</div>
@@ -223,17 +220,15 @@ if ($page3 == "e") { ?>
 												<div class="radio radio-success">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													($JAK_FORM_DATA["newsmain"] == '1') ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput('radio', 'jak_mainnews', 'jak_mainnews1', '', '1', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor('jak_mainnews1', $tl["checkbox"]["chk"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_mainnews', '1', ($JAK_FORM_DATA["newsmain"] == '1') ? TRUE : FALSE, 'jak_mainnews1');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_mainnews1', $tl["checkbox"]["chk"]);
 
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													($JAK_FORM_DATA["newsmain"] == '0') ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput('radio', 'jak_mainnews', 'jak_mainnews2', '', '0', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor('jak_mainnews2', $tl["checkbox"]["chk1"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_mainnews', '0', ($JAK_FORM_DATA["newsmain"] == '0') ? TRUE : FALSE, 'jak_mainnews2');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_mainnews2', $tl["checkbox"]["chk1"]);
 													?>
 
 												</div>
@@ -244,9 +239,8 @@ if ($page3 == "e") { ?>
 												<div class="col-md-7">
 
 													<?php
-													// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-													// Add Html Element -> endTag (Arguments: tag)
-													echo $htmlE->startTag('strong') . $tlbh["bh_box_content"]["bhbc5"] . $htmlE->endTag('strong');
+													// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+													echo $Html->addTag('strong', $tlbh["bh_box_content"]["bhbc5"]);
 													?>
 
 												</div>
@@ -254,17 +248,15 @@ if ($page3 == "e") { ?>
 													<div class="radio radio-success">
 
 														<?php
-														// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-														($JAK_FORM_DATA["tags"] == '1') ? $checked = 'yes' : $checked = 'no';
-														echo $htmlE->addInput('radio', 'jak_tags', 'jak_tags1', '', '1', $checked);
-														// Arguments: for (id of associated form element), text
-														echo $htmlE->addLabelFor('jak_tags1', $tl["checkbox"]["chk"]);
+														// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+														echo $Html->addRadio('jak_tags', '1', ($JAK_FORM_DATA["tags"] == '1') ? TRUE : FALSE, 'jak_tags1');
+														// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+														echo $Html->addLabel('jak_tags1', $tl["checkbox"]["chk"]);
 
-														// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-														($JAK_FORM_DATA["tags"] == '0') ? $checked = 'yes' : $checked = 'no';
-														echo $htmlE->addInput('radio', 'jak_tags', 'jak_tags2', '', '0', $checked);
-														// Arguments: for (id of associated form element), text
-														echo $htmlE->addLabelFor('jak_tags2', $tl["checkbox"]["chk1"]);
+														// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+														echo $Html->addRadio('jak_tags', '0', ($JAK_FORM_DATA["tags"] == '0') ? TRUE : FALSE, 'jak_tags2');
+														// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+														echo $Html->addLabel('jak_tags2', $tl["checkbox"]["chk1"]);
 														?>
 
 													</div>
@@ -275,9 +267,8 @@ if ($page3 == "e") { ?>
 											<div class="col-md-7">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tlbh["bh_box_content"]["bhbc6"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlbh["bh_box_content"]["bhbc6"]);
 												?>
 
 											</div>
@@ -285,17 +276,15 @@ if ($page3 == "e") { ?>
 												<div class="radio radio-success">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													($JAK_FORM_DATA["search"] == '1') ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput('radio', 'jak_search', 'jak_search1', '', '1', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor('jak_search1', $tl["checkbox"]["chk"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_search', '1', ($JAK_FORM_DATA["search"] == '1') ? TRUE : FALSE, 'jak_search1');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_search1', $tl["checkbox"]["chk"]);
 
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													($JAK_FORM_DATA["search"] == '0') ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput('radio', 'jak_search', 'jak_search2', '', '0', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor('jak_search2', $tl["checkbox"]["chk1"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_search', '0', ($JAK_FORM_DATA["search"] == '0') ? TRUE : FALSE, 'jak_search2');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_search2', $tl["checkbox"]["chk1"]);
 													?>
 
 												</div>
@@ -305,9 +294,8 @@ if ($page3 == "e") { ?>
 											<div class="col-md-7">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tlbh["bh_box_content"]["bhbc7"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlbh["bh_box_content"]["bhbc7"]);
 												?>
 
 											</div>
@@ -315,17 +303,15 @@ if ($page3 == "e") { ?>
 												<div class="radio radio-success">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													($JAK_FORM_DATA["sitemap"] == '1') ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput('radio', 'jak_sitemap', 'jak_sitemap1', '', '1', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor('jak_sitemap1', $tl["checkbox"]["chk"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_sitemap', '1', ($JAK_FORM_DATA["sitemap"] == '1') ? TRUE : FALSE, 'jak_sitemap1');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_sitemap1', $tl["checkbox"]["chk"]);
 
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													($JAK_FORM_DATA["sitemap"] == '0') ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput('radio', 'jak_sitemap', 'jak_sitemap2', '', '0', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor('jak_sitemap2', $tl["checkbox"]["chk1"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_sitemap', '0', ($JAK_FORM_DATA["sitemap"] == '0') ? TRUE : FALSE, 'jak_sitemap2');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_sitemap2', $tl["checkbox"]["chk1"]);
 													?>
 
 												</div>
@@ -337,8 +323,8 @@ if ($page3 == "e") { ?>
 							<div class="box-footer">
 
 								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 								?>
 
 							</div>
@@ -388,8 +374,8 @@ if ($page3 == "e") { ?>
 							<div class="box-footer">
 
 								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 								?>
 
 							</div>

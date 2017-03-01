@@ -40,10 +40,10 @@
       // Add Html Element -> endTag (Arguments: tag)
 
       // returns <strong>Text in tag</strong>
-      echo $Html->startTag('strong') . 'Text in tag' . $htmlE->endTag('strong');
+      echo $Html->startTag('strong') . 'Text in tag' . $Html->endTag('strong');
 
       // returns <strong style="color:red">Text in tag</strong>
-      echo $Html->startTag('strong', array ('style' => 'color:red')) . 'Text in tag' . $htmlE->endTag('strong');
+      echo $Html->startTag('strong', array ('style' => 'color:red')) . 'Text in tag' . $Html->endTag('strong');
 
       echo '<hr>';
 

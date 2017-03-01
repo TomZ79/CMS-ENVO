@@ -58,8 +58,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 			<div class="col-md-12">
 
 				<?php
-				// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
-				echo $htmlE->addSimpleDiv ('', $tl["general_error"]["generror3"],  array ('class' => 'alert bg-info text-white'));
+				// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+				echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
 				?>
 
 			</div>
