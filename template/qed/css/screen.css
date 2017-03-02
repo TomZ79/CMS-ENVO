@@ -39,6 +39,7 @@ body.header-5.color-color2 .contact-phone a {
 ========================================================================*/
 article.post {
   float: left;
+  width: 100%;
 }
 
 /* Icons */

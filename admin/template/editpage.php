@@ -479,13 +479,22 @@ if ($errors) { ?>
 										<div class="row-form">
 											<div class="col-md-12">
 												<select name="jak_catid" class="form-control selectpicker" data-size="5">
-													<option value="0"<?php if ($JAK_FORM_DATA["catid"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["page_box_content"]["pagebc"]; ?></option>
-													<?php if (isset($JAK_CAT_NOTUSED) && is_array ($JAK_CAT_NOTUSED)) foreach ($JAK_CAT_NOTUSED as $v) { ?>
-														<option value="<?php echo $v["id"]; ?>"<?php if ($v["id"] == $JAK_FORM_DATA["catid"]) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php } ?>
-													<?php if (isset($JAK_CAT) && is_array ($JAK_CAT)) foreach ($JAK_CAT as $z) {
-														if ($z["id"] == $JAK_FORM_DATA["catid"]) { ?>
-															<option value="<?php echo $z["id"]; ?>" selected="selected"><?php echo $z["name"]; ?></option><?php }
-													} ?>
+
+													<?php
+													// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+													echo $Html->addOption('0', $tl["page_box_content"]["pagebc"], ($JAK_FORM_DATA["catid"] == '0') ? TRUE : FALSE);
+
+													if (isset($JAK_CAT_NOTUSED) && is_array ($JAK_CAT_NOTUSED)) foreach ($JAK_CAT_NOTUSED as $v) {
+														echo $Html->addOption($v["id"], $v["name"], ($v["id"] == $JAK_FORM_DATA["catid"]) ? TRUE : FALSE);
+													}
+
+													if (isset($JAK_CAT) && is_array ($JAK_CAT)) foreach ($JAK_CAT as $z) {
+														if ($z["id"] == $JAK_FORM_DATA["catid"]) {
+															echo $Html->addOption($z["id"], $z["name"], TRUE);
+														}
+													}
+													?>
+
 												</select>
 											</div>
 										</div>
@@ -526,15 +535,25 @@ if ($errors) { ?>
 												<div class="col-md-7">
 													<select name="" id="selecttags1" class="form-control selectpicker" title="Choose tags ..." data-size="7" data-live-search="true">
 														<optgroup label="Poskytovatelé TV">
-															<option value="skylink">Skylink</option>
-															<option value="freesat">freeSAT</option>
-															<option value="digi-tv">Digi TV</option>
+
+															<?php
+															// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+															echo $Html->addOption('skylink', 'Skylink');
+															echo $Html->addOption('freesat', 'freeSAT');
+															echo $Html->addOption('digi-tv', 'Digi TV');
+															?>
+
 														</optgroup>
 														<optgroup label="Vysílací technologie">
-															<option value="dvb-t/t2">DVB-T/T2</option>
-															<option value="dvb-s/s2">DVB-S/S2</option>
-															<option value="dvb-c">DVB-C</option>
-															<option value="dvb-h">DVB-H</option>
+
+															<?php
+															// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+															echo $Html->addOption('dvb-t/t2', 'DVB-T/T2');
+															echo $Html->addOption('dvb-s/s2', 'DVB-S/S2');
+															echo $Html->addOption('dvb-c', 'DVB-C');
+															echo $Html->addOption('dvb-h', 'DVB-H');
+															?>
+
 														</optgroup>
 													</select>
 												</div>
@@ -552,9 +571,15 @@ if ($errors) { ?>
 													<?php $JAK_TAG_ALL = jak_tag_name_admin ();
 													if ($JAK_TAG_ALL) { ?>
 														<select name="" id="selecttags2" class="form-control selectpicker" title="Choose tags ..." data-size="7" data-live-search="true">
-															<?php foreach ($JAK_TAG_ALL as $v) { ?>
-																<option value="<?php echo $v["tag"]; ?>"><?php echo $v["tag"]; ?></option>
-															<?php } ?>
+															<?php
+															foreach ($JAK_TAG_ALL as $v) {
+
+																// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+																echo $Html->addOption($v["tag"], $v["tag"]);
+
+															}
+															?>
+
 														</select>
 													<?php } else { ?>
 														<div>Tags cloud is empty!</div>
@@ -723,9 +748,19 @@ if ($errors) { ?>
 													<div class="form-group">
 														<label><?php echo $tl["global_text"]["globaltxt14"]; ?></label>
 														<select name="jak_showcontact" class="form-control selectpicker" data-size="5">
-															<option value="0"<?php if (isset($JAK_FORM_DATA["showcontact"]) && $JAK_FORM_DATA["showcontact"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["global_text"]["globaltxt13"]; ?></option>
-															<?php if (isset($JAK_CONTACT_FORMS) && is_array ($JAK_CONTACT_FORMS)) foreach ($JAK_CONTACT_FORMS as $cf) { ?>
-																<option value="<?php echo $cf["id"]; ?>"<?php if (isset($JAK_FORM_DATA["showcontact"]) && $cf["id"] == $JAK_FORM_DATA["showcontact"]) { ?> selected="selected"<?php } ?>><?php echo $cf["title"]; ?></option><?php } ?>
+
+															<?php
+															// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+															$selected = (isset($JAK_FORM_DATA["showcontact"]) && $JAK_FORM_DATA["showcontact"] == '0') ? TRUE : FALSE;
+
+															echo $Html->addOption('0', $tl["news_box_content"]["newsbc25"], $selected);
+															if (isset($JAK_CONTACT_FORMS) && is_array ($JAK_CONTACT_FORMS)) foreach ($JAK_CONTACT_FORMS as $cf) {
+
+																echo $Html->addOption($cf["id"], $cf["title"], (isset($JAK_FORM_DATA["showcontact"]) && $cf["id"] == $JAK_FORM_DATA["showcontact"]) ? TRUE : FALSE);
+
+															}
+															?>
+
 														</select>
 													</div>
 													<div class="actions">
@@ -748,23 +783,38 @@ if ($errors) { ?>
 														<div class="row">
 															<div class="col-md-4">
 																<select name="jak_shownewsorder" class="form-control selectpicker" data-size="5">
-																	<option value="ASC"<?php if (isset($JAK_FORM_DATA["shownewsorder"]) && $JAK_FORM_DATA["shownewsorder"] == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["global_text"]["globaltxt10"]; ?></option>
-																	<option value="DESC"<?php if (isset($JAK_FORM_DATA["shownewsorder"]) && $JAK_FORM_DATA["shownewsorder"] == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["global_text"]["globaltxt11"]; ?></option>
+
+																	<?php
+																	// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+																	echo $Html->addOption('ASC', $tl["selection"]["sel13"], (isset($JAK_FORM_DATA["shownewsorder"]) && $JAK_FORM_DATA["shownewsorder"] == "ASC") ? TRUE : FALSE);
+																	echo $Html->addOption('DESC', $tl["selection"]["sel14"], (isset($JAK_FORM_DATA["shownewsorder"]) && $JAK_FORM_DATA["shownewsorder"] == "DESC") ? TRUE : FALSE);
+																	?>
+
 																</select>
 															</div>
 															<div class="col-md-4">
 																<select name="jak_shownewsordern" class="form-control selectpicker">
-																	<option value="id"<?php if ($JAK_FORM_DATA['shownewswhat'] == "id") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel9"]; ?></option>
-																	<option value="title"<?php if ($JAK_FORM_DATA['shownewswhat'] == "title") { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel10"]; ?></option>
-																	<option value="time"<?php if ($JAK_FORM_DATA['shownewswhat'] == "time") { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel11"]; ?></option>
-																	<option value="hits"<?php if ($JAK_FORM_DATA['shownewswhat'] == "hits") { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel12"]; ?></option>
+
+																	<?php
+																	// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+																	echo $Html->addOption('id', $tl["selection"]["sel9"], ($JAK_FORM_DATA['shownewswhat'] == "id") ? TRUE : FALSE);
+																	echo $Html->addOption('title', $tl["selection"]["sel10"], ($JAK_FORM_DATA['shownewswhat'] == "title") ? TRUE : FALSE);
+																	echo $Html->addOption('time', $tl["selection"]["sel11"], ($JAK_FORM_DATA['shownewswhat'] == "time") ? TRUE : FALSE);
+																	echo $Html->addOption('hits', $tl["selection"]["sel12"], ($JAK_FORM_DATA['shownewswhat'] == "hits") ? TRUE : FALSE);
+																	?>
+
 																</select>
 															</div>
 															<div class="col-md-4">
 																<select name="jak_shownewsmany" class="form-control selectpicker" data-size="5">
-																	<?php for ($i = 0; $i <= 10; $i ++) { ?>
-																		<option value="<?php echo $i ?>"<?php if (isset($JAK_FORM_DATA["shownewsmany"]) && $JAK_FORM_DATA["shownewsmany"] == $i) { ?> selected="selected"<?php } ?>><?php echo $i; ?></option>
-																	<?php } ?>
+
+																	<?php for ($i = 0; $i <= 10; $i ++) {
+
+																		// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+																		echo $Html->addOption($i, $i, (isset($JAK_FORM_DATA["shownewsmany"]) && $JAK_FORM_DATA["shownewsmany"] == $i) ? TRUE : FALSE);
+
+																	} ?>
+
 																</select>
 															</div>
 														</div>
@@ -773,10 +823,19 @@ if ($errors) { ?>
 													<div class="form-group">
 														<label><?php echo $tl["global_text"]["globaltxt12"]; ?></label>
 														<select name="jak_shownews[]" multiple="multiple" class="form-control">
-															<option value="0"<?php if (isset($JAK_FORM_DATA["shownews"]) && $JAK_FORM_DATA["shownews"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["global_text"]["globaltxt13"]; ?></option>
-															<?php if (isset($JAK_GET_NEWS) && is_array ($JAK_GET_NEWS)) foreach ($JAK_GET_NEWS as $gn) { ?>
-																<option value="<?php echo $gn["id"]; ?>"<?php if (isset($JAK_FORM_DATA["shownews"]) && (in_array ($gn["id"], explode (',', $JAK_FORM_DATA["shownews"]))) ) { ?> selected="selected"<?php } ?>><?php echo $gn["title"]; ?></option>
-															<?php } ?>
+
+															<?php
+															// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+															$selected = (isset($JAK_FORM_DATA["shownews"]) && $JAK_FORM_DATA["shownews"] == 0) ? TRUE : FALSE;
+
+															echo $Html->addOption('0', $tl["global_text"]["globaltxt13"], $selected);
+															if (isset($JAK_GET_NEWS) && is_array ($JAK_GET_NEWS)) foreach ($JAK_GET_NEWS as $gn) {
+
+																echo $Html->addOption($gn["id"], $gn["title"], (isset($JAK_FORM_DATA["shownews"]) && (in_array ($gn["id"], explode (',', $JAK_FORM_DATA["shownews"]))) ) ? TRUE : FALSE);
+
+															}
+															?>
+
 														</select>
 													</div>
 

@@ -306,10 +306,15 @@ if ($page1 == "e") { ?>
 										</div>
 										<div class="col-md-7">
 											<select name="jak_mediatheme" class="form-control selectpicker" data-size="5">
-												<option value="lee-gargano-circle-color" <?php if ($JAK_SETTING["md_mediatheme"] == 'lee-gargano-circle-color') { ?> selected="selected"<?php } ?>>Lee-gargano-circle-color</option>
-												<option value="lee-gargano-square-color" <?php if ($JAK_SETTING["md_mediatheme"] == 'lee-gargano-square-color') { ?> selected="selected"<?php } ?>>Lee-gargano-square-color</option>
-												<option value="mikymeg-color" <?php if ($JAK_SETTING["md_mediatheme"] == 'mikymeg-color') { ?> selected="selected"<?php } ?>>Mikymeg-color</option>
-												<option value="mikymeg-grey" <?php if ($JAK_SETTING["md_mediatheme"] == 'mikymeg-grey') { ?> selected="selected"<?php } ?>>Mikymeg-grey</option>
+
+												<?php
+												// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+												echo $Html->addOption('lee-gargano-circle-color', 'Lee-gargano-circle-color', ($JAK_SETTING["md_mediatheme"] == 'lee-gargano-circle-color') ? TRUE : FALSE);
+												echo $Html->addOption('lee-gargano-square-color', 'Lee-gargano-square-color', ($JAK_SETTING["md_mediatheme"] == 'lee-gargano-square-color') ? TRUE : FALSE);
+												echo $Html->addOption('mikymeg-color', 'Mikymeg-color', ($JAK_SETTING["md_mediatheme"] == 'mikymeg-color') ? TRUE : FALSE);
+												echo $Html->addOption('mikymeg-grey', 'Mikymeg-grey', ($JAK_SETTING["md_mediatheme"] == 'mikymeg-grey') ? TRUE : FALSE);
+												?>
+
 											</select>
 										</div>
 									</div>
@@ -324,13 +329,18 @@ if ($page1 == "e") { ?>
 										</div>
 										<div class="col-md-7">
 											<select name="jak_mediahover" class="form-control selectpicker" data-size="5">
-												<option value="fade-out" <?php if ($JAK_SETTING["md_mediahover"] == 'fade-out') { ?> selected="selected"<?php } ?>>Fade-out</option>
-												<option value="fade-in" <?php if ($JAK_SETTING["md_mediahover"] == 'fade-in') { ?> selected="selected"<?php } ?>>Fade-in</option>
-												<option value="rise" <?php if ($JAK_SETTING["md_mediahover"] == 'rise') { ?> selected="selected"<?php } ?>>Rise</option>
-												<option value="rotate" <?php if ($JAK_SETTING["md_mediahover"] == 'rotate') { ?> selected="selected"<?php } ?>>Rotate</option>
-												<option value="shrink" <?php if ($JAK_SETTING["md_mediahover"] == 'shrink') { ?> selected="selected"<?php } ?>>Shrink</option>
-												<option value="bounce" <?php if ($JAK_SETTING["md_mediahover"] == 'bounce') { ?> selected="selected"<?php } ?>>Bounce</option>
-												<option value="grow" <?php if ($JAK_SETTING["md_mediahover"] == 'grow') { ?> selected="selected"<?php } ?>>Grow</option>
+
+												<?php
+												// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+												echo $Html->addOption('fade-out', 'Fade-out', ($JAK_SETTING["md_mediahover"] == 'fade-out') ? TRUE : FALSE);
+												echo $Html->addOption('fade-in', 'Fade-in', ($JAK_SETTING["md_mediahover"] == 'fade-in') ? TRUE : FALSE);
+												echo $Html->addOption('rise', 'Rise', ($JAK_SETTING["md_mediahover"] == 'rise') ? TRUE : FALSE);
+												echo $Html->addOption('rotate', 'Rotate', ($JAK_SETTING["md_mediahover"] == 'rotate') ? TRUE : FALSE);
+												echo $Html->addOption('shrink', 'Shrink', ($JAK_SETTING["md_mediahover"] == 'shrink') ? TRUE : FALSE);
+												echo $Html->addOption('bounce', 'Bounce', ($JAK_SETTING["md_mediahover"] == 'bounce') ? TRUE : FALSE);
+												echo $Html->addOption('grow', 'Grow', ($JAK_SETTING["md_mediahover"] == 'grow') ? TRUE : FALSE);
+												?>
+
 											</select>
 										</div>
 									</div>

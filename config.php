@@ -53,7 +53,6 @@ include_once 'class/class.htmlelement.fuel.php';
 include_once 'class/class.htmlelement.input.php';
 
 // Create instance of HTML_Form from htmlelement.php Class
-$htmlE = new HTML();
 $Html = new HTML_Element();
 
 // Now launch the rewrite class, depending on the settings in db.

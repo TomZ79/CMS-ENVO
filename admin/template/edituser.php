@@ -149,10 +149,16 @@ if ($errors) { ?>
 									</div>
 									<div class="col-md-7">
 										<select name="jak_usergroup" class="form-control selectpicker" data-size="5">
-											<?php if (isset($JAK_USERGROUP_ALL) && is_array ($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
-												if ($v["id"] != "1") { ?>
-													<option value="<?php echo $v["id"]; ?>"<?php if ($v["id"] == $JAK_FORM_DATA["usergroupid"]) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php }
-											} ?>
+
+											<?php
+											// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+											if (isset($JAK_USERGROUP_ALL) && is_array ($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
+												if ($v["id"] != "1") {
+													echo $Html->addOption($v["id"], $v["name"], ($v["id"] == $JAK_FORM_DATA["usergroupid"]) ? TRUE : FALSE);
+												}
+											}
+											?>
+
 										</select>
 									</div>
 								</div>
@@ -185,11 +191,18 @@ if ($errors) { ?>
 									</div>
 									<div class="col-md-7">
 										<select name="jak_usergroupback" class="form-control selectpicker" data-size="5">
-											<option value="0"><?php echo $tl["selection"]["sel8"]; ?></option>
-											<?php if (isset($JAK_USERGROUP_ALL) && is_array ($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
-												if ($v["id"] != "1") { ?>
-													<option value="<?php echo $v["id"]; ?>"<?php if ($v["id"] == $JAK_FORM_DATA["backtogroup"]) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php }
-											} ?>
+
+											<?php
+											// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+											echo $Html->addOption('0', $tl["selection"]["sel8"]);
+
+											if (isset($JAK_USERGROUP_ALL) && is_array ($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
+												if ($v["id"] != "1") {
+													echo $Html->addOption($v["id"], $v["name"], ($v["id"] == $JAK_FORM_DATA["backtogroup"]) ? TRUE : FALSE);
+												}
+											}
+											?>
+
 										</select>
 									</div>
 								</div>

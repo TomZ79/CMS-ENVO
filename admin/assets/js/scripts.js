@@ -168,6 +168,14 @@ $(function () {
 
 });
 
+/* 00. INITIALIZES SELECTPICKER
+ ========================================================================*/
+$(function () {
+	$('.selectpicker').selectpicker({
+		container: 'body'
+	});
+});
+
 /* 00. INITIALIZES SEARCH OVERLAY PLUGIN
  ========================================================================*/
 $(function () {

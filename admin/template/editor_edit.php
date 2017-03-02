@@ -16,10 +16,25 @@
 						<div class="form-group">
 							<label><?php echo $tl["global_text"]["globaltxt2"]; ?></label>
 							<select name="restorcontent" id="restorcontent" class="form-control selectpicker" data-size="5">
-								<option value="0"><?php echo $tl["global_text"]["globaltxt3"]; ?></option><?php foreach ($JAK_PAGE_BACKUP as $pb) { ?>
-									<option value="<?php echo $pb['id']; ?>"><?php echo $pb['time']; ?></option><?php } ?>
+
+								<?php
+								// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+								echo $Html->addOption('0', $tl["global_text"]["globaltxt3"]);
+
+								foreach ($JAK_PAGE_BACKUP as $pb) {
+
+									// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+									echo $Html->addOption($pb["id"], $pb["time"]);
+
+								}
+								?>
+
 							</select>
-							<span class="loader"><i class="fa fa-spinner fa-pulse"></i></span>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('span', '<i class="fa fa-spinner fa-pulse"></i>', 'loader');
+							?>
 						</div>
 					</th>
 				</tr>
