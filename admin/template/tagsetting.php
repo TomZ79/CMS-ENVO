@@ -89,7 +89,12 @@ if ($errors) { ?>
 					<div class="col-md-7">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["tag_box_title"]["tagbt"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tl["tag_box_title"]["tagbt"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -148,7 +153,12 @@ if ($errors) { ?>
 					<div class="col-md-5">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["tag_box_title"]["tagbt1"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tl["tag_box_title"]["tagbt1"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -231,7 +241,12 @@ if ($errors) { ?>
 					<div class="col-md-12">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["tag_box_title"]["tagbt2"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tl["tag_box_title"]["tagbt2"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<?php include 'sidebar_widget.php'; ?>

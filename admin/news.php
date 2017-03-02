@@ -70,11 +70,13 @@ switch ($page1) {
 					$insert .= 'enddate = "' . smartsql ($finalto) . '",';
 				}
 
-				if (!isset($defaults['jak_permission'])) {
-					$permission = 0;
-				} else {
-					$permission = join (',', $defaults['jak_permission']);
-				}
+        if (!isset($defaults['jak_permission'])) {
+          $permission = 0;
+        } elseif (in_array (0, $defaults['jak_permission'])) {
+          $permission = 0;
+        } else {
+          $permission = join (',', $defaults['jak_permission']);
+        }
 
 				// Get the php hook for display stuff in pages
 				$hooknews = $jakhooks->jakGethook ("php_admin_news_sql");
@@ -505,11 +507,13 @@ switch ($page1) {
 								$insert .= 'enddate = "' . smartsql ($finalto) . '",';
 							}
 
-							if (!isset($defaults['jak_permission'])) {
-								$permission = 0;
-							} else {
-								$permission = join (',', $defaults['jak_permission']);
-							}
+              if (!isset($defaults['jak_permission'])) {
+                $permission = 0;
+              } elseif (in_array (0, $defaults['jak_permission'])) {
+                $permission = 0;
+              } else {
+                $permission = join (',', $defaults['jak_permission']);
+              }
 
 							// Get the php hook for display stuff in pages
 							$hooknews = $jakhooks->jakGethook ("php_admin_news_sql");

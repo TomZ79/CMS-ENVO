@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="08948064-35bd-4017-a19d-7be40509a08d" name="Savana Hosting" url="http://bluesatkv.savana-hosting.cz">
+        <fileTransfer host="bluesatkv.savana-hosting.cz" port="21" rootFolder="/antenykarlovyvary.cz" password="dfc8dfc6dfdfdfcfdfd9dfcbdfdedf98df9adf9bdf9f" username="bluesatkv">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -12,9 +12,14 @@
 				</div>
 				<div class="col-md-6">
 					<select name="jak_showblogmany" class="form-control selectpicker" data-size="5">
-						<?php for ($i = 0; $i <= 10; $i ++) { ?>
-							<option value="<?php echo $i ?>"<?php if (isset($JAK_FORM_DATA["showblogmany"]) && $JAK_FORM_DATA["showblogmany"] == $i) { ?> selected="selected"<?php } ?>><?php echo $i; ?></option>
-						<?php } ?>
+
+						<?php for ($i = 0; $i <= 10; $i ++) {
+
+							// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+							echo $Html->addOption($i, $i, ($JAK_FORM_DATA["showblogmany"] == $i) ? TRUE : FALSE);
+
+						} ?>
+
 					</select>
 				</div>
 			</div>

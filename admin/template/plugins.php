@@ -175,7 +175,12 @@ if ($page1 == "e") { ?>
 
 				<div class="box box-success">
 					<div class="box-header with-border">
-						<h3 class="box-title"><?php echo $tl["plug_box_title"]["plugbt1"]; ?></h3>
+
+						<?php
+						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+						echo $Html->addTag('h3', $tl["plug_box_title"]["plugbt1"], 'box-title');
+						?>
+
 					</div>
 					<div class="box-body">
 						<div class="block">

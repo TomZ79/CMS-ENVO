@@ -131,7 +131,12 @@ if ($success) { ?>
           <div class="col-md-8">
             <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["gs_box_title"]["gsbt"]; ?></h3>
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tl["gs_box_title"]["gsbt"], 'box-title');
+                ?>
+
               </div>
               <div class="box-body">
                 <div class="block">
@@ -370,7 +375,12 @@ if ($success) { ?>
             </div>
             <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["gs_box_title"]["gsbt1"]; ?></h3>
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tl["gs_box_title"]["gsbt1"], 'box-title');
+                ?>
+
               </div>
               <div class="box-body">
                 <div class="block">
@@ -387,21 +397,16 @@ if ($success) { ?>
                       <div class="col-md-6">
                         <div class="<?php if (isset($errors["e6"])) echo " has-error"; ?>">
                           <select name="jak_mid" class="form-control selectpicker">
-                            <option value="2"<?php if ($jkv["adminpagemid"] == 2) { ?> selected="selected"<?php } ?>>
-                              <?php echo $tl["selection"]["sel1"]; ?>
-                            </option>
-                            <option value="4"<?php if ($jkv["adminpagemid"] == 4) { ?> selected="selected"<?php } ?>>
-                              <?php echo $tl["selection"]["sel2"]; ?>
-                            </option>
-                            <option value="6"<?php if ($jkv["adminpagemid"] == 6) { ?> selected="selected"<?php } ?>>
-                              <?php echo $tl["selection"]["sel3"]; ?>
-                            </option>
-                            <option value="8"<?php if ($jkv["adminpagemid"] == 8) { ?> selected="selected"<?php } ?>>
-                              <?php echo $tl["selection"]["sel4"]; ?>
-                            </option>
-                            <option value="10"<?php if ($jkv["adminpagemid"] == 10) { ?> selected="selected"<?php } ?>>
-                              <?php echo $tl["selection"]["sel5"]; ?>
-                            </option>
+
+                            <?php
+                            // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                            echo $Html->addOption('2', $tl["selection"]["sel1"], ($jkv['adminpagemid'] == 2) ? TRUE : FALSE);
+                            echo $Html->addOption('4', $tl["selection"]["sel2"], ($jkv['adminpagemid'] == 4) ? TRUE : FALSE);
+                            echo $Html->addOption('6', $tl["selection"]["sel3"], ($jkv['adminpagemid'] == 6) ? TRUE : FALSE);
+                            echo $Html->addOption('8', $tl["selection"]["sel4"], ($jkv['adminpagemid'] == 8) ? TRUE : FALSE);
+                            echo $Html->addOption('10', $tl["selection"]["sel5"], ($jkv['adminpagemid'] == 10) ? TRUE : FALSE);
+                            ?>
+
                           </select>
                         </div>
                       </div>
@@ -442,7 +447,12 @@ if ($success) { ?>
           <div class="col-md-4">
             <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["gs_box_title"]["gsbt2"]; ?></h3>
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tl["gs_box_title"]["gsbt2"], 'box-title');
+                ?>
+
               </div>
               <div class="box-body">
                 <div class="block">
@@ -488,7 +498,12 @@ if ($success) { ?>
             </div>
             <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["gs_box_title"]["gsbt3"]; ?></h3>
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tl["gs_box_title"]["gsbt3"], 'box-title');
+                ?>
+
               </div>
               <div class="box-body">
                 <div class="block">
@@ -524,7 +539,12 @@ if ($success) { ?>
             </div>
             <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["gs_box_title"]["gsbt4"]; ?></h3>
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tl["gs_box_title"]["gsbt4"], 'box-title');
+                ?>
+
               </div>
               <div class="box-body">
                 <div class="block">
@@ -555,7 +575,12 @@ if ($success) { ?>
             </div>
             <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["gs_box_title"]["gsbt5"]; ?></h3>
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tl["gs_box_title"]["gsbt5"], 'box-title');
+                ?>
+
               </div>
               <div class="box-body">
                 <div class="block">
@@ -627,7 +652,12 @@ if ($success) { ?>
           <div class="col-md-12">
             <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["gs_box_title"]["gsbt6"]; ?></h3>
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tl["gs_box_title"]["gsbt6"], 'box-title');
+                ?>
+
               </div>
               <div class="box-body">
                 <div class="block">
@@ -822,7 +852,12 @@ if ($success) { ?>
           <div class="col-md-12">
             <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["gs_box_title"]["gsbt7"]; ?></h3>
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tl["gs_box_title"]["gsbt7"], 'box-title');
+                ?>
+
               </div>
               <div class="box-body">
                 <div class="block">
@@ -1033,7 +1068,12 @@ if ($success) { ?>
           <div class="col-md-5">
             <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["gs_box_title"]["gsbt8"]; ?></h3>
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tl["gs_box_title"]["gsbt8"], 'box-title');
+                ?>
+
               </div>
               <div class="box-body">
                 <div class="block">
@@ -1165,7 +1205,12 @@ if ($success) { ?>
           <div class="col-md-7">
             <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["gs_box_title"]["gsbt9"]; ?></h3>
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tl["gs_box_title"]["gsbt9"], 'box-title');
+                ?>
+
               </div>
               <div class="box-body">
                 <div class="block">
@@ -1226,7 +1271,12 @@ if ($success) { ?>
           <div class="col-md-8">
             <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["gs_box_title"]["gsbt10"]; ?></h3>
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tl["gs_box_title"]["gsbt10"], 'box-title');
+                ?>
+
               </div>
               <div class="box-body">
                 <div class="block">
@@ -1257,7 +1307,12 @@ if ($success) { ?>
           <div class="col-md-4">
             <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["gs_box_title"]["gsbt11"]; ?></h3>
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tl["gs_box_title"]["gsbt11"], 'box-title');
+                ?>
+
               </div>
               <div class="box-body">
                 <div class="block">
@@ -1303,7 +1358,12 @@ if ($success) { ?>
           <div class="col-md-6">
             <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["gs_box_title"]["gsbt12"]; ?></h3>
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tl["gs_box_title"]["gsbt12"], 'box-title');
+                ?>
+
               </div>
               <div class="box-body">
                 <div class="block">
@@ -1394,7 +1454,12 @@ if ($success) { ?>
           <div class="col-md-6">
             <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["gs_box_title"]["gsbt13"]; ?></h3>
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tl["gs_box_title"]["gsbt13"], 'box-title');
+                ?>
+
               </div>
               <div class="box-body">
                 <div class="block">
@@ -1455,7 +1520,12 @@ if ($success) { ?>
           <div class="col-md-12">
             <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["gs_box_title"]["gsbt14"]; ?></h3>
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tl["gs_box_title"]["gsbt14"], 'box-title');
+                ?>
+
               </div>
               <div class="box-body">
                 <div class="block">
@@ -1556,7 +1626,12 @@ if ($success) { ?>
           <div class="col-md-12">
             <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["gs_box_title"]["gsbt15"]; ?></h3>
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tl["gs_box_title"]["gsbt15"], 'box-title');
+                ?>
+
               </div>
               <div class="box-body">
                 <div class="block">

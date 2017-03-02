@@ -40,8 +40,8 @@ if ($errors) { ?>
 		<div class="savebutton hidden-xs">
 
 			<?php
-			// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-			echo $htmlE->addButtonSubmit('save', '', 'btn btn-success button', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ');
+			// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+			echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button');
 			?>
 
 		</div>
@@ -51,7 +51,12 @@ if ($errors) { ?>
 			<div class="col-md-8">
 				<div class="box box-success">
 					<div class="box-header with-border">
-						<h3 class="box-title"><?php echo $tlblog["blog_box_title"]["blogbt5"]; ?></h3>
+
+						<?php
+						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+						echo $Html->addTag('h3', $tlblog["blog_box_title"]["blogbt5"], 'box-title');
+						?>
+
 					</div>
 					<div class="box-body">
 						<div class="block">
@@ -60,10 +65,9 @@ if ($errors) { ?>
 									<div class="col-md-5">
 
 										<?php
-										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-										// Add Html Element -> endTag (Arguments: tag)
-										echo $htmlE->startTag('strong') . $tlblog["blog_box_content"]["blogbc19"] . $htmlE->endTag('strong');
-										echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+										// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+										echo $Html->addTag('strong', $tlblog["blog_box_content"]["blogbc19"]);
+										echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
 										?>
 
 									</div>
@@ -71,8 +75,8 @@ if ($errors) { ?>
 										<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 
 											<?php
-											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-											echo $htmlE->addInput ('text', 'jak_name', 'jak_name', 'form-control', $_REQUEST["jak_name"], '');
+											// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+											echo $Html->addInput('text', 'jak_name', $_REQUEST["jak_name"], 'jak_name', 'form-control');
 											?>
 
 										</div>
@@ -82,19 +86,11 @@ if ($errors) { ?>
 									<div class="col-md-5">
 
 										<?php
-										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-										// Add Html Element -> endTag (Arguments: tag)
-										echo $htmlE->startTag('strong') . $tlblog["blog_box_content"]["blogbc20"] . $htmlE->endTag('strong');
-										?>
-
-										<a class="cms-help" data-content="<?php echo $tlblog["blog_help"]["blogh2"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tlblog["blog_help"]["blogh"]; ?>">
-											<i class="fa fa-question-circle"></i>
-										</a>
-
-										<?php
-										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-										// Add Html Element -> endTag (Arguments: tag)
-										echo $htmlE->startTag('span', array ('class' => 'star-item text-danger-800 m-l-10')) . '*' . $htmlE->endTag('span');
+										// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+										// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+										echo $Html->addTag('strong', $tlblog["blog_box_content"]["blogbc20"]);
+										echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help',  array ('data-content' => $tlblog["blog_help"]["blogh2"], 'data-original-title' => $tlblog["blog_help"]["blogh"]));
+										echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
 										?>
 
 									</div>
@@ -102,8 +98,8 @@ if ($errors) { ?>
 										<div class="form-group no-margin<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
 
 											<?php
-											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-											echo $htmlE->addInput ('text', 'jak_varname', 'jak_varname', 'form-control', $_REQUEST["jak_varname"], '');
+											// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+											echo $Html->addInput('text', 'jak_varname', $_REQUEST["jak_varname"], 'jak_varname', 'form-control');
 											?>
 
 										</div>
@@ -113,17 +109,16 @@ if ($errors) { ?>
 									<div class="col-md-5">
 
 										<?php
-										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-										// Add Html Element -> endTag (Arguments: tag)
-										echo $htmlE->startTag('strong') . $tlblog["blog_box_content"]["blogbc21"] . $htmlE->endTag('strong');
+										// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+										echo $Html->addTag('strong', $tlblog["blog_box_content"]["blogbc21"]);
 										?>
 
 									</div>
 									<div class="col-md-7">
 
 										<?php
-										// Add Html Element -> Textarea (Arguments: name, rows, cols, value, optional assoc. array)
-										echo $htmlE->addTextArea ('jak_lcontent', '4', '', jak_edit_safe_userpost ($_REQUEST["jak_lcontent"]), array ('id' => 'content', 'class' => 'form-control'));
+										// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+										echo $Html->addTextarea('jak_lcontent', jak_edit_safe_userpost($_REQUEST["jak_lcontent"]), '4', '', array('id' => 'content', 'class' => 'form-control'));
 										?>
 
 									</div>
@@ -132,9 +127,8 @@ if ($errors) { ?>
 									<div class="col-md-5">
 
 										<?php
-										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-										// Add Html Element -> endTag (Arguments: tag)
-										echo $htmlE->startTag('strong') . $tlblog["blog_box_content"]["blogbc22"] . $htmlE->endTag('strong');
+										// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+										echo $Html->addTag('strong', $tlblog["blog_box_content"]["blogbc22"]);
 										?>
 
 									</div>
@@ -142,17 +136,15 @@ if ($errors) { ?>
 										<div class="radio radio-success">
 
 											<?php
-											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-											((isset($_REQUEST["jak_active"]) && $_REQUEST["jak_active"] == '1') || !isset($_REQUEST["jak_active"])) ? $checked = 'yes' : $checked = 'no';
-											echo $htmlE->addInput ('radio', 'jak_active', 'jak_active1', '', '1', $checked);
-											// Arguments: for (id of associated form element), text
-											echo $htmlE->addLabelFor ('jak_active1', $tl["checkbox"]["chk"]);
+											// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+											echo $Html->addRadio('jak_active', '1', ((isset($_REQUEST["jak_active"]) && $_REQUEST["jak_active"] == '1') || !isset($_REQUEST["jak_active"])) ? TRUE : FALSE, 'jak_active1');
+											// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+											echo $Html->addLabel('jak_active1', $tl["checkbox"]["chk"]);
 
-											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-											((isset($_REQUEST["jak_active"]) && $_REQUEST["jak_active"] == '0')) ? $checked = 'yes' : $checked = 'no';
-											echo $htmlE->addInput ('radio', 'jak_active', 'jak_active2', '', '0', $checked);
-											// Arguments: for (id of associated form element), text
-											echo $htmlE->addLabelFor ('jak_active2', $tl["checkbox"]["chk1"]);
+											// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+											echo $Html->addRadio('jak_active', '0', ((isset($_REQUEST["jak_active"]) && $_REQUEST["jak_active"] == '0')) ? TRUE : FALSE, 'jak_active2');
+											// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+											echo $Html->addLabel('jak_active2', $tl["checkbox"]["chk1"]);
 											?>
 
 										</div>
@@ -162,9 +154,8 @@ if ($errors) { ?>
 									<div class="col-md-5">
 
 										<?php
-										// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-										// Add Html Element -> endTag (Arguments: tag)
-										echo $htmlE->startTag('strong') . $tlblog["blog_box_content"]["blogbc23"] . $htmlE->endTag('strong');
+										// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+										echo $Html->addTag('strong', $tlblog["blog_box_content"]["blogbc23"]);
 										?>
 
 									</div>
@@ -172,8 +163,8 @@ if ($errors) { ?>
 										<div class="input-group">
 
 											<?php
-											// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-											echo $htmlE->addInput ('text', 'jak_img', 'jak_img', 'form-control', $_REQUEST["jak_img"], '');
+											// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+											echo $Html->addInput('text', 'jak_img', $_REQUEST["jak_img"], 'jak_img', 'form-control');
 											?>
 
                     <span class="input-group-btn">
@@ -188,8 +179,8 @@ if ($errors) { ?>
 					<div class="box-footer">
 
 						<?php
-						// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-						echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+						// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+						echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 						?>
 
 					</div>
@@ -210,9 +201,29 @@ if ($errors) { ?>
 								<div class="row-form">
 									<div class="col-md-12">
 										<select name="jak_permission[]" multiple="multiple" class="form-control">
-											<option value="0" selected="selected"><?php echo $tlblog["blog_box_content"]["blogbc24"]; ?></option>
-											<?php if (isset($JAK_USERGROUP) && is_array ($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) { ?>
-												<option value="<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></option><?php } ?>
+
+											<?php
+											// Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
+											$selected = ((isset($_REQUEST["jak_permission"]) && ($_REQUEST["jak_permission"] == '0' || (in_array('0', $_REQUEST["jak_permission"]))) || !isset($_REQUEST["jak_permission"]))) ? TRUE : FALSE;
+
+											echo $Html->addOption('0', $tlblog["blog_box_content"]["blogbc24"], $selected);
+											if (isset($JAK_USERGROUP) && is_array ($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) {
+
+												if (isset($_REQUEST["jak_permission"]) && (in_array($v["id"], $_REQUEST["jak_permission"]))) {
+													if (isset($_REQUEST["jak_permission"]) && (in_array('0', $_REQUEST["jak_permission"]))) {
+														$selected = FALSE;
+													} else {
+														$selected = TRUE;
+													}
+												} else {
+													$selected = FALSE;
+												}
+
+												echo $Html->addOption($v["id"], $v["name"], $selected);
+
+											}
+											?>
+
 										</select>
 									</div>
 								</div>
@@ -222,8 +233,8 @@ if ($errors) { ?>
 					<div class="box-footer">
 
 						<?php
-						// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-						echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+						// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+						echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 						?>
 
 					</div>

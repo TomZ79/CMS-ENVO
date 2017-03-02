@@ -65,7 +65,12 @@ if ($errors) { ?>
 			<div class="col-md-12">
 				<div class="box box-success">
 					<div class="box-header with-border">
-						<h3 class="box-title"><?php echo $tl["hook_box_title"]["hookbt1"]; ?></h3>
+
+						<?php
+						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+						echo $Html->addTag('h3', $tl["hook_box_title"]["hookbt1"], 'box-title');
+						?>
+
 					</div>
 					<div class="box-body">
 						<div class="block">
@@ -163,7 +168,12 @@ if ($errors) { ?>
 				</div>
 				<div class="box box-success">
 					<div class="box-header with-border">
-						<h3 class="box-title"><?php echo $tl["hook_box_title"]["hookbt2"]; ?></h3>
+
+						<?php
+						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+						echo $Html->addTag('h3', $tl["hook_box_title"]["hookbt2"], 'box-title');
+						?>
+
 					</div>
 					<div class="box-body">
 

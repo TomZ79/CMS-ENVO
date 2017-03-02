@@ -46,7 +46,12 @@ if ($JAK_FILE_ERROR) { ?>
 		<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 			<div class="box box-success">
 				<div class="box-header with-border">
-					<h3 class="box-title"><?php echo $tl["tpl_box_title"]["tplbt"]; ?></h3>
+
+					<?php
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html->addTag('h3', $tl["tpl_box_title"]["tplbt"], 'box-title');
+					?>
+
 				</div>
 				<div class="box-body">
 					<table class="table">

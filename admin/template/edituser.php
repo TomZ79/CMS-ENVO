@@ -67,7 +67,12 @@ if ($errors) { ?>
 			<div class="col-md-6">
 				<div class="box box-success">
 					<div class="box-header with-border">
-						<h3 class="box-title"><?php echo $tl["user_box_title"]["userbt"]; ?></h3>
+
+						<?php
+						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+						echo $Html->addTag('h3', $tl["user_box_title"]["userbt"], 'box-title');
+						?>
+
 					</div>
 					<div class="box-body">
 						<div class="block">
@@ -287,7 +292,12 @@ if ($errors) { ?>
 			<div class="col-md-6">
 				<div class="box box-success">
 					<div class="box-header with-border">
-						<h3 class="box-title"><?php echo $tl["user_box_title"]["userbt1"]; ?></h3>
+
+						<?php
+						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+						echo $Html->addTag('h3', $tl["user_box_title"]["userbt1"], 'box-title');
+						?>
+
 					</div>
 					<div class="box-body">
 						<div class="block">
@@ -354,7 +364,12 @@ if ($errors) { ?>
 				</div>
 				<div class="box box-success">
 					<div class="box-header with-border">
-						<h3 class="box-title"><?php echo $tl["user_box_title"]["userbt2"]; ?></h3>
+
+						<?php
+						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+						echo $Html->addTag('h3', $tl["user_box_title"]["userbt2"], 'box-title');
+						?>
+
 					</div>
 					<div class="box-body">
 						<div class="block">
@@ -419,7 +434,12 @@ if ($errors) { ?>
 				if ($extrafields) { ?>
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title"><?php echo $tl["user_box_title"]["userbt3"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('h3', $tl["user_box_title"]["userbt3"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body">
 							<div class="block">

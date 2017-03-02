@@ -55,8 +55,8 @@ if ($page3 == "e") { ?>
 		<div class="savebutton">
 
 			<?php
-			// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-			echo $htmlE->addButtonSubmit('save', '', 'btn btn-success button', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ');
+			// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+			echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button');
 			?>
 
 		</div>
@@ -66,14 +66,19 @@ if ($page3 == "e") { ?>
 			<div class="col-md-6">
 				<div class="box box-success">
 					<div class="box-header with-border">
-						<h3 class="box-title"><?php echo $tlum["url_box_title"]["urlbt"]; ?></h3>
+
+						<?php
+						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+						echo $Html->addTag('h3', $tlum["url_box_title"]["urlbt"], 'box-title');
+						?>
+
 					</div>
 					<div class="box-body boxbody-height110">
 						<div class="form-group no-margin<?php if (isset($errors["e1"]) || isset($errors["e2"])) echo " has-error"; ?>">
 
 							<?php
-							// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-							echo $htmlE->addInput ('text', 'jak_oldurl', '', 'form-control', $JAK_FORM_DATA["urlold"], '');
+							// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+							echo $Html->addInput('text', 'jak_oldurl', $JAK_FORM_DATA["urlold"], '', 'form-control');
 							?>
 
 						</div>
@@ -81,8 +86,8 @@ if ($page3 == "e") { ?>
 					<div class="box-footer">
 
 						<?php
-						// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-						echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+						// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+						echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 						?>
 
 					</div>
@@ -91,14 +96,19 @@ if ($page3 == "e") { ?>
 			<div class="col-md-6">
 				<div class="box box-success">
 					<div class="box-header with-border">
-						<h3 class="box-title"><?php echo $tlum["url_box_title"]["urlbt1"]; ?></h3>
+
+						<?php
+						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+						echo $Html->addTag('h3', $tlum["url_box_title"]["urlbt1"], 'box-title');
+						?>
+
 					</div>
 					<div class="box-body boxbody-height110">
 						<div class="form-group no-margin<?php if (isset($errors["e1"]) || isset($errors["e3"])) echo " has-error"; ?>">
 
 							<?php
-							// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-							echo $htmlE->addInput ('text', 'jak_newurl', '', 'form-control', $JAK_FORM_DATA["urlnew"], '');
+							// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+							echo $Html->addInput('text', 'jak_newurl', $JAK_FORM_DATA["urlnew"], '', 'form-control');
 							?>
 
 						</div>
@@ -107,9 +117,8 @@ if ($page3 == "e") { ?>
 								<td style="vertical-align: middle">
 
 									<?php
-									// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-									// Add Html Element -> endTag (Arguments: tag)
-									echo $htmlE->startTag('strong') . $tlum["url_box_content"]["urlbc"] . $htmlE->endTag('strong');
+									// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+									echo $Html->addTag('strong', $tlum["url_box_content"]["urlbc"]);
 									?>
 
 								</td>
@@ -117,17 +126,11 @@ if ($page3 == "e") { ?>
 									<div class="radio radio-success">
 
 										<?php
-										// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-										($JAK_FORM_DATA["baseurl"] == '1') ? $checked = 'yes' : $checked = 'no';
-										echo $htmlE->addInput ('radio', 'jak_baseurl', 'jak_baseurl1', '', '1', $checked);
-										// Arguments: for (id of associated form element), text
-										echo $htmlE->addLabelFor ('jak_baseurl1', $tl["checkbox"]["chk"]);
+										// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+										// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
 
-										// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-										($JAK_FORM_DATA["baseurl"] == '0') ? $checked = 'yes' : $checked = 'no';
-										echo $htmlE->addInput ('radio', 'jak_baseurl', 'jak_baseurl2', '', '0', $checked);
-										// Arguments: for (id of associated form element), text
-										echo $htmlE->addLabelFor ('jak_baseurl2', $tl["checkbox"]["chk1"]);
+										// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+										// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
 										?>
 
 									</div>
@@ -138,8 +141,8 @@ if ($page3 == "e") { ?>
 					<div class="box-footer">
 
 						<?php
-						// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-						echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+						// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+						echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 						?>
 
 					</div>
@@ -148,21 +151,31 @@ if ($page3 == "e") { ?>
 			<div class="col-md-12">
 				<div class="box box-success">
 					<div class="box-header with-border">
-						<h3 class="box-title"><?php echo $tlum["url_box_title"]["urlbt2"]; ?></h3>
+
+						<?php
+						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+						echo $Html->addTag('h3', $tlum["url_box_title"]["urlbt2"], 'box-title');
+						?>
+
 					</div>
 					<div class="box-body">
 						<div class="form-group no-margin">
 							<select name="jak_redirect" class="form-control selectpicker">
-								<option value="301"<?php if ($JAK_FORM_DATA["redirect"] == '301') { ?> selected="selected"<?php } ?>><?php echo $tlum["url_box_content"]["urlbc1"]; ?></option>
-								<option value="302"<?php if ($JAK_FORM_DATA["redirect"] == '302') { ?> selected="selected"<?php } ?>><?php echo $tlum["url_box_content"]["urlbc2"]; ?></option>
+
+								<?php
+								// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+								echo $Html->addOption('301', $tlum["url_box_content"]["urlbc1"], ($JAK_FORM_DATA["redirect"] == '301') ? TRUE : FALSE);
+								echo $Html->addOption('302', $tlum["url_box_content"]["urlbc2"], ($JAK_FORM_DATA["redirect"] == '302') ? TRUE : FALSE);
+								?>
+
 							</select>
 						</div>
 					</div>
 					<div class="box-footer">
 
 						<?php
-						// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-						echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+						// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+						echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 						?>
 
 					</div>

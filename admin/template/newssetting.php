@@ -90,7 +90,12 @@ if ($errors) { ?>
 					<div class="col-md-7">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["news_box_title"]["newsbt"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tl["news_box_title"]["newsbt"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -217,7 +222,12 @@ if ($errors) { ?>
 					<div class="col-md-5">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["news_box_title"]["newsbt1"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tl["news_box_title"]["newsbt1"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -233,21 +243,16 @@ if ($errors) { ?>
 											</div>
 											<div class="col-md-6 <?php if (isset($errors["e2"])) echo "has-error"; ?>">
 												<select name="jak_mid" class="form-control selectpicker">
-													<option value="2"<?php if ($jkv["newspagemid"] == 2) { ?> selected="selected"<?php } ?>>
-														<?php echo $tl["selection"]["sel1"]; ?>
-													</option>
-													<option value="4"<?php if ($jkv["newspagemid"] == 4) { ?> selected="selected"<?php } ?>>
-														<?php echo $tl["selection"]["sel2"]; ?>
-													</option>
-													<option value="6"<?php if ($jkv["newspagemid"] == 6) { ?> selected="selected"<?php } ?>>
-														<?php echo $tl["selection"]["sel3"]; ?>
-													</option>
-													<option value="8"<?php if ($jkv["newspagemid"] == 8) { ?> selected="selected"<?php } ?>>
-														<?php echo $tl["selection"]["sel4"]; ?>
-													</option>
-													<option value="10"<?php if ($jkv["newspagemid"] == 10) { ?> selected="selected"<?php } ?>>
-														<?php echo $tl["selection"]["sel5"]; ?>
-													</option>
+
+													<?php
+													// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+													echo $Html->addOption('2', $tl["selection"]["sel1"], ($jkv['newspagemid'] == 2) ? TRUE : FALSE);
+													echo $Html->addOption('4', $tl["selection"]["sel2"], ($jkv['newspagemid'] == 4) ? TRUE : FALSE);
+													echo $Html->addOption('6', $tl["selection"]["sel3"], ($jkv['newspagemid'] == 6) ? TRUE : FALSE);
+													echo $Html->addOption('8', $tl["selection"]["sel4"], ($jkv['newspagemid'] == 8) ? TRUE : FALSE);
+													echo $Html->addOption('10', $tl["selection"]["sel5"], ($jkv['newspagemid'] == 10) ? TRUE : FALSE);
+													?>
+
 												</select>
 											</div>
 										</div>
@@ -289,7 +294,12 @@ if ($errors) { ?>
 					<div class="col-md-12">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["news_box_title"]["newsbt2"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tl["news_box_title"]["newsbt2"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
@@ -320,7 +330,12 @@ if ($errors) { ?>
 					<div class="col-md-12">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["news_box_title"]["newsbt3"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tl["news_box_title"]["newsbt3"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
@@ -351,7 +366,12 @@ if ($errors) { ?>
 					<div class="col-md-12">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["news_box_title"]["newsbt4"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tl["news_box_title"]["newsbt4"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<?php include "sidebar_widget.php"; ?>

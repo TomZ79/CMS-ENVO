@@ -47,7 +47,12 @@ if ($page1 == "e") { ?>
 		<div class="col-md-12">
 			<div class="box box-success">
 				<div class="box-header with-border">
-					<h3 class="box-title"><?php echo $tl["sms_box_title"]["smsbt"]; ?></h3>
+
+					<?php
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html->addTag('h3', $tl["sms_box_title"]["smsbt"], 'box-title');
+					?>
+
 				</div>
 				<div class="box-body">
 					<div class="row">

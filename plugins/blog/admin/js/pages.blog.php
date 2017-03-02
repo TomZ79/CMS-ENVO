@@ -148,7 +148,7 @@
 			 // Show Button
 			 showTodayButton: true,
 			 // Other
-			 ignoreReadonly: true,
+			 ignoreReadonly: true
 		 });
 
 		$('#datepickerFrom').datetimepicker({
@@ -162,7 +162,6 @@
 			// Other
 			ignoreReadonly: true,
 			keepInvalid: true,
-			minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date ("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>
 		});
 
 		$('#datepickerTo').datetimepicker({
@@ -175,7 +174,6 @@
 			showClear: true,
 			// Other
 			ignoreReadonly: true,
-			minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date ("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>,
 			useCurrent: false //Important! See issue #1075
 		});
 

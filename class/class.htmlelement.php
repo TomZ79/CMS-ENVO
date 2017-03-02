@@ -462,6 +462,33 @@ class HTML_Element
   }
 
   /**
+   * Create a button
+   *
+   * @param   string          | $type       - Type of Button
+   * @param   string            $name       - Name of Button
+   * @param   string            $text       - Text for Button
+   * @param   string            $id         - Id for Button
+   * @param   string            $class      - Class for Button
+   * @param   array             $attributes - Array with more tag attribute settings
+   *
+   * @return  string
+   */
+  public function addButton($type, $text, $name = NULL, $id = NULL, $class = NULL, $attributes = array())
+  {
+    $name = (empty($name) ? '' : ' name="' . $name . '"');
+    $id = (empty($id) ? '' : ' id="' . $id . '"');
+    $class = (empty($class) ? '' : ' class="' . $class . '"');
+
+    $html = "<button type=\"$type\"" . $name . $id . $class . "";
+    if ($attributes) {
+      $html .= $this->addAttributes($attributes);
+    }
+    $html .= ">" . $text . "</button>";
+
+    return $html;
+  }
+
+  /**
    * Create a submit button
    *
    * @param   string|array    | $fieldname  - Either fieldname or full attributes array (when array other params are ignored)
@@ -846,6 +873,38 @@ class HTML_Element
     return $html;
   }
 
+  /**
+   * Create a option
+   *
+   * @param   string      $value      - Value of Option
+   * @param   string      $text       - Text of Option
+   * @param   string      $selected   - Selected of Option
+   * @param   string      $id         - Id of Option
+   * @param   string      $class      - Class of Option
+   * @param   array       $attributes - Array with more tag attribute settings
+   *
+   * @return  string
+   */
+  function addOption($value, $text, $selected = NULL, $id = NULL, $class = NULL, $attributes = array())
+  {
+
+    $id = (empty($id) ? '' : ' id="' . $id . '"');
+    $class = (empty($class) ? '' : ' class="' . $class . '"');
+
+    $html = "<option value=\"$value\"" . $id . $class . "";
+
+    // If it's true, then go for it
+    if ($selected === TRUE) {
+      $html .= " selected=\"selected\"";
+    }
+
+    if ($attributes) {
+      $html .= $this->addAttributes($attributes);
+    }
+    $html .= ">$text</option>";
+
+    return $html;
+  }
 
   /**
    * Generates a html un-ordered list tag

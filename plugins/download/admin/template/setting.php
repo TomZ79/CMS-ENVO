@@ -235,21 +235,16 @@ if ($errors) { ?>
 											<div class="col-md-6">
 												<div class="<?php if (isset($errors["e5"])) echo " has-error"; ?>">
 													<select name="jak_mid" class="form-control selectpicker">
-														<option value="2"<?php if ($jkv["downloadpagemid"] == 2) { ?> selected="selected"<?php } ?>>
-															<?php echo $tl["option"]["o1"]; ?>
-														</option>
-														<option value="4"<?php if ($jkv["downloadpagemid"] == 4) { ?> selected="selected"<?php } ?>>
-															<?php echo $tl["option"]["o2"]; ?>
-														</option>
-														<option value="6"<?php if ($jkv["downloadpagemid"] == 6) { ?> selected="selected"<?php } ?>>
-															<?php echo $tl["option"]["o3"]; ?>
-														</option>
-														<option value="8"<?php if ($jkv["downloadpagemid"] == 8) { ?> selected="selected"<?php } ?>>
-															<?php echo $tl["option"]["o4"]; ?>
-														</option>
-														<option value="10"<?php if ($jkv["downloadpagemid"] == 10) { ?> selected="selected"<?php } ?>>
-															<?php echo $tl["option"]["o5"]; ?>
-														</option>
+
+														<?php
+														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+														echo $Html->addOption('2', $tl["selection"]["sel1"], ($jkv['downloadpagemid'] == 2) ? TRUE : FALSE);
+														echo $Html->addOption('4', $tl["selection"]["sel2"], ($jkv['downloadpagemid'] == 4) ? TRUE : FALSE);
+														echo $Html->addOption('6', $tl["selection"]["sel3"], ($jkv['downloadpagemid'] == 6) ? TRUE : FALSE);
+														echo $Html->addOption('8', $tl["selection"]["sel4"], ($jkv['downloadpagemid'] == 8) ? TRUE : FALSE);
+														echo $Html->addOption('10', $tl["selection"]["sel5"], ($jkv['downloadpagemid'] == 10) ? TRUE : FALSE);
+														?>
+
 													</select>
 												</div>
 											</div>

@@ -4,12 +4,23 @@
 		<div class="col-md-12">
 			<div class="box box-success">
 				<div class="box-header with-border">
-					<h3 class="box-title"><?php echo $tlsedi["siteedit_sec_title"]["set"]; ?></h3>
+
+					<?php
+					// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+					echo $Html->addTag('h3', $tlsedi["siteedit_sec_title"]["set"], 'box-title');
+					?>
+
 				</div>
 				<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 					<div class="box-body">
-						<p><?php echo $tlsedi["siteedit_sec_desc"]["sed"]; ?></p>
-						<input type="hidden" name="action" value="form1"/>
+
+						<?php
+						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+						echo $Html->addTag('p', $tlsedi["siteedit_sec_desc"]["sed"]);
+						// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+						echo $Html->addInput('hidden', 'action', 'form1');
+						?>
+
 						<?php
 						// Content of file
 						$file = APP_PATH . "robots.txt";
@@ -22,17 +33,23 @@
 						}
 						?>
 						<div class="form-group">
-							<textarea id="jak_file1" name="jak_file1" rows="8" placeholder="<?php echo $tlsedi["siteedit_placeholder"]["sep"]; ?>" class="form-control" disabled><?php echo htmlspecialchars ($content); ?></textarea>
+
+							<?php
+							// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+							echo $Html->addTextarea('jak_file1',  htmlspecialchars ($content), '8', '', array('id' => 'jak_file1', 'class' => 'form-control', 'placeholder' => $tlsedi["siteedit_placeholder"]["sep"], 'disabled' => 'disabled' ));
+							?>
+
 						</div>
 					</div>
 					<div class="box-footer">
 						<div class="pull-right">
-							<button id="editfile1" class="btn btn-primary" style="margin-right: 10px"><?php echo $tl["button"]["btn12"]; ?></button>
 
 							<?php
-							// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-							echo $htmlE->addButtonSubmit('reset1', '', 'btn btn-primary hidden', $tl["button"]["btn11"], array ('style' => 'margin-right: 10px'));
-							echo $htmlE->addButtonSubmit('save1', '', 'btn btn-success pull-right', $tl["button"]["btn1"], array ('disabled' => 'disabled'));
+							// Add Html Element -> addButton (Arguments: type, name, text, id, class, optional assoc. array)
+							echo $Html->addButton('button', $tl["button"]["btn12"], '', 'editfile1', 'btn btn-primary', array ('style' => 'margin-right: 10px'));
+							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+							echo $Html->addButtonSubmit('reset1', $tl["button"]["btn11"], '', 'btn btn-primary hidden', array ('style' => 'margin-right: 10px'));
+							echo $Html->addButtonSubmit('save1', $tl["button"]["btn1"], '', 'btn btn-success pull-right', array ('disabled' => 'disabled'));
 							?>
 
 						</div>

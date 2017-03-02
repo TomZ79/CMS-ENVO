@@ -94,7 +94,12 @@ if ($errors) { ?>
 					<div class="col-md-6">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["page_box_title"]["pagebt"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tl["page_box_title"]["pagebt"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -461,7 +466,12 @@ if ($errors) { ?>
 					<div class="col-md-6">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["page_box_title"]["pagebt1"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tl["page_box_title"]["pagebt1"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -494,7 +504,12 @@ if ($errors) { ?>
 						<?php if (JAK_TAGS) { ?>
 							<div class="box box-success">
 								<div class="box-header with-border">
-									<h3 class="box-title"><?php echo $tl["page_box_title"]["pagebt2"]; ?></h3>
+
+									<?php
+									// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+									echo $Html->addTag('h3', $tl["page_box_title"]["pagebt2"], 'box-title');
+									?>
+
 								</div>
 								<div class="box-body">
 									<div class="block">
@@ -598,7 +613,12 @@ if ($errors) { ?>
 					<div class="col-md-12">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["page_box_title"]["pagebt3"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tl["page_box_title"]["pagebt3"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
@@ -629,7 +649,12 @@ if ($errors) { ?>
 					<div class="col-md-12">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["page_box_title"]["pagebt4"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tl["page_box_title"]["pagebt4"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
@@ -660,7 +685,12 @@ if ($errors) { ?>
 					<div class="col-md-6">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["page_box_title"]["pagebt5"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tl["page_box_title"]["pagebt5"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 
@@ -798,7 +828,12 @@ if ($errors) { ?>
 					<div class="col-md-6">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["page_box_title"]["pagebt6"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tl["page_box_title"]["pagebt6"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<?php include "sidebar_widget.php"; ?>

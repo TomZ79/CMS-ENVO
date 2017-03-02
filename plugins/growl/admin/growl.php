@@ -56,23 +56,29 @@ switch ($page1) {
 
 			if (count ($errors) == 0) {
 
-				if (!isset($defaults['jak_permission'])) {
-					$permission = 0;
-				} else {
-					$permission = join (',', $defaults['jak_permission']);
-				}
+        if (!isset($defaults['jak_permission'])) {
+          $permission = 0;
+        } elseif (in_array (0, $defaults['jak_permission'])) {
+          $permission = 0;
+        } else {
+          $permission = join (',', $defaults['jak_permission']);
+        }
 
-				if (!isset($defaults['jak_pageid'])) {
-					$pageid = 0;
-				} else {
-					$pageid = join (',', $defaults['jak_pageid']);
-				}
+        if (!isset($defaults['jak_pageid'])) {
+          $pageid = 0;
+        } elseif (in_array (0, $defaults['jak_pageid'])) {
+          $pageid = 0;
+        } else {
+          $pageid = join (',', $defaults['jak_pageid']);
+        }
 
-				if (!isset($defaults['jak_newsid'])) {
-					$newsid = 0;
-				} else {
-					$newsid = join (',', $defaults['jak_newsid']);
-				}
+        if (!isset($defaults['jak_newsid'])) {
+          $newsid = 0;
+        } elseif (in_array (0, $defaults['jak_newsid'])) {
+          $newsid = 0;
+        } else {
+          $newsid = join (',', $defaults['jak_newsid']);
+        }
 
 				// save the time if available
 				if (isset($finalfrom)) {
@@ -213,25 +219,31 @@ switch ($page1) {
 
 					if (count ($errors) == 0) {
 
-						if (!isset($defaults['jak_permission'])) {
-							$permission = 0;
-						} else {
-							$permission = join (',', $defaults['jak_permission']);
-						}
+            if (!isset($defaults['jak_permission'])) {
+              $permission = 0;
+            } elseif (in_array (0, $defaults['jak_permission'])) {
+              $permission = 0;
+            } else {
+              $permission = join (',', $defaults['jak_permission']);
+            }
 
-						if (!isset($defaults['jak_pageid'])) {
-							$pageid = 0;
-						} else {
-							$pageid = join (',', $defaults['jak_pageid']);
-						}
+            if (!isset($defaults['jak_pageid'])) {
+              $pageid = 0;
+            } elseif (in_array (0, $defaults['jak_pageid'])) {
+              $pageid = 0;
+            } else {
+              $pageid = join (',', $defaults['jak_pageid']);
+            }
 
-						if (!isset($defaults['jak_newsid'])) {
-							$newsid = 0;
-						} else {
-							$newsid = join (',', $defaults['jak_newsid']);
-						}
+            if (!isset($defaults['jak_newsid'])) {
+              $newsid = 0;
+            } elseif (in_array (0, $defaults['jak_newsid'])) {
+              $newsid = 0;
+            } else {
+              $newsid = join (',', $defaults['jak_newsid']);
+            }
 
-						// save the time if available
+						// Save the time if available
 						if (isset($finalfrom)) {
 							$insert .= 'startdate = "' . smartsql ($finalfrom) . '",';
 						}

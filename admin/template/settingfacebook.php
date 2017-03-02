@@ -67,7 +67,12 @@ if ($JAK_FILE_ERROR) { ?>
 				<div class="col-md-12">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title"><?php echo $tl["fb_box_title"]["fbbt1"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('h3', $tl["fb_box_title"]["fbbt1"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body">
 							<div class="block">
@@ -113,7 +118,12 @@ if ($JAK_FILE_ERROR) { ?>
 				<div class="col-md-12">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title"><?php echo $tl["fb_box_title"]["fbbt2"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('h3', $tl["fb_box_title"]["fbbt2"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body">
 							<div class="block">
@@ -169,7 +179,12 @@ if ($JAK_FILE_ERROR) { ?>
 				<div class="col-md-12">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title"><?php echo $tl["fb_box_title"]["fbbt2"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('h3', $tl["fb_box_title"]["fbbt2"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body">
 							<div class="block">

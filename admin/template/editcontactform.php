@@ -65,7 +65,12 @@ if ($errors) { ?>
       <div class="col-md-12">
         <div class="box box-success">
           <div class="box-header with-border">
-            <h3 class="box-title"><?php echo $tl["cf_box_title"]["cfbt"]; ?></h3>
+
+            <?php
+            // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+            echo $Html->addTag('h3', $tl["cf_box_title"]["cfbt"], 'box-title');
+            ?>
+
           </div>
           <div class="box-body">
             <div class="block">

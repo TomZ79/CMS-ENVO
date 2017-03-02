@@ -38,8 +38,8 @@ if ($errors) { ?>
 		<div class="savebutton">
 
 			<?php
-			// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-			echo $htmlE->addButtonSubmit('save', '', 'btn btn-success button', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ');
+			// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+			echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button');
 			?>
 
 		</div>
@@ -64,7 +64,12 @@ if ($errors) { ?>
 					<div class="col-md-6">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tlgwl["gwl_box_title"]["gwlbt"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tlgwl["gwl_box_title"]["gwlbt"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -73,9 +78,9 @@ if ($errors) { ?>
 											<div class="col-md-4">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tlgwl["gwl_box_content"]["gwlbc"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlgwl["gwl_box_content"]["gwlbc"]);
+												echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
 												?>
 
 											</div>
@@ -83,8 +88,8 @@ if ($errors) { ?>
 												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													echo $htmlE->addInput ('text', 'jak_title', '', 'form-control', '', '');
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html->addInput('text', 'jak_title', '', '', 'form-control');
 													?>
 
 												</div>
@@ -94,15 +99,19 @@ if ($errors) { ?>
 											<div class="col-md-4">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tlgwl["gwl_box_content"]["gwlbc28"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlgwl["gwl_box_content"]["gwlbc28"]);
 												?>
 
 											</div>
 											<div class="col-md-8">
 												<div class="input-group">
-													<input type="text" name="jak_img" id="jak_img" class="form-control" value="<?php if (isset($_REQUEST["jak_img"])) echo $_REQUEST["jak_img"]; ?>"/>
+
+													<?php
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html->addInput('text', 'jak_img', (isset($_REQUEST["jak_img"])) ? $_REQUEST["jak_img"] : '', 'jak_img', 'form-control');
+													?>
+
 													<span class="input-group-btn">
 														<a class="btn btn-info ifManager" type="button" href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_img"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
 													</span>
@@ -115,8 +124,8 @@ if ($errors) { ?>
 							<div class="box-footer">
 
 								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 								?>
 
 							</div>
@@ -135,11 +144,29 @@ if ($errors) { ?>
 										<div class="row-form">
 											<div class="col-md-12">
 												<select name="jak_pageid[]" multiple="multiple" class="form-control">
-													<option value="0"<?php if (isset($_REQUEST["jak_pageid"]) && $_REQUEST["jak_pageid"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tlgwl["gwl_box_content"]["gwlbc1"]; ?></option>
 
-													<?php if (isset($JAK_PAGES) && is_array ($JAK_PAGES)) foreach ($JAK_PAGES as $v) { ?>
-														<option value="<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></option>
-													<?php } ?>
+													<?php
+													// Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
+													$selected = ((isset($_REQUEST["jak_pageid"]) && ($_REQUEST["jak_pageid"] == '0' || (in_array('0', $_REQUEST["jak_pageid"]))) || !isset($_REQUEST["jak_pageid"]))) ? TRUE : FALSE;
+
+													echo $Html->addOption('0', $tlgwl["gwl_box_content"]["gwlbc1"], $selected);
+													if (isset($JAK_PAGES) && is_array ($JAK_PAGES)) foreach ($JAK_PAGES as $v) {
+
+														if (isset($_REQUEST["jak_pageid"]) && (in_array($v["id"], $_REQUEST["jak_pageid"]))) {
+															if (isset($_REQUEST["jak_pageid"]) && (in_array('0', $_REQUEST["jak_pageid"]))) {
+																$selected = FALSE;
+															} else {
+																$selected = TRUE;
+															}
+														} else {
+															$selected = FALSE;
+														}
+
+														echo $Html->addOption($v["id"], $v["title"], $selected);
+
+													}
+													?>
+
 												</select>
 											</div>
 										</div>
@@ -149,15 +176,20 @@ if ($errors) { ?>
 							<div class="box-footer">
 
 								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 								?>
 
 							</div>
 						</div>
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tlgwl["gwl_box_title"]["gwlbt2"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tlgwl["gwl_box_title"]["gwlbt2"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -166,27 +198,25 @@ if ($errors) { ?>
 											<div class="col-md-7">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tlgwl["gwl_box_content"]["gwlbc2"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlgwl["gwl_box_content"]["gwlbc2"]);
 												?>
 
 											</div>
 											<div class="col-md-5">
 												<div class="radio radio-success">
 
-													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													((isset($_REQUEST["jak_all"]) && $_REQUEST["jak_all"] == '1') || !isset($_REQUEST["jak_all"])) ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_all', 'jak_all1', '', '1', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_all1', $tl["checkbox"]["chk"]);
 
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													((isset($_REQUEST["jak_all"]) && $_REQUEST["jak_all"] == '0')) ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_all', 'jak_all2', '', '0', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_all2', $tl["checkbox"]["chk1"]);
+													<?php
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_all', '1', ((isset($_REQUEST["jak_all"]) && $_REQUEST["jak_all"] == '1') || !isset($_REQUEST["jak_all"])) ? TRUE : FALSE, 'jak_all1');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_all1', $tl["checkbox"]["chk"]);
+
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_all', '0', ((isset($_REQUEST["jak_all"]) && $_REQUEST["jak_all"] == '0')) ? TRUE : FALSE, 'jak_all2');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_all2', $tl["checkbox"]["chk1"]);
 													?>
 
 												</div>
@@ -196,9 +226,8 @@ if ($errors) { ?>
 											<div class="col-md-7">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tlgwl["gwl_box_content"]["gwlbc3"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlgwl["gwl_box_content"]["gwlbc3"]);
 												?>
 
 											</div>
@@ -206,17 +235,15 @@ if ($errors) { ?>
 												<div class="radio radio-success">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													((isset($_REQUEST["jak_cookies"]) && $_REQUEST["jak_cookies"] == '1')) ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_cookies', 'jak_cookies1', '', '1', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_cookies1', $tl["checkbox"]["chk"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_cookies', '1', ((isset($_REQUEST["jak_cookies"]) && $_REQUEST["jak_cookies"] == '1')) ? TRUE : FALSE, 'jak_cookies1');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_cookies1', $tl["checkbox"]["chk"]);
 
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													((isset($_REQUEST["jak_cookies"]) && $_REQUEST["jak_cookies"] == '0') || !isset($_REQUEST["jak_cookies"])) ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_cookies', 'jak_cookies2', '', '0', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_cookies2', $tl["checkbox"]["chk1"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_cookies', '0', ((isset($_REQUEST["jak_cookies"]) && $_REQUEST["jak_cookies"] == '0') || !isset($_REQUEST["jak_cookies"])) ? TRUE : FALSE, 'jak_cookies2');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_cookies2', $tl["checkbox"]["chk1"]);
 													?>
 
 												</div>
@@ -226,17 +253,21 @@ if ($errors) { ?>
 											<div class="col-md-7">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tlgwl["gwl_box_content"]["gwlbc4"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlgwl["gwl_box_content"]["gwlbc4"]);
 												?>
 
 											</div>
 											<div class="col-md-5">
 												<select name="jak_cookiestime" class="form-control selectpicker" data-live-search="true" data-size="5">
-													<?php for ($i = 1; $i <= 99; $i ++) { ?>
-														<option value="<?php echo $i ?>"<?php if (isset($_REQUEST["jak_cookiestime"]) && $_REQUEST["jak_cookiestime"] == $i) { ?> selected="selected"<?php } ?>><?php echo $i; ?></option>
-													<?php } ?>
+
+													<?php for ($i = 1; $i <= 99; $i ++) {
+
+														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+														echo $Html->addOption($i, $i, (isset($_REQUEST["jak_cookiestime"]) && $_REQUEST["jak_cookiestime"] == $i) ? TRUE : FALSE);
+
+													} ?>
+
 												</select>
 											</div>
 										</div>
@@ -244,21 +275,25 @@ if ($errors) { ?>
 											<div class="col-md-7">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tlgwl["gwl_box_content"]["gwlbc5"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlgwl["gwl_box_content"]["gwlbc5"]);
 												?>
 
 											</div>
 											<div class="col-md-5">
 												<select name="jak_dur" class="form-control selectpicker" data-size="5">
-													<option value="3000"<?php if (isset($_REQUEST["jak_dur"]) && $_REQUEST["jak_dur"] == 3000) { ?> selected="selected"<?php } ?>>3</option>
-													<option value="4000"<?php if (isset($_REQUEST["jak_dur"]) && $_REQUEST["jak_dur"] == 4000) { ?> selected="selected"<?php } ?>>4</option>
-													<option value="5000"<?php if (isset($_REQUEST["jak_dur"]) && $_REQUEST["jak_dur"] == 5000) { ?> selected="selected"<?php } ?>>5</option>
-													<option value="6000"<?php if (isset($_REQUEST["jak_dur"]) && $_REQUEST["jak_dur"] == 6000) { ?> selected="selected"<?php } ?>>6</option>
-													<option value="7000"<?php if (isset($_REQUEST["jak_dur"]) && $_REQUEST["jak_dur"] == 7000) { ?> selected="selected"<?php } ?>>7</option>
-													<option value="8000"<?php if (isset($_REQUEST["jak_dur"]) && $_REQUEST["jak_dur"] == 8000) { ?> selected="selected"<?php } ?>>8</option>
-													<option value="9000"<?php if (isset($_REQUEST["jak_dur"]) && $_REQUEST["jak_dur"] == 9000) { ?> selected="selected"<?php } ?>>9</option>
+
+													<?php
+													// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+													echo $Html->addOption(3000, 3, (isset($_REQUEST["jak_dur"]) && $_REQUEST["jak_dur"] == 3000) ? TRUE : FALSE);
+													echo $Html->addOption(4000, 4, (isset($_REQUEST["jak_dur"]) && $_REQUEST["jak_dur"] == 4000) ? TRUE : FALSE);
+													echo $Html->addOption(5000, 5, (isset($_REQUEST["jak_dur"]) && $_REQUEST["jak_dur"] == 5000) ? TRUE : FALSE);
+													echo $Html->addOption(6000, 6, (isset($_REQUEST["jak_dur"]) && $_REQUEST["jak_dur"] == 6000) ? TRUE : FALSE);
+													echo $Html->addOption(7000, 7, (isset($_REQUEST["jak_dur"]) && $_REQUEST["jak_dur"] == 7000) ? TRUE : FALSE);
+													echo $Html->addOption(8000, 8, (isset($_REQUEST["jak_dur"]) && $_REQUEST["jak_dur"] == 8000) ? TRUE : FALSE);
+													echo $Html->addOption(9000, 9, (isset($_REQUEST["jak_dur"]) && $_REQUEST["jak_dur"] == 9000) ? TRUE : FALSE);
+													?>
+
 												</select>
 											</div>
 										</div>
@@ -266,9 +301,8 @@ if ($errors) { ?>
 											<div class="col-md-7">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tlgwl["gwl_box_content"]["gwlbc6"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlgwl["gwl_box_content"]["gwlbc6"]);
 												?>
 
 											</div>
@@ -276,17 +310,15 @@ if ($errors) { ?>
 												<div class="radio radio-success">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													((isset($_REQUEST["jak_sticky"]) && $_REQUEST["jak_sticky"] == '1')) ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_sticky', 'jak_sticky1', '', '1', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_sticky1', $tl["checkbox"]["chk"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_sticky', '1', ((isset($_REQUEST["jak_sticky"]) && $_REQUEST["jak_sticky"] == '1')) ? TRUE : FALSE, 'jak_sticky1');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_sticky1', $tl["checkbox"]["chk"]);
 
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													((isset($_REQUEST["jak_sticky"]) && $_REQUEST["jak_sticky"] == '0') || !isset($_REQUEST["jak_sticky"])) ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_sticky', 'jak_sticky2', '', '0', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_sticky2', $tl["checkbox"]["chk1"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_sticky', '0', ((isset($_REQUEST["jak_sticky"]) && $_REQUEST["jak_sticky"] == '0') || !isset($_REQUEST["jak_sticky"])) ? TRUE : FALSE, 'jak_sticky2');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_sticky2', $tl["checkbox"]["chk1"]);
 													?>
 
 												</div>
@@ -296,19 +328,23 @@ if ($errors) { ?>
 											<div class="col-md-7">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tlgwl["gwl_box_content"]["gwlbc7"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlgwl["gwl_box_content"]["gwlbc7"]);
 												?>
 
 											</div>
 											<div class="col-md-5">
-												<select name="jak_class" class="form-control selectpicker" data-size="3">
-													<option value="top-right"<?php if (isset($_REQUEST["jak_class"]) && $_REQUEST["jak_class"] == "top-right") { ?> selected="selected"<?php } ?>><?php echo $tlgwl["gwl_box_content"]["gwlbc8"]; ?></option>
-													<option value="top-left"<?php if (isset($_REQUEST["jak_class"]) && $_REQUEST["jak_class"] == "top-left") { ?> selected="selected"<?php } ?>><?php echo $tlgwl["gwl_box_content"]["gwlbc9"]; ?></option>
-													<option value="center"<?php if (isset($_REQUEST["jak_class"]) && $_REQUEST["jak_class"] == "center") { ?> selected="selected"<?php } ?>><?php echo $tlgwl["gwl_box_content"]["gwlbc10"]; ?></option>
-													<option value="bottom-left"<?php if (isset($_REQUEST["jak_class"]) && $_REQUEST["jak_class"] == "bottom-left") { ?> selected="selected"<?php } ?>><?php echo $tlgwl["gwl_box_content"]["gwlbc11"]; ?></option>
-													<option value="bottom-right"<?php if (isset($_REQUEST["jak_class"]) && $_REQUEST["jak_class"] == "bottom-right") { ?> selected="selected"<?php } ?>><?php echo $tlgwl["gwl_box_content"]["gwlbc12"]; ?></option>
+												<select name="jak_class" class="form-control selectpicker" data-size="4">
+
+													<?php
+													// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+													echo $Html->addOption("top-right", $tlgwl["gwl_box_content"]["gwlbc8"], (isset($_REQUEST["jak_class"]) && $_REQUEST["jak_class"] == "top-right") ? TRUE : FALSE);
+													echo $Html->addOption("top-left", $tlgwl["gwl_box_content"]["gwlbc9"], (isset($_REQUEST["jak_class"]) && $_REQUEST["jak_class"] == "top-left") ? TRUE : FALSE);
+													echo $Html->addOption("center", $tlgwl["gwl_box_content"]["gwlbc10"], (isset($_REQUEST["jak_class"]) && $_REQUEST["jak_class"] == "center") ? TRUE : FALSE);
+													echo $Html->addOption("bottom-left", $tlgwl["gwl_box_content"]["gwlbc11"], (isset($_REQUEST["jak_class"]) && $_REQUEST["jak_class"] == "bottom-left") ? TRUE : FALSE);
+													echo $Html->addOption("bottom-right", $tlgwl["gwl_box_content"]["gwlbc12"], (isset($_REQUEST["jak_class"]) && $_REQUEST["jak_class"] == "bottom-right") ? TRUE : FALSE);
+													?>
+
 												</select>
 											</div>
 										</div>
@@ -316,9 +352,8 @@ if ($errors) { ?>
 											<div class="col-md-7">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tlgwl["gwl_box_content"]["gwlbc13"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlgwl["gwl_box_content"]["gwlbc13"]);
 												?>
 
 											</div>
@@ -326,17 +361,15 @@ if ($errors) { ?>
 												<div class="radio radio-success">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													((isset($_REQUEST["jak_color"]) && $_REQUEST["jak_color"] == '1') || !isset($_REQUEST["jak_color"])) ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_color', 'jak_color1', '', '1', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_color1', $tlgwl["gwl_box_content"]["gwlbc14"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_color', '1', ((isset($_REQUEST["jak_color"]) && $_REQUEST["jak_color"] == '1') || !isset($_REQUEST["jak_color"])) ? TRUE : FALSE, 'jak_color1');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_color1', $tlgwl["gwl_box_content"]["gwlbc14"]);
 
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													((isset($_REQUEST["jak_color"]) && $_REQUEST["jak_color"] == '0')) ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_color', 'jak_color2', '', '0', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_color2', $tlgwl["gwl_box_content"]["gwlbc15"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_color', '0', ((isset($_REQUEST["jak_color"]) && $_REQUEST["jak_color"] == '0')) ? TRUE : FALSE, 'jak_color2');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_color2', $tlgwl["gwl_box_content"]["gwlbc15"]);
 													?>
 
 												</div>
@@ -348,8 +381,8 @@ if ($errors) { ?>
 							<div class="box-footer">
 
 								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 								?>
 
 							</div>
@@ -370,9 +403,29 @@ if ($errors) { ?>
 										<div class="row-form">
 											<div class="col-md-12">
 												<select name="jak_permission[]" multiple="multiple" class="form-control">
-													<option value="0"<?php if (isset($_REQUEST["jak_permission"]) && $_REQUEST["jak_permission"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tlgwl["gwl_box_content"]["gwlbc16"]; ?></option>
-													<?php if (isset($JAK_USERGROUP) && is_array ($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) { ?>
-														<option value="<?php echo $v["id"]; ?>"<?php if (isset($_REQUEST["jak_permission"]) && $v["id"] == $_REQUEST["jak_permission"]) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php } ?>
+
+													<?php
+													// Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
+													$selected = ((isset($_REQUEST["jak_permission"]) && ($_REQUEST["jak_permission"] == '0' || (in_array('0', $_REQUEST["jak_permission"]))) || !isset($_REQUEST["jak_permission"]))) ? TRUE : FALSE;
+
+													echo $Html->addOption('0', $tlgwl["gwl_box_content"]["gwlbc16"], $selected);
+													if (isset($JAK_USERGROUP) && is_array ($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) {
+
+														if (isset($_REQUEST["jak_permission"]) && (in_array($v["id"], $_REQUEST["jak_permission"]))) {
+															if (isset($_REQUEST["jak_permission"]) && (in_array('0', $_REQUEST["jak_permission"]))) {
+																$selected = FALSE;
+															} else {
+																$selected = TRUE;
+															}
+														} else {
+															$selected = FALSE;
+														}
+
+														echo $Html->addOption($v["id"], $v["name"], $selected);
+
+													}
+													?>
+
 												</select>
 											</div>
 										</div>
@@ -382,15 +435,20 @@ if ($errors) { ?>
 							<div class="box-footer">
 
 								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 								?>
 
 							</div>
 						</div>
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tlgwl["gwl_box_title"]["gwlbt4"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tlgwl["gwl_box_title"]["gwlbt4"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -399,15 +457,19 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tlgwl["gwl_box_content"]["gwlbc17"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlgwl["gwl_box_content"]["gwlbc17"]);
 												?>
 
 											</div>
 											<div class="col-md-7">
 												<div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
-													<input type="text" name="jak_datefrom" id="datepickerFrom" class="form-control" value="<?php if (isset($_REQUEST["jak_datefrom"])) echo $_REQUEST["jak_datefrom"]; ?>" readonly/>
+
+													<?php
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html->addInput('text', 'jak_datefrom', ($_REQUEST["jak_datefrom"]) ? date ("Y-m-d H:i", $_REQUEST["jak_datefrom"]) : '', 'datepickerFrom', 'form-control', array('readonly' => 'readonly'));
+													?>
+
 												</div>
 											</div>
 										</div>
@@ -415,15 +477,19 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tlgwl["gwl_box_content"]["gwlbc18"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlgwl["gwl_box_content"]["gwlbc18"]);
 												?>
 
 											</div>
 											<div class="col-md-7">
 												<div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
-													<input type="text" name="jak_dateto" id="datepickerTo" class="form-control" value="<?php if (isset($_REQUEST["jak_dateto"])) echo $_REQUEST["jak_dateto"]; ?>" readonly/>
+
+													<?php
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html->addInput('text', 'jak_dateto', ($_REQUEST["jak_dateto"]) ? date ("Y-m-d H:i", $_REQUEST["jak_dateto"]) : '', 'datepickerTo', 'form-control', array('readonly' => 'readonly'));
+													?>
+
 												</div>
 											</div>
 										</div>
@@ -433,8 +499,8 @@ if ($errors) { ?>
 							<div class="box-footer">
 
 								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 								?>
 
 							</div>
@@ -454,19 +520,36 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tlgwl["gwl_box_content"]["gwlbc19"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlgwl["gwl_box_content"]["gwlbc19"]);
 												?>
 
 											</div>
 											<div class="col-md-7">
 												<select name="jak_newsid[]" multiple="multiple" class="form-control">
-													<option value="0"<?php if (isset($_REQUEST["jak_newsid"]) && $_REQUEST["jak_newsid"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tlgwl["gwl_box_content"]["gwlbc1"]; ?></option>
 
-													<?php if (isset($JAK_NEWS) && is_array ($JAK_NEWS)) foreach ($JAK_NEWS as $n) { ?>
-														<option value="<?php echo $n["id"]; ?>"><?php echo $n["title"]; ?></option>
-													<?php } ?>
+													<?php
+													// Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
+													$selected = ((isset($_REQUEST["jak_newsid"]) && ($_REQUEST["jak_newsid"] == '0' || (in_array('0', $_REQUEST["jak_newsid"]))) || !isset($_REQUEST["jak_newsid"]))) ? TRUE : FALSE;
+
+													echo $Html->addOption('0', $tlgwl["gwl_box_content"]["gwlbc1"], $selected);
+													if (isset($JAK_NEWS) && is_array ($JAK_NEWS)) foreach ($JAK_NEWS as $n) {
+
+														if (isset($_REQUEST["jak_newsid"]) && (in_array($n["id"], $_REQUEST["jak_newsid"]))) {
+															if (isset($_REQUEST["jak_newsid"]) && (in_array('0', $_REQUEST["jak_newsid"]))) {
+																$selected = FALSE;
+															} else {
+																$selected = TRUE;
+															}
+														} else {
+															$selected = FALSE;
+														}
+
+														echo $Html->addOption($n["id"], $n["title"], $selected);
+
+													}
+													?>
+
 												</select>
 											</div>
 										</div>
@@ -474,9 +557,8 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tlgwl["gwl_box_content"]["gwlbc20"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlgwl["gwl_box_content"]["gwlbc20"]);
 												?>
 
 											</div>
@@ -484,17 +566,15 @@ if ($errors) { ?>
 												<div class="radio radio-success">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													((isset($_REQUEST["jak_mainnews"]) && $_REQUEST["jak_mainnews"] == '1')) ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_mainnews', 'jak_mainnews1', '', '1', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_mainnews1', $tl["checkbox"]["chk"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_mainnews', '1', ((isset($_REQUEST["jak_mainnews"]) && $_REQUEST["jak_mainnews"] == '1')) ? TRUE : FALSE, 'jak_mainnews1');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_mainnews1', $tl["checkbox"]["chk"]);
 
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													((isset($_REQUEST["jak_mainnews"]) && $_REQUEST["jak_mainnews"] == '0') || !isset($_REQUEST["jak_mainnews"])) ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_mainnews', 'jak_mainnews2', '', '0', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_mainnews2', $tl["checkbox"]["chk1"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_mainnews', '0', ((isset($_REQUEST["jak_mainnews"]) && $_REQUEST["jak_mainnews"] == '0') || !isset($_REQUEST["jak_mainnews"])) ? TRUE : FALSE, 'jak_mainnews2');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_mainnews2', $tl["checkbox"]["chk1"]);
 													?>
 
 												</div>
@@ -505,9 +585,8 @@ if ($errors) { ?>
 												<div class="col-md-5">
 
 													<?php
-													// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-													// Add Html Element -> endTag (Arguments: tag)
-													echo $htmlE->startTag('strong') . $tlgwl["gwl_box_content"]["gwlbc21"] . $htmlE->endTag('strong');
+													// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+													echo $Html->addTag('strong', $tlgwl["gwl_box_content"]["gwlbc21"]);
 													?>
 
 												</div>
@@ -515,17 +594,15 @@ if ($errors) { ?>
 													<div class="radio radio-success">
 
 														<?php
-														// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-														((isset($_REQUEST["jak_tags"]) && $_REQUEST["jak_tags"] == '1')) ? $checked = 'yes' : $checked = 'no';
-														echo $htmlE->addInput ('radio', 'jak_tags', 'jak_tags1', '', '1', $checked);
-														// Arguments: for (id of associated form element), text
-														echo $htmlE->addLabelFor ('jak_tags1', $tl["checkbox"]["chk"]);
+														// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+														echo $Html->addRadio('jak_tags', '1', ((isset($_REQUEST["jak_tags"]) && $_REQUEST["jak_tags"] == '1')) ? TRUE : FALSE, 'jak_tags1');
+														// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+														echo $Html->addLabel('jak_tags1', $tl["checkbox"]["chk"]);
 
-														// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-														((isset($_REQUEST["jak_tags"]) && $_REQUEST["jak_tags"] == '0') || !isset($_REQUEST["jak_tags"])) ? $checked = 'yes' : $checked = 'no';
-														echo $htmlE->addInput ('radio', 'jak_tags', 'jak_tags2', '', '0', $checked);
-														// Arguments: for (id of associated form element), text
-														echo $htmlE->addLabelFor ('jak_tags2', $tl["checkbox"]["chk1"]);
+														// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+														echo $Html->addRadio('jak_tags', '0', ((isset($_REQUEST["jak_tags"]) && $_REQUEST["jak_tags"] == '0') || !isset($_REQUEST["jak_tags"])) ? TRUE : FALSE, 'jak_tags2');
+														// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+														echo $Html->addLabel('jak_tags2', $tl["checkbox"]["chk1"]);
 														?>
 
 													</div>
@@ -536,9 +613,8 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tlgwl["gwl_box_content"]["gwlbc22"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlgwl["gwl_box_content"]["gwlbc22"]);
 												?>
 
 											</div>
@@ -546,17 +622,15 @@ if ($errors) { ?>
 												<div class="radio radio-success">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													((isset($_REQUEST["jak_search"]) && $_REQUEST["jak_search"] == '1')) ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_search', 'jak_search1', '', '1', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_search1', $tl["checkbox"]["chk"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_search', '1', ((isset($_REQUEST["jak_search"]) && $_REQUEST["jak_search"] == '1')) ? TRUE : FALSE, 'jak_search1');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_search1', $tl["checkbox"]["chk"]);
 
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													((isset($_REQUEST["jak_search"]) && $_REQUEST["jak_search"] == '0') || !isset($_REQUEST["jak_search"])) ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_search', 'jak_search2', '', '0', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_search2', $tl["checkbox"]["chk1"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_search', '0', ((isset($_REQUEST["jak_search"]) && $_REQUEST["jak_search"] == '0') || !isset($_REQUEST["jak_search"])) ? TRUE : FALSE, 'jak_search2');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_search2', $tl["checkbox"]["chk1"]);
 													?>
 
 												</div>
@@ -566,9 +640,8 @@ if ($errors) { ?>
 											<div class="col-md-5">
 
 												<?php
-												// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-												// Add Html Element -> endTag (Arguments: tag)
-												echo $htmlE->startTag('strong') . $tlgwl["gwl_box_content"]["gwlbc23"] . $htmlE->endTag('strong');
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlgwl["gwl_box_content"]["gwlbc23"]);
 												?>
 
 											</div>
@@ -576,17 +649,15 @@ if ($errors) { ?>
 												<div class="radio radio-success">
 
 													<?php
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													((isset($_REQUEST["jak_sitemap"]) && $_REQUEST["jak_sitemap"] == '1')) ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_sitemap', 'jak_sitemap1', '', '1', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_sitemap1', $tl["checkbox"]["chk"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_sitemap', '1', ((isset($_REQUEST["jak_sitemap"]) && $_REQUEST["jak_sitemap"] == '1')) ? TRUE : FALSE, 'jak_sitemap1');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_sitemap1', $tl["checkbox"]["chk"]);
 
-													// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-													((isset($_REQUEST["jak_sitemap"]) && $_REQUEST["jak_sitemap"] == '0') || !isset($_REQUEST["jak_sitemap"])) ? $checked = 'yes' : $checked = 'no';
-													echo $htmlE->addInput ('radio', 'jak_sitemap', 'jak_sitemap2', '', '0', $checked);
-													// Arguments: for (id of associated form element), text
-													echo $htmlE->addLabelFor ('jak_sitemap2', $tl["checkbox"]["chk1"]);
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_sitemap', '0', ((isset($_REQUEST["jak_sitemap"]) && $_REQUEST["jak_sitemap"] == '0') || !isset($_REQUEST["jak_sitemap"])) ? TRUE : FALSE, 'jak_sitemap2');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_sitemap2', $tl["checkbox"]["chk1"]);
 													?>
 
 												</div>
@@ -598,8 +669,8 @@ if ($errors) { ?>
 							<div class="box-footer">
 
 								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, id, class, value, optional assoc. array)
-								echo $htmlE->addButtonSubmit('save', '', 'btn btn-success pull-right', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"]);
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
 								?>
 
 							</div>

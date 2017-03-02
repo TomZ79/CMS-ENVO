@@ -67,7 +67,7 @@
 </script>
 
 <script type="text/javascript">
-	$(document).ready(function () {
+	$(function () {
 		/* DateTimePicker
 		 ========================================= */
 		$('#datepickerFrom').datetimepicker({
@@ -81,7 +81,6 @@
 			// Other
 			ignoreReadonly: true,
 			keepInvalid: true,
-			minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date ("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>
 		});
 
 		$('#datepickerTo').datetimepicker({
@@ -94,7 +93,6 @@
 			showClear: true,
 			// Other
 			ignoreReadonly: true,
-			minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date ("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>,
 			useCurrent: false //Important! See issue #1075
 		});
 
@@ -104,6 +102,5 @@
 		$("#datepickerTo").on("dp.change", function (e) {
 			$('#datepickerFrom').data("DateTimePicker").maxDate(e.date);
 		});
-
 	});
 </script>

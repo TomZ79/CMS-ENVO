@@ -12,9 +12,22 @@
 				</div>
 				<div class="col-md-6">
 					<select name="jak_showblogmany" class="form-control selectpicker" data-size="5">
-						<?php for ($i = 0; $i <= 10; $i ++) { ?>
-							<option value="<?php echo $i ?>"<?php if ( $i == 0) { ?> selected="selected"<?php } ?>><?php echo $i; ?></option>
-						<?php } ?>
+
+						<?php for ($i = 0; $i <= 10; $i ++) {
+
+							if (isset($_REQUEST["jak_showblogmany"]) && $_REQUEST["jak_showblogmany"] == $i) {
+								$selected = TRUE;
+							} elseif (!isset($_REQUEST["jak_showblogmany"]) && ($i == 0)) {
+								$selected = TRUE;
+							} else {
+								$selected = FALSE;
+							}
+
+							// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+							echo $Html->addOption($i, $i, $selected);
+
+						} ?>
+
 					</select>
 				</div>
 			</div>

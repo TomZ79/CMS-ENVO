@@ -45,10 +45,10 @@ if ($page5 == "e") { ?>
 								<div class="checkbox-singel check-success">
 
 									<?php
-									// Add Html Element -> Input (Arguments: type, name, id, class, value, checked-only for radio input)
-									echo $htmlE->addInput('checkbox', '', 'jak_delete_all', '', '', '');
-									// Arguments: for (id of associated form element), text
-									echo $htmlE->addLabelFor('jak_delete_all', '');
+									// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+									// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+									echo $Html->addCheckbox('', '', false, 'jak_delete_all');
+									echo $Html->addLabel('jak_delete_all', '');
 									?>
 
 								</div>
@@ -57,13 +57,20 @@ if ($page5 == "e") { ?>
 							<th><?php echo $tlblog["blog_box_table"]["blogtb"]; ?></th>
 							<th><?php echo $tlblog["blog_box_table"]["blogtb7"]; ?></th>
 							<th>
-								<button type="submit" name="approve" id="button_lock" class="btn btn-default btn-xs"><i
-										class="fa fa-lock"></i></button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('approve', '<i class="fa fa-lock"></i>', 'button_lock', 'btn btn-default btn-xs');
+								?>
+
 							</th>
 							<th>
-								<button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs"
-									data-confirm-del="<?php echo $tlblog["blog_notification"]["codelall"]; ?>" disabled="disabled">
-									<i class="fa fa-trash-o"></i></button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array ('disabled' => 'disabled', 'data-confirm-del' => $tlblog["blog_notification"]["codelall"]));
+								?>
+
 							</th>
 						</tr>
 						</thead>
@@ -72,26 +79,20 @@ if ($page5 == "e") { ?>
 								<td><?php echo $v["id"]; ?></td>
 								<td>
 									<div class="checkbox-singel check-success">
-										<input type="checkbox" id="jak_delete_comment<?php echo $v["id"]; ?>" name="jak_delete_comment[]"
-											class="highlight" value="<?php echo $v["id"]; ?>"/>
+										<input type="checkbox" id="jak_delete_comment<?php echo $v["id"]; ?>" name="jak_delete_comment[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
 										<label for="jak_delete_comment<?php echo $v["id"]; ?>"></label>
 									</div>
 								</td>
 								<td><?php echo jak_clean_comment ($v["message"]); ?></td>
 								<td><?php if (isset($JAK_BLOG_ALL) && is_array ($JAK_BLOG_ALL)) foreach ($JAK_BLOG_ALL as $z) {
 										if ($v["blogid"] == $z["id"]) { ?>
-											<a
-											href="index.php?p=blog&amp;sp=comment&amp;ssp=sort&amp;sssp=blog&amp;ssssp=<?php echo $z["id"]; ?>"><?php echo $z["title"]; ?></a><?php }
+											<a href="index.php?p=blog&amp;sp=comment&amp;ssp=sort&amp;sssp=blog&amp;ssssp=<?php echo $z["id"]; ?>"><?php echo $z["title"]; ?></a><?php }
 									} ?></td>
 								<td><?php if ($v["userid"] == '0') { ?><?php echo $tlblog["blog_box_content"]["blogbc40"]; ?><?php } else { ?>
-										<a
-										href="index.php?p=blog&amp;sp=comment&amp;ssp=sort&amp;sssp=user&amp;ssssp=<?php echo $v["userid"]; ?>"><?php echo $v["username"]; ?></a><?php } ?>
+										<a href="index.php?p=blog&amp;sp=comment&amp;ssp=sort&amp;sssp=user&amp;ssssp=<?php echo $v["userid"]; ?>"><?php echo $v["username"]; ?></a><?php } ?>
 								</td>
 								<td>
-									<a class="btn btn-default btn-xs"
-										href="index.php?p=blog&amp;sp=comment&amp;ssp=approve&amp;sssp=<?php echo $v["id"]; ?>"
-										class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom"
-										title="<?php if ($v["approve"] == '0') {
+									<a class="btn btn-default btn-xs" href="index.php?p=blog&amp;sp=comment&amp;ssp=approve&amp;sssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["approve"] == '0') {
 											echo $tl["icons"]["i5"];
 										} else {
 											echo $tl["icons"]["i6"];
@@ -100,10 +101,7 @@ if ($page5 == "e") { ?>
 									</a>
 								</td>
 								<td>
-									<a class="btn btn-default btn-xs"
-										href="index.php?p=blog&amp;sp=comment&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>"
-										class="btn btn-default btn-xs" data-confirm="<?php echo $tlblog["blog_notification"]["codel"]; ?>"
-										data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+									<a class="btn btn-default btn-xs" href="index.php?p=blog&amp;sp=comment&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo $tlblog["blog_notification"]["codel"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
 										<i class="fa fa-trash-o"></i>
 									</a>
 								</td>
@@ -115,28 +113,34 @@ if ($page5 == "e") { ?>
 		</div>
 	</form>
 
+
+	<div class="col-md-12">
+		<div class="icon_legend">
+
+			<?php
+			// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+			echo $Html->addTag('h3', $tl["icons"]["i"]);
+			echo $Html->addTag('i', '', 'fa fa-check', array('title' => $tl["icons"]["i6"]));
+			echo $Html->addTag('i', '', 'fa fa-lock', array('title' => $tl["icons"]["i5"]));
+			echo $Html->addTag('i', '', 'fa fa-trash-o', array('title' => $tl["icons"]["i1"]));
+			?>
+
+		</div>
+	</div>
+
+	<?php if ($JAK_PAGINATE_SORT) echo $JAK_PAGINATE_SORT; ?>
+
 <?php } else { ?>
 
 	<div class="col-md-12">
 
 		<?php
-		// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
-		echo $htmlE->addSimpleDiv ('', $tl["general_error"]["generror3"],  array ('class' => 'alert bg-info text-white'));
+		// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+		echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
 		?>
 
 	</div>
 
 <?php } ?>
-
-	<div class="col-md-12">
-		<div class="icon_legend">
-			<h3><?php echo $tl["icons"]["i"]; ?></h3>
-			<i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
-			<i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
-			<i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
-		</div>
-	</div>
-
-<?php if ($JAK_PAGINATE_SORT) echo $JAK_PAGINATE_SORT; ?>
 
 <?php include_once APP_PATH . 'admin/template/footer.php'; ?>

@@ -56,44 +56,6 @@
 			jsACE.insert(insert_javascript());
 		});
 
-		/* DateTimePicker
-		 =========================================
-		 $('#datepickerFrom').datetimepicker({
-		 // Language
-		 locale: '<?php echo $site_language;?>',
-		 // Date-Time format
-		 format: 'YYYY-MM-DD HH:mm',
-		 // Show Button
-		 showTodayButton: true,
-		 showClear: true,
-		 // Other
-		 ignoreReadonly: true,
-		 keepInvalid: true,
-		 minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date ("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>
-		 });
-
-
-		 $('#datepickerTo').datetimepicker({
-		 // Language
-		 locale: '<?php echo $site_language;?>',
-		 // Date-Time format
-		 format: 'YYYY-MM-DD HH:mm',
-		 // Show Button
-		 showTodayButton: true,
-		 showClear: true,
-		 // Other
-		 ignoreReadonly: true,
-		 minDate: <?php if ($JAK_FORM_DATA["startdate"]) echo "'" . date ("Y-m-d H:i", $JAK_FORM_DATA["startdate"]) . "'"; else echo 'moment()'; ?>,
-		 useCurrent: false //Important! See issue #1075
-		 });
-
-		 $("#datepickerFrom").on("dp.change", function (e) {
-		 $('#datepickerTo').data("DateTimePicker").minDate(e.date);
-		 });
-		 $("#datepickerTo").on("dp.change", function (e) {
-		 $('#datepickerFrom').data("DateTimePicker").maxDate(e.date);
-		 });
-		 */
 	});
 
 	/* Responsive Filemanager
@@ -127,4 +89,42 @@
 		<?php } ?>
 	});
 
+</script>
+<script type="text/javascript">
+  $(function () {
+    /* DateTimePicker
+     ========================================= */
+    $('#datepickerFrom').datetimepicker({
+      // Language
+      locale: '<?php echo $site_language;?>',
+      // Date-Time format
+      format: 'YYYY-MM-DD HH:mm',
+      // Show Button
+      showTodayButton: true,
+      showClear: true,
+      // Other
+      ignoreReadonly: true,
+      keepInvalid: true,
+    });
+
+    $('#datepickerTo').datetimepicker({
+      // Language
+      locale: '<?php echo $site_language;?>',
+      // Date-Time format
+      format: 'YYYY-MM-DD HH:mm',
+      // Show Button
+      showTodayButton: true,
+      showClear: true,
+      // Other
+      ignoreReadonly: true,
+      useCurrent: false //Important! See issue #1075
+    });
+
+    $("#datepickerFrom").on("dp.change", function (e) {
+      $('#datepickerTo').data("DateTimePicker").minDate(e.date);
+    });
+    $("#datepickerTo").on("dp.change", function (e) {
+      $('#datepickerFrom').data("DateTimePicker").maxDate(e.date);
+    });
+  });
 </script>

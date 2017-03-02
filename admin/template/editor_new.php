@@ -1,6 +1,11 @@
 <div class="box box-success">
 	<div class="box-header with-border">
-		<h3 class="box-title"><?php echo $tl["global_text"]["globaltxt1"]; ?></h3>
+
+		<?php
+		// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+		echo $Html->addTag('h3', $tl["global_text"]["globaltxt1"], 'box-title');
+		?>
+
 	</div>
 	<div class="box-body">
 		<table class="table table-striped">
@@ -28,12 +33,12 @@
 
 						<?php
 						// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-						echo $Html->addTextarea('jak_lcontent', $_REQUEST["jak_content"], '', '', array('id' => 'jak_editor', 'class' => 'form-control hidden'));
+						echo $Html->addTextarea('jak_content', (isset($_REQUEST["jak_content"])) ? jak_edit_safe_userpost($_REQUEST["jak_content"]) : '', '', '', array('id' => 'jak_editor', 'class' => 'form-control hidden'));
 
 						} else {
 
 						// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-						echo $Html->addTextarea('jak_content', $_REQUEST["jak_content"], '40', '', array('id' => 'jak_editor', 'class' => 'form-control hidden'));
+						echo $Html->addTextarea('jak_content', (isset($_REQUEST["jak_content"])) ? jak_edit_safe_userpost($_REQUEST["jak_content"]) : '', '40', '', array('id' => 'jakEditor', 'class' => 'form-control jakEditor'));
 
 					 } ?>
 

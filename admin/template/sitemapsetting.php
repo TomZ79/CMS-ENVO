@@ -62,7 +62,12 @@ if ($page1 == "e") { ?>
 					<div class="col-md-12">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["sm_box_title"]["smbt"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tl["sm_box_title"]["smbt"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -125,7 +130,12 @@ if ($page1 == "e") { ?>
 					<div class="col-md-12">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["sm_box_title"]["smbt1"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tl["sm_box_title"]["smbt1"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<?php include 'sidebar_widget.php'; ?>

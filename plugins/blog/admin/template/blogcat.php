@@ -62,7 +62,12 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 	<div class="box box-success">
 		<div class="box-header with-border">
 			<i class="fa fa-bars"></i>
-			<h3 class="box-title"><?php echo $tlblog["blog_box_table"]["blogtb5"]; ?></h3>
+
+			<?php
+			// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+			echo $Html->addTag('h3', $tlblog["blog_box_table"]["blogtb5"], 'box-title');
+			?>
+
 		</div>
 		<div class="box-body">
 
@@ -86,29 +91,34 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 		</div>
 	</div>
 
+	<div class="col-md-12">
+		<div class="icon_legend">
+
+			<?php
+			// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+			echo $Html->addTag('h3', $tl["icons"]["i"]);
+			echo $Html->addTag('i', '', 'fa fa-plus', array('title' => $tl["icons"]["i7"]));
+			echo $Html->addTag('i', '', 'fa fa-check', array('title' => $tl["icons"]["i6"]));
+			echo $Html->addTag('i', '', 'fa fa-lock', array('title' => $tl["icons"]["i5"]));
+			echo $Html->addTag('i', '', 'fa fa-sticky-note-o', array('title' => $tl["icons"]["i21"]));
+			echo $Html->addTag('i', '', 'fa fa-edit', array('title' => $tl["icons"]["i2"]));
+			echo $Html->addTag('i', '', 'fa fa-trash-o', array('title' => $tl["icons"]["i1"]));
+			?>
+
+		</div>
+	</div>
+
 <?php } else { ?>
 
 	<div class="col-md-12">
 
 		<?php
-		// Add Html Element -> addSimpleDiv (Arguments: id, value, optional assoc. array)
-		echo $htmlE->addSimpleDiv ('', $tl["general_error"]["generror3"],  array ('class' => 'alert bg-info text-white'));
+		// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+		echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
 		?>
 
 	</div>
 
 <?php } ?>
-
-<div class="col-md-12">
-	<div class="icon_legend">
-		<h3><?php echo $tl["icons"]["i"]; ?></h3>
-		<i title="<?php echo $tl["icons"]["i7"]; ?>" class="fa fa-plus"></i>
-		<i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
-		<i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
-		<i title="<?php echo $tl["blog"]["i21"]; ?>" class="fa fa-sticky-note-o"></i>
-		<i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>
-		<i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
-	</div>
-</div>
 
 <?php include_once APP_PATH . 'admin/template/footer.php'; ?>

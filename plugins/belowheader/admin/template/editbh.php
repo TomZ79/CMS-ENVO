@@ -81,7 +81,12 @@ if ($page3 == "e") { ?>
 					<div class="col-md-6">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tlbh["bh_box_title"]["bhbt"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tlbh["bh_box_title"]["bhbt"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -121,7 +126,12 @@ if ($page3 == "e") { ?>
 						</div>
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tlbh["bh_box_title"]["bhbt1"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tlbh["bh_box_title"]["bhbt1"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -184,7 +194,12 @@ if ($page3 == "e") { ?>
 						</div>
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tlbh["bh_box_title"]["bhbt3"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tlbh["bh_box_title"]["bhbt3"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -346,7 +361,12 @@ if ($page3 == "e") { ?>
 					<div class="col-md-12">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tlbh["bh_box_title"]["bhbt5"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tlbh["bh_box_title"]["bhbt5"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<table class="table table-striped">

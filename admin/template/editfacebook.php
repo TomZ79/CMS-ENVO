@@ -7,7 +7,12 @@
 			<div class="col-md-12">
 				<div class="box box-success">
 					<div class="box-header with-border">
-						<h3 class="box-title"><?php echo $tl["fb_box_title"]["fbbt"]; ?></h3>
+
+						<?php
+						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+						echo $Html->addTag('h3', $tl["fb_box_title"]["fbbt"], 'box-title');
+						?>
+
 					</div>
 					<div class="box-body">
 						<div class="col-md-5" style="padding-top: 15px;padding-bottom: 15px;">

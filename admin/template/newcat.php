@@ -65,7 +65,12 @@ if ($errors) { ?>
 					<div class="col-md-8">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["cat_box_title"]["catbt6"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tl["cat_box_title"]["catbt6"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -257,9 +262,29 @@ if ($errors) { ?>
 										<div class="row-form">
 											<div class="col-md-12">
 												<select name="jak_permission[]" multiple="multiple" class="form-control">
-													<option value="0" selected="selected"><?php echo $tl["cat_box_content"]["catbc7"]; ?></option>
-													<?php if (isset($JAK_USERGROUP) && is_array ($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) { ?>
-														<option value="<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></option><?php } ?>
+
+													<?php
+													// Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
+													$selected = ((isset($_REQUEST["jak_permission"]) && ($_REQUEST["jak_permission"] == '0' || (in_array('0', $_REQUEST["jak_permission"]))) || !isset($_REQUEST["jak_permission"]))) ? TRUE : FALSE;
+
+													echo $Html->addOption('0', $tl["cat_box_content"]["catbc7"], $selected);
+													if (isset($JAK_USERGROUP) && is_array ($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) {
+
+														if (isset($_REQUEST["jak_permission"]) && (in_array($v["id"], $_REQUEST["jak_permission"]))) {
+															if (isset($_REQUEST["jak_permission"]) && (in_array('0', $_REQUEST["jak_permission"]))) {
+																$selected = FALSE;
+															} else {
+																$selected = TRUE;
+															}
+														} else {
+															$selected = FALSE;
+														}
+
+														echo $Html->addOption($v["id"], $v["name"], $selected);
+
+													}
+													?>
+
 												</select>
 											</div>
 										</div>
@@ -283,7 +308,12 @@ if ($errors) { ?>
 					<div class="col-md-6">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["cat_box_title"]["catbt4"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tl["cat_box_title"]["catbt4"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -319,7 +349,12 @@ if ($errors) { ?>
 					<div class="col-md-6">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["cat_box_title"]["catbt5"]; ?></h3>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tl["cat_box_title"]["catbt5"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">

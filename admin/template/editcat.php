@@ -80,7 +80,12 @@ if ($errors) { ?>
           <div class="col-md-8">
             <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["cat_box_title"]["catbt6"]; ?></h3>
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tl["cat_box_title"]["catbt6"], 'box-title');
+                ?>
+
               </div>
               <div class="box-body">
                 <div class="block">
@@ -123,7 +128,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_name', $JAK_FORM_DATA["varname"], 'jak_varname', 'form-control');
+                          echo $Html->addInput('text', 'jak_varname', $JAK_FORM_DATA["varname"], 'jak_varname', 'form-control');
                           ?>
 
                         </div>
@@ -282,9 +287,20 @@ if ($errors) { ?>
                     <div class="row-form">
                       <div class="col-md-12">
                         <select name="jak_permission[]" multiple="multiple" class="form-control">
-                          <option value="0"<?php if ($JAK_FORM_DATA["permission"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tl["cat_box_content"]["catbc7"]; ?></option>
-                          <?php if (isset($JAK_USERGROUP) && is_array($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) { ?>
-                            <option value="<?php echo $v["id"]; ?>"<?php if (in_array($v["id"], explode(',', $JAK_FORM_DATA["permission"]))) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php } ?>
+
+                          <?php
+                          // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                          $selected = ($JAK_FORM_DATA["permission"] == '0') ? TRUE : FALSE;
+
+                          echo $Html->addOption('0', $tl["cat_box_content"]["catbc7"], $selected);
+                          if (isset($JAK_USERGROUP) && is_array ($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) {
+
+                            $selected = (in_array ($v["id"], explode (',', $JAK_FORM_DATA["permission"]))) ? TRUE : FALSE;
+                            echo $Html->addOption($v["id"], $v["name"], $selected);
+
+                          }
+                          ?>
+
                         </select>
                       </div>
                     </div>
@@ -308,7 +324,12 @@ if ($errors) { ?>
           <div class="col-md-6">
             <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["cat_box_title"]["catbt4"]; ?></h3>
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tl["cat_box_title"]["catbt4"], 'box-title');
+                ?>
+
               </div>
               <div class="box-body">
                 <div class="block">
@@ -344,7 +365,12 @@ if ($errors) { ?>
           <div class="col-md-6">
             <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tl["cat_box_title"]["catbt5"]; ?></h3>
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tl["cat_box_title"]["catbt5"], 'box-title');
+                ?>
+
               </div>
               <div class="box-body">
                 <div class="block">
