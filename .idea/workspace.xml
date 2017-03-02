@@ -2,74 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4346a0f-85ec-4e4d-93d1-8c74a4b74471" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/css/style.css" afterPath="$PROJECT_DIR$/admin/assets/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/categories.php" afterPath="$PROJECT_DIR$/admin/categories.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/news.php" afterPath="$PROJECT_DIR$/admin/news.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.news.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.news.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/blankpage.php" afterPath="$PROJECT_DIR$/admin/template/blankpage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editcat.php" afterPath="$PROJECT_DIR$/admin/template/editcat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editcontactform.php" afterPath="$PROJECT_DIR$/admin/template/editcontactform.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editfacebook.php" afterPath="$PROJECT_DIR$/admin/template/editfacebook.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editfiles.php" afterPath="$PROJECT_DIR$/admin/template/editfiles.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/edithook.php" afterPath="$PROJECT_DIR$/admin/template/edithook.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editnews.php" afterPath="$PROJECT_DIR$/admin/template/editnews.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editor_edit.php" afterPath="$PROJECT_DIR$/admin/template/editor_edit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editor_new.php" afterPath="$PROJECT_DIR$/admin/template/editor_new.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editpage.php" afterPath="$PROJECT_DIR$/admin/template/editpage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/edituser.php" afterPath="$PROJECT_DIR$/admin/template/edituser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editusergroup.php" afterPath="$PROJECT_DIR$/admin/template/editusergroup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/maintenance.php" afterPath="$PROJECT_DIR$/admin/template/maintenance.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/mediasharing.php" afterPath="$PROJECT_DIR$/admin/template/mediasharing.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newcat.php" afterPath="$PROJECT_DIR$/admin/template/newcat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newcontactform.php" afterPath="$PROJECT_DIR$/admin/template/newcontactform.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newhook.php" afterPath="$PROJECT_DIR$/admin/template/newhook.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newnews.php" afterPath="$PROJECT_DIR$/admin/template/newnews.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newpage.php" afterPath="$PROJECT_DIR$/admin/template/newpage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newssetting.php" afterPath="$PROJECT_DIR$/admin/template/newssetting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newuser.php" afterPath="$PROJECT_DIR$/admin/template/newuser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newusergroup.php" afterPath="$PROJECT_DIR$/admin/template/newusergroup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/plugins.php" afterPath="$PROJECT_DIR$/admin/template/plugins.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/searchsetting.php" afterPath="$PROJECT_DIR$/admin/template/searchsetting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/setting.php" afterPath="$PROJECT_DIR$/admin/template/setting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/settingfacebook.php" afterPath="$PROJECT_DIR$/admin/template/settingfacebook.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/site.php" afterPath="$PROJECT_DIR$/admin/template/site.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/sitemapsetting.php" afterPath="$PROJECT_DIR$/admin/template/sitemapsetting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/tagsetting.php" afterPath="$PROJECT_DIR$/admin/template/tagsetting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/class/class.htmlelement.php" afterPath="$PROJECT_DIR$/class/class.htmlelement.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/admin/template/editbh.php" afterPath="$PROJECT_DIR$/plugins/belowheader/admin/template/editbh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/admin/template/newbh.php" afterPath="$PROJECT_DIR$/plugins/belowheader/admin/template/newbh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/blog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/blog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/js/pages.blog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/js/pages.blog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/blog/admin/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect_new.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect_new.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blogcat.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blogcat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blogcatsort.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blogcatsort.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blogcomment.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blogcomment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blogcommentsort.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blogcommentsort.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blogsetting.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blogsetting.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/editblog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/editblog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/editblogcat.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/editblogcat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/newblog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/newblog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/newblogcat.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/newblogcat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/trash.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/trash.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/usergroup_edit.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/usergroup_edit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/usergroup_new.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/usergroup_new.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/setting.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/setting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faqsetting.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faqsetting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/admin/growl.php" afterPath="$PROJECT_DIR$/plugins/growl/admin/growl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/admin/js/pages.growl.php" afterPath="$PROJECT_DIR$/plugins/growl/admin/js/pages.growl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/admin/template/edit.php" afterPath="$PROJECT_DIR$/plugins/growl/admin/template/edit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/admin/template/growl.php" afterPath="$PROJECT_DIR$/plugins/growl/admin/template/growl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/admin/template/new.php" afterPath="$PROJECT_DIR$/plugins/growl/admin/template/new.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/site_editor/admin/template/site_editor.php" afterPath="$PROJECT_DIR$/plugins/site_editor/admin/template/site_editor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/admin/template/edit.php" afterPath="$PROJECT_DIR$/plugins/urlmapping/admin/template/edit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/admin/template/mapping.php" afterPath="$PROJECT_DIR$/plugins/urlmapping/admin/template/mapping.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/admin/template/new.php" afterPath="$PROJECT_DIR$/plugins/urlmapping/admin/template/new.php" />
     </list>
     <ignored path="CMS-Bluesat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -90,100 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="blankpage.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/template/blankpage.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-18">
-              <caret line="222" column="22" selection-start-line="222" selection-start-column="22" selection-end-line="222" selection-end-column="22" />
-              <folding>
-                <marker date="1488484035827" expanded="true" signature="5675:5684" ph="..." />
-                <marker date="1488484035827" expanded="true" signature="6384:6393" ph="..." />
-                <marker date="1488484035827" expanded="true" signature="10924:11026" ph="..." />
-                <marker date="1488484035827" expanded="true" signature="11252:11607" ph="..." />
-                <marker date="1488484035827" expanded="true" signature="11267:11424" ph="..." />
-                <marker date="1488484035827" expanded="true" signature="11292:11408" ph="..." />
-                <marker date="1488484035827" expanded="true" signature="11462:11595" ph="..." />
-                <marker date="1488484035827" expanded="true" signature="11486:11579" ph="..." />
-                <marker date="1488484035827" expanded="true" signature="11918:12028" ph="..." />
-                <marker date="1488484035827" expanded="true" signature="12254:12609" ph="..." />
-                <marker date="1488484035827" expanded="true" signature="12269:12426" ph="..." />
-                <marker date="1488484035827" expanded="true" signature="12294:12410" ph="..." />
-                <marker date="1488484035827" expanded="true" signature="12464:12597" ph="..." />
-                <marker date="1488484035827" expanded="true" signature="12488:12581" ph="..." />
-                <marker date="1488484035827" expanded="true" signature="13229:13238" ph="..." />
-                <marker date="1488484035827" expanded="true" signature="13382:13391" ph="..." />
-                <marker date="1488484035827" expanded="true" signature="14065:14069" ph="&lt;" />
-                <marker date="1488484035827" expanded="true" signature="14075:14079" ph="&gt;" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="editblog.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/editblog.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="565" column="117" selection-start-line="565" selection-start-column="117" selection-end-line="565" selection-end-column="117" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="editblogcat.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/editblogcat.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="216" column="27" selection-start-line="216" selection-start-column="21" selection-end-line="216" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="newblogcat.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/newblogcat.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="202" column="27" selection-start-line="202" selection-start-column="21" selection-end-line="202" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="class.htmlelement.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/class/class.htmlelement.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-18">
-              <caret line="463" column="5" selection-start-line="463" selection-start-column="5" selection-end-line="463" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/growl/admin/template/edit.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="270" column="28" selection-start-line="270" selection-start-column="28" selection-end-line="271" selection-end-column="113" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/growl/admin/template/new.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="281" column="28" selection-start-line="281" selection-start-column="28" selection-end-line="281" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="blogsetting.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/blogsetting.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="371" column="33" selection-start-line="371" selection-start-column="33" selection-end-line="371" selection-end-column="33" />
+            <state relative-caret-position="145">
+              <caret line="426" column="45" selection-start-line="426" selection-start-column="45" selection-end-line="426" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -459,12 +303,12 @@
       <option name="presentableId" value="Default" />
       <updated>1488437391196</updated>
       <workItem from="1488437878279" duration="987000" />
-      <workItem from="1488443400549" duration="28881000" />
+      <workItem from="1488443400549" duration="29638000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29868000" />
+    <option name="totallyTimeSpent" value="30625000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
@@ -930,14 +774,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/growl/admin/template/edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="270" column="28" selection-start-line="270" selection-start-column="28" selection-end-line="271" selection-end-column="113" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/_adminOld/template/newssetting.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
@@ -994,6 +830,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/newblogcat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="202" column="27" selection-start-line="202" selection-start-column="21" selection-end-line="202" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/growl/admin/template/edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="290" column="26" selection-start-line="290" selection-start-column="26" selection-end-line="299" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/editblogcat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="218" column="22" selection-start-line="218" selection-start-column="22" selection-end-line="229" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/admin/template/blankpage.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-18">
@@ -1021,26 +881,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/editblogcat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="216" column="27" selection-start-line="216" selection-start-column="21" selection-end-line="216" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/newblogcat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="202" column="27" selection-start-line="202" selection-start-column="21" selection-end-line="202" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/editblog.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="565" column="117" selection-start-line="565" selection-start-column="117" selection-end-line="565" selection-end-column="117" />
+        <state relative-caret-position="145">
+          <caret line="426" column="45" selection-start-line="426" selection-start-column="45" selection-end-line="426" selection-end-column="45" />
           <folding />
         </state>
       </provider>
