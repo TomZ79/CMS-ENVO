@@ -127,10 +127,14 @@ if ($page3 == "e") { ?>
 
 										<?php
 										// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+										echo $Html->addRadio('jak_baseurl', '1', ($JAK_FORM_DATA["baseurl"] == '1') ? TRUE : FALSE, 'jak_baseurl1');
 										// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+										echo $Html->addLabel('jak_baseurl1', $tl["checkbox"]["chk"]);
 
 										// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+										echo $Html->addRadio('jak_baseurl', '0', ($JAK_FORM_DATA["baseurl"] == '0') ? TRUE : FALSE, 'jak_baseurl2');
 										// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+										echo $Html->addLabel('jak_baseurl2', $tl["checkbox"]["chk1"]);
 										?>
 
 									</div>
