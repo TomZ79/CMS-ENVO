@@ -151,16 +151,26 @@ if ($errors) { ?>
 												<div class="row">
 													<div class="col-md-6">
 														<select name="jak_shownewsordern" class="form-control selectpicker">
-															<option value="id"<?php if ($JAK_SETTING['shownewswhat'] == "id") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel9"]; ?></option>
-															<option value="title"<?php if ($JAK_SETTING['shownewswhat'] == "title") { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel10"]; ?></option>
-															<option value="time"<?php if ($JAK_SETTING['shownewswhat'] == "time") { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel11"]; ?></option>
-															<option value="hits"<?php if ($JAK_SETTING['shownewswhat'] == "hits") { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel12"]; ?></option>
+
+															<?php
+															// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+															echo $Html->addOption('id', $tl["selection"]["sel9"], ($JAK_SETTING['shownewswhat'] == "id") ? TRUE : FALSE);
+															echo $Html->addOption('title', $tl["selection"]["sel10"], ($JAK_SETTING['shownewswhat'] == "title") ? TRUE : FALSE);
+															echo $Html->addOption('time', $tl["selection"]["sel11"], ($JAK_SETTING['shownewswhat'] == "time") ? TRUE : FALSE);
+															echo $Html->addOption('hits', $tl["selection"]["sel12"], ($JAK_SETTING['shownewswhat'] == "hits") ? TRUE : FALSE);
+															?>
+
 														</select>
 													</div>
 													<div class="col-md-6">
 														<select name="jak_shownewsorder" class="form-control selectpicker">
-															<option value="ASC"<?php if ($JAK_SETTING['shownewsorder'] == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel13"]; ?></option>
-															<option value="DESC"<?php if ($JAK_SETTING['shownewsorder'] == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel14"]; ?></option>
+
+															<?php
+															// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+															echo $Html->addOption('ASC', $tl["selection"]["sel13"], (isset($JAK_SETTING["shownewsorder"]) && $JAK_SETTING["shownewsorder"] == "ASC") ? TRUE : FALSE);
+															echo $Html->addOption('DESC', $tl["selection"]["sel14"], (isset($JAK_SETTING["shownewsorder"]) && $JAK_SETTING["shownewsorder"] == "DESC") ? TRUE : FALSE);
+															?>
+
 														</select>
 													</div>
 												</div>

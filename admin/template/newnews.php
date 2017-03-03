@@ -431,15 +431,25 @@ if ($errors) { ?>
 												<div class="col-md-7">
 													<select name="" id="selecttags1" class="form-control selectpicker" title="Choose tags ..." data-size="7" data-live-search="true">
 														<optgroup label="Poskytovatelé TV">
-															<option value="skylink">Skylink</option>
-															<option value="freesat">freeSAT</option>
-															<option value="digi-tv">Digi TV</option>
+
+															<?php
+															// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+															echo $Html->addOption('skylink', 'Skylink');
+															echo $Html->addOption('freesat', 'freeSAT');
+															echo $Html->addOption('digi-tv', 'Digi TV');
+															?>
+
 														</optgroup>
 														<optgroup label="Vysílací technologie">
-															<option value="dvb-t/t2">DVB-T/T2</option>
-															<option value="dvb-s/s2">DVB-S/S2</option>
-															<option value="dvb-c">DVB-C</option>
-															<option value="dvb-h">DVB-H</option>
+
+															<?php
+															// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+															echo $Html->addOption('dvb-t/t2', 'DVB-T/T2');
+															echo $Html->addOption('dvb-s/s2', 'DVB-S/S2');
+															echo $Html->addOption('dvb-c', 'DVB-C');
+															echo $Html->addOption('dvb-h', 'DVB-H');
+															?>
+
 														</optgroup>
 													</select>
 												</div>
@@ -457,9 +467,15 @@ if ($errors) { ?>
 													<?php $JAK_TAG_ALL = jak_tag_name_admin ();
 													if ($JAK_TAG_ALL) { ?>
 														<select name="" id="selecttags2" class="form-control selectpicker" title="Choose tags ..." data-size="7" data-live-search="true">
-															<?php foreach ($JAK_TAG_ALL as $v) { ?>
-																<option value="<?php echo $v["tag"]; ?>"><?php echo $v["tag"]; ?></option>
-															<?php } ?>
+															<?php
+															foreach ($JAK_TAG_ALL as $v) {
+
+																// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+																echo $Html->addOption($v["tag"], $v["tag"]);
+
+															}
+															?>
+
 														</select>
 													<?php } else { ?>
 														<div>Tags cloud is empty!</div>
@@ -594,16 +610,29 @@ if ($errors) { ?>
 											<div class="form-group">
 												<label><?php echo $tl["news_box_content"]["newsbc27"]; ?></label>
 												<select name="jak_showcontact" class="form-control selectpicker" data-size="5">
-													<option value="0" selected="selected"><?php echo $tl["news_box_content"]["newsbc25"]; ?></option>
-													<?php foreach ($JAK_CONTACT_FORMS as $cf) { ?>
-														<option value="<?php echo $cf["id"]; ?>"><?php echo $cf["title"]; ?></option>
-													<?php } ?>
+
+													<?php
+													// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+													$selected = ((isset($_REQUEST["jak_showcontact"]) && ($_REQUEST["jak_showcontact"] == '0')) || !isset($_REQUEST["jak_showcontact"])) ? TRUE : FALSE;
+
+													echo $Html->addOption('0', $tl["news_box_content"]["newsbc25"], $selected);
+													if (isset($JAK_CONTACT_FORMS) && is_array ($JAK_CONTACT_FORMS)) foreach ($JAK_CONTACT_FORMS as $cf) {
+
+														echo $Html->addOption($cf["id"], $cf["title"], ($cf["id"] == $_REQUEST["jak_showcontact"]) ? TRUE : FALSE);
+
+													}
+													?>
+
+
 												</select>
 											</div>
 											<div class="actions">
 
-												<input type="hidden" name="corder_new[]" class="corder" value="1"/>
-												<input type="hidden" name="real_plugin_id[]" value="9997"/>
+												<?php
+												// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+												echo $Html->addInput('hidden', 'corder_new[]', '1', '', 'corder');
+												echo $Html->addInput('hidden', 'real_plugin_id[]', '9997');
+												?>
 
 											</div>
 										</li>

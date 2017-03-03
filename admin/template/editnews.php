@@ -249,12 +249,12 @@ if ($errors) { ?>
 													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
 													echo $Html->addRadio('jak_sidebar', '1', ($JAK_FORM_DATA["sidebar"] == '1') ? TRUE : FALSE, 'jak_sidebar1');
 													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-													echo $Html->addLabel('jak_sidebar1', $tl["checkbox"]["chk"]);
+													echo $Html->addLabel('jak_sidebar1', $tl["checkbox"]["chk2"]);
 
 													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
 													echo $Html->addRadio('jak_sidebar', '0', ($JAK_FORM_DATA["sidebar"] == '0') ? TRUE : FALSE, 'jak_sidebar2');
 													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-													echo $Html->addLabel('jak_sidebar2', $tl["checkbox"]["chk1"]);
+													echo $Html->addLabel('jak_sidebar2', $tl["checkbox"]["chk3"]);
 													?>
 
 												</div>

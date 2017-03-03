@@ -94,10 +94,29 @@ if ($errors) { ?>
 									<div class="col-md-7">
 										<div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
 											<select name="jak_hook" class="form-control selectpicker" data-live-search="true" data-size="5">
-												<option value="0" selected="selected"><?php echo $tl["selection"]["sel7"]; ?></option>
-												<?php if (isset($JAK_HOOK_LOCATIONS) && is_array ($JAK_HOOK_LOCATIONS)) foreach ($JAK_HOOK_LOCATIONS as $h) { ?>
-													<option value="<?php echo $h; ?>"><?php echo $h; ?></option>
-												<?php } ?>
+
+												<?php
+												// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+												$selected = ((isset($_REQUEST["jak_hook"]) && ($_REQUEST["jak_hook"] == '0')) || !isset($_REQUEST["jak_hook"])) ? TRUE : FALSE;
+
+												echo $Html->addOption('0', $tl["selection"]["sel7"], $selected);
+												if (isset($JAK_HOOK_LOCATIONS) && is_array ($JAK_HOOK_LOCATIONS)) foreach ($JAK_HOOK_LOCATIONS as $h) {
+
+													if (isset($_REQUEST["jak_hook"]) && ($_REQUEST["jak_hook"] != '0')) {
+														if (isset($_REQUEST["jak_hook"]) && ($h == $_REQUEST["jak_hook"])) {
+															$selected = TRUE;
+														} else {
+															$selected = FALSE;
+														}
+													} else {
+														$selected = FALSE;
+													}
+
+													echo $Html->addOption($h, $h, $selected);
+
+												}
+												?>
+
 											</select>
 										</div>
 									</div>
@@ -113,10 +132,29 @@ if ($errors) { ?>
 									</div>
 									<div class="col-md-7">
 										<select name="jak_plugin" class="form-control selectpicker" data-live-search="true" data-size="5">
-											<option value="0" selected="selected"><?php echo $tl["cform"]["c18"]; ?></option>
-											<?php if (isset($JAK_PLUGINS) && is_array ($JAK_PLUGINS)) foreach ($JAK_PLUGINS as $p) { ?>
-												<option value="<?php echo $p["id"]; ?>"><?php echo $p["name"]; ?></option>
-											<?php } ?>
+
+											<?php
+											// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+											$selected = ((isset($_REQUEST["jak_plugin"]) && ($_REQUEST["jak_plugin"] == '0')) || !isset($_REQUEST["jak_plugin"])) ? TRUE : FALSE;
+
+											echo $Html->addOption('0', $tl["cform"]["c18"], $selected);
+											if (isset($JAK_PLUGINS) && is_array ($JAK_PLUGINS)) foreach ($JAK_PLUGINS as $p) {
+
+												if (isset($_REQUEST["jak_plugin"]) && ($_REQUEST["jak_plugin"] != '0')) {
+													if (isset($_REQUEST["jak_plugin"]) && ($p["id"] == $_REQUEST["jak_plugin"])) {
+														$selected = TRUE;
+													} else {
+														$selected = FALSE;
+													}
+												} else {
+													$selected = FALSE;
+												}
+
+												echo $Html->addOption($p["id"], $p["name"], $selected);
+
+											}
+											?>
+
 										</select>
 									</div>
 								</div>

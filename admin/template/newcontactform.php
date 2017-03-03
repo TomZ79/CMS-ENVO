@@ -183,10 +183,15 @@ if ($errors) { ?>
 										<div class="form-group">
 											<?php echo $tl["cform"]["c9"]; ?>
 											<select name="jak_optionmandatory[]" class="form-control selectpicker" data-size="5">
-												<option value="0"><?php echo $tl["checkbox"]["chk1"]; ?></option>
-												<option value="1"><?php echo $tl["checkbox"]["chk"]; ?></option>
-												<option value="2"><?php echo $tl["cform"]["c16"]; ?></option>
-												<option value="3"><?php echo $tl["cform"]["c17"]; ?></option>
+
+												<?php
+												// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+												echo $Html->addOption('0', $tl["checkbox"]["chk1"]);
+												echo $Html->addOption('1', $tl["checkbox"]["chk"]);
+												echo $Html->addOption('2', $tl["cform"]["c16"]);
+												echo $Html->addOption('3', $tl["cform"]["c17"]);
+												?>
+
 											</select>
 										</div>
 									</div>
@@ -194,13 +199,18 @@ if ($errors) { ?>
 										<div class="form-group">
 											<?php echo $tl["cform"]["c7"]; ?>
 											<select name="jak_optiontype[]" class="form-control selectpicker" data-size="5">
-												<option value="1"><?php echo $tl["cform"]["c10"]; ?></option>
-												<option value="2"><?php echo $tl["cform"]["c11"]; ?></option>
-												<option value="3"><?php echo $tl["cform"]["c12"]; ?></option>
-												<option value="4"><?php echo $tl["cform"]["c13"]; ?></option>
-												<option value="5"><?php echo $tl["cform"]["c14"]; ?></option>
-												<option value="6"><?php echo $tl["cform"]["c19"]; ?></option>
-												<option value="7"><?php echo $tl["cform"]["c23"]; ?></option>
+
+												<?php
+												// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+												echo $Html->addOption('1', $tl["cform"]["c10"]);
+												echo $Html->addOption('2', $tl["cform"]["c11"]);
+												echo $Html->addOption('3', $tl["cform"]["c12"]);
+												echo $Html->addOption('4', $tl["cform"]["c13"]);
+												echo $Html->addOption('5', $tl["cform"]["c14"]);
+												echo $Html->addOption('6', $tl["cform"]["c19"]);
+												echo $Html->addOption('7', $tl["cform"]["c23"]);
+												?>
+
 											</select>
 										</div>
 									</div>
@@ -254,10 +264,15 @@ if ($errors) { ?>
 										<div class="form-group">
 											<?php echo $tl["cform"]["c9"]; ?>
 											<select name="jak_optionmandatory[]" class="form-control selectpicker">
-												<option value="0"><?php echo $tl["checkbox"]["chk1"]; ?></option>
-												<option value="1"><?php echo $tl["checkbox"]["chk"]; ?></option>
-												<option value="2"><?php echo $tl["cform"]["c16"]; ?></option>
-												<option value="3"><?php echo $tl["cform"]["c17"]; ?></option>
+
+												<?php
+												// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+												echo $Html->addOption('0', $tl["checkbox"]["chk1"]);
+												echo $Html->addOption('1', $tl["checkbox"]["chk"]);
+												echo $Html->addOption('2', $tl["cform"]["c16"]);
+												echo $Html->addOption('3', $tl["cform"]["c17"]);
+												?>
+
 											</select>
 										</div>
 									</div>
@@ -265,13 +280,18 @@ if ($errors) { ?>
 										<div class="form-group">
 											<?php echo $tl["cform"]["c7"]; ?>
 											<select name="jak_optiontype[]" class="form-control selectpicker" data-size="5">
-												<option value="1"><?php echo $tl["cform"]["c10"]; ?></option>
-												<option value="2"><?php echo $tl["cform"]["c11"]; ?></option>
-												<option value="3"><?php echo $tl["cform"]["c12"]; ?></option>
-												<option value="4"><?php echo $tl["cform"]["c13"]; ?></option>
-												<option value="5"><?php echo $tl["cform"]["c14"]; ?></option>
-												<option value="6"><?php echo $tl["cform"]["c19"]; ?></option>
-												<option value="7"><?php echo $tl["cform"]["c23"]; ?></option>
+
+												<?php
+												// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+												echo $Html->addOption('1', $tl["cform"]["c10"]);
+												echo $Html->addOption('2', $tl["cform"]["c11"]);
+												echo $Html->addOption('3', $tl["cform"]["c12"]);
+												echo $Html->addOption('4', $tl["cform"]["c13"]);
+												echo $Html->addOption('5', $tl["cform"]["c14"]);
+												echo $Html->addOption('6', $tl["cform"]["c19"]);
+												echo $Html->addOption('7', $tl["cform"]["c23"]);
+												?>
+
 											</select>
 										</div>
 									</div>
