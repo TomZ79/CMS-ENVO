@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -21,11 +21,11 @@ if ($JAK_FILE_ERROR) { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["error"]["e37"];?></div>',
+				message: '<?php echo $tl["error"]["e37"];?></div>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -33,12 +33,23 @@ if ($JAK_FILE_ERROR) { ?>
 
 	<?php if (!isset($jkv["cms_tpl"])) { ?>
 		<div class="row">
-			<div class="col-md-6 col-md-offset-3 error-page">
-				<h1 class="text-warning bold"><?php echo $tl["notetemplate"]["ntpl"]; ?></h1>
-				<div class="error-content">
-					<h3><i class="fa fa-warning text-warning"></i> <?php echo $tl["notetemplate"]["ntpl2"]; ?></h3>
-					<p><?php echo $tl["notetemplate"]["ntpl3"]; ?></p>
-				</div>
+			<div class="col-md-6 text-center error-page">
+
+				<?php
+				// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+				echo $Html->addTag('h1', $tl["notetemplate"]["ntpl"], 'text-warning bold');
+
+				// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+				echo $Html->startTag('div', array('class' => 'error-content'));
+
+				// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+				echo $Html->addTag('h3', $Html->addTag('i', '', 'fa fa-warning text-warning') . $tl["notetemplate"]["ntpl2"]);
+				echo $Html->addTag('p', $tl["notetemplate"]["ntpl3"]);
+
+				// Add Html Element -> endTag (Arguments: tag)
+				echo $Html->endTag('div');
+				?>
+
 			</div>
 		</div>
 
@@ -57,20 +68,35 @@ if ($JAK_FILE_ERROR) { ?>
 					<table class="table">
 						<tr <?php if ($JAK_FILECONTENT) { ?> class="hidden"<?php } ?>>
 							<td>
-								<label for="jak_file_edit"><?php echo $tl["tpl_box_content"]["tplbc4"]; ?></label>
-								<select name="jak_file_edit" id="jak_file_edit" class="form-control selectpicker" data-live-search="true" data-size="5">
-									<?php
-									$pathLen = strlen ($ROOT_DIR);
-									getTemplateFiles ($ROOT_DIR, 0, strlen ($ROOT_DIR));
-									?>
-								</select>
+
+								<?php
+								// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+								echo $Html->addLabel('jak_file_edit', $tl["tpl_box_content"]["tplbc4"]);
+								// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+								echo $Html->startTag('select', array('id' => 'jak_file_edit', 'class' => 'form-control selectpicker', 'name' => 'jak_file_edit', 'data-live-search' => 'true', 'data-size' => '5'));
+
+								$pathLen = strlen ($ROOT_DIR);
+								getTemplateFiles ($ROOT_DIR, 0, strlen ($ROOT_DIR));
+
+								// Add Html Element -> endTag (Arguments: tag)
+								echo $Html->endTag('select');
+								?>
+
 							</td>
 						</tr>
 						<tr <?php if (!$JAK_FILECONTENT) { ?> class="hidden"<?php } ?>>
 							<td>
-								<h4><?php echo $tl["tpl_box_content"]["tplbc2"]; ?>
-									<small><strong><?php echo $JAK_FILEURL; ?></strong></small>
-								</h4>
+
+								<?php
+								// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+								echo $Html->startTag('h4');
+								echo $tl["tpl_box_content"]["tplbc2"];
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('small', $Html->addTag('strong', $JAK_FILEURL));
+								// Add Html Element -> endTag (Arguments: tag)
+								echo $Html->endTag('h4');
+								?>
+
 							</td>
 						</tr>
 						<?php if ($JAK_FILECONTENT) { ?>

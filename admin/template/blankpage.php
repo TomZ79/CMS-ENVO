@@ -111,7 +111,7 @@
 
       echo '<hr>';
 
-      // Add Html Element -> addButton (Arguments: type, name, text, id, class, optional assoc. array)
+      // Add Html Element -> addButton (Arguments: type, text, name, id, class, optional assoc. array)
 
       // returns <button type="button" name="button" class="btn btn-success">Button</button>
       echo $Html->addButton('button', 'button', 'Button', '', 'btn btn-success');

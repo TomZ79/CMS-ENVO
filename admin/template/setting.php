@@ -199,8 +199,14 @@ if ($success) { ?>
                       <div class="col-md-7">
                         <div class="<?php if (isset($errors["e2"])) echo " has-error"; ?>">
                           <select name="jak_lang" class="form-control selectpicker" data-size="5">
-                            <?php if (isset($acp_lang_files) && is_array($lang_files)) foreach ($lang_files as $lf) { ?>
-                              <option value="<?php echo $lf; ?>"<?php if ($jkv["lang"] == $lf) { ?> selected="selected"<?php } ?>><?php echo ucwords($lf); ?></option><?php } ?>
+
+                            <?php
+                            // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                            if (isset($acp_lang_files) && is_array($lang_files)) foreach ($lang_files as $lf) {
+                              echo $Html->addOption($lf, ucwords($lf), ($jkv["lang"] == $lf) ? TRUE : FALSE);
+                            }
+                            ?>
+
                           </select>
                         </div>
                       </div>
@@ -218,8 +224,13 @@ if ($success) { ?>
                       <div class="col-md-7">
                         <div class="<?php if (isset($errors["e2"])) echo " has-error"; ?>">
                           <select name="jak_locale" class="form-control selectpicker" data-size="5">
-                            <option value="cs_CZ" <?php if ($jkv["locale"] == 'cs_CZ') { ?> selected="selected"<?php } ?>>cs_CZ</option>
-                            <option value="en_GB" <?php if ($jkv["locale"] == 'en_GB') { ?> selected="selected"<?php } ?>>en_GB</option>
+
+                            <?php
+                            // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                            echo $Html->addOption('cs_CZ', 'cs_CZ', ($jkv["locale"] == 'cs_CZ') ? TRUE : FALSE);
+                            echo $Html->addOption('en_GB', 'en_GB', ($jkv["locale"] == 'en_GB')  ? TRUE : FALSE);
+                            ?>
+
                           </select>
                         </div>
                       </div>
@@ -326,7 +337,7 @@ if ($success) { ?>
                           echo $Html->addLabel('jak_time_ago1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_time_ago', '0', ($jkv["showfooter"] == '0') ? TRUE : FALSE, 'jak_time_ago2');
+                          echo $Html->addRadio('jak_time_ago', '0', ($jkv["time_ago_show"] == '0') ? TRUE : FALSE, 'jak_time_ago2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_time_ago2', $tl["checkbox"]["chk1"]);
                           ?>
@@ -519,9 +530,14 @@ if ($success) { ?>
                       </div>
                       <div class="col-md-6">
                         <select name="jak_shownews" class="form-control selectpicker" data-size="5">
-                          <?php for ($i = 0; $i <= 10; $i++) { ?>
-                            <option value="<?php echo $i ?>"<?php if ($jkv["shownews"] == $i) { ?> selected="selected"<?php } ?>><?php echo $i; ?></option>
-                          <?php } ?>
+
+                          <?php for ($i = 0; $i <= 10; $i ++) {
+
+                            // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                            echo $Html->addOption($i, $i, ($jkv["shownews"] == $i) ? TRUE : FALSE);
+
+                          } ?>
+
                         </select>
                       </div>
                     </div>
@@ -701,12 +717,22 @@ if ($success) { ?>
                       <div class="col-md-7">
                         <select name="jak_acetheme" class="form-control selectpicker" data-live-search="true" data-size="5">
                           <optgroup label="<?php echo $tl["gs_box_content"]["gsbc22"]; ?>">
-                            <option value="chrome" <?php if ($jkv["acetheme"] == 'chrome') { ?> selected="selected"<?php } ?>>Chrome</option>
+
+                            <?php
+                            // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                            echo $Html->addOption('chrome', 'Chrome', ($jkv["acetheme"] == 'chrome') ? TRUE : FALSE);
+                            ?>
+
                           </optgroup>
                           <optgroup label="<?php echo $tl["gs_box_content"]["gsbc23"]; ?>">
-                            <option value="cobalt" <?php if ($jkv["acetheme"] == 'cobalt') { ?> selected="selected"<?php } ?>>Cobalt</option>
-                            <option value="monokai" <?php if ($jkv["acetheme"] == 'monokai') { ?> selected="selected"<?php } ?>>Monokai</option>
-                            <option value="vibrant_ink" <?php if ($jkv["acetheme"] == 'vibrant_ink') { ?> selected="selected"<?php } ?>>Vibrant Ink</option>
+
+                            <?php
+                            // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                            echo $Html->addOption('cobalt', 'Cobalt', ($jkv["acetheme"] == 'cobalt') ? TRUE : FALSE);
+                            echo $Html->addOption('monokai', 'Monokai', ($jkv["acetheme"] == 'monokai') ? TRUE : FALSE);
+                            echo $Html->addOption('vibrant_ink', 'Vibrant Ink', ($jkv["acetheme"] == 'vibrant_ink') ? TRUE : FALSE);
+                            ?>
+
                           </optgroup>
                         </select>
                       </div>
@@ -1475,12 +1501,17 @@ if ($success) { ?>
                       </div>
                       <div class="col-md-7">
                         <select name="jak_eucookie_position" class="form-control selectpicker" data-size="5">
-                          <option value="bottom"<?php if ($jkv["eucookie_position"] == 'bottom') { ?> selected="selected"<?php } ?>>Banner Bottom</option>
-                          <option value="top"<?php if ($jkv["eucookie_position"] == 'top') { ?> selected="selected"<?php } ?>>Banner Top</option>
-                          <option value="bottom-left"<?php if ($jkv["eucookie_position"] == 'bottom-left') { ?> selected="selected"<?php } ?>>Floating Bottom Left</option>
-                          <option value="bottom-right"<?php if ($jkv["eucookie_position"] == 'bottom-right') { ?> selected="selected"<?php } ?>>Floating Bottom Right</option>
-                          <option value="top-left"<?php if ($jkv["eucookie_position"] == 'top-left') { ?> selected="selected"<?php } ?>>Floating Top Left</option>
-                          <option value="top-right"<?php if ($jkv["eucookie_position"] == 'top-right') { ?> selected="selected"<?php } ?>>Floating Top Right</option>
+
+                          <?php
+                          // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                          echo $Html->addOption('bottom', 'Banner Bottom', ($jkv["eucookie_position"] == 'bottom') ? TRUE : FALSE);
+                          echo $Html->addOption('top', 'Banner Top', ($jkv["eucookie_position"] == 'top') ? TRUE : FALSE);
+                          echo $Html->addOption('bottom-left', 'Floating Bottom Left', ($jkv["eucookie_position"] == 'bottom-left') ? TRUE : FALSE);
+                          echo $Html->addOption('bottom-right', 'Floating Bottom Right', ($jkv["eucookie_position"] == 'bottom-right') ? TRUE : FALSE);
+                          echo $Html->addOption('top-left', 'Floating Top Left', ($jkv["eucookie_position"] == 'top-left') ? TRUE : FALSE);
+                          echo $Html->addOption('top-right', 'Floating Top Right', ($jkv["eucookie_position"] == 'top-right') ? TRUE : FALSE);
+                          ?>
+
                         </select>
                       </div>
                     </div>
@@ -1495,10 +1526,15 @@ if ($success) { ?>
                       </div>
                       <div class="col-md-7">
                         <select name="jak_eucookie_style" class="form-control selectpicker" data-size="5">
-                          <option value="block"<?php if ($jkv["eucookie_style"] == 'block') { ?> selected="selected"<?php } ?>>Block</option>
-                          <option value="edgeless"<?php if ($jkv["eucookie_style"] == 'edgeless') { ?> selected="selected"<?php } ?>>Edgeless</option>
-                          <option value="classic"<?php if ($jkv["eucookie_style"] == 'classic') { ?> selected="selected"<?php } ?>>Classic</option>
-                          <option value="wire"<?php if ($jkv["eucookie_style"] == 'wire') { ?> selected="selected"<?php } ?>>Wire</option>
+
+                          <?php
+                          // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                          echo $Html->addOption('block', 'Block', ($jkv["eucookie_style"] == 'block') ? TRUE : FALSE);
+                          echo $Html->addOption('edgeless', 'Edgeless', ($jkv["eucookie_style"] == 'edgeless') ? TRUE : FALSE);
+                          echo $Html->addOption('classic', 'Classic', ($jkv["eucookie_style"] == 'classic') ? TRUE : FALSE);
+                          echo $Html->addOption('wire', 'Wire', ($jkv["eucookie_style"] == 'wire') ? TRUE : FALSE);
+                          ?>
+
                         </select>
                       </div>
                     </div>

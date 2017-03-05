@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"]; ?>',
+				message: '<?php echo $tl["notification"]["n7"]; ?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -21,11 +21,11 @@ if ($page1 == "s1") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"]; ?>',
+				message: '<?php echo $tl["notification"]["n7"]; ?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 
@@ -33,12 +33,12 @@ if ($page1 == "s1") { ?>
 			$.notify({
 				// options
 				icon: 'fa fa-info-circle',
-				message: '<?php echo $tl["notification"]["n1"]; ?>',
+				message: '<?php echo $tl["notification"]["n1"]; ?>'
 			}, {
 				// settings
 				type: 'info',
 				delay: 5000,
-				timer: 3000,
+				timer: 3000
 			});
 		}, 2000);
 	</script>
@@ -49,11 +49,11 @@ if ($page1 == "e") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general_error"]["generror1"]; ?>',
+				message: '<?php echo $tl["general_error"]["generror1"]; ?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -93,7 +93,14 @@ if ($page1 == "e") { ?>
 					</div>
 					<div class="col-md-9 col-table" style="background: white none repeat scroll 0% 0%;">
 						<div class="caption">
-							<h3><?php echo $l; ?><?php if ($jkv["sitestyle"] == $l) echo ' <i class="fa fa-check text-success-800"></i>'; ?></h3>
+							<h3>
+
+								<?php
+								echo $l;
+								if ($jkv["sitestyle"] == $l) echo ' <i class="fa fa-check text-success-800"></i>';
+								?>
+
+							</h3>
 							<p>
 								<?php
 								// Content of file

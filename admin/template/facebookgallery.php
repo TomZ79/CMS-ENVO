@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -21,11 +21,11 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo ($page1 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>',
+				message: '<?php echo ($page1 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -38,7 +38,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 			$.notify({
 				// options
 				icon: 'fa fa-info-circle',
-				message: '<?php echo $tl["notification"]["n2"]; ?>',
+				message: '<?php echo $tl["notification"]["n2"]; ?>'
 			}, {
 				// settings
 				type: 'info',
@@ -141,16 +141,6 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 		</div>
 	</form>
 
-<?php } else { ?>
-
-	<div class="col-md-12">
-		<div class="alert bg-info text-white">
-			<?php echo $tl["general_error"]["generror3"]; ?>
-		</div>
-	</div>
-
-<?php } ?>
-
 	<div class="col-md-12 m-b-30">
 		<div class="icon_legend">
 
@@ -163,5 +153,18 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
 		</div>
 	</div>
+
+<?php } else { ?>
+
+	<div class="col-md-12">
+
+		<?php
+		// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+		echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
+		?>
+
+	</div>
+
+<?php } ?>
 
 <?php include "footer.php"; ?>

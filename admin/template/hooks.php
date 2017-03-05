@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -21,11 +21,11 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo ($page2 == "e" ? $tl["general_error"]["generror1"] : $tl["hook_error"]["hookerror4"]);?>',
+				message: '<?php echo ($page2 == "e" ? $tl["general_error"]["generror1"] : $tl["hook_error"]["hookerror4"]);?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -92,15 +92,21 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 							<th><?php echo $tl["hook_box_table"]["hooktb1"]; ?></th>
 							<th><?php echo $tl["hook_box_table"]["hooktb2"]; ?></th>
 							<th>
-								<button type="submit" name="lock" id="button_lock" class="btn btn-default btn-xs">
-									<i class="fa fa-lock"></i>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('lock', '<i class="fa fa-lock"></i>', 'button_lock', 'btn btn-default btn-xs');
+								?>
+
 							</th>
 							<th></th>
 							<th>
-								<button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tl["hook_notification"]["delall"]; ?>" disabled="disabled">
-									<i class="fa fa-trash-o"></i>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array ('disabled' => 'disabled', 'data-confirm-del' => $tl["hook_notification"]["delall"]));
+								?>
+
 							</th>
 						</tr>
 						</thead>
@@ -120,36 +126,58 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 									</div>
 								</td>
 								<td>
-									<a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
+
+									<?php
+									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+									echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=' . $v["id"], $v["name"]);
+									?>
+
 								</td>
 								<td>
-									<a href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["hook_name"]; ?>"><?php echo $v["hook_name"]; ?></a>
+
+									<?php
+									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+									echo $Html->addAnchor('index.php?p=plugins&amp;sp=sorthooks&amp;ssp=' . $v["hook_name"], $v["hook_name"]);
+									?>
+
 								</td>
 								<td>
-									<?php if ($v["pluginid"] != '0') { ?>
-										<a href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $v["pluginid"]; ?>"><?php echo $v["pluginid"]; ?></a><?php } else { ?><?php echo $v["pluginid"];
-									} ?>
-								</td>
-								<td>
-									<a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=hooks&amp;ssp=lock&amp;sssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') {
-										echo $tl["icons"]["i5"];
+
+									<?php
+									if ($v["pluginid"] != '0') {
+										// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+										echo $Html->addAnchor('index.php?p=plugins&amp;sp=sorthooks&amp;ssp=' . $v["pluginid"], $v["pluginid"]);
 									} else {
-										echo $tl["icons"]["i6"];
-									} ?>">
-										<i class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i>
-									</a>
+										echo $v["pluginid"];
+									}
+									?>
+
 								</td>
 								<td>
-									<a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i2"]; ?>">
-										<i class="fa fa-edit"></i>
-									</a>
+
+									<?php
+									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+									echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=lock&amp;sssp=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs',  array ('data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
+									?>
+
 								</td>
 								<td>
-									<?php if ($v["id"] > 5) { ?>
-										<a class="btn btn-default btn-xs" href="index.php?p=plugins&amp;sp=hooks&amp;ssp=delete&amp;sssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo sprintf ($tl["hook_notification"]["del"], $v["name"]); ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
-											<i class="fa fa-trash-o"></i>
-										</a>
-									<?php } ?>
+
+									<?php
+									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+									echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs',  array ('data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
+									?>
+
+								</td>
+								<td>
+
+									<?php
+									if ($v["id"] > 5) {
+										// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+										echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=delete&amp;sssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-default btn-xs',  array ('data-confirm' => sprintf ($tl["hook_notification"]["del"], $v["name"]), 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
+									}
+									?>
+
 								</td>
 							</tr>
 						<?php } ?>

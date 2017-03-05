@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -31,7 +31,7 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -44,12 +44,12 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
 			$.notify({
 				// options
 				icon: 'fa fa-info-circle',
-				message: '<?php echo $tl["notification"]["n2"]; ?>',
+				message: '<?php echo $tl["notification"]["n2"]; ?>'
 			}, {
 				// settings
 				type: 'info',
 				delay: 5000,
-				timer: 3000,
+				timer: 3000
 			});
 		}, 2000);
 	</script>
@@ -71,10 +71,16 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
 			<div class="col-md-6">
 				<div class="input-group">
 					<select name="jak_group" class="form-control selectpicker" data-size="5">
-						<?php if (isset($JAK_USERGROUP_ALL) && is_array ($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $z) {
-							if ($z["id"] != 1) { ?>
-								<option value="<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></option><?php }
-						} ?>
+
+						<?php
+						// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+						if (isset($JAK_USERGROUP_ALL) && is_array ($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $z) {
+							if ($z["id"] != "1") {
+								echo $Html->addOption($z["id"], $z["name"]);
+							}
+						}
+						?>
+
 					</select>
           <span class="input-group-btn">
             <button type="submit" name="move" class="btn btn-warning"><?php echo $tl["button"]["btn20"]; ?></button>

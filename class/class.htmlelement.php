@@ -250,8 +250,8 @@ class HTML_Element
    * Create a button
    *
    * @param   string          | $type       - Type of Button
-   * @param   string            $name       - Name of Button
    * @param   string            $text       - Text for Button
+   * @param   string            $name       - Name of Button
    * @param   string            $id         - Id for Button
    * @param   string            $class      - Class for Button
    * @param   array             $attributes - Array with more tag attribute settings

@@ -106,11 +106,21 @@ include "header.php";
 				<div class="col-md-12">
 					<div class="box box-success">
 						<div class="box-header">
-							<i class="fa fa-pie-chart"></i>
-							<h3 class="box-title"><?php echo $tl["dashb_box_title"]["dbbt2"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('i', '', 'fa fa-pie-chart');
+							echo $Html->addTag('h3', $tl["dashb_box_title"]["dbbt2"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body no-padding table-responsive">
-							<div id="chart_total" class="charts"></div>
+
+							<?php
+							// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+							echo $Html->addDiv('', 'chart_total',  array ('class' => 'charts'));
+							?>
+
 						</div>
 					</div>
 				</div>
@@ -121,8 +131,13 @@ include "header.php";
 				<div class="col-md-12">
 					<div class="box box-success">
 						<div class="box-header">
-							<i class="fa fa-paperclip"></i>
-							<h3 class="box-title"><?php echo $tl["dashb_box_title"]["dbbt1"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('i', '', 'fa fa-paperclip');
+							echo $Html->addTag('h3', $tl["dashb_box_title"]["dbbt1"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body">
 							<ul class="todoList">
@@ -132,7 +147,12 @@ include "header.php";
 							</ul>
 						</div>
 						<div class="box-footer clearfix no-border">
-							<a id="addButton" class="btn btn-default btodo pull-right" href="#"><?php echo $tl["button"]["btn"]; ?></a>
+
+							<?php
+							// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+							echo $Html->addAnchor('#', $tl["button"]["btn"], 'addButton', 'btn btn-default btodo pull-right');
+							?>
+
 						</div>
 					</div>
 				</div>
@@ -142,9 +162,11 @@ include "header.php";
 			<div role="tabpanel" class="tab-pane fade" id="cmsPage3" aria-labelledby="cmsPage3-tab">
 				<div class="row">
 					<div class="col-md-12">
-						<?php if (isset($JAK_HOOK_ADMIN_INDEX) && is_array ($JAK_HOOK_ADMIN_INDEX)) foreach ($JAK_HOOK_ADMIN_INDEX as $hspi) {
+						<?php
+						if (isset($JAK_HOOK_ADMIN_INDEX) && is_array ($JAK_HOOK_ADMIN_INDEX)) foreach ($JAK_HOOK_ADMIN_INDEX as $hspi) {
 							include_once APP_PATH . $hspi['phpcode'];
-						} ?>
+						}
+						?>
 					</div>
 				</div>
 			</div>
@@ -155,6 +177,7 @@ include "header.php";
 		<div class="container-fluid">
 			<div class="text-center">
 				<p>
+
 					<span><strong><?php echo $tl["dashb_box_content"]["dbbc"]; ?> : </strong><?php echo $WEBS; ?> | </span>
 					<span><strong><?php echo $tl["dashb_box_content"]["dbbc1"]; ?> : </strong><?php echo $PHPV; ?> | </span>
 					<span><strong><?php echo $tl["dashb_box_content"]["dbbc2"]; ?> : </strong><?php echo $POSTM; ?> | </span>

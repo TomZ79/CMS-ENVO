@@ -12,6 +12,11 @@
  *
  */
 
+/* SORT LINKS ICONS */
+.sort {
+  margin-left: 5px;
+}
+
 /* DATETIMPICKER */
 .bootstrap-datetimepicker-widget ul > li {
   padding: 0;
@@ -634,6 +639,13 @@ li.filter-item > a:hover {
 /* 00. ERROR PAGE
 ========================================================================*/
 @media (min-width: 768px) {
+  .error-page {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
   .error-page .headline {
     float: none;
     font-size: 55px;
@@ -1078,6 +1090,7 @@ pre[class*="language-"] {
   box-shadow: none;
   border-radius: 0;
   overflow: auto;
+  background: #FFF;
 }
 
 .bootstrap-tagsinput .tag {

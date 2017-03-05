@@ -10,7 +10,7 @@
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -24,11 +24,11 @@ if ($errors) { ?>
 				message: '<?php if (isset($errors["e"])) echo $errors["e"];
 					if (isset($errors["e1"])) echo $errors["e1"];
 					if (isset($errors["e2"])) echo $errors["e2"];
-					if (isset($errors["e3"])) echo $errors["e3"];?>',
+					if (isset($errors["e3"])) echo $errors["e3"];?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -250,11 +250,17 @@ if ($errors) { ?>
 					<div class="col-md-4">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["cat_box_title"]["catbt3"]; ?>
-									<a href="javascript:void(0)" class="cms-help" data-content="<?php echo $tl["cat_help"]["cath3"]; ?>" data-original-title="<?php echo $tl["cat_help"]["cath"]; ?>">
-										<i class="fa fa-question-circle"></i>
-									</a>
-								</h3>
+
+									<?php
+									// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+									echo $Html->startTag('h3', array ('class' => 'box-title'));
+									echo $tl["cat_box_title"]["catbt3"];
+									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+									echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help',  array ('data-content' => $tl["cat_help"]["cath3"], 'data-original-title' => $tl["cat_help"]["cath"]));
+									// Add Html Element -> endTag (Arguments: tag)
+									echo $Html->endTag('h3');
+									?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -320,7 +326,12 @@ if ($errors) { ?>
 									<div class="block-content">
 										<div class="row-form">
 											<div class="col-md-12">
-												<button id="copy1" class="btn btn-primary btn-xs pull-right margin-bottom-10" type="button"><?php echo $tl["button"]["btn25"]; ?></button>
+
+												<?php
+												// Add Html Element -> addButton (Arguments: type, name, text, id, class, optional assoc. array)
+												echo $Html->addButton('button', $tl["button"]["btn25"], '', 'copy1', 'btn btn-primary btn-xs pull-right margin-bottom-10');
+												?>
+
 											</div>
 										</div>
 										<div class="row-form">
@@ -359,6 +370,16 @@ if ($errors) { ?>
 							<div class="box-body">
 								<div class="block">
 									<div class="block-content">
+										<div class="row-form">
+											<div class="col-md-12">
+
+												<?php
+												// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+												echo $Html->addDiv('&nbsp;', '',  array ('style' => 'line-height: 27px;'));
+												?>
+
+											</div>
+										</div>
 										<div class="row-form">
 											<div class="col-md-12">
 

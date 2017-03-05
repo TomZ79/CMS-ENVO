@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general_error"]["generror1"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -24,11 +24,11 @@ if ($errors) { ?>
 				message: '<?php if (isset($errors["e"])) echo $errors["e"];
 					if (isset($errors["e1"])) echo $errors["e1"];
 					if (isset($errors["e2"])) echo $errors["e2"];
-					if (isset($errors["e3"])) echo $errors["e3"];?>',
+					if (isset($errors["e3"])) echo $errors["e3"];?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -133,10 +133,16 @@ if ($errors) { ?>
 									</div>
 									<div class="col-md-7">
 										<select name="jak_usergroup" class="form-control selectpicker" data-size="5">
-											<?php if (isset($JAK_USERGROUP_ALL) && is_array ($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
-												if ($v["id"] != "1") { ?>
-													<option value="<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></option><?php }
-											} ?>
+
+											<?php
+											// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+											if (isset($JAK_USERGROUP_ALL) && is_array ($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
+												if ($v["id"] != "1") {
+													echo $Html->addOption($v["id"], $v["name"], ($v["id"] == $_REQUEST["jak_usergroup"]) ? TRUE : FALSE);
+												}
+											}
+											?>
+
 										</select>
 									</div>
 								</div>

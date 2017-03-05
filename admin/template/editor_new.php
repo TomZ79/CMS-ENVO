@@ -14,12 +14,15 @@
 					<?php if ($jkv["adv_editor"]) { ?>
 						<div id="cover">
 							<div class="cover-header">
-								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?ty e=0&editor=mce_0&lang=eng&fldr=&field_id=htmleditor" class="btn btn-primary btn-xs ifManager" title="Show Filemanager">
-									<i class="fa fa-files-o"></i>
-								</a>
-								<a href="#" id="resizeContainer" class="btn btn-primary btn-xs" title="<?php echo $tl["global_text"]["globaltxt4"]; ?>"><?php echo $tl["global_text"]["globaltxt4"]; ?></a>
-								<a href="#" id="resizeContainerAndEditor" class="btn btn-primary btn-xs" title="<?php echo $tl["global_text"]["globaltxt5"]; ?>"><?php echo $tl["global_text"]["globaltxt5"]; ?></a>
-								<a href="/admin/template/editor_help.php" class="btn btn-primary btn-xs pull-right contentHelp">Nápověda</a>
+
+								<?php
+								// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+								echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?ty e=0&editor=mce_0&lang=eng&fldr=&field_id=htmleditor', '<i class="fa fa-files-o"></i>', '', 'btn btn-primary btn-xs m-r-10 ifManager',  array ('title' => 'Show Filemanager'));
+								echo $Html->addAnchor('#', $tl["global_text"]["globaltxt4"], 'resizeContainer', 'btn btn-primary btn-xs m-r-10',  array ('title' => $tl["global_text"]["globaltxt4"]));
+								echo $Html->addAnchor('#', $tl["global_text"]["globaltxt5"], 'resizeContainerAndEditor', 'btn btn-primary btn-xs m-r-10',  array ('title' => $tl["global_text"]["globaltxt5"]));
+								echo $Html->addAnchor('/admin/template/editor_help.php', 'Nápověda', '', 'btn btn-primary btn-xs pull-right contentHelp');
+								?>
+
 							</div>
 							<div id="editorContainer">
 

@@ -6,11 +6,11 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>',
+        message: '<?php echo $tl["notification"]["n7"];?>'
       }, {
         // settings
         type: 'success',
-        delay: 5000,
+        delay: 5000
       });
     }, 1000);
   </script>
@@ -33,7 +33,7 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
       }, {
         // settings
         type: 'danger',
-        delay: 10000,
+        delay: 10000
       });
     }, 1000);
   </script>
@@ -46,12 +46,12 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
       $.notify({
         // options
         icon: 'fa fa-info-circle',
-        message: '<?php echo $tl["notification"]["n2"]; ?>',
+        message: '<?php echo $tl["notification"]["n2"]; ?>'
       }, {
         // settings
         type: 'info',
         delay: 5000,
-        timer: 3000,
+        timer: 3000
       });
     }, 2000);
   </script>
@@ -65,11 +65,13 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
       <!-- Header or Header/Footer -->
       <div class="box box-success">
         <div class="box-header with-border">
+
           <?php
           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
           echo $Html->addTag('i', '', 'fa fa-bars');
           echo $Html->addTag('h3', $tl["cat_box_title"]["catbt"], 'box-title');
           ?>
+
         </div>
         <div class="box-body">
 

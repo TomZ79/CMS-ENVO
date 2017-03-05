@@ -39,11 +39,16 @@ if ($errors) { ?>
 				<label for="groupbase"><?php echo $tl["userg_box_content"]["usergbc"]; ?></label>
 				<div class="input-group">
 					<select name="jak_groupbase" id="groupbase" class="form-control selectpicker" data-size="5">
-						<?php if (isset($JAK_USERGROUP_ALL) && is_array ($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $z) {
-							if ($z["id"] != '1') { ?>
-								<option value="<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></option>
-							<?php }
-						} ?>
+
+						<?php
+						// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+						if (isset($JAK_USERGROUP_ALL) && is_array ($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $z) {
+							if ($z["id"] != "1") {
+								echo $Html->addOption($z["id"], $z["name"], ($z["id"] == $_REQUEST["jak_groupbase"]) ? TRUE : FALSE);
+							}
+						}
+						?>
+
 					</select>
 		    <span class="input-group-btn">
 		    	<button class="btn btn-info" name="create" type="submit"><?php echo $tl["button"]["btn1"]; ?></button>

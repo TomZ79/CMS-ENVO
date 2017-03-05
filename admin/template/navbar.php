@@ -34,7 +34,7 @@
 				 <!-- START BASIC CONFIG SECTION -->
 		<li class="">
 			<a href="javascript:;">
-				<span class="title">Basic Config</span>
+				<span class="title">Základní Nastavení</span>
 				<span class=" arrow"></span>
 			</a>
 			<span class="icon-thumbnail <?php if ($page == 'site' || $page == 'setting') echo 'bg-success'; ?>"><i class="pg-settings_small"></i></span>

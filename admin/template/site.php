@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -21,11 +21,11 @@ if ($page1 == "e") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general_error"]["generror1"]; ?>',
+				message: '<?php echo $tl["general_error"]["generror1"]; ?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -38,11 +38,11 @@ if ($errors) { ?>
 				// options
 				message: '<?php if (isset($errors["e"])) echo $errors["e"];
 					if (isset($errors["e1"])) echo $errors["e1"];
-					if (isset($errors["e2"])) echo $errors["e2"]; ?>',
+					if (isset($errors["e2"])) echo $errors["e2"]; ?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -112,11 +112,19 @@ if ($errors) { ?>
 									</div>
 									<div class="col-md-7">
 										<select name="jak_offpage" class="form-control selectpicker" data-live-search="true" data-size="5">
-											<option value="0"<?php if ($jkv["offline_page"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel"]; ?></option>
-											<?php if (isset($JAK_CAT) && is_array ($JAK_CAT)) foreach ($JAK_CAT as $c) {
-												if ($c["pluginid"] == '0' && $c["pageid"] > '0') { ?>
-													<option value="<?php echo $c["id"]; ?>"<?php if ($jkv["offline_page"] == $c["id"]) { ?> selected="selected"<?php } ?>><?php echo $c["name"]; ?></option><?php }
-											} ?>
+
+											<?php
+											// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+											$selected = ($jkv["offline_page"] == 0) ? TRUE : FALSE;
+
+											echo $Html->addOption('0', $tl["selection"]["sel"], $selected);
+											if (isset($JAK_CAT) && is_array ($JAK_CAT)) foreach ($JAK_CAT as $c) {
+												if ($c["pluginid"] == '0' && $c["pageid"] > '0') {
+													echo $Html->addOption($c["id"], $c["name"], ($jkv["offline_page"] == $c["id"]) ? TRUE : FALSE);
+												}
+											}
+											?>
+
 										</select>
 									</div>
 								</div>
@@ -131,11 +139,19 @@ if ($errors) { ?>
 									</div>
 									<div class="col-md-7">
 										<select name="jak_pagenotfound" class="form-control selectpicker" data-live-search="true" data-size="5">
-											<option value="0"<?php if ($jkv["notfound_page"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel"]; ?></option>
-											<?php if (isset($JAK_CAT) && is_array ($JAK_CAT)) foreach ($JAK_CAT as $nf) {
-												if ($nf["pluginid"] == '0' && $nf["pageid"] > '0') { ?>
-													<option value="<?php echo $nf["id"]; ?>"<?php if ($jkv["notfound_page"] == $nf["id"]) { ?> selected="selected"<?php } ?>><?php echo $nf["name"]; ?></option><?php }
-											} ?>
+
+											<?php
+											// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+											$selected = ($jkv["notfound_page"] == 0) ? TRUE : FALSE;
+
+											echo $Html->addOption('0', $tl["selection"]["sel"], $selected);
+											if (isset($JAK_CAT) && is_array ($JAK_CAT)) foreach ($JAK_CAT as $nf) {
+												if ($nf["pluginid"] == '0' && $nf["pageid"] > '0') {
+													echo $Html->addOption($nf["id"], $nf["name"], ($jkv["notfound_page"] == $nf["id"]) ? TRUE : FALSE);
+												}
+											}
+											?>
+
 										</select>
 									</div>
 								</div>

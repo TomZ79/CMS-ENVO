@@ -330,7 +330,7 @@ if ($JAK_PROVED && !isset($jkv["cms_tpl"])) { ?>
     $.notify({
       // options
       icon: 'fa fa-exclamation-triangle fa-lg',
-      message: '<?php echo $tl["general_error"]["generror6"];?>',
+      message: '<?php echo $tl["general_error"]["generror6"];?>'
     }, {
       // settings
       type: 'danger',

@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -21,11 +21,11 @@ if ($page3 == "e") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general_error"]["generror1"]; ?>',
+				message: '<?php echo $tl["general_error"]["generror1"]; ?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -38,11 +38,11 @@ if ($errors) { ?>
 				// options
 				message: '<?php if (isset($errors["e"])) echo $errors["e"];
 					if (isset($errors["e1"])) echo $errors["e1"];
-					if (isset($errors["e2"])) echo $errors["e2"]; ?>',
+					if (isset($errors["e2"])) echo $errors["e2"]; ?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -91,7 +91,7 @@ if ($errors) { ?>
 		<div id="cmsTabContent" class="tab-content">
 			<div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
 				<div class="row">
-					<div class="col-md-7">
+					<div class="col-md-6">
 						<div class="box box-success">
 							<div class="box-header with-border">
 
@@ -367,15 +367,20 @@ if ($errors) { ?>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-5">
+					<div class="col-md-6">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title">
-									<?php echo $tl["news_box_title"]["newsbt6"]; ?>
-									<a class="cms-help" data-content="<?php echo $tl["news_help"]["newsh1"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tl["news_help"]["newsh"]; ?>">
-										<i class="fa fa-question-circle"></i>
-									</a>
-								</h3>
+
+								<?php
+								// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+								echo $Html->startTag('h3', array ('class' => 'box-title'));
+								echo $tl["news_box_title"]["newsbt6"];
+								// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+								echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help',  array ('data-content' => $tl["news_help"]["newsh1"], 'data-original-title' => $tl["news_help"]["newsh"]));
+								// Add Html Element -> endTag (Arguments: tag)
+								echo $Html->endTag('h3');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -613,10 +618,12 @@ if ($errors) { ?>
 
 							</div>
 							<div class="box-body">
-								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
-								<a href="javascript:;" id="addCssBlock"><?php echo $tl["global_text"]["globaltxt6"]; ?></a><br/>
 
 								<?php
+								// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+								echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
+								echo $Html->addAnchor('javascript:;', $tl["global_text"]["globaltxt6"], 'addCssBlock');
+								echo '<br/>';
 								// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
 								echo $Html->addDiv('', 'csseditor');
 								// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
@@ -649,10 +656,12 @@ if ($errors) { ?>
 
 							</div>
 							<div class="box-body">
-								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
-								<a href="javascript:;" id="addJavascriptBlock"><?php echo $tl["global_text"]["globaltxt7"]; ?></a><br/>
 
 								<?php
+								// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+								echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
+								echo $Html->addAnchor('javascript:;', $tl["global_text"]["globaltxt7"], 'addJavascriptBlock');
+								echo '<br/>';
 								// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
 								echo $Html->addDiv('', 'javaeditor');
 								// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
@@ -694,7 +703,12 @@ if ($errors) { ?>
 
 												<li class="jakcontent">
 													<div class="form-group">
-														<label><?php echo $tl["news_box_content"]["newsbc27"]; ?></label>
+
+														<?php
+														// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+														echo $Html->addLabel('', $tl["news_box_content"]["newsbc27"]);
+														?>
+
 														<select name="jak_showcontact" class="form-control selectpicker" data-size="5">
 
 															<?php

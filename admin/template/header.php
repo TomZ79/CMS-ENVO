@@ -77,22 +77,38 @@ echo $Html->addDoctype('html5');
     <div id="appMenu" class="sidebar-overlay-slide from-top">
       <div class="row">
         <div class="col-xs-6 no-padding">
-          <a href="index.php?p=testpage" class="p-l-40"><img src="assets/img/demo/social_app.svg" alt="socail">
-          </a>
+
+          <?php
+          // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+          echo $Html->addAnchor('index.php?p=testpage', '<img src="assets/img/demo/social_app.svg" alt="socail">', '', 'p-l-40');
+          ?>
+
         </div>
         <div class="col-xs-6 no-padding">
-          <a href="#" class="p-l-10"><img src="assets/img/demo/email_app.svg" alt="socail">
-          </a>
+
+          <?php
+          // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+          echo $Html->addAnchor('#', '<img src="assets/img/demo/email_app.svg" alt="socail">', '', '"p-l-10');
+          ?>
+
         </div>
       </div>
       <div class="row">
         <div class="col-xs-6 m-t-20 no-padding">
-          <a href="#" class="p-l-40"><img src="assets/img/demo/calendar_app.svg" alt="socail">
-          </a>
+
+          <?php
+          // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+          echo $Html->addAnchor('#', '<img src="assets/img/demo/calendar_app.svg" alt="socail">', '', '"p-l-40');
+          ?>
+
         </div>
         <div class="col-xs-6 m-t-20 no-padding">
-          <a href="#" class="p-l-10"><img src="assets/img/demo/add_more.svg" alt="socail">
-          </a>
+
+          <?php
+          // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+          echo $Html->addAnchor('#', '<img src="assets/img/demo/add_more.svg" alt="socail">', '', '"p-l-10');
+          ?>
+
         </div>
       </div>
     </div>
@@ -113,8 +129,13 @@ echo $Html->addDoctype('html5');
     <!-- END SIDEBAR HEADER -->
     <!-- BEGIN SIDEBAR MENU -->
     <div class="sidebar-menu">
-      <?php include_once APP_PATH . 'admin/template/navbar.php'; ?>
-      <div class="clearfix"></div>
+
+      <?php
+      include_once APP_PATH . 'admin/template/navbar.php';
+      // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+      echo $Html->addDiv('','', array ('class' => 'clearfix'));
+      ?>
+
     </div>
     <!-- END SIDEBAR MENU -->
   </div>

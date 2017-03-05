@@ -27,7 +27,12 @@
 					<h4 class=""><?php echo $tl["log_in"]["login"]; ?></h4>
 					<form id="form-login" class="p-t-15" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 						<div class="form-group form-group-default">
-							<label><?php echo $tl["log_in"]["login1"]; ?></label>
+
+							<?php
+							// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+							echo $Html->addLabel('', $tl["log_in"]["login1"]);
+							?>
+
 							<div class="controls">
 
 								<?php
@@ -38,7 +43,12 @@
 							</div>
 						</div>
 						<div class="form-group form-group-default">
-							<label><?php echo $tl["log_in"]["login2"]; ?></label>
+
+							<?php
+							// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+							echo $Html->addLabel('', $tl["log_in"]["login2"]);
+							?>
+
 							<div class="controls">
 
 								<?php
@@ -61,7 +71,12 @@
 							</div>
 						</div>
 						<div class="col-md-6 col-xs-6 no-padding text-right">
-							<a href="#" class="lost-pwd"><?php echo $tl["log_in"]["login4"]; ?></a>
+
+							<?php
+							// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+							echo $Html->addAnchor('#', $tl["log_in"]["login4"], '', 'lost-pwd');
+							?>
+
 						</div>
 
 						<?php
@@ -78,7 +93,12 @@
 					<h4><?php echo $tl["log_in"]["login6"]; ?></h4>
 					<form id="form-email" class="p-t-15" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 						<div class="form-group form-group-default">
-							<label><?php echo $tl["log_in"]["login7"]; ?></label>
+
+							<?php
+							// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+							echo $Html->addLabel('', $tl["log_in"]["login7"]);
+							?>
+
 							<div class="controls">
 
 								<?php

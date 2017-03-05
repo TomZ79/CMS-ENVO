@@ -1,22 +1,20 @@
 <?php include "header.php"; ?>
 
-	<div class="row">
-		<div class="col-md-6 col-sm-offset-3 text-center error-page">
-      <?php
-      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-      echo $Html->addTag('h2', '404', 'headline text-warning');
+	<div class="col-md-6 text-center error-page">
+		<?php
+		// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+		echo $Html->addTag('h2', '404', 'headline text-warning');
 
-      // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-      echo $Html->startTag('div', array('class' => 'error-content'));
+		// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+		echo $Html->startTag('div', array('class' => 'error-content'));
 
-      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-      echo $Html->addTag('h3', $Html->addTag('i', '', 'fa fa-warning text-warning') . $tl["error"]["404"]);
-      echo $Html->addTag('p', str_replace("%s", BASE_URL, $tl["error"]["404_text"]));
+		// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+		echo $Html->addTag('h3', $Html->addTag('i', '', 'fa fa-warning text-warning') . $tl["error"]["404"]);
+		echo $Html->addTag('p', str_replace("%s", BASE_URL, $tl["error"]["404_text"]));
 
-      // Add Html Element -> endTag (Arguments: tag)
-      echo $Html->endTag('div');
-      ?>
-		</div>
+		// Add Html Element -> endTag (Arguments: tag)
+		echo $Html->endTag('div');
+		?>
 	</div>
 
 <?php include "footer.php"; ?>

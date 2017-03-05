@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -21,11 +21,11 @@ if ($JAK_FILE_ERROR) { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["error"]["e37"];?>',
+				message: '<?php echo $tl["error"]["e37"];?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -128,13 +128,19 @@ if ($JAK_FILE_ERROR) { ?>
 						<div class="box-body">
 							<div class="block">
 								<div class="block-content">
-									<div class="row-form <?php if (!$JAK_FILECONTENT) {
-										echo "hidden";
-									} ?>">
+									<div class="row-form <?php if (!$JAK_FILECONTENT) { echo "hidden"; } ?>">
 										<div class="col-md-12">
-											<h4><?php echo $tl["fb_box_content"]["fbbc9"]; ?>
-												<small><strong><?php echo $JAK_FILEURL; ?></strong></small>
-											</h4>
+
+											<?php
+											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+											echo $Html->startTag('h4');
+											echo $tl["fb_box_content"]["fbbc9"];
+											// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+											echo $Html->addTag('small', $Html->addTag('strong', $JAK_FILEURL));
+											// Add Html Element -> endTag (Arguments: tag)
+											echo $Html->endTag('h4');
+											?>
+
 										</div>
 									</div>
 									<?php if ($JAK_FILECONTENT) { ?>
@@ -189,13 +195,19 @@ if ($JAK_FILE_ERROR) { ?>
 						<div class="box-body">
 							<div class="block">
 								<div class="block-content">
-									<div class="row-form <?php if (!$JAK_FILECONTENT1) {
-										echo "hidden";
-									} ?>">
+									<div class="row-form <?php if (!$JAK_FILECONTENT1) { echo "hidden"; } ?>">
 										<div class="col-md-12">
-											<h4><?php echo $tl["fb_box_content"]["fbbc9"]; ?>
-												<small><strong><?php echo $JAK_FILEURL1; ?></strong></small>
-											</h4>
+
+											<?php
+											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+											echo $Html->startTag('h4');
+											echo $tl["fb_box_content"]["fbbc9"];
+											// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+											echo $Html->addTag('small', $Html->addTag('strong', $JAK_FILEURL1));
+											// Add Html Element -> endTag (Arguments: tag)
+											echo $Html->endTag('h4');
+											?>
+
 										</div>
 									</div>
 									<?php if ($JAK_FILECONTENT1) { ?>

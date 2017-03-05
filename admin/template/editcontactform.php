@@ -6,11 +6,11 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>',
+        message: '<?php echo $tl["notification"]["n7"];?>'
       }, {
         // settings
         type: 'success',
-        delay: 5000,
+        delay: 5000
       });
     }, 1000);
   </script>
@@ -21,11 +21,11 @@ if ($page3 == "e") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror1"];?>',
+        message: '<?php echo $tl["general_error"]["generror1"];?>'
       }, {
         // settings
         type: 'success',
-        delay: 5000,
+        delay: 5000
       });
     }, 1000);
   </script>
@@ -39,11 +39,11 @@ if ($errors) { ?>
         message: '<?php if (isset($errors["e"])) echo $errors["e"];
           if (isset($errors["e1"])) echo $errors["e1"];
           if (isset($errors["e2"])) echo $errors["e2"];
-          if (isset($errors["e3"])) echo $errors["e3"];?>',
+          if (isset($errors["e3"])) echo $errors["e3"];?>'
       }, {
         // settings
         type: 'danger',
-        delay: 10000,
+        delay: 10000
       });
     }, 1000);
   </script>
@@ -176,8 +176,13 @@ if ($errors) { ?>
         </div>
         <div class="box box-success">
           <div class="box-header with-border">
-            <i class="fa fa-plus-square"></i>
-            <h3 class="box-title"><?php echo $tl["cf_box_title"]["cfbt2"]; ?></h3>
+
+            <?php
+            // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+            echo $Html->addTag('i', '', 'fa fa-plus-square');
+            echo $Html->addTag('h3', $tl["cf_box_title"]["cfbt2"], 'box-title');
+            ?>
+
           </div>
           <div class="box-body">
             <ul class="cform_drag">
@@ -281,11 +286,14 @@ if ($errors) { ?>
                         <?php echo $tl["cform"]["c9"]; ?>
                         <select name="jak_optionmandatory_old[]" class="form-control selectpicker" data-size="5">
 
+                          <?php
+                          // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                          echo $Html->addOption('0', $tl["checkbox"]["chk1"], ($o["mandatory"] == 0) ? TRUE : FALSE);
+                          echo $Html->addOption('1', $tl["checkbox"]["chk"], ($o["mandatory"] == 1) ? TRUE : FALSE);
+                          echo $Html->addOption('2', $tl["cform"]["c16"], ($o["mandatory"] == 2) ? TRUE : FALSE);
+                          echo $Html->addOption('3', $tl["cform"]["c17"], ($o["mandatory"] == 3) ? TRUE : FALSE);
+                          ?>
 
-                          <option value="0"<?php if ($o["mandatory"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tl["checkbox"]["chk1"]; ?></option>
-                          <option value="1"<?php if ($o["mandatory"] == 1) { ?> selected="selected"<?php } ?>><?php echo $tl["checkbox"]["chk"]; ?></option>
-                          <option value="2"<?php if ($o["mandatory"] == 2) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c16"]; ?></option>
-                          <option value="3"<?php if ($o["mandatory"] == 3) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c17"]; ?></option>
                         </select>
                       </div>
                     </div>
@@ -293,13 +301,18 @@ if ($errors) { ?>
                       <div class="form-group">
                         <?php echo $tl["cform"]["c7"]; ?>
                         <select name="jak_optiontype_old[]" class="form-control selectpicker" data-size="5">
-                          <option value="1"<?php if ($o["typeid"] == 1) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c10"]; ?></option>
-                          <option value="2"<?php if ($o["typeid"] == 2) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c11"]; ?></option>
-                          <option value="3"<?php if ($o["typeid"] == 3) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c12"]; ?></option>
-                          <option value="4"<?php if ($o["typeid"] == 4) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c13"]; ?></option>
-                          <option value="5"<?php if ($o["typeid"] == 5) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c14"]; ?></option>
-                          <option value="6"<?php if ($o["typeid"] == 6) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c19"]; ?></option>
-                          <option value="7"<?php if ($o["typeid"] == 7) { ?> selected="selected"<?php } ?>><?php echo $tl["cform"]["c23"]; ?></option>
+
+                          <?php
+                          // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                          echo $Html->addOption('1', $tl["cform"]["c10"], ($o["typeid"] == 1) ? TRUE : FALSE);
+                          echo $Html->addOption('2', $tl["cform"]["c11"], ($o["typeid"] == 2) ? TRUE : FALSE);
+                          echo $Html->addOption('3', $tl["cform"]["c12"], ($o["typeid"] == 3) ? TRUE : FALSE);
+                          echo $Html->addOption('4', $tl["cform"]["c13"], ($o["typeid"] == 4) ? TRUE : FALSE);
+                          echo $Html->addOption('5', $tl["cform"]["c14"], ($o["typeid"] == 5) ? TRUE : FALSE);
+                          echo $Html->addOption('6', $tl["cform"]["c19"], ($o["typeid"] == 6) ? TRUE : FALSE);
+                          echo $Html->addOption('7', $tl["cform"]["c23"], ($o["typeid"] == 7) ? TRUE : FALSE);
+                          ?>
+
                         </select>
 
                       </div>
