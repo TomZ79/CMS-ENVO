@@ -34,11 +34,22 @@ if ($page3 == "e") { ?>
 <?php if (!isset($jkv["cms_tpl"])) { ?>
   <div class="row">
     <div class="col-md-6 text-center error-page">
-      <h1 class="text-warning bold"><?php echo $tl["notetemplate"]["ntpl"]; ?></h1>
-      <div class="error-content">
-        <h3><i class="fa fa-warning text-warning"></i> <?php echo $tl["notetemplate"]["ntpl2"]; ?></h3>
-        <p><?php echo $tl["notetemplate"]["ntpl3"]; ?></p>
-      </div>
+
+      <?php
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('h1', $tl["notetemplate"]["ntpl"], 'headline text-warning');
+
+      // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+      echo $Html->startTag('div', array('class' => 'error-content'));
+
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('h3', $Html->addTag('i', '', 'fa fa-warning text-warning') . $tl["notetemplate"]["ntpl2"]);
+      echo $Html->addTag('p', $tl["notetemplate"]["ntpl3"]);
+
+      // Add Html Element -> endTag (Arguments: tag)
+      echo $Html->endTag('div');
+      ?>
+
     </div>
   </div>
 <?php } else {

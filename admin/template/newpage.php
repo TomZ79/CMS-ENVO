@@ -558,8 +558,6 @@ if ($errors) { ?>
 
 							</div>
 							<div class="box-body">
-								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
-								<a href="javascript:;" id="addJavascriptBlock"><?php echo $tl["global_text"]["globaltxt7"]; ?></a><br/>
 
 								<?php
 								// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

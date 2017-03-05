@@ -79,7 +79,7 @@ if ($page1 == "e") { ?>
 
                       if (file_exists($filename)) {
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                        echo $Html->addAnchor($filename, $tl["plug_box_content"]["plugbc2"], 'plugHelp');
+                        echo $Html->addAnchor($filename, $tl["plug_box_content"]["plugbc2"], '', 'plugHelp');
                       } else {
                         echo "-";
                       }

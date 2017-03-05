@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general_error"]["generror1"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -25,11 +25,11 @@ if ($errors) { ?>
 					if (isset($errors["e1"])) echo $errors["e1"];
 					if (isset($errors["e2"])) echo $errors["e2"];
 					if (isset($errors["e3"])) echo $errors["e3"];
-					if (isset($errors["e4"])) echo $errors["e4"];?>',
+					if (isset($errors["e4"])) echo $errors["e4"];?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -189,11 +189,17 @@ if ($errors) { ?>
 			<div class="col-md-4">
 				<div class="box box-success">
 					<div class="box-header with-border">
-						<h3 class="box-title"><?php echo $tlblog["blog_box_title"]["blogbt6"]; ?>
-							<a class="cms-help" data-content="<?php echo $tlblog["blog_help"]["blogh1"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tlblog["blog_help"]["blogh"]; ?>">
-								<i class="fa fa-question-circle"></i>
-							</a>
-						</h3>
+
+						<?php
+						// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+						echo $Html->startTag('h3', array ('class' => 'box-title'));
+						echo $tlblog["blog_box_title"]["blogbt6"];
+						// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+						echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help',  array ('data-content' => $tlblog["blog_help"]["blogh1"], 'data-original-title' => $tlblog["blog_help"]["blogh"]));
+						// Add Html Element -> endTag (Arguments: tag)
+						echo $Html->endTag('h3');
+						?>
+
 					</div>
 					<div class="box-body">
 						<div class="block">

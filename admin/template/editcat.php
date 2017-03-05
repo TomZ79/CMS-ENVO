@@ -341,8 +341,8 @@ if ($errors) { ?>
                       <div class="col-md-12">
 
                         <?php
-                        // Add Html Element -> addButton (Arguments: type, name, text, id, class, optional assoc. array)
-                        echo $Html->addButton('button', $tl["button"]["btn25"], '', 'copy1', 'btn btn-primary btn-xs pull-right margin-bottom-10');
+                        // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+                        echo $Html->addButton('button', '', $tl["button"]["btn25"], '', 'copy1', 'btn btn-primary btn-xs pull-right margin-bottom-10');
                         ?>
 
                       </div>

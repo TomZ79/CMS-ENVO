@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -33,7 +33,7 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -46,12 +46,12 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 			$.notify({
 				// options
 				icon: 'fa fa-info-circle',
-				message: '<?php echo $tl["notification"]["n2"]; ?>',
+				message: '<?php echo $tl["notification"]["n2"]; ?>'
 			}, {
 				// settings
 				type: 'info',
 				delay: 5000,
-				timer: 3000,
+				timer: 3000
 			});
 		}, 2000);
 	</script>
@@ -61,10 +61,10 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 
 	<div class="box box-success">
 		<div class="box-header with-border">
-			<i class="fa fa-bars"></i>
 
 			<?php
 			// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+			echo $Html->addTag('i', '', 'fa fa-bars');
 			echo $Html->addTag('h3', $tlblog["blog_box_table"]["blogtb5"], 'box-title');
 			?>
 
@@ -87,7 +87,12 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 
 		</div>
 		<div class="box-footer">
-			<button type="submit" data-menu="mheader" name="save" class="btn btn-success pull-right save-menu-plugin"><?php echo $tl["button"]["btn1"]; ?></button>
+
+			<?php
+			// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+			echo $Html->addButtonSubmit('save', $tl["button"]["btn1"], '', 'btn btn-success pull-right save-menu-plugin', array('data-menu' => 'mheader'));
+			?>
+
 		</div>
 	</div>
 

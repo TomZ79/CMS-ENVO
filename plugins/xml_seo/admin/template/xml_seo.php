@@ -5,11 +5,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $succes1; ?>',
+				message: '<?php echo $succes1; ?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 7000,
+				delay: 7000
 			});
 		}, 1000);
 	</script>
@@ -19,11 +19,11 @@ if (isset($error1)) { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $error1; ?>',
+				message: '<?php echo $error1; ?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -34,11 +34,11 @@ if (isset($error2)) { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $error2; ?>',
+				message: '<?php echo $error2; ?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -55,7 +55,7 @@ if (isset($error2)) { ?>
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 
@@ -68,7 +68,7 @@ if (isset($error2)) { ?>
 				// settings
 				type: 'warning',
 				delay: 5000,
-				timer: 3000,
+				timer: 3000
 			});
 		}, 2000);
 	</script>

@@ -6,8 +6,13 @@
 			<div class="row">
 				<div class="col-md-6">
 					<select name="jak_showblogorder" class="form-control selectpicker" data-size="5">
-						<option value="ASC"<?php if (isset($JAK_FORM_DATA["showblogorder"]) && $JAK_FORM_DATA["showblogorder"] == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel13"]; ?></option>
-						<option value="DESC"<?php if (isset($JAK_FORM_DATA["showblogorder"]) && $JAK_FORM_DATA["showblogorder"] == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["selection"]["sel14"]; ?></option>
+
+						<?php
+						// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+						echo $Html->addOption('ASC', $tl["selection"]["sel13"], (isset($JAK_FORM_DATA["showblogorder"]) && $JAK_FORM_DATA["showblogorder"] == "ASC") ? TRUE : FALSE);
+						echo $Html->addOption('DESC', $tl["selection"]["sel14"], (isset($JAK_FORM_DATA["showblogorder"]) && $JAK_FORM_DATA["showblogorder"] == "DESC") ? TRUE : FALSE);
+						?>
+
 					</select>
 				</div>
 				<div class="col-md-6">
@@ -28,16 +33,30 @@
 		<div class="form-group">
 			<label class="control-label"><?php echo $tlblog["blog_connect"]["blogc1"]; ?></label>
 			<select name="jak_showblog[]" multiple="multiple" class="form-control">
-				<option value="0"<?php if (isset($JAK_FORM_DATA["showblog"]) && $JAK_FORM_DATA["showblog"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tlblog["blog_connect"]["blogc2"]; ?></option>
-				<?php if (isset($JAK_GET_BLOG) && is_array ($JAK_GET_BLOG)) foreach ($JAK_GET_BLOG as $fq) { ?>
-					<option value="<?php echo $fq["id"]; ?>"<?php if (isset($JAK_FORM_DATA["showblog"]) && $JAK_FORM_DATA["showblog"] == $fq["id"]) { ?> selected="selected"<?php } ?>><?php echo $fq["title"]; ?></option>
-				<?php } ?>
+
+				<?php
+				// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+				$selected = (isset($JAK_FORM_DATA["showblog"]) && $JAK_FORM_DATA["showblog"] == 0) ? TRUE : FALSE;
+
+				echo $Html->addOption('0', $tlblog["blog_connect"]["blogc2"], $selected);
+				if (isset($JAK_GET_BLOG) && is_array ($JAK_GET_BLOG)) foreach ($JAK_GET_BLOG as $fq) {
+
+					echo $Html->addOption($fq["id"], $fq["title"], (isset($JAK_FORM_DATA["showblog"]) && (in_array ($fq["id"], explode (',', $JAK_FORM_DATA["showblog"]))) ) ? TRUE : FALSE);
+
+				}
+				?>
+
 			</select>
 		</div>
 
 		<div class="actions">
-			<input type="hidden" name="corder[]" class="corder" value="<?php echo $pg["orderid"]; ?>"/>
-			<input type="hidden" name="real_id[]" value="<?php echo $pg["id"]; ?>"/>
+
+			<?php
+			// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+			echo $Html->addInput('hidden', 'corder[]', $pg["orderid"], '', 'corder');
+			echo $Html->addInput('hidden', 'real_id[]', $pg["id"]);
+			?>
+
 		</div>
 	</li>
 

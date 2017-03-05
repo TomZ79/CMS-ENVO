@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -21,11 +21,11 @@ if ($page3 == "e") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general_error"]["generror1"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -38,11 +38,11 @@ if ($errors) { ?>
 				// options
 				message: '<?php if (isset($errors["e"])) echo $errors["e"];
 					if (isset($errors["e1"])) echo $errors["e1"];
-					if (isset($errors["e2"])) echo $errors["e2"];?>',
+					if (isset($errors["e2"])) echo $errors["e2"];?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -128,7 +128,12 @@ if ($errors) { ?>
 													?>
 
 													<span class="input-group-btn">
-														<a class="btn btn-info ifManager" type="button" href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_img"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
+
+														<?php
+														// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+														echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_img', $tl["global_text"]["globaltxt8"], '', 'btn btn-info ifManager', array('type' => 'button'));
+														?>
+
 													</span>
 												</div>
 											</div>
@@ -147,11 +152,17 @@ if ($errors) { ?>
 						</div>
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tlgwl["gwl_box_title"]["gwlbt1"]; ?>
-									<a class="cms-help" data-content="<?php echo $tlgwl["gwl_help"]["gwlh1"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tlgwl["gwl_help"]["gwlh"]; ?>">
-										<i class="fa fa-question-circle"></i>
-									</a>
-								</h3>
+
+								<?php
+								// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+								echo $Html->startTag('h3', array ('class' => 'box-title'));
+								echo $tlgwl["gwl_box_title"]["gwlbt1"];
+								// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+								echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help',  array ('data-content' => $tlgwl["gwl_help"]["gwlh1"], 'data-original-title' => $tlgwl["gwl_help"]["gwlh"]));
+								// Add Html Element -> endTag (Arguments: tag)
+								echo $Html->endTag('h3');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -396,11 +407,17 @@ if ($errors) { ?>
 					<div class="col-md-6">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tlgwl["gwl_box_title"]["gwlbt3"]; ?>
-									<a class="cms-help" data-content="<?php echo $tlgwl["gwl_help"]["gwlh1"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tlgwl["gwl_help"]["gwlh"]; ?>">
-										<i class="fa fa-question-circle"></i>
-									</a>
-								</h3>
+
+								<?php
+								// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+								echo $Html->startTag('h3', array ('class' => 'box-title'));
+								echo $tlgwl["gwl_box_title"]["gwlbt3"];
+								// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+								echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help',  array ('data-content' => $tlgwl["gwl_help"]["gwlh1"], 'data-original-title' => $tlgwl["gwl_help"]["gwlh"]));
+								// Add Html Element -> endTag (Arguments: tag)
+								echo $Html->endTag('h3');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -503,11 +520,17 @@ if ($errors) { ?>
 						</div>
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tlgwl["gwl_box_title"]["gwlbt5"]; ?>
-									<a class="cms-help" data-content="<?php echo $tlgwl["gwl_help"]["gwlh1"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tlgwl["gwl_help"]["gwlh"]; ?>">
-										<i class="fa fa-question-circle"></i>
-									</a>
-								</h3>
+
+								<?php
+								// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+								echo $Html->startTag('h3', array ('class' => 'box-title'));
+								echo $tlgwl["gwl_box_title"]["gwlbt5"];
+								// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+								echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help',  array ('data-content' => $tlgwl["gwl_help"]["gwlh1"], 'data-original-title' => $tlgwl["gwl_help"]["gwlh"]));
+								// Add Html Element -> endTag (Arguments: tag)
+								echo $Html->endTag('h3');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">

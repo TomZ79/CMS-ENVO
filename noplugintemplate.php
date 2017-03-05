@@ -28,7 +28,7 @@
 
 <!-- Main content -->
 <section class="content">
-	<div class="col-md-6 col-sm-offset-3 text-center vertical-center error-page">
+	<div class="col-md-6 text-center vertical-center error-page">
 		<div class="col-sm-12">
 			<h3 class="headline text-warning-800 bold"><?php echo str_replace("%s", $JAK_TPL_PLUG_T, $tl["notetemplate"]["ntpl4"]); ?></h3>
 			<div class="error-content">

@@ -6,11 +6,11 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror1"]; ?>',
+        message: '<?php echo $tl["general_error"]["generror1"]; ?>'
       }, {
         // settings
         type: 'danger',
-        delay: 10000,
+        delay: 10000
       });
     }, 1000);
   </script>
@@ -25,11 +25,11 @@
         message: '<?php if (isset($errors["e"])) echo $errors["e"];
 					if (isset($errors["e1"])) echo $errors["e1"];
 					if (isset($errors["e2"])) echo $errors["e2"];
-					if (isset($errors["e3"])) echo $errors["e3"]; ?>',
+					if (isset($errors["e3"])) echo $errors["e3"]; ?>'
       }, {
         // settings
         type: 'danger',
-        delay: 10000,
+        delay: 10000
       });
     }, 1000);
   </script>
@@ -153,9 +153,19 @@
                         </div>
                         <div class="col-md-7">
                           <select name="jak_showcontact" class="form-control selectpicker">
-                            <option value="0" selected="selected"><?php echo $tlblog["blog_box_content"]["blogbc27"]; ?></option>
-                            <?php foreach ($JAK_CONTACT_FORMS as $cf) { ?>
-                              <option value="<?php echo $cf["id"]; ?>"><?php echo $cf["title"]; ?></option><?php } ?>
+
+                            <?php
+                            // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                            $selected = ((isset($_REQUEST["jak_showcontact"]) && ($_REQUEST["jak_showcontact"] == '0')) || !isset($_REQUEST["jak_showcontact"])) ? TRUE : FALSE;
+
+                            echo $Html->addOption('0', $tlblog["blog_box_content"]["blogbc27"], $selected);
+                            if (isset($JAK_CONTACT_FORMS) && is_array ($JAK_CONTACT_FORMS)) foreach ($JAK_CONTACT_FORMS as $cf) {
+
+                              echo $Html->addOption($cf["id"], $cf["title"], ($cf["id"] == $_REQUEST["jak_showcontact"]) ? TRUE : FALSE);
+
+                            }
+                            ?>
+
                           </select>
                         </div>
                       </div>
@@ -279,11 +289,19 @@
                       </div>
                       <div class="col-md-7">
                         <div class="input-group">
-                          <input type="text" name="jak_img" id="jak_img" class="form-control"
-                            value=""/>
-													<span class="input-group-btn">
-														<a class="btn btn-info ifManager" type="button"
-                              href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_img"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html->addInput('text', 'jak_img', $_REQUEST["jak_img"], 'jak_img', 'form-control');
+                          ?>
+
+                          <span class="input-group-btn">
+
+														<?php
+                            // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                            echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_img', $tl["global_text"]["globaltxt8"], '', 'btn btn-info ifManager', array('type' => 'button'));
+                            ?>
+
 													</span>
                         </div>
                       </div>
@@ -304,13 +322,17 @@
           <div class="col-md-6">
             <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tlblog["blog_box_title"]["blogbt8"]; ?>
-                  <a class="cms-help" data-content="<?php echo $tl["help"]["h"]; ?>"
-                    href="javascript:void(0)"
-                    data-original-title="<?php echo $tl["title"]["t21"]; ?>">
-                    <i class="fa fa-question-circle"></i>
-                  </a>
-                </h3>
+
+                <?php
+                // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+                echo $Html->startTag('h3', array ('class' => 'box-title'));
+                echo $tlblog["blog_box_title"]["blogbt8"];
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help',  array ('data-content' => $tl["help"]["h"], 'data-original-title' => $tl["title"]["t21"]));
+                // Add Html Element -> endTag (Arguments: tag)
+                echo $Html->endTag('h3');
+                ?>
+
               </div>
               <div class="box-body">
                 <div class="block">
@@ -318,11 +340,29 @@
                     <div class="row-form">
                       <div class="col-md-12">
                         <select name="jak_catid[]" multiple="multiple" class="form-control">
-                          <option value="0" selected="selected"><?php echo $tlblog["blog_box_content"]["blogbc37"]; ?></option>
 
-                          <?php if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $v) { ?>
-                            <option value="<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></option>
-                          <?php } ?>
+                          <?php
+                          // Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
+                          $selected = ((isset($_REQUEST["jak_catid"]) && ($_REQUEST["jak_catid"] == '0' || (in_array('0', $_REQUEST["jak_catid"]))) || !isset($_REQUEST["jak_catid"]))) ? TRUE : FALSE;
+
+                          echo $Html->addOption('0', $tlblog["blog_box_content"]["blogbc37"], $selected);
+                          if (isset($JAK_CAT) && is_array ($JAK_CAT)) foreach ($JAK_CAT as $v) {
+
+                            if (isset($_REQUEST["jak_catid"]) && (in_array($v["id"], $_REQUEST["jak_catid"]))) {
+                              if (isset($_REQUEST["jak_catid"]) && (in_array('0', $_REQUEST["jak_catid"]))) {
+                                $selected = FALSE;
+                              } else {
+                                $selected = TRUE;
+                              }
+                            } else {
+                              $selected = FALSE;
+                            }
+
+                            echo $Html->addOption($v["id"], $v["name"], $selected);
+
+                          }
+                          ?>
+
                         </select>
                       </div>
                     </div>
@@ -400,7 +440,7 @@
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_datefrom', '', 'datepickerFrom', 'form-control', array('readonly' => 'readonly'));
+                          echo $Html->addInput('text', 'jak_datefrom', ($_REQUEST["jak_datefrom"]) ? $_REQUEST["jak_datefrom"] : '', 'datepickerFrom', 'form-control', array('readonly' => 'readonly'));
                           ?>
 
                         </div>
@@ -421,7 +461,7 @@
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_dateto', '', 'datepickerTo', 'form-control', array('readonly' => 'readonly'));
+                          echo $Html->addInput('text', 'jak_dateto', ($_REQUEST["jak_dateto"]) ? $_REQUEST["jak_dateto"] : '', 'datepickerTo', 'form-control', array('readonly' => 'readonly'));
                           ?>
 
                         </div>
@@ -462,19 +502,27 @@
 
                         </div>
                         <div class="col-md-7">
-                          <select name="" id="selecttags1" class="form-control selectpicker"
-                            title="Choose tags ..." data-size="7"
-                            data-live-search="true">
+                          <select name="" id="selecttags1" class="form-control selectpicker" title="Choose tags ..." data-size="7" data-live-search="true">
                             <optgroup label="Poskytovatelé TV">
-                              <option value="skylink">Skylink</option>
-                              <option value="freesat">freeSAT</option>
-                              <option value="digi-tv">Digi TV</option>
+
+                              <?php
+                              // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                              echo $Html->addOption('skylink', 'Skylink');
+                              echo $Html->addOption('freesat', 'freeSAT');
+                              echo $Html->addOption('digi-tv', 'Digi TV');
+                              ?>
+
                             </optgroup>
                             <optgroup label="Vysílací technologie">
-                              <option value="dvb-t/t2">DVB-T/T2</option>
-                              <option value="dvb-s/s2">DVB-S/S2</option>
-                              <option value="dvb-c">DVB-C</option>
-                              <option value="dvb-h">DVB-H</option>
+
+                              <?php
+                              // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                              echo $Html->addOption('dvb-t/t2', 'DVB-T/T2');
+                              echo $Html->addOption('dvb-s/s2', 'DVB-S/S2');
+                              echo $Html->addOption('dvb-c', 'DVB-C');
+                              echo $Html->addOption('dvb-h', 'DVB-H');
+                              ?>
+
                             </optgroup>
                           </select>
                         </div>
@@ -492,10 +540,14 @@
                           <?php $JAK_TAG_ALL = jak_tag_name_admin();
                           if ($JAK_TAG_ALL) { ?>
                             <select name="" id="selecttags2" class="form-control selectpicker" title="Choose tags ..." data-size="7" data-live-search="true">
-                              <?php foreach ($JAK_TAG_ALL as $v) { ?>
-                                <option
-                                  value="<?php echo $v["tag"]; ?>"><?php echo $v["tag"]; ?></option>
-                              <?php } ?>
+                              <?php
+                              foreach ($JAK_TAG_ALL as $v) {
+
+                                echo $Html->addOption($v["tag"], $v["tag"]);
+
+                              }
+                              ?>
+
                             </select>
                           <?php } else { ?>
                             <div>Tags cloud is empty!</div>
@@ -504,7 +556,12 @@
                       </div>
                       <div class="row-form">
                         <div class="col-md-12">
-                          <input type="text" name="jak_tags" id="jak_tags" class="tags form-control" value="" data-role="tagsinput"/>
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html->addInput('text', 'jak_tags', $_REQUEST["jak_tags"], 'jak_tags', 'form-control tags', array ('data-role' => 'tagsinput'));
+                          ?>
+
                         </div>
                       </div>
                     </div>
@@ -544,12 +601,12 @@
 
               </div>
               <div class="box-body">
-                <a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor"
-                  class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
-                <a href="javascript:;"
-                  id="addCssBlock"><?php echo $tl["global_text"]["globaltxt6"]; ?></a><br/>
 
                 <?php
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
+                echo $Html->addAnchor('javascript:;', $tl["global_text"]["globaltxt6"], 'addCssBlock');
+                echo '<br/>';
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                 echo $Html->addDiv('', 'csseditor');
                 // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
@@ -582,12 +639,12 @@
 
               </div>
               <div class="box-body">
-                <a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor"
-                  class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
-                <a href="javascript:;"
-                  id="addJavascriptBlock"><?php echo $tl["global_text"]["globaltxt7"]; ?></a><br/>
 
                 <?php
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
+                echo $Html->addAnchor('javascript:;', $tl["global_text"]["globaltxt7"], 'addJavascriptBlock');
+                echo '<br/>';
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                 echo $Html->addDiv('', 'javaeditor');
                 // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)

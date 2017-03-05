@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -21,11 +21,11 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo ($page1 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>',
+				message: '<?php echo ($page1 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -38,12 +38,12 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 			$.notify({
 				// options
 				icon: 'fa fa-info-circle',
-				message: '<?php echo $tl["notification"]["n2"]; ?>',
+				message: '<?php echo $tl["notification"]["n2"]; ?>'
 			}, {
 				// settings
 				type: 'info',
 				delay: 5000,
-				timer: 3000,
+				timer: 3000
 			});
 		}, 2000);
 	</script>
@@ -102,23 +102,44 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 								<td><?php echo $v["id"]; ?></td>
 								<td>
 									<div class="checkbox-singel check-success">
-										<input type="checkbox" id="jak_delete_urlmapping<?php echo $v["id"]; ?>" name="jak_delete_urlmapping[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
-										<label for="jak_delete_urlmapping<?php echo $v["id"]; ?>"></label>
+
+										<?php
+										// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+										// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+										echo $Html->addCheckbox('jak_delete_urlmapping[]', $v["id"], false, 'jak_delete_urlmapping' . $v["id"], 'highlight');
+										echo $Html->addLabel('jak_delete_urlmapping' . $v["id"], '');
+										?>
+
 									</div>
 								</td>
 								<td>
-									<a href="index.php?p=urlmapping&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["urlold"]; ?></a>
+
+									<?php
+									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+									echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=edit&amp;ssp=' . $v["id"], $v["urlold"]);
+									?>
+
 								</td>
 								<td>
-									<a href="index.php?p=urlmapping&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["urlnew"]; ?></a>
+
+									<?php
+									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+									echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=edit&amp;ssp=' . $v["id"], $v["urlnew"]);
+									?>
+
 								</td>
-								<td><?php if ($v["redirect"] == '301') {
+								<td>
+
+									<?php if ($v["redirect"] == '301') {
 										echo $tlum["url_box_content"]["urlbc1"];
 									} else {
 										echo $tlum["url_box_content"]["urlbc2"];
-									} ?></td>
+									} ?>
+
+								</td>
 								<td><?php echo date ("d.m.Y - H:i:s", strtotime ($v["time"])); ?></td>
 								<td>
+
 									<?php
 									if ($v["active"] == 1) {
 										echo $tlum["url_box_content"]["urlbc4"];
@@ -126,25 +147,31 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 										echo $tlum["url_box_content"]["urlbc5"] . '<span class="small">  - ' . $tlum["url_box_content"]["urlbc6"] . '</span>';
 									}
 									?>
+
 								</td>
 								<td>
-									<a href="index.php?p=urlmapping&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') {
-										echo $tl["icons"]["i5"];
-									} else {
-										echo $tl["icons"]["i6"];
-									} ?>">
-										<i class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i>
-									</a>
+
+									<?php
+									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+									echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=lock&amp;ssp=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
+									?>
+
 								</td>
 								<td>
-									<a href="index.php?p=urlmapping&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i2"]; ?>">
-										<i class="fa fa-edit"></i>
-									</a>
+
+									<?php
+									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+									echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=edit&amp;ssp=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
+									?>
+
 								</td>
 								<td>
-									<a href="index.php?p=urlmapping&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo $tlum["url_notification"]["del"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
-										<i class="fa fa-trash-o"></i>
-									</a>
+
+									<?php
+									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+									echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=delete&amp;ssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-default btn-xs', array('data-confirm' => $tlum["url_notification"]["del"], 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
+									?>
+
 								</td>
 							</tr>
 						<?php } ?>

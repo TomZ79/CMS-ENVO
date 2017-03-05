@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -21,11 +21,11 @@ if ($page4 == "e") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general_error"]["generror1"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -55,14 +55,20 @@ if ($page4 == "e") { ?>
 						<th><?php echo $tlblog["blog_box_table"]["blogtb6"]; ?></th>
 						<th><?php echo $tlblog["blog_box_table"]["blogtb7"]; ?></th>
 						<th>
-							<button type="submit" name="untrash" id="button_lock" class="btn btn-default btn-xs" onclick="if(!confirm('<?php echo $tlblog["blog_notification"]["untrash"]; ?>'))return false;">
-								<i class="fa fa-thumbs-up"></i>
-							</button>
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+							echo $Html->addButtonSubmit('untrash', '<i class="fa fa-thumbs-up"></i>', 'button_lock', 'btn btn-default btn-xs',  array ('onclick' => 'if(!confirm(\'' . $tlblog["blog_notification"]["untrash"] . '\'))return false;'));
+							?>
+
 						</th>
 						<th>
-							<button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tlblog["blog_notification"]["codelall"]; ?>" disabled="disabled">
-								<i class="fa fa-trash-o"></i>
-							</button>
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+							echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tlblog["blog_notification"]["codelall"]));
+							?>
+
 						</th>
 					</tr>
 					</thead>
@@ -71,20 +77,32 @@ if ($page4 == "e") { ?>
 							<td><?php echo $v["id"]; ?></td>
 							<td>
 								<div class="checkbox-singel check-success">
-									<input type="checkbox" id="jak_delete_trash<?php echo $v["id"]; ?>" name="jak_delete_trash[]"
-										class="highlight" value="<?php echo $v["id"]; ?>"/>
-									<label for="jak_delete_trash<?php echo $v["id"]; ?>"></label>
+
+									<?php
+									// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+									// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+									echo $Html->addCheckbox('jak_delete_trash[]', $v["id"], false, 'jak_delete_trash' . $v["id"], 'highlight');
+									echo $Html->addLabel('jak_delete_trash' . $v["id"], '');
+									?>
+
 								</div>
 							</td>
 							<td><?php echo jak_clean_comment ($v["message"]); ?></td>
-							<td><?php if ($v["userid"] == '0') {
+							<td>
+
+								<?php if ($v["userid"] == '0') {
 									echo $tlblog["blog_box_content"]["blogbc40"];
 								} else {
-									if ($page1 != 'user') { ?><a
-										href="index.php?p=user&amp;sp=edit&amp;ssp=<?php echo $v["userid"]; ?>"><?php echo $v["username"]; ?></a><?php } else {
+									if ($page1 != 'user') {
+
+										// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+										echo $Html->addAnchor('index.php?p=user&amp;sp=edit&amp;ssp=' . $v["userid"], $v["username"]);
+
+									} else {
 										echo $v["username"];
 									}
-								} ?></td>
+								} ?>
+							</td>
 							<td></td>
 							<td></td>
 						</tr>

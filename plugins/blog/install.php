@@ -241,7 +241,7 @@ if (empty($bl) && !empty($defaults[\'jak_showblogmany\'])) {
 } else if (!empty($bl)) {
 	$insert .= \'showblog = \"\'.$bl.\'\",\';
 } else {
-  	$insert .= \'showblog = NULL,\';
+  	$insert .= \'showblog = 0,\';
 }';
 
 				$getblog = '$JAK_GET_BLOG = jak_get_page_info(DB_PREFIX.\'blog\', \'\');

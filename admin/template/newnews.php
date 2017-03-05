@@ -372,7 +372,7 @@ if ($errors) { ?>
 
 													<?php
 													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-													echo $Html->addInput('text', 'jak_datefrom', $_REQUEST["jak_datefrom"], 'datepickerFrom', 'form-control', array('readonly' => 'readonly'));
+													echo $Html->addInput('text', 'jak_datefrom', ($_REQUEST["jak_datefrom"]) ? $_REQUEST["jak_datefrom"] : '', 'datepickerFrom', 'form-control', array('readonly' => 'readonly'));
 													?>
 
 												</div>
@@ -392,7 +392,7 @@ if ($errors) { ?>
 
 													<?php
 													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-													echo $Html->addInput('text', 'jak_dateto', $_REQUEST["jak_dateto"], 'datepickerTo', 'form-control', array('readonly' => 'readonly'));
+													echo $Html->addInput('text', 'jak_dateto', ($_REQUEST["jak_dateto"]) ? $_REQUEST["jak_dateto"] : '', 'datepickerTo', 'form-control', array('readonly' => 'readonly'));
 													?>
 
 												</div>

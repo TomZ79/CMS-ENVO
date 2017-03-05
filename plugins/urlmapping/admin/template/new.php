@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -21,11 +21,11 @@ if ($page3 == "e") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general_error"]["generror1"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -40,11 +40,11 @@ if ($page3 == "e") { ?>
 				message: '<?php if (isset($errors["e"])) echo $errors["e"];
 					if (isset($errors["e1"])) echo $errors["e1"];
 					if (isset($errors["e2"])) echo $errors["e2"];
-					if (isset($errors["e3"])) echo $errors["e3"];?>',
+					if (isset($errors["e3"])) echo $errors["e3"];?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -156,8 +156,11 @@ if ($page3 == "e") { ?>
 				<div class="box box-success">
 					<div class="box-header with-border">
 
+						<?php
+						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+						echo $Html->addTag('h3', $tlum["url_box_title"]["urlbt2"], 'box-title');
+						?>
 
-						<h3 class="box-title"><?php echo $tlum["url_box_title"]["urlbt2"]; ?></h3>
 					</div>
 					<div class="box-body">
 						<div class="form-group no-margin">

@@ -5,11 +5,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -19,11 +19,11 @@ if ($page3 == "e") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general_error"]["generror1"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -35,11 +35,11 @@ if ($page3 == "e") { ?>
 			$.notify({
 				// options
 				message: '<?php if (isset($errors["e"])) echo $errors["e"];
-					if (isset($errors["e1"])) echo $errors["e1"];?>',
+					if (isset($errors["e1"])) echo $errors["e1"];?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -139,10 +139,19 @@ if ($page3 == "e") { ?>
 										<div class="row-form">
 											<div class="col-md-12">
 												<select name="jak_pageid[]" multiple="multiple" class="form-control" style="min-height: 330px;">
-													<option value="0"<?php if ($JAK_FORM_DATA["pageid"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tlbh["bh_box_content"]["bhbc1"]; ?></option>
-													<?php if (isset($JAK_PAGES) && is_array ($JAK_PAGES)) foreach ($JAK_PAGES as $z) { ?>
-														<option value="<?php echo $z["id"]; ?>"<?php if (in_array ($z["id"], explode (',', $JAK_FORM_DATA["pageid"]))) { ?> selected="selected"<?php } ?>><?php echo $z["title"]; ?></option>
-													<?php } ?>
+
+													<?php
+													// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+													$selected = ($JAK_FORM_DATA["pageid"] == '0') ? TRUE : FALSE;
+
+													echo $Html->addOption('0', $tlbh["bh_box_content"]["bhbc1"], $selected);
+													if (isset($JAK_PAGES) && is_array ($JAK_PAGES)) foreach ($JAK_PAGES as $z) {
+
+														echo $Html->addOption($z["id"], $z["title"], (in_array ($z["id"], explode (',', $JAK_FORM_DATA["pageid"]))) ? TRUE : FALSE);
+
+													}
+													?>
+
 												</select>
 											</div>
 										</div>
@@ -162,11 +171,17 @@ if ($page3 == "e") { ?>
 					<div class="col-md-6">
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tlbh["bh_box_title"]["bhbt2"]; ?>
-									<a class="cms-help" data-content="<?php echo $tlbh["bh_help"]["bhh"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tlbh["bh_help"]["bhh"]; ?>">
-										<i class="fa fa-question-circle"></i>
-									</a>
-								</h3>
+
+								<?php
+								// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+								echo $Html->startTag('h3', array ('class' => 'box-title'));
+								echo $tlbh["bh_box_title"]["bhbt2"];
+								// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+								echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help',  array ('data-content' => $tlbh["bh_help"]["bhh1"], 'data-original-title' => $tlbh["bh_help"]["bhh"]));
+								// Add Html Element -> endTag (Arguments: tag)
+								echo $Html->endTag('h3');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -174,9 +189,20 @@ if ($page3 == "e") { ?>
 										<div class="row-form">
 											<div class="col-md-12">
 												<select name="jak_permission[]" multiple="multiple" class="form-control">
-													<option value="0"<?php if ($JAK_FORM_DATA["permission"] == '0') { ?> selected="selected"<?php } ?>><?php echo $tlbh["bh_box_content"]["bhbc2"]; ?></option>
-													<?php if (isset($JAK_USERGROUP) && is_array ($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) { ?>
-														<option value="<?php echo $v["id"]; ?>"<?php if (in_array ($v["id"], explode (',', $JAK_FORM_DATA["permission"]))) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php } ?>
+
+													<?php
+													// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+													$selected = ($JAK_FORM_DATA["permission"] == '0') ? TRUE : FALSE;
+
+													echo $Html->addOption('0', $tlbh["bh_box_content"]["bhbc2"], $selected);
+													if (isset($JAK_USERGROUP) && is_array ($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) {
+
+														$selected = (in_array ($v["id"], explode (',', $JAK_FORM_DATA["permission"]))) ? TRUE : FALSE;
+														echo $Html->addOption($v["id"], $v["name"], $selected);
+
+													}
+													?>
+
 												</select>
 											</div>
 										</div>
@@ -215,10 +241,20 @@ if ($page3 == "e") { ?>
 											</div>
 											<div class="col-md-7">
 												<select name="jak_newsid[]" multiple="multiple" class="form-control">
-													<option value="0"<?php if ($JAK_FORM_DATA["newsid"] == 0) { ?> selected="selected"<?php } ?>><?php echo $tlbh["bh_box_content"]["bhbc1"]; ?></option>
-													<?php if (isset($JAK_NEWS) && is_array ($JAK_NEWS)) foreach ($JAK_NEWS as $n) { ?>
-														<option value="<?php echo $n["id"]; ?>"<?php if (in_array ($n["id"], explode (',', $JAK_FORM_DATA["newsid"]))) { ?> selected="selected"<?php } ?>><?php echo $n["title"]; ?></option>
-													<?php } ?>
+
+													<?php
+													// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+													$selected = ($JAK_FORM_DATA["newsid"] == '0') ? TRUE : FALSE;
+
+													echo $Html->addOption('0', $tlbh["bh_box_content"]["bhbc1"], $selected);
+													if (isset($JAK_NEWS) && is_array ($JAK_NEWS)) foreach ($JAK_NEWS as $n) {
+
+														$selected = (in_array ($n["id"], explode (',', $JAK_FORM_DATA["newsid"]))) ? TRUE : FALSE;
+														echo $Html->addOption($n["id"], $n["title"], $selected);
+
+													}
+													?>
+
 												</select>
 											</div>
 										</div>
@@ -375,18 +411,34 @@ if ($page3 == "e") { ?>
 											<?php if ($jkv["adv_editor"]) { ?>
 												<div id="cover2">
 													<div class="cover-header">
-														<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=0&editor=mce_0&lang=eng&fldr=&field_id=htmleditor2" class="btn btn-primary btn-xs ifManager">
-															<i class="fa fa-files-o"></i>
-														</a>
+
+														<?php
+														// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+														echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=0&editor=mce_0&lang=eng&fldr=&field_id=htmleditor2', '<i class="fa fa-files-o"></i>', '', 'btn btn-primary btn-xs m-r-10 ifManager',  array ('title' => 'Show Filemanager'));
+														?>
+
 													</div>
 													<div id="editorContainer2">
-														<div id="htmleditor2"></div>
+
+														<?php
+														// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+														echo $Html->addDiv('', 'htmleditor2');
+														?>
+
 													</div>
 												</div>
-												<textarea name="jak_contentb" class="form-control hidden" id="jak_editor2"><?php echo jak_edit_safe_userpost (htmlspecialchars ($JAK_FORM_DATA["content_below"])); ?></textarea>
-											<?php } else { ?>
-												<textarea name="jak_contentb" class="form-control jakEditor" id="jakEditor2" rows="40"><?php echo jak_edit_safe_userpost ($JAK_FORM_DATA["content_below"]); ?></textarea>
-											<?php } ?>
+
+												<?php
+												// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+												echo $Html->addTextarea('jak_contentb', jak_edit_safe_userpost (htmlspecialchars ($JAK_FORM_DATA["content_below"])), '', '', array('id' => 'jak_editor2', 'class' => 'form-control hidden'));
+
+												} else {
+
+												// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+												echo $Html->addTextarea('jak_contentb', jak_edit_safe_userpost ($JAK_FORM_DATA["content_below"]), '40', '', array('id' => 'jakEditor2', 'class' => 'form-control jakEditor'));
+
+												} ?>
+
 										</td>
 									</tr>
 								</table>

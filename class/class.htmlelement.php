@@ -250,6 +250,7 @@ class HTML_Element
    * Create a button
    *
    * @param   string          | $type       - Type of Button
+   * @param   string            $value      - Value for Button
    * @param   string            $text       - Text for Button
    * @param   string            $name       - Name of Button
    * @param   string            $id         - Id for Button
@@ -258,13 +259,14 @@ class HTML_Element
    *
    * @return  string
    */
-  public function addButton($type, $text, $name = NULL, $id = NULL, $class = NULL, $attributes = array())
+  public function addButton($type, $value, $text, $name = NULL, $id = NULL, $class = NULL, $attributes = array())
   {
     $name = (empty($name) ? '' : ' name="' . $name . '"');
+    $value = (empty($value) ? '' : ' value="' . $value . '"');
     $id = (empty($id) ? '' : ' id="' . $id . '"');
     $class = (empty($class) ? '' : ' class="' . $class . '"');
 
-    $html = "<button type=\"$type\"" . $name . $id . $class . "";
+    $html = "<button type=\"$type\"" . $name . $value . $id . $class . "";
     if ($attributes) {
       $html .= $this->addAttributes($attributes);
     }

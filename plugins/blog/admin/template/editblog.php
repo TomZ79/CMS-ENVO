@@ -6,11 +6,11 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>',
+        message: '<?php echo $tl["notification"]["n7"];?>'
       }, {
         // settings
         type: 'success',
-        delay: 5000,
+        delay: 5000
       });
     }, 1000);
   </script>
@@ -21,11 +21,11 @@ if ($page3 == "e") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror1"]; ?>',
+        message: '<?php echo $tl["general_error"]["generror1"]; ?>'
       }, {
         // settings
         type: 'danger',
-        delay: 10000,
+        delay: 10000
       });
     }, 1000);
   </script>
@@ -40,11 +40,11 @@ if ($page3 == "e") { ?>
         message: '<?php if (isset($errors["e"])) echo $errors["e"];
           if (isset($errors["e1"])) echo $errors["e1"];
           if (isset($errors["e2"])) echo $errors["e2"];
-          if (isset($errors["e3"])) echo $errors["e3"]; ?>',
+          if (isset($errors["e3"])) echo $errors["e3"]; ?>'
       }, {
         // settings
         type: 'danger',
-        delay: 10000,
+        delay: 10000
       });
     }, 1000);
   </script>
@@ -304,10 +304,20 @@ if ($page3 == "e") { ?>
                       </div>
                       <div class="col-md-7">
                         <div class="input-group">
-                          <input type="text" name="jak_img" id="jak_img" class="form-control" value="<?php echo $JAK_FORM_DATA["previmg"]; ?>"/>
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html->addInput('text', 'jak_img', $JAK_FORM_DATA["previmg"], 'jak_img', 'form-control');
+                          ?>
+
                           <span class="input-group-btn">
-														<a class="btn btn-info ifManager" type="button" href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_img"><?php echo $tl["global_text"]["globaltxt8"]; ?></a>
-													</span>
+
+														<?php
+                            // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                            echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_img', $tl["global_text"]["globaltxt8"], '', 'btn btn-info ifManager', array('type' => 'button'));
+                            ?>
+
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -415,12 +425,17 @@ if ($page3 == "e") { ?>
           <div class="col-md-6">
             <div class="box box-success">
               <div class="box-header with-border">
-                <h3 class="box-title"><?php echo $tlblog["blog_box_title"]["blogbt8"]; ?>
-                  <a class="cms-help" data-content="<?php echo $tl["help"]["h"]; ?>" href="javascript:void(0)"
-                    data-original-title="<?php echo $tl["title"]["t21"]; ?>">
-                    <i class="fa fa-question-circle"></i>
-                  </a>
-                </h3>
+
+                <?php
+                // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+                echo $Html->startTag('h3', array ('class' => 'box-title'));
+                echo $tlblog["blog_box_title"]["blogbt8"];
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help',  array ('data-content' => $tl["help"]["h"], 'data-original-title' => $tl["title"]["t21"]));
+                // Add Html Element -> endTag (Arguments: tag)
+                echo $Html->endTag('h3');
+                ?>
+
               </div>
               <div class="box-body">
                 <div class="block">
@@ -691,12 +706,12 @@ if ($page3 == "e") { ?>
 
               </div>
               <div class="box-body">
-                <a
-                  href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor"
-                  class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a> <a href="javascript:;"
-                  id="addCssBlock"><?php echo $tl["global_text"]["globaltxt6"]; ?></a><br/>
 
                 <?php
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
+                echo $Html->addAnchor('javascript:;', $tl["global_text"]["globaltxt6"], 'addCssBlock');
+                echo '<br/>';
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                 echo $Html->addDiv('', 'csseditor');
                 // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
@@ -729,12 +744,12 @@ if ($page3 == "e") { ?>
 
               </div>
               <div class="box-body">
-                <a
-                  href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor"
-                  class="ifManager"><?php echo $tl["global_text"]["globaltxt8"]; ?></a> <a href="javascript:;"
-                  id="addJavascriptBlock"><?php echo $tl["global_text"]["globaltxt7"]; ?></a><br/>
 
                 <?php
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
+                echo $Html->addAnchor('javascript:;', $tl["global_text"]["globaltxt7"], 'addJavascriptBlock');
+                echo '<br/>';
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                 echo $Html->addDiv('', 'javaeditor');
                 // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)

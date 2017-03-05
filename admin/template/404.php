@@ -1,6 +1,7 @@
 <?php include "header.php"; ?>
 
 	<div class="col-md-6 text-center error-page">
+
 		<?php
 		// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
 		echo $Html->addTag('h2', '404', 'headline text-warning');
@@ -15,6 +16,7 @@
 		// Add Html Element -> endTag (Arguments: tag)
 		echo $Html->endTag('div');
 		?>
+
 	</div>
 
 <?php include "footer.php"; ?>

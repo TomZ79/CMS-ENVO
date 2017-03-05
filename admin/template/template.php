@@ -62,11 +62,22 @@ if ($page1 == "e") { ?>
 <?php if (is_dir_empty ('../template/')) { ?>
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3 error-page">
-			<h1 class="text-warning bold"><?php echo $tl["notetemplate"]["ntpl"]; ?></h1>
-			<div class="error-content">
-				<h3><i class="fa fa-warning text-warning"></i> <?php echo $tl["notetemplate"]["ntpl2"]; ?></h3>
-				<p><?php echo $tl["notetemplate"]["ntpl5"]; ?></p>
-			</div>
+
+			<?php
+			// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+			echo $Html->addTag('h1', $tl["notetemplate"]["ntpl"], 'headline text-warning');
+
+			// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+			echo $Html->startTag('div', array('class' => 'error-content'));
+
+			// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+			echo $Html->addTag('h3', $Html->addTag('i', '', 'fa fa-warning text-warning') . $tl["notetemplate"]["ntpl2"]);
+			echo $Html->addTag('p', $tl["notetemplate"]["ntpl5"]);
+
+			// Add Html Element -> endTag (Arguments: tag)
+			echo $Html->endTag('div');
+			?>
+
 		</div>
 	</div>
 <?php } else { ?>
@@ -81,7 +92,7 @@ if ($page1 == "e") { ?>
 					$template_addon = false;
 				}
 
-				?>
+			?>
 
 				<div class="col-sm-6 col-md-12 m-b-20 row-table no-padding">
 					<div class="col-md-3 col-table">
@@ -115,48 +126,54 @@ if ($page1 == "e") { ?>
 								}
 								?>
 							</p>
-							<p>
+							<div class="col-md-12">
 
-								<?php if ($jkv["sitestyle"] != $l && !$template_addon) { ?>
-									<button value="<?php echo $l; ?>" name="save" class="btn btn-primary btn-sm"><?php echo $tl["button"]["btn5"]; ?></button>
-									<?php if (file_exists ('../template/' . $l . '/help.php')) { ?>
-										<a class="btn btn-info btn-sm tempHelp" href="../template/<?php echo $l; ?>/help.php">
-											<?php echo $tl["button"]["btn6"]; ?>
-										</a>
-									<?php } ?>
-								<?php } elseif ($jkv["sitestyle"] == $l && file_exists ('../template/' . $l . '/install.php') && !$template_addon) { ?>
+								<?php
+								if ($jkv["sitestyle"] != $l && !$template_addon) {
 
-									<a class="btn btn-success btn-sm tempInst" href="../template/<?php echo $l; ?>/install.php">
-										<?php echo $tl["button"]["btn7"]; ?>
-									</a>
-									<?php if (file_exists ('../template/' . $l . '/help.php')) { ?>
-										<a class="btn btn-info btn-sm tempHelp" href="../template/<?php echo $l; ?>/help.php">
-											<?php echo $tl["button"]["btn6"]; ?>
-										</a>
-									<?php } ?>
+									// Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+									echo $Html->addButton('submit', $l, $tl["button"]["btn5"], 'save', '', 'btn btn-primary btn-sm m-r-5');
 
-								<?php } elseif ($jkv["sitestyle"] == $l && file_exists ('../template/' . $l . '/uninstall.php') && $template_addon) {
-									if (file_exists ('../template/' . $l . '/styleswitcher.php')) { ?>
-										<a class="btn btn-<?php if ($jkv["styleswitcher_tpl"]) {
-											echo 'success';
-										} else {
-											echo 'default';
-										} ?> btn-sm" href="index.php?p=template&amp;sp=active&amp;ssp=<?php echo $l; ?>"><i class="fa fa-css3"></i> <?php echo $tl["button"]["btn8"]; ?>
-										</a>
-									<?php } ?>
-									<a class="btn btn-danger btn-sm tempInst" href="../template/<?php echo $l; ?>/uninstall.php">
-										<i class="fa fa-remove"></i> <?php echo $tl["button"]["btn9"]; ?>
-									</a>
-									<a class="btn btn-primary btn-sm <?php if (!file_exists ('../template/' . $l . '/templatesettings.php')) echo 'disabled'; ?>" href="index.php?p=template&amp;sp=settings">
-										<?php echo $tl["button"]["btn10"]; ?>
-									</a>
-									<?php if (file_exists ('../template/' . $l . '/help.php')) { ?>
-										<a class="btn btn-info btn-sm tempHelp" href="../template/<?php echo $l; ?>/help.php">
-											<?php echo $tl["button"]["btn6"]; ?>
-										</a>
-									<?php }
-								}
-								else { ?>
+									if (file_exists ('../template/' . $l . '/help.php')) {
+
+										// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+										echo $Html->addAnchor('../template/' . $l . '/help.php', $tl["button"]["btn6"], '', 'btn btn-info btn-sm m-r-5 tempHelp');
+
+									}
+								} elseif ($jkv["sitestyle"] == $l && file_exists ('../template/' . $l . '/install.php') && !$template_addon) {
+
+									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+									echo $Html->addAnchor('../template/' . $l . '/install.php', $tl["button"]["btn7"], '', 'btn btn-success btn-sm m-r-5 tempInst');
+
+									if (file_exists ('../template/' . $l . '/help.php')) {
+
+										// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+										echo $Html->addAnchor('../template/' . $l . '/help.php', $tl["button"]["btn6"], '', 'btn btn-info btn-sm m-r-5 tempHelp');
+
+									}
+								} elseif ($jkv["sitestyle"] == $l && file_exists ('../template/' . $l . '/uninstall.php') && $template_addon) {
+
+									if (file_exists ('../template/' . $l . '/styleswitcher.php')) {
+
+										// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+										echo $Html->addAnchor('index.php?p=template&amp;sp=active&amp;ssp=' . $l, '<i class="fa fa-css3"></i>' . $tl["button"]["btn8"], '', 'btn btn-' . (($jkv["styleswitcher_tpl"]) ? 'success' : 'default' ) .  ' btn-sm m-r-5');
+
+									}
+
+									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+									echo $Html->addAnchor('../template/' . $l . '/uninstall.php', '<i class="fa fa-remove"></i>' . $tl["button"]["btn9"], '', 'btn btn-danger btn-sm m-r-5 tempInst');
+
+									echo $Html->addAnchor('index.php?p=template&amp;sp=settings', $tl["button"]["btn10"], '', 'btn btn-primary btn-sm m-r-5 ' . ((!file_exists ('../template/' . $l . '/templatesettings.php')) ? 'disabled' : ''));
+
+									if (file_exists ('../template/' . $l . '/help.php')) {
+
+										// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+										echo $Html->addAnchor('../template/' . $l . '/help.php', $tl["button"]["btn6"], '', 'btn btn-info btn-sm tempHelp');
+
+									}
+								} else {
+								?>
+
 							<div class="col-md-5">
 								<div class="row">
 									<div class="alert alert-danger" style="width: 100%; padding: 6px 10px; text-align: center;">
@@ -166,15 +183,18 @@ if ($page1 == "e") { ?>
 							</div>
 							<?php if (file_exists ('../template/' . $l . '/help.php')) { ?>
 								<div class="col-md-2">
-									<a class="btn btn-info btn-sm tempHelp" href="../template/<?php echo $l; ?>/help.php">
-										<?php echo $tl["button"]["btn6"]; ?>
-									</a>
+
+									<?php
+									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+									echo $Html->addAnchor('../template/' . $l . '/help.php', $tl["button"]["btn6"], '', 'btn btn-info btn-sm tempHelp');
+									?>
+
 								</div>
 							<?php } ?>
 
 							<?php } ?>
 
-							</p>
+							</div>
 						</div>
 					</div>
 				</div>

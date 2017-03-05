@@ -96,10 +96,12 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
 
         </div>
         <div class="box-footer">
+
           <?php
           // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
           echo $Html->addButtonSubmit('save', $tl["button"]["btn1"], '', 'btn btn-success pull-right save-menu', array('data-menu' => 'mheader'));
           ?>
+
         </div>
       </div>
     </div>

@@ -20,17 +20,28 @@ $hid = array ();
 
 				<li id="widget-<?php echo $pgh["id"]; ?>" class="jakwidget">
 					<div class="sidebar-widget">
-						<div class="checkbox check-success  ">
-							<input type="checkbox" id="jak_hookshow<?php echo $pgh["id"]; ?>" name="jak_hookshow[]" value="<?php echo $pgh["id"]; ?>" checked="checked"/>
-							<label for="jak_hookshow<?php echo $pgh["id"]; ?>"><a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a></label>
+						<div class="checkbox check-success">
+
+              <?php
+              // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+              echo $Html->addCheckbox('jak_hookshow[]', $pgh["id"], TRUE, 'jak_hookshow' . $pgh["id"]);
+              // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+              echo $Html->startTag('label', array ('for' => 'jak_hookshow' . $pgh["id"]));
+              // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+              echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=' . $v["id"], $v["name"]);
+              // Add Html Element -> endTag (Arguments: tag)
+              echo $Html->endTag('label');
+              ?>
+
 						</div>
 					</div>
 					<div class="actions">
 
-						<?php if (!empty($v["widgetcode"])) include_once APP_PATH . $v["widgetcode"]; ?>
-
-						<input type="hidden" name="horder[]" class="sorder" value="<?php echo $pgh["orderid"]; ?>"/>
-						<input type="hidden" name="real_hook_id[]" value="<?php echo $pgh["id"]; ?>"/>
+            <?php if (!empty($v["widgetcode"])) include_once APP_PATH . $v["widgetcode"];
+            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+            echo $Html->addInput('hidden', 'horder[]', $pgh["orderid"], '', 'sorder');
+            echo $Html->addInput('hidden', 'real_hook_id[]', $pgh["id"]);
+            ?>
 
 					</div>
 				</li>
@@ -44,18 +55,29 @@ $hid = array ();
 
 			<li id="widget-<?php echo $v["id"]; ?>" class="jakwidget">
 				<div class="sidebar-widget">
-					<div class="checkbox check-success  ">
-						<input type="checkbox" id="jak_hookshow_new<?php echo $v["id"]; ?>" name="jak_hookshow_new[]" value="<?php echo $v["id"]; ?>"/>
-						<label for="jak_hookshow_new<?php echo $v["id"]; ?>"><a href="index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a></label>
+					<div class="checkbox check-success">
+
+            <?php
+            // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+            echo $Html->addCheckbox('jak_hookshow_new[]', $v["id"], FALSE, 'jak_hookshow_new' . $v["id"]);
+            // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+            echo $Html->startTag('label', array ('for' => 'jak_hookshow_new' . $v["id"]));
+            // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+            echo $Html->addAnchor('index.php?p=plugins&amp;sp=hooks&amp;ssp=edit&amp;sssp=' . $v["id"], $v["name"]);
+            // Add Html Element -> endTag (Arguments: tag)
+            echo $Html->endTag('label');
+            ?>
+
 					</div>
 				</div>
 				<div class="actions">
 
-					<?php if (!empty($v["widgetcode"])) include_once APP_PATH . $v["widgetcode"]; ?>
-
-					<input type="hidden" name="horder_new[]" class="sorder" value="<?php echo $v["exorder"]; ?>"/>
-					<input type="hidden" name="real_hook_id_new[]" value="<?php echo $v["id"]; ?>"/>
-					<input type="hidden" name="sreal_plugin_id_new[]" value="<?php echo $v["pluginid"]; ?>"/>
+          <?php if (!empty($v["widgetcode"])) include_once APP_PATH . $v["widgetcode"];
+          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+          echo $Html->addInput('hidden', 'horder_new[]', $v["exorder"], '', 'sorder');
+          echo $Html->addInput('hidden', 'real_hook_id_new[]', $v["id"]);
+          echo $Html->addInput('hidden', 'sreal_plugin_id_new[]', $v["pluginid"]);
+          ?>
 
 				</div>
 			</li>

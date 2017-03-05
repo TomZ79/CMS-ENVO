@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -21,11 +21,11 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo ($page1 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>',
+				message: '<?php echo ($page1 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -86,12 +86,22 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 								<td>
 									<a href="index.php?p=blog&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a>
 								</td>
-								<td><?php if ($v["catid"] != '0') {
-										if (isset($JAK_CAT) && is_array ($JAK_CAT)) foreach ($JAK_CAT as $z) {
-											if ($v["catid"] == $z["id"]) { ?>
-												<a href="index.php?p=blog&amp;sp=showcat&amp;ssp=<?php echo $z["id"]; ?>"><?php echo $z["name"]; ?></a><?php }
+								<td>
+
+									<?php
+									if ($v["catid"] != '0') {
+										if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $z) {
+											if ($v["catid"] == $z["id"]) {
+												// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+												echo $Html->addAnchor('index.php?p=blog&amp;sp=showcat&amp;ssp=' . $z["id"], $z["name"]);
+											}
 										}
-									} else { ?><?php echo $tlblog["blog_box_content"]["blogbc16"]; ?><?php } ?></td>
+									} else {
+										echo $tlblog["blog_box_content"]["blogbc16"];
+									}
+									?>
+
+								</td>
 								<td><?php echo date ("d.m.Y - H:i:s", strtotime ($v["time"])); ?></td>
 								<td>
 									<?php
@@ -138,23 +148,28 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 									?>
 								</td>
 								<td>
-									<a href="index.php?p=blog&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["active"] == '0') {
-										echo $tl["icons"]["i5"];
-									} else {
-										echo $tl["icons"]["i6"];
-									} ?>">
-										<i class="fa fa-<?php if ($v["active"] == 0) { ?>lock<?php } else { ?>check<?php } ?>"></i>
-									</a>
+
+									<?php
+									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+									echo $Html->addAnchor('index.php?p=blog&amp;sp=lock&amp;ssp=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
+									?>
+
 								</td>
 								<td>
-									<a href="index.php?p=blog&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i2"]; ?>">
-										<i class="fa fa-edit"></i>
-									</a>
+
+									<?php
+									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+									echo $Html->addAnchor('index.php?p=blog&amp;sp=edit&amp;ssp=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
+									?>
+
 								</td>
 								<td>
-									<a href="index.php?p=blog&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" class="btn btn-default btn-xs" data-confirm="<?php echo sprintf ($tlblog["blog_notification"]["del"], $v["title"]); ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
-										<i class="fa fa-trash-o"></i>
-									</a>
+
+									<?php
+									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+									echo $Html->addAnchor('index.php?p=blog&amp;sp=delete&amp;ssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-default btn-xs', array('data-confirm' => sprintf($tlblog["blog_notification"]["del"], $v["title"]), 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
+									?>
+
 								</td>
 							</tr>
 						<?php } ?>
