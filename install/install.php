@@ -321,7 +321,7 @@ if (DB_USER && DB_PASS) {
               $result_php = '<strong style="color:red">You need a higher version of PHP (min. PHP 5.3)!</strong>';
             } else {
 
-              if (version_compare($php_version, '7.0.0') > 0) $php_big = '<br /><strong style="color:red">The software has not been tested on your php version yet, but it should work.</strong>';
+              if (version_compare($php_version, '7.1.0') > 0) $php_big = '<br /><strong style="color:red">The software has not been tested on your php version yet, but it should work.</strong>';
 
               // We also give feedback on whether we're running in safe mode
               $result_safe = '<strong style="color:green">PHP Version: ' . $php_version . '</strong>';
@@ -509,19 +509,20 @@ if (DB_USER && DB_PASS) {
               $passcrypt = hash_hmac('sha256', $_POST['pass'], DB_PASS_HASH);
 
               $jakdb->query('INSERT INTO ' . DB_PREFIX . 'user SET
-	username = "' . smartsql($_POST['username']) . '",
-	usergroupid = 3,
-	password = "' . $passcrypt . '",
-	email = "' . smartsql($_POST['email']) . '",
-	name = "' . smartsql($_POST['name']) . '",
-	time = NOW(),
-	access = 1');
+                              
+                              usergroupid = 3,
+                              username = "' . smartsql($_POST['username']) . '",
+                              password = "' . $passcrypt . '",
+                              email = "' . smartsql($_POST['email']) . '",
+                              name = "' . smartsql($_POST['name']) . '",
+                              time = NOW(),
+                              access = 1');
 
               $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = "' . smartsql($_POST['email']) . '" WHERE varname = "email"');
 
               $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = "' . smartsql($_POST['onumber']) . '" WHERE varname = "o_number"');
 
-              @$jakdb->query('ALTER DATABASE ' . DB_NAME . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci');
+              // @$jakdb->query('ALTER DATABASE ' . DB_NAME . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci');
 
 // Finally close all db connections
               $jakdb->jak_close();

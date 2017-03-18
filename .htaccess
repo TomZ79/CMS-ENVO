@@ -10,8 +10,8 @@
 	ErrorDocument 404 /404/
 
 # URL Canonicalization
-	RewriteCond %{HTTP_HOST} !^www.antenykarlovyvary.cz$ [NC]
-	RewriteRule ^(.*)$ http://www.antenykarlovyvary.cz/$1 [L,R=301]
+	RewriteCond %{HTTP_HOST} !^www.televize-novarole.cz$ [NC]
+	RewriteRule ^(.*)$ http://www.televize-novarole.cz/$1 [L,R=301]
 
 # Gzip compression
 # compress text, html, javascript, css, xml:

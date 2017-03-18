@@ -190,7 +190,7 @@ if ($errors) { ?>
 
 													<?php
 													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-													echo $Html->addInput('text', 'jak_date', $jkv["newsdateformat"], '', 'form-control');
+													echo $Html->addInput('text', 'jak_date', (isset($jkv["newsdateformat"])) ? $jkv["newsdateformat"] : '', '', 'form-control');
 													?>
 
 												</div>
@@ -210,7 +210,7 @@ if ($errors) { ?>
 
 													<?php
 													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-													echo $Html->addInput('text', 'jak_time', $jkv["newstimeformat"], '', 'form-control');
+													echo $Html->addInput('text', 'jak_time', (isset($jkv["newstimeformat"])) ? $jkv["newstimeformat"] : '', '', 'form-control');
 													?>
 
 												</div>

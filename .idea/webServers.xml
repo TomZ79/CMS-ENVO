@@ -2,8 +2,15 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="08948064-35bd-4017-a19d-7be40509a08d" name="Savana Hosting" url="http://bluesatkv.savana-hosting.cz">
-        <fileTransfer host="bluesatkv.savana-hosting.cz" port="21" rootFolder="/antenykarlovyvary.cz" password="dfc8dfc6dfdfdfcfdfd9dfcbdfdedf98df9adf9bdf9f" username="bluesatkv">
+      <webServer id="08948064-35bd-4017-a19d-7be40509a08d" name="Savana - Anteny KV" url="http://bluesatkv.savana-hosting.cz">
+        <fileTransfer host="bluesatkv.savana-hosting.cz" port="21" rootFolder="/antenykarlovyvary.cz">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="07b6ccbd-c91e-4cc5-ae78-bbed74c69429" name="Savana - TV Nova Role" url="http://bluesatkv.savana-hosting.cz">
+        <fileTransfer host="bluesatkv.savana-hosting.cz" port="21" rootFolder="/televize-novarole.cz">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>

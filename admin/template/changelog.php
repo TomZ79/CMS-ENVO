@@ -68,6 +68,7 @@
 										[updated] Update basic original code from JakWeb from CMS 2.3
 										[updated] Update Jquery script
 										[updated] Update Font-Awesome (4.7.0)
+										[updated] Update PHPMailer
 
 										// # List of fixed bugs
 										// ------------------------------

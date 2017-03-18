@@ -214,7 +214,7 @@ switch ($page1) {
 		}
 
 		// Get the php hook for display stuff in pages
-		$JAK_FORM_DATA = '';
+		$JAK_FORM_DATA = array();
 		$hookpagei     = $jakhooks->jakGethook ("php_admin_pages_news_info");
 		if ($hookpagei) {
 			foreach ($hookpagei as $hpagi) {

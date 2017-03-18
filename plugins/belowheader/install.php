@@ -169,6 +169,7 @@ if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $s
 }';
 
 				// The file who does the job
+
 				$belowheader  = 'plugins/belowheader/bhinput.php';
 				$belowcontent = 'plugins/belowheader/bhinputb.php';
 

@@ -182,7 +182,7 @@ switch ($page1) {
 		}
 
 		// Get the php hook for display stuff in pages
-		$JAK_FORM_DATA = '';
+		$JAK_FORM_DATA = array();
 		$hookpagei     = $jakhooks->jakGethook ("php_admin_pages_news_info");
 		if ($hookpagei) {
 			foreach ($hookpagei as $hpagi) {
@@ -269,7 +269,7 @@ switch ($page1) {
 
 				}
 
-				// Now check if all the sidebar a deselct and hooks exist, if so delete all associated to this page
+				// Now check if all the sidebar a deselect and hooks exist, if so delete all associated to this page
 				if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
 
 					// Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
@@ -354,7 +354,7 @@ switch ($page1) {
 		}
 
 		// Get the php hook for display stuff in pages
-		$JAK_FORM_DATA = '';
+		$JAK_FORM_DATA = array();
 		$hookpagei     = $jakhooks->jakGethook ("php_admin_pages_news_info");
 		if ($hookpagei) {
 			foreach ($hookpagei as $hpagi) {

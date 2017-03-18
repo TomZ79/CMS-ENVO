@@ -533,9 +533,11 @@ switch ($page1) {
 							}
 						}
 
-						if (!preg_match ('/^([0-9\-_])+$/', $defaults['jak_phone'])) {
-							$errors['e5'] = $tl['general_error']['generror17'] . '<br>';
-						}
+            if (!empty($defaults['jak_phone'])) {
+              if (!preg_match ('/^([0-9\-_])+$/', $defaults['jak_phone'])) {
+                $errors['e5'] = $tl['general_error']['generror17'] . '<br>';
+              }
+            }
 
 						// Get the php hook for display stuff in user - pass it with $insert .= to the query
 						$hookuser = $jakhooks->jakGethook ("php_admin_user_edit");
@@ -612,7 +614,7 @@ switch ($page1) {
 											create_thumbnail ($targetPath, $targetFile, $smallPhoto, $jkv["useravatwidth"], $jkv["useravatheight"], 80);
 
 											// SQL insert
-											$jakdb->query ('UPDATE ' . $jaktable . ' SET picture = "' . $dbSmall . '" WHERE id = "' . $page2 . '" LIMIT 1');
+											$jakdb->query ('UPDATE ' . $jaktable . ' SET picture = "' . smartsql($dbSmall) . '" WHERE id = "' . smartsql($page2) . '" LIMIT 1');
 
 										} else {
 											$errors['e4'] = $tl['search']['s7'] . '<br />';
@@ -648,7 +650,7 @@ switch ($page1) {
 
 							if (!in_array ($page2, $useridarray)) {
 
-								$insert .= 'access = "' . $defaults['jak_access'] . '",';
+								$insert .= 'access = "' . smartsql($defaults['jak_access']) . '",';
 							}
 
 							// Insert the extra vield value
@@ -663,7 +665,7 @@ switch ($page1) {
 
 							// Update the user-group move back time
 							if (!in_array ($page2, $useridarray) && !empty($defaults['jak_usergroupback']) && (time () <= strtotime ($defaults['jak_backtime']))) {
-								$insert .= 'backtogroup = "' . $defaults['jak_usergroupback'] . '", backtime = "' . $defaults['jak_backtime'] . '",';
+								$insert .= 'backtogroup = "' . smartsql($defaults['jak_usergroupback']) . '", backtime = "' . smartsql($defaults['jak_backtime']) . '",';
 							} else {
 								$insert .= 'backtogroup = 0, backtime = "0000-00-00",';
 							}
