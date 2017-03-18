@@ -82,9 +82,9 @@ if (JAK_USERID) {
 $CODE_HIGHLIGHT = $JAK_PAGINATE = false;
 
 // Errors
-$errors = array ();
+$errors = $exorder = $pluginid = array();
 
-// db insert
+// DB insert
 $insert = $updatesql = $updatesql1 = '';
 
 // Set page to zero, first.

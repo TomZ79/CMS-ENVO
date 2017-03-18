@@ -240,7 +240,7 @@ class JAK_userlogin
 
 					// Now let's check if we need to move this user to a different usergroup
 					if ($result['backtime'] != "0000-00-00" && is_numeric ($result['backtogroup']) && (time () >= strtotime ($result['backtime']))) {
-						$jakdb->query ('UPDATE ' . DB_PREFIX . 'user SET usergroupid = "' . $result['backtogroup'] . '", backtime = "0000-00-00", backtogroup = 0 WHERE LOWER(username) = "' . smartsql (strtolower ($username)) . '" AND access = 1');
+						$jakdb->query ('UPDATE ' . DB_PREFIX . 'user SET usergroupid = "' . $result['backtogroup'] . '", backtime = "0000-00-00", backtogroup = 0 WHERE LOWER(username) = "' . smartsql (strtolower ($username)) . '" AND usergroupid != 3 AND access = 1');
 					}
 
 					return true; //Success! Username and idhash confirmed
