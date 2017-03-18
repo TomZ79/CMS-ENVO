@@ -438,23 +438,29 @@ function jak_previous_page($page, $title, $table, $id, $where, $where2, $approve
 }
 
 // Menu builder function, parentId 0 is the root
-function jak_build_menu($parent, $menu, $active, $mainclass, $dropdown, $dropclass, $subclass, $admin)
+function jak_build_menu($parent, $menu, $active, $mainclass, $dropdown, $dropclass, $subclass, $admin, $firstli = "", $firsta = "", $from = 0, $to = 0)
 {
   $html = '';
   if (isset($menu['parents'][$parent])) {
-    $html .= '<ul class="' . $mainclass . '">';
-    foreach ($menu['parents'][$parent] as $itemId) {
+    if (isset($from) && is_numeric($from) && isset($to) && is_numeric($to) && $to != 0) {
+      $mpr = array_slice($menu['parents'][$parent], $from, $to);
+    } else {
+      $mpr = $menu['parents'][$parent];
+    }
+    $html .= '<ul class="'.$mainclass.'">';
+    foreach ($mpr as $itemId) {
       if (!isset($menu['parents'][$itemId])) {
-        $html .= '<li' . ($active == $menu["items"][$itemId]["pagename"] ? ' class="active"' : '') . '><a href="' . $menu["items"][$itemId]["varname"] . '">' . ($menu["items"][$itemId]["catimg"] ? '<i class="fa ' . $menu["items"][$itemId]["catimg"] . '"></i> ' : '') . $menu["items"][$itemId]["name"] . '</a></li>';
+        $html .= '<li'.($firstli ? ' class="'.$firstli.($active == $menu["items"][$itemId]["pagename"] ? ' active"' : '"') : ($active == $menu["items"][$itemId]["pagename"] ? ' class="active"' : '')).'><a'.($firsta ? ' class="'.$firsta.'"' : '').' href="'.$menu["items"][$itemId]["varname"].'">'.($menu["items"][$itemId]["catimg"] ? '<i class="fa '.$menu["items"][$itemId]["catimg"].'"></i> ' : '').$menu["items"][$itemId]["name"].'</a></li>';
       }
       if (isset($menu['parents'][$itemId])) {
-        $html .= '<li' . ($active == $menu["items"][$itemId]["pagename"] ? ($dropdown ? ' class="active ' . $dropdown . '"' : '') : ($dropdown ? ' class="' . $dropdown . '"' : '')) . '><a href="' . $menu["items"][$itemId]["varname"] . '">' . ($menu["items"][$itemId]["catimg"] ? '<i class="fa ' . $menu["items"][$itemId]["catimg"] . '"></i> ' : '') . $menu["items"][$itemId]["name"] . '</a>';
+        $html .= '<li'.($firstli ? ' class="'.$firstli.($active == $menu["items"][$itemId]["pagename"] ? ($dropdown ? ' active '.$dropdown.'"' : '"') : ($dropdown ? $dropdown.'"' : '"')) : ($active == $menu["items"][$itemId]["pagename"] ? ($dropdown ? ' class="active '.$dropdown.'"' : '') : ($dropdown ? ' class="'.$dropdown.'"' : ''))).'><a'.($firsta ? ' class="'.$firsta.'"' : '').' href="'.$menu["items"][$itemId]["varname"].'">'.($menu["items"][$itemId]["catimg"] ? '<i class="fa '.$menu["items"][$itemId]["catimg"].'"></i> ' : '').$menu["items"][$itemId]["name"].'</a>';
         $html .= jak_build_menu($itemId, $menu, $active, $dropclass, $subclass, $dropclass, $subclass, $admin);
         $html .= '</li>';
       }
     }
+
     if ($admin) {
-      $html .= '<li><a href="' . BASE_URL . 'admin/">Admin</a></li>';
+      $html .= '<li'.($firstli ? ' class="'.$firstli.'"' : '').'><a'.($firsta ? ' class="'.$firsta.'"' : '').' href="'.BASE_URL.'admin/">Admin</a></li>';
     }
     $html .= '</ul>';
   }

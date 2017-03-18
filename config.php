@@ -1,7 +1,7 @@
 <?php
 
 // Error reporting:
-// error_reporting(E_ALL^E_NOTICE);
+error_reporting(E_ALL^E_NOTICE);
 
 // The DB connections data
 require_once 'include/db.php';
@@ -35,7 +35,7 @@ $jakdb->set_charset ("utf8");
 // All important files
 include_once 'include/functions.php';
 include_once 'class/class.jakbase.php';
-include_once 'class/class.postmail.php';
+include_once 'class/PHPMailerAutoload.php';
 include_once 'class/class.userlogin.php';
 include_once 'class/class.user.php';
 include_once 'class/class.usergroup.php';
