@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -21,11 +21,11 @@ if ($page3 == "e") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general_error"]["generror1"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -38,11 +38,11 @@ if ($errors) { ?>
 				// options
 				message: '<?php if (isset($errors["e"])) echo $errors["e"];
 					if (isset($errors["e1"])) echo $errors["e1"];
-					if (isset($errors["e2"])) echo $errors["e2"];?>',
+					if (isset($errors["e2"])) echo $errors["e2"];?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -90,15 +90,9 @@ if ($errors) { ?>
 			<div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
 				<div class="row">
 					<div class="col-md-7">
-						<div class="box">
+						<div class="box box-success">
 							<div class="box-header with-border">
 								<h3 class="box-title"><?php echo $tl["title"]["t13"]; ?></h3>
-								<div class="box-tools pull-right">
-									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-									</button>
-									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-									</button>
-								</div>
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -266,15 +260,9 @@ if ($errors) { ?>
 						</div>
 					</div>
 					<div class="col-md-5">
-						<div class="box">
+						<div class="box box-success">
 							<div class="box-header with-border">
 								<h3 class="box-title"><?php echo $tl["title"]["t12"]; ?></h3>
-								<div class="box-tools pull-right">
-									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-									</button>
-									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-									</button>
-								</div>
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -300,19 +288,13 @@ if ($errors) { ?>
 								</button>
 							</div>
 						</div>
-						<div class="box">
+						<div class="box box-success">
 							<div class="box-header with-border">
 								<h3 class="box-title"><?php echo $tl["general"]["g88"]; ?>
 									<a class="cms-help" data-content="<?php echo $tl["help"]["h"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tl["title"]["t21"]; ?>">
 										<i class="fa fa-question-circle"></i>
 									</a>
 								</h3>
-								<div class="box-tools pull-right">
-									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-									</button>
-									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-									</button>
-								</div>
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -344,19 +326,13 @@ if ($errors) { ?>
 								</button>
 							</div>
 						</div>
-						<div class="box">
+						<div class="box box-success">
 							<div class="box-header with-border">
 								<h3 class="box-title"><?php echo $tld["dload"]["d13"]; ?>
 									<a class="cms-help" data-content="<?php echo $tld["dload"]["h"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tl["title"]["t21"]; ?>">
 										<i class="fa fa-question-circle"></i>
 									</a>
 								</h3>
-								<div class="box-tools pull-right">
-									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-									</button>
-									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-									</button>
-								</div>
 							</div>
 							<div class="box-body">
 								<table class="table table-striped">
@@ -391,15 +367,9 @@ if ($errors) { ?>
 							</div>
 						</div>
 						<?php if (JAK_TAGS) { ?>
-							<div class="box">
+							<div class="box box-success">
 								<div class="box-header with-border">
 									<h3 class="box-title"><?php echo $tl["title"]["t31"]; ?></h3>
-									<div class="box-tools pull-right">
-										<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-										</button>
-										<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-										</button>
-									</div>
 								</div>
 								<div class="box-body">
 									<div class="block">
@@ -465,15 +435,9 @@ if ($errors) { ?>
 								</div>
 							</div>
 						<?php } ?>
-						<div class="box">
+						<div class="box box-success">
 							<div class="box-header with-border">
 								<h3 class="box-title"><?php echo $tld["dload"]["d25"]; ?> / <?php echo $tld["dload"]["d9"]; ?></h3>
-								<div class="box-tools pull-right">
-									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-									</button>
-									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-									</button>
-								</div>
 							</div>
 							<div class="box-body">
 								<div class="block">
@@ -513,15 +477,9 @@ if ($errors) { ?>
 			<div role="tabpanel" class="tab-pane fade" id="cmsPage3" aria-labelledby="cmsPage3-tab">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="box">
+						<div class="box box-success">
 							<div class="box-header with-border">
 								<h3 class="box-title"><?php echo $tl["general"]["g53"]; ?></h3>
-								<div class="box-tools pull-right">
-									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-									</button>
-									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-									</button>
-								</div>
 							</div>
 							<div class="box-body">
 								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
@@ -542,15 +500,9 @@ if ($errors) { ?>
 			<div role="tabpanel" class="tab-pane fade" id="cmsPage4" aria-labelledby="cmsPage4-tab">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="box">
+						<div class="box box-success">
 							<div class="box-header with-border">
 								<h3 class="box-title"><?php echo $tl["general"]["g100"]; ?></h3>
-								<div class="box-tools pull-right">
-									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-									</button>
-									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-									</button>
-								</div>
 							</div>
 							<div class="box-body">
 								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
@@ -571,15 +523,9 @@ if ($errors) { ?>
 			<div role="tabpanel" class="tab-pane fade" id="cmsPage5" aria-labelledby="cmsPage5-tab">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="box">
+						<div class="box box-success">
 							<div class="box-header with-border">
 								<h3 class="box-title"><?php echo $tl["general"]["g89"]; ?></h3>
-								<div class="box-tools pull-right">
-									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-									</button>
-									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-									</button>
-								</div>
 							</div>
 							<div class="box-body">
 								<?php include APP_PATH . "admin/template/sidebar_widget.php"; ?>

@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -31,7 +31,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -44,16 +44,26 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 			$.notify({
 				// options
 				icon: 'fa fa-info-circle',
-				message: '<?php echo $tl["notification"]["n2"]; ?>',
+				message: '<?php echo $tl["notification"]["n2"]; ?>'
 			}, {
 				// settings
 				type: 'info',
 				delay: 5000,
-				timer: 3000,
+				timer: 3000
 			});
 		}, 2000);
 	</script>
 <?php } ?>
+
+	<!-- Fixed Button for save form -->
+	<div class="savebutton-medium hidden-xs">
+
+		<?php
+		// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+		echo $Html->addAnchor('index.php?p=usergroup&sp=newgroup',  $tl["button"]["btn35"], '', 'btn btn-info button');
+		?>
+
+	</div>
 
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 		<div class="box box-success">

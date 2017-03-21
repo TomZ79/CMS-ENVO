@@ -49,6 +49,16 @@ if ($page1 == "e" || $page1 == "ene") { ?>
   </script>
 <?php } ?>
 
+  <!-- Fixed Button for save form -->
+  <div class="savebutton-medium hidden-xs">
+
+    <?php
+    // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+    echo $Html->addAnchor('index.php?p=page&sp=newpage',  $tl["button"]["btn33"], '', 'btn btn-info button');
+    ?>
+
+  </div>
+
   <div class="row">
     <div class="col-md-6">
       <form role="form" method="post" action="/admin/index.php?p=page&amp;sp=search&amp;ssp=go">

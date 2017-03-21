@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -21,11 +21,11 @@ if ($page4 == "e") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general_error"]["generror1"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -34,7 +34,7 @@ if ($page4 == "e") { ?>
 <?php if (isset($JAK_TRASH_ALL) && is_array ($JAK_TRASH_ALL)) { ?>
 
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-		<div class="box">
+		<div class="box box-success">
 			<div class="box-body no-padding">
 				<table class="table table-striped">
 					<thead>

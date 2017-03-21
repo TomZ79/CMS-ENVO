@@ -1,41 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Help - XML SEO Plugin</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="/assets/css/stylesheet.css" type="text/css" media="screen"/>
-	<link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" type="text/css" media="screen"/>
-	<link rel="stylesheet" href="/admin/css/admin-color.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css" media="screen"/>
+	<title>XML Seo Plugin Documentation</title>
+
+	<!-- ======= FONTS ======= -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&subset=latin-ext" rel="stylesheet">
+
+	<!-- ======= CSS STYLE ======= -->
+	<link rel="stylesheet" href="/assets/doc/css/doc.css">
+	<link rel="stylesheet" href="/assets/doc/js/syntaxhighlighter/styles/shCoreKreatura.css">
+	<link rel="stylesheet" href="/assets/doc/js/syntaxhighlighter/styles/shThemeKreatura.css">
+
+	<!--[if lt IE 9]>
+	<script src="/assets/doc/js/html5.js"></script>
+	<![endif]-->
+
 </head>
 <body>
-<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="well">
-				<h3>Help - XML SEO Plugin</h3>
-			</div>
-			<hr>
-			<h4>Changelog</h4>
-			<p><strong>v 1.3</strong> - custom modification</p>
-			<ul>
-				<li>Added - change frequency for Pages, Blog, Download in steps wizard</li>
-			</ul>
-			<p><strong>v 1.2</strong> - custom modification</p>
-			<ul>
-				<li>Added - steps wizard</li>
-				<li>Added - editing of file 'robots.txt' . We can add a link to the file 'sitemap.xml'</li>
-			</ul>
-			<p><strong>v 1.1</strong> - custom modification</p>
-			<ul>
-				<li>Added - setting custom path to save the file 'sitemap.xml'</li>
-				<li>Added - new design</li>
-			</ul>
-			<p><strong>v 1.0</strong> - basic version from CMS 2.1</p>
-			<ul>
-				<li>Button for create sitemap.xml - only to path 'plugins/xml_seo/files/'</li>
-			</ul>
-		</div><!-- #col-md -->
-	</div><!-- #row -->
-</div><!-- #container -->
+
+<header>
+	<h1>Nápověda - Plugin XML Seo</h1>
+	<div class="clear"></div>
+</header>
+
+<nav id="subnav">
+	<h3>Obsah</h3>
+	<h3>Aktuální kapitola: <span id="curnav" class="light"> O Pluginu </span></h3>
+</nav>
+
+<aside>
+	<nav>
+		<ul id="sidebar">
+			<li class="active">
+				<span>O Pluginu</span>
+				<ul>
+					<li data-deeplink="about-plugin" class="active">O Pluginu</li>
+					<li data-deeplink="folders-files">Složky-Soubory</li>
+					<li data-deeplink="changelog">Changelog</li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+</aside>
+
+<div id="content">
+	<div>
+
+		<!-- About Plugin -->
+		<section class="active">
+
+			<!-- About Plugin -->
+			<article class="active">
+				<h4>O Pluginu</h4>
+
+			</article>
+
+			<!-- Folders and Files -->
+			<article>
+				<h4>Soubory a Složky</h4>
+
+			</article>
+
+			<!-- Changelog -->
+			<article>
+				<h4>Changelog</h4>
+
+			</article>
+
+		</section>
+
+	</div>
+</div>
+
+<!-- ======= JQUERY SCRIPT ======= -->
+<script src="/assets/plugins/jquery/jquery-2.2.4.min.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shCore.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushXml.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushCss.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushPhp.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushPlain.js" type="text/javascript"></script>
+<script src="/assets/doc/js/doc.js"></script>
+
+<script>
+	$(document).ready(function() {
+		//Initialize Pages core
+		hljs.initHighlightingOnLoad();
+	});
+</script>
+
 </body>
 </html>

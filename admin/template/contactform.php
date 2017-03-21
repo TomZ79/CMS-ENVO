@@ -31,6 +31,16 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 	</script>
 <?php } ?>
 
+	<!-- Fixed Button for save form -->
+	<div class="savebutton-medium hidden-xs">
+
+		<?php
+		// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+		echo $Html->addAnchor('index.php?p=contactform&sp=newcontact',  $tl["button"]["btn30"], '', 'btn btn-info button');
+		?>
+
+	</div>
+
 <?php if (isset($JAK_CONTACT_ALL) && is_array ($JAK_CONTACT_ALL)) { ?>
 
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">

@@ -1890,7 +1890,6 @@ xxxxx
 <script src="../assets/doc/js/syntaxhighlighter/scripts/shBrushCss.js" type="text/javascript"></script>
 <script src="../assets/doc/js/syntaxhighlighter/scripts/shBrushPhp.js" type="text/javascript"></script>
 <script src="../assets/doc/js/syntaxhighlighter/scripts/shBrushPlain.js" type="text/javascript"></script>
-<script src="../assets/doc/js/gallery.js"></script>
 <script src="../assets/doc/js/doc.js"></script>
 
 <script>

@@ -42,7 +42,7 @@ $succesfully = 0;
 		}
 	</style>
 	<!-- BEGIN VENDOR JS -->
-	<script src="/admin/assets/plugins/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
+	<script src="/assets/plugins/jquery/jquery-2.2.4.min.js" type="text/javascript"></script>
 	<script src="/admin/assets/plugins/bootstrapv3/js/bootstrap.min.js?=v3.3.4" type="text/javascript"></script>
 	<!-- BEGIN CORE TEMPLATE JS -->
 	<script src="/admin/pages/js/pages.js?=v2.2.0"></script>

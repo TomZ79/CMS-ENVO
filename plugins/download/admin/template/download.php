@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -21,11 +21,11 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo ($page1 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>',
+				message: '<?php echo ($page1 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -38,12 +38,12 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 			$.notify({
 				// options
 				icon: 'fa fa-info-circle',
-				message: '<?php echo $tl["notification"]["n2"]; ?>',
+				message: '<?php echo $tl["notification"]["n2"]; ?>'
 			}, {
 				// settings
 				type: 'info',
 				delay: 5000,
-				timer: 3000,
+				timer: 3000
 			});
 		}, 2000);
 	</script>
@@ -52,7 +52,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 <?php if (isset($JAK_DOWNLOAD_ALL) && is_array ($JAK_DOWNLOAD_ALL)) { ?>
 
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-		<div class="box">
+		<div class="box box-success">
 			<div class="box-body no-padding">
 				<div class="table-responsive">
 					<table class="table table-striped table-hover">

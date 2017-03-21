@@ -834,11 +834,33 @@ table.table-expandable > tbody > tr div.table-expandable-arrow.up {
   top: 71px;
   z-index: 690;
   background: #F0F0F0;
-  width: 114px;
-  height: 55px;
+  width: 208px;
+  height: 50px;
 }
 
-.savebutton button {
+.savebutton-small {
+  position: fixed;
+  right: 0;
+  top: 71px;
+  z-index: 690;
+  background: #F0F0F0;
+  width: 114px;
+  height: 50px;
+}
+
+.savebutton-medium {
+  position: fixed;
+  right: 0;
+  top: 71px;
+  z-index: 690;
+  background: #F0F0F0;
+  width: 145px;
+  height: 50px;
+}
+
+.savebutton .btn,
+.savebutton-small .btn,
+.savebutton-medium .btn {
   margin: 10px 17px;
   padding: 5px 10px;
   font-size: 12px;

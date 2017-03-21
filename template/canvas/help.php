@@ -8,25 +8,24 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&subset=latin-ext" rel="stylesheet">
 
   <!-- ======= CSS STYLE ======= -->
-  <link rel="stylesheet" href="doc/css/doc.css">
-  <link rel="stylesheet" href="doc/js/syntaxhighlighter/styles/shCoreKreatura.css">
-  <link rel="stylesheet" href="doc/js/syntaxhighlighter/styles/shThemeKreatura.css">
+  <link rel="stylesheet" href="/assets/doc/css/doc.css">
+  <link rel="stylesheet" href="/assets/doc/js/syntaxhighlighter/styles/shCoreKreatura.css">
+  <link rel="stylesheet" href="/assets/doc/js/syntaxhighlighter/styles/shThemeKreatura.css">
   <!--[if lt IE 9]>
-  <script src="assets/js/html5.js"></script>
+  <script src="/assets/doc/js/html5.js"></script>
   <![endif]-->
 
 </head>
 <body>
 
 <header>
-  <h1>Template Canvas Help</h1>
-  <h2>Template for CMS<p>Version: 1.0</p></h2>
+  <h1>Nápověda - Template Canvas</h1>
   <div class="clear"></div>
 </header>
 
 <nav id="subnav">
-  <h3>Table of Contents</h3>
-  <h3>Current Chapter: <span id="curnav" class="light"> Overview </span></h3>
+  <h3>Obsah</h3>
+  <h3>Aktuální kapitola: <span id="curnav" class="light"> Basic Information </span></h3>
 </nav>
 
 <aside>
@@ -35,12 +34,9 @@
       <li class="active">
         <span>About Canvas Template</span>
         <ul>
-          <li data-deeplink="basic-information">Basic Information</li>
+          <li data-deeplink="getting-started" class="active">Getting Started</li>
           <li data-deeplink="folders-files">Folders-Files</li>
           <li data-deeplink="Site-layout">Site Layout</li>
-          <li data-deeplink="styleswitcher">Styleswitcher</li>
-          <li data-deeplink="code-page">Code for Page</li>
-          <li data-deeplink="jquery-plugins">Jquery Plugins</li>
         </ul>
       </li>
       <li>
@@ -69,86 +65,7 @@
       <!-- Folders and Files -->
       <article>
         <h4>Folders and Files</h4>
-        <div class="css-treeview">
-          <ul>
-            <li><input type="checkbox" id="item-0"/><label for="item-0">css</label>
-              <ul>
-                <li><input type="checkbox" id="item-0-0"/><label for="item-0-0">porto</label>
-                  <ul>
-                    <li><p>Files of Porto template</p></li>
-                  </ul>
-                </li>
-                <li><input type="checkbox" id="item-0-1"/><label for="item-0-1">themes</label>
-                  <ul>
-                    <li><p>Some css style for color style</p></li>
-                  </ul>
-                </li>
-                <li><p>Folder 'css' with css styles</p></li>
-              </ul>
-            </li>
-            <li><input type="checkbox" id="item-1" checked="checked"/><label for="item-1">doc</label>
-              <ul>
-                <li><input type="checkbox" id="item-1-0"/><label for="item-1-0">css</label>
-                  <ul>
-                    <li><p>Folder with css style for documentation</p></li>
-                  </ul>
-                </li>
-                <li><input type="checkbox" id="item-1-1"/><label for="item-1-1">img</label>
-                  <ul>
-                    <li><p>Folder with image for documentation</p></li>
-                  </ul>
-                </li>
-                <li><input type="checkbox" id="item-1-2"/><label for="item-1-2">js</label>
-                  <ul>
-                    <li><p>Folder with javascript for documentation</p></li>
-                  </ul>
-                </li>
-                <li><p>Folder 'doc' with documentation for Bluesat template</p></li>
-              </ul>
-            </li>
-            <li><input type="checkbox" id="item-2"/><label for="item-2">Can You Believe...</label>
-              <ul>
-                <li><input type="checkbox" id="item-2-0"/><label for="item-2-0">That This Treeview...</label>
-                  <ul>
-                    <li>
-                      <input type="checkbox" id="item-2-2-0"/><label for="item-2-2-0">Does Not Use Any JavaScript...</label>
-                      <ul>
-                        <li><a href="./">But Relies Only</a></li>
-                        <li><a href="./">On the Power</a></li>
-                        <li><a href="./">Of CSS3</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="./">Item 1</a></li>
-                    <li><a href="./">Item 2</a></li>
-                    <li><a href="./">Item 3</a></li>
-                  </ul>
-                </li>
-                <li><input type="checkbox" id="item-2-1"/><label for="item-2-1">This is a Folder With...</label>
-                  <ul>
-                    <li><a href="./">Some Nested Items...</a></li>
-                    <li><a href="./">Some Nested Items...</a></li>
-                    <li><a href="./">Some Nested Items...</a></li>
-                    <li><a href="./">Some Nested Items...</a></li>
-                    <li><a href="./">Some Nested Items...</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <input type="checkbox" id="item-2-2" disabled="disabled"/><label for="item-2-2">Disabled Nested Items</label>
-                  <ul>
-                    <li><a href="./">item</a></li>
-                    <li><a href="./">item</a></li>
-                    <li><a href="./">item</a></li>
-                    <li><a href="./">item</a></li>
-                    <li><a href="./">item</a></li>
-                    <li><a href="./">item</a></li>
-                    <li><a href="./">item</a></li>
-                    <li><a href="./">item</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+
       </article>
 
       <!-- Site Layout -->
@@ -168,68 +85,68 @@
         <h4>Code for Page</h4>
         <p><strong>Mininavbar text</strong></p>
 					<pre name="code" class="brush: xml;">
-					<div class="header-column pull-left">
-            <ul class="header-extra-info">
-              <li>
-                <div class="feature-box feature-box-style-2">
-                  <div class="feature-box-icon">
-                    <i class="fa fa-phone"></i>
-                  </div>
-                  <div class="feature-box-info">
-                    <h4 class="mb-none">000 000 000</h4>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="feature-box feature-box-style-2">
-                  <div class="feature-box-icon">
-                    <i class="fa fa-envelope"></i>
-                  </div>
-                  <div class="feature-box-info">
-                    <h4 class="mb-none">mail@mail.com</h4>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
+&lt;div class="header-column pull-left"&gt;
+  &lt;ul class="header-extra-info"&gt;
+    &lt;li&gt;
+      &lt;div class="feature-box feature-box-style-2"&gt;
+        &lt;div class="feature-box-icon"&gt;
+          &lt;i class="fa fa-phone"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class="feature-box-info"&gt;
+          &lt;h4 class="mb-none"&gt;000 000 000&lt;/h4&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;div class="feature-box feature-box-style-2"&gt;
+        &lt;div class="feature-box-icon"&gt;
+          &lt;i class="fa fa-envelope"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class="feature-box-info"&gt;
+          &lt;h4 class="mb-none"&gt;mail@mail.com&lt;/h4&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
 					</pre>
 
         <p><strong>Footer Block 1</strong></p>
 					<pre name="code" class="brush: xml;">
-						<h5>Satelitní TV</h5>
-						<ul class="list list-icons list-icons-sm">
-              <li><i class="fa fa-caret-right"></i>
-                <a href="http://cz.freesattv.tv/satelitni-televize/" target="_blank">freeSAT</a></li>
-              <li><i class="fa fa-caret-right"></i> <a href="http://www.skylink.cz/" target="_blank">Skylink</a></li>
-              <li><i class="fa fa-caret-right"></i> <a href="http://cz.digi.tv/" target="_blank">Digi TV</a></li>
-            </ul>
-						<h5>Jak naladit programy</h5>
-						<ul class="list list-icons list-icons-sm">
-              <li><i class="fa fa-caret-right"></i>
-                <a href="/_files/Bluesat/Documents/Seznam_frekvenci_freeSAT.pdf?1462224028557" target="_blank">freeSAT</a>
-              </li>
-              <li><i class="fa fa-caret-right"></i>
-                <a href="http://www.skylink.cz/prakticke-informace-a-kontakty/satelitni-prijimace#N%C3%A1vod%3A+Jak+naladit+programy" target="_blank">Skylink</a>
-              </li>
-            </ul>
+&lt;h5&gt;Satelitní TV&lt;/h5&gt;
+&lt;ul class="list list-icons list-icons-sm"&gt;
+  &lt;li&gt;&lt;i class="fa fa-caret-right"&gt;&lt;/i&gt;
+    &lt;a href="http://cz.freesattv.tv/satelitni-televize/" target="_blank"&gt;freeSAT&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;i class="fa fa-caret-right"&gt;&lt;/i&gt; &lt;a href="http://www.skylink.cz/" target="_blank"&gt;Skylink&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;i class="fa fa-caret-right"&gt;&lt;/i&gt; &lt;a href="http://cz.digi.tv/" target="_blank"&gt;Digi TV&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;Jak naladit programy&lt;/h5&gt;
+&lt;ul class="list list-icons list-icons-sm"&gt;
+  &lt;li&gt;&lt;i class="fa fa-caret-right"&gt;&lt;/i&gt;
+    &lt;a href="/_files/Bluesat/Documents/Seznam_frekvenci_freeSAT.pdf?1462224028557" target="_blank"&gt;freeSAT&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;i class="fa fa-caret-right"&gt;&lt;/i&gt;
+    &lt;a href="http://www.skylink.cz/prakticke-informace-a-kontakty/satelitni-prijimace#N%C3%A1vod%3A+Jak+naladit+programy" target="_blank"&gt;Skylink&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 					</pre>
 
         <p><strong>Footer Block 2</strong></p>
 					<pre name="code" class="brush: xml;">
-						<h5><span>Nejnovější zprávy</span></h5>
+&lt;h5&gt;&lt;span&gt;Nejnovější zprávy&lt;/span&gt;&lt;/h5&gt;
 					</pre>
         <p><strong>Footer Block 3</strong></p>
 					<pre name="code" class="brush: xml;">
-						<h5>Kontaktujte nás</h5>
-						<span class="phone">000 000 000</span>
-						<ul class="list list-icons mt-xl">
-              <li><i class="fa fa-envelope"></i> <strong>Email:</strong>
-                <a href="mailto:mail@mail.com">mail@mail.com</a></li>
-            </ul>
-						<div class="margin-bottom-10">
-              <img src="/template/bluesat/img/logo-skylink.png" alt="Bluesat - logo Skylink">
-              <img src="/template/bluesat/img/logo-freesat.png" alt="Bluesat - logo freeSAT">
-            </div>
+&lt;h5&gt;Kontaktujte nás&lt;/h5&gt;
+&lt;span class="phone"&gt;000 000 000&lt;/span&gt;
+&lt;ul class="list list-icons mt-xl"&gt;
+  &lt;li&gt;&lt;i class="fa fa-envelope"&gt;&lt;/i&gt; &lt;strong&gt;Email:&lt;/strong&gt;
+    &lt;a href="mailto:mail@mail.com"&gt;mail@mail.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="margin-bottom-10"&gt;
+  &lt;img src="/template/bluesat/img/logo-skylink.png" alt="Bluesat - logo Skylink"&gt;
+  &lt;img src="/template/bluesat/img/logo-freesat.png" alt="Bluesat - logo freeSAT"&gt;
+&lt;/div&gt;
 					</pre>
 
       </article>
@@ -265,13 +182,21 @@
 </div>
 
 <!-- ======= JQUERY SCRIPT ======= -->
-<script src="/admin/assets/plugins/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
-<script src="doc/js/syntaxhighlighter/scripts/shCore.js" type="text/javascript"></script>
-<script src="doc/js/syntaxhighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
-<script src="doc/js/syntaxhighlighter/scripts/shBrushXml.js" type="text/javascript"></script>
-<script src="doc/js/syntaxhighlighter/scripts/shBrushCss.js" type="text/javascript"></script>
-<script src="doc/js/gallery.js"></script>
-<script src="doc/js/doc.js"></script>
+<script src="/assets/plugins/jquery/jquery-2.2.4.min.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shCore.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushXml.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushCss.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushPhp.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushPlain.js" type="text/javascript"></script>
+<script src="/assets/doc/js/doc.js"></script>
+
+<script>
+  $(document).ready(function() {
+    //Initialize Pages core
+    hljs.initHighlightingOnLoad();
+  });
+</script>
 
 </body>
 </html>

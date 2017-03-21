@@ -15,18 +15,17 @@ if (!$jakuser->jakAdminaccess ($jakuser->getVar ("usergroupid"))) die('You canno
 $succesfully = 0;
 
 // Set language for plugin
-if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
-	$tl = parse_ini_file (APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
+if (file_exists(APP_PATH.'plugins/growl/admin/lang/'.$site_language.'.ini')) {
+	$tlgwl = parse_ini_file(APP_PATH.'plugins/growl/admin/lang/'.$site_language.'.ini', true);
 } else {
-	$tl            = parse_ini_file (APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
-	$site_language = $jkv["lang"];
+	$tlgwl = parse_ini_file(APP_PATH.'plugins/growl/admin/lang/en.ini', true);
 }
 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title><?php echo $tl["plugin"]["t12"]; ?></title>
+	<title><?php echo $tlgwl["gwl_install"]["gwlinst"]; ?></title>
 	<meta charset="utf-8">
 	<!-- BEGIN Vendor CSS-->
 	<link href="/admin/assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.4" rel="stylesheet" type="text/css"/>
@@ -80,7 +79,7 @@ if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $s
 		}
 	</style>
 	<!-- BEGIN VENDOR JS -->
-	<script src="/admin/assets/plugins/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
+	<script src="/assets/plugins/jquery/jquery-2.2.4.min.js" type="text/javascript"></script>
 	<script src="/admin/assets/plugins/bootstrapv3/js/bootstrap.min.js?=v3.3.4" type="text/javascript"></script>
 	<!-- BEGIN CORE TEMPLATE JS -->
 	<script src="/admin/pages/js/pages.js?=v2.2.0"></script>
@@ -91,17 +90,16 @@ if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $s
 	<div class="row">
 		<div class="col-md-12 m-t-20">
 			<div class="jumbotron bg-master">
-				<h3 class="semi-bold text-white"><?php echo $tl["plugin"]["t12"]; ?></h3>
+				<h3 class="semi-bold text-white"><?php echo $tlgwl["gwl_install"]["gwlinst"]; ?></h3>
 			</div>
 			<hr>
 			<div id="notificationcontainer"></div>
 			<div class="m-b-30">
-				<h4 class="semi-bold">Growl Plugin - Info o instalačním procesu</h4>
+				<h4 class="semi-bold"><?php echo $tlgwl["gwl_install"]["gwlinst1"]; ?></h4>
 
 				<div id="portlet-advance" class="panel panel-transparent">
 					<div class="panel-heading separator">
-						<div class="panel-title">Rozšířené informace
-						</div>
+						<div class="panel-title"><?php echo $tlgwl["gwl_install"]["gwlinst2"]; ?></div>
 						<div class="panel-controls">
 							<ul>
 								<li>
@@ -133,10 +131,10 @@ if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $s
 						// Apply the plugin to the body
 						$('#notificationcontainer').pgNotification({
 							style: 'bar',
-							message: 'Plugin je již nainstalován !!!',
+							message: '<?php echo $tlgwl["gwl_install"]["gwlinst3"]; ?>',
 							position: 'top',
 							timeout: 0,
-							type: 'warning',
+							type: 'warning'
 						}).show();
 
 						e.preventDefault();
@@ -213,10 +211,10 @@ if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $s
 						// Apply the plugin to the body
 						$('#notificationcontainer').pgNotification({
 							style: 'bar',
-							message: '<?php echo $tl["plugin"]["p13"]; ?>',
+							message: '<?php echo $tlgwl["gwl_install"]["gwlinst4"]; ?>',
 							position: 'top',
 							timeout: 0,
-							type: 'success',
+							type: 'success'
 						}).show();
 
 						e.preventDefault();
@@ -228,9 +226,9 @@ if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $s
 
 			?>
 
-				<div class="alert bg-danger"><?php echo $tl["plugin"]["p16"]; ?></div>
+				<div class="alert bg-danger"><?php echo $tlgwl["gwl_install"]["gwlinst5"]; ?></div>
 				<form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
-					<button type="submit" name="redirect" class="btn btn-danger btn-block"><?php echo $tl["plugin"]["p11"]; ?></button>
+					<button type="submit" name="redirect" class="btn btn-danger btn-block"><?php echo $tlgwl["gwl_install"]["gwlinst6"]; ?></button>
 				</form>
 
 			<?php }
@@ -238,7 +236,7 @@ if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $s
 
 			<?php if (!$succesfully) { ?>
 				<form name="company" method="post" action="install.php" enctype="multipart/form-data">
-					<button type="submit" name="install" class="btn btn-primary btn-block"><?php echo $tl["plugin"]["p10"]; ?></button>
+					<button type="submit" name="install" class="btn btn-primary btn-block"><?php echo $tlgwl["gwl_install"]["gwlinst7"]; ?></button>
 				</form>
 			<?php }
 			} ?>

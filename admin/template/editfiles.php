@@ -21,7 +21,7 @@ if ($JAK_FILE_ERROR) { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["error"]["e37"];?></div>'
+				message: '<?php echo $tl["general_error"]["generror30"];?></div>'
 			}, {
 				// settings
 				type: 'danger',

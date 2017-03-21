@@ -57,6 +57,16 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
   </script>
 <?php } ?>
 
+  <!-- Fixed Button for save form -->
+  <div class="savebutton-medium hidden-xs">
+
+    <?php
+    // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+    echo $Html->addAnchor('index.php?p=categories&sp=newcat',  $tl["button"]["btn29"], '', 'btn btn-info button');
+    ?>
+
+  </div>
+
 
 <?php if (isset($JAK_CAT1_EXIST) || isset($JAK_CAT2_EXIST) || isset($JAK_CAT3_EXIST)) { ?>
 

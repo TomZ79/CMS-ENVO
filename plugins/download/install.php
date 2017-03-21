@@ -15,18 +15,17 @@ if (!$jakuser->jakAdminaccess ($jakuser->getVar ("usergroupid"))) die('You canno
 $succesfully = 0;
 
 // Set language for plugin
-if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
-	$tl = parse_ini_file (APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
+if (file_exists(APP_PATH.'plugins/download/admin/lang/'.$site_language.'.ini')) {
+	$tld = parse_ini_file(APP_PATH.'plugins/download/admin/lang/'.$site_language.'.ini', true);
 } else {
-	$tl            = parse_ini_file (APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
-	$site_language = $jkv["lang"];
+	$tld = parse_ini_file(APP_PATH.'plugins/download/admin/lang/en.ini', true);
 }
 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title><?php echo $tl["plugin"]["t4"]; ?></title>
+	<title><?php echo $tld["downl_install"]["downlinst"]; ?></title>
 	<meta charset="utf-8">
 	<!-- BEGIN Vendor CSS-->
 	<link href="/admin/assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.4" rel="stylesheet" type="text/css"/>
@@ -80,7 +79,7 @@ if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $s
 		}
 	</style>
 	<!-- BEGIN VENDOR JS -->
-	<script src="/admin/assets/plugins/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
+	<script src="/assets/plugins/jquery/jquery-2.2.4.min.js" type="text/javascript"></script>
 	<script src="/admin/assets/plugins/bootstrapv3/js/bootstrap.min.js?=v3.3.4" type="text/javascript"></script>
 	<!-- BEGIN CORE TEMPLATE JS -->
 	<script src="/admin/pages/js/pages.js?=v2.2.0"></script>
@@ -91,18 +90,17 @@ if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $s
 	<div class="row">
 		<div class="col-md-12 m-t-20">
 			<div class="jumbotron bg-master">
-				<h3 class="semi-bold text-white"><?php echo $tl["plugin"]["t4"]; ?></h3>
+				<h3 class="semi-bold text-white"><?php echo $tld["downl_install"]["downlinst"]; ?></h3>
 			</div>
 			<hr>
 			<div id="notificationcontainer"></div>
 			<div class="m-b-30">
-				<h4 class="semi-bold">Download Plugin - Info o instalačním procesu</h4>
+				<h4 class="semi-bold"><?php echo $tld["downl_install"]["downlinst1"]; ?></h4>
 				<p>Plugin umožní přesměrování stránek se zadáním typu přesměrování.</p>
 
 				<div id="portlet-advance" class="panel panel-transparent">
 					<div class="panel-heading separator">
-						<div class="panel-title">Rozšířené informace
-						</div>
+						<div class="panel-title"><?php echo $tld["downl_install"]["downlinst2"]; ?></div>
 						<div class="panel-controls">
 							<ul>
 								<li>
@@ -156,10 +154,10 @@ if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $s
 						// Apply the plugin to the body
 						$('#notificationcontainer').pgNotification({
 							style: 'bar',
-							message: 'Plugin je již nainstalován !!!',
+							message: '<?php echo $tld["downl_install"]["downlinst3"]; ?>',
 							position: 'top',
 							timeout: 0,
-							type: 'warning',
+							type: 'warning'
 						}).show();
 
 						e.preventDefault();
@@ -432,10 +430,10 @@ include_once APP_PATH.\'plugins/download/template/\'.$jkv[\"sitestyle\"].\'/page
 						// Apply the plugin to the body
 						$('#notificationcontainer').pgNotification({
 							style: 'bar',
-							message: '<?php echo $tl["plugin"]["p13"]; ?>',
+							message: '<?php echo $tld["downl_install"]["downlinst4"]; ?>',
 							position: 'top',
 							timeout: 0,
-							type: 'success',
+							type: 'success'
 						}).show();
 
 						e.preventDefault();
@@ -448,9 +446,9 @@ include_once APP_PATH.\'plugins/download/template/\'.$jkv[\"sitestyle\"].\'/page
 
 			?>
 
-				<div class="alert bg-danger"><?php echo $tl["plugin"]["p16"]; ?></div>
+				<div class="alert bg-danger"><?php echo $tld["downl_install"]["downlinst5"]; ?></div>
 				<form name="company" method="post" action="uninstall.php" enctype="multipart/form-data">
-					<button type="submit" name="redirect" class="btn btn-danger btn-block"><?php echo $tl["plugin"]["p11"]; ?></button>
+					<button type="submit" name="redirect" class="btn btn-danger btn-block"><?php echo $tld["downl_install"]["downlinst6"]; ?></button>
 				</form>
 
 			<?php }
@@ -458,7 +456,7 @@ include_once APP_PATH.\'plugins/download/template/\'.$jkv[\"sitestyle\"].\'/page
 
 			<?php if (!$succesfully) { ?>
 				<form name="company" method="post" action="install.php" enctype="multipart/form-data">
-					<button type="submit" name="install" class="btn btn-complete btn-block"><?php echo $tl["plugin"]["p10"]; ?></button>
+					<button type="submit" name="install" class="btn btn-complete btn-block"><?php echo $tld["downl_install"]["downlinst7"]; ?></button>
 				</form>
 			<?php }
 			} ?>

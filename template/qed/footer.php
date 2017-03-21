@@ -230,7 +230,7 @@
 <!-- End Document  ================================================== -->
 
 <!-- Placed at the end of the document so the pages load faster -->
-<script type="text/javascript" src="/template/<?php echo $jkv["sitestyle"];?>/js-plugins/jquery/jquery-1.10.2.min.js"></script>
+<script src="/assets/plugins/jquery/jquery-2.2.4.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="/template/<?php echo $jkv["sitestyle"];?>/js-plugins/jquery-ui/jquery-ui-1.8.23.custom.min.js"></script>
 <!-- External framework plugins -->
 <?php if ($jkv["activeroyalslider_qed_tpl"] == 1) { ?>

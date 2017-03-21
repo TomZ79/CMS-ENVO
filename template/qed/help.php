@@ -7,27 +7,27 @@
   <!-- ======= FONTS ======= -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&subset=latin-ext" rel="stylesheet">
   <link rel="stylesheet" href="icons/custom-icons/css/custom-icons.css">
-  <link rel="stylesheet" href="">
 
   <!-- ======= CSS STYLE ======= -->
-  <link rel="stylesheet" href="doc/css/doc.css">
-  <link rel="stylesheet" href="doc/js/syntaxhighlighter/styles/shCoreKreatura.css">
-  <link rel="stylesheet" href="doc/js/syntaxhighlighter/styles/shThemeKreatura.css">
+  <link rel="stylesheet" href="/assets/doc/css/doc.css">
+  <link rel="stylesheet" href="/assets/doc/js/syntaxhighlighter/styles/shCoreKreatura.css">
+  <link rel="stylesheet" href="/assets/doc/js/syntaxhighlighter/styles/shThemeKreatura.css">
 
   <!--[if lt IE 9]>
-  <script src="doc/js/html5.js"></script>
+  <script src="/assets/doc/js/html5.js"></script>
   <![endif]-->
 
 </head>
 <body>
 
 <header>
+  <h1>Nápověda - QED Template</h1>
   <div class="clear"></div>
 </header>
 
 <nav id="subnav">
-  <h3>Table of Contents</h3>
-  <h3>Current Chapter: <span id="curnav" class="light"> Overview </span></h3>
+  <h3>Obsah</h3>
+  <h3>Aktuální kapitola: <span id="curnav" class="light"> Getting Started </span></h3>
 </nav>
 
 <aside>
@@ -36,8 +36,9 @@
       <li class="active">
         <span>About QED Template</span>
         <ul>
-          <li data-deeplink="getting-started">Getting Started</li>
+          <li data-deeplink="getting-started" class="active">Getting Started</li>
           <li data-deeplink="folders-files">Folders-Files</li>
+          <li data-deeplink="site-layout">Site Layout</li>
         </ul>
       </li>
       <li>
@@ -109,86 +110,13 @@
       <!-- Folders and Files -->
       <article>
         <h4>Folders and Files</h4>
-        <div class="css-treeview">
-          <ul>
-            <li><input type="checkbox" id="item-0"/><label for="item-0">css</label>
-              <ul>
-                <li><input type="checkbox" id="item-0-0"/><label for="item-0-0">porto</label>
-                  <ul>
-                    <li><p>Files of Porto template</p></li>
-                  </ul>
-                </li>
-                <li><input type="checkbox" id="item-0-1"/><label for="item-0-1">themes</label>
-                  <ul>
-                    <li><p>Some css style for color style</p></li>
-                  </ul>
-                </li>
-                <li><p>Folder 'css' with css styles</p></li>
-              </ul>
-            </li>
-            <li><input type="checkbox" id="item-1" checked="checked"/><label for="item-1">doc</label>
-              <ul>
-                <li><input type="checkbox" id="item-1-0"/><label for="item-1-0">css</label>
-                  <ul>
-                    <li><p>Folder with css style for documentation</p></li>
-                  </ul>
-                </li>
-                <li><input type="checkbox" id="item-1-1"/><label for="item-1-1">img</label>
-                  <ul>
-                    <li><p>Folder with image for documentation</p></li>
-                  </ul>
-                </li>
-                <li><input type="checkbox" id="item-1-2"/><label for="item-1-2">js</label>
-                  <ul>
-                    <li><p>Folder with javascript for documentation</p></li>
-                  </ul>
-                </li>
-                <li><p>Folder 'doc' with documentation for Bluesat template</p></li>
-              </ul>
-            </li>
-            <li><input type="checkbox" id="item-2"/><label for="item-2">Can You Believe...</label>
-              <ul>
-                <li><input type="checkbox" id="item-2-0"/><label for="item-2-0">That This Treeview...</label>
-                  <ul>
-                    <li>
-                      <input type="checkbox" id="item-2-2-0"/><label for="item-2-2-0">Does Not Use Any JavaScript...</label>
-                      <ul>
-                        <li><a href="./">But Relies Only</a></li>
-                        <li><a href="./">On the Power</a></li>
-                        <li><a href="./">Of CSS3</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="./">Item 1</a></li>
-                    <li><a href="./">Item 2</a></li>
-                    <li><a href="./">Item 3</a></li>
-                  </ul>
-                </li>
-                <li><input type="checkbox" id="item-2-1"/><label for="item-2-1">This is a Folder With...</label>
-                  <ul>
-                    <li><a href="./">Some Nested Items...</a></li>
-                    <li><a href="./">Some Nested Items...</a></li>
-                    <li><a href="./">Some Nested Items...</a></li>
-                    <li><a href="./">Some Nested Items...</a></li>
-                    <li><a href="./">Some Nested Items...</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <input type="checkbox" id="item-2-2" disabled="disabled"/><label for="item-2-2">Disabled Nested Items</label>
-                  <ul>
-                    <li><a href="./">item</a></li>
-                    <li><a href="./">item</a></li>
-                    <li><a href="./">item</a></li>
-                    <li><a href="./">item</a></li>
-                    <li><a href="./">item</a></li>
-                    <li><a href="./">item</a></li>
-                    <li><a href="./">item</a></li>
-                    <li><a href="./">item</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+
+      </article>
+
+      <!-- Site Layout -->
+      <article>
+        <h4>Site Layout</h4>
+
       </article>
 
     </section>
@@ -797,7 +725,7 @@
         <hr>
         <p>Velikost obrázku, který je použit jako hlavní obrázek v blogu, je nejvhodnější kolem W x H = 1180px x 350px .</p>
         <p>Můžeme použít i větší rozměr obrazu, při zachování poměru cca 2,30.</p>
-        <p><img src="/template/qed/doc/img/image1.png" alt=""></p>
+        <p><img src="/assets/doc/img/image1.png" alt=""></p>
 
       </article>
 
@@ -812,12 +740,14 @@
 </div>
 
 <!-- ======= JQUERY SCRIPT ======= -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
-<script src="doc/js/syntaxhighlighter/scripts/shCore.js" type="text/javascript"></script>
-<script src="doc/js/syntaxhighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
-<script src="doc/js/syntaxhighlighter/scripts/shBrushXml.js" type="text/javascript"></script>
-<script src="doc/js/syntaxhighlighter/scripts/shBrushCss.js" type="text/javascript"></script>
-<script src="doc/js/doc.js"></script>
+<script src="/assets/plugins/jquery/jquery-2.2.4.min.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shCore.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushXml.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushCss.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushPhp.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushPlain.js" type="text/javascript"></script>
+<script src="/assets/doc/js/doc.js"></script>
 
 <script>
   $(document).ready(function(){

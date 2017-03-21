@@ -150,7 +150,7 @@
 
 						<?php
 						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-						echo $Html->addTag('strong', $tlblog["blog_connect"]["blog9"]);
+						echo $Html->addTag('strong', $tlblog["blog_connect"]["blogc9"]);
 						?>
 
 					</div>

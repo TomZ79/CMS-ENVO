@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -21,11 +21,11 @@ if ($page4 == "e") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general_error"]["generror1"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -54,13 +54,9 @@ if ($page4 == "e") { ?>
 		<!-- Form Content -->
 		<div class="row">
 			<div class="col-md-8">
-				<div class="box">
+				<div class="box box-success">
 					<div class="box-header with-border">
 						<h3 class="box-title"><?php echo $tl["title"]["t11"]; ?></h3>
-						<div class="box-tools pull-right">
-							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-						</div>
 					</div>
 					<div class="box-body">
 						<div class="block">
@@ -123,17 +119,13 @@ if ($page4 == "e") { ?>
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="box">
+				<div class="box box-success">
 					<div class="box-header with-border">
 						<h3 class="box-title"><?php echo $tl["general"]["g88"]; ?>
 							<a class="cms-help" data-content="<?php echo $tl["help"]["h"]; ?>" href="javascript:void(0)" data-original-title="<?php echo $tl["title"]["t21"]; ?>">
 								<i class="fa fa-question-circle"></i>
 							</a>
 						</h3>
-						<div class="box-tools pull-right">
-							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-						</div>
 					</div>
 					<div class="box-body">
 						<div class="block">

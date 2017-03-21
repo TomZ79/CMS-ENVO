@@ -64,7 +64,7 @@
 								<?php
 								// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
 								// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-								echo $Html->addCheckbox('lcookies', '', true, 'remember');
+								echo $Html->addCheckbox('lcookies', '', false, 'remember');
 								echo $Html->addLabel('remember', $tl["log_in"]["login3"]);
 								?>
 

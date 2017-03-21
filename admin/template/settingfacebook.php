@@ -21,7 +21,7 @@ if ($JAK_FILE_ERROR) { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["error"]["e37"];?>'
+				message: '<?php echo $tl["general_error"]["generror30"];?>'
 			}, {
 				// settings
 				type: 'danger',
@@ -33,7 +33,7 @@ if ($JAK_FILE_ERROR) { ?>
 
 <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 	<!-- Fixed Button for save form -->
-	<div class="savebutton hidden-xs">
+	<div class="savebutton-small hidden-xs">
 
 		<?php
 		// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)

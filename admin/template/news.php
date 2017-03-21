@@ -31,6 +31,16 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 	</script>
 <?php } ?>
 
+	<!-- Fixed Button for save form -->
+	<div class="savebutton-medium hidden-xs">
+
+		<?php
+		// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+		echo $Html->addAnchor('index.php?p=news&sp=new',  $tl["button"]["btn32"], '', 'btn btn-info button');
+		?>
+
+	</div>
+
 <?php if ($page2 == "s") { ?>
 	<script type="text/javascript">
 		// Notification

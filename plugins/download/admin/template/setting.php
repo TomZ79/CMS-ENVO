@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -21,11 +21,11 @@ if ($page2 == "e") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general_error"]["generror1"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -42,11 +42,11 @@ if ($errors) { ?>
 					if (isset($errors["e3"])) echo $errors["e3"];
 					if (isset($errors["e4"])) echo $errors["e4"];
 					if (isset($errors["e5"])) echo $errors["e5"];
-					if (isset($errors["e6"])) echo $errors["e6"];?>',
+					if (isset($errors["e6"])) echo $errors["e6"];?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -54,33 +54,35 @@ if ($errors) { ?>
 
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 		<!-- Fixed Button for save form -->
-		<div class="savebutton">
-			<button type="submit" name="save" class="btn btn-primary button">
-				<i class="fa fa-save margin-right-5"></i>
-				<?php echo $tl["general"]["g20"]; ?> !!
-			</button>
+		<div class="savebutton-small hidden-xs">
+
+			<?php
+			// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+			echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button');
+			?>
+
 		</div>
 
 		<!-- Form Content -->
 		<ul id="cmsTab" class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
 			<li role="presentation" class="active">
 				<a href="#cmsPage1" id="cmsPage1-tab" role="tab" data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
-					<span class="text"><?php echo $tl["submenu"]["sm10"]; ?></span>
+					<span class="text"><?php echo $tld["downl_section_tab"]["downltab"]; ?></span>
 				</a>
 			</li>
 			<li role="presentation" class="next">
 				<a href="#cmsPage2" role="tab" id="cmsPage2-tab" data-toggle="tab" aria-controls="cmsPage2">
-					<span class="text"><?php echo $tl["general"]["g53"]; ?></span>
+					<span class="text"><?php echo $tld["downl_section_tab"]["downltab1"]; ?></span>
 				</a>
 			</li>
 			<li role="presentation">
 				<a href="#cmsPage3" role="tab" id="cmsPage3-tab" data-toggle="tab" aria-controls="cmsPage3">
-					<span class="text"><?php echo $tl["general"]["g100"]; ?></span>
+					<span class="text"><?php echo $tld["downl_section_tab"]["downltab2"]; ?></span>
 				</a>
 			</li>
 			<li role="presentation">
 				<a href="#cmsPage4" role="tab" id="cmsPage4-tab" data-toggle="tab" aria-controls="cmsPage4">
-					<span class="text"><?php echo $tl["general"]["g89"]; ?></span>
+					<span class="text"><?php echo $tld["downl_section_tab"]["downltab3"]; ?></span>
 				</a>
 			</li>
 		</ul>
@@ -89,21 +91,27 @@ if ($errors) { ?>
 			<div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
 				<div class="row">
 					<div class="col-md-7">
-						<div class="box">
+						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["title"]["t4"]; ?></h3>
-								<div class="box-tools pull-right">
-									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-									</button>
-									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-									</button>
-								</div>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tld["downl_box_title"]["downlbt"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["page"]["p"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc"]);
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 													<input type="text" name="jak_title" class="form-control" value="<?php echo $JAK_FORM_DATA["title"]; ?>"/>
@@ -111,13 +119,27 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["page"]["p5"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc1"]);
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<textarea name="jak_lcontent" class="form-control" rows="4"><?php echo jak_edit_safe_userpost ($JAK_FORM_DATA["content"]); ?></textarea>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tld["dload"]["d16"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc2"]);
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
 													<input class="form-control" type="text" name="jak_email" value="<?php echo $jkv["downloademail"]; ?>"/>
@@ -125,7 +147,14 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tld["dload"]["d15"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc3"]);
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="row">
 													<div class="col-md-6">
@@ -147,13 +176,28 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tld["dload"]["d14"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc5"]);
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<input type="text" name="jak_maxpost" class="form-control" value="<?php echo $jkv["downloadmaxpost"]; ?>"/>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["setting"]["s4"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc6"]);
+												echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
 													<input type="text" name="jak_date" class="form-control" value="<?php echo $jkv["downloaddateformat"]; ?>"/>
@@ -161,7 +205,14 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["setting"]["s5"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc7"]);
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="form-group<?php if (isset($errors["e4"])) echo " has-error"; ?> no-margin">
 													<input type="text" name="jak_time" class="form-control" value="<?php echo $jkv["downloadtimeformat"]; ?>"/>
@@ -169,7 +220,14 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tld["dload"]["d7"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc8"]);
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="radio">
 													<label class="checkbox-inline">
@@ -183,7 +241,12 @@ if ($errors) { ?>
 										</div>
 										<div class="row-form">
 											<div class="col-md-5">
-												<strong><?php echo $tl["general"]["g40"]; ?> / <?php echo $tl["general"]["g41"]; ?></strong>
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc9"] . ' / ' . $tld["downl_box_content"]["downlbc10"]);
+												?>
+
 											</div>
 											<div class="col-md-7">
 												<div class="form-group<?php if (isset($errors["e7"])) echo " has-error"; ?> no-margin">
@@ -192,7 +255,14 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tl["setting"]["s7"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc11"]);
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<div class="form-group<?php if (isset($errors["e6"])) echo " has-error"; ?> no-margin">
 													<input type="text" class="form-control" name="jak_path" value="<?php echo $jkv["downloadpath"]; ?>"/>
@@ -200,7 +270,14 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tld["dload"]["d30"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc12"]);
+												?>
+
+											</div>
 											<div class="col-md-7">
 												<input type="text" name="jak_twitter" class="form-control" value="<?php echo $jkv["downloadtwitter"]; ?>"/>
 											</div>
@@ -209,29 +286,37 @@ if ($errors) { ?>
 								</div>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-primary pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["general"]["g20"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+								?>
+
 							</div>
 						</div>
 					</div>
 					<div class="col-md-5">
-						<div class="box">
+						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["title"]["t29"]; ?></h3>
-								<div class="box-tools pull-right">
-									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-									</button>
-									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-									</button>
-								</div>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tld["downl_box_title"]["downlbt1"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-6"><strong><?php echo $tl["setting"]["s11"]; ?></strong></div>
+											<div class="col-md-6">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc13"]);
+												?>
+
+											</div>
 											<div class="col-md-6">
 												<div class="<?php if (isset($errors["e5"])) echo " has-error"; ?>">
 													<select name="jak_mid" class="form-control selectpicker">
@@ -250,7 +335,14 @@ if ($errors) { ?>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-6"><strong><?php echo $tl["setting"]["s12"]; ?></strong></div>
+											<div class="col-md-6">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc14"]);
+												?>
+
+											</div>
 											<div class="col-md-6">
 												<div class="form-group<?php if (isset($errors["e5"])) echo " has-error"; ?> no-margin">
 													<input type="text" name="jak_item" class="form-control" value="<?php echo $jkv["downloadpageitem"]; ?>"/>
@@ -261,10 +353,12 @@ if ($errors) { ?>
 								</div>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-primary pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["general"]["g20"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+								?>
+
 							</div>
 						</div>
 					</div>
@@ -273,15 +367,14 @@ if ($errors) { ?>
 			<div role="tabpanel" class="tab-pane fade" id="cmsPage2" aria-labelledby="cmsPage2-tab">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="box">
+						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["general"]["g53"]; ?></h3>
-								<div class="box-tools pull-right">
-									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-									</button>
-									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-									</button>
-								</div>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tld["downl_box_title"]["downlbt2"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
@@ -290,10 +383,12 @@ if ($errors) { ?>
 								<textarea name="jak_css" class="form-control hidden" id="jak_css" rows="20"><?php echo $jkv["download_css"]; ?></textarea>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-primary pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["general"]["g20"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+								?>
+
 							</div>
 						</div>
 					</div>
@@ -302,15 +397,14 @@ if ($errors) { ?>
 			<div role="tabpanel" class="tab-pane fade" id="cmsPage3" aria-labelledby="cmsPage3-tab">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="box">
+						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["general"]["g100"]; ?></h3>
-								<div class="box-tools pull-right">
-									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-									</button>
-									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-									</button>
-								</div>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tld["downl_box_title"]["downlbt3"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
@@ -319,10 +413,12 @@ if ($errors) { ?>
 								<textarea name="jak_javascript" class="form-control hidden" id="jak_javascript" rows="20"><?php echo $jkv["download_javascript"]; ?></textarea>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-primary pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["general"]["g20"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+								?>
+
 							</div>
 						</div>
 					</div>
@@ -331,24 +427,25 @@ if ($errors) { ?>
 			<div role="tabpanel" class="tab-pane fade" id="cmsPage4" aria-labelledby="cmsPage4-tab">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="box">
+						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tl["general"]["g89"]; ?></h3>
-								<div class="box-tools pull-right">
-									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-									</button>
-									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-									</button>
-								</div>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tld["downl_box_title"]["downlbt4"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<?php include APP_PATH . "admin/template/sidebar_widget.php"; ?>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-primary pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["general"]["g20"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+								?>
+
 							</div>
 						</div>
 					</div>

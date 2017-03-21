@@ -14,18 +14,17 @@ if (!$jakuser->jakAdminaccess ($jakuser->getVar ("usergroupid"))) die('You canno
 $succesfully = 0;
 
 // Set language for plugin
-if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
-	$tl = parse_ini_file (APP_PATH . 'admin/lang/' . $site_language . '.ini', true);
+if (file_exists(APP_PATH.'plugins/newsletter/admin/lang/'.$site_language.'.ini')) {
+	$tlnl = parse_ini_file(APP_PATH.'plugins/newsletter/admin/lang/'.$site_language.'.ini', true);
 } else {
-	$tl            = parse_ini_file (APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', true);
-	$site_language = $jkv["lang"];
+	$tlnl = parse_ini_file(APP_PATH.'plugins/newsletter/admin/lang/en.ini', true);
 }
 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title><?php echo $tl["plugin"]["t15"]; ?></title>
+	<title><?php echo $tlnl["newsletter_uninstall"]["nluninst"]; ?></title>
 	<meta charset="utf-8">
 	<!-- BEGIN Vendor CSS-->
 	<link href="/admin/assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.4" rel="stylesheet" type="text/css"/>
@@ -79,7 +78,7 @@ if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $s
 		}
 	</style>
 	<!-- BEGIN VENDOR JS -->
-	<script src="/admin/assets/plugins/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
+	<script src="/assets/plugins/jquery/jquery-2.2.4.min.js" type="text/javascript"></script>
 	<script src="/admin/assets/plugins/bootstrapv3/js/bootstrap.min.js?=v3.3.4" type="text/javascript"></script>
 	<!-- BEGIN CORE TEMPLATE JS -->
 	<script src="/admin/pages/js/pages.js?=v2.2.0"></script>
@@ -90,16 +89,16 @@ if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $s
 	<div class="row">
 		<div class="col-md-12 m-t-20">
 			<div class="jumbotron bg-master">
-				<h3 class="semi-bold text-white"><?php echo $tl["plugin"]["t15"]; ?></h3>
+				<h3 class="semi-bold text-white"><?php echo $tlnl["newsletter_uninstall"]["nluninst"]; ?></h3>
 			</div>
 			<hr>
 			<div id="notificationcontainer"></div>
 			<div class="m-b-30">
-				<h4 class="semi-bold">Newsletter Plugin - Info o odinstalačním procesu</h4>
+				<h4 class="semi-bold"><?php echo $tlnl["newsletter_uninstall"]["nluninst1"]; ?></h4>
 
 				<div id="portlet-advance" class="panel panel-transparent">
 					<div class="panel-heading separator">
-						<div class="panel-title">Rozšířené informace
+						<div class="panel-title"><?php echo $tlnl["newsletter_uninstall"]["nluninst2"]; ?>
 						</div>
 						<div class="panel-controls">
 							<ul>
@@ -159,10 +158,10 @@ if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $s
 							// Apply the plugin to the body
 							$('#notificationcontainer').pgNotification({
 								style: 'bar',
-								message: '<?php echo $tl["plugin"]["p15"];?>',
+								message: '<?php echo $tlnl["newsletter_uninstall"]["nluninst3"]; ?>',
 								position: 'top',
 								timeout: 0,
-								type: 'success',
+								type: 'success'
 							}).show();
 
 							e.preventDefault();
@@ -170,7 +169,7 @@ if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $s
 					</script>
 				<?php } else { ?>
 					<div>
-						<h5 class="text-danger bold">Wrong Code Entered - Please, enter right number !</h5>
+						<h5 class="text-danger bold"><?php echo $tlnl["newsletter_uninstall"]["nluninst4"]; ?></h5>
 					</div>
 					<script>
 						$(document).ready(function () {
@@ -178,10 +177,10 @@ if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $s
 							// Apply the plugin to the body
 							$('#notificationcontainer').pgNotification({
 								style: 'bar',
-								message: 'Wrong Code Entered - Please, enter right number !',
+								message: '<?php echo $tlnl["newsletter_uninstall"]["nluninst4"]; ?>',
 								position: 'top',
 								timeout: 0,
-								type: 'danger',
+								type: 'danger'
 							}).show();
 
 							e.preventDefault();
@@ -192,11 +191,11 @@ if ($jkv["lang"] != $site_language && file_exists (APP_PATH . 'admin/lang/' . $s
 			if (!$succesfully) { ?>
 				<form name="company" action="uninstall.php" method="post" enctype="multipart/form-data">
 					<div class="form-group form-inline">
-						<label for="text">Please read info about uninstallation and enter text: </label>
+						<label for="text"><?php echo $tlnl["newsletter_uninstall"]["nluninst5"]; ?></label>
 						<input type="text" name="captcha" class="form-control" id="text">
 						<img src="../../assets/plugins/captcha/simple/captcha.php" class="m-l-10"/>
 					</div>
-					<button type="submit" name="uninstall" class="btn btn-complete btn-block"><?php echo $tl["plugin"]["p11"]; ?></button>
+					<button type="submit" name="uninstall" class="btn btn-complete btn-block"><?php echo $tlnl["newsletter_uninstall"]["nluninst6"]; ?></button>
 				</form>
 			<?php } ?>
 

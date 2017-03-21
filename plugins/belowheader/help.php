@@ -1,319 +1,247 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title></title>
-	<meta name="viewport" content="width=1200, maximum-scale=1" />
-	<!-- BEGIN Vendor CSS-->
-	<link href="/admin/assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.4" rel="stylesheet" type="text/css"/>
-	<link href="/admin/assets/plugins/font-awesome/css/font-awesome.css?=v4.5.0" rel="stylesheet" type="text/css" />
-	<link href="/admin/pages/css/pages-icons.css?=v2.2.0" rel="stylesheet" type="text/css">
+	<title>Belowheader Plugin Documentation</title>
 
-	<!-- BEGIN Pages CSS-->
+	<!-- ======= FONTS ======= -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&subset=latin-ext" rel="stylesheet">
 
+	<!-- ======= CSS STYLE ======= -->
+	<link rel="stylesheet" href="/assets/doc/css/doc.css">
+	<link rel="stylesheet" href="/assets/doc/js/syntaxhighlighter/styles/shCoreKreatura.css">
+	<link rel="stylesheet" href="/assets/doc/js/syntaxhighlighter/styles/shThemeKreatura.css">
 
+	<!--[if lt IE 9]>
+	<script src="/assets/doc/js/html5.js"></script>
+	<![endif]-->
 
-
-
-	<link href="/admin/assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css" media="screen" />
-	<link href="/admin/assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen" />
-	<link href="/admin/assets/plugins/ion-slider/css/ion.rangeSlider.css" rel="stylesheet" type="text/css" media="screen" />
-	<link href="/admin/assets/plugins/ion-slider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet" type="text/css" media="screen" />
-	<link href="/admin/assets/plugins/jquery-nouislider/jquery.nouislider.css" rel="stylesheet" type="text/css" media="screen" />
-	<link href="/admin/assets/plugins/bootstrap3-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
-	<link href="/admin/assets/plugins/bootstrap-tag/bootstrap-tagsinput.css" rel="stylesheet" type="text/css" />
-	<link href="/admin/assets/plugins/dropzone/css/dropzone.css" rel="stylesheet" type="text/css" />
-	<link href="/admin/assets/plugins/switchery/css/switchery.min.css" rel="stylesheet" type="text/css" media="screen" />
-	<link href="/admin/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css" media="screen">
-	<link href="/admin/assets/plugins/summernote/css/summernote.css" rel="stylesheet" type="text/css" media="screen">
-	<link href="/admin/assets/plugins/jquery-dynatree/skin/ui.dynatree.css" rel="stylesheet" type="text/css" media="screen" />
-	<link href="/admin/assets/plugins/jquery-dynatree/skin/ui.dynatree.css" rel="stylesheet" type="text/css" media="screen" />
-	<link href="/admin/assets/plugins/jquery-dynatree/skin/ui.dynatree.css" rel="stylesheet" type="text/css" media="screen" />
-	<link href="/admin/pages/css/pages.css?=v2.2.0" rel="stylesheet" type="text/css"/>
-	<link href="docs/assets/css/style.css" rel="stylesheet" type="text/css"/>
-	<link href="/admin/assets/plugins/highlight/styles/github.css" rel="stylesheet" type="text/css" />
-
-	<!-- BEGIN CUSTOM MODIFICATION -->
-	<style type="text/css">
-		@media screen and (min-width: 960px) {
-			html {
-				margin-right: 0;
-			}
-		}
-
-		/* Main body */
-		body {
-			background: transparent;
-		}
-	</style>
 </head>
+<body>
 
-<body class="index" data-spy="scroll" data-target=".sidebar">
 <header>
-	<div class="container">
-		<a class="logo" href="#">
-			<img src="assets/img/pages_logo_white.png" width="78" height="22">
-		</a>
-	</div>
+	<h1>Nápověda - Plugin Belowheader</h1>
+	<div class="clear"></div>
 </header>
-<div class="container-fluid p-t-70">
-	<div class="container-inner">
-		<nav class="sidebar ">
-			<div class="pg_scrollable">
-				<ul class="nav">
-					<li >
-						<h6>Introduction</h6>
-						<ul class="nav" style="overflow: hidden; display: block;">
-							<li><a href="xxxxx">Getting Started</a></li>
-							<li><a href="xxxxx">Files Structure</a></li>
 
-						</ul>
-					</li>
+<nav id="subnav">
+	<h3>Obsah</h3>
+	<h3>Aktuální kapitola: <span id="curnav" class="light"> O Pluginu </span></h3>
+</nav>
 
+<aside>
+	<nav>
+		<ul id="sidebar">
+			<li class="active">
+				<span>O Pluginu</span>
+				<ul>
+					<li data-deeplink="about-plugin" class="active">O Pluginu</li>
+					<li data-deeplink="folders-files">Složky-Soubory</li>
+					<li data-deeplink="changelog">Changelog</li>
 				</ul>
-			</div>
-		</nav>
-		<div class="row">
-			<div class="col-md-9 col-sm-8 col-md-offset-3 col-sm-offset-4">
-				<div class="content">
+			</li>
+			<li>
+				<span>Hooks</span>
+				<ul>
+					<li data-deeplink="tpl_below_header">Hook: tpl_below_header</li>
+					<li data-deeplink="tpl_below_content">Hook: tpl_below_content</li>
+					<li data-deeplink="php_admin_lang">Hook: php_admin_lang</li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+</aside>
 
+<div id="content">
+	<div>
 
+		<!-- About Plugin -->
+		<section class="active">
 
-					<section id="introduction" style="padding-top:30px">
-						<h2 class="text-center">Pages Documentation</h2>
-						<h5 class="text-center">Beautifully Hand Crafted, Light Weight, Hardware Accelerated UI Framework  </h5>
-						<hr>
-						<h3>Introduction</h3>
-						<p>Pages is carefully well thought UI frame work that is built on top of Bootstrap 3, Its hand crafted components look great on all devices and works super fast even on mobile</p>
-						<p>This documentation guide for all Pages users who can even be a beginner to Web development
-						</p>
-						<br>
-						<h3>Light Weight & Ready to Go</h3>
-						<p> The entire set of modules clocks in at 38KB* minified and gzipped. Crafted with mobile devices in mind, it was important to us to keep our file sizes small, and every line of CSS was carefully considered. If you decide to only use a subset of these modules, you'll save even more bytes.</p>
-						<br>
-						<p>Production level usage using minfied and gzipped files</p>
-						<table style="width:100%">
-							<tbody>
-							<tr>
-								<td style="width:50%;height:30px" class="bg-danger text-white text-center fs-14 p-t-5 p-b-5">
-									CSS
-									<div class="fs-12">38Kb</div>
-								</td>
-								<td style="width:10%;height:30px" class="bg-primary text-white text-center fs-14 p-t-5 p-b-5">JS
-									<div class="fs-12">1.8Kb</div>
-								</td>
-								<td style="width:30%;height:30px" class="bg-complete text-white text-center fs-14 p-t-5 p-b-5">Icons
-									<div class="fs-12">12Kb</div>
-								</td>
-								<td style="width:30%;height:30px" class="bg-warning text-white text-center fs-14 p-t-5 p-b-5">Other
-									<div class="fs-12">120Kb</div>
-								</td>
-							</tr>
-							</tbody>
-						</table>
-					</section>
+			<!-- About Plugin -->
+			<article class="active">
+				<h4>O Pluginu</h4>
+				<p>Plugin <strong>Belowheader</strong> umožnuje vkládat zvláštní obsah do stránky před a za obsah stránky.</p>
+				<p>Pomocí pluginu můžeme vkládat například:</p>
+				<ul>
+					<li>Carousel obrázky</li>
+					<li>Statické obrazky</li>
+					<li>Jakékoliv texty</li>
+				</ul>
+				<h5>Rozložení Belowheader</h5>
+				<hr>
+				<p><img src="/assets/doc/img/belowheader1.png" alt=""></p>
+				<h5>Použití Pluginu</h5>
+				<hr>
+				<p>Zobrazení obsahu před a za stránkou můžeme přiřadit jednotlivým uživatelským skupinám. </p>
+				<p>Obsah Belowheader <strong>můžeme zobrazit</strong> v následujících stránkách a dalších pluginech:</p>
+				<ul>
+					<li>V jednotlivých stránkách</li>
+					<li>V pluginu Zprávy na hlavní stránce a v jednotlivých zprávách</li>
+					<li>Ve Štítkách (Tagy)</li>
+					<li>Ve vyhledávání</li>
+					<li>V mapě stránek</li>
+				</ul>
+				<p>Obsah Belowheader <strong>nemůžeme zobrazit</strong> v následujících pluginech:</p>
+				<ul>
+					<li>V Blogu (Novinky)</li>
+					<li>V Download (Ke stažení)</li>
+					<li>V FAQ (Často kladené otázky)</li>
+					<li>V Register Form</li>
+				</ul>
 
+			</article>
 
-
-					<section id="getting_started" style="padding-top:100px">
-						<h3 class="page-title">
-							Getting Started
-						</h3>
-						<hr>
-						<h5>
-							This part of the doc will help you to quick start your project and will you a basic idea about how pages work. For you to get start visit the "Get Started" folder in your download package
-						</h5>
-						<br>
-						<h4>What's Included</h4>
-						<p>Pages comes in two forms, within which you'll find the following directories and files, logically grouping common resources and providing both compiled and minified variations</p>
-						<p>Once you have download the package you will see the following folder structure</p>
-						<div class="m-b-20" id="default-tree">
-							<ul id="treeData" style="display: none;">
-								<li class="folder">boilerplates
-								</li>
-								<li class="folder">demo
-								</li>
-								<li class="folder">getting_started
-								</li>
-								<li class="folder">grunt
-								</li>
-								<li class="folder">gulp
-								</li>
-								<li id="id2">documentation.html
-								</li>
-							</ul>
-						</div>
-						<br>
-						<h4>Whats Inside getting_started</h4>
-						<p>This folder is a boilerplate template to help you start your project from. You will find both AngularJS and jQuery versions inside this. </p>
-						<div class="m-b-20" id="g-tree">
-							<ul id="gdata" style="display: none;">
-								<li class="folder expanded">getting_started
+			<!-- Folders and Files -->
+			<article>
+        <h4>Soubory a Složky</h4>
+				<div class="css-treeview">
+					<ul>
+						<li>
+							<input type="checkbox" id="item-0"/>
+							<label for="item-0">admin</label>
+							<span>(administrace pluginu)</span>
+							<ul>
+								<li>
+									<input type="checkbox" id="item-0-0"/>
+									<label for="item-0-0">js</label>
+									<span>(javascript a jquery soubory)</span>
 									<ul>
-										<li class="folder expanded">angular
-											<ul>
-												<li class="folder">assets
-													<ul>
-														<li class="folder">css
-														</li>
-														<li class="folder">js
-														</li>
-														<li class="folder">img
-														</li>
-													</ul>
-												</li>
-												<li class="folder">pages
-													<ul>
-														<li class="folder expanded">css
-															<ul>
-																<li>pages.css</li>
-																<li>pages.min.css</li>
-															</ul>
-														</li>
-														<li class="folder expanded">js
-															<ul>
-																<li>pages.js</li>
-																<li>pages.min.js</li>
-															</ul>
-														</li>
-														<li class="folder">img
-														</li>
-													</ul>
-												</li>
-												<li class="folder">tpl
-													<ul>
-														<li class="folder">blocks
-														</li>
-														<li>app.html</li>
-														<li>home.html</li>
-													</ul>
-												</li>
-												<li>index.html
-												</li>
-												<li>index.haml
-												</li>
-											</ul>
-										</li>
-										<li class="folder expanded">html
-											<ul>
-												<li class="folder">assets
-													<ul>
-														<li class="folder">css
-														</li>
-														<li class="folder">js
-														</li>
-														<li class="folder">img
-														</li>
-													</ul>
-												</li>
-												<li class="folder">pages
-													<ul>
-														<li class="folder expanded">css
-															<ul>
-																<li>pages.css</li>
-																<li>pages.min.css</li>
-															</ul>
-														</li>
-														<li class="folder expanded">js
-															<ul>
-																<li>pages.js</li>
-																<li>pages.min.js</li>
-															</ul>
-														</li>
-														<li class="folder">img
-														</li>
-													</ul>
-												</li>
-												<li>index.html
-												</li>
-												<li>index.haml
-												</li>
-											</ul>
-										</li>
+										<li class="file">pages.belowheader.php</li>
+									</ul>
+								</li>
+								<li>
+									<input type="checkbox" id="item-0-1"/>
+									<label for="item-0-1">lang</label>
+									<span>(jazykové soubory)</span>
+									<ul>
+										<li class="file">cs.ini</li>
+										<li class="file">en.ini</li>
+									</ul>
+								</li>
+								<li>
+									<input type="checkbox" id="item-0-2"/>
+									<label for="item-0-2">template</label>
+									<span>(šablony pro administrační rozhraní)</span>
+									<ul>
+										<li class="file">bh.php</li>
+										<li class="file">bhnav.php</li>
+										<li class="file">editbh.php</li>
+										<li class="file">newbh.php</li>
 									</ul>
 								</li>
 							</ul>
-						</div>
-						<br>
-						<p>In the getting_started folder you will find both jQuery and AngularJS implementations of Pages. Pages was originally written in jQuery. To make it work on AngularJS environments, several directives and controllers were written in v2.0. </p>
-						<p>Folder structure inside these two folders are almost the same except for the <code>assets</code> folder. In AngularJS this will contain directives and controllers which are mandatory for Pages to work, whereas in jQuery version you can have your own files.</p>
-						<h5 class="">Folder : assets</h5>
-						<p>If you are using jQuery, this folder is entirely dedicated for you and you can add your own images, custom css and js files, its grouped into resource folders for best practice</p>
-						<p>If you are an AngularJS user you will find Pages core directive and controllers.</p>
-						<br>
-						<h5 class="">Folder : pages</h5>
-						<p>This where the magic happens and contains pre-complied version of Pages, we do recommend updating any contents of the folder as all future updates are affected directly to this</p>
-						<p>AngularJS direcitves found in <code>angular/assets/js/directives</code> folder will be calling Pages modules found in this folder to make them work on AngularJS environments</p>
-						<br>
-						<h5 class="">Folder : tpl (Only available for AngularJS)</h5>
-						<p>Contains template HTML files that are lazy loaded and rendered for each state</p>
-						<br>
-						<h4>Whats Inside demo</h4>
-						<p>This folder contains all the demo files that we have shown in the live version for reference, you may wish to import code to your project from that. This is only used for reference and we do no recommend to start your project from demo files. Contains files for both AngularJS and jQuery users</p>
-						<br>
-						<h4>Whats Inside grunt and gulp</h4>
-						<p>Pages support two popular build systems called Grunt and Gulp.</p>
-						<div class="m-b-20" id="b-tree">
-							<ul id="gdata" style="display: none;">
-								<li class="folder expanded" id="id5">grunt
-									<ul>
-										<li id="id2">package.json
-										</li>
-										<li id="id2">gruntfile.js
-										</li>
-									</ul>
-								</li>
-								<li class="folder expanded" id="id5">gulp
-									<ul>
-										<li id="id2">package.json
-										</li>
-										<li id="id2">gulpfile.js
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-						<br>
-						<br>
-						<br>
-						<p>Other Useful resources that you may find:</p>
-						<ul class="other-ref">
-							<li><a href="partials/less.html">Working with LESS</a></li>
-							<li><a href="partials/grunt.html">Working with Grunt</a></li>
-							<li><a href="partials/gulp.html">Working with Gulp</a></li>
-						</ul>
-					</section>
-
+						</li>
+						<li class="file">bhinput.php</li>
+						<li class="file">bhinputb.php</li>
+						<li class="file">help.php</li>
+						<li class="file">install.php</li>
+						<li class="file">uninstall.php</li>
+					</ul>
 				</div>
-			</div>
-		</div>
+			</article>
+
+			<!-- Changelog -->
+			<article>
+				<h4>Changelog</h4>
+				<h5>v 1.1</h5>
+				<pre name="code" class="brush: plain;">
+// # List of new components
+// ------------------------------
+
+[new] Better notification
+[new] Use class for create hmtl element
+[new] Add help for plugin
+[new] Better install/unistall wizard
+[new] New design
+
+// # List of fixed bugs
+// ------------------------------
+
+[fixed] Reformat code
+[fixed] Language file cs.ini
+[fixed] Fix typo
+
+// # List of removed components
+// ------------------------------
+
+[removed] Remove unnecessary code
+				</pre>
+
+				<h5>v 1.0</h5>
+				<p>Basic initial</p>
+
+
+			</article>
+
+		</section>
+
+		<!-- Hooks -->
+		<section>
+
+			<!-- Hook: tpl_below_header -->
+			<article>
+				<h4>Hook: tpl_below_header</h4>
+				<p>Template Hook: tpl_below_header</p>
+				<p>This hook is located below the header, display advertising, buttons or whatever you like below the navigation and logo.</p>
+
+				<p>You can include a file, for example:</p>
+				<pre name="code" class="brush: php;">
+plugins/belowheader/bhinput.php
+        </pre>
+
+			</article>
+
+			<!-- Hook: tpl_below_content -->
+			<article>
+				<h4>Hook: tpl_below_content</h4>
+				<p>Template Hook: tpl_below_content</p>
+				<p>This is the brother from the below_header hook. You can close some divs or add some extra stuff that doesn't fit in the main section.</p>
+
+				<p>You can include a file, for example:</p>
+				<pre name="code" class="brush: php;">
+plugins/belowheader/bhinputb.php
+        </pre>
+
+			</article>
+
+			<!-- Hook: php_admin_lang -->
+			<article>
+				<h4>Hook: php_admin_lang</h4>
+				<p>Use this hook to execute PHP language code in the admin/index.php file.</p>
+
+				<p>For example:</p>
+				<pre name="code" class="brush: php;">
+if (file_exists(APP_PATH.'plugins/belowheader/admin/lang/'.$site_language.'.ini')) {
+    $tlbh = parse_ini_file(APP_PATH.'plugins/belowheader/admin/lang/'.$site_language.'.ini', true);
+} else {
+    $tlbh = parse_ini_file(APP_PATH.'plugins/belowheader/admin/lang/en.ini', true);
+}
+        </pre>
+
+			</article>
+
+		</section>
+
 	</div>
 </div>
-<script src="/admin/assets/plugins/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
-<script src="/admin/assets/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
-<script src="/admin/assets/plugins/modernizr.custom.js" type="text/javascript"></script>
-<script src="/admin/assets/plugins/bootstrapv3/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="/admin/assets/plugins/highlight/highlight.pack.js" type="text/javascript"></script>
-<script src="/admin/assets/plugins/jquery-actual/jquery.actual.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="/admin/assets/plugins/bootstrap-select2/select2.min.js"></script>
-<script type="text/javascript" src="/admin/assets/plugins/classie/classie.js"></script>
-<script src="/admin/assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-<script src="/admin/pages/js/pages.min.js" type="text/javascript"></script>
-<script src="/admin/assets/plugins/jquery-dynatree/jquery.dynatree.min.js" type="text/javascript"></script>
+
+<!-- ======= JQUERY SCRIPT ======= -->
+<script src="/assets/plugins/jquery/jquery-2.2.4.min.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shCore.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushXml.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushCss.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushPhp.js" type="text/javascript"></script>
+<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushPlain.js" type="text/javascript"></script>
+<script src="/assets/doc/js/doc.js"></script>
 
 <script>
 	$(document).ready(function() {
-		$.fn.scrollbar && $('.pg_scrollable').scrollbar({
-			ignoreOverlay: false
-		});
 		//Initialize Pages core
 		hljs.initHighlightingOnLoad();
-		$("#default-tree").dynatree();
-		$("#angular-tree").dynatree();
-		$("#g-tree").dynatree();
-		$("#b-tree").dynatree();
 	});
 </script>
-</body>
 
+</body>
 </html>

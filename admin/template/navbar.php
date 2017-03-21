@@ -72,8 +72,8 @@
 					</li>
 					<?php if ($page1 == 'sorthooks') { ?>
 						<li class="">
-							<a href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $page2; ?>"><?php echo $tl["cmenu"]["c52"]; ?></a>
-							<span class="icon-thumbnail"><?php echo text_clipping_lower ($tl["cmenu"]["c52"]); ?></span>
+							<a href="index.php?p=plugins&amp;sp=sorthooks&amp;ssp=<?php echo $page2; ?>"><?php echo $tl["submenu"]["sm15"]; ?></a>
+							<span class="icon-thumbnail"><?php echo text_clipping_lower ($tl["submenu"]["sm15"]); ?></span>
 						</li>
 					<?php }
 					if ($page1 == 'hooks' && $page2 == 'edit') { ?>

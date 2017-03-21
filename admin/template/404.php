@@ -10,8 +10,8 @@
 		echo $Html->startTag('div', array('class' => 'error-content'));
 
 		// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-		echo $Html->addTag('h3', $Html->addTag('i', '', 'fa fa-warning text-warning') . $tl["error"]["404"]);
-		echo $Html->addTag('p', str_replace("%s", BASE_URL, $tl["error"]["404_text"]));
+		echo $Html->addTag('h3', $Html->addTag('i', '', 'fa fa-warning text-warning') . $tl["general_error"]["generror404"]);
+		echo $Html->addTag('p', str_replace("%s", BASE_URL, $tl["general_error"]["generror404_text"]));
 
 		// Add Html Element -> endTag (Arguments: tag)
 		echo $Html->endTag('div');

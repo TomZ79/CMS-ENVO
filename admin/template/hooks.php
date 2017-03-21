@@ -31,6 +31,16 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 	</script>
 <?php } ?>
 
+	<!-- Fixed Button for save form -->
+	<div class="savebutton-medium hidden-xs">
+
+		<?php
+		// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+		echo $Html->addAnchor('index.php?p=plugins&sp=newhook',  $tl["button"]["btn31"], '', 'btn btn-info button');
+		?>
+
+	</div>
+
 	<div class="btn-toolbar m-b-20">
 		<div class="btn-group">
 

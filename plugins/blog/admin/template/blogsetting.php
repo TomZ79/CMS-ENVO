@@ -57,7 +57,7 @@ if ($page2 == "e") { ?>
 
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 		<!-- Fixed Button for save form -->
-		<div class="savebutton hidden-xs">
+		<div class="savebutton-small hidden-xs">
 
 			<?php
 			// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
@@ -93,7 +93,7 @@ if ($page2 == "e") { ?>
 		<div id="cmsTabContent" class="tab-content">
 			<div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
 				<div class="row">
-					<div class="col-md-7">
+					<div class="col-md-6">
 						<div class="box box-success">
 							<div class="box-header with-border">
 
@@ -345,7 +345,7 @@ if ($page2 == "e") { ?>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-5">
+					<div class="col-md-6">
 						<div class="box box-success">
 							<div class="box-header with-border">
 

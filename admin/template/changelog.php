@@ -27,11 +27,9 @@
 										[new] ACP - Settings for ACE Editor
 										[new] ACP - Popup modal dialog is in fullscreen mode
 										[new] Site - Quick Edit dialog is in fullscreen mode
-										[new] ACP - Add new Jquery plugin PACE.js
-										[new] ACP - some settings are in extra custom card
+										[new] ACP - Some settings are in extra custom card
 										[new] Translate language
 										[new] Add new tamplate 'QED'
-										[new] Add new color theme for PACE Jquery script
 										[new] ACP - Ace Editor - Add resize buttons to fullscreen mode
 										[new] Add new function for blog article (edit time)
 										[new] ACP - Categories - extra settings for meta description and keywords
@@ -48,7 +46,6 @@
 										[new] New Plugin XML SEO Sitemap v1.3
 										[new] Add search page by title in Pages
 										[new] Add Bootstrap Tooltip to Action icons
-										[new] Add new plugin for scrolling vertical menu (Perfect ScrollBar)
 										[new] Add new plugin Bootbox
 										[new] Add new button for saving forms
 										[new] Add new design for ACP - 'Pages' Template
@@ -61,11 +58,10 @@
 										// # List of updated components
 										// ------------------------------
 
-										[updated] Update basic original code from JakWeb - from 2.2 to 2.2.1
+										[updated] Update basic original code from JakWeb - 2.2, 2.2.1, 2.3.0, 2.3.1, 2.3.2
 										[updated] Update ACE Editor
 										[updated] Login Form in site - after 3 times bad login, redirect to base url
 										(in original JakWeb CMS is setting after 10 times redirect to base url)
-										[updated] Update basic original code from JakWeb from CMS 2.3
 										[updated] Update Jquery script
 										[updated] Update Font-Awesome (4.7.0)
 										[updated] Update PHPMailer

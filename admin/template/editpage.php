@@ -55,6 +55,8 @@ if ($errors) { ?>
 			<?php
 			// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
 			echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button');
+			// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+			echo $Html->addAnchor('index.php?p=page',  $tl["button"]["btn19"], '', 'btn btn-info button');
 			?>
 
 		</div>
@@ -600,7 +602,7 @@ if ($errors) { ?>
 												<div class="row-form">
 													<div class="col-md-12">
 														<div class="form-group">
-															<label><?php echo $tl["general"]["g27"]; ?></label>
+															<label><?php echo $tl["page_box_content"]["pagebc20"]; ?></label>
 															<span>Zaškrté tagy budou při uložení smazány</span>
 															<div class="controls">
 																<?php echo $JAK_TAGLIST; ?>
@@ -733,7 +735,7 @@ if ($errors) { ?>
 											if ($pg["pluginid"] == '9999') { ?>
 
 												<li class="jakcontent">
-													<div class="text"><?php echo $tl["page"]["p4"]; ?></div>
+													<div class="text"><?php echo $tl["page_box_content"]["pagebc4"]; ?></div>
 													<div class="actions">
 
 														<?php

@@ -29,7 +29,7 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 					echo $tl["general_error"]["generror2"];
 				} else {
 					echo $tlblog["blog_error"]["blogerror"];
-				} ?>',
+				} ?>'
 			}, {
 				// settings
 				type: 'danger',
@@ -56,6 +56,16 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 		}, 2000);
 	</script>
 <?php } ?>
+
+<!-- Fixed Button for save form -->
+<div class="savebutton-medium hidden-xs">
+
+	<?php
+	// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+	echo $Html->addAnchor('index.php?p=blog&sp=newcategory',  $tl["button"]["btn29"], '', 'btn btn-info button');
+	?>
+
+</div>
 
 <?php if (isset($JAK_BLOG_CAT_EXIST)) { ?>
 

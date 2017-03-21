@@ -74,7 +74,7 @@ if ($success) { ?>
 
   <form method="post" class="jak_form" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <!-- Fixed Button for save form -->
-    <div class="savebutton hidden-xs">
+    <div class="savebutton-small hidden-xs">
 
       <?php
       // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)

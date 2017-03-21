@@ -21,12 +21,12 @@ if ($hookadminws)
 					// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
 					if (isset($JAK_ACTIVE_GRID) && is_array ($JAK_ACTIVE_GRID)) foreach ($JAK_ACTIVE_GRID as $ag) {
 						if ($ag["hookid"] == $v["id"]) {
-							$selected = TRUE;
-						} else {
-							$selected = FALSE;
+							echo $Html->addCheckbox('jak_hookshow[]', $v["id"], TRUE, 'jak_hookshow' . $v["id"]);
 						}
+					} else {
+						echo $Html->addCheckbox('jak_hookshow[]', $v["id"], FALSE, 'jak_hookshow' . $v["id"]);
 					}
-					echo $Html->addCheckbox('jak_hookshow[]', $v["id"], $selected, 'jak_hookshow' . $v["id"]);
+
 					// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
 					echo $Html->startTag('label', array ('for' => 'jak_hookshow' . $v["id"]));
 					// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
