@@ -46,23 +46,35 @@ function jak_get_download_comments ($limit, $jakvar1, $jakvar2)
 // Get local download files
 function jak_get_download_files ($path)
 {
-	if (is_dir ($path)) {
-		$exempt = array ('.', '..', '.ds_store', '.htaccess', '.svn', 'index.html');
+  // Extension Filter - allowed extension of file
+  global $jakdb;
 
-		if ($handle = opendir ($path)) {
+  $sql = 'SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "downloadpathext" LIMIT 1';  // Select ONLY one, instead of all
+  $result = $jakdb->query($sql);
+  $ext = $result->fetch_assoc();
+  $ext = str_replace (",", "|", $ext['value']);
 
-			/* This is the correct way to loop over the directory. */
-			while (false !== ($file = readdir ($handle))) {
-				if (!in_array (strtolower ($file), $exempt)) {
-					$getfile[] = $file;
-				}
-			}
+  $allowed_ext  = '/\.(' . $ext . ')$/';
 
-			return $getfile;
-			clearstatcache ();
-			closedir ($handle);
-		}
-	}
+  // Readdir and find files
+  if ($handle = opendir (APP_PATH . $path)) {
+
+    /* This is the correct way to loop over the directory. */
+    while (false !== ($file = readdir ($handle))) {
+      if ($file != "." && $file != "..") {
+        if (preg_match ($allowed_ext, $file)) {
+          $allFiles[] = $file;
+        }
+      }
+    }
+
+    // Return value
+    return $allFiles;
+
+    // Clear and Close
+    clearstatcache ();
+    closedir ($handle);
+  }
 }
 
 // Menu builder function, parentId 0 is the root

@@ -174,7 +174,7 @@ if (file_exists(APP_PATH.'plugins/download/admin/lang/'.$site_language.'.ini')) 
         require_once APP_PATH.\'plugins/download/admin/download.php\';
            $JAK_PROVED = 1;
            $checkp = 1;
-        }", "../plugins/download/admin/template/downloadnav.php", "download", "uninstall.php", "1.1", NOW())');
+        }", "../plugins/download/admin/template/downloadnav.php", "download", "uninstall.php", "1.2", NOW())');
 
 				// Now get the plugin id for futher use
 				$results = $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
@@ -260,8 +260,83 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 } }';
 
 				// Eval code for display connect
-				$get_dlconnect = 'if (JAK_PLUGIN_ACCESS_DOWNLOAD && $pg[\'pluginid\'] == JAK_PLUGIN_ID_DOWNLOAD && !empty($row[\'showdownload\'])) {
-include_once APP_PATH.\'plugins/download/template/\'.$jkv[\"sitestyle\"].\'/page_news.php\';}';
+				$get_blconnect = '
+	$pluginbasic_connect = \'plugins/download/template/pages_news.php\';
+	$pluginsite_connect = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/download/pages_news.php\';
+	
+	if (JAK_PLUGIN_ACCESS_DOWNLOAD && $pg[\'pluginid\'] == JAK_PLUGIN_ID_DOWNLOAD && !empty($row[\'showdownload\'])) {
+		if (file_exists($pluginsite_connect)) {
+			include_once APP_PATH.$pluginsite_connect;
+		} else {
+			include_once APP_PATH.$pluginbasic_connect;
+		}
+	}
+    ';
+
+				$get_dlsidebar = '
+	$pluginbasic_sidebar = \'plugins/download/template/downloadsidebar.php\';
+	$pluginsite_sidebar = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/download/downloadsidebar.php\';
+	
+	if (file_exists($pluginsite_sidebar)) {
+		include_once APP_PATH.$pluginsite_sidebar;
+	} else {
+		include_once APP_PATH.$pluginbasic_sidebar;
+	}
+    ';
+
+				$get_dlsitemap = '
+	$pluginbasic_sitemap = \'plugins/download/template/sitemap.php\';
+	$pluginsite_sitemap = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/download/sitemap.php\';
+	
+	if (file_exists($pluginsite_sitemap)) {
+		include_once APP_PATH.$pluginsite_sitemap;
+	} else {
+		include_once APP_PATH.$pluginbasic_sitemap;
+	}
+    ';
+
+				$get_dlsearch = '
+	$pluginbasic_search = \'plugins/download/template/search.php\';
+	$pluginsite_search = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/download/search.php\';
+	
+	if (file_exists($pluginsite_search)) {
+		include_once APP_PATH.$pluginsite_search;
+	} else {
+		include_once APP_PATH.$pluginbasic_search;
+	}
+    ';
+
+				$get_dltag = '
+	$pluginbasic_tag = \'plugins/download/template/tag.php\';
+	$pluginsite_tag = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/download/tag.php\';
+	
+	if (file_exists($pluginsite_tag)) {
+		include_once APP_PATH.$pluginsite_tag;
+	} else {
+		include_once APP_PATH.$pluginbasic_tag;
+	}
+    ';
+
+				$get_dlfooter_widgets = '
+	$pluginbasic_fwidgets = \'plugins/download/template/footer_widget.php\';
+	$pluginsite_fwidgets = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/download/footer_widget.php\';
+	
+	if (file_exists($pluginsite_fwidgets)) {
+		include_once APP_PATH.$pluginsite_fwidgets;
+	} else {
+		include_once APP_PATH.$pluginbasic_fwidgets;
+	}
+    ';
+				$get_dlfooter_widgets1 = '
+	$pluginbasic_fwidgets1 = \'plugins/download/template/footer_widget1.php\';
+	$pluginsite_fwidgets1 = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/download/footer_widget1.php\';
+	
+	if (file_exists($pluginsite_fwidgets1)) {
+		include_once APP_PATH.$pluginsite_fwidgets1;
+	} else {
+		include_once APP_PATH.$pluginbasic_fwidgets1;
+	}
+    ';
 
 				$adminphpdelete = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'downloadcomments SET userid = 0 WHERE userid = \'.$page2.\'\');';
 
@@ -297,9 +372,9 @@ include_once APP_PATH.\'plugins/download/template/\'.$jkv[\"sitestyle\"].\'/page
 (NULL, "tpl_between_head", "Download CSS", "plugins/download/template/cssheader.php", "download", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup", "Download Usergroup New", "plugins/download/admin/template/usergroup_new.php", "download", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup_edit", "Download Usergroup Edit", "plugins/download/admin/template/usergroup_edit.php", "download", 1, 4, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_tags", "Download Tags", "plugins/download/template/tag.php", "download", 1, 4, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_sitemap", "Download Sitemap", "plugins/download/template/sitemap.php", "download", 1, 4, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_sidebar", "Download Sidebar Categories", "plugins/download/template/downloadsidebar.php", "download", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_tags", "Download Tags", "' . $get_dltag . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_sitemap", "Download Sitemap", "' . $get_dlsitemap . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_sidebar", "Download Sidebar Categories", "' . $get_dlsidebar . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_fulltext_add", "Download Full Text Search", "' . $sqlfull . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_fulltext_remove", "Download Remove Full Text Search", "' . $sqlfullremove . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_page_news", "Download Admin - Page/News", "' . $pages . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
@@ -308,12 +383,12 @@ include_once APP_PATH.\'plugins/download/template/\'.$jkv[\"sitestyle\"].\'/page
 (NULL, "php_admin_news_sql", "Download News SQL", "' . $sqlinsert . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_pages_news_info", "Download Pages/News Info", "' . $getdl . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_page_news_grid", "Download Pages/News Display", "' . $get_dlconnect . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_search", "Download Search", "plugins/download/template/search.php", "download", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_search", "Download Search", "' . $get_dlsearch . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_user_delete", "Download Delete User", "' . $adminphpdelete . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_user_rename", "Download Rename User", "' . $adminphprename . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_user_delete_mass", "Download Delete User Mass", "' . $adminphpmassdel . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_footer_widgets", "Download - 3 Latest Files", "plugins/download/template/footer_widget.php", "download", 1, 3, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_footer_widgets", "Download - Show Categories", "plugins/download/template/footer_widget1.php", "download", 1, 3, "' . $rows['id'] . '", NOW())');
+(NULL, "tpl_footer_widgets", "Download - 3 Latest Files", "' . $get_dlfooter_widgets . '", "download", 1, 3, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_footer_widgets", "Download - Show Categories", "' . $get_dlfooter_widgets1 . '", "download", 1, 3, "' . $rows['id'] . '", NOW())');
 
 				// Insert tables into settings
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
@@ -321,12 +396,13 @@ include_once APP_PATH.\'plugins/download/template/\'.$jkv[\"sitestyle\"].\'/page
 ("downloaddesc", "download", "Write something about your Download", "Write something about your Download", "textarea", "free", "download"),
 ("downloademail", "download", NULL, NULL, "input", "free", "download"),
 ("downloaddateformat", "download", "d.m.Y", "d.m.Y", "input", "free", "download"),
-("downloadtimeformat", "download", ": h:i A", ": h:i A", "input", "free", "download"),
+("downloadtimeformat", "download", NULL, NULL, "input", "free", "download"),
 ("downloadurl", "download", 0, 0, "yesno", "boolean", "download"),
 ("downloadmaxpost", "download", 2000, 2000, "input", "boolean", "download"),
 ("downloadpagemid", "download", 3, 3, "yesno", "number", "download"),
 ("downloadpageitem", "download", 4, 4, "yesno", "number", "download"),
 ("downloadpath", "download", NULL, NULL, "input", "free", "download"),
+("downloadpathext", "download", "zip,rar,jpg,png,bmp,pdf,doc,xml", "zip,rar,jpg,png,bmp,pdf,doc,xml", "textarea", "free", "download"),
 ("downloadorder", "download", "id ASC", "", "input", "free", "download"),
 ("downloadtwitter", "download", "", "", "input", "free", "download"),
 ("download_css", "download", "", "", "textarea", "free", "download"),

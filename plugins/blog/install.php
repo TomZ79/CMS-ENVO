@@ -122,7 +122,7 @@ if (file_exists(APP_PATH.'plugins/blog/admin/lang/'.$site_language.'.ini')) {
 			<hr>
 
 			<!-- Check if the plugin is already installed -->
-			<?php $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "UrlMapping"');
+			<?php $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blog"');
 			if ($jakdb->affected_rows > 0) { ?>
 
 				<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
@@ -256,13 +256,84 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
 	
 } }';
 				// Eval code for display connect
-				$get_blconnect = 'if (JAK_PLUGIN_ACCESS_BLOG && $pg[\'pluginid\'] == JAK_PLUGIN_ID_BLOG && !empty($row[\'showblog\'])) {
-include_once APP_PATH.\'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/pages_news.php\';}';
+				$get_blconnect = '
+	$pluginbasic_connect = \'plugins/blog/template/pages_news.php\';
+	$pluginsite_connect = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/pages_news.php\';
+	
+	if (JAK_PLUGIN_ACCESS_BLOG && $pg[\'pluginid\'] == JAK_PLUGIN_ID_BLOG && !empty($row[\'showblog\'])) {
+		if (file_exists($pluginsite_connect)) {
+			include_once APP_PATH.$pluginsite_connect;
+		} else {
+			include_once APP_PATH.$pluginbasic_connect;
+		}
+	}
+    ';
 
-				$get_blsidebar = 'include_once APP_PATH.\'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/blogsidebar.php\';';
-				$get_blsitemap = 'include_once APP_PATH.\'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/sitemap.php\';';
-				$get_blsearch = 'include_once APP_PATH.\'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/search.php\';';
+				$get_blsidebar = '
+	$pluginbasic_sidebar = \'plugins/blog/template/blogsidebar.php\';
+	$pluginsite_sidebar = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/blogsidebar.php\';
+	
+	if (file_exists($pluginsite_sidebar)) {
+		include_once APP_PATH.$pluginsite_sidebar;
+	} else {
+		include_once APP_PATH.$pluginbasic_sidebar;
+	}
+    ';
 
+				$get_blsitemap = '
+	$pluginbasic_sitemap = \'plugins/blog/template/sitemap.php\';
+	$pluginsite_sitemap = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/sitemap.php\';
+	
+	if (file_exists($pluginsite_sitemap)) {
+		include_once APP_PATH.$pluginsite_sitemap;
+	} else {
+		include_once APP_PATH.$pluginbasic_sitemap;
+	}
+    ';
+
+				$get_blsearch = '
+	$pluginbasic_search = \'plugins/blog/template/search.php\';
+	$pluginsite_search = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/search.php\';
+	
+	if (file_exists($pluginsite_search)) {
+		include_once APP_PATH.$pluginsite_search;
+	} else {
+		include_once APP_PATH.$pluginbasic_search;
+	}
+    ';
+
+				$get_bltag = '
+	$pluginbasic_tag = \'plugins/blog/template/tag.php\';
+	$pluginsite_tag = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/tag.php\';
+	
+	if (file_exists($pluginsite_tag)) {
+		include_once APP_PATH.$pluginsite_tag;
+	} else {
+		include_once APP_PATH.$pluginbasic_tag;
+	}
+    ';
+				$get_blfooter_widgets = '
+	$pluginbasic_fwidgets = \'plugins/blog/template/footer_widget.php\';
+	$pluginsite_fwidgets = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/footer_widget.php\';
+	
+	if (file_exists($pluginsite_fwidgets)) {
+		include_once APP_PATH.$pluginsite_fwidgets;
+	} else {
+		include_once APP_PATH.$pluginbasic_fwidgets;
+	}
+    ';
+				$get_blfooter_widgets1 = '
+	$pluginbasic_fwidgets1 = \'plugins/blog/template/footer_widget1.php\';
+	$pluginsite_fwidgets1 = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/footer_widget1.php\';
+	
+	if (file_exists($pluginsite_fwidgets1)) {
+		include_once APP_PATH.$pluginsite_fwidgets1;
+	} else {
+		include_once APP_PATH.$pluginbasic_fwidgets1;
+	}
+    ';
+
+				//
 				$adminphpdelete = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'blogcomments SET userid = 0 WHERE userid = \'.$page2.\'\');';
 
 				$adminphprename = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'blogcomments SET username = \"\'.smartsql($defaults[\'jak_username\']).\'\" WHERE userid = \'.smartsql($page2).\'\');';
@@ -277,9 +348,10 @@ include_once APP_PATH.\'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/p
 (NULL, "php_rss", "Blog RSS PHP", "' . $sitephprss . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_tags", "Blog Tags PHP", "' . $sitephptag . '", "blog", 1, 8, "' . $rows['id'] . '", NOW()),
 (NULL, "php_sitemap", "Blog Sitemap PHP", "' . $sitephpsitemap . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_between_head", "Blog Sitemap CSS", "plugins/blog/template/cssheader.php", "download", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup", "Blog Usergroup New", "plugins/blog/admin/template/usergroup_new.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup_edit", "Blog Usergroup Edit", "plugins/blog/admin/template/usergroup_edit.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_tags", "Blog Tags", "plugins/blog/template/tag.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_tags", "Blog Tags", "' . $get_bltag . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_sitemap", "Blog Sitemap", "' . $get_blsitemap . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_sidebar", "Blog Sidebar Categories", "' . $get_blsidebar . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_fulltext_add", "Blog Full Text Search", "' . $sqlfull . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
@@ -294,8 +366,8 @@ include_once APP_PATH.\'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/p
 (NULL, "php_admin_user_delete", "Blog Delete User", "' . $adminphpdelete . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_user_rename", "Blog Rename User", "' . $adminphprename . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_user_delete_mass", "Blog Delete User Mass", "' . $adminphpmassdel . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_footer_widgets", "Blog - 3 Latest Files", "plugins/blog/template/footer_widget.php", "blog", 1, 3, "' . $row['id'] . '", NOW()),
-(NULL, "tpl_footer_widgets", "Blog - Show Categories", "plugins/blog/template/footer_widget1.php", "blog", 1, 3, "' . $row['id'] . '", NOW())');
+(NULL, "tpl_footer_widgets", "Blog - 3 Latest Files", "' . $get_blfooter_widgets . '", "blog", 1, 3, "' . $row['id'] . '", NOW()),
+(NULL, "tpl_footer_widgets", "Blog - Show Categories", "' . $get_blfooter_widgets1 . '", "blog", 1, 3, "' . $row['id'] . '", NOW())');
 
 				// Insert tables into settings
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
@@ -303,7 +375,7 @@ include_once APP_PATH.\'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/p
 ("blogdesc", "blog", "Write something about your Blog", "Write something about your Blog", "textarea", "free", "blog"),
 ("blogemail", "blog", NULL, NULL, "input", "free", "blog"),
 ("blogdateformat", "blog", "d.m.Y", "d.m.Y", "input", "free", "blog"),
-("blogtimeformat", "blog", ": h:i A", ": h:i A", "input", "free", "blog"),
+("blogtimeformat", "blog", NULL, NULL, "input", "free", "blog"),
 ("blogurl", "blog", 0, 0, "yesno", "boolean", "blog"),
 ("blogmaxpost", "blog", 2000, 2000, "input", "boolean", "blog"),
 ("blogpagemid", "blog", 3, 3, "yesno", "number", "blog"),

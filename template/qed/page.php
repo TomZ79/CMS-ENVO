@@ -34,6 +34,7 @@
 							<p class="lead"><?php echo $tl["global_text"]["gtxt2"]; ?></p>
 							<!-- Show password form -->
 							<form class="form-inline" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+
 								<div class="input-group">
 									<input type="password" name="pagepass" class="form-control" value="" placeholder="<?php echo $tl["placeholder"]["plc2"]; ?>"/>
 									<span class="input-group-btn">

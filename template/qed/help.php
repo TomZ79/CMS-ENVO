@@ -39,6 +39,7 @@
           <li data-deeplink="getting-started" class="active">Getting Started</li>
           <li data-deeplink="folders-files">Folders-Files</li>
           <li data-deeplink="site-layout">Site Layout</li>
+          <li data-deeplink="jquery-plugins">Jquery Plugins</li>
         </ul>
       </li>
       <li>
@@ -116,6 +117,73 @@
       <!-- Site Layout -->
       <article>
         <h4>Site Layout</h4>
+
+      </article>
+
+      <!-- Jquery Plugins -->
+      <article>
+        <h4>Jquery Plugins</h4>
+        <h5>jQuery Easing v1.3</h5>
+        <hr>
+        <p><strong>Web: </strong><a href="http://gsgd.co.uk/sandbox/jquery/easing/" target="_blank">http://gsgd.co.uk/sandbox/jquery/easing/</a></p>
+
+        <h5>Bootstrap v3.2.0</h5>
+        <hr>
+        <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.</p>
+        <p><strong>Web: </strong><a href="http://getbootstrap.com" target="_blank">http://getbootstrap.com</a></p>
+
+        <h5>jQuery.appear</h5>
+        <hr>
+        <p><strong>Github: </strong><a href="https://github.com/bas2k/jquery.appear/" target="_blank">https://github.com/bas2k/jquery.appear/</a></p>
+
+        <h5>Isotope PACKAGED v2.0.1</h5>
+        <hr>
+        <p>Filter & sort magical layouts</p>
+        <p><strong>Web: </strong><a href="http://isotope.metafizzy.co" target="_blank">http://isotope.metafizzy.co</a></p>
+
+        <h5>Magnific Popup - v0.9.9 - 2013-12-27</h5>
+        <hr>
+        <p>Magnific Popup is a responsive lightbox & dialog script with focus on performance and providing best experience for user with any device
+          (for jQuery or Zepto.js).</p>
+        <p><strong>Web: </strong><a href="http://dimsemenov.com/plugins/magnific-popup/" target="_blank">http://dimsemenov.com/plugins/magnific-popup/</a></p>
+
+        <h5>jQuery Form Plugin v3.48.0-2013.12.28</h5>
+        <hr>
+        <p> The jQuery Form Plugin allows you to easily and unobtrusively upgrade HTML forms to use AJAX. The main methods, ajaxForm and ajaxSubmit, gather information from the form element to determine how to manage the submit process. Both of these methods support numerous options which allows you to have full control over how the data is submitted. Submitting a form with AJAX doesn't get any easier than this! </p>
+        <p><strong>Web: </strong><a href="http://malsup.com/jquery/form/" target="_blank">http://malsup.com/jquery/form/</a></p>
+
+        <h5>jQuery Validation Plugin - v1.10.0 - 9/7/2012</h5>
+        <hr>
+        <p>The jQuery Validation Plugin provides drop-in validation for your existing forms, while making all kinds of customizations to fit your application really easy.</p>
+        <p><strong>Github: </strong><a href="https://github.com/jzaefferer/jquery-validation" target="_blank">https://github.com/jzaefferer/jquery-validation</a></p>
+
+        <h5>jQuery OwlCarousel v1.3.3</h5>
+        <hr>
+        <p><strong>Web: </strong><a href="http://www.owlgraphic.com/owlcarousel/" target="_blank">http://www.owlgraphic.com/owlcarousel/</a></p>
+
+        <h5>Stellar.js v0.6.2</h5>
+        <hr>
+        <p><strong>Web: </strong><a href="http://markdalgleish.com/projects/stellar.js" target="_blank">http://markdalgleish.com/projects/stellar.js</a></p>
+
+        <h5>jquery.simplr.smoothscroll</h5>
+        <hr>
+        <p><strong>Github: </strong><a href="https://github.com/simov/simplr-smoothscroll" target="_blank">https://github.com/simov/simplr-smoothscroll</a></p>
+
+        <h5>Hammer.JS - v1.0.5 - 2013-04-07</h5>
+        <hr>
+        <p><strong>Github: </strong><a href="http://eightmedia.github.com/hammer.js" target="_blank">http://eightmedia.github.com/hammer.js</a></p>
+
+        <h5>Superslides - v0.6.3-wip - 2013-12-17</h5>
+        <hr>
+        <p><strong>Github: </strong><a href="https://github.com/nicinabox/superslides" target="_blank">https://github.com/nicinabox/superslides</a></p>
+
+        <h5>Swiper 2.6.1</h5>
+        <hr>
+        <p><strong>Web: </strong><a href="http://www.idangero.us/sliders/swiper/" target="_blank">http://www.idangero.us/sliders/swiper/</a></p>
+
+        <h5>jquery.mb.components</h5>
+        <hr>
+        <p><strong>Web: </strong><a href="http://pupunzi.com" target="_blank">http://pupunzi.com</a></p>
 
       </article>
 

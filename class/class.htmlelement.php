@@ -590,7 +590,7 @@ class HTML_Element
   {
 
     $name = (empty($name) ? '' : ' name="' . $name . '"');
-    $value = (empty($value) ? '' : ' value="' . $value . '"');
+    $value = ((empty($value) && $value != '0') ? '' : ' value="' . $value . '"');
     $id = (empty($id) ? '' : ' id="' . $id . '"');
     $class = (empty($class) ? '' : ' class="' . $class . '"');
 

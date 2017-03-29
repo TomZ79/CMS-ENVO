@@ -1,6 +1,7 @@
 <script src="assets/js/catorder.js" type="text/javascript"></script>
 <script src="assets/js/slug.js" type="text/javascript"></script>
-<script type="text/javascript">
+<script src="assets/plugins/ace/ace.js" type="text/javascript"></script>
+  <script type="text/javascript">
 	$(document).ready(function () {
 
 		/* Check all checkbox */
@@ -25,8 +26,6 @@
 
 	});
 </script>
-
-<script src="assets/plugins/ace/ace.js" type="text/javascript"></script>
 <script type="text/javascript">
 
 	/* ACE Editor
@@ -45,7 +44,7 @@
 			highlightActiveLine: <?php echo $jkv["aceactiveline"]; ?>,
 			// renderer options
 			showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
-			showGutter: <?php echo $jkv["acegutter"]; ?>,
+			showGutter: <?php echo $jkv["acegutter"]; ?>
 		});
 		// This is to remove following warning message on console:
 		// Automatically scrolling cursor into view after selection change this will be disabled in the next version
@@ -161,7 +160,7 @@
 			showClear: true,
 			// Other
 			ignoreReadonly: true,
-			keepInvalid: true,
+			keepInvalid: true
 		});
 
 		$('#datepickerTo').datetimepicker({

@@ -17,7 +17,7 @@ $jaktable3 = DB_PREFIX . 'contactform';
 $jaktable4 = DB_PREFIX . 'pagesgrid';
 $jaktable5 = DB_PREFIX . 'pluginhooks';
 
-// Get all the functions, well not many
+// Get all the functions
 include_once ("../plugins/download/admin/include/functions.php");
 
 // Now start with the plugin use a switch to access all pages
@@ -64,6 +64,10 @@ switch ($page1) {
 					$jakcon = '0';
 				}
 
+        if (!empty($defaults['jak_datetime'])) {
+          $finaltime = $defaults['jak_datetime'];
+        }
+
 				if (count ($errors) == 0) {
 
 					if (!empty($defaults['jak_img'])) {
@@ -97,6 +101,13 @@ switch ($page1) {
 						$insert .= 'password = "' . hash_hmac ('sha256', $defaults['jak_password'], DB_PASS_HASH) . '",';
 					}
 
+          // Save the time if available of download
+          if (!empty($finaltime)) {
+            $insert .= 'time = "' . smartsql ($finaltime) . '"';
+          } else {
+            $insert .= 'time = NOW()';
+          }
+
 					$result = $jakdb->query ('INSERT INTO ' . $jaktable . ' SET
 		catid = "' . smartsql ($defaults['jak_catid']) . '",
 		candownload = "' . smartsql ($permission) . '",
@@ -111,8 +122,7 @@ switch ($page1) {
 		comments = "' . smartsql ($comment) . '",
 		ftshare = "' . smartsql ($ftshare) . '",
 		socialbutton = "' . smartsql ($defaults['jak_social']) . '",
-		' . $insert . '
-		time = NOW()');
+		' . $insert);
 
 					$rowid = $jakdb->jak_last_id ();
 
@@ -196,8 +206,8 @@ switch ($page1) {
 
 		// EN: Title and Description
 		// CZ: Titulek a Popis
-		$SECTION_TITLE = $tld["dload"]["m2"];
-		$SECTION_DESC  = $tld["dload"]["t1"];
+		$SECTION_TITLE = $tld["downl_sec_title"]["downlt1"];
+		$SECTION_DESC  = $tld["downl_sec_title"]["downld1"];
 
 		// EN: Load the template
 		// CZ: Načti template (šablonu)
@@ -319,8 +329,8 @@ switch ($page1) {
 
 					// EN: Title and Description
 					// CZ: Titulek a Popis
-					$SECTION_TITLE = $tld["dload"]["m"] . ' - ' . '';
-					$SECTION_DESC  = $tl["cmdesc"]["d6"];
+					$SECTION_TITLE = $tld["downl_sec_title"]["downlt5"];
+					$SECTION_DESC  = $tld["downl_sec_desc"]["downld5"];
 
 					// EN: Load the template
 					// CZ: Načti template (šablonu)
@@ -397,8 +407,8 @@ switch ($page1) {
 
 				// EN: Title and Description
 				// CZ: Titulek a Popis
-				$SECTION_TITLE = $tld["dload"]["m"] . ' - ' . $tl["submenu"]["sm110"];
-				$SECTION_DESC  = $tl["cmdesc"]["d5"];
+				$SECTION_TITLE = $tld["downl_sec_title"]["downlt4"];
+				$SECTION_DESC  = $tld["downl_sec_desc"]["downld4"];
 
 				// EN: Load the template
 				// CZ: Načti template (šablonu)
@@ -437,11 +447,13 @@ switch ($page1) {
 					$catactive = $defaults['jak_active'];
 				}
 
-				if (!isset($defaults['jak_permission'])) {
-					$permission = 0;
-				} else {
-					$permission = join (',', $defaults['jak_permission']);
-				}
+        if (!isset($defaults['jak_permission'])) {
+          $permission = 0;
+        } elseif (in_array (0, $defaults['jak_permission'])) {
+          $permission = 0;
+        } else {
+          $permission = join (',', $defaults['jak_permission']);
+        }
 
 				if (!empty($defaults['jak_img'])) {
 					$insert = 'catimg = "' . smartsql ($defaults['jak_img']) . '",';
@@ -476,8 +488,8 @@ switch ($page1) {
 
 		// EN: Title and Description
 		// CZ: Titulek a Popis
-		$SECTION_TITLE = $tld["dload"]["m"] . ' - ' . '';
-		$SECTION_DESC  = $tl["cmdesc"]["d8"];
+		$SECTION_TITLE = $tld["downl_sec_title"]["downlt6"];
+		$SECTION_DESC  = $tld["downl_sec_desc"]["downld6"];
 
 		// EN: Load the template
 		// CZ: Načti template (šablonu)
@@ -558,8 +570,8 @@ switch ($page1) {
 
 				// EN: Title and Description
 				// CZ: Titulek a Popis
-				$SECTION_TITLE = $tld["dload"]["d20"];
-				$SECTION_DESC  = $tld["dload"]["t2"];
+				$SECTION_TITLE = $tld["downl_sec_title"]["downlt7"];
+				$SECTION_DESC  = $tld["downl_sec_desc"]["downld7"];
 
 				// EN: Load the template
 				// CZ: Načti template (šablonu)
@@ -591,8 +603,8 @@ switch ($page1) {
 
 					// EN: Title and Description
 					// CZ: Titulek a Popis
-					$SECTION_TITLE = $tld["dload"]["d20"];
-					$SECTION_DESC  = $tld["dload"]["t2"];
+          $SECTION_TITLE = $tld["downl_sec_title"]["downlt8"];
+          $SECTION_DESC  = $tld["downl_sec_desc"]["downld8"];
 
 					// EN: Load the template
 					// CZ: Načti template (šablonu)
@@ -651,8 +663,8 @@ switch ($page1) {
 
 				// EN: Title and Description
 				// CZ: Titulek a Popis
-				$SECTION_TITLE = $tld["dload"]["d19"];
-				$SECTION_DESC  = $tld["dload"]["t2"];
+        $SECTION_TITLE = $tld["downl_sec_title"]["downlt8"];
+        $SECTION_DESC  = $tld["downl_sec_desc"]["downld8"];
 
 				// EN: Load the template
 				// CZ: Načti template (šablonu)
@@ -688,7 +700,7 @@ switch ($page1) {
 			}
 
 			if (!empty($defaults['jak_path'])) {
-				if (!is_dir ($defaults['jak_path'])) {
+				if (!is_dir (APP_PATH . $defaults['jak_path'])) {
 					$errors['e6'] = $tl['error']['e22'];
 				}
 			}
@@ -708,6 +720,7 @@ switch ($page1) {
 		        WHEN "downloadtimeformat" THEN "' . smartsql ($defaults['jak_time']) . '"
 		        WHEN "downloadurl" THEN "' . smartsql ($defaults['jak_downloadurl']) . '"
 		        WHEN "downloadpath" THEN "' . smartsql ($defaults['jak_path']) . '"
+		        WHEN "downloadpathext" THEN "' . smartsql ($defaults['jak_extension']) . '"
 		        WHEN "downloadtwitter" THEN "' . smartsql ($defaults['jak_twitter']) . '"
 		        WHEN "downloadmaxpost" THEN "' . smartsql ($defaults['jak_maxpost']) . '"
 		        WHEN "downloadpagemid" THEN "' . smartsql ($defaults['jak_mid']) . '"
@@ -716,7 +729,7 @@ switch ($page1) {
 		        WHEN "download_css" THEN "' . smartsql ($defaults['jak_css']) . '"
 		        WHEN "download_javascript" THEN "' . smartsql ($defaults['jak_javascript']) . '"
 		    END
-				WHERE varname IN ("downloadtitle","downloaddesc","downloademail","downloadorder","downloaddateformat","downloadtimeformat","downloadurl","downloadpath","downloadtwitter","downloadmaxpost","downloadpagemid","downloadpageitem","downloadrss","download_css","download_javascript")');
+				WHERE varname IN ("downloadtitle","downloaddesc","downloademail","downloadorder","downloaddateformat","downloadtimeformat","downloadurl","downloadpath", "downloadpathext", "downloadtwitter","downloadmaxpost","downloadpagemid","downloadpageitem","downloadrss","download_css","download_javascript")');
 
 				// Save order for sidebar widget
 				if (isset($defaults['jak_hookshow_new']) && is_array ($defaults['jak_hookshow_new'])) {
@@ -847,8 +860,8 @@ switch ($page1) {
 
 		// EN: Title and Description
 		// CZ: Titulek a Popis
-		$SECTION_TITLE = $tld["dload"]["m"] . ' - ' . $tl["submenu"]["sm10"];
-		$SECTION_DESC  = $tl["cmdesc"]["d2"];
+    $SECTION_TITLE = $tld["downl_sec_title"]["downlt9"];
+    $SECTION_DESC  = $tld["downl_sec_desc"]["downld9"];
 
 		// EN: Load the template
 		// CZ: Načti template (šablonu)
@@ -911,8 +924,8 @@ switch ($page1) {
 
 		// EN: Title and Description
 		// CZ: Titulek a Popis
-		$SECTION_TITLE = $tld["dload"]["d18"];
-		$SECTION_DESC  = $tld["dload"]["t2"];
+    $SECTION_TITLE = $tld["downl_sec_title"]["downlt10"];
+    $SECTION_DESC  = $tld["downl_sec_desc"]["downld10"];
 
 		// EN: Load the template
 		// CZ: Načti template (šablonu)
@@ -942,8 +955,8 @@ switch ($page1) {
 
 					// EN: Title and Description
 					// CZ: Titulek a Popis
-					$SECTION_TITLE = $tld["dload"]["m1"];
-					$SECTION_DESC  = $tld["dload"]["t"];
+          $SECTION_TITLE = $tld["downl_sec_title"]["downlt2"];
+          $SECTION_DESC  = $tld["downl_sec_desc"]["downld2"];
 
 					// EN: Load the template
 					// CZ: Načti template (šablonu)
@@ -1062,9 +1075,13 @@ switch ($page1) {
 							$errors['e1'] = $tl['error']['e2'];
 						}
 
+            if (!empty($defaults['jak_datetime'])) {
+              $finaltime = $defaults['jak_datetime'];
+            }
+
 						if (count ($errors) == 0) {
 
-							if (!empty($defaults['jak_update_time'])) {
+              if (!empty($defaults['jak_update_time'])) {
 								$insert .= 'time = NOW(),';
 							}
 
@@ -1094,6 +1111,13 @@ switch ($page1) {
 							if ($defaults['jak_password']) {
 								$insert .= 'password = "' . hash_hmac ('sha256', $defaults['jak_password'], DB_PASS_HASH) . '",';
 							}
+
+              // Save the time if available of download
+              if (!empty($finaltime)) {
+                $insert .= 'time = "' . smartsql ($finaltime) . '",';
+              } else {
+                $insert .= 'time = NOW(),';
+              }
 
 							$result = $jakdb->query ('UPDATE ' . $jaktable . ' SET
 		catid = "' . smartsql ($defaults['jak_catid']) . '",
@@ -1256,8 +1280,8 @@ switch ($page1) {
 
 					// EN: Title and Description
 					// CZ: Titulek a Popis
-					$SECTION_TITLE = $tld["dload"]["m3"];
-					$SECTION_DESC  = $tld["dload"]["t3"];
+          $SECTION_TITLE = $tld["downl_sec_title"]["downlt3"];
+          $SECTION_DESC  = $tld["downl_sec_desc"]["downld3"];
 
 					// EN: Load the template
 					// CZ: Načti template (šablonu)
@@ -1343,8 +1367,8 @@ switch ($page1) {
 
 				// EN: Title and Description
 				// CZ: Titulek a Popis
-				$SECTION_TITLE = $tld["dload"]["m1"];
-				$SECTION_DESC  = $tld["dload"]["t"];
+        $SECTION_TITLE = $tld["downl_sec_title"]["downlt11"];
+        $SECTION_DESC  = $tld["downl_sec_desc"]["downld11"];
 
 				// EN: Load the template
 				// CZ: Načti template (šablonu)
@@ -1445,8 +1469,8 @@ switch ($page1) {
 
 				// EN: Title and Description
 				// CZ: Titulek a Popis
-				$SECTION_TITLE = $tld["dload"]["m1"];
-				$SECTION_DESC  = $tld["dload"]["t"];
+        $SECTION_TITLE = $tld["downl_sec_title"]["downlt"];
+        $SECTION_DESC  = $tld["downl_sec_desc"]["downld"];
 
 				// EN: Load the template
 				// CZ: Načti template (šablonu)

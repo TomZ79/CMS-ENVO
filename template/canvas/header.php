@@ -20,7 +20,7 @@ require_once 'config.php';
 	<!-- for Facebook -->
 	<meta property="og:title" content="<?php echo $PAGE_TITLE; ?>"/>
 	<meta property="og:type" content="article"/>
-	<meta property="og:image" content="<?php echo (($PAGE_IMAGE) ? $PAGE_IMAGE : $SHOWIMG); ?>"/>
+	<meta property="og:image" content="<?php echo (($PAGE_IMAGE) ? $PAGE_IMAGE : ($SHOWIMG) ? $SHOWIMG : $JAK_RANDOM_IMAGE ); ?>"/>
 	<meta property="og:description" content="<?php echo trim ($PAGE_DESCRIPTION); ?>"/>
 
 	<!-- for Twitter -->

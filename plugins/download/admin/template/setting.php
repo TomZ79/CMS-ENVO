@@ -114,7 +114,12 @@ if ($errors) { ?>
 											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-													<input type="text" name="jak_title" class="form-control" value="<?php echo $JAK_FORM_DATA["title"]; ?>"/>
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html->addInput('text', 'jak_title', $JAK_FORM_DATA["title"], '', 'form-control');
+                          ?>
+                          
 												</div>
 											</div>
 										</div>
@@ -128,7 +133,12 @@ if ($errors) { ?>
 
 											</div>
 											<div class="col-md-7">
-												<textarea name="jak_lcontent" class="form-control" rows="4"><?php echo jak_edit_safe_userpost ($JAK_FORM_DATA["content"]); ?></textarea>
+
+                        <?php
+                        // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+                        echo $Html->addTextarea('jak_lcontent', jak_edit_safe_userpost($JAK_FORM_DATA["content"]), '4', '', array('class' => 'form-control'));
+                        ?>
+
 											</div>
 										</div>
 										<div class="row-form">
@@ -142,7 +152,12 @@ if ($errors) { ?>
 											</div>
 											<div class="col-md-7">
 												<div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
-													<input class="form-control" type="text" name="jak_email" value="<?php echo $jkv["downloademail"]; ?>"/>
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html->addInput('text', 'jak_email', $jkv["downloademail"], '', 'form-control');
+                          ?>
+
 												</div>
 											</div>
 										</div>
@@ -157,21 +172,31 @@ if ($errors) { ?>
 											</div>
 											<div class="col-md-7">
 												<div class="row">
-													<div class="col-md-6">
-														<select name="jak_showdlordern" class="form-control selectpicker">
-															<option value="id"<?php if ($JAK_SETTING['showdlwhat'] == "id") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tld["dload"]["d22"]; ?></option>
-															<option value="name"<?php if ($JAK_SETTING['showdlwhat'] == "name") { ?> selected="selected"<?php } ?>><?php echo $tld["dload"]["d23"]; ?></option>
-															<option value="time"<?php if ($JAK_SETTING['showdlwhat'] == "time") { ?> selected="selected"<?php } ?>><?php echo $tld["dload"]["d24"]; ?></option>
-															<option value="hits"<?php if ($JAK_SETTING['showdlwhat'] == "hits") { ?> selected="selected"<?php } ?>><?php echo $tld["dload"]["d25"]; ?></option>
-															<option value="countdl"<?php if ($JAK_SETTING['showdlwhat'] == "countdl") { ?> selected="selected"<?php } ?>><?php echo $tld["dload"]["d9"]; ?></option>
-														</select>
-													</div>
-													<div class="col-md-6">
-														<select name="jak_showdlorder" class="form-control selectpicker">
-															<option value="ASC"<?php if ($JAK_SETTING['showdlorder'] == "ASC") { ?> selected="selected"<?php } else { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g90"]; ?></option>
-															<option value="DESC"<?php if ($JAK_SETTING['showdlorder'] == "DESC") { ?> selected="selected"<?php } ?>><?php echo $tl["general"]["g91"]; ?></option>
-														</select>
-													</div>
+                          <div class="col-md-6">
+                            <select name="jak_showdlordern" class="form-control selectpicker">
+
+                              <?php
+                              // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                              echo $Html->addOption('id', $tl["selection"]["sel9"], ($JAK_SETTING['showdlwhat'] == "id") ? TRUE : FALSE);
+                              echo $Html->addOption('name', $tl["selection"]["sel15"], ($JAK_SETTING['showdlwhat'] == "name") ? TRUE : FALSE);
+                              echo $Html->addOption('time', $tl["selection"]["sel11"], ($JAK_SETTING['showdlwhat'] == "time") ? TRUE : FALSE);
+                              echo $Html->addOption('hits', $tl["selection"]["sel12"], ($JAK_SETTING['showdlwhat'] == "hits") ? TRUE : FALSE);
+                              echo $Html->addOption('countdl', $tl["selection"]["sel16"], ($JAK_SETTING['showdlwhat'] == "countdl") ? TRUE : FALSE);
+                              ?>
+
+                            </select>
+                          </div>
+                          <div class="col-md-6">
+                            <select name="jak_showdlorder" class="form-control selectpicker">
+
+                              <?php
+                              // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                              echo $Html->addOption('ASC', $tl["selection"]["sel13"], ($JAK_SETTING['showdlorder'] == "ASC") ? TRUE : FALSE);
+                              echo $Html->addOption('DESC', $tl["selection"]["sel14"], ($JAK_SETTING['showdlorder'] == "DESC") ? TRUE : FALSE);
+                              ?>
+
+                            </select>
+                          </div>
 												</div>
 											</div>
 										</div>
@@ -185,7 +210,12 @@ if ($errors) { ?>
 
 											</div>
 											<div class="col-md-7">
-												<input type="text" name="jak_maxpost" class="form-control" value="<?php echo $jkv["downloadmaxpost"]; ?>"/>
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html->addInput('text', 'jak_maxpost', $jkv["downloadmaxpost"], '', 'form-control');
+                        ?>
+
 											</div>
 										</div>
 										<div class="row-form">
@@ -200,7 +230,19 @@ if ($errors) { ?>
 											</div>
 											<div class="col-md-7">
 												<div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
-													<input type="text" name="jak_date" class="form-control" value="<?php echo $jkv["downloaddateformat"]; ?>"/>
+													<select name="jak_date" class="form-control selectpicker" data-size="7">
+
+														<?php
+														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+														echo $Html->addOption('', $tl["selection"]["sel110"], ($jkv['downloaddateformat'] == '') ? TRUE : FALSE);
+
+														echo $Html->addOption('d.m.Y', 'd.m.Y (01.01.2017)', ($jkv['downloaddateformat'] == 'd.m.Y') ? TRUE : FALSE);
+														echo $Html->addOption('d F Y', 'd F Y (01 January 2017)', ($jkv['downloaddateformat'] == 'd F Y') ? TRUE : FALSE);
+														echo $Html->addOption('l m.Y', 'l m.Y (Monday 01.2017)', ($jkv['downloaddateformat'] == 'l m.Y') ? TRUE : FALSE);
+														echo $Html->addOption('l F Y', 'l F Y (Monday January 2017)', ($jkv['downloaddateformat'] == 'l F Y') ? TRUE : FALSE);
+														?>
+
+													</select>
 												</div>
 											</div>
 										</div>
@@ -215,7 +257,36 @@ if ($errors) { ?>
 											</div>
 											<div class="col-md-7">
 												<div class="form-group<?php if (isset($errors["e4"])) echo " has-error"; ?> no-margin">
-													<input type="text" name="jak_time" class="form-control" value="<?php echo $jkv["downloadtimeformat"]; ?>"/>
+													<select name="jak_time" class="form-control selectpicker" data-size="7">
+
+														<?php
+														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+														echo $Html->addOption('', $tl["selection"]["sel110"], ($jkv['downloadtimeformat'] == '') ? TRUE : FALSE);
+														?>
+
+														<optgroup label="<?php echo $tl["selection"]["sel111"]; ?>">
+
+															<?php
+															// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+															echo $Html->addOption(' - h:i A', ' - h:i A ( - 01:00 PM)', ($jkv['downloadtimeformat'] == ' - h:i A') ? TRUE : FALSE);
+															echo $Html->addOption(' - h:i:s A', ' - h:i:s A ( - 01:00:00 PM)', ($jkv['downloadtimeformat'] == ' - h:i:s A') ? TRUE : FALSE);
+															echo $Html->addOption(' - g:i A', ' - g:i A ( - 1:00 PM)', ($jkv['downloadtimeformat'] == ' - g:i A') ? TRUE : FALSE);
+															echo $Html->addOption(' - g:i:s A', ' - g:i:s A ( - 1:00:00 PM)', ($jkv['downloadtimeformat'] == ' - g:i:s A') ? TRUE : FALSE);
+															?>
+
+														</optgroup>
+														<optgroup label="<?php echo $tl["selection"]["sel112"]; ?>">
+
+															<?php
+															// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+															echo $Html->addOption(' - h:i', ' - h:i ( - 13:00)', ($jkv['downloadtimeformat'] == ' - h:i') ? TRUE : FALSE);
+															echo $Html->addOption(' - h:i:s', ' - h:i:s ( - 13:00:00)', ($jkv['downloadtimeformat'] == ' - h:i:s') ? TRUE : FALSE);
+															echo $Html->addOption(' - h:i:s T O', ' - h:i:s T O ( - 13:00:00 CEST +0200)', ($jkv['downloadtimeformat'] == ' - h:i:s T O') ? TRUE : FALSE);
+															?>
+
+														</optgroup>
+
+													</select>
 												</div>
 											</div>
 										</div>
@@ -229,14 +300,21 @@ if ($errors) { ?>
 
 											</div>
 											<div class="col-md-7">
-												<div class="radio">
-													<label class="checkbox-inline">
-														<input type="radio" name="jak_downloadurl" value="1"<?php if ($jkv["downloadurl"] == 1) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g18"]; ?>
-													</label>
-													<label class="checkbox-inline">
-														<input type="radio" name="jak_downloadurl" value="0"<?php if ($jkv["downloadurl"] == 0) { ?> checked="checked"<?php } ?> /> <?php echo $tl["general"]["g19"]; ?>
-													</label>
-												</div>
+                        <div class="radio radio-success">
+
+                          <?php
+                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                          echo $Html->addRadio('jak_downloadurl', '1', ($jkv["downloadurl"] == '1') ? TRUE : FALSE, 'jak_downloadurl1');
+                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                          echo $Html->addLabel('jak_downloadurl1', $tl["checkbox"]["chk"]);
+
+                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                          echo $Html->addRadio('jak_downloadurl', '0', ($jkv["downloadurl"] == '0') ? TRUE : FALSE, 'jak_downloadurl2');
+                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                          echo $Html->addLabel('jak_downloadurl2', $tl["checkbox"]["chk1"]);
+                          ?>
+
+                        </div>
 											</div>
 										</div>
 										<div class="row-form">
@@ -250,7 +328,12 @@ if ($errors) { ?>
 											</div>
 											<div class="col-md-7">
 												<div class="form-group<?php if (isset($errors["e7"])) echo " has-error"; ?> no-margin">
-													<input type="text" name="jak_rssitem" class="form-control" value="<?php echo $jkv["downloadrss"]; ?>"/>
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html->addInput('text', 'jak_rssitem', $jkv["downloadrss"], '', 'form-control');
+                          ?>
+
 												</div>
 											</div>
 										</div>
@@ -259,14 +342,74 @@ if ($errors) { ?>
 
 												<?php
 												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
 												echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc11"]);
+												echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help',  array ('data-content' => $tld["downl_help"]["downlh6"], 'data-original-title' => $tld["downl_help"]["downlh"]));
 												?>
 
 											</div>
 											<div class="col-md-7">
 												<div class="form-group<?php if (isset($errors["e6"])) echo " has-error"; ?> no-margin">
-													<input type="text" class="form-control" name="jak_path" value="<?php echo $jkv["downloadpath"]; ?>"/>
+
+													<?php
+													/* FUNCTION: showDir
+                           * DESCRIPTION: Creates a list options from all files, folders, and recursivly
+                           *     found files and subfolders. Echos all the options as they are retrieved
+                           * EXAMPLE: showDownloadPath(".") */
+													function showDownloadPath( $dir , $subdir = 0 ) {
+														if ( !is_dir( APP_PATH .  $dir ) ) { return false; }
+
+														global $jkv;
+														$scan = scandir( APP_PATH .  $dir );
+
+														foreach( $scan as $key => $val ) {
+															if ( $val[0] == "." ) { continue; }
+
+															if ( is_dir( APP_PATH . $dir . "/" . $val ) ) {
+																$path = $dir . "/" . $val;
+																if ($subdir == 0) {
+																	echo '<option value="' . $path . '"' . (($jkv["downloadpath"] == $path) ? 'selected' : '') . ' style="font-weight:bold">' . $val . '</span>' . "\n";
+																} else {
+																	echo '<option value="' . $path . '"' . (($jkv["downloadpath"] == $path) ? 'selected' : '') . '>' . str_repeat( '--', $subdir ) . $val . '</option>' . "\n";
+																}
+
+																if ( $val[0] !="." ) {
+																	showDownloadPath( $dir . "/" . $val , $subdir + 1 );
+																}
+															}
+														}
+
+														return true;
+													}
+													?>
+
+													<select name="jak_path" class="form-control selectpicker" data-size="7">
+
+														<?php
+														showDownloadPath ('_files');
+														?>
+
+													</select>
+
 												</div>
+											</div>
+										</div>
+										<div class="row-form">
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc48"]);
+												?>
+
+											</div>
+											<div class="col-md-7">
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html->addInput('text', 'jak_extension', $jkv["downloadpathext"], 'fileextension', 'form-control');
+                        ?>
+
 											</div>
 										</div>
 										<div class="row-form">
@@ -279,7 +422,12 @@ if ($errors) { ?>
 
 											</div>
 											<div class="col-md-7">
-												<input type="text" name="jak_twitter" class="form-control" value="<?php echo $jkv["downloadtwitter"]; ?>"/>
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html->addInput('text', 'jak_twitter', $jkv["downloadtwitter"], '', 'form-control');
+                        ?>
+
 											</div>
 										</div>
 									</div>
@@ -311,10 +459,12 @@ if ($errors) { ?>
 										<div class="row-form">
 											<div class="col-md-6">
 
-												<?php
-												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-												echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc13"]);
-												?>
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                        echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc13"]);
+                        echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help',  array ('data-content' => $tld["downl_help"]["downlh5"], 'data-original-title' => $tld["downl_help"]["downlh"]));
+                        ?>
 
 											</div>
 											<div class="col-md-6">
@@ -345,7 +495,12 @@ if ($errors) { ?>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group<?php if (isset($errors["e5"])) echo " has-error"; ?> no-margin">
-													<input type="text" name="jak_item" class="form-control" value="<?php echo $jkv["downloadpageitem"]; ?>"/>
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html->addInput('text', 'jak_item', $jkv["downloadpageitem"], '', 'form-control');
+                          ?>
+
 												</div>
 											</div>
 										</div>
@@ -377,10 +532,18 @@ if ($errors) { ?>
 
 							</div>
 							<div class="box-body">
-								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
-								<a href="javascript:;" id="addCssBlock"><?php echo $tl["general"]["g101"]; ?></a><br/>
-								<div id="csseditor"></div>
-								<textarea name="jak_css" class="form-control hidden" id="jak_css" rows="20"><?php echo $jkv["download_css"]; ?></textarea>
+
+                <?php
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html->addAnchor('../../../../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
+                echo $Html->addAnchor('javascript:;', $tl["global_text"]["globaltxt6"], 'addCssBlock');
+                echo '<br/>';
+                // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                echo $Html->addDiv('', 'csseditor');
+                // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+                echo $Html->addTextarea('jak_css', $jkv["download_css"], '20', '', array('id' => 'jak_css', 'class' => 'hidden'));
+                ?>
+
 							</div>
 							<div class="box-footer">
 
@@ -407,10 +570,18 @@ if ($errors) { ?>
 
 							</div>
 							<div class="box-body">
-								<a href="../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor" class="ifManager"><?php echo $tl["general"]["g69"]; ?></a>
-								<a href="javascript:;" id="addJavascriptBlock"><?php echo $tl["general"]["g102"]; ?></a><br/>
-								<div id="javaeditor"></div>
-								<textarea name="jak_javascript" class="form-control hidden" id="jak_javascript" rows="20"><?php echo $jkv["download_javascript"]; ?></textarea>
+
+                <?php
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html->addAnchor('../../../../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
+                echo $Html->addAnchor('javascript:;', $tl["global_text"]["globaltxt7"], 'addJavascriptBlock');
+                echo '<br/>';
+                // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                echo $Html->addDiv('', 'javaeditor');
+                // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+                echo $Html->addTextarea('jak_javascript', $jkv["download_javascript"], '20', '', array('id' => 'jak_javascript', 'class' => 'hidden'));
+                ?>
+
 							</div>
 							<div class="box-footer">
 

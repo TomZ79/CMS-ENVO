@@ -36,8 +36,8 @@ require_once 'config.php';
   <!-- for Facebook -->
   <meta property="og:title" content="<?php echo $PAGE_TITLE; ?>"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:url" content="https://www.creative-tim.com/"/>
-  <meta property="og:image" content="<?php echo(($PAGE_IMAGE) ? $PAGE_IMAGE : $SHOWIMG); ?>"/>
+  <meta property="og:url" content="<?php echo BASE_URL; ?>"/>
+  <meta property="og:image" content="<?php echo (($PAGE_IMAGE) ? $PAGE_IMAGE : ($SHOWIMG) ? $SHOWIMG : $JAK_RANDOM_IMAGE ); ?>"/>
   <meta property="og:description" content="<?php echo trim($PAGE_DESCRIPTION); ?>"/>
 
   <!-- for Twitter -->
@@ -150,7 +150,7 @@ echo $jkv["header_qed_tpl"]; ?> color-<?php echo $jkv["color_qed_tpl"]; ?>">
               <?php if ($jkv["phoneShow_qed_tpl"] == 1) { ?>
                 <div class="contact-phone">
                   <i class="icon-mobile"></i>
-                  <a href="tel:<?php echo $jkv["phoneLinks_qed_tpl"]; ?>"><?php echo $jkv["phoneLinks_qed_tpl"]; ?></span></a>
+                  <a href="tel:<?php echo $jkv["phoneLinks_qed_tpl"]; ?>"><span><?php echo $jkv["phoneLinks_qed_tpl"]; ?></span></a>
                 </div>
               <?php } ?>
 
@@ -198,7 +198,7 @@ echo $jkv["header_qed_tpl"]; ?> color-<?php echo $jkv["color_qed_tpl"]; ?>">
             <!-- / hamburger button -->
 
             <!-- Logo -->
-            <a class="navbar-brand" href="<?php echo BASE_URL; ?>"><img src="<?php echo $jkv["logo1_qed_tpl"]; ?>" alt="Q.E.D. website template"/></a>
+            <a class="navbar-brand" href="<?php echo BASE_URL; ?>"><img src="<?php echo $jkv["logo1_qed_tpl"]; ?>" alt=""/></a>
             <!-- /Logo -->
           </div>
           <div class="collapse navbar-collapse pull-right">

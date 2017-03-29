@@ -481,7 +481,7 @@ if ($errors) { ?>
 
 													<?php
 													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-													echo $Html->addInput('text', 'jak_tags', $_REQUEST["jak_tags"], 'jak_tags', 'form-control tags', array ('data-role' => 'tagsinput'));
+													echo $Html->addInput('text', 'jak_tags', (isset($_REQUEST["jak_tags"])) ? $_REQUEST["jak_tags"] : '', 'jak_tags', 'form-control tags', array ('data-role' => 'tagsinput'));
 													?>
 
 												</div>
@@ -531,7 +531,7 @@ if ($errors) { ?>
 								// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
 								echo $Html->addDiv('', 'csseditor');
 								// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-								echo $Html->addTextarea('jak_css', $_REQUEST["jak_css"], '', '', array('id' => 'jak_css', 'class' => 'hidden'));
+								echo $Html->addTextarea('jak_css', (isset($_REQUEST["jak_css"])) ? $_REQUEST["jak_css"] : '', '', '', array('id' => 'jak_css', 'class' => 'hidden'));
 								?>
 
 							</div>
@@ -569,7 +569,7 @@ if ($errors) { ?>
 								// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
 								echo $Html->addDiv('', 'javaeditor');
 								// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-								echo $Html->addTextarea('jak_javascript', $_REQUEST["jak_javascript"], '', '', array('id' => 'jak_javascript', 'class' => 'hidden'));
+								echo $Html->addTextarea('jak_javascript', (isset($_REQUEST["jak_javascript"])) ? $_REQUEST["jak_javascript"] : '', '', '', array('id' => 'jak_javascript', 'class' => 'hidden'));
 								?>
 
 							</div>

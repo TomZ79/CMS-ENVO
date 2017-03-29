@@ -256,6 +256,7 @@ $(window).on("load resize",function(e){
 	
 	if($('.superslides').length){
 		var $slides = $('.superslides');
+
 		Hammer($slides[0]).on("swipeleft", function(e) {
 			$slides.data('superslides').animate('next');
 		});

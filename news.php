@@ -74,7 +74,7 @@ switch ($page1) {
 				$PAGE_HITS                   = $row['hits'];
 				$PAGE_TIME                   = JAK_base::jakTimesince ($row['time'], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['general']['g56']);
 				$DATE_TIME                  = $row['time'];
-				$PAGE_TIME_HTML5             = date ("Y-m-d", strtotime ($row['time']));
+        $PAGE_TIME_HTML5             = date("Y-m-d T H:i:s P", strtotime($row['time']));
 				$JAK_HEATMAPLOC              = "news_" . $row['id'];
 
 				// Display contact form if whish so and do the caching

@@ -236,7 +236,7 @@ switch ($page1) {
 					$FAQ_HITS         = $row['hits'];
 
 					$PAGE_TIME       = JAK_Base::jakTimesince ($row['time'], $jkv["faqdateformat"], $jkv["faqtimeformat"], $tl['general']['g56']);
-					$PAGE_TIME_HTML5 = date ("Y-m-d", strtotime ($row['time']));
+          $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
 					// Display contact form if whish so and do the caching
 					$JAK_SHOW_C_FORM = false;

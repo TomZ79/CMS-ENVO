@@ -165,6 +165,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 								<td><?php echo date ("d.m.Y - H:i:s", strtotime ($v["time"])); ?></td>
 								<td><?php echo $v["hits"]; ?></td>
 								<td>
+
 									<?php
 									// Time Control - variable
 									$today       = date ("Y-m-d H:i:s"); // Today time
@@ -207,6 +208,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 										}
 									}
 									?>
+
 								</td>
 								<td>
 

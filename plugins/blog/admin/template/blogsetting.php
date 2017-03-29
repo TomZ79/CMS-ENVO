@@ -256,12 +256,19 @@ if ($page2 == "e") { ?>
 											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
+													<select name="jak_date" class="form-control selectpicker" data-size="7">
 
-													<?php
-													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-													echo $Html->addInput('text', 'jak_date', $jkv["blogdateformat"], '', 'form-control');
-													?>
+														<?php
+														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+														echo $Html->addOption('', $tl["selection"]["sel110"], ($jkv['blogdateformat'] == '') ? TRUE : FALSE);
 
+														echo $Html->addOption('d.m.Y', 'd.m.Y (01.01.2017)', ($jkv['blogdateformat'] == 'd.m.Y') ? TRUE : FALSE);
+														echo $Html->addOption('d F Y', 'd F Y (01 January 2017)', ($jkv['blogdateformat'] == 'd F Y') ? TRUE : FALSE);
+														echo $Html->addOption('l m.Y', 'l m.Y (Monday 01.2017)', ($jkv['blogdateformat'] == 'l m.Y') ? TRUE : FALSE);
+														echo $Html->addOption('l F Y', 'l F Y (Monday January 2017)', ($jkv['blogdateformat'] == 'l F Y') ? TRUE : FALSE);
+														?>
+
+													</select>
 												</div>
 											</div>
 										</div>
@@ -276,11 +283,36 @@ if ($page2 == "e") { ?>
 											</div>
 											<div class="col-md-7">
 												<div class="form-group no-margin<?php if (isset($errors["e4"])) echo " has-error"; ?>">
+													<select name="jak_time" class="form-control selectpicker" data-size="7">
 
-													<?php
-													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-													echo $Html->addInput('text', 'jak_time', $jkv["blogtimeformat"], '', 'form-control');
-													?>
+														<?php
+														// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+														echo $Html->addOption('', $tl["selection"]["sel110"], ($jkv['blogtimeformat'] == '') ? TRUE : FALSE);
+														?>
+
+														<optgroup label="<?php echo $tl["selection"]["sel111"]; ?>">
+
+															<?php
+															// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+															echo $Html->addOption(' - h:i A', ' - h:i A ( - 01:00 PM)', ($jkv['blogtimeformat'] == ' - h:i A') ? TRUE : FALSE);
+															echo $Html->addOption(' - h:i:s A', ' - h:i:s A ( - 01:00:00 PM)', ($jkv['blogtimeformat'] == ' - h:i:s A') ? TRUE : FALSE);
+															echo $Html->addOption(' - g:i A', ' - g:i A ( - 1:00 PM)', ($jkv['blogtimeformat'] == ' - g:i A') ? TRUE : FALSE);
+															echo $Html->addOption(' - g:i:s A', ' - g:i:s A ( - 1:00:00 PM)', ($jkv['blogtimeformat'] == ' - g:i:s A') ? TRUE : FALSE);
+															?>
+
+														</optgroup>
+														<optgroup label="<?php echo $tl["selection"]["sel112"]; ?>">
+
+															<?php
+															// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+															echo $Html->addOption(' - h:i', ' - h:i ( - 13:00)', ($jkv['blogtimeformat'] == ' - h:i') ? TRUE : FALSE);
+															echo $Html->addOption(' - h:i:s', ' - h:i:s ( - 13:00:00)', ($jkv['blogtimeformat'] == ' - h:i:s') ? TRUE : FALSE);
+															echo $Html->addOption(' - h:i:s T O', ' - h:i:s T O ( - 13:00:00 CEST +0200)', ($jkv['blogtimeformat'] == ' - h:i:s T O') ? TRUE : FALSE);
+															?>
+
+														</optgroup>
+
+													</select>
 
 												</div>
 											</div>
@@ -363,7 +395,9 @@ if ($page2 == "e") { ?>
 
 												<?php
 												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
 												echo $Html->addTag('strong', $tlblog["blog_box_content"]["blogbc11"]);
+												echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help',  array ('data-content' => $tlblog["blog_help"]["blogh3"], 'data-original-title' => $tlblog["blog_help"]["blogh"]));
 												?>
 
 											</div>

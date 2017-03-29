@@ -111,11 +111,19 @@ switch ($page1) {
 			$JAK_HEADER_CSS        = $jkv["blog_css"];
 			$JAK_FOOTER_JAVASCRIPT = $jkv["blog_javascript"];
 
-			// EN: Load the template
-			// CZ: Načti template (šablonu)
-			$plugin_template = 'template/' . $jkv["sitestyle"] . '/plugintemplate/blog/blog.php';
+      // EN: Load the template
+      // CZ: Načti template (šablonu)
+      $pluginbasic_template = 'plugins/download/blog/blog.php';
+      $pluginsite_template = 'template/' . $jkv["sitestyle"] . '/plugintemplate/blog/blog.php';
 
-		} else {
+      if (file_exists($pluginsite_template)) {
+        $plugin_template = $pluginsite_template;
+      } else {
+        $plugin_template = $pluginbasic_template;
+      }
+
+
+    } else {
 			jak_redirect ($backtoblog);
 		}
 
@@ -247,7 +255,7 @@ switch ($page1) {
 					$jkv["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
 
 					$PAGE_TIME       = JAK_Base::jakTimesince ($row['time'], $jkv["blogdateformat"], $jkv["blogtimeformat"], $tl['general']['g56']);
-					$PAGE_TIME_HTML5 = date ("Y-m-d", strtotime ($row['time']));
+          $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
 					// Display contact form if whish so and do the caching
 					$JAK_SHOW_C_FORM = false;
@@ -338,12 +346,18 @@ switch ($page1) {
 						$seoc = JAK_base::jakCleanurl ($rowc['varname']);
 					}
 
+          // EN: Create array with all categories ( Plugin Download have only one category for one download file, in array will be it only one category )
+          // CZ: Vytvoření pole se všemi kategoriemi ( Plugin Download má pouze jednu kategorie pro jeden stahovaný soubor, v poli bude jen jedna kategorie )
 					$catids[] = '<a class="category-label"  href="' . JAK_rewrite::jakParseurl (JAK_PLUGIN_VAR_BLOG, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tlblog["blog_frontend"]["blog1"] . '">' . $rowc['name'] . '</a>';
 
+          // EN: Get 'varname' for category
+          // CZ: Získaní 'varname' kategorie
 					$BLOG_CAT = $rowc['varname'];
 				}
 
 				if (!empty($catids)) {
+          // EN: Returns a string from the elements of an array
+          // CZ: Získání elementů z pole
 					$BLOG_CATLIST = join (" ", $catids);
 				}
 
@@ -361,9 +375,16 @@ switch ($page1) {
 		$PAGE_KEYWORDS    = str_replace (" ", "", JAK_Base::jakCleanurl ($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
 		$PAGE_DESCRIPTION = jak_cut_text ($PAGE_CONTENT, 155, '');
 
-		// EN: Load the template
-		// CZ: Načti template (šablonu)
-		$plugin_template = 'template/' . $jkv["sitestyle"] . '/plugintemplate/blog/blogart.php';
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
+    $pluginbasic_template = 'plugins/download/blog/blogart.php';
+    $pluginsite_template = 'template/' . $jkv["sitestyle"] . '/plugintemplate/blog/blogart.php';
+
+    if (file_exists($pluginsite_template)) {
+      $plugin_template = $pluginsite_template;
+    } else {
+      $plugin_template = $pluginbasic_template;
+    }
 
 		break;
 	case 'del':
@@ -521,8 +542,16 @@ switch ($page1) {
 		$JAK_HEADER_CSS        = $jkv["blog_css"];
 		$JAK_FOOTER_JAVASCRIPT = $jkv["blog_javascript"];
 
-		// EN: Load the template
-		// CZ: Načti template (šablonu)
-		$plugin_template = 'template/' . $jkv["sitestyle"] . '/plugintemplate/blog/blog.php';
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
+    $pluginbasic_template = 'plugins/download/blog/blog.php';
+    $pluginsite_template = 'template/' . $jkv["sitestyle"] . '/plugintemplate/blog/blog.php';
+
+    if (file_exists($pluginsite_template)) {
+      $plugin_template = $pluginsite_template;
+    } else {
+      $plugin_template = $pluginbasic_template;
+    }
+
 }
 ?>

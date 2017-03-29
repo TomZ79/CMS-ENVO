@@ -87,7 +87,7 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 			$lang   = $tl["cat"]["del"];
 			$title1 = $tl["icons"]["i5"];
 			$title2 = $tl["icons"]["i6"];
-			$title3 = $tld["dload"]["d32"];
+			$title3 = $tl["icons"]["i24"];
 			$title4 = $tl["icons"]["i2"];
 			$title5 = $tl["icons"]["i1"];
 
@@ -115,7 +115,7 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 			echo $Html->addTag('i', '', 'fa fa-plus', array('title' => $tl["icons"]["i7"]));
 			echo $Html->addTag('i', '', 'fa fa-check', array('title' => $tl["icons"]["i6"]));
 			echo $Html->addTag('i', '', 'fa fa-lock', array('title' => $tl["icons"]["i5"]));
-			echo $Html->addTag('i', '', 'fa fa-sticky-note-o', array('title' => $tl["dload"]["d32"]));
+			echo $Html->addTag('i', '', 'fa fa-sticky-note-o', array('title' => $tl["icons"]["i24"]));
 			echo $Html->addTag('i', '', 'fa fa-edit', array('title' => $tl["icons"]["i2"]));
 			echo $Html->addTag('i', '', 'fa fa-trash-o', array('title' => $tl["icons"]["i1"]));
 			?>

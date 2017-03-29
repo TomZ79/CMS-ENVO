@@ -284,14 +284,14 @@ switch ($page1) {
 						if (empty($defaults['jak_varname']) || !preg_match ('/^([a-z-_0-9]||[-_])+$/', $defaults['jak_varname'])) {
 							$errors['e3'] = $tl['error']['e14'];
 						}
+            if (!isset($defaults['jak_permission'])) {
+              $permission = 0;
+            } elseif (in_array (0, $defaults['jak_permission'])) {
+              $permission = 0;
+            } else {
+              $permission = join (',', $defaults['jak_permission']);
+            }
 
-						if (!isset($defaults['jak_permission'])) {
-							$permission = 0;
-						} elseif (in_array (0, $defaults['jak_permission'])) {
-							$permission = 0;
-						} else {
-							$permission = join (',', $defaults['jak_permission']);
-						}
 
 						if (count ($errors) == 0) {
 

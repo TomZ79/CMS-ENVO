@@ -149,6 +149,11 @@ label.checkbox-inline {
 
 /* XX. HEADER
 ========================================================================*/
+/* Logo */
+.navbar-brand {
+  padding: 15px 0;
+}
+
 /* Remove float for touch device in main menu */
 @media (max-width: 768px) {
   .navbar-collapse.pull-right {

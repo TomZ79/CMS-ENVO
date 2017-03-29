@@ -21,17 +21,21 @@
 .bootstrap-datetimepicker-widget ul > li {
   padding: 0;
 }
+
 .bootstrap-datetimepicker-widget table td span {
   margin: 0;
 }
+
 .bootstrap-datetimepicker-widget .datepicker {
   padding: 16px;
 }
+
 .bootstrap-datetimepicker-widget .datepicker table tr td.today {
   background-color: #CFF5F2;
   color: #626262;
   font-weight: 600;
 }
+
 .bootstrap-datetimepicker-widget .datepicker table tr td.today.active {
   color: #FFF;
 }
@@ -1113,6 +1117,18 @@ pre[class*="language-"] {
   border-radius: 0;
   overflow: auto;
   background: #FFF;
+}
+
+.bootstrap-tagsinput .tag.ext {
+  color: #626262;
+  margin: 0 4px 6px 0;
+  font-size: 11px;
+  padding: 0 4px 0 6px;
+  line-height: 17px;
+}
+
+.bootstrap-tagsinput .tag.ext [data-role="remove"]:hover::after {
+  color: #000;
 }
 
 .bootstrap-tagsinput .tag {

@@ -31,7 +31,7 @@ function jak_get_download ($limit, $order, $where, $table_row, $ext_seo, $timeag
 		$parseurl = JAK_rewrite::jakParseurl (JAK_PLUGIN_VAR_DOWNLOAD, 'f', $row['id'], $seo, '');
 
 		// collect each record into $jakdata
-		$jakdata[] = array ('id' => $row['id'], 'catid' => $row['catid'], 'title' => $row['title'], 'content' => jak_secure_site ($row['content']), 'contentshort' => $shortmsg, 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'created' => $getTime, 'comments' => $row['comments'], 'hits' => $row['hits'], 'totalcom' => $row['total'], 'previmg' => $row['previmg'], 'parseurl' => $parseurl);
+		$jakdata[] = array ('id' => $row['id'], 'catid' => $row['catid'], 'title' => $row['title'], 'content' => jak_secure_site ($row['content']), 'contentshort' => $shortmsg, 'countdl' => $row['countdl'], 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'created' => $getTime, 'comments' => $row['comments'], 'hits' => $row['hits'], 'totalcom' => $row['total'], 'previmg' => $row['previmg'], 'parseurl' => $parseurl);
 	}
 
 

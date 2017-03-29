@@ -123,33 +123,23 @@ function is_dir_empty($dir) {
 }
 
 // Get random image from folder
-function jak_get_random_image($img_path)
-{
-  $img_handle = opendir(APP_PATH . $img_path);
-  $exts = "/(.jpg)|(.jpeg)|(.gif)|(.png)$/i";
-
-  if (is_dir_empty($img_path)) {
-    $img_src = NULL;
-  } else {
-    while (false !== ($img_file = readdir($img_handle))) {
-      if (preg_match($exts, $img_file)) {
-        $img[] = $img_file;
+// http://www.dyn-web.com/code/random-image-php/
+function jak_get_random_image($path) {
+  $images = array();
+  if ( $img_dir = @opendir($path) ) {
+    while ( false !== ($img_file = readdir($img_dir)) ) {
+      // checks for gif, jpg, png
+      if ( preg_match("/(\.gif|\.jpg|\.png)$/", $img_file) ) {
+        $images[] = BASE_URL . $path . $img_file;
       }
     }
-
-    mt_srand();
-    $len = count($img) - 1;
-    $index = mt_rand(0, $len);
-    if (isset($img[$index])) {
-      $img_src = $img_path . $img[$index];
-    } else {
-      $img_src = NULL;
-    }
+    closedir($img_dir);
   }
-
-  return $img_src;
-  closedir($img_handle);
-
+  return $images;
+}
+function jak_get_random_from_array($ar) {
+  $num = array_rand($ar);
+  return $ar[$num];
 }
 
 // Get random line from text file

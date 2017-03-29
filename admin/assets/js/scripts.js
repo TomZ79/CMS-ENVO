@@ -366,6 +366,18 @@ $(function() {
 	$("input[name='jak_lcontent_meta_key']#jak_editor_light_meta_key").tagsinput({
 		confirmKeys: [13, 44, 32]
 	});
+
+	/* Init Booststrap TagsInput for metakey in ACP
+	 * confirm key code
+	 * 13 - enter
+	 * 44 - comma ' , '
+	 * 32 - space bar
+	 *
+	 */
+	$("input[name='jak_extension']#fileextension").tagsinput({
+		tagClass: 'label label-default ext',
+		confirmKeys: [13, 44, 32]
+	});
 });
 
 /* 00. JQUERY PASSY - Generating and analazing passwords, realtime.

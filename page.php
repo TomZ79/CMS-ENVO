@@ -40,7 +40,7 @@ $JAK_HEATMAPLOC              = "page_" . $row['id'];
 
 $PAGE_LOGIN_FORM = $row['showlogin'];
 $PAGE_TIME       = JAK_base::jakTimesince ($row['time'], $jkv["dateformat"], $jkv["timeformat"], $tl['general']['g56']);
-$PAGE_TIME_HTML5 = date ("Y-m-d", strtotime ($row['time']));
+$PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
 if (JAK_USERID) {
 	$PAGE_CONTENT = jak_render_string ($PAGE_CONTENT, array ('members' => JAK_USERID));
