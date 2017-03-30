@@ -34,27 +34,27 @@
   <nav>
     <ul id="sidebar">
       <li class="active">
-        <span>About QED Template</span>
+        <span>O šabloně QED</span>
         <ul>
           <li data-deeplink="getting-started" class="active">Getting Started</li>
-          <li data-deeplink="folders-files">Folders-Files</li>
-          <li data-deeplink="site-layout">Site Layout</li>
-          <li data-deeplink="jquery-plugins">Jquery Plugins</li>
+          <li data-deeplink="folders-files">Složky-Soubory</li>
+          <li data-deeplink="site-layout">Rozložení Stránky</li>
+          <li data-deeplink="jquery-plugins">Jquery Pluginy</li>
         </ul>
       </li>
       <li>
-        <span>HTML Structure</span>
+        <span>HTML Struktura</span>
         <ul>
-          <li data-deeplink="html-structure">HTML Structure</li>
+          <li data-deeplink="html-structure">HTML Struktura</li>
           <li data-deeplink="Slider">Slider</li>
-          <li data-deeplink="section">Section</li>
-          <li data-deeplink="shortcodes">Shortcodes and components</li>
-          <li data-deeplink="icons">Icons</li>
-          <li data-deeplink="xxxx">XXXX</li>
+          <li data-deeplink="section">Sekce</li>
+          <li data-deeplink="shortcodes">Kódy a komponenty</li>
+          <li data-deeplink="classes">Třídy</li>
+          <li data-deeplink="icons">Ikony</li>
         </ul>
       </li>
       <li>
-        <span>Plugins</span>
+        <span>Pluginy</span>
         <ul>
           <li data-deeplink="blog">Blog</li>
           <li data-deeplink="xxxx">XXXX</li>
@@ -108,23 +108,24 @@
 
       </article>
 
-      <!-- Folders and Files -->
+      <!-- Složky-Soubory -->
       <article>
-        <h4>Folders and Files</h4>
+        <h4>Složky-Soubory</h4>
 
       </article>
 
       <!-- Site Layout -->
       <article>
-        <h4>Site Layout</h4>
+        <h4>Rozložení Stránky</h4>
 
       </article>
 
       <!-- Jquery Plugins -->
       <article>
-        <h4>Jquery Plugins</h4>
+        <h4>Jquery Pluginy</h4>
         <h5>jQuery Easing v1.3</h5>
         <hr>
+        <p>A jQuery plugin from GSGD to give advanced easing options</p>
         <p><strong>Web: </strong><a href="http://gsgd.co.uk/sandbox/jquery/easing/" target="_blank">http://gsgd.co.uk/sandbox/jquery/easing/</a></p>
 
         <h5>Bootstrap v3.2.0</h5>
@@ -175,10 +176,12 @@
 
         <h5>Superslides - v0.6.3-wip - 2013-12-17</h5>
         <hr>
+        <p>Superslides is a full screen, hardware accelerated slider for jQuery. I wasn't happy with the state of full screen sliders, so naturally I built my own.</p>
         <p><strong>Github: </strong><a href="https://github.com/nicinabox/superslides" target="_blank">https://github.com/nicinabox/superslides</a></p>
 
         <h5>Swiper 2.6.1</h5>
         <hr>
+        <p>Swiper - is the free and most modern mobile touch slider with hardware accelerated transitions and amazing native behavior. It is intended to be used in mobile websites, mobile web apps, and mobile native/hybrid apps. Designed mostly for iOS, but also works great on latest Android, Windows Phone 8 and modern Desktop browsers</p>
         <p><strong>Web: </strong><a href="http://www.idangero.us/sliders/swiper/" target="_blank">http://www.idangero.us/sliders/swiper/</a></p>
 
         <h5>jquery.mb.components</h5>
@@ -194,7 +197,7 @@
 
       <!-- HTML Structure -->
       <article>
-        <h4>HTML Structure</h4>
+        <h4>HTML Struktura</h4>
         <p>This theme has a responsive layout with a variation of column layouts depending on the page. This theme uses <strong>TWITTER BOOTSTRAP 3</strong> Framework (12 columns) which will help streamline any customization you wish to make. </p>
         <p>Bootstrap includes a responsive, mobile first fluid grid system that appropriately scales up to 12 columns as the device or viewport size increases. It includes predefined classes for easy layout options. </p>
         <p>Grid systems are used for creating page layouts through a series of rows and columns that house your content. Here's how the Bootstrap grid system works: </p>
@@ -299,10 +302,24 @@
 
       <!-- Section -->
       <article>
-        <h4>Section</h4>
-        <h5>Basic Section</h5>
+        <h4>Sekce</h4>
+        <h5>Začátek a konec sekce</h5>
         <hr>
-        <p>Default section</p>
+        <p>Každá část sekce je organizována v oddíle, který lze kopírovat z jedné šablony do druhé.</p>
+        <pre name="code" class="brush: html;">
+
+<!-- Team -->
+<section>
+
+Code of the team section of the page
+
+</section>
+  <!-- Team -->
+
+        </pre>
+        <h5>Základní sekce</h5>
+        <hr>
+        <p>Každá sekce používá základní logiku z Bootstrap.</p>
         <pre name="code" class="brush: html;">
 
 <section>
@@ -323,17 +340,17 @@
         <p>Section with padding top-bottom. We have some <code>class=""</code> with padding.</p>
         <p>Padding TOP:</p>
         <ul>
-          <li><code>.pt</code> - padding-top: 24px;</li>
-          <li><code>.pt-large</code> - padding-top: 60px;</li>
-          <li><code>.pt-medium</code> - padding-top: 36px;</li>
-          <li><code>.pt-small</code> - padding-top: 16px;</li>
+          <li><code>.pt</code> - padding-top: 24px; (více v sekci <a href="#classes" data-goto="classes">Třídy</a>)</li>
+          <li><code>.pt-large</code> - padding-top: 60px; (více v sekci <a href="#classes" data-goto="classes">Třídy</a>)</li>
+          <li><code>.pt-medium</code> - padding-top: 36px; (více v sekci <a href="#classes" data-goto="classes">Třídy</a>)</li>
+          <li><code>.pt-small</code> - padding-top: 16px; (více v sekci <a href="#classes" data-goto="classes">Třídy</a>)</li>
         </ul>
         <p>Padding BOTTOM:</p>
         <ul>
-          <li><code>.pb</code> - padding-bottom: 24px;</li>
-          <li><code>.pb-large</code> - padding-bottom: 60px;</li>
-          <li><code>.pb-medium</code> - padding-bottom: 36px;</li>
-          <li><code>.pb-small</code> - padding-bottom: 16px;</li>
+          <li><code>.pb</code> - padding-bottom: 24px; (více v sekci <a href="#classes" data-goto="classes">Třídy</a>)</li>
+          <li><code>.pb-large</code> - padding-bottom: 60px; (více v sekci <a href="#classes" data-goto="classes">Třídy</a>)</li>
+          <li><code>.pb-medium</code> - padding-bottom: 36px; (více v sekci <a href="#classes" data-goto="classes">Třídy</a>)</li>
+          <li><code>.pb-small</code> - padding-bottom: 16px; (více v sekci <a href="#classes" data-goto="classes">Třídy</a>)</li>
         </ul>
         <pre name="code" class="brush: html;">
 
@@ -379,14 +396,281 @@
 
       <!-- Shortcodes and components -->
       <article>
-        <h4>Shortcodes and components</h4>
+        <h4>Kódy a komponenty</h4>
         <p>We have included all bootstrap shortcodes, classes and javascript plugins so that you can easly customize your theme. You can find a complete explanation of how it works <a href="http://getbootstrap.com/" target="_blank">here</a>
         </p>
       </article>
 
+      <!-- Classes -->
+      <article>
+        <h4>Třídy</h4>
+        <h5>Text</h5>
+        <hr>
+        <ul>
+          <li><code>.text-left</code> - zarovnání textu vlevo</li>
+          <li><code>.text-right</code> - zarovnání textu vpravo</li>
+          <li><code>.text-center</code> - zarovnání textu na střed</li>
+        </ul>
+
+        <h5>No Margin - No Padding (odstranění okrajů)</h5>
+        <hr>
+        <ul>
+          <li><code>.no-margin</code> - odstranění vnějších okrajů</li>
+          <li><code>.no-mt</code> - odstranění horního okraje</li>
+          <li><code>.no-mb</code> - odstranění spodního okraje</li>
+          <li><code>.no-padding</code> - odstranění vnitřních okrajů</li>
+          <li><code>.no-pb</code> - odstranění vnitřního horního okraje</li>
+          <li><code>.no-pt</code> - odstranění vnitřního spodního okraje</li>
+        </ul>
+        <h5>Margin (nastavení okrajů)</h5>
+        <hr>
+        <p><strong>Margin bottom (nastavení spodního okraje prvku)</strong></p>
+        <table class="table">
+          <tr>
+            <th>Třída</th>
+            <th>Popis</th>
+            <th>Velikost pro obrazovku DO 768px</th>
+            <th>Velikost pro obrazovku NAD 768px</th>
+          </tr>
+          <tr>
+            <td><code>.mb-small</code></td>
+            <td>Vnější spodní okraj</td>
+            <td>16px</td>
+            <td>16px</td>
+          </tr>
+          <tr>
+            <td><code>.mb</code></td>
+            <td>Vnější spodní okraj</td>
+            <td>24px</td>
+            <td>24px</td>
+          </tr>
+          <tr>
+            <td><code>.mb-medium</code></td>
+            <td>Vnější spodní okraj</td>
+            <td>48px</td>
+            <td>72px</td>
+          </tr>
+          <tr>
+            <td><code>.mb-large</code></td>
+            <td>Vnější spodní okraj</td>
+            <td>60px</td>
+            <td>120px</td>
+          </tr>
+        </table>
+        <p><strong>Třídy pouze pro mobilní a dotyková zařízení</strong></p>
+        <table class="table">
+          <tr>
+            <th>Třída</th>
+            <th>Popis</th>
+            <th>Velikost pro obrazovku DO 767px</th>
+          </tr>
+          <tr>
+            <td><code>.mb-xs</code></td>
+            <td>Vnější spodní okraj</td>
+            <td>24px</td>
+          </tr>
+        </table>
+        <table class="table">
+          <tr>
+            <th>Třída</th>
+            <th>Popis</th>
+            <th>Velikost pro obrazovku DO 991px</th>
+          </tr>
+          <tr>
+            <td><code>.mb-sm</code></td>
+            <td>Vnější spodní okraj</td>
+            <td>24px</td>
+          </tr>
+        </table>
+        <p><strong>Margin top (nastavení horního okraje prvku)</strong></p>
+        <table class="table">
+          <tr>
+            <th>Třída</th>
+            <th>Popis</th>
+            <th>Velikost pro obrazovku DO 768px</th>
+            <th>Velikost pro obrazovku NAD 768px</th>
+          </tr>
+          <tr>
+            <td><code>.mt-small</code></td>
+            <td>Vnější horní okraj</td>
+            <td>16px</td>
+            <td>16px</td>
+          </tr>
+          <tr>
+            <td><code>.mt</code></td>
+            <td>Vnější horní okraj</td>
+            <td>24px</td>
+            <td>24px</td>
+          </tr>
+          <tr>
+            <td><code>.mt-medium</code></td>
+            <td>Vnější horní okraj</td>
+            <td>36px</td>
+            <td>72px</td>
+          </tr>
+          <tr>
+            <td><code>.mt-large</code></td>
+            <td>Vnější horní okraj</td>
+            <td>60px</td>
+            <td>120px</td>
+          </tr>
+        </table>
+        <p><strong>Padding bottom (nastavení vnitřního spodního okraje prvku)</strong></p>
+        <table class="table">
+          <tr>
+            <th>Třída</th>
+            <th>Popis</th>
+            <th>Velikost pro obrazovku DO 768px</th>
+            <th>Velikost pro obrazovku NAD 768px</th>
+          </tr>
+          <tr>
+            <td><code>.pb-small</code></td>
+            <td>Vnitřní spodní okraj</td>
+            <td>16px</td>
+            <td>16px</td>
+          </tr>
+          <tr>
+            <td><code>.pb</code></td>
+            <td>Vnitřní spodní okraj</td>
+            <td>24px</td>
+            <td>24px</td>
+          </tr>
+          <tr>
+            <td><code>.pb-medium</code></td>
+            <td>Vnitřní spodní okraj</td>
+            <td>36px</td>
+            <td>72px</td>
+          </tr>
+          <tr>
+            <td><code>.pb-large</code></td>
+            <td>Vnitřní spodní okraj</td>
+            <td>60px</td>
+            <td>120px</td>
+          </tr>
+        </table>
+        <p><strong>Padding top (nastavení vnitřního horního okraje prvku)</strong></p>
+        <table class="table">
+          <tr>
+            <th>Třída</th>
+            <th>Popis</th>
+            <th>Velikost pro obrazovku DO 768px</th>
+            <th>Velikost pro obrazovku NAD 768px</th>
+          </tr>
+          <tr>
+            <td><code>.pt-small</code></td>
+            <td>Vnitřní horní okraj</td>
+            <td>16px</td>
+            <td>16px</td>
+          </tr>
+          <tr>
+            <td><code>.pt</code></td>
+            <td>Vnitřní horní okraj</td>
+            <td>24px</td>
+            <td>24px</td>
+          </tr>
+          <tr>
+            <td><code>.pt-medium</code></td>
+            <td>Vnitřní horní okraj</td>
+            <td>36px</td>
+            <td>72px</td>
+          </tr>
+          <tr>
+            <td><code>.pt-large</code></td>
+            <td>Vnitřní horní okraj</td>
+            <td>60px</td>
+            <td>120px</td>
+          </tr>
+        </table>
+        <h5>Border (rámečky)</h5>
+        <hr>
+        <table class="table">
+          <tr>
+            <th>Třída</th>
+            <th>Popis</th>
+            <th>Vlastnost</th>
+          </tr>
+          <tr>
+            <td><code>.no-border</code></td>
+            <td>Odstranění rámečků</td>
+            <td>border: none !important;</td>
+          </tr>
+        </table>
+        <h5>Ikony</h5>
+        <hr>
+        <p>Ukázka použití ikon</p>
+        <pre name="code" class="brush: html;">
+&lt;i class=&quot;icon-heart large circle&quot;&gt;&lt;/i&gt;
+        </pre>
+        <p><strong>Velikost ikon</strong></p>
+        <table class="table">
+          <tr>
+            <th>Třída</th>
+            <th>Popis</th>
+            <th>Vlastnost</th>
+          </tr>
+          <tr>
+            <td><code>.small</code></td>
+            <td>Velikost ikon</td>
+            <td>font-size: 10px;</td>
+          </tr>
+          <tr>
+            <td><code>.medium</code></td>
+            <td>Velikost ikon</td>
+            <td>font-size: 22px;</td>
+          </tr>
+          <tr>
+            <td><code>.large</code></td>
+            <td>Velikost ikon</td>
+            <td>font-size: 40px;</td>
+          </tr>
+          <tr>
+            <td><code>.x-large</code></td>
+            <td>Velikost ikon</td>
+            <td>font-size: 80px;</td>
+          </tr>
+        </table>
+        <p><strong>Design ikon</strong></p>
+        <table class="table">
+          <tr>
+            <th>Třída</th>
+            <th>Popis</th>
+            <th>Vlastnost</th>
+          </tr>
+          <tr>
+            <td><code>.squared</code></td>
+            <td>Design ikon - čtverec</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><code>.rounded</code></td>
+            <td>Design ikon - čtverec s kulatými rohy</td>
+            <td>border-radius: 4px;</td>
+          </tr>
+          <tr>
+            <td><code>.circle</code></td>
+            <td>Design ikon - kruh</td>
+            <td>border-radius: 50%;</td>
+          </tr>
+        </table>
+        <p><strong>Animace ikon</strong></p>
+        <table class="table">
+          <tr>
+            <th>Třída</th>
+            <th>Popis</th>
+            <th>Vlastnost</th>
+          </tr>
+          <tr>
+            <td><code>.animated</code></td>
+            <td>Animace - rotace</td>
+            <td>transform: rotate(360deg);</td>
+          </tr>
+        </table>
+
+      </article>
+
       <!-- Icons -->
       <article>
-        <h4>Custom Icons</h4>
+        <h4>Vlastní Ikony</h4>
         <p>Kromě dostupných ikon <strong>FontAwesome</strong> můžete použít vlastní ikony.</p>
 
         <hr>
@@ -772,12 +1056,6 @@
           <li><i class="icon-lemon"></i><span>icon-lemon</span></li>
           <li><i class="icon-plus"></i><span>icon-plus</span></li>
         </ul>
-      </article>
-
-      <!-- XXXX -->
-      <article>
-        <h4>XXXX</h4>
-
       </article>
 
     </section>
