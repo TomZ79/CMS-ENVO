@@ -10,7 +10,7 @@ $JAK_HOOK_SITEMAP = $jakhooks->jakGethook ("tpl_sitemap");
 // Get the url session
 $_SESSION['jak_lastURL'] = JAK_rewrite::jakParseurl (JAK_PLUGIN_VAR_SITEMAP, '', '', '', '');
 
-// Get the php hook for tags
+// Get the php hook for sitemap
 $hooksitemap = $jakhooks->jakGethook ("php_sitemap");
 if ($hooksitemap) {
 	foreach ($hooksitemap as $th) {

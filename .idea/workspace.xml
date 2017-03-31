@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4346a0f-85ec-4e4d-93d1-8c74a4b74471" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template/qed/plugintemplate/blog/footer_widget.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template/qed/plugintemplate/blog/footer_widget1.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/install.php" afterPath="$PROJECT_DIR$/plugins/belowheader/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/install.php" afterPath="$PROJECT_DIR$/plugins/blog/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/install.php" afterPath="$PROJECT_DIR$/plugins/download/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/install.php" afterPath="$PROJECT_DIR$/plugins/faq/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/install.php" afterPath="$PROJECT_DIR$/plugins/growl/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/install.php" afterPath="$PROJECT_DIR$/plugins/newsletter/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/openurl_blank/install.php" afterPath="$PROJECT_DIR$/plugins/openurl_blank/install.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/install.php" afterPath="$PROJECT_DIR$/plugins/register_form/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/site_editor/install.php" afterPath="$PROJECT_DIR$/plugins/site_editor/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/install.php" afterPath="$PROJECT_DIR$/plugins/urlmapping/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/install.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sitemap.php" afterPath="$PROJECT_DIR$/sitemap.php" />
     </list>
     <ignored path="CMS-Bluesat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,40 +41,78 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="install.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/openurl_blank/install.php">
+        <entry file="file://$PROJECT_DIR$/plugins/blog/install.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="149" column="0" selection-start-line="149" selection-start-column="0" selection-end-line="150" selection-end-column="37" />
+            <state relative-caret-position="1054">
+              <caret line="359" column="20" selection-start-line="359" selection-start-column="13" selection-end-line="359" selection-end-column="20" />
               <folding>
-                <marker date="1490981661420" expanded="true" signature="3850:3918" ph="SELECT id FR... ${DB_PREFIX}" />
-                <marker date="1490981661420" expanded="true" signature="4662:5051" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-                <marker date="1490981661420" expanded="true" signature="5133:5201" ph="SELECT id FR... ${DB_PREFIX}" />
-                <marker date="1490981661420" expanded="true" signature="5301:5578" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-                <marker date="1490981661420" expanded="true" signature="5716:5737" ph="..." />
-                <marker date="1490981661420" expanded="true" signature="5751:5797" ph="..." />
-                <marker date="1490981661420" expanded="true" signature="6188:6253" ph="DELETE FROM " />
+                <marker date="1490996923217" expanded="true" signature="4315:4374" ph="SELECT id FR... ${DB_PREFIX}" />
+                <marker date="1490996923217" expanded="true" signature="5379:5959" ph="INSERT INTO ${DB_PREFIX}plugins... " />
+                <marker date="1490996923217" expanded="true" signature="6151:6210" ph="SELECT id FR... ${DB_PREFIX}" />
+                <marker date="1490996923217" expanded="true" signature="15146:18594" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+                <marker date="1490996923217" expanded="true" signature="18721:19765" ph="INSERT INTO ${DB_PREFIX}setting... " />
+                <marker date="1490996923217" expanded="true" signature="19896:20393" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
+                <marker date="1490996923217" expanded="true" signature="20451:20542" ph="ALTER TABLE ${DB_PREFIX}pages... " />
+                <marker date="1490996923217" expanded="true" signature="20567:20657" ph="ALTER TABLE ${DB_PREFIX}news... " />
+                <marker date="1490996923217" expanded="true" signature="20682:20780" ph="ALTER TABLE ${DB_PREFIX}pagesgrid... " />
+                <marker date="1490996923217" expanded="true" signature="20840:20943" ph="ALTER TABLE ${DB_PREFIX}backup_content... " />
+                <marker date="1490996923217" expanded="true" signature="21116:21357" ph="INSERT INTO ${DB_PREFIX}categories... " />
+                <marker date="1490996923217" expanded="true" signature="21481:22439" ph="CREATE TABLE... IF" />
+                <marker date="1490996923217" expanded="true" signature="22569:23140" ph="CREATE TABLE... IF" />
+                <marker date="1490996923217" expanded="true" signature="23268:23996" ph="CREATE TABLE... IF" />
+                <marker date="1490996923217" expanded="true" signature="24135:24201" ph="ALTER TABLE ${DB_PREFIX}blog... " />
+                <marker date="1490996923217" expanded="true" signature="25095:25151" ph="DELETE FROM " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="install.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugins/faq/install.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="834">
+              <caret line="436" column="81" selection-start-line="436" selection-start-column="81" selection-end-line="436" selection-end-column="81" />
+              <folding>
+                <marker date="1490996979165" expanded="true" signature="4229:4287" ph="SELECT id FR... ${DB_PREFIX}" />
+                <marker date="1490996979165" expanded="true" signature="5287:5865" ph="INSERT INTO ${DB_PREFIX}plugins... " />
+                <marker date="1490996979165" expanded="true" signature="6057:6115" ph="SELECT id FR... ${DB_PREFIX}" />
+                <marker date="1490996979165" expanded="true" signature="14452:17706" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+                <marker date="1490996979165" expanded="true" signature="17833:18714" ph="INSERT INTO ${DB_PREFIX}setting... " />
+                <marker date="1490996979165" expanded="true" signature="18845:19331" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
+                <marker date="1490996979165" expanded="true" signature="19389:19479" ph="ALTER TABLE ${DB_PREFIX}pages... " />
+                <marker date="1490996979165" expanded="true" signature="19504:19593" ph="ALTER TABLE ${DB_PREFIX}news... " />
+                <marker date="1490996979165" expanded="true" signature="19618:19715" ph="ALTER TABLE ${DB_PREFIX}pagesgrid... " />
+                <marker date="1490996979165" expanded="true" signature="19888:20127" ph="INSERT INTO ${DB_PREFIX}categories... " />
+                <marker date="1490996979165" expanded="true" signature="20251:21020" ph="CREATE TABLE... IF" />
+                <marker date="1490996979165" expanded="true" signature="21150:21720" ph="CREATE TABLE... IF" />
+                <marker date="1490996979165" expanded="true" signature="21848:22483" ph="CREATE TABLE... IF" />
+                <marker date="1490996979165" expanded="true" signature="22621:22686" ph="ALTER TABLE ${DB_PREFIX}faq... " />
+                <marker date="1490996979165" expanded="true" signature="23576:23631" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="install.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/plugins/register_form/install.php">
+        <entry file="file://$PROJECT_DIR$/plugins/newsletter/install.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="148" column="6" selection-start-line="148" selection-start-column="6" selection-end-line="148" selection-end-column="6" />
+            <state relative-caret-position="2253">
+              <caret line="233" column="81" selection-start-line="233" selection-start-column="81" selection-end-line="233" selection-end-column="81" />
               <folding>
-                <marker date="1490981822272" expanded="true" signature="3758:3826" ph="SELECT id FR... ${DB_PREFIX}" />
-                <marker date="1490981822272" expanded="true" signature="4533:5227" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-                <marker date="1490981822272" expanded="true" signature="5307:5375" ph="SELECT id FR... ${DB_PREFIX}" />
-                <marker date="1490981822272" expanded="true" signature="9241:10878" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-                <marker date="1490981822272" expanded="true" signature="10938:11742" ph="INSERT INTO ${DB_PREFIX}setting... " />
-                <marker date="1490981822272" expanded="true" signature="11796:12076" ph="INSERT INTO ${DB_PREFIX}categories... " />
-                <marker date="1490981822272" expanded="true" signature="12127:12236" ph="ALTER TABLE ${DB_PREFIX}pages... " />
-                <marker date="1490981822272" expanded="true" signature="12260:12368" ph="ALTER TABLE ${DB_PREFIX}news... " />
-                <marker date="1490981822272" expanded="true" signature="12480:12908" ph="CREATE TABLE... ${DB_PREFIX}" />
-                <marker date="1490981822272" expanded="true" signature="12940:13182" ph="INSERT INTO ${DB_PREFIX}registeroptions... " />
-                <marker date="1490981822272" expanded="true" signature="13763:13828" ph="DELETE FROM " />
+                <marker date="1490997013187" expanded="true" signature="4277:4342" ph="SELECT id FR... ${DB_PREFIX}" />
+                <marker date="1490997013187" expanded="true" signature="5349:6057" ph="INSERT INTO ${DB_PREFIX}plugins... " />
+                <marker date="1490997013187" expanded="true" signature="6249:6314" ph="SELECT id FR... ${DB_PREFIX}" />
+                <marker date="1490997013187" expanded="true" signature="7899:9052" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+                <marker date="1490997013187" expanded="true" signature="9179:10323" ph="INSERT INTO ${DB_PREFIX}setting... " />
+                <marker date="1490997013187" expanded="true" signature="10380:10493" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
+                <marker date="1490997013187" expanded="true" signature="10546:10657" ph="ALTER TABLE ${DB_PREFIX}user... " />
+                <marker date="1490997013187" expanded="true" signature="10830:11083" ph="INSERT INTO ${DB_PREFIX}categories... " />
+                <marker date="1490997013187" expanded="true" signature="11214:11709" ph="CREATE TABLE... IF" />
+                <marker date="1490997013187" expanded="true" signature="11854:12155" ph="CREATE TABLE... IF" />
+                <marker date="1490997013187" expanded="true" signature="12298:12408" ph="INSERT INTO ${DB_PREFIX}newslettergroup... " />
+                <marker date="1490997013187" expanded="true" signature="12553:12996" ph="CREATE TABLE... IF" />
+                <marker date="1490997013187" expanded="true" signature="13143:13669" ph="CREATE TABLE... IF" />
+                <marker date="1490997013187" expanded="true" signature="14558:14620" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
@@ -74,7 +126,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/plugins/register_form/admin/template/rf_connect.php" />
         <option value="$PROJECT_DIR$/plugins/register_form/admin/template/rf_connect_new.php" />
         <option value="$PROJECT_DIR$/plugins/register_form/admin/template/rfcreate.php" />
         <option value="$PROJECT_DIR$/plugins/register_form/admin/template/stat.php" />
@@ -110,20 +161,21 @@
         <option value="$PROJECT_DIR$/plugins/faq/admin/lang/cs.ini" />
         <option value="$PROJECT_DIR$/plugins/faq/admin/template/faqcomment.php" />
         <option value="$PROJECT_DIR$/plugins/faq/admin/template/faqcommentsort.php" />
-        <option value="$PROJECT_DIR$/plugins/blog/install.php" />
-        <option value="$PROJECT_DIR$/plugins/belowheader/install.php" />
-        <option value="$PROJECT_DIR$/plugins/growl/install.php" />
-        <option value="$PROJECT_DIR$/plugins/newsletter/install.php" />
-        <option value="$PROJECT_DIR$/plugins/site_editor/install.php" />
-        <option value="$PROJECT_DIR$/plugins/urlmapping/install.php" />
-        <option value="$PROJECT_DIR$/plugins/xml_seo/install.php" />
         <option value="$PROJECT_DIR$/plugins/download/download.php" />
         <option value="$PROJECT_DIR$/plugins/faq/faq.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/install.php" />
-        <option value="$PROJECT_DIR$/plugins/download/install.php" />
         <option value="$PROJECT_DIR$/plugins/faq/css/style.css" />
         <option value="$PROJECT_DIR$/plugins/openurl_blank/openurlhead.php" />
         <option value="$PROJECT_DIR$/plugins/openurl_blank/install.php" />
+        <option value="$PROJECT_DIR$/plugins/site_editor/install.php" />
+        <option value="$PROJECT_DIR$/plugins/belowheader/install.php" />
+        <option value="$PROJECT_DIR$/plugins/growl/install.php" />
+        <option value="$PROJECT_DIR$/plugins/urlmapping/install.php" />
+        <option value="$PROJECT_DIR$/sitemap.php" />
+        <option value="$PROJECT_DIR$/plugins/xml_seo/install.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/install.php" />
+        <option value="$PROJECT_DIR$/plugins/download/install.php" />
+        <option value="$PROJECT_DIR$/plugins/faq/install.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/install.php" />
         <option value="$PROJECT_DIR$/plugins/register_form/install.php" />
       </list>
     </option>
@@ -219,18 +271,12 @@
               <option name="myItemId" value="template" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemId" value="qed" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
+              <option name="myItemId" value="plugintemplate" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -241,68 +287,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="register_form" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="openurl_blank" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="faq" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="faq" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -323,14 +307,6 @@
               <option name="myItemId" value="plugins" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="faq" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -346,7 +322,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="download" />
+              <option name="myItemId" value="newsletter" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -363,11 +339,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Github\CMS-Bluesat\template\qed\plugintemplate\blog" />
       <recent name="D:\Github\CMS-Bluesat\plugins\faq\template" />
       <recent name="D:\Github\CMS-Bluesat\template\qed\plugintemplate\faq" />
       <recent name="D:\Github\CMS-Bluesat\template\qed\plugintemplate\register_form" />
       <recent name="D:\Github\CMS-Bluesat\plugins\register_form\template" />
-      <recent name="D:\Github\CMS-Bluesat\template\qed\plugintemplate\download" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Github\CMS-Bluesat\plugins\download\template" />
@@ -450,12 +426,12 @@
       <workItem from="1490764117989" duration="20770000" />
       <workItem from="1490884409913" duration="21000" />
       <workItem from="1490884627666" duration="17286000" />
-      <workItem from="1490940996796" duration="25866000" />
+      <workItem from="1490940996796" duration="40773000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="378533000" />
+    <option name="totallyTimeSpent" value="393440000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
@@ -521,70 +497,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/template/editpage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="737" column="88" selection-start-line="737" selection-start-column="88" selection-end-line="737" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/newnews.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="624" column="82" selection-start-line="624" selection-start-column="74" selection-end-line="624" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/newpage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="604" column="82" selection-start-line="604" selection-start-column="74" selection-end-line="604" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/editfaq.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="396" column="20" selection-start-line="396" selection-start-column="20" selection-end-line="396" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/download/admin/template/trash.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="54" column="59" selection-start-line="54" selection-start-column="52" selection-end-line="54" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/lang/cs.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="98" column="19" selection-start-line="98" selection-start-column="19" selection-end-line="98" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/download/admin/template/downloadnav.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-804">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/faqnav.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="63" column="42" selection-start-line="63" selection-start-column="42" selection-end-line="63" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/download/admin/template/catsort.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="474">
@@ -657,98 +569,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/blog/install.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6496">
-          <caret line="493" column="10" selection-start-line="493" selection-start-column="10" selection-end-line="493" selection-end-column="10" />
-          <folding>
-            <marker date="1490977504459" expanded="true" signature="3768:3827" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490977504459" expanded="true" signature="4565:5145" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1490977504459" expanded="true" signature="5225:5284" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490977504459" expanded="true" signature="12223:15671" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1490977504459" expanded="true" signature="15731:16775" ph="INSERT INTO ${DB_PREFIX}setting... " />
-            <marker date="1490977504459" expanded="true" signature="16829:17326" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
-            <marker date="1490977504459" expanded="true" signature="17381:17472" ph="ALTER TABLE ${DB_PREFIX}pages... " />
-            <marker date="1490977504459" expanded="true" signature="17496:17586" ph="ALTER TABLE ${DB_PREFIX}news... " />
-            <marker date="1490977504459" expanded="true" signature="17610:17708" ph="ALTER TABLE ${DB_PREFIX}pagesgrid... " />
-            <marker date="1490977504459" expanded="true" signature="17765:17868" ph="ALTER TABLE ${DB_PREFIX}backup_content... " />
-            <marker date="1490977504459" expanded="true" signature="17916:18157" ph="INSERT INTO ${DB_PREFIX}categories... " />
-            <marker date="1490977504459" expanded="true" signature="18189:19147" ph="CREATE TABLE... IF" />
-            <marker date="1490977504459" expanded="true" signature="19179:19750" ph="CREATE TABLE... IF" />
-            <marker date="1490977504459" expanded="true" signature="19782:20510" ph="CREATE TABLE... IF" />
-            <marker date="1490977504459" expanded="true" signature="20643:20709" ph="ALTER TABLE ${DB_PREFIX}blog... " />
-            <marker date="1490977504459" expanded="true" signature="21298:21354" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/belowheader/install.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="210" column="10" selection-start-line="210" selection-start-column="10" selection-end-line="210" selection-end-column="10" />
-          <folding>
-            <marker date="1490977574439" expanded="true" signature="3754:3820" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490977574439" expanded="true" signature="4552:5123" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1490977574439" expanded="true" signature="5188:5254" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490977574439" expanded="true" signature="5850:6370" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1490977574439" expanded="true" signature="6402:7151" ph="CREATE TABLE... IF" />
-            <marker date="1490977574439" expanded="true" signature="7730:7793" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/growl/install.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="210" column="10" selection-start-line="210" selection-start-column="10" selection-end-line="210" selection-end-column="10" />
-          <folding>
-            <marker date="1490978024212" expanded="true" signature="3741:3801" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490978024212" expanded="true" signature="4536:5061" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1490978024212" expanded="true" signature="5141:5201" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490978024212" expanded="true" signature="5745:6224" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1490978024212" expanded="true" signature="6256:7476" ph="CREATE TABLE... IF" />
-            <marker date="1490978024212" expanded="true" signature="8056:8113" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/newsletter/install.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="272" column="10" selection-start-line="272" selection-start-column="10" selection-end-line="272" selection-end-column="10" />
-          <folding>
-            <marker date="1490978089492" expanded="true" signature="3736:3801" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490978089492" expanded="true" signature="4541:5249" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1490978089492" expanded="true" signature="5329:5394" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490978089492" expanded="true" signature="6266:7419" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1490978089492" expanded="true" signature="7479:8623" ph="INSERT INTO ${DB_PREFIX}setting... " />
-            <marker date="1490978089492" expanded="true" signature="8677:8790" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
-            <marker date="1490978089492" expanded="true" signature="8840:8951" ph="ALTER TABLE ${DB_PREFIX}user... " />
-            <marker date="1490978089492" expanded="true" signature="8999:9252" ph="INSERT INTO ${DB_PREFIX}categories... " />
-            <marker date="1490978089492" expanded="true" signature="9284:9779" ph="CREATE TABLE... IF" />
-            <marker date="1490978089492" expanded="true" signature="9811:10112" ph="CREATE TABLE... IF" />
-            <marker date="1490978089492" expanded="true" signature="10144:10254" ph="INSERT INTO ${DB_PREFIX}newslettergroup... " />
-            <marker date="1490978089492" expanded="true" signature="10286:10729" ph="CREATE TABLE... IF" />
-            <marker date="1490978089492" expanded="true" signature="10761:11287" ph="CREATE TABLE... IF" />
-            <marker date="1490978089492" expanded="true" signature="11874:11936" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/site_editor/install.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="190" column="0" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
-          <folding>
-            <marker date="1490978255997" expanded="true" signature="4230:4296" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490978255997" expanded="true" signature="5036:5643" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1490978255997" expanded="true" signature="5723:5789" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490978255997" expanded="true" signature="6247:6513" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1490978255997" expanded="true" signature="7100:7163" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/faq/admin/lang/cs.ini">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-9">
@@ -757,41 +577,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/urlmapping/install.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="222" column="10" selection-start-line="222" selection-start-column="10" selection-end-line="222" selection-end-column="10" />
-          <folding>
-            <marker date="1490978296946" expanded="true" signature="4406:4471" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490978296946" expanded="true" signature="5208:5770" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1490978296946" expanded="true" signature="5850:5915" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490978296946" expanded="true" signature="6397:6781" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1490978296946" expanded="true" signature="6813:7297" ph="CREATE TABLE... IF" />
-            <marker date="1490978296946" expanded="true" signature="7881:7943" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/download/admin/lang/cs.ini">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
           <caret line="165" column="0" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="60" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/xml_seo/install.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="203" column="10" selection-start-line="203" selection-start-column="10" selection-end-line="203" selection-end-column="10" />
-          <folding>
-            <marker date="1490978338508" expanded="true" signature="4235:4297" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490978338508" expanded="true" signature="5032:5600" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1490978338508" expanded="true" signature="5680:5742" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490978338508" expanded="true" signature="6186:6443" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1490978338508" expanded="true" signature="6503:7050" ph="INSERT INTO ${DB_PREFIX}setting... " />
-            <marker date="1490978338508" expanded="true" signature="7632:7691" ph="DELETE FROM " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -991,87 +781,319 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/install.php">
+    <entry file="file://$PROJECT_DIR$/plugins/growl/uninstall.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-170">
-          <caret line="349" column="34" selection-start-line="349" selection-start-column="31" selection-end-line="349" selection-end-column="34" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1490979608293" expanded="true" signature="3688:3746" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490979608293" expanded="true" signature="4479:5057" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1490979608293" expanded="true" signature="5137:5195" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490979608293" expanded="true" signature="11649:14903" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1490979608293" expanded="true" signature="14963:15844" ph="INSERT INTO ${DB_PREFIX}setting... " />
-            <marker date="1490979608293" expanded="true" signature="15898:16384" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
-            <marker date="1490979608293" expanded="true" signature="16439:16529" ph="ALTER TABLE ${DB_PREFIX}pages... " />
-            <marker date="1490979608293" expanded="true" signature="16553:16642" ph="ALTER TABLE ${DB_PREFIX}news... " />
-            <marker date="1490979608293" expanded="true" signature="16666:16763" ph="ALTER TABLE ${DB_PREFIX}pagesgrid... " />
-            <marker date="1490979608293" expanded="true" signature="16811:17050" ph="INSERT INTO ${DB_PREFIX}categories... " />
-            <marker date="1490979608293" expanded="true" signature="17082:17851" ph="CREATE TABLE... IF" />
-            <marker date="1490979608293" expanded="true" signature="17883:18453" ph="CREATE TABLE... IF" />
-            <marker date="1490979608293" expanded="true" signature="18485:19120" ph="CREATE TABLE... IF" />
-            <marker date="1490979608293" expanded="true" signature="19252:19317" ph="ALTER TABLE ${DB_PREFIX}faq... " />
-            <marker date="1490979608293" expanded="true" signature="19903:19958" ph="DELETE FROM " />
+            <marker date="1489950123222" expanded="true" signature="3978:4038" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1489950123222" expanded="true" signature="4126:4183" ph="DELETE FROM " />
+            <marker date="1489950123222" expanded="true" signature="4209:4273" ph="DELETE FROM " />
+            <marker date="1489950123222" expanded="true" signature="4299:4332" ph="DROP TABLE $... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/download/install.php">
+    <entry file="file://$PROJECT_DIR$/admin/usergroup.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="320" column="11" selection-start-line="320" selection-start-column="11" selection-end-line="320" selection-end-column="11" />
+        <state relative-caret-position="273">
+          <caret line="65" column="13" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
           <folding>
-            <marker date="1490979999142" expanded="true" signature="4370:4433" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490979999142" expanded="true" signature="5170:5854" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1490979999142" expanded="true" signature="5934:5997" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490979999142" expanded="true" signature="13303:16969" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1490979999142" expanded="true" signature="17029:18463" ph="INSERT INTO ${DB_PREFIX}setting... " />
-            <marker date="1490979999142" expanded="true" signature="18517:19134" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
-            <marker date="1490979999142" expanded="true" signature="19189:19284" ph="ALTER TABLE ${DB_PREFIX}pages... " />
-            <marker date="1490979999142" expanded="true" signature="19308:19402" ph="ALTER TABLE ${DB_PREFIX}news... " />
-            <marker date="1490979999142" expanded="true" signature="19426:19524" ph="ALTER TABLE ${DB_PREFIX}pagesgrid... " />
-            <marker date="1490979999142" expanded="true" signature="19572:19821" ph="INSERT INTO ${DB_PREFIX}categories... " />
-            <marker date="1490979999142" expanded="true" signature="19853:20983" ph="CREATE TABLE... IF" />
-            <marker date="1490979999142" expanded="true" signature="21015:21589" ph="CREATE TABLE... IF" />
-            <marker date="1490979999142" expanded="true" signature="21621:22263" ph="CREATE TABLE... IF" />
-            <marker date="1490979999142" expanded="true" signature="22295:22773" ph="CREATE TABLE... IF" />
-            <marker date="1490979999142" expanded="true" signature="22910:22980" ph="ALTER TABLE ${DB_PREFIX}download... " />
-            <marker date="1490979999142" expanded="true" signature="23570:23630" ph="DELETE FROM " />
+            <marker date="1487947772439" expanded="true" signature="2257:2539" ph="INSERT INTO ${$jaktable}... " />
+            <marker date="1487947772439" expanded="true" signature="3837:3905" ph="DELETE FROM " />
+            <marker date="1487947772439" expanded="true" signature="5740:5807" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/openurl_blank/install.php">
+    <entry file="file://$PROJECT_DIR$/sitemap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="149" column="0" selection-start-line="149" selection-start-column="0" selection-end-line="150" selection-end-column="37" />
+        <state relative-caret-position="204">
+          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
           <folding>
-            <marker date="1490981661420" expanded="true" signature="3850:3918" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490981661420" expanded="true" signature="4662:5051" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1490981661420" expanded="true" signature="5133:5201" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490981661420" expanded="true" signature="5301:5578" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1490981661420" expanded="true" signature="5716:5737" ph="..." />
-            <marker date="1490981661420" expanded="true" signature="5751:5797" ph="..." />
-            <marker date="1490981661420" expanded="true" signature="6188:6253" ph="DELETE FROM " />
+            <marker date="1490987893883" expanded="true" signature="903:1045" ph="SELECT id, h... ${DB_PREFIX}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="66" column="46" selection-start-line="66" selection-start-column="46" selection-end-line="66" selection-end-column="46" />
+          <folding>
+            <marker date="1489519145515" expanded="true" signature="2542:3775" ph="INSERT INTO ${$jaktable}... " />
+            <marker date="1489519145515" expanded="true" signature="4063:4213" ph="INSERT INTO ${$jaktable3}... " />
+            <marker date="1489519145515" expanded="true" signature="4878:5114" ph="INSERT INTO ${$jaktable3}... " />
+            <marker date="1489519145515" expanded="true" signature="6340:6478" ph="SELECT id, n... ${$jaktable5}" />
+            <marker date="1489519145515" expanded="true" signature="9302:9373" ph="SELECT * FRO... ${$jaktable}" />
+            <marker date="1489519145515" expanded="true" signature="9896:9964" ph="DELETE FROM " />
+            <marker date="1489519145515" expanded="true" signature="10097:10170" ph="DELETE FROM " />
+            <marker date="1489519145515" expanded="true" signature="11329:11428" ph="DELETE FROM " />
+            <marker date="1489519145515" expanded="true" signature="11455:11553" ph="DELETE FROM " />
+            <marker date="1489519145515" expanded="true" signature="13283:13359" ph="SELECT conte... ${$jaktable}" />
+            <marker date="1489519145515" expanded="true" signature="13438:13594" ph="INSERT INTO ${$jaktable6}... " />
+            <marker date="1489519145515" expanded="true" signature="15246:15396" ph="INSERT INTO ${$jaktable3}... " />
+            <marker date="1489519145515" expanded="true" signature="16125:16361" ph="INSERT INTO ${$jaktable3}... " />
+            <marker date="1489519145515" expanded="true" signature="17158:17250" ph="SELECT id FR... ${$jaktable3}" />
+            <marker date="1489519145515" expanded="true" signature="17345:17434" ph="DELETE FROM " />
+            <marker date="1489519145515" expanded="true" signature="17933:18025" ph="SELECT plugi... ${$jaktable3}" />
+            <marker date="1489519145515" expanded="true" signature="18457:18524" ph="DELETE FROM " />
+            <marker date="1489519145515" expanded="true" signature="21283:21415" ph="SELECT id, p... ${$jaktable3}" />
+            <marker date="1489519145515" expanded="true" signature="21610:21748" ph="SELECT id, n... ${$jaktable5}" />
+            <marker date="1489519145515" expanded="true" signature="22147:22255" ph="DELETE FROM " />
+            <marker date="1489519145515" expanded="true" signature="22324:22432" ph="SELECT id, t... " />
+            <marker date="1489519145515" expanded="true" signature="25350:25419" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/blog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1490632633564" expanded="true" signature="2207:2416" ph="SELECT COUNT... ${$jaktable}" />
+            <marker date="1490632633564" expanded="true" signature="3148:3239" ph="SELECT name,... ${$jaktable1}" />
+            <marker date="1490632633564" expanded="true" signature="3505:3659" ph="SELECT id, h... ${DB_PREFIX}" />
+            <marker date="1490632633564" expanded="true" signature="5966:6254" ph="INSERT INTO ${$jaktable2}... " />
+            <marker date="1490632633564" expanded="true" signature="6512:6824" ph="INSERT INTO ${$jaktable2}... " />
+            <marker date="1490632633564" expanded="true" signature="8798:8978" ph="SELECT * FRO... ${$jaktable}" />
+            <marker date="1490632633564" expanded="true" signature="12203:12336" ph="SELECT id, h... ${DB_PREFIX}" />
+            <marker date="1490632633564" expanded="true" signature="13455:13554" ph="SELECT id, n... ${$jaktable1}" />
+            <marker date="1490632633564" expanded="true" signature="15533:15602" ph="DELETE FROM " />
+            <marker date="1490632633564" expanded="true" signature="17256:17356" ph="SELECT usern... ${$jaktable2}" />
+            <marker date="1490632633564" expanded="true" signature="19449:19603" ph="SELECT id, h... ${DB_PREFIX}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/growl/install.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="198" column="26" selection-start-line="198" selection-start-column="13" selection-end-line="198" selection-end-column="26" />
+          <folding>
+            <marker date="1490986061928" expanded="true" signature="4282:4342" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490986061928" expanded="true" signature="5344:5869" ph="INSERT INTO ${DB_PREFIX}plugins... " />
+            <marker date="1490986061928" expanded="true" signature="6061:6121" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490986061928" expanded="true" signature="7204:7683" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+            <marker date="1490986061928" expanded="true" signature="7804:9024" ph="CREATE TABLE... IF" />
+            <marker date="1490986061928" expanded="true" signature="9907:9964" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plugins/register_form/install.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="148" column="6" selection-start-line="148" selection-start-column="6" selection-end-line="148" selection-end-column="6" />
+        <state relative-caret-position="-722">
+          <caret line="322" column="81" selection-start-line="322" selection-start-column="81" selection-end-line="322" selection-end-column="81" />
           <folding>
-            <marker date="1490981822272" expanded="true" signature="3758:3826" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490981822272" expanded="true" signature="4533:5227" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1490981822272" expanded="true" signature="5307:5375" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490981822272" expanded="true" signature="9241:10878" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1490981822272" expanded="true" signature="10938:11742" ph="INSERT INTO ${DB_PREFIX}setting... " />
-            <marker date="1490981822272" expanded="true" signature="11796:12076" ph="INSERT INTO ${DB_PREFIX}categories... " />
-            <marker date="1490981822272" expanded="true" signature="12127:12236" ph="ALTER TABLE ${DB_PREFIX}pages... " />
-            <marker date="1490981822272" expanded="true" signature="12260:12368" ph="ALTER TABLE ${DB_PREFIX}news... " />
-            <marker date="1490981822272" expanded="true" signature="12480:12908" ph="CREATE TABLE... ${DB_PREFIX}" />
-            <marker date="1490981822272" expanded="true" signature="12940:13182" ph="INSERT INTO ${DB_PREFIX}registeroptions... " />
-            <marker date="1490981822272" expanded="true" signature="13763:13828" ph="DELETE FROM " />
+            <marker date="1490997026555" expanded="true" signature="4250:4318" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490997026555" expanded="true" signature="5319:6013" ph="INSERT INTO ${DB_PREFIX}plugins... " />
+            <marker date="1490997026555" expanded="true" signature="6205:6273" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490997026555" expanded="true" signature="10949:12586" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+            <marker date="1490997026555" expanded="true" signature="12713:13517" ph="INSERT INTO ${DB_PREFIX}setting... " />
+            <marker date="1490997026555" expanded="true" signature="13690:13970" ph="INSERT INTO ${DB_PREFIX}categories... " />
+            <marker date="1490997026555" expanded="true" signature="14024:14133" ph="ALTER TABLE ${DB_PREFIX}pages... " />
+            <marker date="1490997026555" expanded="true" signature="14158:14266" ph="ALTER TABLE ${DB_PREFIX}news... " />
+            <marker date="1490997026555" expanded="true" signature="14459:14887" ph="CREATE TABLE... ${DB_PREFIX}" />
+            <marker date="1490997026555" expanded="true" signature="15030:15272" ph="INSERT INTO ${DB_PREFIX}registeroptions... " />
+            <marker date="1490997026555" expanded="true" signature="16155:16220" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/openurl_blank/install.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="183" column="0" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
+          <folding>
+            <marker date="1490985719861" expanded="true" signature="4397:4465" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490985719861" expanded="true" signature="5531:5920" ph="INSERT INTO ${DB_PREFIX}plugins... " />
+            <marker date="1490985719861" expanded="true" signature="6118:6186" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490985719861" expanded="true" signature="6667:6932" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+            <marker date="1490985719861" expanded="true" signature="7872:7937" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/download/install.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="477" column="81" selection-start-line="477" selection-start-column="81" selection-end-line="477" selection-end-column="81" />
+          <folding>
+            <marker date="1490996967057" expanded="true" signature="5096:5159" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490996967057" expanded="true" signature="6163:6847" ph="INSERT INTO ${DB_PREFIX}plugins... " />
+            <marker date="1490996967057" expanded="true" signature="7039:7102" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490996967057" expanded="true" signature="16406:20072" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+            <marker date="1490996967057" expanded="true" signature="20199:21633" ph="INSERT INTO ${DB_PREFIX}setting... " />
+            <marker date="1490996967057" expanded="true" signature="21764:22381" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
+            <marker date="1490996967057" expanded="true" signature="22439:22534" ph="ALTER TABLE ${DB_PREFIX}pages... " />
+            <marker date="1490996967057" expanded="true" signature="22559:22653" ph="ALTER TABLE ${DB_PREFIX}news... " />
+            <marker date="1490996967057" expanded="true" signature="22678:22776" ph="ALTER TABLE ${DB_PREFIX}pagesgrid... " />
+            <marker date="1490996967057" expanded="true" signature="22949:23198" ph="INSERT INTO ${DB_PREFIX}categories... " />
+            <marker date="1490996967057" expanded="true" signature="23324:24454" ph="CREATE TABLE... IF" />
+            <marker date="1490996967057" expanded="true" signature="24585:25159" ph="CREATE TABLE... IF" />
+            <marker date="1490996967057" expanded="true" signature="25287:25929" ph="CREATE TABLE... IF" />
+            <marker date="1490996967057" expanded="true" signature="26073:26551" ph="CREATE TABLE... IF" />
+            <marker date="1490996967057" expanded="true" signature="26694:26764" ph="ALTER TABLE ${DB_PREFIX}download... " />
+            <marker date="1490996967057" expanded="true" signature="27658:27718" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/site_editor/install.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="209" column="23" selection-start-line="209" selection-start-column="23" selection-end-line="209" selection-end-column="23" />
+          <folding>
+            <marker date="1490985744236" expanded="true" signature="4913:4979" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490985744236" expanded="true" signature="5986:6593" ph="INSERT INTO ${DB_PREFIX}plugins... " />
+            <marker date="1490985744236" expanded="true" signature="6785:6851" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490985744236" expanded="true" signature="7734:8000" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+            <marker date="1490985744236" expanded="true" signature="8889:8952" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/urlmapping/install.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="228" column="16" selection-start-line="228" selection-start-column="16" selection-end-line="228" selection-end-column="16" />
+          <folding>
+            <marker date="1490986186495" expanded="true" signature="5132:5197" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490986186495" expanded="true" signature="6201:6763" ph="INSERT INTO ${DB_PREFIX}plugins... " />
+            <marker date="1490986186495" expanded="true" signature="6955:7020" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490986186495" expanded="true" signature="8035:8418" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+            <marker date="1490986186495" expanded="true" signature="8523:9007" ph="CREATE TABLE... IF" />
+            <marker date="1490986186495" expanded="true" signature="9893:9955" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/xml_seo/install.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="217" column="0" selection-start-line="217" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
+          <folding>
+            <marker date="1490996758315" expanded="true" signature="4918:4980" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490996758315" expanded="true" signature="5982:6550" ph="INSERT INTO ${DB_PREFIX}plugins... " />
+            <marker date="1490996758315" expanded="true" signature="6742:6804" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490996758315" expanded="true" signature="7673:7931" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+            <marker date="1490996758315" expanded="true" signature="8058:8606" ph="INSERT INTO ${DB_PREFIX}setting... " />
+            <marker date="1490996758315" expanded="true" signature="9490:9549" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/belowheader/install.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="220" column="0" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
+          <folding>
+            <marker date="1490985832377" expanded="true" signature="4295:4361" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490985832377" expanded="true" signature="5360:5931" ph="INSERT INTO ${DB_PREFIX}plugins... " />
+            <marker date="1490985832377" expanded="true" signature="6106:6172" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490985832377" expanded="true" signature="7307:7827" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+            <marker date="1490985832377" expanded="true" signature="7932:8681" ph="CREATE TABLE... IF" />
+            <marker date="1490985832377" expanded="true" signature="9562:9625" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/qed/plugintemplate/blog/footer_widget.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/install.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="359" column="20" selection-start-line="359" selection-start-column="13" selection-end-line="359" selection-end-column="20" />
+          <folding>
+            <marker date="1490996923217" expanded="true" signature="4315:4374" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490996923217" expanded="true" signature="5379:5959" ph="INSERT INTO ${DB_PREFIX}plugins... " />
+            <marker date="1490996923217" expanded="true" signature="6151:6210" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490996923217" expanded="true" signature="15146:18594" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+            <marker date="1490996923217" expanded="true" signature="18721:19765" ph="INSERT INTO ${DB_PREFIX}setting... " />
+            <marker date="1490996923217" expanded="true" signature="19896:20393" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
+            <marker date="1490996923217" expanded="true" signature="20451:20542" ph="ALTER TABLE ${DB_PREFIX}pages... " />
+            <marker date="1490996923217" expanded="true" signature="20567:20657" ph="ALTER TABLE ${DB_PREFIX}news... " />
+            <marker date="1490996923217" expanded="true" signature="20682:20780" ph="ALTER TABLE ${DB_PREFIX}pagesgrid... " />
+            <marker date="1490996923217" expanded="true" signature="20840:20943" ph="ALTER TABLE ${DB_PREFIX}backup_content... " />
+            <marker date="1490996923217" expanded="true" signature="21116:21357" ph="INSERT INTO ${DB_PREFIX}categories... " />
+            <marker date="1490996923217" expanded="true" signature="21481:22439" ph="CREATE TABLE... IF" />
+            <marker date="1490996923217" expanded="true" signature="22569:23140" ph="CREATE TABLE... IF" />
+            <marker date="1490996923217" expanded="true" signature="23268:23996" ph="CREATE TABLE... IF" />
+            <marker date="1490996923217" expanded="true" signature="24135:24201" ph="ALTER TABLE ${DB_PREFIX}blog... " />
+            <marker date="1490996923217" expanded="true" signature="25095:25151" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/growl/template/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5612">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/growl/template/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1485602957974" expanded="true" signature="133:186" ph="SELECT * FRO... ${DB_PREFIX}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/faq/install.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="834">
+          <caret line="436" column="81" selection-start-line="436" selection-start-column="81" selection-end-line="436" selection-end-column="81" />
+          <folding>
+            <marker date="1490996979165" expanded="true" signature="4229:4287" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490996979165" expanded="true" signature="5287:5865" ph="INSERT INTO ${DB_PREFIX}plugins... " />
+            <marker date="1490996979165" expanded="true" signature="6057:6115" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490996979165" expanded="true" signature="14452:17706" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+            <marker date="1490996979165" expanded="true" signature="17833:18714" ph="INSERT INTO ${DB_PREFIX}setting... " />
+            <marker date="1490996979165" expanded="true" signature="18845:19331" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
+            <marker date="1490996979165" expanded="true" signature="19389:19479" ph="ALTER TABLE ${DB_PREFIX}pages... " />
+            <marker date="1490996979165" expanded="true" signature="19504:19593" ph="ALTER TABLE ${DB_PREFIX}news... " />
+            <marker date="1490996979165" expanded="true" signature="19618:19715" ph="ALTER TABLE ${DB_PREFIX}pagesgrid... " />
+            <marker date="1490996979165" expanded="true" signature="19888:20127" ph="INSERT INTO ${DB_PREFIX}categories... " />
+            <marker date="1490996979165" expanded="true" signature="20251:21020" ph="CREATE TABLE... IF" />
+            <marker date="1490996979165" expanded="true" signature="21150:21720" ph="CREATE TABLE... IF" />
+            <marker date="1490996979165" expanded="true" signature="21848:22483" ph="CREATE TABLE... IF" />
+            <marker date="1490996979165" expanded="true" signature="22621:22686" ph="ALTER TABLE ${DB_PREFIX}faq... " />
+            <marker date="1490996979165" expanded="true" signature="23576:23631" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/install.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2253">
+          <caret line="233" column="81" selection-start-line="233" selection-start-column="81" selection-end-line="233" selection-end-column="81" />
+          <folding>
+            <marker date="1490997013187" expanded="true" signature="4277:4342" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490997013187" expanded="true" signature="5349:6057" ph="INSERT INTO ${DB_PREFIX}plugins... " />
+            <marker date="1490997013187" expanded="true" signature="6249:6314" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490997013187" expanded="true" signature="7899:9052" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+            <marker date="1490997013187" expanded="true" signature="9179:10323" ph="INSERT INTO ${DB_PREFIX}setting... " />
+            <marker date="1490997013187" expanded="true" signature="10380:10493" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
+            <marker date="1490997013187" expanded="true" signature="10546:10657" ph="ALTER TABLE ${DB_PREFIX}user... " />
+            <marker date="1490997013187" expanded="true" signature="10830:11083" ph="INSERT INTO ${DB_PREFIX}categories... " />
+            <marker date="1490997013187" expanded="true" signature="11214:11709" ph="CREATE TABLE... IF" />
+            <marker date="1490997013187" expanded="true" signature="11854:12155" ph="CREATE TABLE... IF" />
+            <marker date="1490997013187" expanded="true" signature="12298:12408" ph="INSERT INTO ${DB_PREFIX}newslettergroup... " />
+            <marker date="1490997013187" expanded="true" signature="12553:12996" ph="CREATE TABLE... IF" />
+            <marker date="1490997013187" expanded="true" signature="13143:13669" ph="CREATE TABLE... IF" />
+            <marker date="1490997013187" expanded="true" signature="14558:14620" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
