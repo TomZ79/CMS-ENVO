@@ -170,6 +170,7 @@ if (file_exists(APP_PATH.'plugins/download/admin/lang/'.$site_language.'.ini')) 
 				<!-- INSTALLATION -->
 				<?php if (isset($_POST['install'])) {
 
+				//
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Download", "Run your own download database, let user download direct from your server or link.", 1, ' . JAK_USERID . ', 4, "download", "require_once APP_PATH.\'plugins/download/download.php\';", "if ($page == \'download\') {
         require_once APP_PATH.\'plugins/download/admin/download.php\';
            $JAK_PROVED = 1;
