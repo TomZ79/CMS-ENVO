@@ -148,6 +148,7 @@ if (file_exists(APP_PATH.'plugins/openurl_blank/admin/lang/'.$site_language.'.in
 					<!-- INSTALLATION -->
 					<?php if (isset($_POST['install'])) {
 
+					//
 					$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "openurl_blank", "Open all external links in a new window/tab.", 1, ' . JAK_USERID . ', 1, "openurl_blank", NULL, NULL, NULL, NULL, "uninstall.php", "1.0", NOW())');
 
 					// Now get the plugin id for futher use
@@ -156,6 +157,7 @@ if (file_exists(APP_PATH.'plugins/openurl_blank/admin/lang/'.$site_language.'.in
 
 				if ($rows['id']) {
 
+					//
 					$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
             (NULL, "tpl_between_head", "Open URL jQuery", "plugins/openurl_blank/openurlhead.php", "openurlb", 1, 1, "' . $rows['id'] . '", NOW())');
 
