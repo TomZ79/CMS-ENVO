@@ -171,6 +171,7 @@ if (file_exists(APP_PATH.'plugins/urlmapping/admin/lang/'.$site_language.'.ini')
 				<!-- INSTALLATION -->
 				<?php if (isset($_POST['install'])) {
 
+				//
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "UrlMapping", "URL Mapping the smart way.", 1, ' . JAK_USERID . ', 4, "urlmapping", "", "if ($page == \'urlmapping\') {
         require_once APP_PATH.\'plugins/urlmapping/admin/urlmapping.php\';
         $JAK_PROVED = 1;
@@ -182,6 +183,7 @@ if (file_exists(APP_PATH.'plugins/urlmapping/admin/lang/'.$site_language.'.ini')
 
 			if ($rows['id']) {
 
+				//
 				$adminlang = 'if (file_exists(APP_PATH.\'plugins/urlmapping/admin/lang/\'.$site_language.\'.ini\')) {
     $tlum = parse_ini_file(APP_PATH.\'plugins/urlmapping/admin/lang/\'.$site_language.\'.ini\', true);
 } else {
@@ -191,10 +193,12 @@ if (file_exists(APP_PATH.'plugins/urlmapping/admin/lang/'.$site_language.'.ini')
 				// The file who does the job
 				$index_top = 'include_once APP_PATH.\'plugins/urlmapping/mapping.php\';';
 
+				//
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "BelowHeader Admin Language", "' . $adminlang . '", "urlmapping", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_index_top", "URL Mappling Index", "' . $index_top . '", "urlmapping", 1, 1, "' . $rows['id'] . '", NOW())');
 
+				//
 				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'urlmapping (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `urlold` varchar(255) DEFAULT NULL,

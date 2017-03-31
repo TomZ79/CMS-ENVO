@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4346a0f-85ec-4e4d-93d1-8c74a4b74471" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/site_editor/install.php" afterPath="$PROJECT_DIR$/plugins/site_editor/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/install.php" afterPath="$PROJECT_DIR$/plugins/urlmapping/install.php" />
     </list>
     <ignored path="CMS-Bluesat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,31 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="cs.ini" pinned="false" current-in-tab="false">
+      <file leaf-file-name="cs.ini" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin/lang/cs.ini">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="229">
               <caret line="70" column="26" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cs.ini" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/download/admin/lang/cs.ini">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="165" column="0" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cs.ini" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/plugins/faq/admin/lang/cs.ini">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9">
-              <caret line="116" column="17" selection-start-line="116" selection-start-column="1" selection-end-line="116" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -64,7 +44,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/template/qed/help.php" />
         <option value="$PROJECT_DIR$/admin/template/header.php" />
         <option value="$PROJECT_DIR$/plugins/register_form/admin/lang/cs.ini" />
         <option value="$PROJECT_DIR$/plugins/register_form/admin/register.php" />
@@ -115,6 +94,7 @@
         <option value="$PROJECT_DIR$/plugins/openurl_blank/install.php" />
         <option value="$PROJECT_DIR$/plugins/register_form/install.php" />
         <option value="$PROJECT_DIR$/plugins/site_editor/install.php" />
+        <option value="$PROJECT_DIR$/plugins/urlmapping/install.php" />
       </list>
     </option>
   </component>
@@ -189,24 +169,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="site_editor" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -310,12 +272,12 @@
       <workItem from="1490764117989" duration="20770000" />
       <workItem from="1490884409913" duration="21000" />
       <workItem from="1490884627666" duration="17286000" />
-      <workItem from="1490940996796" duration="22373000" />
+      <workItem from="1490940996796" duration="22420000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="375040000" />
+    <option name="totallyTimeSpent" value="375087000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
@@ -381,54 +343,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/plugins/download/admin/download.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-254">
-          <caret line="216" column="20" selection-start-line="216" selection-start-column="20" selection-end-line="216" selection-end-column="20" />
-          <folding>
-            <element signature="e#1054#7185#0#PHP" expanded="false" />
-            <element signature="e#7187#13782#0#PHP" expanded="false" />
-            <marker date="1490555519995" expanded="true" signature="3382:4106" ph="INSERT INTO ${$jaktable}... " />
-            <marker date="1490555519995" expanded="true" signature="5116:5403" ph="INSERT INTO ${$jaktable4}... " />
-            <marker date="1490555519995" expanded="true" signature="6289:6427" ph="SELECT id, n... ${$jaktable5}" />
-            <marker date="1490555519995" expanded="true" signature="6561:6675" ph="SELECT hooki... ${$jaktable4}" />
-            <marker date="1490555519995" expanded="true" signature="7942:8011" ph="DELETE FROM " />
-            <marker date="1490555519995" expanded="true" signature="12649:12716" ph="SELECT * FRO... ${$jaktable1}" />
-            <marker date="1490555519995" expanded="true" signature="15009:15349" ph="INSERT INTO ${$jaktable1}... " />
-            <marker date="1490555519995" expanded="true" signature="17692:17762" ph="DELETE FROM " />
-            <marker date="1490555519995" expanded="true" signature="20668:20737" ph="DELETE FROM " />
-            <marker date="1490555519995" expanded="true" signature="24881:25130" ph="INSERT INTO ${$jaktable4}... " />
-            <marker date="1490555519995" expanded="true" signature="25489:25609" ph="SELECT id FR... ${$jaktable4}" />
-            <marker date="1490555519995" expanded="true" signature="25695:25812" ph="DELETE FROM " />
-            <marker date="1490555519995" expanded="true" signature="26374:26466" ph="SELECT plugi... ${$jaktable4}" />
-            <marker date="1490555519995" expanded="true" signature="26857:26924" ph="DELETE FROM " />
-            <marker date="1490555519995" expanded="true" signature="27861:28011" ph="SELECT id, h... ${$jaktable4}" />
-            <marker date="1490555519995" expanded="true" signature="28188:28326" ph="SELECT id, n... ${$jaktable5}" />
-            <marker date="1490555519995" expanded="true" signature="30077:30146" ph="DELETE FROM " />
-            <marker date="1490555519995" expanded="true" signature="30494:30559" ph="SELECT * FRO... ${$jaktable2}" />
-            <marker date="1490555519995" expanded="true" signature="32286:32368" ph="SELECT catid... ${$jaktable}" />
-            <marker date="1490555519995" expanded="true" signature="33303:33377" ph="SELECT catid... ${$jaktable}" />
-            <marker date="1490555519995" expanded="true" signature="33565:33638" ph="DELETE FROM " />
-            <marker date="1490555519995" expanded="true" signature="33674:33742" ph="DELETE FROM " />
-            <marker date="1490555519995" expanded="true" signature="35010:35083" ph="DELETE FROM " />
-            <marker date="1490555519995" expanded="true" signature="35195:35331" ph="DELETE FROM " />
-            <marker date="1490555519995" expanded="true" signature="35358:35493" ph="DELETE FROM " />
-            <marker date="1490555519995" expanded="true" signature="39770:40057" ph="INSERT INTO ${$jaktable4}... " />
-            <marker date="1490555519995" expanded="true" signature="40437:40529" ph="SELECT id FR... ${$jaktable4}" />
-            <marker date="1490555519995" expanded="true" signature="40624:40713" ph="DELETE FROM " />
-            <marker date="1490555519995" expanded="true" signature="41212:41304" ph="SELECT plugi... ${$jaktable4}" />
-            <marker date="1490555519995" expanded="true" signature="41736:41803" ph="DELETE FROM " />
-            <marker date="1490555519995" expanded="true" signature="43226:43358" ph="SELECT id, p... ${$jaktable4}" />
-            <marker date="1490555519995" expanded="true" signature="43553:43691" ph="SELECT id, n... ${$jaktable5}" />
-            <marker date="1490555519995" expanded="true" signature="46301:46372" ph="SELECT * FRO... ${$jaktable}" />
-            <marker date="1490555519995" expanded="true" signature="47210:47293" ph="SELECT catid... ${$jaktable}" />
-            <marker date="1490555519995" expanded="true" signature="48372:48447" ph="SELECT catid... ${$jaktable}" />
-            <marker date="1490555519995" expanded="true" signature="48640:48714" ph="DELETE FROM " />
-            <marker date="1490555519995" expanded="true" signature="48751:48820" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/download/admin/template/newcat.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -747,14 +661,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/download/admin/lang/cs.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="165" column="0" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/download/admin/template/commentsort.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
@@ -948,14 +854,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/lang/cs.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="70" column="26" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/site_editor/install.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="393">
@@ -974,6 +872,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-9">
           <caret line="116" column="17" selection-start-line="116" selection-start-column="1" selection-end-line="116" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/urlmapping/install.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="222" column="10" selection-start-line="222" selection-start-column="10" selection-end-line="222" selection-end-column="10" />
+          <folding>
+            <marker date="1490978296946" expanded="true" signature="4406:4471" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490978296946" expanded="true" signature="5208:5770" ph="INSERT INTO ${DB_PREFIX}plugins... " />
+            <marker date="1490978296946" expanded="true" signature="5850:5915" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490978296946" expanded="true" signature="6397:6781" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+            <marker date="1490978296946" expanded="true" signature="6813:7297" ph="CREATE TABLE... IF" />
+            <marker date="1490978296946" expanded="true" signature="7881:7943" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/download/admin/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="165" column="0" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="70" column="26" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="26" />
           <folding />
         </state>
       </provider>
