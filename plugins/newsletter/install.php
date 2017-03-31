@@ -147,13 +147,14 @@ if (file_exists(APP_PATH.'plugins/newsletter/admin/lang/'.$site_language.'.ini')
 				<!-- INSTALLATION -->
 				<?php if (isset($_POST['install'])) {
 
+				//
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Newsletter", "Run your own newsletter database, let user newsletter direct from your server or link.", 1, ' . JAK_USERID . ', 4, "newsletter", "require_once APP_PATH.\'plugins/newsletter/newsletter.php\';", "if ($page == \'newsletter\') {
         require_once APP_PATH.\'plugins/newsletter/admin/newsletter.php\';
            $JAK_PROVED = 1;
            $checkp = 1;
         }", "../plugins/newsletter/admin/template/newsletternav.php", "newsletter", "uninstall.php", "1.0", NOW())');
 
-				// now get the plugin id for futher use
+				// Now get the plugin id for futher use
 				$results = $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Newsletter"');
 				$rows    = $results->fetch_assoc ();
 
@@ -163,19 +164,21 @@ if (file_exists(APP_PATH.'plugins/newsletter/admin/lang/'.$site_language.'.ini')
 				$insertphpcode = 'if (isset($defaults[\'jak_newsletter\'])) {
 	$insert .= \'newsletter = \"\'.$defaults[\'jak_newsletter\'].\'\",\'; }';
 
-
+				//
 				$adminlang = 'if (file_exists(APP_PATH.\'plugins/newsletter/admin/lang/\'.$site_language.\'.ini\')) {
     $tlnl = parse_ini_file(APP_PATH.\'plugins/newsletter/admin/lang/\'.$site_language.\'.ini\', true);
 } else {
     $tlnl = parse_ini_file(APP_PATH.\'plugins/newsletter/admin/lang/en.ini\', true);
 }';
 
+				//
 				$sitelang = 'if (file_exists(APP_PATH.\'plugins/newsletter/lang/\'.$site_language.\'.ini\')) {
     $tlnl = parse_ini_file(APP_PATH.\'plugins/newsletter/lang/\'.$site_language.\'.ini\', true);
 } else {
     $tlnl = parse_ini_file(APP_PATH.\'plugins/newsletter/lang/en.ini\', true);
 }';
 
+				//
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_usergroup", "Newsletter Usergroup", "' . $insertphpcode . '", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_lang", "Newsletter Admin Language", "' . $adminlang . '", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
@@ -209,6 +212,7 @@ if (file_exists(APP_PATH.'plugins/newsletter/admin/lang/'.$site_language.'.ini')
 				// Insert Category
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES (NULL, "Newsletter", "newsletter", NULL, 0, 0, 8, 0, 0, 1, "' . $rows['id'] . '")');
 
+				//
 				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'newsletter (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) DEFAULT NULL,
@@ -221,6 +225,7 @@ if (file_exists(APP_PATH.'plugins/newsletter/admin/lang/'.$site_language.'.ini')
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
+				//
 				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'newslettergroup (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
@@ -229,8 +234,10 @@ if (file_exists(APP_PATH.'plugins/newsletter/admin/lang/'.$site_language.'.ini')
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2');
 
+				//
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'newslettergroup VALUES(1, "Standard", "Standard Usergroup for Newsletter", NOW())');
 
+				//
 				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'newsletteruser (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `usergroupid` int(11) unsigned NOT NULL DEFAULT 1,
@@ -242,6 +249,7 @@ if (file_exists(APP_PATH.'plugins/newsletter/admin/lang/'.$site_language.'.ini')
   KEY `groupid` (`usergroupid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
+				//
 				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'newsletterstat (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nlid` int(11) unsigned NOT NULL DEFAULT 0,
