@@ -108,9 +108,16 @@ switch ($page1) {
 			$PAGE_KEYWORDS    = str_replace (" ", "", JAK_Base::jakCleanurl ($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
 			$PAGE_DESCRIPTION = jak_cut_text ($PAGE_CONTENT, 155, '');
 
-			// EN: Load the template
-			// CZ: Načti template (šablonu)
-			$plugin_template = 'plugins/faq/template/' . $jkv["sitestyle"] . '/faq.php';
+      // EN: Load the template
+      // CZ: Načti template (šablonu)
+      $pluginbasic_template = 'plugins/faq/template/faq.php';
+      $pluginsite_template = 'template/' . $jkv["sitestyle"] . '/plugintemplate/faq/faq.php';
+
+      if (file_exists($pluginsite_template)) {
+        $plugin_template = $pluginsite_template;
+      } else {
+        $plugin_template = $pluginbasic_template;
+      }
 
 		} else {
 			jak_redirect ($backtofaq);
@@ -316,9 +323,16 @@ switch ($page1) {
 		$PAGE_DESCRIPTION = jak_cut_text ($PAGE_CONTENT, 155, '');
 
 
-		// EN: Load the template
-		// CZ: Načti template (šablonu)
-		$plugin_template = 'plugins/faq/template/' . $jkv["sitestyle"] . '/faqart.php';
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
+    $pluginbasic_template = 'plugins/faq/template/faqart.php';
+    $pluginsite_template = 'template/' . $jkv["sitestyle"] . '/plugintemplate/faq/faqart.php';
+
+    if (file_exists($pluginsite_template)) {
+      $plugin_template = $pluginsite_template;
+    } else {
+      $plugin_template = $pluginbasic_template;
+    }
 
 		break;
 	case 'del':
@@ -474,9 +488,16 @@ switch ($page1) {
 			$PAGE_DESCRIPTION = jak_cut_text ($PAGE_CONTENT, 155, '');
 		}
 
-		// EN: Load the template
-		// CZ: Načti template (šablonu)
-		$plugin_template = 'plugins/faq/template/' . $jkv["sitestyle"] . '/faq.php';
+    // EN: Load the template
+    // CZ: Načti template (šablonu)
+    $pluginbasic_template = 'plugins/faq/template/faq.php';
+    $pluginsite_template = 'template/' . $jkv["sitestyle"] . '/plugintemplate/faq/faq.php';
+
+    if (file_exists($pluginsite_template)) {
+      $plugin_template = $pluginsite_template;
+    } else {
+      $plugin_template = $pluginbasic_template;
+    }
 
 }
 ?>

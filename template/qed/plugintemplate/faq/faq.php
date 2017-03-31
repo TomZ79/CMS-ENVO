@@ -28,7 +28,7 @@
 
 									<?php } ?>
 									<a href="<?php echo $v["parseurl"]; ?>"
-										class="btn btn-primary btn-xs"><?php echo $tl["general"]["g3"]; ?></a>
+										class="btn btn-color btn-xs"><?php echo $tl["general"]["g3"]; ?></a>
 								</div>
 								<div class="clearfix"></div>
 							</div>

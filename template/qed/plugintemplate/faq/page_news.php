@@ -16,7 +16,7 @@ if (is_array ($showfaqarray) && in_array ("ASC", $showfaqarray) || in_array ("DE
 ?>
 
 <hr>
-<h2><?php echo JAK_PLUGIN_NAME_FAQ; ?></h2>
+<h3 class="text-color"><?php echo JAK_PLUGIN_NAME_FAQ; ?></h3>
 
 <div class="row">
 	<div class="col-md-12 faq-wrapper">
@@ -46,7 +46,7 @@ if (is_array ($showfaqarray) && in_array ("ASC", $showfaqarray) || in_array ("DE
 
 								<?php } ?>
 								<a href="<?php echo $f["parseurl"]; ?>"
-									class="btn btn-primary btn-xs"><?php echo $tl["general"]["g3"]; ?></a>
+									class="btn btn-color btn-xs"><?php echo $tl["general"]["g3"]; ?></a>
 							</div>
 							<div class="clearfix"></div>
 						</div>

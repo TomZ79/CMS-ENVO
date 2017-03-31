@@ -263,8 +263,78 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
 } }';
 
 				// Eval code for display connect
-				$get_fqconnect = 'if ($pg[\'pluginid\'] == JAK_PLUGIN_ID_FAQ && JAK_PLUGIN_ID_FAQ && !empty($row[\'showfaq\'])) {
-include_once APP_PATH.\'plugins/faq/template/\'.$jkv[\"sitestyle\"].\'/page_news.php\';}';
+				$get_faqconnect = '
+	$pluginbasic_connect = \'plugins/faq/template/pages_news.php\';
+	$pluginsite_connect = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/faq/pages_news.php\';
+	
+	if (JAK_PLUGIN_ID_FAQ && $pg[\'pluginid\'] == JAK_PLUGIN_ID_FAQ && !empty($row[\'showfaq\'])) {
+		if (file_exists($pluginsite_connect)) {
+			include_once APP_PATH.$pluginsite_connect;
+		} else {
+			include_once APP_PATH.$pluginbasic_connect;
+		}
+	}
+    ';
+
+				//
+				$get_faqsidebar = '
+	$pluginbasic_sidebar = \'plugins/faq/template/faqsidebar.php\';
+	$pluginsite_sidebar = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/faq/faqsidebar.php\';
+	
+	if (file_exists($pluginsite_sidebar)) {
+		include_once APP_PATH.$pluginsite_sidebar;
+	} else {
+		include_once APP_PATH.$pluginbasic_sidebar;
+	}
+    ';
+
+				//
+				$get_faqsitemap = '
+	$pluginbasic_sitemap = \'plugins/faq/template/sitemap.php\';
+	$pluginsite_sitemap = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/faq/sitemap.php\';
+	
+	if (file_exists($pluginsite_sitemap)) {
+		include_once APP_PATH.$pluginsite_sitemap;
+	} else {
+		include_once APP_PATH.$pluginbasic_sitemap;
+	}
+    ';
+
+				//
+				$get_faqsearch = '
+	$pluginbasic_search = \'plugins/faq/template/search.php\';
+	$pluginsite_search = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/faq/search.php\';
+	
+	if (file_exists($pluginsite_search)) {
+		include_once APP_PATH.$pluginsite_search;
+	} else {
+		include_once APP_PATH.$pluginbasic_search;
+	}
+    ';
+
+				//
+				$get_faqtag = '
+	$pluginbasic_tag = \'plugins/faq/template/tag.php\';
+	$pluginsite_tag = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/faq/tag.php\';
+	
+	if (file_exists($pluginsite_tag)) {
+		include_once APP_PATH.$pluginsite_tag;
+	} else {
+		include_once APP_PATH.$pluginbasic_tag;
+	}
+    ';
+
+				//
+				$get_faqfooter_widgets = '
+	$pluginbasic_fwidgets = \'plugins/faq/template/footer_widget.php\';
+	$pluginsite_fwidgets = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/faq/footer_widget.php\';
+	
+	if (file_exists($pluginsite_fwidgets)) {
+		include_once APP_PATH.$pluginsite_fwidgets;
+	} else {
+		include_once APP_PATH.$pluginbasic_fwidgets;
+	}
+    ';
 
 				//
 				$adminphpdelete = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'faqcomments SET userid = 0 WHERE userid = \'.$page2.\'\');';
@@ -287,9 +357,9 @@ include_once APP_PATH.\'plugins/faq/template/\'.$jkv[\"sitestyle\"].\'/page_news
 (NULL, "tpl_between_head", "Faq CSS", "plugins/faq/template/cssheader.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup", "Faq Usergroup New", "plugins/faq/admin/template/usergroup_new.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup_edit", "Faq Usergroup Edit", "plugins/faq/admin/template/usergroup_edit.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_tags", "Faq Tags", "plugins/faq/template/tag.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_sitemap", "Faq Sitemap", "plugins/faq/template/sitemap.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_sidebar", "Faq Sidebar Categories", "plugins/faq/template/faqsidebar.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_tags", "Faq Tags", "' . $get_faqtag . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_sitemap", "Faq Sitemap", "' . $get_faqsitemap . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_sidebar", "Faq Sidebar Categories", "' . $get_faqsidebar . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_fulltext_add", "Faq Full Text Search", "' . $sqlfull . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_fulltext_remove", "Faq Remove Full Text Search", "' . $sqlfullremove . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_page_news", "Faq Admin - Page/News", "' . $pages . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
@@ -297,12 +367,12 @@ include_once APP_PATH.\'plugins/faq/template/\'.$jkv[\"sitestyle\"].\'/page_news
 (NULL, "php_admin_pages_sql", "Faq Pages SQL", "' . $sqlinsert . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_news_sql", "Faq News SQL", "' . $sqlinsert . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_pages_news_info", "Faq Pages/News Info", "' . $getfaq . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_page_news_grid", "Faq Pages/News Display", "' . $get_fqconnect . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_search", "Faq Search", "plugins/faq/template/search.php", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_page_news_grid", "Faq Pages/News Display", "' . $get_faqconnect . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_search", "Faq Search", "' . $get_faqsearch . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_user_delete", "FAQ Delete User", "' . $adminphpdelete . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_user_rename", "FAQ Rename User", "' . $adminphprename . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_user_delete_mass", "FAQ Delete User Mass", "' . $adminphpmassdel . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_footer_widgets", "FAQ - 3 Latest Entries", "plugins/faq/template/footer_widget.php", "faq", 1, 3, "' . $rows['id'] . '", NOW())');
+(NULL, "tpl_footer_widgets", "FAQ - 3 Latest Entries", "' . $get_faqfooter_widgets . '", "faq", 1, 3, "' . $rows['id'] . '", NOW())');
 
 				// Insert tables into settings
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
