@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -29,11 +29,11 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 					echo $tl["general_error"]["generror2"];
 				} else {
 					echo $tlf["faq_error"]["faqerror"];
-				} ?>',
+				} ?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -46,23 +46,38 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 			$.notify({
 				// options
 				icon: 'fa fa-info-circle',
-				message: '<?php echo $tl["notification"]["n2"]; ?>',
+				message: '<?php echo $tl["notification"]["n2"]; ?>'
 			}, {
 				// settings
 				type: 'info',
 				delay: 5000,
-				timer: 3000,
+				timer: 3000
 			});
 		}, 2000);
 	</script>
 <?php } ?>
 
+<!-- Fixed Button for save form -->
+<div class="savebutton-medium hidden-xs">
+
+	<?php
+	// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+	echo $Html->addAnchor('index.php?p=faq&sp=newcategory',  $tl["button"]["btn29"], '', 'btn btn-info button');
+	?>
+
+</div>
+
 <?php if (isset($JAK_FAQ_CAT_EXIST)) { ?>
 
-	<div class="box box-default">
+	<div class="box box-success">
 		<div class="box-header with-border">
-			<i class="fa fa-bars"></i>
-			<h3 class="box-title"><?php echo $tl["submenu"]["sm110"]; ?></h3>
+
+			<?php
+			// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+			echo $Html->addTag('i', '', 'fa fa-bars');
+			echo $Html->addTag('h3', $tlf["faq_box_table"]["faqtb"], 'box-title');
+			?>
+
 		</div>
 		<div class="box-body">
 
@@ -72,7 +87,7 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 			$lang   = $tl["cat"]["del"];
 			$title1 = $tl["icons"]["i5"];
 			$title2 = $tl["icons"]["i6"];
-			$title3 = $tlf["faq"]["q9"];
+			$title3 = $tl["icons"]["i25"];
 			$title4 = $tl["icons"]["i2"];
 			$title5 = $tl["icons"]["i1"];
 
@@ -82,27 +97,41 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 
 		</div>
 		<div class="box-footer">
-			<button type="submit" data-menu="mheader" name="save" class="btn btn-primary pull-right save-menu-plugin"><?php echo $tl["general"]["g20"]; ?></button>
+
+			<?php
+			// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+			echo $Html->addButtonSubmit('save', $tl["button"]["btn1"], '', 'btn btn-success pull-right save-menu-plugin', array('data-menu' => 'mheader'));
+			?>
+
+		</div>
+	</div>
+
+	<div class="col-md-12">
+		<div class="icon_legend">
+
+			<?php
+			// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+			echo $Html->addTag('h3', $tl["icons"]["i"]);
+			echo $Html->addTag('i', '', 'fa fa-check', array('title' => $tl["icons"]["i6"]));
+			echo $Html->addTag('i', '', 'fa fa-lock', array('title' => $tl["icons"]["i5"]));
+			echo $Html->addTag('i', '', 'fa fa-sticky-note-o', array('title' => $tl["icons"]["i25"]));
+			echo $Html->addTag('i', '', 'fa fa-edit', array('title' => $tl["icons"]["i2"]));
+			echo $Html->addTag('i', '', 'fa fa-trash-o', array('title' => $tl["icons"]["i1"]));
+			?>
+
 		</div>
 	</div>
 
 <?php } else { ?>
 
 	<div class="col-md-12">
-		<div class="alert bg-info text-white">
-			<?php echo $tl["general_error"]["generror3"]; ?>
-		</div>
-	</div>
 
+		<?php
+		// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+		echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
+		?>
+
+	</div>
 <?php } ?>
-
-	<div class="icon_legend">
-		<h3><?php echo $tl["icons"]["i"]; ?></h3>
-		<i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
-		<i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
-		<i title="<?php echo $tlf["faq"]["q9"]; ?>" class="fa fa-sticky-note-o"></i>
-		<i title="<?php echo $tl["icons"]["i2"]; ?>" class="fa fa-edit"></i>
-		<i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
-	</div>
 
 <?php include_once APP_PATH . 'admin/template/footer.php'; ?>

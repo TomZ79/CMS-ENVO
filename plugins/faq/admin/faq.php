@@ -411,11 +411,13 @@ switch ($page1) {
 					$catactive = $defaults['jak_active'];
 				}
 
-				if (!isset($defaults['jak_permission'])) {
-					$permission = 0;
-				} else {
-					$permission = join (',', $defaults['jak_permission']);
-				}
+        if (!isset($defaults['jak_permission'])) {
+          $permission = 0;
+        } elseif (in_array (0, $defaults['jak_permission'])) {
+          $permission = 0;
+        } else {
+          $permission = join (',', $defaults['jak_permission']);
+        }
 
 				if (!empty($defaults['jak_img'])) {
 					$insert = 'catimg = "' . $defaults['jak_img'] . '",';

@@ -146,11 +146,12 @@ if (file_exists(APP_PATH.'plugins/faq/admin/lang/'.$site_language.'.ini')) {
 				<!-- INSTALLATION -->
 				<?php if (isset($_POST['install'])) {
 
+				//
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "FAQ", "Run your own faq database.", 1, ' . JAK_USERID . ', 4, "faq", "require_once APP_PATH.\'plugins/faq/faq.php\';", "if ($page == \'faq\') {
         require_once APP_PATH.\'plugins/faq/admin/faq.php\';
            $JAK_PROVED = 1;
            $checkp = 1;
-        }", "../plugins/faq/admin/template/faqnav.php", "faq", "uninstall.php", "1.0", NOW())');
+        }", "../plugins/faq/admin/template/faqnav.php", "faq", "uninstall.php", "1.1", NOW())');
 
 				// Now get the plugin id for futher use
 				$results = $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "FAQ"');
@@ -162,19 +163,21 @@ if (file_exists(APP_PATH.'plugins/faq/admin/lang/'.$site_language.'.ini')) {
 				$insertphpcode = 'if (isset($defaults[\'jak_faq\'])) {
 	$insert .= \'faq = \"\'.$defaults[\'jak_faq\'].\'\", faqpost = \"\'.$defaults[\'jak_faqpost\'].\'\", faqpostapprove = \"\'.$defaults[\'jak_faqpostapprove\'].\'\", faqpostdelete = \"\'.$defaults[\'jak_faqpostdelete\'].\'\", faqrate = \"\'.$defaults[\'jak_faqrate\'].\'\", faqmoderate = \"\'.$defaults[\'jak_faqmoderate\'].\'\",\'; }';
 
-
+				//
 				$adminlang = 'if (file_exists(APP_PATH.\'plugins/faq/admin/lang/\'.$site_language.\'.ini\')) {
     $tlf = parse_ini_file(APP_PATH.\'plugins/faq/admin/lang/\'.$site_language.\'.ini\', true);
 } else {
     $tlf = parse_ini_file(APP_PATH.\'plugins/faq/admin/lang/en.ini\', true);
 }';
 
+				//
 				$sitelang = 'if (file_exists(APP_PATH.\'plugins/faq/lang/\'.$site_language.\'.ini\')) {
     $tlf = parse_ini_file(APP_PATH.\'plugins/faq/lang/\'.$site_language.\'.ini\', true);
 } else {
     $tlf = parse_ini_file(APP_PATH.\'plugins/faq/lang/en.ini\', true);
 }';
 
+				//
 				$sitephpsearch = '$faq = new JAK_search($SearchInput);
         	$faq->jakSettable(\'faq\',\"\");
         	$faq->jakAndor(\"OR\");
@@ -187,6 +190,7 @@ if (file_exists(APP_PATH.'plugins/faq/admin/lang/'.$site_language.'.ini')) {
         	// Load the array into template
         	$JAK_SEARCH_RESULT_FAQ = $faq->set_result(JAK_PLUGIN_VAR_FAQ, \'a\', $jkv[\"faqurl\"]);';
 
+				//
 				$sitephprss = 'if ($page1 == JAK_PLUGIN_VAR_FAQ) {
 	
 	if ($jkv[\"faqrss\"]) {
@@ -204,11 +208,13 @@ if (file_exists(APP_PATH.'plugins/faq/admin/lang/'.$site_language.'.ini')) {
 	
 }';
 
+				//
 				$sitephptag = 'if ($row[\'pluginid\'] == JAK_PLUGIN_ID_FAQ) {
 $faqtagData[] = JAK_tags::jakTagsql(\"faq\", $row[\'itemid\'], \"id, title, content\", \"content\", JAK_PLUGIN_VAR_FAQ, \"a\", $jkv[\"faqurl\"]);
 $JAK_TAG_FAQ_DATA = $faqtagData;
 }';
 
+				//
 				$sitephpsitemap = 'include_once APP_PATH.\'plugins/faq/functions.php\';
 
 $JAK_FAQ_ALL = jak_get_faq(\'\', $jkv[\"faqorder\"], \'\', \'\', $jkv[\"faqurl\"], $tl[\'general\'][\'g56\']);
@@ -225,6 +231,7 @@ include_once APP_PATH.\'plugins/faq/admin/template/faq_connect.php\';
 
 }';
 
+				//
 				$sqlinsert = 'if (!isset($defaults[\'jak_showfaq\'])) {
 	$fq = 0;
 } else if (in_array(0, $defaults[\'jak_showfaq\'])) {
@@ -241,6 +248,7 @@ if (empty($fq) && !empty($defaults[\'jak_showfaqmany\'])) {
   	$insert .= \'showfaq = NULL,\';
 }';
 
+				//
 				$getfaq = '$JAK_GET_FAQ = jak_get_page_info(DB_PREFIX.\'faq\', \'\');
 
 if ($JAK_FORM_DATA) {
@@ -258,12 +266,16 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
 				$get_fqconnect = 'if ($pg[\'pluginid\'] == JAK_PLUGIN_ID_FAQ && JAK_PLUGIN_ID_FAQ && !empty($row[\'showfaq\'])) {
 include_once APP_PATH.\'plugins/faq/template/\'.$jkv[\"sitestyle\"].\'/page_news.php\';}';
 
+				//
 				$adminphpdelete = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'faqcomments SET userid = 0 WHERE userid = \'.$page2.\'\');';
 
+				//
 				$adminphprename = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'faqcomments SET username = \"\'.smartsql($defaults[\'jak_username\']).\'\" WHERE userid = \'.smartsql($page2).\'\');';
 
+				//
 				$adminphpmassdel = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'faqcomments SET userid = 0 WHERE userid = \'.$locked);';
 
+				//
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_usergroup", "Faq Usergroup", "' . $insertphpcode . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_lang", "Faq Admin Language", "' . $adminlang . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
@@ -298,7 +310,7 @@ include_once APP_PATH.\'plugins/faq/template/\'.$jkv[\"sitestyle\"].\'/page_news
 ("faqdesc", "faq", "Write something about your FAQ", "Write something about your FAQ", "textarea", "free", "faq"),
 ("faqemail", "faq", NULL, NULL, "input", "free", "faq"),
 ("faqdateformat", "faq", "d.m.Y", "d.m.Y", "input", "free", "faq"),
-("faqtimeformat", "faq", ": h:i A", ": h:i A", "input", "free", "faq"),
+("faqtimeformat", "faq", NULL, NULL, "input", "free", "faq"),
 ("faqurl", "faq", 0, 0, "yesno", "boolean", "faq"),
 ("faqmaxpost", "faq", 2000, 2000, "input", "boolean", "faq"),
 ("faqpagemid", "faq", 3, 3, "yesno", "number", "faq"),
@@ -318,6 +330,7 @@ include_once APP_PATH.\'plugins/faq/template/\'.$jkv[\"sitestyle\"].\'/page_news
 				// Insert Category
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES (NULL, "FAQ", "faq", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
 
+				//
 				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'faq (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `catid` int(11) unsigned NOT NULL DEFAULT 0,
@@ -336,6 +349,7 @@ include_once APP_PATH.\'plugins/faq/template/\'.$jkv[\"sitestyle\"].\'/page_news
   KEY `catid` (`catid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
+				//
 				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'faqcategories (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
@@ -351,6 +365,7 @@ include_once APP_PATH.\'plugins/faq/template/\'.$jkv[\"sitestyle\"].\'/page_news
   KEY `catorder` (`catorder`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
+				//
 				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'faqcomments (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `faqid` int(11) unsigned NOT NULL DEFAULT 0,

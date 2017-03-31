@@ -1,3 +1,6 @@
+<script src="assets/js/catorder.js" type="text/javascript"></script>
+<script src="assets/js/slug.js" type="text/javascript"></script>
+<script src="assets/plugins/ace/ace.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
 
@@ -23,52 +26,52 @@
 
 	});
 </script>
-
-<?php if ($jkv["adv_editor"]) { ?>
-	<script src="js/ace/ace.js" type="text/javascript"></script>
-<?php } ?>
 <script type="text/javascript">
 
 	// ACE editor
 	<?php if ($jkv["adv_editor"]) { ?>
-	var htmlACE = ace.edit("htmleditor");
-	htmlACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
-	htmlACE.session.setUseWrapMode(true);
-	htmlACE.session.setWrapLimitRange(<?php echo $jkv["acewraplimit"] . ',' . $jkv["acewraplimit"]; ?>);
-	htmlACE.setOptions({
-		// session options
-		mode: "ace/mode/html",
-		tabSize: <?php echo $jkv["acetabSize"]; ?>,
-		useSoftTabs: true,
-		highlightActiveLine: <?php echo $jkv["aceactiveline"]; ?>,
-		// renderer options
-		showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
-		showGutter: <?php echo $jkv["acegutter"]; ?>,
-	});
+	if ($('#htmleditor').length) {
+		var htmlACE = ace.edit("htmleditor");
+		htmlACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
+		htmlACE.session.setUseWrapMode(true);
+		htmlACE.session.setWrapLimitRange(<?php echo $jkv["acewraplimit"] . ',' . $jkv["acewraplimit"]; ?>);
+		htmlACE.setOptions({
+			// session options
+			mode: "ace/mode/html",
+			tabSize: <?php echo $jkv["acetabSize"]; ?>,
+			useSoftTabs: true,
+			highlightActiveLine: <?php echo $jkv["aceactiveline"]; ?>,
+			// renderer options
+			showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
+			showGutter: <?php echo $jkv["acegutter"]; ?>
+		});
+		// This is to remove following warning message on console:
+		// Automatically scrolling cursor into view after selection change this will be disabled in the next version
+		// set editor.$blockScrolling = Infinity to disable this message
+		htmlACE.$blockScrolling = Infinity;
 
-	texthtml = $("#jak_editor").val();
-	htmlACE.session.setValue(texthtml);
+		texthtml = $("#jak_editor").val();
+		htmlACE.session.setValue(texthtml);
+	}
 	<?php } ?>
 
 	// Responsive Filemanager
 	<?php if ($jkv["adv_editor"]) { ?>
-	function responsive_filemanager_callback(field_id) {
+		function responsive_filemanager_callback(field_id) {
 
-		if (field_id == "htmleditor") {
-			// get the path for the ace file
-			var acefile = jQuery('#' + field_id).val();
-			htmlACE.insert(acefile);
+			if (field_id == "htmleditor") {
+				// get the path for the ace file
+				var acefile = jQuery('#' + field_id).val();
+				htmlACE.insert(acefile);
+			}
 		}
-	}
 
-	// Submit Form
-	$('form').submit(function () {
-		$("#jak_editor").val(htmlACE.getValue());
-	});
+		// Submit Form
+		$('form').submit(function () {
+			$("#jak_editor").val(htmlACE.getValue());
+		});
 	<?php } ?>
 </script>
-
-<script src="js/slug.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function () {
 		$("#jak_name").keyup(function () {
@@ -76,7 +79,7 @@
 			$("#jak_varname").val(jakSlug($("#jak_name").val()));
 		});
 
-		/* Bootstrap Icon Picker */
+		/* Bootstrap Icon Picker
 		$('.iconpicker').iconpicker({
 			iconset: 'fontawesome',
 			icon: '<?php if (isset($JAK_FORM_DATA["catimg"])) {
@@ -93,12 +96,10 @@
 		$('.iconpicker').on('change', function (e) {
 			$("#jak_img").val(e.icon);
 		});
+		 */
 
 	});
 </script>
-
-<script type="text/javascript" src="js/catorder.js"></script>
-
 <script type="text/javascript">
 	$(document).ready(function () {
 		$(".sortable").nestedSortable({maxLevels: 2});
