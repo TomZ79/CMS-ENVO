@@ -267,7 +267,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 } }';
 
 				// Eval code for display connect
-				$get_blconnect = '
+				$get_dlconnect = '
 	$pluginbasic_connect = \'plugins/download/template/pages_news.php\';
 	$pluginsite_connect = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/download/pages_news.php\';
 	

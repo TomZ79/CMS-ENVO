@@ -700,7 +700,5 @@ switch ($page1) {
     } else {
       $plugin_template = $pluginbasic_template;
     }
-
-
 }
 ?>
