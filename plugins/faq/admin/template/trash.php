@@ -54,7 +54,7 @@ if ($page4 == "e") { ?>
 								</div>
 							</th>
 							<th><?php echo $tlf["faq_box_table"]["faqtb5"]; ?></th>
-							<th><?php echo $tlf["faq_box_table"]["faqtb6"]; ?></th>
+							<th><?php echo $tlf["faq_box_table"]["faqtb7"]; ?></th>
 							<th>
 
 								<?php

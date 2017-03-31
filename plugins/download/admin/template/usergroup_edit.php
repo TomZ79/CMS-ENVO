@@ -20,7 +20,6 @@
 
 					</div>
 					<div class="col-md-7">
-
 						<div class="radio radio-success">
 
 							<?php

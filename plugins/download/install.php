@@ -186,19 +186,21 @@ if (file_exists(APP_PATH.'plugins/download/admin/lang/'.$site_language.'.ini')) 
 				$insertphpcode = 'if (isset($defaults[\'jak_download\'])) {
 	$insert .= \'download = \"\'.$defaults[\'jak_download\'].\'\", downloadcan = \"\'.$defaults[\'jak_candownload\'].\'\", downloadpost = \"\'.$defaults[\'jak_downloadpost\'].\'\", downloadpostapprove = \"\'.$defaults[\'jak_downloadpostapprove\'].\'\", downloadpostdelete = \"\'.$defaults[\'jak_downloadpostdelete\'].\'\", downloadrate = \"\'.$defaults[\'jak_downloadrate\'].\'\", downloadmoderate = \"\'.$defaults[\'jak_downloadmoderate\'].\'\",\'; }';
 
-
+				//
 				$adminlang = 'if (file_exists(APP_PATH.\'plugins/download/admin/lang/\'.$site_language.\'.ini\')) {
     $tld = parse_ini_file(APP_PATH.\'plugins/download/admin/lang/\'.$site_language.\'.ini\', true);
 } else {
     $tld = parse_ini_file(APP_PATH.\'plugins/download/admin/lang/en.ini\', true);
 }';
 
+				//
 				$sitelang = 'if (file_exists(APP_PATH.\'plugins/download/lang/\'.$site_language.\'.ini\')) {
     $tld = parse_ini_file(APP_PATH.\'plugins/download/lang/\'.$site_language.\'.ini\', true);
 } else {
     $tld = parse_ini_file(APP_PATH.\'plugins/download/lang/en.ini\', true);
 }';
 
+				//
 				$sitephpsearch = '$download = new JAK_search($SearchInput);
         	$download->jakSettable(\'download\',\"\");
         	$download->jakAndor(\"OR\");
@@ -211,11 +213,13 @@ if (file_exists(APP_PATH.'plugins/download/admin/lang/'.$site_language.'.ini')) 
         	// Load the array into template
         	$JAK_SEARCH_RESULT_DOWNLOAD = $download->set_result(JAK_PLUGIN_VAR_DOWNLOAD, \'f\', $jkv[\"downloadurl\"]);';
 
+				//
 				$sitephptag = 'if ($row[\'pluginid\'] == JAK_PLUGIN_ID_DOWNLOAD) {
 $downloadtagData[] = JAK_tags::jakTagsql(\"download\", $row[\'itemid\'], \"id, title, content\", \"content\", JAK_PLUGIN_VAR_DOWNLOAD, \"f\", $jkv[\"downloadurl\"]);
 $JAK_TAG_DOWNLOAD_DATA = $downloadtagData;
 }';
 
+				//
 				$sitephpsitemap = 'include_once APP_PATH.\'plugins/download/functions.php\';
 
 $JAK_DOWNLOAD_ALL = jak_get_download(\'\', $jkv[\"downloadorder\"], \'\', \'\', $jkv[\"downloadrss\"], $jkv[\"downloadurl\"], $tl[\'general\'][\'g56\']);
@@ -230,6 +234,7 @@ $PAGE_TITLE = JAK_PLUGIN_NAME_DOWNLOAD;';
 include_once APP_PATH.\'plugins/download/admin/template/dl_connect.php\';
 }';
 
+				//
 				$sqlinsert = 'if (!isset($defaults[\'jak_showdl\'])) {
 	$dl = 0;
 } else if (in_array(0, $defaults[\'jak_showdl\'])) {
@@ -246,6 +251,7 @@ if (empty($dl) && !empty($defaults[\'jak_showdlmany\'])) {
   	$insert .= \'showdownload = NULL,\';
 }';
 
+				//
 				$getdl = '$JAK_GET_DOWNLOAD = jak_get_page_info(DB_PREFIX.\'download\', \'\');
 
 if ($JAK_FORM_DATA) {
@@ -273,6 +279,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 	}
     ';
 
+				//
 				$get_dlsidebar = '
 	$pluginbasic_sidebar = \'plugins/download/template/downloadsidebar.php\';
 	$pluginsite_sidebar = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/download/downloadsidebar.php\';
@@ -284,6 +291,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 	}
     ';
 
+				//
 				$get_dlsitemap = '
 	$pluginbasic_sitemap = \'plugins/download/template/sitemap.php\';
 	$pluginsite_sitemap = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/download/sitemap.php\';
@@ -295,6 +303,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 	}
     ';
 
+				//
 				$get_dlsearch = '
 	$pluginbasic_search = \'plugins/download/template/search.php\';
 	$pluginsite_search = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/download/search.php\';
@@ -306,6 +315,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 	}
     ';
 
+				//
 				$get_dltag = '
 	$pluginbasic_tag = \'plugins/download/template/tag.php\';
 	$pluginsite_tag = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/download/tag.php\';
@@ -317,6 +327,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 	}
     ';
 
+				//
 				$get_dlfooter_widgets = '
 	$pluginbasic_fwidgets = \'plugins/download/template/footer_widget.php\';
 	$pluginsite_fwidgets = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/download/footer_widget.php\';
@@ -327,6 +338,8 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 		include_once APP_PATH.$pluginbasic_fwidgets;
 	}
     ';
+
+				//
 				$get_dlfooter_widgets1 = '
 	$pluginbasic_fwidgets1 = \'plugins/download/template/footer_widget1.php\';
 	$pluginsite_fwidgets1 = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/download/footer_widget1.php\';
@@ -338,12 +351,16 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 	}
     ';
 
+				//
 				$adminphpdelete = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'downloadcomments SET userid = 0 WHERE userid = \'.$page2.\'\');';
 
+				//
 				$adminphprename = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'downloadcomments SET username = \"\'.smartsql($defaults[\'jak_username\']).\'\" WHERE userid = \'.smartsql($page2).\'\');';
 
+				//
 				$adminphpmassdel = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'downloadcomments SET userid = 0 WHERE userid = \'.$locked);';
 
+				//
 				$sitephprss = 'if ($page1 == JAK_PLUGIN_VAR_DOWNLOAD) {
 	
 	if ($jkv[\"downloadrss\"]) {
@@ -361,6 +378,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 	
 }';
 
+				//
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_usergroup", "Download Usergroup", "' . $insertphpcode . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_lang", "Download Admin Language", "' . $adminlang . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
@@ -420,6 +438,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 				// Insert Category
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES (NULL, "Download", "download", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
 
+				//
 				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'download (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `catid` int(11) unsigned NOT NULL DEFAULT 0,
@@ -447,6 +466,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
   KEY `catid` (`catid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
+				//
 				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'downloadcategories (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
@@ -462,6 +482,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
   KEY `catorder` (`catorder`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
+				//
 				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'downloadcomments (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `fileid` int(11) unsigned NOT NULL DEFAULT 0,
@@ -478,6 +499,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
   KEY `fileid` (`fileid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1');
 
+				//
 				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'downloadhistory (
 	`id` BIGINT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
 	`fileid` INT(11) UNSIGNED NOT NULL DEFAULT 0,

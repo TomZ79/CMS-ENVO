@@ -765,6 +765,7 @@ if ($errors) { ?>
 
 												</div>
 												<div class="col-md-7">
+
 													<?php $JAK_TAG_ALL = jak_tag_name_admin();
 													if ($JAK_TAG_ALL) { ?>
 														<select name="" id="selecttags2" class="form-control selectpicker" title="Choose tags ..." data-size="7" data-live-search="true">
@@ -781,6 +782,7 @@ if ($errors) { ?>
 													<?php } else { ?>
 														<div>Tags cloud is empty!</div>
 													<?php } ?>
+
 												</div>
 											</div>
 											<div class="row-form">

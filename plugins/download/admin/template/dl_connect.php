@@ -60,6 +60,8 @@
 		</div>
 	</li>
 
-	<?php $dl_exist = 1;
+	<?php
+	// only fire new form when not exist
+	$dl_exist = 1;
 } ?>
 
