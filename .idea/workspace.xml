@@ -5,30 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4346a0f-85ec-4e4d-93d1-8c74a4b74471" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/admin/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editpage.php" afterPath="$PROJECT_DIR$/admin/template/editpage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/header.php" afterPath="$PROJECT_DIR$/admin/template/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newpage.php" afterPath="$PROJECT_DIR$/admin/template/newpage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/faq.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/faq.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/js/pages.faq.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/js/pages.faq.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/faq/admin/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/editfaq.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/editfaq.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/editfaqcat.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/editfaqcat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faq.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faq.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faq_connect.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faq_connect.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faq_connect_new.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faq_connect_new.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faqcat.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faqcat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faqcatsort.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faqcatsort.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faqcomment.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faqcomment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faqnav.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faqnav.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faqsetting.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faqsetting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/newfaq.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/newfaq.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/newfaqcat.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/newfaqcat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/usergroup_edit.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/usergroup_edit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/usergroup_new.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/usergroup_new.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/install.php" afterPath="$PROJECT_DIR$/plugins/faq/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/install.php" afterPath="$PROJECT_DIR$/plugins/growl/install.php" />
     </list>
     <ignored path="CMS-Bluesat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,26 +57,17 @@
         </entry>
       </file>
       <file leaf-file-name="install.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/plugins/faq/install.php">
+        <entry file="file://$PROJECT_DIR$/plugins/growl/install.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="153" column="84" selection-start-line="153" selection-start-column="84" selection-end-line="153" selection-end-column="84" />
+            <state relative-caret-position="495">
+              <caret line="210" column="10" selection-start-line="210" selection-start-column="10" selection-end-line="210" selection-end-column="10" />
               <folding>
-                <marker date="1490977842971" expanded="true" signature="3688:3746" ph="SELECT id FR... ${DB_PREFIX}" />
-                <marker date="1490977842971" expanded="true" signature="4479:5057" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-                <marker date="1490977842971" expanded="true" signature="5137:5195" ph="SELECT id FR... ${DB_PREFIX}" />
-                <marker date="1490977842971" expanded="true" signature="9713:13013" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-                <marker date="1490977842971" expanded="true" signature="13073:13954" ph="INSERT INTO ${DB_PREFIX}setting... " />
-                <marker date="1490977842971" expanded="true" signature="14008:14494" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
-                <marker date="1490977842971" expanded="true" signature="14549:14639" ph="ALTER TABLE ${DB_PREFIX}pages... " />
-                <marker date="1490977842971" expanded="true" signature="14663:14752" ph="ALTER TABLE ${DB_PREFIX}news... " />
-                <marker date="1490977842971" expanded="true" signature="14776:14873" ph="ALTER TABLE ${DB_PREFIX}pagesgrid... " />
-                <marker date="1490977842971" expanded="true" signature="14921:15160" ph="INSERT INTO ${DB_PREFIX}categories... " />
-                <marker date="1490977842971" expanded="true" signature="15192:15961" ph="CREATE TABLE... IF" />
-                <marker date="1490977842971" expanded="true" signature="15993:16563" ph="CREATE TABLE... IF" />
-                <marker date="1490977842971" expanded="true" signature="16595:17230" ph="CREATE TABLE... IF" />
-                <marker date="1490977842971" expanded="true" signature="17362:17427" ph="ALTER TABLE ${DB_PREFIX}faq... " />
-                <marker date="1490977842971" expanded="true" signature="18013:18068" ph="DELETE FROM " />
+                <marker date="1490978024212" expanded="true" signature="3741:3801" ph="SELECT id FR... ${DB_PREFIX}" />
+                <marker date="1490978024212" expanded="true" signature="4536:5061" ph="INSERT INTO ${DB_PREFIX}plugins... " />
+                <marker date="1490978024212" expanded="true" signature="5141:5201" ph="SELECT id FR... ${DB_PREFIX}" />
+                <marker date="1490978024212" expanded="true" signature="5745:6224" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+                <marker date="1490978024212" expanded="true" signature="6256:7476" ph="CREATE TABLE... IF" />
+                <marker date="1490978024212" expanded="true" signature="8056:8113" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
@@ -113,7 +81,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/plugins/belowheader/admin/template/bh.php" />
         <option value="$PROJECT_DIR$/template/qed/js/neko-framework.js" />
         <option value="$PROJECT_DIR$/template/qed/js-plugins/external-plugins.js" />
         <option value="$PROJECT_DIR$/assets/doc/css/doc.css" />
@@ -164,6 +131,7 @@
         <option value="$PROJECT_DIR$/plugins/belowheader/install.php" />
         <option value="$PROJECT_DIR$/plugins/download/install.php" />
         <option value="$PROJECT_DIR$/plugins/faq/install.php" />
+        <option value="$PROJECT_DIR$/plugins/growl/install.php" />
       </list>
     </option>
   </component>
@@ -255,7 +223,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="faq" />
+              <option name="myItemId" value="growl" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -359,12 +327,12 @@
       <workItem from="1490764117989" duration="20770000" />
       <workItem from="1490884409913" duration="21000" />
       <workItem from="1490884627666" duration="17286000" />
-      <workItem from="1490940996796" duration="21969000" />
+      <workItem from="1490940996796" duration="22139000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="374636000" />
+    <option name="totallyTimeSpent" value="374806000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
@@ -430,14 +398,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/plugins/download/admin/template/setting.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="331" column="26" selection-start-line="331" selection-start-column="26" selection-end-line="334" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/download/admin/template/cat.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
@@ -966,14 +926,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/lang/cs.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="116" column="17" selection-start-line="116" selection-start-column="1" selection-end-line="116" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/faq/install.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -994,6 +946,29 @@
             <marker date="1490977842971" expanded="true" signature="16595:17230" ph="CREATE TABLE... IF" />
             <marker date="1490977842971" expanded="true" signature="17362:17427" ph="ALTER TABLE ${DB_PREFIX}faq... " />
             <marker date="1490977842971" expanded="true" signature="18013:18068" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="116" column="17" selection-start-line="116" selection-start-column="1" selection-end-line="116" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/growl/install.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="210" column="10" selection-start-line="210" selection-start-column="10" selection-end-line="210" selection-end-column="10" />
+          <folding>
+            <marker date="1490978024212" expanded="true" signature="3741:3801" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490978024212" expanded="true" signature="4536:5061" ph="INSERT INTO ${DB_PREFIX}plugins... " />
+            <marker date="1490978024212" expanded="true" signature="5141:5201" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490978024212" expanded="true" signature="5745:6224" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+            <marker date="1490978024212" expanded="true" signature="6256:7476" ph="CREATE TABLE... IF" />
+            <marker date="1490978024212" expanded="true" signature="8056:8113" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>

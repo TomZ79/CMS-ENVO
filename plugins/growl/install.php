@@ -147,6 +147,7 @@ if (file_exists(APP_PATH.'plugins/growl/admin/lang/'.$site_language.'.ini')) {
 				<!-- INSTALLATION -->
 				<?php if (isset($_POST['install'])) {
 
+				//
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Growl", "Growl for your CMS.", 1, ' . JAK_USERID . ', 4, "growl", "", "if ($page == \'growl\') {
         require_once APP_PATH.\'plugins/growl/admin/growl.php\';
         $JAK_PROVED = 1;
@@ -159,6 +160,7 @@ if (file_exists(APP_PATH.'plugins/growl/admin/lang/'.$site_language.'.ini')) {
 
 			if ($rows['id']) {
 
+				//
 				$adminlang = 'if (file_exists(APP_PATH.\'plugins/growl/admin/lang/\'.$site_language.\'.ini\')) {
     $tlgwl = parse_ini_file(APP_PATH.\'plugins/growl/admin/lang/\'.$site_language.\'.ini\', true);
 } else {
@@ -169,11 +171,13 @@ if (file_exists(APP_PATH.'plugins/growl/admin/lang/'.$site_language.'.ini')) {
 				$growlheader = 'plugins/growl/template/header.php';
 				$growlfooter = 'plugins/growl/template/footer.php';
 
+				//
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "Growl Admin Language", "' . $adminlang . '", "growl", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_between_head", "Growl CSS", "' . $growlheader . '", "growl", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_footer_end", "Growl Javascript", "' . $growlfooter . '", "growl", 1, 1, "' . $rows['id'] . '", NOW())');
 
+				//
 				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'growl (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `everywhere` smallint(1) unsigned NOT NULL DEFAULT 0,
