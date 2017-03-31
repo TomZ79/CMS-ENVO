@@ -145,6 +145,7 @@ if (file_exists(APP_PATH.'plugins/register_form/admin/lang/'.$site_language.'.in
 				<!-- INSTALLATION -->
 				<?php if (isset($_POST['install'])) {
 
+				//
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "register_form", "Create a register form and connect it to any page you like", 1, ' . JAK_USERID . ', 4, "register_form", "require_once APP_PATH.\'plugins/register_form/register.php\';", "if ($page == \'register-form\') {
         require_once APP_PATH.\'plugins/register_form/admin/register.php\';
         $JAK_PROVED = 1;
@@ -157,25 +158,30 @@ if (file_exists(APP_PATH.'plugins/register_form/admin/lang/'.$site_language.'.in
 
 			if ($rows['id']) {
 
+				//
 				$adminlang = 'if (file_exists(APP_PATH.\'plugins/register_form/admin/lang/\'.$site_language.\'.ini\')) {
     $tlrf = parse_ini_file(APP_PATH.\'plugins/register_form/admin/lang/\'.$site_language.\'.ini\', true);
 } else {
     $tlrf = parse_ini_file(APP_PATH.\'plugins/register_form/admin/lang/en.ini\', true);
 }';
 
+				//
 				$pn_include = 'if ($row[\'showregister\'] == 1) {
 	include_once APP_PATH.\'plugins/register_form/rf_createform.php\';
 	$JAK_SHOW_R_FORM = jak_create_register_form($tl[\'cmsg\'][\'c12\'], \'\', true);
 }';
 
+				//
 				$pages = 'if ($pg[\'pluginid\'] == JAK_PLUGIN_REGISTER_FORM) {
 
 include_once APP_PATH.\'plugins/register_form/admin/template/rf_connect.php\';
 
 }';
 
+				//
 				$sqlinsert = '$insert .= \'showregister = \"\'.smartsql($defaults[\'jak_rfconnect\']).\'\",\';';
 
+				//
 				$index_page = 'include_once APP_PATH.\'plugins/register_form/rf_post.php\';if ($page == \'rf_ual\') {
 if (is_numeric($page1) && is_numeric($page2) && jak_row_exist($page1, DB_PREFIX.\'user\') && jak_field_not_exist($page2, DB_PREFIX.\'user\', \'activatenr\')) {
 
@@ -241,7 +247,7 @@ if (!$result) {
 	}
     ';
 
-				//include_once APP_PATH.'plugins/register_form/template/rf_registerform.php';
+				//
 				$get_rfregform = '
 	$pluginbasic_sidebar = \'plugins/register_form/template/rf_registerform.php\';
 	$pluginsite_sidebar = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/register_form/rf_registerform.php\';
@@ -265,6 +271,7 @@ if (!$result) {
 	}
     ';
 
+				//
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "tpl_admin_page_news", "Register Form Admin - Page/News", "' . $pages . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_page_news_new", "Register Form Admin - Page/News - New", "plugins/register_form/admin/template/rf_connect_new.php", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
@@ -309,6 +316,7 @@ if (!$result) {
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
+				//
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'registeroptions (`id`, `name`, `typeid`, `options`, `showregister`, `mandatory`, `forder`) VALUES (NULL, \'Username\', 1, NULL, 1, 1, 1), (NULL, \'Email\', 1, NULL, 1, 3, 2), (NULL, \'Password\', 1, NULL, 1, 1, 3)');
 
 				$succesfully = 1;
