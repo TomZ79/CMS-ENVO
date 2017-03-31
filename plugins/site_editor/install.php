@@ -165,6 +165,7 @@ if (file_exists(APP_PATH.'plugins/site_editor/admin/lang/'.$site_language.'.ini'
 				<!-- INSTALLATION -->
 				<?php if (isset($_POST['install'])) {
 
+				//
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Site_editor", "SITE Editor for edit basic site files.", 1, ' . JAK_USERID . ', 4, "site_editor", "NULL", "if ($page == \'site-editor\') {
         require_once APP_PATH.\'plugins/site_editor/admin/site_editor.php\';
            $JAK_PROVED = 1;
@@ -177,12 +178,14 @@ if (file_exists(APP_PATH.'plugins/site_editor/admin/lang/'.$site_language.'.ini'
 
 			if ($rows['id']) {
 
+				//
 				$adminlang = 'if (file_exists(APP_PATH.\'plugins/site_editor/admin/lang/\'.$site_language.\'.ini\')) {
               $tlsedi = parse_ini_file(APP_PATH.\'plugins/site_editor/admin/lang/\'.$site_language.\'.ini\', true);
           } else {
               $tlsedi = parse_ini_file(APP_PATH.\'plugins/site_editor/admin/lang/en.ini\', true);
           }';
 
+				//
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "SITE Editor Admin Language", "' . $adminlang . '", "site_editor", 1, 4, "' . $rows['id'] . '", NOW())');
 
