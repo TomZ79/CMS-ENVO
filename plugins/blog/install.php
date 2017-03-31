@@ -148,6 +148,7 @@ if (file_exists(APP_PATH.'plugins/blog/admin/lang/'.$site_language.'.ini')) {
 				<!-- INSTALLATION -->
 				<?php if (isset($_POST['install'])) {
 
+				//
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Blog", "Run your own blog.", 1, ' . JAK_USERID . ', 4, "blog", "require_once APP_PATH.\'plugins/blog/blog.php\';", "if ($page == \'blog\') {
         require_once APP_PATH.\'plugins/blog/admin/blog.php\';
            $JAK_PROVED = 1;
@@ -165,18 +166,21 @@ if (file_exists(APP_PATH.'plugins/blog/admin/lang/'.$site_language.'.ini')) {
 	$insert .= \'blog = \"\'.$defaults[\'jak_blog\'].\'\", blogpost = \"\'.$defaults[\'jak_blogpost\'].\'\", blogpostapprove = \"\'.$defaults[\'jak_blogpostapprove\'].\'\", blogpostdelete = \"\'.$defaults[\'jak_blogpostdelete\'].\'\", blograte = \"\'.$defaults[\'jak_blograte\'].\'\", blogmoderate = \"\'.$defaults[\'jak_blogmoderate\'].\'\",\'; }';
 
 
+				//
 				$adminlang = 'if (file_exists(APP_PATH.\'plugins/blog/admin/lang/\'.$site_language.\'.ini\')) {
     $tlblog = parse_ini_file(APP_PATH.\'plugins/blog/admin/lang/\'.$site_language.\'.ini\', true);
 } else {
     $tlblog = parse_ini_file(APP_PATH.\'plugins/blog/admin/lang/en.ini\', true);
 }';
 
+				//
 				$sitelang = 'if (file_exists(APP_PATH.\'plugins/blog/lang/\'.$site_language.\'.ini\')) {
     $tlblog = parse_ini_file(APP_PATH.\'plugins/blog/lang/\'.$site_language.\'.ini\', true);
 } else {
     $tlblog = parse_ini_file(APP_PATH.\'plugins/blog/lang/en.ini\', true);
 }';
 
+				//
 				$sitephpsearch = '$blog = new JAK_search($SearchInput);
         	$blog->jakSettable(\'blog\',\"\");
         	$blog->jakAndor(\"OR\");
@@ -189,6 +193,7 @@ if (file_exists(APP_PATH.'plugins/blog/admin/lang/'.$site_language.'.ini')) {
         	// Load the array into template
         	$JAK_SEARCH_RESULT_BLOG = $blog->set_result(JAK_PLUGIN_VAR_BLOG, \'a\', $jkv[\"blogurl\"]);';
 
+				//
 				$sitephprss = 'if ($page1 == JAK_PLUGIN_VAR_BLOG) {
 	
 	if ($jkv[\"blogrss\"]) {
@@ -206,11 +211,13 @@ if (file_exists(APP_PATH.'plugins/blog/admin/lang/'.$site_language.'.ini')) {
 	
 }';
 
+				//
 				$sitephptag = 'if ($row[\'pluginid\'] == JAK_PLUGIN_ID_BLOG) {
 $blogtagData[] = JAK_tags::jakTagsql(\"blog\", $row[\'itemid\'], \"id, title, content\", \"content\", JAK_PLUGIN_VAR_BLOG, \"a\", $jkv[\"blogurl\"]);
 $JAK_TAG_BLOG_DATA = $blogtagData;
 }';
 
+				//
 				$sitephpsitemap = 'include_once APP_PATH.\'plugins/blog/functions.php\';
 
 $JAK_BLOG_ALL = jak_get_blog(\'\', $jkv[\"blogorder\"], \'\', \'\', $jkv[\"blogurl\"], $tl[\'general\'][\'g56\']);
@@ -227,6 +234,7 @@ include_once APP_PATH.\'plugins/blog/admin/template/blog_connect.php\';
 
 }';
 
+				//
 				$sqlinsert = 'if (!isset($defaults[\'jak_showblog\'])) {
 	$bl = 0;
 } else if (in_array(0, $defaults[\'jak_showblog\'])) {
@@ -243,6 +251,7 @@ if (empty($bl) && !empty($defaults[\'jak_showblogmany\'])) {
   	$insert .= \'showblog = 0,\';
 }';
 
+				//
 				$getblog = '$JAK_GET_BLOG = jak_get_page_info(DB_PREFIX.\'blog\', \'\');
 
 if ($JAK_FORM_DATA) {
@@ -269,6 +278,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
 	}
     ';
 
+				//
 				$get_blsidebar = '
 	$pluginbasic_sidebar = \'plugins/blog/template/blogsidebar.php\';
 	$pluginsite_sidebar = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/blogsidebar.php\';
@@ -280,6 +290,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
 	}
     ';
 
+				//
 				$get_blsitemap = '
 	$pluginbasic_sitemap = \'plugins/blog/template/sitemap.php\';
 	$pluginsite_sitemap = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/sitemap.php\';
@@ -291,6 +302,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
 	}
     ';
 
+				//
 				$get_blsearch = '
 	$pluginbasic_search = \'plugins/blog/template/search.php\';
 	$pluginsite_search = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/search.php\';
@@ -302,6 +314,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
 	}
     ';
 
+				//
 				$get_bltag = '
 	$pluginbasic_tag = \'plugins/blog/template/tag.php\';
 	$pluginsite_tag = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/tag.php\';
@@ -312,6 +325,8 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
 		include_once APP_PATH.$pluginbasic_tag;
 	}
     ';
+
+				//
 				$get_blfooter_widgets = '
 	$pluginbasic_fwidgets = \'plugins/blog/template/footer_widget.php\';
 	$pluginsite_fwidgets = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/footer_widget.php\';
@@ -322,6 +337,8 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
 		include_once APP_PATH.$pluginbasic_fwidgets;
 	}
     ';
+
+				//
 				$get_blfooter_widgets1 = '
 	$pluginbasic_fwidgets1 = \'plugins/blog/template/footer_widget1.php\';
 	$pluginsite_fwidgets1 = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/footer_widget1.php\';
@@ -336,10 +353,13 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
 				//
 				$adminphpdelete = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'blogcomments SET userid = 0 WHERE userid = \'.$page2.\'\');';
 
+				//
 				$adminphprename = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'blogcomments SET username = \"\'.smartsql($defaults[\'jak_username\']).\'\" WHERE userid = \'.smartsql($page2).\'\');';
 
+				//
 				$adminphpmassdel = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'blogcomments SET userid = 0 WHERE userid = \'.$locked.\'\');';
 
+				//
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_usergroup", "Blog Usergroup", "' . $insertphpcode . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_lang", "Blog Admin Language", "' . $adminlang . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
@@ -401,6 +421,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES
 (NULL, "Blog", "blog", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
 
+				//
 				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'blog (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `catid` varchar(100) DEFAULT NULL,
@@ -424,6 +445,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
   KEY `catid` (`catid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
+				//
 				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'blogcategories (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
@@ -439,6 +461,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
   KEY `catorder` (`catorder`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
+				//
 				$jakdb->query ('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'blogcomments (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `blogid` int(11) unsigned NOT NULL DEFAULT 0,
