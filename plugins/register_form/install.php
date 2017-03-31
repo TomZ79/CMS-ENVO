@@ -118,8 +118,10 @@ if (file_exists(APP_PATH.'plugins/register_form/admin/lang/'.$site_language.'.in
 				</div>
 			</div>
 
-			<!-- UNINSTALLATION -->
-			<?php $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "register_form"');
+			<?php
+			// Check if the plugin is already installed
+			// If plugin is installed - show Notification
+			$jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "register_form"');
 			if ($jakdb->affected_rows > 0) { ?>
 
 				<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
@@ -139,11 +141,12 @@ if (file_exists(APP_PATH.'plugins/register_form/admin/lang/'.$site_language.'.in
 					});
 				</script>
 
-				<!-- Plugin is not installed let's display the installation script -->
-			<?php } else { ?>
+			<?php
+			} else {
+			// If plugin is not installed - install plugin
 
-				<!-- INSTALLATION -->
-				<?php if (isset($_POST['install'])) {
+			// MAIN PLUGIN INSTALLATION
+			if (isset($_POST['install'])) {
 
 				//
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "register_form", "Create a register form and connect it to any page you like", 1, ' . JAK_USERID . ', 4, "register_form", "require_once APP_PATH.\'plugins/register_form/register.php\';", "if ($page == \'register-form\') {
