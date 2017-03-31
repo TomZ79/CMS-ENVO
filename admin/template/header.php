@@ -88,7 +88,7 @@ echo $Html->addDoctype('html5');
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-          echo $Html->addAnchor('#', '<img src="assets/img/demo/email_app.svg" alt="socail">', '', '"p-l-10');
+          echo $Html->addAnchor('#', '<img src="assets/img/demo/email_app.svg" alt="socail">', '', 'p-l-10');
           ?>
 
         </div>
@@ -98,7 +98,7 @@ echo $Html->addDoctype('html5');
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-          echo $Html->addAnchor('#', '<img src="assets/img/demo/calendar_app.svg" alt="socail">', '', '"p-l-40');
+          echo $Html->addAnchor('#', '<img src="assets/img/demo/calendar_app.svg" alt="socail">', '', 'p-l-40');
           ?>
 
         </div>
@@ -106,7 +106,7 @@ echo $Html->addDoctype('html5');
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-          echo $Html->addAnchor('#', '<img src="assets/img/demo/add_more.svg" alt="socail">', '', '"p-l-10');
+          echo $Html->addAnchor('#', '<img src="assets/img/demo/add_more.svg" alt="socail">', '', 'p-l-10');
           ?>
 
         </div>
@@ -175,7 +175,193 @@ echo $Html->addDoctype('html5');
             <img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
           </a>
         </div>
-        <div class="inline b-grey b-l p-l-30">
+        <div class="inline p-l-30">
+          <!-- START QUICK LIST -->
+          <ul class="quick-list no-margin hidden-xs b-grey b-l b-r no-style p-l-30 p-r-20">
+            <li class="p-r-15 inline">
+              <div class="dropdown">
+                <a href="javascript:;" id="notification-center" class="icon-set grid-box" data-toggle="dropdown"></a>
+                <!-- START Quick Dropdown -->
+                <div class="dropdown-menu quick-toggle" role="menu" aria-labelledby="notification-center">
+                  <!-- START Quick -->
+                  <div class="quick-panel grid-dropdown">
+                    <!-- START Quick Body-->
+                    <div class="quick-body scrollable">
+                      <div class="row stacked">
+                        <div class="col-xs-4">
+
+                          <?php
+                          // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                          echo $Html->addAnchor('index.php?p=categories', '<i class="pg-unordered_list"></i>' . $tl["submenu"]["sm110"]);
+                          ?>
+
+                        </div>
+                        <div class="col-xs-4">
+
+                          <?php
+                          // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                          echo $Html->addAnchor('index.php?p=page', '<i class="fa fa-file"></i>' . $tl["submenu"]["sm120"]);
+                          ?>
+
+                        </div>
+                        <div class="col-xs-4">
+
+                          <?php
+                          // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                          echo $Html->addAnchor('index.php?p=news', '<i class="fa fa-newspaper-o"></i>' . $tl["submenu"]["sm160"]);
+                          ?>
+
+                        </div>
+                      </div>
+
+                      <?php $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blog"');
+                      if ($jakdb->affected_rows > 0) { ?>
+                        <div class="row stacked">
+                          <div class="col-md-12 pluginname">
+                            Plugin Blog
+                          </div>
+                          <div class="col-xs-4">
+
+                            <?php
+                            // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                            echo $Html->addAnchor('index.php?p=blog&amp;sp=categories', '<i class="pg-unordered_list"></i>' . $tlblog["blog_menu"]["blogm4"]);
+                            ?>
+
+                          </div>
+                          <div class="col-xs-4">
+
+                            <?php
+                            // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                            echo $Html->addAnchor('index.php?p=blog', '<i class="fa fa-file"></i>' . $tlblog["blog_menu"]["blogm1"]);
+                            ?>
+
+                          </div>
+                          <div class="col-xs-4">
+
+                            <?php
+                            // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                            echo $Html->addAnchor('index.php?p=blog&amp;sp=setting', '<i class="pg-settings_small"></i>' . $tlblog["blog_menu"]["blogm9"]);
+                            ?>
+
+                          </div>
+                        </div>
+                      <?php } ?>
+
+                      <?php $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
+                      if ($jakdb->affected_rows > 0) { ?>
+                        <div class="row stacked">
+                          <div class="col-md-12 pluginname">
+                            Plugin Download
+                          </div>
+                          <div class="col-xs-4">
+
+                            <?php
+                            // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                            echo $Html->addAnchor('index.php?p=download&amp;sp=categories', '<i class="pg-unordered_list"></i>' . $tld["downl_menu"]["downlm4"]);
+                            ?>
+
+                          </div>
+                          <div class="col-xs-4">
+
+                            <?php
+                            // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                            echo $Html->addAnchor('index.php?p=download', '<i class="fa fa-file"></i>' . $tld["downl_menu"]["downlm1"]);
+                            ?>
+
+                          </div>
+                          <div class="col-xs-4">
+
+                            <?php
+                            // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                            echo $Html->addAnchor('index.php?p=download&amp;sp=setting', '<i class="pg-settings_small"></i>' . $tld["downl_menu"]["downlm9"]);
+                            ?>
+
+                          </div>
+                        </div>
+                      <?php } ?>
+
+                      <style>
+                        .header .quick-list {
+                          display: inline-block;
+                        }
+                        .quick-toggle {
+                          top: 35px;
+                          left: -26px;
+                          padding: 0;
+                        }
+
+                        .quick-toggle:before {
+                          border-bottom: 0 !important;
+                        }
+
+                        .quick-toggle:after {
+                          border-bottom: 0 !important;
+                        }
+                        .quick-panel {
+                          background-color: #FFF;
+                          border: 1px solid #E6E6E6;
+                        }
+
+                        .quick-panel .quick-body {
+                          height: auto;
+                          max-height: 350px;
+                          position: relative;
+                          overflow: hidden;
+                        }
+                        .grid-dropdown {
+                          width: 300px;
+                          text-align: center;
+                          font-size: 16px;
+                          color: #252932;
+                        }
+                        .stacked {
+                          margin: 0;
+                        }
+                        .stacked .pluginname{
+                          background-color: #F9F9F9;
+                        }
+                        .stacked > [class*="col-"] {
+                          padding-left: 0;
+                          padding-right: 0;
+                          margin: 0 !important;
+                        }
+                        .stacked a {
+                          font-size: 13px;
+                          color: #38464A;
+                          width: 100%;
+                          padding: 10px;
+                          line-height: 30px;
+                          display: block;
+                          font-weight: 300;
+                          vertical-align: middle;
+                          text-align: center;
+                          cursor: pointer;
+                        }
+                        .stacked a:hover {
+                          background: #626262;
+                          color: #FFF;
+                        }
+                        .stacked a i {
+                          font-size: 25px;
+                          line-height: 30px;
+                          height: 30px;
+                          display: block;
+                          color: #697a7a;
+                        }
+                        .stacked a:hover i {
+                          color: #FFF;
+                        }
+                      </style>
+                    </div>
+                    <!-- END Quick Body-->
+                  </div>
+                  <!-- END Quick -->
+                </div>
+                <!-- END Quick Dropdown -->
+              </div>
+            </li>
+          </ul>
+          <!-- END QUICK LIST -->
           <a href="#" class="search-link" data-toggle="search">
             <i class="pg-search"></i>
             <?php echo $tl["hf_text"]["hftxt7"]; ?>
