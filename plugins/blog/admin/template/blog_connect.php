@@ -60,6 +60,8 @@
 		</div>
 	</li>
 
-	<?php $blog_exist = 1;
+	<?php
+	// only fire new form when not exist
+	$blog_exist = 1;
 } ?>
 
