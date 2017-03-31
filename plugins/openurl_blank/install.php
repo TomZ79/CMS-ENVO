@@ -120,8 +120,10 @@ if (file_exists(APP_PATH.'plugins/openurl_blank/admin/lang/'.$site_language.'.in
 				</div>
 				<hr>
 
-				<!-- Check if the plugin is already installed -->
-				<?php $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "openurl_blank"');
+				<?php
+				// Check if the plugin is already installed
+				// If plugin is installed - show Notification
+				$jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "openurl_blank"');
 				if ($jakdb->affected_rows > 0) { ?>
 
 					<button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít
@@ -142,11 +144,12 @@ if (file_exists(APP_PATH.'plugins/openurl_blank/admin/lang/'.$site_language.'.in
 						});
 					</script>
 
-					<!-- Plugin is not installed let's display the installation script -->
-				<?php } else { ?>
+				<?php
+				} else {
+					// If plugin is not installed - install plugin
 
-					<!-- INSTALLATION -->
-					<?php if (isset($_POST['install'])) {
+					// MAIN PLUGIN INSTALLATION
+				  if (isset($_POST['install'])) {
 
 					//
 					$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "openurl_blank", "Open all external links in a new window/tab.", 1, ' . JAK_USERID . ', 1, "openurl_blank", NULL, NULL, NULL, NULL, "uninstall.php", "1.0", NOW())');
@@ -159,7 +162,7 @@ if (file_exists(APP_PATH.'plugins/openurl_blank/admin/lang/'.$site_language.'.in
 
 					//
 					$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
-            (NULL, "tpl_between_head", "Open URL jQuery", "plugins/openurl_blank/openurlhead.php", "openurlb", 1, 1, "' . $rows['id'] . '", NOW())');
+            (NULL, "tpl_footer_end", "Open URL ", "plugins/openurl_blank/openurlhead.php", "openurlb", 1, 1, "' . $rows['id'] . '", NOW())');
 
 					$succesfully = 1;
 
