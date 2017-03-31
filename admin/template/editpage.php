@@ -735,7 +735,7 @@ if ($errors) { ?>
 											if ($pg["pluginid"] == '9999') { ?>
 
 												<li class="jakcontent">
-													<div class="text"><?php echo $tl["page_box_content"]["pagebc4"]; ?></div>
+													<div class="text"><?php echo $tl["page_box_content"]["pagebc21"]; ?></div>
 													<div class="actions">
 
 														<?php
