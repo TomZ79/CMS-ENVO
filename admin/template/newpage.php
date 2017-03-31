@@ -602,7 +602,7 @@ if ($errors) { ?>
 								<ul class="jak_content_move">
 
 									<li class="jakcontent">
-										<div class="text"><?php echo $tl["page_box_content"]["pagebc4"]; ?></div>
+										<div class="text"><?php echo $tl["page_box_content"]["pagebc21"]; ?></div>
 										<div class="actions">
 
 											<?php
