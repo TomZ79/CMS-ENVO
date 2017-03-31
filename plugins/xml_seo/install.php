@@ -166,6 +166,7 @@ if (file_exists(APP_PATH.'plugins/xml_seo/admin/lang/'.$site_language.'.ini')) {
 				<!-- INSTALLATION -->
 				<?php if (isset($_POST['install'])) {
 
+				//
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "XML_SEO", "XML Sitemap for better SEO.", 1, ' . JAK_USERID . ', 4, "xml_seo", "NULL", "if ($page == \'xml_seo\') {
         require_once APP_PATH.\'plugins/xml_seo/admin/xml_seo.php\';
            $JAK_PROVED = 1;
@@ -178,12 +179,14 @@ if (file_exists(APP_PATH.'plugins/xml_seo/admin/lang/'.$site_language.'.ini')) {
 
 			if ($rows['id']) {
 
+				//
 				$adminlang = 'if (file_exists(APP_PATH.\'plugins/xml_seo/admin/lang/\'.$site_language.\'.ini\')) {
               $tlxml = parse_ini_file(APP_PATH.\'plugins/xml_seo/admin/lang/\'.$site_language.\'.ini\', true);
           } else {
               $tlxml = parse_ini_file(APP_PATH.\'plugins/xml_seo/admin/lang/en.ini\', true);
           }';
 
+				//
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES (NULL, "php_admin_lang", "XML SEO Admin Language", "' . $adminlang . '", "xmlseo", 1, 4, "' . $rows['id'] . '", NOW())');
 
 				// Insert tables into settings

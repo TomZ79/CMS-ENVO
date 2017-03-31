@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4346a0f-85ec-4e4d-93d1-8c74a4b74471" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/install.php" afterPath="$PROJECT_DIR$/plugins/urlmapping/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/install.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/install.php" />
     </list>
     <ignored path="CMS-Bluesat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,12 +26,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="cs.ini" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cs.ini" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/lang/cs.ini">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="229">
               <caret line="70" column="26" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="26" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="install.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/plugins/xml_seo/install.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="529">
+              <caret line="203" column="10" selection-start-line="203" selection-start-column="10" selection-end-line="203" selection-end-column="10" />
+              <folding>
+                <marker date="1490978338508" expanded="true" signature="4235:4297" ph="SELECT id FR... ${DB_PREFIX}" />
+                <marker date="1490978338508" expanded="true" signature="5032:5600" ph="INSERT INTO ${DB_PREFIX}plugins... " />
+                <marker date="1490978338508" expanded="true" signature="5680:5742" ph="SELECT id FR... ${DB_PREFIX}" />
+                <marker date="1490978338508" expanded="true" signature="6186:6443" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+                <marker date="1490978338508" expanded="true" signature="6503:7050" ph="INSERT INTO ${DB_PREFIX}setting... " />
+                <marker date="1490978338508" expanded="true" signature="7632:7691" ph="DELETE FROM " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -44,7 +61,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/admin/template/header.php" />
         <option value="$PROJECT_DIR$/plugins/register_form/admin/lang/cs.ini" />
         <option value="$PROJECT_DIR$/plugins/register_form/admin/register.php" />
         <option value="$PROJECT_DIR$/plugins/register_form/admin/template/settings.php" />
@@ -95,6 +111,7 @@
         <option value="$PROJECT_DIR$/plugins/register_form/install.php" />
         <option value="$PROJECT_DIR$/plugins/site_editor/install.php" />
         <option value="$PROJECT_DIR$/plugins/urlmapping/install.php" />
+        <option value="$PROJECT_DIR$/plugins/xml_seo/install.php" />
       </list>
     </option>
   </component>
@@ -169,6 +186,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xml_seo" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -272,12 +307,12 @@
       <workItem from="1490764117989" duration="20770000" />
       <workItem from="1490884409913" duration="21000" />
       <workItem from="1490884627666" duration="17286000" />
-      <workItem from="1490940996796" duration="22420000" />
+      <workItem from="1490940996796" duration="22459000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="375087000" />
+    <option name="totallyTimeSpent" value="375126000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
@@ -343,14 +378,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/plugins/download/admin/template/newcat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="174" column="26" selection-start-line="164" selection-start-column="20" selection-end-line="174" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/download/admin/js/pages.download.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -904,6 +931,21 @@
         <state relative-caret-position="229">
           <caret line="70" column="26" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="26" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/xml_seo/install.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="203" column="10" selection-start-line="203" selection-start-column="10" selection-end-line="203" selection-end-column="10" />
+          <folding>
+            <marker date="1490978338508" expanded="true" signature="4235:4297" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490978338508" expanded="true" signature="5032:5600" ph="INSERT INTO ${DB_PREFIX}plugins... " />
+            <marker date="1490978338508" expanded="true" signature="5680:5742" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1490978338508" expanded="true" signature="6186:6443" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+            <marker date="1490978338508" expanded="true" signature="6503:7050" ph="INSERT INTO ${DB_PREFIX}setting... " />
+            <marker date="1490978338508" expanded="true" signature="7632:7691" ph="DELETE FROM " />
+          </folding>
         </state>
       </provider>
     </entry>
