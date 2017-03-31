@@ -11,10 +11,15 @@ $rwresrf2 = $resrf2->fetch_assoc ();
 
 ?>
 
-<div class="box">
+<div class="box box-success">
 	<div class="box-header">
-		<i class="fa fa-users"></i>
-		<h3 class="box-title"><?php echo $tlrf["reg_box_title"]["regbt1"]; ?></h3>
+
+		<?php
+		// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+		echo $Html->addTag('i', '', 'fa fa-users');
+		echo $Html->addTag('h3', $tlrf["reg_box_title"]["regbt1"], 'box-title');
+		?>
+
 	</div>
 	<div class="box-body no-padding">
 		<table class="table table-striped">

@@ -304,9 +304,16 @@ if (JAK_USERID) {
 	$JAK_TPL_PLUG_T   = $PAGE_TITLE;
 	$JAK_TPL_PLUG_URL = 1;
 
-	// EN: Load the template
-	// CZ: Načti template (šablonu)
-	$plugin_template = 'plugins/register_form/template/' . $jkv["sitestyle"] . '/rf_editprofile.php';
+  // EN: Load the template
+  // CZ: Načti template (šablonu)
+  $pluginbasic_template = 'plugins/register_form/template/rf_editprofile.php';
+  $pluginsite_template = 'template/' . $jkv["sitestyle"] . '/plugintemplate/register_form/rf_editprofile.php';
+
+  if (file_exists($pluginsite_template)) {
+    $plugin_template = $pluginsite_template;
+  } else {
+    $plugin_template = $pluginbasic_template;
+  }
 
 } else {
 	// EN: Redirect page

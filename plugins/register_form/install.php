@@ -149,7 +149,7 @@ if (file_exists(APP_PATH.'plugins/register_form/admin/lang/'.$site_language.'.in
         require_once APP_PATH.\'plugins/register_form/admin/register.php\';
         $JAK_PROVED = 1;
         $checkp = 1;
-     }", "", "../plugins/register_form/admin/template/registerfnav.php", 1, "uninstall.php", "1.0", NOW())');
+     }", "", "../plugins/register_form/admin/template/registerfnav.php", 1, "uninstall.php", "1.1", NOW())');
 
 				// Now get the plugin id for futher use
 				$results = $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "register_form"');
@@ -229,16 +229,52 @@ if (!$result) {
 				// Insert code into index.php
 				$insertadminindex = 'plugins/register_form/admin/template/stat.php';
 
+				//
+				$get_rfsidebar = '
+	$pluginbasic_sidebar = \'plugins/register_form/template/rf_sidebar.php\';
+	$pluginsite_sidebar = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/register_form/rf_sidebar.php\';
+	
+	if (file_exists($pluginsite_sidebar)) {
+		include_once APP_PATH.$pluginsite_sidebar;
+	} else {
+		include_once APP_PATH.$pluginbasic_sidebar;
+	}
+    ';
+
+				//include_once APP_PATH.'plugins/register_form/template/rf_registerform.php';
+				$get_rfregform = '
+	$pluginbasic_sidebar = \'plugins/register_form/template/rf_registerform.php\';
+	$pluginsite_sidebar = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/register_form/rf_registerform.php\';
+	
+	if (file_exists($pluginsite_sidebar)) {
+		include_once APP_PATH.$pluginsite_sidebar;
+	} else {
+		include_once APP_PATH.$pluginbasic_sidebar;
+	}
+    ';
+
+				//
+				$get_rffooter_widgets = '
+	$pluginbasic_fwidgets = \'plugins/register_form/template/footer_widget.php\';
+	$pluginsite_fwidgets = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/register_form/footer_widget.php\';
+	
+	if (file_exists($pluginsite_fwidgets)) {
+		include_once APP_PATH.$pluginsite_fwidgets;
+	} else {
+		include_once APP_PATH.$pluginbasic_fwidgets;
+	}
+    ';
+
 				$jakdb->query ('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "tpl_admin_page_news", "Register Form Admin - Page/News", "' . $pages . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_page_news_new", "Register Form Admin - Page/News - New", "plugins/register_form/admin/template/rf_connect_new.php", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_sidebar", "Profile/Login Form Sidebar", "plugins/register_form/template/rf_sidebar.php", "registerf", 1, 5, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_footer_widgets", "Profile/Login Form Footer Widget", "plugins/register_form/template/footer_widget.php", "registerf", 1, 2, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_sidebar", "Profile/Login Form Sidebar", "' . $get_rfsidebar . '", "registerf", 1, 5, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_footer_widgets", "Profile/Login Form Footer Widget", "' . $get_rffooter_widgets . '", "registerf", 1, 2, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_pages_sql", "Profile/Login Form SQL", "' . $sqlinsert . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_news_sql", "Profile/Login Form SQL", "' . $sqlinsert . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_lang", "Register Form Admin Language", "' . $adminlang . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_pages_news", "Register Form Pages/News", "' . $pn_include . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_page_news_grid", "Register Form TPL - Pages/News", "include_once APP_PATH.\'plugins/register_form/template/rf_registerform.php\';", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_page_news_grid", "Register Form TPL - Pages/News", "' . $get_rfregform . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_index_page", "Register User Validate", "' . $index_page . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_index", "Register Statistics Admin", "' . $insertadminindex . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW())');
 

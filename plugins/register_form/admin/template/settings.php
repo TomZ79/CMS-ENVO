@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -21,11 +21,11 @@ if ($page2 == "e" || $page1 == "ene") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo ($page1 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>',
+				message: '<?php echo ($page1 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -33,11 +33,13 @@ if ($page2 == "e" || $page1 == "ene") { ?>
 
 	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 		<!-- Fixed Button for save form -->
-		<div class="savebutton">
-			<button type="submit" name="save" class="btn btn-success button">
-				<i class="fa fa-save margin-right-5"></i>
-				<?php echo $tl["button"]["btn1"]; ?> !!
-			</button>
+		<div class="savebutton-small hidden-xs">
+
+			<?php
+			// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+			echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button');
+			?>
+
 		</div>
 
 		<!-- Form Content -->
@@ -58,23 +60,27 @@ if ($page2 == "e" || $page1 == "ene") { ?>
 			<div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="box">
+						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tlrf["reg_box_title"]["regbt"]; ?></h3>
-								<div class="box-tools pull-right">
-									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-									</button>
-									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-									</button>
-								</div>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tlrf["reg_box_title"]["regbt"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
 											<div class="col-md-12">
-												<div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-													<input type="text" name="jak_title" class="form-control" value="<?php echo $JAK_FORM_DATA["title"]; ?>"/>
+												<div class="form-group no-margin">
+
+													<?php
+													// Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+													echo $Html->addInput('text', 'jak_title', $JAK_FORM_DATA["title"], '', 'form-control');
+													?>
+
 												</div>
 											</div>
 										</div>
@@ -82,104 +88,185 @@ if ($page2 == "e" || $page1 == "ene") { ?>
 								</div>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-success pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["button"]["btn1"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+								?>
+
 							</div>
 						</div>
-						<div class="box">
+						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tlrf["reg_box_title"]["regbt2"]; ?></h3>
-								<div class="box-tools pull-right">
-									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-									</button>
-									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-									</button>
-								</div>
+
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tlrf["reg_box_title"]["regbt2"], 'box-title');
+								?>
+
 							</div>
 							<div class="box-body">
 								<div class="block">
 									<div class="block-content">
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tlrf["reg_box_content"]["regbc4"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlrf["reg_box_content"]["regbc4"]);
+												?>
+
+											</div>
 											<div class="col-md-7">
-												<div class="radio">
-													<label class="checkbox-inline">
-														<input type="radio" name="jak_register" value="1"<?php if ($jkv["rf_active"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk"]; ?>
-													</label>
-													<label class="checkbox-inline">
-														<input type="radio" name="jak_register" value="0"<?php if ($jkv["rf_active"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk1"]; ?>
-													</label>
+												<div class="radio radio-success">
+
+													<?php
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_register', '1', ($jkv["rf_active"] == '1') ? TRUE : FALSE, 'jak_register1');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_register1', $tl["checkbox"]["chk"]);
+
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_register', '0', ($jkv["rf_active"] == '0') ? TRUE : FALSE, 'jak_register2');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_register2', $tl["checkbox"]["chk1"]);
+													?>
+
 												</div>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tlrf["reg_box_content"]["regbc5"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlrf["reg_box_content"]["regbc5"]);
+												?>
+
+											</div>
 											<div class="col-md-7">
-												<div class="radio">
-													<label class="checkbox-inline">
-														<input type="radio" name="jak_simple" value="1"<?php if ($jkv["rf_simple"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk"]; ?>
-													</label>
-													<label class="checkbox-inline">
-														<input type="radio" name="jak_simple" value="0"<?php if ($jkv["rf_simple"] == '0') { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk1"]; ?>
-													</label>
+												<div class="radio radio-success">
+
+													<?php
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_simple', '1', ($jkv["rf_simple"] == '1') ? TRUE : FALSE, 'jak_simple1');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_simple1', $tl["checkbox"]["chk"]);
+
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_simple', '0', ($jkv["rf_simple"] == '0') ? TRUE : FALSE, 'jak_simple2');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_simple2', $tl["checkbox"]["chk1"]);
+													?>
+
 												</div>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tlrf["reg_box_content"]["regbc6"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlrf["reg_box_content"]["regbc6"]);
+												?>
+
+											</div>
 											<div class="col-md-7">
-												<div class="radio">
-													<label class="checkbox-inline">
-														<input type="radio" name="jak_usrapprove" value="1"<?php if ($jkv["rf_confirm"] == '1') { ?> checked="checked"<?php } ?> /> <?php echo $tl["checkbox"]["chk1"]; ?>
-													</label>
-													<label class="checkbox-inline">
-														<input type="radio" name="jak_usrapprove" value="2"<?php if ($jkv["rf_confirm"] == '2') { ?> checked="checked"<?php } ?> /> <?php echo $tlrf["reg_box_content"]["regbc11"]; ?>
-													</label>
-													<label class="checkbox-inline">
-														<input type="radio" name="jak_usrapprove" value="3"<?php if ($jkv["rf_confirm"] == '3') { ?> checked="checked"<?php } ?> /> <?php echo $tlrf["reg_box_content"]["regbc12"]; ?>
-													</label>
+												<div class="radio radio-success">
+
+													<?php
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_usrapprove', '1', ($jkv["rf_confirm"] == '1') ? TRUE : FALSE, 'jak_usrapprove1');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_usrapprove1', $tl["checkbox"]["chk1"]);
+
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_usrapprove', '2', ($jkv["rf_confirm"] == '2') ? TRUE : FALSE, 'jak_usrapprove2');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_usrapprove2', $tlrf["reg_box_content"]["regbc11"]);
+
+													// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+													echo $Html->addRadio('jak_usrapprove', '3', ($jkv["rf_confirm"] == '3') ? TRUE : FALSE, 'jak_usrapprove3');
+													// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+													echo $Html->addLabel('jak_usrapprove3', $tlrf["reg_box_content"]["regbc12"]);
+													?>
+
 												</div>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tlrf["reg_box_content"]["regbc7"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlrf["reg_box_content"]["regbc7"]);
+												?>
+
+											</div>
 											<div class="col-md-7">
-												<select name="jak_redirect" class="form-control selectpicker" data-size="5">
-													<option value="0"><?php echo $tl["reg_box_content"]["regbc16"]; ?></option>
-													<?php if (isset($JAK_CAT) && is_array ($JAK_CAT)) foreach ($JAK_CAT as $c) { ?>
-														<option value="<?php echo $c["id"]; ?>"<?php if (isset($JAK_SETTING) && is_array ($JAK_SETTING)) foreach ($JAK_SETTING as $z) {
-															if ($z["varname"] == 'rf_redirect' && $c["id"] == $z["value"]) { ?> selected="selected"<?php }
-														} ?>><?php echo $c["name"]; ?></option><?php } ?>
+												<select name="jak_redirect" class="form-control">
+													<option value="0"><?php echo $tl["title"]["t12"];?></option>
+													<?php if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach($JAK_CAT as $c) { ?><option value="<?php echo $c["id"];?>"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach($JAK_SETTING as $z) { if ($z["varname"] == 'rf_redirect' && $c["id"] == $z["value"]) { ?> selected="selected"<?php } } ?>><?php echo $c["name"];?></option><?php } ?>
 												</select>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tlrf["reg_box_content"]["regbc8"]; ?></strong></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlrf["reg_box_content"]["regbc8"]);
+												?>
+
+											</div>
 											<div class="col-md-7">
-												<select name="jak_usergroup" class="form-control selectpicker">
-													<?php if (isset($JAK_USERGROUP_ALL) && is_array ($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
-														if ($v["id"] != '1') { ?>
-															<option value="<?php echo $v["id"]; ?>"<?php if (isset($JAK_SETTING) && is_array ($JAK_SETTING)) foreach ($JAK_SETTING as $z) {
-																if ($z["varname"] == 'rf_usergroup' && $v["id"] == $z["value"]) { ?> selected="selected"<?php }
-															} ?>><?php echo $v["name"]; ?></option><?php }
-													} ?>
+												<select name="jak_usergroup" class="form-control selectpicker" data-size="5">
+
+													<?php
+													// Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+													if (isset($JAK_USERGROUP_ALL) && is_array ($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
+														if ($v["id"] != '1') {
+
+															if (isset($JAK_SETTING) && is_array ($JAK_SETTING)) foreach ($JAK_SETTING as $z) {
+
+																if ($z["varname"] == 'rf_usergroup' && $v["id"] == $z["value"]) {
+																	$selected = TRUE;
+																} else {
+																	$selected = FALSE;
+																}
+
+																echo $Html->addOption($v["id"], $v["name"], $selected);
+															}
+														}
+													}
+													?>
+
 												</select>
 											</div>
 										</div>
 										<div class="row-form">
-											<div class="col-md-5"><strong><?php echo $tlrf["reg_box_content"]["regbc9"]; ?></strong></div>
-											<div class="col-md-7"><?php include APP_PATH . "admin/template/editorlight_edit.php"; ?></div>
+											<div class="col-md-5">
+
+												<?php
+												// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+												echo $Html->addTag('strong', $tlrf["reg_box_content"]["regbc9"]);
+												?>
+
+											</div>
+											<div class="col-md-7">
+												<?php include APP_PATH . "admin/template/editorlight_edit.php"; ?>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-success pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["button"]["btn1"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+								?>
+
 							</div>
 						</div>
 					</div>
@@ -188,24 +275,25 @@ if ($page2 == "e" || $page1 == "ene") { ?>
 			<div role="tabpanel" class="tab-pane fade" id="cmsPage2" aria-labelledby="cmsPage2-tab">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="box">
+						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><?php echo $tlrf["reg_box_title"]["regbt3"]; ?></h3>
-								<div class="box-tools pull-right">
-									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-									</button>
-									<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-									</button>
-								</div>
+								<?php
+								// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+								echo $Html->addTag('h3', $tlrf["reg_box_title"]["regbt3"], 'box-title');
+								?>
+
+
 							</div>
 							<div class="box-body">
 								<?php include APP_PATH . 'admin/template/sidebar_widget.php'; ?>
 							</div>
 							<div class="box-footer">
-								<button type="submit" name="save" class="btn btn-success pull-right">
-									<i class="fa fa-save margin-right-5"></i>
-									<?php echo $tl["button"]["btn1"]; ?>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+								?>
+
 							</div>
 						</div>
 					</div>
