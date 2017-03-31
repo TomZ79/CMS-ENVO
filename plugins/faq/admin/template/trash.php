@@ -6,11 +6,11 @@
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["notification"]["n7"];?>',
+				message: '<?php echo $tl["notification"]["n7"];?>'
 			}, {
 				// settings
 				type: 'success',
-				delay: 5000,
+				delay: 5000
 			});
 		}, 1000);
 	</script>
@@ -21,11 +21,11 @@ if ($page4 == "e") { ?>
 		setTimeout(function () {
 			$.notify({
 				// options
-				message: '<?php echo $tl["general_error"]["generror1"];?>',
+				message: '<?php echo $tl["general_error"]["generror1"];?>'
 			}, {
 				// settings
 				type: 'danger',
-				delay: 10000,
+				delay: 10000
 			});
 		}, 1000);
 	</script>
@@ -41,35 +41,72 @@ if ($page4 == "e") { ?>
 						<thead>
 						<tr>
 							<th>#</th>
-							<th><input type="checkbox" id="jak_delete_all"/></th>
-							<th><?php echo $tl["page"]["p4"]; ?></th>
-							<th><?php echo $tl["login"]["l1"]; ?></th>
 							<th>
-								<button type="submit" name="untrash" id="button_lock" class="btn btn-default btn-xs" onclick="if(!confirm('<?php echo $tlf["faq"]["ap"]; ?>'))return false;">
-									<i class="fa fa-check"></i>
-								</button>
+								<div class="checkbox-singel check-success">
+
+									<?php
+									// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+									// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+									echo $Html->addCheckbox('', '', false, 'jak_delete_all');
+									echo $Html->addLabel('jak_delete_all', '');
+									?>
+
+								</div>
+							</th>
+							<th><?php echo $tlf["faq_box_table"]["faqtb5"]; ?></th>
+							<th><?php echo $tlf["faq_box_table"]["faqtb6"]; ?></th>
+							<th>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('untrash', '<i class="fa fa-thumbs-up"></i>', 'button_lock', 'btn btn-default btn-xs',  array ('onclick' => 'if(!confirm(\'' . $tlf["faq_notification"]["untrash"] . '\'))return false;'));
+								?>
+
 							</th>
 							<th>
-								<button type="submit" name="delete" id="button_delete" class="btn btn-danger btn-xs" data-confirm-del="<?php echo $tlf["faq"]["co"]; ?>" disabled="disabled">
-									<i class="fa fa-trash-o"></i>
-								</button>
+
+								<?php
+								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+								echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tlf["faq_notification"]["codelall"]));
+								?>
+
 							</th>
 						</tr>
 						</thead>
 						<?php foreach ($JAK_TRASH_ALL as $v) { ?>
 							<tr>
 								<td><?php echo $v["id"]; ?></td>
-								<td><input type="checkbox" name="jak_delete_trash[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
+								<td>
+
+									<div class="checkbox-singel check-success">
+
+										<?php
+										// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+										// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+										echo $Html->addCheckbox('jak_delete_trash[]', $v["id"], false, 'jak_delete_trash' . $v["id"], 'highlight');
+										echo $Html->addLabel('jak_delete_trash' . $v["id"], '');
+										?>
+
+									</div>
+
 								</td>
 								<td><?php echo jak_clean_comment ($v["message"]); ?></td>
-								<td><?php if ($v["userid"] == '0') {
-										echo $tl["general"]["g28"];
+								<td>
+
+									<?php if ($v["userid"] == '0') {
+										echo $tlf["faq_box_content"]["faqbc36"];
 									} else {
-										if ($page1 != 'user') { ?><a
-											href="index.php?p=user&amp;sp=edit&amp;ssp=<?php echo $v["userid"]; ?>"><?php echo $v["username"]; ?></a><?php } else {
+										if ($page1 != 'user') {
+
+											// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+											echo $Html->addAnchor('index.php?p=user&amp;sp=edit&amp;ssp=' . $v["userid"], $v["username"]);
+
+										} else {
 											echo $v["username"];
 										}
-									} ?></td>
+									} ?>
+
+								</td>
 								<td></td>
 								<td></td>
 							</tr>
@@ -80,25 +117,35 @@ if ($page4 == "e") { ?>
 		</div>
 	</form>
 
-<?php } else { ?>
-
 	<div class="col-md-12">
-		<div class="alert bg-info text-white">
-			<?php echo $tl["general_error"]["generror3"]; ?>
+		<div class="icon_legend">
+
+			<?php
+			// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+			echo $Html->addTag('h3', $tl["icons"]["i"]);
+			echo $Html->addTag('i', '', 'fa fa-check', array('title' => $tl["icons"]["i6"]));
+			echo $Html->addTag('i', '', 'fa fa-lock', array('title' => $tl["icons"]["i5"]));
+			echo $Html->addTag('i', '', 'fa fa-trash-o', array('title' => $tl["icons"]["i1"]));
+			?>
+
 		</div>
 	</div>
 
-<?php } ?>
+	<?php if ($JAK_PAGINATE) {
+		echo $JAK_PAGINATE;
+	} ?>
 
-	<div class="icon_legend">
-		<h3><?php echo $tl["icons"]["i"]; ?></h3>
-		<i title="<?php echo $tl["icons"]["i6"]; ?>" class="fa fa-check"></i>
-		<i title="<?php echo $tl["icons"]["i5"]; ?>" class="fa fa-lock"></i>
-		<i title="<?php echo $tl["icons"]["i1"]; ?>" class="fa fa-trash-o"></i>
+<?php } else { ?>
+
+	<div class="col-md-12">
+
+		<?php
+		// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+		echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
+		?>
+
 	</div>
 
-<?php if ($JAK_PAGINATE) {
-	echo $JAK_PAGINATE;
-} ?>
+<?php } ?>
 
 <?php include_once APP_PATH . 'admin/template/footer.php'; ?>

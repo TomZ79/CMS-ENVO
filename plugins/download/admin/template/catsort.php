@@ -79,7 +79,6 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 							<tr>
 								<td><?php echo $v["id"]; ?></td>
 								<td>
-
 									<div class="checkbox-singel check-success">
 
 										<?php
@@ -90,7 +89,6 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 										?>
 
 									</div>
-
 								</td>
 								<td>
 
@@ -119,7 +117,6 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 										echo $tld["downl_box_content"]["downlbc15"];
 									}
 									?>
-
 
 								</td>
 								<td><?php echo date ("d.m.Y - H:i:s", strtotime ($v["time"])); ?></td>

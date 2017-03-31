@@ -91,7 +91,7 @@ if ($page4 == "e") { ?>
 							<td>
 
 								<?php if ($v["userid"] == '0') {
-									echo $tlblog["blog_box_content"]["blogbc40"];
+									echo $tld["downl_box_content"]["downlbc49"];
 								} else {
 									if ($page1 != 'user') {
 
