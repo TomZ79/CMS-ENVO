@@ -255,6 +255,18 @@ function insert_cssblock() {
 	return '<style type="text/css">\n.className {\n\n float:left; width:400px; height:200px; \n\n}\n</style>\n';
 }
 
+function insert_code_member_guest() {
+	return '{{if members}}\n\n For Members \n\n{{endif}}\n\n\n{{if notmembers}}\n\n For Guest \n\n{{endif}}\n\n';
+}
+
+function insert_code_member() {
+	return '{{if members}}\n\n For Members \n\n{{endif}}\n\n';
+}
+
+function insert_code_guest() {
+	return '{{if notmembers}}\n\n For Guest \n\n{{endif}}\n\n';
+}
+
 function restoreContent(fieldname, backupid, advedit, id) {
 
 	$.ajax({
@@ -1009,20 +1021,21 @@ $("#cform_sort").sortable({
 		ui.item.find(".cforder-orig").removeClass('cforder-orig').addClass('cforder');
 		$(".jakcform").animate({backgroundColor: '#c9ffc9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
 
-		// get the new order into the hidden input
+		// Get the new order into the hidden input
 		var position = 1;
 		$('.cforder').each(function () {
 			$(this).val(position);
 			position += 1;
 		});
-
 	},
 	stop: function (e, ui) {
 		/* Opera fix: */
 		ui.item.css({'top': '0', 'left': '0'});
 		ui.item.css('opacity', '1');
+
 	}
 });
+
 
 $("#cform_drag").draggable({
 	connectToSortable: '#cform_sort',

@@ -2,14 +2,13 @@
 	$(document).ready(function () {
 		$(".txtautogrow").autoGrow();
 
-		$("#loader").hide();
+    $('.TMspinner').hide();
 
-		<!-- JavaScript to disable send button and show loading.gif image -->
-		$("#sendTM").click(function () {
-			$("#loader").show();
-			$('#sendTM').attr("disabled", "disabled");
-			$('.jak_form').submit();
-		});
+    $('#sendTM').click(function () {
+      $('.TMspinner').show();
+      $('.TMlabel').text("<?php echo $tl["button"]["btn41"];?>");
+      $('#sendTM').attr("disabled", "disabled");
+    });
 	});
 </script>
 

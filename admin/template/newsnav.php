@@ -1,38 +1,63 @@
 <!-- START NEWS SECTION -->
-<li class="">
-	<a href="javascript:;">
-		<span class="title"><?php echo $tl["menu"]["mm4"]; ?></span>
-		<span class="arrow"></span>
-	</a>
-	<span class="icon-thumbnail <?php if ($page == 'news') echo 'bg-success'; ?>"><i class="fa fa-newspaper-o"></i></span>
+<?php
+if ($page == 'tags') {
+  $classnewssection = 'open active';
+  $classnewsiconbg = 'bg-success';
+}
+?>
+<li class="<?php echo $classnewssection; ?>">
 
-	<ul class="sub-menu">
-		<li class="">
-			<a href="index.php?p=news">
-				<?php echo $tl["submenu"]["sm160"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tl["submenu"]["sm160"]); ?></span>
-		</li>
-		<li class="">
-			<a href="index.php?p=news&amp;sp=new">
-				<?php echo $tl["submenu"]["sm161"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tl["submenu"]["sm161"]); ?></span>
-		</li>
-		<?php if ($page == 'news' && $page1 == 'edit') { ?>
-			<li class="">
-				<a href="index.php?p=news&amp;sp=edit&amp;ssp=<?php echo $page2; ?>">
-					<?php echo $tl["submenu"]["sm162"]; ?>
-				</a>
-				<span class="icon-thumbnail"><?php echo text_clipping_lower ($tl["submenu"]["sm162"]); ?></span>
-			</li>
-		<?php } ?>
-		<li class="">
-			<a href="index.php?p=news&amp;sp=setting">
-				<?php echo $tl["submenu"]["sm163"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tl["submenu"]["sm163"]); ?></span>
-		</li>
-	</ul>
+  <?php
+  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+  echo $Html->addAnchor('javascript:;', '<span class="title">' . $tl["menu"]["mm4"] . '</span><span class="arrow ' . $classnewssection . '"></span>');
+  // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+  echo $Html->addTag('span', '<i class="fa fa-newspaper-o"></i>', 'icon-thumbnail ' . $classnewsiconbg);
+  ?>
 
-</li><!-- END NEWS SECTION -->
+  <ul class="sub-menu">
+    <li class="<?php echo (($page == 'news' && $page1 == '') || ($page == 'news' && $page1 == 'new') || ($page == 'news' && $page1 == 'edit')) ? 'submenu-active' : ''; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=news', $tl["submenu"]["sm160"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm160"]), 'icon-thumbnail');
+      ?>
+
+    </li>
+    <li class="<?php echo ($page == 'news' && $page1 == 'new') ? 'submenu-active' : ''; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=news&amp;sp=new', $tl["submenu"]["sm161"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm161"]), 'icon-thumbnail');
+      ?>
+
+    </li>
+    <?php if ($page == 'news' && $page1 == 'edit') { ?>
+      <li class="<?php echo ($page == 'news' && $page1 == 'edit') ? 'submenu-active' : ''; ?>">
+
+        <?php
+        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+        echo $Html->addAnchor('index.php?p=news&amp;sp=edit&amp;ssp=' . $page2, $tl["submenu"]["sm162"]);
+        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+        echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm162"]), 'icon-thumbnail');
+        ?>
+
+      </li>
+    <?php } ?>
+    <li class="<?php echo ($page == 'news' && $page1 == 'setting') ? 'submenu-active' : ''; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=news&amp;sp=setting', $tl["submenu"]["sm163"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm163"]), 'icon-thumbnail');
+      ?>
+
+    </li>
+  </ul>
+
+</li>
+<!-- END NEWS SECTION -->

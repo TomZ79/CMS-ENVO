@@ -1,110 +1,110 @@
 <?php include "header.php"; ?>
 
 <?php if ($success) { ?>
-	<script type="text/javascript">
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?php if (isset($success["s"])) echo $success["s"];?>',
-			}, {
-				// settings
-				type: 'success',
-				delay: 5000,
-			});
-		}, 1000);
-	</script>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php if (isset($success["s"])) echo $success["s"];?>'
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000
+      });
+    }, 1000);
+  </script>
 <?php }
 if ($errors) { ?>
-	<script type="text/javascript">
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?php if (isset($errors["e"])) echo $errors["e"];?>',
-			}, {
-				// settings
-				type: 'danger',
-				delay: 10000,
-			});
-		}, 1000);
-	</script>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php if (isset($errors["e"])) echo $errors["e"];?>'
+      }, {
+        // settings
+        type: 'danger',
+        delay: 10000
+      });
+    }, 1000);
+  </script>
 <?php } ?>
 
-	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="box box-success">
-					<div class="box-header with-border">
+  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>" enctype="multipart/form-data">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="box box-success">
+          <div class="box-header with-border">
 
-						<?php
-						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-						echo $Html->addTag('h3', $tl["mtn_box_title"]["mtnbt"], 'box-title');
-						?>
+            <?php
+            // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+            echo $Html->addTag('h3', $tl["mtn_box_title"]["mtnbt"], 'box-title');
+            ?>
 
-					</div>
-					<div class="box-body">
-						<div class="block">
-							<div class="block-content">
-								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["mtn_box_content"]["mtnbc"]; ?></strong></div>
-									<div class="col-md-7">
-										<button type="submit" name="optimize" class="btn btn-success"><?php echo $tl["button"]["btn13"]; ?></button>
-									</div>
-								</div>
-								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["mtn_box_content"]["mtnbc1"]; ?></strong></div>
-									<div class="col-md-7">
-										<button type="submit" name="download" class="btn btn-info"><?php echo $tl["button"]["btn14"]; ?></button>
-									</div>
-								</div>
-								<div class="row-form">
-									<div class="col-md-5"><strong><?php echo $tl["mtn_box_content"]["mtnbc2"]; ?></strong></div>
-									<div class="col-md-7">
-										<div class="fileinput fileinput-new" data-provides="fileinput">
+          </div>
+          <div class="box-body">
+            <div class="block">
+              <div class="block-content">
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["mtn_box_content"]["mtnbc"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <button type="submit" name="optimize" class="btn btn-success"><?php echo $tl["button"]["btn13"]; ?></button>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["mtn_box_content"]["mtnbc1"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <button type="submit" name="download" class="btn btn-info"><?php echo $tl["button"]["btn14"]; ?></button>
+                  </div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-5"><strong><?php echo $tl["mtn_box_content"]["mtnbc2"]; ?></strong></div>
+                  <div class="col-md-7">
+                    <div class="fileinput fileinput-new" data-provides="fileinput">
                       <span class="btn btn-default btn-file">
                         <span class="fileinput-new"><?php echo $tl["button"]["btn15"]; ?></span>
                         <span class="fileinput-exists"><?php echo $tl["button"]["btn16"]; ?></span>
                         <input type="file" name="uploaddb" accept=".xml">
                       </span>
-											<span class="fileinput-filename"></span>
-											<a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
-										</div>
-										<button type="submit" name="import" class="btn btn-warning" data-confirm="<?php echo $tl["mtn_notification"]["import"]; ?>"><?php echo $tl["button"]["btn17"]; ?></button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="box box-success">
-					<div class="box-header with-border">
+                      <span class="fileinput-filename"></span>
+                      <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                    </div>
+                    <button type="submit" name="import" class="btn btn-warning" data-confirm="<?php echo $tl["mtn_notification"]["import"]; ?>"><?php echo $tl["button"]["btn17"]; ?></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="box box-success">
+          <div class="box-header with-border">
 
-						<?php
-						// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-						echo $Html->addTag('h3', $tl["mtn_box_title"]["mtnbt1"], 'box-title');
-						?>
+            <?php
+            // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+            echo $Html->addTag('h3', $tl["mtn_box_title"]["mtnbt1"], 'box-title');
+            ?>
 
-					</div>
-					<div class="box-body">
-						<div class="block">
-							<div class="block-content">
-								<div class="row-form">
-									<div class="col-md-12"><?php echo sprintf ($tl["mtn_box_content"]["mtnbc3"], $jkv["version"]); ?></div>
-								</div>
-								<div class="row-form">
-									<div class="col-md-12">
-										<?php include_once ('include/cms_update.php'); ?>
-									</div>
-								</div>
-							</div>
-						</div>
-						<p></p>
+          </div>
+          <div class="box-body">
+            <div class="block">
+              <div class="block-content">
+                <div class="row-form">
+                  <div class="col-md-12"><?php echo sprintf($tl["mtn_box_content"]["mtnbc3"], $jkv["version"]); ?></div>
+                </div>
+                <div class="row-form">
+                  <div class="col-md-12">
+                    <?php include_once('include/cms_update.php'); ?>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p></p>
 
-					</div>
-				</div>
-			</div>
-		</div>
-	</form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
 
 <?php include "footer.php"; ?>

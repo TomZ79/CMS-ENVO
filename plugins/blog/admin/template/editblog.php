@@ -58,7 +58,7 @@ if ($page3 == "e") { ?>
       // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
       echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button');
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-      echo $Html->addAnchor('index.php?p=blog',  $tl["button"]["btn19"], '', 'btn btn-info button');
+      echo $Html->addAnchor('index.php?p=blog', $tl["button"]["btn19"], '', 'btn btn-info button');
       ?>
 
     </div>
@@ -175,7 +175,7 @@ if ($page3 == "e") { ?>
                             $selected = ($JAK_FORM_DATA["showcontact"] == '0') ? TRUE : FALSE;
 
                             echo $Html->addOption('0', $tlblog["blog_box_content"]["blogbc27"], $selected);
-                            if (isset($JAK_CONTACT_FORMS) && is_array ($JAK_CONTACT_FORMS)) foreach ($JAK_CONTACT_FORMS as $cf) {
+                            if (isset($JAK_CONTACT_FORMS) && is_array($JAK_CONTACT_FORMS)) foreach ($JAK_CONTACT_FORMS as $cf) {
 
                               $selected = ($cf["id"] == $JAK_FORM_DATA["showcontact"]) ? TRUE : FALSE;
                               echo $Html->addOption($cf["id"], $cf["title"], $selected);
@@ -430,10 +430,10 @@ if ($page3 == "e") { ?>
 
                 <?php
                 // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-                echo $Html->startTag('h3', array ('class' => 'box-title'));
+                echo $Html->startTag('h3', array('class' => 'box-title'));
                 echo $tlblog["blog_box_title"]["blogbt8"];
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help',  array ('data-content' => $tlblog["blog_help"]["blogh1"], 'data-original-title' => $tlblog["blog_help"]["blogh"]));
+                echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tlblog["blog_help"]["blogh1"], 'data-original-title' => $tlblog["blog_help"]["blogh"]));
                 // Add Html Element -> endTag (Arguments: tag)
                 echo $Html->endTag('h3');
                 ?>
@@ -451,9 +451,9 @@ if ($page3 == "e") { ?>
                           $selected = ($JAK_FORM_DATA["catid"] == '0') ? TRUE : FALSE;
 
                           echo $Html->addOption('0', $tlblog["blog_box_content"]["blogbc37"], $selected);
-                          if (isset($JAK_CAT) && is_array ($JAK_CAT)) foreach ($JAK_CAT as $z) {
+                          if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $z) {
 
-                            $selected = (in_array ($z["id"], explode (',', $JAK_FORM_DATA["catid"]))) ? TRUE : FALSE;
+                            $selected = (in_array($z["id"], explode(',', $JAK_FORM_DATA["catid"]))) ? TRUE : FALSE;
                             echo $Html->addOption($z["id"], $z["name"], $selected);
 
                           }

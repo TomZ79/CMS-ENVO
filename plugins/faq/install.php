@@ -15,9 +15,9 @@ $succesfully = 0;
 
 // Set language for plugin
 if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini')) {
-  $tlf = parse_ini_file(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini', true);
+  $tlf = parse_ini_file(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini', TRUE);
 } else {
-  $tlf = parse_ini_file(APP_PATH . 'plugins/faq/admin/lang/en.ini', true);
+  $tlf = parse_ini_file(APP_PATH . 'plugins/faq/admin/lang/en.ini', TRUE);
 }
 
 ?>
@@ -169,7 +169,7 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
       // EN: Now get the plugin 'id' from table 'plugins' for futher use
       // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
       $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "FAQ"');
-      $rows = $results->fetch_assoc();
+      $rows    = $results->fetch_assoc();
 
       if ($rows['id']) {
       // EN: If plugin have 'id' (plugin is installed), install other data for plugin (create tables and write data to tables)
@@ -244,7 +244,7 @@ $JAK_FAQ_ALL = jak_get_faq(\'\', $jkv[\"faqorder\"], \'\', \'\', $jkv[\"faqurl\"
 $PAGE_TITLE = JAK_PLUGIN_NAME_FAQ;';
 
       // Fulltext search query
-      $sqlfull = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'faq ADD FULLTEXT(`title`, `content`)\');';
+      $sqlfull       = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'faq ADD FULLTEXT(`title`, `content`)\');';
       $sqlfullremove = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'faq DROP INDEX `title`\');';
 
       // Connect to pages/news

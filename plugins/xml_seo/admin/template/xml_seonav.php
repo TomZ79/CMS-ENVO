@@ -1,7 +1,11 @@
 <li class="list-divider"></li>
-<li class="">
-	<a href="index.php?p=xml_seo">
-		<?php echo $tlxml["xml_menu"]["xmlm"]; ?>
-	</a>
-	<span class="icon-thumbnail"><?php echo text_clipping_lower ($tlxml["xml_menu"]["xmlm"]); ?></span>
+<li class="<?php echo ($page == 'xml_seo') ? 'submenu-active' : ''; ?>">
+
+  <?php
+  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+  echo $Html->addAnchor('index.php?p=xml_seo', $tlxml["xml_menu"]["xmlm"]);
+  // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+  echo $Html->addTag('span', text_clipping_lower($tlxml["xml_menu"]["xmlm"]), 'icon-thumbnail');
+  ?>
+
 </li>

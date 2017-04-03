@@ -1,17 +1,23 @@
 $(document).ready( function () {
 
 	$(".jak_hooks_move").sortable({
-		axis		: 'y',				// Only vertical movements allowed
-		containment	: 'document',			// Constrained by the window
 		placeholder: "ui-state-highlight",
-		update		: function(){		// The function is called after the todos are rearranged
+		axis: 'y',
+		revert: 250,
+		tolerance: 'pointer',
+		containment	: 'document',
+		forcePlaceholderSize: true,
+		start: function (e, ui) {
+
+			ui.placeholder.height(ui.item.height());
+			ui.item.css('opacity', '0.6');
+			ui.placeholder.css('background-color', '#CFF5F2');
+
+		},
+		update		: function(){
 		
-			// The toArray method returns an array with the ids of the todos
 			var arr = $(".jak_hooks_move").sortable('toArray');
-			
-			
-			// Striping the todo- prefix of the ids:
-			
+
 			arr = $.map(arr,function(val,key){
 				return val.replace('hook-','');
 			});
@@ -30,6 +36,7 @@ $(document).ready( function () {
 		/* Opera fix: */
 		stop: function(e,ui) {
 			ui.item.css({'top':'0','left':'0'});
+			ui.item.css('opacity', '1');
 		}
 	});
 });

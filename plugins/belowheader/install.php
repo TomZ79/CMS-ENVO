@@ -16,9 +16,9 @@ $succesfully = 0;
 
 // Set language for plugin
 if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . '.ini')) {
-  $tlbh = parse_ini_file(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . '.ini', true);
+  $tlbh = parse_ini_file(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . '.ini', TRUE);
 } else {
-  $tlbh = parse_ini_file(APP_PATH . 'plugins/belowheader/admin/lang/en.ini', true);
+  $tlbh = parse_ini_file(APP_PATH . 'plugins/belowheader/admin/lang/en.ini', TRUE);
 }
 
 ?>
@@ -169,9 +169,9 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
 
       // EN: Now get the plugin 'id' from table 'plugins' for futher use
       // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
-      $sqls = 'SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "BelowHeader"';
+      $sqls    = 'SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "BelowHeader"';
       $results = $jakdb->query($sqls);
-      $rows = $results->fetch_assoc();
+      $rows    = $results->fetch_assoc();
 
       if ($rows['id']) {
       // EN: If plugin have 'id' (plugin is installed), install other data for plugin (create tables and write data to tables)
@@ -187,7 +187,7 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
 
       // EN: Frontend - set files for other uses
       // CZ: Frontend - nastavení používaných souborů
-      $belowheader = 'plugins/belowheader/bhinput.php';
+      $belowheader  = 'plugins/belowheader/bhinput.php';
       $belowcontent = 'plugins/belowheader/bhinputb.php';
 
       // EN: Insert data to table 'pluginhooks'

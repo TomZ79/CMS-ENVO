@@ -5,21 +5,326 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4346a0f-85ec-4e4d-93d1-8c74a4b74471" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template/qed/plugintemplate/blog/footer_widget.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template/qed/plugintemplate/blog/footer_widget1.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template/qed/contact.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template/qed/plugintemplate/newsletter/footer_widget.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/template/qed/plugintemplate/newsletter/newslettersidebar.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/download/template/mosaic/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/download/template/mosaic/page_news.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/faq/admin/img/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/faq/admin/img/nav.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/img/nav.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/img/preview.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/img/send.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/img/stats.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/newsletter/template/jakweb/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/newsletter/template/mosaic/index.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/css/style.css" afterPath="$PROJECT_DIR$/admin/assets/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/js/hookorder.js" afterPath="$PROJECT_DIR$/admin/assets/js/hookorder.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/js/scripts.js" afterPath="$PROJECT_DIR$/admin/assets/js/scripts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/categories.php" afterPath="$PROJECT_DIR$/admin/categories.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/changelog.php" afterPath="$PROJECT_DIR$/admin/changelog.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/config.php" afterPath="$PROJECT_DIR$/admin/config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/contactform.php" afterPath="$PROJECT_DIR$/admin/contactform.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/facebookgallery.php" afterPath="$PROJECT_DIR$/admin/facebookgallery.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/include/admin.function.php" afterPath="$PROJECT_DIR$/admin/include/admin.function.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/index.php" afterPath="$PROJECT_DIR$/admin/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/admin/lang/cs.ini" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/login.php" afterPath="$PROJECT_DIR$/admin/login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/logs.php" afterPath="$PROJECT_DIR$/admin/logs.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/maintenance.php" afterPath="$PROJECT_DIR$/admin/maintenance.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/mediasharing.php" afterPath="$PROJECT_DIR$/admin/mediasharing.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/news.php" afterPath="$PROJECT_DIR$/admin/news.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/page.php" afterPath="$PROJECT_DIR$/admin/page.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.page.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.page.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.setting.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.setting.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.user.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.user.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/plugins.php" afterPath="$PROJECT_DIR$/admin/plugins.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/searchlog.php" afterPath="$PROJECT_DIR$/admin/searchlog.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/searchsetting.php" afterPath="$PROJECT_DIR$/admin/searchsetting.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/setting.php" afterPath="$PROJECT_DIR$/admin/setting.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/settingfacebook.php" afterPath="$PROJECT_DIR$/admin/settingfacebook.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/site.php" afterPath="$PROJECT_DIR$/admin/site.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/sitemap.php" afterPath="$PROJECT_DIR$/admin/sitemap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/tag.php" afterPath="$PROJECT_DIR$/admin/tag.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template.php" afterPath="$PROJECT_DIR$/admin/template.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/404.php" afterPath="$PROJECT_DIR$/admin/template/404.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/categories.php" afterPath="$PROJECT_DIR$/admin/template/categories.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/changelog.php" afterPath="$PROJECT_DIR$/admin/template/changelog.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/contactform.php" afterPath="$PROJECT_DIR$/admin/template/contactform.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editcat.php" afterPath="$PROJECT_DIR$/admin/template/editcat.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editcontactform.php" afterPath="$PROJECT_DIR$/admin/template/editcontactform.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editfacebook.php" afterPath="$PROJECT_DIR$/admin/template/editfacebook.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editfiles.php" afterPath="$PROJECT_DIR$/admin/template/editfiles.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/edithook.php" afterPath="$PROJECT_DIR$/admin/template/edithook.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editnews.php" afterPath="$PROJECT_DIR$/admin/template/editnews.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editor_edit.php" afterPath="$PROJECT_DIR$/admin/template/editor_edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editor_new.php" afterPath="$PROJECT_DIR$/admin/template/editor_new.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editorlight_edit.php" afterPath="$PROJECT_DIR$/admin/template/editorlight_edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editorlight_new.php" afterPath="$PROJECT_DIR$/admin/template/editorlight_new.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editpage.php" afterPath="$PROJECT_DIR$/admin/template/editpage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/edituser.php" afterPath="$PROJECT_DIR$/admin/template/edituser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editusergroup.php" afterPath="$PROJECT_DIR$/admin/template/editusergroup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/facebookgallery.php" afterPath="$PROJECT_DIR$/admin/template/facebookgallery.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/footer.php" afterPath="$PROJECT_DIR$/admin/template/footer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/header.php" afterPath="$PROJECT_DIR$/admin/template/header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/help.php" afterPath="$PROJECT_DIR$/admin/template/help.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/hooks.php" afterPath="$PROJECT_DIR$/admin/template/hooks.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/index.php" afterPath="$PROJECT_DIR$/admin/template/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/login.php" afterPath="$PROJECT_DIR$/admin/template/login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/logs.php" afterPath="$PROJECT_DIR$/admin/template/logs.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/maintenance.php" afterPath="$PROJECT_DIR$/admin/template/maintenance.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/mediasharing.php" afterPath="$PROJECT_DIR$/admin/template/mediasharing.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/navbar.php" afterPath="$PROJECT_DIR$/admin/template/navbar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newcat.php" afterPath="$PROJECT_DIR$/admin/template/newcat.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newcontactform.php" afterPath="$PROJECT_DIR$/admin/template/newcontactform.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newfacebook.php" afterPath="$PROJECT_DIR$/admin/template/newfacebook.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newhook.php" afterPath="$PROJECT_DIR$/admin/template/newhook.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newnews.php" afterPath="$PROJECT_DIR$/admin/template/newnews.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newpage.php" afterPath="$PROJECT_DIR$/admin/template/newpage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/news.php" afterPath="$PROJECT_DIR$/admin/template/news.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newsnav.php" afterPath="$PROJECT_DIR$/admin/template/newsnav.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newssetting.php" afterPath="$PROJECT_DIR$/admin/template/newssetting.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newuser.php" afterPath="$PROJECT_DIR$/admin/template/newuser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newusergroup.php" afterPath="$PROJECT_DIR$/admin/template/newusergroup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/pages.php" afterPath="$PROJECT_DIR$/admin/template/pages.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/quickedit.php" afterPath="$PROJECT_DIR$/admin/template/quickedit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/quickfooter.php" afterPath="$PROJECT_DIR$/admin/template/quickfooter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/quickheader.php" afterPath="$PROJECT_DIR$/admin/template/quickheader.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/searchpages.php" afterPath="$PROJECT_DIR$/admin/template/searchpages.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/searchsetting.php" afterPath="$PROJECT_DIR$/admin/template/searchsetting.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/searchuser.php" afterPath="$PROJECT_DIR$/admin/template/searchuser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/setting.php" afterPath="$PROJECT_DIR$/admin/template/setting.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/settingfacebook.php" afterPath="$PROJECT_DIR$/admin/template/settingfacebook.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/sidebar_widget.php" afterPath="$PROJECT_DIR$/admin/template/sidebar_widget.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/sidebar_widget_new.php" afterPath="$PROJECT_DIR$/admin/template/sidebar_widget_new.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/site.php" afterPath="$PROJECT_DIR$/admin/template/site.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/sitemapsetting.php" afterPath="$PROJECT_DIR$/admin/template/sitemapsetting.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/sorthooks.php" afterPath="$PROJECT_DIR$/admin/template/sorthooks.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/tag.php" afterPath="$PROJECT_DIR$/admin/template/tag.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/tagcloud.php" afterPath="$PROJECT_DIR$/admin/template/tagcloud.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/tagnav.php" afterPath="$PROJECT_DIR$/admin/template/tagnav.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/tagsetting.php" afterPath="$PROJECT_DIR$/admin/template/tagsetting.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/template.php" afterPath="$PROJECT_DIR$/admin/template/template.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/timezoneserver.php" afterPath="$PROJECT_DIR$/admin/template/timezoneserver.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/user.php" afterPath="$PROJECT_DIR$/admin/template/user.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/usergroup.php" afterPath="$PROJECT_DIR$/admin/template/usergroup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/testpage.php" afterPath="$PROJECT_DIR$/admin/testpage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/user.php" afterPath="$PROJECT_DIR$/admin/user.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/usergroup.php" afterPath="$PROJECT_DIR$/admin/usergroup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.php" afterPath="$PROJECT_DIR$/config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/functions.php" afterPath="$PROJECT_DIR$/include/functions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news.php" afterPath="$PROJECT_DIR$/news.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/noplugintemplate.php" afterPath="$PROJECT_DIR$/noplugintemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/notemplate.php" afterPath="$PROJECT_DIR$/notemplate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page.php" afterPath="$PROJECT_DIR$/page.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/admin/belowheader.php" afterPath="$PROJECT_DIR$/plugins/belowheader/admin/belowheader.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/admin/js/pages.belowheader.php" afterPath="$PROJECT_DIR$/plugins/belowheader/admin/js/pages.belowheader.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/admin/template/bh.php" afterPath="$PROJECT_DIR$/plugins/belowheader/admin/template/bh.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/admin/template/bhnav.php" afterPath="$PROJECT_DIR$/plugins/belowheader/admin/template/bhnav.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/admin/template/editbh.php" afterPath="$PROJECT_DIR$/plugins/belowheader/admin/template/editbh.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/admin/template/newbh.php" afterPath="$PROJECT_DIR$/plugins/belowheader/admin/template/newbh.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/bhinput.php" afterPath="$PROJECT_DIR$/plugins/belowheader/bhinput.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/bhinputb.php" afterPath="$PROJECT_DIR$/plugins/belowheader/bhinputb.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/help.php" afterPath="$PROJECT_DIR$/plugins/belowheader/help.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/install.php" afterPath="$PROJECT_DIR$/plugins/belowheader/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/uninstall.php" afterPath="$PROJECT_DIR$/plugins/belowheader/uninstall.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/blog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/blog.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/include/functions.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/include/functions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/js/pages.blog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/js/pages.blog.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blog.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect_new.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect_new.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blogcat.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blogcat.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blogcatsort.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blogcatsort.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blogcomment.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blogcomment.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blogcommentsort.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blogcommentsort.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blognav.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blognav.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blogsetting.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blogsetting.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/editblog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/editblog.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/editblogcat.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/editblogcat.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/newblog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/newblog.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/newblogcat.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/newblogcat.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/trash.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/trash.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/usergroup_edit.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/usergroup_edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/usergroup_new.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/usergroup_new.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/ajaxsearch.php" afterPath="$PROJECT_DIR$/plugins/blog/ajaxsearch.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/blog.php" afterPath="$PROJECT_DIR$/plugins/blog/blog.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/functions.php" afterPath="$PROJECT_DIR$/plugins/blog/functions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/help.php" afterPath="$PROJECT_DIR$/plugins/blog/help.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/install.php" afterPath="$PROJECT_DIR$/plugins/blog/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/template/blog.php" afterPath="$PROJECT_DIR$/plugins/blog/template/blog.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/template/blogart.php" afterPath="$PROJECT_DIR$/plugins/blog/template/blogart.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/template/blogsidebar.php" afterPath="$PROJECT_DIR$/plugins/blog/template/blogsidebar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/template/cssheader.php" afterPath="$PROJECT_DIR$/plugins/blog/template/cssheader.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/template/footer_widget.php" afterPath="$PROJECT_DIR$/plugins/blog/template/footer_widget.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/template/footer_widget1.php" afterPath="$PROJECT_DIR$/plugins/blog/template/footer_widget1.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/template/pages_news.php" afterPath="$PROJECT_DIR$/plugins/blog/template/pages_news.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/template/search.php" afterPath="$PROJECT_DIR$/plugins/blog/template/search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/template/sitemap.php" afterPath="$PROJECT_DIR$/plugins/blog/template/sitemap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/template/tag.php" afterPath="$PROJECT_DIR$/plugins/blog/template/tag.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/uninstall.php" afterPath="$PROJECT_DIR$/plugins/blog/uninstall.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/download.php" afterPath="$PROJECT_DIR$/plugins/download/admin/download.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/include/functions.php" afterPath="$PROJECT_DIR$/plugins/download/admin/include/functions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/js/pages.download.php" afterPath="$PROJECT_DIR$/plugins/download/admin/js/pages.download.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/cat.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/cat.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/catsort.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/catsort.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/comment.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/comment.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/commentsort.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/commentsort.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/dl_connect.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/dl_connect.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/dl_connect_new.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/dl_connect_new.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/download.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/download.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/downloadnav.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/downloadnav.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/editcat.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/editcat.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/editdownload.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/editdownload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/newcat.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/newcat.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/newdownload.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/newdownload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/setting.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/setting.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/trash.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/trash.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/usergroup_edit.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/usergroup_edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/usergroup_new.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/usergroup_new.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/ajaxsearch.php" afterPath="$PROJECT_DIR$/plugins/download/ajaxsearch.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/css/style.css" afterPath="$PROJECT_DIR$/plugins/download/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/download.php" afterPath="$PROJECT_DIR$/plugins/download/download.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/functions.php" afterPath="$PROJECT_DIR$/plugins/download/functions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/help.php" afterPath="$PROJECT_DIR$/plugins/download/help.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/install.php" afterPath="$PROJECT_DIR$/plugins/download/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/template/cssheader.php" afterPath="$PROJECT_DIR$/plugins/download/template/cssheader.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/template/download.php" afterPath="$PROJECT_DIR$/plugins/download/template/download.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/template/downloadfile.php" afterPath="$PROJECT_DIR$/plugins/download/template/downloadfile.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/template/downloadsidebar.php" afterPath="$PROJECT_DIR$/plugins/download/template/downloadsidebar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/template/footer_widget.php" afterPath="$PROJECT_DIR$/plugins/download/template/footer_widget.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/template/footer_widget1.php" afterPath="$PROJECT_DIR$/plugins/download/template/footer_widget1.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/template/page_news.php" afterPath="$PROJECT_DIR$/plugins/download/template/page_news.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/template/search.php" afterPath="$PROJECT_DIR$/plugins/download/template/search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/template/sitemap.php" afterPath="$PROJECT_DIR$/plugins/download/template/sitemap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/template/tag.php" afterPath="$PROJECT_DIR$/plugins/download/template/tag.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/uninstall.php" afterPath="$PROJECT_DIR$/plugins/download/uninstall.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/update.php" afterPath="$PROJECT_DIR$/plugins/download/update.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/faq.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/faq.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/include/functions.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/include/functions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/editfaq.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/editfaq.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/editfaqcat.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/editfaqcat.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faq.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faq.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faq_connect.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faq_connect.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faq_connect_new.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faq_connect_new.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faqcat.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faqcat.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faqcatsort.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faqcatsort.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faqcomment.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faqcomment.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faqcommentsort.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faqcommentsort.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faqnav.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faqnav.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faqsetting.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faqsetting.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/newfaq.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/newfaq.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/newfaqcat.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/newfaqcat.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/trash.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/trash.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/usergroup_edit.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/usergroup_edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/usergroup_new.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/usergroup_new.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/ajaxsearch.php" afterPath="$PROJECT_DIR$/plugins/faq/ajaxsearch.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/faq.php" afterPath="$PROJECT_DIR$/plugins/faq/faq.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/functions.php" afterPath="$PROJECT_DIR$/plugins/faq/functions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/help.php" afterPath="$PROJECT_DIR$/plugins/faq/help.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/install.php" afterPath="$PROJECT_DIR$/plugins/faq/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/template/cssheader.php" afterPath="$PROJECT_DIR$/plugins/faq/template/cssheader.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/template/faq.php" afterPath="$PROJECT_DIR$/plugins/faq/template/faq.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/template/faqart.php" afterPath="$PROJECT_DIR$/plugins/faq/template/faqart.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/template/faqsidebar.php" afterPath="$PROJECT_DIR$/plugins/faq/template/faqsidebar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/template/footer_widget.php" afterPath="$PROJECT_DIR$/plugins/faq/template/footer_widget.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/template/page_news.php" afterPath="$PROJECT_DIR$/plugins/faq/template/page_news.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/template/search.php" afterPath="$PROJECT_DIR$/plugins/faq/template/search.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/template/sitemap.php" afterPath="$PROJECT_DIR$/plugins/faq/template/sitemap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/template/tag.php" afterPath="$PROJECT_DIR$/plugins/faq/template/tag.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/uninstall.php" afterPath="$PROJECT_DIR$/plugins/faq/uninstall.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/admin/growl.php" afterPath="$PROJECT_DIR$/plugins/growl/admin/growl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/admin/js/pages.growl.php" afterPath="$PROJECT_DIR$/plugins/growl/admin/js/pages.growl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/admin/template/edit.php" afterPath="$PROJECT_DIR$/plugins/growl/admin/template/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/admin/template/growl.php" afterPath="$PROJECT_DIR$/plugins/growl/admin/template/growl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/admin/template/nav.php" afterPath="$PROJECT_DIR$/plugins/growl/admin/template/nav.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/admin/template/new.php" afterPath="$PROJECT_DIR$/plugins/growl/admin/template/new.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/css/style.css" afterPath="$PROJECT_DIR$/plugins/growl/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/help.php" afterPath="$PROJECT_DIR$/plugins/growl/help.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/install.php" afterPath="$PROJECT_DIR$/plugins/growl/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/template/footer.php" afterPath="$PROJECT_DIR$/plugins/growl/template/footer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/template/header.php" afterPath="$PROJECT_DIR$/plugins/growl/template/header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/uninstall.php" afterPath="$PROJECT_DIR$/plugins/growl/uninstall.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/ajax/loadskin.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/ajax/loadskin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/js/pages.newsletter.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/js/pages.newsletter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/lang/cs.ini" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/newsletter.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/newsletter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/template/edit.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/template/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/template/editgroup.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/template/editgroup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/template/edituser.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/template/edituser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/template/new.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/template/new.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/template/newgroup.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/template/newgroup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/template/newsletter.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/template/newsletter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/template/newsletternav.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/template/newsletternav.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/template/newuser.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/template/newuser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/template/send.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/template/send.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/template/settings.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/template/settings.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/template/stat.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/template/stat.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/template/user.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/template/user.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/template/usergroup.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/template/usergroup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/template/usergroup_edit.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/template/usergroup_edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/template/usergroup_new.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/template/usergroup_new.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/help.php" afterPath="$PROJECT_DIR$/plugins/newsletter/help.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/install.php" afterPath="$PROJECT_DIR$/plugins/newsletter/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/newsletter.php" afterPath="$PROJECT_DIR$/plugins/newsletter/newsletter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/template/footer_widget.php" afterPath="$PROJECT_DIR$/plugins/newsletter/template/footer_widget.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/template/newslettersidebar.php" afterPath="$PROJECT_DIR$/plugins/newsletter/template/newslettersidebar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/uninstall.php" afterPath="$PROJECT_DIR$/plugins/newsletter/uninstall.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/openurl_blank/help.php" afterPath="$PROJECT_DIR$/plugins/openurl_blank/help.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/openurl_blank/install.php" afterPath="$PROJECT_DIR$/plugins/openurl_blank/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/openurl_blank/openurlhead.php" afterPath="$PROJECT_DIR$/plugins/openurl_blank/openurlhead.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/openurl_blank/uninstall.php" afterPath="$PROJECT_DIR$/plugins/openurl_blank/uninstall.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/admin/register.php" afterPath="$PROJECT_DIR$/plugins/register_form/admin/register.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/admin/template/registerfnav.php" afterPath="$PROJECT_DIR$/plugins/register_form/admin/template/registerfnav.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/admin/template/rf_connect.php" afterPath="$PROJECT_DIR$/plugins/register_form/admin/template/rf_connect.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/admin/template/rf_connect_new.php" afterPath="$PROJECT_DIR$/plugins/register_form/admin/template/rf_connect_new.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/admin/template/rfcreate.php" afterPath="$PROJECT_DIR$/plugins/register_form/admin/template/rfcreate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/admin/template/settings.php" afterPath="$PROJECT_DIR$/plugins/register_form/admin/template/settings.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/admin/template/stat.php" afterPath="$PROJECT_DIR$/plugins/register_form/admin/template/stat.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/help.php" afterPath="$PROJECT_DIR$/plugins/register_form/help.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/install.php" afterPath="$PROJECT_DIR$/plugins/register_form/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/register.php" afterPath="$PROJECT_DIR$/plugins/register_form/register.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/rf_createform.php" afterPath="$PROJECT_DIR$/plugins/register_form/rf_createform.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/rf_post.php" afterPath="$PROJECT_DIR$/plugins/register_form/rf_post.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/template/footer_widget.php" afterPath="$PROJECT_DIR$/plugins/register_form/template/footer_widget.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/template/rf_editprofile.php" afterPath="$PROJECT_DIR$/plugins/register_form/template/rf_editprofile.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/template/rf_registerform.php" afterPath="$PROJECT_DIR$/plugins/register_form/template/rf_registerform.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/template/rf_sidebar.php" afterPath="$PROJECT_DIR$/plugins/register_form/template/rf_sidebar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/uninstall.php" afterPath="$PROJECT_DIR$/plugins/register_form/uninstall.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/site_editor/admin/site_editor.php" afterPath="$PROJECT_DIR$/plugins/site_editor/admin/site_editor.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/site_editor/admin/template/site_editor.php" afterPath="$PROJECT_DIR$/plugins/site_editor/admin/template/site_editor.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/site_editor/admin/template/site_editornav.php" afterPath="$PROJECT_DIR$/plugins/site_editor/admin/template/site_editornav.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/site_editor/help.php" afterPath="$PROJECT_DIR$/plugins/site_editor/help.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/site_editor/install.php" afterPath="$PROJECT_DIR$/plugins/site_editor/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/site_editor/uninstall.php" afterPath="$PROJECT_DIR$/plugins/site_editor/uninstall.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/admin/template/edit.php" afterPath="$PROJECT_DIR$/plugins/urlmapping/admin/template/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/admin/template/mapping.php" afterPath="$PROJECT_DIR$/plugins/urlmapping/admin/template/mapping.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/admin/template/nav.php" afterPath="$PROJECT_DIR$/plugins/urlmapping/admin/template/nav.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/admin/template/new.php" afterPath="$PROJECT_DIR$/plugins/urlmapping/admin/template/new.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/admin/urlmapping.php" afterPath="$PROJECT_DIR$/plugins/urlmapping/admin/urlmapping.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/help.php" afterPath="$PROJECT_DIR$/plugins/urlmapping/help.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/install.php" afterPath="$PROJECT_DIR$/plugins/urlmapping/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/mapping.php" afterPath="$PROJECT_DIR$/plugins/urlmapping/mapping.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/uninstall.php" afterPath="$PROJECT_DIR$/plugins/urlmapping/uninstall.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/admin/class/xml.sitemap.generator.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/admin/class/xml.sitemap.generator.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/admin/css/style.css" afterPath="$PROJECT_DIR$/plugins/xml_seo/admin/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seo.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seonav.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seonav.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/admin/xml_seo.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/admin/xml_seo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/help.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/help.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/install.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/install.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/uninstall.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/uninstall.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rss.php" afterPath="$PROJECT_DIR$/rss.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/search.php" afterPath="$PROJECT_DIR$/search.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sitemap.php" afterPath="$PROJECT_DIR$/sitemap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tags.php" afterPath="$PROJECT_DIR$/tags.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/footer.php" afterPath="$PROJECT_DIR$/template/qed/footer.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/plugins/newsletter/template/jakweb/newsletter.php" afterPath="$PROJECT_DIR$/plugins/newsletter/template/newsletter.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/plugins/newsletter/template/jakweb/nloff.php" afterPath="$PROJECT_DIR$/template/qed/plugintemplate/newsletter/nloff.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/plugins/newsletter/template/mosaic/newsletter.php" afterPath="$PROJECT_DIR$/template/qed/plugintemplate/newsletter/newsletter.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/plugins/newsletter/template/mosaic/nloff.php" afterPath="$PROJECT_DIR$/plugins/newsletter/template/nloff.php" />
     </list>
     <ignored path="CMS-Bluesat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,80 +344,123 @@
     <favorites_list name="CMS-Bluesat" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="install.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/blog/install.php">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1054">
-              <caret line="359" column="20" selection-start-line="359" selection-start-column="13" selection-end-line="359" selection-end-column="20" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1490996923217" expanded="true" signature="4315:4374" ph="SELECT id FR... ${DB_PREFIX}" />
-                <marker date="1490996923217" expanded="true" signature="5379:5959" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-                <marker date="1490996923217" expanded="true" signature="6151:6210" ph="SELECT id FR... ${DB_PREFIX}" />
-                <marker date="1490996923217" expanded="true" signature="15146:18594" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-                <marker date="1490996923217" expanded="true" signature="18721:19765" ph="INSERT INTO ${DB_PREFIX}setting... " />
-                <marker date="1490996923217" expanded="true" signature="19896:20393" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
-                <marker date="1490996923217" expanded="true" signature="20451:20542" ph="ALTER TABLE ${DB_PREFIX}pages... " />
-                <marker date="1490996923217" expanded="true" signature="20567:20657" ph="ALTER TABLE ${DB_PREFIX}news... " />
-                <marker date="1490996923217" expanded="true" signature="20682:20780" ph="ALTER TABLE ${DB_PREFIX}pagesgrid... " />
-                <marker date="1490996923217" expanded="true" signature="20840:20943" ph="ALTER TABLE ${DB_PREFIX}backup_content... " />
-                <marker date="1490996923217" expanded="true" signature="21116:21357" ph="INSERT INTO ${DB_PREFIX}categories... " />
-                <marker date="1490996923217" expanded="true" signature="21481:22439" ph="CREATE TABLE... IF" />
-                <marker date="1490996923217" expanded="true" signature="22569:23140" ph="CREATE TABLE... IF" />
-                <marker date="1490996923217" expanded="true" signature="23268:23996" ph="CREATE TABLE... IF" />
-                <marker date="1490996923217" expanded="true" signature="24135:24201" ph="ALTER TABLE ${DB_PREFIX}blog... " />
-                <marker date="1490996923217" expanded="true" signature="25095:25151" ph="DELETE FROM " />
+                <marker date="1491254554168" expanded="true" signature="2461:2512" ph="SELECT varna... ${DB_PREFIX}" />
+                <marker date="1491254554168" expanded="true" signature="4613:4705" ph="SELECT * FRO... ${DB_PREFIX}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="install.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/faq/install.php">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="834">
-              <caret line="436" column="81" selection-start-line="436" selection-start-column="81" selection-end-line="436" selection-end-column="81" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1490996979165" expanded="true" signature="4229:4287" ph="SELECT id FR... ${DB_PREFIX}" />
-                <marker date="1490996979165" expanded="true" signature="5287:5865" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-                <marker date="1490996979165" expanded="true" signature="6057:6115" ph="SELECT id FR... ${DB_PREFIX}" />
-                <marker date="1490996979165" expanded="true" signature="14452:17706" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-                <marker date="1490996979165" expanded="true" signature="17833:18714" ph="INSERT INTO ${DB_PREFIX}setting... " />
-                <marker date="1490996979165" expanded="true" signature="18845:19331" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
-                <marker date="1490996979165" expanded="true" signature="19389:19479" ph="ALTER TABLE ${DB_PREFIX}pages... " />
-                <marker date="1490996979165" expanded="true" signature="19504:19593" ph="ALTER TABLE ${DB_PREFIX}news... " />
-                <marker date="1490996979165" expanded="true" signature="19618:19715" ph="ALTER TABLE ${DB_PREFIX}pagesgrid... " />
-                <marker date="1490996979165" expanded="true" signature="19888:20127" ph="INSERT INTO ${DB_PREFIX}categories... " />
-                <marker date="1490996979165" expanded="true" signature="20251:21020" ph="CREATE TABLE... IF" />
-                <marker date="1490996979165" expanded="true" signature="21150:21720" ph="CREATE TABLE... IF" />
-                <marker date="1490996979165" expanded="true" signature="21848:22483" ph="CREATE TABLE... IF" />
-                <marker date="1490996979165" expanded="true" signature="22621:22686" ph="ALTER TABLE ${DB_PREFIX}faq... " />
-                <marker date="1490996979165" expanded="true" signature="23576:23631" ph="DELETE FROM " />
+                <marker date="1491254561858" expanded="true" signature="11740:11839" ph="SELECT id, n... ${DB_PREFIX}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="install.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/plugins/newsletter/install.php">
+      <file leaf-file-name="news.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/news.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2253">
-              <caret line="233" column="81" selection-start-line="233" selection-start-column="81" selection-end-line="233" selection-end-column="81" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1490997013187" expanded="true" signature="4277:4342" ph="SELECT id FR... ${DB_PREFIX}" />
-                <marker date="1490997013187" expanded="true" signature="5349:6057" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-                <marker date="1490997013187" expanded="true" signature="6249:6314" ph="SELECT id FR... ${DB_PREFIX}" />
-                <marker date="1490997013187" expanded="true" signature="7899:9052" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-                <marker date="1490997013187" expanded="true" signature="9179:10323" ph="INSERT INTO ${DB_PREFIX}setting... " />
-                <marker date="1490997013187" expanded="true" signature="10380:10493" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
-                <marker date="1490997013187" expanded="true" signature="10546:10657" ph="ALTER TABLE ${DB_PREFIX}user... " />
-                <marker date="1490997013187" expanded="true" signature="10830:11083" ph="INSERT INTO ${DB_PREFIX}categories... " />
-                <marker date="1490997013187" expanded="true" signature="11214:11709" ph="CREATE TABLE... IF" />
-                <marker date="1490997013187" expanded="true" signature="11854:12155" ph="CREATE TABLE... IF" />
-                <marker date="1490997013187" expanded="true" signature="12298:12408" ph="INSERT INTO ${DB_PREFIX}newslettergroup... " />
-                <marker date="1490997013187" expanded="true" signature="12553:12996" ph="CREATE TABLE... IF" />
-                <marker date="1490997013187" expanded="true" signature="13143:13669" ph="CREATE TABLE... IF" />
-                <marker date="1490997013187" expanded="true" signature="14558:14620" ph="DELETE FROM " />
+                <marker date="1491254567178" expanded="true" signature="1187:1402" ph="SELECT * FRO... ${$jaktable}" />
+                <marker date="1491254567178" expanded="true" signature="3947:4080" ph="SELECT id, p... ${DB_PREFIX}" />
+                <marker date="1491254567178" expanded="true" signature="7280:7419" ph="SELECT id, h... ${DB_PREFIX}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="noplugintemplate.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/noplugintemplate.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="notemplate.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/notemplate.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/page.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1491254578956" expanded="true" signature="451:521" ph="SELECT * FRO... ${$jaktable}" />
+                <marker date="1491254578956" expanded="true" signature="3614:3747" ph="SELECT id, p... ${DB_PREFIX}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rss.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rss.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1491254583162" expanded="true" signature="535:755" ph="SELECT t1.*,... ${DB_PREFIX}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/search.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1491254587309" expanded="true" signature="3832:3951" ph="SELECT id, h... ${DB_PREFIX}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sitemap.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sitemap.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1491254591058" expanded="true" signature="902:1044" ph="SELECT id, h... ${DB_PREFIX}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tags.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tags.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1491254594654" expanded="true" signature="1120:1228" ph="SELECT SQL_C... ${$jaktable}" />
+                <marker date="1491254594654" expanded="true" signature="3018:3157" ph="SELECT id, h... ${DB_PREFIX}" />
               </folding>
             </state>
           </provider>
@@ -126,57 +474,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/plugins/register_form/rf_post.php" />
+        <option value="$PROJECT_DIR$/plugins/register_form/uninstall.php" />
+        <option value="$PROJECT_DIR$/plugins/register_form/template/footer_widget.php" />
+        <option value="$PROJECT_DIR$/plugins/register_form/template/rf_editprofile.php" />
+        <option value="$PROJECT_DIR$/plugins/register_form/template/rf_registerform.php" />
+        <option value="$PROJECT_DIR$/plugins/register_form/template/rf_sidebar.php" />
+        <option value="$PROJECT_DIR$/plugins/register_form/admin/register.php" />
+        <option value="$PROJECT_DIR$/plugins/register_form/admin/template/rf_connect.php" />
         <option value="$PROJECT_DIR$/plugins/register_form/admin/template/rf_connect_new.php" />
         <option value="$PROJECT_DIR$/plugins/register_form/admin/template/rfcreate.php" />
+        <option value="$PROJECT_DIR$/plugins/register_form/admin/template/settings.php" />
         <option value="$PROJECT_DIR$/plugins/register_form/admin/template/stat.php" />
-        <option value="$PROJECT_DIR$/plugins/register_form/template/rf_registerform.php" />
-        <option value="$PROJECT_DIR$/plugins/register_form/register.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/template/faqsetting.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/faq.php" />
-        <option value="$PROJECT_DIR$/plugins/download/admin/js/pages.download.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/js/pages.faq.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/template/faqcat.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/template/faq.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/template/editfaqcat.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/template/newfaqcat.php" />
-        <option value="$PROJECT_DIR$/plugins/download/admin/template/editdownload.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/template/editfaq.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/template/newfaq.php" />
-        <option value="$PROJECT_DIR$/plugins/download/admin/template/usergroup_edit.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/template/usergroup_edit.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/template/usergroup_new.php" />
-        <option value="$PROJECT_DIR$/plugins/download/admin/template/dl_connect.php" />
-        <option value="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/template/faq_connect.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/template/faq_connect_new.php" />
-        <option value="$PROJECT_DIR$/admin/lang/cs.ini" />
-        <option value="$PROJECT_DIR$/admin/template/newpage.php" />
-        <option value="$PROJECT_DIR$/admin/template/editpage.php" />
-        <option value="$PROJECT_DIR$/plugins/download/admin/lang/cs.ini" />
-        <option value="$PROJECT_DIR$/plugins/download/admin/template/trash.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/template/faqnav.php" />
-        <option value="$PROJECT_DIR$/plugins/download/admin/template/catsort.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/template/faqcatsort.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/template/trash.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/lang/cs.ini" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/template/faqcomment.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/template/faqcommentsort.php" />
-        <option value="$PROJECT_DIR$/plugins/download/download.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/faq.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/css/style.css" />
-        <option value="$PROJECT_DIR$/plugins/openurl_blank/openurlhead.php" />
+        <option value="$PROJECT_DIR$/plugins/openurl_blank/help.php" />
         <option value="$PROJECT_DIR$/plugins/openurl_blank/install.php" />
-        <option value="$PROJECT_DIR$/plugins/site_editor/install.php" />
-        <option value="$PROJECT_DIR$/plugins/belowheader/install.php" />
-        <option value="$PROJECT_DIR$/plugins/growl/install.php" />
-        <option value="$PROJECT_DIR$/plugins/urlmapping/install.php" />
-        <option value="$PROJECT_DIR$/sitemap.php" />
-        <option value="$PROJECT_DIR$/plugins/xml_seo/install.php" />
-        <option value="$PROJECT_DIR$/plugins/blog/install.php" />
-        <option value="$PROJECT_DIR$/plugins/download/install.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/install.php" />
+        <option value="$PROJECT_DIR$/plugins/openurl_blank/openurlhead.php" />
+        <option value="$PROJECT_DIR$/plugins/openurl_blank/uninstall.php" />
         <option value="$PROJECT_DIR$/plugins/newsletter/install.php" />
-        <option value="$PROJECT_DIR$/plugins/register_form/install.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/newsletter.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/uninstall.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/help.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/template/footer_widget.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/template/newslettersidebar.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/template/nloff.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/admin/newsletter.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/admin/template/edit.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/admin/template/editgroup.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/admin/template/edituser.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/admin/template/new.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/admin/template/newgroup.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/admin/template/newsletter.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/admin/template/newsletternav.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/admin/template/newuser.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/admin/template/send.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/admin/template/settings.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/admin/template/stat.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/admin/template/user.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/admin/template/usergroup.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/admin/template/usergroup_edit.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/admin/template/usergroup_new.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/admin/js/pages.newsletter.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/admin/ajax/loadskin.php" />
+        <option value="$PROJECT_DIR$/config.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/news.php" />
+        <option value="$PROJECT_DIR$/noplugintemplate.php" />
+        <option value="$PROJECT_DIR$/notemplate.php" />
+        <option value="$PROJECT_DIR$/page.php" />
+        <option value="$PROJECT_DIR$/rss.php" />
+        <option value="$PROJECT_DIR$/search.php" />
+        <option value="$PROJECT_DIR$/sitemap.php" />
+        <option value="$PROJECT_DIR$/tags.php" />
       </list>
     </option>
   </component>
@@ -221,6 +569,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -240,113 +589,26 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="qed" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="qed" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugintemplate" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="newsletter" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHub/PortableGit_f02737a78695063deace08e96d5042710d3e32db/cmd/git.exe" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Github\CMS-Bluesat\template\qed\plugintemplate\blog" />
-      <recent name="D:\Github\CMS-Bluesat\plugins\faq\template" />
-      <recent name="D:\Github\CMS-Bluesat\template\qed\plugintemplate\faq" />
-      <recent name="D:\Github\CMS-Bluesat\template\qed\plugintemplate\register_form" />
-      <recent name="D:\Github\CMS-Bluesat\plugins\register_form\template" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Github\CMS-Bluesat\plugins\download\template" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Github\CMS-Bluesat\template\qed" />
+      <recent name="D:\Github\CMS-Bluesat\template\qed\plugintemplate\newsletter" />
+      <recent name="D:\Github\CMS-Bluesat\plugins\newsletter\template" />
+      <recent name="D:\Github\CMS-Bluesat\template\qed\plugintemplate\blog" />
+      <recent name="D:\Github\CMS-Bluesat\plugins\faq\template" />
     </key>
   </component>
   <component name="RunManager">
@@ -426,22 +688,27 @@
       <workItem from="1490764117989" duration="20770000" />
       <workItem from="1490884409913" duration="21000" />
       <workItem from="1490884627666" duration="17286000" />
-      <workItem from="1490940996796" duration="40773000" />
+      <workItem from="1490940996796" duration="87268000" />
+      <workItem from="1491154822864" duration="9147000" />
+      <workItem from="1491214579267" duration="15095000" />
+      <workItem from="1491236228765" duration="2229000" />
+      <workItem from="1491238903217" duration="7520000" />
+      <workItem from="1491247587605" duration="6654000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="393440000" />
+    <option name="totallyTimeSpent" value="480580000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="22" width="1382" height="754" extended-state="7" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1830161" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1830161" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37920937" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21010248" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="0" y="53" width="1362" height="715" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -497,103 +764,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/plugins/download/admin/template/catsort.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="174" column="61" selection-start-line="156" selection-start-column="2" selection-end-line="174" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/faqcatsort.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="164" column="61" selection-start-line="164" selection-start-column="61" selection-end-line="164" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/faqcat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-325">
-          <caret line="71" column="29" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/trash.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="56" column="58" selection-start-line="56" selection-start-column="58" selection-end-line="56" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/download/admin/template/comment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="165" column="61" selection-start-line="148" selection-start-column="2" selection-end-line="165" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/download/admin/template/commentsort.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="149" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/faqcommentsort.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="124" column="0" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/js/pages.faq.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="72" selection-start-line="2" selection-start-column="72" selection-end-line="2" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/faqcomment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="116" column="73" selection-start-line="116" selection-start-column="73" selection-end-line="116" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/lang/cs.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="116" column="17" selection-start-line="116" selection-start-column="1" selection-end-line="116" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/download/admin/lang/cs.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="165" column="0" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/lang/cs.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="70" column="26" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/qed/plugintemplate/faq/faq.php">
+    <entry file="file://$PROJECT_DIR$/plugins/register_form/admin/template/settings.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -601,406 +772,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/qed/plugintemplate/faq/faqart.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/faq.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1224">
-          <caret line="405" column="23" selection-start-line="405" selection-start-column="8" selection-end-line="405" selection-end-column="23" />
-          <folding>
-            <marker date="1490978961717" expanded="true" signature="3267:3419" ph="SELECT id, h... ${DB_PREFIX}" />
-            <marker date="1490978961717" expanded="true" signature="5435:5654" ph="INSERT INTO ${$jaktable2}... " />
-            <marker date="1490978961717" expanded="true" signature="5912:6144" ph="INSERT INTO ${$jaktable2}... " />
-            <marker date="1490978961717" expanded="true" signature="8086:8164" ph="SELECT * FRO... ${$jaktable}" />
-            <marker date="1490978961717" expanded="true" signature="10284:10416" ph="SELECT id, h... ${DB_PREFIX}" />
-            <marker date="1490978961717" expanded="true" signature="12527:12596" ph="DELETE FROM " />
-            <marker date="1490978961717" expanded="true" signature="14312:14412" ph="SELECT usern... ${$jaktable2}" />
-            <marker date="1490978961717" expanded="true" signature="16327:16479" ph="SELECT id, h... ${DB_PREFIX}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/download/download.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="692" column="4" selection-start-line="692" selection-start-column="4" selection-end-line="701" selection-end-column="5" />
-          <folding>
-            <marker date="1490978896710" expanded="true" signature="3175:3265" ph="SELECT name,... ${$jaktable1}" />
-            <marker date="1490978896710" expanded="true" signature="3533:3703" ph="SELECT id, h... ${DB_PREFIX}" />
-            <marker date="1490978896710" expanded="true" signature="6023:6246" ph="INSERT INTO ${$jaktable2}... " />
-            <marker date="1490978896710" expanded="true" signature="6533:6769" ph="INSERT INTO ${$jaktable2}... " />
-            <marker date="1490978896710" expanded="true" signature="9813:9890" ph="SELECT * FRO... ${$jaktable}" />
-            <marker date="1490978896710" expanded="true" signature="12929:13072" ph="SELECT id, h... ${DB_PREFIX}" />
-            <marker date="1490978896710" expanded="true" signature="14313:14412" ph="SELECT id, n... ${$jaktable1}" />
-            <marker date="1490978896710" expanded="true" signature="16006:16091" ph="SELECT value... ${DB_PREFIX}" />
-            <marker date="1490978896710" expanded="true" signature="16943:17011" ph="DELETE FROM " />
-            <marker date="1490978896710" expanded="true" signature="18855:18954" ph="SELECT usern... ${$jaktable2}" />
-            <marker date="1490978896710" expanded="true" signature="20181:20298" ph="SELECT cando... ${$jaktable}" />
-            <marker date="1490978896710" expanded="true" signature="21394:21584" ph="INSERT INTO ${$jaktable3}... " />
-            <marker date="1490978896710" expanded="true" signature="25175:25345" ph="SELECT id, h... ${DB_PREFIX}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/qed/plugintemplate/faq/page_news.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/template/canvas/faq.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/template/canvas/faqart.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/qed/plugintemplate/faq/faqsidebar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/qed/plugintemplate/faq/sitemap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/qed/plugintemplate/faq/search.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/qed/plugintemplate/faq/tag.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/qed/plugintemplate/faq/footer_widget.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/template/faq.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/template/cssheader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/download/help.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1071">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/qed/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3844">
-          <caret line="112" column="21" selection-start-line="112" selection-start-column="18" selection-end-line="112" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/openurl_blank/openurlhead.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="51" column="39" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
-          <folding>
-            <marker date="1489829722069" expanded="true" signature="11526:11626" ph="SELECT id, n... ${DB_PREFIX}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/qed/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="274" column="32" selection-start-line="274" selection-start-column="32" selection-end-line="274" selection-end-column="32" />
-          <folding>
-            <marker date="1490732349119" expanded="true" signature="13573:13598" ph="..." />
-            <marker date="1490732349119" expanded="true" signature="13698:13731" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/growl/uninstall.php">
+    <entry file="file://$PROJECT_DIR$/plugins/register_form/admin/template/stat.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1489950123222" expanded="true" signature="3978:4038" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1489950123222" expanded="true" signature="4126:4183" ph="DELETE FROM " />
-            <marker date="1489950123222" expanded="true" signature="4209:4273" ph="DELETE FROM " />
-            <marker date="1489950123222" expanded="true" signature="4299:4332" ph="DROP TABLE $... " />
+            <marker date="1491254121059" expanded="true" signature="33:85" ph="SELECT COUNT... ${DB_PREFIX}" />
+            <marker date="1491254121059" expanded="true" signature="151:254" ph="SELECT COUNT... ${DB_PREFIX}" />
+            <marker date="1491254121059" expanded="true" signature="322:425" ph="SELECT COUNT... ${DB_PREFIX}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/usergroup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="65" column="13" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
-          <folding>
-            <marker date="1487947772439" expanded="true" signature="2257:2539" ph="INSERT INTO ${$jaktable}... " />
-            <marker date="1487947772439" expanded="true" signature="3837:3905" ph="DELETE FROM " />
-            <marker date="1487947772439" expanded="true" signature="5740:5807" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sitemap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-          <folding>
-            <marker date="1490987893883" expanded="true" signature="903:1045" ph="SELECT id, h... ${DB_PREFIX}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="66" column="46" selection-start-line="66" selection-start-column="46" selection-end-line="66" selection-end-column="46" />
-          <folding>
-            <marker date="1489519145515" expanded="true" signature="2542:3775" ph="INSERT INTO ${$jaktable}... " />
-            <marker date="1489519145515" expanded="true" signature="4063:4213" ph="INSERT INTO ${$jaktable3}... " />
-            <marker date="1489519145515" expanded="true" signature="4878:5114" ph="INSERT INTO ${$jaktable3}... " />
-            <marker date="1489519145515" expanded="true" signature="6340:6478" ph="SELECT id, n... ${$jaktable5}" />
-            <marker date="1489519145515" expanded="true" signature="9302:9373" ph="SELECT * FRO... ${$jaktable}" />
-            <marker date="1489519145515" expanded="true" signature="9896:9964" ph="DELETE FROM " />
-            <marker date="1489519145515" expanded="true" signature="10097:10170" ph="DELETE FROM " />
-            <marker date="1489519145515" expanded="true" signature="11329:11428" ph="DELETE FROM " />
-            <marker date="1489519145515" expanded="true" signature="11455:11553" ph="DELETE FROM " />
-            <marker date="1489519145515" expanded="true" signature="13283:13359" ph="SELECT conte... ${$jaktable}" />
-            <marker date="1489519145515" expanded="true" signature="13438:13594" ph="INSERT INTO ${$jaktable6}... " />
-            <marker date="1489519145515" expanded="true" signature="15246:15396" ph="INSERT INTO ${$jaktable3}... " />
-            <marker date="1489519145515" expanded="true" signature="16125:16361" ph="INSERT INTO ${$jaktable3}... " />
-            <marker date="1489519145515" expanded="true" signature="17158:17250" ph="SELECT id FR... ${$jaktable3}" />
-            <marker date="1489519145515" expanded="true" signature="17345:17434" ph="DELETE FROM " />
-            <marker date="1489519145515" expanded="true" signature="17933:18025" ph="SELECT plugi... ${$jaktable3}" />
-            <marker date="1489519145515" expanded="true" signature="18457:18524" ph="DELETE FROM " />
-            <marker date="1489519145515" expanded="true" signature="21283:21415" ph="SELECT id, p... ${$jaktable3}" />
-            <marker date="1489519145515" expanded="true" signature="21610:21748" ph="SELECT id, n... ${$jaktable5}" />
-            <marker date="1489519145515" expanded="true" signature="22147:22255" ph="DELETE FROM " />
-            <marker date="1489519145515" expanded="true" signature="22324:22432" ph="SELECT id, t... " />
-            <marker date="1489519145515" expanded="true" signature="25350:25419" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/blog/blog.php">
+    <entry file="file://$PROJECT_DIR$/plugins/register_form/admin/js/pages.register-form.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1490632633564" expanded="true" signature="2207:2416" ph="SELECT COUNT... ${$jaktable}" />
-            <marker date="1490632633564" expanded="true" signature="3148:3239" ph="SELECT name,... ${$jaktable1}" />
-            <marker date="1490632633564" expanded="true" signature="3505:3659" ph="SELECT id, h... ${DB_PREFIX}" />
-            <marker date="1490632633564" expanded="true" signature="5966:6254" ph="INSERT INTO ${$jaktable2}... " />
-            <marker date="1490632633564" expanded="true" signature="6512:6824" ph="INSERT INTO ${$jaktable2}... " />
-            <marker date="1490632633564" expanded="true" signature="8798:8978" ph="SELECT * FRO... ${$jaktable}" />
-            <marker date="1490632633564" expanded="true" signature="12203:12336" ph="SELECT id, h... ${DB_PREFIX}" />
-            <marker date="1490632633564" expanded="true" signature="13455:13554" ph="SELECT id, n... ${$jaktable1}" />
-            <marker date="1490632633564" expanded="true" signature="15533:15602" ph="DELETE FROM " />
-            <marker date="1490632633564" expanded="true" signature="17256:17356" ph="SELECT usern... ${$jaktable2}" />
-            <marker date="1490632633564" expanded="true" signature="19449:19603" ph="SELECT id, h... ${DB_PREFIX}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/growl/install.php">
+    <entry file="file://$PROJECT_DIR$/plugins/openurl_blank/help.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="198" column="26" selection-start-line="198" selection-start-column="13" selection-end-line="198" selection-end-column="26" />
-          <folding>
-            <marker date="1490986061928" expanded="true" signature="4282:4342" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490986061928" expanded="true" signature="5344:5869" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1490986061928" expanded="true" signature="6061:6121" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490986061928" expanded="true" signature="7204:7683" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1490986061928" expanded="true" signature="7804:9024" ph="CREATE TABLE... IF" />
-            <marker date="1490986061928" expanded="true" signature="9907:9964" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/register_form/install.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-722">
-          <caret line="322" column="81" selection-start-line="322" selection-start-column="81" selection-end-line="322" selection-end-column="81" />
-          <folding>
-            <marker date="1490997026555" expanded="true" signature="4250:4318" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490997026555" expanded="true" signature="5319:6013" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1490997026555" expanded="true" signature="6205:6273" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490997026555" expanded="true" signature="10949:12586" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1490997026555" expanded="true" signature="12713:13517" ph="INSERT INTO ${DB_PREFIX}setting... " />
-            <marker date="1490997026555" expanded="true" signature="13690:13970" ph="INSERT INTO ${DB_PREFIX}categories... " />
-            <marker date="1490997026555" expanded="true" signature="14024:14133" ph="ALTER TABLE ${DB_PREFIX}pages... " />
-            <marker date="1490997026555" expanded="true" signature="14158:14266" ph="ALTER TABLE ${DB_PREFIX}news... " />
-            <marker date="1490997026555" expanded="true" signature="14459:14887" ph="CREATE TABLE... ${DB_PREFIX}" />
-            <marker date="1490997026555" expanded="true" signature="15030:15272" ph="INSERT INTO ${DB_PREFIX}registeroptions... " />
-            <marker date="1490997026555" expanded="true" signature="16155:16220" ph="DELETE FROM " />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plugins/openurl_blank/install.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="183" column="0" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1490985719861" expanded="true" signature="4397:4465" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490985719861" expanded="true" signature="5531:5920" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1490985719861" expanded="true" signature="6118:6186" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490985719861" expanded="true" signature="6667:6932" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1490985719861" expanded="true" signature="7872:7937" ph="DELETE FROM " />
+            <marker date="1491254139736" expanded="true" signature="4397:4465" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1491254139736" expanded="true" signature="5531:5920" ph="INSERT INTO ${DB_PREFIX}plugins... " />
+            <marker date="1491254139736" expanded="true" signature="6118:6186" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1491254139736" expanded="true" signature="6670:6935" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+            <marker date="1491254139736" expanded="true" signature="7875:7940" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/download/install.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="477" column="81" selection-start-line="477" selection-start-column="81" selection-end-line="477" selection-end-column="81" />
-          <folding>
-            <marker date="1490996967057" expanded="true" signature="5096:5159" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490996967057" expanded="true" signature="6163:6847" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1490996967057" expanded="true" signature="7039:7102" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490996967057" expanded="true" signature="16406:20072" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1490996967057" expanded="true" signature="20199:21633" ph="INSERT INTO ${DB_PREFIX}setting... " />
-            <marker date="1490996967057" expanded="true" signature="21764:22381" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
-            <marker date="1490996967057" expanded="true" signature="22439:22534" ph="ALTER TABLE ${DB_PREFIX}pages... " />
-            <marker date="1490996967057" expanded="true" signature="22559:22653" ph="ALTER TABLE ${DB_PREFIX}news... " />
-            <marker date="1490996967057" expanded="true" signature="22678:22776" ph="ALTER TABLE ${DB_PREFIX}pagesgrid... " />
-            <marker date="1490996967057" expanded="true" signature="22949:23198" ph="INSERT INTO ${DB_PREFIX}categories... " />
-            <marker date="1490996967057" expanded="true" signature="23324:24454" ph="CREATE TABLE... IF" />
-            <marker date="1490996967057" expanded="true" signature="24585:25159" ph="CREATE TABLE... IF" />
-            <marker date="1490996967057" expanded="true" signature="25287:25929" ph="CREATE TABLE... IF" />
-            <marker date="1490996967057" expanded="true" signature="26073:26551" ph="CREATE TABLE... IF" />
-            <marker date="1490996967057" expanded="true" signature="26694:26764" ph="ALTER TABLE ${DB_PREFIX}download... " />
-            <marker date="1490996967057" expanded="true" signature="27658:27718" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/site_editor/install.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="209" column="23" selection-start-line="209" selection-start-column="23" selection-end-line="209" selection-end-column="23" />
-          <folding>
-            <marker date="1490985744236" expanded="true" signature="4913:4979" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490985744236" expanded="true" signature="5986:6593" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1490985744236" expanded="true" signature="6785:6851" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490985744236" expanded="true" signature="7734:8000" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1490985744236" expanded="true" signature="8889:8952" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/urlmapping/install.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="228" column="16" selection-start-line="228" selection-start-column="16" selection-end-line="228" selection-end-column="16" />
-          <folding>
-            <marker date="1490986186495" expanded="true" signature="5132:5197" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490986186495" expanded="true" signature="6201:6763" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1490986186495" expanded="true" signature="6955:7020" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490986186495" expanded="true" signature="8035:8418" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1490986186495" expanded="true" signature="8523:9007" ph="CREATE TABLE... IF" />
-            <marker date="1490986186495" expanded="true" signature="9893:9955" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/xml_seo/install.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="217" column="0" selection-start-line="217" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
-          <folding>
-            <marker date="1490996758315" expanded="true" signature="4918:4980" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490996758315" expanded="true" signature="5982:6550" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1490996758315" expanded="true" signature="6742:6804" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490996758315" expanded="true" signature="7673:7931" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1490996758315" expanded="true" signature="8058:8606" ph="INSERT INTO ${DB_PREFIX}setting... " />
-            <marker date="1490996758315" expanded="true" signature="9490:9549" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/belowheader/install.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="220" column="0" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
-          <folding>
-            <marker date="1490985832377" expanded="true" signature="4295:4361" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490985832377" expanded="true" signature="5360:5931" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1490985832377" expanded="true" signature="6106:6172" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490985832377" expanded="true" signature="7307:7827" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1490985832377" expanded="true" signature="7932:8681" ph="CREATE TABLE... IF" />
-            <marker date="1490985832377" expanded="true" signature="9562:9625" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/qed/plugintemplate/blog/footer_widget.php">
+    <entry file="file://$PROJECT_DIR$/plugins/openurl_blank/openurlhead.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1008,98 +822,430 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/blog/install.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="359" column="20" selection-start-line="359" selection-start-column="13" selection-end-line="359" selection-end-column="20" />
-          <folding>
-            <marker date="1490996923217" expanded="true" signature="4315:4374" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490996923217" expanded="true" signature="5379:5959" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1490996923217" expanded="true" signature="6151:6210" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490996923217" expanded="true" signature="15146:18594" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1490996923217" expanded="true" signature="18721:19765" ph="INSERT INTO ${DB_PREFIX}setting... " />
-            <marker date="1490996923217" expanded="true" signature="19896:20393" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
-            <marker date="1490996923217" expanded="true" signature="20451:20542" ph="ALTER TABLE ${DB_PREFIX}pages... " />
-            <marker date="1490996923217" expanded="true" signature="20567:20657" ph="ALTER TABLE ${DB_PREFIX}news... " />
-            <marker date="1490996923217" expanded="true" signature="20682:20780" ph="ALTER TABLE ${DB_PREFIX}pagesgrid... " />
-            <marker date="1490996923217" expanded="true" signature="20840:20943" ph="ALTER TABLE ${DB_PREFIX}backup_content... " />
-            <marker date="1490996923217" expanded="true" signature="21116:21357" ph="INSERT INTO ${DB_PREFIX}categories... " />
-            <marker date="1490996923217" expanded="true" signature="21481:22439" ph="CREATE TABLE... IF" />
-            <marker date="1490996923217" expanded="true" signature="22569:23140" ph="CREATE TABLE... IF" />
-            <marker date="1490996923217" expanded="true" signature="23268:23996" ph="CREATE TABLE... IF" />
-            <marker date="1490996923217" expanded="true" signature="24135:24201" ph="ALTER TABLE ${DB_PREFIX}blog... " />
-            <marker date="1490996923217" expanded="true" signature="25095:25151" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/growl/template/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5612">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/growl/template/header.php">
+    <entry file="file://$PROJECT_DIR$/plugins/openurl_blank/uninstall.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1485602957974" expanded="true" signature="133:186" ph="SELECT * FRO... ${DB_PREFIX}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/install.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="834">
-          <caret line="436" column="81" selection-start-line="436" selection-start-column="81" selection-end-line="436" selection-end-column="81" />
-          <folding>
-            <marker date="1490996979165" expanded="true" signature="4229:4287" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490996979165" expanded="true" signature="5287:5865" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1490996979165" expanded="true" signature="6057:6115" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490996979165" expanded="true" signature="14452:17706" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1490996979165" expanded="true" signature="17833:18714" ph="INSERT INTO ${DB_PREFIX}setting... " />
-            <marker date="1490996979165" expanded="true" signature="18845:19331" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
-            <marker date="1490996979165" expanded="true" signature="19389:19479" ph="ALTER TABLE ${DB_PREFIX}pages... " />
-            <marker date="1490996979165" expanded="true" signature="19504:19593" ph="ALTER TABLE ${DB_PREFIX}news... " />
-            <marker date="1490996979165" expanded="true" signature="19618:19715" ph="ALTER TABLE ${DB_PREFIX}pagesgrid... " />
-            <marker date="1490996979165" expanded="true" signature="19888:20127" ph="INSERT INTO ${DB_PREFIX}categories... " />
-            <marker date="1490996979165" expanded="true" signature="20251:21020" ph="CREATE TABLE... IF" />
-            <marker date="1490996979165" expanded="true" signature="21150:21720" ph="CREATE TABLE... IF" />
-            <marker date="1490996979165" expanded="true" signature="21848:22483" ph="CREATE TABLE... IF" />
-            <marker date="1490996979165" expanded="true" signature="22621:22686" ph="ALTER TABLE ${DB_PREFIX}faq... " />
-            <marker date="1490996979165" expanded="true" signature="23576:23631" ph="DELETE FROM " />
+            <marker date="1491254148193" expanded="true" signature="4278:4346" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1491254148193" expanded="true" signature="4448:4513" ph="DELETE FROM " />
+            <marker date="1491254148193" expanded="true" signature="4544:4611" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plugins/newsletter/install.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2253">
-          <caret line="233" column="81" selection-start-line="233" selection-start-column="81" selection-end-line="233" selection-end-column="81" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1490997013187" expanded="true" signature="4277:4342" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490997013187" expanded="true" signature="5349:6057" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1490997013187" expanded="true" signature="6249:6314" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1490997013187" expanded="true" signature="7899:9052" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1490997013187" expanded="true" signature="9179:10323" ph="INSERT INTO ${DB_PREFIX}setting... " />
-            <marker date="1490997013187" expanded="true" signature="10380:10493" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
-            <marker date="1490997013187" expanded="true" signature="10546:10657" ph="ALTER TABLE ${DB_PREFIX}user... " />
-            <marker date="1490997013187" expanded="true" signature="10830:11083" ph="INSERT INTO ${DB_PREFIX}categories... " />
-            <marker date="1490997013187" expanded="true" signature="11214:11709" ph="CREATE TABLE... IF" />
-            <marker date="1490997013187" expanded="true" signature="11854:12155" ph="CREATE TABLE... IF" />
-            <marker date="1490997013187" expanded="true" signature="12298:12408" ph="INSERT INTO ${DB_PREFIX}newslettergroup... " />
-            <marker date="1490997013187" expanded="true" signature="12553:12996" ph="CREATE TABLE... IF" />
-            <marker date="1490997013187" expanded="true" signature="13143:13669" ph="CREATE TABLE... IF" />
-            <marker date="1490997013187" expanded="true" signature="14558:14620" ph="DELETE FROM " />
+            <marker date="1491254158598" expanded="true" signature="4277:4342" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1491254158598" expanded="true" signature="5349:6057" ph="INSERT INTO ${DB_PREFIX}plugins... " />
+            <marker date="1491254158598" expanded="true" signature="6249:6314" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1491254158598" expanded="true" signature="8899:10009" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+            <marker date="1491254158598" expanded="true" signature="10136:11280" ph="INSERT INTO ${DB_PREFIX}setting... " />
+            <marker date="1491254158598" expanded="true" signature="11337:11450" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
+            <marker date="1491254158598" expanded="true" signature="11503:11614" ph="ALTER TABLE ${DB_PREFIX}user... " />
+            <marker date="1491254158598" expanded="true" signature="11787:12040" ph="INSERT INTO ${DB_PREFIX}categories... " />
+            <marker date="1491254158598" expanded="true" signature="12171:12666" ph="CREATE TABLE... IF" />
+            <marker date="1491254158598" expanded="true" signature="12811:13112" ph="CREATE TABLE... IF" />
+            <marker date="1491254158598" expanded="true" signature="13255:13365" ph="INSERT INTO ${DB_PREFIX}newslettergroup... " />
+            <marker date="1491254158598" expanded="true" signature="13510:13953" ph="CREATE TABLE... IF" />
+            <marker date="1491254158598" expanded="true" signature="14100:14626" ph="CREATE TABLE... IF" />
+            <marker date="1491254158598" expanded="true" signature="15515:15577" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/newsletter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1491254162240" expanded="true" signature="2226:2400" ph="INSERT INTO ${$jaktable2}... " />
+            <marker date="1491254162240" expanded="true" signature="3270:3319" ph="SELECT conte... ${$jaktable}" />
+            <marker date="1491254162240" expanded="true" signature="5096:5213" ph="DELETE FROM " />
+            <marker date="1491254162240" expanded="true" signature="8156:8209" ph="SELECT newsl... ${$jaktable3}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/uninstall.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1491254165711" expanded="true" signature="4286:4351" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1491254165711" expanded="true" signature="4453:4515" ph="DELETE FROM " />
+            <marker date="1491254165711" expanded="true" signature="4546:4621" ph="DELETE FROM " />
+            <marker date="1491254165711" expanded="true" signature="4652:4729" ph="DELETE FROM " />
+            <marker date="1491254165711" expanded="true" signature="4760:4829" ph="DELETE FROM " />
+            <marker date="1491254165711" expanded="true" signature="4860:4925" ph="DELETE FROM " />
+            <marker date="1491254165711" expanded="true" signature="4956:5012" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
+            <marker date="1491254165711" expanded="true" signature="5076:5127" ph="ALTER TABLE ${DB_PREFIX}user... " />
+            <marker date="1491254165711" expanded="true" signature="5159:5297" ph="DROP TABLE $... " />
+            <marker date="1491254165711" expanded="true" signature="5329:5407" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/help.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/template/footer_widget.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/template/newslettersidebar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/template/newsletter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/template/nloff.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/newsletter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1491254208565" expanded="true" signature="1999:2255" ph="INSERT INTO ${$jaktable}... " />
+            <marker date="1491254208565" expanded="true" signature="3841:4008" ph="SELECT sentt... " />
+            <marker date="1491254208565" expanded="true" signature="4281:4357" ph="SELECT id, n... ${$jaktable1}" />
+            <marker date="1491254208565" expanded="true" signature="4761:4844" ph="SELECT id, e... ${$jaktable2}" />
+            <marker date="1491254208565" expanded="true" signature="5472:5557" ph="SELECT id, n... ${DB_PREFIX}" />
+            <marker date="1491254208565" expanded="true" signature="5941:6034" ph="SELECT id, u... ${DB_PREFIX}" />
+            <marker date="1491254208565" expanded="true" signature="7700:7796" ph="SELECT id, t... ${$jaktable}" />
+            <marker date="1491254208565" expanded="true" signature="8037:8102" ph="SELECT varna... ${DB_PREFIX}" />
+            <marker date="1491254208565" expanded="true" signature="10360:10458" ph="SELECT id, n... ${$jaktable2}" />
+            <marker date="1491254208565" expanded="true" signature="12170:12297" ph="SELECT id, u... ${DB_PREFIX}" />
+            <marker date="1491254208565" expanded="true" signature="14372:14750" ph="INSERT INTO ${$jaktable3}... " />
+            <marker date="1491254208565" expanded="true" signature="16534:16801" ph="INSERT INTO ${$jaktable2}... " />
+            <marker date="1491254208565" expanded="true" signature="18708:18746" ph="INSERT INTO ${$jaktable2}... " />
+            <marker date="1491254208565" expanded="true" signature="22371:22439" ph="DELETE FROM " />
+            <marker date="1491254208565" expanded="true" signature="23646:23726" ph="SELECT * FRO... ${$jaktable2}" />
+            <marker date="1491254208565" expanded="true" signature="25578:25647" ph="DELETE FROM " />
+            <marker date="1491254208565" expanded="true" signature="26691:26724" ph="SELECT * FRO... ${$jaktable2}" />
+            <marker date="1491254208565" expanded="true" signature="27748:27920" ph="INSERT INTO ${$jaktable1}... " />
+            <marker date="1491254208565" expanded="true" signature="30979:31047" ph="DELETE FROM " />
+            <marker date="1491254208565" expanded="true" signature="33186:33255" ph="DELETE FROM " />
+            <marker date="1491254208565" expanded="true" signature="40244:40311" ph="DELETE FROM " />
+            <marker date="1491254208565" expanded="true" signature="42252:42358" ph="SELECT varna... ${DB_PREFIX}" />
+            <marker date="1491254208565" expanded="true" signature="43366:43434" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/editgroup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/edituser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/new.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/newgroup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/newsletter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/newsletternav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/newuser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/preview.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/send.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/stat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/usergroup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/usergroup_edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/usergroup_new.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/js/pages.newsletter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1491254279628" expanded="true" signature="2244:2257" ph="..." />
+            <marker date="1491254279628" expanded="true" signature="3436:3449" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/img/send.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/img/stats.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/img/nav.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/img/preview_theme_center.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/img/preview_theme_left.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/img/preview_theme_right.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/img/preview.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/ajax/loadskin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1491254554168" expanded="true" signature="2461:2512" ph="SELECT varna... ${DB_PREFIX}" />
+            <marker date="1491254554168" expanded="true" signature="4613:4705" ph="SELECT * FRO... ${DB_PREFIX}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1491254561858" expanded="true" signature="11740:11839" ph="SELECT id, n... ${DB_PREFIX}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1491254567178" expanded="true" signature="1187:1402" ph="SELECT * FRO... ${$jaktable}" />
+            <marker date="1491254567178" expanded="true" signature="3947:4080" ph="SELECT id, p... ${DB_PREFIX}" />
+            <marker date="1491254567178" expanded="true" signature="7280:7419" ph="SELECT id, h... ${DB_PREFIX}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noplugintemplate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notemplate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1491254578956" expanded="true" signature="451:521" ph="SELECT * FRO... ${$jaktable}" />
+            <marker date="1491254578956" expanded="true" signature="3614:3747" ph="SELECT id, p... ${DB_PREFIX}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rss.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1491254583162" expanded="true" signature="535:755" ph="SELECT t1.*,... ${DB_PREFIX}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1491254587309" expanded="true" signature="3832:3951" ph="SELECT id, h... ${DB_PREFIX}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sitemap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1491254591058" expanded="true" signature="902:1044" ph="SELECT id, h... ${DB_PREFIX}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tags.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1491254594654" expanded="true" signature="1120:1228" ph="SELECT SQL_C... ${$jaktable}" />
+            <marker date="1491254594654" expanded="true" signature="3018:3157" ph="SELECT id, h... ${DB_PREFIX}" />
           </folding>
         </state>
       </provider>
     </entry>
   </component>
   <component name="webServersAuthStorage">
-    <data>AAABIMtwLaM87uLXVfkVqDMUtPewKTaAuvIUMk+ATA8eYKRrNq6QLOVNhvUiyFqZEJAn8Bw4FOHgSNDtrSmDpOBCnLH+VgeIqFvtizp9xua/4ap/vqI7HheUPC/oLgY+Pplgwgs9Y2vrfKAUhz+XqUvthVtMiZCke7427/d7NdXOT2g/fpy5Pa3/7kI2ml7Sooqmr7FM+h+7DV3mOEAbfKmAs9bkJ9998LQl9ADb75R1QGS0iN+tCDr5kjvkT/X/h+NkU/QqPdEeTQOWgMLSbAeABeEEEmswfnrQr8KZUHwqEyrV0Tuaeg9SBWVJrx01o1Im+Ywx7F2PZselURbpZ6Z0dHgE/j9RRABbCMsGFbSMbJQ6tWSAe+WX2N3Jwxdu2NYxwFAXoPoggzYNDnJDjZN/bQY=</data>
+    <data>AAABIGFA52sRoFvZ6Os6unD+he1VNPqu0YVyV8cOeBdaUr2eN6t1Vcp+zPXA6yXc6gOzot6cQjOHExeO8/RF0BiBU6JX2vziRg7pxScdcoWiFN+fQih5DpCX3ccWS4SSGUFvgxApuA+5ZLmA4SWggzjz9Zkbrbag/DbPJiufiHps/cHwHBfwRzt0YYmZ99pkzhkTTlp4OSO7IpmvHYrakU5T6bQCofI6AG2nBTSKx9VAVKWC+AoGa0yPSQXfRezSDUni8vprJ4/69P1pCxJ0lrN7I90zbuLZ8iUzrRFVaHsDSNmjI8H9bIGA6VmtLTTXKjO7FnVS8OqENFUxQKoSfLtuIWFydVD3wbtLI0q5B2hqflDqmryWLCDuTj3tCylViJ5Q02wD/eEeyTVP+JRzP32/cvg=</data>
   </component>
 </project>

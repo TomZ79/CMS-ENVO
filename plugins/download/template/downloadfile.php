@@ -145,7 +145,9 @@ if ($DL_PASSWORD && !JAK_ASACCESS && $DL_PASSWORD != $_SESSION['dlsecurehash' . 
             <p><?php echo $tld["downl_frontend"]["downl5"]; ?></p>
           </div>
           <div class="col-sm-4 col-height col-middle text-center">
-            <p><a class="dclick btn btn-info" href="<?php echo $DL_LINK; ?>"><?php echo $tld["downl_frontend"]["downl7"]; ?></a></p>
+            <p>
+              <a class="dclick btn btn-info" href="<?php echo $DL_LINK; ?>"><?php echo $tld["downl_frontend"]["downl7"]; ?></a>
+            </p>
           </div>
 
         <?php } ?>

@@ -19,7 +19,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo ($page1 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
+        message: '<?php echo($page1 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
       }, {
         // settings
         type: 'danger',
@@ -52,7 +52,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
     <?php
     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-    echo $Html->addAnchor('index.php?p=belowheader&sp=newbh',  $tl["button"]["btn36"], '', 'btn btn-info button');
+    echo $Html->addAnchor('index.php?p=belowheader&sp=newbh', $tl["button"]["btn36"], '', 'btn btn-info button');
     ?>
 
   </div>
@@ -73,7 +73,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   <?php
                   // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                   // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                  echo $Html->addCheckbox('', '', false, 'jak_delete_all');
+                  echo $Html->addCheckbox('', '', FALSE, 'jak_delete_all');
                   echo $Html->addLabel('jak_delete_all', '');
                   ?>
 
@@ -96,7 +96,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array ('disabled' => 'disabled', 'data-confirm-del' => $tlbh["bh_notification"]["delall"]));
+                echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tlbh["bh_notification"]["delall"]));
                 ?>
 
               </th>
@@ -111,7 +111,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                     <?php
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                    echo $Html->addCheckbox('jak_delete_belowheader[]', $v["id"], false, 'jak_delete_belowheader' . $v["id"], 'highlight');
+                    echo $Html->addCheckbox('jak_delete_belowheader[]', $v["id"], FALSE, 'jak_delete_belowheader' . $v["id"], 'highlight');
                     echo $Html->addLabel('jak_delete_belowheader' . $v["id"], '');
                     ?>
 
@@ -125,7 +125,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   ?>
 
                 </td>
-                <td><?php echo date ("d.m.Y - H:i:s", strtotime ($v["time"])); ?></td>
+                <td><?php echo date("d.m.Y - H:i:s", strtotime($v["time"])); ?></td>
                 <td>
 
                   <?php

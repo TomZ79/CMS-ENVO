@@ -12,6 +12,12 @@
  *
  */
 
+/* MAIN NAVBAR */
+li.submenu-active > a,
+li.submenu-active > .icon-thumbnail {
+  color: #FFF !important;
+}
+
 /* SORT LINKS ICONS */
 .sort {
   margin-left: 5px;
@@ -814,6 +820,11 @@ table.table-expandable > tbody > tr div.table-expandable-arrow.up {
   background-position: 0 0;
 }
 
+/* Table striped - hover effect */
+.table.table-striped tbody tr:hover:nth-child(2n+1) td {
+  background: #DAEFFD !important;
+}
+
 /* 00. MODIFICATION - BOOTSTRAP FILEINPUT
 ========================================================================*/
 /* Bootstrap FileInput - Icons */
@@ -1328,6 +1339,7 @@ ul.jak_plugins_move,
 ul.jak_cat_move,
 ul.jak_content_move,
 ul.jak_widget_move,
+ul.jak_hooks_move,
 ul#cform_sort {
   padding: 0;
   margin: 0 auto;
@@ -1339,6 +1351,7 @@ ul.jak_plugins_move li,
 ul.jak_cat_move li,
 ul.jak_content_move li,
 ul.jak_widget_move li,
+ul.jak_hooks_move li,
 ul#cform_sort li {
   background-color: #F9F9F9;
   border: 1px solid #EEE;
@@ -1353,6 +1366,7 @@ ul.jak_plugins_move li:hover,
 ul.jak_cat_move li:hover,
 ul.jak_content_move li:hover,
 ul.jak_widget_move li:hover,
+ul.jak_hooks_move li:hover,
 ul#cform_sort li:hover {
   border-color: #10D5C2;
   /* CSS3 glow effect: */
@@ -1361,7 +1375,8 @@ ul#cform_sort li:hover {
   box-shadow: 0 0 5px #DBF0EE;
 }
 
-.jakcat .text {
+.jakcat .text,
+.jakhooks .text {
   display: inline-block;
   color: #777;
   font-size: 14px;
@@ -1372,6 +1387,12 @@ ul#cform_sort li:hover {
   position: absolute;
   right: 7px;
   top: 6px;
+}
+
+.jakhooks .actions {
+  position: absolute;
+  right: 7px;
+  top: 16px;
 }
 
 /* Sidebar Widget */
@@ -1483,7 +1504,7 @@ ul#cform_sort li:hover {
 /* Span with ID */
 .textid {
   float: left;
-  width: 40px;
+  width: 60px;
 }
 
 /* --------- DRAGABLE --------- */

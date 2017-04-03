@@ -1,220 +1,220 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
 <?php if ($page1 == "s") { ?>
-	<script type="text/javascript">
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?php echo $tl["notification"]["n7"];?>'
-			}, {
-				// settings
-				type: 'success',
-				delay: 5000
-			});
-		}, 1000);
-	</script>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo $tl["notification"]["n7"];?>'
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000
+      });
+    }, 1000);
+  </script>
 <?php }
 if ($page1 == "e" || $page1 == "ene") { ?>
-	<script type="text/javascript">
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				message: '<?php echo ($page1 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
-			}, {
-				// settings
-				type: 'danger',
-				delay: 10000
-			});
-		}, 1000);
-	</script>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo($page1 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
+      }, {
+        // settings
+        type: 'danger',
+        delay: 10000
+      });
+    }, 1000);
+  </script>
 <?php } ?>
 
 <?php if ($page2 == "s") { ?>
-	<script type="text/javascript">
-		// Notification
-		setTimeout(function () {
-			$.notify({
-				// options
-				icon: 'fa fa-info-circle',
-				message: '<?php echo $tl["notification"]["n2"]; ?>'
-			}, {
-				// settings
-				type: 'info',
-				delay: 5000,
-				timer: 3000
-			});
-		}, 2000);
-	</script>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?php echo $tl["notification"]["n2"]; ?>'
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000
+      });
+    }, 2000);
+  </script>
 <?php } ?>
 
-	<!-- Fixed Button for save form -->
-	<div class="savebutton-medium hidden-xs">
+  <!-- Fixed Button for save form -->
+  <div class="savebutton-medium hidden-xs">
 
-		<?php
-		// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-		echo $Html->addAnchor('index.php?p=urlmapping&sp=new',  $tl["button"]["btn37"], '', 'btn btn-info button');
-		?>
+    <?php
+    // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+    echo $Html->addAnchor('index.php?p=urlmapping&sp=new', $tl["button"]["btn37"], '', 'btn btn-info button');
+    ?>
 
-	</div>
+  </div>
 
-<?php if (isset($JAK_UM_ALL) && is_array ($JAK_UM_ALL)) { ?>
+<?php if (isset($JAK_UM_ALL) && is_array($JAK_UM_ALL)) { ?>
 
-	<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-		<div class="box box-success">
-			<div class="box-body no-padding">
-				<div class="table-responsive">
-					<table class="table table-striped table-hover">
-						<thead>
-						<tr>
-							<th>#</th>
-							<th>
+  <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+    <div class="box box-success">
+      <div class="box-body no-padding">
+        <div class="table-responsive">
+          <table class="table table-striped table-hover">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>
 
-								<div class="checkbox-singel check-success">
+                <div class="checkbox-singel check-success">
 
-									<?php
-									// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-									// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-									echo $Html->addCheckbox('', '', false, 'jak_delete_all');
-									echo $Html->addLabel('jak_delete_all', '');
-									?>
+                  <?php
+                  // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                  // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                  echo $Html->addCheckbox('', '', FALSE, 'jak_delete_all');
+                  echo $Html->addLabel('jak_delete_all', '');
+                  ?>
 
-								</div>
+                </div>
 
-							</th>
-							<th><?php echo $tlum["url_box_table"]["urltb"]; ?></th>
-							<th><?php echo $tlum["url_box_table"]["urltb1"]; ?></th>
-							<th><?php echo $tlum["url_box_table"]["urltb2"]; ?></th>
-							<th><?php echo $tlum["url_box_table"]["urltb3"]; ?></th>
-							<th><?php echo $tlum["url_box_table"]["urltb4"]; ?></th>
-							<th>
+              </th>
+              <th><?php echo $tlum["url_box_table"]["urltb"]; ?></th>
+              <th><?php echo $tlum["url_box_table"]["urltb1"]; ?></th>
+              <th><?php echo $tlum["url_box_table"]["urltb2"]; ?></th>
+              <th><?php echo $tlum["url_box_table"]["urltb3"]; ?></th>
+              <th><?php echo $tlum["url_box_table"]["urltb4"]; ?></th>
+              <th>
 
-								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-								echo $Html->addButtonSubmit('lock', '<i class="fa fa-lock"></i>', 'button_lock', 'btn btn-default btn-xs');
-								?>
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html->addButtonSubmit('lock', '<i class="fa fa-lock"></i>', 'button_lock', 'btn btn-default btn-xs');
+                ?>
 
-							</th>
-							<th></th>
-							<th>
+              </th>
+              <th></th>
+              <th>
 
-								<?php
-								// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-								echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array ('disabled' => 'disabled', 'data-confirm-del' => $tlum["url_notification"]["delall"]));
-								?>
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html->addButtonSubmit('delete', '<i class="fa fa-trash-o"></i>', 'button_delete', 'btn btn-danger btn-xs', array('disabled' => 'disabled', 'data-confirm-del' => $tlum["url_notification"]["delall"]));
+                ?>
 
-							</th>
-						</tr>
-						</thead>
-						<?php foreach ($JAK_UM_ALL as $v) { ?>
-							<tr>
-								<td><?php echo $v["id"]; ?></td>
-								<td>
-									<div class="checkbox-singel check-success">
+              </th>
+            </tr>
+            </thead>
+            <?php foreach ($JAK_UM_ALL as $v) { ?>
+              <tr>
+                <td><?php echo $v["id"]; ?></td>
+                <td>
+                  <div class="checkbox-singel check-success">
 
-										<?php
-										// Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-										// Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-										echo $Html->addCheckbox('jak_delete_urlmapping[]', $v["id"], false, 'jak_delete_urlmapping' . $v["id"], 'highlight');
-										echo $Html->addLabel('jak_delete_urlmapping' . $v["id"], '');
-										?>
+                    <?php
+                    // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                    // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                    echo $Html->addCheckbox('jak_delete_urlmapping[]', $v["id"], FALSE, 'jak_delete_urlmapping' . $v["id"], 'highlight');
+                    echo $Html->addLabel('jak_delete_urlmapping' . $v["id"], '');
+                    ?>
 
-									</div>
-								</td>
-								<td>
+                  </div>
+                </td>
+                <td>
 
-									<?php
-									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-									echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=edit&amp;ssp=' . $v["id"], $v["urlold"]);
-									?>
+                  <?php
+                  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                  echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=edit&amp;ssp=' . $v["id"], $v["urlold"]);
+                  ?>
 
-								</td>
-								<td>
+                </td>
+                <td>
 
-									<?php
-									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-									echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=edit&amp;ssp=' . $v["id"], $v["urlnew"]);
-									?>
+                  <?php
+                  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                  echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=edit&amp;ssp=' . $v["id"], $v["urlnew"]);
+                  ?>
 
-								</td>
-								<td>
+                </td>
+                <td>
 
-									<?php if ($v["redirect"] == '301') {
-										echo $tlum["url_box_content"]["urlbc1"];
-									} else {
-										echo $tlum["url_box_content"]["urlbc2"];
-									} ?>
+                  <?php if ($v["redirect"] == '301') {
+                    echo $tlum["url_box_content"]["urlbc1"];
+                  } else {
+                    echo $tlum["url_box_content"]["urlbc2"];
+                  } ?>
 
-								</td>
-								<td><?php echo date ("d.m.Y - H:i:s", strtotime ($v["time"])); ?></td>
-								<td>
+                </td>
+                <td><?php echo date("d.m.Y - H:i:s", strtotime($v["time"])); ?></td>
+                <td>
 
-									<?php
-									if ($v["active"] == 1) {
-										echo $tlum["url_box_content"]["urlbc4"];
-									} else {
-										echo $tlum["url_box_content"]["urlbc5"] . '<span class="small">  - ' . $tlum["url_box_content"]["urlbc6"] . '</span>';
-									}
-									?>
+                  <?php
+                  if ($v["active"] == 1) {
+                    echo $tlum["url_box_content"]["urlbc4"];
+                  } else {
+                    echo $tlum["url_box_content"]["urlbc5"] . '<span class="small">  - ' . $tlum["url_box_content"]["urlbc6"] . '</span>';
+                  }
+                  ?>
 
-								</td>
-								<td>
+                </td>
+                <td>
 
-									<?php
-									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-									echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=lock&amp;ssp=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
-									?>
+                  <?php
+                  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                  echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=lock&amp;ssp=' . $v["id"], '<i class="fa fa-' . (($v["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => ($v["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
+                  ?>
 
-								</td>
-								<td>
+                </td>
+                <td>
 
-									<?php
-									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-									echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=edit&amp;ssp=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
-									?>
+                  <?php
+                  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                  echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=edit&amp;ssp=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
+                  ?>
 
-								</td>
-								<td>
+                </td>
+                <td>
 
-									<?php
-									// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-									echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=delete&amp;ssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-default btn-xs', array('data-confirm' => $tlum["url_notification"]["del"], 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
-									?>
+                  <?php
+                  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                  echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=delete&amp;ssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-default btn-xs', array('data-confirm' => $tlum["url_notification"]["del"], 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
+                  ?>
 
-								</td>
-							</tr>
-						<?php } ?>
-					</table>
-				</div>
-			</div>
-		</div>
-	</form>
+                </td>
+              </tr>
+            <?php } ?>
+          </table>
+        </div>
+      </div>
+    </div>
+  </form>
 
-	<div class="icon_legend">
+  <div class="icon_legend">
 
-		<?php
-		// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-		echo $Html->addTag('h3', $tl["icons"]["i"]);
-		echo $Html->addTag('i', '', 'fa fa-check', array('title' => $tl["icons"]["i6"]));
-		echo $Html->addTag('i', '', 'fa fa-lock', array('title' => $tl["icons"]["i5"]));
-		echo $Html->addTag('i', '', 'fa fa-edit', array('title' => $tl["icons"]["i2"]));
-		echo $Html->addTag('i', '', 'fa fa-trash-o', array('title' => $tl["icons"]["i1"]));
-		?>
+    <?php
+    // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+    echo $Html->addTag('h3', $tl["icons"]["i"]);
+    echo $Html->addTag('i', '', 'fa fa-check', array('title' => $tl["icons"]["i6"]));
+    echo $Html->addTag('i', '', 'fa fa-lock', array('title' => $tl["icons"]["i5"]));
+    echo $Html->addTag('i', '', 'fa fa-edit', array('title' => $tl["icons"]["i2"]));
+    echo $Html->addTag('i', '', 'fa fa-trash-o', array('title' => $tl["icons"]["i1"]));
+    ?>
 
-	</div>
+  </div>
 
 
 <?php } else { ?>
 
-	<div class="col-md-12">
+  <div class="col-md-12">
 
-		<?php
-		// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-		echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
-		?>
+    <?php
+    // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+    echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
+    ?>
 
-	</div>
+  </div>
 
 <?php } ?>
 

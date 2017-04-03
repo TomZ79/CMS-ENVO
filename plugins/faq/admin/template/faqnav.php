@@ -1,76 +1,120 @@
 <!-- START FAQ SECTION -->
-<li class="">
-	<a href="javascript:;">
-		<span class="title"><?php echo $tlf["faq_menu"]["faqm"]; ?></span>
-		<span class="arrow"></span>
-	</a>
-	<span class="icon-thumbnail <?php if ($page == 'faq') echo 'bg-success'; ?>"><i class="fa fa-question"></i></span>
+<?php
+if ($page == 'faq') {
+  $classfaqsection = 'open active';
+  $classfaqiconbg  = 'bg-success';
+}
+?>
+<li class="<?php echo $classfaqsection; ?>">
 
-	<ul class="sub-menu">
-		<li class="">
-			<a href="index.php?p=faq">
-				<?php echo $tlf["faq_menu"]["faqm1"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tlf["faq_menu"]["faqm1"]); ?></span>
-		</li>
-		<li class="">
-			<a href="index.php?p=faq&amp;sp=new">
-				<?php echo $tlf["faq_menu"]["faqm2"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tlf["faq_menu"]["faqm2"]); ?></span>
-		</li>
-		<?php if ($page == 'faq' && $page1 == 'edit') { ?>
-			<li class="">
-				<a href="index.php?p=faq&amp;sp=edit&amp;ssp=<?php echo $page2; ?>">
-					<?php echo $tlf["faq_menu"]["faqm3"]; ?>
-				</a>
-				<span class="icon-thumbnail"><?php echo text_clipping_lower ($tlf["faq_menu"]["faqm3"]); ?></span>
-			</li>
-		<?php } ?>
-		<li class="list-divider"></li>
+  <?php
+  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+  echo $Html->addAnchor('javascript:;', '<span class="title">' . $tlf["faq_menu"]["faqm"] . '</span><span class="arrow ' . $classfaqsection . '"></span>');
+  // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+  echo $Html->addTag('span', '<i class="fa fa-question"></i>', 'icon-thumbnail ' . $classfaqiconbg);
+  ?>
 
-		<li class="">
-			<a href="index.php?p=faq&amp;sp=categories">
-				<?php echo $tlf["submenu"]["faqm4"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tlf["faq_menu"]["faqm4"]); ?></span>
-		</li>
-		<li class="">
-			<a href="index.php?p=faq&amp;sp=newcategory">
-				<?php echo $tlf["faq_menu"]["faqm5"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tlf["faq_menu"]["faqm5"]); ?></span>
-		</li>
-		<?php if ($page == 'faq' && $page1 == 'categories' && $page2 == 'edit') { ?>
-			<li class="">
-				<a href="index.php?p=faq&amp;sp=categories&amp;ssp=edit&amp;sssp=<?php echo $page3; ?>">
-					<?php echo $tlf["faq_menu"]["faqm6"]; ?>
-				</a>
-				<span class="icon-thumbnail"><?php echo text_clipping_lower ($tlf["faq_menu"]["faqm6"]); ?></span>
-			</li>
-		<?php } ?>
-		<li class="list-divider"></li>
+  <ul class="sub-menu">
+    <li class="<?php echo (($page == 'faq' && $page1 == '') || ($page == 'faq' && $page1 == 'new') || ($page == 'faq' && $page1 == 'edit')) ? 'submenu-active' : ''; ?>">
 
-		<li class="">
-			<a href="index.php?p=faq&amp;sp=comment">
-				<?php echo $tlf["faq_menu"]["faqm7"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tlf["faq_menu"]["faqm7"]); ?></span>
-		</li>
-		<li class="">
-			<a href="index.php?p=faq&amp;sp=trash">
-				<?php echo $tlf["faq_menu"]["faqm8"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tlf["faq_menu"]["faqm8"]); ?></span>
-		</li>
-		<li class="list-divider"></li>
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=faq', $tlf["faq_menu"]["faqm1"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tlf["faq_menu"]["faqm1"]), 'icon-thumbnail');
+      ?>
 
-		<li class="">
-			<a href="index.php?p=faq&amp;sp=setting">
-				<?php echo $tlf["faq_menu"]["faqm9"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tlf["faq_menu"]["faqm9"]); ?></span>
-		</li>
-	</ul>
+    </li>
+    <li class="<?php echo ($page == 'faq' && $page1 == 'new') ? 'submenu-active' : ''; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=faq&amp;sp=new', $tlf["faq_menu"]["faqm2"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tlf["faq_menu"]["faqm2"]), 'icon-thumbnail');
+      ?>
+
+    </li>
+    <?php if ($page == 'faq' && $page1 == 'edit') { ?>
+      <li class="<?php echo ($page == 'blog' && $page1 == 'edit') ? 'submenu-active' : ''; ?>">
+
+        <?php
+        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+        echo $Html->addAnchor('index.php?p=faq&amp;sp=edit&amp;ssp=' . $page2, $tlf["faq_menu"]["faqm3"]);
+        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+        echo $Html->addTag('span', text_clipping_lower($tlf["faq_menu"]["faqm3"]), 'icon-thumbnail');
+        ?>
+
+      </li>
+    <?php } ?>
+    <li class="list-divider"></li>
+
+    <li class="<?php echo (($page == 'faq' && $page1 == 'categories') || ($page == 'faq' && $page1 == 'newcategory')) ? 'submenu-active' : ''; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=faq&amp;sp=categories', $tlf["faq_menu"]["faqm4"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tlf["faq_menu"]["faqm4"]), 'icon-thumbnail');
+      ?>
+
+    </li>
+    <li class="<?php echo ($page == 'faq' && $page1 == 'newcategory') ? 'submenu-active' : ''; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=faq&amp;sp=newcategory', $tlf["faq_menu"]["faqm5"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tlf["faq_menu"]["faqm5"]), 'icon-thumbnail');
+      ?>
+
+    </li>
+    <?php if ($page == 'faq' && $page1 == 'categories' && $page2 == 'edit') { ?>
+      <li class="<?php echo ($page == 'faq' && $page1 == 'categories' && $page2 == 'edit') ? 'submenu-active' : ''; ?>">
+
+        <?php
+        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+        echo $Html->addAnchor('index.php?p=faq&amp;sp=categories&amp;ssp=edit&amp;sssp=' . $page3, $tlf["faq_menu"]["faqm6"]);
+        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+        echo $Html->addTag('span', text_clipping_lower($tlf["faq_menu"]["faqm6"]), 'icon-thumbnail');
+        ?>
+
+      </li>
+    <?php } ?>
+    <li class="list-divider"></li>
+
+    <li class="<?php echo ($page == 'faq' && $page1 == 'comment') ? 'submenu-active' : ''; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=faq&amp;sp=comment', $tlf["faq_menu"]["faqm7"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tlf["faq_menu"]["faqm7"]), 'icon-thumbnail');
+      ?>
+
+    </li>
+    <li class="<?php echo ($page == 'faq' && $page1 == 'trash') ? 'submenu-active' : ''; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=faq&amp;sp=trash', $tlf["faq_menu"]["faqm8"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tlf["faq_menu"]["faqm8"]), 'icon-thumbnail');
+      ?>
+
+    </li>
+    <li class="list-divider"></li>
+
+    <li class="<?php echo ($page == 'faq' && $page1 == 'setting') ? 'submenu-active' : ''; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=faq&amp;sp=setting', $tlf["faq_menu"]["faqm9"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tlf["faq_menu"]["faqm9"]), 'icon-thumbnail');
+      ?>
+
+    </li>
+  </ul>
 </li>
 <!-- END FAQ SECTION -->

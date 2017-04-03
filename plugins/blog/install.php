@@ -16,9 +16,9 @@ $succesfully = 0;
 
 // Set language for plugin
 if (file_exists(APP_PATH . 'plugins/blog/admin/lang/' . $site_language . '.ini')) {
-  $tlblog = parse_ini_file(APP_PATH . 'plugins/blog/admin/lang/' . $site_language . '.ini', true);
+  $tlblog = parse_ini_file(APP_PATH . 'plugins/blog/admin/lang/' . $site_language . '.ini', TRUE);
 } else {
-  $tlblog = parse_ini_file(APP_PATH . 'plugins/blog/admin/lang/en.ini', true);
+  $tlblog = parse_ini_file(APP_PATH . 'plugins/blog/admin/lang/en.ini', TRUE);
 }
 
 ?>
@@ -171,7 +171,7 @@ if (file_exists(APP_PATH . 'plugins/blog/admin/lang/' . $site_language . '.ini')
       // EN: Now get the plugin 'id' from table 'plugins' for futher use
       // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
       $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blog"');
-      $rows = $results->fetch_assoc();
+      $rows    = $results->fetch_assoc();
 
       if ($rows['id']) {
       // EN: If plugin have 'id' (plugin is installed), install other data for plugin (create tables and write data to tables)
@@ -247,7 +247,7 @@ $JAK_BLOG_ALL = jak_get_blog(\'\', $jkv[\"blogorder\"], \'\', \'\', $jkv[\"blogu
 $PAGE_TITLE = JAK_PLUGIN_NAME_BLOG;';
 
       // Fulltext search query
-      $sqlfull = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'blog ADD FULLTEXT(`title`, `content`)\');';
+      $sqlfull       = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'blog ADD FULLTEXT(`title`, `content`)\');';
       $sqlfullremove = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'blog DROP INDEX `title`\');';
 
       // Connect to pages/news

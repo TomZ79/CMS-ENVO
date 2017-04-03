@@ -37,9 +37,9 @@ if ($errors) { ?>
       $.notify({
         // options
         message: '<?php if (isset($errors["e"])) echo $errors["e"];
-					if (isset($errors["e1"])) echo $errors["e1"];
-					if (isset($errors["e2"])) echo $errors["e2"];
-					if (isset($errors["e3"])) echo $errors["e3"];?>'
+          if (isset($errors["e1"])) echo $errors["e1"];
+          if (isset($errors["e2"])) echo $errors["e2"];
+          if (isset($errors["e3"])) echo $errors["e3"];?>'
       }, {
         // settings
         type: 'danger',
@@ -57,7 +57,7 @@ if ($errors) { ?>
       // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
       echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button');
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-      echo $Html->addAnchor('index.php?p=categories',  $tl["button"]["btn19"], '', 'btn btn-info button');
+      echo $Html->addAnchor('index.php?p=categories', $tl["button"]["btn19"], '', 'btn btn-info button');
       ?>
 
     </div>
@@ -120,7 +120,7 @@ if ($errors) { ?>
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                         echo $Html->addTag('strong', $tl["cat_box_content"]["catbc1"]);
-                        echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help',  array ('data-content' => $tl["cat_help"]["cath1"], 'data-original-title' => $tl["cat_help"]["cath"]));
+                        echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tl["cat_help"]["cath1"], 'data-original-title' => $tl["cat_help"]["cath"]));
                         echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
                         ?>
 
@@ -149,7 +149,7 @@ if ($errors) { ?>
                           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                           echo $Html->addTag('strong', $tl["cat_box_content"]["catbc2"]);
-                          echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help',  array ('data-content' => $tl["cat_help"]["cath2"], 'data-original-title' => $tl["cat_help"]["cath"]));
+                          echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tl["cat_help"]["cath2"], 'data-original-title' => $tl["cat_help"]["cath"]));
                           ?>
 
                         </div>
@@ -275,15 +275,15 @@ if ($errors) { ?>
             <div class="box box-success">
               <div class="box-header with-border">
 
-                  <?php
-                  // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-                  echo $Html->startTag('h3', array ('class' => 'box-title'));
-                  echo $tl["cat_box_title"]["catbt3"];
-                  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help',  array ('data-content' => $tl["cat_help"]["cath3"], 'data-original-title' => $tl["cat_help"]["cath"]));
-                  // Add Html Element -> endTag (Arguments: tag)
-                  echo $Html->endTag('h3');
-                  ?>
+                <?php
+                // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+                echo $Html->startTag('h3', array('class' => 'box-title'));
+                echo $tl["cat_box_title"]["catbt3"];
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tl["cat_help"]["cath3"], 'data-original-title' => $tl["cat_help"]["cath"]));
+                // Add Html Element -> endTag (Arguments: tag)
+                echo $Html->endTag('h3');
+                ?>
 
               </div>
               <div class="box-body">
@@ -298,9 +298,9 @@ if ($errors) { ?>
                           $selected = ($JAK_FORM_DATA["permission"] == '0') ? TRUE : FALSE;
 
                           echo $Html->addOption('0', $tl["cat_box_content"]["catbc7"], $selected);
-                          if (isset($JAK_USERGROUP) && is_array ($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) {
+                          if (isset($JAK_USERGROUP) && is_array($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) {
 
-                            $selected = (in_array ($v["id"], explode (',', $JAK_FORM_DATA["permission"]))) ? TRUE : FALSE;
+                            $selected = (in_array($v["id"], explode(',', $JAK_FORM_DATA["permission"]))) ? TRUE : FALSE;
                             echo $Html->addOption($v["id"], $v["name"], $selected);
 
                           }
@@ -390,7 +390,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-                        echo $Html->addDiv('&nbsp;', '',  array ('style' => 'line-height: 27px;'));
+                        echo $Html->addDiv('&nbsp;', '', array('style' => 'line-height: 27px;'));
                         ?>
 
                       </div>

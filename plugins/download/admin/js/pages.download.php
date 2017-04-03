@@ -2,35 +2,35 @@
 <script src="assets/js/slug.js" type="text/javascript"></script>
 <script src="assets/plugins/ace/ace.js" type="text/javascript"></script>
 <script type="text/javascript">
-	$(document).ready(function () {
+  $(document).ready(function () {
 
-		/* Check all checkbox */
-		$("#jak_delete_all").click(function () {
-			var checkedStatus = this.checked;
-			$(".highlight").each(function () {
-				$(this).prop('checked', checkedStatus);
-			});
-			$('#button_delete').prop('disabled', function (i, v) {
-				return !v;
-			});
-		});
+    /* Check all checkbox */
+    $("#jak_delete_all").click(function () {
+      var checkedStatus = this.checked;
+      $(".highlight").each(function () {
+        $(this).prop('checked', checkedStatus);
+      });
+      $('#button_delete').prop('disabled', function (i, v) {
+        return !v;
+      });
+    });
 
-		/* Disable submit button if checkbox is not checked */
-		$(".highlight").change(function () {
-			if (this.checked) {
-				$("#button_delete").removeAttr("disabled");
-			} else {
-				$("#button_delete").attr("disabled", "disabled");
-			}
-		});
+    /* Disable submit button if checkbox is not checked */
+    $(".highlight").change(function () {
+      if (this.checked) {
+        $("#button_delete").removeAttr("disabled");
+      } else {
+        $("#button_delete").attr("disabled", "disabled");
+      }
+    });
 
-	});
+  });
 </script>
 <script type="text/javascript">
 
-	/* ACE Editor
-	 ========================================= */
-	<?php if ($jkv["adv_editor"]) { ?>
+  /* ACE Editor
+   ========================================= */
+  <?php if ($jkv["adv_editor"]) { ?>
   if ($('#htmleditor').length) {
     var htmlACE = ace.edit("htmleditor");
     htmlACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
@@ -54,89 +54,89 @@
     texthtml = $("#jak_editor").val();
     htmlACE.session.setValue(texthtml);
   }
-	<?php } ?>
+  <?php } ?>
 
-	var jsACE = ace.edit("javaeditor");
-	jsACE.setTheme("ace/theme/chrome");
-	jsACE.session.setMode("ace/mode/html");
-	textjs = $("#jak_javascript").val();
-	jsACE.session.setValue(textjs);
+  var jsACE = ace.edit("javaeditor");
+  jsACE.setTheme("ace/theme/chrome");
+  jsACE.session.setMode("ace/mode/html");
+  textjs = $("#jak_javascript").val();
+  jsACE.session.setValue(textjs);
 
-	var cssACE = ace.edit("csseditor");
-	cssACE.setTheme("ace/theme/chrome");
-	cssACE.session.setMode("ace/mode/html");
-	textcss = $("#jak_css").val();
-	cssACE.session.setValue(textcss);
+  var cssACE = ace.edit("csseditor");
+  cssACE.setTheme("ace/theme/chrome");
+  cssACE.session.setMode("ace/mode/html");
+  textcss = $("#jak_css").val();
+  cssACE.session.setValue(textcss);
 
-	/* Other config
-	 ========================================= */
-	$(document).ready(function () {
+  /* Other config
+   ========================================= */
+  $(document).ready(function () {
 
-		$("#addCssBlock").click(function () {
-			cssACE.insert(insert_cssblock());
-		});
-		$("#addJavascriptBlock").click(function () {
-			jsACE.insert(insert_javascript());
-		});
+    $("#addCssBlock").click(function () {
+      cssACE.insert(insert_cssblock());
+    });
+    $("#addJavascriptBlock").click(function () {
+      jsACE.insert(insert_javascript());
+    });
 
-	});
+  });
 
-	/* Responsive Filemanager
-	 ========================================= */
-	function responsive_filemanager_callback(field_id) {
+  /* Responsive Filemanager
+   ========================================= */
+  function responsive_filemanager_callback(field_id) {
 
-		if (field_id == "csseditor" || field_id == "javaeditor" || field_id == "htmleditor") {
+    if (field_id == "csseditor" || field_id == "javaeditor" || field_id == "htmleditor") {
 
-			// get the path for the ace file
-			var acefile = jQuery('#' + field_id).val();
+      // get the path for the ace file
+      var acefile = jQuery('#' + field_id).val();
 
-			if (field_id == "csseditor") {
-				cssACE.insert('<link rel="stylesheet" href="' + acefile + '" type="text/css" />');
-			} else if (field_id == "javaeditor") {
-				jsACE.insert('<script src="' + acefile + '"><\/script>');
-			} else {
-				htmlACE.insert(acefile);
-			}
-		}
-	}
+      if (field_id == "csseditor") {
+        cssACE.insert('<link rel="stylesheet" href="' + acefile + '" type="text/css" />');
+      } else if (field_id == "javaeditor") {
+        jsACE.insert('<script src="' + acefile + '"><\/script>');
+      } else {
+        htmlACE.insert(acefile);
+      }
+    }
+  }
 
-	/* Submit Form
-	 ========================================= */
-	$('form').submit(function () {
+  /* Submit Form
+   ========================================= */
+  $('form').submit(function () {
     $("#jak_editor").val(htmlACE.getValue());
-		$("#jak_css").val(cssACE.getValue());
-		$("#jak_javascript").val(jsACE.getValue());
-	});
+    $("#jak_css").val(cssACE.getValue());
+    $("#jak_javascript").val(jsACE.getValue());
+  });
 </script>
 
 <script type="text/javascript">
-	$(document).ready(function () {
-		$(".sortable").nestedSortable({maxLevels: 2});
+  $(document).ready(function () {
+    $(".sortable").nestedSortable({maxLevels: 2});
 
-		$(".save-menu-plugin").on("click", function () {
-			mlist = $(this).data("menu");
-			serialized = $("#" + mlist).nestedSortable("serialize");
+    $(".save-menu-plugin").on("click", function () {
+      mlist = $(this).data("menu");
+      serialized = $("#" + mlist).nestedSortable("serialize");
 
-			/* Sending the form fileds to any post request: */
-			var request = $.ajax({
-				url: "index.php?p=download&amp;sp=categories",
-				type: "POST",
-				data: serialized,
-				dataType: "json",
-				cache: false
-			});
-			request.done(function (data) {
-				if (data.status == 1) {
-					$("#" + mlist + " li").animate({backgroundColor: '#c9ffc9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
-					$.notify({icon: 'fa fa-check-square-o', message: data.html}, {type: 'success'});
-				} else {
-					$("#" + mlist + " li").animate({backgroundColor: '#ffc9c9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
-					$.notify({icon: 'fa fa-exclamation-triangle', message: data.html}, {type: 'danger'});
-				}
-			});
-		});
+      /* Sending the form fileds to any post request: */
+      var request = $.ajax({
+        url: "index.php?p=download&amp;sp=categories",
+        type: "POST",
+        data: serialized,
+        dataType: "json",
+        cache: false
+      });
+      request.done(function (data) {
+        if (data.status == 1) {
+          $("#" + mlist + " li").animate({backgroundColor: '#c9ffc9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
+          $.notify({icon: 'fa fa-check-square-o', message: data.html}, {type: 'success'});
+        } else {
+          $("#" + mlist + " li").animate({backgroundColor: '#ffc9c9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
+          $.notify({icon: 'fa fa-exclamation-triangle', message: data.html}, {type: 'danger'});
+        }
+      });
+    });
 
-	});
+  });
 </script>
 
 <script type="text/javascript">
@@ -157,30 +157,30 @@
 </script>
 
 <script type="text/javascript">
-	$(document).ready(function () {
-		$("#jak_name").keyup(function () {
-			// Checked, copy values
-			$("#jak_varname").val(jakSlug($("#jak_name").val()));
-		});
+  $(document).ready(function () {
+    $("#jak_name").keyup(function () {
+      // Checked, copy values
+      $("#jak_varname").val(jakSlug($("#jak_name").val()));
+    });
 
-		/* Bootstrap Icon Picker
-		$('.iconpicker').iconpicker({
-			iconset: 'fontawesome',
-			icon: '<?php if (isset($JAK_FORM_DATA["catimg"])) {
-				echo $JAK_FORM_DATA["catimg"];
-			} else {
-				echo 'fa-font';
-			}?>',
-			searchText: '<?php echo $tl["placeholder"]["p4"]; ?>',
-			arrowPrevIconClass: 'fa fa-chevron-left',
-			arrowNextIconClass: 'fa fa-chevron-right',
-			rows: 5,
-			cols: 6,
-		});
-		$('.iconpicker').on('change', function (e) {
-			$("#jak_img").val(e.icon);
-		});
-    */
+    /* Bootstrap Icon Picker
+     $('.iconpicker').iconpicker({
+     iconset: 'fontawesome',
+     icon: '<?php if (isset($JAK_FORM_DATA["catimg"])) {
+    echo $JAK_FORM_DATA["catimg"];
+  } else {
+    echo 'fa-font';
+  }?>',
+     searchText: '<?php echo $tl["placeholder"]["p4"]; ?>',
+     arrowPrevIconClass: 'fa fa-chevron-left',
+     arrowNextIconClass: 'fa fa-chevron-right',
+     rows: 5,
+     cols: 6,
+     });
+     $('.iconpicker').on('change', function (e) {
+     $("#jak_img").val(e.icon);
+     });
+     */
 
-	});
+  });
 </script>

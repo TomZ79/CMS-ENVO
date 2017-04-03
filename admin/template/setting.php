@@ -6,11 +6,11 @@
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["notification"]["n7"];?>',
+        message: '<?php echo $tl["notification"]["n7"];?>'
       }, {
         // settings
         type: 'success',
-        delay: 5000,
+        delay: 5000
       });
     }, 1000);
   </script>
@@ -21,11 +21,11 @@ if ($page1 == "e") { ?>
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo $tl["general_error"]["generror1"];?>',
+        message: '<?php echo $tl["general_error"]["generror1"];?>'
       }, {
         // settings
         type: 'danger',
-        delay: 10000,
+        delay: 10000
       });
     }, 1000);
   </script>
@@ -38,19 +38,19 @@ if ($errors) { ?>
         // options
         icon: 'fa fa-warning',
         message: '<?php if (isset($errors["e"])) echo $errors["e"];
-					if (isset($errors["e1"])) echo $errors["e1"];
-					if (isset($errors["e2"])) echo $errors["e2"];
-					if (isset($errors["e3"])) echo $errors["e3"];
-					if (isset($errors["e4"])) echo $errors["e4"];
-					if (isset($errors["e5"])) echo $errors["e5"];
-					if (isset($errors["e6"])) echo $errors["e6"];
-					if (isset($errors["e7"])) echo $errors["e7"];
-					if (isset($errors["e8"])) echo $errors["e8"];
-					if (isset($errors["e9"])) echo $errors["e9"];?>',
+          if (isset($errors["e1"])) echo $errors["e1"];
+          if (isset($errors["e2"])) echo $errors["e2"];
+          if (isset($errors["e3"])) echo $errors["e3"];
+          if (isset($errors["e4"])) echo $errors["e4"];
+          if (isset($errors["e5"])) echo $errors["e5"];
+          if (isset($errors["e6"])) echo $errors["e6"];
+          if (isset($errors["e7"])) echo $errors["e7"];
+          if (isset($errors["e8"])) echo $errors["e8"];
+          if (isset($errors["e9"])) echo $errors["e9"];?>'
       }, {
         // settings
         type: 'danger',
-        delay: 10000,
+        delay: 10000
       });
     }, 1000);
   </script>
@@ -62,11 +62,11 @@ if ($success) { ?>
       $.notify({
         // options
         icon: 'pg-mail',
-        message: '<?php if (isset($success["e"])) echo $success["e"];?>',
+        message: '<?php if (isset($success["e"])) echo $success["e"];?>'
       }, {
         // settings
         type: 'success',
-        delay: 10000,
+        delay: 10000
       });
     }, 1000);
   </script>
@@ -228,7 +228,7 @@ if ($success) { ?>
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
                             echo $Html->addOption('cs_CZ', 'cs_CZ', ($jkv["locale"] == 'cs_CZ') ? TRUE : FALSE);
-                            echo $Html->addOption('en_GB', 'en_GB', ($jkv["locale"] == 'en_GB')  ? TRUE : FALSE);
+                            echo $Html->addOption('en_GB', 'en_GB', ($jkv["locale"] == 'en_GB') ? TRUE : FALSE);
                             ?>
 
                           </select>
@@ -435,7 +435,7 @@ if ($success) { ?>
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                         echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc13"]);
-                        echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help',  array ('data-content' => $tl["gs_help"]["gsh2"], 'data-original-title' => $tl["gs_help"]["gsh"]));
+                        echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tl["gs_help"]["gsh2"], 'data-original-title' => $tl["gs_help"]["gsh"]));
                         ?>
 
                       </div>
@@ -565,7 +565,7 @@ if ($success) { ?>
                       <div class="col-md-6">
                         <select name="jak_shownews" class="form-control selectpicker" data-size="5">
 
-                          <?php for ($i = 0; $i <= 10; $i ++) {
+                          <?php for ($i = 0; $i <= 10; $i++) {
 
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
                             echo $Html->addOption($i, $i, ($jkv["shownews"] == $i) ? TRUE : FALSE);
@@ -1103,9 +1103,17 @@ if ($success) { ?>
 
                       </div>
                       <div class="col-md-7">
+
                         <button type="submit" name="testMail" class="btn btn-success" id="sendTM">
-                          <i id="loader" class="fa fa-spinner fa-pulse"></i> <?php echo $tl["button"]["btn3"]; ?>
+                        <span class="TMlabel">
+                          <?php echo $tl["button"]["btn3"]; ?>
+                        </span>
+                          <span class="TMspinner">
+                          <i class="fa fa-spinner fa-pulse"></i>
+                        </span>
                         </button>
+
+
                       </div>
                     </div>
                   </div>
@@ -1483,7 +1491,7 @@ if ($success) { ?>
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                         echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc62"]);
                         echo $Html->addTag('span', '&nbsp;' . $tl["gs_box_content"]["gsbc70"]);
-                        echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help',  array ('data-content' => $tl["gs_help"]["gsh1"], 'data-original-title' => $tl["gs_help"]["gsh"]));
+                        echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tl["gs_help"]["gsh1"], 'data-original-title' => $tl["gs_help"]["gsh"]));
                         ?>
 
                       </div>

@@ -47,7 +47,7 @@ if ($page5 == "e") { ?>
                   <?php
                   // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                   // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                  echo $Html->addCheckbox('', '', false, 'jak_delete_all');
+                  echo $Html->addCheckbox('', '', FALSE, 'jak_delete_all');
                   echo $Html->addLabel('jak_delete_all', '');
                   ?>
 
@@ -83,7 +83,7 @@ if ($page5 == "e") { ?>
                     <?php
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                    echo $Html->addCheckbox('jak_delete_comment[]', $v["id"], false, 'jak_delete_comment' . $v["id"], 'highlight');
+                    echo $Html->addCheckbox('jak_delete_comment[]', $v["id"], FALSE, 'jak_delete_comment' . $v["id"], 'highlight');
                     echo $Html->addLabel('jak_delete_comment' . $v["id"], '');
                     ?>
 

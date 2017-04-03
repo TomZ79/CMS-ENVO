@@ -12,7 +12,7 @@ include_once 'functions.php';
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$jaktable = DB_PREFIX . 'download';
+$jaktable  = DB_PREFIX . 'download';
 $jaktable1 = DB_PREFIX . 'downloadcategories';
 $jaktable2 = DB_PREFIX . 'downloadcomments';
 $jaktable3 = DB_PREFIX . 'downloadhistory';
@@ -21,7 +21,7 @@ $CHECK_USR_SESSION = session_id();
 
 // Get the important template stuff
 $JAK_SEARCH_WHERE = JAK_PLUGIN_VAR_DOWNLOAD;
-$JAK_SEARCH_LINK = JAK_PLUGIN_VAR_DOWNLOAD;
+$JAK_SEARCH_LINK  = JAK_PLUGIN_VAR_DOWNLOAD;
 
 // Heatmap
 $JAK_HEATMAPLOC = JAK_PLUGIN_VAR_DOWNLOAD;
@@ -36,20 +36,20 @@ define('JAK_DOWNLOADMODERATE', $jakusergroup->getVar("downloadmoderate"));
 
 // AJAX Search
 $AJAX_SEARCH_PLUGIN_WHERE = $jaktable;
-$AJAX_SEARCH_PLUGIN_URL = 'plugins/download/ajaxsearch.php';
-$AJAX_SEARCH_PLUGIN_SEO = $jkv["downloadurl"];
+$AJAX_SEARCH_PLUGIN_URL   = 'plugins/download/ajaxsearch.php';
+$AJAX_SEARCH_PLUGIN_SEO   = $jkv["downloadurl"];
 
 // Get the rss if active
 if ($jkv["downloadrss"]) {
   $JAK_RSS_DISPLAY = 1;
-  $P_RSS_LINK = JAK_rewrite::jakParseurl('rss.xml', JAK_PLUGIN_VAR_DOWNLOAD, '', '', '');
+  $P_RSS_LINK      = JAK_rewrite::jakParseurl('rss.xml', JAK_PLUGIN_VAR_DOWNLOAD, '', '', '');
 }
 
 // Parse links once if needed a lot of time
 $backtodl = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, '', '', '', '');
 
 // Template Call
-$JAK_TPL_PLUG_T = JAK_PLUGIN_NAME_DOWNLOAD;
+$JAK_TPL_PLUG_T   = JAK_PLUGIN_NAME_DOWNLOAD;
 $JAK_TPL_PLUG_URL = $backtodl;
 
 switch ($page1) {
@@ -61,23 +61,23 @@ switch ($page1) {
 
       if ($jkv["downloadurl"]) {
         $getWhere = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, $page1, $page2, $page3, '');
-        $getPage = $page4;
+        $getPage  = $page4;
       } else {
         $getWhere = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, $page1, $page2, '', '');
-        $getPage = $page3;
+        $getPage  = $page3;
       }
 
       if ($getTotal != 0) {
 
         // Paginator
-        $dlc = new JAK_Paginator;
-        $dlc->items_total = $getTotal;
-        $dlc->mid_range = $jkv["downloadpagemid"];
+        $dlc                 = new JAK_Paginator;
+        $dlc->items_total    = $getTotal;
+        $dlc->mid_range      = $jkv["downloadpagemid"];
         $dlc->items_per_page = $jkv["downloadpageitem"];
-        $dlc->jak_get_page = $getPage;
-        $dlc->jak_where = $getWhere;
-        $dlc->jak_prevtext = $tl["pagination"]["pagin"];
-        $dlc->jak_nexttext = $tl["pagination"]["pagin1"];
+        $dlc->jak_get_page   = $getPage;
+        $dlc->jak_where      = $getWhere;
+        $dlc->jak_prevtext   = $tl["pagination"]["pagin"];
+        $dlc->jak_nexttext   = $tl["pagination"]["pagin1"];
         $dlc->paginate();
         $JAK_PAGINATE = $dlc->display_pages();
 
@@ -87,13 +87,13 @@ switch ($page1) {
       // Get the download categories
       $row = $jakdb->queryRow('SELECT name, content FROM ' . $jaktable1 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
 
-      $PAGE_TITLE = JAK_PLUGIN_NAME_DOWNLOAD . ' - ' . $row['name'];
-      $PAGE_CONTENT = $row['content'];
+      $PAGE_TITLE       = JAK_PLUGIN_NAME_DOWNLOAD . ' - ' . $row['name'];
+      $PAGE_CONTENT     = $row['content'];
       $MAIN_DESCRIPTION = $jkv['downloaddesc'];
 
       // Get the sort orders for the grid
-      $JAK_HOOK_SIDE_GRID = false;
-      $grid = $jakdb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql(JAK_PLUGIN_ID_DOWNLOAD) . '" AND fileid = 0 ORDER BY orderid ASC');
+      $JAK_HOOK_SIDE_GRID = FALSE;
+      $grid               = $jakdb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql(JAK_PLUGIN_ID_DOWNLOAD) . '" AND fileid = 0 ORDER BY orderid ASC');
       while ($grow = $grid->fetch_assoc()) {
         // collect each record into $pagegrid
         $JAK_HOOK_SIDE_GRID[] = $grow;
@@ -107,17 +107,17 @@ switch ($page1) {
 
       if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-      $PAGE_KEYWORDS = str_replace(" ", "", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+      $PAGE_KEYWORDS    = str_replace(" ", "", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
       $PAGE_DESCRIPTION = jak_cut_text($PAGE_CONTENT, 155, '');
 
       // Get the CSS and Javascript into the page
-      $JAK_HEADER_CSS = $jkv["download_css"];
+      $JAK_HEADER_CSS        = $jkv["download_css"];
       $JAK_FOOTER_JAVASCRIPT = $jkv["download_javascript"];
 
       // EN: Load the template
       // CZ: Načti template (šablonu)
       $pluginbasic_template = 'plugins/download/template/download.php';
-      $pluginsite_template = 'template/' . $jkv["sitestyle"] . '/plugintemplate/download/download.php';
+      $pluginsite_template  = 'template/' . $jkv["sitestyle"] . '/plugintemplate/download/download.php';
 
       if (file_exists($pluginsite_template)) {
         $plugin_template = $pluginsite_template;
@@ -145,7 +145,7 @@ switch ($page1) {
 
           define('BASE_URL_IMG', BASE_URL);
 
-          $cleanusername = smartsql($arr['co_name']);
+          $cleanusername  = smartsql($arr['co_name']);
           $cleanuserpostB = htmlspecialchars_decode(jak_clean_safe_userpost($arr['userpost']));
 
           // the new session check for displaying messages to user even if not approved
@@ -164,7 +164,7 @@ switch ($page1) {
 
             // Additional Fields
             $cleanemail = filter_var($arr['co_email'], FILTER_SANITIZE_EMAIL);
-            $cleanurl = filter_var($arr['co_url'], FILTER_SANITIZE_URL);
+            $cleanurl   = filter_var($arr['co_url'], FILTER_SANITIZE_URL);
 
             $jakdb->query('INSERT INTO ' . $jaktable2 . ' VALUES (NULL, "' . $page2 . '", 0, "' . $cleanusername . '", "' . $cleanemail . '", "' . $cleanurl . '", "' . smartsql($cleanuserpostB) . '", "' . JAK_DOWNLOADPOSTAPPROVE . '", 0, NOW(), "' . $sqlset . '")');
 
@@ -247,7 +247,7 @@ switch ($page1) {
       }
 
       $result = $jakdb->query('SELECT * FROM ' . $jaktable . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
-      $row = $result->fetch_assoc();
+      $row    = $result->fetch_assoc();
 
       if ($row['active'] != 1) {
         jak_redirect(JAK_rewrite::jakParseurl('offline'));
@@ -267,44 +267,44 @@ switch ($page1) {
           }
 
           // Now output the data
-          $PAGE_ID = $row['id'];
-          $PAGE_TITLE = $row['title'];
-          $PAGE_CONTENT = jak_secure_site($row['content']);
-          $MAIN_DESCRIPTION = $jkv['newsdesc'];
-          $SHOWTITLE = $row['showtitle'];
-          $SHOWIMG = $row['previmg'];
-          $SHOWDATE = $row['showdate'];
-          $FT_SHARE = $row['ftshare'];
-          $SHOWSOCIALBUTTON = $row['socialbutton'];
-          $DL_HITS = $row['hits'];
-          $DL_DOWNLOADS = $row['countdl'];
-          $DL_PASSWORD = $row['password'];
-          $JAK_HEADER_CSS = $row['dl_css'];
-          $JAK_FOOTER_JAVASCRIPT = $row['dl_javascript'];
+          $PAGE_ID                     = $row['id'];
+          $PAGE_TITLE                  = $row['title'];
+          $PAGE_CONTENT                = jak_secure_site($row['content']);
+          $MAIN_DESCRIPTION            = $jkv['newsdesc'];
+          $SHOWTITLE                   = $row['showtitle'];
+          $SHOWIMG                     = $row['previmg'];
+          $SHOWDATE                    = $row['showdate'];
+          $FT_SHARE                    = $row['ftshare'];
+          $SHOWSOCIALBUTTON            = $row['socialbutton'];
+          $DL_HITS                     = $row['hits'];
+          $DL_DOWNLOADS                = $row['countdl'];
+          $DL_PASSWORD                 = $row['password'];
+          $JAK_HEADER_CSS              = $row['dl_css'];
+          $JAK_FOOTER_JAVASCRIPT       = $row['dl_javascript'];
           $jkv["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
-          $DL_LINK = html_entity_decode(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'dl', $row['id'], '', ''));
+          $DL_LINK                     = html_entity_decode(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'dl', $row['id'], '', ''));
 
-          $PAGE_TIME = JAK_Base::jakTimesince($row['time'], $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['general']['g56']);
+          $PAGE_TIME       = JAK_Base::jakTimesince($row['time'], $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['general']['g56']);
           $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
           // Set download to false
-          $DL_FILE_BUTTON = false;
+          $DL_FILE_BUTTON = FALSE;
 
           // fix the download if allowed to
           if (JAK_DOWNLOADCAN && $row['candownload'] == 0 || jak_get_access(JAK_USERGROUPID, $row['candownload'])) {
 
-            $DL_FILE_BUTTON = true;
+            $DL_FILE_BUTTON = TRUE;
           }
 
           // Display contact form if whish so and do the caching
-          $JAK_SHOW_C_FORM = false;
+          $JAK_SHOW_C_FORM = FALSE;
           if ($row['showcontact'] != 0) {
-            $JAK_SHOW_C_FORM = jak_create_contact_form($row['showcontact'], $tl['cmsg']['c12']);
+            $JAK_SHOW_C_FORM      = jak_create_contact_form($row['showcontact'], $tl['cmsg']['c12']);
             $JAK_SHOW_C_FORM_NAME = jak_contact_form_title($row['showcontact']);
           }
 
           // Get the url session
-          $_SESSION['jak_lastURL'] = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, $page1, $page2, $page3, '');
+          $_SESSION['jak_lastURL']    = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, $page1, $page2, $page3, '');
           $_SESSION['jak_thisFileID'] = $row['id'];
 
         }
@@ -313,14 +313,14 @@ switch ($page1) {
         if ($row['comments'] == 1) {
           $ac = new JAK_comment($jaktable2, 'fileid', $page2, JAK_PLUGIN_VAR_DOWNLOAD, $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['general']['g56']);
 
-          $JAK_COMMENTS = $ac->get_comments();
+          $JAK_COMMENTS       = $ac->get_comments();
           $JAK_COMMENTS_TOTAL = $ac->get_total();
-          $JAK_COMMENT_FORM = true;
+          $JAK_COMMENT_FORM   = TRUE;
 
         } else {
 
           $JAK_COMMENTS_TOTAL = 0;
-          $JAK_COMMENT_FORM = false;
+          $JAK_COMMENT_FORM   = FALSE;
 
         }
 
@@ -344,7 +344,7 @@ switch ($page1) {
             $seo = JAK_base::jakCleanurl($nextp['title']);
           }
 
-          $JAK_NAV_NEXT = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'f', $nextp['id'], $seo, '');
+          $JAK_NAV_NEXT       = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'f', $nextp['id'], $seo, '');
           $JAK_NAV_NEXT_TITLE = addslashes($nextp['title']);
         }
 
@@ -355,21 +355,21 @@ switch ($page1) {
             $seop = JAK_base::jakCleanurl($prevp['title']);
           }
 
-          $JAK_NAV_PREV = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'f', $prevp['id'], $seop, '');
+          $JAK_NAV_PREV       = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'f', $prevp['id'], $seop, '');
           $JAK_NAV_PREV_TITLE = addslashes($prevp['title']);
         }
 
         // Get the categories into a list
-        $resultc = $jakdb->query ('SELECT id, name, varname FROM ' . $jaktable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
-        while ($rowc = $resultc->fetch_assoc ()) {
+        $resultc = $jakdb->query('SELECT id, name, varname FROM ' . $jaktable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
+        while ($rowc = $resultc->fetch_assoc()) {
 
           if ($jkv["downloadurl"]) {
-            $seoc = JAK_base::jakCleanurl ($rowc['varname']);
+            $seoc = JAK_base::jakCleanurl($rowc['varname']);
           }
 
           // EN: Create array with all categories ( Plugin Download have only one category for one download file, in array will be it only one category )
           // CZ: Vytvoření pole se všemi kategoriemi ( Plugin Download má pouze jednu kategorie pro jeden stahovaný soubor, v poli bude jen jedna kategorie )
-          $catids[] = '<a class="category-label"  href="' . JAK_rewrite::jakParseurl (JAK_PLUGIN_VAR_DOWNLOAD, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tld["downl_frontend"]["downl11"] . '">' . $rowc['name'] . '</a>';
+          $catids[] = '<a class="category-label"  href="' . JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tld["downl_frontend"]["downl11"] . '">' . $rowc['name'] . '</a>';
 
           // EN: Get 'varname' for category
           // CZ: Získaní 'varname' kategorie
@@ -379,7 +379,7 @@ switch ($page1) {
         if (!empty($catids)) {
           // EN: Returns a string from the elements of an array
           // CZ: Získání elementů z pole
-          $DOWNLOAD_CATLIST = join (" ", $catids);
+          $DOWNLOAD_CATLIST = join(" ", $catids);
         }
 
       }
@@ -393,7 +393,7 @@ switch ($page1) {
       $keytags = preg_split('/\s+/', strip_tags($JAK_TAGLIST));
       $keytags = ',' . implode(',', $keytags);
     }
-    $PAGE_KEYWORDS = str_replace(" ", "", JAK_Base::jakCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+    $PAGE_KEYWORDS    = str_replace(" ", "", JAK_Base::jakCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
     $PAGE_DESCRIPTION = jak_cut_text($PAGE_CONTENT, 155, '');
 
     // Get Facebook SDK Connection
@@ -403,13 +403,13 @@ switch ($page1) {
     $JAK_FACEBOOK_SDK_CONNECTION = $row['value'];
 
     // Get random image from folder
-    $imgList = jak_get_random_image(JAK_FILES_DIRECTORY . '/facebook/');
+    $imgList          = jak_get_random_image(JAK_FILES_DIRECTORY . '/facebook/');
     $JAK_RANDOM_IMAGE = jak_get_random_from_array($imgList);
 
     // EN: Load the template
     // CZ: Načti template (šablonu)
     $pluginbasic_template = 'plugins/download/template/downloadfile.php';
-    $pluginsite_template = 'template/' . $jkv["sitestyle"] . '/plugintemplate/download/downloadfile.php';
+    $pluginsite_template  = 'template/' . $jkv["sitestyle"] . '/plugintemplate/download/downloadfile.php';
 
     if (file_exists($pluginsite_template)) {
       $plugin_template = $pluginsite_template;
@@ -451,7 +451,7 @@ switch ($page1) {
       }
 
       if (strlen($defaults['userpost']) > $jkv["downloadmaxpost"]) {
-        $countI = strlen($defaults['userpost']);
+        $countI      = strlen($defaults['userpost']);
         $errors['e'] = $tld['dload']['e1'] . $jkv["downloadmaxpost"] . ' ' . $tld['dload']['e2'] . $countI;
       }
 
@@ -480,11 +480,11 @@ switch ($page1) {
       if (JAK_USERID && JAK_DOWNLOADDELETE && jak_give_right($page2, JAK_USERID, $jaktable2, 'userid') || JAK_DOWNLOADMODERATE) {
 
         $result = $jakdb->query('SELECT username, web, message FROM ' . $jaktable2 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
-        $row = $result->fetch_assoc();
+        $row    = $result->fetch_assoc();
 
         $RUNAME = $row['username'];
-        $RWEB = $row['web'];
-        $RCONT = jak_edit_safe_userpost($row['message']);
+        $RWEB   = $row['web'];
+        $RCONT  = jak_edit_safe_userpost($row['message']);
 
         // EN: Load the template
         // CZ: Načti template (šablonu)
@@ -549,10 +549,10 @@ switch ($page1) {
         if ($row['candownload'] != 0 && !jak_get_access(JAK_USERGROUPID, $row['candownload'])) jak_redirect($backtodl);
 
         $dluserid = 0;
-        $dlemail = "guest";
+        $dlemail  = "guest";
         if (JAK_USERID) {
           $dluserid = JAK_USERID;
-          $dlemail = $jakuser->getVar("email");
+          $dlemail  = $jakuser->getVar("email");
         }
 
         // EN: Write data to download history ( table 'DBPrefix_downloadhistory' in DB )
@@ -638,14 +638,14 @@ switch ($page1) {
 
     if ($getTotal != 0) {
       // Paginator
-      $dl = new JAK_Paginator;
-      $dl->items_total = $getTotal;
-      $dl->mid_range = $jkv["downloadpagemid"];
+      $dl                 = new JAK_Paginator;
+      $dl->items_total    = $getTotal;
+      $dl->mid_range      = $jkv["downloadpagemid"];
       $dl->items_per_page = $jkv["downloadpageitem"];
-      $dl->jak_get_page = $page1;
-      $dl->jak_where = $backtodl;
-      $dl->jak_prevtext = $tl["pagination"]["pagin"];
-      $dl->jak_nexttext = $tl["pagination"]["pagin1"];
+      $dl->jak_get_page   = $page1;
+      $dl->jak_where      = $backtodl;
+      $dl->jak_prevtext   = $tl["pagination"]["pagin"];
+      $dl->jak_nexttext   = $tl["pagination"]["pagin1"];
       $dl->paginate();
 
       // Pagination
@@ -657,16 +657,16 @@ switch ($page1) {
     }
 
     // Check if we have a language and display the right stuff
-    $PAGE_TITLE = $jkv["downloadtitle"];
-    $PAGE_CONTENT = $jkv["downloaddesc"];
+    $PAGE_TITLE       = $jkv["downloadtitle"];
+    $PAGE_CONTENT     = $jkv["downloaddesc"];
     $MAIN_DESCRIPTION = $jkv['downloaddesc'];
 
     // Get the url session
     $_SESSION['jak_lastURL'] = $backtodl;
 
     // Get the sort orders for the grid
-    $JAK_HOOK_SIDE_GRID = false;
-    $grid = $jakdb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql(JAK_PLUGIN_ID_DOWNLOAD) . '" AND fileid = 0 ORDER BY orderid ASC');
+    $JAK_HOOK_SIDE_GRID = FALSE;
+    $grid               = $jakdb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql(JAK_PLUGIN_ID_DOWNLOAD) . '" AND fileid = 0 ORDER BY orderid ASC');
     while ($grow = $grid->fetch_assoc()) {
       // collect each record into $pagegrid
       $JAK_HOOK_SIDE_GRID[] = $grow;
@@ -687,13 +687,13 @@ switch ($page1) {
     }
 
     // Get the CSS and Javascript into the page
-    $JAK_HEADER_CSS = $jkv["download_css"];
+    $JAK_HEADER_CSS        = $jkv["download_css"];
     $JAK_FOOTER_JAVASCRIPT = $jkv["download_javascript"];
 
     // EN: Load the template
     // CZ: Načti template (šablonu)
     $pluginbasic_template = 'plugins/download/template/download.php';
-    $pluginsite_template = 'template/' . $jkv["sitestyle"] . '/plugintemplate/download/download.php';
+    $pluginsite_template  = 'template/' . $jkv["sitestyle"] . '/plugintemplate/download/download.php';
 
     if (file_exists($pluginsite_template)) {
       $plugin_template = $pluginsite_template;

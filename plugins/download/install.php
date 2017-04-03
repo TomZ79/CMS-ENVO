@@ -16,9 +16,9 @@ $succesfully = 0;
 
 // Set language for plugin
 if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.ini')) {
-  $tld = parse_ini_file(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.ini', true);
+  $tld = parse_ini_file(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.ini', TRUE);
 } else {
-  $tld = parse_ini_file(APP_PATH . 'plugins/download/admin/lang/en.ini', true);
+  $tld = parse_ini_file(APP_PATH . 'plugins/download/admin/lang/en.ini', TRUE);
 }
 
 ?>
@@ -193,7 +193,7 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
       // EN: Now get the plugin 'id' from table 'plugins' for futher use
       // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
       $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
-      $rows = $results->fetch_assoc();
+      $rows    = $results->fetch_assoc();
 
       if ($rows['id']) {
       // EN: If plugin have 'id' (plugin is installed), install other data for plugin (create tables and write data to tables)
@@ -268,7 +268,7 @@ $JAK_DOWNLOAD_ALL = jak_get_download(\'\', $jkv[\"downloadorder\"], \'\', \'\', 
 $PAGE_TITLE = JAK_PLUGIN_NAME_DOWNLOAD;';
 
       // Fulltext search query
-      $sqlfull = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'download ADD FULLTEXT(`title`, `content`)\');';
+      $sqlfull       = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'download ADD FULLTEXT(`title`, `content`)\');';
       $sqlfullremove = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'download DROP INDEX `title`\');';
 
       // Connect to pages/news

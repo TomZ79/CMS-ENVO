@@ -15,9 +15,9 @@ $succesfully = 0;
 
 // Set language for plugin
 if (file_exists(APP_PATH . 'plugins/register_form/admin/lang/' . $site_language . '.ini')) {
-  $tlrf = parse_ini_file(APP_PATH . 'plugins/register_form/admin/lang/' . $site_language . '.ini', true);
+  $tlrf = parse_ini_file(APP_PATH . 'plugins/register_form/admin/lang/' . $site_language . '.ini', TRUE);
 } else {
-  $tlrf = parse_ini_file(APP_PATH . 'plugins/register_form/admin/lang/en.ini', true);
+  $tlrf = parse_ini_file(APP_PATH . 'plugins/register_form/admin/lang/en.ini', TRUE);
 }
 
 ?>
@@ -168,7 +168,7 @@ if (file_exists(APP_PATH . 'plugins/register_form/admin/lang/' . $site_language 
       // EN: Now get the plugin 'id' from table 'plugins' for futher use
       // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
       $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "register_form"');
-      $rows = $results->fetch_assoc();
+      $rows    = $results->fetch_assoc();
 
       if ($rows['id']) {
       // EN: If plugin have 'id' (plugin is installed), install other data for plugin (create tables and write data to tables)

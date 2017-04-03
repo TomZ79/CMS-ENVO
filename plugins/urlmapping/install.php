@@ -16,9 +16,9 @@ $succesfully = 0;
 
 // Set language for plugin
 if (file_exists(APP_PATH . 'plugins/urlmapping/admin/lang/' . $site_language . '.ini')) {
-  $tlum = parse_ini_file(APP_PATH . 'plugins/urlmapping/admin/lang/' . $site_language . '.ini', true);
+  $tlum = parse_ini_file(APP_PATH . 'plugins/urlmapping/admin/lang/' . $site_language . '.ini', TRUE);
 } else {
-  $tlum = parse_ini_file(APP_PATH . 'plugins/urlmapping/admin/lang/en.ini', true);
+  $tlum = parse_ini_file(APP_PATH . 'plugins/urlmapping/admin/lang/en.ini', TRUE);
 }
 
 ?>

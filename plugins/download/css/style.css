@@ -25,17 +25,21 @@ USAGE
   height: 100%;
   width: 100%;
 }
+
 .col-height {
   display: table-cell;
   float: none;
   height: 100%;
 }
+
 .col-top {
   vertical-align: top;
 }
+
 .col-middle {
   vertical-align: middle;
 }
+
 .col-bottom {
   vertical-align: bottom;
 }
@@ -47,17 +51,21 @@ USAGE
     height: 100%;
     width: 100%;
   }
+
   .col-xs-height {
     display: table-cell;
     float: none;
     height: 100%;
   }
+
   .col-xs-top {
     vertical-align: top;
   }
+
   .col-xs-middle {
     vertical-align: middle;
   }
+
   .col-xs-bottom {
     vertical-align: bottom;
   }
@@ -70,17 +78,21 @@ USAGE
     height: 100%;
     width: 100%;
   }
+
   .col-sm-height {
     display: table-cell;
     float: none;
     height: 100%;
   }
+
   .col-sm-top {
     vertical-align: top;
   }
+
   .col-sm-middle {
     vertical-align: middle;
   }
+
   .col-sm-bottom {
     vertical-align: bottom;
   }
@@ -93,17 +105,21 @@ USAGE
     height: 100%;
     width: 100%;
   }
+
   .col-md-height {
     display: table-cell;
     float: none;
     height: 100%;
   }
+
   .col-md-top {
     vertical-align: top;
   }
+
   .col-md-middle {
     vertical-align: middle;
   }
+
   .col-md-bottom {
     vertical-align: bottom;
   }
@@ -116,17 +132,21 @@ USAGE
     height: 100%;
     width: 100%;
   }
+
   .col-lg-height {
     display: table-cell;
     float: none;
     height: 100%;
   }
+
   .col-lg-top {
     vertical-align: top;
   }
+
   .col-lg-middle {
     vertical-align: middle;
   }
+
   .col-lg-bottom {
     vertical-align: bottom;
   }

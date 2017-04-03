@@ -1,16 +1,27 @@
 <script type="text/javascript">
 	$(document).ready(function () {
 
-		/* Check all checkbox */
-		$("#jak_delete_all").click(function () {
-			var checkedStatus = this.checked;
-			$(".highlight").each(function () {
-				$(this).prop('checked', checkedStatus);
-			});
-			$('#button_delete').prop('disabled', function (i, v) {
-				return !v;
-			});
-		});
+    /* Check all checkbox */
+    $("#jak_delete_all").click(function () {
+      var checkedStatus = this.checked;
+      $(".highlight").each(function () {
+        $(this).prop('checked', checkedStatus);
+      });
+      $('#button_delete').prop('disabled', function (i, v) {
+        return !v;
+      });
+    });
+
+    /* Check all checkbox */
+    $("#jak_delete_all_approve").click(function () {
+      var checkedStatus = this.checked;
+      $(".highlight_approve").each(function () {
+        $(this).prop('checked', checkedStatus);
+      });
+      $('#button_delete_approve').prop('disabled', function (i, v) {
+        return !v;
+      });
+    });
 
 		/* Disable submit button if checkbox is not checked */
 		$(".highlight").change(function () {
@@ -20,6 +31,15 @@
 				$("#button_delete").attr("disabled", "disabled");
 			}
 		});
+
+    /* Disable submit button if checkbox is not checked */
+    $(".highlight_approve").change(function () {
+      if (this.checked) {
+        $("#button_delete_approve").removeAttr("disabled");
+      } else {
+        $("#button_delete_approve").attr("disabled", "disabled");
+      }
+    });
 
 		/* DateTimePicker
 		 =========================================

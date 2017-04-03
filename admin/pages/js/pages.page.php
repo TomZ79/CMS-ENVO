@@ -126,5 +126,19 @@ if ($jkv["adv_editor"] && (($page == 'page' && $page1 == 'newpage') || ($page ==
 				$("#button_delete").attr("disabled", "disabled");
 			}
 		});
+
+		/* Short Code Insert to ACE Editor */
+		$(".short-sc").click(function(){
+			htmlACE.insert(insert_code_member_guest());
+		});
+
+		$(".short-sc1").click(function(){
+			htmlACE.insert(insert_code_member());
+		});
+
+		$(".short-sc2").click(function(){
+			htmlACE.insert(insert_code_guest());
+		});
+
 	});
 </script>

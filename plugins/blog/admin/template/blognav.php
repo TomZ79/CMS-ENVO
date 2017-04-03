@@ -1,76 +1,120 @@
 <!-- START BLOG SECTION -->
-<li class="">
-	<a href="javascript:;">
-		<span class="title"><?php echo $tlblog["blog_menu"]["blogm"]; ?></span>
-		<span class="arrow"></span>
-	</a>
-	<span class="icon-thumbnail <?php if ($page == 'blog') echo 'bg-success'; ?>">BL</span>
+<?php
+if ($page == 'blog') {
+  $classblogsection = 'open active';
+  $classblogiconbg  = 'bg-success';
+}
+?>
+<li class="<?php echo $classblogsection; ?>">
 
-	<ul class="sub-menu">
-		<li class="">
-			<a href="index.php?p=blog">
-				<?php echo $tlblog["blog_menu"]["blogm1"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tlblog["blog_menu"]["blogm1"]); ?></span>
-		</li>
-		<li class="">
-			<a href="index.php?p=blog&amp;sp=new">
-				<?php echo $tlblog["blog_menu"]["blogm2"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tlblog["blog_menu"]["blogm2"]); ?></span>
-		</li>
-		<?php if ($page == 'blog' && $page1 == 'edit') { ?>
-			<li class="">
-				<a href="index.php?p=blog&amp;sp=edit&amp;ssp=<?php echo $page2; ?>">
-					<?php echo $tlblog["blog_menu"]["blogm3"]; ?>
-				</a>
-				<span class="icon-thumbnail"><?php echo text_clipping_lower ($tlblog["blog_menu"]["blogm3"]); ?></span>
-			</li>
-		<?php } ?>
-		<li class="list-divider"></li>
+  <?php
+  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+  echo $Html->addAnchor('javascript:;', '<span class="title">' . $tlblog["blog_menu"]["blogm"] . '</span><span class="arrow ' . $classblogsection . '"></span>');
+  // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+  echo $Html->addTag('span', 'BL', 'icon-thumbnail ' . $classblogiconbg);
+  ?>
 
-		<li class="">
-			<a href="index.php?p=blog&amp;sp=categories">
-				<?php echo $tlblog["blog_menu"]["blogm4"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tlblog["blog_menu"]["blogm4"]); ?></span>
-		</li>
-		<li class="">
-			<a href="index.php?p=blog&amp;sp=newcategory">
-				<?php echo $tlblog["blog_menu"]["blogm5"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tlblog["blog_menu"]["blogm5"]); ?></span>
-		</li>
-		<?php if ($page == 'blog' && $page1 == 'categories' && $page2 == 'edit') { ?>
-			<li class="">
-				<a href="index.php?p=blog&amp;sp=categories&amp;ssp=edit&amp;sssp=<?php echo $page3; ?>">
-					<?php echo $tlblog["blog_menu"]["blogm6"]; ?>
-				</a>
-				<span class="icon-thumbnail"><?php echo text_clipping_lower ($tlblog["blog_menu"]["blogm6"]); ?></span>
-			</li>
-		<?php } ?>
-		<li class="list-divider"></li>
+  <ul class="sub-menu">
+    <li class="<?php echo (($page == 'blog' && $page1 == '') || ($page == 'blog' && $page1 == 'new') || ($page == 'blog' && $page1 == 'edit')) ? 'submenu-active' : ''; ?>">
 
-		<li class="">
-			<a href="index.php?p=blog&amp;sp=comment">
-				<?php echo $tlblog["blog_menu"]["blogm7"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tlblog["blog_menu"]["blogm7"]); ?></span>
-		</li>
-		<li class="">
-			<a href="index.php?p=blog&amp;sp=trash">
-				<?php echo $tlblog["blog_menu"]["blogm8"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tlblog["blog_menu"]["blogm8"]); ?></span>
-		</li>
-		<li class="list-divider"></li>
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=blog', $tlblog["blog_menu"]["blogm1"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tlblog["blog_menu"]["blogm1"]), 'icon-thumbnail');
+      ?>
 
-		<li class="">
-			<a href="index.php?p=blog&amp;sp=setting">
-				<?php echo $tlblog["blog_menu"]["blogm9"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tlblog["blog_menu"]["blogm9"]); ?></span>
-		</li>
-	</ul>
+    </li>
+    <li class="<?php echo ($page == 'blog' && $page1 == 'new') ? 'submenu-active' : ''; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=blog&amp;sp=new', $tlblog["blog_menu"]["blogm2"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tlblog["blog_menu"]["blogm2"]), 'icon-thumbnail');
+      ?>
+
+    </li>
+    <?php if ($page == 'blog' && $page1 == 'edit') { ?>
+      <li class="<?php echo ($page == 'blog' && $page1 == 'edit') ? 'submenu-active' : ''; ?>">
+
+        <?php
+        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+        echo $Html->addAnchor('index.php?p=blog&amp;sp=edit&amp;ssp=' . $page2, $tlblog["blog_menu"]["blogm3"]);
+        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+        echo $Html->addTag('span', text_clipping_lower($tlblog["blog_menu"]["blogm3"]), 'icon-thumbnail');
+        ?>
+
+      </li>
+    <?php } ?>
+    <li class="list-divider"></li>
+
+    <li class="<?php echo (($page == 'blog' && $page1 == 'categories') || ($page == 'blog' && $page1 == 'newcategory')) ? 'submenu-active' : ''; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=blog&amp;sp=categories', $tlblog["blog_menu"]["blogm4"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tlblog["blog_menu"]["blogm4"]), 'icon-thumbnail');
+      ?>
+
+    </li>
+    <li class="<?php echo ($page == 'blog' && $page1 == 'newcategory') ? 'submenu-active' : ''; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=blog&amp;sp=newcategory', $tlblog["blog_menu"]["blogm5"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tlblog["blog_menu"]["blogm5"]), 'icon-thumbnail');
+      ?>
+
+    </li>
+    <?php if ($page == 'blog' && $page1 == 'categories' && $page2 == 'edit') { ?>
+      <li class="<?php echo ($page == 'blog' && $page1 == 'categories' && $page2 == 'edit') ? 'submenu-active' : ''; ?>">
+
+        <?php
+        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+        echo $Html->addAnchor('index.php?p=blog&amp;sp=categories&amp;ssp=edit&amp;sssp=' . $page3, $tlblog["blog_menu"]["blogm6"]);
+        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+        echo $Html->addTag('span', text_clipping_lower($tlblog["blog_menu"]["blogm6"]), 'icon-thumbnail');
+        ?>
+
+      </li>
+    <?php } ?>
+    <li class="list-divider"></li>
+
+    <li class="<?php echo ($page == 'blog' && $page1 == 'comment') ? 'submenu-active' : ''; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=blog&amp;sp=comment', $tlblog["blog_menu"]["blogm7"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tlblog["blog_menu"]["blogm7"]), 'icon-thumbnail');
+      ?>
+
+    </li>
+    <li class="<?php echo ($page == 'blog' && $page1 == 'trash') ? 'submenu-active' : ''; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=blog&amp;sp=trash', $tlblog["blog_menu"]["blogm8"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tlblog["blog_menu"]["blogm8"]), 'icon-thumbnail');
+      ?>
+
+    </li>
+    <li class="list-divider"></li>
+
+    <li class="<?php echo ($page == 'blog' && $page1 == 'setting') ? 'submenu-active' : ''; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=blog&amp;sp=setting', $tlblog["blog_menu"]["blogm9"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tlblog["blog_menu"]["blogm9"]), 'icon-thumbnail');
+      ?>
+
+    </li>
+  </ul>
 </li>
 <!-- END BLOG SECTION -->

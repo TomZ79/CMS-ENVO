@@ -15,9 +15,9 @@ $succesfully = 0;
 
 // Set language for plugin
 if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . '.ini')) {
-  $tlsedi = parse_ini_file(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . '.ini', true);
+  $tlsedi = parse_ini_file(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . '.ini', TRUE);
 } else {
-  $tlsedi = parse_ini_file(APP_PATH . 'plugins/site_editor/admin/lang/en.ini', true);
+  $tlsedi = parse_ini_file(APP_PATH . 'plugins/site_editor/admin/lang/en.ini', TRUE);
 }
 
 ?>
@@ -188,7 +188,7 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
       // EN: Now get the plugin 'id' from table 'plugins' for futher use
       // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
       $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Site_editor"');
-      $rows = $results->fetch_assoc();
+      $rows    = $results->fetch_assoc();
 
       if ($rows['id']) {
       // EN: If plugin have 'id' (plugin is installed), install other data for plugin (create tables and write data to tables)

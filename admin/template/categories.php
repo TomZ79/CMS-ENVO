@@ -62,7 +62,7 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
 
     <?php
     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-    echo $Html->addAnchor('index.php?p=categories&sp=newcat',  $tl["button"]["btn29"], '', 'btn btn-info button');
+    echo $Html->addAnchor('index.php?p=categories&sp=newcat', $tl["button"]["btn29"], '', 'btn btn-info button');
     ?>
 
   </div>
@@ -119,11 +119,13 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
       <!-- Footer Only -->
       <div class="box box-success">
         <div class="box-header with-border">
+
           <?php
           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
           echo $Html->addTag('i', '', 'fa fa-clone');
           echo $Html->addTag('h3', $tl["cat_box_title"]["catbt1"], 'box-title');
           ?>
+
         </div>
         <div class="box-body">
 
@@ -148,10 +150,12 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
 
         </div>
         <div class="box-footer">
+
           <?php
           // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
           echo $Html->addButtonSubmit('save', $tl["button"]["btn1"], '', 'btn btn-success pull-right save-menu', array('data-menu' => 'mfooter'));
           ?>
+
         </div>
       </div>
     </div>
@@ -162,13 +166,16 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
       <!-- Not Visible -->
       <div class="box box-success">
         <div class="box-header with-border">
+
           <?php
           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
           echo $Html->addTag('i', '', 'fa fa-clone');
           echo $Html->addTag('h3', $tl["cat_box_title"]["catbt2"], 'box-title');
           ?>
+
         </div>
         <div class="box-body">
+
           <?php if ($JAK_CAT3_EXIST) {
 
             echo '<ul class="list-group">' . $ucatblank . '</ul>';
@@ -179,6 +186,7 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
             echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
 
           } ?>
+
         </div>
       </div>
     </div>

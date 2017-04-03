@@ -15,9 +15,9 @@ $succesfully = 0;
 
 // Set language for plugin
 if (file_exists(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '.ini')) {
-  $tlnl = parse_ini_file(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '.ini', true);
+  $tlnl = parse_ini_file(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '.ini', TRUE);
 } else {
-  $tlnl = parse_ini_file(APP_PATH . 'plugins/newsletter/admin/lang/en.ini', true);
+  $tlnl = parse_ini_file(APP_PATH . 'plugins/newsletter/admin/lang/en.ini', TRUE);
 }
 
 ?>
@@ -170,7 +170,7 @@ if (file_exists(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '
       // EN: Now get the plugin 'id' from table 'plugins' for futher use
       // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
       $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Newsletter"');
-      $rows = $results->fetch_assoc();
+      $rows    = $results->fetch_assoc();
 
       if ($rows['id']) {
       // EN: If plugin have 'id' (plugin is installed), install other data for plugin (create tables and write data to tables)
@@ -197,6 +197,32 @@ if (file_exists(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '
   $tlnl = parse_ini_file(APP_PATH.\'plugins/newsletter/lang/en.ini\', true);
 }';
 
+      // EN: Frontend - template for display plugin sidebar
+      // CZ: Frontend - šablona pro zobrazení postranního panelu pluginu
+      $get_nlsidebar = '
+	$pluginbasic_sidebar = \'plugins/newsletter/template/newslettersidebar.php\';
+	$pluginsite_sidebar = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/newsletter/newslettersidebar.php\';
+	
+	if (file_exists($pluginsite_sidebar)) {
+		include_once APP_PATH.$pluginsite_sidebar;
+	} else {
+		include_once APP_PATH.$pluginbasic_sidebar;
+	}
+    ';
+
+      // EN: Frontend - template for display plugin footer widget
+      // CZ: Frontend - šablona pro zobrazení widgetu
+      $get_nlfooter_widgets = '
+	$pluginbasic_fwidgets = \'plugins/newsletter/template/footer_widget.php\';
+	$pluginsite_fwidgets = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/newsletter/footer_widget.php\';
+	
+	if (file_exists($pluginsite_fwidgets)) {
+		include_once APP_PATH.$pluginsite_fwidgets;
+	} else {
+		include_once APP_PATH.$pluginbasic_fwidgets;
+	}
+    ';
+
       // EN: Insert data to table 'pluginhooks'
       // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
       $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
@@ -205,8 +231,8 @@ if (file_exists(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '
 (NULL, "php_lang", "Newsletter Site Language", "' . $sitelang . '", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup", "Newsletter Usergroup New", "plugins/newsletter/admin/template/usergroup_new.php", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup_edit", "Newsletter Usergroup Edit", "plugins/newsletter/admin/template/usergroup_edit.php", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_sidebar", "Newsletter SignUp", "plugins/newsletter/template/newslettersidebar.php", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_footer_widgets", "Footer - Newsletter Form", "plugins/newsletter/template/footer_widget.php", "newsletter", 1, 3, "' . $rows['id'] . '", NOW())');
+(NULL, "tpl_sidebar", "Newsletter SignUp", "' . $get_nlsidebar . '", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_footer_widgets", "Footer - Newsletter Form", "' . $get_nlfooter_widgets . '", "newsletter", 1, 3, "' . $rows['id'] . '", NOW())');
 
       // EN: Insert data to table 'setting'
       // CZ: Vložení potřebných dat to tabulky 'setting'

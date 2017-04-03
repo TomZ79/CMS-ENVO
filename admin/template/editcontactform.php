@@ -29,8 +29,9 @@ if ($page3 == "e") { ?>
       });
     }, 1000);
   </script>
-<?php }
-if ($errors) { ?>
+<?php } ?>
+
+<?php if ($errors) { ?>
   <script type="text/javascript">
     // Notification
     setTimeout(function () {
@@ -57,7 +58,7 @@ if ($errors) { ?>
       // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
       echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button');
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-      echo $Html->addAnchor('index.php?p=contactform',  $tl["button"]["btn19"], '', 'btn btn-info button');
+      echo $Html->addAnchor('index.php?p=contactform', $tl["button"]["btn19"], '', 'btn btn-info button');
       ?>
 
     </div>
@@ -139,7 +140,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_email', $JAK_FORM_DATA["email"], '', 'form-control', array('placeholder'=>$tl["placeholder"]["p14"]));
+                      echo $Html->addInput('text', 'jak_email', $JAK_FORM_DATA["email"], '', 'form-control', array('placeholder' => $tl["placeholder"]["p14"]));
                       ?>
 
                     </div>
@@ -159,7 +160,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                    echo $Html->addTextarea('jak_lcontent', jak_edit_safe_userpost($JAK_FORM_DATA["content"]), '4', '', array ('id' => 'jakEditor', 'class' => 'jakEditorLight form-control', 'style' => 'width:100%;'));
+                    echo $Html->addTextarea('jak_lcontent', jak_edit_safe_userpost($JAK_FORM_DATA["content"]), '4', '', array('id' => 'jakEditor', 'class' => 'jakEditorLight form-control', 'style' => 'width:100%;'));
                     ?>
 
                   </div>
@@ -176,6 +177,7 @@ if ($errors) { ?>
 
           </div>
         </div>
+
         <div class="box box-success">
           <div class="box-header with-border">
 
@@ -187,6 +189,7 @@ if ($errors) { ?>
 
           </div>
           <div class="box-body">
+
             <ul class="cform_drag">
               <li id="cform_drag">
                 <div class="row">
@@ -204,7 +207,7 @@ if ($errors) { ?>
                   <div class="col-md-2">
                     <div class="form-group">
                       <?php echo $tl["cform"]["c9"]; ?>
-                      <select name="jak_optionmandatory[]" class="form-control selectpicker" data-size="3">
+                      <select name="jak_optionmandatory[]" class="form-control" data-size="3">
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -220,7 +223,7 @@ if ($errors) { ?>
                   <div class="col-md-2">
                     <div class="form-group">
                       <?php echo $tl["cform"]["c7"]; ?>
-                      <select name="jak_optiontype[]" class="form-control selectpicker" data-size="3">
+                      <select name="jak_optiontype[]" class="form-control" data-size="3">
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -241,7 +244,7 @@ if ($errors) { ?>
                     <?php
                     echo $tl["cform"]["c8"];
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'jak_option[]', 'female,male', '', 'form-control jakread', array('readonly' => 'readonly'));
+                    echo $Html->addInput('text', 'jak_options[]', 'female,male', '', 'form-control jakread', array('readonly' => 'readonly'));
                     ?>
 
                   </div>
@@ -278,7 +281,7 @@ if ($errors) { ?>
                         <?php
                         echo $tl["cform"]["c6"];
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'jak_option_old[]', $o["name"], '', 'form-control', array('readonly' => 'readonly'));
+                        echo $Html->addInput('text', 'jak_option_old[]', $o["name"], '', 'form-control');
                         ?>
 
                       </div>
@@ -286,7 +289,7 @@ if ($errors) { ?>
                     <div class="col-md-2">
                       <div class="form-group">
                         <?php echo $tl["cform"]["c9"]; ?>
-                        <select name="jak_optionmandatory_old[]" class="form-control selectpicker" data-size="5">
+                        <select name="jak_optionmandatory_old[]" class="form-control" data-size="3">
 
                           <?php
                           // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -302,7 +305,7 @@ if ($errors) { ?>
                     <div class="col-md-2">
                       <div class="form-group">
                         <?php echo $tl["cform"]["c7"]; ?>
-                        <select name="jak_optiontype_old[]" class="form-control selectpicker" data-size="5">
+                        <select name="jak_optiontype_old[]" class="form-control" data-size="3">
 
                           <?php
                           // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -316,7 +319,6 @@ if ($errors) { ?>
                           ?>
 
                         </select>
-
                       </div>
                     </div>
                     <div class="col-md-4">
@@ -324,7 +326,7 @@ if ($errors) { ?>
                       <?php
                       echo $tl["cform"]["c8"];
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_option_old[]', $o["options"], '', 'form-control');
+                      echo $Html->addInput('text', 'jak_options_old[]', $o["options"], '', 'form-control');
                       ?>
 
                     </div>

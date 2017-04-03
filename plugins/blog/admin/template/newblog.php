@@ -23,9 +23,9 @@
       $.notify({
         // options
         message: '<?php if (isset($errors["e"])) echo $errors["e"];
-					if (isset($errors["e1"])) echo $errors["e1"];
-					if (isset($errors["e2"])) echo $errors["e2"];
-					if (isset($errors["e3"])) echo $errors["e3"]; ?>'
+          if (isset($errors["e1"])) echo $errors["e1"];
+          if (isset($errors["e2"])) echo $errors["e2"];
+          if (isset($errors["e3"])) echo $errors["e3"]; ?>'
       }, {
         // settings
         type: 'danger',
@@ -43,7 +43,7 @@
       // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
       echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button');
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-      echo $Html->addAnchor('index.php?p=blog',  $tl["button"]["btn19"], '', 'btn btn-info button');
+      echo $Html->addAnchor('index.php?p=blog', $tl["button"]["btn19"], '', 'btn btn-info button');
       ?>
 
     </div>
@@ -161,7 +161,7 @@
                             $selected = ((isset($_REQUEST["jak_showcontact"]) && ($_REQUEST["jak_showcontact"] == '0')) || !isset($_REQUEST["jak_showcontact"])) ? TRUE : FALSE;
 
                             echo $Html->addOption('0', $tlblog["blog_box_content"]["blogbc27"], $selected);
-                            if (isset($JAK_CONTACT_FORMS) && is_array ($JAK_CONTACT_FORMS)) foreach ($JAK_CONTACT_FORMS as $cf) {
+                            if (isset($JAK_CONTACT_FORMS) && is_array($JAK_CONTACT_FORMS)) foreach ($JAK_CONTACT_FORMS as $cf) {
 
                               echo $Html->addOption($cf["id"], $cf["title"], ($cf["id"] == $_REQUEST["jak_showcontact"]) ? TRUE : FALSE);
 
@@ -327,10 +327,10 @@
 
                 <?php
                 // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-                echo $Html->startTag('h3', array ('class' => 'box-title'));
+                echo $Html->startTag('h3', array('class' => 'box-title'));
                 echo $tlblog["blog_box_title"]["blogbt8"];
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help',  array ('data-content' => $tlblog["blog_help"]["blogh1"], 'data-original-title' => $tlblog["blog_help"]["blogh"]));
+                echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tlblog["blog_help"]["blogh1"], 'data-original-title' => $tlblog["blog_help"]["blogh"]));
                 // Add Html Element -> endTag (Arguments: tag)
                 echo $Html->endTag('h3');
                 ?>
@@ -348,7 +348,7 @@
                           $selected = ((isset($_REQUEST["jak_catid"]) && ($_REQUEST["jak_catid"] == '0' || (in_array('0', $_REQUEST["jak_catid"]))) || !isset($_REQUEST["jak_catid"]))) ? TRUE : FALSE;
 
                           echo $Html->addOption('0', $tlblog["blog_box_content"]["blogbc37"], $selected);
-                          if (isset($JAK_CAT) && is_array ($JAK_CAT)) foreach ($JAK_CAT as $v) {
+                          if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $v) {
 
                             if (isset($_REQUEST["jak_catid"]) && (in_array($v["id"], $_REQUEST["jak_catid"]))) {
                               if (isset($_REQUEST["jak_catid"]) && (in_array('0', $_REQUEST["jak_catid"]))) {
@@ -561,7 +561,7 @@
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_tags', (isset($_REQUEST["jak_tags"])) ? $_REQUEST["jak_tags"] : '', 'jak_tags', 'form-control tags', array ('data-role' => 'tagsinput'));
+                          echo $Html->addInput('text', 'jak_tags', (isset($_REQUEST["jak_tags"])) ? $_REQUEST["jak_tags"] : '', 'jak_tags', 'form-control tags', array('data-role' => 'tagsinput'));
                           ?>
 
                         </div>

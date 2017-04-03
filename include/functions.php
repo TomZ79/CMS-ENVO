@@ -197,7 +197,7 @@ function jak_get_setting($group)
 {
   global $jakdb;
   $setting = array();
-  $result = $jakdb->query('SELECT varname, value, defaultvalue FROM ' . DB_PREFIX . 'setting WHERE groupname = "' . smartsql($group) . '"');
+  $result = $jakdb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE groupname = "' . smartsql($group) . '"');
   while ($row = $result->fetch_assoc()) {
     $setting[] = $row;
   }

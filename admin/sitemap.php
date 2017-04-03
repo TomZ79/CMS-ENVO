@@ -2,11 +2,11 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined ('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
+if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$JAK_MODULES) jak_redirect (BASE_URL);
+if (!JAK_USERID || !$JAK_MODULES) jak_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
@@ -15,127 +15,127 @@ $jaktable2 = DB_PREFIX . 'pluginhooks';
 
 // EN: Import important settings for the template from the DB
 // CZ: Importuj důležité nastavení pro šablonu z DB
-$JAK_SETTING = jak_get_setting ('sitemap');
+$JAK_SETTING = jak_get_setting('sitemap');
 
 // Let's go on with the script
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	$defaults = $_POST;
+  $defaults = $_POST;
 
-	// Do the dirty work in mysql
+  // Do the dirty work in mysql
 
-	$result = $jakdb->query ('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-    	WHEN "sitemaptitle" THEN "' . smartsql ($defaults['jak_title']) . '"
-    	WHEN "sitemapdesc" THEN "' . smartsql ($defaults['jak_lcontent']) . '"
+  $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+    	WHEN "sitemaptitle" THEN "' . smartsql($defaults['jak_title']) . '"
+    	WHEN "sitemapdesc" THEN "' . smartsql($defaults['jak_lcontent']) . '"
     END
 		WHERE varname IN ("sitemaptitle", "sitemapdesc")');
 
-	// Save order for sidebar widget
-	if (isset($defaults['jak_hookshow_new']) && is_array ($defaults['jak_hookshow_new'])) {
+  // Save order for sidebar widget
+  if (isset($defaults['jak_hookshow_new']) && is_array($defaults['jak_hookshow_new'])) {
 
-		$exorder = $defaults['horder_new'];
-		$hookid  = $defaults['real_hook_id_new'];
-		$plugind = $defaults['sreal_plugin_id_new'];
-		$doith   = array_combine ($hookid, $exorder);
-		$pdoith  = array_combine ($hookid, $plugind);
+    $exorder = $defaults['horder_new'];
+    $hookid  = $defaults['real_hook_id_new'];
+    $plugind = $defaults['sreal_plugin_id_new'];
+    $doith   = array_combine($hookid, $exorder);
+    $pdoith  = array_combine($hookid, $plugind);
 
-		foreach ($doith as $key => $exorder) {
+    foreach ($doith as $key => $exorder) {
 
-			if (in_array ($key, $defaults['jak_hookshow_new'])) {
+      if (in_array($key, $defaults['jak_hookshow_new'])) {
 
-				// Get the real what id
-				$whatid = 0;
-				if (isset($defaults[ 'whatid_' . $pdoith[ $key ] ])) $whatid = $defaults[ 'whatid_' . $pdoith[ $key ] ];
+        // Get the real what id
+        $whatid = 0;
+        if (isset($defaults['whatid_' . $pdoith[$key]])) $whatid = $defaults['whatid_' . $pdoith[$key]];
 
-				$jakdb->query ('INSERT INTO ' . $jaktable . ' SET plugin = 2, hookid = "' . smartsql ($key) . '", pluginid = "' . smartsql ($pdoith[ $key ]) . '", whatid = "' . smartsql ($whatid) . '", orderid = "' . smartsql ($exorder) . '"');
+        $jakdb->query('INSERT INTO ' . $jaktable . ' SET plugin = 2, hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '"');
 
-			}
+      }
 
-		}
+    }
 
-	}
+  }
 
-	// Now check if all the sidebar a deselct and hooks exist, if so delete all associated to this page
-	if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
+  // Now check if all the sidebar a deselct and hooks exist, if so delete all associated to this page
+  if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
 
-		// Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
-		$row = $jakdb->queryRow ('SELECT id FROM ' . $jaktable . ' WHERE plugin = 2 AND hookid != 0');
+    // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
+    $row = $jakdb->queryRow('SELECT id FROM ' . $jaktable . ' WHERE plugin = 2 AND hookid != 0');
 
-		// We have something to delete
-		if ($row["id"]) {
-			$jakdb->query ('DELETE FROM ' . $jaktable . ' WHERE plugin = 2 AND hookid != 0');
-		}
+    // We have something to delete
+    if ($row["id"]) {
+      $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE plugin = 2 AND hookid != 0');
+    }
 
-	}
+  }
 
-	// Save order or delete for extra sidebar widget
-	if (isset($defaults['jak_hookshow']) && is_array ($defaults['jak_hookshow'])) {
+  // Save order or delete for extra sidebar widget
+  if (isset($defaults['jak_hookshow']) && is_array($defaults['jak_hookshow'])) {
 
-		$exorder    = $defaults['horder'];
-		$hookid     = $defaults['real_hook_id'];
-		$hookrealid = implode (',', $defaults['real_hook_id']);
-		$doith      = array_combine ($hookid, $exorder);
+    $exorder    = $defaults['horder'];
+    $hookid     = $defaults['real_hook_id'];
+    $hookrealid = implode(',', $defaults['real_hook_id']);
+    $doith      = array_combine($hookid, $exorder);
 
-		foreach ($doith as $key => $exorder) {
+    foreach ($doith as $key => $exorder) {
 
-			// Get the real what id
-			$result = $jakdb->query ('SELECT pluginid FROM ' . $jaktable . ' WHERE id = "' . smartsql ($key) . '" AND hookid != 0');
-			$row    = $result->fetch_assoc ();
+      // Get the real what id
+      $result = $jakdb->query('SELECT pluginid FROM ' . $jaktable . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
+      $row    = $result->fetch_assoc();
 
-			$whatid = 0;
-			if (isset($defaults[ 'whatid_' . $row["pluginid"] ])) $whatid = $defaults[ 'whatid_' . $row["pluginid"] ];
+      $whatid = 0;
+      if (isset($defaults['whatid_' . $row["pluginid"]])) $whatid = $defaults['whatid_' . $row["pluginid"]];
 
-			if (in_array ($key, $defaults['jak_hookshow'])) {
-				$updatesql .= sprintf ("WHEN %d THEN %d ", $key, $exorder);
-				$updatesql1 .= sprintf ("WHEN %d THEN %d ", $key, $whatid);
+      if (in_array($key, $defaults['jak_hookshow'])) {
+        $updatesql .= sprintf("WHEN %d THEN %d ", $key, $exorder);
+        $updatesql1 .= sprintf("WHEN %d THEN %d ", $key, $whatid);
 
-			} else {
-				$jakdb->query ('DELETE FROM ' . $jaktable . ' WHERE id = ' . $key);
-			}
-		}
+      } else {
+        $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE id = ' . $key);
+      }
+    }
 
-		$jakdb->query ('UPDATE ' . $jaktable . ' SET orderid = CASE id
+    $jakdb->query('UPDATE ' . $jaktable . ' SET orderid = CASE id
 			' . $updatesql . '
 			END
 			WHERE id IN (' . $hookrealid . ')');
 
-		$jakdb->query ('UPDATE ' . $jaktable . ' SET whatid = CASE id
+    $jakdb->query('UPDATE ' . $jaktable . ' SET whatid = CASE id
 			' . $updatesql1 . '
 			END
 			WHERE id IN (' . $hookrealid . ')');
 
-	}
+  }
 
-	if (!$result) {
-		// EN: Redirect page
-		// CZ: Přesměrování stránky
-		jak_redirect (BASE_URL . 'index.php?p=sitemap&sp=e');
-	} else {
-		// EN: Redirect page
-		// CZ: Přesměrování stránky
-		jak_redirect (BASE_URL . 'index.php?p=sitemap&sp=s');
-	}
+  if (!$result) {
+    // EN: Redirect page
+    // CZ: Přesměrování stránky
+    jak_redirect(BASE_URL . 'index.php?p=sitemap&sp=e');
+  } else {
+    // EN: Redirect page
+    // CZ: Přesměrování stránky
+    jak_redirect(BASE_URL . 'index.php?p=sitemap&sp=s');
+  }
 }
 
 // Get the sort orders for the grid
-$grid = $jakdb->query ('SELECT id, hookid, whatid, orderid FROM ' . $jaktable . ' WHERE plugin = 2 ORDER BY orderid ASC');
-while ($grow = $grid->fetch_assoc ()) {
-	// collect each record into $_data
-	$JAK_PAGE_GRID[] = $grow;
+$grid = $jakdb->query('SELECT id, hookid, whatid, orderid FROM ' . $jaktable . ' WHERE plugin = 2 ORDER BY orderid ASC');
+while ($grow = $grid->fetch_assoc()) {
+  // collect each record into $_data
+  $JAK_PAGE_GRID[] = $grow;
 }
 
 // Get the sidebar templates
-$result = $jakdb->query ('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $jaktable2 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
-while ($row = $result->fetch_assoc ()) {
-	$JAK_HOOKS[] = $row;
+$result = $jakdb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $jaktable2 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
+while ($row = $result->fetch_assoc()) {
+  $JAK_HOOKS[] = $row;
 }
 
 // Get the php hook for display stuff in pages
 $JAK_FORM_DATA = array();
-$hookpagei     = $jakhooks->jakGethook ("php_admin_pages_news_info");
+$hookpagei     = $jakhooks->jakGethook("php_admin_pages_news_info");
 if ($hookpagei) {
-	foreach ($hookpagei as $hpagi) {
-		eval($hpagi['phpcode']);
-	}
+  foreach ($hookpagei as $hpagi) {
+    eval($hpagi['phpcode']);
+  }
 }
 
 // Get the special vars for multi language support

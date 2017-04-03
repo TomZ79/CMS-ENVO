@@ -133,7 +133,7 @@ echo $Html->addDoctype('html5');
       <?php
       include_once APP_PATH . 'admin/template/navbar.php';
       // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-      echo $Html->addDiv('','', array ('class' => 'clearfix'));
+      echo $Html->addDiv('', '', array('class' => 'clearfix'));
       ?>
 
     </div>
@@ -214,7 +214,7 @@ echo $Html->addDoctype('html5');
                         </div>
                       </div>
 
-                      <?php $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blog"');
+                      <?php $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blog"');
                       if ($jakdb->affected_rows > 0) { ?>
                         <div class="row stacked">
                           <div class="col-md-12 pluginname">
@@ -247,7 +247,7 @@ echo $Html->addDoctype('html5');
                         </div>
                       <?php } ?>
 
-                      <?php $jakdb->query ('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
+                      <?php $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
                       if ($jakdb->affected_rows > 0) { ?>
                         <div class="row stacked">
                           <div class="col-md-12 pluginname">
@@ -284,6 +284,7 @@ echo $Html->addDoctype('html5');
                         .header .quick-list {
                           display: inline-block;
                         }
+
                         .quick-toggle {
                           top: 35px;
                           left: -26px;
@@ -297,6 +298,7 @@ echo $Html->addDoctype('html5');
                         .quick-toggle:after {
                           border-bottom: 0 !important;
                         }
+
                         .quick-panel {
                           background-color: #FFF;
                           border: 1px solid #E6E6E6;
@@ -308,23 +310,28 @@ echo $Html->addDoctype('html5');
                           position: relative;
                           overflow: hidden;
                         }
+
                         .grid-dropdown {
                           width: 300px;
                           text-align: center;
                           font-size: 16px;
                           color: #252932;
                         }
+
                         .stacked {
                           margin: 0;
                         }
-                        .stacked .pluginname{
+
+                        .stacked .pluginname {
                           background-color: #F9F9F9;
                         }
+
                         .stacked > [class*="col-"] {
                           padding-left: 0;
                           padding-right: 0;
                           margin: 0 !important;
                         }
+
                         .stacked a {
                           font-size: 13px;
                           color: #38464A;
@@ -337,10 +344,12 @@ echo $Html->addDoctype('html5');
                           text-align: center;
                           cursor: pointer;
                         }
+
                         .stacked a:hover {
                           background: #626262;
                           color: #FFF;
                         }
+
                         .stacked a i {
                           font-size: 25px;
                           line-height: 30px;
@@ -348,6 +357,7 @@ echo $Html->addDoctype('html5');
                           display: block;
                           color: #697a7a;
                         }
+
                         .stacked a:hover i {
                           color: #FFF;
                         }

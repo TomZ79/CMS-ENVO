@@ -1,23 +1,35 @@
 <!-- START GROWL -->
 <li class="list-divider"></li>
-<li class="">
-	<a href="index.php?p=growl">
-		<?php echo $tlgwl["gwl_menu"]["gwlm"]; ?>
-	</a>
-	<span class="icon-thumbnail"><?php echo text_clipping_lower ($tlgwl["gwl_menu"]["gwlm"]); ?></span>
+<li class="<?php echo ($page == 'growl') ? 'submenu-active' : ''; ?>">
+
+  <?php
+  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+  echo $Html->addAnchor('index.php?p=growl', $tlgwl["gwl_menu"]["gwlm"]);
+  // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+  echo $Html->addTag('span', text_clipping_lower($tlgwl["gwl_menu"]["gwlm"]), 'icon-thumbnail');
+  ?>
+
 </li>
-<li class="">
-	<a href="index.php?p=growl&amp;sp=new">
-		<?php echo $tlgwl["gwl_menu"]["gwlm1"]; ?>
-	</a>
-	<span class="icon-thumbnail"><?php echo text_clipping_lower ($tlgwl["gwl_menu"]["gwlm1"]); ?></span>
+<li class="<?php echo ($page == 'growl' && $page1 == 'new') ? 'submenu-active' : ''; ?>">
+
+  <?php
+  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+  echo $Html->addAnchor('index.php?p=growl&amp;sp=new', $tlgwl["gwl_menu"]["gwlm1"]);
+  // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+  echo $Html->addTag('span', text_clipping_lower($tlgwl["gwl_menu"]["gwlm1"]), 'icon-thumbnail');
+  ?>
+
 </li>
 <?php if ($page == 'growl' && $page1 == 'edit') { ?>
-	<li class="">
-		<a href="index.php?p=growl&amp;sp=edit&amp;ssp=<?php echo $page2; ?>">
-			<?php echo $tlgwl["gwl_menu"]["gwlm2"]; ?>
-		</a>
-		<span class="icon-thumbnail"><?php echo text_clipping_lower ($tlgwl["gwl_menu"]["gwlm2"]); ?></span>
-	</li>
+  <li class="<?php echo ($page == 'growl' && $page1 == 'edit') ? 'submenu-active' : ''; ?>">
+
+    <?php
+    // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+    echo $Html->addAnchor('index.php?p=growl&amp;sp=edit&amp;ssp=' . $page2, $tlgwl["gwl_menu"]["gwlm2"]);
+    // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+    echo $Html->addTag('span', text_clipping_lower($tlgwl["gwl_menu"]["gwlm2"]), 'icon-thumbnail');
+    ?>
+
+  </li>
 <?php } ?>
 <!-- END GROWL -->

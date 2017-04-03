@@ -1,160 +1,160 @@
 <?php if ($JAK_PROVED) { ?>
-	<!-- END PLACE PAGE CONTENT HERE -->
-	</div><!-- END CONTAINER FLUID -->
-	</div><!-- END PAGE CONTENT -->
-	<!-- START FOOTER -->
-	<div class="container-fluid container-fixed-lg footer">
-		<div class="copyright sm-text-center">
-			<p class="small no-margin pull-left sm-pull-reset">
-				<span class="hint-text"><?php echo $tl["hf_text"]["hftxt1"]; ?> - <?php echo date ('Y'); ?> by </span>
-				<span><strong><a href="http://www.bluesat.cz" target="_blank">BLUESAT</a></strong></span>.
-				<span class="hint-text">All rights reserved.</span>
-			</p>
-			<p class="small no-margin pull-right sm-pull-reset">
-				<?php echo sprintf ($tl["hf_text"]["hftxt"], $jkv["version"]); ?>
-				<span class="hint-text">&amp; Made with Love</span>
-			</p>
-			<div class="clearfix"></div>
-		</div>
-	</div><!-- END FOOTER -->
-	</div><!-- END PAGE CONTENT WRAPPER -->
-	</div><!-- END PAGE CONTAINER -->
-	<!-- START OVERLAY -->
-	<div class="overlay" style="display: none" data-pages="search">
-		<!-- BEGIN Overlay Content !-->
-		<div class="overlay-content has-results m-t-20">
-			<!-- BEGIN Overlay Header !-->
-			<div class="container-fluid">
-				<!-- BEGIN Overlay Logo !-->
-				<img class="overlay-brand" src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
-				<!-- END Overlay Logo !-->
-				<!-- BEGIN Overlay Close !-->
-				<a href="#" class="close-icon-light overlay-close text-black fs-16">
-					<i class="pg-close"></i>
-				</a>
-				<!-- END Overlay Close !-->
-			</div>
-			<!-- END Overlay Header !-->
-			<div class="container-fluid">
-				<!-- BEGIN Overlay Controls !-->
-				<input id="overlay-search" class="no-border overlay-search bg-transparent" placeholder="Search..." autocomplete="off" spellcheck="false">
-				<br>
-				<div class="inline-block">
-					<div class="checkbox right">
-						<input id="checkboxn" type="checkbox" value="1" checked="checked">
-						<label for="checkboxn"><i class="fa fa-search"></i> Search within page</label>
-					</div>
-				</div>
-				<div class="inline-block m-l-10">
-					<p class="fs-13">Press enter to search</p>
-				</div>
-				<!-- END Overlay Controls !-->
-			</div>
-			<!-- BEGIN Overlay Search Results, This part is for demo purpose, you can add anything you like !-->
-			<div class="container-fluid">
+  <!-- END PLACE PAGE CONTENT HERE -->
+  </div><!-- END CONTAINER FLUID -->
+  </div><!-- END PAGE CONTENT -->
+  <!-- START FOOTER -->
+  <div class="container-fluid container-fixed-lg footer">
+    <div class="copyright sm-text-center">
+      <p class="small no-margin pull-left sm-pull-reset">
+        <span class="hint-text"><?php echo $tl["hf_text"]["hftxt1"]; ?> - <?php echo date('Y'); ?> by </span>
+        <span><strong><a href="http://www.bluesat.cz" target="_blank">BLUESAT</a></strong></span>.
+        <span class="hint-text">All rights reserved.</span>
+      </p>
+      <p class="small no-margin pull-right sm-pull-reset">
+        <?php echo sprintf($tl["hf_text"]["hftxt"], $jkv["version"]); ?>
+        <span class="hint-text">&amp; Made with Love</span>
+      </p>
+      <div class="clearfix"></div>
+    </div>
+  </div><!-- END FOOTER -->
+  </div><!-- END PAGE CONTENT WRAPPER -->
+  </div><!-- END PAGE CONTAINER -->
+  <!-- START OVERLAY -->
+  <div class="overlay" style="display: none" data-pages="search">
+    <!-- BEGIN Overlay Content !-->
+    <div class="overlay-content has-results m-t-20">
+      <!-- BEGIN Overlay Header !-->
+      <div class="container-fluid">
+        <!-- BEGIN Overlay Logo !-->
+        <img class="overlay-brand" src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
+        <!-- END Overlay Logo !-->
+        <!-- BEGIN Overlay Close !-->
+        <a href="#" class="close-icon-light overlay-close text-black fs-16">
+          <i class="pg-close"></i>
+        </a>
+        <!-- END Overlay Close !-->
+      </div>
+      <!-- END Overlay Header !-->
+      <div class="container-fluid">
+        <!-- BEGIN Overlay Controls !-->
+        <input id="overlay-search" class="no-border overlay-search bg-transparent" placeholder="Search..." autocomplete="off" spellcheck="false">
+        <br>
+        <div class="inline-block">
+          <div class="checkbox right">
+            <input id="checkboxn" type="checkbox" value="1" checked="checked">
+            <label for="checkboxn"><i class="fa fa-search"></i> Search within page</label>
+          </div>
+        </div>
+        <div class="inline-block m-l-10">
+          <p class="fs-13">Press enter to search</p>
+        </div>
+        <!-- END Overlay Controls !-->
+      </div>
+      <!-- BEGIN Overlay Search Results, This part is for demo purpose, you can add anything you like !-->
+      <div class="container-fluid">
           <span>
                 <strong>suggestions :</strong>
             </span>
-				<span id="overlay-suggestions"></span>
-				<br>
-				<div class="search-results m-t-40">
-					<p class="bold">Pages Search Results</p>
-					<div class="row">
-						<div class="col-md-6">
-							<!-- BEGIN Search Result Item !-->
-							<div class="">
-								<!-- BEGIN Search Result Item Thumbnail !-->
-								<div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
-									<div>
-										<img width="50" height="50" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
-									</div>
-								</div>
-								<!-- END Search Result Item Thumbnail !-->
-								<div class="p-l-10 inline p-t-5">
-									<h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> on pages</h5>
-									<p class="hint-text">via john smith</p>
-								</div>
-							</div>
-							<!-- END Search Result Item !-->
-							<!-- BEGIN Search Result Item !-->
-							<div class="">
-								<!-- BEGIN Search Result Item Thumbnail !-->
-								<div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
-									<div>T</div>
-								</div>
-								<!-- END Search Result Item Thumbnail !-->
-								<div class="p-l-10 inline p-t-5">
-									<h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> related topics</h5>
-									<p class="hint-text">via pages</p>
-								</div>
-							</div>
-							<!-- END Search Result Item !-->
-							<!-- BEGIN Search Result Item !-->
-							<div class="">
-								<!-- BEGIN Search Result Item Thumbnail !-->
-								<div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
-									<div><i class="fa fa-headphones large-text "></i>
-									</div>
-								</div>
-								<!-- END Search Result Item Thumbnail !-->
-								<div class="p-l-10 inline p-t-5">
-									<h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> music</h5>
-									<p class="hint-text">via pagesmix</p>
-								</div>
-							</div>
-							<!-- END Search Result Item !-->
-						</div>
-						<div class="col-md-6">
-							<!-- BEGIN Search Result Item !-->
-							<div class="">
-								<!-- BEGIN Search Result Item Thumbnail !-->
-								<div class="thumbnail-wrapper d48 circular bg-info text-white inline m-t-10">
-									<div><i class="fa fa-facebook large-text "></i>
-									</div>
-								</div>
-								<!-- END Search Result Item Thumbnail !-->
-								<div class="p-l-10 inline p-t-5">
-									<h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> on facebook</h5>
-									<p class="hint-text">via facebook</p>
-								</div>
-							</div>
-							<!-- END Search Result Item !-->
-							<!-- BEGIN Search Result Item !-->
-							<div class="">
-								<!-- BEGIN Search Result Item Thumbnail !-->
-								<div class="thumbnail-wrapper d48 circular bg-complete text-white inline m-t-10">
-									<div><i class="fa fa-twitter large-text "></i>
-									</div>
-								</div>
-								<!-- END Search Result Item Thumbnail !-->
-								<div class="p-l-10 inline p-t-5">
-									<h5 class="m-b-5">Tweats on<span class="semi-bold result-name"> ice cream</span></h5>
-									<p class="hint-text">via twitter</p>
-								</div>
-							</div>
-							<!-- END Search Result Item !-->
-							<!-- BEGIN Search Result Item !-->
-							<div class="">
-								<!-- BEGIN Search Result Item Thumbnail !-->
-								<div class="thumbnail-wrapper d48 circular text-white bg-danger inline m-t-10">
-									<div><i class="fa fa-google-plus large-text "></i>
-									</div>
-								</div>
-								<!-- END Search Result Item Thumbnail !-->
-								<div class="p-l-10 inline p-t-5">
-									<h5 class="m-b-5">Circles on<span class="semi-bold result-name"> ice cream</span></h5>
-									<p class="hint-text">via google plus</p>
-								</div>
-							</div>
-							<!-- END Search Result Item !-->
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- END Overlay Search Results !-->
-		</div>
-		<!-- END Overlay Content !-->
-	</div><!-- END OVERLAY -->
+        <span id="overlay-suggestions"></span>
+        <br>
+        <div class="search-results m-t-40">
+          <p class="bold">Pages Search Results</p>
+          <div class="row">
+            <div class="col-md-6">
+              <!-- BEGIN Search Result Item !-->
+              <div class="">
+                <!-- BEGIN Search Result Item Thumbnail !-->
+                <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
+                  <div>
+                    <img width="50" height="50" src="assets/img/profiles/avatar.jpg" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" alt="">
+                  </div>
+                </div>
+                <!-- END Search Result Item Thumbnail !-->
+                <div class="p-l-10 inline p-t-5">
+                  <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> on pages</h5>
+                  <p class="hint-text">via john smith</p>
+                </div>
+              </div>
+              <!-- END Search Result Item !-->
+              <!-- BEGIN Search Result Item !-->
+              <div class="">
+                <!-- BEGIN Search Result Item Thumbnail !-->
+                <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
+                  <div>T</div>
+                </div>
+                <!-- END Search Result Item Thumbnail !-->
+                <div class="p-l-10 inline p-t-5">
+                  <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> related topics</h5>
+                  <p class="hint-text">via pages</p>
+                </div>
+              </div>
+              <!-- END Search Result Item !-->
+              <!-- BEGIN Search Result Item !-->
+              <div class="">
+                <!-- BEGIN Search Result Item Thumbnail !-->
+                <div class="thumbnail-wrapper d48 circular bg-success text-white inline m-t-10">
+                  <div><i class="fa fa-headphones large-text "></i>
+                  </div>
+                </div>
+                <!-- END Search Result Item Thumbnail !-->
+                <div class="p-l-10 inline p-t-5">
+                  <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> music</h5>
+                  <p class="hint-text">via pagesmix</p>
+                </div>
+              </div>
+              <!-- END Search Result Item !-->
+            </div>
+            <div class="col-md-6">
+              <!-- BEGIN Search Result Item !-->
+              <div class="">
+                <!-- BEGIN Search Result Item Thumbnail !-->
+                <div class="thumbnail-wrapper d48 circular bg-info text-white inline m-t-10">
+                  <div><i class="fa fa-facebook large-text "></i>
+                  </div>
+                </div>
+                <!-- END Search Result Item Thumbnail !-->
+                <div class="p-l-10 inline p-t-5">
+                  <h5 class="m-b-5"><span class="semi-bold result-name">ice cream</span> on facebook</h5>
+                  <p class="hint-text">via facebook</p>
+                </div>
+              </div>
+              <!-- END Search Result Item !-->
+              <!-- BEGIN Search Result Item !-->
+              <div class="">
+                <!-- BEGIN Search Result Item Thumbnail !-->
+                <div class="thumbnail-wrapper d48 circular bg-complete text-white inline m-t-10">
+                  <div><i class="fa fa-twitter large-text "></i>
+                  </div>
+                </div>
+                <!-- END Search Result Item Thumbnail !-->
+                <div class="p-l-10 inline p-t-5">
+                  <h5 class="m-b-5">Tweats on<span class="semi-bold result-name"> ice cream</span></h5>
+                  <p class="hint-text">via twitter</p>
+                </div>
+              </div>
+              <!-- END Search Result Item !-->
+              <!-- BEGIN Search Result Item !-->
+              <div class="">
+                <!-- BEGIN Search Result Item Thumbnail !-->
+                <div class="thumbnail-wrapper d48 circular text-white bg-danger inline m-t-10">
+                  <div><i class="fa fa-google-plus large-text "></i>
+                  </div>
+                </div>
+                <!-- END Search Result Item Thumbnail !-->
+                <div class="p-l-10 inline p-t-5">
+                  <h5 class="m-b-5">Circles on<span class="semi-bold result-name"> ice cream</span></h5>
+                  <p class="hint-text">via google plus</p>
+                </div>
+              </div>
+              <!-- END Search Result Item !-->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END Overlay Search Results !-->
+    </div>
+    <!-- END Overlay Content !-->
+  </div><!-- END OVERLAY -->
 
 <?php } else { ?>
 
@@ -298,7 +298,7 @@ if ($page == 'template' && $page1 == 'settings') {
       timer: 8000,
       template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert" role="alert" style="background-color: #263238;color: #FFF">' +
       '<button type="button" aria-hidden="true" class="close" data-notify="dismiss" style="color: #FFF;opacity: 0.8;">×</button>' +
-      '<div style="float: left;margin-right: 20px;"><img src="<?php echo BASE_URL_ORIG . basename (JAK_FILES_DIRECTORY) . "/userfiles/" . $jakuser->getVar ("picture"); ?>" alt="" style="width: 40px;"></div>' +
+      '<div style="float: left;margin-right: 20px;"><img src="<?php echo BASE_URL_ORIG . basename(JAK_FILES_DIRECTORY) . "/userfiles/" . $jakuser->getVar("picture"); ?>" alt="" style="width: 40px;"></div>' +
       '<span data-notify="title" style="display: block;font-weight: bold;">{1}</span> ' +
       '<span data-notify="message">{2}</span>' +
       '</div>' +

@@ -63,6 +63,27 @@ function jak_get_usergroup_all($jakvar)
   return $jakdata;
 }
 
+/**
+ * Get count of the user in each usergroup
+ *  - each user have ID of usergroup (column 'usergroupid')
+ *
+ * @param    string      | $usertable      - Název tabulky s uloženými uživately
+ * @param    string      | $usergroupID    - ID uživatelské skupiny
+ *
+ * @return    string
+ *
+ */
+function envo_get_count_user_in_group($usertable, $usergroupID)
+{
+  global $jakdb;
+  $result=$jakdb->query('SELECT COUNT(usergroupid) AS total FROM ' . DB_PREFIX . $usertable . ' WHERE usergroupid = ' . $usergroupID . ' ');
+  $data=$result->fetch_assoc();
+
+  $envodata = $data['total'];
+
+  return $envodata;
+}
+
 // Get the data per array for page,newsletter with limit
 function jak_get_page_info($jakvar, $jakvar1)
 {

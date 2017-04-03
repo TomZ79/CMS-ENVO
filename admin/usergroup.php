@@ -10,9 +10,9 @@ if (!JAK_USERID || !$JAK_MODULES) jak_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$jaktable = DB_PREFIX . 'usergroup';
+$jaktable  = DB_PREFIX . 'usergroup';
 $jaktable1 = DB_PREFIX . 'user';
-$jakfield = 'username';
+$jakfield  = 'username';
 
 // Reset vars
 $insert = "";
@@ -87,7 +87,7 @@ switch ($page1) {
         } else {
 
           $errors['e'] = $tl['general_error']['generror'] . '<br>';
-          $errors = $errors;
+          $errors      = $errors;
         }
 
       }
@@ -96,7 +96,7 @@ switch ($page1) {
     // EN: Title and Description
     // CZ: Titulek a Popis
     $SECTION_TITLE = $tl["userg_sec_title"]["usergt3"];
-    $SECTION_DESC = $tl["userg_sec_desc"]["usergd3"];
+    $SECTION_DESC  = $tl["userg_sec_desc"]["usergd3"];
 
     // EN: Load the template
     // CZ: Načti template (šablonu)
@@ -110,7 +110,7 @@ switch ($page1) {
 
       if (isset($defaults['delete'])) {
 
-        $lockuser = $defaults['jak_delete_usergroup'];
+        $lockuser   = $defaults['jak_delete_usergroup'];
         $grouparray = explode(',', '1,2,3,4');
 
         for ($i = 0; $i < count($lockuser); $i++) {
@@ -146,12 +146,12 @@ switch ($page1) {
           $getTotal = jak_get_total($jaktable1, $page2, 'usergroupid', '');
           if ($getTotal != 0) {
             // Paginator
-            $pages = new JAK_Paginator;
-            $pages->items_total = $getTotal;
-            $pages->mid_range = $jkv["adminpagemid"];
+            $pages                 = new JAK_Paginator;
+            $pages->items_total    = $getTotal;
+            $pages->mid_range      = $jkv["adminpagemid"];
             $pages->items_per_page = $jkv["adminpageitem"];
-            $pages->jak_get_page = $page3;
-            $pages->jak_where = 'index.php?p=usergroup&sp=user&ssp=' . $page2;
+            $pages->jak_get_page   = $page3;
+            $pages->jak_where      = 'index.php?p=usergroup&sp=user&ssp=' . $page2;
             $pages->paginate();
             $JAK_PAGINATE = $pages->display_pages();
           }
@@ -160,7 +160,7 @@ switch ($page1) {
           // EN: Title and Description
           // CZ: Titulek a Popis
           $SECTION_TITLE = $tl["userg_sec_title"]["usergt2"];
-          $SECTION_DESC = $tl["userg_sec_desc"]["usergd2"];
+          $SECTION_DESC  = $tl["userg_sec_desc"]["usergd2"];
 
           // EN: Load the template
           // CZ: Načti template (šablonu)
@@ -243,17 +243,17 @@ switch ($page1) {
             } else {
 
               $errors['e'] = $tl['general_error']['generror'] . '<br>';
-              $errors = $errors;
+              $errors      = $errors;
             }
           }
 
-          $JAK_FORM_DATA = jak_get_data($page2, $jaktable);
+          $JAK_FORM_DATA            = jak_get_data($page2, $jaktable);
           $JAK_FORM_DATA["content"] = $JAK_FORM_DATA["description"];
 
           // EN: Title and Description
           // CZ: Titulek a Popis
           $SECTION_TITLE = $tl["userg_sec_title"]["usergt1"];
-          $SECTION_DESC = $tl["userg_sec_desc"]["usergd1"];
+          $SECTION_DESC  = $tl["userg_sec_desc"]["usergd1"];
 
           // EN: Load the template
           // CZ: Načti template (šablonu)
@@ -271,7 +271,7 @@ switch ($page1) {
         // EN: Title and Description
         // CZ: Titulek a Popis
         $SECTION_TITLE = $tl["userg_sec_title"]["usergt"];
-        $SECTION_DESC = $tl["userg_sec_desc"]["usergd"];
+        $SECTION_DESC  = $tl["userg_sec_desc"]["usergd"];
 
         // EN: Load the template
         // CZ: Načti template (šablonu)

@@ -1,76 +1,120 @@
 <!-- START DOWNLOAD SECTION -->
-<li class="">
-	<a href="javascript:;">
-		<span class="title"><?php echo $tld["downl_menu"]["downlm"]; ?></span>
-		<span class="arrow"></span>
-	</a>
-	<span class="icon-thumbnail <?php if ($page == 'download') echo 'bg-success'; ?>"><i class="pg-download"></i></span>
+<?php
+if ($page == 'download') {
+  $classdlsection = 'open active';
+  $classdliconbg  = 'bg-success';
+}
+?>
+<li class="<?php echo $classdlsection; ?>">
 
-	<ul class="sub-menu">
-		<li class="">
-			<a href="index.php?p=download">
-				<?php echo $tld["downl_menu"]["downlm1"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tld["downl_menu"]["downlm1"]); ?></span>
-		</li>
-		<li class="">
-			<a href="index.php?p=download&amp;sp=new">
-				<?php echo $tld["downl_menu"]["downlm2"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tld["downl_menu"]["downlm2"]); ?></span>
-		</li>
-		<?php if ($page == 'download' && $page1 == 'edit') { ?>
-			<li class="">
-				<a href="index.php?p=download&amp;sp=edit&amp;ssp=<?php echo $page2; ?>">
-					<?php echo $tld["downl_menu"]["downlm3"]; ?>
-				</a>
-				<span class="icon-thumbnail"><?php echo text_clipping_lower ($tld["downl_menu"]["downlm3"]); ?></span>
-			</li>
-		<?php } ?>
-		<li class="list-divider"></li>
+  <?php
+  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+  echo $Html->addAnchor('javascript:;', '<span class="title">' . $tld["downl_menu"]["downlm"] . '</span><span class="arrow ' . $classdlsection . '"></span>');
+  // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+  echo $Html->addTag('span', '<i class="pg-download"></i>', 'icon-thumbnail ' . $classdliconbg);
+  ?>
 
-		<li class="">
-			<a href="index.php?p=download&amp;sp=categories">
-				<?php echo $tld["downl_menu"]["downlm4"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tld["downl_menu"]["downlm4"]); ?></span>
-		</li>
-		<li class="">
-			<a href="index.php?p=download&amp;sp=newcategory">
-				<?php echo $tld["downl_menu"]["downlm5"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tld["downl_menu"]["downlm5"]); ?></span>
-		</li>
-		<?php if ($page == 'download' && $page1 == 'categories' && $page2 == 'edit') { ?>
-			<li class="">
-				<a href="index.php?p=download&amp;sp=categories&amp;ssp=edit&amp;sssp=<?php echo $page3; ?>">
-					<?php echo $tld["downl_menu"]["downlm6"]; ?>
-				</a>
-				<span class="icon-thumbnail"><?php echo text_clipping_lower ($tld["downl_menu"]["downlm6"]); ?></span>
-			</li>
-		<?php } ?>
-		<li class="list-divider"></li>
+  <ul class="sub-menu">
+    <li class="<?php echo (($page == 'download' && $page1 == '') || ($page == 'download' && $page1 == 'new') || ($page == 'download' && $page1 == 'edit')) ? 'submenu-active' : ''; ?>">
 
-		<li class="">
-			<a href="index.php?p=download&amp;sp=comment">
-				<?php echo $tld["downl_menu"]["downlm7"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tld["downl_menu"]["downlm7"]); ?></span>
-		</li>
-		<li class="">
-			<a href="index.php?p=download&amp;sp=trash">
-				<?php echo $tld["downl_menu"]["downlm8"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tld["downl_menu"]["downlm8"]); ?></span>
-		</li>
-		<li class="list-divider"></li>
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=download', $tld["downl_menu"]["downlm1"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tld["downl_menu"]["downlm1"]), 'icon-thumbnail');
+      ?>
 
-		<li class="">
-			<a href="index.php?p=download&amp;sp=setting">
-				<?php echo $tld["downl_menu"]["downlm9"]; ?>
-			</a>
-			<span class="icon-thumbnail"><?php echo text_clipping_lower ($tld["downl_menu"]["downlm9"]); ?></span>
-		</li>
-	</ul>
+    </li>
+    <li class="<?php echo ($page == 'download' && $page1 == 'new') ? 'submenu-active' : ''; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=download&amp;sp=new', $tld["downl_menu"]["downlm2"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tld["downl_menu"]["downlm2"]), 'icon-thumbnail');
+      ?>
+
+    </li>
+    <?php if ($page == 'download' && $page1 == 'edit') { ?>
+      <li class="<?php echo ($page == 'download' && $page1 == 'edit') ? 'submenu-active' : ''; ?>">
+
+        <?php
+        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+        echo $Html->addAnchor('index.php?p=download&amp;sp=edit&amp;ssp=' . $page2, $tld["downl_menu"]["downlm3"]);
+        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+        echo $Html->addTag('span', text_clipping_lower($tld["downl_menu"]["downlm3"]), 'icon-thumbnail');
+        ?>
+
+      </li>
+    <?php } ?>
+    <li class="list-divider"></li>
+
+    <li class="<?php echo (($page == 'download' && $page1 == 'categories') || ($page == 'download' && $page1 == 'newcategory')) ? 'submenu-active' : ''; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=download&amp;sp=categories', $tld["downl_menu"]["downlm4"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tld["downl_menu"]["downlm4"]), 'icon-thumbnail');
+      ?>
+
+    </li>
+    <li class="<?php echo ($page == 'download' && $page1 == 'newcategory') ? 'submenu-active' : ''; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=download&amp;sp=newcategory', $tld["downl_menu"]["downlm5"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tld["downl_menu"]["downlm5"]), 'icon-thumbnail');
+      ?>
+
+    </li>
+    <?php if ($page == 'download' && $page1 == 'categories' && $page2 == 'edit') { ?>
+      <li class="<?php echo ($page == 'download' && $page1 == 'categories' && $page2 == 'edit') ? 'submenu-active' : ''; ?>">
+
+        <?php
+        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+        echo $Html->addAnchor('index.php?p=download&amp;sp=categories&amp;ssp=edit&amp;sssp=' . $page3, $tld["downl_menu"]["downlm6"]);
+        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+        echo $Html->addTag('span', text_clipping_lower($tld["downl_menu"]["downlm6"]), 'icon-thumbnail');
+        ?>
+
+      </li>
+    <?php } ?>
+    <li class="list-divider"></li>
+
+    <li class="<?php echo ($page == 'download' && $page1 == 'comment') ? 'submenu-active' : ''; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=download&amp;sp=comment', $tld["downl_menu"]["downlm7"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tld["downl_menu"]["downlm7"]), 'icon-thumbnail');
+      ?>
+
+    </li>
+    <li class="<?php echo ($page == 'download' && $page1 == 'trash') ? 'submenu-active' : ''; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=download&amp;sp=trash', $tld["downl_menu"]["downlm8"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tld["downl_menu"]["downlm8"]), 'icon-thumbnail');
+      ?>
+
+    </li>
+    <li class="list-divider"></li>
+
+    <li class="<?php echo ($page == 'download' && $page1 == 'setting') ? 'submenu-active' : ''; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=download&amp;sp=setting', $tld["downl_menu"]["downlm9"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tld["downl_menu"]["downlm9"]), 'icon-thumbnail');
+      ?>
+
+    </li>
+  </ul>
 </li>
 <!-- END DOWNLOAD SECTION -->
