@@ -174,6 +174,8 @@ echo $Html->addScript('assets/plugins/bootstrap-bootboxjs/bootbox.min.js');
 echo $Html->addScript('assets/plugins/bootstrap-select/js/bootstrap-select.min.js');
 echo $Html->addScript('assets/plugins/bootstrap-select/js/i18n/defaults-cs_CZ.min.js');
 echo $Html->addScript('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js');
+echo $Html->addScript('assets/plugins/bootstrap-iconpicker/js/iconset/iconset-all.min.js');
+echo $Html->addScript('assets/plugins/bootstrap-iconpicker/js/bootstrap-iconpicker.min.js');
 echo $Html->addScript('//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js');
 echo $Html->addScript('assets/plugins/jquery/jquery-easy.js');
 echo $Html->addScript('assets/plugins/jquery-unveil/jquery.unveil.min.js');

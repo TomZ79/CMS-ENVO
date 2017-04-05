@@ -15,7 +15,7 @@ if ($page == 'tags') {
   ?>
 
   <ul class="sub-menu">
-    <li class="<?php echo ($page == 'tags') ? 'submenu-active' : ''; ?>">
+    <li class="<?php echo ($page == 'tags' && $page1 == '') ? 'submenu-active' : ''; ?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

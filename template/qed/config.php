@@ -21,18 +21,18 @@ function jak_build_menu_qed($parent, $menu, $active, $mainclass, $dropdown, $dro
     foreach ($menu['parents'][$parent] as $itemId) {
       //IF MENU DONT HAVE SUBMENU
       if (!isset($menu['parents'][$itemId])) {
-        $html .= '<li' . ($active == $menu["items"][$itemId]["pagename"] ? ' class="curent"' : '') . '><a href="' . $menu["items"][$itemId]["varname"] . '"' . ($active == $menu["items"][$itemId]["pagename"] ? ' class="active"' : '') . '>' . ($menu["items"][$itemId]["catimg"] ? '<i class="fa ' . $menu["items"][$itemId]["catimg"] . '"></i> ' : '') . $menu["items"][$itemId]["name"] . '</a></li>';
+        $html .= '<li' . ($active == $menu["items"][$itemId]["pagename"] ? ' class="curent"' : '') . '><a href="' . $menu["items"][$itemId]["varname"] . '"' . ($active == $menu["items"][$itemId]["pagename"] ? ' class="active"' : '') . '>' . ($menu["items"][$itemId]["catimg"] ? '<i class="' . $menu["items"][$itemId]["catimg"] . '"></i> ' : '') . $menu["items"][$itemId]["name"] . '</a></li>';
       }
 
       //IF MENU HAS SUBMENU
       if (isset($menu['parents'][$itemId])) {
-        $html .= '<li' . ($active == $menu["items"][$itemId]["pagename"] ? ($dropdown ? ' class="active ' . $dropdown . '"' : '') : ($dropdown ? ' class="' . $dropdown . '"' : '')) . '><a href="' . $menu["items"][$itemId]["varname"] . '" class="' . $dropdownclass . '">' . ($menu["items"][$itemId]["catimg"] ? '<i class="fa ' . $menu["items"][$itemId]["catimg"] . '"></i> ' : '') . $menu["items"][$itemId]["name"] . '</a>';
+        $html .= '<li' . ($active == $menu["items"][$itemId]["pagename"] ? ($dropdown ? ' class="active ' . $dropdown . '"' : '') : ($dropdown ? ' class="' . $dropdown . '"' : '')) . '><a href="' . $menu["items"][$itemId]["varname"] . '" class="' . $dropdownclass . '">' . ($menu["items"][$itemId]["catimg"] ? '<i class="' . $menu["items"][$itemId]["catimg"] . '"></i> ' : '') . $menu["items"][$itemId]["name"] . '</a>';
         $html .= jak_build_menu_qed($itemId, $menu, $active, $dropclass, $subclass, $dropdownclass, $dropclass, $subclass, $admin);
         $html .= '</li>';
       }
     }
     if ($admin) {
-      $html .= '<li><a href="' . BASE_URL . 'admin/"><i class="fa fa-sliders"></i> Admin ACP</a></li>';
+      $html .= '<li><a href="' . BASE_URL . 'admin/"> Admin ACP</a></li>';
     }
     $html .= '</ul>';
   }

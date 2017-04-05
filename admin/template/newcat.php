@@ -224,15 +224,18 @@ if ($errors) { ?>
                       </div>
                       <div class="col-md-7">
                         <div class="input-group">
+                          <span class="input-group-btn">
+                            <button class="btn btn-default iconpicker" data-placement="top"></button>
+                          </span>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_img', (isset($_REQUEST["jak_img"])) ? $_REQUEST["jak_img"] : '', 'jak_img', 'form-control');
+                          echo $Html->addInput('text', 'jak_img', (isset($_REQUEST["jak_img"])) ? $_REQUEST["jak_img"] : '', 'jak_img', 'form-control text-center');
                           ?>
 
                           <span class="input-group-btn">
-                          <button class="btn btn-default iconpicker" data-placement="top" role="iconpicker"></button>
-                        </span>
+                            <button class="btn btn-default iconpicker1" data-placement="top"></button>
+                          </span>
                         </div>
                       </div>
                     </div>

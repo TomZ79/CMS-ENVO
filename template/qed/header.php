@@ -71,6 +71,8 @@ require_once 'config.php';
     <link rel="stylesheet" type="text/css" href="/template/<?php echo $jkv["sitestyle"]; ?>/js-plugins/royalslider/royalslider.css"/>
     <link rel="stylesheet" type="text/css" href="/template/<?php echo $jkv["sitestyle"]; ?>/js-plugins/royalslider/skins/minimal-white/rs-minimal-white.css">
   <?php } ?>
+  <link type="text/css" rel="stylesheet" href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link type="text/css" rel="stylesheet" href="/assets/plugins/bootstrap-glyphicons/glyphicons-pro/css/glyphicons-pro.css">
   <link type="text/css" rel="stylesheet" href="/template/<?php echo $jkv["sitestyle"]; ?>/icons/custom-icons/css/custom-icons.css">
   <link type="text/css" rel="stylesheet" href="/template/<?php echo $jkv["sitestyle"]; ?>/js-plugins/external-plugins.min.css">
   <link type="text/css" rel="stylesheet" href="/template/<?php echo $jkv["sitestyle"]; ?>/css/layout/neko-framework-layout.css">

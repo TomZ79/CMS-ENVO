@@ -28,16 +28,30 @@ echo $Html->addDoctype('html5');
     <?php
     // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
     echo $Html->addStylesheet('assets/plugins/pace/pace-theme-flash.css');
+    // Bootstrap
     echo $Html->addStylesheet('assets/plugins/bootstrapv3/css/bootstrap.min.css');
-    echo $Html->addStylesheet('assets/plugins/font-awesome/css/font-awesome.css');
+    // Font Awesomemin
+    echo $Html->addStylesheet('../assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
+    // Scrollbar
     echo $Html->addStylesheet('assets/plugins/jquery-scrollbar/jquery.scrollbar.css', 'screen');
+    //FileInput
     echo $Html->addStylesheet('assets/plugins/bootstrap-fileinput/css/fileinput.min.css', 'screen');
+    // Bootstrap Select
     echo $Html->addStylesheet('assets/plugins/bootstrap-select/css/bootstrap-select.min.css', 'screen');
+    // Bootstrap TagsInput
     echo $Html->addStylesheet('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css', 'screen');
+    // Bootstrap DateTimePicker
     echo $Html->addStylesheet('assets/plugins/bootstrap-datetimepicker-4/css/bootstrap-datetimepicker.min.css');
+    // Bootstrap IconPicker
+    echo $Html->addStylesheet('assets/plugins/bootstrap-iconpicker/css/bootstrap-iconpicker.min.css');
+    // Bootstrap GlyphIcons
+    echo $Html->addStylesheet('../assets/plugins/bootstrap-glyphicons/glyphicons-pro/css/glyphicons-pro.min.css');
+    //
     echo $Html->addStylesheet('assets/plugins/switchery/css/switchery.min.css', 'screen');
+    //
     echo $Html->addStylesheet('assets/plugins/prism/prism.css', 'screen');
 
+    // Animate
     echo $Html->addStylesheet('assets/css/animate.min.css');
     ?>
 

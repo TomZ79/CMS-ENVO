@@ -1,6 +1,6 @@
 <!-- START NEWS SECTION -->
 <?php
-if ($page == 'tags') {
+if ($page == 'news') {
   $classnewssection = 'open active';
   $classnewsiconbg = 'bg-success';
 }

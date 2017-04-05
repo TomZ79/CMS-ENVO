@@ -8,7 +8,7 @@
 
   </div>
   <div class="box-body">
-    <table class="table table-striped">
+    <table class="table">
       <tr>
         <td>
           <?php if ($jkv["adv_editor"]) { ?>
@@ -20,30 +20,35 @@
                 echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?ty e=0&editor=mce_0&lang=eng&fldr=&field_id=htmleditor', '<i class="fa fa-files-o"></i>', '', 'btn btn-primary btn-xs m-r-10 ifManager', array('title' => 'Show Filemanager'));
                 echo $Html->addAnchor('#', $tl["global_text"]["globaltxt4"], 'resizeContainer', 'btn btn-primary btn-xs m-r-10', array('title' => $tl["global_text"]["globaltxt4"]));
                 echo $Html->addAnchor('#', $tl["global_text"]["globaltxt5"], 'resizeContainerAndEditor', 'btn btn-primary btn-xs m-r-10', array('title' => $tl["global_text"]["globaltxt5"]));
-                echo $Html->addAnchor('/admin/template/editor_help.php', 'Nápověda', '', 'btn btn-primary btn-xs pull-right contentHelp');
+
+                if ($page == 'page') {
+                  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                  echo $Html->addAnchor('/admin/template/editor_help.php', 'Nápověda', '', 'btn btn-primary btn-xs pull-right contentHelp');
+                }
                 ?>
 
               </div>
 
-              <div class="m-t-10 m-b-10">
+              <?php if ($page == 'page') { ?>
+                <div class="m-t-10 m-b-10">
 
-                <?php
-                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                echo $Html->addTag('strong', $tl["global_text"]["globaltxt17"]);
-                ?>
+                  <?php
+                  // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                  echo $Html->addTag('strong', $tl["global_text"]["globaltxt17"]);
+                  ?>
 
-              </div>
-              <div class="cover-header">
+                </div>
+                <div class="cover-header">
 
-                <?php
-                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('javascript:;', '<span class="label label-warning">Content for Members/Guests</span>', '', 'short-sc m-r-5', array('data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => $tl["global_eltitle"]["gelt"]));
-                echo $Html->addAnchor('javascript:;', '<span class="label label-danger">Members only</span>', '', 'short-sc1 m-r-5', array('data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => $tl["global_eltitle"]["gelt1"]));
-                echo $Html->addAnchor('javascript:;', '<span class="label label-info">Guests only</span>', '', 'short-sc2 m-r-5', array('data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => $tl["global_eltitle"]["gelt2"]));
-                ?>
+                  <?php
+                  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                  echo $Html->addAnchor('javascript:;', '<span class="label label-warning">Content for Members/Guests</span>', '', 'short-sc m-r-5', array('data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => $tl["global_eltitle"]["gelt"]));
+                  echo $Html->addAnchor('javascript:;', '<span class="label label-danger">Members only</span>', '', 'short-sc1 m-r-5', array('data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => $tl["global_eltitle"]["gelt1"]));
+                  echo $Html->addAnchor('javascript:;', '<span class="label label-info">Guests only</span>', '', 'short-sc2 m-r-5', array('data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => $tl["global_eltitle"]["gelt2"]));
+                  ?>
 
-              </div>
-
+                </div>
+              <?php } ?>
 
               <div id="editorContainer">
 
