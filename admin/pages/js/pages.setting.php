@@ -9,6 +9,18 @@
       $('.TMlabel').text("<?php echo $tl["button"]["btn41"];?>");
       $('#sendTM').attr("disabled", "disabled");
     });
+
+    // Show/Hide block form SMTP settings
+    $("input[name=jak_smpt]:radio").change(function () {
+      if ($('input[name=jak_smpt]:checked').val() == "1") {
+        $('#smtpsettings').show();
+
+      } else if ($('input[name=jak_smpt]:checked').val() == "0") {
+        $('#smtpsettings').hide();
+
+      }
+    });
+
 	});
 </script>
 

@@ -323,9 +323,9 @@ if ($success) { ?>
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                              echo $Html->addOption(' - h:i', ' - h:i ( - 13:00)', ($jkv['timeformat'] == ' - h:i') ? TRUE : FALSE);
-                              echo $Html->addOption(' - h:i:s', ' - h:i:s ( - 13:00:00)', ($jkv['timeformat'] == ' - h:i:s') ? TRUE : FALSE);
-                              echo $Html->addOption(' - h:i:s T O', ' - h:i:s T O ( - 13:00:00 CEST +0200)', ($jkv['timeformat'] == ' - h:i:s T O') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i', ' - H:i ( - 13:00)', ($jkv['timeformat'] == ' - H:i') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i:s', ' - H:i:s ( - 13:00:00)', ($jkv['timeformat'] == ' - H:i:s') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i:s T O', ' - H:i:s T O ( - 13:00:00 CEST +0200)', ($jkv['timeformat'] == ' - H:i:s T O') ? TRUE : FALSE);
                               ?>
 
                             </optgroup>
@@ -949,150 +949,153 @@ if ($success) { ?>
                         </div>
                       </div>
                     </div>
-                    <div class="row-form">
-                      <div class="col-md-5">
-
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc31"]);
-                        ?>
-
-                      </div>
-                      <div class="col-md-7">
-
-                        <?php
-                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'jak_host', $jkv["smtp_host"], '', 'form-control');
-                        ?>
-
-                      </div>
-                    </div>
-                    <div class="row-form">
-                      <div class="col-md-5">
-
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc32"]);
-                        ?>
-
-                      </div>
-                      <div class="col-md-7">
-
-                        <?php
-                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'jak_port', $jkv["smtp_port"], '', 'form-control', array('placeholder' => '25'));
-                        ?>
-
-                      </div>
-                    </div>
-                    <div class="row-form">
-                      <div class="col-md-5">
-
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc33"]);
-                        ?>
-
-                      </div>
-                      <div class="col-md-7">
-                        <div class="radio radio-success">
+                    <div id="smtpsettings" <?php echo ($jkv["smtp_or_mail"] == '0') ? 'style="display: none;"' : '' ?>>
+                      <div class="row-form">
+                        <div class="col-md-5">
 
                           <?php
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_alive', '1', ($jkv["smtp_alive"] == '1') ? TRUE : FALSE, 'jak_alive1');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_alive1', $tl["checkbox"]["chk"]);
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc31"]);
+                          ?>
 
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_alive', '0', ($jkv["smtp_alive"] == '0') ? TRUE : FALSE, 'jak_alive2');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_alive2', $tl["checkbox"]["chk1"]);
+                        </div>
+                        <div class="col-md-7">
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html->addInput('text', 'jak_host', $jkv["smtp_host"], '', 'form-control');
+                          ?>
+
+                        </div>
+                      </div>
+                      <div class="row-form">
+                        <div class="col-md-5">
+
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc32"]);
+                          ?>
+
+                        </div>
+                        <div class="col-md-7">
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html->addInput('text', 'jak_port', $jkv["smtp_port"], '', 'form-control', array('placeholder' => '25'));
+                          ?>
+
+                        </div>
+                      </div>
+                      <div class="row-form">
+                        <div class="col-md-5">
+
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc33"]);
+                          ?>
+
+                        </div>
+                        <div class="col-md-7">
+                          <div class="radio radio-success">
+
+                            <?php
+                            // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                            echo $Html->addRadio('jak_alive', '1', ($jkv["smtp_alive"] == '1') ? TRUE : FALSE, 'jak_alive1');
+                            // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                            echo $Html->addLabel('jak_alive1', $tl["checkbox"]["chk"]);
+
+                            // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                            echo $Html->addRadio('jak_alive', '0', ($jkv["smtp_alive"] == '0') ? TRUE : FALSE, 'jak_alive2');
+                            // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                            echo $Html->addLabel('jak_alive2', $tl["checkbox"]["chk1"]);
+                            ?>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row-form">
+                        <div class="col-md-5">
+
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc34"]);
+                          ?>
+
+                        </div>
+                        <div class="col-md-7">
+                          <div class="radio radio-success">
+
+                            <?php
+                            // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                            echo $Html->addRadio('jak_auth', '1', ($jkv["smtp_auth"] == '1') ? TRUE : FALSE, 'jak_auth1');
+                            // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                            echo $Html->addLabel('jak_auth1', $tl["checkbox"]["chk"]);
+
+                            // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                            echo $Html->addRadio('jak_auth', '0', ($jkv["smtp_auth"] == '0') ? TRUE : FALSE, 'jak_auth2');
+                            // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                            echo $Html->addLabel('jak_auth2', $tl["checkbox"]["chk1"]);
+                            ?>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row-form">
+                        <div class="col-md-5">
+
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc35"]);
+                          ?>
+
+                        </div>
+                        <div class="col-md-7">
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html->addInput('text', 'jak_prefix', $jkv["smtp_prefix"], '', 'form-control', array('placeholder' => 'ssl/tls/true/false'));
+                          ?>
+
+                        </div>
+                      </div>
+                      <div class="row-form">
+                        <div class="col-md-5">
+
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc36"]);
+                          ?>
+
+                        </div>
+                        <div class="col-md-7">
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html->addInput('text', 'jak_smtpusername', $jkv["smtp_user"], '', 'form-control');
+                          ?>
+
+                        </div>
+                      </div>
+                      <div class="row-form">
+                        <div class="col-md-5">
+
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc37"]);
+                          ?>
+
+                        </div>
+                        <div class="col-md-7">
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html->addInput('password', 'jak_smtppassword', $jkv["smtp_password"], '', 'form-control');
                           ?>
 
                         </div>
                       </div>
                     </div>
-                    <div class="row-form">
-                      <div class="col-md-5">
 
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc34"]);
-                        ?>
-
-                      </div>
-                      <div class="col-md-7">
-                        <div class="radio radio-success">
-
-                          <?php
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_auth', '1', ($jkv["smtp_auth"] == '1') ? TRUE : FALSE, 'jak_auth1');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_auth1', $tl["checkbox"]["chk"]);
-
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_auth', '0', ($jkv["smtp_auth"] == '0') ? TRUE : FALSE, 'jak_auth2');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_auth2', $tl["checkbox"]["chk1"]);
-                          ?>
-
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row-form">
-                      <div class="col-md-5">
-
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc35"]);
-                        ?>
-
-                      </div>
-                      <div class="col-md-7">
-
-                        <?php
-                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'jak_prefix', $jkv["smtp_prefix"], '', 'form-control', array('placeholder' => 'ssl/tls/true/false'));
-                        ?>
-
-                      </div>
-                    </div>
-                    <div class="row-form">
-                      <div class="col-md-5">
-
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc36"]);
-                        ?>
-
-                      </div>
-                      <div class="col-md-7">
-
-                        <?php
-                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'jak_smtpusername', $jkv["smtp_user"], '', 'form-control');
-                        ?>
-
-                      </div>
-                    </div>
-                    <div class="row-form">
-                      <div class="col-md-5">
-
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc37"]);
-                        ?>
-
-                      </div>
-                      <div class="col-md-7">
-
-                        <?php
-                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('password', 'jak_smtppassword', $jkv["smtp_password"], '', 'form-control');
-                        ?>
-
-                      </div>
-                    </div>
                     <div class="row-form">
                       <div class="col-md-5">
 
@@ -1112,7 +1115,6 @@ if ($success) { ?>
                           <i class="fa fa-spinner fa-pulse"></i>
                         </span>
                         </button>
-
 
                       </div>
                     </div>

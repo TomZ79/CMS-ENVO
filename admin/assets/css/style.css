@@ -821,7 +821,7 @@ table.table-expandable > tbody > tr div.table-expandable-arrow.up {
 }
 
 /* Table striped - hover effect */
-.table.table-striped tbody tr:hover:nth-child(2n+1) td {
+.table.table-hover tbody tr:hover:nth-child(2n+1) td {
   background: #DAEFFD !important;
 }
 
@@ -903,6 +903,11 @@ table.table-expandable > tbody > tr div.table-expandable-arrow.up {
 .table thead tr th .bootstrap-select .btn {
   margin-top: inherit;
   margin-bottom: inherit;
+}
+
+/* Button for Iconpicker */
+.iconpicker {
+  border: 1px solid #DFDFDF;
 }
 
 /* Icons in table header */
@@ -1227,8 +1232,14 @@ pre[class*="language-"] {
   background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
 }
 
-.page-sidebar .sidebar-menu .menu-items > li > a {
-  padding-left: 20px !important;
+.page-sidebar .sidebar-menu .menu-items li > a {
+  width: 75% !important;
+}
+
+.page-sidebar .sidebar-menu .menu-items > li > a > .arrow {
+  float: right;
+  right: 10px;
+  position: relative;
 }
 
 /* 00. BOOTSTRAP MODAL DIALOG

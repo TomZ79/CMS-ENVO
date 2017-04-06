@@ -165,7 +165,7 @@ if (file_exists(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '
         require_once APP_PATH.\'plugins/newsletter/admin/newsletter.php\';
            $JAK_PROVED = 1;
            $checkp = 1;
-        }", "../plugins/newsletter/admin/template/newsletternav.php", "newsletter", "uninstall.php", "1.0", NOW())');
+        }", "../plugins/newsletter/admin/template/newsletternav.php", "newsletter", "uninstall.php", "1.1", NOW())');
 
       // EN: Now get the plugin 'id' from table 'plugins' for futher use
       // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití

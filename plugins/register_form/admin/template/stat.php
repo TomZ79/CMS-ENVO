@@ -22,7 +22,7 @@ $rwresrf2 = $resrf2->fetch_assoc();
 
   </div>
   <div class="box-body no-padding">
-    <table class="table table-striped">
+    <table class="table table-striped table-hover">
       <tr>
         <td><?php echo $tlrf["reg_box_content"]["regbc1"]; ?></td>
         <td><?php echo $rwresrf['totalM']; ?></td>

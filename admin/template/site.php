@@ -106,8 +106,11 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                    // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                     echo $Html->addTag('strong', $tl["site_box_content"]["sitebc1"]);
+                    echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tl["site_help"]["siteh1"], 'data-original-title' => $tl["site_help"]["siteh"]));
                     ?>
+
 
                   </div>
                   <div class="col-md-7">
@@ -133,7 +136,9 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                    // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                     echo $Html->addTag('strong', $tl["site_box_content"]["sitebc2"]);
+                    echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tl["site_help"]["siteh2"], 'data-original-title' => $tl["site_help"]["siteh"]));
                     ?>
 
                   </div>

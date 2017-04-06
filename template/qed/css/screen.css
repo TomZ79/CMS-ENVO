@@ -805,3 +805,10 @@ footer#main-footer #footer-rights p {
   padding: 5px;
   font-size: 14px !important;
 }
+
+/* OTHER
+======================================================================== */
+.menu-header .nav a.cat-active {
+  background: #93C220;
+  color: #FFF;
+}

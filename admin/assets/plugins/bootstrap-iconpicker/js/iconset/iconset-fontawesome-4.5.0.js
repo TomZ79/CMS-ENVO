@@ -1,5 +1,7 @@
 /*!========================================================================
+ * Bootstrap: Iconset FontAwesome by @CMS ENVO
  *
+ * Iconset: FontAwesome 4.5.0
  * http://fortawesome.github.io/Font-Awesome/
  * ======================================================================== */
 

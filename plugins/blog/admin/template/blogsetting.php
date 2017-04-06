@@ -305,9 +305,9 @@ if ($page2 == "e") { ?>
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                              echo $Html->addOption(' - h:i', ' - h:i ( - 13:00)', ($jkv['blogtimeformat'] == ' - h:i') ? TRUE : FALSE);
-                              echo $Html->addOption(' - h:i:s', ' - h:i:s ( - 13:00:00)', ($jkv['blogtimeformat'] == ' - h:i:s') ? TRUE : FALSE);
-                              echo $Html->addOption(' - h:i:s T O', ' - h:i:s T O ( - 13:00:00 CEST +0200)', ($jkv['blogtimeformat'] == ' - h:i:s T O') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i', ' - H:i ( - 13:00)', ($jkv['blogtimeformat'] == ' - H:i') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i:s', ' - H:i:s ( - 13:00:00)', ($jkv['blogtimeformat'] == ' - H:i:s') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i:s T O', ' - H:i:s T O ( - 13:00:00 CEST +0200)', ($jkv['blogtimeformat'] == ' - H:i:s T O') ? TRUE : FALSE);
                               ?>
 
                             </optgroup>
