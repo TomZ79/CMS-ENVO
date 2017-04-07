@@ -144,9 +144,15 @@
       locale: '<?php echo $site_language;?>',
       // Date-Time format
       format: 'YYYY-MM-DD HH:mm:ss',
+      // Icons
+      icons: $.AdminEnvo.DateTimepicker.icons(),
+      // Tooltips
+      tooltips: $.AdminEnvo.DateTimepicker.tooltips(),
       // Show Button
       showTodayButton: true,
+      showClear: true,
       // Other
+      calendarWeeks: true,
       ignoreReadonly: true
     });
 
@@ -155,10 +161,15 @@
       locale: '<?php echo $site_language;?>',
       // Date-Time format
       format: 'YYYY-MM-DD HH:mm',
+      // Icons
+      icons: $.AdminEnvo.DateTimepicker.icons(),
+      // Tooltips
+      tooltips: $.AdminEnvo.DateTimepicker.tooltips(),
       // Show Button
       showTodayButton: true,
       showClear: true,
       // Other
+      calendarWeeks: true,
       ignoreReadonly: true,
       keepInvalid: true
     });
@@ -168,10 +179,15 @@
       locale: '<?php echo $site_language;?>',
       // Date-Time format
       format: 'YYYY-MM-DD HH:mm',
+      // Icons
+      icons: $.AdminEnvo.DateTimepicker.icons(),
+      // Tooltips
+      tooltips: $.AdminEnvo.DateTimepicker.tooltips(),
       // Show Button
       showTodayButton: true,
       showClear: true,
       // Other
+      calendarWeeks: true,
       ignoreReadonly: true,
       useCurrent: false //Important! See issue #1075
     });
@@ -182,6 +198,7 @@
     $("#datepickerTo").on("dp.change", function (e) {
       $('#datepickerFrom').data("DateTimePicker").maxDate(e.date);
     });
+
   });
 </script>
 <script type="text/javascript">
@@ -217,7 +234,7 @@
     if (isset($JAK_FORM_DATA["catimg"])) {
       $str = $JAK_FORM_DATA["catimg"];
 
-      if (strpos($str, 'glyphicons ') !== false) {
+      if (strpos($str, 'glyphicons ') !== FALSE) {
         $categoryimg = str_replace('glyphicons ', '', $JAK_FORM_DATA["catimg"]);
       } else {
         $categoryimg = str_replace('fa ', '', $JAK_FORM_DATA["catimg"]);

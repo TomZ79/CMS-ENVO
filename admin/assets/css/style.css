@@ -37,13 +37,17 @@ li.submenu-active > .icon-thumbnail {
 }
 
 .bootstrap-datetimepicker-widget .datepicker table tr td.today {
-  background-color: #CFF5F2;
-  color: #626262;
-  font-weight: 600;
+  background-color: #CFF5F2 !important;
+  color: #626262 !important;
+  font-weight: 600 !important;
 }
 
 .bootstrap-datetimepicker-widget .datepicker table tr td.today.active {
-  color: #FFF;
+  color: #626262 !important;
+}
+
+.bootstrap-datetimepicker-widget table td.active.today:before {
+  border-bottom-color: #337ab7 !important;
 }
 
 /* POPOVER */

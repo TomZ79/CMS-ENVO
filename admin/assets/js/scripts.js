@@ -11,7 +11,7 @@
  *
  *
  */
-/* 00. BASIC ADMINENVO CONFIG
+/* 00. BASIC ADMIN ENVO CONFIG
  ========================================================================*/
 $.AdminEnvo = {};
 /* --------------------
@@ -50,6 +50,64 @@ $(function () {
 			trigger: 'hover'
 		});
 	}
+
+	/* Set global settings for Datetimepicker
+	 ====================================================== */
+	$.AdminEnvo.DateTimepicker = {
+		tooltips: function() {
+			if (jakWeb.jak_lang = 'cs') {
+				var tooltip = {
+					today: 'Dnešní Datum',
+					clear: 'Smazat Datum',
+					close: 'Zavřít Picker',
+					selectMonth: 'Vybrat Měsíc',
+					prevMonth: 'Předchozí Měsíc',
+					nextMonth: 'Následující Měsíc',
+					selectYear: 'Vybrat Rok',
+					prevYear: 'Předchozí Rok',
+					nextYear: 'Následující Rok',
+					selectDecade: 'Vybrat Dekádu',
+					prevDecade: 'Předchozí Dekáda',
+					nextDecade: 'Následující Dekáda',
+					prevCentury: 'Předchozí Století',
+					nextCentury: 'Následující Století',
+					pickHour: 'Vybrat Hodinu',
+					incrementHour: 'Přidat Hodinu',
+					decrementHour: 'Ubrat Hodinu',
+					pickMinute: 'Vybrat Minuty',
+					incrementMinute: 'Přidat Minuty',
+					decrementMinute: 'Ubrat Minuty',
+					pickSecond: 'Vybrat Vteřiny',
+					incrementSecond: 'Přidat Vteřiny',
+					decrementSecond: 'Ubrat Vteřiny',
+					togglePeriod: 'Přepnout Dobu',
+					selectTime: 'Vybrat Čas'
+				}
+			} else {
+				var tooltip = {}
+			}
+
+			return tooltip;
+		},
+
+		icons: function() {
+			var icon = {
+				time: "fa fa-clock-o",
+				date: "fa fa-calendar",
+				up: "fa fa-arrow-up",
+				down: "fa fa-arrow-down",
+				previous: "fa fa-chevron-left",
+				next: "fa fa-chevron-right",
+				today: "fa fa-check-circle-o",
+				clear: "fa fa-trash",
+				close: "fa fa-times"
+			};
+
+			return icon;
+		}
+
+	};
+
 
 	/* Activate Bootbox confirm - settings for each button
 	 ====================================================== */
