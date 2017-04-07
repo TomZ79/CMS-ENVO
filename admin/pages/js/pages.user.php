@@ -41,22 +41,26 @@
       }
     });
 
-		/* DateTimePicker
-		 =========================================
-		 $('#datepicker').datetimepicker({
-		 // Language
-		 locale: '<?php echo $site_language;?>',
-		 // Date-Time format
-		 format: 'YYYY-MM-DD',
-		 // Show Button
-		 showTodayButton: true,
-		 showClear: true,
-		 // Other
-		 ignoreReadonly: true,
-		 keepInvalid: true,
-		 minDate: moment()
-		 });
-		 */
+    /* DateTimePicker
+     ========================================= */
+    $('#datepicker').datetimepicker({
+      // Language
+      locale: '<?php echo $site_language;?>',
+      // Date-Time format
+      format: 'YYYY-MM-DD',
+      // Icons
+      icons: $.AdminEnvo.DateTimepicker.icons(),
+      // Tooltips
+      tooltips: $.AdminEnvo.DateTimepicker.tooltips(),
+      // Show Button
+      showTodayButton: true,
+      showClear: true,
+      // Other
+      calendarWeeks: true,
+      ignoreReadonly: true,
+      keepInvalid: true,
+      minDate: moment()
+    });
 
 	});
 </script>

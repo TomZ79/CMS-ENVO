@@ -141,6 +141,7 @@
 
 <script type="text/javascript">
   $(function () {
+
     /* DateTimePicker
      ========================================= */
     $('#datepickerTime').datetimepicker({
@@ -148,11 +149,18 @@
       locale: '<?php echo $site_language;?>',
       // Date-Time format
       format: 'YYYY-MM-DD HH:mm:ss',
+      // Icons
+      icons: $.AdminEnvo.DateTimepicker.icons(),
+      // Tooltips
+      tooltips: $.AdminEnvo.DateTimepicker.tooltips(),
       // Show Button
       showTodayButton: true,
+      showClear: true,
       // Other
+      calendarWeeks: true,
       ignoreReadonly: true
     });
+
   });
 </script>
 

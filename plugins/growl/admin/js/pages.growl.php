@@ -68,6 +68,7 @@
 
 <script type="text/javascript">
   $(function () {
+
     /* DateTimePicker
      ========================================= */
     $('#datepickerFrom').datetimepicker({
@@ -75,12 +76,17 @@
       locale: '<?php echo $site_language;?>',
       // Date-Time format
       format: 'YYYY-MM-DD HH:mm',
+      // Icons
+      icons: $.AdminEnvo.DateTimepicker.icons(),
+      // Tooltips
+      tooltips: $.AdminEnvo.DateTimepicker.tooltips(),
       // Show Button
       showTodayButton: true,
       showClear: true,
       // Other
+      calendarWeeks: true,
       ignoreReadonly: true,
-      keepInvalid: true,
+      keepInvalid: true
     });
 
     $('#datepickerTo').datetimepicker({
@@ -88,10 +94,15 @@
       locale: '<?php echo $site_language;?>',
       // Date-Time format
       format: 'YYYY-MM-DD HH:mm',
+      // Icons
+      icons: $.AdminEnvo.DateTimepicker.icons(),
+      // Tooltips
+      tooltips: $.AdminEnvo.DateTimepicker.tooltips(),
       // Show Button
       showTodayButton: true,
       showClear: true,
       // Other
+      calendarWeeks: true,
       ignoreReadonly: true,
       useCurrent: false //Important! See issue #1075
     });
@@ -102,5 +113,6 @@
     $("#datepickerTo").on("dp.change", function (e) {
       $('#datepickerFrom').data("DateTimePicker").maxDate(e.date);
     });
+
   });
 </script>
