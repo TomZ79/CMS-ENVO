@@ -38,11 +38,11 @@ function jak_build_menu_qed($parent, $menu, $active, $mainclass, $dropdown, $dro
 {
   // Set global variable
   global $arr1;
-
   // Search 'catparent' in array by active page name
   $category = searchForId($active, $menu["items"]);
 
   $html = '';
+
   if (isset($menu['parents'][$parent])) {
     $html .= '<ul class="' . $mainclass . '">';
 
@@ -71,7 +71,7 @@ function jak_build_menu_qed($parent, $menu, $active, $mainclass, $dropdown, $dro
       //IF MENU HAS SUBMENU
       if (isset($menu['parents'][$itemId])) {
 
-        // Add 'id' of category, which have subcategory to array
+        // Add 'id' of category, which have subcategory to array - only for controls
         $arr1[] = $menu["items"][$itemId]["id"];
 
         $html .= '
