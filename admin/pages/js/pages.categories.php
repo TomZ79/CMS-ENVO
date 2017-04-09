@@ -5,7 +5,6 @@
   $(document).ready(function () {
 
     $("#jak_name").keyup(function () {
-      // Checked, copy values
       $("#jak_varname").val(jakSlug($("#jak_name").val()));
     });
 
@@ -14,7 +13,7 @@
     if (isset($JAK_FORM_DATA["catimg"])) {
       $str = $JAK_FORM_DATA["catimg"];
 
-      if (strpos($str, 'glyphicons ') !== false) {
+      if (strpos($str, 'glyphicons ') !== FALSE) {
         $categoryimg = str_replace('glyphicons ', '', $JAK_FORM_DATA["catimg"]);
       } else {
         $categoryimg = str_replace('fa ', '', $JAK_FORM_DATA["catimg"]);
@@ -64,5 +63,6 @@
     $("#copy1").click(function () {
       $("#jak_editor_light_meta_desc").val($("#content").val());
     });
+
   });
 </script>
