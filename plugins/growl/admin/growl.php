@@ -39,7 +39,7 @@ switch ($page1) {
       $defaults = $_POST;
 
       if (empty($defaults['jak_title'])) {
-        $errors['e1'] = $tl['error']['e2'];
+        $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
       }
 
       if (!empty($defaults['jak_datefrom'])) {
@@ -51,7 +51,7 @@ switch ($page1) {
       }
 
       if (isset($finalto) && isset($finalfrom) && $finalto < $finalfrom) {
-        $errors['e2'] = $tl['error']['e28'];
+        $errors['e2'] = $tl['general_error']['generror25'] . '<br>';
       }
 
       if (count($errors) == 0) {
@@ -124,7 +124,7 @@ switch ($page1) {
         }
       } else {
 
-        $errors['e'] = $tl['error']['e'];
+        $errors['e'] = $tl['general_error']['generror'] . '<br>';
         $errors      = $errors;
       }
     }
@@ -198,7 +198,7 @@ switch ($page1) {
           $defaults = $_POST;
 
           if (empty($defaults['jak_title'])) {
-            $errors['e1'] = $tl['error']['e2'];
+            $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
           }
 
           if (!empty($defaults['jak_datefrom'])) {
@@ -214,7 +214,7 @@ switch ($page1) {
           }
 
           if (isset($finalto) && isset($finalfrom) && $finalto < $finalfrom) {
-            $errors['e2'] = $tl['error']['e28'];
+            $errors['e2'] = $tl['general_error']['generror25'] . '<br>';
           }
 
           if (count($errors) == 0) {
@@ -285,7 +285,7 @@ switch ($page1) {
             }
           } else {
 
-            $errors['e'] = $tl['error']['e'];
+            $errors['e'] = $tl['general_error']['generror'] . '<br>';
             $errors      = $errors;
           }
         }

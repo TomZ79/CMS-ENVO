@@ -364,7 +364,7 @@ switch ($page1) {
       $defaults = $_POST;
 
       if (empty($defaults['userpost'])) {
-        $errors['e'] = $tl['error']['e2'];
+        $errors['e'] = $tl['error']['e2'] . '<br>';
       }
 
       if (strlen($defaults['userpost']) > $jkv["faqmaxpost"]) {

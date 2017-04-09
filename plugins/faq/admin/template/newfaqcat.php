@@ -97,7 +97,7 @@ if ($errors) { ?>
 
                   </div>
                   <div class="col-md-7">
-                    <div class="form-group<?php if ($errors["e2"] || $errors["e3"]) echo " has-error"; ?> no-margin">
+                    <div class="form-group<?php if ($errors["e2"] || $errors["e3"] || $errors["e4"]) echo " has-error"; ?> no-margin">
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)

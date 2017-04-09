@@ -151,7 +151,7 @@ switch ($page1) {
           $result2 = $jakdb->query('SELECT id, email, name FROM ' . $jaktable2 . ' WHERE id IN(' . $row["notsent"] . ')');
           while ($row2 = $result2->fetch_assoc()) {
 
-            $nluser[] = '<a href="index.php?p=newsletter&amp;sp=user&amp;ssp=edit&amp;sssp=' . $row2["id"] . '">' . $row2["name"] . ' (' . $row2["email"] . ')</a> <a href="index.php?p=newsletter&amp;sp=user&amp;ssp=delete&amp;sssp=' . $row2["id"] . '" onclick="if(!confirm(\'' . $tl["user"]["al"] . '\'))return false;" class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i></a>';
+            $nluser[] = '<a href="index.php?p=newsletter&amp;sp=user&amp;ssp=edit&amp;sssp=' . $row2["id"] . '">' . $row2["name"] . ' (' . $row2["email"] . ')</a> <a href="index.php?p=newsletter&amp;sp=user&amp;ssp=delete&amp;sssp=' . $row2["id"] . '" onclick="if(!confirm(\'' . $tlnl;["newsletter_notification"]["delallu"] . '\'))return false;" class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i></a>';
 
           }
 
@@ -1052,7 +1052,7 @@ switch ($page1) {
             $mail->MsgHTML($tlnl["nletter"]["d43"] . 'Mail().');
             // Send the email
             $mail->Send();
-            $success['e'] = sprintf($tl["setting"]["s44"], 'PHP Mail()');
+            $success['e'] = sprintf($tl["newsletter_message"]["nlm"], 'PHP Mail()');
           } catch (phpmailerException $e) {
             $errors['e'] = $e->errorMessage(); //Pretty error messages from PHPMailer
           } catch (Exception $e) {

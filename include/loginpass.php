@@ -13,18 +13,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jakU'])) {
 
   $username = smartsql($_POST['jakU']);
   $userpass = smartsql($_POST['jakP']);
-  $cookies = false;
-  if (isset($_POST['lcookies'])) $cookies = true;
+  $cookies  = FALSE;
+  if (isset($_POST['lcookies'])) $cookies = TRUE;
 
   // Security fix
   $valid_agent = filter_var($_SERVER['HTTP_USER_AGENT'], FILTER_SANITIZE_STRING);
-  $valid_ip = filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP);
+  $valid_ip    = filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP);
 
   // Write the log file each time someone tries to login before
   $jakuserlogin->jakWriteloginlog(filter_var($username, FILTER_SANITIZE_STRING), $_SERVER['REQUEST_URI'], $valid_ip, $valid_agent, 0);
 
   $user_check = $jakuserlogin->jakCheckuserdata($username, $userpass);
-  if ($user_check == true) {
+  if ($user_check == TRUE) {
 
     // Now login in the user
     $jakuserlogin->jakLogin($user_check, $userpass, $cookies);
@@ -51,12 +51,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jakU'])) {
       $_SESSION["logintries"] = 1;
     }
     if (isset($_SESSION["logintries"]) && $_SESSION["logintries"] > 3) {
-      $_SESSION["infomsg"] = $tl["error"]["e10"];
+      $_SESSION["infomsg"] = $tl["general_error"]["generror23"];
       jak_redirect(BASE_URL);
     }
 
-    $errors['e'] = '<i class="fa fa-exclamation-triangle"></i> ' . $tl['error']['l'];
-    $errorlo = $errors;
+    $_SESSION["warningmsg"] = $tl['general_error']['generror24'];
+    $errorlo                = $errors;
   }
 
 }
@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
 
   // transform user email
   $femail = filter_var($defaults['jakE'], FILTER_SANITIZE_EMAIL);
-  $fwhen = time();
+  $fwhen  = time();
 
   // Check if this user exist
   $user_check = $jakuserlogin->jakForgotpassword($femail, $fwhen);
@@ -90,13 +90,13 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
     if ($jkv["smtp_or_mail"]) {
 
       $mail->IsSMTP(); // telling the class to use SMTP
-      $mail->Host = $jkv["smtp_host"];
-      $mail->SMTPAuth = ($jkv["smtp_auth"] ? true : false); // enable SMTP authentication
-      $mail->SMTPSecure = $jkv["smtp_prefix"]; // sets the prefix to the server
-      $mail->SMTPKeepAlive = ($jkv["smtp_alive"] ? true : false); // SMTP connection will not close after each email sent
-      $mail->Port = $jkv["smtp_port"]; // set the SMTP port for the GMAIL server
-      $mail->Username = $jkv["smtp_user"]; // SMTP account username
-      $mail->Password = $jkv["smtp_password"]; // SMTP account password
+      $mail->Host          = $jkv["smtp_host"];
+      $mail->SMTPAuth      = ($jkv["smtp_auth"] ? TRUE : FALSE); // enable SMTP authentication
+      $mail->SMTPSecure    = $jkv["smtp_prefix"]; // sets the prefix to the server
+      $mail->SMTPKeepAlive = ($jkv["smtp_alive"] ? TRUE : FALSE); // SMTP connection will not close after each email sent
+      $mail->Port          = $jkv["smtp_port"]; // set the SMTP port for the GMAIL server
+      $mail->Username      = $jkv["smtp_user"]; // SMTP account username
+      $mail->Password      = $jkv["smtp_password"]; // SMTP account password
 
     }
 

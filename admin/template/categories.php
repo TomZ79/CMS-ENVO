@@ -29,7 +29,7 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
           echo $tl["general_error"]["generror2"];
         } else {
           echo $tl["cat_error"]["caterror"];
-        } ?>',
+        } ?>'
       }, {
         // settings
         type: 'danger',

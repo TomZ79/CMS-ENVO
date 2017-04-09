@@ -340,6 +340,11 @@ if (isset($_SESSION["errormsg"])) { ?>
     $.notify({icon: 'icon-attention', message: '<?php echo $_SESSION["errormsg"];?>'}, {type: 'danger'});
   </script>
 <?php }
+if (isset($_SESSION["warningmsg"])) { ?>
+  <script type="text/javascript">
+    $.notify({icon: '', message: '<?php echo $_SESSION["warningmsg"];?>'}, {type: 'warning'});
+  </script>
+<?php }
 if ($errorpp) { ?>
   <script type="text/javascript">
     $.notify({icon: 'icon-attention', message: '<?php echo $errorpp["e"];?>'}, {type: 'danger'});

@@ -29,7 +29,7 @@ if (file_exists(APP_PATH . 'plugins/blog/admin/lang/' . $site_language . '.ini')
   <meta charset="utf-8">
   <!-- BEGIN Vendor CSS-->
   <link href="/admin/assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.4" rel="stylesheet" type="text/css"/>
-  <link href="/admin/assets/plugins/font-awesome/4.5.0/css/font-awesome.css?=4.5.0" rel="stylesheet" type="text/css"/>
+  <link href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
   <!-- BEGIN Pages CSS-->
   <link href="/admin/pages/css/pages-icons.css?=v2.2.0" rel="stylesheet" type="text/css">
   <link class="main-stylesheet" href="/admin/pages/css/pages.css?=v2.2.0" rel="stylesheet" type="text/css"/>

@@ -40,7 +40,7 @@ switch ($page1) {
       $defaults = $_POST;
 
       if (empty($defaults['jak_title'])) {
-        $errors['e1'] = $tl['error']['e2'];
+        $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
       }
 
       if (count($errors) == 0) {
@@ -96,7 +96,7 @@ switch ($page1) {
         }
       } else {
 
-        $errors['e'] = $tl['error']['e'];
+        $errors['e'] = $tl['general_error']['generror'] . '<br>';
         $errors      = $errors;
       }
     }
@@ -169,7 +169,7 @@ switch ($page1) {
           $defaults = $_POST;
 
           if (empty($defaults['jak_title'])) {
-            $errors['e1'] = $tl['error']['e2'];
+            $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
           }
 
           if (count($errors) == 0) {
@@ -222,7 +222,7 @@ switch ($page1) {
               jak_redirect(BASE_URL . 'index.php?p=belowheader&sp=edit&ssp=' . $page2 . '&sssp=s');
             }
           } else {
-            $errors['e'] = $tl['error']['e'];
+            $errors['e'] = $tl['general_error']['generror'] . '<br>';
             $errors      = $errors;
           }
         }

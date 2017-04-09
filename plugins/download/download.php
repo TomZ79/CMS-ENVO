@@ -447,12 +447,12 @@ switch ($page1) {
       $defaults = $_POST;
 
       if (empty($defaults['userpost'])) {
-        $errors['e'] = $tl['error']['e2'];
+        $errors['e'] = $tl['error']['e2'] . '<br>';
       }
 
       if (strlen($defaults['userpost']) > $jkv["downloadmaxpost"]) {
         $countI      = strlen($defaults['userpost']);
-        $errors['e'] = $tld['dload']['e1'] . $jkv["downloadmaxpost"] . ' ' . $tld['dload']['e2'] . $countI;
+        $errors['e'] = $tld['dload']['e1'] . $jkv["downloadmaxpost"] . ' ' . $tld['dload']['e2'] . $countI . '<br>';
       }
 
       if (is_numeric($page2) && count($errors) == 0 && jak_row_exist($page2, $jaktable2)) {

@@ -22,28 +22,34 @@ if (!empty($_POST['action']) && $_POST['action'] == 'login') {
   $jakuserlogin->jakWriteloginlog($username, $_SERVER['REQUEST_URI'], $valid_ip, $valid_agent, 0);
 
   $user_check = $jakuserlogin->jakCheckuserdata($username, $userpass);
-  if ($user_check == TRUE) {
 
-    // Now login in the user
-    $jakuserlogin->jakLogin($user_check, $userpass, $cookies);
+  if (!empty($username) && !empty($userpass)) {
 
-    // Write the log file each time someone login after to show success
-    $jakuserlogin->jakWriteloginlog($username, '', $valid_ip, '', 1);
+    if ($user_check == TRUE) {
 
-    $_SESSION["loginmsg"] = $tl["log_in"]["login14"];
+      // Now login in the user
+      $jakuserlogin->jakLogin($user_check, $userpass, $cookies);
 
-    if (isset($_SESSION['JAKRedirect'])) {
-      // EN: Redirect page
-      // CZ: Přesměrování stránky
-      jak_redirect($_SESSION['JAKRedirect']);
+      // Write the log file each time someone login after to show success
+      $jakuserlogin->jakWriteloginlog($username, '', $valid_ip, '', 1);
+
+      $_SESSION["loginmsg"] = $tl["log_in"]["login14"];
+
+      if (isset($_SESSION['JAKRedirect'])) {
+        // EN: Redirect page
+        // CZ: Přesměrování stránky
+        jak_redirect($_SESSION['JAKRedirect']);
+      } else {
+        // EN: Redirect page
+        // CZ: Přesměrování stránky
+        jak_redirect(BASE_URL);
+      }
+
     } else {
-      // EN: Redirect page
-      // CZ: Přesměrování stránky
-      jak_redirect(BASE_URL);
+      $_SESSION["warningmsg"] = $tl['general_error']['generror33'];
+      $ErrLogin = '1';
     }
 
-  } else {
-    $ErrLogin = '1';
   }
 }
 
@@ -63,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
   $user_check = $jakuserlogin->jakForgotpassword($femail, $fwhen);
 
   if (!$user_check) {
-    $errors['e']          = $tl['general_error']['generror24'];
+    $errors['e'] = $tl['general_error']['generror24'];
     // EN: Create error message
     // CZ: Vytvoření chybové zprávy
     $_SESSION["errormsg"] = $tl["log_in"]["login13"];

@@ -326,6 +326,12 @@ if (isset($_SESSION["errormsg"])) { ?>
       message: '<?php echo $_SESSION["errormsg"];?>'
     }, {type: 'danger'});</script>
 <?php }
+if (isset($_SESSION["warningmsg"])) { ?>
+  <script type="text/javascript">$.notify({
+      icon: 'fa fa-exclamation-triangle',
+      message: '<?php echo $_SESSION["warningmsg"];?>'
+    }, {type: 'warning'});</script>
+<?php }
 if ($JAK_PROVED && !isset($jkv["cms_tpl"])) { ?>
   <script type="text/javascript">
     // Notification
