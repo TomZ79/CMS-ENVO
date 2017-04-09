@@ -618,7 +618,12 @@ if ($errors) { ?>
 
                     <li class="jakcontent">
                       <div class="form-group">
-                        <label><?php echo $tl["global_text"]["globaltxt14"]; ?></label>
+
+                        <?php
+                        // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                        echo $Html->addLabel('', $tl["global_text"]["globaltxt14"]);
+                        ?>
+
                         <select name="jak_showcontact" class="form-control selectpicker" data-size="5">
 
                           <?php

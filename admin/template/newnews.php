@@ -615,6 +615,19 @@ if ($errors) { ?>
                 <!-- Moving stuff -->
                 <ul class="jak_content_move">
 
+                  <li class="jakcontent">
+                    <div class="text"><?php echo $tl["news_box_content"]["newsbc28"]; ?></div>
+                    <div class="actions">
+
+                      <?php
+                      // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                      echo $Html->addInput('hidden', 'corder_new[]', '1', '', 'corder');
+                      echo $Html->addInput('hidden', 'real_plugin_id[]', '9999');
+                      ?>
+
+                    </div>
+                  </li>
+
                   <?php if (isset($JAK_CONTACT_FORMS) && is_array($JAK_CONTACT_FORMS)) { ?>
 
                     <li class="jakcontent">

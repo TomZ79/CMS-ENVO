@@ -44,10 +44,13 @@ switch ($page1) {
       $row = $result->fetch_assoc();
 
       if ($row['active'] != 1 && !JAK_ASACCESS) {
-        // News is not active redirect to offline news
-        jak_redirect(JAK_rewrite::jakParseurl($tl['link']['l3'], $tl['errornews']['non'], '', '', ''));
+        // EN: News is not active redirect to list of news
+        // CZ: Zpráva není aktivní, přesměrování na seznam zpráv
+        jak_redirect($backtonews);
+
       } else {
-        // Everything works fine, display the news!
+        // EN: News is active, display news
+        // CZ: Zpráva je aktivní, zobrazit zprávu
 
         // Now let's check the hits cookie
         if (!jak_cookie_voted_hits($jaktable, $row['id'], 'hits')) {
@@ -58,6 +61,8 @@ switch ($page1) {
           JAK_base::jakUpdatehits($row['id'], $jaktable);
         }
 
+        // EN: Set variable for page
+        // CZ: Nastavení hodnot (proměných) pro stránku
         $PAGE_ID                     = $row['id'];
         $PAGE_TITLE                  = $row['title'];
         $MAIN_DESCRIPTION            = $jkv['newsdesc'];
@@ -72,7 +77,7 @@ switch ($page1) {
         $SHOWSOCIALBUTTON            = $row['socialbutton'];
         $PAGE_ACTIVE                 = $row['active'];
         $PAGE_HITS                   = $row['hits'];
-        $PAGE_TIME                   = JAK_base::jakTimesince($row['time'], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['general']['g56']);
+        $PAGE_TIME                   = JAK_base::jakTimesince($row['time'], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
         $DATE_TIME                   = $row['time'];
         $PAGE_TIME_HTML5             = date("Y-m-d T H:i:s P", strtotime($row['time']));
         $JAK_HEATMAPLOC              = "news_" . $row['id'];

@@ -701,6 +701,22 @@ if ($errors) { ?>
 
                   <?php if (isset($JAK_PAGE_GRID) && is_array($JAK_PAGE_GRID)) foreach ($JAK_PAGE_GRID as $pg) {
                     if ($pg["pluginid"] != 0) {
+                      if ($pg["pluginid"] == '9999') { ?>
+
+                        <li class="jakcontent">
+                          <div class="text"><?php echo $tl["news_box_content"]["newsbc28"]; ?></div>
+                          <div class="actions">
+
+                            <?php
+                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                            echo $Html->addInput('hidden', 'corder[]', $pg["orderid"], '', 'corder');
+                            echo $Html->addInput('hidden', 'real_id[]', $pg["id"]);
+                            ?>
+
+                          </div>
+                        </li>
+
+                      <?php }
                       if ($pg["pluginid"] == '9997' && $JAK_CONTACT_FORM) { ?>
 
                         <li class="jakcontent">

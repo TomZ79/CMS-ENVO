@@ -15,62 +15,70 @@ if (JAK_ASACCESS) {
 			<div class="row">
 				<article class="post box mb">
 					<div class="feature-box media-left">
-						<?php if ($SHOWDATE) { ?>
-							<div class="post-date">
-								<?php
-								//set locale,
-								setlocale(LC_ALL,$site_locale);
-								//convert date to month name
-								$month_name =  ucfirst(strftime("%B", strtotime($DATE_TIME)));
-								?>
-								<span class="date-day"><?php echo date("d",strtotime($DATE_TIME)); ?></span>
-								<span class="date-month"><?php echo $month_name; ?></span>
-							</div>
-						<?php } ?>
-						<div class="feature-box-content">
-							<?php if ($SHOWTITLE) { ?>
-								<h3><?php echo $PAGE_TITLE; ?></h3>
-							<?php } ?>
-							<?php if ($SHOWDATE || $SHOWHITS) { ?>
-								<ul class="list-unstyled list-inline">
-									<!-- Show Date -->
-									<?php if ($SHOWDATE) { ?>
-										<li style="font-size: 80%; font-weight: 700"><i class="icon-clock-1"></i>
-											<time datetime="<?php echo $PAGE_TIME_HTML5; ?>"><?php echo $PAGE_TIME; ?></time>
-										</li>
-									<?php } ?>
-									<!-- Show Hits -->
-									<?php if ($SHOWHITS) { ?>
-										<li style="font-size: 80%; font-weight: 700"><i class="icon-eye"></i> <?php echo $tl["news"]["news2"] . ' ' . $PAGE_HITS; ?></li>
-									<?php } ?>
-								</ul><!-- .entry-meta end -->
-							<?php } ?>
-
-							<?php if ($JAK_TAGLIST) { ?>
-								<ul class="entry-meta">
-									<?php echo JAK_tags::jakGettaglist_class ($page2, JAK_PLUGIN_ID_NEWS, JAK_PLUGIN_VAR_TAGS, 'tips', $tl["title_element"]["tel"]); ?>
-								</ul>
-							<?php } ?>
-
-							<?php echo $PAGE_CONTENT; ?>
-
-							<?php if ($SHOWSOCIALBUTTON) { ?>
-								<div class="col-md-12">
-									<hr>
-									<div class="pull-right" style="display: table;">
-										<div style="display: table-cell;vertical-align: middle;/*! margin-right: 20px; */padding-right: 20px;">
-											<strong><?php echo $tl["share"]["share1"] . ' '; ?></strong>
-										</div>
-										<div id="sollist-sharing"></div>
-									</div>
-								</div>
-							<?php } ?>
-
 							<?php if (isset($JAK_HOOK_PAGE) && is_array ($JAK_HOOK_PAGE)) foreach ($JAK_HOOK_PAGE as $hpage) {
 								include_once APP_PATH . $hpage["phpcode"];
 							}
 
 							if (isset($JAK_PAGE_GRID) && is_array ($JAK_PAGE_GRID)) foreach ($JAK_PAGE_GRID as $pg) {
+
+								// Show Content
+								if ($pg["pluginid"] == '9999') {
+
+							?>
+
+								<?php if ($SHOWDATE) { ?>
+									<div class="post-date">
+										<?php
+										//set locale,
+										setlocale(LC_ALL,$site_locale);
+										//convert date to month name
+										$month_name =  ucfirst(strftime("%B", strtotime($DATE_TIME)));
+										?>
+										<span class="date-day"><?php echo date("d",strtotime($DATE_TIME)); ?></span>
+										<span class="date-month"><?php echo $month_name; ?></span>
+									</div>
+								<?php } ?>
+								<div class="feature-box-content">
+									<?php if ($SHOWTITLE) echo '<h3>' . $PAGE_TITLE . '</h3>'; ?>
+									<?php if ($SHOWDATE || $SHOWHITS) { ?>
+										<ul class="list-unstyled list-inline">
+											<!-- Show Date -->
+											<?php if ($SHOWDATE) { ?>
+												<li style="font-size: 80%; font-weight: 700"><i class="icon-clock-1"></i>
+													<time datetime="<?php echo $PAGE_TIME_HTML5; ?>"><?php echo $PAGE_TIME; ?></time>
+												</li>
+											<?php } ?>
+											<!-- Show Hits -->
+											<?php if ($SHOWHITS) { ?>
+												<li style="font-size: 80%; font-weight: 700"><i class="icon-eye"></i> <?php echo $tl["news"]["news2"] . ' ' . $PAGE_HITS; ?></li>
+											<?php } ?>
+										</ul><!-- .entry-meta end -->
+									<?php } ?>
+
+									<?php if ($JAK_TAGLIST) { ?>
+										<ul class="entry-meta">
+											<?php echo JAK_tags::jakGettaglist_class ($page2, JAK_PLUGIN_ID_NEWS, JAK_PLUGIN_VAR_TAGS, 'tips', $tl["title_element"]["tel"]); ?>
+										</ul>
+									<?php } ?>
+
+									<?php echo $PAGE_CONTENT; ?>
+
+									<?php if ($SHOWSOCIALBUTTON) { ?>
+										<div class="col-md-12">
+											<hr>
+											<div class="pull-right" style="display: table;">
+												<div style="display: table-cell;vertical-align: middle;/*! margin-right: 20px; */padding-right: 20px;">
+													<strong><?php echo $tl["share"]["share1"] . ' '; ?></strong>
+												</div>
+												<div id="sollist-sharing"></div>
+											</div>
+										</div>
+									<?php } ?>
+								</div>
+
+							<?php
+								}
+
 								// Load contact form
 								if ($pg["pluginid"] == '9997' && $JAK_SHOW_C_FORM) {
 									include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/contact.php';
@@ -81,7 +89,7 @@ if (JAK_ASACCESS) {
 									eval($hpagegrid["phpcode"]);
 								}
 							} ?>
-						</div>
+
 					</div>
 
 				</article>
