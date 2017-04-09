@@ -1,5 +1,5 @@
 <script type="text/javascript">
-	$(document).ready(function () {
+  $(document).ready(function () {
 
     /* Check all checkbox */
     $("#jak_delete_all").click(function () {
@@ -23,14 +23,14 @@
       });
     });
 
-		/* Disable submit button if checkbox is not checked */
-		$(".highlight").change(function () {
-			if (this.checked) {
-				$("#button_delete").removeAttr("disabled");
-			} else {
-				$("#button_delete").attr("disabled", "disabled");
-			}
-		});
+    /* Disable submit button if checkbox is not checked */
+    $(".highlight").change(function () {
+      if (this.checked) {
+        $("#button_delete").removeAttr("disabled");
+      } else {
+        $("#button_delete").attr("disabled", "disabled");
+      }
+    });
 
     /* Disable submit button if checkbox is not checked */
     $(".highlight_approve").change(function () {
@@ -62,21 +62,21 @@
       minDate: moment()
     });
 
-	});
+  });
 </script>
 
 <style>
-	.label-indicator-absolute {
-		position: relative;
-	}
+  .label-indicator-absolute {
+    position: relative;
+  }
 
-	.label-indicator-absolute .password-indicator-label-absolute {
-		position: absolute;
-		top: 50%;
-		margin-top: -9px;
-		right: 7px;
-		-webkit-transition: all 0.2s ease-in-out;
-		-o-transition: all 0.2s ease-in-out;
-		transition: all 0.2s ease-in-out;
-	}
+  .label-indicator-absolute .password-indicator-label-absolute {
+    position: absolute;
+    top: 50%;
+    margin-top: -9px;
+    right: 7px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
 </style>
