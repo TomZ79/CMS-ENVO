@@ -145,10 +145,15 @@ if (JAK_TAGS) {
 // User can use search and use tags
 define('JAK_USER_SEARCH', $jakusergroup->getVar("advsearch"));
 
+
+/* =====================================================
+ *  IP BLOCKED or RANGE - BLOKACE IP nebo ROZSAHU
+ * ===================================================== */
 // Get the users ip address
 $ipa = get_ip_address();
 
-// Check if the ip or range is blocked, if so redirect to offline page with a message
+// EN: Check if the ip or range is blocked, if so redirect to offline page with a message
+// CZ: Kontrola jestli je IP adresa uživatele blokována. Pokud ano, přesměruj stránku na offline stránku a zobraz zprávu
 $USR_IP_BLOCKED = FALSE;
 if ($jkv["ip_block"]) {
   $blockedips = explode(',', $jkv["ip_block"]);
@@ -164,22 +169,34 @@ if ($jkv["ip_block"]) {
       $mask    = ip2long($blockedrange[1]);
 
       if (($remote & $mask) == $network) {
-        $USR_IP_BLOCKED = $tl['error']['e22'];
+        $USR_IP_BLOCKED = $tl['general_error']['generror9'];
+        // EN: Add error message to session
+        // CZ: Přidání chybové zprávy do session
+        $_SESSION["errormsg"] = $USR_IP_BLOCKED;
       }
     }
 
     // Check if we have single IP's
     if ($remote == $bip) {
-      $USR_IP_BLOCKED = $tl['error']['e22'];
+      $USR_IP_BLOCKED = $tl['general_error']['generror9'];
+      // EN: Add error message to session
+      // CZ: Přidání chybové zprávy do session
+      $_SESSION["errormsg"] = $USR_IP_BLOCKED;
     }
 
   }
   // Now let's check if we have another match
   if (in_array($ipa, $blockedips)) {
-    $USR_IP_BLOCKED = $tl['error']['e22'];
+    $USR_IP_BLOCKED = $tl['general_error']['generror9'];
+    // EN: Add error message to session
+    // CZ: Přidání chybové zprávy do session
+    $_SESSION["errormsg"] = $USR_IP_BLOCKED;
   }
 }
 
+/* =====================================================
+ *  CAPTCHA - CAPTCHA
+ * ===================================================== */
 // Finally get the captcha if wish so
 if ($jkv["hvm"]) {
 
@@ -201,7 +218,8 @@ if ($jkv["hvm"]) {
 
 }
 
-// If the site is set to offline, well go there... :)
+// EN: If the site is set to offline (offline or user's IP is blocked)
+// CZ: Pokud je webová síť offline (síť je nastavena do offline režimu nebo IP uživatele je blokováno)
 if ($jkv["offline"] == 1 && !JAK_ASACCESS || $USR_IP_BLOCKED) {
   $JAK_PAGE_OFFLINE = TRUE;
   if ($jkv["offline_page"]) {
@@ -298,20 +316,33 @@ foreach ($jakcategories as $ca) {
   }
 }
 
-// Logout
+/* =====================================================
+ *  PAGE DEFINITION - DEFINICE STRÁNEK
+ * ===================================================== */
+// EN: Logout from site
+// CZ: Odhlášení z webové sítě
 if ($page == 'logout') {
   if (!JAK_USERID) {
+    // EN: Add error message to session
+    // CZ: Přidání chybové zprávy do session
     $_SESSION["errormsg"] = $tl["general_error"]["generror1"];
+    // EN: Redirect page
+    // CZ: Přesměrování stránky
     jak_redirect(BASE_URL);
   }
   if (JAK_USERID) {
     $jakuserlogin->jakLogout(JAK_USERID);
+    // EN: Add error message to session
+    // CZ: Přidání chybové zprávy do session
     $_SESSION["infomsg"] = $tl["notification"]["n4"];
+    // EN: Redirect page
+    // CZ: Přesměrování stránky
     jak_redirect($_SERVER['HTTP_REFERER']);
   }
 }
 
-// Search
+// EN: Page - Search
+// CZ: Vyhledávání
 if ($page == 'search') {
   /* Redirect to base url if search isn't
    * if (!$jkv["searchform"] || !JAK_USER_SEARCH) { jak_redirect (BASE_URL); }
@@ -323,27 +354,35 @@ if ($page == 'search') {
   $PAGE_SHOWTITLE = 1;
   $JAK_CHECK_PAGE = 1;
 }
-// Get the success page
+
+// EN: 'Success' page
+// CZ: 'Success' stránka
 if ($page == 'success') {
-  $PAGE_TITLE     = $tl['general']['s'] . ' ';
+  $PAGE_TITLE     = $tl['global_text']['gtxt3'];
   $template       = 'success.php';
   $JAK_CHECK_PAGE = 1;
   $PAGE_SHOWTITLE = 1;
 }
-// Get the error page
+
+// EN: 'Error' page
+// CZ: 'Error' stránka
 if ($page == 'error') {
-  $PAGE_TITLE     = $tl['title']['t12'] . ' ';
-  $PAGE_CONTENT   = $tl['errorpage']['not'];
+  $PAGE_TITLE     = $tl['title_page']['tpl'];
+  $PAGE_CONTENT   = $tl['general_error']['generror10'];
   $template       = 'standard.php';
   $JAK_CHECK_PAGE = 1;
   $PAGE_SHOWTITLE = 1;
 }
-// Get the rss feautures
+
+// EN: 'Rss' feautures
+// CZ: 'Rss' funkce
 if ($page == 'rss.xml') {
   require_once 'rss.php';
   $JAK_CHECK_PAGE = 1;
 }
-// Get the 404 page
+
+// EN: '404' page
+// CZ: '404' stránka
 if ($page == '404') {
   if ($jkv["notfound_page"] != 0) {
     foreach ($jakcategories as $ca) {
@@ -355,21 +394,24 @@ if ($page == '404') {
     // Include the page php file
     require_once 'page.php';
   } else {
-    $PAGE_TITLE = '404 ' . $tl['error']['e4'];
+    $PAGE_TITLE = '404 ' . $tl['title_page']['tpl1'];
     $template   = '404.php';
   }
   $JAK_CHECK_PAGE = 1;
   $PAGE_SHOWTITLE = 1;
 }
-// offline
+
+// EN: 'Offline' page
+// CZ: 'Offline' stránka
 if ($page == 'offline') {
-  $PAGE_TITLE     = $tl['title']['t10'] . ' ';
+  $PAGE_TITLE     = $tl['title_page']['tpl2'] . ' ';
   $template       = 'offline.php';
   $JAK_CHECK_PAGE = 1;
   $PAGE_SHOWTITLE = 1;
 }
 
-// forgot password
+// EN: 'Forgot-password' page
+// CZ: 'Forgot-password' stránka
 if ($page == 'forgot-password') {
 
   if (JAK_USERID || !is_numeric($page1) || !$jakuserlogin->jakForgotactive($page1)) jak_redirect(BASE_URL);
@@ -392,17 +434,17 @@ if ($page == 'forgot-password') {
 
   } else {
 
-    $body = sprintf($tl['login']['l20'], $row["name"], $password, $jkv["title"]);
+    $body = sprintf($tl['email_text']['emailm'], $row["name"], $password, $jkv["title"]);
 
     $mail = new PHPMailer(); // defaults to using php "mail()"
     $mail->SetFrom($jkv["email"], $jkv["title"]);
     $mail->AddAddress($row["email"], $row["name"]);
-    $mail->Subject = $jkv["title"] . ' - ' . $tl['login']['l19'];
+    $mail->Subject = $jkv["title"] . ' - ' . $tl['email_text']['emailm1'];
     $mail->MsgHTML($body);
     $mail->AltBody = strip_tags($body);
 
     if ($mail->Send()) {
-      $_SESSION["infomsg"] = $tl["login"]["l21"];
+      $_SESSION["infomsg"] = $tl["email_text"]["emailm2"];
       jak_redirect(BASE_URL);
     }
 
@@ -412,6 +454,9 @@ if ($page == 'forgot-password') {
   jak_redirect(BASE_URL);
 }
 
+/* =====================================================
+ *  PHP HOOKs for INDEX PAGE - PHP HOOK pro INDEX PAGE
+ * ===================================================== */
 // Get the php hook for index page
 $hookip = $jakhooks->jakGethook("php_index_page");
 if ($hookip) foreach ($hookip as $hip) {
@@ -458,7 +503,7 @@ foreach ($JAK_CAT_SITE as $itemf) {
 
 // Get News out the database, if not already in the page
 if (JAK_NEWS_ACTIVE && $newsloadonce && $jkv["shownews"]) {
-  $JAK_GET_NEWS_SORTED = jak_get_news('LIMIT ' . $jkv["shownews"], '', JAK_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['general']['g56']);
+  $JAK_GET_NEWS_SORTED = jak_get_news('LIMIT ' . $jkv["shownews"], '', JAK_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
 }
 
 // We have tags

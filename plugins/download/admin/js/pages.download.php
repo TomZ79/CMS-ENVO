@@ -1,6 +1,7 @@
 <script src="assets/js/catorder.js" type="text/javascript"></script>
 <script src="assets/js/slug.js" type="text/javascript"></script>
 <script src="assets/plugins/ace/ace.js" type="text/javascript"></script>
+
 <script type="text/javascript">
   $(document).ready(function () {
 
@@ -176,7 +177,7 @@
     if (isset($JAK_FORM_DATA["catimg"])) {
       $str = $JAK_FORM_DATA["catimg"];
 
-      if (strpos($str, 'glyphicons ') !== false) {
+      if (strpos($str, 'glyphicons ') !== FALSE) {
         $categoryimg = str_replace('glyphicons ', '', $JAK_FORM_DATA["catimg"]);
       } else {
         $categoryimg = str_replace('fa ', '', $JAK_FORM_DATA["catimg"]);

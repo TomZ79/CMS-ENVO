@@ -5,24 +5,513 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4346a0f-85ec-4e4d-93d1-8c74a4b74471" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/canvas/clients/1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/canvas/clients/10.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/canvas/clients/2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/canvas/clients/3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/canvas/clients/4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/canvas/clients/5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/canvas/clients/6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/canvas/clients/7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/canvas/clients/8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/canvas/clients/9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/jakone/img/bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/jakone/img/bg1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/jakone/img/features.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/jakone/img/gallery1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/jakone/img/gallery2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/jakone/img/gallery3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/jakone/img/gallery4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/jakone/img/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/jakone/img/iphone.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/jakone/img/mac2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/jakone/img/slider1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/jakone/img/slider2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/jakone/img/slider3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/jakone/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/jakone/jakone.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/jakone/jakone.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/location.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/logo.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/logo_small.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/onepage/animate.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/onepage/creative.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/onepage/creative.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/onepage/img/header.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/onepage/img/portfolio/1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/onepage/img/portfolio/2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/onepage/img/portfolio/3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/onepage/img/portfolio/4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/onepage/img/portfolio/5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/onepage/img/portfolio/6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/onepage/jquery.easing.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/onepage/jquery.fittext.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/onepage/wow.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/red_dragon.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_files/swiss_made.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/ajax/hookorder.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/ajax/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/ajax/loadcontent.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/ajax/pluginorder.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/ajax/todo.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/chart/canvas-tools.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/chart/exporting.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/chart/highcharts.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/chart/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/chart/themes/dark-blue.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/chart/themes/dark-green.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/chart/themes/dark-unica.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/chart/themes/gray.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/chart/themes/grid-light.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/chart/themes/grid.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/chart/themes/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/chart/themes/sand-signika.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/chart/themes/skies.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/css/admin-color.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/css/admin.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/css/animate.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/css/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/css/rtl/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/css/rtl/screen.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/dbbackup/class.dbie.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/dbbackup/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/css/doc.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/css/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/img/bg.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/img/icons.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/img/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/img/play.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/img/zigzag.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/js/doc.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/js/gallery.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/js/html5.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/js/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/js/syntaxhighlighter/LGPL-LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/js/syntaxhighlighter/MIT-LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/js/syntaxhighlighter/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/js/syntaxhighlighter/scripts/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/js/syntaxhighlighter/scripts/shAutoloader.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/js/syntaxhighlighter/scripts/shBrushCss.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/js/syntaxhighlighter/scripts/shBrushJScript.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/js/syntaxhighlighter/scripts/shBrushPhp.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/js/syntaxhighlighter/scripts/shBrushPlain.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/js/syntaxhighlighter/scripts/shBrushSql.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/js/syntaxhighlighter/scripts/shBrushXml.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/js/syntaxhighlighter/scripts/shCore.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/js/syntaxhighlighter/scripts/shLegacy.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/js/syntaxhighlighter/styles/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/js/syntaxhighlighter/styles/shCoreKreatura.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/doc/js/syntaxhighlighter/styles/shThemeKreatura.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/img/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/img/plugin/belowheader/belowheader-01.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/img/plugin/belowheader/belowheader-02.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/img/plugin/belowheader/belowheader-03.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/img/plugin/belowheader/belowheader-04.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/img/plugin/belowheader/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/img/plugin/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/img/table-arrows.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-datetimepicker-4/css/bootstrap-datetimepicker-color-teal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-datetimepicker-4/css/bootstrap-datetimepicker-standalone.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-datetimepicker-4/css/bootstrap-datetimepicker.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-datetimepicker-4/css/bootstrap-datetimepicker.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-datetimepicker-4/css/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-datetimepicker-4/js/bootstrap-datetimepicker.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-datetimepicker-4/js/bootstrap-datetimepicker.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-datetimepicker-4/js/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/css/fileinput.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/css/fileinput.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/css/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/img/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/img/loading-sm.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/img/loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/js/fileinput.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/js/fileinput.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/js/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/js/locales/cz.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/js/locales/de.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/js/locales/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/js/locales/sk.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/js/plugins/canvas-to-blob.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/js/plugins/canvas-to-blob.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/js/plugins/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/js/plugins/purify.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/js/plugins/purify.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/js/plugins/sortable.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/js/plugins/sortable.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/themes/fa/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/themes/fa/theme.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/themes/gly/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/themes/gly/theme.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/themes/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/uploadfacebook.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-fileinput/uploads/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/css/bootstrap-iconpicker.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/css/bootstrap-iconpicker.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/css/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/bootstrap-iconpicker.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/bootstrap-iconpicker.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/iconset-all.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/iconset-elusiveicon-2.0.0.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/iconset-elusiveicon-2.0.0.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/iconset-fontawesome-4.0.0.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/iconset-fontawesome-4.0.0.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/iconset-fontawesome-4.1.0.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/iconset-fontawesome-4.1.0.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/iconset-fontawesome-4.2.0.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/iconset-fontawesome-4.2.0.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/iconset-glyphicon.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/iconset-glyphicon.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/iconset-ionicon-1.5.2.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/iconset-ionicon-1.5.2.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/iconset-mapicon-2.1.0.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/iconset-mapicon-2.1.0.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/iconset-materialdesign-1.1.1.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/iconset-materialdesign-1.1.1.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/iconset-octicon-2.1.2.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/iconset-octicon-2.1.2.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/iconset-typicon-2.0.6.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/iconset-typicon-2.0.6.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/iconset-weathericon-1.2.0.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/iconset-weathericon-1.2.0.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/iconset/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-iconpicker/js/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-select/css/bootstrap-select.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-select/css/bootstrap-select.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-select/css/bootstrap-select.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-select/css/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-select/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-select/js/bootstrap-select.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-select/js/bootstrap-select.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-select/js/bootstrap-select.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-select/js/i18n/defaults-cs_CZ.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-select/js/i18n/defaults-cs_CZ.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-select/js/i18n/defaults-de_DE.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-select/js/i18n/defaults-de_DE.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-select/js/i18n/defaults-en_US.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-select/js/i18n/defaults-en_US.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-select/js/i18n/defaults-eu.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-select/js/i18n/defaults-eu.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-select/js/i18n/defaults-sk_SK.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-select/js/i18n/defaults-sk_SK.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-select/js/i18n/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/bootstrap-select/js/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/moment/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/moment/moment-with-locales.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/moment/moment-with-locales.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/moment/moment.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/moment/moment.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/pace.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/pace.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/black/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/black/pace-theme-barber-shop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/black/pace-theme-big-counter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/black/pace-theme-bounce.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/black/pace-theme-center-atom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/black/pace-theme-center-circle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/black/pace-theme-center-radar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/black/pace-theme-center-simple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/black/pace-theme-corner-indicator.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/black/pace-theme-fill-left.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/black/pace-theme-flash.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/black/pace-theme-flat-top.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/black/pace-theme-loading-bar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/black/pace-theme-mac-osx.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/black/pace-theme-minimal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/blue/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/blue/pace-theme-barber-shop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/blue/pace-theme-big-counter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/blue/pace-theme-bounce.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/blue/pace-theme-center-atom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/blue/pace-theme-center-circle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/blue/pace-theme-center-radar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/blue/pace-theme-center-simple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/blue/pace-theme-corner-indicator.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/blue/pace-theme-fill-left.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/blue/pace-theme-flash.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/blue/pace-theme-flat-top.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/blue/pace-theme-loading-bar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/blue/pace-theme-mac-osx.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/blue/pace-theme-minimal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/green/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/green/pace-theme-barber-shop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/green/pace-theme-big-counter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/green/pace-theme-bounce.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/green/pace-theme-center-atom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/green/pace-theme-center-circle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/green/pace-theme-center-radar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/green/pace-theme-center-simple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/green/pace-theme-corner-indicator.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/green/pace-theme-fill-left.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/green/pace-theme-flash.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/green/pace-theme-flat-top.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/green/pace-theme-loading-bar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/green/pace-theme-mac-osx.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/green/pace-theme-minimal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/orange/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/orange/pace-theme-barber-shop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/orange/pace-theme-big-counter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/orange/pace-theme-bounce.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/orange/pace-theme-center-atom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/orange/pace-theme-center-circle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/orange/pace-theme-center-radar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/orange/pace-theme-center-simple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/orange/pace-theme-corner-indicator.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/orange/pace-theme-fill-left.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/orange/pace-theme-flash.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/orange/pace-theme-flat-top.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/orange/pace-theme-loading-bar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/orange/pace-theme-mac-osx.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/orange/pace-theme-minimal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/pink/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/pink/pace-theme-barber-shop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/pink/pace-theme-big-counter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/pink/pace-theme-bounce.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/pink/pace-theme-center-atom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/pink/pace-theme-center-circle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/pink/pace-theme-center-radar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/pink/pace-theme-center-simple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/pink/pace-theme-corner-indicator.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/pink/pace-theme-fill-left.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/pink/pace-theme-flash.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/pink/pace-theme-flat-top.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/pink/pace-theme-loading-bar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/pink/pace-theme-mac-osx.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/pink/pace-theme-minimal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/purple/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/purple/pace-theme-barber-shop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/purple/pace-theme-big-counter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/purple/pace-theme-bounce.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/purple/pace-theme-center-atom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/purple/pace-theme-center-circle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/purple/pace-theme-center-radar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/purple/pace-theme-center-simple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/purple/pace-theme-corner-indicator.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/purple/pace-theme-fill-left.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/purple/pace-theme-flash.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/purple/pace-theme-flat-top.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/purple/pace-theme-loading-bar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/purple/pace-theme-mac-osx.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/purple/pace-theme-minimal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/red/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/red/pace-theme-barber-shop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/red/pace-theme-big-counter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/red/pace-theme-bounce.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/red/pace-theme-center-atom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/red/pace-theme-center-circle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/red/pace-theme-center-radar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/red/pace-theme-center-simple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/red/pace-theme-corner-indicator.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/red/pace-theme-fill-left.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/red/pace-theme-flash.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/red/pace-theme-flat-top.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/red/pace-theme-loading-bar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/red/pace-theme-mac-osx.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/red/pace-theme-minimal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/silver/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/silver/pace-theme-barber-shop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/silver/pace-theme-big-counter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/silver/pace-theme-bounce.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/silver/pace-theme-center-atom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/silver/pace-theme-center-circle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/silver/pace-theme-center-radar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/silver/pace-theme-center-simple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/silver/pace-theme-corner-indicator.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/silver/pace-theme-fill-left.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/silver/pace-theme-flash.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/silver/pace-theme-flat-top.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/silver/pace-theme-loading-bar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/silver/pace-theme-mac-osx.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/silver/pace-theme-minimal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/teal/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/teal/pace-theme-barber-shop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/teal/pace-theme-big-counter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/teal/pace-theme-bounce.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/teal/pace-theme-center-atom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/teal/pace-theme-center-circle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/teal/pace-theme-center-radar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/teal/pace-theme-center-simple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/teal/pace-theme-corner-indicator.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/teal/pace-theme-fill-left.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/teal/pace-theme-flash.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/teal/pace-theme-flat-top.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/teal/pace-theme-loading-bar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/teal/pace-theme-mac-osx.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/teal/pace-theme-minimal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/white/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/white/pace-theme-barber-shop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/white/pace-theme-big-counter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/white/pace-theme-bounce.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/white/pace-theme-center-atom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/white/pace-theme-center-circle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/white/pace-theme-center-radar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/white/pace-theme-center-simple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/white/pace-theme-corner-indicator.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/white/pace-theme-fill-left.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/white/pace-theme-flash.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/white/pace-theme-flat-top.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/white/pace-theme-loading-bar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/white/pace-theme-mac-osx.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/white/pace-theme-minimal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/yellow/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/yellow/pace-theme-barber-shop.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/yellow/pace-theme-big-counter.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/yellow/pace-theme-bounce.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/yellow/pace-theme-center-atom.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/yellow/pace-theme-center-circle.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/yellow/pace-theme-center-radar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/yellow/pace-theme-center-simple.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/yellow/pace-theme-corner-indicator.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/yellow/pace-theme-fill-left.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/yellow/pace-theme-flash.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/yellow/pace-theme-flat-top.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/yellow/pace-theme-loading-bar.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/yellow/pace-theme-mac-osx.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js-plugins/pace/themes/yellow/pace-theme-minimal.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/ace.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/mode-css.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/mode-html.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/mode-ini.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/mode-javascript.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/mode-php.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/mode-plain_text.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/snippets/css.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/snippets/html.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/snippets/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/snippets/ini.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/snippets/javascript.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/snippets/mysql.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/snippets/php.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/snippets/sql.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/snippets/text.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/theme-chrome.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/theme-cobalt.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/theme-monokai.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/theme-vibrant_ink.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/worker-css.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/worker-html.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/worker-javascript.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/ace/worker-php.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/catorder.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/cms.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/cms_custom.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/editor.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/hookorder.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/pluginorder.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/slug.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/js/todo.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/404.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/cat_edit.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/cat_new.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/categories.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/changelog.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/contactform.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/editcat.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/editcontactform.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/editfacebook.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/editfiles.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/edithook.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/editnews.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/editor_edit.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/editor_new.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/editorlight_edit.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/editorlight_new.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/editpage.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/edituser.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/editusergroup.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/facebookgallery.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/footer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/header.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/help.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/hooks.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/index.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/login.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/logs.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/maintenance.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/mediasharing.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/navbar.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/newcat.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/newcontactform.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/newfacebook.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/newhook.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/newnews.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/newpage.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/news.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/newsnav.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/newssetting.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/newuser.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/newusergroup.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/pages.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/plugins.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/quickedit.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/quickfooter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/quickheader.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/searchlog.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/searchpages.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/searchsetting.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/searchuser.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/setting.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/settingfacebook.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/sidebar_widget.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/sidebar_widget_new.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/site.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/sitemapsetting.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/sorthooks.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/tag.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/tagcloud.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/tagnav.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/tagsetting.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/template.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/templatesettings.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/timezoneserver.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/title_edit.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/title_new.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/user.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/_adminOld/template/usergroup.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/img/code_lines.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/css/style.css" afterPath="$PROJECT_DIR$/admin/assets/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-iconpicker/js/iconset/iconset-fontawesome-4.5.0.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-iconpicker/js/iconset/iconset-fontawesome-4.5.0.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/admin/lang/cs.ini" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/js/scripts.js" afterPath="$PROJECT_DIR$/admin/assets/js/scripts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.categories.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.categories.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.changelog.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.changelog.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.contactform.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.contactform.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.email.js" afterPath="$PROJECT_DIR$/admin/pages/js/pages.email.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.facebookgallery.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.facebookgallery.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.index.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.js" afterPath="$PROJECT_DIR$/admin/pages/js/pages.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.login.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.logs.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.logs.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.mediasharing.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.mediasharing.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.news.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.news.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.page.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.page.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.plugins.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.plugins.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.searchlog.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.searchlog.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.setting.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.setting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/logs.php" afterPath="$PROJECT_DIR$/admin/template/logs.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newssetting.php" afterPath="$PROJECT_DIR$/admin/template/newssetting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/searchlog.php" afterPath="$PROJECT_DIR$/admin/template/searchlog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/setting.php" afterPath="$PROJECT_DIR$/admin/template/setting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/site.php" afterPath="$PROJECT_DIR$/admin/template/site.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blogsetting.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blogsetting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/setting.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/setting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faqsetting.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faqsetting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/install.php" afterPath="$PROJECT_DIR$/plugins/newsletter/install.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/admin/template/stat.php" afterPath="$PROJECT_DIR$/plugins/register_form/admin/template/stat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/config.php" afterPath="$PROJECT_DIR$/template/qed/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/css/screen.css" afterPath="$PROJECT_DIR$/template/qed/css/screen.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/navbar.php" afterPath="$PROJECT_DIR$/template/qed/navbar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.settingfacebook.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.settingfacebook.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.tags.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.tags.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.template.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.template.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.user.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.user.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.usergroup.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.usergroup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/stylesheet.css" afterPath="$PROJECT_DIR$/assets/css/stylesheet.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lang/cs.ini" afterPath="$PROJECT_DIR$/lang/cs.ini" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news.php" afterPath="$PROJECT_DIR$/news.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/admin/js/pages.belowheader.php" afterPath="$PROJECT_DIR$/plugins/belowheader/admin/js/pages.belowheader.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/js/pages.blog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/js/pages.blog.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/js/pages.download.php" afterPath="$PROJECT_DIR$/plugins/download/admin/js/pages.download.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/js/pages.faq.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/js/pages.faq.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/admin/js/pages.growl.php" afterPath="$PROJECT_DIR$/plugins/growl/admin/js/pages.growl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/admin/js/pages.register-form.php" afterPath="$PROJECT_DIR$/plugins/register_form/admin/js/pages.register-form.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/site_editor/admin/js/pages.site-editor.php" afterPath="$PROJECT_DIR$/plugins/site_editor/admin/js/pages.site-editor.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/admin/js/pages.urlmapping.php" afterPath="$PROJECT_DIR$/plugins/urlmapping/admin/js/pages.urlmapping.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/admin/js/pages.xml_seo.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/admin/js/pages.xml_seo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/offline.php" afterPath="$PROJECT_DIR$/template/qed/offline.php" />
     </list>
     <ignored path="CMS-Bluesat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,31 +532,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/template/qed/config.php">
+      <file leaf-file-name="cs.ini" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/lang/cs.ini">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="49" column="6" selection-start-line="49" selection-start-column="6" selection-end-line="49" selection-end-column="6" />
+            <state relative-caret-position="93">
+              <caret line="1476" column="15" selection-start-line="1476" selection-start-column="15" selection-end-line="1476" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="summernote.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/admin/assets/plugins/summernote/js/summernote.js">
+      <file leaf-file-name="cs.ini" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lang/cs.ini">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+            <state relative-caret-position="9">
+              <caret line="247" column="16" selection-start-line="247" selection-start-column="16" selection-end-line="247" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="navbar.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/template/qed/navbar.php">
+      <file leaf-file-name="news.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/news.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+            <state relative-caret-position="238">
+              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+              <folding>
+                <marker date="1491733951529" expanded="true" signature="1187:1402" ph="SELECT * FRO... ${$jaktable}" />
+                <marker date="1491733951529" expanded="true" signature="3949:4082" ph="SELECT id, p... ${DB_PREFIX}" />
+                <marker date="1491733951529" expanded="true" signature="7282:7421" ph="SELECT id, h... ${DB_PREFIX}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newsart.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/template/qed/newsart.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -85,63 +588,60 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.txt" root0="SKIP_INSPECTION" />
-  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/plugins/newsletter/admin/template/newsletter.php" />
-        <option value="$PROJECT_DIR$/admin/assets/plugins/font-awesome/css/font-awesome.css" />
-        <option value="$PROJECT_DIR$/admin/assets/plugins/bootstrap-iconpicker/js/iconset/asdf.css" />
-        <option value="$PROJECT_DIR$/admin/assets/plugins/bootstrap-glyphicons/social/css/glyphicons-social.css" />
-        <option value="$PROJECT_DIR$/admin/assets/plugins/bootstrap-glyphicons/filetyp/css/glyphicons-filetypes.css" />
-        <option value="$PROJECT_DIR$/admin/assets/plugins/bootstrap-glyphicons/glyphicons-pro/css/glyphicons.css" />
-        <option value="$PROJECT_DIR$/admin/assets/plugins/bootstrap-glyphicons/glyphicons-pro/css/glyphicons-pro.css" />
-        <option value="$PROJECT_DIR$/assets/plugins/bootstrap-glyphicons/filetyp/css/glyphicons-filetypes.min.css" />
-        <option value="$PROJECT_DIR$/assets/plugins/bootstrap-glyphicons/social/css/glyphicons-social.min.css" />
-        <option value="$PROJECT_DIR$/admin/assets/plugins/bootstrap-iconpicker/js/iconset/iconset-glyphicon.js" />
-        <option value="$PROJECT_DIR$/admin/assets/plugins/bootstrap-iconpicker/js/iconset/iconset-fontawesome-4.7.0.js" />
-        <option value="$PROJECT_DIR$/admin/assets/plugins/bootstrapv3/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/admin/assets/plugins/bootstrapv3/css/bootstrap.min.css" />
-        <option value="$PROJECT_DIR$/admin/template/blankpage.php" />
-        <option value="$PROJECT_DIR$/admin/template/header.php" />
-        <option value="$PROJECT_DIR$/template/qed/header.php" />
-        <option value="$PROJECT_DIR$/admin/assets/plugins/bootstrap-iconpicker/js/iconset/iconset-glyphicon-pro.js" />
-        <option value="$PROJECT_DIR$/admin/assets/plugins/bootstrap-iconpicker/js/iconset/iconset-fontawesome-4.5.0.js" />
-        <option value="$PROJECT_DIR$/admin/assets/plugins/bootstrap-iconpicker/js/iconset/iconset-all.min.js" />
-        <option value="$PROJECT_DIR$/admin/template/footer.php" />
-        <option value="$PROJECT_DIR$/admin/template/editcat.php" />
-        <option value="$PROJECT_DIR$/admin/pages/js/pages.categories.php" />
-        <option value="$PROJECT_DIR$/assets/plugins/bootstrap-glyphicons/glyphicons-pro/css/glyphicons-pro.css" />
-        <option value="$PROJECT_DIR$/assets/plugins/bootstrap-glyphicons/glyphicons-pro/css/glyphicons-pro.min.css" />
-        <option value="$PROJECT_DIR$/plugins/blog/admin/template/editblogcat.php" />
-        <option value="$PROJECT_DIR$/admin/template/newcat.php" />
-        <option value="$PROJECT_DIR$/plugins/blog/admin/template/newblogcat.php" />
-        <option value="$PROJECT_DIR$/plugins/download/admin/template/newcat.php" />
-        <option value="$PROJECT_DIR$/plugins/download/admin/template/editcat.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/template/editfaqcat.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/template/newfaqcat.php" />
-        <option value="$PROJECT_DIR$/plugins/blog/admin/js/pages.blog.php" />
-        <option value="$PROJECT_DIR$/plugins/download/admin/js/pages.download.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/js/pages.faq.php" />
-        <option value="$PROJECT_DIR$/admin/assets/css/style.css" />
-        <option value="$PROJECT_DIR$/plugins/register_form/admin/template/stat.php" />
-        <option value="$PROJECT_DIR$/admin/template/logs.php" />
-        <option value="$PROJECT_DIR$/admin/template/searchlog.php" />
-        <option value="$PROJECT_DIR$/admin/template/site.php" />
         <option value="$PROJECT_DIR$/admin/lang/cs.ini" />
         <option value="$PROJECT_DIR$/admin/template/newssetting.php" />
         <option value="$PROJECT_DIR$/plugins/blog/admin/template/blogsetting.php" />
         <option value="$PROJECT_DIR$/plugins/download/admin/template/setting.php" />
         <option value="$PROJECT_DIR$/plugins/faq/admin/template/faqsetting.php" />
         <option value="$PROJECT_DIR$/admin/template/setting.php" />
-        <option value="$PROJECT_DIR$/admin/pages/js/pages.setting.php" />
         <option value="$PROJECT_DIR$/plugins/newsletter/install.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/template/qed/css/screen.css" />
         <option value="$PROJECT_DIR$/template/qed/navbar.php" />
+        <option value="$PROJECT_DIR$/admin/assets/css/style.css" />
         <option value="$PROJECT_DIR$/template/qed/config.php" />
+        <option value="$PROJECT_DIR$/admin/assets/plugins/bootstrap-datetimepicker-4/js/bootstrap-datetimepicker.js" />
+        <option value="$PROJECT_DIR$/admin/template/footer.php" />
+        <option value="$PROJECT_DIR$/admin/pages/js/pages.changelog.php" />
+        <option value="$PROJECT_DIR$/admin/pages/js/pages.contactform.php" />
+        <option value="$PROJECT_DIR$/admin/pages/js/pages.email.js" />
+        <option value="$PROJECT_DIR$/admin/pages/js/pages.facebookgallery.php" />
+        <option value="$PROJECT_DIR$/admin/pages/js/pages.index.php" />
+        <option value="$PROJECT_DIR$/admin/pages/js/pages.categories.php" />
+        <option value="$PROJECT_DIR$/admin/pages/js/pages.js" />
+        <option value="$PROJECT_DIR$/admin/pages/js/pages.login.php" />
+        <option value="$PROJECT_DIR$/admin/pages/js/pages.logs.php" />
+        <option value="$PROJECT_DIR$/admin/assets/js/scripts.js" />
+        <option value="$PROJECT_DIR$/admin/pages/js/pages.mediasharing.php" />
+        <option value="$PROJECT_DIR$/admin/pages/js/pages.news.php" />
+        <option value="$PROJECT_DIR$/admin/pages/js/pages.page.php" />
+        <option value="$PROJECT_DIR$/admin/pages/js/pages.plugins.php" />
+        <option value="$PROJECT_DIR$/admin/pages/js/pages.searchlog.php" />
+        <option value="$PROJECT_DIR$/admin/pages/js/pages.setting.php" />
+        <option value="$PROJECT_DIR$/admin/pages/js/pages.settingfacebook.php" />
+        <option value="$PROJECT_DIR$/admin/pages/js/pages.tags.php" />
+        <option value="$PROJECT_DIR$/admin/pages/js/pages.template.php" />
+        <option value="$PROJECT_DIR$/admin/pages/js/pages.user.php" />
+        <option value="$PROJECT_DIR$/admin/pages/js/pages.usergroup.php" />
+        <option value="$PROJECT_DIR$/assets/css/stylesheet.css" />
+        <option value="$PROJECT_DIR$/plugins/belowheader/admin/js/pages.belowheader.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/js/pages.blog.php" />
+        <option value="$PROJECT_DIR$/plugins/download/admin/js/pages.download.php" />
+        <option value="$PROJECT_DIR$/plugins/faq/admin/js/pages.faq.php" />
+        <option value="$PROJECT_DIR$/plugins/growl/admin/js/pages.growl.php" />
+        <option value="$PROJECT_DIR$/plugins/register_form/admin/js/pages.register-form.php" />
+        <option value="$PROJECT_DIR$/plugins/site_editor/admin/js/pages.site-editor.php" />
+        <option value="$PROJECT_DIR$/plugins/urlmapping/admin/js/pages.urlmapping.php" />
+        <option value="$PROJECT_DIR$/plugins/xml_seo/admin/js/pages.xml_seo.php" />
+        <option value="$PROJECT_DIR$/plugins/xml_seo/install.php" />
+        <option value="$PROJECT_DIR$/template/qed/offline.php" />
+        <option value="$PROJECT_DIR$/template/qed/standard.php" />
+        <option value="$PROJECT_DIR$/template/qed/success.php" />
+        <option value="$PROJECT_DIR$/lang/cs.ini" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/news.php" />
       </list>
     </option>
   </component>
@@ -186,142 +686,11 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="summernote" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="summernote" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+        <subPane />
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -332,16 +701,16 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Github\CMS-Bluesat\admin\assets\plugins\font-awesome\4.5.0" />
-      <recent name="D:\Github\CMS-Bluesat\plugins\download\template" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Github\CMS-Bluesat\template\qed" />
       <recent name="D:\Github\CMS-Bluesat\assets\plugins\bootstrap-glyphicons\social\css" />
       <recent name="D:\Github\CMS-Bluesat\assets\plugins\bootstrap-glyphicons\filetyp\css" />
       <recent name="D:\Github\CMS-Bluesat\assets\plugins\bootstrap-glyphicons\glyphicons-pro\css" />
       <recent name="D:\Github\CMS-Bluesat\assets\plugins" />
-      <recent name="D:\Github\CMS-Bluesat\admin\assets\plugins\bootstrap-iconpicker\js\iconset" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Github\CMS-Bluesat\admin\assets\plugins\font-awesome\4.5.0" />
+      <recent name="D:\Github\CMS-Bluesat\plugins\download\template" />
     </key>
   </component>
   <component name="RunManager">
@@ -426,23 +795,23 @@
       <workItem from="1491214579267" duration="15095000" />
       <workItem from="1491236228765" duration="2229000" />
       <workItem from="1491238903217" duration="7520000" />
-      <workItem from="1491247587605" duration="66500000" />
+      <workItem from="1491247587605" duration="69857000" />
+      <workItem from="1491551856175" duration="30434000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="540426000" />
+    <option name="totallyTimeSpent" value="574217000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28477305" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18960468" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26866764" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26866764" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="0" y="53" width="1362" height="715" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -453,6 +822,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -498,415 +868,234 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/plugins/bootstrap-glyphicons/filetyp/css/glyphicons-filetypes.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1785">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/assets/plugins/bootstrap-iconpicker/js/iconset/iconset-fontawesome-4.5.0.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12376">
-          <caret line="728" column="27" selection-start-line="728" selection-start-column="27" selection-end-line="728" selection-end-column="27" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="47" column="92" selection-start-line="47" selection-start-column="92" selection-end-line="47" selection-end-column="92" />
-          <folding>
-            <marker date="1491337559341" expanded="true" signature="10079:10138" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1491337559341" expanded="true" signature="11760:11823" ph="SELECT id FR... ${DB_PREFIX}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/assets/plugins/bootstrap-iconpicker/js/iconset/iconset-fontawesome-4.7.0.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="2" selection-start-line="0" selection-start-column="0" selection-end-line="802" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/assets/plugins/bootstrap-iconpicker/js/iconset/iconset-glyphicon-pro.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="33" selection-start-line="0" selection-start-column="0" selection-end-line="816" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/assets/plugins/bootstrap-iconpicker/js/iconset/iconset-all.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="1" column="10003" selection-start-line="1" selection-start-column="10003" selection-end-line="1" selection-end-column="10003" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="176" column="85" selection-start-line="176" selection-start-column="85" selection-end-line="176" selection-end-column="85" />
-          <folding>
-            <marker date="1491341209017" expanded="true" signature="10708:11421" ph="..." />
-            <marker date="1491341209017" expanded="true" signature="10828:11280" ph="{&quot;type&quot;: &quot;danger&quot;...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/editpage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/plugins/bootstrap-glyphicons/glyphicons-pro/css/glyphicons-pro.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/plugins/bootstrap-glyphicons/glyphicons-pro/css/glyphicons-pro.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="5" column="509" selection-start-line="5" selection-start-column="509" selection-end-line="5" selection-end-column="509" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/editblogcat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="187" column="0" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/newblogcat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="171" column="120" selection-start-line="171" selection-start-column="120" selection-end-line="171" selection-end-column="120" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/download/admin/template/newcat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="165" column="22" selection-start-line="165" selection-start-column="22" selection-end-line="167" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/download/admin/template/editcat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="187" column="124" selection-start-line="187" selection-start-column="124" selection-end-line="187" selection-end-column="124" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/editfaqcat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="186" column="124" selection-start-line="186" selection-start-column="124" selection-end-line="186" selection-end-column="124" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/newfaqcat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="175" column="29" selection-start-line="175" selection-start-column="29" selection-end-line="176" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/newcat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="235" column="26" selection-start-line="235" selection-start-column="26" selection-end-line="237" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/editcat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="248" column="26" selection-start-line="248" selection-start-column="26" selection-end-line="250" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/download/admin/js/pages.download.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="214" column="7" selection-start-line="214" selection-start-column="7" selection-end-line="214" selection-end-column="7" />
+        <state relative-caret-position="165">
+          <caret line="207" column="0" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/pages/js/pages.categories.php">
+    <entry file="file://$PROJECT_DIR$/plugins/belowheader/admin/js/pages.belowheader.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        <state relative-caret-position="488">
+          <caret line="108" column="0" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/js/pages.faq.php">
+    <entry file="file://$PROJECT_DIR$/template/canvas/js/canvas/functions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="99" column="29" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/js/pages.blog.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="263" column="7" selection-start-line="263" selection-start-column="7" selection-end-line="263" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/logs.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-289">
-          <caret line="151" column="146" selection-start-line="151" selection-start-column="146" selection-end-line="151" selection-end-column="146" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/searchlog.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="135" column="151" selection-start-line="135" selection-start-column="151" selection-end-line="135" selection-end-column="151" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="823" column="18" selection-start-line="823" selection-start-column="18" selection-end-line="823" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/register_form/admin/template/stat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="24" column="49" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
+        <state relative-caret-position="137">
+          <caret line="920" column="33" selection-start-line="920" selection-start-column="33" selection-end-line="920" selection-end-column="33" />
           <folding>
-            <marker date="1491423343194" expanded="true" signature="33:85" ph="SELECT COUNT... ${DB_PREFIX}" />
-            <marker date="1491423343194" expanded="true" signature="151:254" ph="SELECT COUNT... ${DB_PREFIX}" />
-            <marker date="1491423343194" expanded="true" signature="322:425" ph="SELECT COUNT... ${DB_PREFIX}" />
+            <marker date="1485602975235" expanded="true" signature="84724:84770" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/site.php">
+    <entry file="file://$PROJECT_DIR$/_files/onepage/jquery.fittext.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="136" column="0" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+        <state relative-caret-position="68">
+          <caret line="4" column="51" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/lang/cs.ini">
+    <entry file="file://$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/config/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="210" column="72" selection-start-line="210" selection-start-column="72" selection-end-line="210" selection-end-column="72" />
+        <state relative-caret-position="205">
+          <caret line="98" column="64" selection-start-line="98" selection-start-column="64" selection-end-line="98" selection-end-column="64" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/faqsetting.php">
+    <entry file="file://$PROJECT_DIR$/_files/jakone/img/bg.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_files/jakone/img/bg1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_files/jakone/img/features.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_files/jakone/img/gallery3.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_files/jakone/img/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="88" column="75" selection-start-line="88" selection-start-column="75" selection-end-line="88" selection-end-column="75" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/download/admin/template/setting.php">
+    <entry file="file://$PROJECT_DIR$/_files/jakone/img/mac2.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_files/jakone/img/iphone.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_files/jakone/img/slider2.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_files/jakone/jakone.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="283" column="146" selection-start-line="283" selection-start-column="144" selection-end-line="283" selection-end-column="146" />
+        <state relative-caret-position="-12223">
+          <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/blogsetting.php">
+    <entry file="file://$PROJECT_DIR$/_files/jakone/jakone.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="307" column="136" selection-start-line="307" selection-start-column="136" selection-end-line="307" selection-end-column="136" />
+        <state relative-caret-position="-4518">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/newssetting.php">
+    <entry file="file://$PROJECT_DIR$/_files/canvas/clients/1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_files/canvas/clients/2.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_files/canvas/clients/3.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_files/canvas/clients/5.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_files/canvas/clients/6.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_files/canvas/clients/8.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_files/location.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_files/logo.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_files/logo_small.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_files/red_dragon.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_files/swiss_made.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_files/facebook/facebook_name.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="240" column="141" selection-start-line="240" selection-start-column="141" selection-end-line="240" selection-end-column="141" />
+        <state relative-caret-position="34">
+          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/setting.php">
+    <entry file="file://$PROJECT_DIR$/_files/facebook/facebook_description.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="951" column="114" selection-start-line="951" selection-start-column="114" selection-end-line="951" selection-end-column="114" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/pages/js/pages.setting.php">
+    <entry file="file://$PROJECT_DIR$/admin/ajax/uploadfacebook.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/newsletter/install.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="167" column="105" selection-start-line="167" selection-start-column="105" selection-end-line="167" selection-end-column="105" />
-          <folding>
-            <marker date="1491425541831" expanded="true" signature="4283:4348" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1491425541831" expanded="true" signature="5355:6063" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1491425541831" expanded="true" signature="6255:6320" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1491425541831" expanded="true" signature="8905:10015" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1491425541831" expanded="true" signature="10142:11286" ph="INSERT INTO ${DB_PREFIX}setting... " />
-            <marker date="1491425541831" expanded="true" signature="11343:11456" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
-            <marker date="1491425541831" expanded="true" signature="11509:11620" ph="ALTER TABLE ${DB_PREFIX}user... " />
-            <marker date="1491425541831" expanded="true" signature="11793:12046" ph="INSERT INTO ${DB_PREFIX}categories... " />
-            <marker date="1491425541831" expanded="true" signature="12177:12672" ph="CREATE TABLE... IF" />
-            <marker date="1491425541831" expanded="true" signature="12817:13118" ph="CREATE TABLE... IF" />
-            <marker date="1491425541831" expanded="true" signature="13261:13371" ph="INSERT INTO ${DB_PREFIX}newslettergroup... " />
-            <marker date="1491425541831" expanded="true" signature="13516:13959" ph="CREATE TABLE... IF" />
-            <marker date="1491425541831" expanded="true" signature="14106:14632" ph="CREATE TABLE... IF" />
-            <marker date="1491425541831" expanded="true" signature="15521:15583" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="442" column="0" selection-start-line="442" selection-start-column="0" selection-end-line="442" selection-end-column="0" />
-          <folding>
-            <marker date="1491426887722" expanded="true" signature="11740:11839" ph="SELECT id, n... ${DB_PREFIX}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/qed/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="264" column="28" selection-start-line="264" selection-start-column="28" selection-end-line="264" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-84">
-          <caret line="428" column="0" selection-start-line="428" selection-start-column="0" selection-end-line="428" selection-end-column="0" />
-          <folding>
-            <marker date="1491045478808" expanded="true" signature="7070:7166" ph="SELECT varna... ${DB_PREFIX}" />
-            <marker date="1491045478808" expanded="true" signature="7432:7528" ph="SELECT varna... ${DB_PREFIX}" />
-            <marker date="1491045478808" expanded="true" signature="8514:8575" ph="SELECT COUNT... ${$jakvar}" />
-            <marker date="1491045478808" expanded="true" signature="8780:8843" ph="SELECT * FRO... ${$table}" />
-            <marker date="1491045478808" expanded="true" signature="9142:9183" ph="SELECT * FRO... ${$table}" />
-            <marker date="1491045478808" expanded="true" signature="9475:9569" ph="SELECT id FR... ${$table}" />
-            <marker date="1491045478808" expanded="true" signature="9767:9839" ph="SELECT id FR... ${$table}" />
-            <marker date="1491045478808" expanded="true" signature="10073:10192" ph="SELECT id FR... ${$table}" />
-            <marker date="1491045478808" expanded="true" signature="10446:10532" ph="SELECT permi... ${$jakvar1}" />
-            <marker date="1491045478808" expanded="true" signature="10904:11013" ph="SELECT id FR... ${$jakvar2}" />
-            <marker date="1491045478808" expanded="true" signature="11754:11968" ph="SELECT * FRO... ${DB_PREFIX}" />
-            <marker date="1491045478808" expanded="true" signature="16799:19193" ph="..." />
-            <marker date="1491045478808" expanded="true" signature="16828:19188" ph="..." />
-            <marker date="1491045478808" expanded="true" signature="17373:17450" ph="..." />
-            <marker date="1491045478808" expanded="true" signature="17534:19168" ph="..." />
-            <marker date="1491045478808" expanded="true" signature="19434:21897" ph="..." />
-            <marker date="1491045478808" expanded="true" signature="19463:21892" ph="..." />
-            <marker date="1491045478808" expanded="true" signature="20032:20115" ph="..." />
-            <marker date="1491045478808" expanded="true" signature="20205:21869" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/include/admin.function.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1">
-          <caret line="395" column="9" selection-start-line="395" selection-start-column="9" selection-end-line="395" selection-end-column="9" />
-          <folding>
-            <marker date="1491136674579" expanded="true" signature="708:831" ph="SELECT id, n... ${DB_PREFIX}" />
-            <marker date="1491136674579" expanded="true" signature="1244:1307" ph="SELECT * FRO... ${$jakvar}" />
-            <marker date="1491136674579" expanded="true" signature="1615:1692" ph="SELECT id, n... ${DB_PREFIX}" />
-            <marker date="1491136674579" expanded="true" signature="2225:2316" ph="SELECT COUNT... ${DB_PREFIX}" />
-            <marker date="1491136674579" expanded="true" signature="2599:2646" ph="SELECT * FRO... ${$jakvar}" />
-            <marker date="1491136674579" expanded="true" signature="2964:3021" ph="SELECT * FRO... ${DB_PREFIX}" />
-            <marker date="1491136674579" expanded="true" signature="3592:3651" ph="SELECT id, t... ${DB_PREFIX}" />
-            <marker date="1491136674579" expanded="true" signature="5083:5188" ph="SELECT id, u... " />
-            <marker date="1491136674579" expanded="true" signature="6091:6157" ph="SELECT * FRO... ${$jakvar1}" />
-            <marker date="1491136674579" expanded="true" signature="6620:6703" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1491136674579" expanded="true" signature="6909:7040" ph="SELECT id FR... ${$jakvar2}" />
-            <marker date="1491136674579" expanded="true" signature="7265:7402" ph="SELECT id, t... ${DB_PREFIX}" />
-            <marker date="1491136674579" expanded="true" signature="7519:7558" ph="..." />
-            <marker date="1491136674579" expanded="true" signature="8033:8110" ph="SELECT * FRO... ${DB_PREFIX}" />
-            <marker date="1491136674579" expanded="true" signature="8386:8449" ph="SELECT tag F... ${DB_PREFIX}" />
-            <marker date="1491136674579" expanded="true" signature="9750:9843" ph="SELECT * FRO... ${$jakvar}" />
-            <marker date="1491136674579" expanded="true" signature="10242:10334" ph="SELECT COUNT... ${DB_PREFIX}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/categories.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="97" column="30" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/class/class.hooks.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-668">
+        <state relative-caret-position="-1224">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1485602926621" expanded="true" signature="352:432" ph="SELECT * FRO... ${DB_PREFIX}" />
+            <marker date="1485602804803" expanded="true" signature="2009:2275" ph="INSERT INTO ${$jaktable}... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/class/class.htmlelement.php">
+    <entry file="file://$PROJECT_DIR$/assets/img/code_lines.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/img/click.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/download/admin/download.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="41" column="5" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="5" />
+        <state relative-caret-position="256">
+          <caret line="703" column="26" selection-start-line="703" selection-start-column="26" selection-end-line="703" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/qed/css/color/neko-framework-color.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="2574" column="35" selection-start-line="2574" selection-start-column="33" selection-end-line="2574" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/qed/css/layout/neko-framework-layout.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="6819" column="10" selection-start-line="6819" selection-start-column="1" selection-end-line="6819" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/qed/offline.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/template/qed/footer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2584">
-          <caret line="149" column="53" selection-start-line="149" selection-start-column="45" selection-end-line="149" selection-end-column="53" />
+        <state relative-caret-position="151">
+          <caret line="329" column="29" selection-start-line="329" selection-start-column="29" selection-end-line="329" selection-end-column="29" />
           <folding>
             <marker date="1491256875496" expanded="true" signature="13573:13598" ph="..." />
             <marker date="1491256875496" expanded="true" signature="13698:13731" ph="..." />
@@ -914,74 +1103,149 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/qed/css/screen.css">
+    <entry file="file://$PROJECT_DIR$/template/mosaic/success.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13464">
-          <caret line="792" column="1" selection-start-line="792" selection-start-column="1" selection-end-line="792" selection-end-column="1" />
+        <state relative-caret-position="102">
+          <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/qed/css/color/neko-framework-green.css">
+    <entry file="file://$PROJECT_DIR$/template/qed/socialbutton.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-55476">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/qed/navbar.php">
+    <entry file="file://$PROJECT_DIR$/template/qed/tags.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+        <state relative-caret-position="488">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="81" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/assets/plugins/velocity/velocity.min.js">
+    <entry file="file://$PROJECT_DIR$/template/qed/success.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="30" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="30" />
+        <state relative-caret-position="68">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1838">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="false" />
+            <marker date="1491254578956" expanded="true" signature="451:521" ph="SELECT * FRO... ${$jaktable}" />
+            <marker date="1491254578956" expanded="true" signature="3614:3747" ph="SELECT id, p... ${DB_PREFIX}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/assets/plugins/switchery/js/switchery.js">
+    <entry file="file://$PROJECT_DIR$/template/qed/standard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="170">
+          <caret line="10" column="81" selection-start-line="10" selection-start-column="81" selection-end-line="10" selection-end-column="81" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/assets/plugins/switchery/js/switchery.min.js">
+    <entry file="file://$PROJECT_DIR$/template/qed/contact.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="34">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/qed/config.php">
+    <entry file="file://$PROJECT_DIR$/plugins/faq/faq.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="49" column="6" selection-start-line="49" selection-start-column="6" selection-end-line="49" selection-end-column="6" />
+        <state relative-caret-position="205">
+          <caret line="346" column="32" selection-start-line="346" selection-start-column="23" selection-end-line="346" selection-end-column="38" />
+          <folding>
+            <marker date="1491253571714" expanded="true" signature="3351:3503" ph="SELECT id, h... ${DB_PREFIX}" />
+            <marker date="1491253571714" expanded="true" signature="5621:5839" ph="INSERT INTO ${$jaktable2}... " />
+            <marker date="1491253571714" expanded="true" signature="6128:6359" ph="INSERT INTO ${$jaktable2}... " />
+            <marker date="1491253571714" expanded="true" signature="8476:8553" ph="SELECT * FRO... ${$jaktable}" />
+            <marker date="1491253571714" expanded="true" signature="10871:11003" ph="SELECT id, h... ${DB_PREFIX}" />
+            <marker date="1491253571714" expanded="true" signature="13249:13317" ph="DELETE FROM " />
+            <marker date="1491253571714" expanded="true" signature="15134:15233" ph="SELECT usern... ${$jaktable2}" />
+            <marker date="1491253571714" expanded="true" signature="17292:17444" ph="SELECT id, h... ${DB_PREFIX}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-386">
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+          <folding>
+            <marker date="1491254554168" expanded="true" signature="2461:2512" ph="SELECT varna... ${DB_PREFIX}" />
+            <marker date="1491254554168" expanded="true" signature="4613:4705" ph="SELECT * FRO... ${DB_PREFIX}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="40" column="65" selection-start-line="40" selection-start-column="60" selection-end-line="40" selection-end-column="71" />
+          <folding>
+            <marker date="1491733051925" expanded="true" signature="13448:13547" ph="SELECT id, n... ${DB_PREFIX}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/qed/newsart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/assets/plugins/summernote/js/summernote.js">
+    <entry file="file://$PROJECT_DIR$/lang/cs.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+        <state relative-caret-position="9">
+          <caret line="247" column="16" selection-start-line="247" selection-start-column="16" selection-end-line="247" selection-end-column="16" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="1476" column="15" selection-start-line="1476" selection-start-column="15" selection-end-line="1476" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/class.rewrite.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-696">
+          <caret line="23" column="8" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/news.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding>
+            <marker date="1491733951529" expanded="true" signature="1187:1402" ph="SELECT * FRO... ${$jaktable}" />
+            <marker date="1491733951529" expanded="true" signature="3949:4082" ph="SELECT id, p... ${DB_PREFIX}" />
+            <marker date="1491733951529" expanded="true" signature="7282:7421" ph="SELECT id, h... ${DB_PREFIX}" />
+          </folding>
         </state>
       </provider>
     </entry>
   </component>
   <component name="webServersAuthStorage">
-    <data>AAABIGFA52sRoFvZ6Os6unD+he1VNPqu0YVyV8cOeBdaUr2eN6t1Vcp+zPXA6yXc6gOzot6cQjOHExeO8/RF0BiBU6JX2vziRg7pxScdcoWiFN+fQih5DpCX3ccWS4SSGUFvgxApuA+5ZLmA4SWggzjz9Zkbrbag/DbPJiufiHps/cHwHBfwRzt0YYmZ99pkzhkTTlp4OSO7IpmvHYrakU5T6bQCofI6AG2nBTSKx9VAVKWC+AoGa0yPSQXfRezSDUni8vprJ4/69P1pCxJ0lrN7I90zbuLZ8iUzrRFVaHsDSNmjI8H9bIGA6VmtLTTXKjO7FnVS8OqENFUxQKoSfLtuIWFydVD3wbtLI0q5B2hqflDqmryWLCDuTj3tCylViJ5Q02wD/eEeyTVP+JRzP32/cvg=</data>
+    <data>AAABIDKOHK0DoxpUPwQpZizn5kGIHbulEgV914GvlhDSHIUrjqImKSslizFWxK8vpoX3FaMRpPl73Ha63ihAqvuIpdVi8sDdnN6tAOW5H4ROvSjOUfmqcVHEEbNO7ann9TYOgRmuCuwQNof2y7nzc8JTbp6EtTxcjmZ+zgoaR6VsQ9Wgb0kVuf+XNEsJb/juhi0B7BMFtIP+VNOiLeGTbZ8KQWuEMDWJpjZ9SDIWNr4cH6L2Fel28zAzG4HEeJDwvn07qG/pyJJ7zsjNTMispOOcSVMtjLisAOgIThqpx4o+QhUyBzouQvvVGWjaPzEP0rD37nydx3RMHZn2TaQwlbDCDyKKd+DGodk/EKFVULADxNvc5gsJsk5KIvOEM75J5pAy84Xq5hsgooX2QRc04JldD/s=</data>
   </component>
 </project>

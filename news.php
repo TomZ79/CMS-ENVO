@@ -43,11 +43,11 @@ switch ($page1) {
 
       $row = $result->fetch_assoc();
 
-      // News is not active redirect to offline news
       if ($row['active'] != 1 && !JAK_ASACCESS) {
+        // News is not active redirect to offline news
         jak_redirect(JAK_rewrite::jakParseurl($tl['link']['l3'], $tl['errornews']['non'], '', '', ''));
-        // Everything works fine, display the news!
       } else {
+        // Everything works fine, display the news!
 
         // Now let's check the hits cookie
         if (!jak_cookie_voted_hits($jaktable, $row['id'], 'hits')) {
