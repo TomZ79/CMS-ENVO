@@ -11,7 +11,7 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" href="/assets/plugins/bootstrapv3/css/bootstrap.min.css">
   <!-- Theme style -->
-  <link href="/admin/assets/plugins/font-awesome/4.5.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+  <link href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
   <link class="main-stylesheet" href="/admin/pages/css/pages.css" rel="stylesheet" type="text/css"/>
   <link href="/admin/assets/css/style.css" rel="stylesheet" type="text/css">
 
