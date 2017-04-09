@@ -2,21 +2,21 @@
 /**
  * ALL VALUE for FRONTEND - download.php
  *
- * @$PAGE_ID              číslo    |  - id souboru
- * @$PAGE_TITLE           text        - Titulek souboru
- * @$PAGE_CONTENT         text        - Celý popis souboru
- * @$SHOWTITLE            ano/ne      - Zobrazení nadpisu
- * @$SHOWDATE             ano/ne      - Zobrazení datumu
- * @$FT_SHARE             ano/ne      - Sdílení souboru na sociální sítě
- * @$SHOWSOCIALBUTTON     ano/ne      - Zobrazení sociálních tlačítek
- * @$DL_HITS              číslo       - Počet Zobrazení
- * @$DL_DOWNLOADS         číslo       - Počet stažení
- * @$DL_PASSWORD          text        - Heslo stránky
- * @$SHOWIMG              url         - Relativní url adresa obrázku
- * @$DL_LINK              text        - Odkaz stahovaného souboru
- * @$PAGE_TIME            date        - Datum vytvoření souboru
- * @$PAGE_TIME_HTML5
- * @$DOWNLOAD_CATLIST     text        - Seznam kategorií
+ * $PAGE_ID              číslo    |  - id souboru
+ * $PAGE_TITLE           text        - Titulek souboru
+ * $PAGE_CONTENT         text        - Celý popis souboru
+ * $SHOWTITLE            ano/ne      - Zobrazení nadpisu
+ * $SHOWDATE             ano/ne      - Zobrazení datumu
+ * $FT_SHARE             ano/ne      - Sdílení souboru na sociální sítě
+ * $SHOWSOCIALBUTTON     ano/ne      - Zobrazení sociálních tlačítek
+ * $DL_HITS              číslo       - Počet Zobrazení
+ * $DL_DOWNLOADS         číslo       - Počet stažení
+ * $DL_PASSWORD
+ * $SHOWIMG              url         - Relativní url adresa obrázku
+ * $DL_LINK
+ * $PAGE_TIME            date        - Datum vytvoření souboru
+ * $PAGE_TIME_HTML5
+ * $DOWNLOAD_CATLIST     text        - Seznam kategorií
  *
  */
 ?>

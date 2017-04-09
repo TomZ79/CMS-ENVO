@@ -1,3 +1,26 @@
+<?php
+/*
+ * ALL VALUE for FRONTEND - download.php
+ *
+ * $PAGE_ID 							number		|	- id článku News
+ * $PAGE_TITLE						string			- Titulek stránky
+ * $MAIN_DESCRIPTION			string			- Popis News (načteno z popisu v nastavení News)
+ * $PAGE_IMAGE
+ * $PAGE_CONTENT
+ * $SHOWTITLE
+ * $SHOWDATE
+ * $SHOWHITS
+ * $SHOWSOCIALBUTTON
+ * $PAGE_ACTIVE
+ * $PAGE_HITS
+ * $PAGE_TIME
+ * $DATE_TIME
+ *
+ *
+ *
+ */
+?>
+
 <?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/header.php'; ?>
 
 <?php if (!$PAGE_ACTIVE) { ?>
@@ -15,6 +38,7 @@ if (JAK_ASACCESS) {
 			<div class="row">
 				<article class="post box mb">
 					<div class="feature-box media-left">
+
 							<?php if (isset($JAK_HOOK_PAGE) && is_array ($JAK_HOOK_PAGE)) foreach ($JAK_HOOK_PAGE as $hpage) {
 								include_once APP_PATH . $hpage["phpcode"];
 							}
@@ -91,7 +115,6 @@ if (JAK_ASACCESS) {
 							} ?>
 
 					</div>
-
 				</article>
 			</div>
 		</div>

@@ -1,21 +1,21 @@
 <?php
-/**
+/*
  * ALL VALUE for FRONTEND - download.php
  *
- * @id               číslo    |  - id souboru
- * @title            text      - Titulek souboru
- * @content          text      - Celý popis souboru
- * @contentshort     text      - Zkrácený popis souboru
- * @showtitle        ano/ne    - Zobrazení nadpisu
- * @showcontact      ano/ne
- * @showdate         ano/ne    - Zobrazení datumu
- * @created          datum      - Datum vytvoření
- * @comments
- * @hits             číslo      - Počet zobrazení
- * @countdl          číslo      - Počet stažení
- * @totalcom
- * @previmg
- * @parseurl
+ * $id 							číslo		|	- id souboru
+ * $title						text			- Titulek souboru
+ * $content					text			- Celý popis souboru
+ * $contentshort		text			- Zkrácený popis souboru
+ * $showtitle				ano/ne		- Zobrazení nadpisu
+ * $showcontact			ano/ne
+ * $showdate				ano/ne
+ * $created					datum			- Datum vytvoření
+ * $comments
+ * $hits						číslo			- Počet zobrazení
+ * $countdl					číslo			- Počet stažení
+ * $totalcom
+ * $previmg
+ * $parseurl
  *
  */
 ?>
