@@ -2,7 +2,7 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_PREVENT_ACCESS')) die('You cannot access this file directly.');
+if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
@@ -87,23 +87,23 @@ if (JAK_USERID) {
               }
 
             } else {
-              $errors['e'] = $tl['error']['e24'] . '<br />';
+              $errors['e'] = $tl['general_error']['generror13'] . '<br />';
             }
 
           } else {
-            $errors['e'] = $tl['error']['e24'] . '<br />';
+            $errors['e'] = $tl['general_error']['generror13'] . '<br />';
           }
 
         } else {
-          $errors['e'] = $tl['error']['e24'] . '<br />';
+          $errors['e'] = $tl['general_error']['generror13'] . '<br />';
         }
 
       } else {
-        $errors['e'] = $tl['error']['e24'] . '<br />';
+        $errors['e'] = $tl['general_error']['generror13'] . '<br />';
       }
 
     } else {
-      $errors['e'] = $tl['error']['e24'] . '<br />';
+      $errors['e'] = $tl['general_error']['generror13'] . '<br />';
       $errors_rf   = $errors;
     }
   }
@@ -144,18 +144,18 @@ if (JAK_USERID) {
     if ($defaults['email'] != $jakuser->getVar("email")) {
 
       if (!filter_var($defaults['email'], FILTER_VALIDATE_EMAIL)) {
-        $errors_rfs['e1'] = $tl['error']['e1'] . '<br />';
+        $errors_rfs['e1'] = $tl['general_error']['generror14'] . '<br />';
       }
 
       if (jak_field_not_exist(filter_var($defaults['email'], FILTER_SANITIZE_EMAIL), $jaktable, 'email')) {
-        $errors_rfs['e1'] = $tl['error']['e38'] . '<br />';
+        $errors_rfs['e1'] = $tl['general_error']['generror15'] . '<br />';
       }
 
       // Check if email address has been blocked
       if ($jkv["email_block"]) {
         $blockede = explode(',', $jkv["email_block"]);
         if (in_array($defaults['email'], $blockede) || in_array(strrchr($defaults['email'], "@"), $blockede)) {
-          $errors_rfs['e1'] = $tl['error']['e21'] . '<br />';
+          $errors_rfs['e1'] = $tl['general_error']['generror16'] . '<br />';
         }
       }
 
@@ -184,20 +184,20 @@ if (JAK_USERID) {
         if ($formmandarray[$i] == 1) {
           if ($formtype[$i] <= 3) {
             if ($defaults[$formarray[$i]] == '') {
-              $errorsA[$i] = $tl['error']['e11'] . ' (' . $formnamearray[$i] . ')<br />';
+              $errorsA[$i] = $tl['general_error']['generror17'] . ' (' . $formnamearray[$i] . ')<br />';
             }
           } elseif ($formtype[$i] == 4) {
             if ($defaults[$formnamearray[$i]] == '') {
-              $errorsA[$i] = $tl['error']['e11'] . ' (' . $formnamearray[$i] . ')<br />';
+              $errorsA[$i] = $tl['general_error']['generror17'] . ' (' . $formnamearray[$i] . ')<br />';
             }
           }
         } elseif ($formmandarray[$i] == 2) {
           if (!is_numeric($defaults[$formarray[$i]])) {
-            $errorsA[$i] = $tl['error']['e13'] . ' (' . $formnamearray[$i] . ')<br />';
+            $errorsA[$i] = $tl['general_error']['generror18'] . ' (' . $formnamearray[$i] . ')<br />';
           }
         } elseif ($formmandarray[$i] == 3) {
           if ($defaults[$formarray[$i]] == '' || !filter_var($defaults[$formarray[$i]], FILTER_VALIDATE_EMAIL)) {
-            $errorsA[$i] = $tl['error']['e1'] . ' (' . $formnamearray[$i] . ')<br />';
+            $errorsA[$i] = $tl['general_error']['generror14'] . ' (' . $formnamearray[$i] . ')<br />';
           }
         }
       }
@@ -256,9 +256,9 @@ if (JAK_USERID) {
     $newpass = smartsql($defaults['passnewc']);
 
     if ($pass != $newpass) {
-      $errors_rfp['e1'] = $tl['error']['e20'] . '<br />';
-    } elseif (strlen($pass) <= '5') {
-      $errors_rfp['e2'] = $tl['error']['e18'] . '<br />';
+      $errors_rfp['e1'] = $tl['general_error']['generror19'] . '<br />';
+    } elseif (strlen($pass) <= '7') {
+      $errors_rfp['e2'] = $tl['general_error']['generror20'] . '<br />';
     }
 
     $fwhen = 0;
@@ -266,7 +266,7 @@ if (JAK_USERID) {
     $user_check = $jakuserlogin->jakCheckuserdata($JAK_USERNAME_LINK, $passold);
 
     if (!$user_check) {
-      $errors_rfp['e5'] = $tl['error']['e28'] . '<br />';
+      $errors_rfp['e5'] = $tl['general_error']['generror21'] . '<br />';
     }
 
     if ($user_check == TRUE && count($errors_rfp) == 0) {
@@ -296,9 +296,9 @@ if (JAK_USERID) {
   }
 
   include_once APP_PATH . 'plugins/register_form/rf_createform.php';
-  $regform = jak_create_register_form($tl['cmsg']['c12'], 3);
+  $regform = jak_create_register_form($tl['form_text']['formt'], 3);
 
-  $PAGE_TITLE = sprintf($tl["login"]["l15"], $jakuser->getVar("username"));
+  $PAGE_TITLE = sprintf($tlrf["rf_frontend"]["rf"], $jakuser->getVar("username"));
 
   // Template Call
   $JAK_TPL_PLUG_T   = $PAGE_TITLE;

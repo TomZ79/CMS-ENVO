@@ -2,6 +2,7 @@
 
 // Do not go any further if install folder still exists
 if (is_dir('../install')) die('Please delete or rename install folder.');
+if (is_dir('../install')) die($tl['general_error']['generror41']);
 
 // EN: The DB connections data
 // CZ: Spojení do DB

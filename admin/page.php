@@ -2,7 +2,7 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
+if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
@@ -211,8 +211,10 @@ switch ($page1) {
             }
 
             if (count($errors) > 0) {
+
               $errors['e2'] = $tl['search']['s3'] . '<br>';
               $errors       = $errors;
+
             } else {
               $secureIn    = smartsql(strip_tags($defaults['jakSH']));
               $SEARCH_WORD = $secureIn;

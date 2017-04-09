@@ -2,7 +2,7 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
+if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
@@ -84,7 +84,7 @@ switch ($page1) {
           }
 
         } else {
-          $errors['e'] = $tl['general_error']['generror'];
+          $errors['e'] = $tl['general_error']['generror'] . '<br>';
           $errors      = $errors;
         }
       }
@@ -574,7 +574,7 @@ switch ($page1) {
 
             } else {
 
-              $errors['e'] = $tl['general_error']['generror'];
+              $errors['e'] = $tl['general_error']['generror'] . '<br>';
               $errors      = $errors;
             }
           }
@@ -780,7 +780,7 @@ switch ($page1) {
             }
 
           } else {
-            $errors['e'] = $tl['general_error']['generror'];
+            $errors['e'] = $tl['general_error']['generror'] . '<br>';
             $errors      = $errors;
           }
         }
@@ -826,7 +826,7 @@ switch ($page1) {
 
             } else {
 
-              $errors['e'] = $tl['general_error']['generror'];
+              $errors['e'] = $tl['general_error']['generror'] . '<br>';
               $errors      = $errors;
             }
           }
@@ -909,7 +909,7 @@ switch ($page1) {
                 jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=usergroup&ssp=s');
               }
             } else {
-              $errors['e'] = $tl['general_error']['generror'];
+              $errors['e'] = $tl['general_error']['generror'] . '<br>';
               $errors      = $errors;
             }
 
@@ -1007,7 +1007,7 @@ switch ($page1) {
             jak_redirect(BASE_URL . 'index.php?p=newsletter&sp=settings&ssp=s');
           }
         } else {
-          $errors['e'] = $tl['general_error']['generror'];
+          $errors['e'] = $tl['general_error']['generror'] . '<br>';
           $errors      = $errors;
         }
 
@@ -1143,7 +1143,7 @@ switch ($page1) {
               }
 
             } else {
-              $errors['e'] = $tl['general_error']['generror'];
+              $errors['e'] = $tl['general_error']['generror'] . '<br>';
               $errors      = $errors;
             }
           }

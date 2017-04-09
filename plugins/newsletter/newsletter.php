@@ -2,7 +2,7 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_PREVENT_ACCESS')) die($tl['error']['nda']);
+if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
@@ -32,15 +32,15 @@ switch ($page1) {
       $errorsnl = array();
 
       if ($defaults['nlUser'] == '') {
-        $errorsnl['nlUser'] = $tl['error']['e'] . '<br />';
+        $errorsnl['nlUser'] = $tl['general_error']['generror22'] . '<br />';
       }
 
       if ($defaults['nlEmail'] == '' || !filter_var($defaults['nlEmail'], FILTER_VALIDATE_EMAIL)) {
-        $errorsnl['nlEmail'] = $tl['error']['e1'] . '<br />';
+        $errorsnl['nlEmail'] = $tl['general_error']['generror14'] . '<br />';
       }
 
       if (jak_field_not_exist($defaults['nlEmail'], $jaktable2, 'email')) {
-        $errorsnl['nlEmail'] = $tlnl['nletter']['e1'];
+        $errorsnl['nlEmail'] = $tlnl['general_error']['generror14'];
       }
 
       if (count($errorsnl) > 0) {
@@ -137,7 +137,7 @@ switch ($page1) {
         $defaults = $_POST;
 
         if ($defaults['nlEmail'] == '' || !filter_var($defaults['nlEmail'], FILTER_VALIDATE_EMAIL)) {
-          $errors['e'] = $tl['error']['e1'];
+          $errors['e'] = $tl['general_error']['generror14'];
           $email_blank = TRUE;
         }
 

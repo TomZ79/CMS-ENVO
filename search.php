@@ -2,7 +2,7 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_PREVENT_ACCESS')) die('No direct access!');
+if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // Call the hooks per name
 $JAK_HOOK_SEARCH = $jakhooks->jakGethook("tpl_search");
@@ -20,18 +20,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jakSH']) || !empty($pa
 
   if (isset($_POST['jakSH'])) {
 
-    if (empty($page1) && $defaults['jakSH'] == '' || $defaults['jakSH'] == $tl['search']['s']) {
-      $errors['e1'] = $tl['search']['s1'];
+    if (empty($page1) && $defaults['jakSH'] == '') {
+      $errors['e1'] = $tl['searching']['stxt3'] . '<br>';
     }
 
     if (empty($page1) && strlen($defaults['jakSH']) < '3') {
-      $errors['e2'] = $tl['search']['s2'];
+      $errors['e2'] = $tl['searching']['stxt4'] . '<br>';
     }
 
   }
 
   if (count($errors) > 0) {
-    $errors['e'] = $tl['search']['s3'];
+    $errors['e'] = $tl['searching']['stxt5'] . '<br>';
     $errors      = $errors;
   } else {
 

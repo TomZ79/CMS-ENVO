@@ -2,7 +2,7 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
+if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
@@ -117,7 +117,7 @@ switch ($page1) {
 
           if (isset($defaults['search'])) {
 
-            if ($defaults['jakSH'] == '' or $defaults['jakSH'] == $tl['search']['s']) {
+            if ($defaults['jakSH'] == '') {
               $errors['e'] = $tl['search']['s1'] . '<br>';
             }
 
@@ -126,8 +126,10 @@ switch ($page1) {
             }
 
             if (count($errors) > 0) {
+
               $errors['e2'] = $tl['search']['s3'] . '<br>';
               $errors       = $errors;
+
             } else {
               $secureIn    = smartsql(strip_tags($defaults['jakSH']));
               $SEARCH_WORD = $secureIn;
@@ -209,10 +211,10 @@ switch ($page1) {
 
                 // Send email to member with new password
                 $mail = new PHPMailer(); // defaults to using php "mail()"
-                $body = str_ireplace("[\]", "", $tl["user"]["u9"] . $password);
+                $body = str_ireplace("[\]", "", $tl["email_text_message"]["emailm4"] . $password);
                 $mail->SetFrom($jkv["email"], $jkv["title"]);
                 $mail->AddAddress($row['email'], $row['username']);
-                $mail->Subject = $jkv["title"] . ' - ' . $tl['user']['u4'];
+                $mail->Subject = $jkv["title"] . ' - ' . $tl['email_text_message']['emailm5'];
                 $mail->MsgHTML($body);
                 $mail->Send();
 
@@ -366,10 +368,10 @@ switch ($page1) {
 
           // Send email to member with verification code
           $mail = new PHPMailer(); // defaults to using php "mail()"
-          $body = str_ireplace("[\]", "", str_replace("%s", $confirmlink, $tl["user"]["u14"]));
+          $body = str_ireplace("[\]", "", str_replace("%s", $confirmlink, $tl["email_text_message"]["emailm7"]));
           $mail->SetFrom($jkv["email"]);
           $mail->AddAddress($row['email'], $row['username']);
-          $mail->Subject = $jkv["title"] . ' - ' . $tl["user"]["u13"];
+          $mail->Subject = $jkv["title"] . ' - ' . $tl["email_text_message"]["emailm6"];
           $mail->MsgHTML($body);
 
           if ($mail->Send()) {
@@ -394,10 +396,10 @@ switch ($page1) {
 
             // Send info that the account has been verified
             $mail = new PHPMailer(); // defaults to using php "mail()"
-            $body = str_ireplace("[\]", "", str_replace("%s", $row['username'], $tl["user"]["u17"]));
+            $body = str_ireplace("[\]", "", str_replace("%s", $row['username'], $tl["email_text_message"]["emailm9"]));
             $mail->SetFrom($jkv["email"]);
             $mail->AddAddress($row['email'], $row['username']);
-            $mail->Subject = $jkv["title"] . ' - ' . $tl["user"]["u16"];
+            $mail->Subject = $jkv["title"] . ' - ' . $tl["email_text_message"]["emailm8"];
             $mail->MsgHTML($body);
             $mail->Send();
 
@@ -421,10 +423,10 @@ switch ($page1) {
 
           // Send email to member with new password
           $mail = new PHPMailer(); // defaults to using php "mail()"
-          $body = str_ireplace("[\]", "", $tl["user"]["u9"] . $password);
+          $body = str_ireplace("[\]", "", $tl["email_text_message"]["emailm4"] . $password);
           $mail->SetFrom($jkv["email"]);
           $mail->AddAddress($row['email'], $row['username']);
-          $mail->Subject = $jkv["title"] . ' - ' . $tl['user']['u4'];
+          $mail->Subject = $jkv["title"] . ' - ' . $tl['email_text_message']['emailm5'];
           $mail->MsgHTML($body);
 
           if ($mail->Send()) {
@@ -817,10 +819,10 @@ switch ($page1) {
 
                 // Send email to member with new password
                 $mail = new PHPMailer(); // defaults to using php "mail()"
-                $body = str_ireplace("[\]", "", $tl["user"]["u9"] . $password);
+                $body = str_ireplace("[\]", "", $tl["email_text_message"]["emailm4"] . $password);
                 $mail->SetFrom($jkv["email"], $jkv["title"]);
                 $mail->AddAddress($row['email'], $row['username']);
-                $mail->Subject = $jkv["title"] . ' - ' . $tl['user']['u4'];
+                $mail->Subject = $jkv["title"] . ' - ' . $tl['email_text_message']['emailm5'];
                 $mail->MsgHTML($body);
                 $mail->Send();
 

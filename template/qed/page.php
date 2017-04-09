@@ -2,7 +2,7 @@
 
 <?php if (!$PAGE_ACTIVE) { ?>
 	<div class="alert alert-danger">
-		<?php echo $tl["errorpage"]["ep"]; ?>
+		<?php echo $tl["general_error"]["generror2"]; ?>
 	</div>
 <?php } else {
 

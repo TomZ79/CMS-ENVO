@@ -2,7 +2,7 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
+if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
@@ -33,7 +33,7 @@ switch ($page1) {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $defaults = $_POST;
 
-      if (empty($defaults['jak_title'])) $errors['e1'] = $tl['error']['e2'];
+      if (empty($defaults['jak_title'])) $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
 
       if (!empty($defaults['jak_datefrom'])) {
         $finalfrom = strtotime($defaults['jak_datefrom']);
@@ -44,7 +44,7 @@ switch ($page1) {
       }
 
       if (isset($finalto) && isset($finalfrom) && $finalto < $finalfrom) {
-        $errors['e2'] = $tl['error']['e28'];
+        $errors['e2'] = $tl['general_error']['generror25'] . '<br>';
       }
 
       // Now do the dirty stuff in mysql
@@ -163,7 +163,7 @@ switch ($page1) {
         }
       } else {
 
-        $errors['e'] = $tl['error']['e'];
+        $errors['e'] = $tl['general_error']['generror'] . '<br>';
         $errors      = $errors;
       }
     }
@@ -214,15 +214,11 @@ switch ($page1) {
       $defaults = $_POST;
 
       if (empty($defaults['jak_date'])) {
-        $errors['e1'] = $tl['error']['e4'] . '<br>';
+        $errors['e1'] = $tl['general_error']['generror26'] . '<br>';
       }
 
       if (!is_numeric($defaults['jak_item'])) {
-        $errors['e2'] = $tl['error']['e15'] . '<br>';
-      }
-
-      if (!is_numeric($defaults['jak_mid'])) {
-        $errors['e3'] = $tl['error']['e15'] . '<br>';
+        $errors['e2'] = $tl['general_error']['generror27'] . '<br>';
       }
 
       if (count($errors) == 0) {
@@ -335,7 +331,7 @@ switch ($page1) {
         }
       } else {
 
-        $errors['e'] = $tl['error']['e'] . '<br>';
+        $errors['e'] = $tl['general_error']['generror'] . '<br>';
         $errors      = $errors;
       }
     }
@@ -473,7 +469,7 @@ switch ($page1) {
             }
 
             if (empty($defaults['jak_title'])) {
-              $errors['e1'] = $tl['error']['e2'] . '<br>';
+              $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
             }
 
             if (!empty($defaults['jak_datefrom'])) {
@@ -485,7 +481,7 @@ switch ($page1) {
             }
 
             if (isset($finalto) && isset($finalfrom) && $finalto < $finalfrom) {
-              $errors['e2'] = $tl['error']['e28'] . '<br>';
+              $errors['e2'] = $tl['general_error']['generror25'] . '<br>';
             }
 
             // Now do the dirty stuff in mysql
@@ -679,7 +675,7 @@ switch ($page1) {
               }
             } else {
 
-              $errors['e'] = $tl['error']['e'] . '<br>';
+              $errors['e'] = $tl['general_error']['generror'] . '<br>';
               $errors      = $errors;
             }
           }
@@ -733,7 +729,7 @@ switch ($page1) {
             $defaults = $_POST;
 
             if (empty($defaults['jak_title'])) {
-              $errors['e1'] = $tl['error']['e2'] . '<br>';
+              $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
             }
 
             // Now do the dirty stuff in mysql
@@ -755,7 +751,7 @@ switch ($page1) {
               }
             } else {
 
-              $errors['e'] = $tl['error']['e'] . '<br>';
+              $errors['e'] = $tl['general_error']['generror'] . '<br>';
               $errors      = $errors;
             }
           }

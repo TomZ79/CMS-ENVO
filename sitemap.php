@@ -2,7 +2,7 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_PREVENT_ACCESS')) die('No direct access!');
+if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // Call the hooks per name
 $JAK_HOOK_SITEMAP = $jakhooks->jakGethook("tpl_sitemap");

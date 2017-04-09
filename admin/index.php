@@ -140,7 +140,6 @@ if ($page == '') {
     $JAK_SETTING     = jak_get_setting('version');
     $JAK_PROVED      = 1;
     $JAK_PAGE_ACTIVE = 1;
-    $html_title      = $tl['login']['l'];
 
     // Admin index hook
     $hookadmini = $jakhooks->jakGethook("php_admin_index");
@@ -211,7 +210,6 @@ if ($page == '404') {
   }
   // Go to the 404 Page
   $JAK_PROVED = 1;
-  $html_title = '404 / ' . $jkv["title"];
 
   // EN: Title and Description
   // CZ: Titulek a Popis

@@ -2,7 +2,7 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
+if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 $ErrLogin = $errorfp = FALSE;
 
@@ -43,7 +43,7 @@ if (!empty($_POST['action']) && $_POST['action'] == 'login') {
     }
 
   } else {
-    $ErrLogin = $tl['error']['l'];
+    $ErrLogin = '1';
   }
 }
 
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
   $defaults = $_POST;
 
   if ($defaults['email'] == '' || !filter_var($defaults['email'], FILTER_VALIDATE_EMAIL)) {
-    $errors['e'] = $tl['error']['e19'];
+    $errors['e'] = $tl['general_error']['generror24'];
   }
 
   // Transform user email
@@ -63,7 +63,9 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
   $user_check = $jakuserlogin->jakForgotpassword($femail, $fwhen);
 
   if (!$user_check) {
-    $errors['e']          = $tl['error']['e19'];
+    $errors['e']          = $tl['general_error']['generror24'];
+    // EN: Create error message
+    // CZ: Vytvoření chybové zprávy
     $_SESSION["errormsg"] = $tl["log_in"]["login13"];
   }
 
@@ -74,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
     $mail = new PHPMailer(); // defaults to using php "mail()"
     $mail->SetFrom($jkv["email"], $jkv["title"]);
     $mail->AddAddress($femail, $user_check);
-    $mail->Subject = $jkv["title"] . ' - ' . $tl['login']['l13'];
+    $mail->Subject = $jkv["title"] . ' - ' . $tl['email_text_message']['emailm1'];
     $mail->MsgHTML($body);
     $mail->AltBody = strip_tags($body);
 

@@ -2,7 +2,7 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_PREVENT_ACCESS')) die('No direct access!');
+if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
@@ -25,7 +25,7 @@ $swaplang = JAK_PLUGIN_ID_TAGS;
 if (empty($page1)) {
   $PAGE_TITLE      = JAK_PLUGIN_NAME_TAGS;
   $PAGE_CONTENT    = $jkv["tagdesc"];
-  $JAK_NO_TAG_DATA = $tl['errorpage']['ct'];
+  $JAK_NO_TAG_DATA = $tl['general_error']['generror11'];
 } else {
 
   // Clean the tag if someone is funny and tries to type something weird
@@ -65,7 +65,7 @@ if (empty($page1)) {
         $JAK_TAG_NEWS_DATA = $newstagData;
       } else {
         // No Tag Data in the while
-        $JAK_NO_TAG_DATA = $tl['errorpage']['nt'];
+        $JAK_NO_TAG_DATA = $tl['general_error']['generror12'];
       }
 
     }
@@ -74,7 +74,7 @@ if (empty($page1)) {
     $PAGE_CONTENT = $jkv["tagdesc"];
   } else {
     // No tag data at all
-    $JAK_NO_TAG_DATA = $tl['errorpage']['nt'];
+    $JAK_NO_TAG_DATA = $tl['general_error']['generror12'];
   }
 }
 

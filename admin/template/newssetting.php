@@ -38,12 +38,11 @@ if ($errors) { ?>
         // options
         message: '<?php if (isset($errors["e"])) echo $errors["e"];
           if (isset($errors["e1"])) echo $errors["e1"];
-          if (isset($errors["e2"])) echo $errors["e2"];
-          if (isset($errors["e3"])) echo $errors["e3"];?>'
+          if (isset($errors["e2"])) echo $errors["e2"];?>'
       }, {
         // settings
         type: 'danger',
-        delay: 10000
+        delay: 1000000
       });
     }, 1000);
   </script>
@@ -285,7 +284,7 @@ if ($errors) { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-6 <?php if (isset($errors["e2"])) echo "has-error"; ?>">
+                      <div class="col-md-6">
                         <select name="jak_mid" class="form-control selectpicker">
 
                           <?php
@@ -309,7 +308,7 @@ if ($errors) { ?>
                         ?>
 
                       </div>
-                      <div class="col-md-6 <?php if (isset($errors["e3"])) echo "has-error"; ?>">
+                      <div class="col-md-6 <?php if (isset($errors["e2"])) echo "has-error"; ?>">
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)

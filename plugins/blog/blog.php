@@ -2,7 +2,7 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_PREVENT_ACCESS')) die('No direct file access!');
+if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // Include the comment class file
 require_once 'class/class.comment.php';
@@ -260,7 +260,7 @@ switch ($page1) {
           // Display contact form if whish so and do the caching
           $JAK_SHOW_C_FORM = FALSE;
           if ($row['showcontact'] != 0) {
-            $JAK_SHOW_C_FORM      = jak_create_contact_form($row['showcontact'], $tl['cmsg']['c12']);
+            $JAK_SHOW_C_FORM      = jak_create_contact_form($row['showcontact'], $tl['form_text']['formt']);
             $JAK_SHOW_C_FORM_NAME = jak_contact_form_title($row['showcontact']);
           }
 

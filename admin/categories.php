@@ -2,7 +2,7 @@
 
 // EN: /Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
+if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
@@ -25,15 +25,19 @@ switch ($page1) {
       $defaults = $_POST;
 
       if (empty($defaults['jak_name'])) {
-        $errors['e1'] = $tl['error']['e12'];
+        $errors['e1'] = $tl['general_error']['generror4'] . '<br>';
       }
 
       if (jak_field_not_exist($defaults['jak_varname'], $jaktable, $jakfield) || jak_varname_blocked($defaults['jak_varname'])) {
-        $errors['e2'] = $tl['error']['e13'];
+        $errors['e2'] = $tl['general_error']['generror21'] . '<br>';
       }
 
-      if (empty($defaults['jak_varname']) || !preg_match('/^([a-z-_0-9]||[-_])+$/', $defaults['jak_varname'])) {
-        $errors['e3'] = $tl['error']['e14'];
+      if (empty($defaults['jak_varname'])) {
+        $errors['e3'] = $tl['general_error']['generror22'] . '<br>';
+      }
+
+      if (!empty($defaults['jak_varname']) && !preg_match('/^([a-z-_0-9]||[-_])+$/', $defaults['jak_varname'])) {
+        $errors['e4'] = $tl['general_error']['generror23'] . '<br>';
       }
 
       if (count($errors) == 0) {
@@ -88,7 +92,7 @@ switch ($page1) {
         }
       } else {
 
-        $errors['e'] = $tl['error']['e'];
+        $errors['e'] = $tl['general_error']['generror'] . '<br>';
         $errors      = $errors;
       }
     }
@@ -176,15 +180,19 @@ switch ($page1) {
             $defaults = $_POST;
 
             if (empty($defaults['jak_name'])) {
-              $errors['e1'] = $tl['error']['e12'];
-            }
-
-            if (empty($defaults['jak_varname']) || !preg_match('/^([a-z-_0-9]||[-_])+$/', $defaults['jak_varname'])) {
-              $errors['e3'] = $tl['error']['e14'];
+              $errors['e1'] = $tl['general_error']['generror4'] . '<br>';
             }
 
             if (jak_field_not_exist_id($defaults['jak_varname'], $page2, $jaktable, $jakfield1) || jak_varname_blocked($defaults['jak_varname'])) {
-              $errors['e2'] = $tl['error']['e13'];
+              $errors['e2'] = $tl['general_error']['generror21'] . '<br>';
+            }
+
+            if (empty($defaults['jak_varname'])) {
+              $errors['e3'] = $tl['general_error']['generror22'] . '<br>';
+            }
+
+            if (!empty($defaults['jak_varname']) || !preg_match('/^([a-z-_0-9]||[-_])+$/', $defaults['jak_varname'])) {
+              $errors['e4'] = $tl['general_error']['generror23'] . '<br>';
             }
 
             if (count($errors) == 0) {
@@ -226,7 +234,7 @@ switch ($page1) {
                 jak_redirect(BASE_URL . 'index.php?p=categories&sp=edit&ssp=' . $page2 . '&sssp=s');
               }
             } else {
-              $errors['e'] = $tl['error']['e'];
+              $errors['e'] = $tl['general_error']['generror'] . '<br>';
               $errors      = $errors;
             }
           }

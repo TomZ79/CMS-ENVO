@@ -39,7 +39,8 @@ if ($errors) { ?>
         message: '<?php if (isset($errors["e"])) echo $errors["e"];
           if (isset($errors["e1"])) echo $errors["e1"];
           if (isset($errors["e2"])) echo $errors["e2"];
-          if (isset($errors["e3"])) echo $errors["e3"];?>'
+          if (isset($errors["e3"])) echo $errors["e3"];
+          if (isset($errors["e4"])) echo $errors["e4"];?>'
       }, {
         // settings
         type: 'danger',
@@ -126,7 +127,7 @@ if ($errors) { ?>
 
                       </div>
                       <div class="col-md-7">
-                        <div class="form-group no-margin<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
+                        <div class="form-group no-margin<?php if (isset($errors["e2"]) || isset($errors["e3"]) || isset($errors["e4"])) echo " has-error"; ?>">
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)

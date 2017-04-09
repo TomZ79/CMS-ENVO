@@ -2,7 +2,7 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_PREVENT_ACCESS')) die('No direct access!');
+if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
@@ -57,7 +57,7 @@ if ($row['showfooter'] == 0) $JAK_SHOW_FOOTER = FALSE;
 // Display contact form if whish so and do the caching
 $JAK_SHOW_C_FORM = FALSE;
 if ($row['showcontact'] != 0) {
-  $JAK_SHOW_C_FORM      = jak_create_contact_form($row['showcontact'], $tl['cmsg']['c12']);
+  $JAK_SHOW_C_FORM      = jak_create_contact_form($row['showcontact'], $tl['form_text']['formt']);
   $JAK_SHOW_C_FORM_NAME = jak_contact_form_title($row['showcontact']);
 }
 
@@ -70,11 +70,11 @@ if (!empty($row['shownews'])) {
 
   if (is_array($shownewsarray) && in_array("ASC", $shownewsarray) || in_array("DESC", $shownewsarray)) {
 
-    $JAK_NEWS_IN_CONTENT = jak_get_news('LIMIT ' . $shownewsarray[2], '', JAK_PLUGIN_VAR_NEWS, $shownewsarray[0] . ' ' . $shownewsarray[1], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['general']['g56']);
+    $JAK_NEWS_IN_CONTENT = jak_get_news('LIMIT ' . $shownewsarray[2], '', JAK_PLUGIN_VAR_NEWS, $shownewsarray[0] . ' ' . $shownewsarray[1], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
 
   } else {
 
-    $JAK_NEWS_IN_CONTENT = jak_get_news('', $row['shownews'], JAK_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['general']['g56']);
+    $JAK_NEWS_IN_CONTENT = jak_get_news('', $row['shownews'], JAK_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
   }
 
   // Set news load to false

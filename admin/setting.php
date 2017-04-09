@@ -2,7 +2,7 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die('You cannot access this file directly.');
+if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
@@ -265,10 +265,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $mail->AddReplyTo($jkv["email"], $jkv["title"]);
         $mail->AddAddress($jkv["email"], $jkv["title"]);
         $mail->AltBody = "SMTP Mail"; // optional, comment out and test
-        $mail->Subject = $tl["setting"]["s43"];
-        $mail->MsgHTML(sprintf($tl["setting"]["s44"], 'SMTP'));
+        $mail->Subject = $tl["email_text_message"]["emailm2"];
+        $mail->MsgHTML(sprintf($tl["email_text_message"]["emailm3"], 'SMTP'));
         $mail->Send();
-        $success['e'] = sprintf($tl["setting"]["s44"], 'SMTP');
+        $success['e'] = sprintf($tl["gs_message"]["gsm"], 'SMTP');
       } catch (phpmailerException $e) {
         $errors['e'] = $e->errorMessage(); //Pretty error messages from PHPMailer
       } catch (Exception $e) {
@@ -287,13 +287,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $mail->AddReplyTo($jkv["email"], $jkv["title"]);
         $mail->AddAddress($jkv["email"], $jkv["title"]);
         // Set the subject
-        $mail->Subject = $tl["setting"]["s43"];
+        $mail->Subject = $tl["email_text_message"]["emailm2"];
         //Set the message
         $mail->MsgHTML($message);
         $mail->AltBody = "PHP Mail()";
         // Send the email
         $mail->Send();
-        $success['e'] = sprintf($tl["setting"]["s44"], 'PHP Mail()');
+        $success['e'] = sprintf($tl["gs_message"]["gsm"], 'PHP Mail()');
       } catch (phpmailerException $e) {
         $errors['e'] = $e->errorMessage(); //Pretty error messages from PHPMailer
       } catch (Exception $e) {

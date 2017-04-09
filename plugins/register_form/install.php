@@ -182,10 +182,17 @@ if (file_exists(APP_PATH . 'plugins/register_form/admin/lang/' . $site_language 
   $tlrf = parse_ini_file(APP_PATH.\'plugins/register_form/admin/lang/en.ini\', true);
 }';
 
+      // EN: Set site lang of plugin
+      // CZ: Nastavení jazyka pro webové rozhraní pluginu
+      $sitelang = 'if (file_exists(APP_PATH.\'plugins/register_form/lang/\'.$site_language.\'.ini\')) {
+  $tlrf = parse_ini_file(APP_PATH.\'plugins/register_form/lang/\'.$site_language.\'.ini\', true);
+} else {
+  $tlrf = parse_ini_file(APP_PATH.\'plugins/register_form/lang/en.ini\', true);
+}';
       //
       $pn_include = 'if ($row[\'showregister\'] == 1) {
 	include_once APP_PATH.\'plugins/register_form/rf_createform.php\';
-	$JAK_SHOW_R_FORM = jak_create_register_form($tl[\'cmsg\'][\'c12\'], \'\', true);
+	$JAK_SHOW_R_FORM = jak_create_register_form($tl[\'form_text\'][\'formt\'], \'\', true);
 }';
 
       //
@@ -233,11 +240,11 @@ if (!$result) {
 	$userlink = BASE_URL.\'admin/index.php?p=user&sp=edit&ssp=\'.$page1;
 
 	$admail = new PHPMailer();
-	$adlinkmessage = $tl[\'login\'][\'l16\'].$userlink;
+	$adlinkmessage = $tl[\'email_text\'][\'emailm3\'].$userlink;
 	$adbody = str_ireplace(\"[\]\", \'\',$adlinkmessage);
 	$admail->SetFrom($jkv[\"email\"], $jkv[\"title\"]);
 	$admail->AddAddress($jkv[\"email\"], $jkv[\"title\"]);
-	$admail->Subject = $jkv[\"title\"].\' - \'.$tl[\'login\'][\'l11\'];
+	$admail->Subject = $jkv[\"title\"].\' - \'.$tl[\'email_text\'][\'emailm4\'];
 	$admail->MsgHTML($adbody);
 	$admail->Send(); // Send email without any warnings
 	
@@ -245,7 +252,7 @@ if (!$result) {
 }
 	
 } else {
-	$_SESSION[\"infomsg\"] = $tl[\"login\"][\"l14\"];
+	$_SESSION[\"infomsg\"] = $tl[\"email_text\"][\"emailm5\"];
 	jak_redirect(BASE_URL);
 }
 }';
@@ -301,6 +308,7 @@ if (!$result) {
 (NULL, "php_admin_pages_sql", "Profile/Login Form SQL", "' . $sqlinsert . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_news_sql", "Profile/Login Form SQL", "' . $sqlinsert . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_lang", "Register Form Admin Language", "' . $adminlang . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_lang", "Register Form Site Language", "' . $sitelang . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_pages_news", "Register Form Pages/News", "' . $pn_include . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_page_news_grid", "Register Form TPL - Pages/News", "' . $get_rfregform . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_index_page", "Register User Validate", "' . $index_page . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
