@@ -85,7 +85,7 @@ switch ($page1) {
         // Display contact form if whish so and do the caching
         $JAK_SHOW_C_FORM = FALSE;
         if ($row['showcontact'] != 0) {
-          $JAK_SHOW_C_FORM      = jak_create_contact_form($row['showcontact'], $tl['cmsg']['c12']);
+          $JAK_SHOW_C_FORM      = jak_create_contact_form($row['showcontact'], $tl['form_text']['formt']);
           $JAK_SHOW_C_FORM_NAME = jak_contact_form_title($row['showcontact']);
 
         }
@@ -174,7 +174,7 @@ switch ($page1) {
       $JAK_PAGINATE = $news->display_pages();
 
       // Display the news
-      $JAK_NEWS_ALL = jak_get_news($news->limit, '', JAK_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['general']['g56']);
+      $JAK_NEWS_ALL = jak_get_news($news->limit, '', JAK_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
     }
 
     // Check if we have a language and display the right stuff

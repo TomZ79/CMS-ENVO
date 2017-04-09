@@ -260,10 +260,10 @@ function jak_create_contact_form($formid, $jakvar1)
 
       for ($i = 0; $i < count($optarray); $i++) {
 
-        $selectopt .= '<option value="' . $optarray[$i] . '"' . ($_POST[$row['id']] == $optarray[$i] ? ' selected="selected' : "") . '>' . $optarray[$i] . '</option>';
+        $selectopt .= '<option value="' . $optarray[$i] . '"' . ($_POST[$row['id']] == $optarray[$i] ? ' selected="selected"' : "") . '>' . $optarray[$i] . '</option>';
       }
 
-      $jakdata .= '<div class="form-group"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . '</label><select name="' . $row['id'] . '" id="' . $row['id'] . '" class="form-control"><option value="">' . $jakvar1 . '</option>' . $selectopt . '</select></div>';
+      $jakdata .= '<div class="form-group1"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . '</label><select name="' . $row['id'] . '" id="' . $row['id'] . '" class="form-control"><option value="">' . $jakvar1 . '</option>' . $selectopt . '</select></div>';
     }
 
     if ($row['typeid'] == 4) {
