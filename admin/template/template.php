@@ -108,7 +108,7 @@ if ($page1 == "e") { ?>
 
                 <?php
                 echo $l;
-                if ($jkv["sitestyle"] == $l) echo ' <i class="fa fa-check text-success-800"></i>';
+                if (JAK_TEMPLATE == $l) echo ' <i class="fa fa-check text-success-800"></i>';
                 ?>
 
               </h3>
@@ -129,7 +129,7 @@ if ($page1 == "e") { ?>
               <div class="col-md-12">
 
                 <?php
-                if ($jkv["sitestyle"] != $l && !$template_addon) {
+                if (JAK_TEMPLATE != $l && !$template_addon) {
 
                   // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
                   echo $Html->addButton('submit', $l, $tl["button"]["btn5"], 'save', '', 'btn btn-primary btn-sm m-r-5');
@@ -140,7 +140,7 @@ if ($page1 == "e") { ?>
                     echo $Html->addAnchor('../template/' . $l . '/help.php', $tl["button"]["btn6"], '', 'btn btn-info btn-sm m-r-5 tempHelp');
 
                   }
-                } elseif ($jkv["sitestyle"] == $l && file_exists('../template/' . $l . '/install.php') && !$template_addon) {
+                } elseif (JAK_TEMPLATE == $l && file_exists('../template/' . $l . '/install.php') && !$template_addon) {
 
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                   echo $Html->addAnchor('../template/' . $l . '/install.php', $tl["button"]["btn7"], '', 'btn btn-success btn-sm m-r-5 tempInst');
@@ -151,7 +151,7 @@ if ($page1 == "e") { ?>
                     echo $Html->addAnchor('../template/' . $l . '/help.php', $tl["button"]["btn6"], '', 'btn btn-info btn-sm m-r-5 tempHelp');
 
                   }
-                } elseif ($jkv["sitestyle"] == $l && file_exists('../template/' . $l . '/uninstall.php') && $template_addon) {
+                } elseif (JAK_TEMPLATE == $l && file_exists('../template/' . $l . '/uninstall.php') && $template_addon) {
 
                   if (file_exists('../template/' . $l . '/styleswitcher.php')) {
 
@@ -177,7 +177,7 @@ if ($page1 == "e") { ?>
                   <div class="col-md-5">
                     <div class="row">
                       <div class="alert alert-danger" style="width: 100%; padding: 6px 10px; text-align: center;">
-                        <?php echo str_replace("%s", $jkv["sitestyle"], $tl["tpl_box_content"]["tplbc1"]); ?>
+                        <?php echo str_replace("%s", JAK_TEMPLATE, $tl["tpl_box_content"]["tplbc1"]); ?>
                       </div>
                     </div>
                   </div>

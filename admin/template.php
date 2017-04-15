@@ -100,14 +100,14 @@ function getTemplateFiles($dir, $level, $rootLen)
 switch ($page1) {
   case 'settings':
 
-    $file = '../template/' . $jkv["sitestyle"] . '/templatesettings_case.php';
+    $file = '../template/' . JAK_TEMPLATE . '/templatesettings_case.php';
     if (file_exists($file)) {
       include_once $file;
     }
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = sprintf($tl["tpl_sec_title"]["tplt1"], $jkv["sitestyle"]);;
+    $SECTION_TITLE = sprintf($tl["tpl_sec_title"]["tplt1"], JAK_TEMPLATE);
     $SECTION_DESC  = $tl["tpl_sec_desc"]["tpld1"];
 
     // EN: Ace Mode

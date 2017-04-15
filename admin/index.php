@@ -44,6 +44,9 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 $JAK_CONTACT_FORM = $jkv["contactform"];
 define('JAK_PAGINATE_ADMIN', 1);
 
+// Define constant
+define('JAK_TEMPLATE', $jkv["sitestyle"]);
+
 // First check if the user is logged in
 if (JAK_USERID) {
 

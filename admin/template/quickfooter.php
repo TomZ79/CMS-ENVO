@@ -8,7 +8,7 @@
   jakWeb.jak_url = "<?php echo BASE_URL_ADMIN;?>";
   jakWeb.jak_path = "<?php echo BASE_PATH_ORIG;?>";
   jakWeb.jak_lang = "<?php echo $site_language;?>";
-  jakWeb.jak_template = "<?php echo $jkv["sitestyle"];?>";
+  jakWeb.jak_template = "<?php echo JAK_TEMPLATE;?>";
 
   <?php if (isset($_SESSION["infomsg"])) { ?>
   $.notify({icon: 'fa fa-info-circle', message: '<?php echo $_SESSION["infomsg"];?>'}, {type: 'info'});
