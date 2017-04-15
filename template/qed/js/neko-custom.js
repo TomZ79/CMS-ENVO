@@ -67,7 +67,7 @@ $(function () {
     jak_url_orig: "",
     request_uri: "",
     jak_search_link: "",
-    jak_template: "",
+    envo_template: "",
     jak_heatmap: "",
     jak_quickedit: "",
     jak_acp_nav: false

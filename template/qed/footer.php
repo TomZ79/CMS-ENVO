@@ -29,7 +29,7 @@ if ((!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && ($PAGE_PASSWORD == $_SESSI
 
   <!-- Sidebar if right -->
   <?php if (!empty($JAK_HOOK_SIDE_GRID) && $jkv["sidebar_location_tpl"] == "right") {
-    include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/sidebar.php';
+    include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/sidebar.php';
   } ?>
 
   </div>
@@ -239,18 +239,18 @@ if (!$JAK_SHOW_FOOTER) { ?>
 
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="/assets/plugins/jquery/jquery-2.2.4.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="/template/<?php echo $jkv["sitestyle"]; ?>/js-plugins/jquery-ui/jquery-ui-1.8.23.custom.min.js"></script>
+<script type="text/javascript" src="/template/<?php echo ENVO_TEMPLATE; ?>/js-plugins/jquery-ui/jquery-ui-1.8.23.custom.min.js"></script>
 <!-- External framework plugins -->
 <?php if ($jkv["activeroyalslider_qed_tpl"] == 1) { ?>
-  <script type="text/javascript" src="/template/<?php echo $jkv["sitestyle"]; ?>/js-plugins/royalslider/jquery.royalslider.min.js"></script>
+  <script type="text/javascript" src="/template/<?php echo ENVO_TEMPLATE; ?>/js-plugins/royalslider/jquery.royalslider.min.js"></script>
 <?php } ?>
-<script type="application/javascript" src="/template/<?php echo $jkv["sitestyle"]; ?>/js-plugins/external-plugins.min.js"></script>
+<script type="application/javascript" src="/template/<?php echo ENVO_TEMPLATE; ?>/js-plugins/external-plugins.min.js"></script>
 <script type="text/javascript" src="/assets/plugins/bootstap-notify/bootstrap-notify.min.js"></script>
 <script type="text/javascript" src="/assets/plugins/owl.carousel/2.2.1/owl.carousel.min.js"></script>
 <script type="text/javascript" src="/assets/plugins/full-screen-navigation/js/FSNav.js"></script>
 
 <!-- Neko framework script -->
-<script type="text/javascript" src="/template/<?php echo $jkv["sitestyle"]; ?>/js/neko-framework.js"></script>
+<script type="text/javascript" src="/template/<?php echo ENVO_TEMPLATE; ?>/js/neko-framework.js"></script>
 
 <!-- Definition Function and Notification -->
 <script type="text/javascript">
@@ -262,7 +262,7 @@ if (!$JAK_SHOW_FOOTER) { ?>
   jakWeb.jak_quickedit = "<?php echo $tl["general"]["g176"];?>"
 </script>
 
-<?php include_once APP_PATH . '/template/' . $jkv["sitestyle"] . '/js/neko-royalSlider.php' ?>
+<?php include_once APP_PATH . '/template/' . ENVO_TEMPLATE . '/js/neko-royalSlider.php' ?>
 
 <!-- Comments Script -->
 <?php if ($JAK_COMMENT_FORM) { ?>
@@ -291,7 +291,7 @@ if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT;
 
 <!-- Social Buttons Script -->
 <?php if ($SHOWSOCIALBUTTON) {
-  include APP_PATH . 'template/' . $jkv["sitestyle"] . '/socialbutton.php';
+  include APP_PATH . 'template/' . ENVO_TEMPLATE . '/socialbutton.php';
 } ?>
 
 <?php if (isset($JAK_NEWS_IN_CONTENT) && is_array($JAK_NEWS_IN_CONTENT)) { ?>
@@ -377,7 +377,7 @@ if ($jkv["offline"] == 1 && JAK_ASACCESS) { ?>
 <?php } ?>
 
 <!-- Neko Custom script -->
-<script type="text/javascript" src="/template/<?php echo $jkv["sitestyle"]; ?>/js/neko-custom.js"></script>
+<script type="text/javascript" src="/template/<?php echo ENVO_TEMPLATE; ?>/js/neko-custom.js"></script>
 
 <!-- Modal -->
 <div class="modal fullscreen fade" id="JAKModal" tabindex="-1" role="dialog" aria-labelledby="JAKModal" aria-hidden="true">
@@ -470,10 +470,10 @@ if ($jkv["offline"] == 1 && JAK_ASACCESS) { ?>
 
 <!-- Download plugins -->
 <?php if (JAK_PLUGIN_DOWNLOAD && JAK_DOWNLOADCAN) {
-  $pluginsite_template = 'template/' . $jkv["sitestyle"] . '/plugintemplate/download/downloadfile.php';
+  $pluginsite_template = 'template/' . ENVO_TEMPLATE . '/plugintemplate/download/downloadfile.php';
 
   if (file_exists($pluginsite_template)) {
-    include APP_PATH . 'template/' . $jkv["sitestyle"] . '/plugintemplate/download/js/script.download.php';
+    include APP_PATH . 'template/' . ENVO_TEMPLATE . '/plugintemplate/download/js/script.download.php';
   } else {
     include APP_PATH . 'plugins/download/js/script.download.php';
   }

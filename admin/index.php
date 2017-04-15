@@ -45,7 +45,7 @@ $JAK_CONTACT_FORM = $jkv["contactform"];
 define('JAK_PAGINATE_ADMIN', 1);
 
 // Define constant
-define('JAK_TEMPLATE', $jkv["sitestyle"]);
+define('ENVO_TEMPLATE', $jkv["sitestyle"]);
 
 // First check if the user is logged in
 if (JAK_USERID) {

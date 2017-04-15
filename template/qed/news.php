@@ -1,4 +1,4 @@
-<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/header.php'; ?>
+<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
 <?php if (isset($JAK_HOOK_NEWS) && is_array ($JAK_HOOK_NEWS)) foreach ($JAK_HOOK_NEWS as $n) {
 	include_once APP_PATH . $n['phpcode'];
@@ -12,7 +12,7 @@
 				<div class="<?php echo ($JAK_HOOK_SIDE_GRID ? "col-md-6" : "col-md-4"); ?> col-sm-12">
 					<article class="mb-xs">
 						<a href="<?php echo $v["parseurl"]; ?>">
-							<img src="<?php echo (($v["previmg"]) ? BASE_URL . $v["previmg"] : BASE_URL . 'template/' . $jkv["sitestyle"] . '/img/news/' . $site_language . '-news-feature-1.jpg') ?>" alt="<?php echo $v["title"]; ?>" class="post-image img-responsive">
+							<img src="<?php echo (($v["previmg"]) ? BASE_URL . $v["previmg"] : BASE_URL . 'template/' . ENVO_TEMPLATE . '/img/news/' . $site_language . '-news-feature-1.jpg') ?>" alt="<?php echo $v["title"]; ?>" class="post-image img-responsive">
 						</a>
 						<div class="feature-box media-left mt">
 							<div class="post-date">
@@ -74,4 +74,4 @@
 	</section>
 
 
-<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/footer.php'; ?>
+<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

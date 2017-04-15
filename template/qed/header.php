@@ -1,10 +1,9 @@
 <?php
 
-// EN: Include the config file ...
-// CZ: Vložení konfiguračního souboru ...
-if (!file_exists('config.php')) die('[index.php] config.php not found');
-require_once 'config.php';
-
+// EN: Include the config file of template ...
+// CZ: Vložení konfiguračního souboru šablony ...
+if (!file_exists(APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php')) die('[index.php] config.php not found');
+require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 ?>
 
 <!DOCTYPE html>
@@ -68,15 +67,15 @@ require_once 'config.php';
   ================================================== -->
   <link href='http://fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
   <?php if ($jkv["activeroyalslider_qed_tpl"] == 1) { ?>
-    <link rel="stylesheet" type="text/css" href="/template/<?php echo $jkv["sitestyle"]; ?>/js-plugins/royalslider/royalslider.css"/>
-    <link rel="stylesheet" type="text/css" href="/template/<?php echo $jkv["sitestyle"]; ?>/js-plugins/royalslider/skins/minimal-white/rs-minimal-white.css">
+    <link rel="stylesheet" type="text/css" href="/template/<?php echo ENVO_TEMPLATE; ?>/js-plugins/royalslider/royalslider.css"/>
+    <link rel="stylesheet" type="text/css" href="/template/<?php echo ENVO_TEMPLATE; ?>/js-plugins/royalslider/skins/minimal-white/rs-minimal-white.css">
   <?php } ?>
   <link type="text/css" rel="stylesheet" href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.min.css">
   <link type="text/css" rel="stylesheet" href="/assets/plugins/bootstrap-glyphicons/glyphicons-pro/css/glyphicons-pro.css">
-  <link type="text/css" rel="stylesheet" href="/template/<?php echo $jkv["sitestyle"]; ?>/icons/custom-icons/css/custom-icons.css">
-  <link type="text/css" rel="stylesheet" href="/template/<?php echo $jkv["sitestyle"]; ?>/js-plugins/external-plugins.min.css">
-  <link type="text/css" rel="stylesheet" href="/template/<?php echo $jkv["sitestyle"]; ?>/css/layout/neko-framework-layout.css">
-  <link type="text/css" rel="stylesheet" id="color" href="/template/<?php echo $jkv["sitestyle"]; ?>/css/color/neko-framework-<?php echo $jkv["color_qed_tpl"]; ?>.css">
+  <link type="text/css" rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/icons/custom-icons/css/custom-icons.css">
+  <link type="text/css" rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/js-plugins/external-plugins.min.css">
+  <link type="text/css" rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/css/layout/neko-framework-layout.css">
+  <link type="text/css" rel="stylesheet" id="color" href="/template/<?php echo ENVO_TEMPLATE; ?>/css/color/neko-framework-<?php echo $jkv["color_qed_tpl"]; ?>.css">
   <link type="text/css" rel="stylesheet" id="color" href="/assets/plugins/owl.carousel/assets/owl.carousel.css">
   <link type="text/css" rel="stylesheet" id="color" href="/assets/plugins/owl.carousel/assets/owl.theme.green.css">
   <link href="/assets/plugins/full-screen-navigation/css/FSNav.css" rel="stylesheet">
@@ -85,7 +84,7 @@ require_once 'config.php';
     <link href="/assets/plugins/jquery-sollist/jquery.sollist.min.css" rel="stylesheet" type="text/css" media="screen"/>
   <?php } ?>
 
-  <link rel="stylesheet" href="/template/<?php echo $jkv["sitestyle"]; ?>/css/screen.css" type="text/css"/>
+  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/css/screen.css" type="text/css"/>
 
   <!-- CUSTOM CSS
   ================================================== -->
@@ -108,7 +107,7 @@ require_once 'config.php';
 
   <!-- Basic Jquery
   ============================================= -->
-  <script src="/template/<?php echo $jkv["sitestyle"]; ?>/js-plugins/modernizr/modernizr.custom.js"></script>
+  <script src="/template/<?php echo ENVO_TEMPLATE; ?>/js-plugins/modernizr/modernizr.custom.js"></script>
 
   <!-- Import templates for in between head
   ============================================= -->
@@ -205,7 +204,7 @@ echo $jkv["header_qed_tpl"]; ?> color-<?php echo $jkv["color_qed_tpl"]; ?>">
           </div>
           <div class="collapse navbar-collapse pull-right">
             <!-- Main navigation -->
-            <?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/navbar.php'; ?>
+            <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/navbar.php'; ?>
             <!-- Hook -->
             <?php if (isset($JAK_HOOK_HEADER) && is_array($JAK_HOOK_HEADER)) foreach ($JAK_HOOK_HEADER as $hheader) {
               include_once APP_PATH . $hheader['phpcode'];
@@ -375,7 +374,7 @@ echo $jkv["header_qed_tpl"]; ?> color-<?php echo $jkv["color_qed_tpl"]; ?>">
         <div class="row">
 
           <!-- Sidebar if left -->
-          <?php if (!empty($JAK_HOOK_SIDE_GRID) && $jkv["sidebar_location_tpl"] == "left") include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/sidebar.php'; ?>
+          <?php if (!empty($JAK_HOOK_SIDE_GRID) && $jkv["sidebar_location_tpl"] == "left") include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/sidebar.php'; ?>
           <!-- / sidebar -->
           <div class="<?php echo($JAK_HOOK_SIDE_GRID ? "col-md-9" : "col-md-12"); ?>">
 

@@ -114,7 +114,7 @@ switch ($page1) {
       // EN: Load the template
       // CZ: Načti template (šablonu)
       $pluginbasic_template = 'plugins/newsletter/template/newsletter.php';
-      $pluginsite_template  = 'template/' . $jkv["sitestyle"] . '/plugintemplate/newsletter/newsletter.php';
+      $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/newsletter/newsletter.php';
 
       if (file_exists($pluginsite_template)) {
         $plugin_template = $pluginsite_template;
@@ -174,7 +174,7 @@ switch ($page1) {
       // EN: Load the template
       // CZ: Načti template (šablonu)
       $pluginbasic_template = 'plugins/newsletter/template/nloff.php';
-      $pluginsite_template  = 'template/' . $jkv["sitestyle"] . '/plugintemplate/newsletter/nloff.php';
+      $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/newsletter/nloff.php';
 
       if (file_exists($pluginsite_template)) {
         $plugin_template = $pluginsite_template;
@@ -268,7 +268,7 @@ switch ($page1) {
       // EN: Load the template
       // CZ: Načti template (šablonu)
       $pluginbasic_template = 'plugins/newsletter/template/nloff.php';
-      $pluginsite_template  = 'template/' . $jkv["sitestyle"] . '/plugintemplate/newsletter/nloff.php';
+      $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/newsletter/nloff.php';
 
       if (file_exists($pluginsite_template)) {
         $plugin_template = $pluginsite_template;

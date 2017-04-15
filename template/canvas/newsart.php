@@ -73,7 +73,7 @@ if (JAK_ASACCESS) {
 					============================================= -->
 					<?php if ($SHOWSOCIALBUTTON) { ?>
 						<div class="si-share noborder clearfix">
-							<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/socialbutton.php'; ?>
+							<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/socialbutton.php'; ?>
 						</div><!-- Post Single - Share End -->
 					<?php } ?>
 

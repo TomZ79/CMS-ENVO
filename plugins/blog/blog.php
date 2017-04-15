@@ -114,7 +114,7 @@ switch ($page1) {
       // EN: Load the template
       // CZ: Načti template (šablonu)
       $pluginbasic_template = 'plugins/blog/template/blog.php';
-      $pluginsite_template  = 'template/' . $jkv["sitestyle"] . '/plugintemplate/blog/blog.php';
+      $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/blog/blog.php';
 
       if (file_exists($pluginsite_template)) {
         $plugin_template = $pluginsite_template;
@@ -378,7 +378,7 @@ switch ($page1) {
     // EN: Load the template
     // CZ: Načti template (šablonu)
     $pluginbasic_template = 'plugins/blog/template/blogart.php';
-    $pluginsite_template  = 'template/' . $jkv["sitestyle"] . '/plugintemplate/blog/blogart.php';
+    $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/blog/blogart.php';
 
     if (file_exists($pluginsite_template)) {
       $plugin_template = $pluginsite_template;
@@ -545,7 +545,7 @@ switch ($page1) {
     // EN: Load the template
     // CZ: Načti template (šablonu)
     $pluginbasic_template = 'plugins/blog/template/blog.php';
-    $pluginsite_template  = 'template/' . $jkv["sitestyle"] . '/plugintemplate/blog/blog.php';
+    $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/blog/blog.php';
 
     if (file_exists($pluginsite_template)) {
       $plugin_template = $pluginsite_template;

@@ -121,7 +121,8 @@ if ($jkv["robots"] == 0) {
 } else {
   $jk_robots = 'index, follow';
 }
-define('JAK_TEMPLATE', $jkv["sitestyle"]);
+
+define('ENVO_TEMPLATE', $jkv["sitestyle"]);
 define('JAK_SEARCH', $jkv["searchform"]);
 define('JAK_CONTACT_FORM', $jkv["contactform"]);
 
@@ -526,8 +527,8 @@ if ($SHOWDATE == '1') define('SHOWDATE', 1);
 if (!JAK_TAGS && !JAK_USER_TAGS) $JAK_TAGLIST = FALSE;
 
 // Get the normal or plugin template
-if (isset($jkv["sitestyle"]) && !empty($jkv["sitestyle"]) && isset($jkv["cms_tpl"]) && isset($template) && $template != '') {
-  include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/' . $template;
+if (isset($jkv["sitestyle"]) && !empty(ENVO_TEMPLATE) && isset($jkv["cms_tpl"]) && isset($template) && $template != '') {
+  include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/' . $template;
   // Get the plugin template
 } elseif (isset($jkv["cms_tpl"]) && isset($plugin_template) && $plugin_template != '') {
   // Check if plugin template files exist or not

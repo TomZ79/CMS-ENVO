@@ -1,4 +1,4 @@
-<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/header.php'; ?>
+<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
 <?php if (JAK_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=edit&amp;id=' . $PAGE_ID;
 $qapedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=quickedit&amp;id=' . $PAGE_ID;
@@ -64,7 +64,7 @@ if ($jkv["printme"]) $printme = 1; ?>
 					============================================= -->
 					<?php if ($SHOWSOCIALBUTTON) { ?>
 						<div class="si-share noborder clearfix">
-							<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/socialbutton.php'; ?>
+							<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/socialbutton.php'; ?>
 						</div><!-- Post Single - Share End -->
 					<?php } ?>
 
@@ -81,7 +81,7 @@ if ($jkv["printme"]) $printme = 1; ?>
 	============================================= -->
 	<!-- Contact Form -->
 <?php if ($JAK_SHOW_C_FORM) {
-	include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/contact.php';
+	include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/contact.php';
 } ?>
 
 	<!-- Comment -->
@@ -100,7 +100,7 @@ if ($jkv["printme"]) $printme = 1; ?>
 			<ul class="post-comments">
 				<li id="insertPost"></li>
 			</ul>
-			<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/userform.php';
+			<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/userform.php';
 		} ?>
 
 	</div>
@@ -131,4 +131,4 @@ if ($jkv["printme"]) $printme = 1; ?>
 
 	<script src="<?php echo BASE_URL; ?>assets/js/comments.js?=<?php echo $jkv["updatetime"]; ?>" type="text/javascript"></script>
 
-<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/footer.php'; ?>
+<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

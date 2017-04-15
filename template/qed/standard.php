@@ -1,4 +1,4 @@
-<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/header.php'; ?>
+<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
 <?php if ($PAGE_ACTIVE) { ?>
 	<div class="alert bg-danger">
@@ -8,4 +8,4 @@
 <?php }
 echo $PAGE_CONTENT; ?>
 
-<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/footer.php'; ?>
+<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

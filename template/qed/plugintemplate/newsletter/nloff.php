@@ -1,4 +1,4 @@
-<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/header.php'; ?>
+<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
 	<!-- Heading -->
 	<h1 class="first-child text-color"><?php echo $PAGE_TITLE; ?></h1>
@@ -115,4 +115,4 @@
 
 	</article>
 
-<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/footer.php'; ?>
+<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

@@ -21,7 +21,7 @@
  */
 ?>
 
-<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/header.php'; ?>
+<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
 <?php
 if (JAK_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=download&amp;sp=edit&amp;id=' . $PAGE_ID;
@@ -157,7 +157,7 @@ if ($DL_PASSWORD && !JAK_ASACCESS && $DL_PASSWORD != $_SESSION['dlsecurehash' . 
   <?php } ?>
 
   <?php if ($JAK_SHOW_C_FORM) {
-    include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/contact.php';
+    include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/contact.php';
   } ?>
 
   <?php if (JAK_DOWNLOADPOST && $JAK_COMMENT_FORM) { ?>
@@ -204,7 +204,7 @@ if ($DL_PASSWORD && !JAK_ASACCESS && $DL_PASSWORD != $_SESSION['dlsecurehash' . 
     <!-- End Comments -->
 
     <!-- Show Comment Editor if set so -->
-    <?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/userform.php'; ?>
+    <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/userform.php'; ?>
 
   <?php } ?>
 
@@ -241,4 +241,4 @@ if ($DL_PASSWORD && !JAK_ASACCESS && $DL_PASSWORD != $_SESSION['dlsecurehash' . 
 
 <?php } ?>
 
-<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/footer.php'; ?>
+<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

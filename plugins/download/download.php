@@ -117,7 +117,7 @@ switch ($page1) {
       // EN: Load the template
       // CZ: Načti template (šablonu)
       $pluginbasic_template = 'plugins/download/template/download.php';
-      $pluginsite_template  = 'template/' . $jkv["sitestyle"] . '/plugintemplate/download/download.php';
+      $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/download/download.php';
 
       if (file_exists($pluginsite_template)) {
         $plugin_template = $pluginsite_template;
@@ -409,7 +409,7 @@ switch ($page1) {
     // EN: Load the template
     // CZ: Načti template (šablonu)
     $pluginbasic_template = 'plugins/download/template/downloadfile.php';
-    $pluginsite_template  = 'template/' . $jkv["sitestyle"] . '/plugintemplate/download/downloadfile.php';
+    $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/download/downloadfile.php';
 
     if (file_exists($pluginsite_template)) {
       $plugin_template = $pluginsite_template;
@@ -693,7 +693,7 @@ switch ($page1) {
     // EN: Load the template
     // CZ: Načti template (šablonu)
     $pluginbasic_template = 'plugins/download/template/download.php';
-    $pluginsite_template  = 'template/' . $jkv["sitestyle"] . '/plugintemplate/download/download.php';
+    $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/download/download.php';
 
     if (file_exists($pluginsite_template)) {
       $plugin_template = $pluginsite_template;

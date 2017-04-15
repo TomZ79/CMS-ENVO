@@ -413,7 +413,7 @@ if (!$JAK_SHOW_FOOTER && JAK_ASACCESS) { ?>
 <?php } ?>
 
 <script type="text/javascript">
-	jakWeb.jak_sitestyle = "<?php echo $jkv["sitestyle"];?>";
+	jakWeb.jak_sitestyle = "<?php echo ENVO_TEMPLATE;?>";
 	jakWeb.jak_lang = "<?php echo $site_language;?>";
 	jakWeb.jak_url = "<?php echo BASE_URL;?>";
 	jakWeb.jak_url_orig = "<?php echo BASE_URL;?>";

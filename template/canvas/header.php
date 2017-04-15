@@ -402,7 +402,7 @@ require_once 'config.php';
 								<div class="sidebar-widgets-wrap">
 
 									<!-- Sidebar if exist -->
-									<?php if (!empty($JAK_HOOK_SIDE_GRID)) include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/sidebar.php'; ?>
+									<?php if (!empty($JAK_HOOK_SIDE_GRID)) include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/sidebar.php'; ?>
 
 								</div>
 							</div><!-- .sidebar end -->

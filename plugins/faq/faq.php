@@ -111,7 +111,7 @@ switch ($page1) {
       // EN: Load the template
       // CZ: Načti template (šablonu)
       $pluginbasic_template = 'plugins/faq/template/faq.php';
-      $pluginsite_template  = 'template/' . $jkv["sitestyle"] . '/plugintemplate/faq/faq.php';
+      $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/faq/faq.php';
 
       if (file_exists($pluginsite_template)) {
         $plugin_template = $pluginsite_template;
@@ -326,7 +326,7 @@ switch ($page1) {
     // EN: Load the template
     // CZ: Načti template (šablonu)
     $pluginbasic_template = 'plugins/faq/template/faqart.php';
-    $pluginsite_template  = 'template/' . $jkv["sitestyle"] . '/plugintemplate/faq/faqart.php';
+    $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/faq/faqart.php';
 
     if (file_exists($pluginsite_template)) {
       $plugin_template = $pluginsite_template;
@@ -495,7 +495,7 @@ switch ($page1) {
     // EN: Load the template
     // CZ: Načti template (šablonu)
     $pluginbasic_template = 'plugins/faq/template/faq.php';
-    $pluginsite_template  = 'template/' . $jkv["sitestyle"] . '/plugintemplate/faq/faq.php';
+    $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/faq/faq.php';
 
     if (file_exists($pluginsite_template)) {
       $plugin_template = $pluginsite_template;

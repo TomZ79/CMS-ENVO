@@ -1,4 +1,4 @@
-<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/header.php'; ?>
+<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
 <?php if (JAK_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=faq&amp;sp=edit&amp;id=' . $PAGE_ID;
 $qapedit = BASE_URL . 'admin/index.php?p=faq&amp;sp=quickedit&amp;id=' . $PAGE_ID;
@@ -22,7 +22,7 @@ if ($jkv["printme"]) $printme = 1; ?>
 	</div>
 
 <?php if ($JAK_SHOW_C_FORM) {
-	include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/contact.php';
+	include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/contact.php';
 } ?>
 
 	<!-- Show date, socialbuttons and tag list -->
@@ -30,7 +30,7 @@ if ($jkv["printme"]) $printme = 1; ?>
 	<div class="row">
 		<div class="col-md-6"></div>
 		<div class="col-md-6">
-			<?php if ($SHOWSOCIALBUTTON) include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/socialbutton.php'; ?>
+			<?php if ($SHOWSOCIALBUTTON) include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/socialbutton.php'; ?>
 		</div>
 	</div>
 <?php } ?>
@@ -78,7 +78,7 @@ if ($jkv["printme"]) $printme = 1; ?>
 
 		<!-- Show Comment Editor if set so -->
 		<?php if (JAK_FAQPOST && $JAK_COMMENT_FORM) {
-			include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/userform.php';
+			include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/userform.php';
 		} ?>
 
 	</div>
@@ -96,4 +96,4 @@ if ($jkv["printme"]) $printme = 1; ?>
 		<?php } ?>
 	</ul>
 
-<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/footer.php'; ?>
+<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

@@ -212,7 +212,7 @@ echo $Html->addScript('../assets/js/functions.js?=' . $jkv["updatetime"]);
   jakWeb.jak_url = "<?php echo BASE_URL_ADMIN;?>";
   jakWeb.jak_path = "<?php echo BASE_PATH_ORIG;?>";
   jakWeb.jak_lang = "<?php echo $site_language;?>";
-  jakWeb.jak_template = "<?php echo JAK_TEMPLATE;?>";
+  jakWeb.envo_template = "<?php echo ENVO_TEMPLATE;?>";
 </script>
 <!-- BEGIN CORE TEMPLATE JS -->
 <?php
@@ -278,7 +278,7 @@ if (!empty($page)) {
 
 // JS pages for Template Settings
 if ($page == 'template' && $page1 == 'settings') {
-  $jscodefile = APP_PATH . '/template/' . JAK_TEMPLATE . '/js/pages.templatesettings.php';
+  $jscodefile = APP_PATH . '/template/' . ENVO_TEMPLATE . '/js/pages.templatesettings.php';
   if (file_exists($jscodefile)) {
     include_once($jscodefile);
   } else {

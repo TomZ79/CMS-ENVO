@@ -90,7 +90,7 @@ $jakhooks   = new JAK_hooks(1);
 $jakplugins = new JAK_plugins(1);
 
 // Get the template config file
-if (isset($jkv["sitestyle"]) && !empty($jkv["sitestyle"])) include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/config.php';
+if (defined(ENVO_TEMPLATE) && !empty(ENVO_TEMPLATE)) include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 
 // timezone from server
 date_default_timezone_set($jkv["timezoneserver"]);

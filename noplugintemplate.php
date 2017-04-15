@@ -36,7 +36,7 @@
           <i class="fa fa-warning text-warning-800"></i> <?php echo $tl["notetemplate"]["ntpl2"]; ?>
         </h3>
         <p>
-          <?php echo str_replace("%s", $jkv["sitestyle"], $tl["notetemplate"]["ntpl5"]); ?>
+          <?php echo str_replace("%s", ENVO_TEMPLATE, $tl["notetemplate"]["ntpl5"]); ?>
           <?php echo str_replace("%s", $JAK_TPL_PLUG_T, $tl["notetemplate"]["ntpl6"]); ?>
         </p>
       </div>

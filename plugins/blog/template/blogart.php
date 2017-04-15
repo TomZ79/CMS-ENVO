@@ -1,4 +1,4 @@
-<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/header.php'; ?>
+<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
 <?php if (JAK_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=edit&amp;id=' . $PAGE_ID;
 $qapedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=quickedit&amp;id=' . $PAGE_ID;
@@ -16,7 +16,7 @@ if ($jkv["printme"]) $printme = 1; ?>
         </div>
         <div class="col-sm-6">
           <!-- Show date, social buttons and tag list -->
-          <?php if ($SHOWSOCIALBUTTON) include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/socialbutton.php'; ?>
+          <?php if ($SHOWSOCIALBUTTON) include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/socialbutton.php'; ?>
           <?php if ($JAK_TAGLIST) { ?>
             <i class="fa fa-tags"></i> <?php echo $JAK_TAGLIST; ?>
           <?php } ?>
@@ -27,11 +27,11 @@ if ($jkv["printme"]) $printme = 1; ?>
       <!-- <img src="<?php echo BASE_URL . $SHOWIMG; ?>" alt="jak-preview" class="post-image img-responsive"> -->
     </div>
     <?php if ($JAK_SHOW_C_FORM) {
-      include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/contact.php';
+      include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/contact.php';
     } ?>
 
     <?php if (JAK_BLOGRATE && $SHOWVOTE && $USR_CAN_RATE) {
-      include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/voteresult.php';
+      include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/voteresult.php';
     } ?>
     <hr>
     <?php if (JAK_BLOGPOST && $JAK_COMMENT_FORM) { ?>
@@ -49,7 +49,7 @@ if ($jkv["printme"]) $printme = 1; ?>
           <ul class="post-comments">
             <li id="insertPost"></li>
           </ul>
-          <?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/userform.php';
+          <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/userform.php';
         } ?>
 
       </div>
@@ -72,4 +72,4 @@ if ($jkv["printme"]) $printme = 1; ?>
 
   <script src="<?php echo BASE_URL; ?>js/comments.js?=<?php echo $jkv["updatetime"]; ?>" type="text/javascript"></script>
 
-<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/footer.php'; ?>
+<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

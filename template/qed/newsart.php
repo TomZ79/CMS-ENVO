@@ -21,7 +21,7 @@
  */
 ?>
 
-<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/header.php'; ?>
+<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
 <?php if (!$PAGE_ACTIVE) { ?>
 	<div class="alert alert-danger">
@@ -105,7 +105,7 @@ if (JAK_ASACCESS) {
 
 								// Load contact form
 								if ($pg["pluginid"] == '9997' && $JAK_SHOW_C_FORM) {
-									include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/contact.php';
+									include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/contact.php';
 								}
 
 								// Load News Grid
@@ -144,4 +144,4 @@ if (JAK_ASACCESS) {
 		</div>
 	</section>
 
-<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/footer.php'; ?>
+<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

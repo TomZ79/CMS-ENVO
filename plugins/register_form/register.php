@@ -307,7 +307,7 @@ if (JAK_USERID) {
   // EN: Load the template
   // CZ: Načti template (šablonu)
   $pluginbasic_template = 'plugins/register_form/template/rf_editprofile.php';
-  $pluginsite_template  = 'template/' . $jkv["sitestyle"] . '/plugintemplate/register_form/rf_editprofile.php';
+  $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/register_form/rf_editprofile.php';
 
   if (file_exists($pluginsite_template)) {
     $plugin_template = $pluginsite_template;

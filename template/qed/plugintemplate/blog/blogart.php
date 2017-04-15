@@ -1,4 +1,4 @@
-<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/header.php'; ?>
+<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
 <?php
 if (JAK_ASACCESS)
@@ -69,7 +69,7 @@ if ($jkv["printme"])
     </article>
 
     <?php if ($JAK_SHOW_C_FORM) {
-      include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/contact.php';
+      include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/contact.php';
     } ?>
 
     <hr>
@@ -88,7 +88,7 @@ if ($jkv["printme"])
           <ul class="post-comments">
             <li id="insertPost"></li>
           </ul>
-          <?php include APP_PATH . 'template/' . $jkv["sitestyle"] . '/userform.php';
+          <?php include APP_PATH . 'template/' . ENVO_TEMPLATE . '/userform.php';
         } ?>
 
       </div>
@@ -118,4 +118,4 @@ if ($jkv["printme"])
   <script src="<?php echo BASE_URL; ?>assets/js/comments.js?=<?php echo $jkv["updatetime"]; ?>"
     type="text/javascript"></script>
 
-<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/footer.php'; ?>
+<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

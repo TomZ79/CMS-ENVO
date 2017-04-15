@@ -1,4 +1,4 @@
-<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/header.php'; ?>
+<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
 <?php if (isset($JAK_GET_TAG_CLOUD)) {
 	echo '<div class="well well-sm">' . $JAK_GET_TAG_CLOUD . '</div>'; ?>
@@ -61,4 +61,4 @@
 
 <?php } ?>
 
-<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/footer.php'; ?>
+<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

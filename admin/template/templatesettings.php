@@ -55,7 +55,7 @@ if ($page3 == "e") { ?>
 <?php } else {
 
   // Include template settings from each template if exists
-  $filename = '../template/' . JAK_TEMPLATE . '/templatesettings.php';
+  $filename = '../template/' . ENVO_TEMPLATE . '/templatesettings.php';
 
   if (file_exists($filename)) {
     include_once $filename;
@@ -67,7 +67,7 @@ if ($page3 == "e") { ?>
 
           <?php
           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-          echo $Html->addTag('h3', $Html->addTag('i', '', 'fa fa-warning text-warning-800') . sprintf($tl["notetemplate"]["ntpl1"], JAK_TEMPLATE), 'box-title');
+          echo $Html->addTag('h3', $Html->addTag('i', '', 'fa fa-warning text-warning-800') . sprintf($tl["notetemplate"]["ntpl1"], ENVO_TEMPLATE), 'box-title');
 
           echo sprintf($tl["notetemplate"]["ntpl4"], $filename);
           ?>
