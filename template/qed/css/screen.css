@@ -128,23 +128,23 @@ ul.entry-meta li {
 
 /* XX. Login form
 ========================================================================*/
-#top-login-password {
-  position: relative;
-}
+.form-login .form-control {  }
 
-#top-login-password .show-pass {
-  display: block;
-  right: 1px;
-  position: absolute;
-  top: 9px;
-  cursor: pointer;
-  z-index: 3;
-  padding: 0 6px;
-  border-left: 1px solid #CCC;
+.form-login input {
+  border-radius: 0 !important;
+  outline: none !important;
+  border: 0 !important;
+  padding: 18px 27px;
+  height: auto;
+  font-size: 19px;
 }
 
 label.checkbox-inline {
   line-height: 18px;
+}
+
+.form-login button {
+  border-radius: 0;
 }
 
 /* XX. HEADER
@@ -175,6 +175,7 @@ label.checkbox-inline {
 #show-nav:hover i:before {
   color: #000 !important;
 }
+
 /* Search box for touch device*/
 .responsive-search-box {
   width: 100%;
@@ -190,7 +191,6 @@ label.checkbox-inline {
   border: 0;
   font-size: 19px;
 }
-
 
 /* XX. Pricing Table
 ========================================================================*/
@@ -513,15 +513,16 @@ footer#main-footer #footer-rights p {
   background-color: transparent;
   border: 0;
 }
+
 .full-screen-nav-wrapper button i:before {
   font-size: 25px;
-  color: rgba(255,255,255,.2);
+  color: rgba(255, 255, 255, .2);
   transition: all .2s ease-out;
 }
 
 .full-screen-nav-wrapper button:hover i:before {
   font-size: 25px;
-  color: rgba(255,255,255,.5);
+  color: rgba(255, 255, 255, .5);
 }
 
 /* PAGINATION
@@ -674,7 +675,8 @@ footer#main-footer #footer-rights p {
 /* Colors */
 .nav-side-menu ul li.active a,
 .nav-side-menu ul li a.active,
-.nav-side-menu ul .sub-menu li a.active {  }
+.nav-side-menu ul .sub-menu li a.active {
+}
 
 /* Icons */
 .nav-side-menu ul .sub-menu li a:before {
@@ -687,21 +689,6 @@ footer#main-footer #footer-rights p {
   border-left: 4px solid #333;
   margin: 7px 0 0 -12px;
   position: absolute;
-}
-
-.panel-title > a:before {
-  font-family: FontAwesome;
-  content: "\f078";
-  display: inline-block;
-  padding-left: 10px;
-  padding-right: 0;
-  vertical-align: middle;
-  float: right;
-  font-size: 14px;
-}
-
-.panel-title > a.collapsed:before {
-  content: "\f054";
 }
 
 /* Responsive */
@@ -748,6 +735,7 @@ footer#main-footer #footer-rights p {
     display: block;
     text-align: center;
   }
+
   .nav-side-menu span.toggle-btn:before {
     font-family: 'custom-icons';
     content: '\e866';
@@ -788,9 +776,11 @@ footer#main-footer #footer-rights p {
 .nav-sidebar-inline {
   width: 100%;
 }
+
 .nav-sidebar-inline ul {
   padding-left: 10px;
 }
+
 .nav-sidebar-inline li {
   display: inline-block;
   list-style: none;
@@ -811,4 +801,21 @@ footer#main-footer #footer-rights p {
 .menu-header .nav a.cat-active {
   background: #93C220;
   color: #FFF;
+}
+
+
+/* FORM ELEMENTS - BUTTONS, INPUT, TEXTAREA ...
+======================================================================== */
+/* Placeholder colors */
+::-webkit-input-placeholder {
+  color: #acacac !important; text-overflow: ellipsis;
+}
+:-moz-placeholder {
+  color: #acacac !important; text-overflow: ellipsis;
+}
+::-moz-placeholder {
+  color: #acacac !important; text-overflow: ellipsis;
+} /* For the future */
+:-ms-input-placeholder {
+  color: #acacac !important; text-overflow: ellipsis;
 }

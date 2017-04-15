@@ -419,7 +419,42 @@ if ($errors) { ?>
 
               </div>
             </div>
+            <div class="box box-success">
+              <div class="box-header with-border">
 
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tl["news_box_title"]["newsbt10"], 'box-title');
+                ?>
+
+              </div>
+              <div class="box-body">
+                <div class="block">
+                  <div class="block-content">
+                    <div class="row-form">
+                      <div class="col-md-12">
+                        <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html->addInput('text', 'jak_datetime', ($JAK_FORM_DATA["time"]) ? $JAK_FORM_DATA["time"] : '', 'datepickerTime', 'form-control', array('readonly' => 'readonly'));
+                          ?>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="box-footer">
+
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+                ?>
+
+              </div>
+            </div>
             <div class="box box-success">
               <div class="box-header with-border">
 

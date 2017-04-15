@@ -5,15 +5,6 @@
  */
 
 $(function () {
-  /* Show Password in Login Form */
-  $(".show-pass")
-    .mouseup(function () {
-      $("#password").attr('type', 'password');
-    })
-    .mousedown(function () {
-      $("#password").attr('type', 'text');
-    });
-
 
 });
 

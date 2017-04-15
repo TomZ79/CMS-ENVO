@@ -845,6 +845,12 @@ table.table-expandable > tbody > tr div.table-expandable-arrow.up {
 
 /* 00. MODIFICATION - RADIO, CHECKBOX, BUTTON, ICONS, INPUT, DL List
 ========================================================================*/
+/* Global settings for input */
+input {
+  border-radius: 0 !important;
+  outline: none !important;
+}
+
 /* External button for save form */
 .savebutton,
 .actionbutton {

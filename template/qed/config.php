@@ -77,7 +77,7 @@ function jak_build_menu_qed($parent, $menu, $active, $mainclass, $dropdown, $dro
         $html .= '
         <li class="' . $dropdown . (($active == $menu["items"][$itemId]["pagename"]) ? ' active' : '') . '">
           
-          <a href="' . $menu["items"][$itemId]["varname"] . '"' . (($active == $menu["items"][$itemId]["pagename"]) ? ' class="active ' . $dropdownclass . $classcat . '"' : 'class="' . $dropdownclass . $classcat . '"') . '>' .
+          <a href="' . $menu["items"][$itemId]["varname"] . '"' . (($active == $menu["items"][$itemId]["pagename"]) ? ' class="active ' . $dropdownclass . $classcat . '"' : ' class="' . $dropdownclass . $classcat . '"') . '>' .
 
             (($menu["items"][$itemId]["catimg"]) ? '<i class="' . $menu["items"][$itemId]["catimg"] . '"></i> ' : '') .
 

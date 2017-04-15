@@ -60,8 +60,16 @@
   /* Submit Form
    ========================================= */
   $('form').submit(function () {
-    $("#jak_editor").val(htmlACE.getValue());
-    $("#jak_editor2").val(htmlACE2.getValue());
+
+    <?php if ($jkv["adv_editor"]) { ?>
+    if ($('#jak_editor').length) {
+      $("#jak_editor").val(htmlACE.getValue());
+    }
+    if ($('#jak_editor2').length) {
+      $("#jak_editor2").val(htmlACE.getValue());
+    }
+    <?php } ?>
+
   });
 
   <?php } ?>

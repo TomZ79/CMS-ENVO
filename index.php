@@ -542,9 +542,10 @@ if (isset($jkv["sitestyle"]) && !empty($jkv["sitestyle"]) && isset($jkv["cms_tpl
 }
 
 // Reset success and errors session for next use
+unset($_SESSION["infomsg"]);
 unset($_SESSION["successmsg"]);
 unset($_SESSION["errormsg"]);
-unset($_SESSION["infomsg"]);
+unset($_SESSION["warningmsg"]);
 
 // Finally close all db connections
 $jakdb->jak_close();

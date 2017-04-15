@@ -360,7 +360,7 @@ if ($jkv["offline"] == 1 && JAK_ASACCESS) { ?>
     $.notify({
       // Options
       icon: 'icon-flash',
-      message: '<?php echo $tl["notification"]["n1"];?>',
+      message: '<?php echo $tl["notification"]["n1"];?>'
     }, {
       // Settings
       type: 'offline',
@@ -403,26 +403,19 @@ if ($jkv["offline"] == 1 && JAK_ASACCESS) { ?>
       <span class="full-screen-nav-close"></span>
       <div class="full-screen-nav-content">
         <div class="full-screen-nav-general">
-          <h1>Login to web</h1>
-          <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
+          <h1 class="mb-small"><?php echo $tlqed["lform_text"]["lformt"]; ?></h1>
+          <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" class="form-login">
             <div class="container">
               <div class="row">
                 <div class="col-sm-4 col-sm-offset-4">
-                  <div class="input-group mb-small" id="top-login-username">
-                    <span class="input-group-addon"><i class="icon-user-md"></i></span>
-                    <input type="text" class="form-control" name="jakU" id="username" value="<?php if (isset($_REQUEST["jakU"])) echo $_REQUEST["jakU"]; ?>" placeholder="<?php echo $tl["login"]["l1"]; ?>"/>
-                  </div>
-                  <div class="input-group mb-small" id="top-login-password">
-                    <span class="input-group-addon"><i class="icon-key"></i></span>
-                    <span class="show-pass"><i class="icon-eye"></i></span>
-                    <input type="password" class="form-control" name="jakP" id="password" placeholder="<?php echo $tl["login"]["l2"]; ?>"/>
-                  </div>
+                  <input type="text" class="form-control input-lg mb-small" name="jakU" id="username" value="<?php if (isset($_REQUEST["jakU"])) echo $_REQUEST["jakU"]; ?>" placeholder="<?php echo $tlqed["lform_text"]["lformt1"]; ?>">
+                  <input type="password" class="form-control input-lg mb-small" name="jakP" id="password" placeholder="<?php echo $tlqed["lform_text"]["lformt2"]; ?>"/>
                   <div class="form-group">
                     <label class="checkbox-inline">
-                      <input type="checkbox" name="lcookies" value="1"> <?php echo $tl["notification"]["n2"]; ?>
+                      <input type="checkbox" name="lcookies" value="1"> <?php echo $tlqed["lform_text"]["lformt3"]; ?>
                     </label>
                   </div>
-                  <button type="submit" name="login" class="btn btn-default btn-sm btn-block"><?php echo $tl["general"]["g146"]; ?></button>
+                  <button type="submit" name="login" class="btn btn-success btn-lg btn-block"><?php echo $tlqed["lform_text"]["lformt4"]; ?></button>
                   <input type="hidden" name="home" value="0"/>
                 </div>
               </div>

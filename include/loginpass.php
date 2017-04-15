@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jakU'])) {
       jak_redirect(BASE_URL);
     }
 
-    $_SESSION["warningmsg"] = $tl['general_error']['generror24'];
+    $_SESSION["warningmsg"] = $tl["general_error"]["generror24"];
     $errorlo                = $errors;
   }
 
