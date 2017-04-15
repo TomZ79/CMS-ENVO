@@ -54,7 +54,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
     <?php
     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-    echo $Html->addAnchor('index.php?p=download&sp=new', $tl["button"]["btn39"], '', 'btn btn-info button');
+    echo $Html->addAnchor('index.php?p=download&sp=new', $tl["button"]["btn40"], '', 'btn btn-info button');
     ?>
 
   </div>
