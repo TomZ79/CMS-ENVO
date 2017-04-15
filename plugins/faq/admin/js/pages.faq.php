@@ -29,7 +29,8 @@
 </script>
 <script type="text/javascript">
 
-  // ACE editor
+  /* ACE Editor
+   ========================================= */
   <?php if ($jkv["adv_editor"]) { ?>
   if ($('#htmleditor').length) {
     var htmlACE = ace.edit("htmleditor");
@@ -56,22 +57,72 @@
   }
   <?php } ?>
 
-  // Responsive Filemanager
-  <?php if ($jkv["adv_editor"]) { ?>
+  if ($('#csseditor').length) {
+    var cssACE = ace.edit("csseditor");
+    cssACE.setTheme("ace/theme/chrome");
+    cssACE.session.setMode("ace/mode/html");
+    textcss = $("#jak_css").val();
+    cssACE.session.setValue(textcss);
+  }
+
+  if ($('#javaeditor').length) {
+    var jsACE = ace.edit("javaeditor");
+    jsACE.setTheme("ace/theme/chrome");
+    jsACE.session.setMode("ace/mode/html");
+    textjs = $("#jak_javascript").val();
+    jsACE.session.setValue(textjs);
+  }
+
+  /* Other config
+   ========================================= */
+  $(document).ready(function () {
+
+    $("#addCssBlock").click(function () {
+      cssACE.insert(insert_cssblock());
+    });
+    $("#addJavascriptBlock").click(function () {
+      jsACE.insert(insert_javascript());
+    });
+  });
+
+  /* Responsive Filemanager
+   ========================================= */
   function responsive_filemanager_callback(field_id) {
 
-    if (field_id == "htmleditor") {
+    if (field_id == "csseditor" || field_id == "javaeditor" || field_id == "htmleditor") {
+
       // get the path for the ace file
       var acefile = jQuery('#' + field_id).val();
-      htmlACE.insert(acefile);
+
+      if (field_id == "csseditor") {
+        cssACE.insert('<link rel="stylesheet" href="' + acefile + '" type="text/css" />');
+      } else if (field_id == "javaeditor") {
+        jsACE.insert('<script src="' + acefile + '"><\/script>');
+      } else {
+        htmlACE.insert(acefile);
+      }
     }
   }
 
-  // Submit Form
+  /* Submit Form
+   ========================================= */
   $('form').submit(function () {
-    $("#jak_editor").val(htmlACE.getValue());
+
+    <?php if ($jkv["adv_editor"]) { ?>
+    if ($('#jak_editor').length) {
+      $("#jak_editor").val(htmlACE.getValue());
+    }
+    <?php } ?>
+
+    if ($('#csseditor').length) {
+      $("#jak_css").val(cssACE.getValue());
+    }
+
+    if ($('#javaeditor').length) {
+      $("#jak_javascript").val(jsACE.getValue());
+    }
+
   });
-  <?php } ?>
 </script>
 <script type="text/javascript">
   $(document).ready(function () {

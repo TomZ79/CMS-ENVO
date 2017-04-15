@@ -488,6 +488,10 @@ switch ($page1) {
       $PAGE_DESCRIPTION = jak_cut_text($PAGE_CONTENT, 155, '');
     }
 
+    // Get the CSS and Javascript into the page
+    $JAK_HEADER_CSS        = $jkv["faq_css"];
+    $JAK_FOOTER_JAVASCRIPT = $jkv["faq_javascript"];
+
     // EN: Load the template
     // CZ: Načti template (šablonu)
     $pluginbasic_template = 'plugins/faq/template/faq.php';

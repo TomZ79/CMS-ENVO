@@ -72,6 +72,16 @@ if ($errors) { ?>
       </li>
       <li role="presentation" class="next">
         <a href="#cmsPage2" role="tab" id="cmsPage2-tab" data-toggle="tab" aria-controls="cmsPage2">
+          <span class="text"><?php echo $tlf["faq_section_tab"]["faqtab3"]; ?></span>
+        </a>
+      </li>
+      <li role="presentation">
+        <a href="#cmsPage3" role="tab" id="cmsPage3-tab" data-toggle="tab" aria-controls="cmsPage3">
+          <span class="text"><?php echo $tlf["faq_section_tab"]["faqtab4"]; ?></span>
+        </a>
+      </li>
+      <li role="presentation">
+        <a href="#cmsPage4" role="tab" id="cmsPage4-tab" data-toggle="tab" aria-controls="cmsPage4">
           <span class="text"><?php echo $tlf["faq_section_tab"]["faqtab1"]; ?></span>
         </a>
       </li>
@@ -410,6 +420,82 @@ if ($errors) { ?>
         </div>
       </div>
       <div role="tabpanel" class="tab-pane fade" id="cmsPage2" aria-labelledby="cmsPage2-tab">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="box box-success">
+              <div class="box-header with-border">
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tlf["faq_box_title"]["faqbt2"], 'box-title');
+                ?>
+
+              </div>
+              <div class="box-body">
+
+                <?php
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html->addAnchor('../../../../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
+                echo $Html->addAnchor('javascript:;', $tl["global_text"]["globaltxt6"], 'addCssBlock');
+                echo '<br/>';
+                // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                echo $Html->addDiv('', 'csseditor');
+                // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+                echo $Html->addTextarea('jak_css', $jkv["faq_css"], '20', '', array('id' => 'jak_css', 'class' => 'hidden'));
+                ?>
+
+              </div>
+              <div class="box-footer">
+
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+                ?>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="cmsPage3" aria-labelledby="cmsPage3-tab">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="box box-success">
+              <div class="box-header with-border">
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tlf["faq_box_title"]["faqbt3"], 'box-title');
+                ?>
+
+              </div>
+              <div class="box-body">
+
+                <?php
+                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                echo $Html->addAnchor('../../../../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
+                echo $Html->addAnchor('javascript:;', $tl["global_text"]["globaltxt7"], 'addJavascriptBlock');
+                echo '<br/>';
+                // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                echo $Html->addDiv('', 'javaeditor');
+                // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+                echo $Html->addTextarea('jak_javascript', $jkv["faq_javascript"], '20', '', array('id' => 'jak_javascript', 'class' => 'hidden'));
+                ?>
+
+              </div>
+              <div class="box-footer">
+
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+                ?>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="cmsPage4" aria-labelledby="cmsPage4-tab">
         <div class="row">
           <div class="col-md-12">
             <div class="box box-success">

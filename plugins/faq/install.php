@@ -422,7 +422,9 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
 ("faqpageitem", "faq", 4, 4, "yesno", "number", "faq"),
 ("faqorder", "faq", "id ASC", "", "input", "free", "faq"),
 ("faqrss", "faq", 5, 5, "select", "number", "faq"),
-("faqhlimit", "faq", 5, 5, "select", "number", "faq")');
+("faqhlimit", "faq", 5, 5, "select", "number", "faq"),
+("faq_css", "faq", "", "", "textarea", "free", "faq"),
+("faq_javascript", "faq", "", "", "textarea", "free", "faq")');
 
       // EN: Insert data to table 'usergroup'
       // CZ: Vložení potřebných dat to tabulky 'usergroup'

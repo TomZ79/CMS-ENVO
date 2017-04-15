@@ -696,8 +696,10 @@ switch ($page1) {
 		        WHEN "faqrss" THEN "' . smartsql($defaults['jak_rssitem']) . '"
 		        WHEN "faqpagemid" THEN "' . smartsql($defaults['jak_mid']) . '"
 		        WHEN "faqpageitem" THEN "' . smartsql($defaults['jak_item']) . '"
+		        WHEN "faq_css" THEN "' . smartsql($defaults['jak_css']) . '"
+		      WHEN "faq_javascript" THEN "' . smartsql($defaults['jak_javascript']) . '"
 		    END
-				WHERE varname IN ("faqtitle","faqdesc","faqemail","faqorder","faqdateformat","faqtimeformat","faqurl","faqmaxpost","faqpagemid","faqpageitem","faqrss")';
+				WHERE varname IN ("faqtitle","faqdesc","faqemail","faqorder","faqdateformat","faqtimeformat","faqurl","faqmaxpost","faqpagemid","faqpageitem","faqrss", "faq_css", "faq_javascript")';
         $result = $jakdb->query($sql);
 
         // Save order for sidebar widget
