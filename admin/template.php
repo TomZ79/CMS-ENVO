@@ -107,7 +107,7 @@ switch ($page1) {
 
     // EN: Title and Description
     // CZ: Titulek a Popis
-    $SECTION_TITLE = $tl["tpl_sec_title"]["tplt1"];
+    $SECTION_TITLE = sprintf($tl["tpl_sec_title"]["tplt1"], $jkv["sitestyle"]);;
     $SECTION_DESC  = $tl["tpl_sec_desc"]["tpld1"];
 
     // EN: Ace Mode

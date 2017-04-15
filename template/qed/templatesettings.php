@@ -1,6 +1,6 @@
 <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 	<!-- Fixed Button for save form -->
-	<div class="savebutton hidden-xs">
+	<div class="savebutton-medium hidden-xs">
 		<button type="submit" name="save" class="btn btn-success button">
 			<i class="fa fa-save margin-right-5"></i>
 			<?php echo $tl["button"]["btn1"]; ?> !!
