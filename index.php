@@ -122,6 +122,7 @@ if ($jkv["robots"] == 0) {
   $jk_robots = 'index, follow';
 }
 
+// Define other constant
 define('ENVO_TEMPLATE', $jkv["sitestyle"]);
 define('JAK_SEARCH', $jkv["searchform"]);
 define('JAK_CONTACT_FORM', $jkv["contactform"]);
