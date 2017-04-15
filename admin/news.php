@@ -33,7 +33,13 @@ switch ($page1) {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $defaults = $_POST;
 
-      if (empty($defaults['jak_title'])) $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
+      if (empty($defaults['jak_title'])) {
+        $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
+      }
+
+      if (!empty($defaults['jak_datetime'])) {
+        $finaltime = $defaults['jak_datetime'];
+      }
 
       if (!empty($defaults['jak_datefrom'])) {
         $finalfrom = strtotime($defaults['jak_datefrom']);
@@ -50,6 +56,16 @@ switch ($page1) {
       // Now do the dirty stuff in mysql
       if (count($errors) == 0) {
 
+        // Save the time if available of download
+        if (!empty($finaltime)) {
+          $insert .= 'time = "' . smartsql($finaltime) . '",';
+        } else {
+          $insert .= 'time = NOW(),';
+        }
+
+        // Save image
+        if (empty($defaults['jak_img'])) $defaults['jak_img'] = '';
+
         // Write some standard vars if empty
         if (!isset($defaults['jak_showcontact'])) $defaults['jak_showcontact'] = 0;
 
@@ -59,9 +75,7 @@ switch ($page1) {
 
         if (!isset($defaults['jak_social'])) $defaults['jak_social'] = 0;
 
-        if (empty($defaults['jak_img'])) $defaults['jak_img'] = '';
-
-        // save the time if available
+        // Save the time range if available of article
         if (isset($finalfrom)) {
           $insert .= 'startdate = "' . smartsql($finalfrom) . '",';
         }
@@ -99,7 +113,6 @@ switch ($page1) {
 																	showhits = "' . $defaults['jak_showhits'] . '",
 																	socialbutton = "' . $defaults['jak_social'] . '",
 																	newsorder = 1,
-																	time = NOW(),
 																	permission = "' . smartsql($permission) . '",
 																	' . $insert . '
 																	active = 1');
@@ -472,6 +485,10 @@ switch ($page1) {
               $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
             }
 
+            if (!empty($defaults['jak_datetime'])) {
+              $finaltime = $defaults['jak_datetime'];
+            }
+
             if (!empty($defaults['jak_datefrom'])) {
               $finalfrom = strtotime($defaults['jak_datefrom']);
             }
@@ -487,6 +504,14 @@ switch ($page1) {
             // Now do the dirty stuff in mysql
             if (count($errors) == 0) {
 
+              // Save or update time of article
+              if (empty($defaults['jak_update_time'])) {
+                $insert .= 'time = "' . smartsql($finaltime) . '",';
+              } else {
+                $insert .= 'time = NOW(),';
+              }
+
+              // Save image
               if (empty($defaults['jak_img'])) $defaults['jak_img'] = '';
 
               // Update time
@@ -494,7 +519,7 @@ switch ($page1) {
                 $insert .= 'time = NOW(),';
               }
 
-              // save the time if available
+              // Save the time range if available of article
               if (isset($finalfrom)) {
                 $insert .= 'startdate = "' . smartsql($finalfrom) . '",';
               }

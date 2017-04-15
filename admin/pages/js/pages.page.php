@@ -39,14 +39,6 @@ if ($jkv["adv_editor"] && (($page == 'page' && $page1 == 'newpage') || ($page ==
   }
   <?php } ?>
 
-  if ($('#javaeditor').length) {
-    var jsACE = ace.edit("javaeditor");
-    jsACE.setTheme("ace/theme/chrome");
-    jsACE.session.setMode("ace/mode/html");
-    textjs = $("#jak_javascript").val();
-    jsACE.session.setValue(textjs);
-  }
-
   if ($('#csseditor').length) {
     var cssACE = ace.edit("csseditor");
     cssACE.setTheme("ace/theme/chrome");
@@ -55,16 +47,32 @@ if ($jkv["adv_editor"] && (($page == 'page' && $page1 == 'newpage') || ($page ==
     cssACE.session.setValue(textcss);
   }
 
+  if ($('#javaeditor').length) {
+    var jsACE = ace.edit("javaeditor");
+    jsACE.setTheme("ace/theme/chrome");
+    jsACE.session.setMode("ace/mode/html");
+    textjs = $("#jak_javascript").val();
+    jsACE.session.setValue(textjs);
+  }
+
   /* Submit Form
    ========================================= */
   $('form').submit(function () {
-    $("#jak_css").val(cssACE.getValue());
-    $("#jak_javascript").val(jsACE.getValue());
+
     <?php if ($jkv["adv_editor"]) { ?>
     if ($('#jak_editor').length) {
       $("#jak_editor").val(htmlACE.getValue());
     }
     <?php } ?>
+
+    if ($('#csseditor').length) {
+      $("#jak_css").val(cssACE.getValue());
+    }
+
+    if ($('#javaeditor').length) {
+      $("#jak_javascript").val(jsACE.getValue());
+    }
+
   });
 
   /* Responsive Filemanager
