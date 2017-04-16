@@ -23,7 +23,7 @@
 					<i class="fa fa-file-text-o fa-4x"></i>
 					<h3><a href="<?php echo $p["parseurl"]; ?>"><?php echo $p["title"]; ?></a></h3>
 					<p><?php echo $p["content"]; ?></p>
-					<a href="<?php echo $p["parseurl"]; ?>" class="btn btn-color"><?php echo $tl["general"]["g3"]; ?></a>
+					<a href="<?php echo $p["parseurl"]; ?>" class="btn btn-color"><?php echo $tl["global_text"]["gtxt8"]; ?></a>
 				</div>
 			</div>
 
@@ -36,7 +36,7 @@
 					<i class="fa fa-newspaper-o fa-4x"></i>
 					<h3><a href="<?php echo $n["parseurl"]; ?>"><?php echo $n["title"]; ?></a></h3>
 					<p><?php echo $n["content"]; ?></p>
-					<a href="<?php echo $n["parseurl"]; ?>" class="btn btn-color"><?php echo $tl["general"]["g3"]; ?></a>
+					<a href="<?php echo $n["parseurl"]; ?>" class="btn btn-color"><?php echo $tl["global_text"]["gtxt8"]; ?></a>
 				</div>
 			</div>
 
@@ -50,13 +50,13 @@
 <?php if (isset($count)) { ?>
 
 	<div class="alert bg-info">
-		<?php echo str_replace ("%s", $count, $tl["general"]["g159"]); ?>
+		<?php echo str_replace ("%s", $count, $tl["searching"]["stxt13"]); ?>
 	</div>
 
 <?php } else { ?>
 
 	<div class="alert bg-danger">
-		<?php echo $tl["general"]["g158"]; ?>
+		<?php echo $tl["searching"]["stxt12"]; ?>
 	</div>
 
 <?php } ?>

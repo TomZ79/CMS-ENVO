@@ -80,7 +80,7 @@ switch ($page1) {
         $JAK_PAGINATE = $faqc->display_pages();
       }
 
-      $JAK_FAQ_ALL = jak_get_faq($faqc->limit, $jkv["faqorder"], $page2, 't1.catid', $jkv["faqurl"], $tl['general']['g56']);
+      $JAK_FAQ_ALL = jak_get_faq($faqc->limit, $jkv["faqorder"], $page2, 't1.catid', $jkv["faqurl"], $tl['global_text']['gtxt4']);
 
       $result = $jakdb->query('SELECT name' . ', content' . ' FROM ' . $jaktable1 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
       $row    = $result->fetch_assoc();
@@ -107,6 +107,10 @@ switch ($page1) {
 
       $PAGE_KEYWORDS    = str_replace(" ", "", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
       $PAGE_DESCRIPTION = jak_cut_text($PAGE_CONTENT, 155, '');
+
+      // Get the CSS and Javascript into the page
+      $JAK_HEADER_CSS        = $jkv["faq_css"];
+      $JAK_FOOTER_JAVASCRIPT = $jkv["faq_javascript"];
 
       // EN: Load the template
       // CZ: Načti template (šablonu)
@@ -178,7 +182,7 @@ switch ($page1) {
             $mail->Send(); // Send email without any warnings
           }
 
-          $arr['created'] = JAK_Base::jakTimesince(time(), $jkv["faqdateformat"], $jkv["faqtimeformat"], $tl['general']['g56']);
+          $arr['created'] = JAK_Base::jakTimesince(time(), $jkv["faqdateformat"], $jkv["faqtimeformat"], $tl['global_text']['gtxt4']);
 
           /*
           /	The data in $arr is escaped for the mysql query,
@@ -189,7 +193,7 @@ switch ($page1) {
           /* Outputting the markup of the just-inserted comment: */
           if (isset($arr['jakajax']) && $arr['jakajax'] == "yes") {
 
-            $acajax = new JAK_comment($jaktable2, 'id', $arr['id'], JAK_PLUGIN_VAR_FAQ, $jkv["faqdateformat"], $jkv["faqtimeformat"], $tl['general']['g56']);
+            $acajax = new JAK_comment($jaktable2, 'id', $arr['id'], JAK_PLUGIN_VAR_FAQ, $jkv["faqdateformat"], $jkv["faqtimeformat"], $tl['global_text']['gtxt4']);
 
             header('Cache-Control: no-cache');
             die(json_encode(array('status' => 1, 'html' => $acajax->get_commentajax($tl['general']['g102'], $tlf['faq']['g3'], $tlf['faq']['g4']))));
@@ -242,7 +246,7 @@ switch ($page1) {
           $SHOWSOCIALBUTTON = $row['socialbutton'];
           $FAQ_HITS         = $row['hits'];
 
-          $PAGE_TIME       = JAK_Base::jakTimesince($row['time'], $jkv["faqdateformat"], $jkv["faqtimeformat"], $tl['general']['g56']);
+          $PAGE_TIME       = JAK_Base::jakTimesince($row['time'], $jkv["faqdateformat"], $jkv["faqtimeformat"], $tl['global_text']['gtxt4']);
           $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
           // Display contact form if whish so and do the caching
@@ -259,7 +263,7 @@ switch ($page1) {
 
         // Get the comments if wish so
         if ($row['comments'] == 1) {
-          $ac = new JAK_comment($jaktable2, 'faqid', $page2, JAK_PLUGIN_VAR_FAQ, $jkv["faqdateformat"], $jkv["faqtimeformat"], $tl['general']['g56']);
+          $ac = new JAK_comment($jaktable2, 'faqid', $page2, JAK_PLUGIN_VAR_FAQ, $jkv["faqdateformat"], $jkv["faqtimeformat"], $tl['global_text']['gtxt4']);
 
           $JAK_COMMENTS       = $ac->get_comments();
           $JAK_COMMENTS_TOTAL = $ac->get_total();
@@ -284,6 +288,29 @@ switch ($page1) {
 
         // Show Tags
         $JAK_TAGLIST = JAK_tags::jakGettaglist($page2, JAK_PLUGIN_ID_FAQ, JAK_PLUGIN_VAR_TAGS);
+
+        // Get the categories into a list
+        $resultc = $jakdb->query('SELECT id, name, varname FROM ' . $jaktable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
+        while ($rowc = $resultc->fetch_assoc()) {
+
+          if ($jkv["faqurl"]) {
+            $seoc = JAK_base::jakCleanurl($rowc['varname']);
+          }
+
+          // EN: Create array with all categories ( Plugin Download have only one category for one download file, in array will be it only one category )
+          // CZ: Vytvoření pole se všemi kategoriemi ( Plugin Download má pouze jednu kategorie pro jeden stahovaný soubor, v poli bude jen jedna kategorie )
+          $catids[] = '<a class="category-label"  href="' . JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_FAQ, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tlf["faq_frontend"]["faq2"] . '">' . $rowc['name'] . '</a>';
+
+          // EN: Get 'varname' for category
+          // CZ: Získaní 'varname' kategorie
+          $FAQ_CAT = $rowc['varname'];
+        }
+
+        if (!empty($catids)) {
+          // EN: Returns a string from the elements of an array
+          // CZ: Získání elementů z pole
+          $FAQ_CATLIST = join(" ", $catids);
+        }
 
         // Page Nav
         $nextp = jak_next_page($page2, 'title', $jaktable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
@@ -456,7 +483,7 @@ switch ($page1) {
       $JAK_PAGINATE = $faq->display_pages();
 
       // Get all FAQ articles
-      $JAK_FAQ_ALL = jak_get_faq($faq->limit, $jkv["faqorder"], '', '', $jkv["faqurl"], $tl['general']['g56']);
+      $JAK_FAQ_ALL = jak_get_faq($faq->limit, $jkv["faqorder"], '', '', $jkv["faqurl"], $tl['global_text']['gtxt4']);
 
     }
 

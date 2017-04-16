@@ -81,7 +81,7 @@ switch ($page1) {
         $dlc->paginate();
         $JAK_PAGINATE = $dlc->display_pages();
 
-        $JAK_DOWNLOAD_ALL = jak_get_download($dlc->limit, $jkv["downloadorder"], $page2, 't1.catid', $jkv["downloadurl"], $tl['general']['g56']);
+        $JAK_DOWNLOAD_ALL = jak_get_download($dlc->limit, $jkv["downloadorder"], $page2, 't1.catid', $jkv["downloadurl"], $tl['global_text']['gtxt4']);
       }
 
       // Get the download categories
@@ -138,7 +138,7 @@ switch ($page1) {
 
         $arr = array();
 
-        $validates = JAK_comment::validate_form($arr, $jkv["downloadmaxpost"], $tl['error']['e'], $tl['error']['e1'], $tld['dload']['e3'], $tl['error']['e2'], $tld['dload']['e1'], $tld['dload']['e2'], $tl['error']['e10']);
+        $validates = JAK_comment::validate_form($arr, $jkv["downloadmaxpost"], $tl['error']['e'], $tl['error']['e1'], $tld['downl_frontend_error']['downler3'], $tl['error']['e2'], $tld['downl_frontend_error']['downler1'], $tld['downl_frontend_error']['downler2'], $tl['error']['e10']);
 
         if ($validates) {
           /* Everything is OK, insert to database: */
@@ -176,15 +176,15 @@ switch ($page1) {
           if ($jkv["downloademail"] && !JAK_DOWNLOADMODERATE) {
 
             $mail = new PHPMailer(); // defaults to using php "mail()"
-            $body = str_ireplace("[\]", '', $tld['dload']['d5'] . ' ' . (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'f', $page2, '', '') . '<br>' . $tld['dload']['g6'] . ' ' . BASE_URL . 'admin/index.php?p=download&sb=comment&ssb=approval&sssb=go".');
+            $body = str_ireplace("[\]", '', $tld['downl_frontend_email']['dlemail'] . ' ' . (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'f', $page2, '', '') . '<br>' . $tld['downl_frontend_email']['dlemail1'] . ' ' . BASE_URL . 'admin/index.php?p=download&sb=comment&ssb=approval&sssb=go".');
             $mail->SetFrom($jkv["email"], $jkv["title"]);
             $mail->AddAddress($jkv["downloademail"], $cleanusername);
-            $mail->Subject = $jkv["title"] . ' - ' . $tld['dload']['g5'];
+            $mail->Subject = $jkv["title"] . ' - ' . $tld['downl_frontend_email']['dlemail2'];
             $mail->MsgHTML($body);
             $mail->Send(); // Send email without any warnings
           }
 
-          $arr['created'] = JAK_Base::jakTimesince(time(), $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['general']['g56']);
+          $arr['created'] = JAK_Base::jakTimesince(time(), $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['global_text']['gtxt4']);
 
           /*
           /	The data in $arr is escaped for the mysql query,
@@ -194,10 +194,10 @@ switch ($page1) {
 
           /* Outputting the markup of the just-inserted comment: */
           if (isset($arr['jakajax']) && $arr['jakajax'] == "yes") {
-            $acajax = new JAK_comment($jaktable2, 'id', $arr['id'], JAK_PLUGIN_VAR_DOWNLOAD, $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['general']['g56']);
+            $acajax = new JAK_comment($jaktable2, 'id', $arr['id'], JAK_PLUGIN_VAR_DOWNLOAD, $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['global_text']['gtxt4']);
 
             header('Cache-Control: no-cache');
-            die(json_encode(array('status' => 1, 'html' => $acajax->get_commentajax($tl['general']['g102'], $tld['dload']['g3'], $tld['dload']['g4']))));
+            die(json_encode(array('status' => 1, 'html' => $acajax->get_commentajax($tl['general']['g102'], $tld['downl_frontend']['downl13'], $tld['dload']['g4']))));
 
           } else {
             jak_redirect(JAK_PARSE_SUCCESS);
@@ -233,12 +233,12 @@ switch ($page1) {
         $dl_check = JAK_base::jakCheckprotectedArea($passcrypt, 'download', $defaults['dlsec']);
 
         if (!$dl_check) {
-          $errors['e'] = $tl['error']['e28'];
+          $errors['e'] = $tl['general_error']['generror8'];
         }
 
         if (count($errors) == 0) {
 
-          $_SESSION['dlsecurehash' . $defaults['dlsec']] = $passcrypt;
+          $_SESSION['pagesecurehash' . $defaults['dlsec']] = $passcrypt;
           jak_redirect($_SERVER['HTTP_REFERER']);
 
         } else {
@@ -266,7 +266,7 @@ switch ($page1) {
             JAK_base::jakUpdatehits($row['id'], $jaktable);
           }
 
-          // Now output the data
+          // Output the data
           $PAGE_ID                     = $row['id'];
           $PAGE_TITLE                  = $row['title'];
           $PAGE_CONTENT                = jak_secure_site($row['content']);
@@ -278,13 +278,18 @@ switch ($page1) {
           $SHOWSOCIALBUTTON            = $row['socialbutton'];
           $DL_HITS                     = $row['hits'];
           $DL_DOWNLOADS                = $row['countdl'];
+          // EN: $DL_PASSWORD - variable if page have password
+          // CZ: $DL_PASSWORD - proměná pro zaheslovanou stránku
           $DL_PASSWORD                 = $row['password'];
+          // EN: $PAGE_PASSWORD - main variable if page have password, use in template
+          // CZ: $PAGE_PASSWORD - hlavní proměnná pro zaheslovanou stránku, používá se pro template
+          $PAGE_PASSWORD               = $DL_PASSWORD;
           $JAK_HEADER_CSS              = $row['dl_css'];
           $JAK_FOOTER_JAVASCRIPT       = $row['dl_javascript'];
           $jkv["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
           $DL_LINK                     = html_entity_decode(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'dl', $row['id'], '', ''));
 
-          $PAGE_TIME       = JAK_Base::jakTimesince($row['time'], $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['general']['g56']);
+          $PAGE_TIME       = JAK_Base::jakTimesince($row['time'], $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['global_text']['gtxt4']);
           $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
           // Set download to false
@@ -311,7 +316,7 @@ switch ($page1) {
 
         // Get the comments if wish so
         if ($row['comments'] == 1) {
-          $ac = new JAK_comment($jaktable2, 'fileid', $page2, JAK_PLUGIN_VAR_DOWNLOAD, $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['general']['g56']);
+          $ac = new JAK_comment($jaktable2, 'fileid', $page2, JAK_PLUGIN_VAR_DOWNLOAD, $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['global_text']['gtxt4']);
 
           $JAK_COMMENTS       = $ac->get_comments();
           $JAK_COMMENTS_TOTAL = $ac->get_total();
@@ -452,7 +457,7 @@ switch ($page1) {
 
       if (strlen($defaults['userpost']) > $jkv["downloadmaxpost"]) {
         $countI      = strlen($defaults['userpost']);
-        $errors['e'] = $tld['dload']['e1'] . $jkv["downloadmaxpost"] . ' ' . $tld['dload']['e2'] . $countI . '<br>';
+        $errors['e'] = $tld['downl_frontend_error']['downler1'] . $jkv["downloadmaxpost"] . ' ' . $tld['downl_frontend_error']['downler2'] . $countI . '<br>';
       }
 
       if (is_numeric($page2) && count($errors) == 0 && jak_row_exist($page2, $jaktable2)) {
@@ -652,7 +657,7 @@ switch ($page1) {
       $JAK_PAGINATE = $dl->display_pages();
 
       // Get all files
-      $JAK_DOWNLOAD_ALL = jak_get_download($dl->limit, $jkv["downloadorder"], '', '', $jkv["downloadurl"], $tl['general']['g56']);
+      $JAK_DOWNLOAD_ALL = jak_get_download($dl->limit, $jkv["downloadorder"], '', '', $jkv["downloadurl"], $tl['global_text']['gtxt4']);
 
     }
 

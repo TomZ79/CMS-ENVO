@@ -4,35 +4,253 @@ body {
   padding-top: 110px;
 }
 
-/* XX. COLORS
+/* XX. NAVBAR
 ========================================================================*/
-/* Main menu */
+/* Main mininavbar - global settings */
+body.header-5.color-yellow #pre-header a {
+  color: #777 !important;
+}
+
+body.header-5.color-yellow #pre-header a:hover {
+  color: #000 !important;
+}
+
+/* Main mininavbar - quick-menu */
+.quick-menu li a:hover {
+  color: #FFF !important;
+}
+
+body.header-3 .quick-menu li a:hover,
+body.header-5 .quick-menu li a:hover {
+  color: #000 !important;
+}
+
+/* Main mininavbar - contact phone */
 .contact-phone a {
   font-weight: bold;
-}
-
-.contact-phone a:hover {
-  text-decoration: none;
-}
-
-.contact-phone a {
   color: #999;
-}
-
-body.header-3 .quick-menu a:hover {
-  color: #000;
 }
 
 body.header-5 .contact-phone a {
+  font-weight: bold;
   color: #FFF;
 }
 
-body.header-5.color-yellow .contact-phone a {
+body.header-3 .contact-phone a:hover,
+body.header-5 .contact-phone a:hover {
   color: #000;
+  text-decoration: none;
 }
 
-body.header-5.color-color2 .contact-phone a {
-  color: #999;
+body.header-2 .contact-phone a:hover,
+body.header-4 .contact-phone a:hover {
+  color: #FFF;
+  text-decoration: none;
+}
+
+body.header-5.color-yellow .contact-phone i::before {
+  color: #777 !important;
+}
+
+/* Main mininavbar - social icons */
+.social-icons li a:hover i::before {
+  color: #FFF !important;
+}
+
+body.header-3 .social-icons li a:hover i::before,
+body.header-5 .social-icons li a:hover i::before {
+  color: #000 !important;
+}
+
+body.header-2 .social-icons li a:hover i::before,
+body.header-4 .social-icons li a:hover i::before {
+  color: #FFF !important;
+}
+
+body.header-5.color-yellow #pre-header a i::before {
+  color: #777 !important;
+}
+
+body.header-5.color-yellow #pre-header a:hover i::before {
+  color: #000 !important;
+}
+
+/* Main navbar - Colors for all header style without .header-2 */
+.color-blue .menu-header .nav a.active,
+.color-blue .menu-header .nav a.active:hover,
+.color-blue .menu-header .nav a.cat-active,
+.color-blue .menu-header .nav a.cat-active:hover {
+  color: #3272A8;
+  background-color: transparent;
+}
+
+.color-coffee .menu-header .nav a.active,
+.color-coffee .menu-header .nav a.active:hover,
+.color-coffee .menu-header .nav a.cat-active,
+.color-coffee .menu-header .nav a.cat-active:hover {
+  color: #995E1C;
+  background-color: transparent;
+}
+
+.color-color .menu-header .nav a.active,
+.color-color .menu-header .nav a.active:hover,
+.color-color .menu-header .nav a.cat-active,
+.color-color .menu-header .nav a.cat-active:hover {
+  color: #46B0C3;
+  background-color: transparent;
+}
+
+.color-gold .menu-header .nav a.active,
+.color-gold .menu-header .nav a.active:hover,
+.color-gold .menu-header .nav a.cat-active,
+.color-gold .menu-header .nav a.cat-active:hover {
+  color: #B39964;
+  background-color: transparent;
+}
+
+.color-green .menu-header .nav a.active,
+.color-green .menu-header .nav a.active:hover,
+.color-green .menu-header .nav a.cat-active,
+.color-green .menu-header .nav a.cat-active:hover {
+  color: #93C220;
+  background-color: transparent;
+}
+
+.color-light-blue .menu-header .nav a.active,
+.color-light-blue .menu-header .nav a.active:hover,
+.color-light-blue .menu-header .nav a.cat-active,
+.color-light-blue .menu-header .nav a.cat-active:hover {
+  color: #46B0C3;
+  background-color: transparent;
+}
+
+.color-orange .menu-header .nav a.active,
+.color-orange .menu-header .nav a.active:hover,
+.color-orange .menu-header .nav a.cat-active,
+.color-orange .menu-header .nav a.cat-active:hover {
+  color: #EA761E;
+  background-color: transparent;
+}
+
+.color-red .menu-header .nav a.active,
+.color-red .menu-header .nav a.active:hover,
+.color-red .menu-header .nav a.cat-active,
+.color-red .menu-header .nav a.cat-active:hover {
+  color: #DC492C;
+  background-color: transparent;
+}
+
+.color-sea-green .menu-header .nav a.active,
+.color-sea-green .menu-header .nav a.active:hover,
+.color-sea-green .menu-header .nav a.cat-active,
+.color-sea-green .menu-header .nav a.cat-active:hover {
+  color: #2EB1A5;
+  background-color: transparent;
+}
+
+.color-silver .menu-header .nav a.active,
+.color-silver .menu-header .nav a.active:hover,
+.color-silver .menu-header .nav a.cat-active,
+.color-silver .menu-header .nav a.cat-active:hover {
+  color: #BBB;
+  background-color: transparent;
+}
+
+.color-yellow .menu-header .nav a.active,
+.color-yellow .menu-header .nav a.active:hover,
+.color-yellow .menu-header .nav a.cat-active,
+.color-yellow .menu-header .nav a.cat-active:hover {
+  color: #FFD829;
+  background-color: transparent;
+}
+
+/* Main navbar - Color only for .header-2 */
+.header-2.color-blue .menu-header .nav a.active,
+.header-2.color-blue .menu-header .nav a.active:hover,
+.header-2.color-blue .menu-header .nav a.cat-active,
+.header-2.color-blue .menu-header .nav a.cat-active:hover {
+  background: #3272A8;
+  color: #FFF;
+}
+
+.header-2.color-coffee .menu-header .nav a.active,
+.header-2.color-coffee .menu-header .nav a.active:hover,
+.header-2.color-coffee .menu-header .nav a.cat-active,
+.header-2.color-coffee .menu-header .nav a.cat-active:hover {
+  background: #995E1C;
+  color: #FFF;
+}
+
+.header-2.color-color .menu-header .nav a.active,
+.header-2.color-color .menu-header .nav a.active:hover,
+.header-2.color-color .menu-header .nav a.cat-active,
+.header-2.color-color .menu-header .nav a.cat-active:hover {
+  background: #46B0C3;
+  color: #FFF;
+}
+
+.header-2.color-gold .menu-header .nav a.active,
+.header-2.color-gold .menu-header .nav a.active:hover,
+.header-2.color-gold .menu-header .nav a.cat-active,
+.header-2.color-gold .menu-header .nav a.cat-active:hover {
+  background: #B39964;
+  color: #FFF;
+}
+
+.header-2.color-green .menu-header .nav a.active,
+.header-2.color-green .menu-header .nav a.active:hover,
+.header-2.color-green .menu-header .nav a.cat-active,
+.header-2.color-green .menu-header .nav a.cat-active:hover {
+  background: #93C220;
+  color: #FFF;
+}
+
+.header-2.color-light-blue .menu-header .nav a.active,
+.header-2.color-light-blue .menu-header .nav a.active:hover,
+.header-2.color-light-blue .menu-header .nav a.cat-active,
+.header-2.color-light-blue .menu-header .nav a.cat-active:hover {
+  background: #46B0C3;
+  color: #FFF;
+}
+
+.header-2.color-orange .menu-header .nav a.active,
+.header-2.color-orange .menu-header .nav a.active:hover,
+.header-2.color-orange .menu-header .nav a.cat-active,
+.header-2.color-orange .menu-header .nav a.cat-active:hover {
+  background: #EA761E;
+  color: #FFF;
+}
+
+.header-2.color-red .menu-header .nav a.active,
+.header-2.color-red .menu-header .nav a.active:hover,
+.header-2.color-red .menu-header .nav a.cat-active,
+.header-2.color-red .menu-header .nav a.cat-active:hover {
+  background: #DC492C;
+  color: #FFF;
+}
+
+.header-2.color-sea-green .menu-header .nav a.active,
+.header-2.color-sea-green .menu-header .nav a.active:hover,
+.header-2.color-sea-green .menu-header .nav a.cat-active,
+.header-2.color-sea-green .menu-header .nav a.cat-active:hover {
+  background: #2EB1A5;
+  color: #FFF;
+}
+
+.header-2.color-silver .menu-header .nav a.active,
+.header-2.color-silver .menu-header .nav a.active:hover,
+.header-2.color-silver .menu-header .nav a.cat-active,
+.header-2.color-silver .menu-header .nav a.cat-active:hover {
+  background: #A1B4B8;
+  color: #FFF;
+}
+
+.header-2.color-yellow .menu-header .nav a.active,
+.header-2.color-yellow .menu-header .nav a.active:hover,
+.header-2.color-yellow .menu-header .nav a.cat-active,
+.header-2.color-yellow .menu-header .nav a.cat-active:hover {
+  background: #FFD829;
+  color: #000;
 }
 
 /* XX. ARTICLE - BLOG
@@ -126,9 +344,10 @@ ul.entry-meta li {
   margin-left: 10px;
 }
 
-/* XX. Login form
+/* XX. LOGIN FORM
 ========================================================================*/
-.form-login .form-control {  }
+.form-login .form-control {
+}
 
 .form-login input {
   border-radius: 0 !important;
@@ -192,7 +411,7 @@ label.checkbox-inline {
   font-size: 19px;
 }
 
-/* XX. Pricing Table
+/* XX. PRICING TABLE
 ========================================================================*/
 .pricing-table .pricing h3 {
   font-size: 51px;
@@ -284,7 +503,7 @@ body.modal-open[style] {
   vertical-align: middle;
 }
 
-/* XX. Alert
+/* XX. ALERT
 ========================================================================*/
 /* Alert Offline */
 .alert-offline {
@@ -326,7 +545,7 @@ body.modal-open[style] {
   color: #FFF;
 }
 
-/* XX. Sitemap Style
+/* XX. SITEMAP STYLE
 ========================================================================*/
 .sitemap {
   margin-left: 0;
@@ -358,7 +577,7 @@ body.modal-open[style] {
   font-weight: 400;
 }
 
-/* XX. Footer Menu and Copyright
+/* XX. FOOTER and COPYRIGHT
 ========================================================================*/
 ul.footer-list-style {
   list-style-type: none;
@@ -412,9 +631,10 @@ footer#main-footer #footer-rights p {
 
 .system-icons a.btn-xs {
   padding: 3px 6px 2px 6px;
+  margin: 0;
 }
 
-/* XX. Sollist Sharing
+/* XX. SOLLIST SHARING
 ========================================================================*/
 .feature-box .sl-container a {
   margin: 0;
@@ -424,7 +644,7 @@ footer#main-footer #footer-rights p {
   padding-bottom: 0 !important;
 }
 
-/* XX. OWL Carousel
+/* XX. OWL CAROUSEL
 ========================================================================*/
 .owl-carousel .owl-nav {
   top: 50%;
@@ -525,7 +745,7 @@ footer#main-footer #footer-rights p {
   color: rgba(255, 255, 255, .5);
 }
 
-/* PAGINATION
+/* XX. PAGINATION
 ========================================================================*/
 /* Main pagination */
 .pagination > li > a,
@@ -571,7 +791,7 @@ footer#main-footer #footer-rights p {
   text-align: right;
 }
 
-/* NAVIGATION SIDEBAR MENU
+/* XX. NAVIGATION SIDEBAR MENU
 ======================================================================== */
 .nav-side-menu {
   width: 100%;
@@ -753,7 +973,7 @@ footer#main-footer #footer-rights p {
   }
 }
 
-/* SIDEBAR
+/* XX. SIDEBAR
 ======================================================================== */
 /* Sidebar - block */
 .nav-sidebar {
@@ -796,26 +1016,118 @@ footer#main-footer #footer-rights p {
   font-size: 14px !important;
 }
 
-/* OTHER
+/* FORM ELEMENTS - BUTTONS, INPUT, TEXTAREA ...
 ======================================================================== */
-.menu-header .nav a.cat-active {
-  background: #93C220;
+/* Outline for form-control - fix for Firefox, Chrome */
+input.form-control {
+  outline: none !important;
+}
+
+/* Placeholder colors */
+::-webkit-input-placeholder {
+  color: #acacac !important;
+  text-overflow: ellipsis;
+}
+
+:-moz-placeholder {
+  color: #acacac !important;
+  text-overflow: ellipsis;
+}
+
+::-moz-placeholder {
+  color: #acacac !important;
+  text-overflow: ellipsis;
+}
+
+/* For the future */
+:-ms-input-placeholder {
+  color: #acacac !important;
+  text-overflow: ellipsis;
+}
+
+/* XX. NEWS AND DOWNLOAD
+======================================================================== */
+/* Edit, QuickEdit links */
+
+/* Thumbnail image for news.php, downloadfile.php */
+.thumb-news {
+  position: relative;
+}
+
+.thumb-news .caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.thumb-news .caption span {
+  font-size: 46px;
+  font-weight: bold;
+  width: 100%;
+  float: left;
+}
+
+.thumb-news .caption span.color1 {
   color: #FFF;
 }
 
+.thumb-news .caption span.color2 {
+  color: #000;
+}
 
-/* FORM ELEMENTS - BUTTONS, INPUT, TEXTAREA ...
-======================================================================== */
-/* Placeholder colors */
-::-webkit-input-placeholder {
-  color: #acacac !important; text-overflow: ellipsis;
+.color-blue .thumb-news .caption span.color2,
+.color-blue .thumb-download .caption span.color2{
+  color: #3272A8;
 }
-:-moz-placeholder {
-  color: #acacac !important; text-overflow: ellipsis;
+
+.color-coffee .thumb-news .caption span.color2,
+.color-coffee .thumb-download .caption span.color2 {
+  color: #995E1C;
 }
-::-moz-placeholder {
-  color: #acacac !important; text-overflow: ellipsis;
-} /* For the future */
-:-ms-input-placeholder {
-  color: #acacac !important; text-overflow: ellipsis;
+
+.color-color .thumb-news .caption span.color2,
+.color-color .thumb-download .caption span.color2 {
+  color: #46B0C3;
+}
+
+.color-gold .thumb-news .caption span.color2,
+.color-gold .thumb-download .caption span.color2 {
+  color: #B39964;
+}
+
+.color-green .thumb-news .caption span.color2,
+.color-green .thumb-download .caption span.color2 {
+  color: #93C220;
+}
+
+.color-light-blue .thumb-news .caption span.color2,
+.color-light-blue .thumb-download .caption span.color2 {
+  color: #46B0C3;
+}
+
+.color-orange .thumb-news .caption span.color2,
+.color-orange .thumb-download .caption span.color2 {
+  color: #EA761E;
+}
+
+.color-red .thumb-news .caption span.color2,
+.color-red .thumb-download .caption span.color2 {
+  color: #DC492C;
+}
+
+.color-sea-green .thumb-news .caption span.color2,
+.color-sea-green .thumb-download .caption span.color2 {
+  color: #2EB1A5;
+}
+
+.color-silver .thumb-news .caption span.color2,
+.color-silver .thumb-download .caption span.color2 {
+  color: #A1B4B8;
+}
+
+.color-yellow .thumb-news .caption span.color2,
+.color-yellow .thumb-download .caption span.color2 {
+  color: #FFD829;
 }

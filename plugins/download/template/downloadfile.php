@@ -1,22 +1,24 @@
 <?php
 /**
- * ALL VALUE for FRONTEND - download.php
+ * ALL VALUE for FRONTEND - downloadfile.php
  *
- * $PAGE_ID              číslo    |  - id souboru
- * $PAGE_TITLE           text        - Titulek souboru
- * $PAGE_CONTENT         text        - Celý popis souboru
- * $SHOWTITLE            ano/ne      - Zobrazení nadpisu
- * $SHOWDATE             ano/ne      - Zobrazení datumu
- * $FT_SHARE             ano/ne      - Sdílení souboru na sociální sítě
- * $SHOWSOCIALBUTTON     ano/ne      - Zobrazení sociálních tlačítek
- * $DL_HITS              číslo       - Počet Zobrazení
- * $DL_DOWNLOADS         číslo       - Počet stažení
- * $DL_PASSWORD
- * $SHOWIMG              url         - Relativní url adresa obrázku
+ * $PAGE_ID               číslo    |  - id souboru
+ * $PAGE_TITLE            text        - Titulek souboru
+ * $PAGE_CONTENT          text        - Celý popis souboru
+ * $SHOWTITLE             ano/ne      - Zobrazení nadpisu
+ * $SHOWDATE              ano/ne      - Zobrazení datumu
+ * $FT_SHARE              ano/ne      - Sdílení souboru na sociální sítě
+ * $SHOWSOCIALBUTTON      ano/ne      - Zobrazení sociálních tlačítek
+ * $DL_HITS               číslo       - Počet Zobrazení
+ * $DL_DOWNLOADS          číslo       - Počet stažení
+ * $DL_PASSWORD           text        - Heslo stránky (hash)
+ * $PAGE_PASSWORD         text        - Heslo stránky (hash) - tato proměná se používá pro template
+ * $SHOWIMG               url         - Relativní url adresa obrázku
  * $DL_LINK
- * $PAGE_TIME            date        - Datum vytvoření souboru
+ * $PAGE_TIME             date        - Datum vytvoření souboru
  * $PAGE_TIME_HTML5
- * $DOWNLOAD_CATLIST     text        - Seznam kategorií
+ * $JAK_COMMENT_FORM      ano/ne      - Zobrazení komentářů
+ * $DOWNLOAD_CATLIST      text        - Seznam kategorií
  *
  */
 ?>
@@ -28,33 +30,38 @@ if (JAK_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=download&amp;sp=edit&a
 if ($jkv["printme"]) $printme = 1;
 $qapedit = BASE_URL . 'admin/index.php?p=download&amp;sp=quickedit&amp;id=' . $PAGE_ID;
 
-if ($DL_PASSWORD && !JAK_ASACCESS && $DL_PASSWORD != $_SESSION['dlsecurehash' . $PAGE_ID]) { ?>
+if ($DL_PASSWORD && !JAK_ASACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash' . $PAGE_ID]) { ?>
 
-  <?php if ($errorpp) { ?>
+  <div class="row" style="margin-top: 30px;">
+    <div class="container">
 
-    <div class="alert bg-danger fade in">
-      <button type="button" class="close" data-dismiss="alert">×</button>
-      <?php echo $errorpp["e"]; ?>
-    </div>
+      <?php if ($errorpp) { ?>
 
-  <?php } ?>
-
-  <div class="col-md-12" style="margin: 20px 0 50px 0">
-    <div class="text-center">
-      <h1 class="large"><?php echo $tl["global_text"]["gtxt1"]; ?></h1>
-      <p class="lead"><?php echo $tl["global_text"]["gtxt2"]; ?></p>
-      <!-- Show password form -->
-      <form class="form-inline" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-
-        <div class="input-group">
-          <input type="password" name="dlpass" class="form-control" value="" placeholder="<?php echo $tld["downl_frontend_ph"]["downlph1"]; ?>"/>
-          <span class="input-group-btn">
-						<button type="submit" name="dlprotect" class="btn btn-primary"><?php echo $tld["downl_frontend_button"]["downlb3"]; ?></button>
-					</span>
+        <div class="alert bg-danger fade in">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <?php echo $errorpp["e"]; ?>
         </div>
-        <input type="hidden" name="dlsec" value="<?php echo $PAGE_ID; ?>"/>
 
-      </form>
+      <?php } ?>
+
+      <div class="col-md-12" style="margin: 20px 0 50px 0">
+        <div class="text-center">
+          <h1 class="large"><?php echo $tl["global_text"]["gtxt1"]; ?></h1>
+          <p class="lead"><?php echo $tl["global_text"]["gtxt2"]; ?></p>
+          <!-- Show password form -->
+          <form class="form-inline" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+
+            <div class="input-group">
+              <input type="password" name="dlpass" class="form-control" value="" placeholder="<?php echo $tld["downl_frontend_ph"]["downlph1"]; ?>"/>
+              <span class="input-group-btn">
+						<button type="submit" name="dlprotect" class="btn btn-primary"><?php echo $tl["button"]["btn3"]; ?></button>
+					</span>
+            </div>
+            <input type="hidden" name="dlsec" value="<?php echo $PAGE_ID; ?>"/>
+
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -68,11 +75,18 @@ if ($DL_PASSWORD && !JAK_ASACCESS && $DL_PASSWORD != $_SESSION['dlsecurehash' . 
         <?php
         // Image is available so display it or go standard image
         if ($SHOWIMG) {
-          echo '<img src="' . BASE_URL . $SHOWIMG . '" alt="Download" class="img-thumbnail img-responsive">';
-        } else {
-          echo '<img src="/plugins/download/img/file-for-download.png" alt="Download" class="img-thumbnail img-responsive">';
-        }
-        ?>
+          echo '<img src="' . $SHOWIMG . '" alt="Download" class="img-thumbnail img-responsive">';
+        } else { ?>
+
+          <div class="thumb-download text-center">
+            <img src="/plugins/download/img/file-for-download.png" alt="<?php echo $PAGE_TITLE; ?>" class="img-thumbnail img-responsive">
+            <div class="caption text-center">
+              <span class="color1"><?php echo $tld["downl_frontend"]["downl14"]; ?></span>
+              <span class="color2"><?php echo $tld["downl_frontend"]["downl15"]; ?></span>
+            </div>
+          </div>
+
+        <?php } ?>
 
       </div>
       <!-- Project Info Column -->

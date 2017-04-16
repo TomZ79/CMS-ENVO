@@ -1,4 +1,4 @@
-<h4><?php echo $tl["general"]["g100"]; ?></h4>
+<h4><?php echo $tl["comments"]["com1"]; ?></h4>
 
 <?php if ($errors) { ?>
 
@@ -46,6 +46,6 @@
 	<input type="hidden" name="comanswerid" id="comanswerid" value=""/>
 	<input type="hidden" name="uformextraid" id="uformextraid" value="<?php echo $JAK_UFORM_EXTRA; ?>"/>
 	<input type="hidden" name="userPost" value="1"/>
-	<button type="submit" class="btn btn-color btn-block jak-submit"><?php echo $tl["general"]["g10"]; ?></button>
+	<button type="submit" class="btn btn-color btn-block jak-submit"><?php echo $tl["button"]["btn3"]; ?></button>
 	<div class="clearfix"></div>
 </form>

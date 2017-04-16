@@ -12,7 +12,7 @@ if (JAK_PLUGIN_ACCESS_DOWNLOAD) {
 
   } ?>
 
-  <h3><?php echo JAK_PLUGIN_NAME_DOWNLOAD . ' ' . $tld["dload"]["d8"]; ?></h3>
+  <h3><?php echo JAK_PLUGIN_NAME_DOWNLOAD . ' ' . $tld["downl_frontend"]["downl8"]; ?></h3>
   <ul class="nav nav-pills nav-stacked">
   <?php if (isset($JAK_DOWNLOAD_CAT) && is_array($JAK_DOWNLOAD_CAT)) foreach ($JAK_DOWNLOAD_CAT as $c) { ?>
     <?php if ($c["catparent"] == 0) { ?>

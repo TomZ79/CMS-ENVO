@@ -188,7 +188,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                     } elseif (!empty($v["enddate"]) && $expire_time >= $today_time) {
                       echo $tlblog["blog_box_content"]["blogbc15"] . '<span class="small">  - ' . $tlblog["blog_box_content"]["blogbc16"] . '</span>'; // Neaktivní - Archiv
                     } else {
-                      echo $tlblog["blog_box_content"]["blogbc15"] . '<span class="small">  - ' . $tlblog["blog_box_content"]["blogbc17"] . ', ' . $tl["blog_box_content"]["blogbc16"] . '</span>'; // Neaktivní - Time, Archiv
+                      echo $tlblog["blog_box_content"]["blogbc15"] . '<span class="small">  - ' . $tlblog["blog_box_content"]["blogbc17"] . ', ' . $tlblog["blog_box_content"]["blogbc16"] . '</span>'; // Neaktivní - Time, Archiv
                     }
                   } elseif ($v["active"] == 0 && $v["catid"] != 0) { //Uzamčeno a není Archiv
                     if (empty($v["enddate"])) {
@@ -196,15 +196,15 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                     } elseif (!empty($v["enddate"]) && $expire_time >= $today_time) {
                       echo $tlblog["blog_box_content"]["blogbc15"] . '<span class="small">  - ' . $tlblog["blog_box_content"]["blogbc18"] . '</span>'; // Neaktivní -  Uzamčeno
                     } else {
-                      echo $tlblog["blog_box_content"]["blogbc15"] . '<span class="small"> - ' . $tlblog["blog_box_content"]["blogbc18"] . ', ' . $tl["blog_box_content"]["blogbc17"] . '</span>'; // Neaktivní - Time,Uzamčeno
+                      echo $tlblog["blog_box_content"]["blogbc15"] . '<span class="small"> - ' . $tlblog["blog_box_content"]["blogbc18"] . ', ' . $tlblog["blog_box_content"]["blogbc17"] . '</span>'; // Neaktivní - Time,Uzamčeno
                     }
                   } else {
                     if (empty($v["enddate"])) { //Uzamčeno a je Archiv
-                      echo $tlblog["blog_box_content"]["blogbc15"] . '<span class="small">  - ' . $tlblog["blog_box_content"]["blogbc18"] . ', ' . $tl["blog_box_content"]["blogbc16"] . '</span>'; // Neaktivní -  Uzamčeno, Archiv
+                      echo $tlblog["blog_box_content"]["blogbc15"] . '<span class="small">  - ' . $tlblog["blog_box_content"]["blogbc18"] . ', ' . $tlblog["blog_box_content"]["blogbc16"] . '</span>'; // Neaktivní -  Uzamčeno, Archiv
                     } elseif (!empty($v["enddate"]) && $expire_time >= $today_time) {
-                      echo $tlblog["blog_box_content"]["blogbc15"] . '<span class="small">  - ' . $tlblog["blog_box_content"]["blogbc18"] . ', ' . $tl["blog_box_content"]["blogbc16"] . '</span>'; // Neaktivní -  Uzamčeno, Archiv
+                      echo $tlblog["blog_box_content"]["blogbc15"] . '<span class="small">  - ' . $tlblog["blog_box_content"]["blogbc18"] . ', ' . $tlblog["blog_box_content"]["blogbc16"] . '</span>'; // Neaktivní -  Uzamčeno, Archiv
                     } else {
-                      echo $tlblog["blog_box_content"]["blogbc15"] . '<span class="small"> - ' . $tlblog["blog_box_content"]["blogbc18"] . ', ' . $tl["blog_box_content"]["blogbc17"] . ', ' . $tlblog["blog_box_content"]["blogbc16"] . '</span>'; // Neaktivní - Time, Uzamčeno, Archiv
+                      echo $tlblog["blog_box_content"]["blogbc15"] . '<span class="small"> - ' . $tlblog["blog_box_content"]["blogbc18"] . ', ' . $tlblog["blog_box_content"]["blogbc17"] . ', ' . $tlblog["blog_box_content"]["blogbc16"] . '</span>'; // Neaktivní - Time, Uzamčeno, Archiv
                     }
                   }
                   ?>

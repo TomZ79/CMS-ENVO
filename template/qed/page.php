@@ -38,7 +38,7 @@
 								<div class="input-group">
 									<input type="password" name="pagepass" class="form-control" value="" placeholder="<?php echo $tl["placeholder"]["plc2"]; ?>"/>
 									<span class="input-group-btn">
-										<button class="btn btn-default" name="pageprotect" type="submit"><?php echo $tl["general"]["g83"]; ?></button>
+										<button class="btn btn-default" name="pageprotect" type="submit"><?php echo $tl["button"]["btn4"]; ?></button>
 									</span>
 								</div>
 								<input type="hidden" name="pagesec" value="<?php echo $PAGE_ID; ?>"/>
@@ -110,10 +110,10 @@
 														<hr class="mt-small mb-small">
 														<?php if (JAK_ASACCESS) { ?>
 															<div class="pull-right">
-																<a href="<?php echo BASE_URL; ?>admin/index.php?p=news&amp;sp=edit&amp;id=<?php echo $n["id"]; ?>" title="<?php echo $tl["general"]["g"]; ?>" class="btn btn-info btn-xs jaktip">
+																<a href="<?php echo BASE_URL; ?>admin/index.php?p=news&amp;sp=edit&amp;id=<?php echo $n["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-info btn-xs jaktip">
 																	<i class="icon-pencil"></i>
 																</a>
-																<a class="btn btn-info btn-xs jaktip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=news&amp;sp=quickedit&amp;id=<?php echo $n["id"]; ?>" title="<?php echo $tl["general"]["g176"]; ?>">
+																<a class="btn btn-info btn-xs jaktip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=news&amp;sp=quickedit&amp;id=<?php echo $n["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>">
 																	<i class="icon-edit"></i>
 																</a>
 															</div>

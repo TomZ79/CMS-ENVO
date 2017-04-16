@@ -19,10 +19,10 @@ if ((empty($JAK_HOOK_SIDE_GRID) && (!empty($page)) && (!$PAGE_PASSWORD)) &&
 
 /* GRID SYSTEM FOR DIFFERENT PAGE - show main section with sidebar - END TAG */
 
-if ((!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && ($PAGE_PASSWORD == $_SESSION['pagesecurehash' . $PAGE_ID])) ||
+if ((!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSION['pagesecurehash' . $PAGE_ID] ) ||
   (!empty($JAK_HOOK_SIDE_GRID) && !$PAGE_PASSWORD) ||
   (!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && JAK_ASACCESS) ||
-  (!empty($JAK_HOOK_SIDE_GRID) && (!empty($page)) && (!$PAGE_PASSWORD))
+  (!empty($JAK_HOOK_SIDE_GRID) && !empty($page) && !$PAGE_PASSWORD)
 ) {
   ?>
   </div>
@@ -73,7 +73,7 @@ if ((!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && ($PAGE_PASSWORD == $_SESSI
               <p>
                 <i class="icon-phone"></i><?php echo $jkv["companyPhone_qed_tpl"]; ?><br>
                 <i class="icon-globe"></i><a href="<?php echo $jkv["companySite_qed_tpl"]; ?>" target="_blank"><?php echo $jkv["companySite_qed_tpl"]; ?></a><br>
-                <i class="icon-mail-alt"></i>&nbsp;<a href="mailto:<?php echo $jkv["companyEmail_qed_tpl"]; ?>"><?php echo $jkv["companyEmail_qed_tpl"]; ?></a>
+                <i class="icon-mail-alt"></i>&nbsp;<a href="mailto:<?php echo envo_encode_email($jkv["companyEmail_qed_tpl"]); ?>"><?php echo envo_encode_email($jkv["companyEmail_qed_tpl"]); ?></a>
               </p>
             </address>
           </div>
@@ -113,12 +113,12 @@ if ((!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && ($PAGE_PASSWORD == $_SESSI
           </div>
           <div class="footer-widget mb-small system-icons">
             <?php if ($apedit) { ?>
-              <a class="btn btn-info btn-xs" title="<?php echo $tl["general"]["g"]; ?>" href="<?php echo $apedit; ?>">
-                <i class="icon-pencil"></i>
+              <a class="btn btn-info btn-xs" title="<?php echo $tl["button"]["btn1"]; ?>" href="<?php echo $apedit; ?>">
+                <?php echo $tl["button"]["btn1"]; ?>
               </a>
               <?php if ($qapedit) { ?>
-                <a class="btn btn-info btn-xs quickedit" title="<?php echo $tl["general"]["g176"]; ?>" href="<?php echo $qapedit; ?>">
-                  <i class="icon-edit"></i>
+                <a class="btn btn-info btn-xs quickedit" title="<?php echo $tl["button"]["btn2"]; ?>" href="<?php echo $qapedit; ?>">
+                  <?php echo $tl["button"]["btn2"]; ?>
                 </a>
               <?php }
             }
@@ -259,7 +259,7 @@ if (!$JAK_SHOW_FOOTER) { ?>
   jakWeb.jak_url_orig = "<?php echo BASE_URL;?>";
   jakWeb.jak_search_link = "<?php echo $JAK_SEARCH_LINK;?>";
   jakWeb.jakrequest_uri = "<?php echo JAK_PARSE_REQUEST;?>";
-  jakWeb.jak_quickedit = "<?php echo $tl["general"]["g176"];?>"
+  jakWeb.jak_quickedit = "<?php echo $tl["global_text"]["gtxt6"];?>"
 </script>
 
 <?php include_once APP_PATH . '/template/' . ENVO_TEMPLATE . '/js/neko-royalSlider.php' ?>
@@ -272,8 +272,8 @@ if (!$JAK_SHOW_FOOTER) { ?>
       jQuery(".cFrom").append('<input type="hidden" name="<?php echo $random_name;?>" value="<?php echo $random_value;?>" />');
     });
     <?php } ?>
-    jakWeb.jak_submit = "<?php echo $tl['general']['g10'];?>";
-    jakWeb.jak_submitwait = "<?php echo $tl['general']['g99'];?>";
+    jakWeb.jak_submit = "<?php echo $tl['form_text']['formt1'];?>";
+    jakWeb.jak_submitwait = "<?php echo $tl['form_text']['formt2'];?>";
   </script>
 
   <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/post.js"></script>
@@ -390,7 +390,7 @@ if ($jkv["offline"] == 1 && JAK_ASACCESS) { ?>
       <div class="modal-body">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $tl["general"]["g177"]; ?></button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $tl["global_text"]["gtxt5"]; ?></button>
       </div>
     </div>
   </div>
@@ -415,7 +415,7 @@ if ($jkv["offline"] == 1 && JAK_ASACCESS) { ?>
                       <input type="checkbox" name="lcookies" value="1"> <?php echo $tlqed["lform_text"]["lformt3"]; ?>
                     </label>
                   </div>
-                  <button type="submit" name="login" class="btn btn-success btn-lg btn-block"><?php echo $tlqed["lform_text"]["lformt4"]; ?></button>
+                  <button type="submit" name="login" class="btn btn-default btn-lg btn-block"><?php echo $tlqed["lform_text"]["lformt4"]; ?></button>
                   <input type="hidden" name="home" value="0"/>
                 </div>
               </div>
@@ -433,9 +433,9 @@ if ($jkv["offline"] == 1 && JAK_ASACCESS) { ?>
   <div class="full-screen-nav-content">
     <div class="full-screen-nav-general">
       <div class="full-screen-nav-wrapper">
-        <p>Zadejte hledaný výraz a stikněte Enter</p>
+        <p><?php echo $tlqed["searchbox_text"]["searcht"]; ?></p>
         <form class="form-search" action="/search" method="post">
-          <input type="text" name="jakSH" id="Jajaxs2" class="search" placeholder="Vyhledat ...">
+          <input type="text" name="jakSH" id="Jajaxs2" class="search" placeholder="<?php echo $tlqed["searchbox_text"]["searcht1"]; ?>">
           <button type="submit"><i class="icon-search"></i></button>
         </form>
       </div>
@@ -450,7 +450,7 @@ if ($jkv["offline"] == 1 && JAK_ASACCESS) { ?>
 
       $('#ajaxsearchForm').ajaxSearch({
         apiURL: '<?php echo BASE_URL . $AJAX_SEARCH_PLUGIN_URL;?>',
-        msg: '<?php echo $tl["general"]["g158"];?>',
+        msg: '<?php echo $tl["searching"]["stxt12"];?>',
         seo: <?php echo $AJAX_SEARCH_PLUGIN_SEO;?>});
 
       $('#Jajaxs').alphanumeric({nocaps: false, allow: ' +*'});

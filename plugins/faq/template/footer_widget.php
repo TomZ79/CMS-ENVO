@@ -5,7 +5,7 @@ if (JAK_PLUGIN_ACCESS_FAQ) {
   // Functions we need for this plugin
   include_once APP_PATH . 'plugins/faq/functions.php';
 
-  $JAK_FAQ_FW = jak_get_faq('LIMIT 3', $jkv["faqorder"], '', '', $jkv["faqurl"], $tl['general']['g56']);
+  $JAK_FAQ_FW = jak_get_faq('LIMIT 3', $jkv["faqorder"], '', '', $jkv["faqurl"], $tl['global_text']['gtxt4']);
 
   if (isset($JAK_FAQ_FW) && is_array($JAK_FAQ_FW)) { ?>
 

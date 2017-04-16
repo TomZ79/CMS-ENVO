@@ -167,12 +167,14 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                 <td>
 
                   <?php
-                  if ($v["active"] == 1 && $v["catid"] != '0') { // Odemčeno a není Archiv
+                  if ($v["active"] == 1 && $v["catid"] != 0) { // Odemčeno a není Archiv
                     echo $tlf["faq_box_content"]["faqbc20"]; // Aktivní
-                  } elseif ($v["active"] == 0 && $v["catid"] != '0') { // Uzamčeno a není Archiv
-                    echo $tlf["faq_box_content"]["faqbc21"] . '<span class="small">  - ' . $tlf["faq_box_content"]["faqbc23"] . '</span>'; // Neaktivní -  Uzamčeno
-                  } else { // Odemčeno a je Archiv
+                  } elseif ($v["active"] == 1 && $v["catid"] == 0) { // Odemčeno a je Archiv
                     echo $tlf["faq_box_content"]["faqbc21"] . '<span class="small">  - ' . $tlf["faq_box_content"]["faqbc22"] . '</span>'; // Neaktivní - Archiv
+                  } elseif ($v["active"] == 0 && $v["catid"] != 0) { // Uzamčeno a není Archiv
+                    echo $tlf["faq_box_content"]["faqbc21"] . '<span class="small">  - ' . $tlf["faq_box_content"]["faqbc23"] . '</span>'; // Neaktivní -  Uzamčeno
+                  } else { //Uzamčeno a je Archiv
+                    echo $tlf["faq_box_content"]["faqbc21"] . '<span class="small">  - ' . $tlf["faq_box_content"]["faqbc23"] . ', ' . $tlf["faq_box_content"]["faqbc22"] . '</span>'; // Neaktivní -  Uzamčeno, Archiv
                   }
                   ?>
 

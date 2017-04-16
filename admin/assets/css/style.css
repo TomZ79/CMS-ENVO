@@ -51,6 +51,10 @@ li.submenu-active > .icon-thumbnail {
 }
 
 /* POPOVER */
+.popover {
+  z-index: 1000;
+}
+
 .cms-help i {
   margin-left: 5px;
 }

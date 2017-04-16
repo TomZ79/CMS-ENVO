@@ -212,7 +212,7 @@ if ($errors) { ?>
 
                       </div>
                       <div class="col-md-7">
-                        <div class="form-group no-margin <?php if (isset($errors["e3"])) echo "has-error"; ?>">
+                        <div class="form-group no-margin">
                           <select name="jak_time" class="form-control selectpicker" data-size="7">
 
                             <?php

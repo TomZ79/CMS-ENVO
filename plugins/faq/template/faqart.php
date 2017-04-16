@@ -1,20 +1,51 @@
-<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/header.php'; ?>
+<?php
+/**
+ * ALL VALUE for FRONTEND - faqart.php
+ *
+ * $PAGE_ID              číslo    |  - id článku
+ * $PAGE_TITLE           text        - Titulek článku
+ * $PAGE_CONTENT         text        - Celý popis článku
+ * $SHOWTITLE            ano/ne      - Zobrazení nadpisu
+ * $SHOWDATE             ano/ne      - Zobrazení datumu
+ * $JAK_COMMENT_FORM     ano/ne      - Zobrazení komentářů
+ * $SHOWSOCIALBUTTON     ano/ne      - Zobrazení sociálních tlačítek
+ * $FAQ_HITS             číslo       - Počet Zobrazení
+ * $PAGE_TIME            date        - Datum vytvoření článku
+ * $PAGE_TIME_HTML5
+ * $JAK_TAGLIST          text        - Seznam tagů
+ * $FAQ_CATLIST          text        - Seznam kategorií
+ *
+ */
+?>
+
+<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
 <?php if (JAK_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=faq&amp;sp=edit&amp;id=' . $PAGE_ID;
 $qapedit = BASE_URL . 'admin/index.php?p=faq&amp;sp=quickedit&amp;id=' . $PAGE_ID;
 if ($jkv["printme"]) $printme = 1; ?>
 
   <div id="printdiv">
-    <h2 class="first-child text-color hidden-xs"><?php echo $PAGE_TITLE; ?></h2>
     <div class="row">
-      <div class="col-md-6">
-        <?php if ($SHOWDATE) { ?><i class="fa fa-clock-o"></i> <?php echo $PAGE_TIME; ?><?php } ?><i
-          class="fa fa-eye"></i> <?php echo $FAQ_HITS; ?>
-      </div>
-      <div class="col-md-6">
-        <?php if ($JAK_TAGLIST) { ?>
-          <i class="fa fa-tags"></i> <?php echo $JAK_TAGLIST; ?>
-        <?php } ?>
+      <div class="col-md-12">
+        <h3><?php echo $PAGE_TITLE; ?></h3>
+        <div>
+          <p style="font-size: 0.9em">
+
+            <?php
+            if ($SHOWDATE) {
+              echo '<span style="margin-right: 20px;"><strong>' . $tlf["faq_frontend"]["faq20"] . '</strong> : ' . $PAGE_TIME . '</span>';
+            }
+            echo '<span style="margin-right: 20px;"><strong>' . $tlf["faq_frontend"]["faq21"] . '</strong> : ' . $FAQ_HITS . '</span>';
+            echo '<span style="margin-right: 20px;"><strong>' . $tlf["faq_frontend"]["faq22"] . '</strong> : ' . $FAQ_CATLIST . '</span>';
+
+            if ($JAK_TAGLIST) {
+
+              echo '<span style="margin-right: 20px;">' . $JAK_TAGLIST . '</span>';
+
+            } ?>
+
+          </p>
+        </div>
       </div>
     </div>
     <hr>
@@ -22,18 +53,8 @@ if ($jkv["printme"]) $printme = 1; ?>
   </div>
 
 <?php if ($JAK_SHOW_C_FORM) {
-  include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/contact.php';
+  include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/contact.php';
 } ?>
-
-  <!-- Show date, socialbuttons and tag list -->
-<?php if ($SHOWSOCIALBUTTON) { ?>
-  <div class="row">
-    <div class="col-md-6"></div>
-    <div class="col-md-6">
-      <?php if ($SHOWSOCIALBUTTON) include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/socialbutton.php'; ?>
-    </div>
-  </div>
-<?php } ?>
 
 <?php if (JAK_FAQPOST && $JAK_COMMENT_FORM) { ?>
   <!-- Comments -->
@@ -78,22 +99,43 @@ if ($jkv["printme"]) $printme = 1; ?>
 
     <!-- Show Comment Editor if set so -->
     <?php if (JAK_FAQPOST && $JAK_COMMENT_FORM) {
-      include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/userform.php';
+      include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/userform.php';
     } ?>
 
   </div>
   <!-- End Comments -->
+
 <?php } ?>
 
-  <ul class="pager">
-    <?php if ($JAK_NAV_PREV) { ?>
-      <li class="previous"><a href="<?php echo $JAK_NAV_PREV; ?>"><i
-            class="fa fa-arrow-left"></i> <?php echo $JAK_NAV_PREV_TITLE; ?></a></li>
-    <?php }
-    if ($JAK_NAV_NEXT) { ?>
-      <li class="next"><a href="<?php echo $JAK_NAV_NEXT; ?>"><?php echo $JAK_NAV_NEXT_TITLE; ?> <i
-            class="fa fa-arrow-right"></i></a></li>
-    <?php } ?>
-  </ul>
+  <!-- Show Social Buttons -->
+<?php if ($SHOWSOCIALBUTTON) { ?>
+  <div class="col-md-12">
+    <div class=" pull-right" style="display: table;">
+      <div style="display: table-cell;vertical-align: middle;/*! margin-right: 20px; */padding-right: 20px;">
+        <strong><?php echo $tl["share"]["share"] . ' '; ?></strong>
+      </div>
+      <div id="sollist-sharing"></div>
+    </div>
+  </div>
+<?php } ?>
 
-<?php include_once APP_PATH . 'template/' . $jkv["sitestyle"] . '/footer.php'; ?>
+  <div class="col-md-12">
+    <ul class="pager">
+      <?php if ($JAK_NAV_PREV) { ?>
+        <li class="previous">
+          <a href="<?php echo $JAK_NAV_PREV; ?>">
+            <?php echo $JAK_NAV_PREV_TITLE; ?>
+          </a>
+        </li>
+      <?php }
+      if ($JAK_NAV_NEXT) { ?>
+        <li class="next">
+          <a href="<?php echo $JAK_NAV_NEXT; ?>">
+            <?php echo $JAK_NAV_NEXT_TITLE; ?>
+          </a>
+        </li>
+      <?php } ?>
+    </ul>
+  </div>
+
+<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

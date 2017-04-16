@@ -349,6 +349,7 @@ if ($errors) { ?>
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                         echo $Html->addTag('strong', $tl["page_box_content"]["pagebc15"]);
+                        echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tl["page_help"]["pageh1"], 'data-original-title' => $tl["page_help"]["pageh"]));
                         ?>
 
                       </div>
@@ -356,7 +357,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'jak_password', '', '', 'form-control');
+                        echo $Html->addInput('text', 'jak_password', $JAK_FORM_DATA["password"], '', 'form-control');
                         ?>
 
                       </div>

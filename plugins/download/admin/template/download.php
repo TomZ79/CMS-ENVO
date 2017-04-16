@@ -183,12 +183,14 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                 <td>
 
                   <?php
-                  if ($v["active"] == 1 && $v["catid"] != '0') { // Odemčeno a není Archiv
+                  if ($v["active"] == 1 && $v["catid"] != 0) { // Odemčeno a není Archiv
                     echo $tld["downl_box_content"]["downlbc16"]; // Aktivní
-                  } elseif ($v["active"] == 0 && $v["catid"] != '0') { // Uzamčeno a není Archiv
-                    echo $tld["downl_box_content"]["downlbc17"] . '<span class="small">  - ' . $tld["downl_box_content"]["downlbc19"] . '</span>'; // Neaktivní -  Uzamčeno
-                  } else { // Odemčeno a je Archiv
+                  } elseif ($v["active"] == 1 && $v["catid"] == 0) { // Odemčeno a je Archiv
                     echo $tld["downl_box_content"]["downlbc17"] . '<span class="small">  - ' . $tld["downl_box_content"]["downlbc18"] . '</span>'; // Neaktivní - Archiv
+                  } elseif ($v["active"] == 0 && $v["catid"] != 0) { // Uzamčeno a není Archiv
+                    echo $tld["downl_box_content"]["downlbc17"] . '<span class="small">  - ' . $tld["downl_box_content"]["downlbc19"] . '</span>'; // Neaktivní -  Uzamčeno
+                  } else { //Uzamčeno a je Archiv
+                    echo $tld["downl_box_content"]["downlbc17"] . '<span class="small">  - ' . $tld["downl_box_content"]["downlbc19"] . ', ' . $tld["downl_box_content"]["downlbc18"] . '</span>'; // Neaktivní -  Uzamčeno, Archiv
                   }
                   ?>
 

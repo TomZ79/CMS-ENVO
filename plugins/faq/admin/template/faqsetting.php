@@ -42,7 +42,8 @@ if ($errors) { ?>
           if (isset($errors["e3"])) echo $errors["e3"];
           if (isset($errors["e4"])) echo $errors["e4"];
           if (isset($errors["e5"])) echo $errors["e5"];
-          if (isset($errors["e6"])) echo $errors["e6"];?>'
+          if (isset($errors["e6"])) echo $errors["e6"];
+          if (isset($errors["e7"])) echo $errors["e7"];?>'
       }, {
         // settings
         type: 'success',
@@ -223,6 +224,7 @@ if ($errors) { ?>
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                         echo $Html->addTag('strong', $tlf["faq_box_content"]["faqbc6"]);
+                        echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
                         ?>
 
                       </div>
@@ -254,7 +256,7 @@ if ($errors) { ?>
 
                       </div>
                       <div class="col-md-7">
-                        <div class="form-group<?php if (isset($errors["e4"])) echo " has-error"; ?> no-margin">
+                        <div class="form-group no-margin">
                           <select name="jak_time" class="form-control selectpicker" data-size="7">
 
                             <?php
@@ -373,7 +375,7 @@ if ($errors) { ?>
 
                       </div>
                       <div class="col-md-6">
-                        <div class="<?php if (isset($errors["e5"])) echo " has-error"; ?>">
+                        <div class="<?php if (isset($errors["e6"])) echo " has-error"; ?>">
                           <select name="jak_mid" class="form-control selectpicker">
 
                             <?php
@@ -401,6 +403,43 @@ if ($errors) { ?>
                       <div class="col-md-6">
                         <div class="form-group<?php if (isset($errors["e5"])) echo " has-error"; ?> no-margin">
                           <input type="text" name="jak_item" class="form-control" value="<?php echo $jkv["faqpageitem"]; ?>"/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="box-footer">
+
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+                ?>
+
+              </div>
+            </div>
+            <div class="box box-success">
+              <div class="box-header with-border">
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tlf["faq_box_title"]["faqbt10"], 'box-title');
+                echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
+                ?>
+
+              </div>
+              <div class="box-body">
+                <div class="block">
+                  <div class="block-content">
+                    <div class="row-form">
+                      <div class="col-md-12">
+                        <div class="form-group no-margin<?php if (isset($errors["e4"])) echo " has-error"; ?>">
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html->addInput('text', 'jak_shortmsg', $jkv["faqshortmsg"], '', 'form-control');
+                          ?>
+
                         </div>
                       </div>
                     </div>

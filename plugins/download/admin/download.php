@@ -1076,6 +1076,7 @@ switch ($page1) {
 
             // Delete the password
             if (!empty($defaults['jak_delete_password'])) {
+              $defaults['jak_password'] = '';
               $jakdb->query('UPDATE ' . $jaktable . ' SET password = NULL WHERE id = "' . smartsql($page2) . '"');
             }
 

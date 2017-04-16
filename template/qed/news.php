@@ -1,5 +1,7 @@
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
+<?php if (JAK_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=news&sp=setting'; ?>
+
 <?php if (isset($JAK_HOOK_NEWS) && is_array ($JAK_HOOK_NEWS)) foreach ($JAK_HOOK_NEWS as $n) {
 	include_once APP_PATH . $n['phpcode'];
 } ?>
@@ -12,7 +14,23 @@
 				<div class="<?php echo ($JAK_HOOK_SIDE_GRID ? "col-md-6" : "col-md-4"); ?> col-sm-12">
 					<article class="mb-xs">
 						<a href="<?php echo $v["parseurl"]; ?>">
-							<img src="<?php echo (($v["previmg"]) ? BASE_URL . $v["previmg"] : BASE_URL . 'template/' . ENVO_TEMPLATE . '/img/news/' . $site_language . '-news-feature-1.jpg') ?>" alt="<?php echo $v["title"]; ?>" class="post-image img-responsive">
+
+							<?php
+							// Image is available so display it or go standard image
+							if ($v["previmg"]) {
+								echo '<img src="' . $v["previmg"] . '" alt="' . $v["title"] . '" class="img-responsive">';
+							} else { ?>
+
+								<div class="thumb-news text-center">
+									<img src="<?php echo 'template/' . ENVO_TEMPLATE . '/img/news/' . $site_language . '-news-feature-1.jpg'; ?>" alt="<?php echo $v["title"]; ?>" class="img-responsive">
+									<div class="caption text-center">
+										<span class="color1"><?php echo $tlqed["news_text"]["newst"]; ?></span>
+										<span class="color2"><?php echo $tlqed["news_text"]["newst1"]; ?></span>
+									</div>
+								</div>
+
+							<?php } ?>
+
 						</a>
 						<div class="feature-box media-left mt">
 							<div class="post-date">
@@ -42,11 +60,11 @@
 									<hr class="mt-small mb-small">
 									<?php if (JAK_ASACCESS) { ?>
 											<div class="pull-right">
-												<a href="<?php echo BASE_URL; ?>admin/index.php?p=news&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["general"]["g"]; ?>" class="btn btn-info btn-xs jaktip">
-													<i class="icon-pencil"></i>
+												<a href="<?php echo BASE_URL; ?>admin/index.php?p=news&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-info btn-xs jaktip">
+													<?php echo $tl["button"]["btn1"]; ?>
 												</a>
-												<a class="btn btn-info btn-xs jaktip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=news&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["general"]["g176"]; ?>">
-													<i class="icon-edit"></i>
+												<a class="btn btn-info btn-xs jaktip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=news&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>">
+													<?php echo $tl["button"]["btn2"]; ?>
 												</a>
 											</div>
 									<?php } ?>

@@ -4,17 +4,17 @@ $showdlarray = explode(":", $row['showdownload']);
 
 if (is_array($showdlarray) && in_array("ASC", $showdlarray) || in_array("DESC", $showdlarray)) {
 
-  $JAK_DOWNLOAD = jak_get_download('LIMIT ' . $showdlarray[1], 't1.id ' . $showdlarray[0], '', 't1.id', $jkv["downloadurl"], $tl['general']['g56']);
+  $JAK_DOWNLOAD = jak_get_download('LIMIT ' . $showdlarray[1], 't1.id ' . $showdlarray[0], '', 't1.id', $jkv["downloadurl"], $tl['global_text']['gtxt4']);
 
 } else {
 
-  $JAK_DOWNLOAD = jak_get_download('', 't1.id ASC', $row['showdownload'], 't1.id', $jkv["downloadurl"], $tl['general']['g56']);
+  $JAK_DOWNLOAD = jak_get_download('', 't1.id ASC', $row['showdownload'], 't1.id', $jkv["downloadurl"], $tl['global_text']['gtxt4']);
 }
 
 ?>
 
 <hr>
-<h3 class="text-color"><?php echo $tld["dload"]["d11"] . JAK_PLUGIN_NAME_DOWNLOAD; ?></h3>
+<h3 class="text-color"><?php echo $tld["downl_frontend"]["downl12"] . JAK_PLUGIN_NAME_DOWNLOAD; ?></h3>
 <div class="row">
   <?php if (isset($JAK_DOWNLOAD) && is_array($JAK_DOWNLOAD)) foreach ($JAK_DOWNLOAD as $d) { ?>
     <!-- Post -->
@@ -41,13 +41,13 @@ if (is_array($showdlarray) && in_array("ASC", $showdlarray) || in_array("DESC", 
         </div>
         <!-- End Post Title & Summary -->
         <div class="post-more">
-          <a href="<?php echo $d["parseurl"]; ?>" class="btn btn-color btn-sm"><i class="fa fa-download"></i> <?php echo $tld["dload"]["d2"]; ?>
+          <a href="<?php echo $d["parseurl"]; ?>" class="btn btn-color btn-sm"><i class="fa fa-download"></i> <?php echo $tld["downl_frontend"]["downl7"]; ?>
           </a>
           <?php if (JAK_ASACCESS) { ?>
 
-            <a href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=edit&amp;id=<?php echo $d["id"]; ?>" title="<?php echo $tl["general"]["g"]; ?>" class="btn btn-default btn-sm jaktip"><i class="fa fa-pencil"></i></a>
+            <a href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=edit&amp;id=<?php echo $d["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-default btn-sm jaktip"><i class="fa fa-pencil"></i></a>
 
-            <a class="btn btn-default btn-sm jaktip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=quickedit&amp;id=<?php echo $d["id"]; ?>" title="<?php echo $tl["general"]["g176"]; ?>"><i class="fa fa-edit"></i></a>
+            <a class="btn btn-default btn-sm jaktip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=quickedit&amp;id=<?php echo $d["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>"><i class="fa fa-edit"></i></a>
 
           <?php } ?>
         </div>

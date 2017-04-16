@@ -420,6 +420,7 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
 ("faqmaxpost", "faq", 2000, 2000, "input", "boolean", "faq"),
 ("faqpagemid", "faq", 3, 3, "yesno", "number", "faq"),
 ("faqpageitem", "faq", 4, 4, "yesno", "number", "faq"),
+("faqshortmsg", "faq", 300, 300, "input", "boolean", "faq"),
 ("faqorder", "faq", "id ASC", "", "input", "free", "faq"),
 ("faqrss", "faq", 5, 5, "select", "number", "faq"),
 ("faqhlimit", "faq", 5, 5, "select", "number", "faq"),

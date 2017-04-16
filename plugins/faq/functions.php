@@ -18,7 +18,7 @@ function jak_get_faq($limit, $order, $where, $table_row, $ext_seo, $timeago)
   while ($row = $result->fetch_assoc()) {
 
     // Write content in short format with full words
-    $shortmsg = jak_cut_text($row['content'], $jkv["shortmsg"], '...');
+    $shortmsg = jak_cut_text($row['content'], $jkv["faqshortmsg"], '...');
 
     // There should be always a varname in categories and check if seo is valid
     $seo = "";
@@ -35,7 +35,6 @@ function jak_get_faq($limit, $order, $where, $table_row, $ext_seo, $timeago)
     // collect each record into $jakdata
     $jakdata[] = array('id' => $row['id'], 'catid' => $row['catid'], 'title' => $row['title'], 'content' => jak_secure_site($row['content']), 'contentshort' => $shortmsg, 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'created' => $getTime, 'comments' => $row['comments'], 'hits' => $row['hits'], 'totalcom' => $row['total'], 'previmg' => $row['previmg'], 'parseurl' => $parseurl);
   }
-
 
   return $jakdata;
 }

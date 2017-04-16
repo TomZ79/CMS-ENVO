@@ -6,11 +6,11 @@ $showfaqarray = explode(":", $row['showfaq']);
 
 if (is_array($showfaqarray) && in_array("ASC", $showfaqarray) || in_array("DESC", $showfaqarray)) {
 
-  $JAK_FAQ = jak_get_faq('LIMIT ' . $showfaqarray[1], 't1.id ' . $showfaqarray[0], '', 't1.id', $jkv["faqurl"], $tl['general']['g56']);
+  $JAK_FAQ = jak_get_faq('LIMIT ' . $showfaqarray[1], 't1.id ' . $showfaqarray[0], '', 't1.id', $jkv["faqurl"], $tl['global_text']['gtxt4']);
 
 } else {
 
-  $JAK_FAQ = jak_get_faq('', 't1.id ASC', $row['showfaq'], 't1.id', $jkv["faqurl"], $tl['general']['g56']);
+  $JAK_FAQ = jak_get_faq('', 't1.id ASC', $row['showfaq'], 't1.id', $jkv["faqurl"], $tl['global_text']['gtxt4']);
 }
 
 ?>
@@ -37,16 +37,14 @@ if (is_array($showfaqarray) && in_array("ASC", $showfaqarray) || in_array("DESC"
               <p><?php echo $f["contentshort"]; ?></p>
               <div class="pull-right">
                 <?php if (JAK_ASACCESS) { ?>
-                  <a href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=edit&amp;id=<?php echo $f["id"]; ?>"
-                    title="<?php echo $tl["general"]["g"]; ?>" class="btn btn-default btn-xs jaktip"><i
-                      class="fa fa-pencil"></i></a>
-                  <a class="btn btn-default btn-xs jaktip quickedit"
-                    href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=quickedit&amp;id=<?php echo $f["id"]; ?>"
-                    title="<?php echo $tl["general"]["g176"]; ?>"><i class="fa fa-edit"></i></a>
+
+                  <a href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=edit&amp;id=<?php echo $f["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-default btn-xs jaktip"><i class="fa fa-pencil"></i></a>
+
+                  <a class="btn btn-default btn-xs jaktip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=quickedit&amp;id=<?php echo $f["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>"><i class="fa fa-edit"></i></a>
 
                 <?php } ?>
-                <a href="<?php echo $f["parseurl"]; ?>"
-                  class="btn btn-color btn-xs"><?php echo $tl["general"]["g3"]; ?></a>
+
+                <a href="<?php echo $f["parseurl"]; ?>" class="btn btn-color btn-xs"><?php echo $tl["general"]["g3"]; ?></a>
               </div>
               <div class="clearfix"></div>
             </div>

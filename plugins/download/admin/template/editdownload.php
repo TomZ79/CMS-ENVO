@@ -355,6 +355,7 @@ if ($errors) { ?>
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                         echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc29"]);
+                        echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tld["downl_help"]["downlh7"], 'data-original-title' => $tld["downl_help"]["downlh"]));
                         ?>
 
                       </div>
@@ -362,7 +363,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'jak_password', '', '', 'form-control');
+                        echo $Html->addInput('text', 'jak_password', $JAK_FORM_DATA["password"], '', 'form-control');
                         ?>
 
                       </div>

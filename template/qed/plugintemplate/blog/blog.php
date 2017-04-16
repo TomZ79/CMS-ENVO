@@ -50,9 +50,9 @@
           <div class="system-icons">
             <hr class="mt-small mb-small">
             <div class="pull-right">
-              <a href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["general"]["g"]; ?>" class="btn btn-info btn-xs jaktip"><i class="icon-pencil"></i></a>
+              <a href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-info btn-xs jaktip"><i class="icon-pencil"></i></a>
 
-              <a href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["general"]["g176"]; ?>" class="btn btn-info btn-xs jaktip quickedit"><i class="icon-edit"></i></a>
+              <a href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>" class="btn btn-info btn-xs jaktip quickedit"><i class="icon-edit"></i></a>
             </div>
           </div>
         </div>

@@ -53,7 +53,7 @@ if (isset($JAK_SEARCH_USED)) { ?>
       <?php } else { ?>
 
         <div class="alert alert-danger">
-          <?php echo $tl["general"]["g158"]; ?>
+          <?php echo $tl["searching_error"]["ser2"]; ?>
         </div>
 
       <?php } ?>

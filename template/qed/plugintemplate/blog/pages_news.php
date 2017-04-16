@@ -4,11 +4,11 @@ $showblogarray = explode (":", $row['showblog']);
 
 if (is_array ($showblogarray) && in_array ("ASC", $showblogarray) || in_array ("DESC", $showblogarray)) {
 
-	$JAK_BLOG = jak_get_blog ('LIMIT ' . $showblogarray[1], 't1.id ' . $showblogarray[0], '', 't1.id', $jkv["blogurl"], $tl['general']['g56']);
+	$JAK_BLOG = jak_get_blog ('LIMIT ' . $showblogarray[1], 't1.id ' . $showblogarray[0], '', 't1.id', $jkv["blogurl"], $tl['global_text']['gtxt4']);
 
 } else {
 
-	$JAK_BLOG = jak_get_blog ('', 't1.id ASC', $row['showblog'], 't1.id', $jkv["blogurl"], $tl['general']['g56']);
+	$JAK_BLOG = jak_get_blog ('', 't1.id ASC', $row['showblog'], 't1.id', $jkv["blogurl"], $tl['global_text']['gtxt4']);
 }
 
 ?>
@@ -45,12 +45,12 @@ if (is_array ($showblogarray) && in_array ("ASC", $showblogarray) || in_array ("
 					<?php if (JAK_ASACCESS) { ?>
 
 						<a href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=edit&amp;id=<?php echo $bl["id"]; ?>"
-							title="<?php echo $tl["general"]["g"]; ?>" class="btn btn-default btn-sm jaktip"><i
+							title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-default btn-sm jaktip"><i
 								class="fa fa-pencil"></i></a>
 
 						<a class="btn btn-default btn-sm jaktip quickedit"
 							href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=quickedit&amp;id=<?php echo $bl["id"]; ?>"
-							title="<?php echo $tl["general"]["g176"]; ?>"><i class="fa fa-edit"></i></a>
+							title="<?php echo $tl["button"]["btn2"]; ?>"><i class="fa fa-edit"></i></a>
 
 					<?php } ?>
 				</div>

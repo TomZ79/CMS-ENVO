@@ -87,7 +87,7 @@
 						rows="10"><?php echo $RCONT; ?></textarea>
 				</div>
 
-				<button type="submit" name="editpost" class="btn btn-primary"><?php echo $tl["general"]["g10"]; ?></button>
+				<button type="submit" name="editpost" class="btn btn-primary"><?php echo $tl["button"]["btn3"]; ?></button>
 
 				<input type="hidden" name="name" value="<?php echo $JAK_USERNAME; ?>"/>
 			</form>

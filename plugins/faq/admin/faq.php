@@ -666,12 +666,16 @@ switch ($page1) {
         $errors['e3'] = $tl['general_error']['generror26'] . '<br>';
       }
 
+      if (empty($defaults['jak_shortmsg'])) {
+        $errors['e4'] = $tl['general_error']['generror29'] . '<br>';
+      }
+
       if (!is_numeric($defaults['jak_item'])) {
         $errors['e5'] = $tl['general_error']['generror27'] . '<br>';
       }
 
       if (!is_numeric($defaults['jak_mid'])) {
-        $errors['e5'] = $tl['general_error']['generror27'] . '<br>';
+        $errors['e6'] = $tl['general_error']['generror27'] . '<br>';
       }
 
       if (!is_numeric($defaults['jak_rssitem'])) {
@@ -696,10 +700,11 @@ switch ($page1) {
 		        WHEN "faqrss" THEN "' . smartsql($defaults['jak_rssitem']) . '"
 		        WHEN "faqpagemid" THEN "' . smartsql($defaults['jak_mid']) . '"
 		        WHEN "faqpageitem" THEN "' . smartsql($defaults['jak_item']) . '"
+		        WHEN "faqshortmsg" THEN "' . smartsql($defaults['jak_shortmsg']) . '"
 		        WHEN "faq_css" THEN "' . smartsql($defaults['jak_css']) . '"
 		      WHEN "faq_javascript" THEN "' . smartsql($defaults['jak_javascript']) . '"
 		    END
-				WHERE varname IN ("faqtitle","faqdesc","faqemail","faqorder","faqdateformat","faqtimeformat","faqurl","faqmaxpost","faqpagemid","faqpageitem","faqrss", "faq_css", "faq_javascript")';
+				WHERE varname IN ("faqtitle","faqdesc","faqemail","faqorder","faqdateformat","faqtimeformat","faqurl","faqmaxpost","faqpagemid","faqpageitem", "faqshortmsg", "faqrss", "faq_css", "faq_javascript")';
         $result = $jakdb->query($sql);
 
         // Save order for sidebar widget

@@ -81,7 +81,7 @@ switch ($page1) {
         $JAK_PAGINATE = $blogc->display_pages();
       }
 
-      $JAK_BLOG_ALL = jak_get_blog($blogc->limit, $jkv["blogorder"], $page2, 't1.catid', $jkv["blogurl"], $tl['general']['g56']);
+      $JAK_BLOG_ALL = jak_get_blog($blogc->limit, $jkv["blogorder"], $page2, 't1.catid', $jkv["blogurl"], $tl['global_text']['gtxt4']);
 
       $row = $jakdb->queryRow('SELECT name, content FROM ' . $jaktable1 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
 
@@ -186,7 +186,7 @@ switch ($page1) {
             $mail->Send(); // Send email without any warnings
           }
 
-          $arr['created'] = JAK_Base::jakTimesince(time(), $jkv["blogdateformat"], $jkv["blogtimeformat"], $tl['general']['g56']);
+          $arr['created'] = JAK_Base::jakTimesince(time(), $jkv["blogdateformat"], $jkv["blogtimeformat"], $tl['global_text']['gtxt4']);
 
           /*
           /	The data in $arr is escaped for the mysql query,
@@ -196,7 +196,7 @@ switch ($page1) {
 
           /* Outputting the markup of the just-inserted comment: */
           if (isset($arr['jakajax']) && $arr['jakajax'] == "yes") {
-            $acajax = new JAK_comment($jaktable2, 'id', $arr['id'], JAK_PLUGIN_VAR_BLOG, $jkv["blogdateformat"], $jkv["blogtimeformat"], $tl['general']['g56']);
+            $acajax = new JAK_comment($jaktable2, 'id', $arr['id'], JAK_PLUGIN_VAR_BLOG, $jkv["blogdateformat"], $jkv["blogtimeformat"], $tl['global_text']['gtxt4']);
 
             header('Cache-Control: no-cache');
             die(json_encode(array('status' => 1, 'html' => $acajax->get_commentajax($tl['general']['g102'], $tlblog['blog']['g3'], $tlblog['blog']['g4']))));
@@ -254,7 +254,7 @@ switch ($page1) {
           $JAK_FOOTER_JAVASCRIPT       = $row['blog_javascript'];
           $jkv["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
 
-          $PAGE_TIME       = JAK_Base::jakTimesince($row['time'], $jkv["blogdateformat"], $jkv["blogtimeformat"], $tl['general']['g56']);
+          $PAGE_TIME       = JAK_Base::jakTimesince($row['time'], $jkv["blogdateformat"], $jkv["blogtimeformat"], $tl['global_text']['gtxt4']);
           $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
           // Display contact form if whish so and do the caching
@@ -272,7 +272,7 @@ switch ($page1) {
         // Get the comments if wish so
         if ($row['comments'] == 1) {
 
-          $ac = new JAK_comment($jaktable2, 'blogid', $page2, JAK_PLUGIN_VAR_BLOG, $jkv["blogdateformat"], $jkv["blogtimeformat"], $tl['general']['g56'], "", ' AND t1.commentid = 0', TRUE);
+          $ac = new JAK_comment($jaktable2, 'blogid', $page2, JAK_PLUGIN_VAR_BLOG, $jkv["blogdateformat"], $jkv["blogtimeformat"], $tl['global_text']['gtxt4'], "", ' AND t1.commentid = 0', TRUE);
 
           $comments_naked = $ac->get_comments();
 
@@ -289,7 +289,7 @@ switch ($page1) {
             $JAK_COMMENTS['subcomm'][$comm['commentid']][] = $comm['id'];
           }
 
-          // $ac = new JAK_comment($jaktable2, 'blogid', $page2, JAK_PLUGIN_VAR_BLOG, $jkv["blogdateformat"], $jkv["blogtimeformat"], $tl['general']['g56']);
+          // $ac = new JAK_comment($jaktable2, 'blogid', $page2, JAK_PLUGIN_VAR_BLOG, $jkv["blogdateformat"], $jkv["blogtimeformat"], $tl['global_text']['gtxt4']);
 
           // $JAK_COMMENTS = $ac->get_comments();
           $JAK_COMMENTS_TOTAL = $ac->get_total();
@@ -501,7 +501,7 @@ switch ($page1) {
       // Pagination
       $JAK_PAGINATE = $blog->display_pages();
       // Get all blogs
-      $JAK_BLOG_ALL = jak_get_blog($blog->limit, $jkv["blogorder"], '', '', $jkv["blogurl"], $tl['general']['g56']);
+      $JAK_BLOG_ALL = jak_get_blog($blog->limit, $jkv["blogorder"], '', '', $jkv["blogurl"], $tl['global_text']['gtxt4']);
 
     }
 

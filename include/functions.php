@@ -3,23 +3,23 @@
 // Redirect to something...
 function jak_redirect($url, $code = 302)
 {
-  header('Location: ' . $url, true, $code);
+  header('Location: ' . $url, TRUE, $code);
   exit();
 }
 
 // Secure the site and display videos
 function jak_secure_site($input)
 {
-  $input = stripslashes($input);
-  $youtube = strpos($input, 'youtube.com');
+  $input    = stripslashes($input);
+  $youtube  = strpos($input, 'youtube.com');
   $youtube2 = strpos($input, 'youtu.be');
-  $vimeo = strpos($input, 'vimeo.com');
+  $vimeo    = strpos($input, 'vimeo.com');
 
   // Check if there is a url in the text
   if (!empty($youtube) || !empty($youtube2) || !empty($vimeo)) {
 
     // The Regular Expression filter
-    $reg_exUrl = '/(http\:\/\/www\.youtube\.com\/watch\?v=\w{11})/';
+    $reg_exUrl  = '/(http\:\/\/www\.youtube\.com\/watch\?v=\w{11})/';
     $reg_exUrl2 = '(http://youtu.be/[-|~_0-9A-Za-z]+)';
     $reg_exUrlv = '/(http\:\/\/(www\.vimeo|vimeo)\.com\/[0-9]{8})/';
 
@@ -62,15 +62,19 @@ function jak_secure_site($input)
 }
 
 // Filter inputs
-function jak_input_filter($value) {
+function jak_input_filter($value)
+{
   $value = filter_var($value, FILTER_SANITIZE_STRING);
+
   return preg_replace("/[^0-9 _,.@\-\p{L}]/u", '', $value);
 }
 
 // Filter url inputs
-function jak_url_input_filter($value) {
+function jak_url_input_filter($value)
+{
   $value = html_entity_decode($value);
   $value = preg_replace('/[^\w-.]/', '', $value);
+
   return trim(filter_var($value, FILTER_SANITIZE_STRING));
 }
 
@@ -97,7 +101,7 @@ function jak_get_lang_files()
   if ($handle = opendir($langdir)) {
 
     /* This is the correct way to loop over the directory. */
-    while (false !== ($file = readdir($handle))) {
+    while (FALSE !== ($file = readdir($handle))) {
       $showini = substr($file, strrpos($file, '.'));
       if ($file != '.' && $file != '..' && $showini == '.ini') {
 
@@ -105,65 +109,76 @@ function jak_get_lang_files()
 
       }
     }
+
     return $getlang;
     closedir($handle);
   }
 }
 
 // Check if folder is empty
-function is_dir_empty($dir) {
+function is_dir_empty($dir)
+{
   if (!is_readable($dir)) return NULL;
   $handle = opendir($dir);
-  while (false !== ($entry = readdir($handle))) {
+  while (FALSE !== ($entry = readdir($handle))) {
     if ($entry != "." && $entry != "..") {
       return FALSE;
     }
   }
+
   return TRUE;
 }
 
 // Get random image from folder
 // http://www.dyn-web.com/code/random-image-php/
-function jak_get_random_image($path) {
+function jak_get_random_image($path)
+{
   $images = array();
-  if ( $img_dir = @opendir($path) ) {
-    while ( false !== ($img_file = readdir($img_dir)) ) {
+  if ($img_dir = @opendir($path)) {
+    while (FALSE !== ($img_file = readdir($img_dir))) {
       // checks for gif, jpg, png
-      if ( preg_match("/(\.gif|\.jpg|\.png)$/", $img_file) ) {
+      if (preg_match("/(\.gif|\.jpg|\.png)$/", $img_file)) {
         $images[] = BASE_URL . $path . $img_file;
       }
     }
     closedir($img_dir);
   }
+
   return $images;
 }
-function jak_get_random_from_array($ar) {
+
+function jak_get_random_from_array($ar)
+{
   $num = array_rand($ar);
+
   return $ar[$num];
 }
 
 // Get random line from text file
-function jak_get_random__line($fileName, $maxLineLength = 4096) {
+function jak_get_random__line($fileName, $maxLineLength = 4096)
+{
   $handle = @fopen($fileName, "r");
   if ($handle) {
-    $random_line = null;
-    $line = null;
-    $count = 0;
-    while (($line = fgets($handle, $maxLineLength)) !== false) {
+    $random_line = NULL;
+    $line        = NULL;
+    $count       = 0;
+    while (($line = fgets($handle, $maxLineLength)) !== FALSE) {
       $count++;
       // P(1/$count) probability of picking current line as random line
-      if(rand() % $count == 0) {
+      if (rand() % $count == 0) {
         $random_line = $line;
       }
     }
     if (!feof($handle)) {
       echo "Error: unexpected fgets() fail\n";
       fclose($handle);
-      return null;
+
+      return NULL;
     } else {
       fclose($handle);
     }
     $random_line = str_replace("\r\n", '', $random_line);
+
     return $random_line;
   }
 }
@@ -177,9 +192,9 @@ function jak_find_browser($useragent, $wap)
   $ifmobileM = preg_match('/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|e\-|e\/|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(di|rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|xda(\-|2|g)|yas\-|your|zeto|zte\-/i', substr($useragent, 0, 4));
 
   if ($ifmobile || $ifmobileM || isset($wap)) {
-    return true;
+    return TRUE;
   } else {
-    return false;
+    return FALSE;
   }
 }
 
@@ -188,7 +203,7 @@ function jak_get_access($jakvar, $jakvar1)
 {
   $usergrouparray = explode(',', $jakvar1);
   if (in_array($jakvar, $usergrouparray) || $jakvar == 3) {
-    return true;
+    return TRUE;
   }
 }
 
@@ -197,10 +212,11 @@ function jak_get_setting($group)
 {
   global $jakdb;
   $setting = array();
-  $result = $jakdb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE groupname = "' . smartsql($group) . '"');
+  $result  = $jakdb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE groupname = "' . smartsql($group) . '"');
   while ($row = $result->fetch_assoc()) {
     $setting[] = $row;
   }
+
   return $setting;
 }
 
@@ -209,19 +225,20 @@ function jak_get_setting_val($group)
 {
   global $jakdb;
   $setting = array();
-  $result = $jakdb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE groupname = "' . smartsql($group) . '"');
+  $result  = $jakdb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE groupname = "' . smartsql($group) . '"');
   while ($row = $result->fetch_assoc()) {
     // collect each record into a define
 
     // Now check if sting contains html and do something about it!
-    if (strlen ($row['value']) != strlen (filter_var ($row['value'], FILTER_SANITIZE_STRING))) {
-      $defvar = htmlspecialchars_decode (htmlspecialchars ($row['value']));
+    if (strlen($row['value']) != strlen(filter_var($row['value'], FILTER_SANITIZE_STRING))) {
+      $defvar = htmlspecialchars_decode(htmlspecialchars($row['value']));
     } else {
       $defvar = $row["value"];
     }
 
-    $setting[ $row['varname'] ] = $defvar;
+    $setting[$row['varname']] = $defvar;
   }
+
   return $setting;
 }
 
@@ -250,20 +267,22 @@ function jak_get_data($id, $table)
 
   global $jakdb;
   $setting = array();
-  $result = $jakdb->query('SELECT * FROM ' . $table . ' WHERE id = "' . smartsql($id) . '"');
+  $result  = $jakdb->query('SELECT * FROM ' . $table . ' WHERE id = "' . smartsql($id) . '"');
   while ($row = $result->fetch_assoc()) {
     // collect each record into $jakdata
     $jakdata = $row;
   }
+
   return $jakdata;
 }
 
 // Get the data per array for galleries
-function jak_get_galleryfacebook($limit, $table, $order){
+function jak_get_galleryfacebook($limit, $table, $order)
+{
 
   global $jakdb;
   $jakdata = array();
-  $result = $jakdb->query('SELECT * FROM ' . $table . ' ORDER BY id ' . $order . $limit);
+  $result  = $jakdb->query('SELECT * FROM ' . $table . ' ORDER BY id ' . $order . $limit);
   while ($row = $result->fetch_assoc()) {
     // collect each record into $_data
     $jakdata[] = $row;
@@ -278,9 +297,9 @@ function jak_field_not_exist($check, $table, $field)
   global $jakdb;
   $result = $jakdb->query('SELECT id FROM ' . $table . ' WHERE LOWER(' . $field . ') = "' . smartsql($check) . '" LIMIT 1');
   if ($jakdb->affected_rows === 1) {
-    return true;
+    return TRUE;
   } else {
-    return false;
+    return FALSE;
   }
 }
 
@@ -290,9 +309,9 @@ function jak_row_exist($id, $table)
   global $jakdb;
   $result = $jakdb->query('SELECT id FROM ' . $table . ' WHERE id = "' . smartsql($id) . '" LIMIT 1');
   if ($jakdb->affected_rows === 1) {
-    return true;
+    return TRUE;
   } else {
-    return false;
+    return FALSE;
   }
 }
 
@@ -302,9 +321,9 @@ function jak_give_right($id, $extrainfo, $table, $extrafield)
   global $jakdb;
   $jakdb->query('SELECT id FROM ' . $table . ' WHERE id = ' . smartsql($id) . ' AND ' . $extrafield . ' = "' . smartsql($extrainfo) . '"');
   if ($jakdb->affected_rows === 1) {
-    return true;
+    return TRUE;
   } else {
-    return false;
+    return FALSE;
   }
 }
 
@@ -316,10 +335,10 @@ function jak_row_permission($jakvar, $jakvar1, $jakvar2)
   if ($jakdb->affected_rows === 1) {
     $row = $result->fetch_assoc();
     if (jak_get_access($jakvar2, $row['permission']) || $row['permission'] == 0) {
-      return true;
+      return TRUE;
     }
   } else {
-    return false;
+    return FALSE;
   }
 }
 
@@ -331,9 +350,10 @@ function jak_get_id_name($jakvar, $jakvar1, $jakvar2, $jakvar3)
   $result = $jakdb->query('SELECT id FROM ' . $jakvar2 . ' WHERE ' . $jakvar1 . ' = "' . smartsql($jakvar) . '"' . $sqlwhere . ' LIMIT 1');
   if ($jakdb->affected_rows > 0) {
     $row = $result->fetch_assoc();
+
     return $row['id'];
   } else {
-    return false;
+    return FALSE;
   }
 }
 
@@ -354,10 +374,10 @@ function jak_get_news($jakvar, $where, $plname, $order, $datef, $timef, $timeago
   global $jakdb;
   global $jkv;
   $jakdata = array();
-  $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'news WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 OR enddate >= ' . time() . ')) AND (FIND_IN_SET(' . JAK_USERGROUPID . ',permission) OR permission = 0) AND ' . $sqlin . $jakvar);
+  $result  = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'news WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 OR enddate >= ' . time() . ')) AND (FIND_IN_SET(' . JAK_USERGROUPID . ',permission) OR permission = 0) AND ' . $sqlin . $jakvar);
   while ($row = $result->fetch_assoc()) {
 
-    $PAGE_TITLE = $row['title'];
+    $PAGE_TITLE   = $row['title'];
     $PAGE_CONTENT = $row['content'];
 
     // Write content in short format with full words
@@ -377,7 +397,7 @@ function jak_get_news($jakvar, $where, $plname, $order, $datef, $timef, $timeago
 function jak_next_page($page, $title, $table, $id, $where, $where2, $approve)
 {
 
-  $second = $third = $fourth = $fifth = $jakdata = false;
+  $second = $third = $fourth = $fifth = $jakdata = FALSE;
 
   if (!empty($title)) {
     $second = ' ,' . $title;
@@ -395,15 +415,16 @@ function jak_next_page($page, $title, $table, $id, $where, $where2, $approve)
   $result = $jakdb->query('SELECT id' . $second . ' FROM ' . $table . ' WHERE ' . $id . ' > ' . smartsql($page) . $third . $fourth . $fifth . ' ORDER BY id ASC LIMIT 1');
   if ($jakdb->affected_rows > 0) {
     $jakdata = $result->fetch_assoc();
+
     return $jakdata;
   } else
-    return false;
+    return FALSE;
 }
 
 function jak_previous_page($page, $title, $table, $id, $where, $where2, $approve)
 {
 
-  $second = $third = $fourth = $fifth = $jakdata = false;
+  $second = $third = $fourth = $fifth = $jakdata = FALSE;
 
   if (!empty($title)) {
     $second = ' ,' . $title;
@@ -421,9 +442,10 @@ function jak_previous_page($page, $title, $table, $id, $where, $where2, $approve
   $result = $jakdb->query('SELECT id' . $second . ' FROM ' . $table . ' WHERE ' . $id . ' < ' . smartsql($page) . $third . $fourth . $fifth . ' ORDER BY id DESC LIMIT 1');
   if ($jakdb->affected_rows > 0) {
     $jakdata = $result->fetch_assoc();
+
     return $jakdata;
   } else
-    return false;
+    return FALSE;
 
 }
 
@@ -437,23 +459,24 @@ function jak_build_menu($parent, $menu, $active, $mainclass, $dropdown, $dropcla
     } else {
       $mpr = $menu['parents'][$parent];
     }
-    $html .= '<ul class="'.$mainclass.'">';
+    $html .= '<ul class="' . $mainclass . '">';
     foreach ($mpr as $itemId) {
       if (!isset($menu['parents'][$itemId])) {
-        $html .= '<li'.($firstli ? ' class="'.$firstli.($active == $menu["items"][$itemId]["pagename"] ? ' active"' : '"') : ($active == $menu["items"][$itemId]["pagename"] ? ' class="active"' : '')).'><a'.($firsta ? ' class="'.$firsta.'"' : '').' href="'.$menu["items"][$itemId]["varname"].'">'.($menu["items"][$itemId]["catimg"] ? '<i class="fa '.$menu["items"][$itemId]["catimg"].'"></i> ' : '').$menu["items"][$itemId]["name"].'</a></li>';
+        $html .= '<li' . ($firstli ? ' class="' . $firstli . ($active == $menu["items"][$itemId]["pagename"] ? ' active"' : '"') : ($active == $menu["items"][$itemId]["pagename"] ? ' class="active"' : '')) . '><a' . ($firsta ? ' class="' . $firsta . '"' : '') . ' href="' . $menu["items"][$itemId]["varname"] . '">' . ($menu["items"][$itemId]["catimg"] ? '<i class="fa ' . $menu["items"][$itemId]["catimg"] . '"></i> ' : '') . $menu["items"][$itemId]["name"] . '</a></li>';
       }
       if (isset($menu['parents'][$itemId])) {
-        $html .= '<li'.($firstli ? ' class="'.$firstli.($active == $menu["items"][$itemId]["pagename"] ? ($dropdown ? ' active '.$dropdown.'"' : '"') : ($dropdown ? $dropdown.'"' : '"')) : ($active == $menu["items"][$itemId]["pagename"] ? ($dropdown ? ' class="active '.$dropdown.'"' : '') : ($dropdown ? ' class="'.$dropdown.'"' : ''))).'><a'.($firsta ? ' class="'.$firsta.'"' : '').' href="'.$menu["items"][$itemId]["varname"].'">'.($menu["items"][$itemId]["catimg"] ? '<i class="fa '.$menu["items"][$itemId]["catimg"].'"></i> ' : '').$menu["items"][$itemId]["name"].'</a>';
+        $html .= '<li' . ($firstli ? ' class="' . $firstli . ($active == $menu["items"][$itemId]["pagename"] ? ($dropdown ? ' active ' . $dropdown . '"' : '"') : ($dropdown ? $dropdown . '"' : '"')) : ($active == $menu["items"][$itemId]["pagename"] ? ($dropdown ? ' class="active ' . $dropdown . '"' : '') : ($dropdown ? ' class="' . $dropdown . '"' : ''))) . '><a' . ($firsta ? ' class="' . $firsta . '"' : '') . ' href="' . $menu["items"][$itemId]["varname"] . '">' . ($menu["items"][$itemId]["catimg"] ? '<i class="fa ' . $menu["items"][$itemId]["catimg"] . '"></i> ' : '') . $menu["items"][$itemId]["name"] . '</a>';
         $html .= jak_build_menu($itemId, $menu, $active, $dropclass, $subclass, $dropclass, $subclass, $admin);
         $html .= '</li>';
       }
     }
 
     if ($admin) {
-      $html .= '<li'.($firstli ? ' class="'.$firstli.'"' : '').'><a'.($firsta ? ' class="'.$firsta.'"' : '').' href="'.BASE_URL.'admin/">Admin</a></li>';
+      $html .= '<li' . ($firstli ? ' class="' . $firstli . '"' : '') . '><a' . ($firsta ? ' class="' . $firsta . '"' : '') . ' href="' . BASE_URL . 'admin/">Admin</a></li>';
     }
     $html .= '</ul>';
   }
+
   return $html;
 }
 
@@ -541,6 +564,7 @@ function jak_cut_text($text, $limit, $jakvar2)
   } else {
     $jakdata = $text;
   }
+
   return $jakdata;
 }
 
@@ -554,6 +578,7 @@ function jak_render_string($str, $parms)
       return jak_render_string($match['inner'], $parms);
     }
   }, $str);
+
   return $str;
 }
 
@@ -584,12 +609,12 @@ function jak_cookie_voted_hits($table, $id, $cookie)
     $cookiearray = explode(',', $_COOKIE[$cookie]);
 
     if (in_array($table . '-' . $id, $cookiearray)) {
-      return true;
+      return TRUE;
     } else {
-      return false;
+      return FALSE;
     }
   } else {
-    return false;
+    return FALSE;
   }
 
 }
@@ -610,8 +635,8 @@ function jak_clean_safe_userpost($input)
   $input = preg_replace_callback('/<pre><code>(.*?)<\/code><\/pre>/imsu', 'jak_precode', $input);
 
   $allowedhtml = array('safe' => 1, 'elements' => 'em, p, br, img, ul, li, ol, a, strong, pre, code', 'deny_attribute' => 'class, title, id, style, on*', 'comment' => 1, 'cdata' => 1, 'valid_xhtml' => 1, 'make_tag_strict' => 1);
-  $allowedatr = '';
-  $input = htmLawed($input, $allowedhtml, $allowedatr);
+  $allowedatr  = '';
+  $input       = htmLawed($input, $allowedhtml, $allowedatr);
   global $jkv;
   if ($jkv["usr_smilies"]) {
 
@@ -619,14 +644,14 @@ function jak_clean_safe_userpost($input)
 
     // More dirty custom work and smiley parser
     $smileyparser = new JAK_smiley();
-    $input = $smileyparser->parseSmileytext($input);
+    $input        = $smileyparser->parseSmileytext($input);
   }
 
   // Now return the input
   if ($input) {
     return $input;
   } else {
-    return false;
+    return FALSE;
   }
 }
 
@@ -661,9 +686,9 @@ function jak_comment_votes($votes)
 function get_ip_address()
 {
   foreach (array('HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'REMOTE_ADDR') as $key) {
-    if (array_key_exists($key, $_SERVER) === true) {
+    if (array_key_exists($key, $_SERVER) === TRUE) {
       foreach (explode(',', $_SERVER[$key]) as $ip) {
-        if (filter_var($ip, FILTER_VALIDATE_IP) !== false) {
+        if (filter_var($ip, FILTER_VALIDATE_IP) !== FALSE) {
           return $ip;
         }
       }
@@ -679,12 +704,23 @@ function jak_password_creator($length = 8)
   return substr(md5(rand() . rand()), 0, $length);
 }
 
-// encrypt email address (prevent spam)
-function jak_encode_email($e)
+/**
+ * Encrypt email address (prevent spam)
+ *
+ * The function takes a string input (the email address), loops through each character replacing the letter with the character's ASCII value, and returns the encoded email address.
+ *
+ * Example:
+ * Input  - echo 'mailto' . envo_encode_email(info@info.com)
+ * Return - mailto:&#105;&#110;&#102;&#111;&#64;&#105;&#110;&#102;&#111;&#46;&#99;&#111;&#109;
+ *
+ */
+function envo_encode_email($email)
 {
-  for ($i = 0; $i < strlen($e); $i++) {
-    $output .= '&#' . ord($e[$i]) . ';';
+  $output = '';
+  for ($i = 0; $i < strlen($email); $i++) {
+    $output .= '&#' . ord($email[$i]) . ';';
   }
+
   return $output;
 }
 
@@ -710,23 +746,19 @@ function jak_editcode($matches)
 }
 
 // Convert size units
-function formatSizeUnits($bytes) {
+function formatSizeUnits($bytes)
+{
   if ($bytes >= 1073741824) {
     $bytes = number_format($bytes / 1073741824, 2) . ' GB';
-  }
-  elseif ($bytes >= 1048576) {
+  } elseif ($bytes >= 1048576) {
     $bytes = number_format($bytes / 1048576, 2) . ' MB';
-  }
-  elseif ($bytes >= 1024) {
+  } elseif ($bytes >= 1024) {
     $bytes = number_format($bytes / 1024, 2) . ' kB';
-  }
-  elseif ($bytes > 1) {
+  } elseif ($bytes > 1) {
     $bytes = $bytes . ' bytes';
-  }
-  elseif ($bytes == 1) {
+  } elseif ($bytes == 1) {
     $bytes = $bytes . ' byte';
-  }
-  else {
+  } else {
     $bytes = '0 bytes';
   }
 
@@ -747,41 +779,43 @@ function formatSizeUnits($bytes) {
  * echo '	div.example { background: '.$rgb.'; color: '.$rgba.'; }';
  *
 */
-function hex2rgba($color, $opacity = false) {
+function hex2rgba($color, $opacity = FALSE)
+{
 
   $default = 'rgb(0,0,0)';
 
   //Return default if no color provided
-  if(empty($color))
+  if (empty($color))
     return $default;
 
   //Sanitize $color if "#" is provided
-  if ($color[0] == '#' ) {
-    $color = substr( $color, 1 );
+  if ($color[0] == '#') {
+    $color = substr($color, 1);
   }
 
   //Check if color has 6 or 3 characters and get values
   if (strlen($color) == 6) {
-    $hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
-  } elseif ( strlen( $color ) == 3 ) {
-    $hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
+    $hex = array($color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5]);
+  } elseif (strlen($color) == 3) {
+    $hex = array($color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2]);
   } else {
     return $default;
   }
 
   //Convert hexadec to rgb
-  $rgb =  array_map('hexdec', $hex);
+  $rgb = array_map('hexdec', $hex);
 
   //Check if opacity is set(rgba or rgb)
-  if($opacity){
-    if(abs($opacity) > 1)
+  if ($opacity) {
+    if (abs($opacity) > 1)
       $opacity = 1.0;
-    $output = 'rgba('.implode(",",$rgb).','.$opacity.')';
+    $output = 'rgba(' . implode(",", $rgb) . ',' . $opacity . ')';
   } else {
-    $output = 'rgb('.implode(",",$rgb).')';
+    $output = 'rgb(' . implode(",", $rgb) . ')';
   }
 
   //Return rgb(a) color string
   return $output;
 }
+
 ?>

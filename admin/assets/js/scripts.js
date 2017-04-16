@@ -1143,7 +1143,7 @@ $.fn.timedDisable = function (time) {
 $('.cms-help').popover({
   container: 'body',
   placement: 'top',
-  trigger: 'hover',
+  trigger: 'focus',
   html: true,
   template: '<div class="popover style-1">' +
   '<div class="arrow"></div>' +

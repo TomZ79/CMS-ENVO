@@ -36,7 +36,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
   <meta property="og:title" content="<?php echo $PAGE_TITLE; ?>"/>
   <meta property="og:type" content="article"/>
   <meta property="og:url" content="<?php echo BASE_URL; ?>"/>
-  <meta property="og:image" content="<?php echo (($PAGE_IMAGE) ? $PAGE_IMAGE : ($SHOWIMG) ? $SHOWIMG : $JAK_RANDOM_IMAGE ); ?>"/>
+  <meta property="og:image" content="<?php echo(($PAGE_IMAGE) ? $PAGE_IMAGE : ($SHOWIMG) ? $SHOWIMG : $JAK_RANDOM_IMAGE); ?>"/>
   <meta property="og:description" content="<?php echo trim($PAGE_DESCRIPTION); ?>"/>
 
   <!-- for Twitter -->
@@ -133,15 +133,19 @@ echo $jkv["header_qed_tpl"]; ?> color-<?php echo $jkv["color_qed_tpl"]; ?>">
             <div class="col-sm-6 hidden-xs">
               <ul class="quick-menu">
                 <?php if ($jkv["sitemapShow_qed_tpl"] == 1) { ?>
-                  <li><a href="/" class="linkLeft">Site map</a></li>
+                  <li>
+                    <a href="/<?php echo $jkv["sitemapLinks_qed_tpl"]; ?>" class="linkLeft"><?php echo $tlqed["header_text"]["ht"]; ?></a>
+                  </li>
                 <?php }
                 if ($jkv["loginShow_qed_tpl"] == 1) {
                   if (!JAK_USERID) { ?>
-                    <li><a href="/" id="login">Login</a></li>
+                    <li><a href="/" id="login"><?php echo $tlqed["header_text"]["ht1"]; ?></a></li>
                   <?php } else { ?>
-                    <li><a href="<?php echo $P_USR_LOGOUT; ?>" id="logout"><?php echo $tl["title"]["t6"]; ?></a></li>
+                    <li>
+                      <a href="<?php echo $P_USR_LOGOUT; ?>" id="logout"><?php echo $tlqed["header_text"]["ht2"]; ?></a>
+                    </li>
                     <?php if (JAK_ASACCESS) { ?>
-                      <li><a href="<?php echo BASE_URL; ?>admin/">Admin</a></li>
+                      <li><a href="<?php echo BASE_URL; ?>admin/"><?php echo $tlqed["header_text"]["ht3"]; ?></a></li>
                     <?php }
                   }
                 } ?>
@@ -178,7 +182,7 @@ echo $jkv["header_qed_tpl"]; ?> color-<?php echo $jkv["color_qed_tpl"]; ?>">
                 <?php }
                 if ($jkv["emailShow_qed_tpl"] == 1) { ?>
                   <li>
-                    <a href="mailto:<?php echo $jkv["emailLinks_qed_tpl"]; ?>" target="_blank"><i class="icon-mail"></i></a>
+                    <a href="mailto:<?php echo envo_encode_email($jkv["emailLinks_qed_tpl"]); ?>" target="_blank"><i class="icon-mail"></i></a>
                   </li>
                 <?php } ?>
               </ul>
@@ -191,7 +195,7 @@ echo $jkv["header_qed_tpl"]; ?> color-<?php echo $jkv["color_qed_tpl"]; ?>">
           <div class="navbar-header">
             <!-- hamburger button -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
+              <span class="sr-only"><?php echo $tlqed["navigation_text"]["navt"]; ?></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
@@ -241,62 +245,61 @@ echo $jkv["header_qed_tpl"]; ?> color-<?php echo $jkv["color_qed_tpl"]; ?>">
     <!-- Page Title -->
     <?php if ($JAK_SHOW_NAVBAR) {
 
-    /* GRID SYSTEM FOR DIFFERENT PAGE - hide page title
-     * !isset($page =>
-     * empty($page) =>
-     * $page == 'offline' =>
-     * !$jkv["searchform"] || !JAK_USER_SEARCH =>
-     * $PAGE_PASSWORD && $PAGE_PASSWORD != $_SESSION[ 'pagesecurehash' . $PAGE_ID ]
-     *
-     */
-    if (!isset($page) ||
-      empty($page) ||
-      ($page == 'offline') ||
-      ($page == '404') ||
-      (!$jkv["searchform"] || !JAK_USER_SEARCH) ||
-      ($PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSION[ 'pagesecurehash' . $PAGE_ID ]) ||
-      ($PAGE_PASSWORD && !JAK_ASACCESS)) {
+      /* GRID SYSTEM FOR DIFFERENT PAGE - hide page title
+       * !isset($page =>
+       * empty($page) =>
+       * $page == 'offline' =>
+       * !$jkv["searchform"] || !JAK_USER_SEARCH =>
+       * ($PAGE_PASSWORD && !JAK_ASACCESS && $PAGE_PASSWORD != $_SESSION['pagesecurehash' . $PAGE_ID]) => If page have password and password isn't same as in Session without Administrator access
+       */
+      if (!isset($page) ||
+        empty($page) ||
+        ($page == 'offline') ||
+        ($page == '404') ||
+        (!$jkv["searchform"] || !JAK_USER_SEARCH) ||
+        ($PAGE_PASSWORD && !JAK_ASACCESS && $PAGE_PASSWORD != $_SESSION['pagesecurehash' . $PAGE_ID])
+      ) {
 
-      // Code for homepage and other blank page
+        // Code for homepage and other blank page
+        ?>
 
-     ?>
+      <?php } elseif (isset($page)) {
+        // Code for all page without home page
+        ?>
 
-    <?php } elseif (isset($page)) {
-      // Code for all page without home page
-      ?>
+        <header class="page-header light-color">
 
-      <header class="page-header light-color">
-
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6">
-              <h1><?php echo jak_cut_text($PAGE_TITLE, 30, "..."); ?></h1>
-            </div>
-            <div class="col-md-6">
-              <ol class="breadcrumb">
-                <li>
-                  <a href="<?php echo BASE_URL; ?>"><?php foreach ($jakcategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) {
-                      echo $ca["name"];
-                    } ?></a>
-                </li>
-                <?php if ($JAK_TPL_PLUG_T && !empty($page1) && !is_numeric($page1)) { ?>
-                  <li><a href="<?php echo $JAK_TPL_PLUG_URL; ?>"><?php echo $JAK_TPL_PLUG_T; ?></a></li>
-                <?php } ?>
-                <li class="active">
-                  <?php if ($page == "edit-profile") {
-                    echo sprintf($tl["login"]["l15"], $jakuser->getVar("username"));
-                  } else {
-                    echo jak_cut_text($PAGE_TITLE, 30, "...");
-                  } ?>
-                </li>
-              </ol>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <h1><?php echo jak_cut_text($PAGE_TITLE, 30, "..."); ?></h1>
+              </div>
+              <div class="col-md-6">
+                <ol class="breadcrumb">
+                  <li>
+                    <a href="<?php echo BASE_URL; ?>"><?php foreach ($jakcategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) {
+                        echo $ca["name"];
+                      } ?></a>
+                  </li>
+                  <?php if ($JAK_TPL_PLUG_T && !empty($page1) && !is_numeric($page1)) { ?>
+                    <li><a href="<?php echo $JAK_TPL_PLUG_URL; ?>"><?php echo $JAK_TPL_PLUG_T; ?></a></li>
+                  <?php } ?>
+                  <li class="active">
+                    <?php if ($page == "edit-profile") {
+                      echo sprintf($tl["login"]["l15"], $jakuser->getVar("username"));
+                    } else {
+                      echo jak_cut_text($PAGE_TITLE, 30, "...");
+                    } ?>
+                  </li>
+                </ol>
+              </div>
             </div>
           </div>
-        </div>
 
-      </header>
+        </header>
 
-    <?php } } ?>
+      <?php }
+    } ?>
 
     <?php
     if (isset($JAK_HOOK_BELOW_HEADER) && is_array($JAK_HOOK_BELOW_HEADER)) foreach ($JAK_HOOK_BELOW_HEADER as $bheader) {
@@ -305,24 +308,23 @@ echo $jkv["header_qed_tpl"]; ?> color-<?php echo $jkv["color_qed_tpl"]; ?>">
     }
     ?>
 
-
     <?php
 
     /* GRID SYSTEM FOR DIFFERENT PAGE - show main section without sidebar
      * (empty($JAK_HOOK_SIDE_GRID) && (!empty($page)) && (!$PAGE_PASSWORD) => show section if page have not GRID, isn't HOME PAGE and not exist password for page
-     * $page != 'offline' => show section if site isn't offline
-     * $page != '404' => show section if page isn't 404
-     * $jkv["searchform"] =>
-     * empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSION[ 'pagesecurehash' . $PAGE_ID ] => show section if page have not GRID, have password and password is in SESSION
-     * empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && JAK_ASACCESS => show section if page have not GRID, have password, but user access is Administrator
+     * ($page != 'offline') => show section if site isn't offline
+     * ($page != '404') => show section if page isn't 404
+     * ($jkv["searchform"]) =>
+     * ((empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSION['pagesecurehash' . $PAGE_ID]) => show section if page have not GRID, have password and password is different as password in SESSION
+     * (empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && JAK_ASACCESS) => show section if page have not GRID, have password, but user access is Administrator
      */
 
     if ((empty($JAK_HOOK_SIDE_GRID) && (!empty($page)) && (!$PAGE_PASSWORD)) &&
-       ($page != 'offline') &&
-       ($page != '404') &&
-       ($jkv["searchform"]) ||
-       (empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSION[ 'pagesecurehash' . $PAGE_ID ]) ||
-       (empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && JAK_ASACCESS)) {
+    ($page != 'offline') &&
+    ($page != '404') &&
+    ($jkv["searchform"]) ||
+    (empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSION['pagesecurehash' . $PAGE_ID]) ||
+    (empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && JAK_ASACCESS)) {
 
     ?>
 
@@ -331,51 +333,54 @@ echo $jkv["header_qed_tpl"]; ?> color-<?php echo $jkv["color_qed_tpl"]; ?>">
       <div class="container">
         <div class="row">
 
-    <?php } ?>
+          <?php } ?>
 
-    <?php
+          <?php
 
-    /* GRID SYSTEM FOR DIFFERENT PAGE - hide all main section
-     * (empty($JAK_HOOK_SIDE_GRID) && (empty($page)) && ($PAGE_PASSWORD) => hide section if page have not GRID, is HOME PAGE and exist password for page
-     * $page == 'offline' => hide section if site is offline
-     * $page == '404' => hide section if page is 404
-     * !$jkv["searchform"] =>
-     * $PAGE_PASSWORD && $PAGE_PASSWORD != $_SESSION[ 'pagesecurehash' . $PAGE_ID ] => hide section if page have password and pasword isn't in SESSION
-     */
+          /* GRID SYSTEM FOR DIFFERENT PAGE - hide all main section
+           * (empty($JAK_HOOK_SIDE_GRID) && empty($page) && $PAGE_PASSWORD) => hide section if page have not GRID, is HOME PAGE and exist password for page
+           * ($page == 'offline') => hide section if site is offline
+           * ($page == '404') => hide section if page is 404
+           * (!$jkv["searchform"]) =>
+           * ($PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSION['pagesecurehash' . $PAGE_ID]) => hide section if page have password and pasword is different as password in SESSION
+           */
 
-    if ((empty($JAK_HOOK_SIDE_GRID) && (empty($page)) && ($PAGE_PASSWORD)) ||
-       ($page == 'offline') ||
-       ($page == '404') ||
-       (!$jkv["searchform"]) ||
-       ($PAGE_PASSWORD && $PAGE_PASSWORD != $_SESSION[ 'pagesecurehash' . $PAGE_ID ])) {
+          if ((empty($JAK_HOOK_SIDE_GRID) && empty($page) && $PAGE_PASSWORD) ||
+            ($page == 'offline') ||
+            ($page == '404') ||
+            (!$jkv["searchform"]) ||
+            ($PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSION['pagesecurehash' . $PAGE_ID])
+          ) {
 
-    ?>
+            ?>
 
-    <?php } ?>
+          <?php } ?>
 
 
-    <?php
+          <?php
 
-    /* GRID SYSTEM FOR DIFFERENT PAGE - show main section with sidebar
-     * !empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && ($PAGE_PASSWORD == $_SESSION[ 'pagesecurehash' . $PAGE_ID ] => show section if page have GRID (have sidebar), have password and password is in SESSION
-     * !empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && JAK_ASACCESS => show section if page have GRID (have sidebar), have password, but user access is Administrator
-     */
+          /* GRID SYSTEM FOR DIFFERENT PAGE - show main section with sidebar
+           * (!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSION['pagesecurehash' . $PAGE_ID]) => show section if page have GRID (have sidebar), have password and password is same as password  in SESSION
+           * (!empty($JAK_HOOK_SIDE_GRID) && !$PAGE_PASSWORD) => show section if page have GRID (have sidebar), have not password
+           * (!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && JAK_ASACCESS) => show section if page have GRID (have sidebar), have password, but user access is Administrator
+           * (!empty($JAK_HOOK_SIDE_GRID) && !empty($page) && !$PAGE_PASSWORD) => show section if page have GRID, page isn't blank (isn't home page), have not password
+           */
 
-    if ((!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && ($PAGE_PASSWORD == $_SESSION[ 'pagesecurehash' . $PAGE_ID ])) ||
-       (!empty($JAK_HOOK_SIDE_GRID) && !$PAGE_PASSWORD) ||
-       (!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && JAK_ASACCESS) ||
-       (!empty($JAK_HOOK_SIDE_GRID) && (!empty($page)) && (!$PAGE_PASSWORD))) {
+          if ((!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSION['pagesecurehash' . $PAGE_ID]) ||
+          (!empty($JAK_HOOK_SIDE_GRID) && !$PAGE_PASSWORD) ||
+          (!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && JAK_ASACCESS) ||
+          (!empty($JAK_HOOK_SIDE_GRID) && !empty($page) && !$PAGE_PASSWORD)) {
 
-    ?>
+          ?>
 
-    <section class="pt-medium">
+          <section class="pt-medium">
 
-      <div class="container">
-        <div class="row">
+            <div class="container">
+              <div class="row">
 
-          <!-- Sidebar if left -->
-          <?php if (!empty($JAK_HOOK_SIDE_GRID) && $jkv["sidebar_location_tpl"] == "left") include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/sidebar.php'; ?>
-          <!-- / sidebar -->
-          <div class="<?php echo($JAK_HOOK_SIDE_GRID ? "col-md-9" : "col-md-12"); ?>">
+                <!-- Sidebar if left -->
+                <?php if (!empty($JAK_HOOK_SIDE_GRID) && $jkv["sidebar_location_tpl"] == "left") include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/sidebar.php'; ?>
+                <!-- / sidebar -->
+                <div class="<?php echo($JAK_HOOK_SIDE_GRID ? "col-md-9" : "col-md-12"); ?>">
 
-            <?php } ?>
+                  <?php } ?>

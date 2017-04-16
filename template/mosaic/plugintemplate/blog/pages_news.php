@@ -4,11 +4,11 @@ $showblogarray = explode (":", $row['showblog']);
 
 if (is_array ($showblogarray) && in_array ("ASC", $showblogarray) || in_array ("DESC", $showblogarray)) {
 
-	$JAK_BLOG = jak_get_blog ('LIMIT ' . $showblogarray[1], 't1.id ' . $showblogarray[0], '', 't1.id', $jkv["blogurl"], $tl['general']['g56']);
+	$JAK_BLOG = jak_get_blog ('LIMIT ' . $showblogarray[1], 't1.id ' . $showblogarray[0], '', 't1.id', $jkv["blogurl"], $tl['global_text']['gtxt4']);
 
 } else {
 
-	$JAK_BLOG = jak_get_blog ('', 't1.id ASC', $row['showblog'], 't1.id', $jkv["blogurl"], $tl['general']['g56']);
+	$JAK_BLOG = jak_get_blog ('', 't1.id ASC', $row['showblog'], 't1.id', $jkv["blogurl"], $tl['global_text']['gtxt4']);
 }
 
 ?>

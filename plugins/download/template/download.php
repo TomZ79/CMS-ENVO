@@ -56,18 +56,18 @@
 
           <!-- Button -->
           <div class="pull-right">
-            <a href="<?php echo $v["parseurl"]; ?>" class="btn btn-info btn-sm">
+            <a href="<?php echo $v["parseurl"]; ?>" class="btn btn-default btn-sm">
               <?php echo $tld["downl_frontend"]["downl2"]; ?>
             </a>
 
             <?php if (JAK_ASACCESS) { ?>
 
-              <a href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tld["downl_frontend_button"]["downlb1"]; ?>" class="btn btn-default btn-sm jaktip">
-                <?php echo $tld["downl_frontend_button"]["downlb1"]; ?>
+              <a href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-info btn-sm jaktip">
+                <?php echo $tl["button"]["btn1"]; ?>
               </a>
 
-              <a class="btn btn-default btn-sm jaktip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tld["downl_frontend_button"]["downlb2"]; ?>">
-                <?php echo $tld["downl_frontend_button"]["downlb2"]; ?>
+              <a class="btn btn-info btn-sm jaktip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>">
+                <?php echo $tl["button"]["btn2"]; ?>
               </a>
 
             <?php } ?>

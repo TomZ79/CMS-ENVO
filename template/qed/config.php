@@ -2,12 +2,7 @@
 
 /* ### CONFIG FILE ### */
 
-// Add Custom Stylesheet to tinyMCE Editor
-if (isset($jkv["color_mosaic_tpl"]) && $jkv["color_mosaic_tpl"] == "dark") {
-  $tpl_customcss = "template/canvas/css/dark.css";
-} else {
-  $tpl_customcss = "template/canvas/css/screen.css";
-}
+
 
 
 /* ### FUNCTION FILE ### */
@@ -92,7 +87,7 @@ function jak_build_menu_qed($parent, $menu, $active, $mainclass, $dropdown, $dro
     }
 
     if ($admin) {
-      $html .= '<li><a href="' . BASE_URL . 'admin/"> Admin ACP</a></li>';
+      $html .= '<li><a href="' . BASE_URL . 'admin/"> Admin KP</a></li>';
     }
 
     $html .= '</ul>';

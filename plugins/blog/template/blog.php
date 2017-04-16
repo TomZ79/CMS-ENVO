@@ -2,48 +2,73 @@
 
 <?php if (JAK_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=setting'; ?>
 
-<?php if ($PAGE_CONTENT) echo $PAGE_CONTENT; ?>
-
-  <div class="row">
+  <div class="col-md-12" style="margin: 10px 0 50px 0;">
     <?php if (isset($JAK_BLOG_ALL) && is_array($JAK_BLOG_ALL)) foreach ($JAK_BLOG_ALL as $v) { ?>
+
       <!-- Post -->
-      <div class="col-md-4 col-sm-6">
-        <div class="jak-post">
-          <!-- Post Info -->
-          <div class="post-info">
-            <div class="info-details">
-              <?php if ($v["showdate"]) { ?><i class="fa fa-clock-o"></i> <?php echo $v["created"]; ?><?php } ?>
-              <i class="fa fa-eye"></i> <?php echo $tl["general"]["g13"] . $v["hits"]; ?>
+      <article>
+        <!-- Post Image, Title & Summary -->
+        <div class="row">
+          <?php
+          // Image is available so set 'class' for 'div'
+          $img = $v['previmg'];
+
+          if ($img) {
+            $imageClass   = 'col-md-2';
+            $contentClass = 'col-md-10';
+          } else {
+            $imageClass   = '';
+            $contentClass = 'col-md-12';
+          }
+          ?>
+          <div class="<?= $imageClass; ?> hidden-xs">
+            <div class="post-image">
+              <?php
+              // Image is available so display it or go standard
+              if ($img) {
+                echo '<a href="' . $v["parseurl"] . '"><img src="' . $v["previmg"] . '" alt="' . $v['imgtitle'] . '" class="post-image img-responsive"></a>';
+              } else {
+
+              }
+              ?>
             </div>
           </div>
-          <!-- End Post Info -->
-          <!-- Post Image -->
-          <a href="<?php echo $v["parseurl"]; ?>"><img src="<?php echo BASE_URL . $v["previmg"]; ?>" alt="blog-preview" class="post-image img-responsive"></a>
-          <!-- End Post Image -->
-          <!-- Post Title & Summary -->
-          <div class="post-title">
-            <h3 class="text-color">
-              <span><a href="<?php echo $v["parseurl"]; ?>"><?php echo jak_cut_text($v["title"], 30, ""); ?></a></span>
-            </h3>
-          </div>
-          <div class="post-summary">
-            <p><?php echo $v["contentshort"]; ?></p>
-          </div>
-          <!-- End Post Title & Summary -->
-          <div class="post-more">
-            <a href="<?php echo $v["parseurl"]; ?>" class="btn btn-color btn-sm"><i class="fa fa-book"></i> <?php echo $tl["general"]["g3"]; ?>
-            </a>
-            <?php if (JAK_ASACCESS) { ?>
-
-              <a href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["general"]["g"]; ?>" class="btn btn-default btn-sm jaktip"><i class="fa fa-pencil"></i></a>
-
-              <a class="btn btn-default btn-sm jaktip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["general"]["g176"]; ?>"><i class="fa fa-edit"></i></a>
-
-            <?php } ?>
+          <div class="<?= $contentClass; ?>">
+            <div class="post-content">
+						<span class="font-size-sm">
+							<?php if ($v["showdate"]) { ?>
+                <i class="fa fa-calendar"></i> <?php echo $v["created"]; ?>
+              <?php } ?>
+						</span>
+              <!-- Post Content -->
+              <h3><a href="<?php echo $v["parseurl"]; ?>"><?php echo jak_cut_text($v["title"], 100, ""); ?></a></h3>
+              <p><?php echo jak_cut_text($v['content'], 200, '....') ?></p>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- End Post -->
+        <!-- End Post Image, Title & Summary -->
+        <!-- Post Info -->
+        <div class="row">
+          <div class="col-md-12">
+            <!-- Post Edit - Admin -->
+            <?php if (JAK_ASACCESS) { ?>
+
+            <span class="pull-right hidden-xs">
+              <a href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-info btn-sm jaktip">
+                <?php echo $tl["button"]["btn1"]; ?>
+              </a>
+
+              <a href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>" class="btn btn-info btn-sm jaktip quickedit">
+                <?php echo $tl["button"]["btn2"]; ?>
+              </a>
+            </span>
+
+            <?php } ?><!-- End Post Edit - Admin -->
+          </div>
+        </div><!-- Post Info -->
+        <hr>
+      </article><!-- End Post -->
+
     <?php } ?>
   </div>
 

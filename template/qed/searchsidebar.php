@@ -7,8 +7,7 @@
 				<input type="text" name="jakSH" id="Jajaxs" class="form-control" placeholder="<?php echo $tl["placeholder"]["plc"];
 				if ($jkv["fulltextsearch"]) echo $tl["placeholder"]["plc1"]; ?>">
 			      <span class="input-group-btn">
-			        <button type="submit" class="btn btn-color" name="search"
-								id="JajaxSubmitSearch"><?php echo $tl["general"]["g83"]; ?></button>
+			        <button type="submit" class="btn btn-color" name="search" id="JajaxSubmitSearch"><?php echo $tl["button"]["btn4"]; ?></button>
 			      </span>
 			</div><!-- /input-group -->
 			<?php if ($jkv["ajaxsearch"] && $AJAX_SEARCH_PLUGIN_URL) { ?>

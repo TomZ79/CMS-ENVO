@@ -23,6 +23,7 @@ if (!jak_cookie_voted_hits($jaktable, $row['id'], 'hits')) {
   JAK_base::jakUpdatehits($row['id'], $jaktable);
 }
 
+// Output the data
 $PAGE_ID                     = $row['id'];
 $PAGE_TITLE                  = $row['title'];
 $PAGE_CONTENT                = $row['content'];
@@ -32,6 +33,8 @@ $SHOWDATE                    = $row['showdate'];
 $SHOWTAGS                    = $row['showtags'];
 $SHOWSOCIALBUTTON            = $row['socialbutton'];
 $PAGE_ACTIVE                 = $row['active'];
+// EN: $PAGE_PASSWORD - main variable if page have password, use in template
+// CZ: $PAGE_PASSWORD - hlavní proměnná pro zaheslovanou stránku, používá se pro template
 $PAGE_PASSWORD               = $row['password'];
 $JAK_HEADER_CSS              = $row['page_css'];
 $JAK_FOOTER_JAVASCRIPT       = $row['page_javascript'];
@@ -39,7 +42,7 @@ $jkv["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
 $JAK_HEATMAPLOC              = "page_" . $row['id'];
 
 $PAGE_LOGIN_FORM = $row['showlogin'];
-$PAGE_TIME       = JAK_base::jakTimesince($row['time'], $jkv["dateformat"], $jkv["timeformat"], $tl['general']['g56']);
+$PAGE_TIME       = JAK_base::jakTimesince($row['time'], $jkv["dateformat"], $jkv["timeformat"], $tl['global_text']['gtxt4']);
 $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
 if (JAK_USERID) {

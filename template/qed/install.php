@@ -114,6 +114,7 @@ $succesfully = 0;
 ("fsocialsize_qed_tpl", "qed", "medium", "medium", "select", "free", "tpl_qed"),
 
 ("sitemapShow_qed_tpl", "qed", "1", "1", "yesno", "boolean", "tpl_qed"),
+("sitemapLinks_qed_tpl", "qed", "sitemap", "sitemap", "input", "free", "tpl_qed"),
 ("loginShow_qed_tpl", "qed", "1", "1", "yesno", "boolean", "tpl_qed"),
 ("facebookShow_qed_tpl", "qed", "1", "1", "yesno", "boolean", "tpl_qed"),
 ("facebookLinks_qed_tpl", "qed", "https://www.facebook.com/", "https://www.facebook.com/", "input", "free", "tpl_qed"),

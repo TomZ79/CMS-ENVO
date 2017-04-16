@@ -417,7 +417,7 @@ if (file_exists(APP_PATH.'plugins/blog/lang/'.$site_language.'.ini')) {
         <pre name="code" class="brush: php;">
 include_once APP_PATH.'plugins/blog/functions.php';
 
-$JAK_BLOG_ALL = jak_get_blog('', $jkv["blogorder"], '', '', $jkv["blogurl"], $tl['general']['g56']);
+$JAK_BLOG_ALL = jak_get_blog('', $jkv["blogorder"], '', '', $jkv["blogurl"], $tl['global_text']['gtxt4']);
 $PAGE_TITLE = JAK_PLUGIN_NAME_BLOG;
         </pre>
 
@@ -492,7 +492,7 @@ plugins/blog/admin/template/blog_connect_new.php
 
         <pre name="code" class="brush: php;">
 if (JAK_PLUGIN_ACCESS_BLOG && $pg['pluginid'] == JAK_PLUGIN_ID_BLOG && !empty($row['showblog'])) {
-	include_once APP_PATH.'template/'.$jkv["sitestyle"].'/plugintemplate/blog/pages_news.php';
+	include_once APP_PATH.'template/'.ENVO_TEMPLATE.'/plugintemplate/blog/pages_news.php';
 }
         </pre>
 
@@ -505,7 +505,7 @@ if (JAK_PLUGIN_ACCESS_BLOG && $pg['pluginid'] == JAK_PLUGIN_ID_BLOG && !empty($r
         <p>This hook is located in template/yourtemplate/search.php and will be executed to display your plugin search result.</p>
 
         <pre name="code" class="brush: php;">
-include_once APP_PATH.'template/'.$jkv["sitestyle"].'/plugintemplate/blog/search.php';
+include_once APP_PATH.'template/'.ENVO_TEMPLATE.'/plugintemplate/blog/search.php';
         </pre>
 
       </article>
@@ -553,7 +553,7 @@ plugins/blog/template/tag.php
         <p>This hook is in the sidebar and does work together with the grid/widget system, display advertising, buttons or whatever you like in the sidebar.</p>
 
         <pre name="code" class="brush: php;">
-include_once APP_PATH.'template/'.$jkv["sitestyle"].'/plugintemplate/blog/blogsidebar.php';
+include_once APP_PATH.'template/'.ENVO_TEMPLATE.'/plugintemplate/blog/blogsidebar.php';
         </pre>
 
       </article>
