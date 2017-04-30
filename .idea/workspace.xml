@@ -5,683 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4346a0f-85ec-4e4d-93d1-8c74a4b74471" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-tag/bootstrap-tagsinput.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-tag/bootstrap-tagsinput.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-tag/bootstrap-tagsinput.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrapv3/css/bootstrap-theme.min.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrapv3/css/bootstrap.min.css.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrapv3/css/bootstrap-theme.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrapv3/css/bootstrap-theme.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrapv3/css/bootstrap-theme.css.map" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrapv3/css/bootstrap-theme.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrapv3/css/bootstrap-theme.min.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrapv3/css/bootstrap-theme.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrapv3/css/bootstrap.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrapv3/css/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrapv3/css/bootstrap.css.map" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrapv3/css/bootstrap.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrapv3/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrapv3/css/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrapv3/js/bootstrap.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrapv3/js/bootstrap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrapv3/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrapv3/js/bootstrap.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/atelier-forest.light.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/atelier-forest.light.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/atelier-heath.dark.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/atelier-heath.dark.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/atelier-heath.light.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/atelier-heath.light.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/atelier-lakeside.dark.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/atelier-lakeside.dark.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/atelier-lakeside.light.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/atelier-lakeside.light.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/atelier-seaside.dark.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/atelier-seaside.dark.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/atelier-seaside.light.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/atelier-seaside.light.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/brown_paper.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/brown_paper.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/codepen-embed.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/codepen-embed.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/color-brewer.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/color-brewer.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/dark.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/dark.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/default.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/default.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/docco.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/docco.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/far.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/far.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/foundation.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/foundation.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/github.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/github.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/googlecode.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/googlecode.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/hybrid.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/hybrid.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/idea.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/idea.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/ir_black.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/ir_black.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/kimbie.dark.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/kimbie.dark.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/kimbie.light.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/kimbie.light.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/magula.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/magula.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/mono-blue.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/mono-blue.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/monokai.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/monokai.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/monokai_sublime.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/monokai_sublime.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/obsidian.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/obsidian.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/paraiso.dark.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/paraiso.dark.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/paraiso.light.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/paraiso.light.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/pojoaque.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/pojoaque.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/railscasts.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/railscasts.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/rainbow.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/rainbow.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/school_book.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/school_book.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/solarized_dark.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/solarized_dark.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/solarized_light.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/solarized_light.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/sunburst.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/sunburst.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/tomorrow-night-blue.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/tomorrow-night-blue.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/tomorrow-night-bright.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/tomorrow-night-bright.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/tomorrow-night-eighties.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/tomorrow-night-eighties.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/tomorrow-night.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/tomorrow-night.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/tomorrow.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/tomorrow.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/vs.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/vs.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/xcode.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/xcode.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/zenburn.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/highlight/styles/zenburn.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/imagesloaded/imagesloaded.pkgd.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/imagesloaded/imagesloaded.pkgd.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/interactjs/interact.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/interactjs/interact.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/ion-slider/css/ion.rangeSlider.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/ion-slider/css/ion.rangeSlider.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/ion-slider/css/ion.rangeSlider.skinFlat.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/ion-slider/css/ion.rangeSlider.skinFlat.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/ion-slider/css/ion.rangeSlider.skinHTML5.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/ion-slider/css/ion.rangeSlider.skinHTML5.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/ion-slider/css/ion.rangeSlider.skinModern.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/ion-slider/css/ion.rangeSlider.skinModern.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/ion-slider/css/ion.rangeSlider.skinNice.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/ion-slider/css/ion.rangeSlider.skinNice.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/ion-slider/css/ion.rangeSlider.skinSimple.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/ion-slider/css/ion.rangeSlider.skinSimple.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/ion-slider/css/normalize.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/ion-slider/css/normalize.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/ion-slider/css/normalize.min.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/ion-slider/css/normalize.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/ion-slider/js/ion.rangeSlider.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/ion-slider/js/ion.rangeSlider.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/ion-slider/js/ion.rangeSlider.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/ion-slider/js/ion.rangeSlider.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-actual/jquery.actual.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-actual/jquery.actual.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-bez/jquery.bez.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-bez/jquery.bez.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-bootgrid/jquery.bootgrid.min.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-bootgrid/jquery.bootgrid.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-bootgrid/jquery.bootgrid.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-bootgrid/jquery.bootgrid.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/Readme.txt" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/Readme.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/css/dataTables.autoFill.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/css/dataTables.autoFill.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/css/dataTables.autoFill.min.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/css/dataTables.autoFill.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/examples/columns.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/examples/columns.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/examples/complete-callback.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/examples/complete-callback.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/examples/fill-both.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/examples/fill-both.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/examples/fill-horizontal.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/examples/fill-horizontal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/examples/index.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/examples/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/examples/scrolling.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/examples/scrolling.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/examples/simple.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/examples/simple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/examples/step-callback.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/examples/step-callback.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/js/dataTables.autoFill.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/js/dataTables.autoFill.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/js/dataTables.autoFill.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/AutoFill/js/dataTables.autoFill.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Bootstrap/jquery-datatable-bootstrap.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Bootstrap/jquery-datatable-bootstrap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/License.txt" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/License.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/Readme.md" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/Readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/css/dataTables.colReorder.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/css/dataTables.colReorder.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/css/dataTables.colReorder.min.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/css/dataTables.colReorder.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/alt_insert.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/alt_insert.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/col_filter.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/col_filter.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/colvis.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/colvis.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/fixedcolumns.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/fixedcolumns.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/fixedheader.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/fixedheader.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/index.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/jqueryui.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/jqueryui.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/new_init.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/new_init.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/predefined.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/predefined.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/realtime.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/realtime.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/reset.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/reset.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/scrolling.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/scrolling.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/server_side.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/server_side.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/simple.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/simple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/state_save.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/examples/state_save.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/js/dataTables.colReorder.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/js/dataTables.colReorder.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/js/dataTables.colReorder.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColReorder/js/dataTables.colReorder.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/License.txt" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/License.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/Readme.md" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/Readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/css/dataTables.colVis.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/css/dataTables.colVis.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/css/dataTables.colVis.min.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/css/dataTables.colVis.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/css/dataTables.colvis.jqueryui.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/css/dataTables.colvis.jqueryui.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/button_order.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/button_order.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/exclude_columns.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/exclude_columns.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/group_columns.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/group_columns.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/index.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/jqueryui.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/jqueryui.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/mouseover.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/mouseover.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/new_init.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/new_init.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/restore.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/restore.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/simple.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/simple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/text.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/text.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/title_callback.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/title_callback.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/two_tables.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/two_tables.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/two_tables_identical.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/examples/two_tables_identical.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/js/dataTables.colVis.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/js/dataTables.colVis.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/js/dataTables.colVis.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/ColVis/js/dataTables.colVis.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/License.txt" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/License.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/Readme.md" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/Readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/css/dataTables.fixedColumns.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/bootstrap.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/bootstrap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/col_filter.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/col_filter.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/colvis.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/colvis.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/css_size.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/css_size.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/index.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/index_column.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/index_column.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/left_right_columns.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/left_right_columns.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/right_column.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/right_column.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/rowspan.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/rowspan.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/server-side-processing.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/server-side-processing.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/simple.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/simple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/size_fixed.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/size_fixed.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/size_fluid.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/size_fluid.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/two_columns.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/examples/two_columns.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/js/dataTables.fixedColumns.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/js/dataTables.fixedColumns.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/js/dataTables.fixedColumns.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedColumns/js/dataTables.fixedColumns.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedHeader/Readme.txt" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedHeader/Readme.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedHeader/css/dataTables.fixedHeader.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedHeader/css/dataTables.fixedHeader.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedHeader/css/dataTables.fixedHeader.min.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedHeader/css/dataTables.fixedHeader.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedHeader/examples/header_footer.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedHeader/examples/header_footer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedHeader/examples/index.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedHeader/examples/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedHeader/examples/simple.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedHeader/examples/simple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedHeader/examples/top_left_right.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedHeader/examples/top_left_right.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedHeader/examples/two_tables.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedHeader/examples/two_tables.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedHeader/examples/zIndexes.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedHeader/examples/zIndexes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedHeader/js/dataTables.fixedHeader.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedHeader/js/dataTables.fixedHeader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedHeader/js/dataTables.fixedHeader.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/FixedHeader/js/dataTables.fixedHeader.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/KeyTable/Readme.txt" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/KeyTable/Readme.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/KeyTable/css/dataTables.keyTable.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/KeyTable/css/dataTables.keyTable.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/KeyTable/css/dataTables.keyTable.min.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/KeyTable/css/dataTables.keyTable.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/KeyTable/examples/events.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/KeyTable/examples/events.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/KeyTable/examples/html.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/KeyTable/examples/html.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/KeyTable/examples/index.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/KeyTable/examples/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/KeyTable/examples/scrolling.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/KeyTable/examples/scrolling.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/KeyTable/examples/simple.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/KeyTable/examples/simple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/KeyTable/js/dataTables.keyTable.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/KeyTable/js/dataTables.keyTable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/KeyTable/js/dataTables.keyTable.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/KeyTable/js/dataTables.keyTable.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/License.txt" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/License.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/css/dataTables.responsive.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/css/dataTables.responsive.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/css/dataTables.responsive.scss" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/css/dataTables.responsive.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/child-rows/column-control.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/child-rows/column-control.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/child-rows/custom-renderer.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/child-rows/custom-renderer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/child-rows/disable-child-rows.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/child-rows/disable-child-rows.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/child-rows/index.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/child-rows/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/child-rows/right-column.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/child-rows/right-column.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/child-rows/whole-row-control.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/child-rows/whole-row-control.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/display-control/auto.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/display-control/auto.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/display-control/classes.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/display-control/classes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/display-control/complexHeader.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/display-control/complexHeader.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/display-control/fixedHeader.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/display-control/fixedHeader.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/display-control/index.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/display-control/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/display-control/init-classes.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/display-control/init-classes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/index.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/initialisation/ajax.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/initialisation/ajax.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/initialisation/className.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/initialisation/className.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/initialisation/default.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/initialisation/default.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/initialisation/index.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/initialisation/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/initialisation/new.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/initialisation/new.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/initialisation/option.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/initialisation/option.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/styling/bootstrap.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/styling/bootstrap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/styling/compact.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/styling/compact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/styling/foundation.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/styling/foundation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/styling/index.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/styling/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/styling/scrolling.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/examples/styling/scrolling.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/js/dataTables.responsive.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/js/dataTables.responsive.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/js/dataTables.responsive.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Responsive/js/dataTables.responsive.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/Readme.txt" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/Readme.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/css/dataTables.scroller.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/css/dataTables.scroller.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/css/dataTables.scroller.min.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/css/dataTables.scroller.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/examples/api_scrolling.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/examples/api_scrolling.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/examples/data/2500.txt" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/examples/data/2500.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/examples/data/ssp.php" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/examples/data/ssp.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/examples/index.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/examples/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/examples/large_js_source.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/examples/large_js_source.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/examples/server-side_processing.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/examples/server-side_processing.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/examples/simple.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/examples/simple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/examples/state_saving.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/examples/state_saving.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/js/dataTables.scroller.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/js/dataTables.scroller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/js/dataTables.scroller.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/Scroller/js/dataTables.scroller.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/Readme.md" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/Readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/css/dataTables.tableTools.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/css/dataTables.tableTools.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/css/dataTables.tableTools.min.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/css/dataTables.tableTools.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/ajax.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/ajax.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/alter_buttons.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/alter_buttons.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/bootstrap.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/bootstrap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/button_text.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/button_text.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/collection.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/collection.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/defaults.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/defaults.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/index.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/jqueryui.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/jqueryui.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/multi_instance.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/multi_instance.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/multiple_tables.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/multiple_tables.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/new_init.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/new_init.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/pdf_message.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/pdf_message.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/plug-in.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/plug-in.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/select_column.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/select_column.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/select_multi.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/select_multi.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/select_os.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/select_os.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/select_single.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/select_single.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/simple.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/simple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/swf_path.html" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/examples/swf_path.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/js/dataTables.tableTools.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/js/dataTables.tableTools.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/js/dataTables.tableTools.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/extensions/TableTools/js/dataTables.tableTools.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/media/css/dataTables.bootstrap.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/media/css/dataTables.bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/media/css/dataTables.bootstrap.min.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/media/css/dataTables.bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/media/css/jquery.dataTables.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/media/css/jquery.dataTables.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/media/css/jquery.dataTables.min.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/media/css/jquery.dataTables.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/media/css/jquery.dataTables_themeroller.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/media/css/jquery.dataTables_themeroller.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/media/js/dataTables.bootstrap.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/media/js/dataTables.bootstrap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/media/js/jquery.dataTables.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/media/js/jquery.dataTables.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/media/js/jquery.dataTables.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/media/js/jquery.dataTables.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/media/js/jquery.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-datatable/media/js/jquery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-dynatree/jquery.dynatree.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-dynatree/jquery.dynatree.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-inputmask/jquery.inputmask.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-inputmask/jquery.inputmask.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-ios-list/jquery.ioslist.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-ios-list/jquery.ioslist.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-isotope/isotope.pkgd.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-isotope/isotope.pkgd.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-isotope/masonry-horizontal.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-isotope/masonry-horizontal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-lookingfor/jquery.lookingfor.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-lookingfor/jquery.lookingfor.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-menuclipper/jquery.actual.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-menuclipper/jquery.actual.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-menuclipper/jquery.menuclipper.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-menuclipper/jquery.menuclipper.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-menuclipper/jquery.menuclipper.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-menuclipper/jquery.menuclipper.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-menuclipper/jquery.menuclipper.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-menuclipper/jquery.menuclipper.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-metrojs/MetroJs.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-metrojs/MetroJs.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-metrojs/MetroJs.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-metrojs/MetroJs.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-mousewheel/jquery.mousewheel.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-mousewheel/jquery.mousewheel.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-nestable/jquery.nestable.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-nestable/jquery.nestable.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-nouislider/jquery.liblink.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-nouislider/jquery.liblink.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-nouislider/jquery.nouislider.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-nouislider/jquery.nouislider.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-nouislider/jquery.nouislider.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-nouislider/jquery.nouislider.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-scrollbar/jquery.scrollbar.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-scrollbar/jquery.scrollbar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-scrollto/jquery-scrollto.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-scrollto/jquery-scrollto.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-slider/README.md" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-slider/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-slider/component.json" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-slider/component.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-slider/jquery.sidr.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-slider/jquery.sidr.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-slider/stylesheets/jquery.sidr.dark.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-slider/stylesheets/jquery.sidr.dark.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-slider/stylesheets/jquery.sidr.light.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-slider/stylesheets/jquery.sidr.light.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-sparkline/jquery.sparkline.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-sparkline/jquery.sparkline.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-ui-touch/jquery.ui.touch-punch.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-ui-touch/jquery.ui.touch-punch.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-ui/jquery-ui.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-ui/jquery-ui.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-ui/jquery-ui2.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-ui/jquery-ui2.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-ui/jquery-ui_back.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-ui/jquery-ui_back.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-unevent/jquery.unevent.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-unevent/jquery.unevent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-unveil/jquery.unveil.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-unveil/jquery.unveil.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/additional-methods.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/additional-methods.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/additional-methods.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/additional-methods.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/jquery.validate.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/jquery.validate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/jquery.validate.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/jquery.validate.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ar.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ar.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ar.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_bg.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_bg.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_bg.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_bg.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ca.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ca.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ca.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ca.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_cs.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_cs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_cs.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_cs.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_da.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_da.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_da.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_da.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_de.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_de.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_de.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_de.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_el.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_el.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_el.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_el.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_es.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_es.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_es.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_es.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_es_AR.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_es_AR.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_es_AR.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_es_AR.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_et.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_et.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_et.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_et.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_eu.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_eu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_eu.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_eu.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_fa.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_fa.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_fa.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_fa.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_fi.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_fi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_fi.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_fi.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_fr.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_fr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_fr.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_fr.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_gl.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_gl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_gl.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_gl.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_he.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_he.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_he.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_he.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_hr.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_hr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_hr.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_hr.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_hu.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_hu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_hu.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_hu.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_id.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_id.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_id.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_id.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_is.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_is.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_is.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_is.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_it.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_it.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_it.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_it.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ja.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ja.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ja.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ja.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ka.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ka.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ka.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ka.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_kk.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_kk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_kk.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_kk.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ko.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ko.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ko.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ko.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_lt.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_lt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_lt.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_lt.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_lv.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_lv.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_lv.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_lv.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_my.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_my.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_my.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_my.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_nl.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_nl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_nl.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_nl.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_no.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_no.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_no.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_no.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_pl.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_pl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_pl.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_pl.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_pt_BR.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_pt_BR.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_pt_BR.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_pt_BR.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_pt_PT.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_pt_PT.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_pt_PT.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_pt_PT.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ro.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ro.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ro.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ro.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ru.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ru.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ru.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_ru.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_si.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_si.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_si.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_si.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_sk.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_sk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_sk.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_sk.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_sl.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_sl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_sl.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_sl.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_sr.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_sr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_sr.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_sr.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_sr_lat.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_sr_lat.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_sr_lat.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_sr_lat.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_sv.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_sv.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_sv.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_sv.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_th.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_th.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_th.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_th.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_tj.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_tj.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_tj.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_tj.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_tr.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_tr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_tr.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_tr.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_uk.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_uk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_uk.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_uk.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_vi.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_vi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_vi.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_vi.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_zh.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_zh.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_zh.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_zh.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_zh_TW.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_zh_TW.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_zh_TW.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/messages_zh_TW.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/methods_de.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/methods_de.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/methods_de.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/methods_de.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/methods_es_CL.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/methods_es_CL.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/methods_es_CL.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/methods_es_CL.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/methods_fi.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/methods_fi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/methods_fi.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/methods_fi.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/methods_nl.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/methods_nl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/methods_nl.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/methods_nl.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/methods_pt.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/methods_pt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/methods_pt.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery-validation/js/localization/methods_pt.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery.sieve.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery.sieve.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery/jquery-1.11.1.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery/jquery-1.11.1.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/jquery/jquery-easy.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/jquery/jquery-easy.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/lodash/lodash.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/lodash/lodash.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/mapplic/js/hammer.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/mapplic/js/hammer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/modernizr.custom.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/modernizr.custom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/moment/moment-with-locales.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/moment/moment-with-locales.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/moment/moment.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/moment/moment.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/lib/cie.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/lib/cie.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/lib/colorbrewer.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/lib/colorbrewer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/lib/crossfilter.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/lib/crossfilter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/lib/d3.v2.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/lib/d3.v2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/lib/d3.v2.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/lib/d3.v2.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/lib/d3.v3.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/lib/d3.v3.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/lib/fisheye.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/lib/fisheye.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/lib/hive.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/lib/hive.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/lib/horizon.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/lib/horizon.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/lib/sankey.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/lib/sankey.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/nv.d3.min.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/nv.d3.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/nv.d3.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/nv.d3.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/core.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/core.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/interactiveLayer.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/interactiveLayer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/intro.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/intro.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/axis.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/axis.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/backup/bullet.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/backup/bullet.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/backup/bulletChart.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/backup/bulletChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/boilerplate.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/boilerplate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/bullet.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/bullet.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/bulletChart.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/bulletChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/cumulativeLineChart.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/cumulativeLineChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/discreteBar.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/discreteBar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/discreteBarChart.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/discreteBarChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/distribution.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/distribution.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/historicalBar.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/historicalBar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/historicalBarChart.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/historicalBarChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/indentedTree.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/indentedTree.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/legend.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/legend.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/line.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/line.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/lineChart.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/lineChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/linePlusBarChart.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/linePlusBarChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/linePlusBarWithFocusChart.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/linePlusBarWithFocusChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/lineWithFisheye.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/lineWithFisheye.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/lineWithFisheyeChart.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/lineWithFisheyeChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/lineWithFocusChart.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/lineWithFocusChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/multiBar.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/multiBar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/multiBarChart.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/multiBarChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/multiBarHorizontal.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/multiBarHorizontal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/multiBarHorizontalChart.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/multiBarHorizontalChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/multiBarTimeSeries.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/multiBarTimeSeries.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/multiBarTimeSeriesChart.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/multiBarTimeSeriesChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/multiChart.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/multiChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/ohlcBar.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/ohlcBar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/parallelCoordinates.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/parallelCoordinates.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/pie.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/pie.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/pieChart.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/pieChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/scatter.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/scatter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/scatterChart.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/scatterChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/scatterPlusLineChart.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/scatterPlusLineChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/sparkline.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/sparkline.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/sparklinePlus.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/sparklinePlus.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/stackedArea.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/stackedArea.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/stackedAreaChart.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/models/stackedAreaChart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/nv.d3.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/nv.d3.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/tooltip.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/tooltip.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/utils.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/nvd3/src/utils.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/owl-carousel/assets/owl.carousel.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/owl-carousel/assets/owl.carousel.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/owl-carousel/owl.carousel.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/owl-carousel/owl.carousel.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/owl-carousel/owl.carousel.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/owl-carousel/owl.carousel.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/pace/pace-theme-flash.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/pace/pace-theme-flash.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/pace/pace.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/pace/pace.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/responsive-tabs/README.md" afterPath="$PROJECT_DIR$/admin/assets/plugins/responsive-tabs/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/responsive-tabs/responsive-tabs.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/responsive-tabs/responsive-tabs.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/responsive-tabs/responsive-tabs.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/responsive-tabs/responsive-tabs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/responsive-tabs/responsive-tabs.less" afterPath="$PROJECT_DIR$/admin/assets/plugins/responsive-tabs/responsive-tabs.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/rickshaw/rickshaw.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/rickshaw/rickshaw.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/rickshaw/rickshaw.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/rickshaw/rickshaw.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/rickshaw/rickshaw.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/rickshaw/rickshaw.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/rickshaw/vendor/d3.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/rickshaw/vendor/d3.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/rickshaw/vendor/d3.v2.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/rickshaw/vendor/d3.v2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/rickshaw/vendor/d3.v3.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/rickshaw/vendor/d3.v3.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/css/select2.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/css/select2.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/css/select2.min.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/css/select2.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/ar.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/ar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/az.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/az.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/bg.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/bg.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/ca.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/ca.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/cs.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/cs.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/da.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/da.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/de.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/de.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/el.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/el.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/en.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/en.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/es.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/es.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/et.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/et.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/eu.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/eu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/fa.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/fa.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/fi.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/fi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/fr.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/fr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/gl.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/gl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/he.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/he.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/hi.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/hi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/hr.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/hr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/hu.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/hu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/id.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/id.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/is.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/is.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/it.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/it.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/ja.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/ja.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/km.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/km.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/ko.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/ko.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/lt.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/lt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/lv.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/lv.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/mk.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/mk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/ms.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/ms.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/nb.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/nb.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/nl.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/nl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/pl.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/pl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/pt-BR.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/pt-BR.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/pt.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/pt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/ro.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/ro.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/ru.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/ru.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/sk.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/sk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/sr-Cyrl.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/sr-Cyrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/sr.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/sr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/sv.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/sv.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/th.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/th.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/tr.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/tr.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/uk.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/uk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/vi.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/vi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/zh-CN.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/zh-CN.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/zh-TW.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/i18n/zh-TW.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/select2.full.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/select2.full.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/select2.full.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/select2.full.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/select2.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/select2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/select2/js/select2.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/select2/js/select2.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/simple-line-icons/fonts/Simple-Line-Icons.dev.svg" afterPath="$PROJECT_DIR$/admin/assets/plugins/simple-line-icons/fonts/Simple-Line-Icons.dev.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/simple-line-icons/fonts/Simple-Line-Icons.svg" afterPath="$PROJECT_DIR$/admin/assets/plugins/simple-line-icons/fonts/Simple-Line-Icons.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/simple-line-icons/simple-line-icons.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/simple-line-icons/simple-line-icons.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/skycons/skycons.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/skycons/skycons.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/sly.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/sly.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/sly/sly.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/sly/sly.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/switchery/css/switchery.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/switchery/css/switchery.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/switchery/js/switchery.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/switchery/js/switchery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/velocity/velocity.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/velocity/velocity.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/xcharts/xcharts.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/xcharts/xcharts.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/xcharts/xcharts.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/xcharts/xcharts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/xcharts/xcharts.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/xcharts/xcharts.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/editor.css" afterPath="$PROJECT_DIR$/admin/pages/css/editor.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/ie9.css" afterPath="$PROJECT_DIR$/admin/pages/css/ie9.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/pages-icons.css" afterPath="$PROJECT_DIR$/admin/pages/css/pages-icons.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/pages.css" afterPath="$PROJECT_DIR$/admin/pages/css/pages.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/pages.min.css" afterPath="$PROJECT_DIR$/admin/pages/css/pages.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/pages.rtl.css" afterPath="$PROJECT_DIR$/admin/pages/css/pages.rtl.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/pages.rtl.min.css" afterPath="$PROJECT_DIR$/admin/pages/css/pages.rtl.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/abstract.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/abstract.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/abstract.min.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/abstract.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/abstract.rtl.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/abstract.rtl.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/abstract.rtl.min.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/abstract.rtl.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/calendar.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/calendar.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/calendar.min.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/calendar.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/calendar.rtl.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/calendar.rtl.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/calendar.rtl.min.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/calendar.rtl.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/corporate.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/corporate.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/corporate.min.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/corporate.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/corporate.rtl.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/corporate.rtl.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/corporate.rtl.min.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/corporate.rtl.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/retro.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/retro.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/retro.min.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/retro.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/retro.rtl.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/retro.rtl.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/retro.rtl.min.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/retro.rtl.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/simple.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/simple.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/simple.min.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/simple.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/simple.rtl.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/simple.rtl.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/simple.rtl.min.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/simple.rtl.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/unlax.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/unlax.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/unlax.min.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/unlax.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/unlax.rtl.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/unlax.rtl.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/unlax.rtl.min.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/unlax.rtl.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/vibes.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/vibes.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/vibes.min.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/vibes.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/vibes.rtl.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/vibes.rtl.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/themes/vibes.rtl.min.css" afterPath="$PROJECT_DIR$/admin/pages/css/themes/vibes.rtl.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/widget-market.css" afterPath="$PROJECT_DIR$/admin/pages/css/widget-market.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/css/windows.chrome.fix.css" afterPath="$PROJECT_DIR$/admin/pages/css/windows.chrome.fix.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/fonts/montserrat/montserrat-bold-webfont.svg" afterPath="$PROJECT_DIR$/admin/pages/fonts/montserrat/montserrat-bold-webfont.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/fonts/montserrat/montserrat-regular-webfont.svg" afterPath="$PROJECT_DIR$/admin/pages/fonts/montserrat/montserrat-regular-webfont.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/fonts/pages-icon/Pages-icon.svg" afterPath="$PROJECT_DIR$/admin/pages/fonts/pages-icon/Pages-icon.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.calendar.js" afterPath="$PROJECT_DIR$/admin/pages/js/pages.calendar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.calendar.min.js" afterPath="$PROJECT_DIR$/admin/pages/js/pages.calendar.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.email.js" afterPath="$PROJECT_DIR$/admin/pages/js/pages.email.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.js" afterPath="$PROJECT_DIR$/admin/pages/js/pages.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.min.js" afterPath="$PROJECT_DIR$/admin/pages/js/pages.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.social.js" afterPath="$PROJECT_DIR$/admin/pages/js/pages.social.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/mixins.less" afterPath="$PROJECT_DIR$/admin/pages/less/mixins.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/alerts.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/alerts.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/buttons.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/buttons.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/calendar.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/calendar.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/charts.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/charts.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/chat.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/chat.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/demo.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/demo.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/email.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/email.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/form_elements.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/form_elements.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/gallery.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/gallery.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/layout.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/layout.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/list.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/list.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/lock_screen.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/lock_screen.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/login.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/login.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/misc.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/misc.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/modals.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/modals.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/nestables.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/nestables.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/notifications.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/notifications.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/panels.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/panels.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/pricing.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/pricing.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/print.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/print.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/progress_indicators.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/progress_indicators.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/sliders.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/sliders.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/social.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/social.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/tables.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/tables.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/tabs_accordian.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/tabs_accordian.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/timeline.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/timeline.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/treeview.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/treeview.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/typography.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/typography.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/vector_map.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/vector_map.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/view.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/view.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/widgets.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/widgets.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/modules/z_index.less" afterPath="$PROJECT_DIR$/admin/pages/less/modules/z_index.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/pages.less" afterPath="$PROJECT_DIR$/admin/pages/less/pages.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/responsive.less" afterPath="$PROJECT_DIR$/admin/pages/less/responsive.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/themes/abstract/theme.less" afterPath="$PROJECT_DIR$/admin/pages/less/themes/abstract/theme.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/themes/calendar/theme.less" afterPath="$PROJECT_DIR$/admin/pages/less/themes/calendar/theme.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/themes/corporate/theme.less" afterPath="$PROJECT_DIR$/admin/pages/less/themes/corporate/theme.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/themes/default/theme.less" afterPath="$PROJECT_DIR$/admin/pages/less/themes/default/theme.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/themes/retro/theme.less" afterPath="$PROJECT_DIR$/admin/pages/less/themes/retro/theme.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/themes/simple/theme.less" afterPath="$PROJECT_DIR$/admin/pages/less/themes/simple/theme.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/themes/simple/var.less" afterPath="$PROJECT_DIR$/admin/pages/less/themes/simple/var.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/themes/unlax/theme.less" afterPath="$PROJECT_DIR$/admin/pages/less/themes/unlax/theme.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/less/themes/vibes/theme.less" afterPath="$PROJECT_DIR$/admin/pages/less/themes/vibes/theme.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/_color.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/_color.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/_mixins.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/_mixins.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/_modules.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/_modules.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/_responsive.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/_responsive.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/_var.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/_var.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_alerts.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_alerts.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_buttons.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_buttons.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_calendar.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_calendar.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_charts.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_charts.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_chat.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_chat.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_demo.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_demo.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_email.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_email.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_form_elements.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_form_elements.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_gallery.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_gallery.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_layout.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_layout.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_list.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_list.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_lock_screen.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_lock_screen.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_login.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_login.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_misc.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_misc.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_modals.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_modals.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_nestables.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_nestables.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_notifications.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_notifications.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_panels.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_panels.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_print.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_print.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_progress_indicators.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_progress_indicators.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_sliders.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_sliders.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_social.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_social.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_tables.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_tables.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_tabs_accordian.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_tabs_accordian.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_timeline.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_timeline.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_treeview.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_treeview.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_typography.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_typography.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_vector_map.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_vector_map.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_view.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_view.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_widgets.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_widgets.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/modules/_z_index.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/modules/_z_index.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/pages.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/pages.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/themes/abstract/_var.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/themes/abstract/_var.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/themes/abstract/abstract.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/themes/abstract/abstract.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/themes/calendar/_custom.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/themes/calendar/_custom.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/themes/calendar/_var.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/themes/calendar/_var.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/themes/calendar/calendar.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/themes/calendar/calendar.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/themes/corporate/_var.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/themes/corporate/_var.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/themes/corporate/corporate.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/themes/corporate/corporate.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/themes/retro/_var.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/themes/retro/_var.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/themes/retro/retro.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/themes/retro/retro.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/themes/simple/_custom.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/themes/simple/_custom.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/themes/simple/_var.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/themes/simple/_var.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/themes/simple/simple.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/themes/simple/simple.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/themes/unlax/_var.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/themes/unlax/_var.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/themes/unlax/unlax.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/themes/unlax/unlax.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/themes/vibes/_var.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/themes/vibes/_var.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/scss/themes/vibes/vibes.scss" afterPath="$PROJECT_DIR$/admin/pages/scss/themes/vibes/vibes.scss" />
     </list>
     <ignored path="CMS-Bluesat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -701,7 +26,23 @@
     <favorites_list name="CMS-Bluesat" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="pages.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/pages/js/pages.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="213" column="0" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+              <folding>
+                <marker date="1493585151820" expanded="true" signature="43021:43028" ph="×" />
+                <marker date="1493585151820" expanded="true" signature="43602:43609" ph="×" />
+                <marker date="1493585151820" expanded="true" signature="44511:44518" ph="×" />
+                <marker date="1493585151820" expanded="true" signature="45091:45098" ph="×" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -717,7 +58,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/template/qed/templatesettings.php" />
         <option value="$PROJECT_DIR$/template/qed/js/pages.templatesettings.php" />
         <option value="$PROJECT_DIR$/admin/assets/css/style.css" />
         <option value="$PROJECT_DIR$/admin/assets/js/scripts.js" />
@@ -768,6 +108,7 @@
         <option value="$PROJECT_DIR$/plugins/newsletter/admin/template/newuser.php" />
         <option value="$PROJECT_DIR$/plugins/newsletter/admin/lang/cs.ini" />
         <option value="$PROJECT_DIR$/admin/lang/cs.ini" />
+        <option value="$PROJECT_DIR$/admin/pages/js/pages.js" />
       </list>
     </option>
   </component>
@@ -858,11 +199,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
+              <option name="myItemId" value="pages" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -880,7 +217,11 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -1002,24 +343,24 @@
       <workItem from="1492457238246" duration="13278000" />
       <workItem from="1492710738807" duration="18128000" />
       <workItem from="1492888372240" duration="15382000" />
-      <workItem from="1493547875345" duration="20123000" />
+      <workItem from="1493547875345" duration="21006000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="772432000" />
+    <option name="totallyTimeSpent" value="773315000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21522693" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21522693" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31405565" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="0" y="53" width="1362" height="715" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="0" y="53" width="1362" height="715" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1491,14 +832,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/pages/js/pages.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-969">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/assets/plugins/handlebars/handlebars-v4.0.5.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1555,6 +888,19 @@
         <state relative-caret-position="187">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/pages/js/pages.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="213" column="0" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+          <folding>
+            <marker date="1493585151820" expanded="true" signature="43021:43028" ph="×" />
+            <marker date="1493585151820" expanded="true" signature="43602:43609" ph="×" />
+            <marker date="1493585151820" expanded="true" signature="44511:44518" ph="×" />
+            <marker date="1493585151820" expanded="true" signature="45091:45098" ph="×" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -207,22 +207,33 @@
     * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
     * @requires bootstrap.js
     */
-    Pages.prototype.initSlidingTabs = function(context) {
+    Pages.prototype.initSlidingTabs = function (context) {
         // TODO: move this to a separate file
-        $('a[data-toggle="tab"]', context).on('show.bs.tab', function(e) {
-            //e = $(e.relatedTarget || e.target).parent().find('a[data-toggle=tab]');
-            e = $(e.target).parent().find('a[data-toggle=tab]');
+        // WWW: http://hayatbiralem.com/blog/2015/05/15/responsive-bootstrap-tabs/
+        'use strict';
 
-            var hrefPrev = e.attr('href');
+        $(document).on('show.bs.tab', '.nav-tabs-responsive [data-toggle="tab"]', function (e) {
+            var $target = $(e.target);
+            var $tabs = $target.closest('.nav-tabs-responsive');
+            var $current = $target.closest('li');
+            var $parent = $current.closest('li.dropdown');
+            $current = $parent.length > 0 ? $parent : $current;
+            var $next = $current.next();
+            var $prev = $current.prev();
+            var updateDropdownMenu = function ($el, position) {
+                $el
+                  .find('.dropdown-menu')
+                  .removeClass('pull-xs-left pull-xs-center pull-xs-right')
+                  .addClass('pull-xs-' + position);
+            };
 
-            var hrefCurrent = e.attr('href');
+            $tabs.find('>li').removeClass('next prev');
+            $prev.addClass('prev');
+            $next.addClass('next');
 
-            if (!$(hrefCurrent).is('.slide-left, .slide-right')) return;
-            $(hrefCurrent).addClass('sliding');
-
-            setTimeout(function() {
-                $(hrefCurrent).removeClass('sliding');
-            }, 100);
+            updateDropdownMenu($prev, 'left');
+            updateDropdownMenu($current, 'center');
+            updateDropdownMenu($next, 'right');
         });
     }
     /** @function reponsiveTabs
