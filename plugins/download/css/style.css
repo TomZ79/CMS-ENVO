@@ -1,4 +1,4 @@
-/* XX. DOWNLOAD
+/* XX. THUMB IMAGE
 ======================================================================== */
 /* Thumbnail image for downloadfile.php */
 .thumb-download {
@@ -26,6 +26,178 @@
 
 .thumb-download .caption span.color2 {
   color: #000;
+}
+
+/* XX. CAROUSEL for pages_news.php
+======================================================================== */
+/* Carousel for pages_news.php */
+.carousel-showmanymoveone .carousel-inner {
+  position: relative;
+  width: 90%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.carousel-showmanymoveone .carousel-control {
+  position: absolute;
+  width: 3%;
+  background-image: none;
+  font-size: 30px;
+}
+
+.carousel-showmanymoveone .carousel-control i {
+  top: calc(50% - 30px); /* 50% - icon height */
+  position: relative;
+}
+
+.carousel-showmanymoveone .carousel-control i:before {
+  /* color: #FFF !important; */
+}
+
+.carousel-showmanymoveone .carousel-control.left {
+  margin-left: 15px;
+}
+
+.carousel-showmanymoveone .carousel-control.right {
+  margin-right: 15px;
+}
+
+.carousel-showmanymoveone .cloneditem-1,
+.carousel-showmanymoveone .cloneditem-2,
+.carousel-showmanymoveone .cloneditem-3 {
+  display: none;
+}
+
+@media all and (min-width: 768px) {
+  .carousel-showmanymoveone .carousel-inner > .active.left,
+  .carousel-showmanymoveone .carousel-inner > .prev {
+    left: -50%;
+  }
+
+  .carousel-showmanymoveone .carousel-inner > .active.right,
+  .carousel-showmanymoveone .carousel-inner > .next {
+    left: 50%;
+  }
+
+  .carousel-showmanymoveone .carousel-inner > .left,
+  .carousel-showmanymoveone .carousel-inner > .prev.right,
+  .carousel-showmanymoveone .carousel-inner > .active {
+    left: 0;
+  }
+
+  .carousel-showmanymoveone .carousel-inner .cloneditem-1 {
+    display: block;
+  }
+}
+
+@media all and (min-width: 768px) and (transform-3d), all and (min-width: 768px) and (-webkit-transform-3d) {
+  .carousel-showmanymoveone .carousel-inner > .item.active.right,
+  .carousel-showmanymoveone .carousel-inner > .item.next {
+    -webkit-transform: translate3d(50%, 0, 0);
+    transform: translate3d(50%, 0, 0);
+    left: 0;
+  }
+
+  .carousel-showmanymoveone .carousel-inner > .item.active.left,
+  .carousel-showmanymoveone .carousel-inner > .item.prev {
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+    left: 0;
+  }
+
+  .carousel-showmanymoveone .carousel-inner > .item.left,
+  .carousel-showmanymoveone .carousel-inner > .item.prev.right,
+  .carousel-showmanymoveone .carousel-inner > .item.active {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    left: 0;
+  }
+}
+
+@media all and (min-width: 992px) {
+  .carousel-showmanymoveone .carousel-inner > .active.left,
+  .carousel-showmanymoveone .carousel-inner > .prev {
+    left: -25%;
+  }
+
+  .carousel-showmanymoveone .carousel-inner > .active.right,
+  .carousel-showmanymoveone .carousel-inner > .next {
+    left: 25%;
+  }
+
+  .carousel-showmanymoveone .carousel-inner > .left,
+  .carousel-showmanymoveone .carousel-inner > .prev.right,
+  .carousel-showmanymoveone .carousel-inner > .active {
+    left: 0;
+  }
+
+  .carousel-showmanymoveone .carousel-inner .cloneditem-2,
+  .carousel-showmanymoveone .carousel-inner .cloneditem-3 {
+    display: block;
+  }
+}
+
+@media all and (min-width: 992px) and (transform-3d), all and (min-width: 992px) and (-webkit-transform-3d) {
+  .carousel-showmanymoveone .carousel-inner > .item.active.right,
+  .carousel-showmanymoveone .carousel-inner > .item.next {
+    -webkit-transform: translate3d(25%, 0, 0);
+    transform: translate3d(25%, 0, 0);
+    left: 0;
+  }
+
+  .carousel-showmanymoveone .carousel-inner > .item.active.left,
+  .carousel-showmanymoveone .carousel-inner > .item.prev {
+    -webkit-transform: translate3d(-25%, 0, 0);
+    transform: translate3d(-25%, 0, 0);
+    left: 0;
+  }
+
+  .carousel-showmanymoveone .carousel-inner > .item.left,
+  .carousel-showmanymoveone .carousel-inner > .item.prev.right,
+  .carousel-showmanymoveone .carousel-inner > .item.active {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    left: 0;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .carousel-showmanymoveone .carousel-inner {
+    width: 70%;
+  }
+
+  .carousel-showmanymoveone .carousel-control {
+    width: 10%;
+  }
+
+  .carousel-showmanymoveone .carousel-control.left {
+    margin-left: 0;
+  }
+
+  .carousel-showmanymoveone .carousel-control.right {
+    margin-right: 0;
+  }
+}
+
+/* Fix for class .slide - for some other plugins */
+.slide {
+  animation-name: none;
+  animation-duration: 0;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-fill-mode: none;
+
+  -webkit-animation-name: none;
+  -webkit-animation-duration: 0;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-fill-mode: none;
+
+  -moz-animation-name: none;
+  -moz-animation-duration: 0;
+  -moz-animation-iteration-count: 1;
+  -moz-animation-timing-function: ease;
+  -moz-animation-fill-mode: none;
 }
 
 /* XX. Bootstrap 3 responsive columns of same height

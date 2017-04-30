@@ -297,7 +297,7 @@ switch ($page1) {
           // EN: Title and Description
           // CZ: Titulek a Popis
           $SECTION_TITLE = $tl["submenu"]["sm112"];
-          $SECTION_DESC  = $tl["cmdesc"]["d6"];
+          $SECTION_DESC  = $tl[" "][" "];
 
           // EN: Load the template
           // CZ: Načti template (šablonu)
@@ -839,7 +839,7 @@ switch ($page1) {
     // EN: Title and Description
     // CZ: Titulek a Popis
     $SECTION_TITLE = $tlf["faq"]["m"] . ' - ' . $tl["submenu"]["sm10"];
-    $SECTION_DESC  = $tl["cmdesc"]["d2"];
+    $SECTION_DESC  = $tl[" "][" "];
 
     // EN: Load the template
     // CZ: Načti template (šablonu)

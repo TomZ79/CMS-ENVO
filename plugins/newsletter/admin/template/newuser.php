@@ -158,8 +158,8 @@ if ($errors) { ?>
                   <div class="col-md-7">
                     <div class="fileinput fileinput-new" data-provides="fileinput">
                       <span class="btn btn-default btn-file">
-                        <span class="fileinput-new"><?php echo $tl["general"]["g133"]; ?></span>
-                        <span class="fileinput-exists"><?php echo $tl["general"]["g131"]; ?></span>
+                        <span class="fileinput-new"><?php echo $tlnl["newsletter_box_content"]["nlbc28"]; ?></span>
+                        <span class="fileinput-exists"><?php echo $tlnl["newsletter_box_content"]["nlbc29"]; ?></span>
                         <input type="file" name="jak_file" accept=".csv">
                       </span>
                       <span class="fileinput-filename"></span>

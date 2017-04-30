@@ -229,7 +229,7 @@
      ========================================= */
     $("#restorcontent").change(function () {
       if ($(this).val() != 0) {
-        if (!confirm('<?php echo $tl["general"]["restore"];?>')) {
+        if (!confirm('<?php echo $tl["page_notification"]["restore"];?>')) {
           $("#restorcontent").val(0);
           return false;
         } else {

@@ -205,7 +205,7 @@ if ($page2 == "e" || $page1 == "ene") { ?>
                       </div>
                       <div class="col-md-7">
                         <select name="jak_redirect" class="form-control">
-                          <option value="0"><?php echo $tl["title"]["t12"]; ?></option>
+                          <option value="0"><?php echo $tlrf["reg_box_content"]["regbc29"]; ?></option>
                           <?php if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $c) { ?>
                             <option value="<?php echo $c["id"]; ?>"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $z) {
                               if ($z["varname"] == 'rf_redirect' && $c["id"] == $z["value"]) { ?> selected="selected"<?php }

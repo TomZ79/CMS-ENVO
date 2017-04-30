@@ -64,50 +64,26 @@
 
       echo '<hr>';
 
-      // Add Html Element -> addAnchorFuel (Arguments: href_link, text, optional assoc. array)
-
-      //returns <a href="http://www.domain.com/example">Text in anchor</a>
-      echo $Html->addAnchorFuel('example', 'Text in anchor');
-
-      //returns <a href="http://www.otherdomain.com/example">Text in anchor</a>
-      echo $Html->addAnchorFuel('http://www.otherdomain.com/example', 'Text in anchor');
-
-      //returns <a href="http://www.domain.com/example" id="a1" class="sample" style="color:red;">Text in anchor</a>
-      echo $Html->addAnchorFuel('example', 'Text in anchor', array('id' => 'a1', 'class' => 'sample', 'style' => 'color:red'));
-
-      //returns <a href="https://www.domain.com/example" id="a1" class="sample" style="color:red;">Text in anchor</a>
-      echo $Html->addAnchorFuel('example', 'Text in anchor', array('id' => 'a1', 'class' => 'sample', 'style' => 'color:red'), true);
-
-      //returns <a id="a1" class="sample" style="color:green" href="example">Text in anchor</a>
-      $array = array(
-        'id' => 'a1',
-        'class' => 'sample',
-        'style' => 'color:green'
-      );
-      echo $Html->addAnchorFuel('example', 'Text in anchor', $array);
-
-      echo '<hr>';
-
-      // Add Html Element -> addImgFuel (Arguments: src, optional assoc. array)
+      // Add Html Element -> addImg (Arguments: src, optional assoc. array)
 
       // returns <img src="http://example.com/path/to/image.png" alt="image.png" />
-      echo $Html->addImgFuel('/_files/swiss_made.jpg');
+      echo $Html->addImg('/_files/swiss_made.jpg');
 
       // returns <img src="http://example.com/path/to/image.png" alt="Alt Message" class="myclass" />
-      echo $Html->addImgFuel('/_files/red_dragon.jpg', array("alt" => "Alt Message", 'class' => "myclass"));
+      echo $Html->addImg('/_files/red_dragon.jpg', array("alt" => "Alt Message", 'class' => "myclass"));
 
       echo '<hr>';
 
-      // Add Html Element -> addButtonFuel (Arguments: fieldname, value, optional assoc. array)
+      // Add Html Element -> addButtonF (Arguments: fieldname, value, optional assoc. array)
 
       // returns <button type="button" class="btn btn-success" name="subject">Value</button>
-      echo $Html->addButtonFuel('subject', 'Value', array('type' => 'button', 'class' => 'btn btn-success'));
+      echo $Html->addButtonF('subject', 'Value', array('type' => 'button', 'class' => 'btn btn-success'));
 
       // returns <button type="button" class="btn btn-success" style="color:black" name="subject">Value</button>
-      echo $Html->addButtonFuel('subject', 'Value', array('type' => 'button', 'class' => 'btn btn-success', 'style' => 'color:black'));
+      echo $Html->addButtonF('subject', 'Value', array('type' => 'button', 'class' => 'btn btn-success', 'style' => 'color:black'));
 
       // returns <button type="button" class="btn btn-success" disabled="disabled" name="subject">Value</button>
-      echo $Html->addButtonFuel('subject', 'Value', array('type' => 'button', 'class' => 'btn btn-success', 'disabled' => 'disabled'));
+      echo $Html->addButtonF('subject', 'Value', array('type' => 'button', 'class' => 'btn btn-success', 'disabled' => 'disabled'));
 
       echo '<hr>';
 
@@ -119,13 +95,13 @@
 
       echo '<hr>';
 
-      // Add Html Element -> addSubmitFuel (Arguments: fieldname, value, optional assoc. array)
+      // Add Html Element -> addSubmitF (Arguments: fieldname, value, optional assoc. array)
 
       // returns <button name="submit" value="Submit" type="submit">Submit</button>
-      echo $Html->addSubmitFuel();
+      echo $Html->addSubmitF();
 
       // returns <button name="submit" value="Submit" id="a1" class="sample" style="color:red" type="submit">Submit</button>
-      echo $Html->addSubmitFuel('submit', 'Submit', array('id' => 'a1', 'class' => 'sample', 'style' => 'color:red'));
+      echo $Html->addSubmitF('submit', 'Submit', array('id' => 'a1', 'class' => 'sample', 'style' => 'color:red'));
 
       echo '<hr>';
 
@@ -142,13 +118,13 @@
 
       echo '<hr>';
 
-      // Add Html Element -> addTextareaFuel (Arguments: fieldname, value, optional assoc. array)
+      // Add Html Element -> addTextareaF (Arguments: fieldname, value, optional assoc. array)
 
       //returns <textarea rows="4" cols="12" name="editor">Text for textarea</textarea>
-      echo $Html->addTextareaFuel('editor', 'Text for textarea', array('rows' => 4, 'cols' => 12));
+      echo $Html->addTextareaF('editor', 'Text for textarea', array('rows' => 4, 'cols' => 12));
 
       //returns <textarea id="editor" class="form-control" maxlength="400" name="editor">Text for textarea</textarea>
-      echo $Html->addTextareaFuel('editor', 'Text for textarea', array('id' => 'editor', 'class' => 'form-control', 'maxlength' => '400'));
+      echo $Html->addTextareaF('editor', 'Text for textarea', array('id' => 'editor', 'class' => 'form-control', 'maxlength' => '400'));
 
       echo '<hr>';
 
@@ -162,37 +138,37 @@
 
       echo '<hr>';
 
-      // Add Html Element -> addLabelFuel (Arguments: label, id, optional assoc. array)
-      // Add Html Element -> addRadioFuel (Arguments: fieldname, value, id, checked, optional assoc. array)
+      // Add Html Element -> addLabelF (Arguments: label, id, optional assoc. array)
+      // Add Html Element -> addRadioF (Arguments: fieldname, value, id, checked, optional assoc. array)
 
       // returns
       // <label for="gender1">Male</label>
       // <input name="gender" value="Female" id="gender1" type="radio">
-      echo $Html->addLabelFuel('Male', 'gender1');
-      echo $Html->addRadioFuel('gender', 'Female','gender1');
+      echo $Html->addLabelF('Male', 'gender1');
+      echo $Html->addRadioF('gender', 'Female','gender1');
 
       // returns
       // <label for="gender2">Female</label>
       // <input name="gender" value="Male" checked="checked" id="gender2" type="radio">
-      echo $Html->addLabelFuel('Female', 'gender2');
-      echo $Html->addRadioFuel('gender', 'Male', 'gender2', true);
+      echo $Html->addLabelF('Female', 'gender2');
+      echo $Html->addRadioF('gender', 'Male', 'gender2', true);
 
       echo '<hr>';
 
-      // Add Html Element -> addLabelFuel (Arguments: label, id, optional assoc. array)
-      // Add Html Element -> addCheckboxFuel (Arguments: fieldname, value, id, checked, optional assoc. array)
+      // Add Html Element -> addLabelF (Arguments: label, id, optional assoc. array)
+      // Add Html Element -> addCheckboxF (Arguments: fieldname, value, id, checked, optional assoc. array)
 
       // returns
       // <label for="gender3">Male</label>
       // <input name="gender" value="Male" id="gender3" type="checkbox">
-      echo $Html->addLabelFuel('Male', 'gender3');
-      echo $Html->addCheckboxFuel('gender', 'Male', 'gender3');
+      echo $Html->addLabelF('Male', 'gender3');
+      echo $Html->addCheckboxF('gender', 'Male', 'gender3');
 
       // returns
       // <label for="gender4">Female</label>
       // <input name="gender" value="Female" checked="checked" id="gender4" type="checkbox">
-      echo $Html->addLabelFuel('Female', 'gender4');
-      echo $Html->addCheckboxFuel('gender', 'Female', 'gender4', true);
+      echo $Html->addLabelF('Female', 'gender4');
+      echo $Html->addCheckboxF('gender', 'Female', 'gender4', true);
 
       echo '<hr>';
 

@@ -144,7 +144,7 @@ if ($errors) { ?>
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
                       $selected = ($JAK_FORM_DATA["pluginid"] == '0') ? TRUE : FALSE;
 
-                      echo $Html->addOption('0', $tl["cform"]["c18"], $selected);
+                      echo $Html->addOption('0', $tl["global_text"]["globaltxt13"], $selected);
                       if (isset($JAK_PLUGINS) && is_array($JAK_PLUGINS)) foreach ($JAK_PLUGINS as $p) {
 
                         echo $Html->addOption($p["id"], $p["name"], ($p["id"] == $JAK_FORM_DATA["pluginid"]) ? TRUE : FALSE);

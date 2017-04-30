@@ -1,6 +1,12 @@
 <?php
-/**
- * ALL VALUE for FRONTEND - downloadfile.php
+/*
+ * PLUGIN DOWNLOAD - POPIS SOUBORU downloadfile.php
+ * ----------------------------------------------
+ *
+ * Soubor slouží pro generovaní (zobrazení) jednotlivého vybraného článku
+ *
+ * Použitelné hodnoty s daty pro FRONTEND - downloadfile.php
+ * ------------------------------------------------------
  *
  * $PAGE_ID               číslo    |  - id souboru
  * $PAGE_TITLE            text        - Titulek souboru
@@ -239,14 +245,16 @@ if ($DL_PASSWORD && !JAK_ASACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash' 
       <?php if ($JAK_NAV_PREV) { ?>
         <li class="previous">
           <a href="<?php echo $JAK_NAV_PREV; ?>">
-            <?php echo $JAK_NAV_PREV_TITLE; ?>
+            <i class="fa fa-caret-left"></i>
+            <span class="nav_text_left"><?php echo $JAK_NAV_PREV_TITLE; ?></span>
           </a>
         </li>
       <?php }
       if ($JAK_NAV_NEXT) { ?>
         <li class="next">
           <a href="<?php echo $JAK_NAV_NEXT; ?>">
-            <?php echo $JAK_NAV_NEXT_TITLE; ?>
+            <span class="nav_text_right"><?php echo $JAK_NAV_NEXT_TITLE; ?></span>
+            <i class="fa fa-caret-right"></i>
           </a>
         </li>
       <?php } ?>

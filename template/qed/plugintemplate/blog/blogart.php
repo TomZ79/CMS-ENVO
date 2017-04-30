@@ -97,23 +97,26 @@ if ($jkv["printme"])
   </div>
   <!-- End Print Post -->
 
-  <ul class="pager">
-    <?php if ($JAK_NAV_PREV) { ?>
-      <li class="previous">
-        <a href="<?php echo $JAK_NAV_PREV; ?>">
-          <i class="icon-left-dir"></i>
-          <?php echo jak_cut_text($JAK_NAV_PREV_TITLE, 50, "...");?>
-        </a>
-      </li>
-    <?php }
-    if ($JAK_NAV_NEXT) { ?>
-      <li class="next">
-        <a href="<?php echo $JAK_NAV_NEXT; ?>">
-          <?php echo jak_cut_text($JAK_NAV_NEXT_TITLE, 50, "...");?> <i class="icon-right-dir"></i>
-        </a>
-      </li>
-    <?php } ?>
-  </ul>
+  <div class="col-md-12">
+    <ul class="pager">
+      <?php if ($JAK_NAV_PREV) { ?>
+        <li class="previous">
+          <a href="<?php echo $JAK_NAV_PREV; ?>">
+            <i class="fa fa-caret-left"></i>
+            <span class="nav_text_left"><?php echo $JAK_NAV_PREV_TITLE; ?></span>
+          </a>
+        </li>
+      <?php }
+      if ($JAK_NAV_NEXT) { ?>
+        <li class="next">
+          <a href="<?php echo $JAK_NAV_NEXT; ?>">
+            <span class="nav_text_right"><?php echo $JAK_NAV_NEXT_TITLE; ?></span>
+            <i class="fa fa-caret-right"></i>
+          </a>
+        </li>
+      <?php } ?>
+    </ul>
+  </div>
 
   <script src="<?php echo BASE_URL; ?>assets/js/comments.js?=<?php echo $jkv["updatetime"]; ?>"
     type="text/javascript"></script>

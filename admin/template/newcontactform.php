@@ -68,7 +68,7 @@
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                    echo $Html->addTag('strong', $tl["cform"]["c2"]);
+                    echo $Html->addTag('strong', $tl["cf_box_content"]["cfbc"]);
                     echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
                     ?>
 
@@ -116,7 +116,7 @@
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                    echo $Html->addTag('strong', $tl["cform"]["c20"]);
+                    echo $Html->addTag('strong', $tl["cf_box_content"]["cfbc2"]);
                     ?>
 
                   </div>
@@ -136,7 +136,7 @@
 
                     <?php
                     // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                    echo $Html->addTag('strong', $tl["cform"]["c3"]);
+                    echo $Html->addTag('strong', $tl["cf_box_content"]["cfbc3"]);
                     echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
                     ?>
 
@@ -182,7 +182,7 @@
                     <div class="form-group">
 
                       <?php
-                      echo $tl["cform"]["c6"];
+                      echo $tl["cf_box_content"]["cfbc4"];
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
                       echo $Html->addInput('text', 'jak_option[]', '', '', 'form-control jakread', array('readonly' => 'readonly'));
                       ?>
@@ -191,15 +191,15 @@
                   </div>
                   <div class="col-md-2">
                     <div class="form-group">
-                      <?php echo $tl["cform"]["c9"]; ?>
+                      <?php echo $tl["cf_box_content"]["cfbc5"]; ?>
                       <select name="jak_optionmandatory[]" class="form-control" data-size="5">
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
                         echo $Html->addOption('0', $tl["checkbox"]["chk1"]);
                         echo $Html->addOption('1', $tl["checkbox"]["chk"]);
-                        echo $Html->addOption('2', $tl["cform"]["c16"]);
-                        echo $Html->addOption('3', $tl["cform"]["c17"]);
+                        echo $Html->addOption('2', $tl["cf_box_content"]["cfbc9"]);
+                        echo $Html->addOption('3', $tl["cf_box_content"]["cfbc10"]);
                         ?>
 
                       </select>
@@ -207,18 +207,18 @@
                   </div>
                   <div class="col-md-2">
                     <div class="form-group">
-                      <?php echo $tl["cform"]["c7"]; ?>
+                      <?php echo $tl["cf_box_content"]["cfbc5"]; ?>
                       <select name="jak_optiontype[]" class="form-control" data-size="5">
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                        echo $Html->addOption('1', $tl["cform"]["c10"]);
-                        echo $Html->addOption('2', $tl["cform"]["c11"]);
-                        echo $Html->addOption('3', $tl["cform"]["c12"]);
-                        echo $Html->addOption('4', $tl["cform"]["c13"]);
-                        echo $Html->addOption('5', $tl["cform"]["c14"]);
-                        echo $Html->addOption('6', $tl["cform"]["c19"]);
-                        echo $Html->addOption('7', $tl["cform"]["c23"]);
+                        echo $Html->addOption('1', $tl["cf_box_content"]["cfbc11"]);
+                        echo $Html->addOption('2', $tl["cf_box_content"]["cfbc12"]);
+                        echo $Html->addOption('3', $tl["cf_box_content"]["cfbc13"]);
+                        echo $Html->addOption('4', $tl["cf_box_content"]["cfbc14"]);
+                        echo $Html->addOption('5', $tl["cf_box_content"]["cfbc15"]);
+                        echo $Html->addOption('6', $tl["cf_box_content"]["cfbc16"]);
+                        echo $Html->addOption('7', $tl["cf_box_content"]["cfbc17"]);
                         ?>
 
                       </select>
@@ -228,7 +228,7 @@
                     <div class="form-group">
 
                       <?php
-                      echo $tl["cform"]["c8"];
+                      echo $tl["cf_box_content"]["cfbc7"];
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
                       echo $Html->addInput('text', 'jak_options[]', 'female,male', '', 'form-control jakread', array('readonly' => 'readonly'));
                       ?>
@@ -250,7 +250,7 @@
               <?php
               // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
               echo $Html->addTag('i', '', 'fa fa-arrow-up m-r-5');
-              echo $tl["cform"]["c21"];
+              echo $tl["cf_box_content"]["cfbc8"];
               echo $Html->addTag('i', '', 'fa fa-arrow-down m-l-5');
               ?>
 
@@ -263,7 +263,7 @@
                     <div class="form-group">
 
                       <?php
-                      echo $tl["cform"]["c6"];
+                      echo $tl["cf_box_content"]["cfbc4"];
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
                       echo $Html->addInput('text', 'jak_option[]', '', '', 'form-control');
                       ?>
@@ -272,15 +272,15 @@
                   </div>
                   <div class="col-md-2">
                     <div class="form-group">
-                      <?php echo $tl["cform"]["c9"]; ?>
+                      <?php echo $tl["cf_box_content"]["cfbc5"]; ?>
                       <select name="jak_optionmandatory[]" class="form-control">
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
                         echo $Html->addOption('0', $tl["checkbox"]["chk1"]);
                         echo $Html->addOption('1', $tl["checkbox"]["chk"]);
-                        echo $Html->addOption('2', $tl["cform"]["c16"]);
-                        echo $Html->addOption('3', $tl["cform"]["c17"]);
+                        echo $Html->addOption('2', $tl["cf_box_content"]["cfbc9"]);
+                        echo $Html->addOption('3', $tl["cf_box_content"]["cfbc10"]);
                         ?>
 
                       </select>
@@ -288,18 +288,18 @@
                   </div>
                   <div class="col-md-2">
                     <div class="form-group">
-                      <?php echo $tl["cform"]["c7"]; ?>
+                      <?php echo $tl["cf_box_content"]["cfbc6"]; ?>
                       <select name="jak_optiontype[]" class="form-control" data-size="5">
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                        echo $Html->addOption('1', $tl["cform"]["c10"]);
-                        echo $Html->addOption('2', $tl["cform"]["c11"]);
-                        echo $Html->addOption('3', $tl["cform"]["c12"]);
-                        echo $Html->addOption('4', $tl["cform"]["c13"]);
-                        echo $Html->addOption('5', $tl["cform"]["c14"]);
-                        echo $Html->addOption('6', $tl["cform"]["c19"]);
-                        echo $Html->addOption('7', $tl["cform"]["c23"]);
+                        echo $Html->addOption('1', $tl["cf_box_content"]["cfbc11"]);
+                        echo $Html->addOption('2', $tl["cf_box_content"]["cfbc12"]);
+                        echo $Html->addOption('3', $tl["cf_box_content"]["cfbc13"]);
+                        echo $Html->addOption('4', $tl["cf_box_content"]["cfbc14"]);
+                        echo $Html->addOption('5', $tl["cf_box_content"]["cfbc15"]);
+                        echo $Html->addOption('6', $tl["cf_box_content"]["cfbc16"]);
+                        echo $Html->addOption('7', $tl["cf_box_content"]["cfbc17"]);
                         ?>
 
                       </select>
@@ -309,7 +309,7 @@
                     <div class="form-group">
 
                       <?php
-                      echo $tl["cform"]["c8"];
+                      echo $tl["cf_box_content"]["cfbc7"];
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
                       echo $Html->addInput('text', 'jak_options[]', '', '', 'form-control');
                       echo $Html->addInput('hidden', 'jak_optionsort[]', '', '', 'cforder');

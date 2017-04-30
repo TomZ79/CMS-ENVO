@@ -193,8 +193,8 @@ switch ($page1) {
 
       // EN: Title and Description
       // CZ: Titulek a Popis
-      $SECTION_TITLE = $tlnl["nletter"]["d10"];
-      $SECTION_DESC  = $tlnl["nletter"]["t6"];
+      $SECTION_TITLE = $tlnl["newsletter_sec_title"]["nlt11"];
+      $SECTION_DESC  = $tlnl["newsletter_sec_desc"]["nld11"];
 
       // EN: Load the template
       // CZ: Načti template (šablonu)
@@ -260,14 +260,14 @@ switch ($page1) {
               $mail->Password      = base64_decode($jkv["nlsmtppassword"]);        // SMTP account password
               $mail->SetFrom($jkv["nlemail"], $jkv["title"]);
               $mail->AddReplyTo($jkv["nlemail"], $jkv["title"]);
-              $mail->AltBody = $tlnl["nletter"]["d40"]; // optional, comment out and test
+              $mail->AltBody = $tlnl["newsletter_message"]["nlm1"]; // optional, comment out and test
               $mail->Subject = $subject;
 
             } else {
 
               $mail->SetFrom($jkv["nlemail"], $jkv["title"]);
               $mail->AddReplyTo($jkv["nlemail"], $jkv["title"]);
-              $mail->AltBody = $tlnl["nletter"]["d40"]; // optional, comment out and test
+              $mail->AltBody = $tlnl["newsletter_message"]["nlm1"]; // optional, comment out and test
               $mail->Subject = $subject;
 
             }
@@ -400,8 +400,8 @@ switch ($page1) {
 
       // EN: Title and Description
       // CZ: Titulek a Popis
-      $SECTION_TITLE = $tlnl["nletter"]["d7"];
-      $SECTION_DESC  = $tlnl["nletter"]["t5"];
+      $SECTION_TITLE = $tlnl["newsletter_sec_title"]["nlt12"];
+      $SECTION_DESC  = $tlnl["newsletter_sec_desc"]["nld12"];
 
       // EN: Load the template
       // CZ: Načti template (šablonu)
@@ -1030,11 +1030,11 @@ switch ($page1) {
             $mail->SetFrom($jkv["nlemail"], $jkv["title"]);
             $mail->AddReplyTo($jkv["nlemail"], $jkv["title"]);
             $mail->AddAddress($jkv["nlemail"], $jkv["title"]);
-            $mail->AltBody = $tlnl["nletter"]["d40"]; // optional, comment out and test
-            $mail->Subject = $tlnl["nletter"]["d42"];
-            $mail->MsgHTML($tlnl["nletter"]["d43"] . 'SMTP.');
+            $mail->AltBody = $tlnl["newsletter_message"]["nlm1"]; // optional, comment out and test
+            $mail->Subject = $tlnl["newsletter_message"]["nlm2"];
+            $mail->MsgHTML($tlnl["newsletter_message"]["nlm3"] . 'SMTP.');
             $mail->Send();
-            $success['e'] = $tlnl["nletter"]["d43"] . 'SMTP.';
+            $success['e'] = sprintf($tl["newsletter_message"]["nlm"], 'SMTP');
           } catch (phpmailerException $e) {
             $errors['e'] = $e->errorMessage(); //Pretty error messages from PHPMailer
           } catch (Exception $e) {
@@ -1047,9 +1047,9 @@ switch ($page1) {
             $mail->SetFrom($jkv["nlemail"], $jkv["title"]);
             $mail->AddReplyTo($jkv["nlemail"], $jkv["title"]);
             $mail->AddAddress($jkv["nlemail"], $jkv["title"]);
-            $mail->AltBody = $tlnl["nletter"]["d40"]; // optional, comment out and test
-            $mail->Subject = $tlnl["nletter"]["d42"];
-            $mail->MsgHTML($tlnl["nletter"]["d43"] . 'Mail().');
+            $mail->AltBody = $tlnl["newsletter_message"]["nlm1"]; // optional, comment out and test
+            $mail->Subject = $tlnl["newsletter_message"]["nlm2"];
+            $mail->MsgHTML($tlnl["newsletter_message"]["nlm3"] . 'Mail().');
             // Send the email
             $mail->Send();
             $success['e'] = sprintf($tl["newsletter_message"]["nlm"], 'PHP Mail()');

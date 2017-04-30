@@ -1,10 +1,12 @@
 <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 	<!-- Fixed Button for save form -->
-	<div class="savebutton-medium hidden-xs">
-		<button type="submit" name="save" class="btn btn-success button">
-			<i class="fa fa-save margin-right-5"></i>
-			<?php echo $tl["button"]["btn1"]; ?> !!
-		</button>
+	<div class="savebutton-small hidden-xs">
+
+		<?php
+		// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+		echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button');
+		?>
+
 	</div>
 
 	<!-- Form Content -->
@@ -42,7 +44,12 @@
 				<div class="col-md-6">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title"><?php echo $tlqed["sb_box_title"]["sbbt"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('h3', $tlqed["sb_box_title"]["sbbt"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body">
 							<div class="block">
@@ -54,7 +61,6 @@
 												<option value="blue"<?php if ($jktpl["color_qed_tpl"] == 'blue') { ?> selected="selected"<?php } ?>>Blue</option>
 												<option value="coffee"<?php if ($jktpl["color_qed_tpl"] == 'coffee') { ?> selected="selected"<?php } ?>>Cofee</option>
 												<option value="color"<?php if ($jktpl["color_qed_tpl"] == 'color') { ?> selected="selected"<?php } ?>>Color</option>
-												<option value="color2"<?php if ($jktpl["color_qed_tpl"] == 'color2') { ?> selected="selected"<?php } ?>>Color 2</option>
 												<option value="gold"<?php if ($jktpl["color_qed_tpl"] == 'gold') { ?> selected="selected"<?php } ?>>Gold</option>
 												<option value="green"<?php if ($jktpl["color_qed_tpl"] == 'green') { ?> selected="selected"<?php } ?>>Green</option>
 												<option value="light-blue"<?php if ($jktpl["color_qed_tpl"] == 'light-blue') { ?> selected="selected"<?php } ?>>Light Blue</option>
@@ -70,17 +76,24 @@
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" name="save" class="btn btn-success pull-right">
-								<i class="fa fa-save margin-right-5"></i>
-								<?php echo $tl["button"]["btn1"]; ?>
-							</button>
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+							echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+							?>
+
 						</div>
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title"><?php echo $tlqed["sb_box_title"]["sbbt1"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('h3', $tlqed["sb_box_title"]["sbbt1"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body">
 							<div class="block">
@@ -101,10 +114,12 @@
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" name="save" class="btn btn-success pull-right">
-								<i class="fa fa-save margin-right-5"></i>
-								<?php echo $tl["button"]["btn1"]; ?>
-							</button>
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+							echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+							?>
+
 						</div>
 					</div>
 				</div>
@@ -113,7 +128,12 @@
 				<div class="col-md-6">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title"><?php echo $tlqed["sb_box_title"]["sbbt2"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('h3', $tlqed["sb_box_title"]["sbbt2"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body">
 							<div class="block">
@@ -124,10 +144,10 @@
 											<div class="radio radio-success">
 
 												<input type="radio" id="boxedQed1" name="boxedQed" value="1" <?php if ($jktpl["boxed_qed_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-												<label for="boxedQed1">Yes</label>
+												<label for="boxedQed1"><?php echo $tlqed["checkbox"]["chk"]; ?></label>
 
 												<input type="radio" id="boxedQed2" name="boxedQed" value="0" <?php if ($jktpl["boxed_qed_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-												<label for="boxedQed2">No</label>
+												<label for="boxedQed2"><?php echo $tlqed["checkbox"]["chk1"]; ?></label>
 
 											</div>
 										</div>
@@ -136,17 +156,24 @@
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" name="save" class="btn btn-success pull-right">
-								<i class="fa fa-save margin-right-5"></i>
-								<?php echo $tl["button"]["btn1"]; ?>
-							</button>
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+							echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+							?>
+
 						</div>
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title"><?php echo $tlqed["sb_box_title"]["sbbt3"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('h3', $tlqed["sb_box_title"]["sbbt3"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body">
 							<div class="block">
@@ -162,7 +189,7 @@
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-5"><strong>Social icons size</strong></div>
+										<div class="col-md-5"><strong><?php echo $tlqed["sb_box_content"]["sbbc4"]; ?></strong></div>
 										<div class="col-md-7">
 											<select name="fsocialsizeQed" class="form-control selectpicker" data-size="3">
 												<option value=""<?php if ($jktpl["fsocialsize_qed_tpl"] == '') { ?> selected="selected"<?php } ?>>Small</option>
@@ -176,10 +203,12 @@
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" name="save" class="btn btn-success pull-right">
-								<i class="fa fa-save margin-right-5"></i>
-								<?php echo $tl["button"]["btn1"]; ?>
-							</button>
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+							echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+							?>
+
 						</div>
 					</div>
 				</div>
@@ -187,58 +216,85 @@
 		</div>
 		<div role="tabpanel" class="tab-pane fade" id="cmsPage2" aria-labelledby="cmsPage2-tab">
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-7">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title"><?php echo $tlqed["sh_box_title"]["shbt"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('h3', $tlqed["sh_box_title"]["shbt"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body">
 							<div class="block">
 								<div class="block-content">
 									<div class="row-form">
-										<div class="col-md-5"><strong><?php echo $tlqed["sh_box_content"]["shbc"]; ?></strong></div>
-										<div class="col-md-7">
+										<div class="col-md-3">
+
+											<?php
+											// Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+											echo $Html->startTag('strong');
+											echo $tlqed["sh_box_content"]["shbc"];
+											// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+											echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tlqed["sh_help"]["shh1"], 'data-original-title' => $tlqed["sh_help"]["shh"]));
+											// Add Html Element -> endTag (Arguments: tag)
+											echo $Html->endTag('strong');
+											?>
+
+										</div>
+										<div class="col-md-4">
 											<div class="radio radio-success">
 
 												<input type="radio" id="sitemapShow1" name="sitemapShow" value="1" <?php if ($jktpl["sitemapShow_qed_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-												<label for="sitemapShow1">Show</label>
+												<label for="sitemapShow1"><?php echo $tlqed["checkbox"]["chk2"]; ?></label>
 
 												<input type="radio" id="sitemapShow2" name="sitemapShow" value="0" <?php if ($jktpl["sitemapShow_qed_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-												<label for="sitemapShow2">Hide</label>
+												<label for="sitemapShow2"><?php echo $tlqed["checkbox"]["chk3"]; ?></label>
 
 											</div>
+										</div>
+										<div class="col-md-1"><?php echo $tlqed["sh_box_content"]["shbc9"]; ?></div>
+										<div class="col-md-4">
+											<input type="text" name="sitemapLinks" class="form-control" value="<?php echo $jktpl["sitemapLinks_qed_tpl"]; ?>"/>
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-5"><strong><?php echo $tlqed["sh_box_content"]["shbc1"]; ?></strong></div>
-										<div class="col-md-7">
+										<div class="col-md-3"><strong><?php echo $tlqed["sh_box_content"]["shbc1"]; ?></strong></div>
+										<div class="col-md-9">
 											<div class="radio radio-success">
 
 												<input type="radio" id="loginShow1" name="loginShow" value="1" <?php if ($jktpl["loginShow_qed_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-												<label for="loginShow1">Show</label>
+												<label for="loginShow1"><?php echo $tlqed["checkbox"]["chk2"]; ?></label>
 
 												<input type="radio" id="loginShow2" name="loginShow" value="0" <?php if ($jktpl["loginShow_qed_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-												<label for="loginShow2">Hide</label>
+												<label for="loginShow2"><?php echo $tlqed["checkbox"]["chk3"]; ?></label>
 
 											</div>
 										</div>
 									</div>
-
 								</div>
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" name="save" class="btn btn-success pull-right">
-								<i class="fa fa-save margin-right-5"></i>
-								<?php echo $tl["button"]["btn1"]; ?>
-							</button>
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+							echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+							?>
+
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-5">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title"><?php echo $tlqed["sh_box_title"]["shbt1"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('h3', $tlqed["sh_box_title"]["shbt1"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body">
 							<div class="block">
@@ -254,15 +310,16 @@
 											</div>
 										</div>
 									</div>
-
 								</div>
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" name="save" class="btn btn-success pull-right">
-								<i class="fa fa-save margin-right-5"></i>
-								<?php echo $tl["button"]["btn1"]; ?>
-							</button>
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+							echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+							?>
+
 						</div>
 					</div>
 				</div>
@@ -271,7 +328,12 @@
 				<div class="col-md-12">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title"><?php echo $tlqed["sh_box_title"]["shbt2"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('h3', $tlqed["sh_box_title"]["shbt2"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body">
 							<div class="block">
@@ -282,14 +344,14 @@
 											<div class="radio radio-success">
 
 												<input type="radio" id="facebookShow1" name="facebookShow" value="1" <?php if ($jktpl["facebookShow_qed_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-												<label for="facebookShow1">Show</label>
+												<label for="facebookShow1"><?php echo $tlqed["checkbox"]["chk2"]; ?></label>
 
 												<input type="radio" id="facebookShow2" name="facebookShow" value="0" <?php if ($jktpl["facebookShow_qed_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-												<label for="facebookShow2">Hide</label>
+												<label for="facebookShow2"><?php echo $tlqed["checkbox"]["chk3"]; ?></label>
 
 											</div>
 										</div>
-										<div class="col-md-2">Links</div>
+										<div class="col-md-2"><?php echo $tlqed["sh_box_content"]["shbc9"]; ?></div>
 										<div class="col-md-5">
 											<input type="text" name="facebookLinks" class="form-control" value="<?php echo $jktpl["facebookLinks_qed_tpl"]; ?>"/>
 										</div>
@@ -300,14 +362,14 @@
 											<div class="radio radio-success">
 
 												<input type="radio" id="twitterShow1" name="twitterShow" value="1" <?php if ($jktpl["twitterShow_qed_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-												<label for="twitterShow1">Show</label>
+												<label for="twitterShow1"><?php echo $tlqed["checkbox"]["chk2"]; ?></label>
 
 												<input type="radio" id="twitterShow2" name="twitterShow" value="0" <?php if ($jktpl["twitterShow_qed_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-												<label for="twitterShow2">Hide</label>
+												<label for="twitterShow2"><?php echo $tlqed["checkbox"]["chk3"]; ?></label>
 
 											</div>
 										</div>
-										<div class="col-md-2">Links</div>
+										<div class="col-md-2"><?php echo $tlqed["sh_box_content"]["shbc9"]; ?></div>
 										<div class="col-md-5">
 											<input type="text" name="twitterLinks" class="form-control" value="<?php echo $jktpl["twitterLinks_qed_tpl"]; ?>"/>
 										</div>
@@ -318,14 +380,14 @@
 											<div class="radio radio-success">
 
 												<input type="radio" id="googleShow1" name="googleShow" value="1" <?php if ($jktpl["googleShow_qed_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-												<label for="googleShow1">Show</label>
+												<label for="googleShow1"><?php echo $tlqed["checkbox"]["chk2"]; ?></label>
 
 												<input type="radio" id="googleShow2" name="googleShow" value="0" <?php if ($jktpl["googleShow_qed_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-												<label for="googleShow2">Hide</label>
+												<label for="googleShow2"><?php echo $tlqed["checkbox"]["chk3"]; ?></label>
 
 											</div>
 										</div>
-										<div class="col-md-2">Links</div>
+										<div class="col-md-2"><?php echo $tlqed["sh_box_content"]["shbc9"]; ?></div>
 										<div class="col-md-5">
 											<input type="text" name="googleLinks" class="form-control" value="<?php echo $jktpl["googleLinks_qed_tpl"]; ?>"/>
 										</div>
@@ -336,14 +398,14 @@
 											<div class="radio radio-success">
 
 												<input type="radio" id="instagramShow1" name="instagramShow" value="1" <?php if ($jktpl["instagramShow_qed_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-												<label for="instagramShow1">Show</label>
+												<label for="instagramShow1"><?php echo $tlqed["checkbox"]["chk2"]; ?></label>
 
 												<input type="radio" id="instagramShow2" name="instagramShow" value="0" <?php if ($jktpl["instagramShow_qed_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-												<label for="instagramShow2">Hide</label>
+												<label for="instagramShow2"><?php echo $tlqed["checkbox"]["chk3"]; ?></label>
 
 											</div>
 										</div>
-										<div class="col-md-2">Links</div>
+										<div class="col-md-2"><?php echo $tlqed["sh_box_content"]["shbc9"]; ?></div>
 										<div class="col-md-5">
 											<input type="text" name="instagramLinks" class="form-control" value="<?php echo $jktpl["instagramLinks_qed_tpl"]; ?>"/>
 										</div>
@@ -354,14 +416,14 @@
 											<div class="radio radio-success">
 
 												<input type="radio" id="phoneShow1" name="phoneShow" value="1" <?php if ($jktpl["phoneShow_qed_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-												<label for="phoneShow1">Show</label>
+												<label for="phoneShow1"><?php echo $tlqed["checkbox"]["chk2"]; ?></label>
 
 												<input type="radio" id="phoneShow2" name="phoneShow" value="0" <?php if ($jktpl["phoneShow_qed_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-												<label for="phoneShow2">Hide</label>
+												<label for="phoneShow2"><?php echo $tlqed["checkbox"]["chk3"]; ?></label>
 
 											</div>
 										</div>
-										<div class="col-md-2">Phone Number</div>
+										<div class="col-md-2"><?php echo $tlqed["sh_box_content"]["shbc10"]; ?></div>
 										<div class="col-md-5">
 											<input type="text" name="phoneLinks" class="form-control" value="<?php echo $jktpl["phoneLinks_qed_tpl"]; ?>"/>
 										</div>
@@ -372,14 +434,14 @@
 											<div class="radio radio-success">
 
 												<input type="radio" id="emailShow1" name="emailShow" value="1" <?php if ($jktpl["emailShow_qed_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-												<label for="emailShow1">Show</label>
+												<label for="emailShow1"><?php echo $tlqed["checkbox"]["chk2"]; ?></label>
 
 												<input type="radio" id="emailShow2" name="emailShow" value="0" <?php if ($jktpl["emailShow_qed_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-												<label for="emailShow2">Hide</label>
+												<label for="emailShow2"><?php echo $tlqed["checkbox"]["chk3"]; ?></label>
 
 											</div>
 										</div>
-										<div class="col-md-2">Email</div>
+										<div class="col-md-2"><?php echo $tlqed["sh_box_content"]["shbc11"]; ?></div>
 										<div class="col-md-5">
 											<input type="text" name="emailLinks" class="form-control" value="<?php echo $jktpl["emailLinks_qed_tpl"]; ?>"/>
 										</div>
@@ -388,10 +450,12 @@
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" name="save" class="btn btn-success pull-right">
-								<i class="fa fa-save margin-right-5"></i>
-								<?php echo $tl["button"]["btn1"]; ?>
-							</button>
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+							echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+							?>
+
 						</div>
 					</div>
 				</div>
@@ -402,13 +466,18 @@
 				<div class="col-md-6">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title"><?php echo $tlqed["srs_box_title"]["srsbt"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('h3', $tlqed["srs_box_title"]["srsbt"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body">
 							<div class="block">
 								<div class="block-content">
 									<div class="row-form">
-										<div class="col-md-7"><strong>Active RoyalSlider</strong></div>
+										<div class="col-md-7"><strong><?php echo $tlqed["srs_box_content"]["srsbc"]; ?></strong></div>
 										<div class="col-md-5">
 											<div class="radio radio-success">
 
@@ -425,21 +494,28 @@
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" name="save" class="btn btn-success pull-right">
-								<i class="fa fa-save margin-right-5"></i>
-								<?php echo $tl["button"]["btn1"]; ?>
-							</button>
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+							echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+							?>
+
 						</div>
 					</div>
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title"><?php echo $tlqed["srs_box_title"]["srsbt1"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('h3', $tlqed["srs_box_title"]["srsbt1"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body">
 							<div class="block">
 								<div class="block-content">
 									<div class="row-form">
-										<div class="col-md-7"><strong>Show arrows navigation</strong></div>
+										<div class="col-md-7"><strong><?php echo $tlqed["srs_box_content"]["srsbc1"]; ?></strong></div>
 										<div class="col-md-5">
 											<div class="radio radio-success">
 
@@ -453,7 +529,7 @@
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-7"><strong>Auto hide arrows</strong></div>
+										<div class="col-md-7"><strong><?php echo $tlqed["srs_box_content"]["srsbc2"]; ?></strong></div>
 										<div class="col-md-5">
 											<div class="radio radio-success">
 
@@ -467,7 +543,7 @@
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-7"><strong>Hides arrows completely on touch devices</strong></div>
+										<div class="col-md-7"><strong><?php echo $tlqed["srs_box_content"]["srsbc3"]; ?></strong></div>
 										<div class="col-md-5">
 											<div class="radio radio-success">
 
@@ -481,7 +557,7 @@
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-7"><strong>Navigation type</strong></div>
+										<div class="col-md-7"><strong><?php echo $tlqed["srs_box_content"]["srsbc4"]; ?></strong></div>
 										<div class="col-md-5">
 											<select name="controlNavigation" class="form-control selectpicker">
 												<option value="bullets"<?php if ($jktpl["controlNavigation_qed_tpl"] == 'bullets') { ?> selected="selected"<?php } ?>>Bullets</option>
@@ -493,21 +569,28 @@
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" name="save" class="btn btn-success pull-right">
-								<i class="fa fa-save margin-right-5"></i>
-								<?php echo $tl["button"]["btn1"]; ?>
-							</button>
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+							echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+							?>
+
 						</div>
 					</div>
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title"><?php echo $tlqed["srs_box_title"]["srsbt2"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('h3', $tlqed["srs_box_title"]["srsbt2"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body">
 							<div class="block">
 								<div class="block-content">
 									<div class="row-form">
-										<div class="col-md-7"><strong>Enable autoplay</strong></div>
+										<div class="col-md-7"><strong><?php echo $tlqed["srs_box_content"]["srsbc5"]; ?></strong></div>
 										<div class="col-md-5">
 											<div class="radio radio-success">
 
@@ -521,7 +604,7 @@
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-7"><strong>Pause autoplay on hover</strong></div>
+										<div class="col-md-7"><strong><?php echo $tlqed["srs_box_content"]["srsbc6"]; ?></strong></div>
 										<div class="col-md-5">
 											<div class="radio radio-success">
 
@@ -535,7 +618,7 @@
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-7"><strong>Delay between items in ms</strong></div>
+										<div class="col-md-7"><strong><?php echo $tlqed["srs_box_content"]["srsbc7"]; ?></strong></div>
 										<div class="col-md-5">
 											<input type="text" name="delayAU" class="form-control" value="<?php echo $jktpl["delayAU_qed_tpl"]; ?>"/>
 										</div>
@@ -544,23 +627,30 @@
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" name="save" class="btn btn-success pull-right">
-								<i class="fa fa-save margin-right-5"></i>
-								<?php echo $tl["button"]["btn1"]; ?>
-							</button>
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+							echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+							?>
+
 						</div>
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title"><?php echo $tlqed["srs_box_title"]["srsbt3"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('h3', $tlqed["srs_box_title"]["srsbt3"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body">
 							<div class="block">
 								<div class="block-content">
 									<div class="row-form">
-										<div class="col-md-7"><strong>Auto updates slider height based on base width</strong></div>
+										<div class="col-md-7"><strong><?php echo $tlqed["srs_box_content"]["srsbc8"]; ?></strong></div>
 										<div class="col-md-5">
 											<div class="radio radio-success">
 
@@ -574,19 +664,19 @@
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-7"><strong>Base slider width</strong></div>
+										<div class="col-md-7"><strong><?php echo $tlqed["srs_box_content"]["srsbc9"]; ?></strong></div>
 										<div class="col-md-5">
 											<input type="text" name="autoScaleSliderWidth" class="form-control" value="<?php echo $jktpl["autoScaleSliderWidth_qed_tpl"]; ?>"/>
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-7"><strong>Base slider height</strong></div>
+										<div class="col-md-7"><strong><?php echo $tlqed["srs_box_content"]["srsbc10"]; ?></strong></div>
 										<div class="col-md-5">
 											<input type="text" name="autoScaleSliderHeight" class="form-control" value="<?php echo $jktpl["autoScaleSliderHeight_qed_tpl"]; ?>"/>
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-7"><strong>Aligns image to center of slide</strong></div>
+										<div class="col-md-7"><strong><?php echo $tlqed["srs_box_content"]["srsbc11"]; ?></strong></div>
 										<div class="col-md-5">
 											<div class="radio radio-success">
 
@@ -600,19 +690,19 @@
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-7"><strong>Adds base width to all images</strong></div>
+										<div class="col-md-7"><strong><?php echo $tlqed["srs_box_content"]["srsbc12"]; ?></strong></div>
 										<div class="col-md-5">
 											<input type="text" name="imgWidth" class="form-control" value="<?php echo $jktpl["imgWidth_qed_tpl"]; ?>"/>
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-7"><strong>Adds base height to all images</strong></div>
+										<div class="col-md-7"><strong><?php echo $tlqed["srs_box_content"]["srsbc13"]; ?></strong></div>
 										<div class="col-md-5">
 											<input type="text" name="imgHeight" class="form-control" value="<?php echo $jktpl["imgHeight_qed_tpl"]; ?>"/>
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-7"><strong>Number of slides to preload on sides</strong></div>
+										<div class="col-md-7"><strong><?php echo $tlqed["srs_box_content"]["srsbc14"]; ?></strong></div>
 										<div class="col-md-5">
 											<input type="text" name="numImagesToPreload" class="form-control" value="<?php echo $jktpl["numImagesToPreload_qed_tpl"]; ?>"/>
 										</div>
@@ -621,21 +711,28 @@
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" name="save" class="btn btn-success pull-right">
-								<i class="fa fa-save margin-right-5"></i>
-								<?php echo $tl["button"]["btn1"]; ?>
-							</button>
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+							echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+							?>
+
 						</div>
 					</div>
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title"><?php echo $tlqed["srs_box_title"]["srsbt4"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('h3', $tlqed["srs_box_title"]["srsbt4"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body">
 							<div class="block">
 								<div class="block-content">
 									<div class="row-form">
-										<div class="col-md-7"><strong>Fades in slide after it's loaded</strong></div>
+										<div class="col-md-7"><strong><?php echo $tlqed["srs_box_content"]["srsbc15"]; ?></strong></div>
 										<div class="col-md-5">
 											<div class="radio radio-success">
 
@@ -649,7 +746,7 @@
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-7"><strong>Fade transition</strong></div>
+										<div class="col-md-7"><strong><?php echo $tlqed["srs_box_content"]["srsbc16"]; ?></strong></div>
 										<div class="col-md-5">
 											<select name="transitionType" class="form-control selectpicker">
 												<option value="move"<?php if ($jktpl["transitionType_qed_tpl"] == 'move') { ?> selected="selected"<?php } ?>>Move</option>
@@ -658,7 +755,7 @@
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-7"><strong>Slider transition speed, in ms.</strong></div>
+										<div class="col-md-7"><strong><?php echo $tlqed["srs_box_content"]["srsbc17"]; ?></strong></div>
 										<div class="col-md-5">
 											<input type="text" name="transitionSpeed" class="form-control" value="<?php echo $jktpl["transitionSpeed_qed_tpl"]; ?>"/>
 										</div>
@@ -667,10 +764,12 @@
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" name="save" class="btn btn-success pull-right">
-								<i class="fa fa-save margin-right-5"></i>
-								<?php echo $tl["button"]["btn1"]; ?>
-							</button>
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+							echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+							?>
+
 						</div>
 					</div>
 				</div>
@@ -681,35 +780,50 @@
 				<div class="col-md-12">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title"><?php echo $tlqed["sf_box_title"]["sfbt"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('h3', $tlqed["sf_box_title"]["sfbt"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body">
 							<div class="row-form">
-								<div class="col-md-5"><strong>Active one block</strong></div>
+								<div class="col-md-5"><strong><?php echo $tlqed["sf_box_content"]["sfbc"]; ?></strong></div>
 								<div class="col-md-7">
 									<div class="radio radio-success">
 
 										<input type="radio" id="onefooterblock1" name="onefooterblock" value="1" <?php if ($jktpl["onefooterblock_qed_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-										<label for="onefooterblock1">Yes</label>
+										<label for="onefooterblock1"><?php echo $tlqed["checkbox"]["chk"]; ?></label>
 
 										<input type="radio" id="onefooterblock2" name="onefooterblock" value="0" <?php if ($jktpl["onefooterblock_qed_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-										<label for="onefooterblock2">No</label>
+										<label for="onefooterblock2"><?php echo $tlqed["checkbox"]["chk1"]; ?></label>
 
 									</div>
 								</div>
 							</div>
 							<div class="row-form">
-								<div class="col-md-5"><strong>One Block Text</strong></div>
-								<div class="col-md-7">
-									<textarea name="onefooterblocktext" id="onefooterblocktext" rows="8" class="form-control txtautogrow"><?php echo $jktpl["onefooterblocktext_qed_tpl"]; ?></textarea>
+								<div class="col-md-12">
+
+									<?php
+									// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+									echo $Html->addTag('strong', $tlqed["sf_box_content"]["sfbc1"]);
+									// Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+									echo $Html->addDiv('', 'htmleditor2', array('class' => 'm-t-10'));
+									// Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+									echo $Html->addTextarea('onefooterblocktext', $jktpl["onefooterblocktext_qed_tpl"], '8', '', array('id' => 'onefooterblocktext', 'class' => 'form-control hidden'));
+									?>
+
 								</div>
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" name="save" class="btn btn-success pull-right">
-								<i class="fa fa-save margin-right-5"></i>
-								<?php echo $tl["button"]["btn1"]; ?>
-							</button>
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+							echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+							?>
+
 						</div>
 					</div>
 				</div>
@@ -718,11 +832,16 @@
 				<div class="col-md-6">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title"><?php echo $tlqed["sf_box_title"]["sfbt1"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('h3', $tlqed["sf_box_title"]["sfbt1"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body">
 							<div class="row-form">
-								<div class="col-md-12"><strong>Block Text</strong></div>
+								<div class="col-md-12"><strong><?php echo $tlqed["sf_box_content"]["sfbc2"]; ?></strong></div>
 							</div>
 							<div class="row-form">
 								<div class="col-md-12">
@@ -731,21 +850,28 @@
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" name="save" class="btn btn-success pull-right">
-								<i class="fa fa-save margin-right-5"></i>
-								<?php echo $tl["button"]["btn1"]; ?>
-							</button>
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+							echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+							?>
+
 						</div>
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title"><?php echo $tlqed["sf_box_title"]["sfbt2"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('h3', $tlqed["sf_box_title"]["sfbt2"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body">
 							<div class="row-form">
-								<div class="col-md-12"><strong>Block Text</strong></div>
+								<div class="col-md-12"><strong><?php echo $tlqed["sf_box_content"]["sfbc2"]; ?></strong></div>
 							</div>
 							<div class="row-form">
 								<div class="col-md-12">
@@ -754,10 +880,12 @@
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" name="save" class="btn btn-success pull-right">
-								<i class="fa fa-save margin-right-5"></i>
-								<?php echo $tl["button"]["btn1"]; ?>
-							</button>
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+							echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+							?>
+
 						</div>
 					</div>
 				</div>
@@ -766,18 +894,23 @@
 				<div class="col-md-12">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title"><?php echo $tlqed["sf_box_title"]["sfbt3"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('h3', $tlqed["sf_box_title"]["sfbt3"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body">
 							<div class="col-md-5">
 								<div class="row-form">
-									<div class="col-md-6"><strong>Company Name</strong></div>
+									<div class="col-md-6"><strong><?php echo $tlqed["sf_box_content"]["sfbc3"]; ?></strong></div>
 									<div class="col-md-6">
 										<input type="text" name="companyName" class="form-control" value="<?php echo $jktpl["companyName_qed_tpl"]; ?>"/>
 									</div>
 								</div>
 								<div class="row-form">
-									<div class="col-md-6"><strong>Company Phone</strong></div>
+									<div class="col-md-6"><strong><?php echo $tlqed["sf_box_content"]["sfbc4"]; ?></strong></div>
 									<div class="col-md-6">
 										<input type="text" name="companyPhone" class="form-control" value="<?php echo $jktpl["companyPhone_qed_tpl"]; ?>"/>
 									</div>
@@ -786,13 +919,13 @@
 							<div class="col-md-2"></div>
 							<div class="col-md-5">
 								<div class="row-form">
-									<div class="col-md-6"><strong>Company Site</strong></div>
+									<div class="col-md-6"><strong><?php echo $tlqed["sf_box_content"]["sfbc5"]; ?></strong></div>
 									<div class="col-md-6">
 										<input type="text" name="companySite" class="form-control" value="<?php echo $jktpl["companySite_qed_tpl"]; ?>"/>
 									</div>
 								</div>
 								<div class="row-form">
-									<div class="col-md-6"><strong>Company Email</strong></div>
+									<div class="col-md-6"><strong><?php echo $tlqed["sf_box_content"]["sfbc6"]; ?></strong></div>
 									<div class="col-md-6">
 										<input type="text" name="companyEmail" class="form-control" value="<?php echo $jktpl["companyEmail_qed_tpl"]; ?>"/>
 									</div>
@@ -800,10 +933,12 @@
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" name="save" class="btn btn-success pull-right">
-								<i class="fa fa-save margin-right-5"></i>
-								<?php echo $tl["button"]["btn1"]; ?>
-							</button>
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+							echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+							?>
+
 						</div>
 					</div>
 				</div>
@@ -812,85 +947,90 @@
 				<div class="col-md-12">
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title"><?php echo $tlqed["sf_box_title"]["sfbt4"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('h3', $tlqed["sf_box_title"]["sfbt4"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body">
 							<div class="block">
 								<div class="block-content">
 									<div class="row-form">
-										<div class="col-md-2"><strong>Social media header text</strong></div>
+										<div class="col-md-2"><strong><?php echo $tlqed["sf_box_content"]["sfbc7"]; ?></strong></div>
 										<div class="col-md-10">
 											<input type="text" name="socialfooterText" class="form-control" value="<?php echo $jktpl["socialfooterText_qed_tpl"]; ?>"/>
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-2"><strong>Faceebook</strong></div>
+										<div class="col-md-2"><strong><?php echo $tlqed["sf_box_content"]["sfbc8"]; ?></strong></div>
 										<div class="col-md-3">
 											<div class="radio radio-success">
 
 												<input type="radio" id="facebookfooterShow1" name="facebookfooterShow" value="1" <?php if ($jktpl["facebookfooterShow_qed_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-												<label for="facebookfooterShow1">Show</label>
+												<label for="facebookfooterShow1"><?php echo $tlqed["checkbox"]["chk2"]; ?></label>
 
 												<input type="radio" id="facebookfooterShow2" name="facebookfooterShow" value="0" <?php if ($jktpl["facebookfooterShow_qed_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-												<label for="facebookfooterShow2">Hide</label>
+												<label for="facebookfooterShow2"><?php echo $tlqed["checkbox"]["chk3"]; ?></label>
 
 											</div>
 										</div>
-										<div class="col-md-2">Links</div>
+										<div class="col-md-2"><?php echo $tlqed["sf_box_content"]["sfbc12"]; ?></div>
 										<div class="col-md-5">
 											<input type="text" name="facebookfooterLinks" class="form-control" value="<?php echo $jktpl["facebookfooterLinks_qed_tpl"]; ?>"/>
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-2"><strong>Twitter</strong></div>
+										<div class="col-md-2"><strong><?php echo $tlqed["sf_box_content"]["sfbc9"]; ?></strong></div>
 										<div class="col-md-3">
 											<div class="radio radio-success">
 
 												<input type="radio" id="twitterfooterShow1" name="twitterfooterShow" value="1" <?php if ($jktpl["twitterfooterShow_qed_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-												<label for="twitterfooterShow1">Show</label>
+												<label for="twitterfooterShow1"><?php echo $tlqed["checkbox"]["chk2"]; ?></label>
 
 												<input type="radio" id="twitterfooterShow2" name="twitterfooterShow" value="0" <?php if ($jktpl["twitterfooterShow_qed_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-												<label for="twitterfooterShow2">Hide</label>
+												<label for="twitterfooterShow2"><?php echo $tlqed["checkbox"]["chk3"]; ?></label>
 
 											</div>
 										</div>
-										<div class="col-md-2">Links</div>
+										<div class="col-md-2"><?php echo $tlqed["sf_box_content"]["sfbc12"]; ?></div>
 										<div class="col-md-5">
 											<input type="text" name="twitterfooterLinks" class="form-control" value="<?php echo $jktpl["twitterfooterLinks_qed_tpl"]; ?>"/>
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-2"><strong>Google Plus</strong></div>
+										<div class="col-md-2"><strong><?php echo $tlqed["sf_box_content"]["sfbc10"]; ?></strong></div>
 										<div class="col-md-3">
 											<div class="radio radio-success">
 
 												<input type="radio" id="googlefooterShow1" name="googlefooterShow" value="1" <?php if ($jktpl["googlefooterShow_qed_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-												<label for="googlefooterShow1">Show</label>
+												<label for="googlefooterShow1"><?php echo $tlqed["checkbox"]["chk2"]; ?></label>
 
 												<input type="radio" id="googlefooterShow2" name="googlefooterShow" value="0" <?php if ($jktpl["googlefooterShow_qed_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-												<label for="googlefooterShow2">Hide</label>
+												<label for="googlefooterShow2"><?php echo $tlqed["checkbox"]["chk3"]; ?></label>
 
 											</div>
 										</div>
-										<div class="col-md-2">Links</div>
+										<div class="col-md-2"><?php echo $tlqed["sf_box_content"]["sfbc12"]; ?></div>
 										<div class="col-md-5">
 											<input type="text" name="googlefooterLinks" class="form-control" value="<?php echo $jktpl["googlefooterLinks_qed_tpl"]; ?>"/>
 										</div>
 									</div>
 									<div class="row-form">
-										<div class="col-md-2"><strong>Instagram</strong></div>
+										<div class="col-md-2"><strong><?php echo $tlqed["sf_box_content"]["sfbc11"]; ?></strong></div>
 										<div class="col-md-3">
 											<div class="radio radio-success">
 
 												<input type="radio" id="instagramfooterShow1" name="instagramfooterShow" value="1" <?php if ($jktpl["instagramfooterShow_qed_tpl"] == 1) { ?> checked="checked"<?php } ?> />
-												<label for="instagramfooterShow1">Show</label>
+												<label for="instagramfooterShow1"><?php echo $tlqed["checkbox"]["chk2"]; ?></label>
 
 												<input type="radio" id="instagramfooterShow2" name="instagramfooterShow" value="0" <?php if ($jktpl["instagramfooterShow_qed_tpl"] == 0) { ?> checked="checked"<?php } ?> />
-												<label for="instagramfooterShow2">Hide</label>
+												<label for="instagramfooterShow2"><?php echo $tlqed["checkbox"]["chk3"]; ?></label>
 
 											</div>
 										</div>
-										<div class="col-md-2">Links</div>
+										<div class="col-md-2"><?php echo $tlqed["sf_box_content"]["sfbc12"]; ?></div>
 										<div class="col-md-5">
 											<input type="text" name="instagramfooterLinks" class="form-control" value="<?php echo $jktpl["instagramfooterLinks_qed_tpl"]; ?>"/>
 										</div>
@@ -899,10 +1039,12 @@
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" name="save" class="btn btn-success pull-right">
-								<i class="fa fa-save margin-right-5"></i>
-								<?php echo $tl["button"]["btn1"]; ?>
-							</button>
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+							echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+							?>
+
 						</div>
 					</div>
 				</div>
@@ -914,7 +1056,12 @@
 
 					<div class="box box-success">
 						<div class="box-header with-border">
-							<h3 class="box-title"><?php echo $tlqed["sl_box_title"]["slbt"]; ?></h3>
+
+							<?php
+							// Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+							echo $Html->addTag('h3', $tlqed["sl_box_title"]["slbt"], 'box-title');
+							?>
+
 						</div>
 						<div class="box-body">
 							<div class="block">
@@ -923,7 +1070,8 @@
 										echo "hidden";
 									} ?>">
 										<div class="col-md-12">
-											<h4>File:
+											<h4>
+												<?php echo $tlqed["sl_box_title"]["slbt1"]; ?>
 												<small><strong><?php echo $JAK_FILEURL; ?></strong></small>
 											</h4>
 										</div>
@@ -931,7 +1079,7 @@
 									<?php if ($JAK_FILECONTENT) { ?>
 										<div class="row-form">
 											<div class="col-md-12">
-												<label for="jak_filecontent"><?php echo $tl["general"]["g54"]; ?></label>
+												<label for="jak_filecontent"><?php echo $tlqed["sl_box_title"]["slbt2"]; ?></label>
 												<div id="htmleditor"></div>
 												<textarea name="jak_filecontent" id="jak_filecontent" class="form-control hidden"><?php echo $JAK_FILECONTENT; ?></textarea>
 											</div>
@@ -941,10 +1089,12 @@
 							</div>
 						</div>
 						<div class="box-footer">
-							<button type="submit" name="save" class="btn btn-success pull-right">
-								<i class="fa fa-save margin-right-5"></i>
-								<?php echo $tl["button"]["btn1"]; ?>
-							</button>
+
+							<?php
+							// Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+							echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+							?>
+
 						</div>
 					</div>
 

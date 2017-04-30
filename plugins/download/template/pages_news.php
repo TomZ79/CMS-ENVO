@@ -1,3 +1,34 @@
+<?php
+/*
+ * PLUGIN DOWNLOAD - POPIS SOUBORU pages_news.php
+ * ----------------------------------------------
+ *
+ * Soubor slouží pro generovaní (zobrazení) rychlého seznamu článků (vybraných článků v administrativním rozhraní) v Grid systému jednotlivých frontend stránek
+ *
+ * Použitelné hodnoty s daty pro FRONTEND - pages_news.php
+ * ------------------------------------------------------
+ *
+ * $JAK_DOWNLOAD = pole s daty
+ * foreach ($JAK_DOWNLOAD as $d) = získání jednotlivých dat z pole
+ *
+ * $d["id"]             číslo		|	- id souboru
+ * $d["title"]					text			- Titulek souboru
+ * $d["content"]				text			- Celý popis souboru
+ * $d["contentshort"]		text			- Zkrácený popis souboru
+ * $d["showtitle"]			ano/ne		- Zobrazení nadpisu
+ * $d["showcontact"]		ano/ne
+ * $d["showdate"]				ano/ne
+ * $d["created"]				datum			- Datum vytvoření
+ * $v["comments"]
+ * $d["hits"]						číslo			- Počet zobrazení
+ * $v["countdl"]				číslo			- Počet stažení
+ * $v["totalcom"]
+ * $d["previmg"]
+ * $d["parseurl"]       text      - Adresa URL
+ *
+ */
+?>
+
 <?php include_once APP_PATH . 'plugins/download/functions.php';
 
 $showdlarray = explode(":", $row['showdownload']);
@@ -14,45 +45,60 @@ if (is_array($showdlarray) && in_array("ASC", $showdlarray) || in_array("DESC", 
 ?>
 
 <hr>
-<h3 class="text-color"><?php echo $tld["downl_frontend"]["downl12"] . JAK_PLUGIN_NAME_DOWNLOAD; ?></h3>
-<div class="row">
-  <?php if (isset($JAK_DOWNLOAD) && is_array($JAK_DOWNLOAD)) foreach ($JAK_DOWNLOAD as $d) { ?>
-    <!-- Post -->
-    <div class="col-md-4 col-sm-6">
-      <div class="jak-post">
-        <!-- Post Image -->
-        <div class="jak-post-mask">
-          <a href="<?php echo $d["parseurl"]; ?>"><img src="<?php echo BASE_URL . $d["previmg"]; ?>" alt="blog-preview" class="post-image img-responsive">
-            <div class="mask">
-              <?php if ($d["showdate"]) { ?><i class="fa fa-clock-o"></i> <?php echo $d["created"]; ?><?php } ?>
-              <span class="pull-right"><i class="fa fa-eye"></i> <?php echo $tl["general"]["g13"] . $d["hits"]; ?></span>
+<div class="col-md-12" style="margin-bottom: 50px;">
+  <h3 style="margin-bottom: 30px;"><?php echo $tld["downl_frontend"]["downl12"]; ?></h3>
+
+  <div class="carousel carousel-showmanymoveone slide" id="carouselABC" data-ride="carousel" data-interval="5000">
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+
+      <?php
+      $i = 0;
+      if (isset($JAK_DOWNLOAD) && is_array($JAK_DOWNLOAD)) foreach ($JAK_DOWNLOAD as $d) {
+      ?>
+
+        <div class="item<?php if ($i == 0) { echo ' active'; } ?>">
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <a href="<?php echo $d["parseurl"]; ?>"><?php echo jak_cut_text($d["title"], 30, ""); ?></a>
+            <p><?php echo $d["contentshort"]; ?></p>
+            <!-- Button -->
+            <div class="pull-left">
+              <a href="<?php echo $d["parseurl"]; ?>" class="btn btn-default btn-xs">
+                <?php echo $tld["downl_frontend"]["downl7"]; ?>
+              </a>
+              <br>
+              <?php if (JAK_ASACCESS) { ?>
+
+                <a href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=edit&amp;id=<?php echo $d["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-info btn-xs jaktip">
+                  <span class="visible-xs"><i class="fa fa-edit"></i></span>
+                  <span class="hidden-xs"><?php echo $tl["button"]["btn1"]; ?></span>
+                </a>
+
+                <a class="btn btn-info btn-xs jaktip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=quickedit&amp;id=<?php echo $d["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>">
+                  <span class="visible-xs"><i class="fa fa-pencil"></i></span>
+                  <span class="hidden-xs"><?php echo $tl["button"]["btn2"]; ?></span>
+                </a>
+
+              <?php } ?>
             </div>
-          </a>
+          </div>
         </div>
-        <!-- End Post Image -->
-        <!-- Post Title & Summary -->
-        <div class="post-title">
-          <h3 class="text-color">
-            <span><a href="<?php echo $d["parseurl"]; ?>"><?php echo jak_cut_text($d["title"], 30, ""); ?></a></span>
-          </h3>
-        </div>
-        <div class="post-summary">
-          <p><?php echo $d["contentshort"]; ?></p>
-        </div>
-        <!-- End Post Title & Summary -->
-        <div class="post-more">
-          <a href="<?php echo $d["parseurl"]; ?>" class="btn btn-color btn-sm"><i class="fa fa-download"></i> <?php echo $tld["downl_frontend"]["downl7"]; ?>
-          </a>
-          <?php if (JAK_ASACCESS) { ?>
 
-            <a href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=edit&amp;id=<?php echo $d["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-default btn-sm jaktip"><i class="fa fa-pencil"></i></a>
+      <?php
+      $i++;
+      }
+      ?>
 
-            <a class="btn btn-default btn-sm jaktip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=quickedit&amp;id=<?php echo $d["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>"><i class="fa fa-edit"></i></a>
-
-          <?php } ?>
-        </div>
-      </div>
     </div>
-    <!-- End Post -->
-  <?php } ?>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carouselABC" role="button" data-slide="prev">
+      <i class="glyphicon glyphicon-chevron-left" aria-hidden="true"></i>
+    </a>
+    <a class="right carousel-control" href="#carouselABC" role="button" data-slide="next">
+      <i class="glyphicon glyphicon-chevron-right" aria-hidden="true"></i>
+    </a>
+  </div>
+
 </div>

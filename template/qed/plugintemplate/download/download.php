@@ -1,21 +1,29 @@
 <?php
 /*
- * ALL VALUE for FRONTEND - download.php
+ * PLUGIN DOWNLOAD - POPIS SOUBORU download.php
+ * ----------------------------------------------
  *
- * $id 							číslo		|	- id souboru
- * $title						text			- Titulek souboru
- * $content					text			- Celý popis souboru
- * $contentshort		text			- Zkrácený popis souboru
- * $showtitle				ano/ne		- Zobrazení nadpisu
- * $showcontact			ano/ne
- * $showdate				ano/ne
- * $created					datum			- Datum vytvoření
- * $comments
- * $hits						číslo			- Počet zobrazení
- * $countdl					číslo			- Počet stažení
- * $totalcom
- * $previmg
- * $parseurl
+ * Soubor slouží pro generovaní (zobrazení) celkového seznamu článků
+ *
+ * Použitelné hodnoty s daty pro FRONTEND - download.php
+ * ------------------------------------------------------
+ * $JAK_DOWNLOAD_ALL = pole s daty
+ * foreach ($JAK_DOWNLOAD_ALL as $v) = získání jednotlivých dat z pole
+ *
+ * $v["id"]             číslo		|	- id souboru
+ * $v["title"]					text			- Titulek souboru
+ * $v["content"]				text			- Celý popis souboru
+ * $v["contentshort"]		text			- Zkrácený popis souboru
+ * $v["showtitle"]			ano/ne		- Zobrazení nadpisu
+ * $v["showcontact"]		ano/ne
+ * $v["showdate"]				ano/ne
+ * $v["created"]				datum			- Datum vytvoření
+ * $v["comments"]
+ * $v["hits"]						číslo			- Počet zobrazení
+ * $v["countdl"]				číslo			- Počet stažení
+ * $v["totalcom"]
+ * $v["previmg"]
+ * $v["parseurl"]
  *
  */
 ?>
@@ -63,11 +71,13 @@
             <?php if (JAK_ASACCESS) { ?>
 
               <a href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-info btn-sm jaktip">
-                <?php echo $tl["button"]["btn1"]; ?>
+                <span class="visible-xs"><i class="fa fa-edit"></i></span>
+                <span class="hidden-xs"><?php echo $tl["button"]["btn1"]; ?></span>
               </a>
 
               <a class="btn btn-info btn-sm jaktip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>">
-                <?php echo $tl["button"]["btn2"]; ?>
+                <span class="visible-xs"><i class="fa fa-pencil"></i></span>
+                <span class="hidden-xs"><?php echo $tl["button"]["btn2"]; ?></span>
               </a>
 
             <?php } ?>

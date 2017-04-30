@@ -1,8 +1,8 @@
-<?php
-// Load 'ace.js' and init ace  - only for selected pages
-if ($JAK_FILECONTENT) { ?>
-  <script src="assets/plugins/ace/ace.js" type="text/javascript"></script>
+<script src="assets/plugins/ace/ace.js" type="text/javascript"></script>
 
+<?php
+// Init ace  - only for selected pages
+if ($JAK_FILECONTENT) { ?>
   <script type="text/javascript">
 
     /* ACE Editor

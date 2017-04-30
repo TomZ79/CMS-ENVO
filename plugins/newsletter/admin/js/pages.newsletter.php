@@ -61,7 +61,7 @@
 
     $(".nlTheme").click(function () {
 
-      if (!confirm('<?php echo $tlnl["nletter"]["skin"];?>')) return false;
+      if (!confirm('<?php echo $tlnl["newsletter_notification"]["skin"];?>')) return false;
 
       $.ajax({
         type: "POST",

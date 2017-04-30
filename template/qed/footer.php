@@ -48,14 +48,16 @@ if ((!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSIO
 } ?>
 
 <?php if ($JAK_SHOW_FOOTER && JAK_ASACCESS) { ?>
-  <!-- footer -->
+  <!-- Footer -->
   <footer id="main-footer">
     <div class="container">
       <div class="row">
 
         <div class="col-sm-<?php echo($jkv["onefooterblock_qed_tpl"] == 1 ? '6' : '3'); ?>">
-          <div class="footer-widget">
-            <?php echo($jkv["onefooterblock_qed_tpl"] == 1 ? $jkv["onefooterblocktext_qed_tpl"] : $jkv["footer1text_qed_tpl"]); ?>
+          <div class="row">
+            <div class="footer-widget">
+              <?php echo($jkv["onefooterblock_qed_tpl"] == 1 ? $jkv["onefooterblocktext_qed_tpl"] : $jkv["footer1text_qed_tpl"]); ?>
+            </div>
           </div>
         </div>
 
@@ -113,27 +115,27 @@ if ((!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSIO
           </div>
           <div class="footer-widget mb-small system-icons">
             <?php if ($apedit) { ?>
-              <a class="btn btn-info btn-xs" title="<?php echo $tl["button"]["btn1"]; ?>" href="<?php echo $apedit; ?>">
+              <a class="btn btn-info btn-xs jaktip" href="<?php echo $apedit; ?>" title="<?php echo $tl["button"]["btn1"]; ?>">
                 <?php echo $tl["button"]["btn1"]; ?>
               </a>
               <?php if ($qapedit) { ?>
-                <a class="btn btn-info btn-xs quickedit" title="<?php echo $tl["button"]["btn2"]; ?>" href="<?php echo $qapedit; ?>">
+                <a class="btn btn-info btn-xs quickedit jaktip" href="<?php echo $qapedit; ?>" title="<?php echo $tl["button"]["btn2"]; ?>">
                   <?php echo $tl["button"]["btn2"]; ?>
                 </a>
               <?php }
             }
             if ($jkv["printme"] && $printme) { ?>
-              <a class="btn btn-info btn-xs" id="jakprint" href="#">
+              <a class="btn btn-info btn-xs jaktip" id="jakprint" href="#" title="<?php echo $tl["button"]["btn6"]; ?>">
                 <i class="icon-print"></i>
               </a>
             <?php }
             if ($JAK_RSS_DISPLAY) { ?>
-              <a class="btn btn-info btn-xs" href="<?php echo $P_RSS_LINK; ?>">
+              <a class="btn btn-info btn-xs jaktip" href="<?php echo $P_RSS_LINK; ?>" title="<?php echo $tl["button"]["btn5"]; ?>">
                 <i class="icon-rss"></i>
               </a>
             <?php }
             if ($jkv["heatmap"] && JAK_ASACCESS) { ?>
-              <a class="btn btn-info btn-xs" href="javascript:void(0)" id="dispheatmap">
+              <a class="btn btn-info btn-xs" href="javascript:void(0)" id="dispheatmap" title="<?php echo $tl["button"]["btn7"]; ?>">
                 <i class="icon-chart-bar"></i>
               </a>
             <?php } ?>
@@ -150,63 +152,104 @@ if ((!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSIO
             <?php echo jak_build_menu_qed(0, $mfooter, $page, 'footer-list-style', '', '', '', '', JAK_ASACCESS); ?>
           </div>
           <div class="col-md-6">
-            <p><?php echo $jkv["copyright"]; ?></p>
+            <p class="pull-right"><?php echo $jkv["copyright"]; ?></p>
           </div>
-
         </div>
       </div>
     </div>
   </footer>
-  <!-- / footer -->
+  <!-- / Footer -->
 <?php } else {
   if ($JAK_SHOW_FOOTER) { ?>
-    <!-- footer -->
+    <!-- Footer -->
     <footer id="main-footer">
       <div class="container">
         <div class="row">
 
-          <div class="col-sm-6">
+          <div class="col-sm-<?php echo($jkv["onefooterblock_qed_tpl"] == 1 ? '6' : '3'); ?>">
             <div class="footer-widget">
-              <img src="images/neko-logo.png" alt="latest Little Neko news" id="footerLogo" class="mb-small">
-              <p>
-                <a href="http://www.little-neko.com" title="Little Neko, website template creation">Little Neko</a> is a web design and development studio. We build responsive HTML5 and CSS3 templates, integrating best web design practises and up-to-date web technologies to create great user experiences. We love what we do and we hope you too !
-              </p>
+              <?php echo($jkv["onefooterblock_qed_tpl"] == 1 ? $jkv["onefooterblocktext_qed_tpl"] : $jkv["footer1text_qed_tpl"]); ?>
+            </div>
+          </div>
+
+          <div class="<?php echo($jkv["onefooterblock_qed_tpl"] == 1 ? 'hidden' : 'col-sm-3'); ?>">
+            <div class="footer-widget">
+              <?php echo($jkv["onefooterblock_qed_tpl"] == 1 ? '' : $jkv["footer2text_qed_tpl"]); ?>
             </div>
           </div>
 
           <div class="col-sm-3">
-            <div class="footer-widget">
+            <div class="col-md-offset-2 footer-widget">
 
-              <h3>Little NEKO</h3>
+              <h3><?php echo $jkv["companyName_qed_tpl"]; ?></h3>
               <address>
                 <p>
-                  <i class="icon-location"></i>1600 Pennsylvania Avenue NW<br>
-                  Washington, DC 20500 <br>
-                  <i class="icon-phone"></i>256.478.3252 <br>
-                  <i class="icon-mail-alt"></i>&nbsp;<a href="mailto:contact@template.com">contact@template.com</a>
+                  <i class="icon-phone"></i><?php echo $jkv["companyPhone_qed_tpl"]; ?><br>
+                  <i class="icon-globe"></i><a href="<?php echo $jkv["companySite_qed_tpl"]; ?>" target="_blank"><?php echo $jkv["companySite_qed_tpl"]; ?></a><br>
+                  <i class="icon-mail-alt"></i>&nbsp;<a href="mailto:<?php echo envo_encode_email($jkv["companyEmail_qed_tpl"]); ?>"><?php echo envo_encode_email($jkv["companyEmail_qed_tpl"]); ?></a>
                 </p>
               </address>
             </div>
           </div>
 
           <div class="col-sm-3">
-            <div class="footer-widget">
-              <h3>Follow us, we are social</h3>
+            <div class="footer-widget mb-small">
+              <h3><?php echo $jkv["socialfooterText_qed_tpl"]; ?></h3>
 
-              <ul class="social-icons dark-main-color circle medium">
-                <li>
-                  <a href="#" class="rss " title="rss"><i class="icon-rss"></i></a>
-                </li>
-                <li>
-                  <a href="#" class="facebook" title="facebook"><i class="icon-facebook"></i></a>
-                </li>
-                <li>
-                  <a href="#" class="twitter" title="twitter"><i class="icon-twitter"></i></a>
-                </li>
-                <li>
-                  <a href="#" class="gplus" title="gplus"><i class="icon-gplus"></i></a>
-                </li>
+              <ul class="social-icons dark-main-color <?php echo $jkv["fsocialstyle_qed_tpl"] . ' ' . $jkv["fsocialsize_qed_tpl"]; ?>">
+                <?php if ($jkv["facebookfooterShow_qed_tpl"] == 1) { ?>
+                  <li>
+                    <a href="<?php echo $jkv["facebookfooterLinks_qed_tpl"]; ?>" class="facebook" target="_blank"><i class="icon-facebook"></i></a>
+                  </li>
+                <?php }
+                if ($jkv["twitterfooterShow_qed_tpl"] == 1) { ?>
+                  <li>
+                    <a href="<?php echo $jkv["twitterfooterLinks_qed_tpl"]; ?>" class="twitter" target="_blank"><i class="icon-twitter"></i></a>
+                  </li>
+                <?php }
+                if ($jkv["googlefooterShow_qed_tpl"] == 1) { ?>
+                  <li>
+                    <a href="<?php echo $jkv["googlefooterLinks_qed_tpl"]; ?>" class="gplus" target="_blank"><i class="icon-gplus"></i></a>
+                  </li>
+                <?php }
+                if ($jkv["instagramfooterShow_qed_tpl"] == 1) { ?>
+                  <li>
+                    <a href="<?php echo $jkv["instagramfooterLinks_qed_tpl"]; ?>" class="facebook" target="_blank"><i class="icon-instagramm"></i></a>
+                  </li>
+                <?php }
+                if ($JAK_RSS_DISPLAY) { ?>
+                  <li>
+                    <a href="<?php echo $P_RSS_LINK; ?>" class="rss" target="_blank"><i class="icon-rss"></i></a>
+                  </li>
+                <?php } ?>
               </ul>
+            </div>
+            <div class="footer-widget mb-small system-icons">
+              <?php if ($apedit) { ?>
+                <a class="btn btn-info btn-xs jaktip" href="<?php echo $apedit; ?>" title="<?php echo $tl["button"]["btn1"]; ?>">
+                  <?php echo $tl["button"]["btn1"]; ?>
+                </a>
+                <?php if ($qapedit) { ?>
+                  <a class="btn btn-info btn-xs quickedit jaktip" href="<?php echo $qapedit; ?>" title="<?php echo $tl["button"]["btn2"]; ?>">
+                    <?php echo $tl["button"]["btn2"]; ?>
+                  </a>
+                <?php }
+              }
+              if ($jkv["printme"] && $printme) { ?>
+                <a class="btn btn-info btn-xs jaktip" id="jakprint" href="#" title="<?php echo $tl["button"]["btn6"]; ?>">
+                  <i class="icon-print"></i>
+                </a>
+              <?php }
+              if ($JAK_RSS_DISPLAY) { ?>
+                <a class="btn btn-info btn-xs jaktip" href="<?php echo $P_RSS_LINK; ?>" title="<?php echo $tl["button"]["btn5"]; ?>">
+                  <i class="icon-rss"></i>
+                </a>
+              <?php }
+              if ($jkv["heatmap"] && JAK_ASACCESS) { ?>
+                <a class="btn btn-info btn-xs" href="javascript:void(0)" id="dispheatmap" title="<?php echo $tl["button"]["btn7"]; ?>">
+                  <i class="icon-chart-bar"></i>
+                </a>
+              <?php } ?>
             </div>
           </div>
 
@@ -216,16 +259,17 @@ if ((!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSIO
       <div id="footer-rights">
         <div class="container">
           <div class="row">
-            <div class="col-md-12">
-              <p>Copyright © 2012
-                <a href="http://www.little-neko.com" target="blank">Little NEKO</a> / All rights reserved.</p>
+            <div class="col-md-6">
+              <?php echo jak_build_menu_qed(0, $mfooter, $page, 'footer-list-style', '', '', '', '', JAK_ASACCESS); ?>
             </div>
-
+            <div class="col-md-6">
+              <p><?php echo $jkv["copyright"]; ?></p>
+            </div>
           </div>
         </div>
       </div>
     </footer>
-    <!-- / footer -->
+    <!-- / Footer -->
   <?php }
 }
 if (!$JAK_SHOW_FOOTER) { ?>
@@ -240,6 +284,7 @@ if (!$JAK_SHOW_FOOTER) { ?>
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="/assets/plugins/jquery/jquery-2.2.4.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="/template/<?php echo ENVO_TEMPLATE; ?>/js-plugins/jquery-ui/jquery-ui-1.8.23.custom.min.js"></script>
+<script src="/assets/plugins/bootstrapv3/js/bootstrap.min.js" type="text/javascript"></script>
 <!-- External framework plugins -->
 <?php if ($jkv["activeroyalslider_qed_tpl"] == 1) { ?>
   <script type="text/javascript" src="/template/<?php echo ENVO_TEMPLATE; ?>/js-plugins/royalslider/jquery.royalslider.min.js"></script>
@@ -276,9 +321,9 @@ if (!$JAK_SHOW_FOOTER) { ?>
     jakWeb.jak_submitwait = "<?php echo $tl['form_text']['formt2'];?>";
   </script>
 
-  <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/post.js"></script>
-  <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/plugins/tinymce/tinymce.min.js"></script>
-  <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/usreditor.js"></script>
+  <script type="text/javascript" src="/assets/js/post.js"></script>
+  <script type="text/javascript" src="/assets/plugins/tinymce/tinymce.min.js"></script>
+  <script type="text/javascript" src="/assets/js/usreditor.js"></script>
 <?php } ?>
 
 <?php
@@ -378,6 +423,22 @@ if ($jkv["offline"] == 1 && JAK_ASACCESS) { ?>
 
 <!-- Neko Custom script -->
 <script type="text/javascript" src="/template/<?php echo ENVO_TEMPLATE; ?>/js/neko-custom.js"></script>
+
+<!-- Neko Print script -->
+<?php if ($jkv["printme"]) { ?>
+  <script type="text/javascript" src="/assets/js/jakprint.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+
+  <script type="text/javascript">
+    $(function(){
+
+      $('#jakprint').on('click', function(e)  {
+        e.preventDefault();
+        $('#printdiv').printThis({title: '<?php echo sprintf ($tl["printpage"]["pp"], $jkv["title"]); ?>'});
+      });
+
+    });
+  </script>
+<?php } ?>
 
 <!-- Modal -->
 <div class="modal fullscreen fade" id="JAKModal" tabindex="-1" role="dialog" aria-labelledby="JAKModal" aria-hidden="true">

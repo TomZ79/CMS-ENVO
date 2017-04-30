@@ -953,7 +953,7 @@ switch ($page1) {
         $defaults = $_POST;
 
         if (empty($defaults['jak_title'])) {
-          $errors['e1'] = $tl['error']['generror18'] . '<br>';
+          $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
         }
 
         // Now do the dirty stuff in mysql

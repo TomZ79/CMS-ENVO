@@ -169,37 +169,6 @@ class HTML_Element
   }
 
   /**
-   * Creates an html link
-   *
-   * @param    string         | $href       - Source 'href' of anchor
-   * @param    string           $text       - Text value of anchor
-   * @param    array            $attributes - Array with more tag attribute settings
-   * @param    bool             $secure     - True to force https, false to force http
-   *
-   * @return  string
-   */
-
-  public function addAnchorFuel($href, $text = NULL, $attributes = array(), $secure = NULL)
-  {
-    if (!preg_match('#^(\w+://|javascript:|\#)# i', $href)) {
-      $urlparts = explode('?', $href, 2);
-      $href = \Uri::create($urlparts[0], array(), isset($urlparts[1]) ? $urlparts[1] : array(), $secure);
-    } elseif (!preg_match('#^(javascript:|\#)# i', $href) and is_bool($secure)) {
-      $href = http_build_url($href, array('scheme' => $secure ? 'https' : 'http'));
-
-      // Trim the trailing slash
-      $href = rtrim($href, '/');
-    }
-
-    // Create and display a URL hyperlink
-    is_null($text) and $text = $href;
-
-    $attributes['href'] = $href;
-
-    return html_tag('a', $attributes, $text);
-  }
-
-  /**
    * Creates an html image tag
    *
    * Sets the alt attribute to filename of it is not supplied.
@@ -209,7 +178,7 @@ class HTML_Element
    *
    * @return  string
    */
-  public function addImgFuel($src, $attributes = array())
+  public function addImg($src, $attributes = array())
   {
     if (!preg_match('#^(\w+://)# i', $src)) {
 
@@ -233,7 +202,7 @@ class HTML_Element
    *
    * @return  string
    */
-  public function addButtonFuel($fieldname, $value = NULL, array $attributes = array())
+  public function addButtonF($fieldname, $value = NULL, array $attributes = array())
   {
     if (is_array($fieldname)) {
       $attributes = $fieldname;
@@ -284,7 +253,7 @@ class HTML_Element
    *
    * @return  string
    */
-  public function addSubmitFuel($fieldname = 'submit', $value = 'Submit', array $attributes = array())
+  public function addSubmitF($fieldname = 'submit', $value = 'Submit', array $attributes = array())
   {
     if (is_array($fieldname)) {
       $attributes = $fieldname;
@@ -333,7 +302,7 @@ class HTML_Element
    *
    * @return  string
    */
-  public function addTextareaFuel($fieldname, $value = NULL, array $attributes = array())
+  public function addTextareaF($fieldname, $value = NULL, array $attributes = array())
   {
     if (is_array($fieldname)) {
       $attributes = $fieldname;
@@ -383,7 +352,7 @@ class HTML_Element
    *
    * @return  string
    */
-  public function addRadioFuel($fieldname, $value = NULL, $id = NULL, $checked = NULL, array $attributes = array())
+  public function addRadioF($fieldname, $value = NULL, $id = NULL, $checked = NULL, array $attributes = array())
   {
     if (is_array($fieldname)) {
       $attributes = $fieldname;
@@ -427,7 +396,7 @@ class HTML_Element
    *
    * @return  string
    */
-  public function addCheckboxFuel($fieldname, $value = NULL, $id = NULL, $checked = NULL, array $attributes = array())
+  public function addCheckboxF($fieldname, $value = NULL, $id = NULL, $checked = NULL, array $attributes = array())
   {
     if (is_array($fieldname)) {
       $attributes = $fieldname;
@@ -470,7 +439,7 @@ class HTML_Element
    *
    * @return  string
    */
-  public function addLabelFuel($label, $id = NULL, array $attributes = array())
+  public function addLabelF($label, $id = NULL, array $attributes = array())
   {
     if (is_array($label)) {
       $attributes = $label;

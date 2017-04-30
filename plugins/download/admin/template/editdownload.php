@@ -800,7 +800,7 @@ if ($errors) { ?>
                         <div class="row-form">
                           <div class="col-md-12">
                             <div class="form-group">
-                              <label for="tags"><?php echo $tl["general"]["g27"]; ?></label>
+                              <label for="tags"><?php echo $tld["downl_box_content"]["downlbc50"]; ?></label>
                               <div class="controls">
                                 <?php echo $JAK_TAGLIST; ?>
                               </div>

@@ -664,7 +664,7 @@ if ($page3 == "e") { ?>
                         <div class="row-form">
                           <div class="col-md-12">
                             <div class="form-group">
-                              <label for="tags"><?php echo $tl["general"]["g27"]; ?></label>
+                              <label for="tags"><?php echo $tlblog["blog_box_content"]["blogbc42"]; ?></label>
                               <div class="controls">
                                 <?php echo $JAK_TAGLIST; ?>
                               </div>

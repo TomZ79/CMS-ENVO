@@ -52,7 +52,7 @@ li.submenu-active > .icon-thumbnail {
 
 /* POPOVER */
 .popover {
-  z-index: 1000;
+  z-index: 790;
 }
 
 .cms-help i {
@@ -1219,7 +1219,6 @@ pre[class*="language-"] {
 /* 00. ACE EDITOR
 ========================================================================*/
 #javaeditor, #csseditor, #htmleditor, #htmleditor2, #htmleditor3, #htmleditor4, #htmleditorlight, #htmleditorlight2, #txteditor, #txteditor1 {
-  margin: 0;
   position: relative;
   height: 300px;
 }

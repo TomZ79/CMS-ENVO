@@ -191,7 +191,7 @@ switch ($page1) {
               $errors['e3'] = $tl['general_error']['generror22'] . '<br>';
             }
 
-            if (!empty($defaults['jak_varname']) || !preg_match('/^([a-z-_0-9]||[-_])+$/', $defaults['jak_varname'])) {
+            if (!empty($defaults['jak_varname']) && !preg_match('/^([a-z-_0-9]||[-_])+$/', $defaults['jak_varname'])) {
               $errors['e4'] = $tl['general_error']['generror23'] . '<br>';
             }
 

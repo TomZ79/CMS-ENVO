@@ -66,12 +66,13 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
   <!-- CSS and FONTS
   ================================================== -->
   <link href='http://fonts.googleapis.com/css?family=Hammersmith+One' rel='stylesheet' type='text/css'>
+  <link type="text/css" rel="stylesheet" href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link type="text/css" rel="stylesheet" href="/assets/plugins/bootstrap-glyphicons/glyphicons-pro/css/glyphicons-pro.css">
   <?php if ($jkv["activeroyalslider_qed_tpl"] == 1) { ?>
     <link rel="stylesheet" type="text/css" href="/template/<?php echo ENVO_TEMPLATE; ?>/js-plugins/royalslider/royalslider.css"/>
     <link rel="stylesheet" type="text/css" href="/template/<?php echo ENVO_TEMPLATE; ?>/js-plugins/royalslider/skins/minimal-white/rs-minimal-white.css">
   <?php } ?>
-  <link type="text/css" rel="stylesheet" href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link type="text/css" rel="stylesheet" href="/assets/plugins/bootstrap-glyphicons/glyphicons-pro/css/glyphicons-pro.css">
+  <link type="text/css" rel="stylesheet" href="/assets/plugins/bootstrapv3/css/bootstrap.min.css">
   <link type="text/css" rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/icons/custom-icons/css/custom-icons.css">
   <link type="text/css" rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/js-plugins/external-plugins.min.css">
   <link type="text/css" rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/css/layout/neko-framework-layout.css">

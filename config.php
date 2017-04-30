@@ -46,11 +46,6 @@ include_once 'class/class.tags.php';
 include_once 'class/class.resizeimage.php';
 include_once 'class/class.debug.php';
 include_once 'class/class.htmlelement.php';
-include_once 'class/class.htmlelement.uri.php';
-include_once 'class/class.htmlelement.config.php';
-include_once 'class/class.htmlelement.arr.php';
-include_once 'class/class.htmlelement.fuel.php';
-include_once 'class/class.htmlelement.input.php';
 
 // Create instance of HTML_Form from htmlelement.php Class
 $Html = new HTML_Element();

@@ -127,15 +127,16 @@ if (JAK_ASACCESS) {
 					<?php if ($JAK_NAV_PREV) { ?>
 						<li class="previous">
 							<a href="<?php echo $JAK_NAV_PREV; ?>">
-								<i class="icon-left-dir"></i>
-								<?php echo jak_cut_text($JAK_NAV_PREV_TITLE, 50, "...");?>
+								<i class="fa fa-caret-left"></i>
+								<span class="nav_text_left"><?php echo $JAK_NAV_PREV_TITLE; ?></span>
 							</a>
 						</li>
 					<?php }
 					if ($JAK_NAV_NEXT) { ?>
 						<li class="next">
 							<a href="<?php echo $JAK_NAV_NEXT; ?>">
-								<?php echo jak_cut_text($JAK_NAV_NEXT_TITLE, 50, "...");?> <i class="icon-right-dir"></i>
+								<span class="nav_text_right"><?php echo $JAK_NAV_NEXT_TITLE; ?></span>
+								<i class="fa fa-caret-right"></i>
 							</a>
 						</li>
 					<?php } ?>

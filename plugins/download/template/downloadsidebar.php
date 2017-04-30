@@ -1,3 +1,34 @@
+<?php
+/*
+ * PLUGIN DOWNLOAD - POPIS SOUBORU downloadsidebar.php
+ * ------------------------------------------------------
+ *
+ * Soubor slouží pro generovaní (zobrazení) postraního panelu se zadanými kategoriemi
+ *
+ * Použitelné hodnoty s daty pro FRONTEND - downloadsidebar.php
+ * -------------------------------------------------------------
+ *
+ * $JAK_DOWNLOAD_CAT = pole s daty
+ * foreach ($JAK_DOWNLOAD_CAT as $c) = získání jednotlivých dat z pole
+ *
+ * $c["id"]             číslo		|	- id souboru
+ * $c["title"]					text			- Titulek souboru
+ * $c["content"]				text			- Celý popis souboru
+ * $c["contentshort"]		text			- Zkrácený popis souboru
+ * $c["showtitle"]			ano/ne		- Zobrazení nadpisu
+ * $c["showcontact"]		ano/ne
+ * $c["showdate"]				ano/ne
+ * $c["created"]				datum			- Datum vytvoření
+ * $c["comments"]
+ * $c["hits"]						číslo			- Počet zobrazení
+ * $c["countdl"]				číslo			- Počet stažení
+ * $c["totalcom"]
+ * $c["previmg"]
+ * $c["parseurl"]       text      - Adresa URL
+ *
+ */
+?>
+
 <?php if (JAK_PLUGIN_ACCESS_DOWNLOAD) {
   // Get URL
   $url_array = explode('/', $_SERVER['REQUEST_URI']);

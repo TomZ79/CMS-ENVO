@@ -569,7 +569,7 @@ APP_PATH.'plugins/yourplugin/file_to_include.php';
 
         <p>For example:</p>
         <pre name="code" class="brush: php;">
-if ($defaults['jak_lang'] == '') { $errors['e6'] = $tl['error']['e29']; }
+if ($defaults['jak_lang'] == '') { $errors['e6'] = $tl['general_error']['generror']; }
         </pre>
 
       </article>

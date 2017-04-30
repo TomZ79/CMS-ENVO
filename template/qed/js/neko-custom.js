@@ -5,10 +5,6 @@
  */
 
 $(function () {
-
-});
-
-$(function () {
   $("#LoginModal").FSNav({
     animation: "none"
   });
@@ -53,6 +49,18 @@ $(function () {
     });
   }
 
+})();
+
+/*
+ |--------------------------------------------------------------------------
+ | Responsive footer list - change icon on touch device
+ |--------------------------------------------------------------------------
+ */
+
+(function() {
+  $('.footer-links-holder h3').click(function () {
+    $(this).parent().toggleClass('active');
+  });
 })();
 
 /*

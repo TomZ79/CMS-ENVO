@@ -124,14 +124,16 @@ if ($jkv["printme"]) $printme = 1; ?>
       <?php if ($JAK_NAV_PREV) { ?>
         <li class="previous">
           <a href="<?php echo $JAK_NAV_PREV; ?>">
-            <?php echo $JAK_NAV_PREV_TITLE; ?>
+            <i class="fa fa-caret-left"></i>
+            <span class="nav_text_left"><?php echo $JAK_NAV_PREV_TITLE; ?></span>
           </a>
         </li>
       <?php }
       if ($JAK_NAV_NEXT) { ?>
         <li class="next">
           <a href="<?php echo $JAK_NAV_NEXT; ?>">
-            <?php echo $JAK_NAV_NEXT_TITLE; ?>
+            <span class="nav_text_right"><?php echo $JAK_NAV_NEXT_TITLE; ?></span>
+            <i class="fa fa-caret-right"></i>
           </a>
         </li>
       <?php } ?>

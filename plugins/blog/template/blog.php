@@ -55,11 +55,13 @@
 
             <span class="pull-right hidden-xs">
               <a href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-info btn-sm jaktip">
-                <?php echo $tl["button"]["btn1"]; ?>
+                <span class="visible-xs"><i class="fa fa-edit"></i></span>
+                <span class="hidden-xs"><?php echo $tl["button"]["btn1"]; ?></span>
               </a>
 
               <a href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>" class="btn btn-info btn-sm jaktip quickedit">
-                <?php echo $tl["button"]["btn2"]; ?>
+                <span class="visible-xs"><i class="fa fa-pencil"></i></span>
+                <span class="hidden-xs"><?php echo $tl["button"]["btn2"]; ?></span>
               </a>
             </span>
 

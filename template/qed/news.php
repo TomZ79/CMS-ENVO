@@ -22,7 +22,7 @@
 							} else { ?>
 
 								<div class="thumb-news text-center">
-									<img src="<?php echo 'template/' . ENVO_TEMPLATE . '/img/news/' . $site_language . '-news-feature-1.jpg'; ?>" alt="<?php echo $v["title"]; ?>" class="img-responsive">
+									<img src="<?php echo '/template/' . ENVO_TEMPLATE . '/img/news/' . $site_language . '-news-feature-1.jpg'; ?>" alt="<?php echo $v["title"]; ?>" class="img-responsive">
 									<div class="caption text-center">
 										<span class="color1"><?php echo $tlqed["news_text"]["newst"]; ?></span>
 										<span class="color2"><?php echo $tlqed["news_text"]["newst1"]; ?></span>

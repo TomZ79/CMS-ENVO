@@ -787,7 +787,6 @@ footer#main-footer #footer-rights p {
 
 .pager li.next > a i:before {
   margin: 0;
-  margin-left: 5px;
   text-align: right;
 }
 
@@ -924,7 +923,7 @@ footer#main-footer #footer-rights p {
     cursor: pointer;
     position: absolute;
     right: 10px;
-    top: 10px;
+    top: 8px;
     z-index: 10 !important;
     padding: 3px;
     background-color: #fff;
@@ -970,6 +969,107 @@ footer#main-footer #footer-rights p {
     color: #263238;
     font-size: 18px;
     margin: 0;
+  }
+}
+
+/* XX. NAVIGATION FOOTER LIST
+========================================================================
+ * http://brolik.com/blog/responsive-web-design-footer-html-css-jquery-code-examples/
+ */
+
+/* HTML Setting */
+.footer-navigation {
+  margin: 0;
+}
+
+.footer-navigation .footer-navigation-menu {
+  width: 100%;
+}
+
+.footer-navigation .footer-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-navigation .footer-links li a {
+  font-size: 14.4px;
+}
+
+/* Responsive Tablet Sizes */
+@media only screen and (max-width: 749px) {
+  .footer-navigation {
+    flex-wrap: wrap;
+  }
+
+  .footer-navigation .footer-navigation-menu {
+    width: 100%;
+  }
+
+  .footer-navigation .footer-links-holder {
+    padding: 0 20px;
+  }
+}
+
+/* Responsive Mobile Sizes */
+@media only screen and (max-width: 500px) {
+  .footer-navigation .footer-links-holder {
+    width: 100%;
+    padding: 0;
+    margin: 0 0 5px 0;
+  }
+
+  .footer-navigation .footer-links-holder h3 {
+    margin: 0;
+    padding: 10px 20px;
+    cursor: pointer;
+    background: #262626;
+
+    /* Down Arrows */
+  }
+
+  .footer-navigation .footer-links-holder h3::after {
+    float: right;
+    margin-right: 10px;
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 7px;
+    width: 7px;
+    height: 7px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    -moz-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+    -webkit-transition: transform .5s;
+    transition: transform .5s;
+  }
+
+  .footer-navigation .footer-links-holder .footer-links {
+    transition: opacity 1s ease-out;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+  }
+
+  .footer-navigation .footer-links-holder.active .footer-links {
+    opacity: 1;
+    height: auto;
+  }
+
+  .footer-navigation .footer-links-holder.active h3::after {
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  .footer-navigation .footer-links-holder.active .footer-links {
+    max-height: 10000px;
+    margin: 15px 0 15px 0;
   }
 }
 
@@ -1078,7 +1178,7 @@ input.form-control {
 }
 
 .color-blue .thumb-news .caption span.color2,
-.color-blue .thumb-download .caption span.color2{
+.color-blue .thumb-download .caption span.color2 {
   color: #3272A8;
 }
 
