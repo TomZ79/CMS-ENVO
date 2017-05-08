@@ -302,7 +302,7 @@
     <!-- /detached content -->
 
     <!-- Detached sidebar -->
-    <div class="sidebar-detached">
+    <div class="sidebar-detached sidebar-scroll">
       <div class="sidebar-two sidebar-default">
         <div class="sidebar-content">
           <!-- Navigation -->

@@ -1,22 +1,25 @@
 <?php if ($JAK_PROVED) { ?>
   <!-- END PLACE PAGE CONTENT HERE -->
-  </div><!-- END CONTAINER FLUID -->
+  <?php if ($page != 'cmshelp') { ?></div><?php } ?><!-- END CONTAINER FLUID -->
   </div><!-- END PAGE CONTENT -->
   <!-- START FOOTER -->
-  <div class="container-fluid container-fixed-lg footer">
-    <div class="copyright sm-text-center">
-      <p class="small no-margin pull-left sm-pull-reset">
-        <span class="hint-text"><?php echo $tl["hf_text"]["hftxt1"]; ?> - <?php echo date('Y'); ?> by </span>
-        <span><strong><a href="http://www.bluesat.cz" target="_blank">BLUESAT</a></strong></span>.
-        <span class="hint-text">All rights reserved.</span>
-      </p>
-      <p class="small no-margin pull-right sm-pull-reset">
-        <?php echo sprintf($tl["hf_text"]["hftxt"], $jkv["version"]); ?>
-        <span class="hint-text">&amp; Made with Love</span>
-      </p>
-      <div class="clearfix"></div>
+  <?php if ($page != 'cmshelp') { ?>
+    <div class="container-fluid container-fixed-lg footer">
+      <div class="copyright sm-text-center">
+        <p class="small no-margin pull-left sm-pull-reset">
+          <span class="hint-text"><?php echo $tl["hf_text"]["hftxt1"]; ?> - <?php echo date('Y'); ?> by </span>
+          <span><strong><a href="http://www.bluesat.cz" target="_blank">BLUESAT</a></strong></span>.
+          <span class="hint-text">All rights reserved.</span>
+        </p>
+        <p class="small no-margin pull-right sm-pull-reset">
+          <?php echo sprintf($tl["hf_text"]["hftxt"], $jkv["version"]); ?>
+          <span class="hint-text">&amp; Made with Love</span>
+        </p>
+        <div class="clearfix"></div>
+      </div>
     </div>
-  </div><!-- END FOOTER -->
+  <?php } ?>
+  <!-- END FOOTER -->
   </div><!-- END PAGE CONTENT WRAPPER -->
   </div><!-- END PAGE CONTAINER -->
   <!-- START OVERLAY -->
@@ -250,7 +253,7 @@ $notify =
 $debug = new PHPDebug();
 
 if (!empty($page)) {
-  $ap = array("logs", "searchlog", "changelog", "site", "setting", "plugins", "template", "maintenance", "facebookgallery", "settingfacebook", "mediasharing", "user", "usergroup", "categories", "page", "contactform", "sitemap", "searchsetting", "news", "tags");
+  $ap = array("logs", "searchlog", "changelog", "site", "setting", "plugins", "template", "maintenance", "facebookgallery", "settingfacebook", "mediasharing", "user", "usergroup", "categories", "page", "contactform", "sitemap", "searchsetting", "news", "tags", "cmshelp");
 
   if (in_array($page, $ap)) {
     $jscodefile = 'pages/js/pages.' . $page . '.php';

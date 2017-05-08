@@ -1234,6 +1234,14 @@ pre[class*="language-"] {
 /* 00. MODIFICATION - SIDEBAR
 ========================================================================*/
 
+.page-sidebar .sidebar-menu {
+  height: calc(100% - 60px); /* Correction for basic setting in pages.js */
+}
+
+.page-sidebar .sidebar-menu .menu-items {
+  height: calc(100% - 35px);
+}
+
 .page-sidebar .sidebar-menu .menu-items > li ul.sub-menu > li.list-divider {
   margin: 1px 20px 6px 40px;
   height: 1px;
@@ -1253,6 +1261,23 @@ pre[class*="language-"] {
   float: right;
   right: 10px;
   position: relative;
+}
+
+.sidebar-footer {
+  position: absolute;
+  bottom: 0;
+  height: 35px;
+  line-height: 35px;
+  width: 100%;
+  background-color: #272B35;
+  border-top: 1px solid #232730;
+  padding: 0 20px;
+  clear: both;
+}
+
+.sidebar-footer a:hover,
+.sidebar-footer a:focus {
+  color: #FFF !important;
 }
 
 /* 00. BOOTSTRAP MODAL DIALOG

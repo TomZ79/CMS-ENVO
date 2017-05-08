@@ -184,8 +184,6 @@ class HTML_Element
 
       // Trim the trailing slash
       $src = ltrim($src, "/ \t\n\r");
-
-      $src = BASE_URL_ORIG . $src;
     }
     $attributes['src'] = $src;
     $attributes['alt'] = (isset($attributes['alt'])) ? $attributes['alt'] : pathinfo($src, PATHINFO_FILENAME);

@@ -332,8 +332,8 @@ if ($page == 'maintenance') {
   $JAK_PAGE_ACTIVE = 1;
   $checkp          = 1;
 }
-if ($page == 'testpage') {
-  require_once 'testpage.php';
+if ($page == 'cmshelp') {
+  require_once 'cmshelp.php';
   $JAK_PROVED      = 1;
   $JAK_PAGE_ACTIVE = 1;
   $checkp          = 1;

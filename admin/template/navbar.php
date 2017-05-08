@@ -15,7 +15,7 @@
 
     <!-- START LOGS SECTION -->
     <?php
-    if ($page == 'logs' || $page == 'searchlog' || $page == 'changelog') {
+    if ($page == 'logs' || $page == 'searchlog') {
       $classlogssection = 'open active';
       $classiconbg = 'bg-success';
     }
@@ -47,16 +47,6 @@
           echo $Html->addAnchor('index.php?p=searchlog', $tl["submenu"]["sm3"]);
           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
           echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm3"]), 'icon-thumbnail');
-          ?>
-
-        </li>
-        <li class="<?php echo ($page == 'changelog') ? 'submenu-active' : ''; ?>">
-
-          <?php
-          // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-          echo $Html->addAnchor('index.php?p=changelog', $tl["submenu"]["sm4"]);
-          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-          echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm4"]), 'icon-thumbnail');
           ?>
 
         </li>
