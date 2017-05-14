@@ -752,6 +752,7 @@ if ($errors) { ?>
                       if ($pg["pluginid"] == '9997' && $JAK_CONTACT_FORM) { ?>
 
                         <li class="jakcontent">
+                          <div class="jakcontent_header"><?php echo $tl["global_text"]["globaltxt20"]; ?></div>
                           <div class="form-group">
                             <?php
                             // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
@@ -789,6 +790,7 @@ if ($errors) { ?>
                       if ($pg["pluginid"] == '9998') { ?>
 
                         <li class="jakcontent">
+                          <div class="jakcontent_header"><?php echo $tl["global_text"]["globaltxt19"]; ?></div>
                           <div class="form-group">
                             <label><?php echo $tl["global_text"]["globaltxt9"]; ?></label>
                             <div class="row">

@@ -2,7 +2,6 @@
 
 <!-- START SECONDARY SIDEBAR MENU-->
 <nav class="secondary-sidebar padding-30" id="myScrollspy">
-  <p class="menu-title">BROWSE</p>
   <ul class="nav main-menu">
     <li class="active">
       <a href="#introduction">
@@ -52,9 +51,43 @@
           </a>
         </li>
         <li>
+          <a href="#elementsicons">
+            <span class="title">Icons</span>
+          </a>
+          <ul class="sub-menu-child no-padding">
+            <li><a href="#elementsenvoicons">Envo Icons</a></li>
+            <li><a href="#elementsfontawesomeicons">Font Awesome Icons</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#elementsbuttons">
+            <span class="title">Buttons</span>
+          </a>
+        </li>
+        <li>
           <a href="#elementscreate">
             <span class="title">Create HTML Element</span>
           </a>
+          <ul class="sub-menu-child no-padding">
+            <li><a href="#elementscreate-doctype">DOCTYPE</a></li>
+            <li><a href="#elementscreate-meta">META</a></li>
+            <li><a href="#elementscreate-stylesheet">STYLESHEET</a></li>
+            <li><a href="#elementscreate-script">SCRIPT</a></li>
+            <li><a href="#elementscreate-startend">START - END</a></li>
+            <li><a href="#elementscreate-anchor">ANCHOR</a></li>
+            <li><a href="#elementscreate-image">IMAGE</a></li>
+            <li><a href="#elementscreate-buttonf">BUTTONF</a></li>
+            <li><a href="#elementscreate-button">BUTTON</a></li>
+            <li><a href="#elementscreate-submitf">SUBMITF BUTTON</a></li>
+            <li><a href="#elementscreate-submit">SUBMIT BUTTON</a></li>
+            <li><a href="#elementscreate-textareaf">TEXTAREAF</a></li>
+            <li><a href="#elementscreate-textarea">TEXTAREA</a></li>
+            <li><a href="#elementscreate-radiof">LABELF - RADIOF BUTTON</a></li>
+            <li><a href="#elementscdreate-checkboxf">LABELF - CHECKBOXF BUTTON</a></li>
+            <li><a href="#elementscdreate-radio">LABEL - RADIO BUTTON</a></li>
+            <li><a href="#elementscdreate-checkbox">LABEL - CHECKBOX BUTTON</a></li>
+            <li><a href="#elementscdreate-input">INPUT</a></li>
+          </ul>
         </li>
       </ul>
     </li>
@@ -1124,6 +1157,7 @@ Header set Cache-Control "max-age=604800, public"
     <p>We Developed an algorithm that will automatically select which font is best rendered as for your operating system. This is how it the render performance looks like</p>
 
     <h4 class="m-t-50">Font Color Classes</h4>
+    <hr>
     <p>You can add these classes to any element and its color of the font will change</p>
     <div class="row m-t-30">
       <div class="col-sm-3">
@@ -1275,6 +1309,7 @@ Header set Cache-Control "max-age=604800, public"
     </code></pre>
 
     <h4 class="m-t-50">Font Size Classes</h4>
+    <hr>
     <p class="m-b-15">If you wish to change the default font size, then you can apply the following classes</p>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
@@ -1302,6 +1337,7 @@ Header set Cache-Control "max-age=604800, public"
     </code></pre>
 
     <h4 class="m-t-50">Font Weights</h4>
+    <hr>
     <p class="m-b-15">Try out different font weights, this can be applied if the font supports it only, works partial support for Arial - Paragraphs Full support for Headings</p>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
@@ -1321,6 +1357,7 @@ Header set Cache-Control "max-age=604800, public"
     </code></pre>
 
     <h4 class="m-t-50">Font Face Switching</h4>
+    <hr>
     <p class="m-b-15">Apply heading font to paragraph or apply paragraph font to heading, you can switch it either way</p>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
@@ -1335,16 +1372,353 @@ Header set Cache-Control "max-age=604800, public"
 &lt;p class=&quot;font-montserrat&quot;&gt;I look different now&lt;/p&gt;
     </code></pre>
 
-    <div class="well bs-ref clearfix">
+    <div class="well bs-ref m-t-50 clearfix">
       <span class="pull-left">For native Bootstrap typography classes </span><a href="http://getbootstrap.com/css/#type" target="_blank" class="btn btn-primary pull-right ">Bootstrap Documentation</a>
     </div>
+  </section>
+
+  <!-- UI Elements - Icons -->
+  <section id="elementsicons" class="scrollspyoffset">
+    <h2 class="text-center">UI Elements - Icons</h2>
+    <hr>
+
+  </section>
+
+  <!-- UI Elements - Envo Icons  -->
+  <section id="elementsenvoicons" class="scrollspyoffset">
+    <h4>Envo Icons</h4>
+    <hr>
+    <p>Follow these steps to include an icon on to your page </p>
+    <h5 class="semi-bold">Step one</h5>
+    <p>Check if the following Style sheet is already added inside the <code>&lt;head&gt;</code> tag</p>
+    <pre><code class="language-css">
+&lt;link href=&quot;pages/css/pages-icon.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+    </code></pre>
+    <h5 class="semi-bold">Step two</h5>
+    <p>
+      Place the icon class in a <code>&lt;i&gt;&lt;/i&gt;</code> tag, pages icon prefix class starts with <code>pg-</code>.
+    </p>
+    <div class="example">
+      <p class="all-caps fs-12 bold">Example :</p>
+      <p><i class="pg-social"></i></p>
+    </div>
+    <pre><code class="language-php">
+&lt;i class=&quot;pg-social&quot;&gt;&lt;/i&gt;
+    </code></pre>
+    <div class="m-t-20">
+      <h5 class="semi-bold">Envo Icons classes</h5>
+      <form id="live-search" action="" class="live-search m-b-20" method="post">
+        <p>Enter text to filter icons:</p>
+        <input type="text" class="text-input" id="filter" value="" placeholder="Live Search ..."/>
+        <span id="filter-count"></span>
+      </form>
+
+      <ul id="pgicons" class="show-icon">
+        <li><i class="pg-signals"></i><span>pg-signals</span></li>
+        <li><i class="pg-crop"></i><span>pg-crop</span></li>
+        <li><i class="pg-folder_alt"></i><span>pg-folder_alt</span></li>
+        <li><i class="pg-folder"></i><span>pg-folder</span></li>
+        <li><i class="pg-theme"></i><span>pg-theme</span></li>
+        <li><i class="pg-battery_empty"></i><span>pg-battery_empty</span></li>
+        <li><i class="pg-battery"></i><span>pg-battery</span></li>
+        <li><i class="pg-note"></i><span>pg-note</span></li>
+        <li><i class="pg-server_hard"></i><span>pg-server_hard</span></li>
+        <li><i class="pg-servers"></i><span>pg-servers</span></li>
+        <li><i class="pg-menu_justify"></i><span>pg-menu_justify</span></li>
+        <li><i class="pg-credit_card"></i><span>pg-credit_card</span></li>
+        <li><i class="pg-fullscreen_restore"></i><span>pg-fullscreen_restore</span></li>
+        <li><i class="pg-fullscreen"></i><span>pg-fullscreen</span></li>
+        <li><i class="pg-minus"></i><span>pg-minus</span></li>
+        <li><i class="pg-minus_circle"></i><span>pg-minus_circle</span></li>
+        <li><i class="pg-plus_circle"></i><span>pg-plus_circle</span></li>
+        <li><i class="pg-refresh_new"></i><span>pg-refresh_new</span></li>
+        <li><i class="pg-close_line"></i><span>pg-close_line</span></li>
+        <li><i class="pg-close"></i><span>pg-close</span></li>
+        <li><i class="pg-arrow_down"></i><span>pg-arrow_down</span></li>
+        <li><i class="pg-arrow_left_line_alt"></i><span>pg-arrow_left_line_alt</span></li>
+        <li><i class="pg-arrow_left"></i><span>pg-arrow_left</span></li>
+        <li><i class="pg-arrow_lright_line_alt"></i><span>pg-arrow_lright_line_alt</span></li>
+        <li><i class="pg-arrow_maximize_line"></i><span>pg-arrow_maximize_line</span></li>
+        <li><i class="pg-arrow_maximize"></i><span>pg-arrow_maximize</span></li>
+        <li><i class="pg-arrow_minimize_line"></i><span>pg-arrow_minimize_line</span></li>
+        <li><i class="pg-arrow_minimize"></i><span>pg-arrow_minimize</span></li>
+        <li><i class="pg-arrow_right"></i><span>pg-arrow_right</span></li>
+        <li><i class="pg-arrow_up"></i><span>pg-arrow_up</span></li>
+        <li><i class="pg-more"></i><span>pg-more</span></li>
+        <li><i class="pg-bag"></i><span>pg-bag</span></li>
+        <li><i class="pg-bag1"></i><span>pg-bag1</span></li>
+        <li><i class="pg-bold"></i><span>pg-bold</span></li>
+        <li><i class="pg-calender"></i><span>pg-calender</span></li>
+        <li><i class="pg-camera"></i><span>pg-camera</span></li>
+        <li><i class="pg-centeralign"></i><span>pg-centeralign</span></li>
+        <li><i class="pg-charts"></i><span>pg-charts</span></li>
+        <li><i class="pg-clock"></i><span>pg-clock</span></li>
+        <li><i class="pg-comment"></i><span>pg-comment</span></li>
+        <li><i class="pg-contact_book"></i><span>pg-contact_book</span></li>
+        <li><i class="pg-credit_card_line"></i><span>pg-credit_card_line</span></li>
+        <li><i class="pg-cupboard"></i><span>pg-cupboard</span></li>
+        <li><i class="pg-desktop"></i><span>pg-desktop</span></li>
+        <li><i class="pg-download"></i><span>pg-download</span></li>
+        <li><i class="pg-eraser"></i><span>pg-eraser</span></li>
+        <li><i class="pg-extra"></i><span>pg-extra</span></li>
+        <li><i class="pg-form"></i><span>pg-form</span></li>
+        <li><i class="pg-grid"></i><span>pg-grid</span></li>
+        <li><i class="pg-home"></i><span>pg-home</span></li>
+        <li><i class="pg-image"></i><span>pg-image</span></li>
+        <li><i class="pg-inbox"></i><span>pg-inbox</span></li>
+        <li><i class="pg-indent"></i><span>pg-indent</span></li>
+        <li><i class="pg-italic"></i><span>pg-italic</span></li>
+        <li><i class="pg-laptop"></i><span>pg-laptop</span></li>
+        <li><i class="pg-layouts"></i><span>pg-layouts</span></li>
+        <li><i class="pg-layouts2"></i><span>pg-layouts2</span></li>
+        <li><i class="pg-layouts3"></i><span>pg-layouts3</span></li>
+        <li><i class="pg-layouts4"></i><span>pg-layouts4</span></li>
+        <li><i class="pg-leftalign"></i><span>pg-leftalign</span></li>
+        <li><i class="pg-like"></i><span>pg-like</span></li>
+        <li><i class="pg-like1"></i><span>pg-like1</span></li>
+        <li><i class="pg-lock"></i><span>pg-lock</span></li>
+        <li><i class="pg-mail"></i><span>pg-mail</span></li>
+        <li><i class="pg-map"></i><span>pg-map</span></li>
+        <li><i class="pg-menu_lv"></i><span>pg-menu_lv</span></li>
+        <li><i class="pg-menu"></i><span>pg-menu</span></li>
+        <li><i class="pg-movie"></i><span>pg-movie</span></li>
+        <li><i class="pg-ordered_list"></i><span>pg-ordered_list</span></li>
+        <li><i class="pg-outdent"></i><span>pg-outdent</span></li>
+        <li><i class="pg-phone"></i><span>pg-phone</span></li>
+        <li><i class="pg-plus"></i><span>pg-plus</span></li>
+        <li><i class="pg-power"></i><span>pg-power</span></li>
+        <li><i class="pg-printer"></i><span>pg-printer</span></li>
+        <li><i class="pg-refresh"></i><span>pg-refresh</span></li>
+        <li><i class="pg-resize"></i><span>pg-resize</span></li>
+        <li><i class="pg-right_align"></i><span>pg-right_align</span></li>
+        <li><i class="pg-save"></i><span>pg-save</span></li>
+        <li><i class="pg-search"></i><span>pg-search</span></li>
+        <li><i class="pg-sent"></i><span>pg-sent</span></li>
+        <li><i class="pg-settings_small_1"></i><span>pg-settings_small_1</span></li>
+        <li><i class="pg-settings_small"></i><span>pg-settings_small</span></li>
+        <li><i class="pg-settings"></i><span>pg-settings</span></li>
+        <li><i class="pg-shopping_cart"></i><span>pg-shopping_cart</span></li>
+        <li><i class="pg-social"></i><span>pg-social</span></li>
+        <li><i class="pg-spam"></i><span>pg-spam</span></li>
+        <li><i class="pg-suitcase"></i><span>pg-suitcase</span></li>
+        <li><i class="pg-tables"></i><span>pg-tables</span></li>
+        <li><i class="pg-tablet"></i><span>pg-tablet</span></li>
+        <li><i class="pg-telephone"></i><span>pg-telephone</span></li>
+        <li><i class="pg-text_style"></i><span>pg-text_style</span></li>
+        <li><i class="pg-trash_line"></i><span>pg-trash_line</span></li>
+        <li><i class="pg-trash"></i><span>pg-trash</span></li>
+        <li><i class="pg-ui"></i><span>pg-ui</span></li>
+        <li><i class="pg-underline"></i><span>pg-underline</span></li>
+        <li><i class="pg-unordered_list"></i><span>pg-unordered_list</span></li>
+        <li><i class="pg-video"></i><span>pg-video</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- UI Elements - Font Awesome Icons -->
+  <section id="elementsfontawesomeicons" class="scrollspyoffset">
+    <h4>Font Awesome Icons</h4>
+    <hr>
+    <p>Follow these steps to include an icon on to your page </p>
+    <h5 class="semi-bold">Step one</h5>
+    <p>Check if the following Style sheet is already added inside the <code>&lt;head&gt;</code> tag</p>
+    <pre><code class="language-css">
+&lt;link href=&quot;'../assets/plugins/font-awesome/4.7.0/css/font-awesome.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+    </code></pre>
+    <h5 class="semi-bold">Step two</h5>
+    <p>Place the icon class in a <code>&lt;i&gt;&lt;/i&gt;</code> tag, pages icon prefix class starts with <code>fa fa-</code>. To view all classes in Font Awesome go to <a href="http://fontawesome.io/icons/" target="_blank">icons example</a> . </p>
+    <div class="example">
+      <p class="all-caps fs-12 bold">Example :</p>
+      <p><i class="fa fa-address-book"></i></p>
+    </div>
+    <pre><code class="language-php">
+&lt;i class=&quot;fa fa-address-book&quot;&gt;&lt;/i&gt;
+    </code></pre>
+  </section>
+
+  <!-- UI Elements - Buttons -->
+  <section id="elementsbuttons" class="scrollspyoffset">
+    <h2 class="text-center">UI Elements - Buttons</h2>
+    <hr>
+
+    <h4 class="m-t-50">Colors</h4>
+    <hr>
+    <p>Pages buttons use the same contextual classes introduced in Bootstrap</p>
+    <div class="example">
+      <p class="all-caps fs-12 bold">Example :</p>
+      <button class="btn btn-primary btn-cons m-b-10">Primary</button>
+      <button class="btn btn-success btn-cons m-b-10">Success</button>
+      <button class="btn btn-complete btn-cons m-b-10">Complete</button>
+      <button class="btn btn-info btn-cons m-b-10">Info</button>
+      <button class="btn btn-warning btn-cons m-b-10">Warning</button>
+      <button class="btn btn-danger btn-cons m-b-10">Danger</button>
+    </div>
+    <pre><code class="language-php">
+&lt;button class=&quot;btn btn-primary btn-cons&quot;&gt;Primary&lt;/button&gt;
+&lt;button class=&quot;btn btn-success btn-cons&quot;&gt;Success&lt;/button&gt;
+&lt;button class=&quot;btn btn-complete btn-cons&quot;&gt;Complete&lt;/button&gt;
+&lt;button class=&quot;btn btn-info btn-cons&quot;&gt;Info&lt;/button&gt;
+&lt;button class=&quot;btn btn-warning btn-cons&quot;&gt;Warning&lt;/button&gt;
+&lt;button class=&quot;btn btn-danger btn-cons&quot;&gt;Danger&lt;/button&gt;
+    </code></pre>
+
+    <h4 class="m-t-50">Button animation</h4>
+    <hr>
+    <p>Content inside a button can be animate on hover. Simply include the classes <code>.btn-animated</code> together with <code>.from-top</code> or <code>.from-left</code> to specify the animation direction, followed by the desired <a href="">icon font</a> class name (ex: <code>fa fa-check</code>)</p>
+    <div class="example">
+      <p class="all-caps fs-12 bold">Example :</p>
+      <button class="btn btn-primary btn-cons btn-animated from-left fa fa-check" type="button">
+        <span>Checkbox</span>
+      </button>
+      <button class="btn btn-primary btn-cons btn-animated from-top pg pg-clock" type="button">
+        <span>Clock</span>
+      </button>
+    </div>
+    <pre><code class="language-php">
+&lt;button class=&quot;btn btn-primary btn-animated from-left fa fa-check&quot; type=&quot;button&quot;&gt;
+  &lt;span&gt;Checkbox&lt;/span&gt;
+&lt;/button&gt;
+&lt;button class=&quot;btn btn-primary btn-animated from-top pg pg-clock&quot; type=&quot;button&quot;&gt;
+  &lt;span&gt;Clock&lt;/span&gt;
+&lt;/button&gt;
+    </code></pre>
+
+    <h4 class="m-t-50">Default Dropdown</h4>
+    <hr>
+    <div class="alert alert-info">
+      AngularJS users will have to append <code>pg-dropdown</code> directive to the <code>&lt;div class="btn-group dropdown-default"&gt;</code> element
+    </div>
+    <p>Tired of seeing the standard Bootstrap dropdown? Wrap your dropdown toggle button and dropdown menu within <code>.dropdown-default</code> to get a modern and clean feel</p>
+    <div class="example">
+      <p class="all-caps fs-12 bold">Example :</p>
+      <div class="btn-group dropdown-default">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"> Dropdown <span class="caret"></span> </a>
+        <ul class="dropdown-menu ">
+          <li><a href="#">Arial</a>
+          </li>
+          <li><a href="#">Helvetica</a>
+          </li>
+          <li><a href="#">SegeoUI</a>
+          </li>
+        </ul>
+      </div>
+      <div class="btn-group dropdown-default dropup">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"> Dropdown <span class="caret"></span> </a>
+        <ul class="dropdown-menu ">
+          <li><a href="#">Arial</a>
+          </li>
+          <li><a href="#">Helvetica</a>
+          </li>
+          <li><a href="#">SegeoUI</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <pre><code class="language-php">
+&lt;!-- Downside dropdown --&gt;
+&lt;div class=&quot;btn-group dropdown-default&quot;&gt;
+  &lt;a class=&quot;btn dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; href=&quot;#&quot;&gt; Dropdown
+    &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+  &lt;/a&gt;
+  &lt;ul class=&quot;dropdown-menu &quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Arial&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Helvetica&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;SegeoUI&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- Upside dropdown --&gt;
+&lt;div class=&quot;btn-group dropdown-default dropup&quot;&gt;
+  &lt;a class=&quot;btn dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; href=&quot;#&quot;&gt; Dropdown
+    &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+  &lt;/a&gt;
+  &lt;ul class=&quot;dropdown-menu &quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Arial&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Helvetica&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;SegeoUI&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+    </code></pre>
+
+    <h4 class="m-t-50">Tag Options</h4>
+    <hr>
+    <p>Add <code>.btn-tag</code> followed by <code>.btn-tag-light</code> or <code>.btn-tag-dark</code> to have tag options with color variations for buttons. Additionally, rounded tags can be achieved by adding <code>.btn-tag-rounded</code></p>
+    <div class="example">
+      <p class="all-caps fs-12 bold">Example :</p>
+      <button class="btn btn-tag  btn-tag-light m-r-20">Link me</button>
+      <button class="btn btn-tag  btn-tag-dark">Link me</button>
+      <br>
+      <br>
+      <button class="btn btn-tag   btn-tag-light btn-tag-rounded m-r-20">Link me</button>
+      <button class="btn btn-tag   btn-tag-dark btn-tag-rounded">Link me</button>
+    </div>
+    <pre><code class="language-php">
+&lt;!-- Tag with a light background --&gt;
+&lt;button class=&quot;btn btn-tag  btn-tag-light m-r-20&quot;&gt;Link me&lt;/button&gt;
+
+&lt;!-- Tag with a dark background --&gt;
+&lt;button class=&quot;btn btn-tag  btn-tag-dark&quot;&gt;Link me&lt;/button&gt;
+
+&lt;!-- Rounded tag with a light background --&gt;
+&lt;button class=&quot;btn btn-tag   btn-tag-light btn-tag-rounded m-r-20&quot;&gt;Link me&lt;/button&gt;
+
+&lt;!-- Rounded tag with a dark background --&gt;
+&lt;button class=&quot;btn btn-tag   btn-tag-dark btn-tag-rounded&quot;&gt;Link me&lt;/button&gt;
+    </code></pre>
+
+    <h4 class="m-t-50">Rounded buttons</h4>
+    <hr>
+    <p>Any button can be made to have rounded corners by adding <code>.btn-rounded</code></p>
+    <div class="example">
+      <p class="all-caps fs-12 bold">Example :</p>
+      <button class="btn btn-lg btn-rounded m-r-20 m-b-10">Large rounded</button>
+      <br>
+      <button class="btn btn-rounded m-b-10">Regular</button>
+      <br>
+      <button class="btn btn-sm btn-rounded">Small</button>
+    </div>
+    <pre><code class="language-php">
+&lt;!-- Large rounded button --&gt;
+&lt;button class=&quot;btn btn-lg btn-rounded&quot;&gt;Large rounded&lt;/button&gt;
+
+&lt;!-- Regular rounded button --&gt;
+&lt;button class=&quot;btn btn-rounded&quot;&gt;Regular&lt;/button&gt;
+
+&lt;!-- Small rounded button --&gt;
+&lt;button class=&quot;btn btn-sm btn-rounded&quot;&gt;Small&lt;/button&gt;
+    </code></pre>
+
+    <div class="well bs-ref m-t-50 clearfix">
+      <span class="pull-left">For native Bootstrap button classes </span><a href="http://getbootstrap.com/css/#buttons" target="_blank" class="btn btn-primary pull-right ">Bootstrap Documentation</a>
+    </div>
+
   </section>
 
   <!-- UI Elements - Create HTML Element -->
   <section id="elementscreate" class="scrollspyoffset">
     <h2 class="text-center">Create HTML Element</h2>
     <hr>
-    <h4 class="m-t-50">DOCTYPE html</h4>
+
+    <h4 class="m-t-50">XXXX</h4>
+    <div class="example">
+      <p class="all-caps fs-12 bold">Example :</p>
+      <p></p>
+    </div>
+    <pre><code class="language-php">
+
+    </code></pre>
+  </section>
+
+  <!-- UI Elements - Create HTML Element - DOCTYPE html -->
+  <section id="elementscreate-doctype" class="scrollspyoffset">
+    <h4>DOCTYPE html</h4>
+    <hr>
     <p>Create an doctype tag.</p>
     <div class="phpcode">
       <pre><code class="language-php">
@@ -1387,8 +1761,12 @@ echo $Html-&gt;addDoctype('html4-trans');
 // returns &lt;!DOCTYPE html PUBLIC ... &gt;
 echo $Html-&gt;addDoctype('html4-frame');
     </code></pre>
+  </section>
 
-    <h4 class="m-t-50">META Tag</h4>
+  <!-- UI Elements - Create HTML Element - META Tag -->
+  <section id="elementscreate-meta" class="scrollspyoffset">
+    <h4>META Tag</h4>
+    <hr>
     <p>Create meta tag or tags if multi-level array is supplied.</p>
     <div class="phpcode">
       <pre><code class="language-php">
@@ -1423,8 +1801,12 @@ $meta = array(
 
 echo $Html->addMeta($meta);
     </code></pre>
+  </section>
 
-    <h4 class="m-t-50">STYLESHEET Tag</h4>
+  <!-- UI Elements - Create HTML Element - STYLESHEET Tag -->
+  <section id="elementscreate-stylesheet" class="scrollspyoffset">
+    <h4>STYLESHEET Tag</h4>
+    <hr>
     <p>Create an stylesheet tag.</p>
     <div class="phpcode">
       <pre><code class="language-php">
@@ -1441,8 +1823,12 @@ $Html->addStylesheet(Arguments: href, media, optional assoc. array);
 // returns &lt;link href="assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css"&gt;
 echo $Html->addStylesheet('assets/plugins/pace/pace-theme-flash.css');
     </code></pre>
+  </section>
 
-    <h4 class="m-t-50">SCRIPT Tag</h4>
+  <!-- UI Elements - Create HTML Element - SCRIPT Tag -->
+  <section id="elementscreate-script" class="scrollspyoffset">
+    <h4>SCRIPT Tag</h4>
+    <hr>
     <p>Create an script tag.</p>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
@@ -1454,8 +1840,12 @@ echo $Html->addStylesheet('assets/plugins/pace/pace-theme-flash.css');
 // returns &lt;script src="https://code.jquery.com/jquery-2.1.1.min.js"&gt;&lt;/script&gt;
 echo $Html->addScript('https://code.jquery.com/jquery-2.1.1.min.js');
     </code></pre>
+  </section>
 
-    <h4 class="m-t-50">START - END Tag</h4>
+  <!-- UI Elements - Create HTML Element - START - END Tag -->
+  <section id="elementscreate-startend" class="scrollspyoffset">
+    <h4>START - END Tag</h4>
+    <hr>
     <p>Create an HTML tag.</p>
     <div class="phpcode">
       <pre><code class="language-php">
@@ -1506,8 +1896,12 @@ echo $Html->startTag('strong') . 'Text in tag' . $Html->endTag('strong');
 // returns &lt;strong style="color:red"&gt;Text in tag&lt;/strong&gt;
 echo $Html->startTag('strong', array ('style' => 'color:red')) . 'Text in tag' . $Html->endTag('strong');
     </code></pre>
+  </section>
 
-    <h4 class="m-t-50">ANCHOR Tag</h4>
+  <!-- UI Elements - Create HTML Element - ANCHOR Tag -->
+  <section id="elementscreate-anchor" class="scrollspyoffset">
+    <h4>ANCHOR Tag</h4>
+    <hr>
     <p>Create an HTML anchor tag.</p>
     <div class="phpcode">
       <pre><code class="language-php">
@@ -1582,8 +1976,12 @@ echo $Html->addAnchor('http://www.google.com', 'Text in anchor', 'cmshelp', 'plu
 // returns &lt;a href="http://www.google.com" id="cmshelp" class="plugHelp" style="color:red"&gt;Text in anchor&lt;/a&gt;
 echo $Html->addAnchor('http://www.google.com', 'Text in anchor', 'cmshelp', 'plugHelp',  array ('style' => 'color:red'));
     </code></pre>
+  </section>
 
-    <h4 class="m-t-50">IMAGE Tag</h4>
+  <!-- UI Elements - Create HTML Element - IMAGE Tag -->
+  <section id="elementscreate-image" class="scrollspyoffset">
+    <h4>IMAGE Tag</h4>
+    <hr>
     <p>Create an HTML image tag.</p>
     <div class="phpcode">
       <pre><code class="language-php">
@@ -1632,8 +2030,12 @@ echo $Html->addImg('assets/img/logo.png');
 // returns &lt;img src="path/to/image.png" alt="Alt Message" class="myclass" /&gt;
 echo $Html->addImg('assets/img/logo.png', array("alt" => "Alt Message", 'class' => "myclass"));
     </code></pre>
+  </section>
 
-    <h4 class="m-t-50">BUTTONF Tag</h4>
+  <!-- UI Elements - Create HTML Element - BUTTONF Tag -->
+  <section id="elementscreate-buttonf" class="scrollspyoffset">
+    <h4>BUTTONF Tag</h4>
+    <hr>
     <p>Creates an html button element.</p>
     <div class="phpcode">
       <pre><code class="language-php">
@@ -1695,8 +2097,12 @@ echo $Html->addButtonF('subject', 'Value', array('type' => 'button', 'class' => 
 // returns &lt;button type="button" class="btn btn-success" disabled="disabled" name="subject"&gt;Value&lt;/button&gt;
 echo $Html->addButtonF('subject', 'Value', array('type' => 'button', 'class' => 'btn btn-success', 'disabled' => 'disabled'));
     </code></pre>
+  </section>
 
-    <h4 class="m-t-50">BUTTON Tag</h4>
+  <!-- UI Elements - Create HTML Element - BUTTON Tag -->
+  <section id="elementscreate-button" class="scrollspyoffset">
+    <h4>BUTTON Tag</h4>
+    <hr>
     <p>Creates an html button element.</p>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
@@ -1727,8 +2133,12 @@ echo $Html->addButtonF('subject', 'Value', array('type' => 'button', 'class' => 
 // returns &lt;button type="button" name="button" class="btn btn-success"&gt;Button&lt;/button&gt;
 echo $Html->addButton('button', '', 'Button', 'button', '', 'btn btn-success');
     </code></pre>
+  </section>
 
-    <h4 class="m-t-50">SUBMITF BUTTON Tag</h4>
+  <!-- UI Elements - Create HTML Element - SUBMITF BUTTON Tag -->
+  <section id="elementscreate-submitf" class="scrollspyoffset">
+    <h4>SUBMITF BUTTON Tag</h4>
+    <hr>
     <p>Creates an html button element.</p>
     <div class="phpcode">
       <pre><code class="language-php">
@@ -1777,8 +2187,12 @@ echo $Html->addSubmitF();
 // returns &lt;button name="submit" value="Submit" id="a1" class="sample" style="color:red" type="submit"&gt;Submit&lt;/button&gt;
 echo $Html->addSubmitF('submit', 'Submit', array('id' => 'a1', 'class' => 'sample', 'style' => 'color:red'));
     </code></pre>
+  </section>
 
-    <h4 class="m-t-50">SUBMIT BUTTON Tag</h4>
+  <!-- UI Elements - Create HTML Element - SUBMIT BUTTON Tag -->
+  <section id="elementscreate-submit" class="scrollspyoffset">
+    <h4>SUBMIT BUTTON Tag</h4>
+    <hr>
     <p>Creates an html button element.</p>
     <div class="phpcode">
       <pre><code class="language-php">
@@ -1840,8 +2254,12 @@ echo $Html->addButtonSubmit('save', '&lt;i class="fa fa-save m-r-5"&gt;&lt;/i&gt
 // returns &lt;button type="submit" name="save" class="btn btn-success" style="color:red"&gt;&lt;i class="fa fa-save m-r-5"&gt;&lt;/i&gt; Submit&lt;/button&gt;
 echo $Html->addButtonSubmit('save', '&lt;i class="fa fa-save m-r-5"&gt;&lt;/i&gt; Submit', '', 'btn btn-success', array('style' => 'color:red'));
     </code></pre>
+  </section>
 
-    <h4 class="m-t-50">TEXTAREAF Tag</h4>
+  <!-- UI Elements - Create HTML Element - TEXTAREAF Tag -->
+  <section id="elementscreate-textareaf" class="scrollspyoffset">
+    <h4>TEXTAREAF Tag</h4>
+    <hr>
     <p>Creates an html textarea element.</p>
     <div class="phpcode">
       <pre><code class="language-php">
@@ -1890,8 +2308,12 @@ echo $Html->addTextareaF('editor', 'Text for textarea', array('rows' => 4, 'cols
 //returns &lt;textarea id="editor" class="form-control" maxlength="400" name="editor"&gt;Text for textarea&lt;/textarea&gt;
 echo $Html->addTextareaF('editor', 'Text for textarea', array('id' => 'editor', 'class' => 'form-control', 'maxlength' => '400'));
     </code></pre>
+  </section>
 
-    <h4 class="m-t-50">TEXTAREA Tag</h4>
+  <!-- UI Elements - Create HTML Element - TEXTAREA Tag -->
+  <section id="elementscreate-textarea" class="scrollspyoffset">
+    <h4>TEXTAREA Tag</h4>
+    <hr>
     <p>Creates an html textarea element.</p>
     <div class="phpcode">
       <pre><code class="language-php">
@@ -1940,8 +2362,12 @@ echo $Html->addTextarea('content', 'Text for textarea');
 // returns &lt;textarea name="content" id="editor" class="form-control"&gt;Text for textarea&lt;/textarea&gt;
 echo $Html->addTextarea('content', 'Text for textarea', '', '', array('id' => 'editor', 'class' => 'form-control'));
     </code></pre>
+  </section>
 
-    <h4 class="m-t-50">LABELF and RADIOF BUTTON Tag</h4>
+  <!-- UI Elements - Create HTML Element - LABELF and RADIOF BUTTON Tag -->
+  <section id="elementscreate-radiof" class="scrollspyoffset">
+    <h4>LABELF and RADIOF BUTTON Tag</h4>
+    <hr>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
       <table class="table">
@@ -1995,8 +2421,12 @@ echo $Html->addRadioF('gender', 'Female','gender1');
 echo $Html->addLabelF('Female', 'gender2');
 echo $Html->addRadioF('gender', 'Male', 'gender2', true);
     </code></pre>
+  </section>
 
-    <h4 class="m-t-50">LABELF and CHECKBOXF BUTTON Tag</h4>
+  <!-- UI Elements - Create HTML Element - LABELF and CHECKBOXF BUTTON Tag -->
+  <section id="elementscdreate-checkboxf" class="scrollspyoffset">
+    <h4>LABELF and CHECKBOXF BUTTON Tag</h4>
+    <hr>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
       <table class="table">
@@ -2050,8 +2480,12 @@ echo $Html->addCheckboxF('gender', 'Male', 'gender3');
 echo $Html->addLabelF('Female', 'gender4');
 echo $Html->addCheckboxF('gender', 'Female', 'gender4', true);
     </code></pre>
+  </section>
 
-    <h4 class="m-t-50">LABEL and RADIO BUTTON Tag</h4>
+  <!-- UI Elements - Create HTML Element - LABEL and RADIO BUTTON Tag -->
+  <section id="elementscdreate-radio" class="scrollspyoffset">
+    <h4>LABEL and RADIO BUTTON Tag</h4>
+    <hr>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
       <table class="table">
@@ -2105,8 +2539,12 @@ echo $Html->addRadio('gender', 'Female', true, 'gender5');
 echo $Html->addLabel('gender6', 'Male');
 echo $Html->addRadio('gender', 'Male', '', 'gender6');
     </code></pre>
+  </section>
 
-    <h4 class="m-t-50">LABEL and CHECKBOX BUTTON Tag</h4>
+  <!-- UI Elements - Create HTML Element - LABEL and CHECKBOX BUTTON Tag -->
+  <section id="elementscdreate-checkbox" class="scrollspyoffset">
+    <h4>LABEL and CHECKBOX BUTTON Tag</h4>
+    <hr>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
       <table class="table">
@@ -2160,8 +2598,12 @@ echo $Html->addCheckbox('gender', 'Female', true, 'gender7');
 echo $Html->addLabel('gender8', 'Male');
 echo $Html->addCheckbox('gender', 'Male', '', 'gender8');
     </code></pre>
+  </section>
 
-    <h4 class="m-t-50">INPUT Tag</h4>
+  <!-- UI Elements - Create HTML Element - INPUT Tag -->
+  <section id="elementscdreate-input" class="scrollspyoffset">
+    <h4>INPUT Tag</h4>
+    <hr>
     <div class="phpcode">
       <pre><code class="language-php">
 $Html->addInput(Arguments: type, name, value, id, class, optional assoc. array);
@@ -2236,33 +2678,6 @@ $Html->addInput(Arguments: type, name, value, id, class, optional assoc. array);
 
 // returns &lt;input name=&quot;text&quot; id=&quot;text&quot; value=&quot;Text for textinput&quot; type=&quot;text&quot;&gt;
 echo $Html->addInput('text', 'text', 'Text for textinput');
-    </code></pre>
-
-    <h4 class="m-t-50">XXXX</h4>
-    <div class="example">
-      <p class="all-caps fs-12 bold">Example :</p>
-      <p></p>
-    </div>
-    <pre><code class="language-php">
-
-    </code></pre>
-
-    <h4 class="m-t-50">XXXX</h4>
-    <div class="example">
-      <p class="all-caps fs-12 bold">Example :</p>
-      <p></p>
-    </div>
-    <pre><code class="language-php">
-
-    </code></pre>
-
-    <h4 class="m-t-50">XXXX</h4>
-    <div class="example">
-      <p class="all-caps fs-12 bold">Example :</p>
-      <p></p>
-    </div>
-    <pre><code class="language-php">
-
     </code></pre>
   </section>
 

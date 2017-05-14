@@ -84,7 +84,7 @@ echo $Html->addDoctype('html5');
     } ?>
 
   </head>
-<body class="fixed-header has-detached-right" data-spy="scroll" data-target=".sidebar-detached" data-offset-top="70">
+<body class="fixed-header has-detached-right">
 <?php if ($JAK_PROVED) { ?>
   <!-- BEGIN SIDEBAR -->
   <div class="page-sidebar" data-pages="sidebar">
@@ -94,7 +94,7 @@ echo $Html->addDoctype('html5');
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-          echo $Html->addAnchor('index.php?p=testpage', '<img src="assets/img/demo/social_app.svg" alt="socail">', '', 'p-l-40');
+          echo $Html->addAnchor('#', '<img src="assets/img/demo/social_app.svg" alt="socail">', '', 'p-l-40');
           ?>
 
         </div>
@@ -124,6 +124,17 @@ echo $Html->addDoctype('html5');
           ?>
 
         </div>
+      </div>
+
+      <div class="sidebar-footer text-center hidden-xs">
+
+        <?php
+        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+        echo $Html->addAnchor('index.php?p=changelog', $tl["submenu"]["sm4"]);
+        echo (' | ');
+        echo $Html->addAnchor('index.php?p=cmshelp', 'CMS Help');
+        ?>
+
       </div>
     </div>
     <!-- BEGIN SIDEBAR HEADER -->
@@ -429,27 +440,31 @@ echo $Html->addDoctype('html5');
   <!-- END HEADER -->
   <!-- END PAGE HEADER WRAPPER -->
   <!-- START PAGE CONTENT WRAPPER -->
-  <div class="page-content-wrapper">
+  <div class="page-content-wrapper <?php if ($page == 'cmshelp') echo 'full-height'; ?>">
   <!-- START PAGE CONTENT -->
-  <div class="content">
+  <div class="content <?php if ($page == 'cmshelp') echo 'full-height'; ?>">
   <!-- START JUMBOTRON -->
-  <div class="jumbotron" data-pages="parallax">
-    <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
-      <?php if ($page != '404' && !empty($page)) { ?>
-        <div class="inner">
-          <!-- START BREADCRUMB -->
-          <ul class="breadcrumb">
-            <li><h5 class="title bold"><?php echo $SECTION_TITLE; ?></h5></li>
-            <li><span class="desc"><?php echo $SECTION_DESC; ?></span></li>
-          </ul>
-          <!-- END BREADCRUMB -->
-        </div>
-      <?php } ?>
+  <?php if ($page != 'cmshelp') { ?>
+    <div class="jumbotron" data-pages="parallax">
+      <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+        <?php if ($page != '404' && !empty($page)) { ?>
+          <div class="inner">
+            <!-- START BREADCRUMB -->
+            <ul class="breadcrumb">
+              <li><h5 class="title bold"><?php echo $SECTION_TITLE; ?></h5></li>
+              <li><span class="desc"><?php echo $SECTION_DESC; ?></span></li>
+            </ul>
+            <!-- END BREADCRUMB -->
+          </div>
+        <?php } ?>
+      </div>
     </div>
-  </div>
+  <?php } ?>
   <!-- END JUMBOTRON -->
   <!-- START CONTAINER FLUID -->
-  <div class="container-fluid container-fixed-lg">
+  <?php if ($page != 'cmshelp') { ?>
+    <div class="container-fluid container-fixed-lg">
+  <?php } ?>
   <!-- BEGIN PLACE PAGE CONTENT HERE -->
 
 <?php } else { ?>

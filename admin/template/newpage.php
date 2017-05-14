@@ -617,6 +617,7 @@ if ($errors) { ?>
                   <?php if (isset($JAK_CONTACT_FORMS) && is_array($JAK_CONTACT_FORMS)) { ?>
 
                     <li class="jakcontent">
+                      <div class="jakcontent_header"><?php echo $tl["global_text"]["globaltxt20"]; ?></div>
                       <div class="form-group">
 
                         <?php
@@ -654,6 +655,7 @@ if ($errors) { ?>
                   <?php } ?>
 
                   <li class="jakcontent">
+                    <div class="jakcontent_header"><?php echo $tl["global_text"]["globaltxt19"]; ?></div>
                     <div class="form-group">
                       <label><?php echo $tl["global_text"]["globaltxt9"]; ?></label>
                       <div class="row">

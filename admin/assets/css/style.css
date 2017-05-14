@@ -955,6 +955,10 @@ input {
   padding: 6px 12px;
 }
 
+.form-control:focus {
+  background-color: #FFF;
+}
+
 /* SINGEL Checkboxes buttons - without text in label (for tables)
  * Pretty Checkbox Inputs with Bootstrap and awesome-bootstrap-checkbox
  */
@@ -1103,7 +1107,7 @@ input[type="date"]:focus, input[type="email"]:focus,
 input[type="number"]:focus, input[type="tel"]:focus,
 input[type="time"]:focus, input[type="url"]:focus,
 textarea:focus, textarea:focus.form-control {
-  background: #FAFAFA;
+  /* background: #FAFAFA; */
   border-color: #C6C6C6;
   box-shadow: none;
   color: #384343;
@@ -1114,7 +1118,7 @@ input[type="date"]:hover, input[type="email"]:hover,
 input[type="number"]:hover, input[type="tel"]:hover,
 input[type="time"]:hover, input[type="url"]:hover,
 textarea:hover, textarea:hover.form-control {
-  background: #FAFAFA;
+  /* background: #FAFAFA; */
   border-color: #C6C6C6;
   color: #384343;
 }
@@ -1239,7 +1243,7 @@ pre[class*="language-"] {
 }
 
 .page-sidebar .sidebar-menu .menu-items {
-  height: calc(100% - 35px);
+  height: calc(100% - 0px);
 }
 
 .page-sidebar .sidebar-menu .menu-items > li ul.sub-menu > li.list-divider {
@@ -1266,6 +1270,7 @@ pre[class*="language-"] {
 .sidebar-footer {
   position: absolute;
   bottom: 0;
+  left: 0;
   height: 35px;
   line-height: 35px;
   width: 100%;
@@ -1422,6 +1427,14 @@ ul#cform_sort li:hover {
   -moz-box-shadow: 0 0 5px #DBF0EE;
   -webkit-box-shadow: 0 0 5px #DBF0EE;
   box-shadow: 0 0 5px #DBF0EE;
+}
+
+.jakcontent .jakcontent_header {
+  border-bottom: 1px solid #626262;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 1.1em;
+  color: #0DAD9E;
 }
 
 .jakcat .text,
