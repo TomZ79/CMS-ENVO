@@ -1,0 +1,58 @@
+﻿v. 2.3 - March 8, 2016
+- added new method hideStep
+- added new example with icons
+- added parameter which prevent reindex numbers after method add/removeStep is called
+- added option for none theme - you can style whole theme by yourself
+- changed option "disableEnter" - now you can use false/true or some string with name of elements (class, id) separate by commas like ".thisClass, #thisID".
+  These element will be excluded from catching enter event. But be aware, you have to treat these elements by yourself to prevent to keypress enter submit form.
+- fixed events in older browsers (parameter "to" could be wrong)
+- fixed method navNumber
+
+v. 2.2 - November 3, 2015
+- enhanced behavior on mobiles
+- added option to prevent hiding navigation titles on mobiles (smallMobileNav)
+- added option to prevent transitioning after enter is hit (disableEnter)
+- all themes can have up to 99 steps
+- added new method getActualStep
+- added new example for lunch modal window
+- fixed offline doc and added some answers for FAQ
+
+v. 2.1.1 – October 1, 2015
+
+fixed doubled animation of transition ‘slide’ in IE Edge
+fixed broken layout when navigation is on left/right and width of wizard is not an integer(whole number) / can be seen only in version 2.1
+v. 2.1 – September 30, 2015
+
+added option disableEnter
+added new example (loading wizard)
+updated documentation file
+fixed weird animation of transition 3d-cube on slower computers
+fixed behavior when method refresh is called and the wizard has set option height to ‘auto’
+extended summary step – now can handle element ‘select’ with attribute ‘multiple’
+v. 2.0 – July 22, 2015
+
+Completely rewritten
+No backward compatibility
+Added 15 API methods and rewritten existing
+Added one new skin (sun)
+Added summary step
+Removed old example files and added 14 new
+Added RTL support
+Added options stepElement and stepNameElement – help to change required HTML structure
+December 3, 2014
+
+Fixed incorrect behaviour for tab key
+November 27, 2014
+
+Added new jQuery events sf-loaded, sf-step-before, sf-step-after, sf-finish
+Added new methods next, prev, finish for better control wizard from code
+Added option startStep
+Fixed option showNav, when it is set to false
+September 15, 2014
+
+Added new option for visually different previous steps
+Added validation example
+Added scss file for easy change theme colors
+Added minification version of script
+Fixed an issue in user defined buttons
+Fixed onPrev event
