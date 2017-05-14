@@ -242,7 +242,7 @@
     <?php
     if ($page == 'settingfacebook' || $page == 'facebookgallery' || $page == 'mediasharing') {
       $classsocialsection = 'open active';
-      $classsocialiconbg = 'bg-success';
+      $classsocialiconbg  = 'bg-success';
     }
     ?>
     <li class="<?php echo $classsocialsection; ?>">

@@ -11,6 +11,7 @@
       onNext: function(i) {
         // Step 0 -> 1
         if(i == '0') {
+          // Get folder path
           var baseurl = '<?php echo BASE_URL_ORIG ?>';
 
           if($("input[name='jak_xmlseopath']").val()) {
@@ -21,6 +22,22 @@
 
           var sitemap = 'Sitemap: ' + baseurl.slice(0, -1) + '/' + inputval + 'sitemap.xml';
           $('#sitemapcode').text( sitemap );
+
+          // Change date in file
+          var txt = $("#jak_filetxt");
+          var time = new Date();
+
+          if (txt.val().indexOf('CMS Robots File' && 'Last change') != -1) { // Value in txt = true
+
+            var lines = $('#jak_filetxt').val().split(/\n/);
+            lines[1] = "#Last change - " + time;
+            $("#jak_filetxt").html(lines.join("\n"));
+
+          } else {
+
+            txt.val("#CMS Robots File\n#Last change - " + time + "\n\n" + txt.val());
+
+          }
         }
 
         return true; // move to next step

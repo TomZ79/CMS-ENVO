@@ -47,7 +47,6 @@ if (isset($error2)) { ?>
   <div class="row">
     <div class="col-md-12">
 
-
       <form id="wizard_example" class="m-b-30" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
         <fieldset>
           <legend>
@@ -98,13 +97,11 @@ if (isset($error2)) { ?>
 
               <div class="form-group">
                 <label><?php echo $tlxml["xml_box_content"]["xmlbc5"]; ?></label>
-                <textarea name="jak_filetxt" rows="8" placeholder="<?php echo $tlxml["xml_box_content"]["xmlbc6"]; ?>" class="form-control"><?php echo htmlspecialchars($content); ?></textarea>
+                <textarea id="jak_filetxt" name="jak_filetxt" rows="8" placeholder="<?php echo $tlxml["xml_box_content"]["xmlbc6"]; ?>" class="form-control"><?php echo htmlspecialchars($content); ?></textarea>
               </div>
               <div>
                 <p><?php echo $tlxml["xml_box_content"]["xmlbc7"]; ?></p>
-                <pre id="sitemapcode" class="code">
-
-                </pre>
+                <pre id="sitemapcode" class="code"></pre>
               </div>
               <p>
                 <a href="http://www.sitemaps.org/protocol.html#informing" target="_blank"><?php echo $tlxml["xml_box_content"]["xmlbc8"]; ?></a>
@@ -190,10 +187,7 @@ if (isset($error2)) { ?>
         </fieldset>
       </form>
 
-
     </div>
   </div>
-
-
 
 <?php include_once APP_PATH . 'admin/template/footer.php'; ?>

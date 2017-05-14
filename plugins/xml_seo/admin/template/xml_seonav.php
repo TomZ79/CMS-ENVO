@@ -2,10 +2,12 @@
 <?php
 if ($page == 'xml_seo') {
   $classxmlsection = 'open active';
-  $classxmlconbg  = 'bg-success';
-  $stylexml = 'style="display: block;"';
+  $classxmlconbg   = 'bg-success';
+  $stylexml        = 'style="display: block;"';
 }
 ?>
+
+<li class="list-divider"></li>
 <li class="<?php echo $classxmlsection; ?>">
 
   <?php

@@ -256,8 +256,8 @@ if ($errors) { ?>
           <div class="box-footer">
 
             <?php
-            // Add Html Element -> addButtonFuel (Arguments: fieldname, value, optional assoc. array)
-            echo $Html->addButtonFuel('', $tl["button"]["btn24"], array('type' => 'button', 'class' => 'btn btn-info generate-label-absolute'));
+            // Add Html Element -> addButtonF (Arguments: fieldname, value, optional assoc. array)
+            echo $Html->addButtonF('', $tl["button"]["btn24"], array('type' => 'button', 'class' => 'btn btn-info generate-label-absolute'));
             // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
             echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
             ?>

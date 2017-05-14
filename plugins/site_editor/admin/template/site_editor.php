@@ -45,8 +45,8 @@
             <div class="pull-right">
 
               <?php
-              // Add Html Element -> addButton (Arguments: type, name, text, id, class, optional assoc. array)
-              echo $Html->addButton('button', $tl["button"]["btn12"], '', 'editfile1', 'btn btn-primary', array('style' => 'margin-right: 10px'));
+              // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+              echo $Html->addButton('button', '', $tl["button"]["btn12"], '', 'editfile1', 'btn btn-primary', array('style' => 'margin-right: 10px'));
               // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
               echo $Html->addButtonSubmit('reset1', $tl["button"]["btn11"], '', 'btn btn-primary hidden', array('style' => 'margin-right: 10px'));
               echo $Html->addButtonSubmit('save1', $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('disabled' => 'disabled'));

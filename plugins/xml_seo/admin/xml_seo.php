@@ -311,7 +311,7 @@ switch ($page1) {
           $contentxml = file_get_contents($filexml);
         } else {
           // File not exist
-          $contentxml = 'File not exist. Please create sitemap.xml firstly.';
+          $contentxml = $tlxml["xml_box_content"]["xmlbc25"];
         }
       } else if (isset($defaults['submit_two'])) {
 
@@ -338,7 +338,7 @@ switch ($page1) {
       // XML SEO settings
       $defaults = $_POST;
 
-      // Get value from From 1
+      // Get value from From
       $path    = $defaults['jak_xmlseopath'];
       $txtfile = $defaults['jak_filetxt'];
 

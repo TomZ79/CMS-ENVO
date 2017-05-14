@@ -5,135 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4346a0f-85ec-4e4d-93d1-8c74a4b74471" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/plugins/buttons/icons/cross.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/plugins/buttons/icons/key.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/plugins/buttons/icons/tick.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/plugins/link-icons/icons/doc.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/plugins/link-icons/icons/email.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/plugins/link-icons/icons/external.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/plugins/link-icons/icons/feed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/plugins/link-icons/icons/im.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/plugins/link-icons/icons/pdf.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/plugins/link-icons/icons/visited.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/plugins/link-icons/icons/xls.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/src/grid.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/img/code1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/img/exmp_step_nav.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/img/overwrite_css.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/plugins/mcustom-scrollbar/mCSB_buttons.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/img/t1-arr-left-hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/img/t1-arr-left.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/img/t1-arr-right.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/img/t1-arr.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/img/t2-arr-left.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/img/t2-arr-right.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/img/t2-nav-arr-down.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/img/t2-nav-arr-rtl.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/img/t2-nav-arr.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/img/t2-nav-bg-down.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/img/t2-nav-bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/img/t4-arr-left.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/img/t4-arr-right.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/01-basic.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/02-theme.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/03-transition.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/04-height.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/05-navigation-position.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/06-rtl.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/07-events.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/08-no-form-structure.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/09-API-methods.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/10-form-validation-parsley.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/11-form-validation-jquery-validation.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/12-summary.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/13-ajax.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/14-checkout.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/15-loading-wizard.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/16-modal-window.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/17-icons.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/ie.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/plugins/buttons/readme.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/plugins/buttons/screen.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/plugins/fancy-type/readme.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/plugins/fancy-type/screen.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/plugins/link-icons/readme.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/plugins/link-icons/screen.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/plugins/rtl/readme.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/plugins/rtl/screen.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/print.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/screen.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/src/forms.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/src/grid.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/src/ie.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/src/print.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/src/reset.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/assets/blueprint-css/src/typography.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/changelog.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/options.htm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/plugins/jquery-2.1.4.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/plugins/jquery-validation/additional-methods.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/plugins/jquery-validation/jquery.validate.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/plugins/mcustom-scrollbar/jquery.mCustomScrollbar.concat.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/plugins/mcustom-scrollbar/jquery.mCustomScrollbar.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/plugins/parsley/parsley.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/plugins/parsley/parsley.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/css/sass/step-form-wizard-all.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/css/sass/step-form-wizard-circle.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/css/sass/step-form-wizard-none.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/css/sass/step-form-wizard-sea.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/css/sass/step-form-wizard-simple.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/css/sass/step-form-wizard-sky.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/css/sass/step-form-wizard-sun.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/css/sass/step-form-wizard.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/css/sass/themes/circle.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/css/sass/themes/sea.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/css/sass/themes/simple.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/css/sass/themes/sky.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/css/sass/themes/sun.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/css/step-form-wizard-all.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/css/step-form-wizard-circle.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/css/step-form-wizard-none.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/css/step-form-wizard-sea.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/css/step-form-wizard-simple.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/css/step-form-wizard-sky.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/css/step-form-wizard-sun.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/js/step-form-wizard.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/step-form-wizard/2.3/step-form-wizard/js/step-form-wizard.min.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/xml_seo/admin/js/xml_seo.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seo.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/css/style.css" afterPath="$PROJECT_DIR$/admin/assets/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/admin/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.cmshelp.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.cmshelp.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/cmshelp.php" afterPath="$PROJECT_DIR$/admin/template/cmshelp.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editpage.php" afterPath="$PROJECT_DIR$/admin/template/editpage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/header.php" afterPath="$PROJECT_DIR$/admin/template/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newpage.php" afterPath="$PROJECT_DIR$/admin/template/newpage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/blog/admin/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect_new.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect_new.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/download/admin/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/dl_connect.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/dl_connect.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/dl_connect_new.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/dl_connect_new.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/faq/admin/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faq_connect.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faq_connect.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faq_connect_new.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faq_connect_new.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/edituser.php" afterPath="$PROJECT_DIR$/admin/template/edituser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/navbar.php" afterPath="$PROJECT_DIR$/admin/template/navbar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newuser.php" afterPath="$PROJECT_DIR$/admin/template/newuser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/belowheader/admin/lang/cs.ini" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/growl/admin/lang/cs.ini" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/register_form/admin/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/admin/template/rf_connect.php" afterPath="$PROJECT_DIR$/plugins/register_form/admin/template/rf_connect.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/admin/template/rf_connect_new.php" afterPath="$PROJECT_DIR$/plugins/register_form/admin/template/rf_connect_new.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/admin/css/style.css" afterPath="$PROJECT_DIR$/plugins/xml_seo/admin/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/site_editor/admin/js/pages.site-editor.php" afterPath="$PROJECT_DIR$/plugins/site_editor/admin/js/pages.site-editor.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/site_editor/admin/template/site_editor.php" afterPath="$PROJECT_DIR$/plugins/site_editor/admin/template/site_editor.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/urlmapping/admin/lang/cs.ini" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/admin/js/pages.xml_seo.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/admin/js/pages.xml_seo.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/xml_seo/admin/lang/cs.ini" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seo_setting.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seo_setting.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seonav.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seonav.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/admin/xml_seo.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/admin/xml_seo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/install.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/install.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/config.php" afterPath="$PROJECT_DIR$/template/qed/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/css/screen.css" afterPath="$PROJECT_DIR$/template/qed/css/screen.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/footer.php" afterPath="$PROJECT_DIR$/template/qed/footer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/help.php" afterPath="$PROJECT_DIR$/template/qed/help.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/navbar.php" afterPath="$PROJECT_DIR$/template/qed/navbar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/news.php" afterPath="$PROJECT_DIR$/template/qed/news.php" />
     </list>
     <ignored path="CMS-Bluesat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -154,76 +40,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pages.xml_seo.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/plugins/xml_seo/admin/js/pages.xml_seo.php">
+      <file leaf-file-name="navbar.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/template/navbar.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+            <state relative-caret-position="85">
+              <caret line="248" column="0" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="xml_seo_setting.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seo_setting.php">
+      <file leaf-file-name="cs.ini" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/lang/cs.ini">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+            <state relative-caret-position="229">
+              <caret line="265" column="13" selection-start-line="265" selection-start-column="13" selection-end-line="265" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="xml_seo.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/xml_seo/admin/xml_seo.php">
+      <file leaf-file-name="xml_seonav.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seonav.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="355" column="17" selection-start-line="355" selection-start-column="17" selection-end-line="355" selection-end-column="17" />
-              <folding>
-                <element signature="e#1247#12957#0#PHP" expanded="false" />
-                <element signature="e#13325#13932#0#PHP" expanded="false" />
-                <marker date="1494782060752" expanded="true" signature="605:676" ph="SELECT value... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="770:841" ph="SELECT value... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="1704:1842" ph="SELECT varna... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="2369:2435" ph="SELECT varna... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="2523:2583" ph="SELECT id, t... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="3092:3158" ph="SELECT varna... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="3235:3295" ph="SELECT id, t... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="3708:3774" ph="SELECT varna... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="3851:3918" ph="SELECT tag F... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="4349:4412" ph="SELECT id FR... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="4512:4577" ph="SELECT varna... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="4672:4750" ph="SELECT id, t... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="5693:5757" ph="SELECT id FR... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="5857:5922" ph="SELECT varna... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="6017:6091" ph="SELECT id, t... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="7017:7081" ph="SELECT id FR... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="7181:7246" ph="SELECT varna... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="7341:7418" ph="SELECT id, t... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="8336:8394" ph="SELECT id FR... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="8494:8559" ph="SELECT varna... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="8654:8727" ph="SELECT id, t... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="9624:9683" ph="SELECT id FR... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="9783:9848" ph="SELECT varna... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="9943:10017" ph="SELECT id, t... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="10939:11005" ph="SELECT id FR... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="11105:11170" ph="SELECT varna... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="11265:11343" ph="SELECT id, t... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="16256:16343" ph="SELECT varna... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="16497:16583" ph="SELECT varna... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="16740:16830" ph="SELECT varna... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="16987:17058" ph="SELECT value... ${DB_PREFIX}" />
-                <marker date="1494782060752" expanded="true" signature="17164:17235" ph="SELECT value... ${DB_PREFIX}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cs.ini" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/xml_seo/admin/lang/cs.ini">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="63" column="42" selection-start-line="63" selection-start-column="42" selection-end-line="63" selection-end-column="42" />
+            <state relative-caret-position="204">
+              <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="17" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -245,20 +86,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/plugins/register_form/admin/template/settings.php" />
-        <option value="$PROJECT_DIR$/plugins/newsletter/admin/template/newuser.php" />
-        <option value="$PROJECT_DIR$/plugins/newsletter/admin/lang/cs.ini" />
-        <option value="$PROJECT_DIR$/admin/pages/js/pages.js" />
-        <option value="$PROJECT_DIR$/admin/assets/plugins/jquery-menuclipper/jquery.menuclipper.js" />
-        <option value="$PROJECT_DIR$/admin/template/blankpage.php" />
-        <option value="$PROJECT_DIR$/admin/testpage.php" />
         <option value="$PROJECT_DIR$/admin/index.php" />
         <option value="$PROJECT_DIR$/admin/cmshelp.php" />
         <option value="$PROJECT_DIR$/admin/pages/js/pages.changelog.php" />
         <option value="$PROJECT_DIR$/admin/template/changelog.php" />
         <option value="$PROJECT_DIR$/admin/template/footer.php" />
         <option value="$PROJECT_DIR$/class/class.htmlelement.php" />
-        <option value="$PROJECT_DIR$/admin/template/navbar.php" />
         <option value="$PROJECT_DIR$/admin/pages/js/pages.cmshelp.php" />
         <option value="$PROJECT_DIR$/admin/template/cmshelp.php" />
         <option value="$PROJECT_DIR$/template/qed/css/screen.css" />
@@ -279,12 +112,9 @@
         <option value="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect_new.php" />
         <option value="$PROJECT_DIR$/plugins/register_form/admin/template/rf_connect.php" />
         <option value="$PROJECT_DIR$/plugins/register_form/admin/template/rf_connect_new.php" />
-        <option value="$PROJECT_DIR$/plugins/register_form/admin/lang/cs.ini" />
-        <option value="$PROJECT_DIR$/admin/lang/cs.ini" />
         <option value="$PROJECT_DIR$/admin/template/newpage.php" />
         <option value="$PROJECT_DIR$/admin/template/editpage.php" />
         <option value="$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seo.php" />
-        <option value="$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seonav.php" />
         <option value="$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seo_view.php" />
         <option value="$PROJECT_DIR$/admin/assets/css/style.css" />
         <option value="$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seo_create.php" />
@@ -293,9 +123,20 @@
         <option value="$PROJECT_DIR$/plugins/xml_seo/admin/template/admincssheader.php" />
         <option value="$PROJECT_DIR$/plugins/xml_seo/admin/css/style.css" />
         <option value="$PROJECT_DIR$/plugins/xml_seo/admin/xml_seo.php" />
+        <option value="$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seonav.php" />
         <option value="$PROJECT_DIR$/plugins/xml_seo/admin/lang/cs.ini" />
+        <option value="$PROJECT_DIR$/plugins/urlmapping/admin/lang/cs.ini" />
+        <option value="$PROJECT_DIR$/plugins/site_editor/admin/template/site_editor.php" />
+        <option value="$PROJECT_DIR$/plugins/site_editor/admin/js/pages.site-editor.php" />
         <option value="$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seo_setting.php" />
         <option value="$PROJECT_DIR$/plugins/xml_seo/admin/js/pages.xml_seo.php" />
+        <option value="$PROJECT_DIR$/plugins/growl/admin/lang/cs.ini" />
+        <option value="$PROJECT_DIR$/plugins/belowheader/admin/lang/cs.ini" />
+        <option value="$PROJECT_DIR$/plugins/register_form/admin/lang/cs.ini" />
+        <option value="$PROJECT_DIR$/admin/template/newuser.php" />
+        <option value="$PROJECT_DIR$/admin/template/edituser.php" />
+        <option value="$PROJECT_DIR$/admin/template/navbar.php" />
+        <option value="$PROJECT_DIR$/admin/lang/cs.ini" />
       </list>
     </option>
   </component>
@@ -493,6 +334,56 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lang" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -614,18 +505,18 @@
       <workItem from="1493547875345" duration="83770000" />
       <workItem from="1494266227396" duration="5305000" />
       <workItem from="1494518197354" duration="14172000" />
-      <workItem from="1494658038356" duration="9546000" />
+      <workItem from="1494658038356" duration="15334000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="865102000" />
+    <option name="totallyTimeSpent" value="870890000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23499268" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20717423" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -687,84 +578,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/doc/css/doc.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="901" column="1" selection-start-line="880" selection-start-column="0" selection-end-line="901" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/qed/css/screen.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="605" column="13" selection-start-line="605" selection-start-column="13" selection-end-line="605" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="154" column="14" selection-start-line="154" selection-start-column="14" selection-end-line="154" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="133" column="17" selection-start-line="133" selection-start-column="17" selection-end-line="133" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/cmshelp.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-357">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/mosaic/customstyle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/qed/navbar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/qed/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="82" column="31" selection-start-line="82" selection-start-column="31" selection-end-line="82" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/qed/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="262" column="39" selection-start-line="262" selection-start-column="39" selection-end-line="262" selection-end-column="39" />
-          <folding>
-            <marker date="1494520265843" expanded="true" signature="16684:16709" ph="..." />
-            <marker date="1494520265843" expanded="true" signature="16809:16842" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/qed/news.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="34" column="35" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/template/qed/lang/cs.ini">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2138">
@@ -776,6 +589,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -885,13 +699,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="389">
           <caret line="754" column="111" selection-start-line="754" selection-start-column="111" selection-end-line="754" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/register_form/admin/lang/cs.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -907,6 +715,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="619" column="22" selection-start-line="619" selection-start-column="22" selection-end-line="619" selection-end-column="107" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -964,14 +773,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plugins/xml_seo/admin/js/xml_seo.js" />
-    <entry file="file://$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seonav.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/download/admin/template/downloadnav.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1041,22 +842,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/lang/cs.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="1085" column="0" selection-start-line="1085" selection-start-column="0" selection-end-line="1088" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seo_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/download/template/cssheader.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1105,77 +890,188 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/xml_seo/admin/xml_seo.php">
+    <entry file="file://$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seo_create.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="355" column="17" selection-start-line="355" selection-start-column="17" selection-end-line="355" selection-end-column="17" />
-          <folding>
-            <element signature="e#1247#12957#0#PHP" expanded="false" />
-            <element signature="e#13325#13932#0#PHP" expanded="false" />
-            <marker date="1494782060752" expanded="true" signature="605:676" ph="SELECT value... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="770:841" ph="SELECT value... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="1704:1842" ph="SELECT varna... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="2369:2435" ph="SELECT varna... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="2523:2583" ph="SELECT id, t... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="3092:3158" ph="SELECT varna... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="3235:3295" ph="SELECT id, t... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="3708:3774" ph="SELECT varna... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="3851:3918" ph="SELECT tag F... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="4349:4412" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="4512:4577" ph="SELECT varna... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="4672:4750" ph="SELECT id, t... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="5693:5757" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="5857:5922" ph="SELECT varna... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="6017:6091" ph="SELECT id, t... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="7017:7081" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="7181:7246" ph="SELECT varna... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="7341:7418" ph="SELECT id, t... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="8336:8394" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="8494:8559" ph="SELECT varna... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="8654:8727" ph="SELECT id, t... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="9624:9683" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="9783:9848" ph="SELECT varna... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="9943:10017" ph="SELECT id, t... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="10939:11005" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="11105:11170" ph="SELECT varna... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="11265:11343" ph="SELECT id, t... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="16256:16343" ph="SELECT varna... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="16497:16583" ph="SELECT varna... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="16740:16830" ph="SELECT varna... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="16987:17058" ph="SELECT value... ${DB_PREFIX}" />
-            <marker date="1494782060752" expanded="true" signature="17164:17235" ph="SELECT value... ${DB_PREFIX}" />
-          </folding>
+        <state relative-caret-position="-218">
+          <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seo_create.php">
+    <entry file="file://$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seo_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" column="69" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="69" />
+        <state relative-caret-position="714">
+          <caret line="42" column="17" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/urlmapping/admin/template/nav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plugins/xml_seo/admin/lang/cs.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="63" column="42" selection-start-line="63" selection-start-column="42" selection-end-line="63" selection-end-column="42" />
+        <state relative-caret-position="153">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/xml_seo/admin/xml_seo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-838">
+          <caret line="340" column="28" selection-start-line="340" selection-start-column="28" selection-end-line="340" selection-end-column="28" />
+          <folding>
+            <element signature="e#1247#12957#0#PHP" expanded="false" />
+            <marker date="1494784038817" expanded="true" signature="605:676" ph="SELECT value... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="770:841" ph="SELECT value... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="1704:1842" ph="SELECT varna... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="2369:2435" ph="SELECT varna... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="2523:2583" ph="SELECT id, t... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="3092:3158" ph="SELECT varna... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="3235:3295" ph="SELECT id, t... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="3708:3774" ph="SELECT varna... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="3851:3918" ph="SELECT tag F... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="4349:4412" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="4512:4577" ph="SELECT varna... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="4672:4750" ph="SELECT id, t... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="5693:5757" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="5857:5922" ph="SELECT varna... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="6017:6091" ph="SELECT id, t... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="7017:7081" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="7181:7246" ph="SELECT varna... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="7341:7418" ph="SELECT id, t... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="8336:8394" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="8494:8559" ph="SELECT varna... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="8654:8727" ph="SELECT id, t... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="9624:9683" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="9783:9848" ph="SELECT varna... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="9943:10017" ph="SELECT id, t... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="10939:11005" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="11105:11170" ph="SELECT varna... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="11265:11343" ph="SELECT id, t... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="16238:16325" ph="SELECT varna... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="16479:16565" ph="SELECT varna... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="16722:16812" ph="SELECT varna... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="16969:17040" ph="SELECT value... ${DB_PREFIX}" />
+            <marker date="1494784038817" expanded="true" signature="17146:17217" ph="SELECT value... ${DB_PREFIX}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seo_setting.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        <state relative-caret-position="187">
+          <caret line="99" column="41" selection-start-line="99" selection-start-column="41" selection-end-line="99" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plugins/xml_seo/admin/js/pages.xml_seo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+        <state relative-caret-position="250">
+          <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/site_editor/admin/js/pages.site-editor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/site_editor/admin/template/site_editor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="33" column="14" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/register_form/admin/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/edituser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="371" column="45" selection-start-line="371" selection-start-column="45" selection-end-line="371" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/help.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="1610" column="14" selection-start-line="1610" selection-start-column="14" selection-end-line="1610" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/newuser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="258" column="54" selection-start-line="258" selection-start-column="54" selection-end-line="258" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/belowheader/admin/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/growl/admin/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/urlmapping/admin/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seonav.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="17" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/navbar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="248" column="0" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="265" column="13" selection-start-line="265" selection-start-column="13" selection-end-line="265" selection-end-column="13" />
           <folding />
         </state>
       </provider>
