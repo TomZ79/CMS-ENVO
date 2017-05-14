@@ -149,7 +149,7 @@ if ((!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSIO
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <?php echo jak_build_menu_qed(0, $mfooter, $page, 'footer-list-style', '', '', '', '', JAK_ASACCESS); ?>
+            <?php echo build_menu_qed(0, $mfooter, $page, 'footer-list-style', '', '', '', '', JAK_ASACCESS); ?>
           </div>
           <div class="col-md-6">
             <p class="pull-right"><?php echo $jkv["copyright"]; ?></p>
@@ -260,7 +260,7 @@ if ((!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSIO
         <div class="container">
           <div class="row">
             <div class="col-md-6">
-              <?php echo jak_build_menu_qed(0, $mfooter, $page, 'footer-list-style', '', '', '', '', JAK_ASACCESS); ?>
+              <?php echo build_menu_qed(0, $mfooter, $page, 'footer-list-style', '', '', '', '', JAK_ASACCESS); ?>
             </div>
             <div class="col-md-6">
               <p><?php echo $jkv["copyright"]; ?></p>

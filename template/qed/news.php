@@ -32,7 +32,7 @@
 							<?php } ?>
 
 						</a>
-						<div class="feature-box media-left mt">
+						<div class="feature-box mt">
 							<div class="post-date">
 								<?php
 								//set locale,

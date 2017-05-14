@@ -603,7 +603,7 @@ ul.footer-list-style li:first-child {
 }
 
 ul.footer-list-style li:after {
-  content: '/';
+  content: '|';
   padding: 0 5px;
   color: #000;
 }

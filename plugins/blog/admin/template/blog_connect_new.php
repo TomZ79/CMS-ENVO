@@ -1,6 +1,7 @@
 <?php if (!isset($blog_exist)) { ?>
 
   <li class="jakcontent">
+    <div class="jakcontent_header"><?php echo $tlblog["blog_connect"]["blogc10"]; ?></div>
     <div class="form-group">
       <label class="control-label"><?php echo $tlblog["blog_connect"]["blogc"]; ?></label>
       <div class="row">

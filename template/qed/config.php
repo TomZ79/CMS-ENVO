@@ -29,7 +29,7 @@ function searchForId($id, $array)
 /*
  * Build menu
  */
-function jak_build_menu_qed($parent, $menu, $active, $mainclass, $dropdown, $dropdownclass, $dropclass, $subclass, $admin)
+function build_menu_qed($parent, $menu, $active, $mainclass, $dropdown, $dropdownclass, $dropclass, $subclass, $admin)
 {
   // Set global variable
   global $arr1;
@@ -80,7 +80,7 @@ function jak_build_menu_qed($parent, $menu, $active, $mainclass, $dropdown, $dro
 
           '</a>';
 
-        $html .= jak_build_menu_qed($itemId, $menu, $active, $dropclass, $subclass, $dropdownclass, $dropclass, $subclass, $admin);
+        $html .= build_menu_qed($itemId, $menu, $active, $dropclass, $subclass, $dropdownclass, $dropclass, $subclass, $admin);
 
         $html .= '</li>';
       }

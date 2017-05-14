@@ -1,6 +1,7 @@
 <?php if ($pg["pluginid"] == JAK_PLUGIN_FAQ) { ?>
 
   <li class="jakcontent">
+    <div class="jakcontent_header"><?php echo $tlf["faq_connect"]["faqc10"]; ?></div>
     <div class="form-group">
       <label class="control-label"><?php echo $tlf["faq_connect"]["faqc7"]; ?></label>
       <div class="row">

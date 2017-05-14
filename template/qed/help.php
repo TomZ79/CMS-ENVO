@@ -47,7 +47,8 @@
         <ul>
           <li data-deeplink="html-structure">HTML Struktura</li>
           <li data-deeplink="Slider">Slider</li>
-          <li data-deeplink="section">Sekce</li>
+          <li data-deeplink="sectionpage">Sekce Stránky</li>
+          <li data-deeplink="footernavigation">Zápatí - Navigace</li>
           <li data-deeplink="shortcodes">Kódy a komponenty</li>
           <li data-deeplink="classes">Třídy</li>
           <li data-deeplink="icons">Ikony</li>
@@ -300,9 +301,9 @@
         </pre>
       </article>
 
-      <!-- Section -->
+      <!-- Section of Page -->
       <article>
-        <h4>Sekce</h4>
+        <h4>Sekce Stránky</h4>
         <h5>Začátek a konec sekce</h5>
         <hr>
         <p>Každá část sekce je organizována v oddíle, který lze kopírovat z jedné šablony do druhé.</p>
@@ -314,7 +315,7 @@
 Code of the team section of the page
 
 </section>
-  <!-- Team -->
+          <!-- Team -->
 
         </pre>
         <h5>Základní sekce</h5>
@@ -392,6 +393,48 @@ Code of the team section of the page
 </section>
 
         </pre>
+      </article>
+
+      <!-- Footer Navigation -->
+      <article>
+        <h4>Zápatí - Navigace</h4>
+        <hr>
+        <pre name="code" class="brush: html;">
+
+<div class="footer-navigation">
+  <div class="footer-navigation-menu">
+    <div class="footer-links-holder col-md-4">
+      <h3>Section 1</h3>
+      <ul class="footer-links">
+        <li><a href="">Page Title 1</a></li>
+        <li><a href="">Page Title 2</a></li>
+        <li><a href="">Page Title 3</a></li>
+        <li><a href="">Page Title 4</a></li>
+      </ul>
+    </div>
+    <div class="footer-links-holder col-md-4">
+      <h3>Section 2</h3>
+      <ul class="footer-links">
+        <li><a href="">Page Title 1</a></li>
+        <li><a href="">Page Title 2</a></li>
+        <li><a href="">Page Title 3</a></li>
+        <li><a href="">Page Title 4</a></li>
+      </ul>
+    </div>
+    <div class="footer-links-holder col-md-4">
+      <h3>Section 3</h3>
+      <ul class="footer-links">
+        <li><a href="">Page Title 1</a></li>
+        <li><a href="">Page Title 2</a></li>
+        <li><a href="">Page Title 3</a></li>
+        <li><a href="">Page Title 4</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+        </pre>
+
       </article>
 
       <!-- Shortcodes and components -->

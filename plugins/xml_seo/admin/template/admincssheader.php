@@ -1,0 +1,1 @@
+<link rel="stylesheet" href="<?php echo BASE_URL_ORIG; ?>plugins/xml_seo/admin/css/style.css" type="text/css"/>

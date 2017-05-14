@@ -1,7 +1,7 @@
 <li class="jakcontent">
   <div class="form-group">
+    <div class="jakcontent_header"><?php echo $tlrf["reg_connect"]["regc"]; ?></div>
     <label class="control-label"><?php echo $tlrf["reg_box_content"]["regbc"]; ?></label>
-
     <div class="radio radio-success">
 
       <?php

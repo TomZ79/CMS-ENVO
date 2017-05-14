@@ -1,7 +1,7 @@
 <?php
 
 /**
- * jak_build_menu_qed($parent, $menu, $active, $mainclass, $dropdown, $dropdownclass, $dropclass, $subclass, $admin)
+ * build_menu_qed($parent, $menu, $active, $mainclass, $dropdown, $dropdownclass, $dropclass, $subclass, $admin)
  *
  * @param   $parent           -                                       | value: string         | e.g.: 0
  * @param   $menu             - array                                 |                       | e.g.: $mheader - $mfooter
@@ -47,6 +47,6 @@
  * </ul>
  *
  */
-echo jak_build_menu_qed(0, $mheader, $page, 'nav navbar-nav', 'mainsubcategory', 'has-sub-menu', 'sub-menu', 'sub-menu-li', FALSE);
+echo build_menu_qed(0, $mheader, $page, 'nav navbar-nav', 'mainsubcategory', 'has-sub-menu', 'sub-menu', 'sub-menu-li', FALSE);
 
 ?>

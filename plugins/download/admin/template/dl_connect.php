@@ -1,6 +1,7 @@
 <?php if ($pg["pluginid"] == JAK_PLUGIN_DOWNLOAD) { ?>
 
   <li class="jakcontent">
+    <div class="jakcontent_header"><?php echo $tld["downl_connect"]["downlc11"]; ?></div>
     <div class="form-group">
       <label class="control-label"><?php echo $tld["downl_connect"]["downlc8"]; ?></label>
       <div class="row">
