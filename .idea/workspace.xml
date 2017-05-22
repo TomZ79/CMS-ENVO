@@ -5,21 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4346a0f-85ec-4e4d-93d1-8c74a4b74471" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/admin/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/edituser.php" afterPath="$PROJECT_DIR$/admin/template/edituser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/navbar.php" afterPath="$PROJECT_DIR$/admin/template/navbar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newuser.php" afterPath="$PROJECT_DIR$/admin/template/newuser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/belowheader/admin/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/growl/admin/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/register_form/admin/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/site_editor/admin/js/pages.site-editor.php" afterPath="$PROJECT_DIR$/plugins/site_editor/admin/js/pages.site-editor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/site_editor/admin/template/site_editor.php" afterPath="$PROJECT_DIR$/plugins/site_editor/admin/template/site_editor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/urlmapping/admin/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/admin/js/pages.xml_seo.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/admin/js/pages.xml_seo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/xml_seo/admin/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seo_setting.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seo_setting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seonav.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seonav.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/admin/xml_seo.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/admin/xml_seo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/blog/admin/lang/cs.ini" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/download/admin/lang/cs.ini" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/lang/cs.ini" />
     </list>
     <ignored path="CMS-Bluesat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,31 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="navbar.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="navbar.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin/template/navbar.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
               <caret line="248" column="0" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cs.ini" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/admin/lang/cs.ini">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="265" column="13" selection-start-line="265" selection-start-column="13" selection-end-line="265" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="xml_seonav.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seonav.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="17" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -86,7 +55,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/admin/index.php" />
         <option value="$PROJECT_DIR$/admin/cmshelp.php" />
         <option value="$PROJECT_DIR$/admin/pages/js/pages.changelog.php" />
         <option value="$PROJECT_DIR$/admin/template/changelog.php" />
@@ -101,13 +69,10 @@
         <option value="$PROJECT_DIR$/template/qed/navbar.php" />
         <option value="$PROJECT_DIR$/template/qed/config.php" />
         <option value="$PROJECT_DIR$/template/qed/news.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/lang/cs.ini" />
         <option value="$PROJECT_DIR$/plugins/faq/admin/template/faq_connect.php" />
         <option value="$PROJECT_DIR$/plugins/faq/admin/template/faq_connect_new.php" />
-        <option value="$PROJECT_DIR$/plugins/download/admin/lang/cs.ini" />
         <option value="$PROJECT_DIR$/plugins/download/admin/template/dl_connect_new.php" />
         <option value="$PROJECT_DIR$/plugins/download/admin/template/dl_connect.php" />
-        <option value="$PROJECT_DIR$/plugins/blog/admin/lang/cs.ini" />
         <option value="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect.php" />
         <option value="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect_new.php" />
         <option value="$PROJECT_DIR$/plugins/register_form/admin/template/rf_connect.php" />
@@ -137,6 +102,10 @@
         <option value="$PROJECT_DIR$/admin/template/edituser.php" />
         <option value="$PROJECT_DIR$/admin/template/navbar.php" />
         <option value="$PROJECT_DIR$/admin/lang/cs.ini" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/lang/cs.ini" />
+        <option value="$PROJECT_DIR$/plugins/download/admin/lang/cs.ini" />
+        <option value="$PROJECT_DIR$/plugins/faq/admin/lang/cs.ini" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/admin/lang/cs.ini" />
       </list>
     </option>
   </component>
@@ -151,10 +120,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="22" />
-    <option name="width" value="1382" />
-    <option name="height" value="754" />
+    <option name="x" value="1" />
+    <option name="y" value="31" />
+    <option name="width" value="1364" />
+    <option name="height" value="736" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -282,7 +251,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="xml_seo" />
+              <option name="myItemId" value="faq" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -300,87 +269,11 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="xml_seo" />
+              <option name="myItemId" value="faq" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xml_seo" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lang" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -505,18 +398,18 @@
       <workItem from="1493547875345" duration="83770000" />
       <workItem from="1494266227396" duration="5305000" />
       <workItem from="1494518197354" duration="14172000" />
-      <workItem from="1494658038356" duration="15334000" />
+      <workItem from="1494658038356" duration="17815000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="870890000" />
+    <option name="totallyTimeSpent" value="873371000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
+    <frame x="1" y="31" width="1364" height="736" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20717423" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20994066" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -578,45 +471,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/template/qed/lang/cs.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2138">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/sidebar_widget.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/install.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="266" column="37" selection-start-line="266" selection-start-column="37" selection-end-line="266" selection-end-column="37" />
-          <folding>
-            <marker date="1492286947058" expanded="true" signature="4222:4280" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1492286947058" expanded="true" signature="5280:5858" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1492286947058" expanded="true" signature="6050:6108" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1492286947058" expanded="true" signature="14454:17708" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1492286947058" expanded="true" signature="17835:18894" ph="INSERT INTO ${DB_PREFIX}setting... " />
-            <marker date="1492286947058" expanded="true" signature="19025:19511" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
-            <marker date="1492286947058" expanded="true" signature="19569:19659" ph="ALTER TABLE ${DB_PREFIX}pages... " />
-            <marker date="1492286947058" expanded="true" signature="19684:19773" ph="ALTER TABLE ${DB_PREFIX}news... " />
-            <marker date="1492286947058" expanded="true" signature="19798:19895" ph="ALTER TABLE ${DB_PREFIX}pagesgrid... " />
-            <marker date="1492286947058" expanded="true" signature="20068:20307" ph="INSERT INTO ${DB_PREFIX}categories... " />
-            <marker date="1492286947058" expanded="true" signature="20431:21200" ph="CREATE TABLE... IF" />
-            <marker date="1492286947058" expanded="true" signature="21330:21900" ph="CREATE TABLE... IF" />
-            <marker date="1492286947058" expanded="true" signature="22028:22663" ph="CREATE TABLE... IF" />
-            <marker date="1492286947058" expanded="true" signature="22801:22866" ph="ALTER TABLE ${DB_PREFIX}faq... " />
-            <marker date="1492286947058" expanded="true" signature="23756:23811" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/faq_connect_new.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -641,14 +495,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/lang/cs.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="140" column="7" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/blog_connect_new.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -665,25 +511,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/lang/cs.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="110" column="6" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/faq_connect.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/download/admin/lang/cs.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="137" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -1060,18 +892,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/navbar.php">
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/lang/cs.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="248" column="0" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
+        <state relative-caret-position="289">
+          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/download/admin/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/openurl_blank/admin/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/faq.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-712">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1208#5134#0#PHP" expanded="false" />
+            <marker date="1493560207615" expanded="true" signature="2340:2812" ph="INSERT INTO ${$jaktable}... " />
+            <marker date="1493560207615" expanded="true" signature="3925:4154" ph="INSERT INTO ${$jaktable4}... " />
+            <marker date="1493560207615" expanded="true" signature="5198:5336" ph="SELECT id, n... ${$jaktable5}" />
+            <marker date="1493560207615" expanded="true" signature="5479:5575" ph="SELECT hooki... ${$jaktable4}" />
+            <marker date="1493560207615" expanded="true" signature="6799:6867" ph="DELETE FROM " />
+            <marker date="1493560207615" expanded="true" signature="12359:12426" ph="SELECT * FRO... ${$jaktable1}" />
+            <marker date="1493560207615" expanded="true" signature="15064:15424" ph="INSERT INTO ${$jaktable1}... " />
+            <marker date="1493560207615" expanded="true" signature="17939:18008" ph="DELETE FROM " />
+            <marker date="1493560207615" expanded="true" signature="21107:21174" ph="DELETE FROM " />
+            <marker date="1493560207615" expanded="true" signature="25414:25639" ph="INSERT INTO ${$jaktable4}... " />
+            <marker date="1493560207615" expanded="true" signature="26030:26141" ph="SELECT id FR... ${$jaktable4}" />
+            <marker date="1493560207615" expanded="true" signature="26242:26350" ph="DELETE FROM " />
+            <marker date="1493560207615" expanded="true" signature="26977:27068" ph="SELECT plugi... ${$jaktable4}" />
+            <marker date="1493560207615" expanded="true" signature="27502:27568" ph="DELETE FROM " />
+            <marker date="1493560207615" expanded="true" signature="28640:28771" ph="SELECT id, h... ${$jaktable4}" />
+            <marker date="1493560207615" expanded="true" signature="28989:29127" ph="SELECT id, n... ${$jaktable5}" />
+            <marker date="1493560207615" expanded="true" signature="30975:31032" ph="DELETE FROM " />
+            <marker date="1493560207615" expanded="true" signature="31445:31510" ph="SELECT * FRO... ${$jaktable2}" />
+            <marker date="1493560207615" expanded="true" signature="34760:34841" ph="SELECT catid... ${$jaktable}" />
+            <marker date="1493560207615" expanded="true" signature="35840:35913" ph="SELECT catid... ${$jaktable}" />
+            <marker date="1493560207615" expanded="true" signature="36111:36182" ph="DELETE FROM " />
+            <marker date="1493560207615" expanded="true" signature="36222:36289" ph="DELETE FROM " />
+            <marker date="1493560207615" expanded="true" signature="37660:37731" ph="DELETE FROM " />
+            <marker date="1493560207615" expanded="true" signature="37867:37996" ph="DELETE FROM " />
+            <marker date="1493560207615" expanded="true" signature="38029:38157" ph="DELETE FROM " />
+            <marker date="1493560207615" expanded="true" signature="40998:41227" ph="INSERT INTO ${$jaktable4}... " />
+            <marker date="1493560207615" expanded="true" signature="41677:41767" ph="SELECT id FR... ${$jaktable4}" />
+            <marker date="1493560207615" expanded="true" signature="41886:41973" ph="DELETE FROM " />
+            <marker date="1493560207615" expanded="true" signature="42555:42646" ph="SELECT plugi... ${$jaktable4}" />
+            <marker date="1493560207615" expanded="true" signature="43144:43210" ph="DELETE FROM " />
+            <marker date="1493560207615" expanded="true" signature="44852:44982" ph="SELECT id, p... ${$jaktable4}" />
+            <marker date="1493560207615" expanded="true" signature="45207:45345" ph="SELECT id, n... ${$jaktable5}" />
+            <marker date="1493560207615" expanded="true" signature="46601:46672" ph="SELECT * FRO... ${$jaktable}" />
+            <marker date="1493560207615" expanded="true" signature="47377:47459" ph="SELECT catid... ${$jaktable}" />
+            <marker date="1493560207615" expanded="true" signature="48685:48759" ph="SELECT catid... ${$jaktable}" />
+            <marker date="1493560207615" expanded="true" signature="48991:49063" ph="DELETE FROM " />
+            <marker date="1493560207615" expanded="true" signature="49107:49175" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/lang/cs.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="265" column="13" selection-start-line="265" selection-start-column="13" selection-end-line="265" selection-end-column="13" />
+        <state relative-caret-position="110">
+          <caret line="258" column="14" selection-start-line="258" selection-start-column="14" selection-end-line="258" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/navbar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="248" column="0" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
           <folding />
         </state>
       </provider>
