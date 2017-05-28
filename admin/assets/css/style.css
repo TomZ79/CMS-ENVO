@@ -12,6 +12,37 @@
  *
  */
 
+/* BOOTSTRAP PAGINATION */
+.pager li, .pagination > li {
+  display: inline-block;
+  padding-left: 0;
+}
+
+.pagination > li:first-child > a, .pagination > li:first-child > span {
+  border-radius: 0;
+}
+
+.pagination > li:last-child > a, .pagination > li:last-child > span {
+  border-radius: 0;
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+  background-color: #10CFBD;
+  border-color: transparent;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+  color: #10CFBD;
+  border: none;
+  margin-left: 5px;
+}
+
 /* MAIN NAVBAR */
 li.submenu-active > a,
 li.submenu-active > .icon-thumbnail {
@@ -47,7 +78,7 @@ li.submenu-active > .icon-thumbnail {
 }
 
 .bootstrap-datetimepicker-widget table td.active.today:before {
-  border-bottom-color: #337ab7 !important;
+  border-bottom-color: #337AB7 !important;
 }
 
 /* POPOVER */
@@ -1430,7 +1461,7 @@ ul#cform_sort li:hover {
 }
 
 .jakcontent .jakcontent_header {
-  border-bottom: 1px solid #626262;
+  border-bottom: 1px solid #EEE;
   margin-bottom: 10px;
   font-weight: 700;
   font-size: 1.1em;

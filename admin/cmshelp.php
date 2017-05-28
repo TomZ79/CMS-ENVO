@@ -15,6 +15,6 @@ $SECTION_DESC  = '';
 
 // EN: Load the template
 // CZ: Načti template (šablonu)
-$template = 'cmshelp.php';
+$template = 'help/cmshelp_' . $site_language . '.php';
 
 ?>
