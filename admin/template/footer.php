@@ -281,7 +281,7 @@ if (!empty($page)) {
 
 // JS pages for Template Settings
 if ($page == 'template' && $page1 == 'settings') {
-  $jscodefile = APP_PATH . '/template/' . ENVO_TEMPLATE . '/js/pages.templatesettings.php';
+  $jscodefile = APP_PATH . '/template/' . ENVO_TEMPLATE . '/js/' . ENVO_TEMPLATE . '.templatesettings.php';
   if (file_exists($jscodefile)) {
     include_once($jscodefile);
   } else {

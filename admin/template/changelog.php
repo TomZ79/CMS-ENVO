@@ -39,12 +39,11 @@
 										https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/
 										[new] Social Media Sharing Plugin
 										88z.github.io/sollist/
-										[new] Add new template Canvas
 										[new] ACP - Plugins - added captcha (security number) for uninstallation
 										http://99webtools.com/blog/php-simple-captcha-script/
 										[new] Password generator for Users
 										[new] New Plugin XML SEO Sitemap v1.3
-										[new] Add search page by title in Pages
+										[new] Add search page by title
 										[new] Add Bootstrap Tooltip to Action icons
 										[new] Add new plugin Bootbox
 										[new] Add new button for saving forms

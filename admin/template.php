@@ -110,7 +110,8 @@ switch ($page1) {
     $SECTION_TITLE = sprintf($tl["tpl_sec_title"]["tplt1"], ENVO_TEMPLATE);
     $SECTION_DESC  = $tl["tpl_sec_desc"]["tpld1"];
 
-    // EN: Ace Mode
+    // EN: Set ACE Editor mode
+    // CZ: Nastavení módu ACE Editoru
     $acemode = 'ini';
 
     // EN: Load the template
