@@ -16,8 +16,8 @@ class JAK_Paginator
   var $jak_where;
   var $jak_prevstyle = 'prev-button';
   var $jak_nextstyle = 'next-button';
-  var $jak_prevtext = '&laquo;';
-  var $jak_nexttext = '&raquo;';
+  var $jak_prevtext = '<i class="pg-arrow_left"></i>';
+  var $jak_nexttext = '<i class="pg-arrow_right"></i>';
 
   public function __construct()
   {
@@ -36,7 +36,7 @@ class JAK_Paginator
 
     if ($this->num_pages > 1) {
 
-      $this->return = ($this->current_page != 1 And $this->items_total >= 2) ? ' <ul class="pagination"><li><a class="' . $this->jak_prevstyle . '" href="' . $this->jak_where . JAK_rewrite::jakParseurlpaginate($prev_page) . '">' . $this->jak_prevtext . '</a></li>' : '<ul class="pagination">';
+      $this->return = ($this->current_page != 1 And $this->items_total >= 2) ? ' <div class="col-md-12"><ul class="pagination"><li><a class="' . $this->jak_prevstyle . '" href="' . $this->jak_where . JAK_rewrite::jakParseurlpaginate($prev_page) . '">' . $this->jak_prevtext . '</a></li>' : '<div class="col-md-12"><ul class="pagination">';
 
       $this->start_range = $this->current_page - floor($this->mid_range / 2);
       $this->end_range = $this->current_page + floor($this->mid_range / 2);
@@ -57,7 +57,7 @@ class JAK_Paginator
           $this->return .= ($i == $this->current_page) ? '<li class="active"><a title="Go to page ' . $i . ' of ' . $this->num_pages . '" href="' . $this->jak_where . JAK_rewrite::jakParseurlpaginate($i) . '">' . $i . '</a></li>' : '<li><a title="Go to page ' . $i . ' of ' . $this->num_pages . '" href="' . $this->jak_where . JAK_rewrite::jakParseurlpaginate($i) . '">' . $i . '</a></li>';
         }
       }
-      $this->return .= ($this->current_page != $this->num_pages And $this->items_total >= 2) ? '<li><a class="' . $this->jak_nextstyle . '" href="' . $this->jak_where . JAK_rewrite::jakParseurlpaginate($next_page) . '">' . $this->jak_nexttext . '</a></li></ul>' : '</ul>';
+      $this->return .= ($this->current_page != $this->num_pages And $this->items_total >= 2) ? '<li><a class="' . $this->jak_nextstyle . '" href="' . $this->jak_where . JAK_rewrite::jakParseurlpaginate($next_page) . '">' . $this->jak_nexttext . '</a></li></ul></div>' : '</ul></div>';
     }
     $this->low = ($this->current_page - 1) * $this->items_per_page;
     $this->high = ($this->current_page * $this->items_per_page) - 1;
