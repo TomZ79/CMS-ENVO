@@ -44,7 +44,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
   <div class="btn-toolbar m-b-20">
     <div class="btn-group">
 
-      <button class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#" style="width: 100px;">
+      <button class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#" style="width: 130px;">
         <?php echo $tl["button"]["btn4"]; ?>
         <span class="caret"></span>
       </button>

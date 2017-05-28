@@ -24,7 +24,7 @@
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-      echo $Html->addAnchor('javascript:;', '<span class="title">Logs</span><span class="arrow ' . $classlogssection . '"></span>');
+      echo $Html->addAnchor('javascript:;', '<span class="title">' . $tl["menu"]["mm7"] . '</span><span class="arrow ' . $classlogssection . '"></span>');
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
       echo $Html->addTag('span', '<i class="pg-grid"></i>', 'icon-thumbnail ' . $classiconbg);
       ?>
@@ -65,7 +65,7 @@
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-      echo $Html->addAnchor('javascript:;', '<span class="title">Základní Nastavení</span><span class="arrow ' . $classbasicsection . '"></span>');
+      echo $Html->addAnchor('javascript:;', '<span class="title">' . $tl["menu"]["mm6"] . '</span><span class="arrow ' . $classbasicsection . '"></span>');
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
       echo $Html->addTag('span', '<i class="pg-settings_small"></i>', 'icon-thumbnail ' . $classbasiciconbg);
       ?>

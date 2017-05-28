@@ -240,33 +240,6 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc5"]);
-                        ?>
-
-                      </div>
-                      <div class="col-md-7">
-                        <div class="radio radio-success">
-
-                          <?php
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_langd', '1', ($jkv["langdirection"] == '1') ? TRUE : FALSE, 'jak_langd1');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_langd1', $tl["checkbox"]["chk4"]);
-
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_langd', '0', ($jkv["langdirection"] == '0') ? TRUE : FALSE, 'jak_langd2');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_langd2', $tl["checkbox"]["chk5"]);
-                          ?>
-
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row-form">
-                      <div class="col-md-5">
-
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                         echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc8"]);
                         echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
                         ?>

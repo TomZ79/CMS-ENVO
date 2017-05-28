@@ -75,7 +75,7 @@ if ($page1 == "e") { ?>
                     </div>
                     <div class="col-md-1 hidden-xs text text-center">
                       <?php
-                      $filename = '../plugins/' . strtolower($v["name"]) . '/help.php';
+                      $filename = '../plugins/' . strtolower($v["name"]) . '/help/help_' . $site_language . '.php';
 
                       if (file_exists($filename)) {
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
