@@ -1,6 +1,11 @@
 <?php
 
+// EN: Set template dir
+// CZ: Nastavení složky šablony
 $templatedir = '/template/' . $row['value'];
+
+// EN: Set language file
+// CZ: Nastavení jazykového souboru
 $langdir     = '..' . $templatedir . '/lang/';
 $langfile    = $langdir . $site_language . '.ini';
 
@@ -8,6 +13,8 @@ if (!is_writable ($langdir)) {
 	$JAK_FILE_ERROR = 1;
 }
 
+// EN: Save data from Form to DB (method POST)
+// CZ: Uložení data z Formuláře do DB (metoda POST)
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$defaults = $_POST;
 
@@ -99,19 +106,10 @@ if ($result1) {
 	jak_redirect (BASE_URL . 'index.php?p=template&sp=settings&ssp=s');
 }
 
-// Get the sidebar templates
-$result = $jakdb->query ('SELECT id, name, widgetcode, exorder, pluginid FROM ' . DB_PREFIX . 'pluginhooks WHERE hook_name = "tpl_footer_widgets" AND active = 1 ORDER BY exorder ASC');
-while ($row = $result->fetch_assoc ()) {
-	$plhooks[] = $row;
-}
-// Get all plugins out the databse
-$JAK_HOOKS = $plhooks;
-
 // Reset the database settings so we have it unique
 $result = $jakdb->query ('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE product = "tpl_qed"');
 while ($row1 = $result->fetch_assoc ()) {
-	// collect each record into a define
-
+	// Collect each record into a define
 	// Now check if sting contains html and do something about it!
 	if (strlen ($row1['value']) != strlen (filter_var ($row1['value'], FILTER_SANITIZE_STRING))) {
 		$defvar = htmlspecialchars_decode (htmlspecialchars ($row1['value']));
