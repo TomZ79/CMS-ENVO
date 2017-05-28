@@ -34,14 +34,6 @@
 		}
 	</style>
 
-	<?php if (!$jkv["langdirection"]) { ?>
-		<!-- RTL Support -->
-		<link rel="stylesheet"
-			href="<?php echo BASE_URL; ?>template/mosaic/css/rtlscreen.css?=<?php echo $jkv["updatetime"]; ?>"
-			type="text/css" media="screen"/>
-		<!-- End RTL Support -->
-	<?php } ?>
-
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 	<script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>

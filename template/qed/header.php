@@ -117,6 +117,13 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
   }
   echo $JAK_HEADER_CSS; ?>
 
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
 </head>
 <body class="activate-appear-animation <?php if ($jkv["boxed_qed_tpl"] == 1) echo ' boxed-layout ';
 echo $jkv["header_qed_tpl"]; ?> color-<?php echo $jkv["color_qed_tpl"]; ?>">
@@ -250,6 +257,7 @@ echo $jkv["header_qed_tpl"]; ?> color-<?php echo $jkv["color_qed_tpl"]; ?>">
        * !isset($page =>
        * empty($page) =>
        * $page == 'offline' =>
+       * $page == '404' =>
        * !$jkv["searchform"] || !JAK_USER_SEARCH =>
        * ($PAGE_PASSWORD && !JAK_ASACCESS && $PAGE_PASSWORD != $_SESSION['pagesecurehash' . $PAGE_ID]) => If page have password and password isn't same as in Session without Administrator access
        */

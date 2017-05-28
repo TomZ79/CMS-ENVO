@@ -13,10 +13,6 @@
   <link rel="stylesheet" href="/assets/doc/js/syntaxhighlighter/styles/shCoreKreatura.css">
   <link rel="stylesheet" href="/assets/doc/js/syntaxhighlighter/styles/shThemeKreatura.css">
 
-  <!--[if lt IE 9]>
-  <script src="/assets/doc/js/html5.js"></script>
-  <![endif]-->
-
 </head>
 <body>
 

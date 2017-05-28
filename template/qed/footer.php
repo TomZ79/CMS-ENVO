@@ -297,6 +297,9 @@ if (!$JAK_SHOW_FOOTER) { ?>
 <!-- Neko framework script -->
 <script type="text/javascript" src="/template/<?php echo ENVO_TEMPLATE; ?>/js/neko-framework.js"></script>
 
+<!-- Neko Custom script -->
+<script type="text/javascript" src="/template/<?php echo ENVO_TEMPLATE; ?>/js/neko-custom.js"></script>
+
 <!-- Definition Function and Notification -->
 <script type="text/javascript">
   jakWeb.jak_lang = "<?php echo $site_language;?>";
@@ -420,9 +423,6 @@ if ($jkv["offline"] == 1 && JAK_ASACCESS) { ?>
     });
   </script>
 <?php } ?>
-
-<!-- Neko Custom script -->
-<script type="text/javascript" src="/template/<?php echo ENVO_TEMPLATE; ?>/js/neko-custom.js"></script>
 
 <!-- Neko Print script -->
 <?php if ($jkv["printme"]) { ?>
