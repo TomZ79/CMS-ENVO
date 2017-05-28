@@ -5,7 +5,7 @@
   <div class="col-md-12" style="margin: 10px 0 50px 0;">
     <?php if (isset($JAK_BLOG_ALL) && is_array($JAK_BLOG_ALL)) foreach ($JAK_BLOG_ALL as $v) { ?>
 
-      <!-- Post -->
+      <!-- Post - Blog -->
       <article>
         <!-- Post Image, Title & Summary -->
         <div class="row">

@@ -9,10 +9,10 @@
     <aside class="nav-side-menu">
 
       <h4 class="brand"><?php echo JAK_PLUGIN_NAME_BLOG . ' ' . $tlblog["blog_frontend"]["blog2"]; ?></h4>
-      <span class="toggle-btn c-icons" data-toggle="collapse" data-target="#accordion"></span>
+      <span class="toggle-btn c-icons" data-toggle="collapse" data-target="#blogsidebar"></span>
 
       <div class="menu-list">
-        <ul class="menu-content collapse" id="accordion">
+        <ul class="menu-content collapse" id="blogsidebar">
           <?php if (isset($JAK_BLOG_CAT) && is_array($JAK_BLOG_CAT)) foreach ($JAK_BLOG_CAT as $c) { ?>
             <?php if ($c["catparent"] == 0) { ?>
 

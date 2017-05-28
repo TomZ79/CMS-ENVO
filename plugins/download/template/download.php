@@ -35,7 +35,7 @@
 
   <div class="col-md-12" style="margin: 10px 0 50px 0;">
     <?php if (isset($JAK_DOWNLOAD_ALL) && is_array($JAK_DOWNLOAD_ALL)) foreach ($JAK_DOWNLOAD_ALL as $v) { ?>
-      <!-- Post -->
+      <!-- Post - Download -->
       <div class="col-sm-6" style="margin-bottom: 30px ">
         <div>
           <!-- Post Title & Summary -->
