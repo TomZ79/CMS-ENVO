@@ -90,12 +90,13 @@ $succesfully = 0;
     $tlqed = parse_ini_file(APP_PATH.\'template/qed/lang/en.ini\', true);
 }';
 
+          // Insert data into pluginhooks
           $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_lang", "QED Template Site Language", "' . $sitelang . '", "tpl_qed", 1, 4, "0", NOW()),
 (NULL, "php_admin_lang", "QED Template Admin Language", "' . $adminlang . '", "tpl_qed", 1, 4, "0", NOW())');
 
           // Insert tables into settings
-          /* Table of varname
+          /* Table of BASIC varname - NOT REMOVE
            * ------------------
            * sidebar_location_tpl => info about sidebar location
            * cms_tpl => basic info about installed template

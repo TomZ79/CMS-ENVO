@@ -25,6 +25,7 @@
 
 	<?php if ($PAGE_PASSWORD && !JAK_ASACCESS && $PAGE_PASSWORD != $_SESSION[ 'pagesecurehash' . $PAGE_ID ]) { ?>
 
+		<!-- Protected page -->
 		<section class="light-color pt-medium pb-medium">
 			<div class="container">
 				<div class="row">
