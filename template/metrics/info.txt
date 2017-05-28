@@ -1,0 +1,18 @@
+Odstranit z Pluginů napojení na 'vote result'. Tato funkce není v tomto template dostupná
+-------------------------------------------------------------------------------------------
+Odstraněno z page.php
+
+<!-- Show vote result -->
+<?php if ( && $USR_CAN_RATE) {
+  include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/voteresult.php';
+} ?>
+
+Odstraněno z newsart.php
+
+<?php if ($SHOWVOTE && $USR_CAN_RATE) {
+	include_once APP_PATH . 'template/mosaic/voteresult.php';
+} ?>
+
+
+$PLUGIN_LIKE_ID
+getLikeCounter
