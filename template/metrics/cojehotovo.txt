@@ -1,0 +1,36 @@
+HOTOVO
+-------
+404.php             OK
+contact.php
+editpost.php
+footer.php          OK
+header.php          OK
+install.php         OK
+loginpage.php
+loginsidebar.php
+news.php            OK
+newsart.php
+newssidebar.php     OK
+offline.php
+page.php            jestě zkontrolovat
+report.php
+rss.php
+search.php
+searchfooter.php
+searchsidebar.php
+sidebar.php
+sitemap.php
+socialbutton.php
+standard.php
+success.php
+tags.php
+tagsfooter.php
+tagssidebar.php     OK
+uninstall.php
+userform.php
+
+
+
+NALEZENÉ CHYBY PŘI TESTOVÁNÍ
+----------------------------
+Pokud není aktivované SEO pro FAQ, tak se nezobrazuje aktivní kategorie při zobrazení článků v dané kategorii. Toto je řešené přes získání aktuální url adresy pokud je aktivované SEO pro FAQ.
