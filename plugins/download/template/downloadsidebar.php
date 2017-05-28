@@ -40,17 +40,17 @@
     <aside class="nav-side-menu">
 
       <h4 class="brand"><?php echo JAK_PLUGIN_NAME_DOWNLOAD . ' ' . $tld["downl_frontend"]["downl8"]; ?></h4>
-      <span class="toggle-btn c-icons" data-toggle="collapse" data-target="#accordion"></span>
+      <span class="toggle-btn c-icons" data-toggle="collapse" data-target="#downloadsidebar"></span>
 
       <div class="menu-list">
-        <ul class="menu-content collapse" id="accordion">
+        <ul class="menu-content collapse" id="downloadsidebar">
           <?php if (isset($JAK_DOWNLOAD_CAT) && is_array($JAK_DOWNLOAD_CAT)) foreach ($JAK_DOWNLOAD_CAT as $c) { ?>
             <?php if ($c["catparent"] == 0) { ?>
 
               <li <?php
-              // Class for all Blog article in category
+              // Class for all Download article in category
               if ($c["varname"] == $url) echo 'class="active"';
-              // Class for Blog article
+              // Class for Download article
               if ($c["varname"] == $DOWNLOAD_CAT) echo 'class="active"';
 
               ?> >
