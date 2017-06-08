@@ -230,7 +230,13 @@ $(function () {
  ========================================================================*/
 $(function () {
   $('.selectpicker').selectpicker({
-    container: 'body'
+    container: 'body',
+    dropdownAlignRight: 'auto'
+  });
+
+  $('.selectpickerRight').selectpicker({
+    container: 'body',
+    dropdownAlignRight: true
   });
 });
 
@@ -277,7 +283,7 @@ $(function () {
     $('#JAKModalLabel').html("FileManager");
 
     $('#JAKModal').one('shown.bs.modal', function (e) {
-      $('#JAKModal .modal-dialog').addClass('modal-w-90p');
+      $('#JAKModal .modal-dialog').addClass('modal-w-70p');
       $('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
     }).one('hidden.bs.modal', function (e) {
       $(".body-content").html('');
@@ -386,7 +392,10 @@ function restoreContent(fieldname, backupid, advedit, id) {
 /* 00. BOOSTRAP TABS - keep current tab after page reload
  ========================================================================*/
 $(function () {
-  // for bootstrap 3 use 'shown.bs.tab', for bootstrap 2 use 'shown' in the next line
+  // For bootstrap 3 use 'shown.bs.tab', for bootstrap 2 use 'shown' in the next line
+  // Uses:
+  // Add ' id="cmsTabNAMEOFTABS" in ul of bootstrap tabs
+  // Add ' id="cmsTabContent" to main div of bootstrap tabs content
   if ($('ul[id^="cmsTab"]').length) {
 
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
@@ -430,11 +439,11 @@ $(function () {
    *
    */
   $("input[name='jak_keywords']#metakey").tagsinput({
-    confirmKeys: [13, 44, 32]
+    confirmKeys: [13, 44]
   });
 
   $("input[name='jak_lcontent_meta_key']#jak_editor_light_meta_key").tagsinput({
-    confirmKeys: [13, 44, 32]
+    confirmKeys: [13, 44]
   });
 
   /* Init Booststrap TagsInput for metakey in ACP

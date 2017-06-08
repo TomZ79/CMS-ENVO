@@ -12,6 +12,17 @@
  *
  */
 
+
+/* List of category in tables */
+.table-category-list {
+
+}
+
+.table-category-list a {
+  display: block;
+  text-align: left;
+}
+
 /* BOOTSTRAP PAGINATION */
 .pager li, .pagination > li {
   display: inline-block;
@@ -1205,6 +1216,7 @@ pre[class*="language-"] {
 
 .bootstrap-tagsinput input[type="text"] {
   border: none;
+  background-color: #F9F9F9;
 }
 
 .bootstrap-tagsinput .tag [data-role="remove"]:hover::after {
@@ -1258,11 +1270,11 @@ pre[class*="language-"] {
   height: 300px;
 }
 
-#htmleditor, #htmleditor2, #htmleditor3, #htmleditor4 {
+#htmleditor, #htmleditor1, #htmleditor2, #htmleditor3, #htmleditor4 {
   height: 500px;
 }
 
-#htmleditorlight, #htmleditorlight2 {
+#htmleditorlight, #htmleditorlight1, #htmleditorlight2, #htmleditorlight3, #htmleditorlight4 {
   height: 200px;
 }
 
@@ -1329,8 +1341,11 @@ pre[class*="language-"] {
 
 /* Bootstrap Modal Dialog */
 @media screen and (min-width: 768px) {
+  .modal-w-70p {
+    width: 70%;
+  }
   .modal-w-90p {
-    width: 90%; /* either % (e.g. 60%) or px (400px) */
+    width: 90%;
   }
 }
 
@@ -1399,7 +1414,7 @@ pre[class*="language-"] {
 /*  */
 .jakplugins .text,
 .jakplugins .actions {
-  margin-top: 13px;
+  margin-top: 8px;
   font-size: 13px !important;
 }
 
