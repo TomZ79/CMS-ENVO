@@ -285,21 +285,23 @@ echo $jkv["header_qed_tpl"]; ?> color-<?php echo $jkv["color_qed_tpl"]; ?>">
               </div>
               <div class="col-md-6">
                 <ol class="breadcrumb">
-                  <li>
-                    <a href="<?php echo BASE_URL; ?>"><?php foreach ($jakcategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) {
-                        echo $ca["name"];
-                      } ?></a>
-                  </li>
-                  <?php if ($JAK_TPL_PLUG_T && !empty($page1) && !is_numeric($page1)) { ?>
-                    <li><a href="<?php echo $JAK_TPL_PLUG_URL; ?>"><?php echo $JAK_TPL_PLUG_T; ?></a></li>
-                  <?php } ?>
-                  <li class="active">
-                    <?php if ($page == "edit-profile") {
-                      echo sprintf($tl["login"]["l15"], $jakuser->getVar("username"));
-                    } else {
-                      echo jak_cut_text($PAGE_TITLE, 30, "...");
-                    } ?>
-                  </li>
+
+                  <?php
+                  echo '<li>';
+                  echo '<a href=' . BASE_URL . '>';
+                  foreach ($jakcategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) {
+                    echo $ca["name"];
+                  }
+                  echo '</a>';
+                  echo '</li>';
+                  if ($JAK_TPL_PLUG_T && !empty($page1) && !is_numeric($page1)) {
+                    echo '<li><a href="' . $JAK_TPL_PLUG_URL . '">' . $JAK_TPL_PLUG_T . '</a></li>';
+                  }
+                  echo '<li class="active">';
+                  echo jak_cut_text($PAGE_TITLE, 35, "...");
+                  echo '</li>';
+                  ?>
+
                 </ol>
               </div>
             </div>

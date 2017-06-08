@@ -35,7 +35,7 @@
             <i class="icon-eye"></i> <?php echo $tl["global_text"]["gtxt"] . ' ' .  $v["hits"]; ?>
           </li>
         </ul>
-        <p><?php echo jak_cut_text($v['content'], 200, '....') ?></p>
+        <p><?php echo jak_cut_text($v['content'], $jkv["blogshortmsg"], '....') ?></p>
 
         <p class="pull-right">
           <a href="<?php echo $v["parseurl"]; ?>">

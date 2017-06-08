@@ -5,7 +5,7 @@
 		<?php echo $tl["general_error"]["generror2"]; ?>
 	</div>
 <?php } else {
-
+	// Set link value for page editing
 	if (JAK_ASACCESS) {
 		if ($jkv["printme"]) $printme = 1;
 		$apedit  = BASE_URL . 'admin/index.php?p=page&amp;sp=edit&amp;id=' . $PAGE_ID;

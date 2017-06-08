@@ -333,6 +333,10 @@ if (!$JAK_SHOW_FOOTER) { ?>
 if (isset($JAK_HOOK_FOOTER_END) && is_array($JAK_HOOK_FOOTER_END)) foreach ($JAK_HOOK_FOOTER_END as $hfootere) {
   include_once APP_PATH . $hfootere['phpcode'];
 }
+
+// Analytics code
+if (isset($jkv["analytics"])) echo $jkv["analytics"];
+
 // Javascript for page - FOOTER
 if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT;
 ?>
@@ -540,6 +544,19 @@ if ($jkv["offline"] == 1 && JAK_ASACCESS) { ?>
   }
 
 } ?>
+
+<!-- RegisterForm plugins -->
+<?php if (JAK_PLUGIN_REGISTER_FORM && $page == $PLUGIN_RF_CAT["varname"]) {
+  $pluginsite_template = 'template/' . ENVO_TEMPLATE . '/plugintemplate/register_form/js/script.registerform.php';
+
+  if (file_exists($pluginsite_template)) {
+    include APP_PATH . 'template/' . ENVO_TEMPLATE . '/plugintemplate/register_form/js/script.registerform.php';
+  } else {
+    include APP_PATH . 'plugins/register_form/js/script.registerform.php';
+  }
+
+  ?>
+<?php } ?>
 
 </body>
 </html>
