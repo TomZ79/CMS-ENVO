@@ -48,7 +48,7 @@ if ($errors) { ?>
     </div>
 
     <!-- Form Content -->
-    <ul id="cmsTab" class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+    <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
       <li role="presentation" class="active">
         <a href="#cmsPage1" id="cmsPage1-tab" role="tab" data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
           <span class="text"><?php echo $tld["downl_section_tab"]["downltab"]; ?></span>
@@ -76,7 +76,7 @@ if ($errors) { ?>
       </li>
     </ul>
 
-    <div id="cmsTabContent" class="tab-content">
+    <div class="tab-content">
       <div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
         <div class="row">
           <div class="col-md-6">
@@ -327,7 +327,7 @@ if ($errors) { ?>
 
 														<?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                            echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=jak_img', '<i class="pg-image"></i>', '', 'btn btn-info ifManager', array('type' => 'button', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i22"]));
+                            echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&lang='.$managerlang.'&fldr=&field_id=jak_img', '<i class="pg-image"></i>', '', 'btn btn-info ifManager', array('type' => 'button', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i22"]));
                             ?>
 
 													</span>
@@ -540,7 +540,7 @@ if ($errors) { ?>
 
                       </div>
                       <div class="col-md-7">
-                        <select name="jak_file" class="form-control selectpicker" data-size="5">
+                        <select name="jak_file" class="form-control selectpickerRight" data-live-search="true" data-size="5">
 
                           <?php
                           // Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -579,7 +579,7 @@ if ($errors) { ?>
 
 														<?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                            echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=ext_file', '<i class="fa fa-folder-open"></i>', '', 'btn btn-info ifManager', array('type' => 'button', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i23"]));
+                            echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang='.$managerlang.'&fldr=&field_id=ext_file', '<i class="fa fa-folder-open"></i>', '', 'btn btn-info ifManager', array('type' => 'button', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i23"]));
                             ?>
 
                           </span>
@@ -724,7 +724,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
+                echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang='.$managerlang.'&fldr=&field_id=csseditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
                 echo $Html->addAnchor('javascript:;', $tl["global_text"]["globaltxt6"], 'addCssBlock');
                 echo '<br/>';
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
@@ -762,7 +762,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
+                echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang='.$managerlang.'&fldr=&field_id=javaeditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
                 echo $Html->addAnchor('javascript:;', $tl["global_text"]["globaltxt7"], 'addJavascriptBlock');
                 echo '<br/>';
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)

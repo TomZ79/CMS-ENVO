@@ -87,9 +87,10 @@ switch ($page1) {
       // Get the download categories
       $row = $jakdb->queryRow('SELECT name, content FROM ' . $jaktable1 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
 
-      $PAGE_TITLE       = JAK_PLUGIN_NAME_DOWNLOAD . ' - ' . $row['name'];
-      $PAGE_CONTENT     = $row['content'];
-      $MAIN_DESCRIPTION = $jkv['downloaddesc'];
+      $PAGE_TITLE              = JAK_PLUGIN_NAME_DOWNLOAD . ' - ' . $row['name'];
+      $PAGE_CONTENT            = $row['content'];
+      $MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
+      $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];
 
       // Get the sort orders for the grid
       $JAK_HOOK_SIDE_GRID = FALSE;
@@ -107,8 +108,14 @@ switch ($page1) {
 
       if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-      $PAGE_KEYWORDS    = str_replace(" ", "", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
-      $PAGE_DESCRIPTION = jak_cut_text($PAGE_CONTENT, 155, '');
+      $PAGE_KEYWORDS = str_replace(" ", "", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+
+      // SEO from the category content if available
+      if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
+        $PAGE_DESCRIPTION = jak_cut_text($MAIN_PLUGIN_DESCRIPTION, 155, '');
+      } else {
+        $PAGE_DESCRIPTION = jak_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
+      }
 
       // Get the CSS and Javascript into the page
       $JAK_HEADER_CSS        = $jkv["download_css"];
@@ -187,9 +194,9 @@ switch ($page1) {
           $arr['created'] = JAK_Base::jakTimesince(time(), $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['global_text']['gtxt4']);
 
           /*
-          /	The data in $arr is escaped for the mysql query,
-          /	but we need the unescaped variables, so we apply,
-          /	stripslashes to all the elements in the array:
+          / The data in $arr is escaped for the mysql query,
+          / but we need the unescaped variables, so we apply,
+          / stripslashes to all the elements in the array:
           /*/
 
           /* Outputting the markup of the just-inserted comment: */
@@ -204,7 +211,7 @@ switch ($page1) {
           }
 
         } else {
-          /* Outputtng the error messages */
+          /* Outputting the error messages */
           if (isset($arr['jakajax']) && $arr['jakajax'] == "yes") {
             header('Cache-Control: no-cache');
             die('{"status":0, "errors":' . json_encode($arr) . '}');
@@ -267,20 +274,19 @@ switch ($page1) {
           }
 
           // Output the data
-          $PAGE_ID                     = $row['id'];
-          $PAGE_TITLE                  = $row['title'];
-          $PAGE_CONTENT                = jak_secure_site($row['content']);
-          $MAIN_DESCRIPTION            = $jkv['newsdesc'];
-          $SHOWTITLE                   = $row['showtitle'];
-          $SHOWIMG                     = $row['previmg'];
-          $SHOWDATE                    = $row['showdate'];
-          $FT_SHARE                    = $row['ftshare'];
-          $SHOWSOCIALBUTTON            = $row['socialbutton'];
-          $DL_HITS                     = $row['hits'];
-          $DL_DOWNLOADS                = $row['countdl'];
+          $PAGE_ID          = $row['id'];
+          $PAGE_TITLE       = $row['title'];
+          $PAGE_CONTENT     = jak_secure_site($row['content']);
+          $SHOWTITLE        = $row['showtitle'];
+          $SHOWIMG          = $row['previmg'];
+          $SHOWDATE         = $row['showdate'];
+          $FT_SHARE         = $row['ftshare'];
+          $SHOWSOCIALBUTTON = $row['socialbutton'];
+          $DL_HITS          = $row['hits'];
+          $DL_DOWNLOADS     = $row['countdl'];
           // EN: $DL_PASSWORD - variable if page have password
           // CZ: $DL_PASSWORD - proměná pro zaheslovanou stránku
-          $DL_PASSWORD                 = $row['password'];
+          $DL_PASSWORD = $row['password'];
           // EN: $PAGE_PASSWORD - main variable if page have password, use in template
           // CZ: $PAGE_PASSWORD - hlavní proměnná pro zaheslovanou stránku, používá se pro template
           $PAGE_PASSWORD               = $DL_PASSWORD;
@@ -588,26 +594,53 @@ switch ($page1) {
           $dlfile = str_replace("//", "/", $dlfile);
 
           if (file_exists($dlfile)) {
+
             /*
             * EN: IF FILE EXIST
             * CZ: POKUD STAHOVANÝ SOUBOR EXISTUJE
             */
 
-            header('Content-Description: File Transfer');
-            //set the content as octet-stream
-            header('Content-Type: application/octet-stream');
-            // set it as an attachment and give a file name
-            header('Content-Disposition: attachment; filename=' . basename($dlfile));
-            header('Content-Transfer-Encoding: binary');
-            header('Expires: 0');
-            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-            header('Pragma: public');
-            // Calculate File size
-            header('Content-Length: ' . filesize($dlfile));
-            ob_clean();
-            flush();
-            // read into the buffer
-            readfile($dlfile);
+            if (!is_file($dlfile)) {
+              header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
+              echo 'File not found';
+            } else if (!is_readable($dlfile)) {
+              header($_SERVER['SERVER_PROTOCOL'] . ' 403 Forbidden');
+              echo 'File not readable';
+            } else {
+
+              /*
+                Do any processing you'd like here:
+                1.  Increment a counter
+                2.  Do something with the DB
+                3.  Check user permissions
+                4.  Anything you want!
+              */
+
+              // required for IE
+              //if(ini_get('zlib.output_compression')) { ini_set('zlib.output_compression', 'Off'); }
+
+              // get the file mime type using the file extension
+              switch(strtolower(substr(strrchr($dlfile, '.'), 1))) {
+                case 'pdf': $mime = 'application/pdf'; break;
+                case 'zip': $mime = 'application/zip'; break;
+                case 'jpeg':
+                case 'jpg': $mime = 'image/jpg'; break;
+                default: $mime = 'application/force-download';
+              }
+              header('Pragma: ');   // required
+              header('Expires: 0');   // no cache
+              header('Cache-Control: ');
+              header('Last-Modified: '.gmdate ('D, d M Y H:i:s', filemtime ($dlfile)).' GMT');
+              header('Cache-Control: private',false);
+              header('Content-Type: application/force-download');
+              header('Content-Disposition: attachment; filename="'.basename($dlfile).'"');
+              header('Content-Transfer-Encoding: binary');
+              header('Content-Length: '.filesize($dlfile));  // provide file size
+              ob_clean();
+              flush();
+              readfile($dlfile);   // push it out
+            }
+
 
           } else {
             /*
@@ -662,9 +695,9 @@ switch ($page1) {
     }
 
     // Check if we have a language and display the right stuff
-    $PAGE_TITLE       = $jkv["downloadtitle"];
-    $PAGE_CONTENT     = $jkv["downloaddesc"];
-    $MAIN_DESCRIPTION = $jkv['downloaddesc'];
+    $PAGE_TITLE              = $jkv["downloadtitle"];
+    $MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
+    $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];
 
     // Get the url session
     $_SESSION['jak_lastURL'] = $backtodl;
@@ -685,10 +718,10 @@ switch ($page1) {
     $PAGE_KEYWORDS = str_replace(" ", "", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
 
     // SEO from the category content if available
-    if (!empty($ca['content'])) {
-      $PAGE_DESCRIPTION = jak_cut_text($ca['content'], 155, '');
+    if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
+      $PAGE_DESCRIPTION = jak_cut_text($MAIN_PLUGIN_DESCRIPTION, 155, '');
     } else {
-      $PAGE_DESCRIPTION = jak_cut_text($PAGE_CONTENT, 155, '');
+      $PAGE_DESCRIPTION = jak_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
     }
 
     // Get the CSS and Javascript into the page
