@@ -208,19 +208,13 @@ if ($errors) { ?>
                   </div>
                 </div>
                 <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="col-md-12">
 
                     <?php
-                    // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                    echo $Html->addTag('strong', $tl["site_box_content"]["sitebc4"]);
-                    ?>
-
-                  </div>
-                  <div class="col-md-7">
-
-                    <?php
-                    // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'jak_description', $jkv["metadesc"], 'metadesc', 'form-control');
+                    // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                    echo $Html->addLabel('', '<strong>' . $tl["site_box_content"]["sitebc4"] . '</strong>');
+                    // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+                    echo $Html->addTextarea('jak_description', $jkv["metadesc"], '3', '', array('id' => 'metadesc', 'class' => 'form-control'));
                     ?>
 
                   </div>

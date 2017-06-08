@@ -43,7 +43,7 @@ if ($page1 == "e") { ?>
     </div>
 
     <!-- Form Content -->
-    <ul id="cmsTabMapS" class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+    <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
       <li role="presentation" class="active">
         <a href="#cmsPage1" id="cmsPage1-tab" role="tab" data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
           <span class="text"><?php echo $tl["sm_section_tab"]["smtab"]; ?></span>
@@ -56,7 +56,7 @@ if ($page1 == "e") { ?>
       </li>
     </ul>
 
-    <div id="cmsTabContent" class="tab-content">
+    <div class="tab-content">
       <div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
         <div class="row">
           <div class="col-md-12">

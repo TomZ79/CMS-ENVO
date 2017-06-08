@@ -155,7 +155,7 @@ if ($page1 == "e") { ?>
                         <?php
                         echo $tl["plug_box_content"]["plugbc1"] . ' : ';
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                        echo $Html->addAnchor('../plugins/' . $p . '//install.php', str_replace('_', ' ', ucfirst($p)), '', 'plugInst');
+                        echo $Html->addAnchor('../plugins/' . $p . '/install.php', str_replace('_', ' ', ucfirst($p)), '', 'plugInst');
                         ?>
 
                       </div>
@@ -164,7 +164,7 @@ if ($page1 == "e") { ?>
                         <?php
                         echo $tl["plug_box_content"]["plugbc2"] . ' : ';
 
-                        $filename = '../plugins/' . $p . '/help.php';
+                        $filename = '../plugins/' . $p . '/help/help_' . $site_language . '.php';
 
                         if (file_exists($filename)) {
                           echo "<a class=\"plugHelp\" href=\"" . $filename . "\">" . str_replace('_', ' ', ucfirst($p)) . "</a>";
