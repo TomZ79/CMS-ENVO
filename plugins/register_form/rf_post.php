@@ -21,7 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
     $human_captcha = explode(':#:', $_SESSION['jak_captcha']);
 
     if (isset($defaults[$human_captcha[0]]) && ($defaults[$human_captcha[0]] == '' || $defaults[$human_captcha[0]] != $human_captcha[1])) {
-      $errorsA['human'] = $tl['error']['e10'] . '<br />';
+      $errorsA['human0'] = $tl['general_error']['generror26'] . '<br />';
+    }
+
+    if (isset($_POST["captcha"]) && $_POST["captcha"] == "" || $_SESSION['captchaCode'] != $_POST["captcha"]) {
+      $errorsA['human1'] = $tl['general_error']['generror27'] . '<br />';
     }
   }
 
@@ -47,27 +51,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
     if ($formarray[$i] == 1) {
 
       if (isset($defaults[$formarray[$i]]) && empty($defaults[$formarray[$i]])) {
-        $errors['e3'] = $tl['error']['e14'] . '<br />';
+        $errors['e3'] = $tl['general_error']['generror28'] . '<br />';
       }
 
       if (isset($defaults[$formarray[$i]]) && !preg_match('/^([a-zA-Z0-9\-_])+$/', $defaults[$formarray[$i]])) {
-        $errors['e3'] = $tl['error']['e15'] . '<br />';
+        $errors['e3'] = $tl['general_error']['generror29'] . '<br />';
       }
 
       if (isset($defaults[$formarray[$i]]) && jak_field_not_exist(strtolower($defaults[$formarray[$i]]), $jaktable, 'username')) {
-        $errors['e3'] = $tl['error']['e16'] . '<br />';
+        $errors['e3'] = $tl['general_error']['generror30'] . '<br />';
       }
 
       if (isset($defaults[$formarray[$i]]) && $jkv["username_block"]) {
         $blockusrname = explode(',', $jkv["username_block"]);
         if (in_array(strtolower($defaults[$formarray[$i]]), $blockusrname)) {
-          $errors['e3'] = $tl['error']['e25'] . '<br />';
+          $errors['e3'] = $tl['general_error']['generror31'] . '<br />';
         }
 
         // We do not have to type the exact word, it will pick the correct word in the string
         if (!isset($errors['e3']) && isset($blockusrname) && is_array($blockusrname)) foreach ($blockusrname as $q) {
           if (strpos(strtolower($defaults[$formarray[$i]]), $q) !== FALSE) {
-            $errors['e3'] = $tl['error']['e25'] . '<br />';
+            $errors['e3'] = $tl['general_error']['generror31'] . '<br />';
             break;
           }
         }
@@ -82,20 +86,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
 
       // Check if email address is valid
       if (!filter_var($defaults[$formarray[$i]], FILTER_VALIDATE_EMAIL)) {
-        $errors['e4'] = $tl['error']['e1'] . '<br />';
+        $errors['e4'] = $tl['general_error']['generror32'] . '<br />';
       }
 
       // Check if email address has been blocked
       if ($jkv["email_block"]) {
         $blockede = explode(',', $jkv["email_block"]);
         if (in_array($defaults[$formarray[$i]], $blockede) || in_array(strrchr($defaults[$formarray[$i]], "@"), $blockede)) {
-          $errors['e4'] = $tl['error']['e21'] . '<br />';
+          $errors['e4'] = $tl['general_error']['generror33'] . '<br />';
         }
       }
 
       // Check if email address is double
       if (jak_field_not_exist(filter_var($defaults[$formarray[$i]], FILTER_SANITIZE_EMAIL), $jaktable, 'email')) {
-        $errors['e4'] = $tl['error']['e38'] . '<br />';
+        $errors['e4'] = $tl['general_error']['generror34'] . '<br />';
       }
 
       $email = $defaults[$formarray[$i]];
@@ -106,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
     if ($formarray[$i] == 3) {
 
       if (strlen($defaults[$formarray[$i]]) <= '7') {
-        $errors['e5'] = $tl['error']['e18'] . '<br />';
+        $errors['e5'] = $tl['general_error']['generror35'] . '<br />';
       }
 
       $password = $defaults[$formarray[$i]];
@@ -118,25 +122,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
       if ($formmandarray[$i] == 1) {
         if ($formtype[$i] <= 3) {
           if ($defaults[$formarray[$i]] == '') {
-            $errorsA[$i] = $tl['error']['e11'] . ' (' . $formnamearray[$i] . ')<br />';
+            $errorsA[$i] = $tl['general_error']['generror36'] . ' (' . $formnamearray[$i] . ')<br />';
           }
         } elseif ($formtype[$i] == 4) {
           if ($defaults[$formnamearray[$i]] == '') {
-            $errorsA[$i] = $tl['error']['e11'] . ' (' . $formnamearray[$i] . ')<br />';
+            $errorsA[$i] = $tl['general_error']['generror36'] . ' (' . $formnamearray[$i] . ')<br />';
           }
         }
       } elseif ($formmandarray[$i] == 2) {
         if (!is_numeric($defaults[$formarray[$i]])) {
-          $errorsA[$i] = $tl['error']['e13'] . ' (' . $formnamearray[$i] . ')<br />';
+          $errorsA[$i] = $tl['general_error']['generror37'] . ' (' . $formnamearray[$i] . ')<br />';
         }
       } elseif ($formmandarray[$i] == 3) {
         if ($defaults[$formarray[$i]] == '' || !filter_var($defaults[$formarray[$i]], FILTER_VALIDATE_EMAIL)) {
-          $errorsA[$i] = $tl['error']['e1'] . ' (' . $formnamearray[$i] . ')<br />';
+          $errorsA[$i] = $tl['general_error']['generror32'] . ' (' . $formnamearray[$i] . ')<br />';
         }
       } elseif ($formmandarray[$i] == 5) {
         // Check if value does not exist
         if ($defaults[$formarray[$i]] == '' || jak_field_not_exist(filter_var($defaults[$formarray[$i]], FILTER_SANITIZE_EMAIL), $jaktable, strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $formnamearray[$i])) . '_' . $formarray[$i])) {
-          $errorsA[$i] = sprintf($tl['error']['e17'], $formnamearray[$i]) . '<br />';
+          $errorsA[$i] = sprintf($tl['general_error']['generror38'], $formnamearray[$i]) . '<br />';
         }
       }
     }
@@ -164,33 +168,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
   if ($jkv["rf_simple"] && $spamcheck) {
 
     if (empty($defaults['username'])) {
-      $errors['e3'] = $tl['error']['e14'] . '<br />';
+      $errors['e3'] = $tl['general_error']['generror28'] . '<br />';
     }
 
     if (!preg_match('/^([a-zA-Z0-9\-_])+$/', $defaults['username'])) {
-      $errors['e3'] = $tl['error']['e15'] . '<br />';
+      $errors['e3'] = $tl['general_error']['generror29'] . '<br />';
     }
 
     if (jak_field_not_exist(strtolower($defaults['username']), $jaktable, 'username')) {
-      $errors['e3'] = $tl['error']['e16'] . '<br />';
+      $errors['e3'] = $tl['general_error']['generror30'] . '<br />';
     }
 
     $username = $defaults['username'];
 
     if (!filter_var($defaults['email'], FILTER_VALIDATE_EMAIL)) {
-      $errors['e4'] = $tl['error']['e1'] . '<br />';
+      $errors['e4'] = $tl['general_error']['generror32'] . '<br />';
     }
 
     // Check if email address has been blocked
     if ($jkv["email_block"]) {
       $blockede = explode(',', $jkv["email_block"]);
       if (in_array($defaults['email'], $blockede) || in_array(strrchr($defaults['email'], "@"), $blockede)) {
-        $errors['e4'] = $tl['error']['e21'] . '<br />';
+        $errors['e4'] = $tl['general_error']['generror33'] . '<br />';
       }
     }
 
     if (jak_field_not_exist(filter_var($defaults['email'], FILTER_SANITIZE_EMAIL), $jaktable, 'email')) {
-      $errors['e4'] = $tl['error']['e38'] . '<br />';
+      $errors['e4'] = $tl['general_error']['generror34'] . '<br />';
     }
 
     $email = $defaults['email'];
@@ -248,7 +252,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
           if ($jkv["rf_simple"]) $confirmlink .= '<br /><strong>' . $tl['login']['l2'] . ':</strong> ' . $password;
 
           $mail        = new PHPMailer(); // defaults to using php "mail()"
-          $linkmessage = $jkv["rf_welcome"] . $confirmlink;
+          $linkmessage = $jkv["rf_welcome"] . '<br>'. $confirmlink;
           $body        = str_ireplace("[\]", '', $linkmessage);
 
           // We go for SMTP
@@ -308,7 +312,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
           if ($jkv["rf_simple"]) $confirmlink .= '<br /><strong>' . $tl['login']['l2'] . ':</strong> ' . $password;
 
           $mail = new PHPMailer(); // defaults to using php "mail()"
-          $body = str_ireplace("[\]", '', $jkv["rf_welcome"] . $confirmlink);
+          $body = str_ireplace("[\]", '', $jkv["rf_welcome_email"] . $confirmlink);
 
           // We go for SMTP
           if ($jkv["smtp_or_mail"]) {
@@ -340,4 +344,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
     }
   }
 }
+
 ?>

@@ -230,7 +230,8 @@ if (JAK_USERID) {
 
       // Save the result
       $result = $jakdb->query('UPDATE ' . $jaktable . ' SET
-			name = "' . smartsql($defaults['name']) . '"
+			name = "' . smartsql($defaults['name']) . '",
+			phone = "' . smartsql($defaults['phone']) . '"
 			' . $safeemail . $insert . '
 			WHERE id = "' . smartsql(JAK_USERID) . '"');
 
