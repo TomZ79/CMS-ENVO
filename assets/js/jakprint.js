@@ -1,6 +1,8 @@
 /**
  * @author Val Luminarias <vluminarias@yahoo.com>
  *
+ * https://gitlab.com/lavmo/jquery-print-plugin/blob/master/lib/jquery.printThis.js
+ *
  * How to use it:
  *
  * 1. Call the plugin to print a specified area of your webpage:
