@@ -43,7 +43,7 @@ if ($page2 == "e" || $page1 == "ene") { ?>
     </div>
 
     <!-- Form Content -->
-    <ul id="cmsTab" class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+    <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
       <li role="presentation" class="active">
         <a href="#cmsPage1" id="cmsPage1-tab" role="tab" data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
           <span class="text"><?php echo $tlrf["reg_section_tab"]["regtab"]; ?></span>
@@ -56,7 +56,7 @@ if ($page2 == "e" || $page1 == "ene") { ?>
       </li>
     </ul>
 
-    <div id="cmsTabContent" class="tab-content">
+    <div class="tab-content">
       <div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
         <div class="row">
           <div class="col-md-12">
@@ -237,9 +237,9 @@ if ($page2 == "e" || $page1 == "ene") { ?>
                                 } else {
                                   $selected = FALSE;
                                 }
-
-                                echo $Html->addOption($v["id"], $v["name"], $selected);
                               }
+
+                              echo $Html->addOption($v["id"], $v["name"], $selected);
                             }
                           }
                           ?>
@@ -258,6 +258,37 @@ if ($page2 == "e" || $page1 == "ene") { ?>
                       </div>
                       <div class="col-md-7">
                         <?php include APP_PATH . "admin/template/editorlight_edit.php"; ?>
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html->addTag('strong', $tlrf["reg_box_content"]["regbc30"]);
+                        ?>
+
+                      </div>
+                      <div class="col-md-7">
+
+                        <?php
+
+                        if ($jkv["adv_editor"]) {
+
+                          // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                          echo $Html->addDiv('', 'htmleditorlight1');
+                          // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+                          echo $Html->addTextarea('jak_lcontent1', (isset($JAK_FORM_DATA1["content"])) ? jak_edit_safe_userpost(htmlspecialchars($JAK_FORM_DATA1["content"])) : '', '', '', array('id' => 'jak_editor_light1', 'class' => 'form-control hidden'));
+
+                        } else {
+
+                          // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+                          echo $Html->addTextarea('jak_lcontent1', (isset($JAK_FORM_DATA1["content"])) ? jak_edit_safe_userpost($JAK_FORM_DATA1["content"]) : '', '40', '', array('id' => 'jakEditor1', 'class' => 'jakEditorLight'));
+
+                        }
+
+                        ?>
+
                       </div>
                     </div>
                   </div>

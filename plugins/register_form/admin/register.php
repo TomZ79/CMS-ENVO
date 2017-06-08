@@ -32,8 +32,9 @@ switch ($page1) {
 		    WHEN "rf_redirect" THEN ' . $defaults['jak_redirect'] . '
 		    WHEN "rf_usergroup" THEN ' . $defaults['jak_usergroup'] . '
 		    WHEN "rf_welcome" THEN "' . smartsql($defaults['jak_lcontent']) . '"
+		    WHEN "rf_welcome_email" THEN "' . smartsql($defaults['jak_lcontent1']) . '"
 		END
-			WHERE varname IN ("rf_title", "rf_active", "rf_simple", "rf_confirm", "rf_redirect", "rf_usergroup", "rf_welcome")');
+			WHERE varname IN ("rf_title", "rf_active", "rf_simple", "rf_confirm", "rf_redirect", "rf_usergroup", "rf_welcome", "rf_welcome_email")');
 
       // Save order for sidebar widget
       if (isset($defaults['jak_hookshow_new']) && is_array($defaults['jak_hookshow_new'])) {
@@ -148,6 +149,7 @@ switch ($page1) {
     // Get the special vars for multi language support
     $JAK_FORM_DATA["title"]   = $jkv["rf_title"];
     $JAK_FORM_DATA["content"] = $jkv["rf_welcome"];
+    $JAK_FORM_DATA1["content"] = $jkv["rf_welcome_email"];
 
     // EN: Title and Description
     // CZ: Titulek a Popis

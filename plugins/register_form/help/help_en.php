@@ -65,7 +65,51 @@
       <!-- Changelog -->
       <article>
         <h4>Changelog</h4>
+        <h5>v 1.2</h5>
+        <pre name="code" class="brush: plain;">
+// # List of new components
+// ------------------------------
 
+[new] Add new value 'Welcome message (Email)' in Register Form Settings for admin/template/settings.php
+
+// # List of fixed bugs
+// ------------------------------
+
+[fixed] Reformat code
+[fixed] Language file cs.ini
+[fixed] Fix typo
+
+// # List of removed components
+// ------------------------------
+
+[removed] Remove unnecessary code
+				</pre>
+
+        <h5>v 1.1</h5>
+        <pre name="code" class="brush: plain;">
+// # List of new components
+// ------------------------------
+
+[new] Use class for create hmtl element
+[new] Add help for plugin
+[new] Better install/unistall wizard
+[new] New design
+
+// # List of fixed bugs
+// ------------------------------
+
+[fixed] Reformat code
+[fixed] Language file cs.ini
+[fixed] Fix typo
+
+// # List of removed components
+// ------------------------------
+
+[removed] Remove unnecessary code
+				</pre>
+
+        <h5>v 1.0</h5>
+        <p>Basic initial</p>
       </article>
 
     </section>

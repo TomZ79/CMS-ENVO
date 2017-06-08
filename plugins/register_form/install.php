@@ -6,9 +6,11 @@ if (!file_exists('../../config.php')) die('[install.php] config.php not found');
 require_once '../../config.php';
 
 // Check if the file is accessed only from a admin if not stop the script from running
-if (!JAK_USERID) die('You cannot access this file directly.');
+$php_errormsg = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
+$php_errormsg1 = 'Only ADMINISTRATOR privileges allow you to edit the file !!! You cannot access this file directly.';
+if (!JAK_USERID) die($php_errormsg);
 
-if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die('You cannot access this file directly.');
+if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die($php_errormsg1);
 
 // Set successfully to zero
 $succesfully = 0;
@@ -163,7 +165,7 @@ if (file_exists(APP_PATH . 'plugins/register_form/admin/lang/' . $site_language 
         require_once APP_PATH.\'plugins/register_form/admin/register.php\';
         $JAK_PROVED = 1;
         $checkp = 1;
-     }", "", "../plugins/register_form/admin/template/registerfnav.php", 1, "uninstall.php", "1.1", NOW())');
+     }", "", "../plugins/register_form/admin/template/registerfnav.php", 1, "uninstall.php", "1.2", NOW())');
 
       // EN: Now get the plugin 'id' from table 'plugins' for futher use
       // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
@@ -322,7 +324,8 @@ if (!$result) {
 ("rf_simple", "register_form", 1, 1, "yesno", "boolean", "registerf"),
 ("rf_message", "register_form", NULL, NULL, "textarea", "free", "registerf"),
 ("rf_confirm", "register_form", 1, 1, "select", "boolean", "registerf"),
-("rf_welcome", "register_form", NULL, NULL, "textarea", "free", "registerf"),
+("rf_welcome", "register_form", "Thank you for registering. Please check your email.", "Thank you for registering. Please check your email.", "textarea", "free", "registerf"),
+("rf_welcome_email", "register_form", "The password you submitted was automatically generated. You can change your password after logging in.", "The password you submitted was automatically generated. You can change your password after logging in.", "textarea", "free", "registerf"),
 ("rf_usergroup", "register_form", 2, 2, "select", "number", "registerf"),
 ("rf_redirect", "register_form", NULL, NULL, "number", "select", "registerf"),
 ("rf_content", "register_form", NULL, NULL, "textarea", "free", "registerf")');
