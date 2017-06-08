@@ -1,13 +1,19 @@
 <?php
 
-if (!file_exists('../../../../../config.php')) die('[index.php] config.php not exist');
-require_once '../../../../../config.php';
+if (!file_exists('../../../../../config_tinymce.php')) die('[index.php] config_tinymce.php not exist');
+require_once '../../../../../config_tinymce.php';
 
 if (session_id() == '') session_start();
 
 if (JAK_ADMINACCESS) $_SESSION['RF']["verify"] = "JAKfilemanager";
+
 mb_internal_encoding('UTF-8');
-date_default_timezone_set('Europe/Zurich');
+mb_http_output('UTF-8');
+mb_http_input('UTF-8');
+mb_language('uni');
+mb_regex_encoding('UTF-8');
+ob_start('mb_output_handler');
+date_default_timezone_set('Europe/Rome');
 
 if (!isset($_SESSION['RF']["verify"]) || $_SESSION['RF']["verify"] != "JAKfilemanager") die('Nothing to see here.');
 
@@ -64,8 +70,10 @@ $config = array(
 	|
 	| without final / (DON'T TOUCH)
 	|
+	| example:
+	| 'base_url' => ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] && ! in_array(strtolower($_SERVER['HTTPS']), array( 'off', 'no' ))) ? |   | 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'],
 	*/
-	'base_url' => '',
+
 
 	/*
 	|--------------------------------------------------------------------------
@@ -76,7 +84,6 @@ $config = array(
 	|
 	*/
 	'upload_dir' => '/'.JAK_FILES_DIRECTORY.'/',
-
 	/*
 	|--------------------------------------------------------------------------
 	| relative path from filemanager folder to upload folder
@@ -97,6 +104,36 @@ $config = array(
 	|
 	*/
 	'thumbs_base_path' => '../../../../../'.JAK_FILES_DIRECTORY.'/thumbs/',
+
+
+	/*
+	|--------------------------------------------------------------------------
+	| FTP configuration BETA VERSION
+	|--------------------------------------------------------------------------
+	|
+	| If you want enable ftp use write these parametres otherwise leave empty
+	| Remember to set base_url properly to point in the ftp server domain and
+	| upload dir will be ftp_base_folder + upload_dir so without final /
+	|
+	*/
+	'ftp_host'         => false,
+	'ftp_user'         => "user",
+	'ftp_pass'         => "pass",
+	'ftp_base_folder'  => "base_folder",
+	'ftp_base_url'     => "http://site to ftp root",
+	/* --------------------------------------------------------------------------
+	| path from ftp_base_folder to base of thumbs folder with start and final |
+	|--------------------------------------------------------------------------*/
+	'ftp_thumbs_dir' => '/thumbs/',
+	'ftp_ssl' => false,
+	'ftp_port' => 21,
+
+
+	// 'ftp_host'         => "s108707.gridserver.com",
+	// 'ftp_user'         => "test@responsivefilemanager.com",
+	// 'ftp_pass'         => "Test.1234",
+	// 'ftp_base_folder'  => "/domains/responsivefilemanager.com/html",
+
 
 	/*
 	|--------------------------------------------------------------------------
@@ -138,7 +175,15 @@ $config = array(
 	| in Megabytes
 	|
 	*/
-	'MaxSizeUpload' => 1,
+	'MaxSizeUpload' => 8,
+
+	/*
+	|--------------------------------------------------------------------------
+	| File and Folder permission
+	|--------------------------------------------------------------------------
+	|
+	*/
+	'fileFolderPermission' => 0755,
 
 
 	/*
@@ -146,7 +191,7 @@ $config = array(
 	| default language file name
 	|--------------------------------------------------------------------------
 	*/
-	'default_language' => $site_language,
+	'default_language' => "en_EN",
 
 	/*
 	|--------------------------------------------------------------------------
@@ -163,13 +208,13 @@ $config = array(
 	//Show or not total size in filemanager (is possible to greatly increase the calculations)
 	'show_total_size'						=> false,
 	//Show or not show folder size in list view feature in filemanager (is possible, if there is a large folder, to greatly increase the calculations)
-	'show_folder_size'						=> true,
+	'show_folder_size'						=> false,
 	//Show or not show sorting feature in filemanager
 	'show_sorting_bar'						=> true,
 	//Show or not show filters button in filemanager
-	'show_filter_buttons'						=> true,
+	'show_filter_buttons'                   => true,
 	//Show or not language selection feature in filemanager
-	'show_language_selection'				=> false,
+	'show_language_selection'				=> true,
 	//active or deactive the transliteration (mean convert all strange characters in A..Za..z0..9 characters)
 	'transliteration'						=> false,
 	//convert all spaces on files name and folders name with $replace_with variable
@@ -178,6 +223,9 @@ $config = array(
 	'replace_with'							=> "_",
 	//convert to lowercase the files and folders name
 	'lower_case'							=> false,
+
+	//Add ?484899493349 (time value) to returned images to prevent cache
+	'add_time_to_img'                       => false,
 
 	// -1: There is no lazy loading at all, 0: Always lazy-load images, 0+: The minimum number of the files in a directory
 	// when lazy loading should be turned on.
@@ -214,6 +262,30 @@ $config = array(
 	// If set to TRUE then you can specify bigger images than $image_max_width & height otherwise if image_resizing is
 	// bigger than $image_max_width or height then it will be converted to those values
 
+
+	//******************
+	//
+	// WATERMARK IMAGE
+	//
+	//Watermark url or false
+	'image_watermark'                          => false,
+	# Could be a pre-determined position such as:
+	#           tl = top left,
+	#           t  = top (middle),
+	#           tr = top right,
+	#           l  = left,
+	#           m  = middle,
+	#           r  = right,
+	#           bl = bottom left,
+	#           b  = bottom (middle),
+	#           br = bottom right
+	#           Or, it could be a co-ordinate position such as: 50x100
+	'image_watermark_position'                 => 'br',
+	# padding: If using a pre-determined position you can
+	#         adjust the padding from the edges by passing an amount
+	#         in pixels. If using co-ordinates, this value is ignored.
+	'image_watermark_padding'                 => 0,
+
 	//******************
 	// Default layout setting
 	//
@@ -240,14 +312,14 @@ $config = array(
 	'duplicate_files'                         => true,
 	'copy_cut_files'                          => true, // for copy/cut files
 	'copy_cut_dirs'                           => true, // for copy/cut directories
-	'chmod_files'                             => false, // change file permissions
-	'chmod_dirs'                              => false, // change folder permissions
+	'chmod_files'                             => true, // change file permissions
+	'chmod_dirs'                              => true, // change folder permissions
 	'preview_text_files'                      => true, // eg.: txt, log etc.
 	'edit_text_files'                         => true, // eg.: txt, log etc.
 	'create_text_files'                       => true, // only create files with exts. defined in $editable_text_file_exts
 
 	// you can preview these type of files if $preview_text_files is true
-	'previewable_text_file_exts'              => array( 'txt', 'log', 'xml', 'html', 'css', 'htm', 'js' ),
+	'previewable_text_file_exts'              => array( "bsh", "c","css", "cc", "cpp", "cs", "csh", "cyc", "cv", "htm", "html", "java", "js", "m", "mxml", "perl", "pl", "pm", "py", "rb", "sh", "xhtml", "xml","xsl" ),
 	'previewable_text_file_exts_no_prettify'  => array( 'txt', 'log' ),
 
 	// you can edit these type of files if $edit_text_files is true (only text based files)
@@ -276,16 +348,16 @@ $config = array(
 	//Allowed extensions (lowercase insert)
 	//**********************
 	'ext_img'                                 => array( 'jpg', 'jpeg', 'png', 'gif', 'bmp', 'tiff', 'svg' ), //Images
-	'ext_file'                                => array( 'doc', 'docx', 'rtf', 'pdf', 'xls', 'xlsx', 'txt', 'csv', 'html', 'xhtml', 'psd', 'sql', 'log', 'fla', 'xml', 'ade', 'adp', 'mdb', 'accdb', 'ppt', 'pptx', 'odt', 'ots', 'ott', 'odb', 'odg', 'otp', 'otg', 'odf', 'ods', 'odp', 'css', 'ai', 'js' ), //Files
+	'ext_file'                                => array( 'doc', 'docx', 'rtf', 'pdf', 'xls', 'xlsx', 'txt', 'csv', 'html', 'xhtml', 'psd', 'sql', 'log', 'fla', 'xml', 'ade', 'adp', 'mdb', 'accdb', 'ppt', 'pptx', 'odt', 'ots', 'ott', 'odb', 'odg', 'otp', 'otg', 'odf', 'ods', 'odp', 'css', 'ai', 'kmz','dwg', 'dxf', 'hpgl', 'plt', 'spl', 'step', 'stp', 'iges', 'igs', 'sat', 'cgm'), //Files
 	'ext_video'                               => array( 'mov', 'mpeg', 'm4v', 'mp4', 'avi', 'mpg', 'wma', "flv", "webm" ), //Video
-	'ext_music'                               => array( 'mp3', 'm4a', 'ac3', 'aiff', 'mid', 'ogg', 'wav' ), //Audio
+	'ext_music'                               => array( 'mp3', 'mpga', 'm4a', 'ac3', 'aiff', 'mid', 'ogg', 'wav' ), //Audio
 	'ext_misc'                                => array( 'zip', 'rar', 'gz', 'tar', 'iso', 'dmg' ), //Archives
 
 	/******************
-	* AVIARY config
-	*******************/
+	 * AVIARY config
+	 *******************/
 	'aviary_active'                           => true,
-	'aviary_apiKey'                           => "fccca30f9094b48c",
+	'aviary_apiKey'                           => "2444282ef4344e3dacdedc7a78f8877d",
 	'aviary_language'                         => "en",
 	'aviary_theme'                            => "light",
 	'aviary_tools'                            => "all",
@@ -301,14 +373,19 @@ $config = array(
 	// Hidden files and folders
 	//**********************
 	// set the names of any folders you want hidden (eg "hidden_folder1", "hidden_folder2" ) Remember all folders with these names will be hidden (you can set any exceptions in config.php files on folders)
-	'hidden_folders'                          => array("formattachment","thumbs","userfiles","updates"),
+	'hidden_folders'                          => array(),
 	// set the names of any files you want hidden. Remember these names will be hidden in all folders (eg "this_document.pdf", "that_image.jpg" )
-	'hidden_files'                            => array('index.html'),
+	'hidden_files'                            => array( 'config.php' ),
 
 	/*******************
-	* JAVA upload
-	*******************/
-	'java_upload'                             => false,
+	 * URL upload
+	 *******************/
+	'url_upload'                             => true,
+
+	/*******************
+	 * JAVA upload
+	 *******************/
+	'java_upload'                             => true,
 	'JAVAMaxSizeUpload'                       => 200, //Gb
 
 
