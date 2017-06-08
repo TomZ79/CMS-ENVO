@@ -101,7 +101,7 @@ function jak_build_menu_download($parent, $menu, $lang, $title1, $title2, $title
       if (isset($menu['parents'][$itemId])) {
         $html .= '<li id="menuItem_' . $menu["items"][$itemId]["id"] . '" class="jakcat">
           		<div>
-          		<span class="text">#' . $menu["items"][$itemId]["id"] . ' <a href="index.php?p=download&amp;sp=categories&amp;ssp=edit&amp;sssp=' . $menu["items"][$itemId]["id"] . '">' . $menu["items"][$itemId]["name"] . '</a></span>
+          		<span class="text"><span class="textid">#' . $menu["items"][$itemId]["id"] . '</span><a href="index.php?p=download&amp;sp=categories&amp;ssp=edit&amp;sssp=' . $menu["items"][$itemId]["id"] . '">' . $menu["items"][$itemId]["name"] . '</a></span>
           		<span class="actions">
           			<a href="index.php?p=download&amp;sp=categories&amp;ssp=lock&amp;sssp=' . $menu["items"][$itemId]["id"] . '" class="btn btn-default btn-xs"><i class="fa fa-' . ($menu["items"][$itemId]["active"] == 0 ? 'lock' : 'check') . '"></i></a>
           				<a href="index.php?p=download&amp;sp=new&amp;ssp=' . $menu["items"][$itemId]["id"] . '" class="btn btn-default btn-xs"><i class="fa fa-sticky-note-o"></i></a>
@@ -109,7 +109,7 @@ function jak_build_menu_download($parent, $menu, $lang, $title1, $title2, $title
           				<a href="index.php?p=download&amp;sp=categories&amp;ssp=delete&amp;sssp=' . $menu["items"][$itemId]["id"] . '" class="btn btn-danger btn-xs" onclick="if(!confirm(' . $lang . '))return false;"><i class="fa fa-trash-o"></i></a>
           		</span>
           		</div>';
-        $html .= jak_build_menu_download($itemId, $menu, $lang);
+        $html .= jak_build_menu_download($itemId, $menu, $lang, $title1, $title2, $title3, $title4, $title5);
         $html .= "</li> \n";
       }
     }

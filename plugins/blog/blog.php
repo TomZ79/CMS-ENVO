@@ -63,7 +63,7 @@ switch ($page1) {
         $getPage  = $page3;
       }
 
-      $resultgt = $jakdb->query('SELECT COUNT(*) as totalAll FROM ' . $jaktable . ' WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 || enddate >= ' . time() . ')) AND catid IN(' . smartsql($page2) . ') AND active = 1');
+      $resultgt = $jakdb->query('SELECT COUNT(*) as totalAll FROM ' . $jaktable . ' WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 || enddate >= ' . time() . ')) AND catid LIKE "%' . smartsql($page2) . '%" AND active = 1');
       $getTotal = $resultgt->fetch_assoc();
 
       if ($getTotal["totalAll"] != 0) {
@@ -85,9 +85,10 @@ switch ($page1) {
 
       $row = $jakdb->queryRow('SELECT name, content FROM ' . $jaktable1 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
 
-      $PAGE_TITLE       = JAK_PLUGIN_NAME_BLOG . ' - ' . $row['name'];
-      $PAGE_CONTENT     = $row['content'];
-      $MAIN_DESCRIPTION = $row['content'];
+      $PAGE_TITLE              = JAK_PLUGIN_NAME_BLOG . ' - ' . $row['name'];
+      $PAGE_CONTENT            = $row['content'];
+      $MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
+      $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];
 
       // Get the sort orders for the grid
       $JAK_HOOK_SIDE_GRID = FALSE;
@@ -105,8 +106,14 @@ switch ($page1) {
 
       if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-      $PAGE_KEYWORDS    = str_replace(" ", "", JAK_Base::jakCleanurl($row['name']) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
-      $PAGE_DESCRIPTION = jak_cut_text($row['content'], 155, '');
+      $PAGE_KEYWORDS = str_replace(" ", "", JAK_Base::jakCleanurl($row['name']) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+
+      // SEO from the category content if available
+      if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
+        $PAGE_DESCRIPTION = jak_cut_text($MAIN_PLUGIN_DESCRIPTION, 155, '');
+      } else {
+        $PAGE_DESCRIPTION = jak_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
+      }
 
       $JAK_HEADER_CSS        = $jkv["blog_css"];
       $JAK_FOOTER_JAVASCRIPT = $jkv["blog_javascript"];
@@ -244,7 +251,6 @@ switch ($page1) {
           $PAGE_ID                     = $row['id'];
           $PAGE_TITLE                  = $row['title'];
           $PAGE_CONTENT                = jak_secure_site($row['content']);
-          $MAIN_DESCRIPTION            = $jkv["blogdesc"];
           $SHOWTITLE                   = $row['showtitle'];
           $SHOWIMG                     = $row['previmg'];
           $SHOWDATE                    = $row['showdate'];
@@ -346,9 +352,9 @@ switch ($page1) {
             $seoc = JAK_base::jakCleanurl($rowc['varname']);
           }
 
-          // EN: Create array with all categories ( Plugin Download have only one category for one download file, in array will be it only one category )
-          // CZ: Vytvoření pole se všemi kategoriemi ( Plugin Download má pouze jednu kategorie pro jeden stahovaný soubor, v poli bude jen jedna kategorie )
-          $catids[] = '<a class="category-label"  href="' . JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_BLOG, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tlblog["blog_frontend"]["blog1"] . '">' . $rowc['name'] . '</a>';
+          // EN: Create array with all categories ( Plugin Blog have one or more categories for one article, in array will be it one or more categories )
+          // CZ: Vytvoření pole se všemi kategoriemi ( Plugin Blog má jednu nebo více kategorií pro jeden článek, v poli bude jedna nebo více kategorií )
+          $catids[] = '<span class="blog-cat-list"><a href="' . JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_BLOG, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tlblog["blog_frontend"]["blog1"] . '">' . $rowc['name'] . '</a></span>';
 
           // EN: Get 'varname' for category
           // CZ: Získaní 'varname' kategorie
@@ -509,9 +515,9 @@ switch ($page1) {
     $JAK_BLOG_CAT = JAK_Base::jakGetcatmix(JAK_PLUGIN_VAR_BLOG, '', $jaktable1, JAK_USERGROUPID, $jkv["blogurl"]);
 
     // Check if we have a language and display the right stuff
-    $PAGE_TITLE       = $jkv["blogtitle"];
-    $PAGE_CONTENT     = $jkv["blogdesc"];
-    $MAIN_DESCRIPTION = $jkv['blogdesc'];
+    $PAGE_TITLE              = $jkv["blogtitle"];
+    $MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
+    $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];
 
     // Get the url session
     $_SESSION['jak_lastURL'] = $backtoblog;
@@ -532,10 +538,10 @@ switch ($page1) {
     $PAGE_KEYWORDS = str_replace(" ", "", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
 
     // SEO from the category content if available
-    if (!empty($ca['content'])) {
-      $PAGE_DESCRIPTION = jak_cut_text($ca['content'], 155, '');
+    if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
+      $PAGE_DESCRIPTION = jak_cut_text($MAIN_PLUGIN_DESCRIPTION, 155, '');
     } else {
-      $PAGE_DESCRIPTION = jak_cut_text($PAGE_CONTENT, 155, '');
+      $PAGE_DESCRIPTION = jak_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
     }
 
     // Get the CSS and Javascript into the page
