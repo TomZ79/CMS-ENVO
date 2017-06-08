@@ -1,0 +1,1536 @@
+/*
+ *
+ * CMS ENVO - PORTO TEMPLATE
+ * CSS with custom modification
+ * Copyright © 2017  Bluesat.cz
+ * -----------------------------------------------------------------------
+ * Author: Thomas
+ * Email: bluesatkv@gmail.com
+ * =======================================================================
+ * INDEX:
+ * 01. COMMON STYLES - PORTO CORRECTION
+ * 02. NECESSARY CODE - BASIC COMMON STYLES
+ * 03. HEADER
+ * 04. HEADER - REVOLUTION SLIDESHOW
+ * 05. FOOTER and COPYRIGHT
+ * 06. NECESSARY CODE - NAVIGATION SIDEBAR MENU
+ * 07. NECESSARY CODE !!! - SIDEBAR
+ * 08. PORTO MODIFICATION - COLORS
+ * 09. PORTO MODIFICATION - FONTS
+ * 10. PORTO MODIFICATION - BUTTONS
+ * 11. PORTO MODIFICATION - INPUT
+ * 12. PORTO MODIFICATION - PANEL ACCORDION
+ * 13. PORTO MODIFICATION - SECTION
+ * 14. PAGINATION
+ * 15. NECESSARY CODE !!! - NEWS
+ * 16. NECESSARY CODE !!! - BOOTSTRAP COL HEIGHT
+ * 17. CAPTCHA
+ * 18. BOOTSTRAP 3 MEDIA QUERIES
+ * 19. BLOG
+ * 20. CUSTOM MODIFICATION
+ */
+
+/* 01. COMMON STYLES - PORTO CORRECTION
+========================================================================*/
+/* Responsive */
+@media (max-width: 479px) {
+  h2 {
+    font-size: 1.9em;
+    line-height: 50px;
+  }
+}
+
+.va-middle {
+  vertical-align: middle !important;
+}
+
+/* 02. NECESSARY CODE !!! - BASIC COMMON STYLES
+========================================================================*/
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.no-mt {
+  margin-top: 0 !important;
+}
+
+.no-mb {
+  margin-bottom: 0 !important;
+}
+
+.no-pb {
+  padding-bottom: 0 !important;
+}
+
+.no-pt {
+  padding-top: 0 !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+/*  margin */
+.mb-large {
+  margin-bottom: 60px;
+}
+
+@media (min-width: 768px) {
+  .mb-large {
+    margin-bottom: 120px;
+  }
+}
+
+.mb-medium {
+  margin-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+  .mb-medium {
+    margin-bottom: 72px;
+  }
+}
+
+.mb-small {
+  margin-bottom: 16px;
+}
+
+.mb {
+  margin-bottom: 24px;
+}
+
+.mt-large {
+  margin-top: 60px;
+}
+
+@media (min-width: 768px) {
+  .mt-large {
+    margin-top: 120px;
+  }
+}
+
+.mt-medium {
+  margin-top: 36px;
+}
+
+@media (min-width: 768px) {
+  .mt-medium {
+    margin-top: 72px;
+  }
+}
+
+.mt-small {
+  margin-top: 16px;
+}
+
+.mt {
+  margin-top: 24px;
+}
+
+@media (max-width: 767px) {
+  .mt-medium-xs {
+    margin-top: 20px;
+  }
+}
+
+/*  padding */
+.pb-large {
+  padding-bottom: 60px;
+}
+
+@media (min-width: 768px) {
+  .pb-large {
+    padding-bottom: 120px;
+  }
+}
+
+.pb-medium {
+  padding-bottom: 36px;
+}
+
+@media (min-width: 768px) {
+  .pb-medium {
+    padding-bottom: 72px;
+  }
+}
+
+.pb-small {
+  padding-bottom: 16px;
+}
+
+.pb {
+  padding-bottom: 24px;
+}
+
+.pt-large {
+  padding-top: 60px;
+}
+
+@media (min-width: 768px) {
+  .pt-large {
+    padding-top: 120px;
+  }
+}
+
+.pt-medium {
+  padding-top: 36px;
+}
+
+@media (min-width: 768px) {
+  .pt-medium {
+    padding-top: 72px;
+  }
+}
+
+.pt-small {
+  padding-top: 16px;
+}
+
+.pt {
+  padding-top: 24px;
+}
+
+/** add a margin bottom, only on mobile **/
+@media (max-width: 767px) {
+  .mb-xs {
+    margin-bottom: 24px;
+  }
+}
+
+/** add a margin bottom, on mobile and small devices **/
+@media (max-width: 991px) {
+  .mb-sm {
+    margin-bottom: 24px;
+  }
+}
+
+/** border ***/
+.no-border {
+  border: none !important;
+}
+
+.bb-1 {
+  border-bottom: 1px solid;
+}
+
+.bb-color-1 {
+  border-bottom-color: #1B6D85;
+}
+
+/** Bootstrap **/
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+/* 03. HEADER
+========================================================================*/
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:focus, .dropdown-menu > .active > a:hover {
+  color: #FFF !important;
+}
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:focus, .dropdown-menu > .active > a:hover {
+  background-color: #2AAFEA;
+  border-radius: 0 !important;
+}
+
+@media (max-width: 991px) {
+  #header.header-mobile-nav-only .header-nav {
+    margin-top: -52px;
+  }
+
+  #header.header-mobile-nav-only .header-btn-collapse-nav {
+    top: -15px;
+  }
+}
+
+/* Breadcrumbs */
+@media (min-width: 992px) {
+  .page-header-more-padding .breadcrumb-valign-mid,
+  .page-header-custom-background .breadcrumb-valign-mid,
+  .page-header-float-breadcrumb .breadcrumb-valign-mid {
+    width: 40%;
+  }
+}
+
+/* Header TOP Links - Left Side */
+.header-links {
+  margin: 0;
+  padding: 0;
+  width: auto;
+}
+
+.header-links li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  font-size: 0.85em;
+  line-height: 39px;
+}
+
+.header-links li:first-child a {
+  border: none;
+  padding-left: 0;
+}
+
+.header-links li a {
+  color: #FFF;
+  padding: 0 8px;
+  border-left: 1px solid #FFF;
+}
+
+/* Header TOP Links - Right Side */
+#header .header-top .text-color-light a {
+  color: #FFF !important;
+}
+
+#header .header-top .text-color-light a.phone {
+  font-weight: 700;
+}
+
+/* Header - responsive button */
+#header .header-btn-collapse-nav {
+  margin: 17px 0 8px 15px !important;
+}
+
+/* 04. HEADER - REVOLUTION SLIDESHOW
+========================================================================*/
+.title1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 90px !important;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-weight: 700;
+  line-height: 90px !important;
+  color: #037ACC;
+  border-bottom: 5px solid #037ACC;
+  text-shadow: #FFF 1px 1px 1px !important;
+}
+
+.text1 span {
+  font-size: 20px !important;
+  line-height: 40px;
+  font-weight: 700;
+  color: #FFF;
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+  .title1 {
+    font-size: 70px !important;
+    line-height: 70px !important;
+    white-space: normal !important;
+    min-width: 300px;
+    max-width: 300px;
+  }
+
+  .text1 {
+    background: rgb(255, 255, 255); /* fallback color */
+    background: rgba(255, 255, 255, 0.5);
+    white-space: normal !important;
+    min-width: 200px;
+    max-width: 200px;
+  }
+
+  .text1 span {
+    font-size: 20px !important;
+    line-height: 40px !important;
+    color: #000;
+  }
+
+}
+
+/* 05. FOOTER and COPYRIGHT
+========================================================================*/
+#footer a:hover {
+  color: inherit !important;
+}
+
+#footer .container .row > div {
+  margin-bottom: 5px;
+}
+
+/* 06. NECESSARY CODE !!! - NAVIGATION SIDEBAR MENU
+       - basic code for sidebar menu.
+
+       If you want, change only color and icons
+========================================================================*/
+.nav-side-menu {
+  width: 100%;
+}
+
+.nav-side-menu li.panel {
+  border: none;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.nav-side-menu .brand {
+  display: block;
+}
+
+.nav-side-menu .toggle-btn {
+  display: none;
+}
+
+.nav-side-menu ul,
+.nav-side-menu li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 35px;
+  cursor: pointer;
+}
+
+.nav-side-menu ul .sub-menu li {
+  border: none;
+  border-bottom: 1px solid #EDEDDE;
+  margin: 0 0 0 25px;
+}
+
+.nav-side-menu ul .sub-menu li a {
+  padding: 8px 0 8px 22px;
+  font-size: 0.9em;
+  line-height: 20px;
+}
+
+.nav-side-menu ul .sub-menu li:hover {
+  background-color: #EEE;
+}
+
+.nav-side-menu li {
+  padding-left: 0;
+}
+
+.nav-side-menu li a:hover {
+  text-decoration: underline;
+}
+
+.nav-side-menu li,
+.nav-side-menu li a {
+  text-decoration: none;
+  color: #666;
+}
+
+.nav-side-menu li a {
+  display: block;
+  padding: 7px 5px 7px 10px;
+}
+
+.nav-side-menu li .panel-heading a {
+  display: block;
+  padding: 10px 5px 10px 10px;
+}
+
+.nav-side-menu li a i {
+  padding-left: 10px;
+  width: 20px;
+  padding-right: 20px;
+}
+
+/* Other modification */
+.panel-heading {
+  padding: 0;
+}
+
+/* Count in sidebar */
+.count {
+  float: right;
+  margin-right: 20px;
+  line-height: normal;
+  padding: 3px;
+  border-radius: 5px;
+  margin-top: 6px;
+  background-color: #F5F5F5;
+  font-weight: 700;
+}
+
+.count-small {
+  padding: 3px 7px;
+}
+
+.nav-side-menu ul .sub-menu li a .count {
+  margin-top: 0;
+}
+
+/* Colors */
+.nav-side-menu ul li.active a,
+.nav-side-menu ul li a.active,
+.nav-side-menu ul .sub-menu li a.active {
+  color: #037ACC;
+}
+
+/* Icons */
+.nav-side-menu ul .sub-menu li a:before {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid #333;
+  margin: 7px 0 0 -12px;
+  position: absolute;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .nav-side-menu {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .nav-side-menu .toggle-btn {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    z-index: 10 !important;
+    padding: 3px;
+    background-color: #FFF;
+    color: #384045;
+    width: 40px;
+    text-align: center;
+  }
+
+  .brand {
+    text-align: left !important;
+    font-size: 22px;
+    padding-left: 20px;
+    line-height: 50px !important;
+  }
+}
+
+@media (min-width: 767px) {
+  .nav-side-menu .menu-list .menu-content {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .nav-side-menu .brand {
+    background-color: #222222;
+    color: #FFF;
+    line-height: 50px;
+    display: block;
+    text-align: center;
+  }
+
+  .nav-side-menu span.toggle-btn:before {
+    font-family: 'FontAwesome';
+    content: '\f067';
+    color: #263238;
+    font-size: 18px;
+    margin: 0;
+  }
+
+  .nav-side-menu span.toggle-btn.is-active:before {
+    font-family: 'FontAwesome';
+    content: '\f068';
+    color: #263238;
+    font-size: 18px;
+    margin: 0;
+  }
+}
+
+/* 07. NECESSARY CODE !!! - SIDEBAR
+       - basic code for sidebar menu.
+
+       If you want, change only color
+========================================================================*/
+/* Sidebar - block */
+.nav-sidebar {
+  width: 100%;
+}
+
+.nav-sidebar ul {
+  padding-left: 10px;
+}
+
+.nav-sidebar li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 30px;
+  cursor: pointer;
+}
+
+/* Sidebar - inline */
+.nav-sidebar-inline {
+  width: 100%;
+}
+
+.nav-sidebar-inline ul {
+  padding-left: 10px;
+}
+
+.nav-sidebar-inline li {
+  display: inline-block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-sidebar-inline li.tag-cloud a {
+  color: #111;
+  background: #C7CFB6;
+  border-color: transparent;
+  padding: 5px;
+  font-size: 14px !important;
+}
+
+/* 08. PORTO MODIFICATION - COLORS
+========================================================================*/
+
+/* 09. PORTO MODIFICATION - FONTS
+========================================================================*/
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.font-small {
+  font-size: 13px;
+  line-height: 1.76923;
+}
+
+.font-small p, .font-small ul, .font-small ol, .font-small dl, .font-small table, .font-small pre, .font-small address, .font-small blockquote {
+  margin-bottom: 32px;
+}
+
+.font-large {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.font-large p, .font-large ul, .font-large ol, .font-large dl, .font-large table, .font-large pre, .font-large address, .font-large blockquote {
+  margin-bottom: 24px;
+}
+
+.font-xlarge {
+  font-size: 17px;
+  line-height: 1.58824;
+}
+
+.font-xlarge p, .font-xlarge ul, .font-xlarge ol, .font-xlarge dl, .font-xlarge table, .font-xlarge pre, .font-xlarge address, .font-xlarge blockquote {
+  margin-bottom: 27px;
+}
+
+.font-alt-1 {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+.font-alt-2 {
+  font-family: Lora, "Times New Roman", Times, serif;
+}
+
+.font-alt-3 {
+  font-family: Raleway, Arial, Helvetica, sans-serif;
+}
+
+/* 10. PORTO MODIFICATION - BUTTONS
+========================================================================*/
+.btn {
+  border-radius: 0;
+}
+
+.btn-info[disabled], .btn-info[disabled]:hover, .btn-info[disabled]:active, .btn-info[disabled]:focus {
+  color: #FFF !important;
+}
+
+.btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:active, .btn-primary[disabled]:focus {
+  color: #FFF !important;
+}
+
+.btn-danger[disabled], .btn-danger[disabled]:hover, .btn-danger[disabled]:active, .btn-danger[disabled]:focus {
+  color: #FFF !important;
+}
+
+/* 11. PORTO MODIFICATION - INPUT
+========================================================================*/
+/* Outline fix */
+input {
+  outline: none !important;
+  -webkit-outline-radius: 0 !important;
+  -moz-outline-radius: 0 !important;
+  outline-radius: 0 !important;
+}
+
+/* 12. PORTO MODIFICATION - PANEL ACCORDION
+========================================================================*/
+
+/* 13. PORTO MODIFICATION - SECTION
+========================================================================*/
+/*---------------------------------------
+        FEATURE 404 AREA
+-----------------------------------------*/
+.feature-404-area .feature-404-title {
+  position: relative;
+  margin-bottom: 35px;
+  margin-top: 0;
+}
+
+.feature-404-area .feature-404-title > h2 {
+  font-size: 280px;
+  font-weight: bold;
+  color: #222222;
+  margin: 0;
+  line-height: 280px;
+}
+
+.feature-404-area .feature-404-title > p {
+  margin: 30px 0;
+  color: #777;
+  font-size: 1.4em;
+  line-height: 36px;
+}
+
+.feature-404-area .feature-404-btn {
+  margin-bottom: 120px;
+}
+
+.feature-404-area .feature-404-shadow-heading {
+}
+
+.feature-404-area .feature-404-shadow-heading h2 {
+  font-weight: bold;
+  color: #F6F6F6;
+  font-size: 380px;
+  margin-bottom: -305px;
+  line-height: 380px;
+}
+
+@media (max-width: 767px) {
+  .feature-404-area .feature-404-title > h2 {
+    font-size: 80px
+  }
+
+  .feature-404-area .feature-404-shadow-heading {
+  }
+
+  .feature-404-area .feature-404-shadow-heading h2 {
+    font-size: 120px;
+    margin-bottom: -80px;
+  }
+}
+
+/*---------------------------------------
+        PROTECTED PAGE AREA
+-----------------------------------------*/
+.protected-page-area {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.protected-page-area H1 {
+  font-weight: 700;
+}
+
+.protected-page-area form input[type="password"] {
+  padding: 11px 32px 11px 32px;
+  height: auto;
+  border: 2px solid #CCC;
+  border-radius: 0 !important;
+  outline: none !important;
+}
+
+.protected-page-area form input[type="password"],
+.protected-page-area form input[type="password"]:focus {
+  border-right: none;
+}
+
+.protected-page-area .input-group-btn:last-child > .btn,
+.protected-page-area .input-group-btn:last-child > .btn-group {
+  margin-left: 0;
+}
+
+/*---------------------------------------
+        SERVICES AREA
+-----------------------------------------*/
+.services-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.services-item:hover {
+  background-color: #FAFAFA;
+}
+
+.services-item a {
+  text-decoration: none;
+}
+
+.services-item a:hover {
+}
+
+/* Service */
+.headline span {
+  padding-bottom: 6px;
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+}
+
+/* Service Area */
+.service-area {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.service-text > p {
+  margin-bottom: 0
+}
+
+.single-service {
+  height: 200px;
+  /*
+  float: left;
+  margin-top: 17px;
+  position: relative;
+  width: 33.33%;
+  */
+}
+
+.single-service a {
+  text-decoration: none;
+}
+
+.single-service a:hover h4,
+.single-service a:hover p {
+  color: #0088CC;
+  transition: all 0.5s ease 0s;
+}
+
+.service-border {
+  display: block;
+  padding: 17px;
+}
+
+.service-border::before {
+  background: #292C35 none repeat scroll 0 0;
+  content: "";
+  height: 93%;
+  position: absolute;
+  right: 0;
+  top: 3.5%;
+  width: 1px;
+}
+
+/* Servis area if one item has class col-md-4
+	.service-area .single-service:nth-child(4) .service-border::before,
+	.service-area .single-service:nth-child(5) .service-border::before {
+		top: -3.5% !important;
+	}
+	.service-area .single-service:nth-child(3) .service-border::before,
+	.service-area .single-service:nth-child(6) .service-border::before {
+		display: none;
+	}
+*/
+/* Servis area if one item has class col-md-3 */
+.service-area .single-service:nth-child(4) .service-border::before,
+.service-area .single-service:nth-child(8) .service-border::before {
+  display: none;
+}
+
+.service-border::after {
+  background: #292C35 none repeat scroll 0 0;
+  bottom: 0;
+  content: "";
+  height: 1px;
+  left: 2.5%;
+  position: absolute;
+  width: 95%;
+}
+
+/* Servis area if one item has class col-md-4
+	.service-area .single-service:nth-child(4) .service-border::after,
+	.service-area .single-service:nth-child(5) .service-border::after,
+	.service-area .single-service:nth-child(6) .service-border::after {
+		display: none;
+	}
+*/
+/* Servis area if one item has class col-md-3 */
+.service-area .single-service:nth-child(5) .service-border::after,
+.service-area .single-service:nth-child(6) .service-border::after,
+.service-area .single-service:nth-child(7) .service-border::after,
+.service-area .single-service:nth-child(8) .service-border::after {
+  display: none;
+}
+
+.service-icon {
+  background: #037ACC none repeat scroll 0 0;
+  border-radius: 100%;
+  display: table;
+  height: 60px;
+  margin: 0 auto 22px;
+  width: 60px;
+  position: relative
+}
+
+.icon-middle {
+  display: table-cell;
+  height: 100%;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.service-icon::after {
+  border: 6px solid #383F48;
+  border-radius: 500px;
+  content: "";
+  height: 72px;
+  left: -6px !important;
+  opacity: 0;
+  position: absolute;
+  top: -6px !important;
+  transform: scale(1.5);
+  transition: all 0.5s ease 0s;
+  width: 72px;
+}
+
+.single-service:hover .service-icon::after {
+  left: 0;
+  opacity: 1;
+  top: 0;
+  transform: scale(1);
+}
+
+.single-service.light .service-border::before, .single-service.light .service-border::after {
+  background: #EBEBEB
+}
+
+/* Large desktop :1920px. */
+@media (min-width: 1920px) and (max-width: 1920px) {
+
+}
+
+/* Normal desktop :992px. */
+@media (min-width: 992px) and (max-width: 1169px) {
+  .service-border {
+    padding: 22px 15px 39px
+  }
+}
+
+/* Tablet desktop :768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+  .service-border {
+    padding: 22px 15px 39px
+  }
+}
+
+/* Small mobile :320px. */
+@media (max-width: 767px) {
+  .single-service {
+    width: 100%;
+    height: auto;
+  }
+
+  .service-area .single-service .service-border::before, .service-area .single-service .service-border::after {
+    display: none
+  }
+}
+
+/* Large Mobile :480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+}
+
+/* 14. PAGINATION
+========================================================================*/
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: 20px 0;
+  border-radius: 0;
+}
+
+.pagination > li:first-child > a, .pagination > li:first-child > span {
+  margin-left: 0;
+  border-radius: 0;
+}
+
+.pagination > li:last-child > a, .pagination > li:last-child > span {
+  border-radius: 0;
+}
+
+.pagination > li > a, .pagination > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: #037ACC;
+  text-decoration: none;
+  background-color: #FFF;
+  border: none;
+}
+
+.pagination > li > a:focus, .pagination > li > a:hover, .pagination > li > span:focus, .pagination > li > span:hover {
+  z-index: 2;
+  color: #000;
+  background-color: #FFF;
+  border: none;
+}
+
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+  z-index: 3;
+  color: #FFF;
+  cursor: default;
+  background-color: #000;
+  border-color: #000;
+}
+
+.pagination > li > a.prev-button,
+.pagination > li > a.next-button {
+  color: #037ACC;
+  border: none;
+}
+
+.pagination > li > a.prev-button:hover,
+.pagination > li > a.next-button:hover {
+  color: #000;
+  background-color: #FFF;
+}
+
+/* 15. NECESSARY CODE !!! - NEWS
+       - basic code for sidebar menu.
+
+       If you want, change only color
+========================================================================*/
+/* Edit, QuickEdit links */
+
+/* Thumbnail image for news.php, downloadfile.php */
+.thumb-news {
+  position: relative;
+}
+
+.thumb-news .caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.thumb-news .caption span {
+  font-size: 46px;
+  font-weight: bold;
+  width: 100%;
+  float: left;
+}
+
+.thumb-news .caption span.color1 {
+  color: #FFF;
+}
+
+.thumb-news .caption span.color2 {
+  color: #037ACC;
+}
+
+/* Thumbnail image for downloadfile.php */
+.thumb-download {
+  position: relative;
+}
+
+.thumb-download .caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.thumb-download .caption span {
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 45px;
+  width: 100%;
+  float: left;
+}
+
+.thumb-download .caption span.color1 {
+  color: #FFF;
+}
+
+.thumb-download .caption span.color2 {
+  color: #037ACC;
+}
+
+/* 16. NECESSARY CODE !!! - BOOTSTRAP COL HEIGHT
+========================================================================
+http://www.minimit.com/demos/bootstrap-3-responsive-columns-of-same-height
+
+USAGE
+-----------------
+<div class="row">
+  <div class="row-height">
+    <div class="col-xs-2 col-xs-height col-xs-middle">
+      <div class="inside"></div>
+    </div>
+    <div class="col-xs-4 col-lg-5 col-xs-height col-xs-middle">
+      <div class="inside"></div>
+    </div>
+  </div>
+</div>
+
+*/
+
+/* columns of same height styles */
+
+.row-height {
+  display: table;
+  table-layout: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+.col-height {
+  display: table-cell;
+  float: none;
+  height: 100%;
+}
+
+.col-top {
+  vertical-align: top;
+}
+
+.col-middle {
+  vertical-align: middle;
+}
+
+.col-bottom {
+  vertical-align: bottom;
+}
+
+@media (min-width: 480px) {
+  .row-xs-height {
+    display: table;
+    table-layout: fixed;
+    height: 100%;
+    width: 100%;
+  }
+
+  .col-xs-height {
+    display: table-cell;
+    float: none;
+    height: 100%;
+  }
+
+  .col-xs-top {
+    vertical-align: top;
+  }
+
+  .col-xs-middle {
+    vertical-align: middle;
+  }
+
+  .col-xs-bottom {
+    vertical-align: bottom;
+  }
+}
+
+@media (min-width: 768px) {
+  .row-sm-height {
+    display: table;
+    table-layout: fixed;
+    height: 100%;
+    width: 100%;
+  }
+
+  .col-sm-height {
+    display: table-cell;
+    float: none;
+    height: 100%;
+  }
+
+  .col-sm-top {
+    vertical-align: top;
+  }
+
+  .col-sm-middle {
+    vertical-align: middle;
+  }
+
+  .col-sm-bottom {
+    vertical-align: bottom;
+  }
+}
+
+@media (min-width: 992px) {
+  .row-md-height {
+    display: table;
+    table-layout: fixed;
+    height: 100%;
+    width: 100%;
+  }
+
+  .col-md-height {
+    display: table-cell;
+    float: none;
+    height: 100%;
+  }
+
+  .col-md-top {
+    vertical-align: top;
+  }
+
+  .col-md-middle {
+    vertical-align: middle;
+  }
+
+  .col-md-bottom {
+    vertical-align: bottom;
+  }
+}
+
+@media (min-width: 1200px) {
+  .row-lg-height {
+    display: table;
+    table-layout: fixed;
+    height: 100%;
+    width: 100%;
+  }
+
+  .col-lg-height {
+    display: table-cell;
+    float: none;
+    height: 100%;
+  }
+
+  .col-lg-top {
+    vertical-align: top;
+  }
+
+  .col-lg-middle {
+    vertical-align: middle;
+  }
+
+  .col-lg-bottom {
+    vertical-align: bottom;
+  }
+}
+
+/* 17. CAPTCHA
+======================================================================== */
+.captcha {
+  padding: 0;
+}
+
+.captcha-image {
+  position: initial;
+}
+
+@media (min-width: 768px) {
+  .captcha-image img {
+    height: 78px;
+  }
+}
+
+/* 18. BOOTSTRAP 3 MEDIA QUERIES
+======================================================================== */
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width: 320px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1200px) {
+
+}
+
+/*==========  Non-Mobile First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+
+  /**
+   * Responsive Bootstrap Tabs by @hayatbiralem
+   * 15 May 2015
+   */
+  .nav-tabs-responsive > li {
+    display: none;
+    width: 23%;
+  }
+
+  .nav-tabs-responsive > li > a {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    width: 100%;
+    text-align: center;
+    vertical-align: top;
+  }
+
+  .nav-tabs-responsive > li > a > span {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nav-tabs-responsive > li.active {
+    width: 54%;
+  }
+
+  .nav-tabs-responsive > li.active:first-child {
+    margin-left: 23%;
+  }
+
+  .nav-tabs-responsive > li.active:last-child {
+    margin-right: 23%;
+  }
+
+  .nav-tabs-responsive > li.active, .nav-tabs-responsive > li.prev, .nav-tabs-responsive > li.next {
+    display: inline-block;
+  }
+
+  .nav-tabs-responsive > li.prev, .nav-tabs-responsive > li.next {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+
+  .nav-tabs-responsive > li.next > a, .nav-tabs-responsive > li.prev > a {
+    border-bottom: none !important;
+    -webkit-transition: none;
+    transition: none;
+  }
+
+  .nav-tabs-responsive > li.next > a .text, .nav-tabs-responsive > li.prev > a .text {
+    display: none;
+  }
+
+  .nav-tabs-responsive > li.next > a:after, .nav-tabs-responsive > li.next > a:after, .nav-tabs-responsive > li.prev > a:after, .nav-tabs-responsive > li.prev > a:after {
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1;
+    border: none;
+    background: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .nav-tabs-responsive > li.prev > a:after {
+    content: "\e079";
+    overflow: hidden;
+  }
+
+  .nav-tabs-responsive > li.next > a:after {
+    content: "\e080";
+    overflow: hidden;
+  }
+
+  /* Portfolio */
+  #portfolioLoadMoreFilter.nav-pills > li {
+    float: none;
+  }
+
+  #portfolioLoadMoreFilter.nav {
+    text-align: center;
+  }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 320px) {
+
+}
+
+/* 19. BLOG
+========================================================================*/
+/* Blog preview */
+article.blog-article-preview .full-intro-content h4 a {
+  text-decoration: none;
+}
+
+article.blog-article-preview .full-intro-content .post-data {
+  font-weight: 700;
+}
+
+article.blog-article-preview .full-intro-content .post-data span {
+  font-weight: 400;
+}
+
+article.blog-article-preview .full-intro-content .post-content {
+  font-weight: 300;
+}
+
+article.blog-article-preview .blog-cat-list {
+
+}
+
+article.blog-article-preview .blog-cat-list:after {
+  content: '|';
+  margin: 0 5px;
+}
+
+article.blog-article-preview .blog-cat-list:last-child:after {
+  content: '';
+}
+
+article.blog-article-preview .thumb-info:hover .thumb-info-wrapper::after {
+  opacity: 0.1;
+}
+
+/* Blog article */
+.blog-article .full-intro-head .post-data {
+  font-weight: 700;
+}
+
+.blog-article .full-intro-head .post-data span {
+  font-weight: 400;
+}
+
+.blog-article .blog-cat-list {
+
+}
+
+.blog-article .full-intro-head .blog-cat-list:after {
+  content: '|';
+  margin: 0 5px;
+}
+
+.blog-article .full-intro-head .blog-cat-list:last-child:after {
+  content: '';
+}
+
+/* 20. CUSTOM MODIFICATION
+========================================================================*/
+/* Fixed box */
+#box-fixed-request {
+  position: fixed;
+  z-index: 100;
+  bottom: 10%;
+  right: 0;
+  background: url(/_files/bluesat/box-fixed-bg-1.png) repeat-x;
+  padding: 12px 12px 12px 12px;
+  width: 100px;
+  height: 124px;
+  text-transform: uppercase;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
+  color: white;
+  font-size: 14px;
+  line-height: 1.27;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+  z-index: 1000;
+  filter: alpha(opacity=80);
+  opacity: 0.8;
+  -webkit-border-top-left-radius: 10px !important;
+  -moz-border-top-left-radius: 10px !important;
+  border-top-left-radius: 10px !important;
+  -webkit-border-bottom-left-radius: 10px !important;
+  -moz-border-top-bottom-radius: 10px !important;
+  border-top-bottom-radius: 10px !important;
+  -webkit-box-shadow: -1px 0px 5px -1px rgba(0, 0, 0, 0.61);
+  -moz-box-shadow: -1px 0px 5px -1px rgba(0, 0, 0, 0.61);
+  box-shadow: -1px 0px 5px -1px rgba(0, 0, 0, 0.61);
+}
+
+#box-fixed-request div {
+  position: relative;
+  z-index: 101;
+  margin-left: 0;
+  -webkit-transition: all 450ms ease-in-out;
+  -moz-transition: all 450ms ease-in-out;
+  -o-transition: all 450ms ease-in-out;
+  -ms-transition: all 450ms ease-in-out;
+  transition: all 450ms ease-in-out;
+}
+
+#box-fixed-request div img {
+  margin-bottom: 25px;
+  margin-left: 5px;
+}
+
+#box-fixed-request:hover {
+  -webkit-transition: all 120ms ease-in-out;
+  -moz-transition: all 120ms ease-in-out;
+  -o-transition: all 120ms ease-in-out;
+  -ms-transition: all 120ms ease-in-out;
+  transition: all 120ms ease-in-out;
+  width: 130px;
+  /*padding-right: 65px;*/
+  text-decoration: none;
+  filter: alpha(opacity=100);
+  opacity: 1.0;
+}
+
+#box-fixed-request:hover div {
+  margin: 0 20px;
+  -webkit-transition: all 120ms ease-in-out;
+  -moz-transition: all 120ms ease-in-out;
+  -o-transition: all 120ms ease-in-out;
+  -ms-transition: all 120ms ease-in-out;
+  transition: all 120ms ease-in-out;
+}

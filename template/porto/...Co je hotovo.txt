@@ -1,0 +1,37 @@
+SEZNAM STRÁNEK
+
+404.php             HOTOVO
+config.php          HOTOVO
+contact.php
+description.txt     HOTOVO
+editpost.php
+footer.php
+header.php
+help.php
+install.php         HOTOVO
+loginpage.php       HOTOVO
+loginsidebar.php    HOTOVO
+navbar.php
+news.php
+newsart.php
+newssidebar.php
+offline.php
+page.php
+preview.jpg         HOTOVO
+report.php
+rss.php
+search.php
+searchfooter.php
+searchsidebar.php
+sidebar.php
+sitemap.php
+socialbutton.php
+standard.php
+success.php
+tags.php
+tagsfooter.php
+tagssidebar.php
+templatesettings.php
+templatesettings_case.php
+uninstall.php               HOTOVO
+userform.php
