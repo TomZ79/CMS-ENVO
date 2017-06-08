@@ -24,15 +24,16 @@ if (!jak_cookie_voted_hits($jaktable, $row['id'], 'hits')) {
 }
 
 // Output the data
-$PAGE_ID                     = $row['id'];
-$PAGE_TITLE                  = $row['title'];
-$PAGE_CONTENT                = $row['content'];
-$PAGE_SHOWTITLE              = $row['showtitle'];
-$MAIN_DESCRIPTION            = $row['content'];
-$SHOWDATE                    = $row['showdate'];
-$SHOWTAGS                    = $row['showtags'];
-$SHOWSOCIALBUTTON            = $row['socialbutton'];
-$PAGE_ACTIVE                 = $row['active'];
+$PAGE_ID               = $row['id'];
+$PAGE_TITLE            = $row['title'];
+$PAGE_CONTENT          = $row['content'];
+$PAGE_SHOWTITLE        = $row['showtitle'];
+$MAIN_DESCRIPTION      = $ca['metadesc'];
+$MAIN_SITE_DESCRIPTION = $jkv['metadesc'];
+$SHOWDATE              = $row['showdate'];
+$SHOWTAGS              = $row['showtags'];
+$SHOWSOCIALBUTTON      = $row['socialbutton'];
+$PAGE_ACTIVE           = $row['active'];
 // EN: $PAGE_PASSWORD - main variable if page have password, use in template
 // CZ: $PAGE_PASSWORD - hlavní proměnná pro zaheslovanou stránku, používá se pro template
 $PAGE_PASSWORD               = $row['password'];
@@ -120,13 +121,14 @@ if ($JAK_TAGLIST) {
   $keytags = preg_split('/\s+/', strip_tags($JAK_TAGLIST));
   $keytags = ',' . implode(',', $keytags);
 }
-$PAGE_KEYWORDS = str_replace(" ", "", JAK_Base::jakCleanurl($row['title']) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : "") . (JAK_Base::jakCleanurl($ca['metakey']) ? "," . JAK_Base::jakCleanurl($ca['metakey']) : ""));
+$PAGE_KEYWORDS = str_replace(" ", " ", ($jkv["metakey"] ? $jkv["metakey"] : JAK_Base::jakCleanurl($row['title']) . $keytags) . ($ca['metakey'] ? "," . $ca['metakey'] : ""));
+
 
 // SEO from the category content if available
-if (!empty($ca['metadesc'])) {
-  $PAGE_DESCRIPTION = jak_cut_text($ca['metadesc'], 155, '');
+if (!empty($MAIN_DESCRIPTION)) {
+  $PAGE_DESCRIPTION = jak_cut_text($MAIN_DESCRIPTION, 155, '');
 } else {
-  $PAGE_DESCRIPTION = jak_cut_text($row['content'], 155, '');
+  $PAGE_DESCRIPTION = jak_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
 }
 
 // EN: Load the template

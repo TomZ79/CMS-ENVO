@@ -89,7 +89,7 @@
    ========================================= */
   function responsive_filemanager_callback(field_id) {
 
-    if (field_id == "csseditor" || field_id == "javaeditor") {
+    if (field_id == "csseditor" || field_id == "javaeditor" || field_id == "htmleditor") {
 
       // get the path for the ace file
       var acefile = jQuery('#' + field_id).val();
@@ -98,6 +98,8 @@
         cssACE.insert('<link rel="stylesheet" href="' + acefile + '" type="text/css" />');
       } else if (field_id == "javaeditor") {
         jsACE.insert('<script src="' + acefile + '"><\/script>');
+      } else {
+        htmlACE.insert(acefile);
       }
     }
   }

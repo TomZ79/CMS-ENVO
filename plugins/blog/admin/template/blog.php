@@ -142,11 +142,11 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=blog&amp;sp=edit&amp;ssp=' . $v["id"], $v["title"]);
+                  echo $Html->addAnchor('index.php?p=blog&amp;sp=edit&amp;ssp=' . $v["id"], jak_cut_text($v["title"], 70, '...'));
                   ?>
 
                 </td>
-                <td>
+                <td class="table-category-list">
 
                   <?php
                   if ($v["catid"] != '0') {

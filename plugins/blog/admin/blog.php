@@ -739,10 +739,11 @@ switch ($page1) {
 		      WHEN "blogrss" THEN "' . smartsql($defaults['jak_rssitem']) . '"
 		      WHEN "blogpagemid" THEN "' . smartsql($defaults['jak_mid']) . '"
 		      WHEN "blogpageitem" THEN "' . smartsql($defaults['jak_item']) . '"
+		      WHEN "blogshortmsg" THEN "' . smartsql($defaults['jak_blogshortmsg']) . '"
 		      WHEN "blog_css" THEN "' . smartsql($defaults['jak_css']) . '"
 		      WHEN "blog_javascript" THEN "' . smartsql($defaults['jak_javascript']) . '"
 		    END
-				WHERE varname IN ("blogtitle","blogdesc","blogemail","blogorder","bloghlimit","blogdateformat","blogtimeformat","blogurl","blogmaxpost","blogpagemid","blogpageitem","blogrss", "blog_css", "blog_javascript")');
+				WHERE varname IN ("blogtitle", "blogdesc", "blogemail", "blogorder", "bloghlimit", "blogdateformat", "blogtimeformat", "blogurl","blogmaxpost", "blogpagemid", "blogpageitem", "blogshortmsg", "blogrss", "blog_css", "blog_javascript")');
 
         // Save order for sidebar widget
         if (isset($defaults['jak_hookshow_new']) && !empty($defaults['jak_hookshow_new'])) {

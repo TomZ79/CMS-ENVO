@@ -59,7 +59,7 @@ if ($page3 == "e") { ?>
     </div>
 
     <!-- Form Content -->
-    <ul id="cmsTabNewBH" class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+    <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
       <li role="presentation" class="active">
         <a href="#cmsPage1" id="cmsPage1-tab" role="tab" data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
           <span class="text"><?php echo $tlbh["bh_section_tab"]["bhtab"]; ?></span>
@@ -77,7 +77,7 @@ if ($page3 == "e") { ?>
       </li>
     </ul>
 
-    <div id="cmsTabContent" class="tab-content">
+    <div class="tab-content">
       <div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
         <div class="row">
           <div class="col-md-6">
@@ -444,7 +444,7 @@ if ($page3 == "e") { ?>
 
                             <?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                            echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=0&editor=mce_0&lang=eng&fldr=&field_id=htmleditor2', '<i class="fa fa-files-o"></i>', '', 'btn btn-primary btn-xs m-r-10 ifManager', array('title' => 'Show Filemanager'));
+                            echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang='.$managerlang.'&fldr=&field_id=htmleditor2', '<i class="fa fa-files-o"></i>', '', 'btn btn-primary btn-xs m-r-10 ifManager', array('title' => 'Show Filemanager'));
                             ?>
 
                           </div>

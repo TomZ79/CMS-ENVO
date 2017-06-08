@@ -67,7 +67,7 @@ if ($page2 == "e") { ?>
     </div>
 
     <!-- Form Content -->
-    <ul id="cmsTabSetBL" class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+    <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
       <li role="presentation" class="active">
         <a href="#cmsPage1" id="cmsPage1-tab" role="tab" data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
           <span class="text"><?php echo $tlblog["blog_section_tab"]["blogtab"]; ?></span>
@@ -90,7 +90,7 @@ if ($page2 == "e") { ?>
       </li>
     </ul>
 
-    <div id="cmsTabContent" class="tab-content">
+    <div class="tab-content">
       <div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
         <div class="row">
           <div class="col-md-6">
@@ -193,8 +193,8 @@ if ($page2 == "e") { ?>
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                              echo $Html->addOption('ASC', $tl["selection"]["sel13"], ($JAK_SETTING['showblogwhat'] == "ASC") ? TRUE : FALSE);
-                              echo $Html->addOption('DESC', $tl["selection"]["sel14"], ($JAK_SETTING['showblogwhat'] == "DESC") ? TRUE : FALSE);
+                              echo $Html->addOption('ASC', $tl["selection"]["sel13"], ($JAK_SETTING['showblogorder'] == "ASC") ? TRUE : FALSE);
+                              echo $Html->addOption('DESC', $tl["selection"]["sel14"], ($JAK_SETTING['showblogorder'] == "DESC") ? TRUE : FALSE);
                               ?>
 
                             </select>
@@ -450,6 +450,42 @@ if ($page2 == "e") { ?>
 
               </div>
             </div>
+            <div class="box box-success">
+              <div class="box-header with-border">
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tlblog["blog_box_title"]["blogbt12"], 'box-title');
+                ?>
+
+              </div>
+              <div class="box-body">
+                <div class="block">
+                  <div class="block-content">
+                    <div class="row-form">
+                      <div class="col-md-12">
+                        <div class="form-group no-margin<?php if (isset($errors["e4"])) echo " has-error"; ?>">
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html->addInput('text', 'jak_blogshortmsg', $jkv["blogshortmsg"], '', 'form-control');
+                          ?>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="box-footer">
+
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+                ?>
+
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -469,7 +505,7 @@ if ($page2 == "e") { ?>
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('../../../../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=csseditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
+                echo $Html->addAnchor('../../../../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang='.$managerlang.'&fldr=&field_id=csseditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
                 echo $Html->addAnchor('javascript:;', $tl["global_text"]["globaltxt6"], 'addCssBlock');
                 echo '<br/>';
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
@@ -507,7 +543,7 @@ if ($page2 == "e") { ?>
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('../../../../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&editor=mce_0&lang=eng&fldr=&field_id=javaeditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
+                echo $Html->addAnchor('../../../../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang='.$managerlang.'&fldr=&field_id=javaeditor', $tl["global_text"]["globaltxt8"], '', 'ifManager');
                 echo $Html->addAnchor('javascript:;', $tl["global_text"]["globaltxt7"], 'addJavascriptBlock');
                 echo '<br/>';
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
