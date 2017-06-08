@@ -1,6 +1,5 @@
 <?php
 include "header.php";
-// include "analytic.php";
 ?>
 
   <!-- Small boxes (Stat box) -->
@@ -88,7 +87,7 @@ include "header.php";
   </div>
 
   <!-- Content -->
-  <ul id="cmsTabDash" class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+  <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
     <li role="presentation" class="active">
       <a href="#cmsPage1" id="cmsPage1-tab" role="tab" data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
         <span class="text"><?php echo $tl["dashb_section_tab"]["dashbtab"]; ?></span>
@@ -99,16 +98,21 @@ include "header.php";
         <span class="text"><?php echo $tl["dashb_section_tab"]["dashbtab1"]; ?></span>
       </a>
     </li>
+    <li role="presentation">
+      <a href="#cmsPage3" id="cmsPage3-tab" role="tab" data-toggle="tab" aria-controls="cmsPage3" aria-expanded="true">
+        <span class="text"><?php echo $tl["dashb_section_tab"]["dashbtab2"]; ?></span>
+      </a>
+    </li>
     <?php if (isset($JAK_HOOK_ADMIN_INDEX)) { ?>
       <li role="presentation">
-        <a href="#cmsPage3" role="tab" id="cmsPage3-tab" data-toggle="tab" aria-controls="cmsPage3">
-          <span class="text"><?php echo $tl["dashb_section_tab"]["dashbtab2"]; ?></span>
+        <a href="#cmsPage4" role="tab" id="cmsPage4-tab" data-toggle="tab" aria-controls="cmsPage4">
+          <span class="text"><?php echo $tl["dashb_section_tab"]["dashbtab3"]; ?></span>
         </a>
       </li>
     <?php } ?>
   </ul>
 
-  <div id="cmsTabContent" class="tab-content">
+  <div class="tab-content">
     <div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
       <div class="row">
         <div class="col-md-12">
@@ -142,6 +146,30 @@ include "header.php";
 
               <?php
               // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+              echo $Html->addTag('i', '', 'fa fa-pie-chart');
+              echo $Html->addTag('h3', $tl["dashb_box_title"]["dbbt5"], 'box-title');
+              ?>
+
+            </div>
+            <div class="box-body no-padding table-responsive">
+
+              <?php
+              include "analytic.php";
+              ?>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="cmsPage3" aria-labelledby="cmsPage3-tab">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="box box-success">
+            <div class="box-header">
+
+              <?php
+              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
               echo $Html->addTag('i', '', 'fa fa-paperclip');
               echo $Html->addTag('h3', $tl["dashb_box_title"]["dbbt1"], 'box-title');
               ?>
@@ -167,7 +195,7 @@ include "header.php";
       </div>
     </div>
     <?php if (isset($JAK_HOOK_ADMIN_INDEX)) { ?>
-      <div role="tabpanel" class="tab-pane fade" id="cmsPage3" aria-labelledby="cmsPage3-tab">
+      <div role="tabpanel" class="tab-pane fade" id="cmsPage4" aria-labelledby="cmsPage4-tab">
         <div class="row">
           <div class="col-md-12">
             <?php

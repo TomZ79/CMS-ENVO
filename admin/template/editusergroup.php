@@ -61,7 +61,7 @@ if ($errors) { ?>
     </div>
 
     <!-- Form Content -->
-    <ul id="cmsTabEditUG" class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+    <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
       <li role="presentation" class="active">
         <a href="#cmsPage1" id="cmsPage1-tab" role="tab" data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
           <span class="text"><?php echo $tl["userg_section_tab"]["usergtab"]; ?></span>
@@ -76,7 +76,7 @@ if ($errors) { ?>
       <?php } ?>
     </ul>
 
-    <div id="cmsTabContent" class="tab-content">
+    <div class="tab-content">
       <div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
         <div class="row">
           <div class="col-md-8">

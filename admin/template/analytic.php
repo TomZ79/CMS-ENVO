@@ -1,29 +1,10 @@
-<?php
-
-// this token is used to authenticate your API request.
-// You can get the token on the API page inside your Piwik interface
-$token_auth = 'c21493491be479e88d8cf7e0e9620714';
-
-// we call the REST API and request the 100 first keywords for the last month for the idsite=7
-$url = "http://www.bluesat.cz/analytics/";
-$url .= "?module=API&method=Referrers.getKeywords";
-$url .= "&idSite=1&period=month&date=yesterday";
-$url .= "&format=PHP&filter_limit=20";
-$url .= "&token_auth=$token_auth";
-
-$fetched = file_get_contents($url);
-$content = unserialize($fetched);
-
-// case error
-if (!$content) {
-	print("Error, content fetched = " . $fetched);
-}
-
-print("<h1>Keywords for the last month</h1>\n");
-foreach ($content as $row) {
-	$keyword = htmlspecialchars(html_entity_decode(urldecode($row['label']), ENT_QUOTES), ENT_QUOTES);
-	$hits = $row['nb_visits'];
-
-	print("<b>$keyword</b> ($hits hits)<br>\n");
-}
-?>
+<div class="col-md-6">
+  <div id="widgetIframe">
+    <iframe width="100%" height="380" src="https://analytics.bluesat.cz/index.php?module=Widgetize&action=iframe&widget=1&moduleToWidgetize=SEO&actionToWidgetize=getRank&idSite=1&period=day&date=yesterday&disableLink=1&widget=1" scrolling="no" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+  </div>
+</div>
+<div class="col-md-6">
+  <div id="widgetIframe">
+    <iframe width="100%" height="350" src="https://analytics.bluesat.cz/index.php?module=Widgetize&action=iframe&forceView=1&viewDataTable=graphEvolution&widget=1&moduleToWidgetize=VisitsSummary&actionToWidgetize=getEvolutionGraph&idSite=1&period=day&date=yesterday&disableLink=1&widget=1" scrolling="no" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+  </div>
+</div>
