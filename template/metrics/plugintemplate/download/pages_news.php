@@ -44,61 +44,69 @@ if (is_array($showdlarray) && in_array("ASC", $showdlarray) || in_array("DESC", 
 
 ?>
 
-<hr>
-<div class="col-md-12" style="margin-bottom: 50px;">
-  <h3 style="margin-bottom: 30px;"><?php echo $tld["downl_frontend"]["downl12"]; ?></h3>
+<!-- =========================
+  START DOWNLOAD SECTION
+============================== -->
+<section class="download-content-area-new">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <h2><?php echo $tld["downl_frontend"]["downl12"]; ?></h2>
 
-  <div class="carousel carousel-showmanymoveone slide" id="carouselABC" data-ride="carousel" data-interval="5000">
+        <div class="carousel carousel-showmanymoveone slide" id="carouselDownload">
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
 
-      <?php
-      $i = 0;
-      if (isset($JAK_DOWNLOAD) && is_array($JAK_DOWNLOAD)) foreach ($JAK_DOWNLOAD as $d) {
-      ?>
+            <?php
+            $i = 0;
+            if (isset($JAK_DOWNLOAD) && is_array($JAK_DOWNLOAD)) foreach ($JAK_DOWNLOAD as $d) {
+            ?>
 
-        <div class="item<?php if ($i == 0) { echo ' active'; } ?>">
-          <div class="col-xs-12 col-sm-6 col-md-3">
-            <a href="<?php echo $d["parseurl"]; ?>"><?php echo jak_cut_text($d["title"], 30, ""); ?></a>
-            <p><?php echo $d["contentshort"]; ?></p>
-            <!-- Button -->
-            <div class="pull-left">
-              <a href="<?php echo $d["parseurl"]; ?>" class="btn btn-default btn-xs">
-                <?php echo $tld["downl_frontend"]["downl7"]; ?>
-              </a>
-              <br>
-              <?php if (JAK_ASACCESS) { ?>
+              <div class="item<?php if ($i == 0) { echo ' active'; } ?>">
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                  <a class="downl-news-title" href="<?php echo $d["parseurl"]; ?>"><?php echo jak_cut_text($d["title"], 30, ""); ?></a>
+                  <p><?php echo $d["contentshort"]; ?></p>
+                  <!-- Button -->
+                  <div class="pull-left">
+                    <a href="<?php echo $d["parseurl"]; ?>" class="btn btn-primary btn-xs">
+                      <?php echo $tld["downl_frontend"]["downl7"]; ?>
+                    </a>
+                    <?php if (JAK_ASACCESS) { ?>
 
-                <a href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=edit&amp;id=<?php echo $d["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-info btn-xs jaktip">
-                  <span class="visible-xs"><i class="fa fa-edit"></i></span>
-                  <span class="hidden-xs"><?php echo $tl["button"]["btn1"]; ?></span>
-                </a>
+                      <a href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=edit&amp;id=<?php echo $d["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-filled btn-primary btn-xs">
+                        <span><i class="fa fa-edit"></i></span>
+                      </a>
 
-                <a class="btn btn-info btn-xs jaktip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=quickedit&amp;id=<?php echo $d["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>">
-                  <span class="visible-xs"><i class="fa fa-pencil"></i></span>
-                  <span class="hidden-xs"><?php echo $tl["button"]["btn2"]; ?></span>
-                </a>
+                      <a class="btn btn-filled btn-primary btn-xs quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=quickedit&amp;id=<?php echo $d["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>">
+                        <span><i class="fa fa-pencil"></i></span>
+                      </a>
 
-              <?php } ?>
-            </div>
+                    <?php } ?>
+                  </div>
+                </div>
+              </div>
+
+            <?php
+            $i++;
+            }
+            ?>
+
           </div>
+
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carouselDownload" role="button" data-slide="prev">
+            <i class="glyphicon glyphicon-chevron-left" aria-hidden="true"></i>
+          </a>
+          <a class="right carousel-control" href="#carouselDownload" role="button" data-slide="next">
+            <i class="glyphicon glyphicon-chevron-right" aria-hidden="true"></i>
+          </a>
         </div>
 
-      <?php
-      $i++;
-      }
-      ?>
-
+      </div>
     </div>
-
-    <!-- Controls -->
-    <a class="left carousel-control" href="#carouselABC" role="button" data-slide="prev">
-      <i class="glyphicon glyphicon-chevron-left" aria-hidden="true"></i>
-    </a>
-    <a class="right carousel-control" href="#carouselABC" role="button" data-slide="next">
-      <i class="glyphicon glyphicon-chevron-right" aria-hidden="true"></i>
-    </a>
   </div>
-
-</div>
+</section>
+<!-- =========================
+  END DOWNLOAD SECTION
+============================== -->

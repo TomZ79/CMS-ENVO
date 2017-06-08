@@ -46,14 +46,12 @@
             <div class="col-sm-6" style="margin-bottom: 30px ">
               <div>
                 <!-- Post Title & Summary -->
-                <div>
+                <div class="full-intro-head">
                   <h3>
                     <span>
                       <a href="<?php echo $v["parseurl"]; ?>"><?php echo jak_cut_text($v["title"], 30, ""); ?></a>
                     </span>
                   </h3>
-                </div>
-                <div class="full-intro-head">
                   <p>
 
                     <?php

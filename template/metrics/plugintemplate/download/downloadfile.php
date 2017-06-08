@@ -104,9 +104,8 @@ if ($DL_PASSWORD && !JAK_ASACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash' 
           </div>
           <!-- Project Info Column -->
           <div class="col-sm-8">
-            <h3><?php echo $PAGE_TITLE; ?></h3>
-
             <div class="full-intro-head">
+              <h3><?php echo $PAGE_TITLE; ?></h3>
               <p>
 
                 <?php

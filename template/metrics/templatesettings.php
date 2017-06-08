@@ -10,7 +10,7 @@
 	</div>
 
 	<!-- Form Content -->
-	<ul id="cmsTab" class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+	<ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
 		<li role="presentation" class="active">
 			<a href="#cmsPage1" id="cmsPage1-tab" role="tab"  data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
 				<span class="text"><?php echo $tlmetrics["tplset_section_tab"]["tplsettab"]; ?></span>
@@ -38,7 +38,7 @@
 		</li>
 	</ul>
 
-	<div id="cmsTabContent" class="tab-content">
+	<div class="tab-content">
 		<div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
 			<div class="row">
 
@@ -199,7 +199,12 @@
 											<div class="input-group">
 												<input type="text" name="standardlogo1" id="sclogo1" class="form-control" value="<?php echo $jktpl["logo1_metrics_tpl"]; ?>"/>
                         <span class="input-group-btn">
-                          <a class="btn btn-info ifManager" type="button" href="../../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=sclogo1"><i class="fa fa-photo"></i></a>
+
+													<?php
+													// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+													echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&lang='.$managerlang.'&fldr=&field_id=sclogo1', '<i class="pg-image"></i>', '', 'btn btn-info ifManager', array('type' => 'button', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i22"]));
+													?>
+
                         </span>
 											</div>
 										</div>
@@ -483,7 +488,12 @@
 											<div class="input-group">
 												<input type="text" name="standardlogo2" id="sclogo2" class="form-control" value="<?php echo $jktpl["logo2_metrics_tpl"]; ?>"/>
 												<span class="input-group-btn">
-                          <a class="btn btn-info ifManager" type="button" href="../../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&subfolder=&editor=mce_0&lang=eng&fldr=&field_id=sclogo2"><i class="fa fa-photo"></i></a>
+
+													<?php
+													// Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+													echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&lang='.$managerlang.'&fldr=&field_id=sclogo2', '<i class="pg-image"></i>', '', 'btn btn-info ifManager', array('type' => 'button', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i22"]));
+													?>
+
                         </span>
 											</div>
 										</div>

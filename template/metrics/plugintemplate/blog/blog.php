@@ -32,7 +32,7 @@
                   <?php
                   // Image is available so display it or go standard
                   if ($img) {
-                    echo '<a href="' . $v["parseurl"] . '"><img src="' . $v["previmg"] . '" alt="' . $v['imgtitle'] . '" class="post-image img-responsive"></a>';
+                    echo '<a href="' . $v["parseurl"] . '"><img src="' . $v["previmg"] . '" alt="' . $v['title'] . '" class="post-image img-responsive"></a>';
                   } else {
 
                   }
@@ -43,7 +43,7 @@
                 <p>
 
                   <?php if ($v["showdate"]) {
-                    echo $tl["news"]["news3"] . ' : <span>' . $v["created"] . '</span>';
+                    echo $tlblog["blog_frontend"]["blog3"] . ' : <span>' . $v["created"] . '</span>';
                   } ?>
 
                 </p>
@@ -51,7 +51,10 @@
                 <div class="post-content">
                   <!-- Post Content -->
                   <h3><a href="<?php echo $v["parseurl"]; ?>"><?php echo jak_cut_text($v["title"], 100, ""); ?></a></h3>
-                  <p class="text"><?php echo jak_cut_text($v['content'], 200, '....') ?></p>
+                  <p class="text"><?php echo jak_cut_text($v['content'], $jkv["blogshortmsg"], '....') ?></p>
+                  <p class="pull-right">
+                    <a href="<?php echo $v["parseurl"]; ?>"><?php echo $tlblog["blog_frontend"]["blog5"]; ?></a>
+                  </p>
                 </div>
               </div>
               <!-- Post Info -->
