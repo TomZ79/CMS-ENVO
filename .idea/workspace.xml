@@ -5,106 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4346a0f-85ec-4e4d-93d1-8c74a4b74471" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/AHGBold.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/0.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/1.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/10.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/11.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/12.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/13.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/14.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/15.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/16.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/17.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/18.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/19.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/2.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/20.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/3.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/4.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/5.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/6.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/7.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/8.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/9.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/A.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/B.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/C.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/D.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/E.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/F.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/G.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/H.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/I.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/J.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/K.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/L.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/M.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/MINUS.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/N.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/O.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/P.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/PLUS.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/Q.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/R.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/S.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/T.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/TIMES.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/U.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/V.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/W.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/X.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/Y.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/Z.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/error.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/noise/check-point-1.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/noise/crowd-talking-1.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/noise/crowd-talking-6.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/noise/crowd-talking-7.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/noise/kids-playing-1.wav" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/backgrounds/bg3.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/backgrounds/bg4.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/backgrounds/bg5.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/backgrounds/bg6.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/database/securimage.sq3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/images/audio_icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/images/loading.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/images/refresh.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/securimage_play.swf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/simple-php-captcha/backgrounds/45-degree-fabric.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/simple-php-captcha/backgrounds/cloth-alike.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/simple-php-captcha/backgrounds/grey-sandbag.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/simple-php-captcha/backgrounds/kinda-jean.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/simple-php-captcha/backgrounds/polyester-lite.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/simple-php-captcha/backgrounds/stitched-wool.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/simple-php-captcha/backgrounds/white-carbon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/simple-php-captcha/backgrounds/white-wave.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/simple-php-captcha/fonts/times_new_yorker.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/animate/animate.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/README.FONT.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/README.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/WavFile.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/.htaccess" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/captcha.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/config.inc.php.SAMPLE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/database/.htaccess" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/database/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/example_form.ajax.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/example_form.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/securimage.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/securimage.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/securimage.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/securimage_play.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/securimage_show.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/securimage/words/words.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/simple-php-captcha/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/plugins/captcha/simple-php-captcha/simple-php-captcha.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/i18n/defaults-de_DE.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/i18n/defaults-de_DE.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/i18n/defaults-sk_SK.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/i18n/defaults-sk_SK.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/captcha/securimage/AHGBold.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/.htaccess" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/0.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/1.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/10.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/11.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/12.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/13.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/14.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/15.wav" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/langs/desktop.ini" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/bootstrap3/desktop.ini" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/clientcode/desktop.ini" afterPath="" />
@@ -185,50 +95,7 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/skins/lightgray/fonts/desktop.ini" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/skins/lightgray/img/desktop.ini" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/download/update.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/deployment.xml" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/webServers.xml" afterPath="$PROJECT_DIR$/.idea/webServers.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/css/style.css" afterPath="$PROJECT_DIR$/admin/assets/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/js/scripts.js" afterPath="$PROJECT_DIR$/admin/assets/js/scripts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/css/bootstrap-select.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/css/bootstrap-select.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/css/bootstrap-select.css.map" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/css/bootstrap-select.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/css/bootstrap-select.min.css" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/css/bootstrap-select.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/bootstrap-select.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/bootstrap-select.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/bootstrap-select.js.map" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/bootstrap-select.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/bootstrap-select.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/bootstrap-select.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/i18n/defaults-cs_CZ.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/i18n/defaults-cs_CZ.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/i18n/defaults-cs_CZ.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/i18n/defaults-cs_CZ.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/i18n/defaults-en_US.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/i18n/defaults-en_US.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/i18n/defaults-en_US.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/i18n/defaults-en_US.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/i18n/defaults-eu.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/i18n/defaults-eu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/i18n/defaults-eu.min.js" afterPath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/i18n/defaults-eu.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/admin/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/lang/en.ini" afterPath="$PROJECT_DIR$/admin/lang/en.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.template.php" afterPath="$PROJECT_DIR$/admin/pages/js/pages.template.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/analytic.php" afterPath="$PROJECT_DIR$/admin/template/analytic.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/changelog.php" afterPath="$PROJECT_DIR$/admin/template/changelog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editcat.php" afterPath="$PROJECT_DIR$/admin/template/editcat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editnews.php" afterPath="$PROJECT_DIR$/admin/template/editnews.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editor_edit.php" afterPath="$PROJECT_DIR$/admin/template/editor_edit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editor_new.php" afterPath="$PROJECT_DIR$/admin/template/editor_new.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editpage.php" afterPath="$PROJECT_DIR$/admin/template/editpage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editusergroup.php" afterPath="$PROJECT_DIR$/admin/template/editusergroup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/index.php" afterPath="$PROJECT_DIR$/admin/template/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newcat.php" afterPath="$PROJECT_DIR$/admin/template/newcat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newnews.php" afterPath="$PROJECT_DIR$/admin/template/newnews.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newpage.php" afterPath="$PROJECT_DIR$/admin/template/newpage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newssetting.php" afterPath="$PROJECT_DIR$/admin/template/newssetting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newusergroup.php" afterPath="$PROJECT_DIR$/admin/template/newusergroup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/plugins.php" afterPath="$PROJECT_DIR$/admin/template/plugins.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/searchsetting.php" afterPath="$PROJECT_DIR$/admin/template/searchsetting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/setting.php" afterPath="$PROJECT_DIR$/admin/template/setting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/settingfacebook.php" afterPath="$PROJECT_DIR$/admin/template/settingfacebook.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/site.php" afterPath="$PROJECT_DIR$/admin/template/site.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/sitemapsetting.php" afterPath="$PROJECT_DIR$/admin/template/sitemapsetting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/tagsetting.php" afterPath="$PROJECT_DIR$/admin/template/tagsetting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/functions.js" afterPath="$PROJECT_DIR$/assets/js/functions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/jakprint.js" afterPath="$PROJECT_DIR$/assets/js/jakprint.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/ajax_calls.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/ajax_calls.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/config/config.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/config/config.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/css/style.css" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/css/style.css" />
@@ -577,6 +444,60 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="captcha" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -708,12 +629,12 @@
       <workItem from="1496686803551" duration="18818000" />
       <workItem from="1496779216006" duration="7754000" />
       <workItem from="1496821965044" duration="449000" />
-      <workItem from="1496852913222" duration="42919000" />
+      <workItem from="1496852913222" duration="43029000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1389563000" />
+    <option name="totallyTimeSpent" value="1389673000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
