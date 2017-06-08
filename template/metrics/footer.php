@@ -19,7 +19,7 @@ if ((empty($JAK_HOOK_SIDE_GRID) && (!empty($page)) && (!$PAGE_PASSWORD)) &&
 
 /* GRID SYSTEM FOR DIFFERENT PAGE - show main section with sidebar - END TAG */
 
-if ((!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSION['pagesecurehash' . $PAGE_ID] ) ||
+if ((!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSION['pagesecurehash' . $PAGE_ID]) ||
   (!empty($JAK_HOOK_SIDE_GRID) && !$PAGE_PASSWORD) ||
   (!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && JAK_ASACCESS) ||
   (!empty($JAK_HOOK_SIDE_GRID) && !empty($page) && !$PAGE_PASSWORD)
@@ -248,7 +248,6 @@ if (!$JAK_SHOW_FOOTER) { ?>
 
 <script src="/template/<?php echo ENVO_TEMPLATE; ?>/js-plugins/revolution/js/jquery.themepunch.tools.min.js?rev=5.0"></script>
 <script src="/template/<?php echo ENVO_TEMPLATE; ?>/js-plugins/revolution/js/jquery.themepunch.revolution.min.js?rev=5.0"></script>
-
 <script src="/template/<?php echo ENVO_TEMPLATE; ?>/js-plugins/owl-carousel/js/owl.carousel.min.js"></script>
 <script src="/template/<?php echo ENVO_TEMPLATE; ?>/js/jquery.counterup.js"></script>
 <script src="/template/<?php echo ENVO_TEMPLATE; ?>/js/waypoints.min.js"></script>
@@ -277,23 +276,8 @@ if (!$JAK_SHOW_FOOTER) { ?>
 
 <!-- Revolutin Slider 5.0 Initialization -->
 <?php
-  include_once APP_PATH . '/template/' . ENVO_TEMPLATE . '/js/metrics-revolutionSlider.php'
+include_once APP_PATH . '/template/' . ENVO_TEMPLATE . '/js/metrics-revolutionSlider.php'
 ?>
-
-<script>
-  jQuery(document).ready(function() {
-    jQuery("#slider1").revolution({
-      sliderType:"standard",
-      sliderLayout:"fullscreen",
-      delay:9000,
-      navigation: {
-        arrows:{enable:true}
-      },
-      gridwidth:1230,
-      gridheight:720
-    });
-  });
-</script>
 
 <!-- Comments Script -->
 <?php if ($JAK_COMMENT_FORM) { ?>
@@ -316,6 +300,10 @@ if (!$JAK_SHOW_FOOTER) { ?>
 if (isset($JAK_HOOK_FOOTER_END) && is_array($JAK_HOOK_FOOTER_END)) foreach ($JAK_HOOK_FOOTER_END as $hfootere) {
   include_once APP_PATH . $hfootere['phpcode'];
 }
+
+// Analytics code
+if (isset($jkv["analytics"])) echo $jkv["analytics"];
+
 // Javascript for page - FOOTER
 if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT;
 ?>
@@ -329,11 +317,9 @@ if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT;
   <!-- News in OWL Carousel -->
   <script>
     $('.owl-carousel').owlCarousel({
-      loop: false,
+      loop: true,
       margin: 50,
-      nav: true,
-      dots: false,
-      navText: [],
+      nav: false,
       responsive: {
         0: {
           items: 1
@@ -356,38 +342,28 @@ if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT;
 <?php } ?>
 
 <!-- Notification -->
-<?php if (isset($_SESSION["infomsg"])) { ?>
-  <script>
+<script>
+  // Load script after page loading
+  $(window).on("load", function () {
+    <?php if (isset($_SESSION["infomsg"])) { ?>
     $.notify({icon: 'icon-info', message: '<?php echo $_SESSION["infomsg"];?>'}, {type: 'info'});
-  </script>
-<?php }
-if (isset($_SESSION["successmsg"])) { ?>
-  <script>
+    <?php }
+    if (isset($_SESSION["successmsg"])) { ?>
     $.notify({icon: 'icon-check', message: '<?php echo $_SESSION["successmsg"];?>'}, {type: 'success'});
-  </script>
-<?php }
-if (isset($_SESSION["errormsg"])) { ?>
-  <script>
+    <?php }
+    if (isset($_SESSION["errormsg"])) { ?>
     $.notify({icon: 'icon-attention', message: '<?php echo $_SESSION["errormsg"];?>'}, {type: 'danger'});
-  </script>
-<?php }
-if (isset($_SESSION["warningmsg"])) { ?>
-  <script>
+    <?php }
+    if (isset($_SESSION["warningmsg"])) { ?>
     $.notify({icon: '', message: '<?php echo $_SESSION["warningmsg"];?>'}, {type: 'warning'});
-  </script>
-<?php }
-if ($errorpp) { ?>
-  <script>
+    <?php }
+    if ($errorpp) { ?>
     $.notify({icon: 'icon-attention', message: '<?php echo $errorpp["e"];?>'}, {type: 'danger'});
-  </script>
-<?php }
-if ($PAGE_PASSWORD && JAK_ASACCESS) { ?>
-  <script>
+    <?php }
+    if ($PAGE_PASSWORD && JAK_ASACCESS) { ?>
     $.notify({icon: 'icon-info', message: '<?php echo $tl["notification"]["n5"];?>'}, {type: 'info', delay: 0});
-  </script>
-<?php }
-if ($jkv["offline"] == 1 && JAK_ASACCESS) { ?>
-  <script>
+    <?php }
+    if ($jkv["offline"] == 1 && JAK_ASACCESS) { ?>
     $.notify({
       // Options
       icon: 'icon-flash',
@@ -397,15 +373,17 @@ if ($jkv["offline"] == 1 && JAK_ASACCESS) { ?>
       type: 'offline',
       timer: 0,
       template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
-      '<button type="button" aria-hidden="true" class="close" data-notify="dismiss" style="color: #fff;opacity: 0.8;">×</button>' +
+      '<button type="button" aria-hidden="true" class="close" data-notify="dismiss" style="color: #FFF;opacity: 0.8;">×</button>' +
       '<span data-notify="icon"></span> ' +
       '<span data-notify="title" style="display: block;font-weight: bold;">{1}</span> ' +
       '<span data-notify="message">{2}</span>' +
       '</div>' +
       '</div>'
     });
-  </script>
-<?php } ?>
+
+    <?php } ?>
+  });
+</script>
 
 <!-- Metrics Print script -->
 <?php if ($jkv["printme"]) { ?>
@@ -476,6 +454,19 @@ if ($jkv["offline"] == 1 && JAK_ASACCESS) { ?>
   }
 
 } ?>
+
+<!-- RegisterForm plugins -->
+<?php if (JAK_PLUGIN_REGISTER_FORM && $page == $PLUGIN_RF_CAT["varname"]) {
+  $pluginsite_template = 'template/' . ENVO_TEMPLATE . '/plugintemplate/register_form/js/script.registerform.php';
+
+  if (file_exists($pluginsite_template)) {
+    include APP_PATH . 'template/' . ENVO_TEMPLATE . '/plugintemplate/register_form/js/script.registerform.php';
+  } else {
+    include APP_PATH . 'plugins/register_form/js/script.registerform.php';
+  }
+
+  ?>
+<?php } ?>
 
 </body>
 </html>

@@ -1,4 +1,5 @@
 <?php if (defined ("JAK_PLUGIN_NAME_NEWS") && $JAK_GET_NEWS_SORTED) { ?>
+
 	<aside class="nav-side-menu nav-sidebar hidden-xs">
 
 		<div class="right-sidebar">
@@ -24,5 +25,6 @@
 
 		<hr>
 	</aside>
+
 <?php } ?>
 

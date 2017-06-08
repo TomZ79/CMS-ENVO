@@ -209,6 +209,14 @@ p {
   border: none !important;
 }
 
+.bb-1 {
+  border-bottom: 1px solid;
+}
+
+.bb-color-1 {
+  border-bottom-color: #1B6D85;
+}
+
 /* 03. HEADER
 ========================================================================*/
 
@@ -928,6 +936,51 @@ input[type="email"]:-ms-input-placeholder {
   padding: 10px 0;
 }
 
+.news-content-area-new {
+  padding-top: 0;
+  padding-bottom: 80px;
+}
+
+.news-content-area-new h2 {
+  padding-bottom: 16px;
+  margin-bottom: 60px;
+  border-bottom: 2px solid #efefef;
+}
+
+.news-content-area-new .full-intro-head {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.news-content-area-new .full-intro-head p {
+  font-size: 13px;
+  color: #616161;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0;
+}
+
+.news-content-area-new .full-intro-head p span {
+  color: #43b4ae;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.news-content-area-new .full-intro-content {
+  border-bottom: none;
+}
+
+.news-content-area-new .full-intro-content p {
+  width: 100%;
+  padding: 10px 0;
+}
+
+.news-content-area-new .owl-carousel .owl-dots{
+  top: 26px;
+  position: relative;
+}
+
 /*  FAQ Area */
 .faq-content-area {
   padding-top: 0;
@@ -954,6 +1007,21 @@ input[type="email"]:-ms-input-placeholder {
   margin: 0 auto;
   width: 80%;
   line-height: 24px;
+}
+
+.download-content-area-new {
+  padding-top: 0;
+  padding-bottom: 80px;
+}
+
+.download-content-area-new h2 {
+  padding-bottom: 16px;
+  margin-bottom: 60px;
+  border-bottom: 2px solid #efefef;
+}
+
+.download-content-area-new .downl-news-title {
+  margin-bottom: 60px;
 }
 
 /* BLOG Area */
@@ -1002,6 +1070,11 @@ input[type="email"]:-ms-input-placeholder {
 
 .blog-content-area .blog-article-preview .full-intro-content p {
   width: 100%;
+}
+
+/* CONTACT Area */
+.contact-us-1-area {
+  padding-top: 0;
 }
 
 /* 13. PAGINATION
@@ -1093,5 +1166,34 @@ input[type="email"]:-ms-input-placeholder {
 }
 
 .thumb-news .caption span.color2 {
+  color: #43B4AE;
+}
+
+/* Thumbnail image for downloadfile.php */
+.thumb-download {
+  position: relative;
+}
+
+.thumb-download .caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.thumb-download .caption span {
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 45px;
+  width: 100%;
+  float: left;
+}
+
+.thumb-download .caption span.color1 {
+  color: #FFF;
+}
+
+.thumb-download .caption span.color2 {
   color: #43B4AE;
 }

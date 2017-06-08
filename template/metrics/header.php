@@ -71,8 +71,6 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
   <!-- Fontawesome icon -->
   <link type="text/css" rel="stylesheet" href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Glyphicons icon -->
-  <link type="text/css" rel="stylesheet" href="/assets/plugins/bootstrap-glyphicons/glyphicons-pro/css/glyphicons-pro.css">
   <!-- Stroke gap icon -->
   <link type="text/css" rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/css/stroke-icon.css">
   <link type="text/css" rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/css/ie7.css">
@@ -122,8 +120,11 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
   ============================================= -->
   <?php if (isset($JAK_HOOK_HEAD_TOP) && is_array($JAK_HOOK_HEAD_TOP)) foreach ($JAK_HOOK_HEAD_TOP as $headt) {
     include_once APP_PATH . $headt['phpcode'];
-  }
-  echo $JAK_HEADER_CSS; ?>
+  } ?>
+
+  <!-- Import CSS for Current page in between head
+  ============================================= -->
+  <?php if (isset($JAK_HEADER_CSS)) echo $JAK_HEADER_CSS; ?>
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -213,7 +214,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
           <?php }
           if ($jkv["phoneheaderShow_metrics_tpl"] == 1) { ?>
             <li class="phone">
-              <a href="tel:<?php echo $jkv["phoneheaderLinks_metrics_tpl"]; ?>" target="_blank"><i class="fa fa-phone"></i></a>
+              <a href="tel:<?php echo $jkv["phoneheaderLinks_metrics_tpl"]; ?>" target="_blank"><i class="fa fa-phone"></i> <?php echo $jkv["phoneheaderLinks_metrics_tpl"]; ?></a>
             </li>
           <?php }
           if ($jkv["emailheaderShow_metrics_tpl"] == 1) { ?>
@@ -289,6 +290,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 <!-- =========================
   END HEADER SECTION
 ============================== -->
+<?php } ?>
 
 <!-- =========================
 START PAGE TITLE SECTION
@@ -301,12 +303,14 @@ START PAGE TITLE SECTION
    * $page == 'offline' =>
    * $page == '404' =>
    * !$jkv["searchform"] || !JAK_USER_SEARCH =>
+   * * ($PAGE_PASSWORD && !JAK_ASACCESS && $PAGE_PASSWORD != $_SESSION['pagesecurehash' . $PAGE_ID]) => If page have password and password isn't same as in Session without Administrator access
    */
   if (!isset($page) ||
     empty($page) ||
     ($page == 'offline') ||
     ($page == '404') ||
     (!$jkv["searchform"] || !JAK_USER_SEARCH)
+    /* || ($PAGE_PASSWORD && !JAK_ASACCESS && $PAGE_PASSWORD != $_SESSION['pagesecurehash' . $PAGE_ID]) */
   ) {
 
     // Code for homepage and other blank page
@@ -321,25 +325,27 @@ START PAGE TITLE SECTION
         <div class="row">
           <div class="col-md-12 text-center">
             <div class="about-head-content">
-              <h2><?php echo jak_cut_text($PAGE_TITLE, 30, "..."); ?></h2>
+              <h2><?php echo jak_cut_text($PAGE_TITLE, 35, "..."); ?></h2>
             </div>
             <div class="breadcrumbs text-center">
-              <ul class="page-breadcrumbs">
-                <li>
-                  <a href="<?php echo BASE_URL; ?>"><?php foreach ($jakcategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) {
-                      echo $ca["name"];
-                    } ?></a>
-                </li>
-                <?php if ($JAK_TPL_PLUG_T && !empty($page1) && !is_numeric($page1)) { ?>
-                  <li><a href="<?php echo $JAK_TPL_PLUG_URL; ?>"><?php echo $JAK_TPL_PLUG_T; ?></a></li>
-                <?php } ?>
-                <li class="active">
-                  <?php if ($page == "edit-profile") {
-                    echo sprintf($tl["login"]["l15"], $jakuser->getVar("username"));
-                  } else {
-                    echo jak_cut_text($PAGE_TITLE, 30, "...");
-                  } ?>
-                </li>
+              <ul class="breadcrumb breadcrumb-valign-mid">
+
+                <?php
+                echo '<li>';
+                echo '<a href=' . BASE_URL . '>';
+                foreach ($jakcategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) {
+                  echo $ca["name"];
+                }
+                echo '</a>';
+                echo '</li>';
+                if ($JAK_TPL_PLUG_T && !empty($page1) && !is_numeric($page1)) {
+                  echo '<li><a href="' . $JAK_TPL_PLUG_URL . '">' . $JAK_TPL_PLUG_T . '</a></li>';
+                }
+                echo '<li class="active">';
+                echo jak_cut_text($PAGE_TITLE, 35, "...");
+                echo '</li>';
+                ?>
+
               </ul>
             </div>
           </div>
@@ -434,7 +440,5 @@ if ((empty($JAK_HOOK_SIDE_GRID) && (!empty($page)) && (!$PAGE_PASSWORD)) &&
             <?php if (!empty($JAK_HOOK_SIDE_GRID) && $jkv["sidebar_location_tpl"] == "left") include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/sidebar.php'; ?>
             <!-- / sidebar -->
             <div class="<?php echo($JAK_HOOK_SIDE_GRID ? "col-md-9" : "col-md-12"); ?>">
-
-              <?php } ?>
 
               <?php } ?>
