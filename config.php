@@ -46,6 +46,7 @@ include_once 'class/class.tags.php';
 include_once 'class/class.resizeimage.php';
 include_once 'class/class.debug.php';
 include_once 'class/class.htmlelement.php';
+include_once 'assets/plugins/captcha/simple-php-captcha/simple-php-captcha.php';
 
 // Create instance of HTML_Form from htmlelement.php Class
 $Html = new HTML_Element();
@@ -100,6 +101,13 @@ $site_language = $jkv["lang"];
 
 // Standard Locale
 $site_locale = $jkv["locale"] . '.utf8';
+
+// Set lang for TimyMCE Filemanager
+if ($site_language == 'en') {
+  $managerlang = 'en_EN';
+} else {
+  $managerlang = 'cs';
+}
 
 // Check if user is logged in
 $jakuserlogin = new JAK_userlogin();

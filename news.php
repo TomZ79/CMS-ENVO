@@ -65,7 +65,8 @@ switch ($page1) {
         // CZ: Nastavení hodnot (proměných) pro stránku
         $PAGE_ID                     = $row['id'];
         $PAGE_TITLE                  = $row['title'];
-        $MAIN_DESCRIPTION            = $jkv['newsdesc'];
+        $MAIN_PLUGIN_DESCRIPTION     = $ca['metadesc'];
+        $MAIN_SITE_DESCRIPTION       = $jkv['metadesc'];
         $PAGE_IMAGE                  = $row['previmg'];
         $PAGE_CONTENT                = jak_secure_site($row['content']);
         $JAK_HEADER_CSS              = $row['news_css'];
@@ -178,9 +179,10 @@ switch ($page1) {
     }
 
     // Check if we have a language and display the right stuff
-    $PAGE_TITLE       = $jkv["newstitle"];
-    $PAGE_CONTENT     = $jkv["newsdesc"];
-    $MAIN_DESCRIPTION = $jkv['newsdesc'];
+    $PAGE_TITLE              = $jkv["newstitle"];
+    $PAGE_CONTENT            = $jkv["newsdesc"];
+    $MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
+    $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];
 
     $JAK_HEATMAPLOC = JAK_PLUGIN_VAR_NEWS;
 
@@ -207,10 +209,10 @@ switch ($page1) {
     $PAGE_KEYWORDS = str_replace(" ", "", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
 
     // SEO from the category content if available
-    if (!empty($ca['metadesc'])) {
-      $PAGE_DESCRIPTION = jak_cut_text($ca['metadesc'], 155, '');
+    if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
+      $PAGE_DESCRIPTION = jak_cut_text($MAIN_PLUGIN_DESCRIPTION, 155, '');
     } else {
-      $PAGE_DESCRIPTION = jak_cut_text($PAGE_CONTENT, 155, '');
+      $PAGE_DESCRIPTION = jak_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
     }
 
     // EN: Load the template

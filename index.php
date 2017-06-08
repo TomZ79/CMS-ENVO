@@ -107,6 +107,9 @@ $JAK_NAV_NEXT = $JAK_NAV_NEXT_TITLE = $JAK_NAV_PREV = $JAK_NAV_PREV_TITLE = $JAK
 // Something that needs to be true by standard
 $JAK_SHOW_NAVBAR = $JAK_SHOW_FOOTER = $newsloadonce = TRUE;
 
+//
+
+
 // Include post functionality
 include_once 'include/loginpass.php';
 
@@ -267,6 +270,13 @@ foreach ($jakcategories as $ca) {
   }
 }
 
+// Get the PLUGIN categories available in the db
+// Plugin Register Form
+if(is_numeric(JAK_PLUGIN_ID_REGISTER_FORM) && JAK_PLUGIN_ID_REGISTER_FORM > 0) {
+  $result = $jakdb->query('SELECT name, varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . JAK_PLUGIN_ID_REGISTER_FORM . '" LIMIT 1');
+  $PLUGIN_RF_CAT = $result->fetch_assoc();
+}
+
 // Set the check page to 0
 $JAK_CHECK_PAGE = 0;
 
@@ -321,6 +331,15 @@ foreach ($jakcategories as $ca) {
 /* =====================================================
  *  PAGE DEFINITION - DEFINICE STRÁNEK
  * ===================================================== */
+// EN: Login to site
+// CZ: Přihlášení do webové sítě
+if ($page == 'login') {
+  $PAGE_TITLE     = $tl['global_text']['gtxt9'];
+  $template       = 'login.php';
+  $JAK_CHECK_PAGE = 1;
+  $PAGE_SHOWTITLE = 1;
+}
+
 // EN: Logout from site
 // CZ: Odhlášení z webové sítě
 if ($page == 'logout') {
@@ -334,12 +353,14 @@ if ($page == 'logout') {
   }
   if (JAK_USERID) {
     $jakuserlogin->jakLogout(JAK_USERID);
+    $usergroupid = $jakuser->getVar("usergroupid");
     // EN: Add error message to session
     // CZ: Přidání chybové zprávy do session
     $_SESSION["infomsg"] = $tl["notification"]["n4"];
     // EN: Redirect page
     // CZ: Přesměrování stránky
-    jak_redirect($_SERVER['HTTP_REFERER']);
+    // jak_redirect($_SERVER['HTTP_REFERER']);
+    jak_redirect(BASE_URL);
   }
 }
 
@@ -466,7 +487,9 @@ if ($hookip) foreach ($hookip as $hip) {
 }
 
 // if page not found 404
-if ($JAK_CHECK_PAGE == 0) jak_redirect(JAK_rewrite::jakParseurl('404', '', '', '', ''));
+if ($JAK_CHECK_PAGE == 0) {
+  jak_redirect(JAK_rewrite::jakParseurl('404', '', '', '', ''));
+}
 
 // Get the categories with usergroup rights
 $JAK_CAT_SITE = JAK_base::jakCatdisplay(JAK_USERGROUPID, $usraccesspl, $jakcategories);
@@ -548,6 +571,9 @@ unset($_SESSION["infomsg"]);
 unset($_SESSION["successmsg"]);
 unset($_SESSION["errormsg"]);
 unset($_SESSION["warningmsg"]);
+
+// Reset session from PLUGIN's for next use
+unset($_SESSION["rf_msg_sent"]);
 
 // Finally close all db connections
 $jakdb->jak_close();

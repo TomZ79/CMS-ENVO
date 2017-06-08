@@ -4,15 +4,10 @@
 $errorlo = $errorfp = $errorpp = array();
 
 // Login user
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jakU'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['loginusername'])) {
 
-  if (isset($_SESSION["logintries"]) && $_SESSION["logintries"] > 3) {
-    $_SESSION["infomsg"] = $tl["error"]["e10"];
-    jak_redirect(BASE_URL);
-  }
-
-  $username = smartsql($_POST['jakU']);
-  $userpass = smartsql($_POST['jakP']);
+  $username = smartsql($_POST['loginusername']);
+  $userpass = smartsql($_POST['loginpassword']);
   $cookies  = FALSE;
   if (isset($_POST['lcookies'])) $cookies = TRUE;
 
@@ -66,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
   $defaults = $_POST;
 
   if (!filter_var($defaults['jakE'], FILTER_VALIDATE_EMAIL)) {
-    $errors['e'] = $tl['error']['e1'];
+    $errors['e'] = $tl['general_error']['generror14'];
   }
 
   // transform user email
@@ -77,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
   $user_check = $jakuserlogin->jakForgotpassword($femail, $fwhen);
 
   if (!isset($errors['e']) && !$user_check) {
-    $errors['e'] = $tl['error']['e19'];
+    $errors['e'] = $tl['general_error']['generror25'];
   }
 
   if (count($errors) == 0) {
@@ -108,6 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
 
     if ($mail->Send()) {
       $_SESSION["infomsg"] = $tl["log_in"]["login11"];
+      $_SESSION["infomsg"] = $tl["notification"]["n6"];
       jak_redirect($_SERVER['HTTP_REFERER']);
     }
 

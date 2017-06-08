@@ -107,6 +107,7 @@ if (DB_USER && DB_PASS) {
   <link rel="stylesheet" href="../assets/css/stylesheet.css" type="text/css" media="screen"/>
 
   <!-- Basic CSS and Bootstrap CSS -->
+  <link type="text/css" rel="stylesheet" href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../assets/plugins/bootstrapv3/css/bootstrap.min.css" type="text/css" media="screen"/>
   <link rel="stylesheet" href="include/style.css" type="text/css" media="screen"/>
 
