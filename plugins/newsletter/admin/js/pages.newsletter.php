@@ -51,7 +51,7 @@
       $('#JAKModalLabel').html("FileManager");
 
       $('#JAKModal').one('shown.bs.modal', function (e) {
-        $('#JAKModal .modal-dialog').addClass('modal-w-90p');
+        $('#JAKModal .modal-dialog').addClass('modal-w-70p');
         $('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
       }).one('hidden.bs.modal', function (e) {
         $(".body-content").html('');
@@ -95,7 +95,7 @@
       $('#JAKModalLabel').html("FileManager");
 
       $('#JAKModal').one('shown.bs.modal', function (e) {
-        $('#JAKModal .modal-dialog').addClass('modal-w-90p');
+        $('#JAKModal .modal-dialog').addClass('modal-w-70p');
         $('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
       }).one('hidden.bs.modal', function (e) {
         $(".body-content").html('');

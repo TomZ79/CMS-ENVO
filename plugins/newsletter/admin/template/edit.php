@@ -61,7 +61,7 @@ if ($errors) { ?>
     </div>
 
     <!-- Form Content -->
-    <ul id="cmsTab" class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
+    <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
       <li role="presentation" class="active">
         <a href="#cmsPage1" id="cmsPage1-tab" role="tab" data-toggle="tab" aria-controls="cmsPage1" aria-expanded="true">
           <span class="text"><?php echo $tlnl["newsletter_section_tab"]["nltab"]; ?></span>
@@ -74,7 +74,7 @@ if ($errors) { ?>
       </li>
     </ul>
 
-    <div id="cmsTabContent" class="tab-content">
+    <div class="tab-content">
       <div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
         <div class="box box-success">
           <div class="box-header with-border">

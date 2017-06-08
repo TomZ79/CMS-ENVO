@@ -85,9 +85,10 @@ switch ($page1) {
       $result = $jakdb->query('SELECT name' . ', content' . ' FROM ' . $jaktable1 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
       $row    = $result->fetch_assoc();
 
-      $PAGE_TITLE       = JAK_PLUGIN_NAME_FAQ . ' - ' . $row['name'];
-      $PAGE_CONTENT     = $row['content'];
-      $MAIN_DESCRIPTION = $jkv["faqdesc"];
+      $PAGE_TITLE              = JAK_PLUGIN_NAME_FAQ . ' - ' . $row['name'];
+      $PAGE_CONTENT            = $row['content'];
+      $MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
+      $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];
 
       // Get the sort orders for the grid
       $JAK_HOOK_SIDE_GRID = FALSE;
@@ -105,8 +106,14 @@ switch ($page1) {
 
       if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-      $PAGE_KEYWORDS    = str_replace(" ", "", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
-      $PAGE_DESCRIPTION = jak_cut_text($PAGE_CONTENT, 155, '');
+      $PAGE_KEYWORDS = str_replace(" ", "", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+
+      // SEO from the category content if available
+      if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
+        $PAGE_DESCRIPTION = jak_cut_text($MAIN_PLUGIN_DESCRIPTION, 155, '');
+      } else {
+        $PAGE_DESCRIPTION = jak_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
+      }
 
       // Get the CSS and Javascript into the page
       $JAK_HEADER_CSS        = $jkv["faq_css"];
@@ -239,7 +246,6 @@ switch ($page1) {
           $PAGE_ID          = $row['id'];
           $PAGE_TITLE       = $row['title'];
           $PAGE_CONTENT     = jak_secure_site($row['content']);
-          $MAIN_DESCRIPTION = $jkv["faqdesc"];
           $SHOWTITLE        = $row['showtitle'];
           $SHOWDATE         = $row['showdate'];
           $SHOWCOMMENTFORM  = $row['comments'];
@@ -488,9 +494,10 @@ switch ($page1) {
     }
 
     // Check if we have a language and display the right stuff
-    $PAGE_TITLE       = $jkv["faqtitle"];
-    $PAGE_CONTENT     = $jkv["faqdesc"];
-    $MAIN_DESCRIPTION = $jkv["faqdesc"];
+    $PAGE_TITLE              = $jkv["faqtitle"];
+    $PAGE_CONTENT            = $jkv["faqdesc"];
+    $MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
+    $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];
 
     // Get the url session
     $_SESSION['jak_lastURL'] = $backtofaq;
@@ -508,11 +515,12 @@ switch ($page1) {
     if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
     $PAGE_KEYWORDS = str_replace(" ", "", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+
     // SEO from the category content if available
-    if (!empty($ca['content'])) {
-      $PAGE_DESCRIPTION = jak_cut_text($ca['content'], 155, '');
+    if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
+      $PAGE_DESCRIPTION = jak_cut_text($MAIN_PLUGIN_DESCRIPTION, 155, '');
     } else {
-      $PAGE_DESCRIPTION = jak_cut_text($PAGE_CONTENT, 155, '');
+      $PAGE_DESCRIPTION = jak_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
     }
 
     // Get the CSS and Javascript into the page
