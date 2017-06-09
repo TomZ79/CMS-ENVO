@@ -8,7 +8,7 @@ define('JAK_PREVENT_ACCESS', 1);
 if (!file_exists('config.php')) die('[index.php] config.php not exist');
 require_once 'config.php';
 
-// Now check if there is more then one language
+// Now check if there is more then one page
 $page  = ($tempp ? jak_url_input_filter($tempp) : '');
 $page1 = ($tempp1 ? jak_url_input_filter($tempp1) : '');
 $page2 = ($tempp2 ? jak_url_input_filter($tempp2) : '');
@@ -223,6 +223,9 @@ if ($jkv["hvm"]) {
 
 }
 
+/* =====================================================
+ *  OFFLINE PAGE - OFFLINE REŽIM
+ * ===================================================== */
 // EN: If the site is set to offline (offline or user's IP is blocked)
 // CZ: Pokud je webová síť offline (síť je nastavena do offline režimu nebo IP uživatele je blokováno)
 if ($jkv["offline"] == 1 && !JAK_ASACCESS || $USR_IP_BLOCKED) {
@@ -486,7 +489,8 @@ if ($hookip) foreach ($hookip as $hip) {
   eval($hip['phpcode']);
 }
 
-// if page not found 404
+// EN: If page not found
+// CZ: Pokud stránka není nalezena
 if ($JAK_CHECK_PAGE == 0) {
   jak_redirect(JAK_rewrite::jakParseurl('404', '', '', '', ''));
 }
@@ -566,7 +570,8 @@ if (isset($jkv["sitestyle"]) && !empty(ENVO_TEMPLATE) && isset($jkv["cms_tpl"]) 
   include_once APP_PATH . 'notemplate.php';
 }
 
-// Reset success and errors session for next use
+// EN: Reset Session for next use
+// CZ: Reset Session pro další použití
 unset($_SESSION["infomsg"]);
 unset($_SESSION["successmsg"]);
 unset($_SESSION["errormsg"]);
@@ -575,7 +580,8 @@ unset($_SESSION["warningmsg"]);
 // Reset session from PLUGIN's for next use
 unset($_SESSION["rf_msg_sent"]);
 
-// Finally close all db connections
+// EN: Finally close all db connections
+// CZ: Uzavření spojení do databáze
 $jakdb->jak_close();
 ?>
 

@@ -11,7 +11,7 @@ $JAK_PROVED = FALSE;
 if (!file_exists('config.php')) die('[index.php] config.php not found');
 require_once 'config.php';
 
-// Now check if there is more then one language
+// Now check if there is more then one page
 $page  = ($temppa ? jak_url_input_filter($temppa) : '');
 $page1 = ($temppa1 ? jak_url_input_filter($temppa1) : '');
 $page2 = ($temppa2 ? jak_url_input_filter($temppa2) : '');
@@ -132,10 +132,11 @@ $JAK_COUNTS_NAVBAR = $jakdb->queryRow('SELECT
 																			(SELECT COUNT(*) FROM ' . $jaktable1 . ') AS COUNT_USER,
 																			(SELECT COUNT(*) FROM ' . $jaktable2 . ') AS COUNT_USERGROUP');
 
-// Home
+// EN: Home page
+// CZ: Úvodní strana
 if ($page == '') {
-  #show login page only if the admin is not logged in
-  #else show homepage
+  // EN: Show login page only if the admin is not logged in else show homepage
+  // CZ: Zobrazit stránku 'přihlášení' ...
   if (!JAK_USERID) {
     require_once 'login.php';
   } else {
@@ -339,7 +340,8 @@ if ($page == 'cmshelp') {
   $checkp          = 1;
 }
 
-// If page not found
+// EN: If page not found
+// CZ: Pokud stránka není nalezena
 if ($checkp == 0) jak_redirect(BASE_URL . 'index.php?p=404');
 
 if (isset($template) && $template != '') {
@@ -352,12 +354,15 @@ if (isset($plugin_template) && $plugin_template != '') {
   include_once APP_PATH . $plugin_template;
 }
 
-// Reset success and errors session for next use
+// EN: Reset Session for next use
+// CZ: Reset Session pro další použití
+unset($_SESSION["infomsg"]);
 unset($_SESSION["successmsg"]);
 unset($_SESSION["errormsg"]);
-unset($_SESSION["infomsg"]);
+unset($_SESSION["warningmsg"]);
 unset($_SESSION["loginmsg"]);
 
-// Finally close all db connections
+// EN: Finally close all db connections
+// CZ: Uzavření spojení do databáze
 $jakdb->jak_close();
 ?>
