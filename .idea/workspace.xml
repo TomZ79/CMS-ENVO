@@ -5,283 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4346a0f-85ec-4e4d-93d1-8c74a4b74471" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/captcha/securimage/AHGBold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/.htaccess" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/0.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/1.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/10.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/11.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/12.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/13.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/14.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/captcha/securimage/audio/en/15.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/langs/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/bootstrap3/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/clientcode/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/emoticons/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/emoticons/img/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/config/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/css/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/img/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/img/ico/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/img/ico_dark/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/include/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/AGPL-3.0.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/ODFViewerPlugin.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/ODFViewerPlugin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/PDFViewerPlugin.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/PDFViewerPlugin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/PluginLoader.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/compatibility.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/example.local.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/images/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/images/kogmbh.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/images/nlnet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/images/texture.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/images/toolbarButton-download.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/images/toolbarButton-fullscreen.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/images/toolbarButton-menuArrows.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/images/toolbarButton-pageDown.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/images/toolbarButton-pageUp.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/images/toolbarButton-presentation.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/images/toolbarButton-zoomIn.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/images/toolbarButton-zoomOut.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/local.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/pdf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/pdf.worker.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/pdfjsversion.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/text_layer_builder.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/ui_utils.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/viewer.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/viewer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/ViewerJS/webodf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/actionscript/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/actionscript/happyworm/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/actionscript/happyworm/jPlayer/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/add-on/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/jplayer/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/jquery.jplayer/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/popcorn/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/blue.monday/css/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/blue.monday/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/blue.monday/image/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/blue.monday/mustache/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/pink.flag/css/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/pink.flag/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/pink.flag/image/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/pink.flag/mustache/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin_ol/blue.monday/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin_ol/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin_ol/pink.flag/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/cs.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/uploader/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/responsivefilemanager/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/responsivefilemanager/img/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/visualblocks/css/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/visualblocks/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/skins/dark/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/skins/dark/fonts/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/skins/dark/img/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/skins/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/skins/lightgray/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/skins/lightgray/fonts/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/skins/lightgray/img/desktop.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/download/update.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/ajax_calls.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/ajax_calls.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/config/config.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/config/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/css/style.css" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/dialog.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/dialog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/execute.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/execute.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/force_download.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/force_download.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/include/Response.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/include/Response.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/include/mime_type_lib.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/include/mime_type_lib.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/include/php_image_magician.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/include/php_image_magician.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/include/utils.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/include/utils.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/include.js" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/include.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/MIT-LICENSE.txt" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/MIT-LICENSE.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/README.md" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/actionscript/Jplayer.as" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/actionscript/Jplayer.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/actionscript/happyworm/jPlayer/JplayerEvent.as" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/actionscript/happyworm/jPlayer/JplayerEvent.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/actionscript/happyworm/jPlayer/JplayerMp3.as" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/actionscript/happyworm/jPlayer/JplayerMp3.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/actionscript/happyworm/jPlayer/JplayerMp4.as" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/actionscript/happyworm/jPlayer/JplayerMp4.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/actionscript/happyworm/jPlayer/JplayerStatus.as" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/actionscript/happyworm/jPlayer/JplayerStatus.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/add-on/jplayer.playlist.js" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/add-on/jplayer.playlist.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/add-on/jplayer.playlist.min.js" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/add-on/jplayer.playlist.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/add-on/jquery.jplayer.inspector.js" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/add-on/jquery.jplayer.inspector.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/add-on/jquery.jplayer.inspector.min.js" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/add-on/jquery.jplayer.inspector.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/jplayer.jquery.json" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/jplayer.jquery.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/jplayer/jquery.jplayer.js" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/jplayer/jquery.jplayer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/jplayer/jquery.jplayer.min.js" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/jplayer/jquery.jplayer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/jquery.jplayer/jquery.jplayer.js" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/jquery.jplayer/jquery.jplayer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/package.json" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/popcorn/popcorn.jplayer.js" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/popcorn/popcorn.jplayer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/popcorn/popcorn.jplayer.min.js" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/popcorn/popcorn.jplayer.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/blue.monday/css/jplayer.blue.monday.css" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/blue.monday/css/jplayer.blue.monday.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/blue.monday/mustache/jplayer.blue.monday.audio.playlist.html" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/blue.monday/mustache/jplayer.blue.monday.audio.playlist.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/blue.monday/mustache/jplayer.blue.monday.audio.single.html" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/blue.monday/mustache/jplayer.blue.monday.audio.single.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/blue.monday/mustache/jplayer.blue.monday.audio.stream.html" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/blue.monday/mustache/jplayer.blue.monday.audio.stream.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/blue.monday/mustache/jplayer.blue.monday.video.playlist.html" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/blue.monday/mustache/jplayer.blue.monday.video.playlist.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/blue.monday/mustache/jplayer.blue.monday.video.single.html" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/blue.monday/mustache/jplayer.blue.monday.video.single.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/blue.monday/skin.handlebars" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/blue.monday/skin.handlebars" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/pink.flag/css/jplayer.pink.flag.css" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/pink.flag/css/jplayer.pink.flag.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/pink.flag/mustache/jplayer.pink.flag.audio.playlist.html" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/pink.flag/mustache/jplayer.pink.flag.audio.playlist.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/pink.flag/mustache/jplayer.pink.flag.audio.single.html" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/pink.flag/mustache/jplayer.pink.flag.audio.single.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/pink.flag/mustache/jplayer.pink.flag.audio.stream.html" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/pink.flag/mustache/jplayer.pink.flag.audio.stream.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/pink.flag/mustache/jplayer.pink.flag.video.playlist.html" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/pink.flag/mustache/jplayer.pink.flag.video.playlist.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/pink.flag/mustache/jplayer.pink.flag.video.single.html" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin/pink.flag/mustache/jplayer.pink.flag.video.single.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin_ol/blue.monday/skin.handlebars" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin_ol/blue.monday/skin.handlebars" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin_ol/pink.flag/jplayer.pink.flag.css" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/jPlayer/skin_ol/pink.flag/jplayer.pink.flag.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/modernizr.custom.js" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/modernizr.custom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/plugins.js" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/js/plugins.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/az_AZ.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/az_AZ.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/bg_BG.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/bg_BG.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/ca.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/ca.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/da.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/da.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/de.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/de.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/el_GR.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/el_GR.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/en_EN.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/en_EN.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/es.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/es.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/fa.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/fa.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/fr_FR.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/fr_FR.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/he_IL.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/he_IL.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/hr.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/hr.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/hu_HU.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/hu_HU.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/id.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/id.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/it.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/it.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/ja.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/ja.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/languages.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/languages.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/lt.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/lt.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/mn_MN.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/mn_MN.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/nb_NO.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/nb_NO.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/nl.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/nl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/pl.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/pl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/pt_BR.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/pt_BR.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/pt_PT.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/pt_PT.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/ru.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/ru.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/sk.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/sk.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/sl.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/sl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/sv_SE.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/sv_SE.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/tr_TR.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/tr_TR.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/uk_UA.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/uk_UA.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/vi.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/vi.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/zh_CN.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/lang/zh_CN.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/upload.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/upload.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/uploader/index.php" afterPath="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/uploader/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.php" afterPath="$PROJECT_DIR$/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/loginpass.php" afterPath="$PROJECT_DIR$/include/loginpass.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/install/install.php" afterPath="$PROJECT_DIR$/install/install.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lang/cs.ini" afterPath="$PROJECT_DIR$/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lang/en.ini" afterPath="$PROJECT_DIR$/lang/en.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news.php" afterPath="$PROJECT_DIR$/news.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page.php" afterPath="$PROJECT_DIR$/page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/admin/template/editbh.php" afterPath="$PROJECT_DIR$/plugins/belowheader/admin/template/editbh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/admin/template/newbh.php" afterPath="$PROJECT_DIR$/plugins/belowheader/admin/template/newbh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/install.php" afterPath="$PROJECT_DIR$/plugins/belowheader/install.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/uninstall.php" afterPath="$PROJECT_DIR$/plugins/belowheader/uninstall.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/blog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/blog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/js/pages.blog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/js/pages.blog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/blog/admin/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/lang/en.ini" afterPath="$PROJECT_DIR$/plugins/blog/admin/lang/en.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blogsetting.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blogsetting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/editblog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/editblog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/newblog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/newblog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/blog.php" afterPath="$PROJECT_DIR$/plugins/blog/blog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/install.php" afterPath="$PROJECT_DIR$/plugins/blog/install.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/blog/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/lang/en.ini" afterPath="$PROJECT_DIR$/plugins/blog/lang/en.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/template/blog.php" afterPath="$PROJECT_DIR$/plugins/blog/template/blog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/uninstall.php" afterPath="$PROJECT_DIR$/plugins/blog/uninstall.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/include/functions.php" afterPath="$PROJECT_DIR$/plugins/download/admin/include/functions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/download/admin/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/lang/en.ini" afterPath="$PROJECT_DIR$/plugins/download/admin/lang/en.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/editdownload.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/editdownload.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/newdownload.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/newdownload.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/setting.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/setting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/css/style.css" afterPath="$PROJECT_DIR$/plugins/download/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/download.php" afterPath="$PROJECT_DIR$/plugins/download/download.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/install.php" afterPath="$PROJECT_DIR$/plugins/download/install.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/download/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/uninstall.php" afterPath="$PROJECT_DIR$/plugins/download/uninstall.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/faq/admin/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/lang/en.ini" afterPath="$PROJECT_DIR$/plugins/faq/admin/lang/en.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/editfaq.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/editfaq.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faqsetting.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faqsetting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/newfaq.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/newfaq.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/faq.php" afterPath="$PROJECT_DIR$/plugins/faq/faq.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/install.php" afterPath="$PROJECT_DIR$/plugins/faq/install.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/uninstall.php" afterPath="$PROJECT_DIR$/plugins/faq/uninstall.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/admin/template/edit.php" afterPath="$PROJECT_DIR$/plugins/growl/admin/template/edit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/admin/template/new.php" afterPath="$PROJECT_DIR$/plugins/growl/admin/template/new.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/install.php" afterPath="$PROJECT_DIR$/plugins/growl/install.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/uninstall.php" afterPath="$PROJECT_DIR$/plugins/growl/uninstall.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/js/pages.newsletter.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/js/pages.newsletter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/template/edit.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/template/edit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/template/new.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/template/new.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/install.php" afterPath="$PROJECT_DIR$/plugins/newsletter/install.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/uninstall.php" afterPath="$PROJECT_DIR$/plugins/newsletter/uninstall.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/openurl_blank/install.php" afterPath="$PROJECT_DIR$/plugins/openurl_blank/install.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/openurl_blank/uninstall.php" afterPath="$PROJECT_DIR$/plugins/openurl_blank/uninstall.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/admin/js/pages.register-form.php" afterPath="$PROJECT_DIR$/plugins/register_form/admin/js/pages.register-form.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/admin/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/register_form/admin/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/admin/lang/en.ini" afterPath="$PROJECT_DIR$/plugins/register_form/admin/lang/en.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/admin/register.php" afterPath="$PROJECT_DIR$/plugins/register_form/admin/register.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/admin/template/settings.php" afterPath="$PROJECT_DIR$/plugins/register_form/admin/template/settings.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/help/help_cs.php" afterPath="$PROJECT_DIR$/plugins/register_form/help/help_cs.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/help/help_en.php" afterPath="$PROJECT_DIR$/plugins/register_form/help/help_en.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/install.php" afterPath="$PROJECT_DIR$/plugins/register_form/install.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/lang/cs.ini" afterPath="$PROJECT_DIR$/plugins/register_form/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/lang/en.ini" afterPath="$PROJECT_DIR$/plugins/register_form/lang/en.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/register.php" afterPath="$PROJECT_DIR$/plugins/register_form/register.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/rf_post.php" afterPath="$PROJECT_DIR$/plugins/register_form/rf_post.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/template/rf_editprofile.php" afterPath="$PROJECT_DIR$/plugins/register_form/template/rf_editprofile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/uninstall.php" afterPath="$PROJECT_DIR$/plugins/register_form/uninstall.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/site_editor/install.php" afterPath="$PROJECT_DIR$/plugins/site_editor/install.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/site_editor/uninstall.php" afterPath="$PROJECT_DIR$/plugins/site_editor/uninstall.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/install.php" afterPath="$PROJECT_DIR$/plugins/urlmapping/install.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/uninstall.php" afterPath="$PROJECT_DIR$/plugins/urlmapping/uninstall.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/install.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/install.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/uninstall.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/uninstall.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/jakweb/install.php" afterPath="$PROJECT_DIR$/template/jakweb/install.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/jakweb/uninstall.php" afterPath="$PROJECT_DIR$/template/jakweb/uninstall.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/metrics/css/screen.css" afterPath="$PROJECT_DIR$/template/metrics/css/screen.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/metrics/footer.php" afterPath="$PROJECT_DIR$/template/metrics/footer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/metrics/header.php" afterPath="$PROJECT_DIR$/template/metrics/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/metrics/install.php" afterPath="$PROJECT_DIR$/template/metrics/install.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/metrics/js/main.js" afterPath="$PROJECT_DIR$/template/metrics/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/metrics/js/metrics-custom.js" afterPath="$PROJECT_DIR$/template/metrics/js/metrics-custom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/metrics/lang/cs.ini" afterPath="$PROJECT_DIR$/template/metrics/lang/cs.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/metrics/newssidebar.php" afterPath="$PROJECT_DIR$/template/metrics/newssidebar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/metrics/page.php" afterPath="$PROJECT_DIR$/template/metrics/page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/metrics/plugintemplate/blog/blog.php" afterPath="$PROJECT_DIR$/template/metrics/plugintemplate/blog/blog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/metrics/plugintemplate/download/download.php" afterPath="$PROJECT_DIR$/template/metrics/plugintemplate/download/download.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/metrics/plugintemplate/download/downloadfile.php" afterPath="$PROJECT_DIR$/template/metrics/plugintemplate/download/downloadfile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/metrics/plugintemplate/download/js/script.download.php" afterPath="$PROJECT_DIR$/template/metrics/plugintemplate/download/js/script.download.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/metrics/plugintemplate/download/pages_news.php" afterPath="$PROJECT_DIR$/template/metrics/plugintemplate/download/pages_news.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/metrics/plugintemplate/register_form/rf_editprofile.php" afterPath="$PROJECT_DIR$/template/metrics/plugintemplate/register_form/rf_editprofile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/metrics/templatesettings.php" afterPath="$PROJECT_DIR$/template/metrics/templatesettings.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/metrics/uninstall.php" afterPath="$PROJECT_DIR$/template/metrics/uninstall.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/mosaic/install.php" afterPath="$PROJECT_DIR$/template/mosaic/install.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/mosaic/uninstall.php" afterPath="$PROJECT_DIR$/template/mosaic/uninstall.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/footer.php" afterPath="$PROJECT_DIR$/template/qed/footer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/header.php" afterPath="$PROJECT_DIR$/template/qed/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/install.php" afterPath="$PROJECT_DIR$/template/qed/install.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/page.php" afterPath="$PROJECT_DIR$/template/qed/page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/plugintemplate/blog/blog.php" afterPath="$PROJECT_DIR$/template/qed/plugintemplate/blog/blog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/plugintemplate/download/js/script.download.php" afterPath="$PROJECT_DIR$/template/qed/plugintemplate/download/js/script.download.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/plugintemplate/register_form/rf_editprofile.php" afterPath="$PROJECT_DIR$/template/qed/plugintemplate/register_form/rf_editprofile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/templatesettings.php" afterPath="$PROJECT_DIR$/template/qed/templatesettings.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/uninstall.php" afterPath="$PROJECT_DIR$/template/qed/uninstall.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/footer.php" afterPath="$PROJECT_DIR$/template/porto/footer.php" />
     </list>
     <ignored path="CMS-Bluesat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -302,11 +28,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name=".htaccess" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.htaccess">
+      <file leaf-file-name="footer.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/template/porto/footer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
+            <state relative-caret-position="165">
+              <caret line="252" column="113" selection-start-line="252" selection-start-column="113" selection-end-line="252" selection-end-column="113" />
+              <folding>
+                <marker date="1496989493431" expanded="true" signature="15607:15632" ph="..." />
+                <marker date="1496989493431" expanded="true" signature="15732:15765" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cmshelp_cs.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/template/help/cmshelp_cs.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-510">
+              <caret line="518" column="30" selection-start-line="518" selection-start-column="30" selection-end-line="518" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -329,7 +68,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/template/qed/footer.php" />
         <option value="$PROJECT_DIR$/template/metrics/footer.php" />
         <option value="$PROJECT_DIR$/admin/lang/cs.ini" />
         <option value="$PROJECT_DIR$/admin/lang/en.ini" />
@@ -376,10 +114,11 @@
         <option value="$PROJECT_DIR$/template/porto/header.php" />
         <option value="$PROJECT_DIR$/include/functions.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/template/porto/footer.php" />
         <option value="$PROJECT_DIR$/assets/js/eu-cookies.php" />
         <option value="$PROJECT_DIR$/template/porto/js/porto.templatesettings.php" />
         <option value="$PROJECT_DIR$/.htaccess" />
+        <option value="$PROJECT_DIR$/template/porto/footer.php" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -454,11 +193,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -472,15 +207,11 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="captcha" />
+              <option name="myItemId" value="template" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -494,7 +225,15 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="help" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -629,18 +368,18 @@
       <workItem from="1496686803551" duration="18818000" />
       <workItem from="1496779216006" duration="7754000" />
       <workItem from="1496821965044" duration="449000" />
-      <workItem from="1496852913222" duration="43029000" />
+      <workItem from="1496852913222" duration="45522000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1389673000" />
+    <option name="totallyTimeSpent" value="1392166000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21742313" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21742313" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -704,42 +443,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/template/porto/install.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-458">
-          <caret line="92" column="3" selection-start-line="92" selection-start-column="3" selection-end-line="92" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/loginpage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/js/pages.blog.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1377">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/analytic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/plugins/modernizr/modernizr.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/Disk Google/BLUESAT/Bluesat - webdesign/Web/TEMPLATE/Bootstrap Template/Porto/Porto 5.7/HTML/about-me.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1190">
@@ -1148,17 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="487" column="51" selection-start-line="487" selection-start-column="51" selection-end-line="487" selection-end-column="51" />
-          <folding>
-            <marker date="1496953561279" expanded="true" signature="15559:15584" ph="..." />
-            <marker date="1496953561279" expanded="true" signature="15684:15717" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/template/porto/header.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1205,6 +897,60 @@
         <state relative-caret-position="102">
           <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/porto/plugins/jquery.lazyload/jquery.lazyload.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="48" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/porto/plugins/isotope/jquery.isotope.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/porto/plugins/jquery.easing/jquery.easing.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="64" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/help/cmshelp_cs.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-510">
+          <caret line="518" column="30" selection-start-line="518" selection-start-column="30" selection-end-line="518" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="51">
+            <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/porto/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="252" column="113" selection-start-line="252" selection-start-column="113" selection-end-line="252" selection-end-column="113" />
+          <folding>
+            <marker date="1496989493431" expanded="true" signature="15607:15632" ph="..." />
+            <marker date="1496989493431" expanded="true" signature="15732:15765" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
