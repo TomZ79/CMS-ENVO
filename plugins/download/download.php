@@ -108,7 +108,7 @@ switch ($page1) {
 
       if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-      $PAGE_KEYWORDS = str_replace(" ", "", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+      $PAGE_KEYWORDS = str_replace(" ", " ", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
 
       // SEO from the category content if available
       if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
@@ -404,7 +404,7 @@ switch ($page1) {
       $keytags = preg_split('/\s+/', strip_tags($JAK_TAGLIST));
       $keytags = ',' . implode(',', $keytags);
     }
-    $PAGE_KEYWORDS    = str_replace(" ", "", JAK_Base::jakCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+    $PAGE_KEYWORDS    = str_replace(" ", " ", JAK_Base::jakCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
     $PAGE_DESCRIPTION = jak_cut_text($PAGE_CONTENT, 155, '');
 
     // Get Facebook SDK Connection
@@ -715,7 +715,7 @@ switch ($page1) {
 
     if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-    $PAGE_KEYWORDS = str_replace(" ", "", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+    $PAGE_KEYWORDS = str_replace(" ", " ", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
 
     // SEO from the category content if available
     if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
