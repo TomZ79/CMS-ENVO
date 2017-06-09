@@ -250,14 +250,14 @@ if (!$JAK_SHOW_FOOTER) { ?>
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="/assets/plugins/jquery/jquery-2.2.4.min.js?=v2.2.4"></script>
 <script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/jquery.appear/jquery.appear.min.js"></script>
-<script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/jquery.easing/jquery.easing.min.js?=v1.3"></script>
+<script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/jquery.easing/jquery.easing.min.js?=v1.3" async defer></script>
 <script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/jquery-cookie/jquery-cookie.min.js?=v1.4.1"></script>
 <script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/bootstrap/js/bootstrap.min.js?=v3.3.7"></script>
-<script src="/assets/plugins/bootstap-notify/bootstrap-notify.min.js?=v3.1.5"></script>
+<script src="/assets/plugins/bootstap-notify/bootstrap-notify.min.js?=v3.1.5" async defer></script>
 <script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/common/common.min.js?=v5.7.2"></script>
 <script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/jquery.validation/jquery.validation.min.js?=v1.16.0"></script>
-<script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/jquery.lazyload/jquery.lazyload.min.js?=v1.9.7"></script>
-<script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/isotope/jquery.isotope.min.js?=v3.0.3"></script>
+<script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/jquery.lazyload/jquery.lazyload.min.js?=v1.9.7" async defer></script>
+<script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/isotope/jquery.isotope.min.js?=v3.0.3" async defer></script>
 <script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/owl.carousel/owl.carousel.min.js?=v2.1.6"></script>
 <script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/magnific-popup/jquery.magnific-popup.min.js?=v1.1.0"></script>
 <script type="text/javascript" src="/assets/plugins/revolution-slider/js/jquery.themepunch.tools.min.js?rev=5.0"></script>
