@@ -3,23 +3,15 @@
 <script type="text/javascript">
   function shareOnFB() {
     FB.ui({
-      method: "feed",
+      method: 'feed',
       display: 'popup',
-      link: "<?php echo BASE_URL ?>",
-      picture: "<?php if (isset($JAK_RANDOM_IMAGE)) {
-        echo $JAK_RANDOM_IMAGE;
-      } else {
-        echo BASE_URL . ltrim ($SHOWIMG, '/');
-      }?>",
-      name: "<?php echo jak_get_random__line (APP_PATH . '/_files/facebook/facebook_name.txt'); ?>",
-      caption: "<?php echo $_SERVER['SERVER_NAME'] ?>",
-      description: "<?php echo jak_get_random__line (APP_PATH . '/_files/facebook/facebook_description.txt'); ?>"
+      link: '<?php echo (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>'
     }, function (t) {
       var str = JSON.stringify(t);
       var obj = JSON.parse(str);
       if (obj.post_id != '') {
         //after successful sharing, you can show your download content here
-        var secret_data = "<a href='<?php echo $DL_LINK;?>' class='dclick btn btn-info'><?php echo $tld["downl_frontend"]["downl7"]; ?></a>";
+        var secret_data = "<a href='<?php echo $DL_LINK;?>' class='dclick btn btn-info btn-lg'><?php echo $tld["downl_frontend"]["downl7"]; ?></a>";
         jQuery("#results").html(secret_data);
       }
     });

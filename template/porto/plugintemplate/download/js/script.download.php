@@ -5,13 +5,13 @@
     FB.ui({
       method: 'feed',
       display: 'popup',
-      link: '<?php echo (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>',
+      link: '<?php echo (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>'
     }, function (t) {
       var str = JSON.stringify(t);
       var obj = JSON.parse(str);
       if (obj.post_id != '') {
         //after successful sharing, you can show your download content here
-        var secret_data = "<a href='<?php echo $DL_LINK;?>' class='dclick btn btn-info'><?php echo $tld["downl_frontend"]["downl7"]; ?></a>";
+        var secret_data = "<a href='<?php echo $DL_LINK;?>' class='dclick btn btn-info btn-lg'><?php echo $tld["downl_frontend"]["downl7"]; ?></a>";
         jQuery("#results").html(secret_data);
       }
     });
