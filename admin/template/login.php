@@ -8,12 +8,13 @@
       <!-- END Background Pic-->
       <!-- START Background Caption-->
       <div class="bg-caption pull-bottom sm-pull-bottom text-white p-l-20 m-b-20">
-        <h2 class="semi-bold text-white">
-          <?php echo $tl["log_in"]["login9"]; ?>
-        </h2>
-        <p class="small">
-          <?php echo $tl["log_in"]["login10"]; ?>
-        </p>
+
+        <?php
+        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+        echo $Html->addTag('h2', $tl["log_in"]["login9"], 'semi-bold text-white');
+        echo $Html->addTag('p', $tl["log_in"]["login10"], 'small');
+        ?>
+
       </div>
       <!-- END Background Caption-->
     </div>
@@ -24,7 +25,12 @@
         <img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
 
         <div class="loginF p-t-35">
-          <h4 class=""><?php echo $tl["log_in"]["login"]; ?></h4>
+
+          <?php
+          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+          echo $Html->addTag('h4', $tl["log_in"]["login"], '');
+          ?>
+
           <form id="form-login" class="p-t-15" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
             <div class="form-group form-group-default">
 
@@ -90,7 +96,12 @@
         </div>
 
         <div class="forgotP p-t-35 hide">
-          <h4><?php echo $tl["log_in"]["login6"]; ?></h4>
+
+          <?php
+          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+          echo $Html->addTag('h4', $tl["log_in"]["login6"], '');
+          ?>
+
           <form id="form-email" class="p-t-15" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
             <div class="form-group form-group-default">
 
@@ -131,10 +142,12 @@
         <div class="pull-bottom sm-pull-bottom">
           <div class="m-b-30 p-r-80 sm-m-t-20 sm-p-r-15 sm-p-b-20 clearfix">
             <div class="col-sm-12 no-padding m-t-10">
-              <a href="<?php echo BASE_URL_ORIG; ?>" class="back-to-home">
-                <i class="fa  fa-chevron-left m-r-10" aria-hidden="true"></i>
-                <?php echo $tl["log_in"]["login8"]; ?>
-              </a>
+
+              <?php
+              // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+              echo $Html->addAnchor(BASE_URL_ORIG, '<i class="fa  fa-chevron-left m-r-10"></i>' . $tl["log_in"]["login8"], '', 'back-to-home');
+              ?>
+
             </div>
           </div>
         </div>
