@@ -508,7 +508,7 @@ if ($errors) { ?>
                   <div class="block-content">
                     <div class="row-form">
                       <div class="col-md-12">
-                        <select name="jak_catid" class="form-control selectpicker">
+                        <select name="jak_catid" class="form-control selectpicker" data-live-search="true" data-size="5">
 
                           <?php
                           // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
