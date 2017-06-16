@@ -33,6 +33,8 @@ if ($page && $page != '404') $_SESSION['JAKRedirect'] = $_SERVER['REQUEST_URI'];
 // All other user will be redirect to the homepage, nothing else to do for this people
 if (JAK_USERID && !JAK_ADMINACCESS) jak_redirect(BASE_URL_ORIG);
 
+// EN: Import the language file
+// CZ: Import jazykových souborů
 if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
   $tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', TRUE);
 } else {
@@ -350,7 +352,6 @@ if (isset($template) && $template != '') {
 
 // Get the plugin template
 if (isset($plugin_template) && $plugin_template != '') {
-
   include_once APP_PATH . $plugin_template;
 }
 
