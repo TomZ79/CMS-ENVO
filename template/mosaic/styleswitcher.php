@@ -13,8 +13,6 @@ $JAK_HOOKS = $plhooks;
 // Reset the database settings so we have it unique
 $result = $jakdb->query ('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE product = "tpl_mosaic"');
 while ($row = $result->fetch_assoc ()) {
-	// collect each record into a define
-
 	// Now check if sting contains html and do something about it!
 	if (strlen ($row['value']) != strlen (filter_var ($row['value'], FILTER_SANITIZE_STRING))) {
 		$defvar = htmlspecialchars_decode (htmlspecialchars ($row['value']));

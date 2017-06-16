@@ -22,7 +22,8 @@ function jak_get_belowheader()
   $jakdata = array();
   $result  = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'belowheader ORDER BY id DESC');
   while ($row = $result->fetch_assoc()) {
-    // collect each record into $_data
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
     $jakdata[] = $row;
   }
 

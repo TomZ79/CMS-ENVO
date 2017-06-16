@@ -103,7 +103,8 @@ switch ($page1) {
         $JAK_HOOK_SIDE_GRID = $JAK_PAGE_GRID = FALSE;
         $grid               = $jakdb->query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE newsid = "' . $row['id'] . '" ORDER BY orderid ASC');
         while ($grow = $grid->fetch_assoc()) {
-          // collect each record into $newsgrid
+          // EN: Insert each record into array
+          // CZ: Vložení získaných dat do pole
           if ($grow["pluginid"] && !$grow["hookid"]) {
             $JAK_PAGE_GRID[] = $grow;
           }
@@ -196,7 +197,8 @@ switch ($page1) {
     // Get the sort orders for the grid
     $grid = $jakdb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . JAK_PLUGIN_ID_NEWS . ' ORDER BY orderid ASC');
     while ($grow = $grid->fetch_assoc()) {
-      // collect each record into $pagegrid
+      // EN: Insert each record into array
+      // CZ: Vložení získaných dat do pole
       $JAK_HOOK_SIDE_GRID[] = $grow;
     }
 

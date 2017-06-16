@@ -227,8 +227,6 @@ function jak_get_setting_val($group)
   $setting = array();
   $result  = $jakdb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE groupname = "' . smartsql($group) . '"');
   while ($row = $result->fetch_assoc()) {
-    // collect each record into a define
-
     // Now check if sting contains html and do something about it!
     if (strlen($row['value']) != strlen(filter_var($row['value'], FILTER_SANITIZE_STRING))) {
       $defvar = htmlspecialchars_decode(htmlspecialchars($row['value']));
@@ -269,7 +267,8 @@ function jak_get_data($id, $table)
   $setting = array();
   $result  = $jakdb->query('SELECT * FROM ' . $table . ' WHERE id = "' . smartsql($id) . '"');
   while ($row = $result->fetch_assoc()) {
-    // collect each record into $jakdata
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
     $jakdata = $row;
   }
 
@@ -284,7 +283,8 @@ function jak_get_galleryfacebook($limit, $table, $order)
   $jakdata = array();
   $result  = $jakdb->query('SELECT * FROM ' . $table . ' ORDER BY id ' . $order . $limit);
   while ($row = $result->fetch_assoc()) {
-    // collect each record into $_data
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
     $jakdata[] = $row;
   }
 
@@ -386,7 +386,8 @@ function jak_get_news($jakvar, $where, $plname, $order, $datef, $timef, $timeago
     // Parse url for user link
     $parseurl = JAK_rewrite::jakParseurl($plname, 'a', $row['id'], JAK_base::jakCleanurl($PAGE_TITLE), '');
 
-    // collect each record into $jakdata
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
     $jakdata[] = array('id' => $row['id'], 'title' => jak_secure_site($PAGE_TITLE), 'content' => jak_secure_site($PAGE_CONTENT), 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'showhits' => $row['showhits'], 'created' => JAK_base::jakTimesince($row['time'], $datef, $timef, $timeago), 'titleurl' => JAK_base::jakCleanurl($row['title']), 'hits' => $row['hits'], 'previmg' => $row['previmg'], 'contentshort' => $shortmsg, 'parseurl' => $parseurl, 'date-time' => $row['time']);
 
   }

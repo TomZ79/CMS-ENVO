@@ -127,7 +127,8 @@ switch ($page1) {
     // Get the sort orders for the grid
     $grid = $jakdb->query('SELECT id, hookid, whatid, orderid FROM ' . $jaktable2 . ' WHERE plugin = ' . JAK_PLUGIN_REGISTER_FORM . ' ORDER BY orderid ASC');
     while ($grow = $grid->fetch_assoc()) {
-      // collect each record into $_data
+      // EN: Insert each record into array
+      // CZ: Vložení získaných dat do pole
       $JAK_PAGE_GRID[] = $grow;
     }
 
@@ -276,7 +277,8 @@ switch ($page1) {
     // Get contact options
     $result = $jakdb->query('SELECT * FROM ' . $jaktable . ' ORDER BY forder ASC');
     while ($row = $result->fetch_assoc()) {
-      // collect each record into $_data
+      // EN: Insert each record into array
+      // CZ: Vložení získaných dat do pole
       $JAK_REGISTEROPTION_ALL[] = $row;
     }
 

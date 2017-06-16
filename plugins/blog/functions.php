@@ -28,7 +28,8 @@ function jak_get_blog($limit, $order, $where, $table_row, $ext_seo, $timeago)
     // finally get the time
     $getTime = JAK_Base::jakTimesince($row['time'], $jkv["blogdateformat"], $jkv["blogtimeformat"], $timeago);
 
-    // collect each record into $jakdata
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
     $jakdata[] = array('id' => $row['id'], 'catid' => $row['catid'], 'title' => $row['title'], 'content' => jak_secure_site($row['content']), 'contentshort' => $shortmsg, 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'created' => $getTime, 'comments' => $row['comments'], 'hits' => $row['hits'], 'totalcom' => $row['total'], 'previmg' => $row['previmg'], 'parseurl' => $parseurl, 'date-time' => $row['time']);
   }
 

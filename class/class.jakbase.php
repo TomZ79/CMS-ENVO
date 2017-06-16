@@ -241,7 +241,8 @@ class JAK_base
 					$row['parseurl1'] = JAK_rewrite::jakParseurl ($where1, $where, $row['id'], '', '');
 				}
 
-				// collect each record into $jakdata
+        // EN: Insert each record into array
+        // CZ: Vložení získaných dat do pole
 				$jakdata[] = $row;
 
 			}

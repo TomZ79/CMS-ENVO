@@ -82,7 +82,8 @@ if (empty($page1)) {
 $JAK_HOOK_SIDE_GRID = FALSE;
 $grid               = $jakdb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . JAK_PLUGIN_ID_TAGS . ' ORDER BY orderid ASC');
 while ($grow = $grid->fetch_assoc()) {
-  // collect each record into $pagegrid
+  // EN: Insert each record into array
+  // CZ: Vložení získaných dat do pole
   $JAK_HOOK_SIDE_GRID[] = $grow;
 }
 

@@ -259,7 +259,8 @@ if (!$result) {
 }
 }';
 
-      // Insert code into index.php
+      // EN: Insert code into admin/index.php
+      // CZ: Vložení kódu do admin/index.php
       $insertadminindex = 'plugins/register_form/admin/template/stat.php';
 
       // EN: Frontend - template for display plugin sidebar

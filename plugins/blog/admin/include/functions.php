@@ -11,7 +11,8 @@ function jak_get_blogs($limit, $cid, $table)
   $jakdata = array();
   $result  = $jakdb->query('SELECT * FROM ' . $table . ' ' . $sqlwhere . 'ORDER BY id DESC ' . $limit);
   while ($row = $result->fetch_assoc()) {
-    // collect each record into $_data
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
     $jakdata[] = $row;
   }
 
@@ -35,7 +36,8 @@ function jak_get_blog_comments($limit, $jakvar1, $jakvar2)
   $jakdata = array();
   $result  = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'blogcomments ' . $sqlwhere . 'ORDER BY time DESC ' . $limit);
   while ($row = $result->fetch_assoc()) {
-    // collect each record into $_data
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
     $jakdata[] = $row;
   }
 

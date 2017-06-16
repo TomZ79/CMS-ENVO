@@ -590,7 +590,8 @@ switch ($page1) {
           // Get the sort orders for the grid
           $grid = $jakdb->query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . $jaktable3 . ' WHERE pageid = "' . smartsql($page2) . '" ORDER BY orderid ASC');
           while ($grow = $grid->fetch_assoc()) {
-            // collect each record into $_data
+            // EN: Insert each record into array
+            // CZ: Vložení získaných dat do pole
             $JAK_PAGE_GRID[] = $grow;
           }
 
@@ -614,7 +615,8 @@ switch ($page1) {
           // Get the backup content
           $resultbp = $jakdb->query('SELECT id, time FROM ' . $jaktable6 . ' WHERE pageid = "' . smartsql($page2) . '" ORDER BY id DESC LIMIT 10');
           while ($rowbp = $resultbp->fetch_assoc()) {
-            // collect each record into $_data
+            // EN: Insert each record into array
+            // CZ: Vložení získaných dat do pole
             $JAK_PAGE_BACKUP[] = $rowbp;
           }
 

@@ -5,9 +5,6 @@ $JAK_NEWS_GROWL = array();
 // Get the general settings out the database
 $resultgw = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'growl WHERE active = 1');
 while ($rowgw = $resultgw->fetch_assoc()) {
-  // collect each record into a define
-
-
   $gwtitle   = base64_encode(trim($rowgw['title']));
   $gwcontent = base64_encode(trim($rowgw['content']));
 

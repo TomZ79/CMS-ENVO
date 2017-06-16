@@ -41,7 +41,8 @@ class JAK_comment
 			$row["parseurl3"] = JAK_rewrite::jakParseurl ($var, 'trash', $row['id'], $row['userid']);
 			$row["parseurl4"] = JAK_rewrite::jakParseurl ($var, 'report', $row['id']);
 
-			// collect each record into $jakdata
+      // EN: Insert each record into array
+      // CZ: Vložení získaných dat do pole
 			$jakdata[] = $row;
 
 			// Do we have nested comments
@@ -78,7 +79,8 @@ class JAK_comment
 				$nes["parseurl3"] = JAK_rewrite::jakParseurl ($var, 'trash', $nes['id'], $id);
 				$nes["parseurl4"] = JAK_rewrite::jakParseurl ($var, 'report', $nes['id']);
 
-				// collect each record into $jakdata
+        // EN: Insert each record into array
+        // CZ: Vložení získaných dat do pole 
 				$jakdata[] = $nes;
 
 			}

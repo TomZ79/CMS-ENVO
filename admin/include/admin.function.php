@@ -43,7 +43,8 @@ function jak_get_cat_info($jakvar, $jakvar1)
   $jakdata = array();
   $result = $jakdb->query('SELECT * FROM ' . $jakvar . $sqlwhere . ' ORDER BY catorder ASC');
   while ($row = $result->fetch_assoc()) {
-    // collect each record into $_data
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
     $jakdata[] = $row;
   }
   if (isset($jakdata)) return $jakdata;
@@ -56,7 +57,8 @@ function jak_get_usergroup_all($jakvar)
   $jakdata = array();
   $result = $jakdb->query('SELECT id, name, description FROM ' . DB_PREFIX . $jakvar . ' ORDER BY id ASC');
   while ($row = $result->fetch_assoc()) {
-    // collect each record into $_data
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
     $jakdata[] = $row;
   }
 
@@ -91,7 +93,8 @@ function jak_get_page_info($jakvar, $jakvar1)
   $jakdata = array();
   $result = $jakdb->query('SELECT * FROM ' . $jakvar . ' ORDER BY id DESC ' . $jakvar1);
   while ($row = $result->fetch_assoc()) {
-    // collect each record into $_data
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
     $jakdata[] = $row;
   }
 
@@ -105,7 +108,8 @@ function jak_get_news_info($jakvar)
   $jakdata = array();
   $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'news' . ' ORDER BY id ASC ' . $jakvar);
   while ($row = $result->fetch_assoc()) {
-    // collect each record into $jakdata
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
     $jakdata[] = $row;
   }
 
@@ -132,7 +136,8 @@ function jak_get_tag($limit, $id, $plugin, $order)
       if ($p['id'] == $row['pluginid']) $pluginname = $p['name'];
     }
 
-    // collect each record into $_data
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
     $jakdata[] = array('id' => $row['id'], 'tag' => $row['tag'], 'active' => $row['active'], 'pluginid' => $row['pluginid'], 'plugin' => $pluginname);
   }
 
@@ -200,7 +205,8 @@ function jak_admin_search($jakvar, $jakvar1, $jakvar2)
   $jakdata = array();
   $result = $jakdb->query('SELECT * FROM ' . $jakvar1 . $sqlwhere . ' ORDER BY id ASC LIMIT 5');
   while ($row = $result->fetch_assoc()) {
-    // collect each record into $_data
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
     $jakdata[] = $row;
   }
 
@@ -327,7 +333,8 @@ function jak_get_contact_options($jakvar, $jakvar1)
   $jakdata = array();
   $result = $jakdb->query('SELECT * FROM ' . $jakvar . ' WHERE formid = "' . smartsql($jakvar1) . '" ORDER BY forder ASC');
   while ($row = $result->fetch_assoc()) {
-    // collect each record into $_data
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
     $jakdata[] = $row;
   }
 

@@ -292,7 +292,8 @@ if (JAK_USERID) {
   // Get the sort orders for the grid
   $grid = $jakdb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . JAK_PLUGIN_ID_REGISTER_FORM . ' ORDER BY orderid ASC');
   while ($grow = $grid->fetch_assoc()) {
-    // collect each record into $pagegrid
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
     $JAK_HOOK_SIDE_GRID[] = $grow;
   }
 

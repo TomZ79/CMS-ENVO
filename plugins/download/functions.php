@@ -30,7 +30,8 @@ function jak_get_download($limit, $order, $where, $table_row, $ext_seo, $timeago
 
     $parseurl = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'f', $row['id'], $seo, '');
 
-    // collect each record into $jakdata
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
     $jakdata[] = array('id' => $row['id'], 'catid' => $row['catid'], 'title' => $row['title'], 'content' => jak_secure_site($row['content']), 'contentshort' => $shortmsg, 'file' => $row['file'], 'extfile' => $row['extfile'], 'countdl' => $row['countdl'], 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'created' => $getTime, 'comments' => $row['comments'], 'hits' => $row['hits'], 'totalcom' => $row['total'], 'previmg' => $row['previmg'], 'parseurl' => $parseurl);
   }
 

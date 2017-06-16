@@ -53,7 +53,8 @@ switch ($page1) {
 
         $parseurl = JAK_rewrite::jakParseurl($row['varname'], '', '', '', '');
 
-        // collect each record into $jakdata
+        // EN: Insert each record into array
+        // CZ: Vložení získaných dat do pole
         $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', $FREQUENCYPAGES);
       }
       // Basic URL for News
@@ -66,7 +67,8 @@ switch ($page1) {
 
       if ($num_results1 !== 0 && $num_results2 !== 0) {
         $parseurl = JAK_rewrite::jakParseurl($row1['varname'], '', '', '', '');
-        // collect each record into $jakdata
+        // EN: Insert each record into array
+        // CZ: Vložení získaných dat do pole
         $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
       }
 
@@ -78,7 +80,8 @@ switch ($page1) {
 
       while ($row1 = $result1->fetch_assoc()) {
         $parseurl = JAK_rewrite::jakParseurl($row['varname'], $row1['id'], JAK_base::jakCleanurl($row1['title']), '', '');
-        // collect each record into $jakdata
+        // EN: Insert each record into array
+        // CZ: Vložení získaných dat do pole
         $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
       }
 
@@ -90,7 +93,8 @@ switch ($page1) {
 
       while ($row1 = $result1->fetch_assoc()) {
         $parseurl = JAK_rewrite::jakParseurl($row['varname'], $row1['tag'], '', '', '');
-        // collect each record into $jakdata
+        // EN: Insert each record into array
+        // CZ: Vložení získaných dat do pole
         $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
       }
 
@@ -111,7 +115,8 @@ switch ($page1) {
             $seo = JAK_base::jakCleanurl($row1['title']);
           }
           $parseurl = JAK_rewrite::jakParseurl($row['varname'], 'f', $row1['id'], $seo, '', '');
-          // collect each record into $jakdata
+          // EN: Insert each record into array
+          // CZ: Vložení získaných dat do pole
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', $FREQUENCYDOWNLOAD);
         }
 
@@ -139,7 +144,8 @@ switch ($page1) {
             $seo = JAK_base::jakCleanurl($row1['title']);
           }
           $parseurl = JAK_rewrite::jakParseurl($row['varname'], 'i', $row1['id'], $seo, '', '');
-          // collect each record into $jakdata
+          // EN: Insert each record into array
+          // CZ: Vložení získaných dat do pole
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
         }
 
@@ -167,7 +173,8 @@ switch ($page1) {
             $seo = JAK_base::jakCleanurl($row1['title']);
           }
           $parseurl = JAK_rewrite::jakParseurl($row['varname'], 't', $row1['id'], $seo, '', '');
-          // collect each record into $jakdata
+          // EN: Insert each record into array
+          // CZ: Vložení získaných dat do pole
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
         }
 
@@ -195,7 +202,8 @@ switch ($page1) {
             $seo = JAK_base::jakCleanurl($row1['title']);
           }
           $parseurl = JAK_rewrite::jakParseurl($row['varname'], 'a', $row1['id'], $seo, '', '');
-          // collect each record into $jakdata
+          // EN: Insert each record into array
+          // CZ: Vložení získaných dat do pole
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
         }
         $JAK_FAQ_CAT = JAK_Base::jakGetcatmix($row['varname'], '', DB_PREFIX . 'faqcategories', 0, $jkv["faqurl"]);
@@ -223,7 +231,8 @@ switch ($page1) {
           }
           $parseurl = JAK_rewrite::jakParseurl($row['varname'], 'a', $row1['id'], $seo, '', '');
 
-          // collect each record into $jakdata
+          // EN: Insert each record into array
+          // CZ: Vložení získaných dat do pole
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', $FREQUENCYBLOG);
         }
 
@@ -250,7 +259,8 @@ switch ($page1) {
             $seo = JAK_base::jakCleanurl($row1['title']);
           }
           $parseurl = JAK_rewrite::jakParseurl($row['varname'], 'i', $row1['id'], $seo, '', '');
-          // collect each record into $jakdata
+          // EN: Insert each record into array
+          // CZ: Vložení získaných dat do pole
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
         }
 

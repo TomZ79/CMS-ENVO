@@ -239,7 +239,8 @@ switch ($page1) {
         // Get all
         $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'urlmapping ORDER BY id ASC');
         while ($row = $result->fetch_assoc()) {
-          // collect each record into $_data
+          // EN: Insert each record into array
+          // CZ: Vložení získaných dat do pole
           $JAK_UM_ALL[] = $row;
         }
 

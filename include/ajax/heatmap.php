@@ -25,7 +25,8 @@ if ($jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) {
       $jakoutput = '<div id="heatmap-container">';
 
       while ($row = $result->fetch_assoc()) {
-        // collect each record into $jakdata
+        // EN: Insert each record into array
+        // CZ: Vložení získaných dat do pole
         $jakoutput .= sprintf('<div style="left:%spx;top:%spx"></div>', $row['xaxis'] - 10, $row['yaxis'] - 10);
       }
 
