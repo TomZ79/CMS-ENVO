@@ -1,15 +1,17 @@
 # Enable the Rewrite engine
-    RewriteEngine On
+    RewriteEngine on
+    RewriteOptions MaxRedirects=1
 
 # URL Canonicalization with HTTPS
     RewriteCond %{HTTPS} off [OR]
     RewriteCond %{HTTP_HOST} !^www\. [NC]
-    RewriteRule ^ https://www.your_domain.com%{REQUEST_URI} [R=301,L,NE]
+    RewriteRule ^ https://www.your_site_domain.com%{REQUEST_URI} [R=301,L,NE]
 
 
 # SEO Url friendly
+    RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^([a-zA-Z0-9,-]+)/?$ index.php?s=$1 [L,QSA]
+    RewriteRule . index.php [L]
 
 # URL not found
 	ErrorDocument 404 /404/
