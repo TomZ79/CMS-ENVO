@@ -40,28 +40,19 @@
       <!-- END Overlay Header !-->
       <div class="container-fluid">
         <!-- BEGIN Overlay Controls !-->
-        <input id="overlay-search" class="no-border overlay-search bg-transparent" placeholder="Search..." autocomplete="off" spellcheck="false">
+        <input id="overlay-search" class="no-border overlay-search bg-transparent" placeholder="<?php echo $tl["search_overlay"]["so1"];?>" autocomplete="off" spellcheck="false">
         <br>
-        <div class="inline-block">
-          <div class="checkbox right">
-            <input id="checkboxn" type="checkbox" value="1" checked="checked">
-            <label for="checkboxn"><i class="fa fa-search"></i> Search within page</label>
-          </div>
-        </div>
-        <div class="inline-block m-l-10">
-          <p class="fs-13">Press enter to search</p>
-        </div>
         <!-- END Overlay Controls !-->
       </div>
       <!-- BEGIN Overlay Search Results, This part is for demo purpose, you can add anything you like !-->
       <div class="container-fluid">
           <span>
-                <strong>suggestions :</strong>
-            </span>
+            <strong><?php echo $tl["search_overlay"]["so2"];?></strong>
+          </span>
         <span id="overlay-suggestions"></span>
         <br>
         <div class="search-results m-t-40">
-          <p class="bold">Pages Search Results</p>
+          <p class="bold"><?php echo $tl["search_overlay"]["so3"];?></p>
           <div class="results-container">
             <!-- Results are appended here -->
           </div>

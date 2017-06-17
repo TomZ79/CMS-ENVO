@@ -274,7 +274,7 @@ $(function () {
       resultsContainer.html('');
 
       $.ajax({
-        url: 'ajax/backend-search.php',
+        url: 'ajax/overlay-search.php',
         type: 'POST',
         datatype: 'html',
         data: {

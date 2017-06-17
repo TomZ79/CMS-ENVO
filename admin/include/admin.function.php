@@ -578,6 +578,25 @@ function text_clipping_lower($str)
   return $result;
 }
 
+
+// Menu Clipping - get first letter from two words - uppercase
+function text_clipping_upper($str)
+{
+  $str = url_slug($str, array('delimiter' => ' ', 'lowercase' => false, 'transliterate' => true,));
+
+  if (str_word_count($str) > 1) {
+    //Get the first character for two words
+    $pos = strpos($str, " ");
+    $result = $str[0] . $str[$pos + 1];
+  } else {
+    //Get the first character for one word
+    $result = $str[0];
+  }
+
+  return $result;
+}
+
+
 // ---------------------------------------------------------------------------------------------------------------------
 //			FUNCTION FOR CREATE HTML TAGS
 // ---------------------------------------------------------------------------------------------------------------------
