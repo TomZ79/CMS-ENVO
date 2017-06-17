@@ -45,13 +45,13 @@
         <!-- END Overlay Controls !-->
       </div>
       <!-- BEGIN Overlay Search Results, This part is for demo purpose, you can add anything you like !-->
-      <div class="container-fluid">
-          <span>
-            <strong><?php echo $tl["search_overlay"]["so2"];?></strong>
-          </span>
+      <div class="container-fluid p-t-10">
+        <span>
+          <strong><?php echo $tl["search_overlay"]["so2"];?></strong>
+        </span>
         <span id="overlay-suggestions"></span>
         <br>
-        <div class="search-results m-t-40">
+        <div class="search-results m-t-30">
           <p class="bold"><?php echo $tl["search_overlay"]["so3"];?></p>
           <div class="results-container">
             <!-- Results are appended here -->
