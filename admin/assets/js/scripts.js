@@ -242,36 +242,59 @@ $(function () {
 
 /* 00. INITIALIZES SEARCH OVERLAY PLUGIN
  ========================================================================*/
-$(function () {
+(function ($) {
+
+  'use strict';
+
   // Initializes search overlay plugin.
   // Replace onSearchSubmit() and onKeyEnter() with
   // your logic to perform a search and display results
   $('[data-pages="search"]').search({
+    // Bind elements that are included inside search overlay
     searchField: '#overlay-search',
     closeButton: '.overlay-close',
     suggestions: '#overlay-suggestions',
     brand: '.brand',
+
+    // Callback that will be run when you hit ENTER button on search box
     onSearchSubmit: function (searchString) {
-      console.log("Search for: " + searchString);
+
     },
+
+    // Callback that will be run whenever you enter a key into search box.
+    // Perform any live search here.
     onKeyEnter: function (searchString) {
       console.log("Live search for: " + searchString);
+
       var searchField = $('#overlay-search');
       var searchResults = $('.search-results');
-      clearTimeout($.data(this, 'timer'));
-      searchResults.fadeOut("fast");
-      var wait = setTimeout(function () {
-        searchResults.find('.result-name').each(function () {
-          if (searchField.val().length != 0) {
-            $(this).html(searchField.val());
-            searchResults.fadeIn("fast");
-          }
-        });
-      }, 500);
-      $(this).data('timer', wait);
+      var resultsContainer = searchResults.find('.results-container');
+
+      // hide previously returned results until server returns new results
+      resultsContainer.html('');
+
+      $.ajax({
+        url: 'ajax/backend-search.php',
+        type: 'POST',
+        datatype: 'html',
+        data: {
+          search: searchString
+        },
+        success: function (data) {
+          // successful request; do something with the data
+
+          resultsContainer.html(data);
+          //searchResults.fadeIn("fast"); // reveal updated results
+        },
+        error:function(){
+          // failed request; give feedback to user
+
+        }
+      });
+      return false;
     }
   });
-});
+})(window.jQuery);
 
 /* 00. INITIALIZES SEARCH OVERLAY PLUGIN
  ========================================================================*/
