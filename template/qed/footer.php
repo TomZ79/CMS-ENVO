@@ -133,11 +133,6 @@ if ((!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSIO
               <a class="btn btn-info btn-xs jaktip" href="<?php echo $P_RSS_LINK; ?>" title="<?php echo $tl["button"]["btn5"]; ?>">
                 <i class="icon-rss"></i>
               </a>
-            <?php }
-            if ($jkv["heatmap"] && JAK_ASACCESS) { ?>
-              <a class="btn btn-info btn-xs" href="javascript:void(0)" id="dispheatmap" title="<?php echo $tl["button"]["btn7"]; ?>">
-                <i class="icon-chart-bar"></i>
-              </a>
             <?php } ?>
           </div>
         </div>
@@ -243,11 +238,6 @@ if ((!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSIO
               if ($JAK_RSS_DISPLAY) { ?>
                 <a class="btn btn-info btn-xs jaktip" href="<?php echo $P_RSS_LINK; ?>" title="<?php echo $tl["button"]["btn5"]; ?>">
                   <i class="icon-rss"></i>
-                </a>
-              <?php }
-              if ($jkv["heatmap"] && JAK_ASACCESS) { ?>
-                <a class="btn btn-info btn-xs" href="javascript:void(0)" id="dispheatmap" title="<?php echo $tl["button"]["btn7"]; ?>">
-                  <i class="icon-chart-bar"></i>
                 </a>
               <?php } ?>
             </div>

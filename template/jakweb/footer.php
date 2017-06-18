@@ -87,9 +87,6 @@ if ($JAK_SHOW_FOOTER && JAK_ASACCESS && $jkv["styleswitcher_tpl"]) { ?>
 					<?php }
 					if ($JAK_RSS_DISPLAY) { ?>
 						<a class="btn btn-default" href="<?php echo $P_RSS_LINK; ?>"><i class="fa fa-rss"></i></a>
-					<?php }
-					if ($jkv["heatmap"] && JAK_ASACCESS) { ?>
-						<a class="btn btn-default" href="javascript:void(0)" id="dispheatmap"><i class="fa fa-bar-chart"></i></a>
 					<?php } ?>
 				</div>
 			</div>
@@ -123,9 +120,6 @@ if ($JAK_SHOW_FOOTER && JAK_ASACCESS && $jkv["styleswitcher_tpl"]) { ?>
 					<?php }
 					if ($JAK_RSS_DISPLAY) { ?>
 						<a class="btn btn-default btn-xs" href="<?php echo $P_RSS_LINK; ?>"><i class="fa fa-rss"></i></a>
-					<?php }
-					if ($jkv["heatmap"] && JAK_ASACCESS) { ?>
-						<a class="btn btn-default" href="javascript:void(0)" id="dispheatmap"><i class="fa fa-bar-chart"></i></a>
 					<?php } ?>
 				</div>
 			</div>
@@ -166,10 +160,6 @@ if ($JAK_SHOW_FOOTER && JAK_ASACCESS && $jkv["styleswitcher_tpl"]) { ?>
 							<?php }
 							if (isset($JAK_RSS_DISPLAY)) { ?>
 								<a class="btn btn-default" href="<?php echo $P_RSS_LINK; ?>"><i class="fa fa-rss"></i></a>
-							<?php }
-							if ($jkv["heatmap"] && JAK_ASACCESS) { ?>
-								<a class="btn btn-default" href="javascript:void(0)" id="dispheatmap"><i
-										class="fa fa-bar-chart"></i></a>
 							<?php } ?>
 						</div>
 					</div>
@@ -204,10 +194,6 @@ if ($JAK_SHOW_FOOTER && JAK_ASACCESS && $jkv["styleswitcher_tpl"]) { ?>
 							<?php }
 							if (isset($JAK_RSS_DISPLAY)) { ?>
 								<a class="btn btn-default btn-xs" href="<?php echo $P_RSS_LINK; ?>"><i class="fa fa-rss"></i></a>
-							<?php }
-							if ($jkv["heatmap"] && JAK_ASACCESS) { ?>
-								<a class="btn btn-default" href="javascript:void(0)" id="dispheatmap"><i
-										class="fa fa-bar-chart"></i></a>
 							<?php } ?>
 						</div>
 					</div>
@@ -285,29 +271,7 @@ if (JAK_ASACCESS && $jkv["styleswitcher_tpl"]) include_once APP_PATH . 'template
 
 </script>
 
-<?php if ($jkv["heatmap"] && JAK_ASACCESS) { ?>
-
-	<script src="<?php echo BASE_URL; ?>assets/js/heatmap.js" type="text/javascript"></script>
-
-	<script type="text/javascript">
-
-		jakWeb.jak_heatmap = "<?php echo $JAK_HEATMAPLOC;?>";
-
-		$(document).saveClicks();
-
-		$('#dispheatmap').click(function () {
-			$.displayClicks();
-			$('#heatmap-overlay').click(function () {
-				$.removeClicks();
-				$(document).saveClicks();
-			});
-			$(document).stopSaveClicks();
-			return false;
-		});
-
-	</script>
-
-<?php }
+<?php
 if (isset($JAK_HOOK_FOOTER_END) && is_array ($JAK_HOOK_FOOTER_END)) foreach ($JAK_HOOK_FOOTER_END as $hfootere) {
 	include_once APP_PATH . $hfootere['phpcode'];
 }

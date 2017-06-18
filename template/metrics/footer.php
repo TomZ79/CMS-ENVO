@@ -115,11 +115,6 @@ if ((!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSIO
             <a class="btn btn-filled btn-primary btn-sm" id="jakprint" href="#" title="<?php echo $tl["button"]["btn6"]; ?>">
               <?php echo $tl["button"]["btn6"]; ?>
             </a>
-          <?php }
-          if ($jkv["heatmap"] && JAK_ASACCESS) { ?>
-            <a class="btn btn-filled btn-primary btn-sm" href="javascript:void(0)" id="dispheatmap" title="<?php echo $tl["button"]["btn7"]; ?>">
-              <?php echo $tl["button"]["btn7"]; ?>
-            </a>
           <?php } ?>
         </div>
       </div>

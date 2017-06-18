@@ -22,9 +22,6 @@ $CHECK_USR_SESSION = session_id();
 $JAK_SEARCH_WHERE = JAK_PLUGIN_VAR_BLOG;
 $JAK_SEARCH_LINK  = JAK_PLUGIN_VAR_BLOG;
 
-// Heatmap
-$JAK_HEATMAPLOC = JAK_PLUGIN_VAR_BLOG;
-
 // Wright the Usergroup permission into define and for template
 define('JAK_BLOGPOST', $jakusergroup->getVar("blogpost"));
 define('JAK_BLOGPOSTDELETE', $jakusergroup->getVar("blogpostdelete"));

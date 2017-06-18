@@ -111,7 +111,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
     <link href="/assets/plugins/jquery-sollist/jquery.sollist.min.css" rel="stylesheet" type="text/css" media="screen"/>
   <?php } ?>
 
-  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/css/screen.min.css" type="text/css"/>
+  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/css/screen.css" type="text/css"/>
 
   <!-- CUSTOM CSS
   ================================================== -->

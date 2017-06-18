@@ -35,14 +35,6 @@ $jakdb->query("INSERT INTO " . DB_PREFIX . "categories VALUES
 (4, 'News', 'news', NULL, NULL, NULL, NULL, NULL,1, 0, 2, 0, 0, 0, 1, 1),
 (5, 'EU-cookies', 'eu-cookies', NULL, NULL, NULL, NULL, NULL,0, 0, 2, 0, 2, 0, 1, 0)");
 
-$jakdb->query("CREATE TABLE " . DB_PREFIX . "clickstat (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `xaxis` smallint(4) unsigned NOT NULL DEFAULT 0,
-  `yaxis` smallint(4) unsigned NOT NULL DEFAULT 0,
-  `location` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=1");
-
 $jakdb->query("CREATE TABLE " . DB_PREFIX . "contactform (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
@@ -273,7 +265,6 @@ $jakdb->query("INSERT INTO " . DB_PREFIX . "setting VALUES
 ('rssitem', 'setting', '10', '10', 'input', 'number', 'cms'),
 ('lang', 'setting', 'cs', 'cs', 'input', 'free', 'cms'),
 ('locale', 'setting', 'en_GB', 'en_GB', 'input', 'free', 'cms'),
-('heatmap', 'setting', '0', '0', 'yesno', 'boolean', 'cms'),
 ('hvm', 'hvm', '1', '1', 'select', 'boolean', 'cms'),
 ('useravatwidth', 'setting', '150', '150', 'input', 'free', 'cms'),
 ('useravatheight', 'setting', '113', '113', 'input', 'free', 'cms'),

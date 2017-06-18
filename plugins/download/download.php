@@ -23,9 +23,6 @@ $CHECK_USR_SESSION = session_id();
 $JAK_SEARCH_WHERE = JAK_PLUGIN_VAR_DOWNLOAD;
 $JAK_SEARCH_LINK  = JAK_PLUGIN_VAR_DOWNLOAD;
 
-// Heatmap
-$JAK_HEATMAPLOC = JAK_PLUGIN_VAR_DOWNLOAD;
-
 // Wright the Usergroup permission into define and for template
 define('JAK_DOWNLOADPOST', $jakusergroup->getVar("downloadpost"));
 define('JAK_DOWNLOADCAN', $jakusergroup->getVar("downloadcan"));

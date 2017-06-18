@@ -22,9 +22,6 @@ $CHECK_USR_SESSION = session_id();
 $JAK_SEARCH_WHERE = JAK_PLUGIN_VAR_FAQ;
 $JAK_SEARCH_LINK  = JAK_PLUGIN_VAR_FAQ;
 
-// Heatmap
-$JAK_HEATMAPLOC = JAK_PLUGIN_VAR_FAQ;
-
 // Wright the Usergroup permission into define and for template
 define('JAK_FAQPOST', $jakusergroup->getVar("faqpost"));
 define('JAK_FAQPOSTDELETE', $jakusergroup->getVar("faqpostdelete"));

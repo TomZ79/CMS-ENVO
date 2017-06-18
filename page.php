@@ -40,7 +40,6 @@ $PAGE_PASSWORD               = $row['password'];
 $JAK_HEADER_CSS              = $row['page_css'];
 $JAK_FOOTER_JAVASCRIPT       = $row['page_javascript'];
 $jkv["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
-$JAK_HEATMAPLOC              = "page_" . $row['id'];
 
 $PAGE_LOGIN_FORM = $row['showlogin'];
 $PAGE_TIME       = JAK_base::jakTimesince($row['time'], $jkv["dateformat"], $jkv["timeformat"], $tl['global_text']['gtxt4']);

@@ -51,7 +51,6 @@
     request_uri: "",
     jak_search_link: "",
     envo_template: "",
-    jak_heatmap: "",
     jak_quickedit: "",
     jak_acp_nav: false
   }

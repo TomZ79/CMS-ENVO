@@ -94,7 +94,7 @@ if (JAK_USERID) {
 }
 
 // Pagination/Date/template/plugin reset
-$JAK_PAGINATE = $SHOWDATE = $apedit = $qapedit = $printme = $keylist = $seop = $seo = $seoc = $USR_CAN_RATE = $JAK_HEADER_CSS = $JAK_SEARCH_LINK = $JAK_ADD_MENU_SB = $JAK_HOOK_SIDE_GRID = $JAK_UFORM_EXTRA = $JAK_HEATMAPLOC = $PAGE_TITLE = $PAGE_CONTENT = $PAGE_KEYWORDS = $PAGE_DESCRIPTION = $P_RSS_LINK = $JAK_TPL_PLUG_T = $JAK_TPL_PLUG_URL = FALSE;
+$JAK_PAGINATE = $SHOWDATE = $apedit = $qapedit = $printme = $keylist = $seop = $seo = $seoc = $USR_CAN_RATE = $JAK_HEADER_CSS = $JAK_SEARCH_LINK = $JAK_ADD_MENU_SB = $JAK_HOOK_SIDE_GRID = $JAK_UFORM_EXTRA = $PAGE_TITLE = $PAGE_CONTENT = $PAGE_KEYWORDS = $PAGE_DESCRIPTION = $P_RSS_LINK = $JAK_TPL_PLUG_T = $JAK_TPL_PLUG_URL = FALSE;
 
 // Errors, Seo
 $errors = $seokeywords = $usraccesspl = array();

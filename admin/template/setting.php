@@ -1306,7 +1306,7 @@ if ($success) { ?>
       </div>
       <div role="tabpanel" class="tab-pane fade" id="cmsPage5" aria-labelledby="cmsPage5-tab">
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-12">
             <div class="box box-success">
               <div class="box-header with-border">
 
@@ -1324,7 +1324,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('jak_analytics', $JAK_SETTING_VAL["analytics"], '5', '60', array('class' => 'form-control txtautogrow'));
+                        echo $Html->addTextarea('jak_analytics', $JAK_SETTING_VAL["analytics"], '10', '60', array('class' => 'form-control txtautogrow'));
                         ?>
 
                       </div>
@@ -1335,53 +1335,6 @@ if ($success) { ?>
               <div class="box-footer">
 
                 <?php
-                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
-                ?>
-
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="box box-success">
-              <div class="box-header with-border">
-
-                <?php
-                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                echo $Html->addTag('h3', $tl["gs_box_title"]["gsbt11"], 'box-title');
-                ?>
-
-              </div>
-              <div class="box-body">
-                <div class="block">
-                  <div class="block-content">
-                    <div class="row-form">
-                      <div class="col-md-7">
-                        <div class="radio radio-success">
-
-                          <?php
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_heatmap', '1', ($JAK_SETTING_VAL["heatmap"] == '1') ? TRUE : FALSE, 'jak_heatmap1');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_heatmap1', $tl["checkbox"]["chk"]);
-
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_heatmap', '0', ($JAK_SETTING_VAL["heatmap"] == '0') ? TRUE : FALSE, 'jak_heatmap2');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_heatmap2', $tl["checkbox"]["chk1"]);
-                          ?>
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="box-footer">
-
-                <?php
-                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=setting&amp;sp=trunheat', $tl["button"]["btn2"], '', 'btn btn-warning btn-sm', array('data-loading-text' => $tl["button"]["btn41"]));
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
                 echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
                 ?>

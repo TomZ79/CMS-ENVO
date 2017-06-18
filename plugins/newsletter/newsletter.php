@@ -17,9 +17,6 @@ define('JAK_NEWSLETTER', $jakusergroup->getVar("newsletter"));
 // Parse links once if needed a lot of time
 $backtonl = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_NEWSLETTER, '', '', '', '');
 
-// Heatmap
-$JAK_HEATMAPLOC = JAK_PLUGIN_VAR_NEWSLETTER;
-
 switch ($page1) {
   case 'signup':
 

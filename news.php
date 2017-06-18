@@ -81,7 +81,6 @@ switch ($page1) {
         $PAGE_TIME                   = JAK_base::jakTimesince($row['time'], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
         $DATE_TIME                   = $row['time'];
         $PAGE_TIME_HTML5             = date("Y-m-d T H:i:s P", strtotime($row['time']));
-        $JAK_HEATMAPLOC              = "news_" . $row['id'];
 
         // Display contact form if whish so and do the caching
         $JAK_SHOW_C_FORM = FALSE;
@@ -184,8 +183,6 @@ switch ($page1) {
     $PAGE_CONTENT            = $jkv["newsdesc"];
     $MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
     $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];
-
-    $JAK_HEATMAPLOC = JAK_PLUGIN_VAR_NEWS;
 
     $JAK_HOOK_NEWS = $jakhooks->jakGethook("tpl_news");
 
