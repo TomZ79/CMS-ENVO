@@ -78,7 +78,7 @@ if ($page2 == "e" || $page1 == "ene") { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_title', $JAK_FORM_DATA["title"], '', 'form-control');
+                          echo $Html->addInput('text', 'jak_title', $JAK_SETTING_VAL["rf_title"], '', 'form-control');
                           ?>
 
                         </div>
@@ -257,7 +257,25 @@ if ($page2 == "e" || $page1 == "ene") { ?>
 
                       </div>
                       <div class="col-md-7">
-                        <?php include APP_PATH . "admin/template/editorlight_edit.php"; ?>
+
+                        <?php
+
+                        if ($jkv["adv_editor"]) {
+
+                          // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                          echo $Html->addDiv('', 'htmleditorlight');
+                          // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+                          echo $Html->addTextarea('jak_lcontent', (isset($JAK_SETTING_VAL["rf_welcome"])) ? jak_edit_safe_userpost(htmlspecialchars($JAK_SETTING_VAL["rf_welcome"])) : '', '', '', array('id' => 'jak_editor_light', 'class' => 'form-control hidden'));
+
+                        } else {
+
+                          // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+                          echo $Html->addTextarea('jak_lcontent', (isset($JAK_SETTING_VAL["rf_welcome"])) ? jak_edit_safe_userpost($JAK_SETTING_VAL["rf_welcome"]) : '', '40', '', array('id' => 'jakEditor', 'class' => 'jakEditorLight'));
+
+                        }
+
+                        ?>
+
                       </div>
                     </div>
                     <div class="row-form">
@@ -278,12 +296,12 @@ if ($page2 == "e" || $page1 == "ene") { ?>
                           // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                           echo $Html->addDiv('', 'htmleditorlight1');
                           // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                          echo $Html->addTextarea('jak_lcontent1', (isset($JAK_FORM_DATA1["content"])) ? jak_edit_safe_userpost(htmlspecialchars($JAK_FORM_DATA1["content"])) : '', '', '', array('id' => 'jak_editor_light1', 'class' => 'form-control hidden'));
+                          echo $Html->addTextarea('jak_lcontent1', (isset($JAK_SETTING_VAL["rf_welcome_email"])) ? jak_edit_safe_userpost(htmlspecialchars($JAK_SETTING_VAL["rf_welcome_email"])) : '', '', '', array('id' => 'jak_editor_light1', 'class' => 'form-control hidden'));
 
                         } else {
 
                           // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                          echo $Html->addTextarea('jak_lcontent1', (isset($JAK_FORM_DATA1["content"])) ? jak_edit_safe_userpost($JAK_FORM_DATA1["content"]) : '', '40', '', array('id' => 'jakEditor1', 'class' => 'jakEditorLight'));
+                          echo $Html->addTextarea('jak_lcontent1', (isset($JAK_SETTING_VAL["rf_welcome_email"])) ? jak_edit_safe_userpost($JAK_SETTING_VAL["rf_welcome_email"]) : '', '40', '', array('id' => 'jakEditor1', 'class' => 'jakEditorLight'));
 
                         }
 

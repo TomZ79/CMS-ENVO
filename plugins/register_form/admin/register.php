@@ -153,11 +153,6 @@ switch ($page1) {
 
     $JAK_CAT = jak_get_cat_info(DB_PREFIX . 'categories', 0);
 
-    // Get the special vars for multi language support
-    $JAK_FORM_DATA["title"]   = $jkv["rf_title"];
-    $JAK_FORM_DATA["content"] = $jkv["rf_welcome"];
-    $JAK_FORM_DATA1["content"] = $jkv["rf_welcome_email"];
-
     // EN: Title and Description
     // CZ: Titulek a Popis
     $SECTION_TITLE = $tlrf["reg_sec_title"]["regt1"];
