@@ -2904,11 +2904,11 @@ if ($page == 'rf_ual') {
    		$userlink = BASE_URL.'admin/index.php?p=user&sp=edit&ssp='.$page1;
 
    		$admail = new PHPMailer();
-   		$adlinkmessage = $tl['login']['l16'].$userlink;
+   		$adlinkmessage = $tl['xxxxx']['yyyyy'].$userlink;
    		$adbody = str_ireplace("[]",'',$adlinkmessage);
    		$admail->SetFrom(JAK_EMAIL, JAK_TITLE);
    		$admail->AddAddress(JAK_EMAIL, JAK_TITLE);
-   		$admail->Subject = JAK_TITLE.' - '.$tl['login']['l11'];
+   		$admail->Subject = JAK_TITLE.' - '.$tl['xxxxx']['yyyyy'];
    		$admail->MsgHTML($adbody);
    		$admail->Send(); // Send email without any warnings
 

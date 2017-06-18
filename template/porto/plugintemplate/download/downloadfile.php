@@ -135,7 +135,7 @@ if ($DL_PASSWORD && !JAK_ASACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash' 
             </div>
           </div>
           <div id="results" class="col-sm-4 col-height col-middle text-center">
-            <a href="#" class="dclick btn btn-info btn-lg" disabled="disabled"><?php echo $tld["downl_frontend"]["downl6"]; ?></a>
+            <a href="#" class="dclick btn btn-warning btn-lg" disabled="disabled"><?php echo $tld["downl_frontend"]["downl6"]; ?></a>
           </div>
 
         <?php } elseif ($FT_SHARE && !$JAK_FACEBOOK_SDK_CONNECTION) { // With Share on Social Sites, without Facebook SDK Connection ?>

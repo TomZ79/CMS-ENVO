@@ -25,6 +25,8 @@
  * $v["totalcom"]
  * $v["previmg"]
  * $v["parseurl"]       text      - Adresa URL
+ * $v["file"]           text      - Url cesta k souboru
+ * $v["extfile"]        text      - Url cesta k souboru
  *
  */
 ?>
@@ -34,61 +36,41 @@
 <?php if (JAK_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=download&amp;sp=setting'; ?>
 
   <div class="col-md-12" style="margin: 10px 0 50px 0;">
-    <?php if (isset($JAK_DOWNLOAD_ALL) && is_array($JAK_DOWNLOAD_ALL)) foreach ($JAK_DOWNLOAD_ALL as $v) { ?>
-      <!-- Post - Download -->
-      <div class="col-sm-6" style="margin-bottom: 30px ">
-        <div>
-          <!-- Post Title & Summary -->
-          <div>
-            <h3>
-							<span>
-								<a href="<?php echo $v["parseurl"]; ?>"><?php echo jak_cut_text($v["title"], 30, ""); ?></a>
-							</span>
-            </h3>
-          </div>
-          <div style="margin-bottom: 10px">
+    <table id="table">
+      <thead>
+      <tr>
+        <th data-field="name" data-sortable="true">Jméno</th>
+        <th data-field="date" data-sortable="true">Datum vložení</th>
+        <th data-field="text" data-sortable="false">Popis</th>
+      </tr>
+      </thead>
+      <tbody>
 
+      <?php if (isset($JAK_DOWNLOAD_ALL) && is_array($JAK_DOWNLOAD_ALL)) foreach ($JAK_DOWNLOAD_ALL as $v) { ?>
+        <tr>
+          <td><a href="<?php echo $v["parseurl"]; ?>"><?php echo jak_cut_text($v["title"], 40, ""); ?></a></td>
+          <td>
+            <?php if ($v["showdate"]) echo $v["created"]; ?>
+          </td>
+          <td>
             <?php
-            if ($v["showdate"]) {
-              echo '<strong>' . $tld["downl_frontend"]["downl30"] . '</strong> : ' . $v["created"];
+            if (!empty($v["file"]) || !empty($v["extfile"])) {
+              // EN: If exist some file
+              // CZ: Pokud existuje soubor
+              echo jak_cut_text($v["contentshort"], 40, "...");
+            } else {
+              // EN: If not exist some file
+              // CZ: Pokud neexistuje soubor
+              echo '<span><i class="fa fa-warning mr-sm"></i>' . $tld["downl_frontend"]["downl16"] . '</span>';
             }
+
             ?>
+          </td>
+        </tr>
+      <?php } ?>
 
-            <span class="pull-right">
-							<?php echo '<strong>' . $tld["downl_frontend"]["downl31"] . '</strong> : ' . $v["countdl"]; ?>
-						</span>
-          </div>
-          <div>
-            <p><?php echo $v["contentshort"]; ?></p>
-          </div>
-          <hr>
-
-          <!-- Button -->
-          <div class="pull-right">
-            <a href="<?php echo $v["parseurl"]; ?>" class="btn btn-default btn-sm">
-              <?php echo $tld["downl_frontend"]["downl2"]; ?>
-            </a>
-
-            <!-- Post System Button - Admin -->
-            <?php if (JAK_ASACCESS) { ?>
-
-              <a href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-info btn-sm jaktip">
-                <span class="visible-xs"><i class="fa fa-edit"></i></span>
-                <span class="hidden-xs"><?php echo $tl["button"]["btn1"]; ?></span>
-              </a>
-
-              <a class="btn btn-info btn-sm jaktip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=download&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>">
-                <span class="visible-xs"><i class="fa fa-pencil"></i></span>
-                <span class="hidden-xs"><?php echo $tl["button"]["btn2"]; ?></span>
-              </a>
-
-            <?php } ?>
-          </div>
-        </div>
-      </div>
-    <?php } ?>
+      </tbody>
+    </table>
   </div>
-
-<?php if ($JAK_PAGINATE) echo $JAK_PAGINATE; ?>
 
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

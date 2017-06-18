@@ -23,7 +23,9 @@ if (!is_writable ($phpdir) || !is_writable ($langdir)) {
 // EN: Save data from Form to DB (method POST)
 // CZ: Uložení data z Formuláře do DB (metoda POST)
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	$defaults = $_POST;
+  // EN: Default Variable
+  // CZ: Hlavní proměnné
+  $defaults = $_POST;
 
 	$result1 = $jakdb->query ('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
 
@@ -96,7 +98,6 @@ if ($result1) {
 // Reset the database settings so we have it unique
 $result = $jakdb->query ('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE product = "tpl_porto"');
 while ($row1 = $result->fetch_assoc ()) {
-  // Collect each record into a define
 	// Now check if sting contains html and do something about it!
 	if (strlen ($row1['value']) != strlen (filter_var ($row1['value'], FILTER_SANITIZE_STRING))) {
 		$defvar = htmlspecialchars_decode (htmlspecialchars ($row1['value']));
