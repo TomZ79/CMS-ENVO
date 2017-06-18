@@ -175,10 +175,6 @@ if ($hookpagei) {
   }
 }
 
-// Get the special vars for multi language support
-$JAK_FORM_DATA["title"]   = $jkv["searchtitle"];
-$JAK_FORM_DATA["content"] = $jkv["searchdesc"];
-
 // EN: Title and Description
 // CZ: Titulek a Popis
 $SECTION_TITLE = $tl["ss_sec_title"]["sst"];
