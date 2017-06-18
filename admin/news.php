@@ -391,10 +391,6 @@ switch ($page1) {
 
     }
 
-    // Get the special vars for multi language support
-    $JAK_FORM_DATA["title"]   = $jkv["newstitle"];
-    $JAK_FORM_DATA["content"] = $jkv["newsdesc"];
-
     // EN: Title and Description
     // CZ: Titulek a Popis
     $SECTION_TITLE = $tl["news_sec_title"]["newst2"];
