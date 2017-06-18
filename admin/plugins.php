@@ -21,6 +21,10 @@ $jakhooks = new JAK_hooks('', '');
 // CZ: Importuj důležité nastavení pro šablonu z DB
 $JAK_SETTING = jak_get_setting('module');
 
+// EN: Import important settings for the template from the DB (only VALUE)
+// CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
+$JAK_SETTING_VAL = jak_get_setting_val('module');
+
 // Get all the hooks out the class file
 $JAK_HOOK_LOCATIONS = JAK_hooks::jakAllhooks();
 

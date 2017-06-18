@@ -17,10 +17,6 @@ $jaktable1 = DB_PREFIX . 'clickstat';
 // CZ: Reset Pole (výstupní chyby se ukládají do pole)
 $success = array();
 
-// EN: Import important settings for the template from the DB
-// CZ: Importuj důležité nastavení pro šablonu z DB
-$JAK_SETTING = jak_get_setting('setting');
-
 // Get the php hook for setting top before language control
 $getsettinghook = $jakhooks->jakGethook("php_admin_setting");
 if ($getsettinghook) foreach ($getsettinghook as $sh) {
@@ -225,18 +221,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // EN: If button "Test Mail" clicked
     // CZ: Pokud bylo stisknuto tlačítko "Test Mail"
 
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $defaults = $_POST;
+
     // Do the dirty work in mysql
-    $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-                    WHEN "smtp_or_mail" THEN "' . smartsql($defaults['jak_smpt']) . '"
-                    WHEN "smtp_host" THEN "' . smartsql($defaults['jak_host']) . '"
-                    WHEN "smtp_port" THEN "' . smartsql($defaults['jak_port']) . '"
-                    WHEN "smtp_alive" THEN "' . smartsql($defaults['jak_alive']) . '"
-                    WHEN "smtp_auth" THEN "' . smartsql($defaults['jak_auth']) . '"
-                    WHEN "smtp_prefix" THEN "' . smartsql($defaults['jak_prefix']) . '"
-                    WHEN "smtp_user" THEN "' . smartsql($defaults['jak_smtpusername']) . '"
-                    WHEN "smtp_password" THEN "' . smartsql($defaults['jak_smtppassword']) . '"
-                END
-                  WHERE varname IN ("smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password")');
+    $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+        WHEN "smtp_or_mail" THEN "' . smartsql($defaults['jak_smpt']) . '"
+        WHEN "smtp_host" THEN "' . smartsql($defaults['jak_host']) . '"
+        WHEN "smtp_port" THEN "' . smartsql($defaults['jak_port']) . '"
+        WHEN "smtp_alive" THEN "' . smartsql($defaults['jak_alive']) . '"
+        WHEN "smtp_auth" THEN "' . smartsql($defaults['jak_auth']) . '"
+        WHEN "smtp_prefix" THEN "' . smartsql($defaults['jak_prefix']) . '"
+        WHEN "smtp_user" THEN "' . smartsql($defaults['jak_smtpusername']) . '"
+        WHEN "smtp_password" THEN "' . smartsql($defaults['jak_smtppassword']) . '"
+    END
+      WHERE varname IN ("smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password")');
 
     // SEND TEST EMAIL
     // Retrieve the email template required
@@ -312,6 +312,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   }
 }
+
+// EN: Import important settings for the template from the DB (as ARRAY)
+// CZ: Importuj důležité nastavení pro šablonu z DB (POLE)
+$JAK_SETTING = jak_get_setting('setting');
+
+// EN: Import important settings for the template from the DB (only VALUE)
+// CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
+$JAK_SETTING_VAL = jak_get_setting_val('setting');
 
 // Call the settings function
 $acp_lang_files = jak_get_lang_files(TRUE);

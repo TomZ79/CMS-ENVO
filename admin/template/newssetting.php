@@ -190,12 +190,12 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('', $tl["selection"]["sel110"], ($jkv['newsdateformat'] == '') ? TRUE : FALSE);
+                            echo $Html->addOption('', $tl["selection"]["sel110"], ($JAK_SETTING_VAL['newsdateformat'] == '') ? TRUE : FALSE);
 
-                            echo $Html->addOption('d.m.Y', 'd.m.Y (01.01.2017)', ($jkv['newsdateformat'] == 'd.m.Y') ? TRUE : FALSE);
-                            echo $Html->addOption('d F Y', 'd F Y (01 January 2017)', ($jkv['newsdateformat'] == 'd F Y') ? TRUE : FALSE);
-                            echo $Html->addOption('l m.Y', 'l m.Y (Monday 01.2017)', ($jkv['newsdateformat'] == 'l m.Y') ? TRUE : FALSE);
-                            echo $Html->addOption('l F Y', 'l F Y (Monday January 2017)', ($jkv['newsdateformat'] == 'l F Y') ? TRUE : FALSE);
+                            echo $Html->addOption('d.m.Y', 'd.m.Y (01.01.2017)', ($JAK_SETTING_VAL['newsdateformat'] == 'd.m.Y') ? TRUE : FALSE);
+                            echo $Html->addOption('d F Y', 'd F Y (01 January 2017)', ($JAK_SETTING_VAL['newsdateformat'] == 'd F Y') ? TRUE : FALSE);
+                            echo $Html->addOption('l m.Y', 'l m.Y (Monday 01.2017)', ($JAK_SETTING_VAL['newsdateformat'] == 'l m.Y') ? TRUE : FALSE);
+                            echo $Html->addOption('l F Y', 'l F Y (Monday January 2017)', ($JAK_SETTING_VAL['newsdateformat'] == 'l F Y') ? TRUE : FALSE);
                             ?>
 
                           </select>
@@ -217,17 +217,17 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('', $tl["selection"]["sel110"], ($jkv['newstimeformat'] == '') ? TRUE : FALSE);
+                            echo $Html->addOption('', $tl["selection"]["sel110"], ($JAK_SETTING_VAL['newstimeformat'] == '') ? TRUE : FALSE);
                             ?>
 
                             <optgroup label="<?php echo $tl["selection"]["sel111"]; ?>">
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                              echo $Html->addOption(' - h:i A', ' - h:i A ( - 01:00 PM)', ($jkv['newstimeformat'] == ' - h:i A') ? TRUE : FALSE);
-                              echo $Html->addOption(' - h:i:s A', ' - h:i:s A ( - 01:00:00 PM)', ($jkv['newstimeformat'] == ' - h:i:s A') ? TRUE : FALSE);
-                              echo $Html->addOption(' - g:i A', ' - g:i A ( - 1:00 PM)', ($jkv['newstimeformat'] == ' - g:i A') ? TRUE : FALSE);
-                              echo $Html->addOption(' - g:i:s A', ' - g:i:s A ( - 1:00:00 PM)', ($jkv['newstimeformat'] == ' - g:i:s A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - h:i A', ' - h:i A ( - 01:00 PM)', ($JAK_SETTING_VAL['newstimeformat'] == ' - h:i A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - h:i:s A', ' - h:i:s A ( - 01:00:00 PM)', ($JAK_SETTING_VAL['newstimeformat'] == ' - h:i:s A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - g:i A', ' - g:i A ( - 1:00 PM)', ($JAK_SETTING_VAL['newstimeformat'] == ' - g:i A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - g:i:s A', ' - g:i:s A ( - 1:00:00 PM)', ($JAK_SETTING_VAL['newstimeformat'] == ' - g:i:s A') ? TRUE : FALSE);
                               ?>
 
                             </optgroup>
@@ -235,9 +235,9 @@ if ($errors) { ?>
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                              echo $Html->addOption(' - H:i', ' - H:i ( - 13:00)', ($jkv['newstimeformat'] == ' - H:i') ? TRUE : FALSE);
-                              echo $Html->addOption(' - H:i:s', ' - H:i:s ( - 13:00:00)', ($jkv['newstimeformat'] == ' - H:i:s') ? TRUE : FALSE);
-                              echo $Html->addOption(' - H:i:s T O', ' - H:i:s T O ( - 13:00:00 CEST +0200)', ($jkv['newstimeformat'] == ' - H:i:s T O') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i', ' - H:i ( - 13:00)', ($JAK_SETTING_VAL['newstimeformat'] == ' - H:i') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i:s', ' - H:i:s ( - 13:00:00)', ($JAK_SETTING_VAL['newstimeformat'] == ' - H:i:s') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i:s T O', ' - H:i:s T O ( - 13:00:00 CEST +0200)', ($JAK_SETTING_VAL['newstimeformat'] == ' - H:i:s T O') ? TRUE : FALSE);
                               ?>
 
                             </optgroup>
@@ -289,11 +289,11 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                          echo $Html->addOption('2', $tl["selection"]["sel1"], ($jkv['newspagemid'] == 2) ? TRUE : FALSE);
-                          echo $Html->addOption('4', $tl["selection"]["sel2"], ($jkv['newspagemid'] == 4) ? TRUE : FALSE);
-                          echo $Html->addOption('6', $tl["selection"]["sel3"], ($jkv['newspagemid'] == 6) ? TRUE : FALSE);
-                          echo $Html->addOption('8', $tl["selection"]["sel4"], ($jkv['newspagemid'] == 8) ? TRUE : FALSE);
-                          echo $Html->addOption('10', $tl["selection"]["sel5"], ($jkv['newspagemid'] == 10) ? TRUE : FALSE);
+                          echo $Html->addOption('2', $tl["selection"]["sel1"], ($JAK_SETTING_VAL['newspagemid'] == 2) ? TRUE : FALSE);
+                          echo $Html->addOption('4', $tl["selection"]["sel2"], ($JAK_SETTING_VAL['newspagemid'] == 4) ? TRUE : FALSE);
+                          echo $Html->addOption('6', $tl["selection"]["sel3"], ($JAK_SETTING_VAL['newspagemid'] == 6) ? TRUE : FALSE);
+                          echo $Html->addOption('8', $tl["selection"]["sel4"], ($JAK_SETTING_VAL['newspagemid'] == 8) ? TRUE : FALSE);
+                          echo $Html->addOption('10', $tl["selection"]["sel5"], ($JAK_SETTING_VAL['newspagemid'] == 10) ? TRUE : FALSE);
                           ?>
 
                         </select>
@@ -312,7 +312,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'jak_item', $jkv["newspageitem"], '', 'form-control');
+                        echo $Html->addInput('text', 'jak_item', $JAK_SETTING_VAL["newspageitem"], '', 'form-control');
                         ?>
 
                       </div>
@@ -354,7 +354,7 @@ if ($errors) { ?>
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                 echo $Html->addDiv('', 'csseditor');
                 // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                echo $Html->addTextarea('jak_css', $jkv["news_css"], '20', '', array('id' => 'jak_css', 'class' => 'hidden'));
+                echo $Html->addTextarea('jak_css', $JAK_SETTING_VAL["news_css"], '20', '', array('id' => 'jak_css', 'class' => 'hidden'));
                 ?>
 
               </div>
@@ -392,7 +392,7 @@ if ($errors) { ?>
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                 echo $Html->addDiv('', 'javaeditor');
                 // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                echo $Html->addTextarea('jak_javascript', $jkv["news_javascript"], '20', '', array('id' => 'jak_javascript', 'class' => 'hidden'));
+                echo $Html->addTextarea('jak_javascript', $JAK_SETTING_VAL["news_javascript"], '20', '', array('id' => 'jak_javascript', 'class' => 'hidden'));
                 ?>
 
               </div>

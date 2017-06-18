@@ -203,7 +203,7 @@ if ($success) { ?>
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
                             if (isset($acp_lang_files) && is_array($lang_files)) foreach ($lang_files as $lf) {
-                              echo $Html->addOption($lf, ucwords($lf), ($jkv["lang"] == $lf) ? TRUE : FALSE);
+                              echo $Html->addOption($lf, ucwords($lf), ($JAK_SETTING_VAL["lang"] == $lf) ? TRUE : FALSE);
                             }
                             ?>
 
@@ -227,8 +227,8 @@ if ($success) { ?>
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('cs_CZ', 'cs_CZ', ($jkv["locale"] == 'cs_CZ') ? TRUE : FALSE);
-                            echo $Html->addOption('en_GB', 'en_GB', ($jkv["locale"] == 'en_GB') ? TRUE : FALSE);
+                            echo $Html->addOption('cs_CZ', 'cs_CZ', ($JAK_SETTING_VAL["locale"] == 'cs_CZ') ? TRUE : FALSE);
+                            echo $Html->addOption('en_GB', 'en_GB', ($JAK_SETTING_VAL["locale"] == 'en_GB') ? TRUE : FALSE);
                             ?>
 
                           </select>
@@ -251,12 +251,12 @@ if ($success) { ?>
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('', $tl["selection"]["sel110"], ($jkv['dateformat'] == '') ? TRUE : FALSE);
+                            echo $Html->addOption('', $tl["selection"]["sel110"], ($JAK_SETTING_VAL['dateformat'] == '') ? TRUE : FALSE);
 
-                            echo $Html->addOption('d.m.Y', 'd.m.Y (01.01.2017)', ($jkv['dateformat'] == 'd.m.Y') ? TRUE : FALSE);
-                            echo $Html->addOption('d F Y', 'd F Y (01 January 2017)', ($jkv['dateformat'] == 'd F Y') ? TRUE : FALSE);
-                            echo $Html->addOption('l m.Y', 'l m.Y (Monday 01.2017)', ($jkv['dateformat'] == 'l m.Y') ? TRUE : FALSE);
-                            echo $Html->addOption('l F Y', 'l F Y (Monday January 2017)', ($jkv['dateformat'] == 'l F Y') ? TRUE : FALSE);
+                            echo $Html->addOption('d.m.Y', 'd.m.Y (01.01.2017)', ($JAK_SETTING_VAL['dateformat'] == 'd.m.Y') ? TRUE : FALSE);
+                            echo $Html->addOption('d F Y', 'd F Y (01 January 2017)', ($JAK_SETTING_VAL['dateformat'] == 'd F Y') ? TRUE : FALSE);
+                            echo $Html->addOption('l m.Y', 'l m.Y (Monday 01.2017)', ($JAK_SETTING_VAL['dateformat'] == 'l m.Y') ? TRUE : FALSE);
+                            echo $Html->addOption('l F Y', 'l F Y (Monday January 2017)', ($JAK_SETTING_VAL['dateformat'] == 'l F Y') ? TRUE : FALSE);
                             ?>
 
                           </select>
@@ -278,17 +278,17 @@ if ($success) { ?>
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('', $tl["selection"]["sel110"], ($jkv['timeformat'] == '') ? TRUE : FALSE);
+                            echo $Html->addOption('', $tl["selection"]["sel110"], ($JAK_SETTING_VAL['timeformat'] == '') ? TRUE : FALSE);
                             ?>
 
                             <optgroup label="<?php echo $tl["selection"]["sel111"]; ?>">
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                              echo $Html->addOption(' - h:i A', ' - h:i A ( - 01:00 PM)', ($jkv['timeformat'] == ' - h:i A') ? TRUE : FALSE);
-                              echo $Html->addOption(' - h:i:s A', ' - h:i:s A ( - 01:00:00 PM)', ($jkv['timeformat'] == ' - h:i:s A') ? TRUE : FALSE);
-                              echo $Html->addOption(' - g:i A', ' - g:i A ( - 1:00 PM)', ($jkv['timeformat'] == ' - g:i A') ? TRUE : FALSE);
-                              echo $Html->addOption(' - g:i:s A', ' - g:i:s A ( - 1:00:00 PM)', ($jkv['timeformat'] == ' - g:i:s A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - h:i A', ' - h:i A ( - 01:00 PM)', ($JAK_SETTING_VAL['timeformat'] == ' - h:i A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - h:i:s A', ' - h:i:s A ( - 01:00:00 PM)', ($JAK_SETTING_VAL['timeformat'] == ' - h:i:s A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - g:i A', ' - g:i A ( - 1:00 PM)', ($JAK_SETTING_VAL['timeformat'] == ' - g:i A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - g:i:s A', ' - g:i:s A ( - 1:00:00 PM)', ($JAK_SETTING_VAL['timeformat'] == ' - g:i:s A') ? TRUE : FALSE);
                               ?>
 
                             </optgroup>
@@ -296,9 +296,9 @@ if ($success) { ?>
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                              echo $Html->addOption(' - H:i', ' - H:i ( - 13:00)', ($jkv['timeformat'] == ' - H:i') ? TRUE : FALSE);
-                              echo $Html->addOption(' - H:i:s', ' - H:i:s ( - 13:00:00)', ($jkv['timeformat'] == ' - H:i:s') ? TRUE : FALSE);
-                              echo $Html->addOption(' - H:i:s T O', ' - H:i:s T O ( - 13:00:00 CEST +0200)', ($jkv['timeformat'] == ' - H:i:s T O') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i', ' - H:i ( - 13:00)', ($JAK_SETTING_VAL['timeformat'] == ' - H:i') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i:s', ' - H:i:s ( - 13:00:00)', ($JAK_SETTING_VAL['timeformat'] == ' - H:i:s') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i:s T O', ' - H:i:s T O ( - 13:00:00 CEST +0200)', ($JAK_SETTING_VAL['timeformat'] == ' - H:i:s T O') ? TRUE : FALSE);
                               ?>
 
                             </optgroup>
@@ -337,12 +337,12 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_time_ago', '1', ($jkv["time_ago_show"] == '1') ? TRUE : FALSE, 'jak_time_ago1');
+                          echo $Html->addRadio('jak_time_ago', '1', ($JAK_SETTING_VAL["time_ago_show"] == '1') ? TRUE : FALSE, 'jak_time_ago1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_time_ago1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_time_ago', '0', ($jkv["time_ago_show"] == '0') ? TRUE : FALSE, 'jak_time_ago2');
+                          echo $Html->addRadio('jak_time_ago', '0', ($JAK_SETTING_VAL["time_ago_show"] == '0') ? TRUE : FALSE, 'jak_time_ago2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_time_ago2', $tl["checkbox"]["chk1"]);
                           ?>
@@ -364,12 +364,12 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_hvm', '1', ($jkv["hvm"] == '1') ? TRUE : FALSE, 'jak_hvm1');
+                          echo $Html->addRadio('jak_hvm', '1', ($JAK_SETTING_VAL["hvm"] == '1') ? TRUE : FALSE, 'jak_hvm1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_hvm1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_hvm', '0', ($jkv["hvm"] == '0') ? TRUE : FALSE, 'jak_hvm2');
+                          echo $Html->addRadio('jak_hvm', '0', ($JAK_SETTING_VAL["hvm"] == '0') ? TRUE : FALSE, 'jak_hvm2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_hvm2', $tl["checkbox"]["chk1"]);
                           ?>
@@ -418,11 +418,11 @@ if ($success) { ?>
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('2', $tl["selection"]["sel1"], ($jkv['adminpagemid'] == 2) ? TRUE : FALSE);
-                            echo $Html->addOption('4', $tl["selection"]["sel2"], ($jkv['adminpagemid'] == 4) ? TRUE : FALSE);
-                            echo $Html->addOption('6', $tl["selection"]["sel3"], ($jkv['adminpagemid'] == 6) ? TRUE : FALSE);
-                            echo $Html->addOption('8', $tl["selection"]["sel4"], ($jkv['adminpagemid'] == 8) ? TRUE : FALSE);
-                            echo $Html->addOption('10', $tl["selection"]["sel5"], ($jkv['adminpagemid'] == 10) ? TRUE : FALSE);
+                            echo $Html->addOption('2', $tl["selection"]["sel1"], ($JAK_SETTING_VAL['adminpagemid'] == 2) ? TRUE : FALSE);
+                            echo $Html->addOption('4', $tl["selection"]["sel2"], ($JAK_SETTING_VAL['adminpagemid'] == 4) ? TRUE : FALSE);
+                            echo $Html->addOption('6', $tl["selection"]["sel3"], ($JAK_SETTING_VAL['adminpagemid'] == 6) ? TRUE : FALSE);
+                            echo $Html->addOption('8', $tl["selection"]["sel4"], ($JAK_SETTING_VAL['adminpagemid'] == 8) ? TRUE : FALSE);
+                            echo $Html->addOption('10', $tl["selection"]["sel5"], ($JAK_SETTING_VAL['adminpagemid'] == 10) ? TRUE : FALSE);
                             ?>
 
                           </select>
@@ -443,7 +443,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_item', $jkv["adminpageitem"], '', 'form-control');
+                          echo $Html->addInput('text', 'jak_item', $JAK_SETTING_VAL["adminpageitem"], '', 'form-control');
                           ?>
 
                         </div>
@@ -489,12 +489,12 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_contact', '1', ($jkv["contactform"] == '1') ? TRUE : FALSE, 'jak_contact1');
+                          echo $Html->addRadio('jak_contact', '1', ($JAK_SETTING_VAL["contactform"] == '1') ? TRUE : FALSE, 'jak_contact1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_contact1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_contact', '0', ($jkv["contactform"] == '0') ? TRUE : FALSE, 'jak_contact2');
+                          echo $Html->addRadio('jak_contact', '0', ($JAK_SETTING_VAL["contactform"] == '0') ? TRUE : FALSE, 'jak_contact2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_contact2', $tl["checkbox"]["chk1"]);
                           ?>
@@ -541,7 +541,7 @@ if ($success) { ?>
                           <?php for ($i = 0; $i <= 10; $i++) {
 
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption($i, $i, ($jkv["shownews"] == $i) ? TRUE : FALSE);
+                            echo $Html->addOption($i, $i, ($JAK_SETTING_VAL["shownews"] == $i) ? TRUE : FALSE);
 
                           } ?>
 
@@ -578,7 +578,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_shortmsg', $jkv["shortmsg"], '', 'form-control');
+                          echo $Html->addInput('text', 'jak_shortmsg', $JAK_SETTING_VAL["shortmsg"], '', 'form-control');
                           ?>
 
                         </div>
@@ -622,12 +622,12 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_rss', '1', ($jkv["rss"] == '1') ? TRUE : FALSE, 'jak_rss1');
+                          echo $Html->addRadio('jak_rss', '1', ($JAK_SETTING_VAL["rss"] == '1') ? TRUE : FALSE, 'jak_rss1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_rss1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_rss', '0', ($jkv["rss"] == '0') ? TRUE : FALSE, 'jak_rss2');
+                          echo $Html->addRadio('jak_rss', '0', ($JAK_SETTING_VAL["rss"] == '0') ? TRUE : FALSE, 'jak_rss2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_rss2', $tl["checkbox"]["chk1"]);
                           ?>
@@ -649,7 +649,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_rssitem', $jkv["rssitem"], '', 'form-control');
+                          echo $Html->addInput('text', 'jak_rssitem', $JAK_SETTING_VAL["rssitem"], '', 'form-control');
                           ?>
 
                         </div>
@@ -699,12 +699,12 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_editor', '1', ($jkv["adv_editor"] == '1') ? TRUE : FALSE, 'jak_editor1');
+                          echo $Html->addRadio('jak_editor', '1', ($JAK_SETTING_VAL["adv_editor"] == '1') ? TRUE : FALSE, 'jak_editor1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_editor1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_editor', '0', ($jkv["adv_editor"] == '0') ? TRUE : FALSE, 'jak_editor2');
+                          echo $Html->addRadio('jak_editor', '0', ($JAK_SETTING_VAL["adv_editor"] == '0') ? TRUE : FALSE, 'jak_editor2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_editor2', $tl["checkbox"]["chk1"]);
                           ?>
@@ -727,7 +727,7 @@ if ($success) { ?>
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('chrome', 'Chrome', ($jkv["acetheme"] == 'chrome') ? TRUE : FALSE);
+                            echo $Html->addOption('chrome', 'Chrome', ($JAK_SETTING_VAL["acetheme"] == 'chrome') ? TRUE : FALSE);
                             ?>
 
                           </optgroup>
@@ -735,9 +735,9 @@ if ($success) { ?>
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('cobalt', 'Cobalt', ($jkv["acetheme"] == 'cobalt') ? TRUE : FALSE);
-                            echo $Html->addOption('monokai', 'Monokai', ($jkv["acetheme"] == 'monokai') ? TRUE : FALSE);
-                            echo $Html->addOption('vibrant_ink', 'Vibrant Ink', ($jkv["acetheme"] == 'vibrant_ink') ? TRUE : FALSE);
+                            echo $Html->addOption('cobalt', 'Cobalt', ($JAK_SETTING_VAL["acetheme"] == 'cobalt') ? TRUE : FALSE);
+                            echo $Html->addOption('monokai', 'Monokai', ($JAK_SETTING_VAL["acetheme"] == 'monokai') ? TRUE : FALSE);
+                            echo $Html->addOption('vibrant_ink', 'Vibrant Ink', ($JAK_SETTING_VAL["acetheme"] == 'vibrant_ink') ? TRUE : FALSE);
                             ?>
 
                           </optgroup>
@@ -758,7 +758,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_acetabSize', $jkv["acetabSize"], '', 'form-control');
+                          echo $Html->addInput('text', 'jak_acetabSize', $JAK_SETTING_VAL["acetabSize"], '', 'form-control');
                           ?>
 
                         </div>
@@ -778,7 +778,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_acewraplimit', $jkv["acewraplimit"], '', 'form-control');
+                          echo $Html->addInput('text', 'jak_acewraplimit', $JAK_SETTING_VAL["acewraplimit"], '', 'form-control');
                           ?>
 
                         </div>
@@ -798,12 +798,12 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_acegutter', '1', ($jkv["acegutter"] == '1') ? TRUE : FALSE, 'jak_acegutter1');
+                          echo $Html->addRadio('jak_acegutter', '1', ($JAK_SETTING_VAL["acegutter"] == '1') ? TRUE : FALSE, 'jak_acegutter1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_acegutter1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_acegutter', '0', ($jkv["acegutter"] == '0') ? TRUE : FALSE, 'jak_acegutter2');
+                          echo $Html->addRadio('jak_acegutter', '0', ($JAK_SETTING_VAL["acegutter"] == '0') ? TRUE : FALSE, 'jak_acegutter2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_acegutter2', $tl["checkbox"]["chk1"]);
                           ?>
@@ -825,12 +825,12 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_aceactiveline', '1', ($jkv["aceactiveline"] == '1') ? TRUE : FALSE, 'jak_aceactiveline1');
+                          echo $Html->addRadio('jak_aceactiveline', '1', ($JAK_SETTING_VAL["aceactiveline"] == '1') ? TRUE : FALSE, 'jak_aceactiveline1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_aceactiveline1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_aceactiveline', '0', ($jkv["aceactiveline"] == '0') ? TRUE : FALSE, 'jak_aceactiveline2');
+                          echo $Html->addRadio('jak_aceactiveline', '0', ($JAK_SETTING_VAL["aceactiveline"] == '0') ? TRUE : FALSE, 'jak_aceactiveline2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_aceactiveline2', $tl["checkbox"]["chk1"]);
                           ?>
@@ -852,12 +852,12 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_aceinvisible', '1', ($jkv["aceinvisible"] == '1') ? TRUE : FALSE, 'jak_aceinvisible1');
+                          echo $Html->addRadio('jak_aceinvisible', '1', ($JAK_SETTING_VAL["aceinvisible"] == '1') ? TRUE : FALSE, 'jak_aceinvisible1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_aceinvisible1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_aceinvisible', '0', ($jkv["aceinvisible"] == '0') ? TRUE : FALSE, 'jak_aceinvisible2');
+                          echo $Html->addRadio('jak_aceinvisible', '0', ($JAK_SETTING_VAL["aceinvisible"] == '0') ? TRUE : FALSE, 'jak_aceinvisible2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_aceinvisible2', $tl["checkbox"]["chk1"]);
                           ?>
@@ -909,12 +909,12 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_smpt', '0', ($jkv["smtp_or_mail"] == '0') ? TRUE : FALSE, 'jak_smpt1');
+                          echo $Html->addRadio('jak_smpt', '0', ($JAK_SETTING_VAL["smtp_or_mail"] == '0') ? TRUE : FALSE, 'jak_smpt1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_smpt1', $tl["gs_box_content"]["gsbc39"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_smpt', '1', ($jkv["smtp_or_mail"] == '1') ? TRUE : FALSE, 'jak_smpt2');
+                          echo $Html->addRadio('jak_smpt', '1', ($JAK_SETTING_VAL["smtp_or_mail"] == '1') ? TRUE : FALSE, 'jak_smpt2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_smpt2', $tl["gs_box_content"]["gsbc40"]);
                           ?>
@@ -922,7 +922,7 @@ if ($success) { ?>
                         </div>
                       </div>
                     </div>
-                    <div id="smtpsettings" <?php echo ($jkv["smtp_or_mail"] == '0') ? 'style="display: none;"' : '' ?>>
+                    <div id="smtpsettings" <?php echo ($JAK_SETTING_VAL["smtp_or_mail"] == '0') ? 'style="display: none;"' : '' ?>>
                       <div class="row-form">
                         <div class="col-md-5">
 
@@ -936,7 +936,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_host', $jkv["smtp_host"], '', 'form-control');
+                          echo $Html->addInput('text', 'jak_host', $JAK_SETTING_VAL["smtp_host"], '', 'form-control');
                           ?>
 
                         </div>
@@ -954,7 +954,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_port', $jkv["smtp_port"], '', 'form-control', array('placeholder' => '25'));
+                          echo $Html->addInput('text', 'jak_port', $JAK_SETTING_VAL["smtp_port"], '', 'form-control', array('placeholder' => '25'));
                           ?>
 
                         </div>
@@ -973,12 +973,12 @@ if ($success) { ?>
 
                             <?php
                             // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                            echo $Html->addRadio('jak_alive', '1', ($jkv["smtp_alive"] == '1') ? TRUE : FALSE, 'jak_alive1');
+                            echo $Html->addRadio('jak_alive', '1', ($JAK_SETTING_VAL["smtp_alive"] == '1') ? TRUE : FALSE, 'jak_alive1');
                             // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                             echo $Html->addLabel('jak_alive1', $tl["checkbox"]["chk"]);
 
                             // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                            echo $Html->addRadio('jak_alive', '0', ($jkv["smtp_alive"] == '0') ? TRUE : FALSE, 'jak_alive2');
+                            echo $Html->addRadio('jak_alive', '0', ($JAK_SETTING_VAL["smtp_alive"] == '0') ? TRUE : FALSE, 'jak_alive2');
                             // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                             echo $Html->addLabel('jak_alive2', $tl["checkbox"]["chk1"]);
                             ?>
@@ -1000,12 +1000,12 @@ if ($success) { ?>
 
                             <?php
                             // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                            echo $Html->addRadio('jak_auth', '1', ($jkv["smtp_auth"] == '1') ? TRUE : FALSE, 'jak_auth1');
+                            echo $Html->addRadio('jak_auth', '1', ($JAK_SETTING_VAL["smtp_auth"] == '1') ? TRUE : FALSE, 'jak_auth1');
                             // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                             echo $Html->addLabel('jak_auth1', $tl["checkbox"]["chk"]);
 
                             // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                            echo $Html->addRadio('jak_auth', '0', ($jkv["smtp_auth"] == '0') ? TRUE : FALSE, 'jak_auth2');
+                            echo $Html->addRadio('jak_auth', '0', ($JAK_SETTING_VAL["smtp_auth"] == '0') ? TRUE : FALSE, 'jak_auth2');
                             // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                             echo $Html->addLabel('jak_auth2', $tl["checkbox"]["chk1"]);
                             ?>
@@ -1026,7 +1026,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_prefix', $jkv["smtp_prefix"], '', 'form-control', array('placeholder' => 'ssl/tls/true/false'));
+                          echo $Html->addInput('text', 'jak_prefix', $JAK_SETTING_VAL["smtp_prefix"], '', 'form-control', array('placeholder' => 'ssl/tls/true/false'));
                           ?>
 
                         </div>
@@ -1044,7 +1044,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_smtpusername', $jkv["smtp_user"], '', 'form-control');
+                          echo $Html->addInput('text', 'jak_smtpusername', $JAK_SETTING_VAL["smtp_user"], '', 'form-control');
                           ?>
 
                         </div>
@@ -1062,7 +1062,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('password', 'jak_smtppassword', $jkv["smtp_password"], '', 'form-control');
+                          echo $Html->addInput('password', 'jak_smtppassword', $JAK_SETTING_VAL["smtp_password"], '', 'form-control');
                           ?>
 
                         </div>
@@ -1131,12 +1131,12 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_loginside', '1', ($jkv["showloginside"] == '1') ? TRUE : FALSE, 'jak_loginside1');
+                          echo $Html->addRadio('jak_loginside', '1', ($JAK_SETTING_VAL["showloginside"] == '1') ? TRUE : FALSE, 'jak_loginside1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_loginside1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_loginside', '0', ($jkv["showloginside"] == '0') ? TRUE : FALSE, 'jak_loginside2');
+                          echo $Html->addRadio('jak_loginside', '0', ($JAK_SETTING_VAL["showloginside"] == '0') ? TRUE : FALSE, 'jak_loginside2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_loginside2', $tl["checkbox"]["chk1"]);
                           ?>
@@ -1158,12 +1158,12 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_sprint', '1', ($jkv["printme"] == '1') ? TRUE : FALSE, 'jak_sprint1');
+                          echo $Html->addRadio('jak_sprint', '1', ($JAK_SETTING_VAL["printme"] == '1') ? TRUE : FALSE, 'jak_sprint1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_sprint1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_sprint', '0', ($jkv["printme"] == '0') ? TRUE : FALSE, 'jak_sprint2');
+                          echo $Html->addRadio('jak_sprint', '0', ($JAK_SETTING_VAL["printme"] == '0') ? TRUE : FALSE, 'jak_sprint2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_sprint2', $tl["checkbox"]["chk1"]);
                           ?>
@@ -1185,12 +1185,12 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_smilies', '1', ($jkv["usr_smilies"] == '1') ? TRUE : FALSE, 'jak_smilies1');
+                          echo $Html->addRadio('jak_smilies', '1', ($JAK_SETTING_VAL["usr_smilies"] == '1') ? TRUE : FALSE, 'jak_smilies1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_smilies1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_smilies', '0', ($jkv["usr_smilies"] == '0') ? TRUE : FALSE, 'jak_smilies2');
+                          echo $Html->addRadio('jak_smilies', '0', ($JAK_SETTING_VAL["usr_smilies"] == '0') ? TRUE : FALSE, 'jak_smilies2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_smilies2', $tl["checkbox"]["chk1"]);
                           ?>
@@ -1261,7 +1261,7 @@ if ($success) { ?>
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                         echo $Html->addLabel('', $tl["gs_box_content"]["gsbc54"]);
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('ip_block', $jkv["ip_block"], '5', '50', array('class' => 'form-control txtautogrow', 'placeholder' => $tl["placeholder"]["p7"]));
+                        echo $Html->addTextarea('ip_block', $JAK_SETTING_VAL["ip_block"], '5', '50', array('class' => 'form-control txtautogrow', 'placeholder' => $tl["placeholder"]["p7"]));
                         ?>
 
                       </div>
@@ -1273,7 +1273,7 @@ if ($success) { ?>
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                         echo $Html->addLabel('', $tl["gs_box_content"]["gsbc55"]);
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('email_block', $jkv["email_block"], '4', '50', array('class' => 'form-control txtautogrow', 'placeholder' => $tl["placeholder"]["p8"]));
+                        echo $Html->addTextarea('email_block', $JAK_SETTING_VAL["email_block"], '4', '50', array('class' => 'form-control txtautogrow', 'placeholder' => $tl["placeholder"]["p8"]));
                         ?>
 
                       </div>
@@ -1285,7 +1285,7 @@ if ($success) { ?>
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                         echo $Html->addLabel('', $tl["gs_box_content"]["gsbc56"]);
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('username_block', $jkv["username_block"], '3', '50', array('class' => 'form-control txtautogrow', 'placeholder' => $tl["placeholder"]["p9"]));
+                        echo $Html->addTextarea('username_block', $JAK_SETTING_VAL["username_block"], '3', '50', array('class' => 'form-control txtautogrow', 'placeholder' => $tl["placeholder"]["p9"]));
                         ?>
 
                       </div>
@@ -1325,7 +1325,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('jak_analytics', $jkv["analytics"], '5', '60', array('class' => 'form-control txtautogrow'));
+                        echo $Html->addTextarea('jak_analytics', $JAK_SETTING_VAL["analytics"], '5', '60', array('class' => 'form-control txtautogrow'));
                         ?>
 
                       </div>
@@ -1362,12 +1362,12 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_heatmap', '1', ($jkv["heatmap"] == '1') ? TRUE : FALSE, 'jak_heatmap1');
+                          echo $Html->addRadio('jak_heatmap', '1', ($JAK_SETTING_VAL["heatmap"] == '1') ? TRUE : FALSE, 'jak_heatmap1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_heatmap1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_heatmap', '0', ($jkv["heatmap"] == '0') ? TRUE : FALSE, 'jak_heatmap2');
+                          echo $Html->addRadio('jak_heatmap', '0', ($JAK_SETTING_VAL["heatmap"] == '0') ? TRUE : FALSE, 'jak_heatmap2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_heatmap2', $tl["checkbox"]["chk1"]);
                           ?>
@@ -1422,12 +1422,12 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_eucookie_enabled', '1', ($jkv["eucookie_enabled"] == '1') ? TRUE : FALSE, 'jak_eucookie_enabled1');
+                          echo $Html->addRadio('jak_eucookie_enabled', '1', ($JAK_SETTING_VAL["eucookie_enabled"] == '1') ? TRUE : FALSE, 'jak_eucookie_enabled1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_eucookie_enabled1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_eucookie_enabled', '0', ($jkv["eucookie_enabled"] == '0') ? TRUE : FALSE, 'jak_eucookie_enabled2');
+                          echo $Html->addRadio('jak_eucookie_enabled', '0', ($JAK_SETTING_VAL["eucookie_enabled"] == '0') ? TRUE : FALSE, 'jak_eucookie_enabled2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_eucookie_enabled2', $tl["checkbox"]["chk1"]);
                           ?>
@@ -1449,7 +1449,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_eucookie_name', $jkv["eucookie_name"], '', 'form-control');
+                          echo $Html->addInput('text', 'jak_eucookie_name', $JAK_SETTING_VAL["eucookie_name"], '', 'form-control');
                           ?>
 
                         </div>
@@ -1472,7 +1472,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_eucookie_expiryDays', $jkv["eucookie_expiryDays"], '', 'form-control');
+                          echo $Html->addInput('text', 'jak_eucookie_expiryDays', $JAK_SETTING_VAL["eucookie_expiryDays"], '', 'form-control');
                           ?>
 
                         </div>
@@ -1518,12 +1518,12 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                          echo $Html->addOption('bottom', 'Banner Bottom', ($jkv["eucookie_position"] == 'bottom') ? TRUE : FALSE);
-                          echo $Html->addOption('top', 'Banner Top', ($jkv["eucookie_position"] == 'top') ? TRUE : FALSE);
-                          echo $Html->addOption('bottom-left', 'Floating Bottom Left', ($jkv["eucookie_position"] == 'bottom-left') ? TRUE : FALSE);
-                          echo $Html->addOption('bottom-right', 'Floating Bottom Right', ($jkv["eucookie_position"] == 'bottom-right') ? TRUE : FALSE);
-                          echo $Html->addOption('top-left', 'Floating Top Left', ($jkv["eucookie_position"] == 'top-left') ? TRUE : FALSE);
-                          echo $Html->addOption('top-right', 'Floating Top Right', ($jkv["eucookie_position"] == 'top-right') ? TRUE : FALSE);
+                          echo $Html->addOption('bottom', 'Banner Bottom', ($JAK_SETTING_VAL["eucookie_position"] == 'bottom') ? TRUE : FALSE);
+                          echo $Html->addOption('top', 'Banner Top', ($JAK_SETTING_VAL["eucookie_position"] == 'top') ? TRUE : FALSE);
+                          echo $Html->addOption('bottom-left', 'Floating Bottom Left', ($JAK_SETTING_VAL["eucookie_position"] == 'bottom-left') ? TRUE : FALSE);
+                          echo $Html->addOption('bottom-right', 'Floating Bottom Right', ($JAK_SETTING_VAL["eucookie_position"] == 'bottom-right') ? TRUE : FALSE);
+                          echo $Html->addOption('top-left', 'Floating Top Left', ($JAK_SETTING_VAL["eucookie_position"] == 'top-left') ? TRUE : FALSE);
+                          echo $Html->addOption('top-right', 'Floating Top Right', ($JAK_SETTING_VAL["eucookie_position"] == 'top-right') ? TRUE : FALSE);
                           ?>
 
                         </select>
@@ -1543,10 +1543,10 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                          echo $Html->addOption('block', 'Block', ($jkv["eucookie_style"] == 'block') ? TRUE : FALSE);
-                          echo $Html->addOption('edgeless', 'Edgeless', ($jkv["eucookie_style"] == 'edgeless') ? TRUE : FALSE);
-                          echo $Html->addOption('classic', 'Classic', ($jkv["eucookie_style"] == 'classic') ? TRUE : FALSE);
-                          echo $Html->addOption('wire', 'Wire', ($jkv["eucookie_style"] == 'wire') ? TRUE : FALSE);
+                          echo $Html->addOption('block', 'Block', ($JAK_SETTING_VAL["eucookie_style"] == 'block') ? TRUE : FALSE);
+                          echo $Html->addOption('edgeless', 'Edgeless', ($JAK_SETTING_VAL["eucookie_style"] == 'edgeless') ? TRUE : FALSE);
+                          echo $Html->addOption('classic', 'Classic', ($JAK_SETTING_VAL["eucookie_style"] == 'classic') ? TRUE : FALSE);
+                          echo $Html->addOption('wire', 'Wire', ($JAK_SETTING_VAL["eucookie_style"] == 'wire') ? TRUE : FALSE);
                           ?>
 
                         </select>
@@ -1585,49 +1585,49 @@ if ($success) { ?>
 
                         <div class="cookie-consent-configurator">
 
-                          <input name="jak_eucookie_theme" id="theme7-colour" class="input-hidden" value="eucookie_theme7" <?php echo ($jkv["eucookie_theme"] == 'eucookie_theme7') ? 'checked="checked"' : ''; ?> type="radio">
+                          <input name="jak_eucookie_theme" id="theme7-colour" class="input-hidden" value="eucookie_theme7" <?php echo ($JAK_SETTING_VAL["eucookie_theme"] == 'eucookie_theme7') ? 'checked="checked"' : ''; ?> type="radio">
                           <label for="theme7-colour">
                             <div class="theme-preview-container" style="background:#000;">
                               <div class="theme-preview-button" style="background:#80AA1D;"></div>
                             </div>
                           </label>
 
-                          <input name="jak_eucookie_theme" id="theme1-colour" class="input-hidden" value="eucookie_theme1" <?php echo ($jkv["eucookie_theme"] == 'eucookie_theme1') ? 'checked="checked"' : ''; ?> type="radio">
+                          <input name="jak_eucookie_theme" id="theme1-colour" class="input-hidden" value="eucookie_theme1" <?php echo ($JAK_SETTING_VAL["eucookie_theme"] == 'eucookie_theme1') ? 'checked="checked"' : ''; ?> type="radio">
                           <label for="theme1-colour">
                             <div class="theme-preview-container" style="background:#000;">
                               <div class="theme-preview-button" style="background:#F1D600;"></div>
                             </div>
                           </label>
 
-                          <input name="jak_eucookie_theme" id="theme2-colour" class="input-hidden" value="eucookie_theme2" <?php echo ($jkv["eucookie_theme"] == 'eucookie_theme2') ? 'checked="checked"' : ''; ?> type="radio">
+                          <input name="jak_eucookie_theme" id="theme2-colour" class="input-hidden" value="eucookie_theme2" <?php echo ($JAK_SETTING_VAL["eucookie_theme"] == 'eucookie_theme2') ? 'checked="checked"' : ''; ?> type="radio">
                           <label for="theme2-colour">
                             <div class="theme-preview-container" style="background:#000;">
                               <div class="theme-preview-button" style="background:#FFF;"></div>
                             </div>
                           </label>
 
-                          <input name="jak_eucookie_theme" id="theme3-colour" class="input-hidden" value="eucookie_theme3" <?php echo ($jkv["eucookie_theme"] == 'eucookie_theme3') ? 'checked="checked"' : ''; ?> type="radio">
+                          <input name="jak_eucookie_theme" id="theme3-colour" class="input-hidden" value="eucookie_theme3" <?php echo ($JAK_SETTING_VAL["eucookie_theme"] == 'eucookie_theme3') ? 'checked="checked"' : ''; ?> type="radio">
                           <label for="theme3-colour">
                             <div class="theme-preview-container" style="background:#EAF7F7;">
                               <div class="theme-preview-button" style="background:#56CBDB;"></div>
                             </div>
                           </label>
 
-                          <input name="jak_eucookie_theme" id="theme4-colour" class="input-hidden" value="eucookie_theme4" <?php echo ($jkv["eucookie_theme"] == 'eucookie_theme4') ? 'checked="checked"' : ''; ?> type="radio">
+                          <input name="jak_eucookie_theme" id="theme4-colour" class="input-hidden" value="eucookie_theme4" <?php echo ($JAK_SETTING_VAL["eucookie_theme"] == 'eucookie_theme4') ? 'checked="checked"' : ''; ?> type="radio">
                           <label for="theme4-colour">
                             <div class="theme-preview-container" style="background:#252E39;">
                               <div class="theme-preview-button" style="background:#14A7D0;"></div>
                             </div>
                           </label>
 
-                          <input name="jak_eucookie_theme" id="theme5-colour" class="input-hidden" value="eucookie_theme5" <?php echo ($jkv["eucookie_theme"] == 'eucookie_theme5') ? 'checked="checked"' : ''; ?> type="radio">
+                          <input name="jak_eucookie_theme" id="theme5-colour" class="input-hidden" value="eucookie_theme5" <?php echo ($JAK_SETTING_VAL["eucookie_theme"] == 'eucookie_theme5') ? 'checked="checked"' : ''; ?> type="radio">
                           <label for="theme5-colour">
                             <div class="theme-preview-container" style="background:#237AFC;">
                               <div class="theme-preview-button" style="background:#FFF;"></div>
                             </div>
                           </label>
 
-                          <input name="jak_eucookie_theme" id="theme6-colour" class="input-hidden" value="eucookie_theme6" <?php echo ($jkv["eucookie_theme"] == 'eucookie_theme6') ? 'checked="checked"' : ''; ?> type="radio">
+                          <input name="jak_eucookie_theme" id="theme6-colour" class="input-hidden" value="eucookie_theme6" <?php echo ($JAK_SETTING_VAL["eucookie_theme"] == 'eucookie_theme6') ? 'checked="checked"' : ''; ?> type="radio">
                           <label for="theme6-colour">
                             <div class="theme-preview-container" style="background:#EDEFF5;">
                               <div class="theme-preview-button" style="background:#4B81E8;"></div>
@@ -1652,7 +1652,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_eucookie_alpha', $jkv["eucookie_alpha"], '', 'form-control');
+                          echo $Html->addInput('text', 'jak_eucookie_alpha', $JAK_SETTING_VAL["eucookie_alpha"], '', 'form-control');
                           ?>
 
                         </div>
@@ -1700,7 +1700,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                          echo $Html->addTextarea('jak_eucookie_message', jak_edit_safe_userpost($jkv["eucookie_message"]), '2', '', array('class' => 'form-control'));
+                          echo $Html->addTextarea('jak_eucookie_message', jak_edit_safe_userpost($JAK_SETTING_VAL["eucookie_message"]), '2', '', array('class' => 'form-control'));
                           ?>
 
                         </div>
@@ -1720,7 +1720,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_eucookie_dismiss', $jkv["eucookie_dismiss"], '', 'form-control');
+                          echo $Html->addInput('text', 'jak_eucookie_dismiss', $JAK_SETTING_VAL["eucookie_dismiss"], '', 'form-control');
                           ?>
 
                         </div>
@@ -1740,7 +1740,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_eucookie_link', $jkv["eucookie_link"], '', 'form-control');
+                          echo $Html->addInput('text', 'jak_eucookie_link', $JAK_SETTING_VAL["eucookie_link"], '', 'form-control');
                           ?>
 
                         </div>
@@ -1760,7 +1760,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_eucookie_href', $jkv["eucookie_href"], '', 'form-control');
+                          echo $Html->addInput('text', 'jak_eucookie_href', $JAK_SETTING_VAL["eucookie_href"], '', 'form-control');
                           ?>
 
                         </div>

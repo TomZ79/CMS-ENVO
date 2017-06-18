@@ -93,7 +93,7 @@ if ($JAK_FILE_ERROR) { ?>
 
                       <?php
                       // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                      echo $Html->addTextarea('jak_facebookconnect', $jkv["facebookconnect"], '10', '60', array('class' => 'form-control txtautogrow'));
+                      echo $Html->addTextarea('jak_facebookconnect', $JAK_SETTING_VAL["facebookconnect"], '10', '60', array('class' => 'form-control txtautogrow'));
                       ?>
 
                     </div>

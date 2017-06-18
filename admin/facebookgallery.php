@@ -16,6 +16,10 @@ $success = array();
 // CZ: Importuj důležité nastavení pro šablonu z DB
 $JAK_SETTING = jak_get_setting('setting');
 
+// EN: Import important settings for the template from the DB (only VALUE)
+// CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
+$JAK_SETTING_VAL = jak_get_setting_val('setting');
+
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $jaktable = DB_PREFIX . 'galleryfacebook';

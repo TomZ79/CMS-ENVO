@@ -177,7 +177,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_limit', $jkv["taglimit"], '', 'form-control');
+                          echo $Html->addInput('text', 'jak_limit', $JAK_SETTING_VAL["taglimit"], '', 'form-control');
                           ?>
 
                         </div>
@@ -197,7 +197,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_min', $jkv["tagminfont"], '', 'form-control');
+                          echo $Html->addInput('text', 'jak_min', $JAK_SETTING_VAL["tagminfont"], '', 'form-control');
                           ?>
 
                         </div>
@@ -216,7 +216,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'jak_max', $jkv["tagmaxfont"], '', 'form-control');
+                        echo $Html->addInput('text', 'jak_max', $JAK_SETTING_VAL["tagmaxfont"], '', 'form-control');
                         ?>
 
                       </div>

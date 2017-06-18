@@ -861,6 +861,10 @@ switch ($page1) {
     // CZ: Importuj důležité nastavení pro šablonu z DB
     $JAK_SETTING = jak_get_setting('blog');
 
+    // EN: Import important settings for the template from the DB (only VALUE)
+    // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
+    $JAK_SETTING_VAL = jak_get_setting_val('blog');
+
     // Get the sort orders for the grid
     $JAK_PAGE_GRID = array();
     $grid          = $jakdb->query('SELECT id, hookid, whatid, orderid FROM ' . $jaktable4 . ' WHERE plugin = "' . smartsql(JAK_PLUGIN_BLOG) . '" AND blogid = 0 ORDER BY orderid ASC');

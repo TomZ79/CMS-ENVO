@@ -225,6 +225,10 @@ switch ($page1) {
     // CZ: Importuj důležité nastavení pro šablonu z DB
     $JAK_SETTING = jak_get_setting('news');
 
+    // EN: Import important settings for the template from the DB (only VALUE)
+    // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
+    $JAK_SETTING_VAL = jak_get_setting_val('news');
+
     // Let's go on with the script
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable

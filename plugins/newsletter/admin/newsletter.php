@@ -1095,6 +1095,10 @@ switch ($page1) {
     $JAK_SETTING = jak_get_setting('newsletter');
     $GET_SETTING = jak_get_setting('newsletter');
 
+    // EN: Import important settings for the template from the DB (only VALUE)
+    // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
+    $JAK_SETTING_VAL = jak_get_setting_val('newsletter');
+
     if (isset($GET_SETTING) && is_array($GET_SETTING)) foreach ($GET_SETTING as $row) {
       $defvar                        = $row["value"];
       $JAK_SETTING1[$row['varname']] = $defvar;
