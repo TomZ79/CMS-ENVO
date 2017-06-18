@@ -249,7 +249,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = new PHPMailer(TRUE); // the true param means it will throw exceptions on errors, which we need to catch
 
     // Send email the smpt way or else the mail way
-    if ($jkv["smtp_or_mail"]) {
+    if (!empty($defaults['jak_smpt'])) {
 
       // SMTP
 
