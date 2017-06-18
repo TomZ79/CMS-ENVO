@@ -1487,6 +1487,23 @@ USAGE
 /* 19. BLOG
 ========================================================================*/
 /* Blog preview */
+article.blog-article-preview {
+  padding: 15px;
+}
+
+.blog-content-area article:first-child {
+  background: #f0f0f0;
+  margin-bottom: 20px !important;
+}
+
+.blog-content-area article:first-child p {
+  color: #000 !important;
+}
+
+.blog-content-area article:first-child  hr {
+  display: none;
+}
+
 article.blog-article-preview .full-intro-content h4 a {
   text-decoration: none;
 }
