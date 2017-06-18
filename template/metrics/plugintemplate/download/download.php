@@ -25,6 +25,8 @@
  * $v["totalcom"]
  * $v["previmg"]
  * $v["parseurl"]       text      - Adresa URL
+ * $v["file"]           text      - Url cesta k souboru
+ * $v["extfile"]        text      - Url cesta k souboru
  *
  */
 ?>

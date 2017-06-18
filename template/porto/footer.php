@@ -257,7 +257,7 @@ if (!$JAK_SHOW_FOOTER) { ?>
 <script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/common/common.min.js?=v5.7.2"></script>
 <script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/jquery.validation/jquery.validation.min.js?=v1.16.0"></script>
 <script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/jquery.lazyload/jquery.lazyload.min.js?=v1.9.7" async defer></script>
-<script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/isotope/jquery.isotope.min.js?=v3.0.3" async defer></script>
+<script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/isotope/jquery.isotope.min.js?=v3.0.3"></script>
 <script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/owl.carousel/owl.carousel.min.js?=v2.1.6"></script>
 <script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/magnific-popup/jquery.magnific-popup.min.js?=v1.1.0"></script>
 <script type="text/javascript" src="/assets/plugins/revolution-slider/js/jquery.themepunch.tools.min.js?rev=5.0"></script>

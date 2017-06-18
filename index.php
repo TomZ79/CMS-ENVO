@@ -17,7 +17,8 @@ $page4 = ($tempp4 ? jak_url_input_filter($tempp4) : '');
 $page5 = ($tempp5 ? jak_url_input_filter($tempp5) : '');
 $page6 = ($tempp6 ? jak_url_input_filter($tempp6) : '');
 
-// Import the language file
+// EN: Import the language file
+// CZ: Import jazykových souborů
 if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
   $tl = parse_ini_file(APP_PATH . 'lang/' . $site_language . '.ini', TRUE);
 } else {
@@ -519,6 +520,7 @@ $mfooter = array(
   'items'   => array(),
   'parents' => array()
 );
+
 // Builds the array lists with data from the menu table
 foreach ($JAK_CAT_SITE as $itemf) {
 
@@ -558,7 +560,7 @@ if (!JAK_TAGS && !JAK_USER_TAGS) $JAK_TAGLIST = FALSE;
 if (isset($jkv["sitestyle"]) && !empty(ENVO_TEMPLATE) && isset($jkv["cms_tpl"]) && isset($template) && $template != '') {
   include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/' . $template;
   // Get the plugin template
-} elseif (isset($jkv["cms_tpl"]) && isset($plugin_template) && $plugin_template != '') {
+} elseif (isset($jkv["cms_tpl"]) && isset($plugin_template)) {
   // Check if plugin template files exist or not
   if (!file_exists(APP_PATH . $plugin_template)) {
     include_once APP_PATH . 'noplugintemplate.php';

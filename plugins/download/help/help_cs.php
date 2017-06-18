@@ -70,20 +70,20 @@
 // # Seznam nových komponent
 // ------------------------------
 
-[nový] Add static page into CMS Dashboard
-[nový] Added the ability to insert images for FB
+[nový] Přidána statistika CMS Dashboard -> Plugin
+[nový] Přidána možnost vložení jiného obrázku pro FB než je náhledový obrázek
 
 // # Seznam opravených chyb
 // ------------------------------
 
-[opraveno] Reformat code
-[opraveno] Language file cs.ini
+[opraveno] Reformát kódu
+[opraveno] Překlad cs.ini
 [opraveno] Fix typo
 
 // # Seznam odstraněných komponent
 // ------------------------------
 
-[odstraněno] Remove unnecessary code
+[odstraněno] Odstranění zbytečného kódu
 				</pre>
 
         <h5>v 1.2</h5>
@@ -99,14 +99,14 @@
 // # Seznam opravených chyb
 // ------------------------------
 
-[opraveno] Reformat code
-[opraveno] Language file cs.ini
+[opraveno] Reformát kódu
+[opraveno] Překlad cs.ini
 [opraveno] Fix typo
 
 // # Seznam odstraněných komponent
 // ------------------------------
 
-[odstraněno] Remove unnecessary code
+[odstraněno] Odstranění zbytečného kódu
 				</pre>
 
         <h5>v 1.1</h5>
@@ -124,14 +124,14 @@
 // # Seznam opravených chyb
 // ------------------------------
 
-[opraveno] Reformat code
-[opraveno] Language file cs.ini
+[opraveno] Reformát kódu
+[opraveno] Překlad cs.ini
 [opraveno] Fix typo
 
 // # Seznam odstraněných komponent
 // ------------------------------
 
-[odstraněno] Remove unnecessary code
+[odstraněno] Odstranění zbytečného kódu
 				</pre>
 
         <h5>v 1.0</h5>

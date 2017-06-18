@@ -79,12 +79,23 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                 <td><?php echo $v["id"]; ?></td>
                 <td>
                   <div class="checkbox-singel check-success">
-                    <input type="checkbox" id="jak_delete_blog<?php echo $v["id"]; ?>" name="jak_delete_blog[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
-                    <label for="jak_delete_blog<?php echo $v["id"]; ?>"></label>
+
+                    <?php
+                    // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                    // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                    echo $Html->addCheckbox('jak_delete_blog[]', $v["id"], FALSE, 'jak_delete_blog' . $v["id"], 'highlight');
+                    echo $Html->addLabel('jak_delete_blog' . $v["id"], '');
+                    ?>
+
                   </div>
                 </td>
                 <td>
-                  <a href="index.php?p=blog&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["title"]; ?></a>
+
+                  <?php
+                  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                  echo $Html->addAnchor('index.php?p=blog&amp;sp=edit&amp;ssp=' . $v["id"], $v["title"]);
+                  ?>
+
                 </td>
                 <td>
 

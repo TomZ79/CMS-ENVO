@@ -35,8 +35,10 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
   <!-- Facebook - Open Graph data -->
   <meta property="og:title" content="<?php echo $PAGE_TITLE; ?>"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:url" content="<?php echo BASE_URL; ?>"/>
-  <meta property="og:image" content="<?php echo(($PAGE_IMAGE) ? $PAGE_IMAGE : ($SHOWIMG) ? $SHOWIMG : $JAK_RANDOM_IMAGE); ?>"/>
+  <meta property="og:url" content="<?php echo (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>"/>
+  <meta property="og:image" content="<?php echo($FB_IMAGE ? $FB_IMAGE : ($SHOWIMG ? BASE_URL . ltrim($SHOWIMG, '/') : '')); ?>"/>
+  <meta property="og:image:width" content="<?php echo $FB_IMAGE_W; ?>"/>
+  <meta property="og:image:height" content="<?php echo $FB_IMAGE_H; ?>"/>
   <meta property="og:description" content="<?php echo trim($PAGE_DESCRIPTION); ?>"/>
 
   <!-- Twitter Card data -->
@@ -80,6 +82,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
   <!-- Fontawesome icon -->
   <link rel="stylesheet" href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.min.css?=v4.7.0">
+  <link rel="stylesheet" href="/assets/plugins/bootstrap-table-master/dist/bootstrap-table.min.css">
   <!-- Simple icon -->
   <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/simple-line-icons/css/simple-line-icons.min.css?=v2.4.0">
   <!-- Bootstrap -->
@@ -162,51 +165,55 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
       <div class="header-body">
         <div class="header-top header-top-quaternary header-top-style-3">
           <div class="container">
-            <ul class="header-links pull-left text-color-light">
+            <div class="usernav pull-left">
+              <label for="drop" class="toggle">Uživatelské MENU</label>
+              <input type="checkbox" id="drop" />
+              <ul class="header-links text-color-light">
 
-              <?php
-              // Show links for Register Form Plugin
-              // Check if plugin exist throught PluginID
-              if (is_numeric(JAK_PLUGIN_ID_REGISTER_FORM) && JAK_PLUGIN_ID_REGISTER_FORM > 0) {
-                echo '<li><a href="/' . $PLUGIN_RF_CAT["varname"] . '">' . $PLUGIN_RF_CAT["name"] . '</a></li>';
-              }
-              ?>
-
-
-              <?php if ($jkv["sitemapShow_porto_tpl"] == 1) { ?>
-                <li>
-                  <a href="/<?php echo $jkv["sitemapLinks_porto_tpl"]; ?>"><?php echo $tlporto["header_text"]["ht"]; ?></a>
-                </li>
-              <?php }
-              if ($jkv["loginShow_porto_tpl"] == 1) {
-                if (!JAK_USERID) { ?>
-                  <li>
-                    <a href="/login" id="login">
-                      <?php
-                      // If Register Form is Active (installed) or Not Active (not installed)
-                      if ($jkv["rf_active"]) {
-                        echo $tlporto["header_text"]["ht1"] . ' / ' . $tlporto["header_text"]["ht4"];
-                      } else {
-                        echo $tlporto["header_text"]["ht1"];
-                      }
-                      ?>
-                    </a>
-                  </li>
-                <?php } else { ?>
-                  <li>
-                    <a href="<?php echo $P_USR_LOGOUT; ?>" id="logout">
-                      <?php
-                      echo sprintf($tlporto["header_text"]["ht2"], $jakuser->getVar("username"));
-                      ?>
-                    </a>
-                  </li>
-                  <?php if (JAK_ASACCESS) { ?>
-                    <li><a href="<?php echo BASE_URL; ?>admin/"><?php echo $tlporto["header_text"]["ht3"]; ?></a></li>
-                  <?php }
+                <?php
+                // Show links for Register Form Plugin
+                // Check if plugin exist throught PluginID
+                if (is_numeric(JAK_PLUGIN_ID_REGISTER_FORM) && JAK_PLUGIN_ID_REGISTER_FORM > 0) {
+                  echo '<li><a href="/' . $PLUGIN_RF_CAT["varname"] . '">' . $PLUGIN_RF_CAT["name"] . '</a></li>';
                 }
-              } ?>
+                ?>
 
-            </ul>
+
+                <?php if ($jkv["sitemapShow_porto_tpl"] == 1) { ?>
+                  <li>
+                    <a href="/<?php echo $jkv["sitemapLinks_porto_tpl"]; ?>"><?php echo $tlporto["header_text"]["ht"]; ?></a>
+                  </li>
+                <?php }
+                if ($jkv["loginShow_porto_tpl"] == 1) {
+                  if (!JAK_USERID) { ?>
+                    <li>
+                      <a href="/login" id="login">
+                        <?php
+                        // If Register Form is Active (installed) or Not Active (not installed)
+                        if ($jkv["rf_active"]) {
+                          echo $tlporto["header_text"]["ht1"] . ' / ' . $tlporto["header_text"]["ht4"];
+                        } else {
+                          echo $tlporto["header_text"]["ht1"];
+                        }
+                        ?>
+                      </a>
+                    </li>
+                  <?php } else { ?>
+                    <li>
+                      <a href="<?php echo $P_USR_LOGOUT; ?>" id="logout">
+                        <?php
+                        echo sprintf($tlporto["header_text"]["ht2"], $jakuser->getVar("username"));
+                        ?>
+                      </a>
+                    </li>
+                    <?php if (JAK_ASACCESS) { ?>
+                      <li><a href="<?php echo BASE_URL; ?>admin/"><?php echo $tlporto["header_text"]["ht3"]; ?></a></li>
+                    <?php }
+                  }
+                } ?>
+
+              </ul>
+            </div>
             <ul class="header-social-icons social-icons social-icons-transparent social-icons-icon-light pull-right ml-xs mt-xs hidden-xs">
 
               <?php if ($jkv["facebookheaderShow_porto_tpl"] == 1) { ?>

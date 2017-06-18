@@ -30,6 +30,70 @@
  * 20. CUSTOM MODIFICATION
  */
 
+/* */
+.usernav .toggle, [id^=drop] {
+  display: none;
+}
+
+@media all and (max-width : 768px) {
+  .usernav {
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+
+  .usernav:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .usernav .toggle + a { display: none; }
+
+  .usernav .toggle {
+    display: block;
+    padding: 0 20px;
+    color: #FFF;
+  }
+
+  .usernav .header-links {
+    position: absolute;
+    top:40px;
+    left: 0;
+    z-index: 1;
+    width: 250px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.2s linear;
+  }
+
+  .usernav ul.header-links li {
+    display: block;
+    width: 100%;
+    float: left;
+    background-color: #000;
+    border-bottom: 1px solid #e8e8e8;
+  }
+  .usernav ul.header-links li a {
+    display: block;
+    padding: 10px 20px;
+    color: #FFF;
+    font-size: 12px;
+    line-height: 25px;
+    border-left: none;
+  }
+
+  .usernav .toggle:hover {
+
+  }
+
+  [id^=drop]:checked + ul {
+    visibility: visible;
+    opacity: 1;
+  }
+
+}
+
 /* 01. COMMON STYLES - PORTO CORRECTION
 ========================================================================*/
 /* Responsive */
@@ -673,8 +737,26 @@
   color: #FFF !important;
 }
 
+.btn-warning[disabled], .btn-warning[disabled]:hover, .btn-warning[disabled]:active, .btn-warning[disabled]:focus {
+  color: #FFF !important;
+}
+
 .btn-danger[disabled], .btn-danger[disabled]:hover, .btn-danger[disabled]:active, .btn-danger[disabled]:focus {
   color: #FFF !important;
+}
+
+#footer .btn-footer {
+  display: block;
+  background-color: transparent;
+}
+
+#footer .btn-footer:hover {
+  color: #2D323A !important;
+  background-color: #E6E6E6;
+}
+
+#footer .border-r {
+  border-right: 1px solid #2D323A;
 }
 
 /* 11. PORTO MODIFICATION - INPUT
