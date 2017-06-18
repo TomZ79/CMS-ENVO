@@ -1104,9 +1104,6 @@ switch ($page1) {
       $JAK_SETTING1[$row['varname']] = $defvar;
     }
 
-    // Get the special vars for multi language support
-    $JAK_FORM_DATA["title"] = $jkv["nltitle"];
-
     // EN: Title and Description
     // CZ: Titulek a Popis
     $SECTION_TITLE = $tlnl["newsletter_sec_title"]["nlt10"];

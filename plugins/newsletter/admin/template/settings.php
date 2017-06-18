@@ -107,7 +107,7 @@ if ($success) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_title', $JAK_FORM_DATA["title"], '', 'form-control');
+                      echo $Html->addInput('text', 'jak_title', $JAK_SETTING_VAL["nltitle"], '', 'form-control');
                       ?>
 
                     </div>
