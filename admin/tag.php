@@ -229,10 +229,6 @@ switch ($page1) {
       }
     }
 
-    // Get the special vars for quick editors support
-    $JAK_FORM_DATA["title"]   = $jkv["tagtitle"];
-    $JAK_FORM_DATA["content"] = $jkv["tagdesc"];
-
     // EN: Title and Description
     // CZ: Titulek a Popis
     $SECTION_TITLE = $tl["tag_sec_title"]["tagt2"];
