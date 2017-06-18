@@ -32,6 +32,8 @@ if ($getTotal != 0) {
 
 // Let's go on with the script
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  // EN: Default Variable
+  // CZ: Hlavní proměnné
   $defaults = $_POST;
 
   if (isset($defaults['delete'])) {

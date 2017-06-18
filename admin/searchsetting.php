@@ -19,6 +19,8 @@ $JAK_SETTING = jak_get_setting_val('search');
 
 // Let's go on with the script
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  // EN: Default Variable
+  // CZ: Hlavní proměnné
   $defaults = $_POST;
 
   // Do the dirty work in mysql

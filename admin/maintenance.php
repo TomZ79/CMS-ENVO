@@ -19,6 +19,8 @@ $dbimpexp = new dbimpexp();
 
 // Flag to select step
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  // EN: Default Variable
+  // CZ: Hlavní proměnné
   $defaults = $_POST;
 
   // Execute Optinos

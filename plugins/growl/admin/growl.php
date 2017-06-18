@@ -37,6 +37,8 @@ switch ($page1) {
   case 'new':
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       if (empty($defaults['jak_title'])) {
@@ -196,6 +198,8 @@ switch ($page1) {
       case 'edit':
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          // EN: Default Variable
+          // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (empty($defaults['jak_title'])) {
@@ -315,6 +319,8 @@ switch ($page1) {
 
         // Hello we have a post request
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jak_delete_growl'])) {
+          // EN: Default Variable
+          // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (isset($defaults['delete'])) {

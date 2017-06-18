@@ -55,6 +55,8 @@ if (!empty($_POST['action']) && $_POST['action'] == 'login') {
 
 // Forgot password
 if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
+  // EN: Default Variable
+  // CZ: Hlavní proměnné
   $defaults = $_POST;
 
   if ($defaults['email'] == '' || !filter_var($defaults['email'], FILTER_VALIDATE_EMAIL)) {

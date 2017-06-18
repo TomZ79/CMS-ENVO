@@ -34,9 +34,13 @@ switch ($page1) {
     $JAK_GET_NEWS      = jak_get_page_info($jaktable4, '');
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
-      if (isset($defaults['save'])) {
+      if (isset($_POST['btnSave'])) {
+        // EN: If button "Save Changes" clicked
+        // CZ: Pokud bylo stisknuto tlačítko "Uložit"
 
         if (empty($defaults['jak_title'])) {
           $errors['e1'] = $tl['page_error']['pageerror'] . '<br>';
@@ -158,6 +162,10 @@ switch ($page1) {
           $errors['e'] = $tl['general_error']['generror'] . '<br>';
           $errors      = $errors;
         }
+      }  else {
+        // EN: If no button pressed
+        // CZ: Pokud nebylo stisknuto žádné tlačítko
+
       }
     }
 
@@ -198,6 +206,8 @@ switch ($page1) {
       case 'search':
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          // EN: Default Variable
+          // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (isset($defaults['search'])) {
@@ -321,6 +331,8 @@ switch ($page1) {
         if (is_numeric($page2) && jak_row_exist($page2, $jaktable)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // EN: Default Variable
+            // CZ: Hlavní proměnné
             $defaults = $_POST;
 
             // Delete the tags
@@ -639,6 +651,8 @@ switch ($page1) {
         if (jak_row_exist($page2, $jaktable)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // EN: Default Variable
+            // CZ: Hlavní proměnné
             $defaults = $_POST;
 
             if (empty($defaults['jak_title'])) {
@@ -686,6 +700,8 @@ switch ($page1) {
 
         // Do we have a post access
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jak_delete_page'])) {
+          // EN: Default Variable
+          // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (isset($defaults['lock'])) {

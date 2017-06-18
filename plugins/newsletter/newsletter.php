@@ -25,6 +25,8 @@ switch ($page1) {
 
     // Check the contact page and fire errors or emails
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
       // Create Session, so contact form can only used once
       $_SESSION['jak_nl_sent'] = -1;
@@ -134,6 +136,8 @@ switch ($page1) {
     if (is_numeric($page2) && jak_field_not_exist($page2, $jaktable2, 'delcode')) {
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nlOff'])) {
+        // EN: Default Variable
+        // CZ: Hlavní proměnné
         $defaults = $_POST;
 
         if ($defaults['nlEmail'] == '' || !filter_var($defaults['nlEmail'], FILTER_VALIDATE_EMAIL)) {
@@ -196,6 +200,8 @@ switch ($page1) {
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (isset($_POST['nlOff'])) {
+          // EN: Default Variable
+          // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if ($page2 != JAK_USERID) {
@@ -223,6 +229,8 @@ switch ($page1) {
         }
 
         if (isset($_POST['nlOn'])) {
+          // EN: Default Variable
+          // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if ($page2 != JAK_USERID) {

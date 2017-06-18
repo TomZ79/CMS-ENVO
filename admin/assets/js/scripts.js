@@ -11,6 +11,7 @@
  *
  *
  */
+
 /* 00. BASIC ADMIN ENVO CONFIG
  ========================================================================*/
 $.AdminEnvo = {};
@@ -240,6 +241,36 @@ $(function () {
   });
 });
 
+/* 00. DATA LOADING TEXT IN BUTTON
+ ========================================================================*/
+(function () {
+  // Button
+  $('button[name = "btnSave"]').on('click', function() {
+    var $this = $(this);
+    $this.button('loading');
+    setTimeout(function() {
+      $this.button('reset');
+    }, 1000);
+  });
+
+  $('button[name = "btnTestMail"]').on('click', function() {
+    var $this = $(this);
+    $this.button('loading');
+    setTimeout(function() {
+      $this.button('reset');
+    }, 1000);
+  });
+
+  // Anchor
+  $('a[data-loading-text]').click(function () {
+    $(this).button('loading');
+    setTimeout(function() {
+      $this.button('reset');
+    }, 1000);
+  });
+
+}());
+
 /* 00. INITIALIZES SEARCH OVERLAY PLUGIN
  ========================================================================*/
 (function ($) {
@@ -282,13 +313,7 @@ $(function () {
         },
         success: function (data) {
           // successful request; do something with the data
-
           resultsContainer.html(data);
-          //searchResults.fadeIn("fast"); // reveal updated results
-        },
-        error:function(){
-          // failed request; give feedback to user
-
         }
       });
       return false;

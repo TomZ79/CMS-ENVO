@@ -5,6 +5,8 @@ $errorsA = $errorsC = array();
 
 // Check the register page and fire errors or emails
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
+  // EN: Default Variable
+  // CZ: Hlavní proměnné
   $defaults = $_POST;
   // Create Session, so contact form can only used once
   $_SESSION['rf_msg_sent'] = -1;

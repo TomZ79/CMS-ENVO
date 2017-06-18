@@ -76,6 +76,8 @@ switch ($page1) {
 
     // Let's go on with the script
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       if (!is_numeric($defaults['jak_limit'])) {
@@ -241,6 +243,8 @@ switch ($page1) {
 
     // Let's go on with the script
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jak_delete_tag'])) {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       if (isset($defaults['delete'])) {

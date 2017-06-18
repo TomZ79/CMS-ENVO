@@ -22,6 +22,8 @@ switch ($page1) {
     $jakfield = 'varname';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       if (empty($defaults['jak_name'])) {
@@ -177,6 +179,8 @@ switch ($page1) {
         if (jak_row_exist($page2, $jaktable)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // EN: Default Variable
+            // CZ: Hlavní proměnné
             $defaults = $_POST;
 
             if (empty($defaults['jak_name'])) {

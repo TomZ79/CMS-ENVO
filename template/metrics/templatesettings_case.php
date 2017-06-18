@@ -23,7 +23,9 @@ if (!is_writable ($phpdir) || !is_writable ($langdir)) {
 // EN: Save data from Form to DB (method POST)
 // CZ: Uložení data z Formuláře do DB (metoda POST)
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	$defaults = $_POST;
+  // EN: Default Variable
+  // CZ: Hlavní proměnné
+  $defaults = $_POST;
 
 	$result1 = $jakdb->query ('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
 

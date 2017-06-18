@@ -18,10 +18,13 @@ $JAK_SETTING = jak_get_setting_val('mediasharing');
 
 // Let's go on with the script
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  // EN: Default Variable
+  // CZ: Hlavní proměnné
   $defaults = $_POST;
 
-  if (isset($defaults['save'])) {
-
+  if (isset($_POST['btnSave'])) {
+    // EN: If button "Save Changes" clicked
+    // CZ: Pokud bylo stisknuto tlačítko "Uložit"
 
     if (count($errors) == 0) {
 
@@ -55,6 +58,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $errors['e'] = $tl['general_error']['generror'] . '<br>';
       $errors      = $errors;
     }
+
+  }  else {
+    // EN: If no button pressed
+    // CZ: Pokud nebylo stisknuto žádné tlačítko
 
   }
 }

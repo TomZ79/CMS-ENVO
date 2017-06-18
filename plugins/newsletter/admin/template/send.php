@@ -41,7 +41,7 @@ if ($errors) { ?>
 
       <?php
       // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-      echo $Html->addButtonSubmit('save', $tl["button"]["btn26"] . ' !! ', 'sendNL', 'btn btn-primary button');
+      echo $Html->addButtonSubmit('btnSave', $tl["button"]["btn26"] . ' !! ', 'sendNL', 'btn btn-primary button');
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
       echo $Html->addAnchor('index.php?p=newsletter', $tl["button"]["btn19"], '', 'btn btn-info button');
       ?>

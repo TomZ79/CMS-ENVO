@@ -109,7 +109,7 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
 
           <?php
           // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-          echo $Html->addButtonSubmit('save', $tl["button"]["btn1"], '', 'btn btn-success pull-right save-menu', array('data-menu' => 'mheader'));
+          echo $Html->addButtonSubmit('btnSave', $tl["button"]["btn1"], '', 'btn btn-success pull-right save-menu', array('data-menu' => 'mheader', 'data-loading-text' => $tl["button"]["btn41"]));
           ?>
 
         </div>
@@ -153,7 +153,7 @@ if ($page1 == "e" || $page1 == "epc" || $page1 == "ech" || $page1 == "ene") { ?>
 
           <?php
           // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-          echo $Html->addButtonSubmit('save', $tl["button"]["btn1"], '', 'btn btn-success pull-right save-menu', array('data-menu' => 'mfooter'));
+          echo $Html->addButtonSubmit('btnSave', $tl["button"]["btn1"], '', 'btn btn-success pull-right save-menu', array('data-menu' => 'mfooter', 'data-loading-text' => $tl["button"]["btn41"]));
           ?>
 
         </div>

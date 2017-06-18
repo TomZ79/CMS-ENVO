@@ -22,6 +22,8 @@ switch ($page1) {
   case 'settings':
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
@@ -165,6 +167,8 @@ switch ($page1) {
   default:
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       // Write new options

@@ -40,11 +40,14 @@ if ($page1 == "trunheat") {
 
 }
 
-// Let's go on with the script
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $defaults = $_POST;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (isset($_POST["btnSave"])) {
+    // EN: If button "Save Changes" clicked
+    // CZ: Pokud bylo stisknuto tlačítko "Uložit"
 
-  if (isset($defaults['save'])) {
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
+    $defaults = $_POST;
 
     // Get the php hook for setting top before language control
     $getsettingpost = $jakhooks->jakGethook("php_admin_setting_post");
@@ -201,7 +204,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         WHEN "eucookie_link" THEN "' . smartsql($defaults['jak_eucookie_link']) . '"
         WHEN "eucookie_href" THEN "' . smartsql($defaults['jak_eucookie_href']) . '"
     END
-    	WHERE varname IN ("email","sitehttps","lang","locale","showloginside","loginside","useravatwidth","useravatheight","userpath","printme","shortmsg","dateformat","timeformat","time_ago_show","timezoneserver","hvm","adv_editor","usr_smilies","contactform","shownews","rss","rssitem","adminpagemid","adminpageitem","ip_block","email_block","username_block","analytics","heatmap","smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password","acetheme","acetabSize","acegutter","aceinvisible","acewraplimit","aceactiveline","eucookie_enabled","eucookie_name","eucookie_expiryDays","eucookie_position","eucookie_style","eucookie_theme","eucookie_pbck","eucookie_ptxt","eucookie_bbck","eucookie_btxt","eucookie_alpha","eucookie_message","eucookie_dismiss","eucookie_link","eucookie_href")');
+      WHERE varname IN ("email","sitehttps","lang","locale","showloginside","loginside","useravatwidth","useravatheight","userpath","printme","shortmsg","dateformat","timeformat","time_ago_show","timezoneserver","hvm","adv_editor","usr_smilies","contactform","shownews","rss","rssitem","adminpagemid","adminpageitem","ip_block","email_block","username_block","analytics","heatmap","smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password","acetheme","acetabSize","acegutter","aceinvisible","acewraplimit","aceactiveline","eucookie_enabled","eucookie_name","eucookie_expiryDays","eucookie_position","eucookie_style","eucookie_theme","eucookie_pbck","eucookie_ptxt","eucookie_bbck","eucookie_btxt","eucookie_alpha","eucookie_message","eucookie_dismiss","eucookie_link","eucookie_href")');
 
       if (!$result) {
         // EN: Redirect page
@@ -218,20 +221,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $errors      = $errors;
     }
 
-  } else {
+  } else if (isset($_POST["btnTestMail"])) {
+    // EN: If button "Test Mail" clicked
+    // CZ: Pokud bylo stisknuto tlačítko "Test Mail"
 
     // Do the dirty work in mysql
     $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-										WHEN "smtp_or_mail" THEN "' . smartsql($defaults['jak_smpt']) . '"
-										WHEN "smtp_host" THEN "' . smartsql($defaults['jak_host']) . '"
-										WHEN "smtp_port" THEN "' . smartsql($defaults['jak_port']) . '"
-										WHEN "smtp_alive" THEN "' . smartsql($defaults['jak_alive']) . '"
-										WHEN "smtp_auth" THEN "' . smartsql($defaults['jak_auth']) . '"
-										WHEN "smtp_prefix" THEN "' . smartsql($defaults['jak_prefix']) . '"
-										WHEN "smtp_user" THEN "' . smartsql($defaults['jak_smtpusername']) . '"
-										WHEN "smtp_password" THEN "' . smartsql($defaults['jak_smtppassword']) . '"
-								END
-									WHERE varname IN ("smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password")');
+                    WHEN "smtp_or_mail" THEN "' . smartsql($defaults['jak_smpt']) . '"
+                    WHEN "smtp_host" THEN "' . smartsql($defaults['jak_host']) . '"
+                    WHEN "smtp_port" THEN "' . smartsql($defaults['jak_port']) . '"
+                    WHEN "smtp_alive" THEN "' . smartsql($defaults['jak_alive']) . '"
+                    WHEN "smtp_auth" THEN "' . smartsql($defaults['jak_auth']) . '"
+                    WHEN "smtp_prefix" THEN "' . smartsql($defaults['jak_prefix']) . '"
+                    WHEN "smtp_user" THEN "' . smartsql($defaults['jak_smtpusername']) . '"
+                    WHEN "smtp_password" THEN "' . smartsql($defaults['jak_smtppassword']) . '"
+                END
+                  WHERE varname IN ("smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password")');
 
     // SEND TEST EMAIL
     // Retrieve the email template required
@@ -300,6 +305,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       }
 
     }
+
+  } else {
+    // EN: If no button pressed
+    // CZ: Pokud nebylo stisknuto žádné tlačítko
 
   }
 }

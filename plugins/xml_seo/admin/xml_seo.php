@@ -35,6 +35,9 @@ switch ($page1) {
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // Create sitemap
+
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       // Create sitemap for pages
@@ -310,6 +313,8 @@ switch ($page1) {
   case 'view':
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       // Show/Hide Sitemap.xml
@@ -346,6 +351,9 @@ switch ($page1) {
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // XML SEO settings
+
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       // Get value from From

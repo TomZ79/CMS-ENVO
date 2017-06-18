@@ -141,7 +141,9 @@ switch ($page1) {
 
     }
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($defaults['save'])) {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btnSave'])) {
+      // EN: If button "Save Changes" clicked
+      // CZ: Pokud bylo stisknuto tlačítko "Uložit"
 
       if (is_writable($defaults['jak_file'])) {
         $openfedit = fopen($defaults['jak_file'], "w+");
@@ -213,7 +215,9 @@ switch ($page1) {
 
     }
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($defaults['save'])) {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btnSave'])) {
+      // EN: If button "Save Changes" clicked
+      // CZ: Pokud bylo stisknuto tlačítko "Uložit"
 
       if (is_writable($defaults['jak_file'])) {
         $openfedit = fopen($defaults['jak_file'], "w+");
@@ -281,7 +285,9 @@ switch ($page1) {
 
     }
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($defaults['save'])) {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btnSave'])) {
+      // EN: If button "Save Changes" clicked
+      // CZ: Pokud bylo stisknuto tlačítko "Uložit"
 
       if (is_writable($defaults['jak_file'])) {
         $openfedit = fopen($defaults['jak_file'], "w+");
@@ -350,11 +356,13 @@ switch ($page1) {
 
     // Let's go on with the script
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       // Do the dirty work in mysql
       $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-		        WHEN "sitestyle" THEN "' . smartsql($defaults['save']) . '"
+		        WHEN "sitestyle" THEN "' . smartsql($defaults['btnSave']) . '"
 		    END
 				WHERE varname IN ("sitestyle")');
 

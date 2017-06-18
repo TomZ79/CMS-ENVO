@@ -2,6 +2,8 @@
 
 // Check the contact page and fire errors or emails
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['contactF'])) {
+  // EN: Default Variable
+  // CZ: Hlavní proměnné
   $defaults = $_POST;
   $errorsA = false;
   // Errors in Array

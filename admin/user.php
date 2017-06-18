@@ -26,6 +26,8 @@ switch ($page1) {
   case 'newuser':
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       if ($defaults['jak_email'] == '' || !filter_var($defaults['jak_email'], FILTER_VALIDATE_EMAIL)) {
@@ -113,6 +115,8 @@ switch ($page1) {
       case 'search':
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['search'])) {
+          // EN: Default Variable
+          // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (isset($defaults['search'])) {
@@ -140,6 +144,8 @@ switch ($page1) {
         }
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jak_delete_user'])) {
+          // EN: Default Variable
+          // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (isset($defaults['move'])) {
@@ -511,6 +517,8 @@ switch ($page1) {
 
           // Do something if POST
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // EN: Default Variable
+            // CZ: Hlavní proměnné
             $defaults = $_POST;
 
             if ($defaults['jak_email'] == '' || !filter_var($defaults['jak_email'], FILTER_VALIDATE_EMAIL)) {
@@ -748,6 +756,8 @@ switch ($page1) {
       default:
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jak_delete_user'])) {
+          // EN: Default Variable
+          // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (isset($defaults['move'])) {

@@ -10,6 +10,8 @@ if (!JAK_USERID || !$JAK_MODULES) jak_redirect(BASE_URL);
 
 // Let's go on with the script
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  // EN: Default Variable
+  // CZ: Hlavní proměnné
   $defaults = $_POST;
 
   if (empty($defaults['jak_title'])) {

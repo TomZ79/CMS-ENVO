@@ -2,14 +2,6 @@
   $(document).ready(function () {
     $(".txtautogrow").autoGrow();
 
-    $('.TMspinner').hide();
-
-    $('#sendTM').click(function () {
-      $('.TMspinner').show();
-      $('.TMlabel').text("<?php echo $tl["button"]["btn41"];?>");
-      $('#sendTM').attr("disabled", "disabled");
-    });
-
     // Show/Hide block form SMTP settings
     $("input[name=jak_smpt]:radio").change(function () {
       if ($('input[name=jak_smpt]:checked').val() == "1") {

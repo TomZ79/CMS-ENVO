@@ -19,6 +19,8 @@ $insert     = '';
 if (JAK_USERID) {
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['avatarR'])) {
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
     $defaults = $_POST;
 
     if (!empty($_FILES['uploadpp']['name'])) {
@@ -110,6 +112,8 @@ if (JAK_USERID) {
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['avatarS'])) {
 
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
     $defaults = $_POST;
 
     // Set Avatar if yes
@@ -250,6 +254,8 @@ if (JAK_USERID) {
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['email_passR'])) {
 
+    // EN: Default Variable
+    // CZ: Hlavní proměnné
     $defaults = $_POST;
 
     $passold = smartsql($defaults['passold']);

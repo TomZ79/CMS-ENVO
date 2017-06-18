@@ -19,6 +19,8 @@ switch ($page1) {
   case 'new':
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       if (empty($defaults['jak_oldurl']) && empty($defaults['jak_newurl']) && (($defaults['jak_baseurl'] == 0) || ($defaults['jak_baseurl'] == 1))) {
@@ -119,6 +121,8 @@ switch ($page1) {
       case 'edit':
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          // EN: Default Variable
+          // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (empty($defaults['jak_oldurl']) && empty($defaults['jak_newurl']) && (($defaults['jak_baseurl'] == 0) || ($defaults['jak_baseurl'] == 1))) {
@@ -183,6 +187,8 @@ switch ($page1) {
 
         // Hello we have a post request
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jak_delete_urlmapping'])) {
+          // EN: Default Variable
+          // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (isset($defaults['delete'])) {

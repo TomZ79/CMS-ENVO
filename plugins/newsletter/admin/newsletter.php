@@ -46,9 +46,11 @@ switch ($page1) {
   case 'new':
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
-      if (isset($defaults['save'])) {
+      if (isset($defaults['btnSave'])) {
 
         if (empty($defaults['jak_title'])) {
           $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
@@ -212,6 +214,8 @@ switch ($page1) {
     if (is_numeric($page2) && jak_row_exist($page2, $jaktable)) {
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // EN: Default Variable
+        // CZ: Hlavní proměnné
         $defaults = $_POST;
 
         if (empty($defaults['jak_nlgroup']) && empty($defaults['jak_cmsgroup'])) {
@@ -421,6 +425,8 @@ switch ($page1) {
       case 'newuser':
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          // EN: Default Variable
+          // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if ($defaults['jak_name']) {
@@ -542,6 +548,8 @@ switch ($page1) {
         if (jak_row_exist($page3, $jaktable2)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // EN: Default Variable
+            // CZ: Hlavní proměnné
             $defaults = $_POST;
 
             if (empty($defaults['jak_name'])) {
@@ -663,6 +671,8 @@ switch ($page1) {
       default:
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jak_delete_user'])) {
+          // EN: Default Variable
+          // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (isset($defaults['move'])) {
@@ -754,6 +764,8 @@ switch ($page1) {
       case 'new':
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          // EN: Default Variable
+          // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (empty($defaults['jak_name'])) {
@@ -800,6 +812,8 @@ switch ($page1) {
         if (jak_row_exist($page3, $jaktable1)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // EN: Default Variable
+            // CZ: Hlavní proměnné
             $defaults = $_POST;
 
             if (empty($defaults['jak_name'])) {
@@ -883,6 +897,8 @@ switch ($page1) {
       default:
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          // EN: Default Variable
+          // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (isset($defaults['delete'])) {
@@ -958,9 +974,13 @@ switch ($page1) {
   case 'settings':
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
-      if (isset($defaults['save'])) {
+      if (isset($_POST['btnSave'])) {
+        // EN: If button "Save Changes" clicked
+        // CZ: Pokud bylo stisknuto tlačítko "Uložit"
 
         if (empty($defaults['jak_title'])) {
           $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
@@ -1011,7 +1031,9 @@ switch ($page1) {
           $errors      = $errors;
         }
 
-      } else {
+      } else if (isset($_POST["btnTestMail"])) {
+        // EN: If button "Test Mail" clicked
+        // CZ: Pokud bylo stisknuto tlačítko "Test Mail"
 
         $mail = new PHPMailer(TRUE); // the true param means it will throw exceptions on errors, which we need to catch
 
@@ -1060,6 +1082,10 @@ switch ($page1) {
           }
 
         }
+
+      } else {
+        // EN: If no button pressed
+        // CZ: Pokud nebylo stisknuto žádné tlačítko
 
       }
     }
@@ -1117,6 +1143,8 @@ switch ($page1) {
         if (is_numeric($page2) && jak_row_exist($page2, $jaktable)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // EN: Default Variable
+            // CZ: Hlavní proměnné
             $defaults = $_POST;
 
             if (empty($defaults['jak_title'])) {
@@ -1174,6 +1202,8 @@ switch ($page1) {
 
         // Hello we have a post request
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jak_delete_newsletter'])) {
+          // EN: Default Variable
+          // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (isset($defaults['delete'])) {

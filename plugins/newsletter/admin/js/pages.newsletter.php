@@ -148,21 +148,6 @@
 <!-- JavaScript to disable send button and show loading.gif image -->
 <script type="text/javascript">
   $(document).ready(function () {
-
-    $('.TMspinner').hide();
-
-    $('#sendTM').click(function () {
-      $('.TMspinner').show();
-      $('.TMlabel').text("<?php echo $tl["button"]["btn41"];?>");
-      $('#sendTM').attr("disabled", "disabled");
-    });
-
-  });
-</script>
-
-<!-- JavaScript to disable send button and show loading.gif image -->
-<script type="text/javascript">
-  $(document).ready(function () {
     // onclick
     $("#sendNl").click(function () {
       $("#loader").show();

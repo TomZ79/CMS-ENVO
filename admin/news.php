@@ -31,6 +31,8 @@ switch ($page1) {
     $JAK_CONTACT_FORMS = jak_get_page_info($jaktable1, '');
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       if (empty($defaults['jak_title'])) {
@@ -225,6 +227,8 @@ switch ($page1) {
 
     // Let's go on with the script
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       if (empty($defaults['jak_date'])) {
@@ -457,6 +461,8 @@ switch ($page1) {
         if (jak_row_exist($page2, $jaktable)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // EN: Default Variable
+            // CZ: Hlavní proměnné
             $defaults = $_POST;
 
             // Delete the tags
@@ -754,6 +760,8 @@ switch ($page1) {
         if (jak_row_exist($page2, $jaktable)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // EN: Default Variable
+            // CZ: Hlavní proměnné
             $defaults = $_POST;
 
             if (empty($defaults['jak_title'])) {

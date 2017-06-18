@@ -22,6 +22,8 @@ $facebookNameFile = $facebookDir . 'facebook_name.txt';
 $facebookDescFile = $facebookDir . 'facebook_description.txt';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  // EN: Default Variable
+  // CZ: Hlavní proměnné
   $defaults = $_POST;
 
   $txtfile  = $defaults['jak_filecontent'];

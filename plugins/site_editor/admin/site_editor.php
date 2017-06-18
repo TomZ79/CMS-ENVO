@@ -11,6 +11,9 @@ if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, $jkv["accessmanage"]))
 // Form 1-2
 if (isset($_POST['action']) && $_POST['action'] == 'form1') {
   // Form 1 - Edit robots.txt
+
+  // EN: Default Variable
+  // CZ: Hlavní proměnné
   $defaults = $_POST;
 
   // Get value from Form 1

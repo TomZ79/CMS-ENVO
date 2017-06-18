@@ -47,6 +47,8 @@ switch ($page1) {
         if (jak_row_exist($page3, $jaktable2)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // EN: Default Variable
+            // CZ: Hlavní proměnné
             $defaults = $_POST;
 
             if (empty($defaults['jak_name'])) {
@@ -127,6 +129,8 @@ switch ($page1) {
       default:
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jak_delete_hook'])) {
+          // EN: Default Variable
+          // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (isset($defaults['lock'])) {
@@ -249,6 +253,8 @@ switch ($page1) {
   case 'newhook':
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       if (empty($defaults['jak_name'])) {
@@ -322,6 +328,8 @@ switch ($page1) {
 
         // Let's go on with the script
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          // EN: Default Variable
+          // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (isset($defaults['real_id'])) {

@@ -20,6 +20,8 @@ switch ($page1) {
   case 'newcontact':
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       if (empty($defaults['jak_title'])) {
@@ -94,6 +96,8 @@ switch ($page1) {
   default:
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && empty($page1)) {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       if (isset($defaults['lock'])) {
@@ -186,6 +190,8 @@ switch ($page1) {
         if (is_numeric($page2) && jak_row_exist($page2, $jaktable)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // EN: Default Variable
+            // CZ: Hlavní proměnné
             $defaults = $_POST;
 
             // Delete the options

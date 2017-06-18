@@ -16,6 +16,8 @@ include_once 'class/class.search.php';
 // Now do the dirty work with the post vars
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jakSH']) || !empty($page1)) {
 
+  // EN: Default Variable
+  // CZ: Hlavní proměnné
   $defaults = $_POST;
 
   if (isset($_POST['jakSH'])) {

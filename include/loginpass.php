@@ -58,6 +58,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['loginusername'])) {
 
 // Forgot password
 if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
+  // EN: Default Variable
+  // CZ: Hlavní proměnné
   $defaults = $_POST;
 
   if (!filter_var($defaults['jakE'], FILTER_VALIDATE_EMAIL)) {
@@ -114,8 +116,9 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
 
 // Gain access to page
 if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['pageprotect'])) {
+  // EN: Default Variable
+  // CZ: Hlavní proměnné
   $defaults = $_POST;
-
   $passcrypt = hash_hmac('sha256', $defaults['pagepass'], DB_PASS_HASH);
 
   if (!is_numeric($defaults['pagesec'])) {

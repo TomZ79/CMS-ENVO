@@ -32,6 +32,8 @@ switch ($page1) {
   case 'newgroup':
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       if (isset($defaults['create'])) {
@@ -43,7 +45,9 @@ switch ($page1) {
 
       }
 
-      if (isset($defaults['save'])) {
+      if (isset($_POST['btnSave'])) {
+        // EN: If button "Save Changes" clicked
+        // CZ: Pokud bylo stisknuto tlačítko "Uložit"
 
         if (empty($defaults['jak_name'])) {
           $errors['e1'] = $tl['general_error']['generror4'] . '<br>';
@@ -106,6 +110,8 @@ switch ($page1) {
   default:
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jak_delete_usergroup'])) {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       if (isset($defaults['delete'])) {
@@ -204,6 +210,8 @@ switch ($page1) {
         if (jak_row_exist($page2, $jaktable)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // EN: Default Variable
+            // CZ: Hlavní proměnné
             $defaults = $_POST;
 
             if (empty($defaults['jak_name'])) {
