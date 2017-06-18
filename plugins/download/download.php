@@ -96,7 +96,8 @@ switch ($page1) {
       $JAK_HOOK_SIDE_GRID = FALSE;
       $grid               = $jakdb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql(JAK_PLUGIN_ID_DOWNLOAD) . '" AND fileid = 0 ORDER BY orderid ASC');
       while ($grow = $grid->fetch_assoc()) {
-        // collect each record into $pagegrid
+        // EN: Insert each record into array
+        // CZ: Vložení získaných dat do pole
         $JAK_HOOK_SIDE_GRID[] = $grow;
       }
 
@@ -225,6 +226,8 @@ switch ($page1) {
 
       // Gain access to page
       if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['dlprotect'])) {
+        // EN: Default Variable
+        // CZ: Hlavní proměnné
         $defaults = $_POST;
 
         $passcrypt = hash_hmac('sha256', $defaults['dlpass'], DB_PASS_HASH);
@@ -284,9 +287,26 @@ switch ($page1) {
           $SHOWSOCIALBUTTON = $row['socialbutton'];
           $DL_HITS          = $row['hits'];
           $DL_DOWNLOADS     = $row['countdl'];
+          // EN: Facebook image
+          // CZ: Obrázek pro Facebook
+          if (!empty($row['previmgfbsm']) || !empty($row['previmgfblg'])) {
+            if (isset($row['previmgfbsm']) && !isset($row['previmgfblg'])) {
+              $imgsm = urldecode ($row['previmgfbsm']);
+              $FB_IMAGE         = BASE_URL . ltrim($imgsm, '/') . '?v=' . rand();
+              $data = getimagesize(APP_PATH . ltrim($imgsm, '/'));
+              $FB_IMAGE_W = $data[0];
+              $FB_IMAGE_H = $data[1];
+            } else {
+              $imglg = urldecode ($row['previmgfblg']);
+              $FB_IMAGE         = BASE_URL . ltrim($imglg, '/') . '?v=' . rand();
+              $data = getimagesize(APP_PATH . ltrim($imglg, '/'));
+              $FB_IMAGE_W = $data[0];
+              $FB_IMAGE_H = $data[1];
+            }
+          }
           // EN: $DL_PASSWORD - variable if page have password
           // CZ: $DL_PASSWORD - proměná pro zaheslovanou stránku
-          $DL_PASSWORD = $row['password'];
+          $DL_PASSWORD      = $row['password'];
           // EN: $PAGE_PASSWORD - main variable if page have password, use in template
           // CZ: $PAGE_PASSWORD - hlavní proměnná pro zaheslovanou stránku, používá se pro template
           $PAGE_PASSWORD               = $DL_PASSWORD;
@@ -413,9 +433,10 @@ switch ($page1) {
     // Get script for Facebook SDK
     $JAK_FACEBOOK_SDK_CONNECTION = $row['value'];
 
-    // Get random image from folder
-    $imgList          = jak_get_random_image(JAK_FILES_DIRECTORY . '/facebook/');
-    $JAK_RANDOM_IMAGE = jak_get_random_from_array($imgList);
+    // EN: Get random image from folder for Facebook
+    // CZ: Získání náhodného obrázku z adresáře pro Facebook
+    // $fbarray  = jak_get_random_image(JAK_FILES_DIRECTORY . '/facebook/');
+    // $FB_IMAGE = BASE_URL . ltrim (jak_get_random_from_array($fbarray), '/');
 
     // EN: Load the template
     // CZ: Načti template (šablonu)
@@ -455,6 +476,8 @@ switch ($page1) {
   case 'ep':
 
     if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['userpost']) && isset($_POST['name']) && isset($_POST['editpost'])) {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       if (empty($defaults['userpost'])) {
@@ -567,8 +590,14 @@ switch ($page1) {
         }
 
         // EN: Write data to download history ( table 'DBPrefix_downloadhistory' in DB )
-        // CZ: Zápis informací do historie stahování ( tabulka 'DBPrefix_downloadhistory' v DB )
-        $jakdb->query('INSERT INTO ' . $jaktable3 . ' VALUES (NULL, "' . $page2 . '", "' . smartsql($dluserid) . '", "' . smartsql($dlemail) . '", "' . smartsql($row['file']) . '", "' . smartsql($ipa) . '", NOW())');
+        // CZ: Zápis informací do historie stahování ( tabulka 'DBPrefix_downloadhistory' v DB ) - pokud je zadán soubor v sloupci 'file' tabulky 'download' má tento soubor přednost před zadaným souborem 'extfile'
+        if (isset($row['file'])) {
+          $file = smartsql($row['file']);
+        } else {
+          $file = smartsql($row['extfile']);
+        }
+
+        $jakdb->query('INSERT INTO ' . $jaktable3 . ' VALUES (NULL, "' . $page2 . '", "' . smartsql($dluserid) . '", "' . smartsql($dlemail) . '", "' . $file . '", "' . smartsql($ipa) . '", NOW())');
 
         if (!empty($row['extfile'])) {
           /*
@@ -620,22 +649,29 @@ switch ($page1) {
               //if(ini_get('zlib.output_compression')) { ini_set('zlib.output_compression', 'Off'); }
 
               // get the file mime type using the file extension
-              switch(strtolower(substr(strrchr($dlfile, '.'), 1))) {
-                case 'pdf': $mime = 'application/pdf'; break;
-                case 'zip': $mime = 'application/zip'; break;
+              switch (strtolower(substr(strrchr($dlfile, '.'), 1))) {
+                case 'pdf':
+                  $mime = 'application/pdf';
+                  break;
+                case 'zip':
+                  $mime = 'application/zip';
+                  break;
                 case 'jpeg':
-                case 'jpg': $mime = 'image/jpg'; break;
-                default: $mime = 'application/force-download';
+                case 'jpg':
+                  $mime = 'image/jpg';
+                  break;
+                default:
+                  $mime = 'application/force-download';
               }
               header('Pragma: ');   // required
               header('Expires: 0');   // no cache
               header('Cache-Control: ');
-              header('Last-Modified: '.gmdate ('D, d M Y H:i:s', filemtime ($dlfile)).' GMT');
-              header('Cache-Control: private',false);
+              header('Last-Modified: ' . gmdate('D, d M Y H:i:s', filemtime($dlfile)) . ' GMT');
+              header('Cache-Control: private', FALSE);
               header('Content-Type: application/force-download');
-              header('Content-Disposition: attachment; filename="'.basename($dlfile).'"');
+              header('Content-Disposition: attachment; filename="' . basename($dlfile) . '"');
               header('Content-Transfer-Encoding: binary');
-              header('Content-Length: '.filesize($dlfile));  // provide file size
+              header('Content-Length: ' . filesize($dlfile));  // provide file size
               ob_clean();
               flush();
               readfile($dlfile);   // push it out
@@ -706,7 +742,8 @@ switch ($page1) {
     $JAK_HOOK_SIDE_GRID = FALSE;
     $grid               = $jakdb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql(JAK_PLUGIN_ID_DOWNLOAD) . '" AND fileid = 0 ORDER BY orderid ASC');
     while ($grow = $grid->fetch_assoc()) {
-      // collect each record into $pagegrid
+      // EN: Insert each record into array
+      // CZ: Vložení získaných dat do pole
       $JAK_HOOK_SIDE_GRID[] = $grow;
     }
 

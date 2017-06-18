@@ -40,7 +40,7 @@ if ($errors) { ?>
 
       <?php
       // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-      echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button');
+      echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array('data-loading-text' => $tl["button"]["btn41"]));
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
       echo $Html->addAnchor('index.php?p=download', $tl["button"]["btn19"], '', 'btn btn-info button');
       ?>
@@ -359,7 +359,91 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                ?>
+
+              </div>
+            </div>
+            <div class="box box-success">
+              <div class="box-header with-border">
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tld["downl_box_title"]["downlbt13"], 'box-title');
+                ?>
+
+              </div>
+              <div class="box-body">
+                <div class="block">
+                  <div class="block-content">
+                    <div class="row-form">
+                      <div class="col-md-5">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                        echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc51"]);
+                        echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tld["downl_help"]["downlh8"], 'data-original-title' => $tld["downl_help"]["downlh"]));
+                        ?>
+
+                      </div>
+                      <div class="col-md-7">
+                        <div class="input-group">
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html->addInput('text', 'jak_img_facebooksm', (isset($_REQUEST["jak_img_facebooksm"])) ? $_REQUEST["jak_img_facebooksm"] : '', 'jak_img_facebooksm', 'form-control');
+                          ?>
+
+                          <span class="input-group-btn">
+
+														<?php
+                            // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                            echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&lang='.$managerlang.'&fldr=&field_id=jak_img_facebooksm', '<i class="pg-image"></i>', '', 'btn btn-info ifManager jaktip', array('type' => 'button', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i22"]));
+                            ?>
+
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                        echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc52"]);
+                        echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tld["downl_help"]["downlh9"], 'data-original-title' => $tld["downl_help"]["downlh"]));
+                        ?>
+
+                      </div>
+                      <div class="col-md-7">
+                        <div class="input-group">
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html->addInput('text', 'jak_img_facebooklg', (isset($_REQUEST["jak_img_facebooklg"])) ? $_REQUEST["jak_img_facebooklg"] : '', 'jak_img_facebooklg', 'form-control');
+                          ?>
+
+                          <span class="input-group-btn">
+
+														<?php
+                            // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                            echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&lang='.$managerlang.'&fldr=&field_id=jak_img_facebooklg', '<i class="pg-image"></i>', '', 'btn btn-info ifManager jaktip', array('type' => 'button', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i22"]));
+                            ?>
+
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="box-footer">
+
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
                 ?>
 
               </div>
@@ -414,7 +498,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
                 ?>
 
               </div>
@@ -472,7 +556,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
                 ?>
 
               </div>
@@ -508,7 +592,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
                 ?>
 
               </div>
@@ -593,7 +677,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
                 ?>
 
               </div>
@@ -692,7 +776,7 @@ if ($errors) { ?>
 
                   <?php
                   // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                  echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+                  echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
                   ?>
 
                 </div>
@@ -738,7 +822,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
                 ?>
 
               </div>
@@ -776,7 +860,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
                 ?>
 
               </div>
@@ -803,7 +887,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                echo $Html->addButtonSubmit('save', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right');
+                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
                 ?>
 
               </div>

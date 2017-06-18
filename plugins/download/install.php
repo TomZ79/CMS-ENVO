@@ -189,7 +189,7 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
         require_once APP_PATH.\'plugins/download/admin/download.php\';
            $JAK_PROVED = 1;
            $checkp = 1;
-        }", "../plugins/download/admin/template/downloadnav.php", "download", "uninstall.php", "1.2", NOW())');
+        }", "../plugins/download/admin/template/downloadnav.php", "download", "uninstall.php", "1.2.1", NOW())');
 
       // EN: Now get the plugin 'id' from table 'plugins' for futher use
       // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
@@ -309,6 +309,10 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 	
 } }';
 
+      // EN: Insert code into admin/index.php
+      // CZ: Vložení kódu do admin/index.php
+      $insertadminindex = 'plugins/register_form/admin/template/stat.php';
+
       // EN: Frontend - template for display connect
       // CZ: Frontend - šablona
       $get_dlconnect = '
@@ -421,6 +425,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 (NULL, "php_admin_usergroup", "Download Usergroup", "' . $insertphpcode . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_lang", "Download Admin Language", "' . $adminlang . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Download Site Language", "' . $sitelang . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_index", "Download Statistics Admin", "' . $insertadminindex . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_search", "Download Search PHP", "' . $sitephpsearch . '", "download", 1, 8, "' . $rows['id'] . '", NOW()),
 (NULL, "php_rss", "Download RSS PHP", "' . $sitephprss . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_tags", "Download Tags PHP", "' . $sitephptag . '", "download", 1, 8, "' . $rows['id'] . '", NOW()),
@@ -494,6 +499,8 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
   `extfile` varchar(255) DEFAULT NULL,
   `countdl` int(10) unsigned NOT NULL DEFAULT 0,
   `previmg` varchar(255) DEFAULT NULL,
+  `previmgfbsm` varchar(255) DEFAULT NULL,
+  `previmgfblg` varchar(255) DEFAULT NULL,
   `showtitle` smallint(1) unsigned NOT NULL DEFAULT 1,
   `active` smallint(1) unsigned NOT NULL DEFAULT 1,
   `showcontact` int(11) unsigned NOT NULL DEFAULT 0,
