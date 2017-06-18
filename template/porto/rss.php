@@ -7,6 +7,7 @@
 		<language><?php echo $site_language; ?></language>
 		<pubDate><?php echo $JAK_RSS_DATE; ?></pubDate>
 		<generator><?php echo BASE_URL; ?></generator>
+
 		<?php if (isset($JAK_GET_RSS_ITEM) && is_array ($JAK_GET_RSS_ITEM)) foreach ($JAK_GET_RSS_ITEM as $rss) { ?>
 			<item>
 				<title><?php echo $rss["title"]; ?></title>
@@ -15,5 +16,6 @@
 				<pubDate><?php echo $rss["created"]; ?></pubDate>
 			</item>
 		<?php } ?>
+
 	</channel>
 </rss>

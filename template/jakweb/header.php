@@ -26,11 +26,6 @@
 
 	<?php if ($JAK_SHOW_NAVBAR) include_once APP_PATH . 'template/jakweb/customstyle.php'; ?>
 
-	<?php if (isset($JAK_RSS_DISPLAY) && isset($JAK_RSS_TITLE)) { ?>
-		<link rel="alternate" type="application/rss+xml" title="<?php echo $JAK_RSS_TITLE; ?> RSS 2.0"
-			href="<?php echo $P_RSS_LINK; ?>">
-	<?php } ?>
-
 	<?php if (!$jkv["langdirection"]) { ?>
 		<!-- RTL Support -->
 		<link rel="stylesheet"
