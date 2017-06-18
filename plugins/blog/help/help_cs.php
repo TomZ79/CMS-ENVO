@@ -179,27 +179,27 @@
         <h4>Changelog</h4>
         <h5>v 1.1</h5>
         <pre name="code" class="brush: plain;">
-// # List of new components
+// # Seznam nových komponent
 // ------------------------------
 
-[new] Better notification
-[new] Use class for create hmtl element
-[new] Add help for plugin
-[new] Better install/unistall wizard
-[new] New design
-[new] Add edit of article's time
+[nový] Better notification
+[nový] Use class for create hmtl element
+[nový] Add help for plugin
+[nový] Better install/unistall wizard
+[nový] New design
+[nový] Add edit of article's time
 
-// # List of fixed bugs
+// # Seznam opravených chyb
 // ------------------------------
 
-[fixed] Reformat code
-[fixed] Language file cs.ini
-[fixed] Fix typo
+[opraveno] Reformat code
+[opraveno] Language file cs.ini
+[opraveno] Fix typo
 
-// # List of removed components
+// # Seznam odstraněných komponent
 // ------------------------------
 
-[removed] Remove unnecessary code
+[odstraněno] Remove unnecessary code
 				</pre>
 
         <h5>v 1.0</h5>

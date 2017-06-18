@@ -65,56 +65,77 @@
       <!-- Changelog -->
       <article>
         <h4>Changelog</h4>
+        <h5>v 1.2.1</h5>
+        <pre name="code" class="brush: plain;">
+// # Seznam nových komponent
+// ------------------------------
+
+[nový] Add static page into CMS Dashboard
+[nový] Added the ability to insert images for FB
+
+// # Seznam opravených chyb
+// ------------------------------
+
+[opraveno] Reformat code
+[opraveno] Language file cs.ini
+[opraveno] Fix typo
+
+// # Seznam odstraněných komponent
+// ------------------------------
+
+[odstraněno] Remove unnecessary code
+				</pre>
+
         <h5>v 1.2</h5>
         <pre name="code" class="brush: plain;">
-// # List of new components
+// # Seznam nových komponent
 // ------------------------------
 
-[new] Add new value '$DOWNLOAD_CATLIST' and '$DOWNLOAD_CAT' for downloadfile.php ( Category for download file )
-[new] If download file not exist, show notification
-[new] If download file not access, show notification
-[new] If not exist frontend template, load basic download template
+[nový] Add new value '$DOWNLOAD_CATLIST' and '$DOWNLOAD_CAT' for downloadfile.php ( Category for download file )
+[nový] If download file not exist, show notification
+[nový] If download file not access, show notification
+[nový] If not exist frontend template, load basic download template
 
-// # List of fixed bugs
+// # Seznam opravených chyb
 // ------------------------------
 
-[fixed] Reformat code
-[fixed] Language file cs.ini
-[fixed] Fix typo
+[opraveno] Reformat code
+[opraveno] Language file cs.ini
+[opraveno] Fix typo
 
-// # List of removed components
+// # Seznam odstraněných komponent
 // ------------------------------
 
-[removed] Remove unnecessary code
+[odstraněno] Remove unnecessary code
 				</pre>
 
         <h5>v 1.1</h5>
         <pre name="code" class="brush: plain;">
-// # List of new components
+// # Seznam nových komponent
 // ------------------------------
 
-[new] Better notification
-[new] Use class for create hmtl element
-[new] Add help for plugin
-[new] Better install/unistall wizard
-[new] New design
-[new] Add edit of article's time
+[nový] Better notification
+[nový] Use class for create hmtl element
+[nový] Add help for plugin
+[nový] Better install/unistall wizard
+[nový] New design
+[nový] Add edit of article's time
 
-// # List of fixed bugs
+// # Seznam opravených chyb
 // ------------------------------
 
-[fixed] Reformat code
-[fixed] Language file cs.ini
-[fixed] Fix typo
+[opraveno] Reformat code
+[opraveno] Language file cs.ini
+[opraveno] Fix typo
 
-// # List of removed components
+// # Seznam odstraněných komponent
 // ------------------------------
 
-[removed] Remove unnecessary code
+[odstraněno] Remove unnecessary code
 				</pre>
 
         <h5>v 1.0</h5>
-        <p>Basic initial</p>
+        <p>Základní inicializace</p>
       </article>
 
     </section>

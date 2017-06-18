@@ -65,6 +65,34 @@
       <!-- Changelog -->
       <article>
         <h4>Changelog</h4>
+        <h5>v 1.1</h5>
+        <pre name="code" class="brush: plain;">
+// # List of new components
+// ------------------------------
+
+[new] Better notification
+[new] Use class for create hmtl element
+[new] Add help for plugin
+[new] Better install/unistall wizard
+[new] New design
+[new] Add edit of article's time
+
+// # List of fixed bugs
+// ------------------------------
+
+[fixed] Reformat code
+[fixed] Language file cs.ini
+[fixed] Fix typo
+
+// # List of removed components
+// ------------------------------
+
+[removed] Remove unnecessary code
+				</pre>
+
+        <h5>v 1.0</h5>
+        <p>Basic initial</p>
+
 
       </article>
 
