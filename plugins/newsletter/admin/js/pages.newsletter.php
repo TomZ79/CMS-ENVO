@@ -1,4 +1,20 @@
-<script type="text/javascript">
+<script>
+  $(document).ready(function () {
+    // Show/Hide block form SMTP settings
+    $("input[name=jak_smpt]:radio").change(function () {
+      if ($('input[name=jak_smpt]:checked').val() == "1") {
+        $('#smtpsettings').show();
+
+      } else if ($('input[name=jak_smpt]:checked').val() == "0") {
+        $('#smtpsettings').hide();
+
+      }
+    });
+
+  });
+</script>
+
+<script>
   /* Short Code Insert to TinyMCE */
   $(".short-sc").click(function () {
     var myField = tinyMCE.get($(this).data('short-scf'));
@@ -14,8 +30,8 @@
   });
 </script>
 
-<script src="/assets/plugins/tinymce/tinymce.min.js?=v4.5.2" type="text/javascript"></script>
-<script type="text/javascript">
+<script src="/assets/plugins/tinymce/tinymce.min.js?=v4.5.2"></script>
+<script>
   tinymce.init({
     selector: "textarea.jakEditorF, textarea.jakEditorF2, textarea.jakEditorF3",
     theme: "modern",
@@ -41,7 +57,7 @@
   });
 </script>
 
-<script type="text/javascript">
+<script>
   $(document).ready(function () {
 
     // Show iFrame in modal -  Newsletter preview
@@ -69,11 +85,13 @@
         data: "skinUrl=" + $(this).attr("id"),
         dataType: 'json',
         beforeSend: function (x) {
-          $('#loader').show();
+          $('#spinner').css('visibility', 'visible');
         },
         success: function (msg) {
 
-          $('#loader').hide();
+          setTimeout(function () {
+            $('#spinner').css('visibility', 'hidden');
+          }, 2000);
 
           if (parseInt(msg.status) != 1) {
             return false;
@@ -106,7 +124,7 @@
   });
 </script>
 
-<script type="text/javascript">
+<script>
   $(document).ready(function () {
 
     /* Check all checkbox */
@@ -133,26 +151,15 @@
 </script>
 
 <!-- JavaScript to disable send button and show loading.gif image -->
-<script type="text/javascript">
+<script>
   $(document).ready(function () {
-    // onclick
-    $("input:submit").click(function () {
-      $("#loader").show();
-      $('#sendNL').val("<?php echo $tlnl["nletter"]["d31"];?>");
-      $('#sendNL').attr("disabled", "disabled");
-      $('.jak_form').submit();
-    });
-  });
-</script>
-
-<!-- JavaScript to disable send button and show loading.gif image -->
-<script type="text/javascript">
-  $(document).ready(function () {
-    // onclick
-    $("#sendNl").click(function () {
-      $("#loader").show();
-      $('#sendNL').val("<?php echo $tlnl["nletter"]["d31"];?>");
-      $('#sendNL').attr("disabled", true);
+    // Button 'Send Mail'
+    $('button[name = "btnSendMail"]').on('click', function () {
+      var $this = $(this);
+      $this.button('loading');
+      setTimeout(function () {
+        $this.button('reset');
+      }, 1000);
     });
   });
 </script>

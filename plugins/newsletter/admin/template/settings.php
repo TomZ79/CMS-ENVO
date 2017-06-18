@@ -126,7 +126,7 @@ if ($success) { ?>
 
                     <?php
                     // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                    echo $Html->addTextarea('jak_description', $JAK_SETTING1["nlsignoff"], '4', '', array('class' => 'form-control jakEditorLight', 'id' => 'jakEditor'));
+                    echo $Html->addTextarea('jak_description', $JAK_SETTING_VAL["nlsignoff"], '4', '', array('class' => 'form-control jakEditorLight', 'id' => 'jakEditor'));
                     ?>
 
                   </div>
@@ -146,7 +146,7 @@ if ($success) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_thankyou', $JAK_SETTING1["nlthankyou"], '', 'form-control');
+                      echo $Html->addInput('text', 'jak_thankyou', $JAK_SETTING_VAL["nlthankyou"], '', 'form-control');
                       ?>
 
                     </div>
@@ -167,7 +167,7 @@ if ($success) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_email', $JAK_SETTING1["nlemail"], '', 'form-control', array('placeholder' => $tl["placeholder"]["p13"]));
+                      echo $Html->addInput('text', 'jak_email', $JAK_SETTING_VAL["nlemail"], '', 'form-control', array('placeholder' => $tl["placeholder"]["p13"]));
                       ?>
 
                     </div>
@@ -188,12 +188,12 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                        echo $Html->addRadio('jak_smpt', '0', ($JAK_SETTING1["nlsmtp_mail"] == '0') ? TRUE : FALSE, 'jak_smpt1');
+                        echo $Html->addRadio('jak_smpt', '0', ($JAK_SETTING_VAL["nlsmtp_mail"] == '0') ? TRUE : FALSE, 'jak_smpt1');
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                         echo $Html->addLabel('jak_smpt1', $tl["checkbox"]["chk6"]);
 
                         // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                        echo $Html->addRadio('jak_smpt', '1', ($JAK_SETTING1["nlsmtp_mail"] == '1') ? TRUE : FALSE, 'jak_smpt2');
+                        echo $Html->addRadio('jak_smpt', '1', ($JAK_SETTING_VAL["nlsmtp_mail"] == '1') ? TRUE : FALSE, 'jak_smpt2');
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                         echo $Html->addLabel('jak_smpt2', $tl["checkbox"]["chk7"]);
                         ?>
@@ -202,152 +202,155 @@ if ($success) { ?>
                     </div>
                   </div>
                 </div>
-                <div class="row-form">
-                  <div class="col-md-5">
 
-                    <?php
-                    // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                    echo $Html->addTag('strong', $tlnl["newsletter_box_content"]["nlbc5"]);
-                    ?>
+                <div id="smtpsettings" <?php echo (empty($JAK_SETTING_VAL["smtp_or_mail"])) ? 'style="display: none;"' : '' ?>>
+                  <div class="row-form">
+                    <div class="col-md-5">
 
-                  </div>
-                  <div class="col-md-7">
+                      <?php
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      echo $Html->addTag('strong', $tlnl["newsletter_box_content"]["nlbc5"]);
+                      ?>
 
-                    <?php
-                    // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'jak_host', $JAK_SETTING1["nlsmtphost"], '', 'form-control');
-                    ?>
-
-                  </div>
-                </div>
-                <div class="row-form">
-                  <div class="col-md-5">
-
-                    <?php
-                    // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                    echo $Html->addTag('strong', $tlnl["newsletter_box_content"]["nlbc6"]);
-                    ?>
-
-                  </div>
-                  <div class="col-md-7">
-                    <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
+                    </div>
+                    <div class="col-md-7">
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_port', $JAK_SETTING1["nlsmtpport"], '', 'form-control', array('placeholder' => '25'));
+                      echo $Html->addInput('text', 'jak_host', $JAK_SETTING_VAL["nlsmtphost"], '', 'form-control');
                       ?>
 
                     </div>
                   </div>
-                </div>
-                <div class="row-form">
-                  <div class="col-md-5">
-
-                    <?php
-                    // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                    echo $Html->addTag('strong', $tlnl["newsletter_box_content"]["nlbc7"]);
-                    ?>
-
-                  </div>
-                  <div class="col-md-7">
-                    <div class="radio radio-success">
+                  <div class="row-form">
+                    <div class="col-md-5">
 
                       <?php
-                      // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('jak_alive', '1', ($JAK_SETTING1["nlsmtp_alive"] == '1') ? TRUE : FALSE, 'jak_alive1');
-                      // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                      echo $Html->addLabel('jak_alive1', $tl["checkbox"]["chk"]);
-
-                      // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('jak_alive', '0', ($JAK_SETTING1["nlsmtp_alive"] == '0') ? TRUE : FALSE, 'jak_alive2');
-                      // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                      echo $Html->addLabel('jak_alive2', $tl["checkbox"]["chk1"]);
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      echo $Html->addTag('strong', $tlnl["newsletter_box_content"]["nlbc6"]);
                       ?>
 
                     </div>
-                  </div>
-                </div>
-                <div class="row-form">
-                  <div class="col-md-5">
+                    <div class="col-md-7">
+                      <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
 
-                    <?php
-                    // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                    echo $Html->addTag('strong', $tlnl["newsletter_box_content"]["nlbc8"]);
-                    ?>
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html->addInput('text', 'jak_port', $JAK_SETTING_VAL["nlsmtpport"], '', 'form-control', array('placeholder' => '25'));
+                        ?>
 
+                      </div>
+                    </div>
                   </div>
-                  <div class="col-md-7">
-                    <div class="radio radio-success">
+                  <div class="row-form">
+                    <div class="col-md-5">
 
                       <?php
-                      // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('jak_auth', '1', ($JAK_SETTING1["nlsmtp_auth"] == '1') ? TRUE : FALSE, 'jak_auth1');
-                      // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                      echo $Html->addLabel('jak_auth1', $tl["checkbox"]["chk"]);
-
-                      // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('jak_auth', '0', ($JAK_SETTING1["nlsmtp_auth"] == '0') ? TRUE : FALSE, 'jak_auth2');
-                      // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                      echo $Html->addLabel('jak_auth2', $tl["checkbox"]["chk1"]);
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      echo $Html->addTag('strong', $tlnl["newsletter_box_content"]["nlbc7"]);
                       ?>
 
                     </div>
-                  </div>
-                </div>
-                <div class="row-form">
-                  <div class="col-md-5">
+                    <div class="col-md-7">
+                      <div class="radio radio-success">
 
-                    <?php
-                    // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                    echo $Html->addTag('strong', $tlnl["newsletter_box_content"]["nlbc9"]);
-                    ?>
+                        <?php
+                        // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                        echo $Html->addRadio('jak_alive', '1', ($JAK_SETTING_VAL["nlsmtp_alive"] == '1') ? TRUE : FALSE, 'jak_alive1');
+                        // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                        echo $Html->addLabel('jak_alive1', $tl["checkbox"]["chk"]);
 
+                        // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                        echo $Html->addRadio('jak_alive', '0', ($JAK_SETTING_VAL["nlsmtp_alive"] == '0') ? TRUE : FALSE, 'jak_alive2');
+                        // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                        echo $Html->addLabel('jak_alive2', $tl["checkbox"]["chk1"]);
+                        ?>
+
+                      </div>
+                    </div>
                   </div>
-                  <div class="col-md-7">
-                    <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
+                  <div class="row-form">
+                    <div class="col-md-5">
+
+                      <?php
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      echo $Html->addTag('strong', $tlnl["newsletter_box_content"]["nlbc8"]);
+                      ?>
+
+                    </div>
+                    <div class="col-md-7">
+                      <div class="radio radio-success">
+
+                        <?php
+                        // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                        echo $Html->addRadio('jak_auth', '1', ($JAK_SETTING_VAL["nlsmtp_auth"] == '1') ? TRUE : FALSE, 'jak_auth1');
+                        // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                        echo $Html->addLabel('jak_auth1', $tl["checkbox"]["chk"]);
+
+                        // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
+                        echo $Html->addRadio('jak_auth', '0', ($JAK_SETTING_VAL["nlsmtp_auth"] == '0') ? TRUE : FALSE, 'jak_auth2');
+                        // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                        echo $Html->addLabel('jak_auth2', $tl["checkbox"]["chk1"]);
+                        ?>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row-form">
+                    <div class="col-md-5">
+
+                      <?php
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      echo $Html->addTag('strong', $tlnl["newsletter_box_content"]["nlbc9"]);
+                      ?>
+
+                    </div>
+                    <div class="col-md-7">
+                      <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html->addInput('text', 'jak_prefix', $JAK_SETTING_VAL["nlsmtp_prefix"], '', 'form-control', array('placeholder' => 'ssl/true/false'));
+                        ?>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row-form">
+                    <div class="col-md-5">
+
+                      <?php
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      echo $Html->addTag('strong', $tlnl["newsletter_box_content"]["nlbc10"]);
+                      ?>
+
+                    </div>
+                    <div class="col-md-7">
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_prefix', $JAK_SETTING1["nlsmtp_prefix"], '', 'form-control', array('placeholder' => 'ssl/true/false'));
+                      echo $Html->addInput('text', 'jak_username', base64_decode($JAK_SETTING_VAL["nlsmtpusername"]), '', 'form-control');
                       ?>
 
                     </div>
                   </div>
-                </div>
-                <div class="row-form">
-                  <div class="col-md-5">
+                  <div class="row-form">
+                    <div class="col-md-5">
 
-                    <?php
-                    // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                    echo $Html->addTag('strong', $tlnl["newsletter_box_content"]["nlbc10"]);
-                    ?>
+                      <?php
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      echo $Html->addTag('strong', $tlnl["newsletter_box_content"]["nlbc11"]);
+                      ?>
 
-                  </div>
-                  <div class="col-md-7">
+                    </div>
+                    <div class="col-md-7">
 
-                    <?php
-                    // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'jak_username', base64_decode($JAK_SETTING1["nlsmtpusername"]), '', 'form-control');
-                    ?>
+                      <?php
+                      // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                      echo $Html->addInput('text', 'jak_password', base64_decode($JAK_SETTING_VAL["nlsmtppassword"]), '', 'form-control');
+                      ?>
 
-                  </div>
-                </div>
-                <div class="row-form">
-                  <div class="col-md-5">
-
-                    <?php
-                    // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                    echo $Html->addTag('strong', $tlnl["newsletter_box_content"]["nlbc11"]);
-                    ?>
-
-                  </div>
-                  <div class="col-md-7">
-
-                    <?php
-                    // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'jak_password', base64_decode($JAK_SETTING1["nlsmtppassword"]), '', 'form-control');
-                    ?>
-
+                    </div>
                   </div>
                 </div>
                 <div class="row-form">
@@ -363,7 +366,7 @@ if ($success) { ?>
 
                     <?php
                     // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-                    echo $Html->addButtonSubmit('btnTestMail', $tl["button"]["btn3"], 'btnTestMail', 'btn btn-success');
+                    echo $Html->addButtonSubmit('btnTestMail', $tl["button"]["btn3"], 'btnTestMail', 'btn btn-success', array('data-loading-text' => $tl["button"]["btn41"]));
                     ?>
 
                   </div>

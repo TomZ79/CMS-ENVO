@@ -41,7 +41,7 @@ if ($errors) { ?>
 
       <?php
       // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-      echo $Html->addButtonSubmit('btnSave', $tl["button"]["btn26"] . ' !! ', 'sendNL', 'btn btn-primary button');
+      echo $Html->addButtonSubmit('btnSave', $tl["button"]["btn26"] . ' !! ', '', 'btn btn-primary button', array('data-loading-text' => $tl["button"]["btn41"]));
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
       echo $Html->addAnchor('index.php?p=newsletter', $tl["button"]["btn19"], '', 'btn btn-info button');
       ?>
@@ -188,12 +188,12 @@ if ($errors) { ?>
               </table>
             </div>
             <div class="box-footer">
-						<span id="loader" style="display: none;">
-							<img src="../../assets/img/loader.gif" alt="loader" width="16" height="11"/>
-						</span>
-              <button type="submit" name="save" id="sendNL" class="btn btn-primary pull-right">
-                <?php echo $tl["button"]["btn26"]; ?>
-              </button>
+
+              <?php
+              // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+              echo $Html->addButtonSubmit('btnSendMail', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn26"], 'btnSenMail', 'btn btn-primary pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+              ?>
+
             </div>
           </div>
         </div>

@@ -922,7 +922,7 @@ if ($success) { ?>
                         </div>
                       </div>
                     </div>
-                    <div id="smtpsettings" <?php echo ($JAK_SETTING_VAL["smtp_or_mail"] == '0') ? 'style="display: none;"' : '' ?>>
+                    <div id="smtpsettings" <?php echo (empty($JAK_SETTING_VAL["smtp_or_mail"])) ? 'style="display: none;"' : '' ?>>
                       <div class="row-form">
                         <div class="col-md-5">
 
@@ -1068,7 +1068,6 @@ if ($success) { ?>
                         </div>
                       </div>
                     </div>
-
                     <div class="row-form">
                       <div class="col-md-5">
 

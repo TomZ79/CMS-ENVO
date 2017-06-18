@@ -1038,7 +1038,7 @@ switch ($page1) {
         $mail = new PHPMailer(TRUE); // the true param means it will throw exceptions on errors, which we need to catch
 
         // Send email the smpt way or else the mail way
-        if ($jkv["nlsmtp_mail"]) {
+        if (!empty($defaults['jak_smpt'])) {
 
           try {
             $mail->IsSMTP(); // telling the class to use SMTP
@@ -1056,7 +1056,7 @@ switch ($page1) {
             $mail->Subject = $tlnl["newsletter_message"]["nlm2"];
             $mail->MsgHTML($tlnl["newsletter_message"]["nlm3"] . 'SMTP.');
             $mail->Send();
-            $success['e'] = sprintf($tl["newsletter_message"]["nlm"], 'SMTP');
+            $success['e'] = sprintf($tlnl["newsletter_message"]["nlm"], 'SMTP');
           } catch (phpmailerException $e) {
             $errors['e'] = $e->errorMessage(); //Pretty error messages from PHPMailer
           } catch (Exception $e) {
@@ -1074,7 +1074,7 @@ switch ($page1) {
             $mail->MsgHTML($tlnl["newsletter_message"]["nlm3"] . 'Mail().');
             // Send the email
             $mail->Send();
-            $success['e'] = sprintf($tl["newsletter_message"]["nlm"], 'PHP Mail()');
+            $success['e'] = sprintf($tlnl["newsletter_message"]["nlm"], 'PHP Mail()');
           } catch (phpmailerException $e) {
             $errors['e'] = $e->errorMessage(); //Pretty error messages from PHPMailer
           } catch (Exception $e) {
@@ -1093,16 +1093,10 @@ switch ($page1) {
     // EN: Import important settings for the template from the DB
     // CZ: Importuj důležité nastavení pro šablonu z DB
     $JAK_SETTING = jak_get_setting('newsletter');
-    $GET_SETTING = jak_get_setting('newsletter');
 
     // EN: Import important settings for the template from the DB (only VALUE)
     // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
     $JAK_SETTING_VAL = jak_get_setting_val('newsletter');
-
-    if (isset($GET_SETTING) && is_array($GET_SETTING)) foreach ($GET_SETTING as $row) {
-      $defvar                        = $row["value"];
-      $JAK_SETTING1[$row['varname']] = $defvar;
-    }
 
     // EN: Title and Description
     // CZ: Titulek a Popis

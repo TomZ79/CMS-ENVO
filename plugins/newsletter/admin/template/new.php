@@ -135,9 +135,19 @@ if ($errors) { ?>
         </div>
         <div class="box box-success">
           <div class="box-header with-border">
+
             <h3 class="box-title"><?php echo $tlnl["newsletter_box_title"]["nlbt6"]; ?>
-              <span id="loader"><img src="../../assets/img/loader.gif" alt="loader" width="16" height="11" style="display: none;"/></span>
+
+              <div id="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+                <div class="bounce4"></div>
+                <div class="bounce5"></div>
+              </div>
+
             </h3>
+
           </div>
           <div class="box-body">
             <div class="block">

@@ -20,6 +20,14 @@
               echo $Html->addLabel('', $tl["global_text"]["globaltxt2"]);
               ?>
 
+              <div id="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+                <div class="bounce4"></div>
+                <div class="bounce5"></div>
+              </div>
+
               <select name="restorcontent" id="restorcontent" class="form-control selectpicker" data-size="5">
 
                 <?php
@@ -36,10 +44,6 @@
 
               </select>
 
-              <?php
-              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-              echo $Html->addTag('span', '<i class="fa fa-spinner fa-pulse"></i>', 'loader');
-              ?>
             </div>
           </th>
         </tr>
