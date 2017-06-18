@@ -891,10 +891,6 @@ switch ($page1) {
 
     }
 
-    // Get the special vars for multi language support
-    $JAK_FORM_DATA["title"]   = $jkv["blogtitle"];
-    $JAK_FORM_DATA["content"] = $jkv["blogdesc"];
-
     // EN: Title and Description
     // CZ: Titulek a Popis
     $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt9"];
