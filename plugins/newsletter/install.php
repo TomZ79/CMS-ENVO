@@ -228,7 +228,7 @@ if (file_exists(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '
       // EN: Insert data to table 'pluginhooks'
       // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
       $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
-(NULL, "php_admin_usergroup", "Newsletter Usergroup", "' . $insertphpcode . '", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_usergroup", "Newsletter Usergroup SQL", "' . $insertphpcode . '", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_lang", "Newsletter Admin Language", "' . $adminlang . '", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Newsletter Site Language", "' . $sitelang . '", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup", "Newsletter Usergroup New", "plugins/newsletter/admin/template/usergroup_new.php", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
