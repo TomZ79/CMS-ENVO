@@ -244,7 +244,7 @@ $(function () {
 /* 00. DATA LOADING TEXT IN BUTTON
  ========================================================================*/
 (function () {
-  // Button
+  // Button 'Save'
   $('button[name = "btnSave"]').on('click', function() {
     var $this = $(this);
     $this.button('loading');
@@ -253,6 +253,7 @@ $(function () {
     }, 1000);
   });
 
+  // Button 'Send Test Mail'
   $('button[name = "btnTestMail"]').on('click', function() {
     var $this = $(this);
     $this.button('loading');
@@ -387,11 +388,13 @@ function restoreContent(fieldname, backupid, advedit, id) {
     data: "backupid=" + backupid + "&contentid=" + id + "&eid=1&fid=" + fieldname,
     dataType: 'json',
     beforeSend: function (x) {
-      $('.loader').show();
+      $('#spinner').css('visibility', 'visible');
     },
     success: function (msg) {
 
-      $('.loader').hide();
+      setTimeout(function () {
+        $('#spinner').css('visibility', 'hidden');
+      }, 2000);
 
       if (parseInt(msg.status) != 1) {
         return false;
