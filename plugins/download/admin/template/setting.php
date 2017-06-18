@@ -117,7 +117,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_title', $JAK_FORM_DATA["title"], '', 'form-control');
+                          echo $Html->addInput('text', 'jak_title', $JAK_SETTING_VAL["downloadtitle"], '', 'form-control');
                           ?>
 
                         </div>
@@ -136,7 +136,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('jak_lcontent', jak_edit_safe_userpost($JAK_FORM_DATA["content"]), '4', '', array('class' => 'form-control'));
+                        echo $Html->addTextarea('jak_lcontent', jak_edit_safe_userpost($JAK_SETTING_VAL["downloaddesc"]), '4', '', array('class' => 'form-control'));
                         ?>
 
                       </div>

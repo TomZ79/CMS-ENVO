@@ -32,9 +32,13 @@ switch ($page1) {
     $site_dload_files  = jak_get_download_files($jkv["downloadpath"]);
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
-      if (isset($defaults['save'])) {
+      if (isset($_POST['btnSave'])) {
+        // EN: If button "Save Changes" clicked
+        // CZ: Pokud bylo stisknuto tlačítko "Uložit"
 
         if (empty($defaults['jak_title'])) {
           $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
@@ -70,6 +74,8 @@ switch ($page1) {
 
         if (count($errors) == 0) {
 
+          // EN: Preview Image of file
+          // CZ: Náhledový obrázek souboru
           if (!empty($defaults['jak_img'])) {
             $insert .= 'previmg = "' . smartsql($defaults['jak_img']) . '",';
           }
@@ -103,9 +109,23 @@ switch ($page1) {
 
           // Save the time if available of download
           if (!empty($finaltime)) {
-            $insert .= 'time = "' . smartsql($finaltime) . '"';
+            $insert .= 'time = "' . smartsql($finaltime) . '",';
           } else {
-            $insert .= 'time = NOW()';
+            $insert .= 'time = NOW(),';
+          }
+
+          // EN: Facebook image of file
+          // CZ: Obrázek souboru pro Facebook
+          if (!empty($defaults['jak_img_facebooksm'])) {
+            $insert .= 'previmgfbsm = "' . smartsql($defaults['jak_img_facebooksm']) . '",';
+          } else {
+            $insert .= 'previmgfbsm = NULL,';
+          }
+
+          if (!empty($defaults['jak_img_facebooklg'])) {
+            $insert .= 'previmgfblg = "' . smartsql($defaults['jak_img_facebooklg']) . '"';
+          } else {
+            $insert .= 'previmgfblg = NULL';
           }
 
           $result = $jakdb->query('INSERT INTO ' . $jaktable . ' SET
@@ -185,6 +205,10 @@ switch ($page1) {
           $errors['e'] = $tl['general_error']['generror'] . '<br>';
           $errors      = $errors;
         }
+      } else {
+        // EN: If no button pressed
+        // CZ: Pokud nebylo stisknuto žádné tlačítko
+
       }
     }
 
@@ -197,7 +221,8 @@ switch ($page1) {
     // Get active sidebar widgets
     $grid = $jakdb->query('SELECT hookid FROM ' . $jaktable4 . ' WHERE plugin = "' . smartsql(JAK_PLUGIN_DOWNLOAD) . '" ORDER BY orderid ASC');
     while ($grow = $grid->fetch_assoc()) {
-      // collect each record into $_data
+      // EN: Insert each record into array
+      // CZ: Vložení získaných dat do pole
       $JAK_ACTIVE_GRID[] = $grow;
     }
 
@@ -269,6 +294,8 @@ switch ($page1) {
         if (jak_row_exist($page3, $jaktable1)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // EN: Default Variable
+            // CZ: Hlavní proměnné
             $defaults = $_POST;
 
             if (empty($defaults['jak_name'])) {
@@ -429,6 +456,8 @@ switch ($page1) {
     $JAK_USERGROUP = jak_get_usergroup_all('usergroup');
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       if (empty($defaults['jak_name'])) {
@@ -526,6 +555,8 @@ switch ($page1) {
     $JAK_DOWNLOAD_ALL = jak_get_downloads('', '', $jaktable);
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       if (isset($defaults['approve'])) {
@@ -683,6 +714,8 @@ switch ($page1) {
   case 'setting':
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       if (!is_numeric($defaults['jak_maxpost'])) {
@@ -839,10 +872,15 @@ switch ($page1) {
     // CZ: Importuj důležité nastavení pro šablonu z DB
     $JAK_SETTING = jak_get_setting('download');
 
+    // EN: Import important settings for the template from the DB (only VALUE)
+    // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
+    $JAK_SETTING_VAL = jak_get_setting_val('download');
+
     // Get the sort orders for the grid
     $grid = $jakdb->query('SELECT id, hookid, whatid, orderid FROM ' . $jaktable4 . ' WHERE plugin = "' . smartsql(JAK_PLUGIN_DOWNLOAD) . '" AND fileid = 0 ORDER BY orderid ASC');
     while ($grow = $grid->fetch_assoc()) {
-      // collect each record into $_data
+      // EN: Insert each record into array
+      // CZ: Vložení získaných dat do pole
       $JAK_PAGE_GRID[] = $grow;
     }
 
@@ -862,10 +900,6 @@ switch ($page1) {
 
     }
 
-    // Get the special vars for multi language support
-    $JAK_FORM_DATA["title"]   = $jkv["downloadtitle"];
-    $JAK_FORM_DATA["content"] = $jkv["downloaddesc"];
-
     // EN: Title and Description
     // CZ: Titulek a Popis
     $SECTION_TITLE = $tld["downl_sec_title"]["downlt9"];
@@ -878,6 +912,8 @@ switch ($page1) {
     break;
   case 'trash':
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       if (isset($defaults['untrash'])) {
@@ -926,7 +962,8 @@ switch ($page1) {
 
     $result = $jakdb->query('SELECT * FROM ' . $jaktable2 . ' WHERE trash = 1 ORDER BY id DESC');
     while ($row = $result->fetch_assoc()) {
-      // collect each record into $_data
+      // EN: Insert each record into array
+      // CZ: Vložení získaných dat do pole
       $JAK_TRASH_ALL[] = $row;
     }
 
@@ -1044,6 +1081,8 @@ switch ($page1) {
         if (is_numeric($page2) && jak_row_exist($page2, $jaktable)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // EN: Default Variable
+            // CZ: Hlavní proměnné
             $defaults = $_POST;
 
             // Delete the tags
@@ -1094,6 +1133,8 @@ switch ($page1) {
                 $insert .= 'time = NOW(),';
               }
 
+              // EN: Preview Image of file
+              // CZ: Náhledový obrázek souboru
               if (!empty($defaults['jak_img'])) {
                 $insert .= 'previmg = "' . smartsql($defaults['jak_img']) . '",';
               } else {
@@ -1126,6 +1167,20 @@ switch ($page1) {
                 $insert .= 'time = "' . smartsql($finaltime) . '",';
               } else {
                 $insert .= 'time = NOW(),';
+              }
+
+              // EN: Facebook image of file
+              // CZ: Obrázek souboru pro Facebook
+              if (!empty($defaults['jak_img_facebooksm'])) {
+                $insert .= 'previmgfbsm = "' . smartsql($defaults['jak_img_facebooksm']) . '",';
+              } else {
+                $insert .= 'previmgfbsm = NULL,';
+              }
+
+              if (!empty($defaults['jak_img_facebooklg'])) {
+                $insert .= 'previmgfblg = "' . smartsql($defaults['jak_img_facebooklg']) . '",';
+              } else {
+                $insert .= 'previmgfblg = NULL,';
               }
 
               $result = $jakdb->query('UPDATE ' . $jaktable . ' SET
@@ -1274,7 +1329,8 @@ switch ($page1) {
           // Get the sort orders for the grid
           $grid = $jakdb->query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . $jaktable4 . ' WHERE fileid = "' . smartsql($page2) . '" ORDER BY orderid ASC');
           while ($grow = $grid->fetch_assoc()) {
-            // collect each record into $_data
+            // EN: Insert each record into array
+            // CZ: Vložení získaných dat do pole
             $JAK_PAGE_GRID[] = $grow;
           }
 
@@ -1306,6 +1362,8 @@ switch ($page1) {
         if (jak_row_exist($page2, $jaktable)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // EN: Default Variable
+            // CZ: Hlavní proměnné
             $defaults = $_POST;
 
             if (empty($defaults['jak_title'])) {
@@ -1388,6 +1446,8 @@ switch ($page1) {
 
         // Hello we have a post request
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jak_delete_download'])) {
+          // EN: Default Variable
+          // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (isset($defaults['lock'])) {
