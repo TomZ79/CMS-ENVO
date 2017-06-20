@@ -207,7 +207,7 @@ if ($page3 == "e") { ?>
                   <div class="col-md-2">
                     <div class="form-group">
                       <?php echo $tl["cf_box_content"]["cfbc5"]; ?>
-                      <select name="jak_optionmandatory[]" class="form-control" data-size="3">
+                      <select name="jak_optionmandatory[]" class="form-control">
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -223,7 +223,7 @@ if ($page3 == "e") { ?>
                   <div class="col-md-2">
                     <div class="form-group">
                       <?php echo $tl["cf_box_content"]["cfbc6"]; ?>
-                      <select name="jak_optiontype[]" class="form-control" data-size="3">
+                      <select name="jak_optiontype[]" class="form-control">
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -289,7 +289,7 @@ if ($page3 == "e") { ?>
                     <div class="col-md-2">
                       <div class="form-group">
                         <?php echo $tl["cf_box_content"]["cfbc5"]; ?>
-                        <select name="jak_optionmandatory_old[]" class="form-control" data-size="3">
+                        <select name="jak_optionmandatory_old[]" class="form-control">
 
                           <?php
                           // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -305,7 +305,7 @@ if ($page3 == "e") { ?>
                     <div class="col-md-2">
                       <div class="form-group">
                         <?php echo $tl["cf_box_content"]["cfbc6"]; ?>
-                        <select name="jak_optiontype_old[]" class="form-control" data-size="3">
+                        <select name="jak_optiontype_old[]" class="form-control">
 
                           <?php
                           // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)

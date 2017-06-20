@@ -543,7 +543,7 @@ if ($errors) { ?>
 
                         </div>
                         <div class="col-md-7">
-                          <select name="" id="selecttags1" class="form-control selectpicker" title="Choose tags ..." data-size="7" data-live-search="true">
+                          <select name="" id="selecttags1" class="form-control selectpicker">
                             <optgroup label="Poskytovatelé TV">
 
                               <?php
@@ -580,7 +580,7 @@ if ($errors) { ?>
                         <div class="col-md-7">
                           <?php $JAK_TAG_ALL = jak_tag_name_admin();
                           if ($JAK_TAG_ALL) { ?>
-                            <select name="" id="selecttags2" class="form-control selectpicker" title="Choose tags ..." data-size="7" data-live-search="true">
+                            <select name="" id="selecttags2" class="form-control selectpicker">
                               <?php
                               foreach ($JAK_TAG_ALL as $v) {
 
@@ -762,7 +762,7 @@ if ($errors) { ?>
                             echo $Html->addLabel('', $tl["news_box_content"]["newsbc27"]);
                             ?>
 
-                            <select name="jak_showcontact" class="form-control selectpicker" data-size="5">
+                            <select name="jak_showcontact" class="form-control selectpicker">
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)

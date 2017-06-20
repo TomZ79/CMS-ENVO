@@ -343,10 +343,10 @@
         $.fn.tooltip && $('[data-toggle="tooltip"]', context).tooltip();
     }
     /** @function initSelect2Plugin
-    * @description Initialize select2 dropdown
-    * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
-    * @requires select2.js version 4.0.x
-    */
+     * @description Initialize select2 dropdown
+     * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
+     * @requires select2.js version 4.0.x
+     */
     Pages.prototype.initSelect2Plugin = function(context) {
         $.fn.select2 && $('[data-init-plugin="select2"]', context).each(function() {
             $(this).select2({
@@ -356,6 +356,18 @@
                     ignoreMobile: false
                 })
             });
+        });
+    }
+    /** @function initCustomSelect2Plugin
+     * @description Initialize select2 dropdown
+     * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
+     * @requires select2.js version 4.0.x
+     */
+    Pages.prototype.initCustomSelect2Plugin = function(context) {
+        $.fn.select2 && $('.selectpicker', context).each(function() {
+            $(this).select2({
+                minimumResultsForSearch: ($(this).attr('data-search-select2') == 'true' ? 1 : -1)
+            })
         });
     }
     /** @function initScrollBarPlugin
@@ -501,6 +513,7 @@
         // init plugins
         this.initTooltipPlugin();
         this.initSelect2Plugin();
+        this.initCustomSelect2Plugin();
         this.initScrollBarPlugin();
         this.initSwitcheryPlugin();
         this.initSelectFxPlugin();

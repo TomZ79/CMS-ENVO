@@ -37,7 +37,7 @@ echo $Html->addDoctype('html5');
     //FileInput
     echo $Html->addStylesheet('assets/plugins/bootstrap-fileinput/css/fileinput.min.css', 'screen');
     // Bootstrap Select
-    echo $Html->addStylesheet('assets/plugins/bootstrap-select/css/bootstrap-select.min.css', 'screen');
+    echo $Html->addStylesheet('assets/plugins/bootstrap-select2/4.0.3/css/select2.min.css', 'screen');
     // Bootstrap TagsInput
     echo $Html->addStylesheet('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css', 'screen');
     // Bootstrap DateTimePicker
@@ -82,6 +82,7 @@ echo $Html->addDoctype('html5');
     <?php if (isset($JAK_HOOK_HEAD_ADMIN) && is_array($JAK_HOOK_HEAD_ADMIN)) foreach ($JAK_HOOK_HEAD_ADMIN as $headt) {
       include_once APP_PATH . $headt['phpcode'];
     } ?>
+
 
   </head>
 <body class="fixed-header has-detached-right">

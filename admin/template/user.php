@@ -80,7 +80,7 @@ if ($page1 == "e" || $page1 == "edp" || $page1 == "ene") { ?>
     <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
       <div class="col-md-6">
         <div class="input-group">
-          <select name="jak_group" class="form-control selectpicker" data-size="5">
+          <select name="jak_group" class="form-control selectpicker">
 
             <?php
             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)

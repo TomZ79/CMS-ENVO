@@ -223,7 +223,7 @@ if ($page2 == "e" || $page1 == "ene") { ?>
 
                       </div>
                       <div class="col-md-7">
-                        <select name="jak_usergroup" class="form-control selectpicker" data-size="5">
+                        <select name="jak_usergroup" class="form-control selectpicker">
 
                           <?php
                           // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)

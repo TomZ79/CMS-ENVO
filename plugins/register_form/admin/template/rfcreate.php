@@ -91,7 +91,7 @@ if ($errors) { ?>
                   <div class="col-md-2">
                     <div class="form-group">
                       <?php echo $tlrf["reg_box_content"]["regbc18"]; ?>
-                      <select name="jak_optiontype[]" class="form-control selectpicker" data-size="5">
+                      <select name="jak_optiontype[]" class="form-control selectpicker">
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -119,7 +119,7 @@ if ($errors) { ?>
                   <div class="col-md-2">
                     <div class="form-group">
                       <?php echo $tlrf["reg_box_content"]["regbc24"]; ?>
-                      <select name="jak_optionmandatory[]" class="form-control selectpicker" data-size="5">
+                      <select name="jak_optionmandatory[]" class="form-control selectpicker">
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)

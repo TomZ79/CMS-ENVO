@@ -57,7 +57,7 @@
 									<div class="row-form">
 										<div class="col-md-5"><strong><?php echo $tlqed["sb_box_content"]["sbbc"]; ?></strong></div>
 										<div class="col-md-7">
-											<select name="colorQed" class="form-control selectpicker" data-size="5">
+											<select name="colorQed" class="form-control selectpicker">
 												<option value="blue"<?php if ($jktpl["color_qed_tpl"] == 'blue') { ?> selected="selected"<?php } ?>>Blue</option>
 												<option value="coffee"<?php if ($jktpl["color_qed_tpl"] == 'coffee') { ?> selected="selected"<?php } ?>>Cofee</option>
 												<option value="color"<?php if ($jktpl["color_qed_tpl"] == 'color') { ?> selected="selected"<?php } ?>>Color</option>
@@ -101,7 +101,7 @@
 									<div class="row-form">
 										<div class="col-md-5"><strong><?php echo $tlqed["sb_box_content"]["sbbc1"]; ?></strong></div>
 										<div class="col-md-7">
-											<select name="headerQed" class="form-control selectpicker" data-size="5">
+											<select name="headerQed" class="form-control selectpicker">
 												<option value=""<?php if ($jktpl["header_qed_tpl"] == '') { ?> selected="selected"<?php } ?>>Basic Header</option>
 												<option value="header-2"<?php if ($jktpl["header_qed_tpl"] == 'header-2') { ?> selected="selected"<?php } ?>>Header 2</option>
 												<option value="header-3"<?php if ($jktpl["header_qed_tpl"] == 'header-3') { ?> selected="selected"<?php } ?>>Header 3</option>
@@ -181,7 +181,7 @@
 									<div class="row-form">
 										<div class="col-md-5"><strong><?php echo $tlqed["sb_box_content"]["sbbc3"]; ?></strong></div>
 										<div class="col-md-7">
-											<select name="fsocialstyleQed" class="form-control selectpicker" data-size="5">
+											<select name="fsocialstyleQed" class="form-control selectpicker">
 												<option value="squared"<?php if ($jktpl["fsocialstyle_qed_tpl"] == 'squared') { ?> selected="selected"<?php } ?>>Squared</option>
 												<option value="circle"<?php if ($jktpl["fsocialstyle_qed_tpl"] == 'circle') { ?> selected="selected"<?php } ?>>Circle</option>
 												<option value="rounded"<?php if ($jktpl["fsocialstyle_qed_tpl"] == 'rounded') { ?> selected="selected"<?php } ?>>Rounded</option>
@@ -191,7 +191,7 @@
 									<div class="row-form">
 										<div class="col-md-5"><strong><?php echo $tlqed["sb_box_content"]["sbbc4"]; ?></strong></div>
 										<div class="col-md-7">
-											<select name="fsocialsizeQed" class="form-control selectpicker" data-size="3">
+											<select name="fsocialsizeQed" class="form-control selectpicker">
 												<option value=""<?php if ($jktpl["fsocialsize_qed_tpl"] == '') { ?> selected="selected"<?php } ?>>Small</option>
 												<option value="medium"<?php if ($jktpl["fsocialsize_qed_tpl"] == 'medium') { ?> selected="selected"<?php } ?>>Medium</option>
 												<option value="large"<?php if ($jktpl["fsocialsize_qed_tpl"] == 'large') { ?> selected="selected"<?php } ?>>Large</option>

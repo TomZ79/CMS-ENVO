@@ -198,7 +198,7 @@ if ($success) { ?>
                       </div>
                       <div class="col-md-7">
                         <div class="<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-                          <select name="jak_lang" class="form-control selectpicker" data-size="5">
+                          <select name="jak_lang" class="form-control selectpicker">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -223,7 +223,7 @@ if ($success) { ?>
                       </div>
                       <div class="col-md-7">
                         <div class="<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-                          <select name="jak_locale" class="form-control selectpicker" data-size="5">
+                          <select name="jak_locale" class="form-control selectpicker">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -247,7 +247,7 @@ if ($success) { ?>
                       </div>
                       <div class="col-md-7">
                         <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
-                          <select name="jak_date" class="form-control selectpicker" data-size="7">
+                          <select name="jak_date" class="form-control selectpicker">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -274,7 +274,7 @@ if ($success) { ?>
                       </div>
                       <div class="col-md-7">
                         <div class="form-group no-margin">
-                          <select name="jak_time" class="form-control selectpicker" data-size="7">
+                          <select name="jak_time" class="form-control selectpicker">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -318,7 +318,7 @@ if ($success) { ?>
 
                       </div>
                       <div class="col-md-7">
-                        <select name="jak_timezone_server" class="form-control selectpicker" data-live-search="true" data-size="5">
+                        <select name="jak_timezone_server" class="form-control selectpicker">
                           <?php include_once "timezoneserver.php"; ?>
                         </select>
                       </div>
@@ -536,7 +536,7 @@ if ($success) { ?>
 
                       </div>
                       <div class="col-md-6">
-                        <select name="jak_shownews" class="form-control selectpicker" data-size="5">
+                        <select name="jak_shownews" class="form-control selectpicker">
 
                           <?php for ($i = 0; $i <= 10; $i++) {
 
@@ -722,7 +722,7 @@ if ($success) { ?>
 
                       </div>
                       <div class="col-md-7">
-                        <select name="jak_acetheme" class="form-control selectpicker" data-live-search="true" data-size="5">
+                        <select name="jak_acetheme" class="form-control selectpicker">
                           <optgroup label="<?php echo $tl["gs_box_content"]["gsbc22"]; ?>">
 
                             <?php
@@ -1466,7 +1466,7 @@ if ($success) { ?>
 
                       </div>
                       <div class="col-md-7">
-                        <select name="jak_eucookie_position" class="form-control selectpicker" data-size="5">
+                        <select name="jak_eucookie_position" class="form-control selectpicker">
 
                           <?php
                           // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -1491,7 +1491,7 @@ if ($success) { ?>
 
                       </div>
                       <div class="col-md-7">
-                        <select name="jak_eucookie_style" class="form-control selectpicker" data-size="5">
+                        <select name="jak_eucookie_style" class="form-control selectpicker">
 
                           <?php
                           // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)

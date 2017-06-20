@@ -230,7 +230,7 @@ if ($errors) { ?>
                       </div>
                       <div class="col-md-7">
                         <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
-                          <select name="jak_date" class="form-control selectpicker" data-size="7">
+                          <select name="jak_date" class="form-control selectpicker">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -257,7 +257,7 @@ if ($errors) { ?>
                       </div>
                       <div class="col-md-7">
                         <div class="form-group no-margin">
-                          <select name="jak_time" class="form-control selectpicker" data-size="7">
+                          <select name="jak_time" class="form-control selectpicker">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -389,7 +389,7 @@ if ($errors) { ?>
 
                           ?>
 
-                          <select name="jak_path" class="form-control selectpicker" data-size="7">
+                          <select name="jak_path" class="form-control selectpicker">
 
                             <?php
                             showDownloadPath('_files');

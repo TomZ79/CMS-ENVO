@@ -1,13 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/plugins/download/js/script.download.php" description="}" line="23" />
+    <bookmark url="file://$PROJECT_DIR$/plugins/download/js/script.download.php" description="}" line="15" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4346a0f-85ec-4e4d-93d1-8c74a4b74471" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/css/bootstrap-select.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/css/bootstrap-select.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/css/bootstrap-select.min.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/css/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/bootstrap-select.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/bootstrap-select.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/bootstrap-select.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/i18n/defaults-cs_CZ.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/i18n/defaults-cs_CZ.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/i18n/defaults-en_US.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/i18n/defaults-en_US.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/i18n/defaults-eu.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/i18n/defaults-eu.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/i18n/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select/js/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/bower.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/component.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/release.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2-bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2-spinner.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2.jquery.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_ar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_az.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_bg.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_ca.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_cs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_da.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_de.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_el.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_en.js.template" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_es.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_et.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_eu.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_fa.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_fi.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_fr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_gl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_he.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_hr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_hu.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_id.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_is.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_it.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_ja.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_ka.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_ko.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_lt.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_lv.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_mk.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_ms.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_nl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_no.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_pl.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_pt-BR.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_pt-PT.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_ro.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_rs.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_ru.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_sk.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_sv.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_th.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_tr.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_ua.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_ug-CN.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_uk.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_vi.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_zh-CN.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2_locale_zh-TW.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/select2x2.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/footer.php" afterPath="$PROJECT_DIR$/template/porto/footer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/css/style.css" afterPath="$PROJECT_DIR$/admin/assets/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/assets/js/scripts.js" afterPath="$PROJECT_DIR$/admin/assets/js/scripts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/pages/js/pages.js" afterPath="$PROJECT_DIR$/admin/pages/js/pages.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editcontactform.php" afterPath="$PROJECT_DIR$/admin/template/editcontactform.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editfiles.php" afterPath="$PROJECT_DIR$/admin/template/editfiles.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/edithook.php" afterPath="$PROJECT_DIR$/admin/template/edithook.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editnews.php" afterPath="$PROJECT_DIR$/admin/template/editnews.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editor_edit.php" afterPath="$PROJECT_DIR$/admin/template/editor_edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/editpage.php" afterPath="$PROJECT_DIR$/admin/template/editpage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/edituser.php" afterPath="$PROJECT_DIR$/admin/template/edituser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/footer.php" afterPath="$PROJECT_DIR$/admin/template/footer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/header.php" afterPath="$PROJECT_DIR$/admin/template/header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/mediasharing.php" afterPath="$PROJECT_DIR$/admin/template/mediasharing.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newcontactform.php" afterPath="$PROJECT_DIR$/admin/template/newcontactform.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newhook.php" afterPath="$PROJECT_DIR$/admin/template/newhook.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newnews.php" afterPath="$PROJECT_DIR$/admin/template/newnews.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newpage.php" afterPath="$PROJECT_DIR$/admin/template/newpage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newssetting.php" afterPath="$PROJECT_DIR$/admin/template/newssetting.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newuser.php" afterPath="$PROJECT_DIR$/admin/template/newuser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/newusergroup.php" afterPath="$PROJECT_DIR$/admin/template/newusergroup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/searchuser.php" afterPath="$PROJECT_DIR$/admin/template/searchuser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/setting.php" afterPath="$PROJECT_DIR$/admin/template/setting.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/site.php" afterPath="$PROJECT_DIR$/admin/template/site.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/user.php" afterPath="$PROJECT_DIR$/admin/template/user.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect_new.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect_new.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blogsetting.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blogsetting.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/editblog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/editblog.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/newblog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/newblog.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/dl_connect.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/dl_connect.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/dl_connect_new.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/dl_connect_new.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/editdownload.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/editdownload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/newdownload.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/newdownload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/setting.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/setting.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/editfaq.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/editfaq.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faq_connect.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faq_connect.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faq_connect_new.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faq_connect_new.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faqsetting.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faqsetting.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/newfaq.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/newfaq.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/admin/template/edit.php" afterPath="$PROJECT_DIR$/plugins/growl/admin/template/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/admin/template/new.php" afterPath="$PROJECT_DIR$/plugins/growl/admin/template/new.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/template/edituser.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/template/edituser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/template/newuser.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/template/newuser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/template/user.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/template/user.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/admin/template/rfcreate.php" afterPath="$PROJECT_DIR$/plugins/register_form/admin/template/rfcreate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/admin/template/settings.php" afterPath="$PROJECT_DIR$/plugins/register_form/admin/template/settings.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seo_setting.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seo_setting.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/metrics/templatesettings.php" afterPath="$PROJECT_DIR$/template/metrics/templatesettings.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/templatesettings.php" afterPath="$PROJECT_DIR$/template/porto/templatesettings.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/templatesettings.php" afterPath="$PROJECT_DIR$/template/qed/templatesettings.php" />
     </list>
     <ignored path="CMS-Bluesat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,24 +154,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="footer.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/template/porto/footer.php">
+      <file leaf-file-name="footer.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/template/footer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="252" column="113" selection-start-line="252" selection-start-column="113" selection-end-line="252" selection-end-column="113" />
+            <state relative-caret-position="102">
+              <caret line="75" column="91" selection-start-line="75" selection-start-column="91" selection-end-line="75" selection-end-column="91" />
               <folding>
-                <marker date="1496989493431" expanded="true" signature="15607:15632" ph="..." />
-                <marker date="1496989493431" expanded="true" signature="15732:15765" ph="..." />
+                <marker date="1497936659612" expanded="true" signature="6052:6765" ph="..." />
+                <marker date="1497936659612" expanded="true" signature="6172:6624" ph="{&quot;type&quot;: &quot;danger&quot;...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cmshelp_cs.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/template/help/cmshelp_cs.php">
+      <file leaf-file-name="select2.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/4.0.3/js/select2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-510">
-              <caret line="518" column="30" selection-start-line="518" selection-start-column="30" selection-end-line="518" selection-end-column="30" />
+            <state relative-caret-position="34">
+              <caret line="2" column="28" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -68,57 +194,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/template/metrics/footer.php" />
-        <option value="$PROJECT_DIR$/admin/lang/cs.ini" />
-        <option value="$PROJECT_DIR$/admin/lang/en.ini" />
-        <option value="$PROJECT_DIR$/admin/template/index.php" />
-        <option value="$PROJECT_DIR$/template/porto/js/view.contact.js" />
-        <option value="$PROJECT_DIR$/template/porto/js/porto.custom.js" />
-        <option value="$PROJECT_DIR$/template/porto/js/porto.custom.min.js" />
-        <option value="$PROJECT_DIR$/template/porto/install.php" />
-        <option value="$PROJECT_DIR$/plugins/blog/admin/lang/cs.ini" />
-        <option value="$PROJECT_DIR$/plugins/blog/admin/lang/en.ini" />
-        <option value="$PROJECT_DIR$/plugins/blog/admin/template/blogsetting.php" />
-        <option value="$PROJECT_DIR$/plugins/blog/admin/blog.php" />
+        <option value="$PROJECT_DIR$/admin/template/newcontactform.php" />
         <option value="$PROJECT_DIR$/admin/assets/css/style.css" />
-        <option value="$PROJECT_DIR$/admin/pages/js/pages.plugins.php" />
-        <option value="$PROJECT_DIR$/plugins/blog/update.php" />
-        <option value="$PROJECT_DIR$/admin/template/plugins.php" />
-        <option value="$PROJECT_DIR$/plugins/blog/template/blog.php" />
-        <option value="$PROJECT_DIR$/template/metrics/plugintemplate/blog/blog.php" />
-        <option value="$PROJECT_DIR$/template/qed/plugintemplate/blog/blog.php" />
-        <option value="$PROJECT_DIR$/plugins/blog/lang/cs.ini" />
-        <option value="$PROJECT_DIR$/plugins/blog/lang/en.ini" />
-        <option value="$PROJECT_DIR$/template/porto/page.php" />
-        <option value="$PROJECT_DIR$/template/porto/css/screen.css" />
-        <option value="$PROJECT_DIR$/template/porto/plugintemplate/blog/blog.php" />
-        <option value="$PROJECT_DIR$/template/porto/plugintemplate/blog/blogart.php" />
-        <option value="$PROJECT_DIR$/admin/template/analytic.php" />
-        <option value="$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/config/config.php" />
-        <option value="$PROJECT_DIR$/assets/plugins/revolution-slider/css/settings.min.css" />
-        <option value="$PROJECT_DIR$/assets/plugins/revolution-slider/css/layers.min.css" />
-        <option value="$PROJECT_DIR$/assets/plugins/revolution-slider/css/navigation.min.css" />
-        <option value="$PROJECT_DIR$/template/porto/css/theme-complete.min.css" />
-        <option value="$PROJECT_DIR$/template/porto/css/skins/skin-bluesat.min.css" />
-        <option value="$PROJECT_DIR$/template/porto/css/screen.min.css" />
-        <option value="$PROJECT_DIR$/template/porto/js/porto-revolutionSlider.php" />
-        <option value="$PROJECT_DIR$/plugins/blog/blog.php" />
-        <option value="$PROJECT_DIR$/template/porto/plugintemplate/download/js/script.download.php" />
-        <option value="$PROJECT_DIR$/template/porto/plugintemplate/download/downloadfile.php" />
-        <option value="$PROJECT_DIR$/plugins/download/install.php" />
-        <option value="$PROJECT_DIR$/template/porto/login.php" />
-        <option value="$PROJECT_DIR$/plugins/download/download.php" />
-        <option value="$PROJECT_DIR$/template/porto/ajax/test.html" />
-        <option value="$USER_HOME$/Downloads/db.php" />
-        <option value="$PROJECT_DIR$/include/db.php" />
-        <option value="$PROJECT_DIR$/template/porto/header.php" />
-        <option value="$PROJECT_DIR$/include/functions.php" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/assets/js/eu-cookies.php" />
-        <option value="$PROJECT_DIR$/template/porto/js/porto.templatesettings.php" />
-        <option value="$PROJECT_DIR$/.htaccess" />
-        <option value="$PROJECT_DIR$/template/porto/footer.php" />
-        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/admin/assets/plugins/pace/pace-theme-flash.css" />
+        <option value="$PROJECT_DIR$/admin/template/timezoneserver.php" />
+        <option value="$PROJECT_DIR$/admin/template/header.php" />
+        <option value="$PROJECT_DIR$/admin/assets/js/scripts.js" />
+        <option value="$PROJECT_DIR$/admin/pages/js/pages.js" />
+        <option value="$PROJECT_DIR$/admin/template/editfiles.php" />
+        <option value="$PROJECT_DIR$/admin/template/edithook.php" />
+        <option value="$PROJECT_DIR$/admin/template/editnews.php" />
+        <option value="$PROJECT_DIR$/admin/template/editor_edit.php" />
+        <option value="$PROJECT_DIR$/admin/template/editpage.php" />
+        <option value="$PROJECT_DIR$/admin/template/edituser.php" />
+        <option value="$PROJECT_DIR$/admin/template/mediasharing.php" />
+        <option value="$PROJECT_DIR$/admin/template/newhook.php" />
+        <option value="$PROJECT_DIR$/admin/template/newnews.php" />
+        <option value="$PROJECT_DIR$/admin/template/newpage.php" />
+        <option value="$PROJECT_DIR$/admin/template/newssetting.php" />
+        <option value="$PROJECT_DIR$/admin/template/newuser.php" />
+        <option value="$PROJECT_DIR$/admin/template/newusergroup.php" />
+        <option value="$PROJECT_DIR$/admin/template/searchuser.php" />
+        <option value="$PROJECT_DIR$/admin/template/setting.php" />
+        <option value="$PROJECT_DIR$/admin/template/site.php" />
+        <option value="$PROJECT_DIR$/admin/template/user.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/template/blog_connect_new.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/template/blogsetting.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/template/editblog.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/admin/template/newblog.php" />
+        <option value="$PROJECT_DIR$/plugins/download/admin/template/dl_connect.php" />
+        <option value="$PROJECT_DIR$/plugins/download/admin/template/dl_connect_new.php" />
+        <option value="$PROJECT_DIR$/plugins/download/admin/template/editdownload.php" />
+        <option value="$PROJECT_DIR$/plugins/download/admin/template/newdownload.php" />
+        <option value="$PROJECT_DIR$/plugins/download/admin/template/setting.php" />
+        <option value="$PROJECT_DIR$/plugins/faq/admin/template/editfaq.php" />
+        <option value="$PROJECT_DIR$/plugins/faq/admin/template/faq_connect.php" />
+        <option value="$PROJECT_DIR$/plugins/faq/admin/template/faq_connect_new.php" />
+        <option value="$PROJECT_DIR$/plugins/faq/admin/template/faqsetting.php" />
+        <option value="$PROJECT_DIR$/plugins/faq/admin/template/newfaq.php" />
+        <option value="$PROJECT_DIR$/plugins/growl/admin/template/edit.php" />
+        <option value="$PROJECT_DIR$/plugins/growl/admin/template/new.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/admin/template/edituser.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/admin/template/newuser.php" />
+        <option value="$PROJECT_DIR$/plugins/newsletter/admin/template/user.php" />
+        <option value="$PROJECT_DIR$/plugins/register_form/admin/template/rfcreate.php" />
+        <option value="$PROJECT_DIR$/plugins/register_form/admin/template/settings.php" />
+        <option value="$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seo_setting.php" />
+        <option value="$PROJECT_DIR$/template/metrics/templatesettings.php" />
+        <option value="$PROJECT_DIR$/template/porto/templatesettings.php" />
+        <option value="$PROJECT_DIR$/template/qed/templatesettings.php" />
+        <option value="$PROJECT_DIR$/admin/template/footer.php" />
       </list>
     </option>
   </component>
@@ -163,7 +289,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -229,34 +354,110 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="help" />
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bootstrap-select2" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="4.0.3" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bootstrap-select2" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="4.0.3" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHub/PortableGit_f02737a78695063deace08e96d5042710d3e32db/cmd/git.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/admin/ajax" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Github\CMS-Bluesat\template\porto\css" />
-      <recent name="D:\Github\CMS-Bluesat\template\porto\css\skins" />
-      <recent name="D:\Github\CMS-Bluesat\assets\plugins\revolution-slider\css" />
-      <recent name="D:\Github\CMS-Bluesat\plugins\blog" />
-      <recent name="D:\Github\CMS-Bluesat\template\porto\php" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Github\CMS-Bluesat\template\porto\php\php-mailer-template" />
       <recent name="D:\Github\CMS-Bluesat\admin\template\help" />
@@ -264,8 +465,18 @@
       <recent name="D:\Github\CMS-Bluesat\plugins\blog\help" />
       <recent name="D:\Github\CMS-Bluesat\plugins\download\help" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Github\CMS-Bluesat\plugins\digital_house\admin\template" />
+      <recent name="D:\Github\CMS-Bluesat\plugins\digital_house\admin" />
+      <recent name="D:\Github\CMS-Bluesat\plugins\digital_house" />
+      <recent name="D:\Github\CMS-Bluesat\plugins" />
+      <recent name="D:\Github\CMS-Bluesat\class" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHP Script.index.php">
+    <configuration default="false" name="index.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/index.php">
+      <method />
+    </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
@@ -313,6 +524,14 @@
       <recursive>false</recursive>
       <method />
     </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="PHP Script.index.php" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="PHP Script.index.php" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -368,22 +587,24 @@
       <workItem from="1496686803551" duration="18818000" />
       <workItem from="1496779216006" duration="7754000" />
       <workItem from="1496821965044" duration="449000" />
-      <workItem from="1496852913222" duration="45522000" />
+      <workItem from="1496852913222" duration="55753000" />
+      <workItem from="1497002604696" duration="19637000" />
+      <workItem from="1497173782622" duration="155334000" />
+      <workItem from="1497936406321" duration="461000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1392166000" />
+    <option name="totallyTimeSpent" value="1577829000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21742313" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19180088" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25988287" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="0" y="53" width="1362" height="715" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -398,31 +619,32 @@
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39596274" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42606148" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39596274" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="0" y="53" width="1362" height="715" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21742313" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39596274" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="0" y="53" width="1362" height="715" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21742313" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25988287" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26793557" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -438,524 +660,398 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/Disk Google/BLUESAT/Bluesat - webdesign/Web/TEMPLATE/Bootstrap Template/Porto/Porto 5.7/HTML/about-me.html">
+    <entry file="file://$PROJECT_DIR$/admin/assets/js/scripts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="844" column="39" selection-start-line="844" selection-start-column="39" selection-end-line="844" selection-end-column="39" />
-          <folding>
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="34">
+          <caret line="227" column="3" selection-start-line="227" selection-start-column="3" selection-end-line="227" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/pages/js/pages.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="368" column="75" selection-start-line="368" selection-start-column="56" selection-end-line="368" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/editfiles.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/edithook.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="140" column="106" selection-start-line="140" selection-start-column="106" selection-end-line="140" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/editnews.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="764" column="92" selection-start-line="764" selection-start-column="92" selection-end-line="764" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/editor_edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="30" column="95" selection-start-line="30" selection-start-column="95" selection-end-line="30" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/editpage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="821" column="84" selection-start-line="821" selection-start-column="84" selection-end-line="821" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/edituser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="194" column="86" selection-start-line="194" selection-start-column="86" selection-end-line="194" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/mediasharing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="330" column="85" selection-start-line="330" selection-start-column="85" selection-end-line="330" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/newhook.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="135" column="79" selection-start-line="135" selection-start-column="79" selection-end-line="135" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/newnews.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="675" column="88" selection-start-line="675" selection-start-column="88" selection-end-line="675" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/newpage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="687" column="0" selection-start-line="687" selection-start-column="0" selection-end-line="687" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/newssetting.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="287" column="67" selection-start-line="287" selection-start-column="67" selection-end-line="287" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/newuser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="136" column="82" selection-start-line="136" selection-start-column="82" selection-end-line="136" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/newusergroup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="40" column="87" selection-start-line="40" selection-start-column="87" selection-end-line="40" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/searchuser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="35" column="68" selection-start-line="35" selection-start-column="68" selection-end-line="35" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/setting.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="320" column="92" selection-start-line="320" selection-start-column="92" selection-end-line="320" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/site.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="145" column="85" selection-start-line="145" selection-start-column="85" selection-end-line="145" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="82" column="68" selection-start-line="82" selection-start-column="68" selection-end-line="82" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/blog_connect.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="19" column="75" selection-start-line="19" selection-start-column="75" selection-end-line="19" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/blog_connect_new.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="19" column="75" selection-start-line="19" selection-start-column="75" selection-end-line="19" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/blogsetting.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="285" column="83" selection-start-line="285" selection-start-column="83" selection-end-line="285" selection-end-column="83" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/editblog.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="313" column="63" selection-start-line="313" selection-start-column="56" selection-end-line="313" selection-end-column="63" />
+        <state relative-caret-position="196">
+          <caret line="638" column="94" selection-start-line="638" selection-start-column="94" selection-end-line="638" selection-end-column="94" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/config/config.php">
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/template/newblog.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+        <state relative-caret-position="196">
+          <caret line="544" column="94" selection-start-line="544" selection-start-column="94" selection-end-line="544" selection-end-column="94" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/plugins/revolution-slider/css/settings.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="0" column="25605" selection-start-line="0" selection-start-column="25605" selection-end-line="0" selection-end-column="25605" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/plugins/revolution-slider/css/layers.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="0" column="66337" selection-start-line="0" selection-start-column="66337" selection-end-line="0" selection-end-column="66337" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/plugins/revolution-slider/css/navigation.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/plugins/revolution-slider/css/navigation.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="3" column="12592" selection-start-line="3" selection-start-column="12592" selection-end-line="3" selection-end-column="12592" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/js/theme.init.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="63" column="33" selection-start-line="63" selection-start-column="28" selection-end-line="63" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/css/theme-blog.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="23" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/css/theme-complete.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
-          <folding>
-            <element signature="e#73451#73694#2" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/css/skins/skin-bluesat.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="1" selection-start-line="0" selection-start-column="0" selection-end-line="4893" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/css/skins/skin-bluesat.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6274">
-          <caret line="0" column="117165" selection-start-line="0" selection-start-column="117165" selection-end-line="0" selection-end-column="117165" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/css/screen.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="0" column="17453" selection-start-line="0" selection-start-column="17453" selection-end-line="0" selection-end-column="17453" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/class/class.paginator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="66" column="18" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/blog/template/blog.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1015">
-          <caret line="77" column="23" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/js/porto-revolutionSlider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="45" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/blog/blog.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding>
-            <marker date="1496865218930" expanded="true" signature="2231:2442" ph="SELECT COUNT... ${$jaktable}" />
-            <marker date="1496865218930" expanded="true" signature="3234:3324" ph="SELECT name,... ${$jaktable1}" />
-            <marker date="1496865218930" expanded="true" signature="3679:3833" ph="SELECT id, h... ${DB_PREFIX}" />
-            <marker date="1496865218930" expanded="true" signature="6462:6745" ph="INSERT INTO ${$jaktable2}... " />
-            <marker date="1496865218930" expanded="true" signature="7034:7340" ph="INSERT INTO ${$jaktable2}... " />
-            <marker date="1496865218930" expanded="true" signature="9501:9678" ph="SELECT * FRO... ${$jaktable}" />
-            <marker date="1496865218930" expanded="true" signature="13154:13287" ph="SELECT id, h... ${DB_PREFIX}" />
-            <marker date="1496865218930" expanded="true" signature="14522:14621" ph="SELECT id, n... ${$jaktable1}" />
-            <marker date="1496865218930" expanded="true" signature="16673:16741" ph="DELETE FROM " />
-            <marker date="1496865218930" expanded="true" signature="18483:18582" ph="SELECT usern... ${$jaktable2}" />
-            <marker date="1496865218930" expanded="true" signature="20851:21005" ph="SELECT id, h... ${DB_PREFIX}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/css/screen.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="10" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/plugintemplate/blog/blog.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
-          <folding>
-            <marker date="1496699793041" expanded="true" signature="605:679" ph="SELECT name,... ${DB_PREFIX}" />
-            <marker date="1496699793041" expanded="true" signature="605:699" ph="SELECT id, n... ${DB_PREFIX}" />
-            <marker date="1496699793041" expanded="true" signature="605:715" ph="SELECT id, n... ${DB_PREFIX}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/plugintemplate/download/downloadfile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="168" column="81" selection-start-line="168" selection-start-column="58" selection-end-line="168" selection-end-column="81" />
-          <folding>
-            <marker date="1496927883510" expanded="true" signature="4052:4071" ph="..." />
-            <marker date="1496927883510" expanded="true" signature="4207:4226" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/download/admin/download.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-302">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/download/admin/template/usergroup_edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="26" column="48" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/usergroup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1416">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#1104#3393#0#PHP" expanded="false" />
-            <element signature="e#4488#5693#0#PHP" expanded="false" />
-            <element signature="e#5700#6563#0#PHP" expanded="false" />
-            <marker date="1491749954665" expanded="true" signature="2254:2536" ph="INSERT INTO ${$jaktable}... " />
-            <marker date="1491749954665" expanded="true" signature="3842:3910" ph="DELETE FROM " />
-            <marker date="1491749954665" expanded="true" signature="5777:5844" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/plugintemplate/download/js/script.download.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-          <folding>
-            <marker date="1496872051847" expanded="true" signature="1020:1203" ph="{...}" />
-            <marker date="1496872051847" expanded="true" signature="1027:1195" ph="//..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/dialog.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16150">
-          <caret line="1053" column="24" selection-start-line="1053" selection-start-column="24" selection-end-line="1053" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/plugins/tinymce/plugins/filemanager/force_download.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="879">
-          <caret line="146" column="19" selection-start-line="146" selection-start-column="19" selection-end-line="146" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/ajax/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="13" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="25" column="22" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/class/class.plugins.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="114" column="44" selection-start-line="114" selection-start-column="43" selection-end-line="114" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="84" column="31" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="31" />
-          <folding>
-            <marker date="1496568052883" expanded="true" signature="2296:2347" ph="SELECT varna... ${DB_PREFIX}" />
-            <marker date="1496568052883" expanded="true" signature="4565:4657" ph="SELECT * FRO... ${DB_PREFIX}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/class/class.rewrite.php">
+    <entry file="file://$PROJECT_DIR$/plugins/download/admin/template/dl_connect.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <caret line="8" column="74" selection-start-line="8" selection-start-column="74" selection-end-line="8" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/download/admin/template/dl_connect_new.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="19" column="73" selection-start-line="19" selection-start-column="73" selection-end-line="19" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/download/admin/template/editdownload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="855" column="94" selection-start-line="855" selection-start-column="94" selection-end-line="855" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/download/admin/template/newdownload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="745" column="94" selection-start-line="745" selection-start-column="94" selection-end-line="745" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/download/admin/template/setting.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="391" column="83" selection-start-line="391" selection-start-column="83" selection-end-line="391" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/editfaq.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="493" column="94" selection-start-line="493" selection-start-column="94" selection-end-line="493" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/faq_connect.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="19" column="74" selection-start-line="19" selection-start-column="74" selection-end-line="19" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/faq_connect_new.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="19" column="74" selection-start-line="19" selection-start-column="74" selection-end-line="19" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/faqsetting.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="259" column="83" selection-start-line="259" selection-start-column="83" selection-end-line="259" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/template/newfaq.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="398" column="94" selection-start-line="398" selection-start-column="94" selection-end-line="398" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/growl/admin/template/edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="354" column="82" selection-start-line="354" selection-start-column="82" selection-end-line="354" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/growl/admin/template/new.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="349" column="82" selection-start-line="349" selection-start-column="82" selection-end-line="349" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/edituser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2210">
+          <caret line="130" column="82" selection-start-line="130" selection-start-column="82" selection-end-line="130" selection-end-column="82" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/download/download.php">
+    <entry file="file://D:/Disk Google/BLUESAT/Bluesat - webdesign/Web/CMS/CMS JakWeb/CMS Bootstrap 2.3.1/upload/admin/template/footer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="382" column="73" selection-start-line="382" selection-start-column="73" selection-end-line="382" selection-end-column="73" />
-          <folding>
-            <marker date="1496941242755" expanded="true" signature="3246:3336" ph="SELECT name,... ${$jaktable1}" />
-            <marker date="1496941242755" expanded="true" signature="3695:3865" ph="SELECT id, h... ${DB_PREFIX}" />
-            <marker date="1496941242755" expanded="true" signature="6463:6686" ph="INSERT INTO ${$jaktable2}... " />
-            <marker date="1496941242755" expanded="true" signature="6975:7211" ph="INSERT INTO ${$jaktable2}... " />
-            <marker date="1496941242755" expanded="true" signature="10360:10437" ph="SELECT * FRO... ${$jaktable}" />
-            <marker date="1496941242755" expanded="true" signature="13943:14086" ph="SELECT id, h... ${DB_PREFIX}" />
-            <marker date="1496941242755" expanded="true" signature="15338:15437" ph="SELECT id, n... ${$jaktable1}" />
-            <marker date="1496941242755" expanded="true" signature="17030:17115" ph="SELECT value... ${DB_PREFIX}" />
-            <marker date="1496941242755" expanded="true" signature="17973:18041" ph="DELETE FROM " />
-            <marker date="1496941242755" expanded="true" signature="19950:20049" ph="SELECT usern... ${$jaktable2}" />
-            <marker date="1496941242755" expanded="true" signature="21282:21399" ph="SELECT cando... ${$jaktable}" />
-            <marker date="1496941242755" expanded="true" signature="22497:22687" ph="INSERT INTO ${$jaktable3}... " />
-            <marker date="1496941242755" expanded="true" signature="27462:27632" ph="SELECT id, h... ${DB_PREFIX}" />
-          </folding>
+        <state relative-caret-position="216">
+          <caret line="45" column="19" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/download/functions.php">
+    <entry file="file://$PROJECT_DIR$/template/qed/templatesettings.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
-          <folding>
-            <marker date="1491253353543" expanded="true" signature="484:856" ph="SELECT t1.*,... ${DB_PREFIX}" />
-            <marker date="1491253353543" expanded="true" signature="2116:2394" ph="SELECT COUNT... ${DB_PREFIX}" />
-          </folding>
+        <state relative-caret-position="128">
+          <caret line="190" column="40" selection-start-line="190" selection-start-column="40" selection-end-line="190" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="72" selection-start-line="4" selection-start-column="70" selection-end-line="4" selection-end-column="72" />
-          <folding>
-            <marker date="1496514409399" expanded="true" signature="466:536" ph="SELECT * FRO... ${$jaktable}" />
-            <marker date="1496514409399" expanded="true" signature="3829:3962" ph="SELECT id, p... ${DB_PREFIX}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/class/class.jakbase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="203" column="35" selection-start-line="203" selection-start-column="35" selection-end-line="203" selection-end-column="46" />
-          <folding>
-            <marker date="1485602926869" expanded="true" signature="7257:7592" ph="SELECT id, n... ${DB_PREFIX}" />
-            <marker date="1485602926869" expanded="true" signature="8867:8934" ph="SELECT * FRO... ${$table}" />
-            <marker date="1485602926869" expanded="true" signature="10893:11003" ph="SELECT id FR... ${DB_PREFIX}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="488" column="24" selection-start-line="488" selection-start-column="24" selection-end-line="488" selection-end-column="24" />
-          <folding>
-            <element signature="e#5755#6992#0#PHP" expanded="false" />
-            <element signature="e#7171#7521#0#PHP" expanded="false" />
-            <element signature="e#7697#8035#0#PHP" expanded="false" />
-            <marker date="1496952896496" expanded="true" signature="9440:9556" ph="SELECT name,... ${DB_PREFIX}" />
-            <marker date="1496952896496" expanded="true" signature="14119:14218" ph="SELECT id, n... ${DB_PREFIX}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="39" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="39" />
-          <folding>
-            <marker date="1496952518896" expanded="true" signature="7096:7192" ph="SELECT varna... ${DB_PREFIX}" />
-            <marker date="1496952518896" expanded="true" signature="7460:7556" ph="SELECT varna... ${DB_PREFIX}" />
-            <marker date="1496952518896" expanded="true" signature="8536:8597" ph="SELECT COUNT... ${$jakvar}" />
-            <marker date="1496952518896" expanded="true" signature="8803:8866" ph="SELECT * FRO... ${$table}" />
-            <marker date="1496952518896" expanded="true" signature="9168:9209" ph="SELECT * FRO... ${$table}" />
-            <marker date="1496952518896" expanded="true" signature="9501:9595" ph="SELECT id FR... ${$table}" />
-            <marker date="1496952518896" expanded="true" signature="9793:9865" ph="SELECT id FR... ${$table}" />
-            <marker date="1496952518896" expanded="true" signature="10099:10218" ph="SELECT id FR... ${$table}" />
-            <marker date="1496952518896" expanded="true" signature="10472:10558" ph="SELECT permi... ${$jakvar1}" />
-            <marker date="1496952518896" expanded="true" signature="10930:11039" ph="SELECT id FR... ${$jakvar2}" />
-            <marker date="1496952518896" expanded="true" signature="11782:11996" ph="SELECT * FRO... ${DB_PREFIX}" />
-            <marker date="1496952518896" expanded="true" signature="16930:19324" ph="..." />
-            <marker date="1496952518896" expanded="true" signature="16959:19319" ph="..." />
-            <marker date="1496952518896" expanded="true" signature="17504:17581" ph="..." />
-            <marker date="1496952518896" expanded="true" signature="17665:19299" ph="..." />
-            <marker date="1496952518896" expanded="true" signature="19565:22028" ph="..." />
-            <marker date="1496952518896" expanded="true" signature="19594:22023" ph="..." />
-            <marker date="1496952518896" expanded="true" signature="20163:20246" ph="..." />
-            <marker date="1496952518896" expanded="true" signature="20336:22000" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/eu-cookies.php">
+    <entry file="file://$PROJECT_DIR$/template/porto/templatesettings.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="1" column="68" selection-start-line="1" selection-start-column="68" selection-end-line="1" selection-end-column="68" />
+          <caret line="60" column="84" selection-start-line="60" selection-start-column="84" selection-end-line="60" selection-end-column="84" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/js/porto.templatesettings.php">
+    <entry file="file://$PROJECT_DIR$/template/metrics/templatesettings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="60" column="84" selection-start-line="60" selection-start-column="84" selection-end-line="60" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/xml_seo/admin/template/xml_seo_setting.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="166" column="84" selection-start-line="166" selection-start-column="84" selection-end-line="166" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/urlmapping/admin/template/edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="168" column="62" selection-start-line="168" selection-start-column="62" selection-end-line="168" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/register_form/admin/template/settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="225" column="86" selection-start-line="225" selection-start-column="86" selection-end-line="225" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/register_form/admin/template/rfcreate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="121" column="92" selection-start-line="121" selection-start-column="92" selection-end-line="121" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="47" column="64" selection-start-line="47" selection-start-column="64" selection-end-line="47" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/template/newuser.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="30" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
+          <caret line="117" column="82" selection-start-line="117" selection-start-column="82" selection-end-line="117" selection-end-column="82" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/header.php">
+    <entry file="file://D:/Disk Google/BLUESAT/Bluesat - webdesign/Web/CMS/CMS JakWeb/CMS Bootstrap 2.3.1/upload/admin/js/cms.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="123" column="15" selection-start-line="123" selection-start-column="15" selection-end-line="123" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/download/install.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="473" column="6" selection-start-line="473" selection-start-column="6" selection-end-line="473" selection-end-column="6" />
-          <folding>
-            <marker date="1496936311527" expanded="true" signature="5255:5318" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1496936311527" expanded="true" signature="6322:7006" ph="INSERT INTO ${DB_PREFIX}plugins... " />
-            <marker date="1496936311527" expanded="true" signature="7198:7261" ph="SELECT id FR... ${DB_PREFIX}" />
-            <marker date="1496936311527" expanded="true" signature="16574:20240" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
-            <marker date="1496936311527" expanded="true" signature="20367:21801" ph="INSERT INTO ${DB_PREFIX}setting... " />
-            <marker date="1496936311527" expanded="true" signature="21932:22549" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
-            <marker date="1496936311527" expanded="true" signature="22607:22702" ph="ALTER TABLE ${DB_PREFIX}pages... " />
-            <marker date="1496936311527" expanded="true" signature="22727:22821" ph="ALTER TABLE ${DB_PREFIX}news... " />
-            <marker date="1496936311527" expanded="true" signature="22846:22944" ph="ALTER TABLE ${DB_PREFIX}pagesgrid... " />
-            <marker date="1496936311527" expanded="true" signature="23117:23366" ph="INSERT INTO ${DB_PREFIX}categories... " />
-            <marker date="1496936311527" expanded="true" signature="23492:24622" ph="CREATE TABLE... IF" />
-            <marker date="1496936311527" expanded="true" signature="24753:25327" ph="CREATE TABLE... IF" />
-            <marker date="1496936311527" expanded="true" signature="25455:26097" ph="CREATE TABLE... IF" />
-            <marker date="1496936311527" expanded="true" signature="26241:26719" ph="CREATE TABLE... IF" />
-            <marker date="1496936311527" expanded="true" signature="26862:26932" ph="ALTER TABLE ${DB_PREFIX}download... " />
-            <marker date="1496936311527" expanded="true" signature="27826:27886" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/db.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-255">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.htaccess">
+    <entry file="file://D:/Disk Google/BLUESAT/Bluesat - webdesign/Web/CMS/CMS JakWeb/CMS Bootstrap 2.3.1/upload/admin/template/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="9" column="72" selection-start-line="9" selection-start-column="72" selection-end-line="9" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/footer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="6" column="45" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/plugins/jquery.lazyload/jquery.lazyload.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="48" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/plugins/isotope/jquery.isotope.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/plugins/jquery.easing/jquery.easing.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="64" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template/help/cmshelp_cs.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-510">
-          <caret line="518" column="30" selection-start-line="518" selection-start-column="30" selection-end-line="518" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="51">
-            <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="252" column="113" selection-start-line="252" selection-start-column="113" selection-end-line="252" selection-end-column="113" />
+          <caret line="75" column="91" selection-start-line="75" selection-start-column="91" selection-end-line="75" selection-end-column="91" />
           <folding>
-            <marker date="1496989493431" expanded="true" signature="15607:15632" ph="..." />
-            <marker date="1496989493431" expanded="true" signature="15732:15765" ph="..." />
+            <marker date="1497936659612" expanded="true" signature="6052:6765" ph="..." />
+            <marker date="1497936659612" expanded="true" signature="6172:6624" ph="{&quot;type&quot;: &quot;danger&quot;...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/assets/plugins/bootstrap-select2/4.0.3/js/select2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
   </component>
   <component name="webServersAuthStorage">
-    <data>AAABoDWKlrOHz6QU68Hpj3k28bBFOB2VIVvLUYm5ALQlEJAFSSV8Mas8K6ejloUyXnbm+eZTktO7Rv1/Oln/GlbCY2wXUNHQgz/VCvu9pwKMg1yeW8O3gmIIPBHg2DAXROztC8YHGRsR++/2w0M5AnJbjyQENJmWB1JKVy8St36xF+iKyYpBvdFEd7AGsPSNqAC0uPyzcO3JJwZhKT//NcvyWxrjfMk8Na0UVYC7x+eF0mol3gKyy9YWapDp6PjDtcf8ll70EpjRVtLYXYGB9mDljLq716fZEuQ5HlFyPshSK+BHFKCGBdlu/d96krzH2lNR0YsF2CrHjdJ7bYZt3gECZI3Vjruqx4K1MN4jvL1kpFtTHIih7NaCZ0F3Bk35vrXHxozqn3zkj7e2qP/hWbCz/Hq4OxSojFZ/+MeYmO9GNRV6bb+MLBRqfSiKKbKOa3XGuVN/UoZ09kWW3NVSPv4HzWit517HxSM7xY7F1ELu0ntMF6GmE1HIhbJLny1ozf/Ujr04lWZHVMX1IQp6LtaIS8RmFOSFOBsojULfOF1pgsl1DocX3MPjub23V755oWLqlA==</data>
+    <data>AAABoGknwB/CGRVDdERHNzJEDhcfq+W6UYDJYFquGsb+m0mizFr95ugMbwb7PPb3608AVpumWgbKKvzOxx6vmUfXH8X22rXpPyNJpKnByLpB1MgHJGFzEKi0qEqATjhle+pQ78OljIUj+aeVVkUgU6brUtX2gUdXteYhMM9lQ+nBcF8tDfrMjpNwtfPOFXC3uDnfCHI8lbdNBwGI1FAPVKYmFISW98+1SuK0Unw/ZZuemg0TIoJhmnWkmS7F9ndPYzf7HtfxF0Nhg+GWGtctqRO6g5qKMIatGAj1UN+l74Uollq5YsBGoZFe9XVjyrLvZz/qs7qecrP2S2Etk2Vb6xybLhI4gM0WT8YIpk4vxGdFGLdi8SaBPgz/SMFVLyUMkrv2dz8ud/HjhpmIyhHXfHSpJ0yA14l6LHw3nIosWS/vD6XZ+Zg1e0UKYXiAd9EdvNGwDWuLilrmtXJF7I6EYfF3Zep3lfr2S0t3BV9dL2a+w0o6eVoYV3oRdZpEDm/4DPTXvN3mAorsygyPiOlV6g3fNkvqav31R6sLEBMHdbjR0gIhcX2rWqoBkuC47l5MVxAnLg==</data>
   </component>
 </project>

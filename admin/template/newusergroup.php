@@ -38,7 +38,7 @@ if ($errors) { ?>
       <div class="form-group">
         <label for="groupbase"><?php echo $tl["userg_box_content"]["usergbc"]; ?></label>
         <div class="input-group">
-          <select name="jak_groupbase" id="groupbase" class="form-control selectpicker" data-size="5">
+          <select name="jak_groupbase" id="groupbase" class="form-control selectpicker">
 
             <?php
             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)

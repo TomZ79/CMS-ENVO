@@ -72,15 +72,15 @@
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
 echo $Html->addScript('assets/plugins/pace/pace.min.js');
-echo $Html->addScript('https://code.jquery.com/jquery-2.1.1.min.js');
-echo $Html->addScript('assets/plugins/modernizr.custom.js');
+echo $Html->addScript('/assets/plugins/jquery/jquery-2.1.1.min.js');
 echo $Html->addScript('//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js');
-echo $Html->addScript('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js');
+echo $Html->addScript('assets/plugins/modernizr.custom.js');
 echo $Html->addScript('assets/plugins/bootstrapv3/js/bootstrap.min.js');
+echo $Html->addScript('assets/plugins/bootstrap-select2/4.0.3/js/select2.full.min.js');
+echo $Html->addScript('assets/plugins/bootstrap-select2/4.0.3/js/i18n/cs.js');
+echo $Html->addScript('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js');
 echo $Html->addScript('assets/plugins/bootstrap-notify/bootstrap-notify.js');
 echo $Html->addScript('assets/plugins/bootstrap-bootboxjs/bootbox.min.js');
-echo $Html->addScript('assets/plugins/bootstrap-select/js/bootstrap-select.min.js');
-echo $Html->addScript('assets/plugins/bootstrap-select/js/i18n/defaults-cs_CZ.min.js');
 echo $Html->addScript('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js');
 echo $Html->addScript('assets/plugins/bootstrap-iconpicker/js/iconset/iconset-all.min.js');
 echo $Html->addScript('assets/plugins/bootstrap-iconpicker/js/bootstrap-iconpicker.min.js');

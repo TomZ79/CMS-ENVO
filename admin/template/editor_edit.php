@@ -28,7 +28,7 @@
                 <div class="bounce5"></div>
               </div>
 
-              <select name="restorcontent" id="restorcontent" class="form-control selectpicker" data-size="5">
+              <select name="restorcontent" id="restorcontent" class="form-control selectpicker">
 
                 <?php
                 // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)

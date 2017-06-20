@@ -6,7 +6,7 @@
       <label class="control-label"><?php echo $tld["downl_connect"]["downlc8"]; ?></label>
       <div class="row">
         <div class="col-md-6">
-          <select name="jak_showdlorder" class="form-control selectpicker" data-size="5">
+          <select name="jak_showdlorder" class="form-control selectpicker">
 
             <?php
             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -17,7 +17,7 @@
           </select>
         </div>
         <div class="col-md-6">
-          <select name="jak_showdlmany" class="form-control selectpicker" data-size="5">
+          <select name="jak_showdlmany" class="form-control selectpicker">
 
             <?php for ($i = 0; $i <= 10; $i++) {
 

@@ -6,7 +6,7 @@
       <label class="control-label"><?php echo $tlf["faq_connect"]["faqc7"]; ?></label>
       <div class="row">
         <div class="col-md-6">
-          <select name="jak_showfaqorder" class="form-control selectpicker" data-size="5">
+          <select name="jak_showfaqorder" class="form-control selectpicker">
 
             <?php
             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -17,7 +17,7 @@
           </select>
         </div>
         <div class="col-md-6">
-          <select name="jak_showfaqmany" class="form-control selectpicker" data-size="5">
+          <select name="jak_showfaqmany" class="form-control selectpicker">
 
             <?php for ($i = 0; $i <= 10; $i++) {
 

@@ -95,7 +95,7 @@ if ($errors) { ?>
                   </div>
                   <div class="col-md-7">
                     <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-                      <select name="jak_hook" class="form-control selectpicker" data-live-search="true" data-size="5">
+                      <select name="jak_hook" class="form-control selectpicker">
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -133,7 +133,7 @@ if ($errors) { ?>
 
                   </div>
                   <div class="col-md-7">
-                    <select name="jak_plugin" class="form-control selectpicker" data-live-search="true" data-size="5">
+                    <select name="jak_plugin" class="form-control selectpicker">
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)

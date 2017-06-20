@@ -305,7 +305,7 @@ if ($page1 == "e") { ?>
 
                     </div>
                     <div class="col-md-7">
-                      <select name="jak_mediatheme" class="form-control selectpicker" data-size="5">
+                      <select name="jak_mediatheme" class="form-control selectpicker">
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -328,7 +328,7 @@ if ($page1 == "e") { ?>
 
                     </div>
                     <div class="col-md-7">
-                      <select name="jak_mediahover" class="form-control selectpicker" data-size="5">
+                      <select name="jak_mediahover" class="form-control selectpicker">
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)

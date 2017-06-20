@@ -114,7 +114,7 @@ if ($errors) { ?>
 
                   </div>
                   <div class="col-md-7">
-                    <select name="jak_offpage" class="form-control selectpicker" data-live-search="true" data-size="5">
+                    <select name="jak_offpage" class="form-control selectpicker">
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -143,7 +143,7 @@ if ($errors) { ?>
 
                   </div>
                   <div class="col-md-7">
-                    <select name="jak_pagenotfound" class="form-control selectpicker" data-live-search="true" data-size="5">
+                    <select name="jak_pagenotfound" class="form-control selectpicker">
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)

@@ -126,7 +126,7 @@ if (isset($error2)) { ?>
                 <tr>
                   <td style="vertical-align: middle;"><?php echo $tlxml["xml_box_content"]["xmlbc9"]; ?></td>
                   <td>
-                    <select name="jak_frepages" class="form-control selectpicker" data-size="3">
+                    <select name="jak_frepages" class="form-control selectpicker">
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -145,7 +145,7 @@ if (isset($error2)) { ?>
                 <tr>
                   <td style="vertical-align: middle;"><?php echo $tlxml["xml_box_content"]["xmlbc10"]; ?></td>
                   <td>
-                    <select name="jak_freblog" class="form-control selectpicker" data-size="3">
+                    <select name="jak_freblog" class="form-control selectpicker">
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -164,7 +164,7 @@ if (isset($error2)) { ?>
                 <tr>
                   <td style="vertical-align: middle;"><?php echo $tlxml["xml_box_content"]["xmlbc11"]; ?></td>
                   <td>
-                    <select name="jak_fredownload" class="form-control selectpicker" data-size="3">
+                    <select name="jak_fredownload" class="form-control selectpicker">
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)

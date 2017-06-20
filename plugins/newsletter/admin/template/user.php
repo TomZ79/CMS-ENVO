@@ -45,7 +45,7 @@ if ($page2 == "e") { ?>
 
   <form role="form" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="input-group">
-      <select name="jak_group" class="form-control selectpicker" data-size="5">
+      <select name="jak_group" class="form-control selectpicker">
 
         <?php
         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)

@@ -227,23 +227,9 @@ $(function () {
 
 });
 
-/* 00. INITIALIZES SELECTPICKER
- ========================================================================*/
-$(function () {
-  $('.selectpicker').selectpicker({
-    container: 'body',
-    dropdownAlignRight: 'auto'
-  });
-
-  $('.selectpickerRight').selectpicker({
-    container: 'body',
-    dropdownAlignRight: true
-  });
-});
-
 /* 00. DATA LOADING TEXT IN BUTTON
  ========================================================================*/
-(function () {
+$(function () {
   // Button 'Save'
   $('button[name = "btnSave"]').on('click', function() {
     var $this = $(this);
@@ -270,7 +256,7 @@ $(function () {
     }, 1000);
   });
 
-}());
+});
 
 /* 00. INITIALIZES SEARCH OVERLAY PLUGIN
  ========================================================================*/

@@ -73,7 +73,7 @@ if ($JAK_FILE_ERROR) { ?>
                 // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                 echo $Html->addLabel('jak_file_edit', $tl["tpl_box_content"]["tplbc4"]);
                 // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-                echo $Html->startTag('select', array('id' => 'jak_file_edit', 'class' => 'form-control selectpicker', 'name' => 'jak_file_edit', 'data-live-search' => 'true', 'data-size' => '5'));
+                echo $Html->startTag('select', array('id' => 'jak_file_edit', 'class' => 'form-control selectpicker', 'name' => 'jak_file_edit', 'data-search-select2' => 'true'));
 
                 $pathLen = strlen($ROOT_DIR);
                 getTemplateFiles($ROOT_DIR, 0, strlen($ROOT_DIR));

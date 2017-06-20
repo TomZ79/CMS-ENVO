@@ -277,7 +277,7 @@ if ($errors) { ?>
 
                       </div>
                       <div class="col-md-5">
-                        <select name="jak_cookiestime" class="form-control selectpicker" data-live-search="true" data-size="5">
+                        <select name="jak_cookiestime" class="form-control selectpicker">
 
                           <?php for ($i = 1; $i <= 99; $i++) {
 
@@ -299,7 +299,7 @@ if ($errors) { ?>
 
                       </div>
                       <div class="col-md-5">
-                        <select name="jak_dur" class="form-control selectpicker" data-size="5">
+                        <select name="jak_dur" class="form-control selectpicker">
 
                           <?php
                           // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -352,7 +352,7 @@ if ($errors) { ?>
 
                       </div>
                       <div class="col-md-5">
-                        <select name="jak_class" class="form-control selectpicker" data-size="4">
+                        <select name="jak_class" class="form-control selectpicker">
 
                           <?php
                           // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)

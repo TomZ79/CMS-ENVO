@@ -592,7 +592,7 @@ if ($errors) { ?>
                   <div class="block-content">
                     <div class="row-form">
                       <div class="col-md-12">
-                        <select name="jak_catid" class="form-control selectpicker" data-live-search="true" data-size="5">
+                        <select name="jak_catid" class="form-control selectpicker">
 
                           <?php
                           // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -734,7 +734,7 @@ if ($errors) { ?>
 
                       </div>
                       <div class="col-md-7">
-                        <select name="jak_file" class="form-control selectpickerRight" data-live-search="true" data-size="5">
+                        <select name="jak_file" class="form-control selectpicker">
 
                           <?php
                           // Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -815,7 +815,7 @@ if ($errors) { ?>
 
                         </div>
                         <div class="col-md-7">
-                          <select name="" id="selecttags1" class="form-control selectpicker" title="Choose tags ..." data-size="7" data-live-search="true">
+                          <select name="" id="selecttags1" class="form-control selectpicker">
                             <optgroup label="Poskytovatelé TV">
 
                               <?php
@@ -853,7 +853,7 @@ if ($errors) { ?>
 
                           <?php $JAK_TAG_ALL = jak_tag_name_admin();
                           if ($JAK_TAG_ALL) { ?>
-                            <select name="" id="selecttags2" class="form-control selectpicker" title="Choose tags ..." data-size="7" data-live-search="true">
+                            <select name="" id="selecttags2" class="form-control selectpicker">
 
                               <?php
                               foreach ($JAK_TAG_ALL as $v) {

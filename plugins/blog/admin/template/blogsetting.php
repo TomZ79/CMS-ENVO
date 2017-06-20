@@ -256,7 +256,7 @@ if ($page2 == "e") { ?>
                       </div>
                       <div class="col-md-7">
                         <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
-                          <select name="jak_date" class="form-control selectpicker" data-size="7">
+                          <select name="jak_date" class="form-control selectpicker">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -283,7 +283,7 @@ if ($page2 == "e") { ?>
                       </div>
                       <div class="col-md-7">
                         <div class="form-group no-margin<?php if (isset($errors["e4"])) echo " has-error"; ?>">
-                          <select name="jak_time" class="form-control selectpicker" data-size="7">
+                          <select name="jak_time" class="form-control selectpicker">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
