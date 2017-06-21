@@ -1250,24 +1250,24 @@ switch ($page1) {
 
               // Insert the content into the backup table
               $jakdb->query('INSERT INTO ' . $jaktable6 . ' SET
-		    blogid = "' . smartsql($page2) . '",
-		    content = "' . smartsql($rowsb['content']) . '",
-		    time = NOW()');
+              blogid = "' . smartsql($page2) . '",
+              content = "' . smartsql($rowsb['content']) . '",
+              time = NOW()');
 
               $result = $jakdb->query('UPDATE ' . $jaktable . ' SET
-			catid = "' . smartsql($catid) . '",
-			title = "' . smartsql($defaults['jak_title']) . '",
-			content = "' . smartsql($defaults['jak_content']) . '",
-			blog_css = "' . smartsql($defaults['jak_css']) . '",
-			blog_javascript = "' . smartsql($defaults['jak_javascript']) . '",
-			sidebar = "' . smartsql($defaults['jak_sidebar']) . '",
-			showtitle = "' . smartsql($defaults['jak_showtitle']) . '",
-			showcontact = "' . smartsql($defaults['jak_showcontact']) . '",
-			showdate = "' . smartsql($defaults['jak_showdate']) . '",
-			comments = "' . smartsql($defaults['jak_comment']) . '",
-			' . $insert . '
-			socialbutton = "' . smartsql($defaults['jak_social']) . '"
-			WHERE id = "' . smartsql($page2) . '"');
+                        catid = "' . smartsql($catid) . '",
+                        title = "' . smartsql($defaults['jak_title']) . '",
+                        content = "' . smartsql($defaults['jak_content']) . '",
+                        blog_css = "' . smartsql($defaults['jak_css']) . '",
+                        blog_javascript = "' . smartsql($defaults['jak_javascript']) . '",
+                        sidebar = "' . smartsql($defaults['jak_sidebar']) . '",
+                        showtitle = "' . smartsql($defaults['jak_showtitle']) . '",
+                        showcontact = "' . smartsql($defaults['jak_showcontact']) . '",
+                        showdate = "' . smartsql($defaults['jak_showdate']) . '",
+                        comments = "' . smartsql($defaults['jak_comment']) . '",
+                        ' . $insert . '
+                        socialbutton = "' . smartsql($defaults['jak_social']) . '"
+                        WHERE id = "' . smartsql($page2) . '"');
 
               // Set tag active to zero
               $tagactive = 0;

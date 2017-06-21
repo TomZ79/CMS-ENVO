@@ -562,7 +562,7 @@
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_tags', (isset($_REQUEST["jak_tags"])) ? $_REQUEST["jak_tags"] : '', 'jak_tags', 'form-control tags', array('data-role' => 'tagsinput'));
+                          echo $Html->addInput('text', 'jak_tags', (isset($_REQUEST["jak_tags"]) ? $_REQUEST["jak_tags"] : ''), 'jak_tags', 'form-control tags', array('data-role' => 'tagsinput'));
                           ?>
 
                         </div>

@@ -139,6 +139,10 @@ if (file_exists(APP_PATH . 'plugins/digital_house/admin/lang/' . $site_language 
             $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `digitalhouse`');
             $jakdb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
 
+            /* Remove cities
+             * $jakdb->query('DROP TABLE ' . DB_PREFIX . 'digitalhousecities');
+             */
+
           }
 
           $succesfully = 1;

@@ -168,7 +168,7 @@ if (file_exists(APP_PATH . 'plugins/digital_house/admin/lang/' . $site_language 
         require_once APP_PATH.\'plugins/digital_house/admin/digitalhouse.php\';
            $JAK_PROVED = 1;
            $checkp = 1;
-        }", "../plugins/digital_house/admin/template/digitalhousenav.php", "digitalhouse", "uninstall.php", "1.0", NOW())');
+        }", "../plugins/digital_house/admin/template/dh_nav.php", "digitalhouse", "uninstall.php", "1.0", NOW())');
 
         // EN: Now get the plugin 'id' from table 'plugins' for futher use
         // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
@@ -228,15 +228,7 @@ if (file_exists(APP_PATH . 'plugins/digital_house/admin/lang/' . $site_language 
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `varname` varchar(100) DEFAULT NULL,
-  `citimg` varchar(255) DEFAULT NULL,
-  `content` mediumtext,
-  `permission` mediumtext,
-  `citorder` int(11) unsigned NOT NULL DEFAULT 1,
-  `citparent` int(11) unsigned NOT NULL DEFAULT 0,
-  `active` smallint(1) unsigned NOT NULL DEFAULT 1,
-  `count` int(11) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
-  KEY `citorder` (`citorder`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
         $succesfully = 1;
