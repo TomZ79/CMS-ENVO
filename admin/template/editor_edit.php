@@ -13,7 +13,7 @@
       <?php if (isset($JAK_PAGE_BACKUP) && is_array($JAK_PAGE_BACKUP)) { ?>
         <tr>
           <th>
-            <div class="form-group">
+            <div class="form-group selectpickerwidth">
 
               <?php
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
@@ -28,7 +28,7 @@
                 <div class="bounce5"></div>
               </div>
 
-              <select name="restorcontent" id="restorcontent" class="form-control selectpicker">
+              <select name="restorcontent" id="restorcontent" class="form-control selectpicker" style="width: 100%;">
 
                 <?php
                 // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
