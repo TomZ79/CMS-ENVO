@@ -17,7 +17,7 @@ $rwresdlh2 = $resdlh2->fetch_assoc();
 
 // EN: Get data from 'downloadhistory'
 // CZ: Získání dat z 'downloadhistory'
-$resdlh3 = $jakdb->query('SELECT fileid, email, filename, time FROM ' . DB_PREFIX . 'downloadhistory WHERE time > DATE_SUB(CURDATE(), INTERVAL 1 WEEK)');
+$resdlh3 = $jakdb->query('SELECT fileid, email, filename, time FROM ' . DB_PREFIX . 'downloadhistory WHERE time > DATE_SUB(CURDATE(), INTERVAL 4 WEEK)');
 while ($rwresdlh3 = $resdlh3->fetch_assoc()) {
   // EN: Insert each record into array
   // CZ: Vložení získaných dat do pole
@@ -51,6 +51,9 @@ while ($rwresdlh3 = $resdlh3->fetch_assoc()) {
         <td><?php echo $rwresdlh2['totalMM']; ?></td>
       </tr>
     </table>
+    <div>
+      <h5 class="m-l-30"><?php echo $tld["downl_box_content"]["downlbc56"]; ?></h5>
+    </div>
     <div class="table-responsive">
       <table class="table table-striped table-hover table-statis-200">
         <thead>
@@ -65,7 +68,7 @@ while ($rwresdlh3 = $resdlh3->fetch_assoc()) {
         <tbody>
 
         <?php
-        foreach ($envodata as $e) {
+        if (isset($envodata)) foreach ($envodata as $e) {
           $resdl   = $jakdb->query('SELECT title FROM ' . DB_PREFIX . 'download WHERE id=' . $e["fileid"]);
           $rwresdl = $resdl->fetch_assoc();
         ?>
