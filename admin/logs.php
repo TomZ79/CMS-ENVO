@@ -6,16 +6,16 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$JAK_MODULES) jak_redirect(BASE_URL);
+if (!JAK_USERID || !$JAK_MODULES) envo_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$jaktable = DB_PREFIX . 'loginlog';
+$envotable = DB_PREFIX . 'loginlog';
 
 $JAK_LOGINLOG_ALL = "";
 
 // Important template Stuff
-$getTotal = jak_get_total($jaktable, '', '', '');
+$getTotal = envo_get_total($envotable, '', '', '');
 if ($getTotal != 0) {
   // Paginator
   $pages                 = new JAK_Paginator;
@@ -27,7 +27,7 @@ if ($getTotal != 0) {
   $pages->paginate();
   $JAK_PAGINATE = $pages->display_pages();
 
-  $JAK_LOGINLOG_ALL = jak_get_page_info($jaktable, $pages->limit, '');
+  $JAK_LOGINLOG_ALL = envo_get_page_info($envotable, $pages->limit, '');
 }
 
 // Let's go on with the script
@@ -42,23 +42,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     for ($i = 0; $i < count($lockuser); $i++) {
       $locked = $lockuser[$i];
-      $result = $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE id = "' . smartsql($locked) . '"');
+      $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
 
     }
 
     if (!$result) {
       // EN: Redirect page
       // CZ: Přesměrování stránky s notifikací - chybné
-      jak_redirect(BASE_URL . 'index.php?p=logs&sp=e');
+      envo_redirect(BASE_URL . 'index.php?p=logs&status=e');
     } else {
       // EN: Redirect page
       // CZ: Přesměrování stránky s notifikací - úspěšné
       /*
       NOTIFIKACE:
-      'sp=s'   - Záznam úspěšně uložen
-      'ssp=s'  - Záznam úspěšně odstraněn
+      'status=s'   - Záznam úspěšně uložen
+      'status1=s'  - Záznam úspěšně odstraněn
       */
-      jak_redirect(BASE_URL . 'index.php?p=logs&sp=s&ssp=s');
+      envo_redirect(BASE_URL . 'index.php?p=logs&status=s&status1=s');
     }
 
   }
@@ -67,39 +67,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 switch ($page1) {
   case 'delete':
-    $result = $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE id = "' . smartsql($page2) . '"');
+    $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
 
     if (!$result) {
       // EN: Redirect page
       // CZ: Přesměrování stránky s notifikací - chybné
-      jak_redirect(BASE_URL . 'index.php?p=logs&sp=e');
+      envo_redirect(BASE_URL . 'index.php?p=logs&status=e');
     } else {
       // EN: Redirect page
       // CZ: Přesměrování stránky s notifikací - úspěšné
       /*
       NOTIFIKACE:
-      'sp=s'   - Záznam úspěšně uložen
-      'ssp=s'  - Záznam úspěšně odstraněn
+      'status=s'   - Záznam úspěšně uložen
+      'status1=s'  - Záznam úspěšně odstraněn
       */
-      jak_redirect(BASE_URL . 'index.php?p=logs&sp=s&ssp=s');
+      envo_redirect(BASE_URL . 'index.php?p=logs&status=s&status1=s');
     }
     break;
   case 'truncate':
-    $result = $jakdb->query('TRUNCATE ' . $jaktable);
+    $result = $jakdb->query('TRUNCATE ' . $envotable);
 
     if (!$result) {
       // EN: Redirect page
       // CZ: Přesměrování stránky s notifikací - chybné
-      jak_redirect(BASE_URL . 'index.php?p=logs&sp=e');
+      envo_redirect(BASE_URL . 'index.php?p=logs&status=e');
     } else {
       // EN: Redirect page
       // CZ: Přesměrování stránky s notifikací - úspěšné
       /*
       NOTIFIKACE:
-      'sp=s'   	- Záznam úspěšně uložen
-      'ssp=s1'  - Všechny záznamy úspěšně odstraněny
+      'status=s'   	- Záznam úspěšně uložen
+      'status1=s1'  - Všechny záznamy úspěšně odstraněny
       */
-      jak_redirect(BASE_URL . 'index.php?p=logs&sp=s&ssp=s1');
+      envo_redirect(BASE_URL . 'index.php?p=logs&status=s&status1=s1');
     }
     break;
   default:

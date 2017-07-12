@@ -12,13 +12,13 @@ if (!file_exists('config.php')) die('[index.php] config.php not found');
 require_once 'config.php';
 
 // Now check if there is more then one page
-$page  = ($temppa ? jak_url_input_filter($temppa) : '');
-$page1 = ($temppa1 ? jak_url_input_filter($temppa1) : '');
-$page2 = ($temppa2 ? jak_url_input_filter($temppa2) : '');
-$page3 = ($temppa3 ? jak_url_input_filter($temppa3) : '');
-$page4 = ($temppa4 ? jak_url_input_filter($temppa4) : '');
-$page5 = ($temppa5 ? jak_url_input_filter($temppa5) : '');
-$page6 = ($temppa6 ? jak_url_input_filter($temppa6) : '');
+$page  = ($temppa ? envo_url_input_filter($temppa) : '');
+$page1 = ($temppa1 ? envo_url_input_filter($temppa1) : '');
+$page2 = ($temppa2 ? envo_url_input_filter($temppa2) : '');
+$page3 = ($temppa3 ? envo_url_input_filter($temppa3) : '');
+$page4 = ($temppa4 ? envo_url_input_filter($temppa4) : '');
+$page5 = ($temppa5 ? envo_url_input_filter($temppa5) : '');
+$page6 = ($temppa6 ? envo_url_input_filter($temppa6) : '');
 
 // Only the SuperAdmin in the config file see everything
 if (JAK_USERID && $jakuser->jakSuperadminaccess(JAK_USERID)) {
@@ -31,7 +31,7 @@ if (JAK_USERID && $jakuser->jakSuperadminaccess(JAK_USERID)) {
 if ($page && $page != '404') $_SESSION['JAKRedirect'] = $_SERVER['REQUEST_URI'];
 
 // All other user will be redirect to the homepage, nothing else to do for this people
-if (JAK_USERID && !JAK_ADMINACCESS) jak_redirect(BASE_URL_ORIG);
+if (JAK_USERID && !JAK_ADMINACCESS) envo_redirect(BASE_URL_ORIG);
 
 // EN: Import the language file
 // CZ: Import jazykových souborů
@@ -125,14 +125,14 @@ if (JAK_USERID) {
 }
 
 // Get statistics for Navbar
-$jaktable  = DB_PREFIX . 'pages';
-$jaktable1 = DB_PREFIX . 'user';
-$jaktable2 = DB_PREFIX . 'usergroup';
+$envotable  = DB_PREFIX . 'pages';
+$envotable1 = DB_PREFIX . 'user';
+$envotable2 = DB_PREFIX . 'usergroup';
 
 $JAK_COUNTS_NAVBAR = $jakdb->queryRow('SELECT
-																			(SELECT COUNT(*) FROM ' . $jaktable . ') AS COUNT_PAGES,
-																			(SELECT COUNT(*) FROM ' . $jaktable1 . ') AS COUNT_USER,
-																			(SELECT COUNT(*) FROM ' . $jaktable2 . ') AS COUNT_USERGROUP');
+																			(SELECT COUNT(*) FROM ' . $envotable . ') AS COUNT_PAGES,
+																			(SELECT COUNT(*) FROM ' . $envotable1 . ') AS COUNT_USER,
+																			(SELECT COUNT(*) FROM ' . $envotable2 . ') AS COUNT_USERGROUP');
 
 // EN: Home page
 // CZ: Úvodní strana
@@ -143,7 +143,7 @@ if ($page == '') {
     require_once 'login.php';
   } else {
     require_once 'include/serverconfig.php';
-    $JAK_SETTING     = jak_get_setting('version');
+    $JAK_SETTING     = envo_get_setting('version');
     $JAK_PROVED      = 1;
     $JAK_PAGE_ACTIVE = 1;
 
@@ -203,16 +203,16 @@ if ($page == '') {
 if ($page == 'logout') {
   $checkp = 1;
   if (!JAK_USERID) {
-    jak_redirect(BASE_URL);
+    envo_redirect(BASE_URL);
   }
   if (JAK_USERID) {
     $jakuserlogin->jakLogout(JAK_USERID);
-    jak_redirect(BASE_URL);
+    envo_redirect(BASE_URL);
   }
 }
 if ($page == '404') {
   if (!JAK_USERID) {
-    jak_redirect(BASE_URL);
+    envo_redirect(BASE_URL);
   }
   // Go to the 404 Page
   $JAK_PROVED = 1;
@@ -344,7 +344,7 @@ if ($page == 'cmshelp') {
 
 // EN: If page not found
 // CZ: Pokud stránka není nalezena
-if ($checkp == 0) jak_redirect(BASE_URL . 'index.php?p=404');
+if ($checkp == 0) envo_redirect(BASE_URL . 'index.php?p=404');
 
 if (isset($template) && $template != '') {
   include_once APP_PATH . 'admin/template/' . $template;

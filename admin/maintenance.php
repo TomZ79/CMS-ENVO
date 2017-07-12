@@ -6,10 +6,10 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID) jak_redirect(BASE_URL);
+if (!JAK_USERID) envo_redirect(BASE_URL);
 
 // If not super admin...
-if (!JAK_SUPERADMINACCESS) jak_redirect(BASE_URL_ORIG);
+if (!JAK_SUPERADMINACCESS) envo_redirect(BASE_URL_ORIG);
 
 $success = $errors = FALSE;
 

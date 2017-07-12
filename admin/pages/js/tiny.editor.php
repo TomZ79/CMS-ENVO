@@ -14,7 +14,7 @@ if (isset($tpl_customcss)) {
 		theme: "modern",
 		width: "100%",
 		height: 200,
-		language: jakWeb.jak_lang,
+		language: envoWeb.envo_lang,
 		plugins: [
 			"advlist autolink lists link image charmap print preview anchor",
 			"searchreplace visualblocks code fullscreen",
@@ -37,7 +37,7 @@ if (isset($tpl_customcss)) {
 		theme: "modern",
 		width: "100%",
 		height: 500,
-		language: jakWeb.jak_lang,
+		language: envoWeb.envo_lang,
 		plugins: [
 			"advlist autolink link image lists charmap preview hr anchor pagebreak",
 			"searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
@@ -60,7 +60,7 @@ if (isset($tpl_customcss)) {
 		theme: "modern",
 		width: "100%",
 		height: 500,
-		language: jakWeb.jak_lang,
+		language: envoWeb.envo_lang,
 		plugins: [
 			"advlist autolink link image lists charmap preview hr anchor pagebreak fullpage",
 			"searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",

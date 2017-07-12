@@ -1,7 +1,7 @@
 <?php
 
 // Protected url names
-function jak_varname_blocked($jakvar)
+function envo_varname_blocked($jakvar)
 {
   $blocked = 'user,usergroup,admin,cmsfiles,css,class,img,include,js,lang,pics_gallery,ftp,plugin,profilepicture,template,userfiles,videofiles,search,suche,' . JAK_FILES_DIRECTORY;
   $blockarray = explode(',', $blocked);
@@ -12,7 +12,7 @@ function jak_varname_blocked($jakvar)
 }
 
 // Get the usergroup per array with no limit
-function jak_clean_comment($jakvar)
+function envo_clean_comment($jakvar)
 {
 
   $input = strip_tags(stripslashes($jakvar));
@@ -21,7 +21,7 @@ function jak_clean_comment($jakvar)
 }
 
 // Get the not used Categories out the database
-function jak_get_cat_notused()
+function envo_get_cat_notused()
 {
   global $jakdb;
   $categories = array();
@@ -33,36 +33,36 @@ function jak_get_cat_notused()
 }
 
 // Get the categories per array with no limit
-function jak_get_cat_info($jakvar, $jakvar1)
+function envo_get_cat_info($jakvar, $jakvar1)
 {
   global $jakdb;
 
   $sqlwhere = '';
   if (!empty($jakvar1)) $sqlwhere = ' WHERE activeplugin = 1';
 
-  $jakdata = array();
+  $envodata = array();
   $result = $jakdb->query('SELECT * FROM ' . $jakvar . $sqlwhere . ' ORDER BY catorder ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $jakdata[] = $row;
+    $envodata[] = $row;
   }
-  if (isset($jakdata)) return $jakdata;
+  if (isset($envodata)) return $envodata;
 }
 
 // Get the usergroup per array with no limit
-function jak_get_usergroup_all($jakvar)
+function envo_get_usergroup_all($jakvar)
 {
   global $jakdb;
-  $jakdata = array();
+  $envodata = array();
   $result = $jakdb->query('SELECT id, name, description FROM ' . DB_PREFIX . $jakvar . ' ORDER BY id ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $jakdata[] = $row;
+    $envodata[] = $row;
   }
 
-  return $jakdata;
+  return $envodata;
 }
 
 /**
@@ -87,37 +87,37 @@ function envo_get_count_user_in_group($usertable, $usergroupID)
 }
 
 // Get the data per array for page,newsletter with limit
-function jak_get_page_info($jakvar, $jakvar1)
+function envo_get_page_info($jakvar, $jakvar1)
 {
   global $jakdb;
-  $jakdata = array();
+  $envodata = array();
   $result = $jakdb->query('SELECT * FROM ' . $jakvar . ' ORDER BY id DESC ' . $jakvar1);
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $jakdata[] = $row;
+    $envodata[] = $row;
   }
 
-  if (!empty($jakdata)) return $jakdata;
+  if (!empty($envodata)) return $envodata;
 }
 
 // Get the data per array for news with limit
-function jak_get_news_info($jakvar)
+function envo_get_news_info($jakvar)
 {
   global $jakdb;
-  $jakdata = array();
+  $envodata = array();
   $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'news' . ' ORDER BY id ASC ' . $jakvar);
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $jakdata[] = $row;
+    $envodata[] = $row;
   }
 
-  return $jakdata;
+  return $envodata;
 }
 
 // Get the data per array for event comments with limit
-function jak_get_tag($limit, $id, $plugin, $order)
+function envo_get_tag($limit, $id, $plugin, $order)
 {
 
   $sqlwhere = '';
@@ -128,7 +128,7 @@ function jak_get_tag($limit, $id, $plugin, $order)
   if (!empty($order)) $ordersql = ' ORDER BY ' . $order . ' ';
 
   global $jakdb;
-  $jakdata = array();
+  $envodata = array();
   $result = $jakdb->query('SELECT id, tag, pluginid, active FROM ' . DB_PREFIX . 'tags' . $sqlwhere . $ordersql . $limit);
   while ($row = $result->fetch_assoc()) {
 
@@ -138,14 +138,14 @@ function jak_get_tag($limit, $id, $plugin, $order)
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $jakdata[] = array('id' => $row['id'], 'tag' => $row['tag'], 'active' => $row['active'], 'pluginid' => $row['pluginid'], 'plugin' => $pluginname);
+    $envodata[] = array('id' => $row['id'], 'tag' => $row['tag'], 'active' => $row['active'], 'pluginid' => $row['pluginid'], 'plugin' => $pluginname);
   }
 
-  return $jakdata;
+  return $envodata;
 }
 
 // Search for style files in the site folder, only choose folders.
-function jak_get_site_style($styledir)
+function envo_get_site_style($styledir)
 {
 
   // Check if folder exist
@@ -173,7 +173,7 @@ function jak_get_site_style($styledir)
 }
 
 // Get all user out the database limited with the paginator
-function jak_get_user_all($jakvar, $jakvar1, $jakvar2)
+function envo_get_user_all($jakvar, $jakvar1, $jakvar2)
 {
 
   $sqlwhere = '';
@@ -190,7 +190,7 @@ function jak_get_user_all($jakvar, $jakvar1, $jakvar2)
 }
 
 // Get all user or pages out the database limited with the paginator
-function jak_admin_search($jakvar, $jakvar1, $jakvar2)
+function envo_admin_search($jakvar, $jakvar1, $jakvar2)
 {
 
   $sqlwhere = '';
@@ -202,19 +202,19 @@ function jak_admin_search($jakvar, $jakvar1, $jakvar2)
     $sqlwhere = ' WHERE title like "%' . $jakvar . '%"';
   }
   global $jakdb;
-  $jakdata = array();
+  $envodata = array();
   $result = $jakdb->query('SELECT * FROM ' . $jakvar1 . $sqlwhere . ' ORDER BY id ASC LIMIT 5');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $jakdata[] = $row;
+    $envodata[] = $row;
   }
 
-  return $jakdata;
+  return $envodata;
 }
 
 // Check if user exist and it is possible to delete ## (config.php)
-function jak_user_exist_deletable($jakvar)
+function envo_user_exist_deletable($jakvar)
 {
   global $jakdb;
   $useridarray = explode(',', JAK_SUPERADMIN);
@@ -228,7 +228,7 @@ function jak_user_exist_deletable($jakvar)
 }
 
 // Check if row exist with id
-function jak_field_not_exist_id($jakvar, $jakvar1, $jakvar2, $jakvar3)
+function envo_field_not_exist_id($jakvar, $jakvar1, $jakvar2, $jakvar3)
 {
   global $jakdb;
   $result = $jakdb->query('SELECT id FROM ' . $jakvar2 . ' WHERE id != "' . smartsql($jakvar1) . '" AND ' . $jakvar3 . ' = "' . smartsql($jakvar) . '" LIMIT 1');
@@ -240,7 +240,7 @@ function jak_field_not_exist_id($jakvar, $jakvar1, $jakvar2, $jakvar3)
 // Get started with the tag system
 
 // Get tags per id
-function jak_get_tags($jakvar, $jakvar1)
+function envo_get_tags($jakvar, $jakvar1)
 {
 
   global $jakdb;
@@ -260,7 +260,7 @@ function jak_get_tags($jakvar, $jakvar1)
 }
 
 // Tag cloud data
-function jak_tag_data_admin()
+function envo_tag_data_admin()
 {
 
   global $jakdb;
@@ -277,7 +277,7 @@ function jak_tag_data_admin()
 }
 
 // Tag cloud name
-function jak_tag_name_admin()
+function envo_tag_name_admin()
 {
 
   global $jakdb;
@@ -292,7 +292,7 @@ function jak_tag_name_admin()
 }
 
 // Create tag cloud
-function jak_admin_tag_cloud()
+function envo_admin_tag_cloud()
 {
 
   // Default font sizes
@@ -301,7 +301,7 @@ function jak_admin_tag_cloud()
   $cloud_html = '';
 
   // Pull in tag data
-  $tags = jak_tag_data_admin();
+  $tags = envo_tag_data_admin();
   if ($tags) {
     $minimum_count = min(array_values($tags));
     $maximum_count = max(array_values($tags));
@@ -326,23 +326,23 @@ function jak_admin_tag_cloud()
 }
 
 // Get contact options
-function jak_get_contact_options($jakvar, $jakvar1)
+function envo_get_contact_options($jakvar, $jakvar1)
 {
 
   global $jakdb;
-  $jakdata = array();
+  $envodata = array();
   $result = $jakdb->query('SELECT * FROM ' . $jakvar . ' WHERE formid = "' . smartsql($jakvar1) . '" ORDER BY forder ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $jakdata[] = $row;
+    $envodata[] = $row;
   }
 
-  return $jakdata;
+  return $envodata;
 }
 
 // Get contact options
-function jak_get_new_stuff($jakvar, $jakvar1)
+function envo_get_new_stuff($jakvar, $jakvar1)
 {
   if ($jakvar1 == 1) {
     $sqlwhere = ' WHERE session = "" AND access = 0';
@@ -357,12 +357,12 @@ function jak_get_new_stuff($jakvar, $jakvar1)
 }
 
 // Load the version from CMS
-function jak_load_xml_from_url($jakvar)
+function envo_load_xml_from_url($jakvar)
 {
-  return simplexml_load_string(jak_load_file_from_url($jakvar));
+  return simplexml_load_string(envo_load_file_from_url($jakvar));
 }
 
-function jak_load_file_from_url($jakvar)
+function envo_load_file_from_url($jakvar)
 {
   $curl = curl_init();
   curl_setopt($curl, CURLOPT_URL, $jakvar);
@@ -375,7 +375,7 @@ function jak_load_file_from_url($jakvar)
 }
 
 // Parse the xml into an array
-function jak_objectsIntoArray($arrObjData, $arrSkipIndices = array())
+function envo_objectsIntoArray($arrObjData, $arrSkipIndices = array())
 {
   $arrData = array();
 
@@ -400,7 +400,7 @@ function jak_objectsIntoArray($arrObjData, $arrSkipIndices = array())
 }
 
 // Menu builder function, parentId 0 is the root
-function jak_build_menu_admin($parent, $menu, $lang, $title1, $title2, $title3, $title4, $title5, $class = "", $id = "")
+function envo_build_menu_admin($parent, $menu, $lang, $title1, $title2, $title3, $title4, $title5, $class = "", $id = "")
 {
   $html = "";
   if (isset($menu['parents'][$parent])) {
@@ -438,7 +438,7 @@ function jak_build_menu_admin($parent, $menu, $lang, $title1, $title2, $title3, 
           			' . ($menu["items"][$itemId]["pluginid"] == 0 && $menu["items"][$itemId]["id"] != 1 ? '<a class="btn btn-danger btn-xs" href="#" data-toggle="tooltip" data-placement="bottom" title="' . $title5 . '" disabled><i class="fa fa-trash-o"></i></a>' : '') . '
           		</span>
           		</div>';
-        $html .= jak_build_menu_admin($itemId, $menu, $lang, $title1, $title2, $title3, $title4, $title5);
+        $html .= envo_build_menu_admin($itemId, $menu, $lang, $title1, $title2, $title3, $title4, $title5);
         $html .= "</li> \n";
       }
     }
@@ -564,7 +564,7 @@ function url_slug($str, $options = array())
 // Menu Clipping - get first letter from two words - lowercase
 function text_clipping_lower($str)
 {
-  $str = url_slug($str, array('delimiter' => ' ', 'lowercase' => true, 'transliterate' => true,));
+  $str = url_slug($str, array('delimiter' => ' ', 'lowercase' => true, 'transliterate' => true));
 
   if (str_word_count($str) > 1) {
     //Get the first character for two words
@@ -582,7 +582,7 @@ function text_clipping_lower($str)
 // Menu Clipping - get first letter from two words - uppercase
 function text_clipping_upper($str)
 {
-  $str = url_slug($str, array('delimiter' => ' ', 'lowercase' => false, 'transliterate' => true,));
+  $str = url_slug($str, array('delimiter' => ' ', 'lowercase' => false, 'transliterate' => true));
 
   if (str_word_count($str) > 1) {
     //Get the first character for two words

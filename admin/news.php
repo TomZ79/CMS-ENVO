@@ -6,14 +6,14 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSNEWS)) jak_redirect(BASE_URL);
+if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSNEWS)) envo_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$jaktable  = DB_PREFIX . 'news';
-$jaktable1 = DB_PREFIX . 'contactform';
-$jaktable2 = DB_PREFIX . 'pagesgrid';
-$jaktable3 = DB_PREFIX . 'pluginhooks';
+$envotable  = DB_PREFIX . 'news';
+$envotable1 = DB_PREFIX . 'contactform';
+$envotable2 = DB_PREFIX . 'pagesgrid';
+$envotable3 = DB_PREFIX . 'pluginhooks';
 
 $insert = FALSE;
 
@@ -23,12 +23,10 @@ $JAK_HOOK_ADMIN_PAGE_NEW = $jakhooks->jakGethook("tpl_admin_page_news_new");
 
 // Now start with the plugin use a switch to access all pages
 switch ($page1) {
-
-  // Create new blog
   case 'new':
 
     // Important template Stuff
-    $JAK_CONTACT_FORMS = jak_get_page_info($jaktable1, '');
+    $JAK_CONTACT_FORMS = envo_get_page_info($envotable1, '');
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable
@@ -102,22 +100,28 @@ switch ($page1) {
           }
         }
 
-        $result = $jakdb->query('INSERT INTO ' . $jaktable . ' SET
-																	title = "' . smartsql($defaults['jak_title']) . '",
-																	content = "' . smartsql($defaults['jak_content']) . '",
-																	news_css = "' . smartsql($defaults['jak_css']) . '",
-																	news_javascript = "' . smartsql($defaults['jak_javascript']) . '",
-																	sidebar = "' . smartsql($defaults['jak_sidebar']) . '",
-																	previmg = "' . $defaults['jak_img'] . '",
-																	showtitle = "' . smartsql($defaults['jak_showtitle']) . '",
-																	showcontact = "' . smartsql($defaults['jak_showcontact']) . '",
-																	showdate = "' . $defaults['jak_showdate'] . '",
-																	showhits = "' . $defaults['jak_showhits'] . '",
-																	socialbutton = "' . $defaults['jak_social'] . '",
-																	newsorder = 1,
-																	permission = "' . smartsql($permission) . '",
-																	' . $insert . '
-																	active = 1');
+        /* EN: Convert value
+         * smartsql - secure method to insert form data into a MySQL DB
+         * ------------------
+         * CZ: Převod hodnot
+         * smartsql - secure method to insert form data into a MySQL DB
+        */
+        $result = $jakdb->query('INSERT INTO ' . $envotable . ' SET
+                  title = "' . smartsql($defaults['jak_title']) . '",
+                  content = "' . smartsql($defaults['jak_content']) . '",
+                  news_css = "' . smartsql($defaults['jak_css']) . '",
+                  news_javascript = "' . smartsql($defaults['jak_javascript']) . '",
+                  sidebar = "' . smartsql($defaults['jak_sidebar']) . '",
+                  previmg = "' . $defaults['jak_img'] . '",
+                  showtitle = "' . smartsql($defaults['jak_showtitle']) . '",
+                  showcontact = "' . smartsql($defaults['jak_showcontact']) . '",
+                  showdate = "' . $defaults['jak_showdate'] . '",
+                  showhits = "' . $defaults['jak_showhits'] . '",
+                  socialbutton = "' . $defaults['jak_social'] . '",
+                  newsorder = 1,
+                  permission = "' . smartsql($permission) . '",
+                  ' . $insert . '
+                  active = 1');
 
         $rowid = $jakdb->jak_last_id();
 
@@ -129,7 +133,7 @@ switch ($page1) {
 
         foreach ($doit as $key => $exorder) {
 
-          $jakdb->query('INSERT INTO ' . $jaktable2 . ' SET newsid = "' . $rowid . '", pluginid = "' . $key . '", orderid = "' . smartsql($exorder) . '"');
+          $jakdb->query('INSERT INTO ' . $envotable2 . ' SET newsid = "' . $rowid . '", pluginid = "' . $key . '", orderid = "' . smartsql($exorder) . '"');
 
         }
 
@@ -149,7 +153,7 @@ switch ($page1) {
               $whatid = 0;
               if (isset($defaults['whatid_' . $pdoith[$key]])) $whatid = $defaults['whatid_' . $pdoith[$key]];
 
-              $jakdb->query('INSERT INTO ' . $jaktable2 . ' SET newsid = "' . $rowid . '", hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '", plugin = 1');
+              $jakdb->query('INSERT INTO ' . $envotable2 . ' SET newsid = "' . $rowid . '", hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '", plugin = 1');
 
             }
 
@@ -160,7 +164,7 @@ switch ($page1) {
         if (!$result) {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=news&sp=new&ssp=e');
+          envo_redirect(BASE_URL . 'index.php?p=news&sp=new&status=e');
         } else {
 
           // Create Tags if the module is active
@@ -174,7 +178,7 @@ switch ($page1) {
           }
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=news&sp=edit&ssp=' . $rowid . '&sssp=s');
+          envo_redirect(BASE_URL . 'index.php?p=news&sp=edit&ssp=' . $rowid . '&status=s');
         }
       } else {
 
@@ -184,13 +188,13 @@ switch ($page1) {
     }
 
     // Get the sidebar templates
-    $result = $jakdb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $jaktable3 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
+    $result = $jakdb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable3 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
     while ($row = $result->fetch_assoc()) {
       $JAK_HOOKS[] = $row;
     }
 
     // Get active sidebar widgets
-    $grid = $jakdb->query('SELECT hookid FROM ' . $jaktable2 . ' WHERE plugin = 1 ORDER BY orderid ASC');
+    $grid = $jakdb->query('SELECT hookid FROM ' . $envotable2 . ' WHERE plugin = 1 ORDER BY orderid ASC');
     while ($grow = $grid->fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
@@ -207,7 +211,7 @@ switch ($page1) {
     }
 
     // Get all usergroup's
-    $JAK_USERGROUP = jak_get_usergroup_all('usergroup');
+    $JAK_USERGROUP = envo_get_usergroup_all('usergroup');
 
     // EN: Title and Description
     // CZ: Titulek a Popis
@@ -223,11 +227,11 @@ switch ($page1) {
 
     // EN: Import important settings for the template from the DB
     // CZ: Importuj důležité nastavení pro šablonu z DB
-    $JAK_SETTING = jak_get_setting('news');
+    $JAK_SETTING = envo_get_setting('news');
 
     // EN: Import important settings for the template from the DB (only VALUE)
     // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
-    $JAK_SETTING_VAL = jak_get_setting_val('news');
+    $JAK_SETTING_VAL = envo_get_setting_val('news');
 
     // Let's go on with the script
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -248,19 +252,24 @@ switch ($page1) {
         // Get the order into the right format
         $newsorder = $defaults['jak_shownewsordern'] . ' ' . $defaults['jak_shownewsorder'];
 
-        // Do the dirty work in mysql
+        /* EN: Convert value
+         * smartsql - secure method to insert form data into a MySQL DB
+         * ------------------
+         * CZ: Převod hodnot
+         * smartsql - secure method to insert form data into a MySQL DB
+        */
         $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-																		WHEN "newstitle" THEN "' . smartsql($defaults['jak_title']) . '"
-																		WHEN "newsdesc" THEN "' . smartsql($defaults['jak_lcontent']) . '"
-																		WHEN "newsorder" THEN "' . $newsorder . '"
-																		WHEN "newsdateformat" THEN "' . smartsql($defaults['jak_date']) . '"
-																		WHEN "newstimeformat" THEN "' . smartsql($defaults['jak_time']) . '"
-																		WHEN "newspagemid" THEN "' . smartsql($defaults['jak_mid']) . '"
-																		WHEN "newspageitem" THEN "' . smartsql($defaults['jak_item']) . '"
-																		WHEN "news_css" THEN "' . smartsql($defaults['jak_css']) . '"
-																		WHEN "news_javascript" THEN "' . smartsql($defaults['jak_javascript']) . '"
-																	END
-																	WHERE varname IN ("newstitle", "newsdesc", "newsorder", "newsdateformat", "newstimeformat", "newspagemid", "newspageitem","news_css","news_javascript")');
+                    WHEN "newstitle" THEN "' . smartsql($defaults['jak_title']) . '"
+                    WHEN "newsdesc" THEN "' . smartsql($defaults['jak_lcontent']) . '"
+                    WHEN "newsorder" THEN "' . $newsorder . '"
+                    WHEN "newsdateformat" THEN "' . smartsql($defaults['jak_date']) . '"
+                    WHEN "newstimeformat" THEN "' . smartsql($defaults['jak_time']) . '"
+                    WHEN "newspagemid" THEN "' . smartsql($defaults['jak_mid']) . '"
+                    WHEN "newspageitem" THEN "' . smartsql($defaults['jak_item']) . '"
+                    WHEN "news_css" THEN "' . smartsql($defaults['jak_css']) . '"
+                    WHEN "news_javascript" THEN "' . smartsql($defaults['jak_javascript']) . '"
+                  END
+                  WHERE varname IN ("newstitle", "newsdesc", "newsorder", "newsdateformat", "newstimeformat", "newspagemid", "newspageitem","news_css","news_javascript")');
 
         // Save order for sidebar widget
         if (isset($defaults['jak_hookshow_new']) && is_array($defaults['jak_hookshow_new'])) {
@@ -279,7 +288,7 @@ switch ($page1) {
               $whatid = 0;
               if (isset($defaults['whatid_' . $pdoith[$key]])) $whatid = $defaults['whatid_' . $pdoith[$key]];
 
-              $jakdb->query('INSERT INTO ' . $jaktable2 . ' SET plugin = 1, hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '"');
+              $jakdb->query('INSERT INTO ' . $envotable2 . ' SET plugin = 1, hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '"');
 
             }
 
@@ -291,11 +300,11 @@ switch ($page1) {
         if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
 
           // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
-          $row = $jakdb->queryRow('SELECT id FROM ' . $jaktable2 . ' WHERE plugin = 1 AND hookid != 0');
+          $row = $jakdb->queryRow('SELECT id FROM ' . $envotable2 . ' WHERE plugin = 1 AND hookid != 0');
 
           // We have something to delete
           if ($row["id"]) {
-            $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE plugin = 1 AND hookid != 0');
+            $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE plugin = 1 AND hookid != 0');
           }
 
         }
@@ -315,7 +324,7 @@ switch ($page1) {
           foreach ($doith as $key => $exorder) {
 
             // Get the real what id
-            $row = $jakdb->queryRow('SELECT pluginid FROM ' . $jaktable2 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
+            $row = $jakdb->queryRow('SELECT pluginid FROM ' . $envotable2 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
 
             // Get the whatid
             $whatid = 0;
@@ -326,16 +335,16 @@ switch ($page1) {
               $updatesql1 .= sprintf("WHEN %d THEN %d ", $key, $whatid);
 
             } else {
-              $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE id = "' . smartsql($key) . '"');
+              $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($key) . '"');
             }
           }
 
-          $jakdb->query('UPDATE ' . $jaktable2 . ' SET orderid = CASE id
+          $jakdb->query('UPDATE ' . $envotable2 . ' SET orderid = CASE id
 					' . $updatesql . '
 					END
 					WHERE id IN (' . $hookrealid . ')');
 
-          $jakdb->query('UPDATE ' . $jaktable2 . ' SET whatid = CASE id
+          $jakdb->query('UPDATE ' . $envotable2 . ' SET whatid = CASE id
 					' . $updatesql1 . '
 					END
 					WHERE id IN (' . $hookrealid . ')');
@@ -345,11 +354,11 @@ switch ($page1) {
         if (!$result) {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=news&sp=setting&ssp=e');
+          envo_redirect(BASE_URL . 'index.php?p=news&sp=setting&status=e');
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=news&sp=setting&ssp=s');
+          envo_redirect(BASE_URL . 'index.php?p=news&sp=setting&status=s');
         }
       } else {
 
@@ -359,7 +368,7 @@ switch ($page1) {
     }
 
     // Get the sort orders for the grid
-    $grid = $jakdb->query('SELECT id, hookid, whatid, orderid FROM ' . $jaktable2 . ' WHERE plugin = 1 ORDER BY orderid ASC');
+    $grid = $jakdb->query('SELECT id, hookid, whatid, orderid FROM ' . $envotable2 . ' WHERE plugin = 1 ORDER BY orderid ASC');
     while ($grow = $grid->fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
@@ -367,7 +376,7 @@ switch ($page1) {
     }
 
     // Get the sidebar templates
-    $result = $jakdb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $jaktable3 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
+    $result = $jakdb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable3 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
     while ($row = $result->fetch_assoc()) {
       $JAK_HOOKS[] = $row;
     }
@@ -404,41 +413,41 @@ switch ($page1) {
   default:
 
     // Important template Stuff
-    $JAK_CONTACT_FORMS = jak_get_page_info($jaktable1, '');
+    $JAK_CONTACT_FORMS = envo_get_page_info($envotable1, '');
 
     switch ($page1) {
       case 'lock':
-        if (is_numeric($page2) && jak_row_exist($page2, $jaktable)) {
+        if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
-          $result = $jakdb->query('UPDATE ' . $jaktable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page2) . '"');
+          $result = $jakdb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page2) . '"');
 
           JAK_tags::jakLocktags($page2, 1);
 
           if (!$result) {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            jak_redirect(BASE_URL . 'index.php?p=news&sp=e');
+            envo_redirect(BASE_URL . 'index.php?p=news&status=e');
           } else {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            jak_redirect(BASE_URL . 'index.php?p=news&sp=s');
+            envo_redirect(BASE_URL . 'index.php?p=news&status=s');
           }
 
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=news&sp=ene');
+          envo_redirect(BASE_URL . 'index.php?p=news&status=ene');
         }
         break;
       case 'delete':
-        if (is_numeric($page2) && jak_row_exist($page2, $jaktable)) {
+        if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
-          $result = $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE id = "' . smartsql($page2) . '"');
+          $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
 
           if (!$result) {
             // EN: Redirect page
             // CZ: Přesměrování stránky s notifikací - chybné
-            jak_redirect(BASE_URL . 'index.php?p=news&sp=e');
+            envo_redirect(BASE_URL . 'index.php?p=news&status=e');
           } else {
             JAK_tags::jakDeletetags($page2, 1);
 
@@ -446,19 +455,19 @@ switch ($page1) {
             // CZ: Přesměrování stránky s notifikací - úspěšné
             /*
             NOTIFIKACE:
-            'sp=s'   - Záznam úspěšně uložen
-            'ssp=s'  - Záznam úspěšně odstraněn
+            'status=s'   - Záznam úspěšně uložen
+            'status1=s'  - Záznam úspěšně odstraněn
             */
-            jak_redirect(BASE_URL . 'index.php?p=news&sp=s&ssp=s');
+            envo_redirect(BASE_URL . 'index.php?p=news&status=s&status1=s');
           }
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=news&sp=ene');
+          envo_redirect(BASE_URL . 'index.php?p=news&status=ene');
         }
         break;
       case 'edit':
-        if (jak_row_exist($page2, $jaktable)) {
+        if (envo_row_exist($page2, $envotable)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // EN: Default Variable
@@ -486,7 +495,7 @@ switch ($page1) {
 
             // Delete the hits
             if (!empty($defaults['jak_delete_hits'])) {
-              $jakdb->query('UPDATE ' . $jaktable . ' SET hits = 1 WHERE id = "' . smartsql($page2) . '"');
+              $jakdb->query('UPDATE ' . $envotable . ' SET hits = 1 WHERE id = "' . smartsql($page2) . '"');
             }
 
             if (empty($defaults['jak_title'])) {
@@ -552,21 +561,27 @@ switch ($page1) {
                 }
               }
 
-              $result = $jakdb->query('UPDATE ' . $jaktable . ' SET
-																				title = "' . smartsql($defaults['jak_title']) . '",
-																				content = "' . smartsql($defaults['jak_content']) . '",
-																				news_css = "' . smartsql($defaults['jak_css']) . '",
-																				news_javascript = "' . smartsql($defaults['jak_javascript']) . '",
-																				sidebar = "' . smartsql($defaults['jak_sidebar']) . '",
-																				previmg = "' . smartsql($defaults['jak_img']) . '",
-																				showtitle = "' . smartsql($defaults['jak_showtitle']) . '",
-																				showcontact = "' . smartsql($defaults['jak_showcontact']) . '",
-																				showdate = "' . smartsql($defaults['jak_showdate']) . '",
-																				showhits = "' . smartsql($defaults['jak_showhits']) . '",
-																				socialbutton = "' . smartsql($defaults['jak_social']) . '",
-																				' . $insert . '
-																				permission = "' . smartsql($permission) . '"
-																				WHERE id = "' . smartsql($page2) . '"');
+              /* EN: Convert value
+               * smartsql - secure method to insert form data into a MySQL DB
+               * ------------------
+               * CZ: Převod hodnot
+               * smartsql - secure method to insert form data into a MySQL DB
+              */
+              $result = $jakdb->query('UPDATE ' . $envotable . ' SET
+                        title = "' . smartsql($defaults['jak_title']) . '",
+                        content = "' . smartsql($defaults['jak_content']) . '",
+                        news_css = "' . smartsql($defaults['jak_css']) . '",
+                        news_javascript = "' . smartsql($defaults['jak_javascript']) . '",
+                        sidebar = "' . smartsql($defaults['jak_sidebar']) . '",
+                        previmg = "' . smartsql($defaults['jak_img']) . '",
+                        showtitle = "' . smartsql($defaults['jak_showtitle']) . '",
+                        showcontact = "' . smartsql($defaults['jak_showcontact']) . '",
+                        showdate = "' . smartsql($defaults['jak_showdate']) . '",
+                        showhits = "' . smartsql($defaults['jak_showhits']) . '",
+                        socialbutton = "' . smartsql($defaults['jak_social']) . '",
+                        ' . $insert . '
+                        permission = "' . smartsql($permission) . '"
+                        WHERE id = "' . smartsql($page2) . '"');
 
               // Insert new stuff first if exist order for extra stuff
               if (isset($defaults['real_plugin_id'])) {
@@ -576,7 +591,7 @@ switch ($page1) {
 
                 foreach ($doit as $key => $exorder) {
 
-                  $jakdb->query('INSERT INTO ' . $jaktable2 . ' SET newsid = "' . $page2 . '", pluginid = "' . $key . '", orderid = "' . smartsql($exorder) . '"');
+                  $jakdb->query('INSERT INTO ' . $envotable2 . ' SET newsid = "' . $page2 . '", pluginid = "' . $key . '", orderid = "' . smartsql($exorder) . '"');
 
                 }
 
@@ -599,7 +614,7 @@ switch ($page1) {
                     $whatid = 0;
                     if (isset($defaults['whatid_' . $pdoith[$key]])) $whatid = $defaults['whatid_' . $pdoith[$key]];
 
-                    $jakdb->query('INSERT INTO ' . $jaktable2 . ' SET newsid = "' . $page2 . '", hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '", plugin = 1');
+                    $jakdb->query('INSERT INTO ' . $envotable2 . ' SET newsid = "' . $page2 . '", hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '", plugin = 1');
 
                   }
 
@@ -617,7 +632,7 @@ switch ($page1) {
                 $updatesql .= sprintf("WHEN %d THEN %d ", $key, $exorder);
               }
 
-              $jakdb->query('UPDATE ' . $jaktable2 . ' SET orderid = CASE id
+              $jakdb->query('UPDATE ' . $envotable2 . ' SET orderid = CASE id
 			' . $updatesql . '
 			END
 			WHERE id IN (' . $realid . ')');
@@ -625,11 +640,11 @@ switch ($page1) {
               if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
 
                 // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
-                $row = $jakdb->queryRow('SELECT id FROM ' . $jaktable2 . ' WHERE newsid = "' . smartsql($page2) . '" AND hookid != 0');
+                $row = $jakdb->queryRow('SELECT id FROM ' . $envotable2 . ' WHERE newsid = "' . smartsql($page2) . '" AND hookid != 0');
 
                 // We have something to delete
                 if ($row["id"]) {
-                  $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE newsid = "' . smartsql($page2) . '" AND hookid != 0');
+                  $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE newsid = "' . smartsql($page2) . '" AND hookid != 0');
                 }
 
               }
@@ -649,7 +664,7 @@ switch ($page1) {
                 foreach ($doith as $key => $exorder) {
 
                   // Get the real what id
-                  $result = $jakdb->query('SELECT pluginid FROM ' . $jaktable2 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
+                  $result = $jakdb->query('SELECT pluginid FROM ' . $envotable2 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
                   $row    = $result->fetch_assoc();
 
                   // Get the whatid
@@ -661,16 +676,16 @@ switch ($page1) {
                     $updatesql1 .= sprintf("WHEN %d THEN %d ", $key, $whatid);
 
                   } else {
-                    $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE id = "' . smartsql($key) . '"');
+                    $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($key) . '"');
                   }
                 }
 
-                $jakdb->query('UPDATE ' . $jaktable2 . ' SET orderid = CASE id
+                $jakdb->query('UPDATE ' . $envotable2 . ' SET orderid = CASE id
 					' . $updatesql . '
 					END
 					WHERE id IN (' . $hookrealid . ')');
 
-                $jakdb->query('UPDATE ' . $jaktable2 . ' SET whatid = CASE id
+                $jakdb->query('UPDATE ' . $envotable2 . ' SET whatid = CASE id
 					' . $updatesql1 . '
 					END
 					WHERE id IN (' . $hookrealid . ')');
@@ -680,7 +695,7 @@ switch ($page1) {
               if (!$result) {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                jak_redirect(BASE_URL . 'index.php?p=news&sp=edit&ssp=' . $page2 . '&sssp=e');
+                envo_redirect(BASE_URL . 'index.php?p=news&sp=edit&ssp=' . $page2 . '&status=e');
               } else {
 
                 // Set tag active to zero
@@ -704,7 +719,7 @@ switch ($page1) {
 
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                jak_redirect(BASE_URL . 'index.php?p=news&sp=edit&ssp=' . $page2 . '&sssp=s');
+                envo_redirect(BASE_URL . 'index.php?p=news&sp=edit&ssp=' . $page2 . '&status=s');
               }
             } else {
 
@@ -713,11 +728,11 @@ switch ($page1) {
             }
           }
 
-          $JAK_FORM_DATA = jak_get_data($page2, $jaktable);
-          if (JAK_TAGS) $JAK_TAGLIST = jak_get_tags($page2, 1);
+          $JAK_FORM_DATA = envo_get_data($page2, $envotable);
+          if (JAK_TAGS) $JAK_TAGLIST = envo_get_tags($page2, 1);
 
           // Get the sort orders for the grid
-          $grid = $jakdb->query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . $jaktable2 . ' WHERE newsid = "' . smartsql($page2) . '" ORDER BY orderid ASC');
+          $grid = $jakdb->query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . $envotable2 . ' WHERE newsid = "' . smartsql($page2) . '" ORDER BY orderid ASC');
           while ($grow = $grid->fetch_assoc()) {
             // EN: Insert each record into array
             // CZ: Vložení získaných dat do pole
@@ -725,7 +740,7 @@ switch ($page1) {
           }
 
           // Get the sidebar templates
-          $result = $jakdb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $jaktable3 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
+          $result = $jakdb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable3 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
           while ($row = $result->fetch_assoc()) {
             $JAK_HOOKS[] = $row;
           }
@@ -739,7 +754,7 @@ switch ($page1) {
           }
 
           // Get all usergroup's
-          $JAK_USERGROUP = jak_get_usergroup_all('usergroup');
+          $JAK_USERGROUP = envo_get_usergroup_all('usergroup');
 
           // EN: Title and Description
           // CZ: Titulek a Popis
@@ -753,11 +768,11 @@ switch ($page1) {
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=news&sp=ene');
+          envo_redirect(BASE_URL . 'index.php?p=news&status=ene');
         }
         break;
       case 'quickedit':
-        if (jak_row_exist($page2, $jaktable)) {
+        if (envo_row_exist($page2, $envotable)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // EN: Default Variable
@@ -771,19 +786,25 @@ switch ($page1) {
             // Now do the dirty stuff in mysql
             if (count($errors) == 0) {
 
-              $result = $jakdb->query('UPDATE ' . $jaktable . ' SET
-																				title = "' . smartsql($defaults['jak_title']) . '",
-																				content = "' . smartsql($defaults['jak_lcontent']) . '"
-																				WHERE id = "' . smartsql($page2) . '"');
+              /* EN: Convert value
+               * smartsql - secure method to insert form data into a MySQL DB
+               * ------------------
+               * CZ: Převod hodnot
+               * smartsql - secure method to insert form data into a MySQL DB
+              */
+              $result = $jakdb->query('UPDATE ' . $envotable . ' SET
+                        title = "' . smartsql($defaults['jak_title']) . '",
+                        content = "' . smartsql($defaults['jak_lcontent']) . '"
+                        WHERE id = "' . smartsql($page2) . '"');
 
               if (!$result) {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                jak_redirect(BASE_URL . 'index.php?p=news&sp=quickedit&ssp=' . $page2 . '&sssp=e');
+                envo_redirect(BASE_URL . 'index.php?p=news&sp=quickedit&ssp=' . $page2 . '&status=e');
               } else {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                jak_redirect(BASE_URL . 'index.php?p=news&sp=quickedit&ssp=' . $page2 . '&sssp=s');
+                envo_redirect(BASE_URL . 'index.php?p=news&sp=quickedit&ssp=' . $page2 . '&status=s');
               }
             } else {
 
@@ -793,7 +814,7 @@ switch ($page1) {
           }
 
           // Get the data
-          $JAK_FORM_DATA = jak_get_data($page2, $jaktable);
+          $JAK_FORM_DATA = envo_get_data($page2, $envotable);
 
           // EN: Load the template
           // CZ: Načti template (šablonu)
@@ -802,13 +823,13 @@ switch ($page1) {
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=news&sp=ene');
+          envo_redirect(BASE_URL . 'index.php?p=news&status=ene');
         }
         break;
       default:
 
         // Get total news
-        $getTotal = jak_get_total($jaktable, '', '', '');
+        $getTotal = envo_get_total($envotable, '', '', '');
         if ($getTotal != 0) {
 
           // Paginator
@@ -822,7 +843,7 @@ switch ($page1) {
           $JAK_PAGINATE = $pages->display_pages();
 
           // Call the news with paginate
-          $JAK_NEWS = jak_get_news_info($pages->limit);
+          $JAK_NEWS = envo_get_news_info($pages->limit);
         }
 
         // EN: Title and Description

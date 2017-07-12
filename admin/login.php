@@ -38,11 +38,11 @@ if (!empty($_POST['action']) && $_POST['action'] == 'login') {
       if (isset($_SESSION['JAKRedirect'])) {
         // EN: Redirect page
         // CZ: Přesměrování stránky
-        jak_redirect($_SESSION['JAKRedirect']);
+        envo_redirect($_SESSION['JAKRedirect']);
       } else {
         // EN: Redirect page
         // CZ: Přesměrování stránky
-        jak_redirect(BASE_URL);
+        envo_redirect(BASE_URL);
       }
 
     } else {
@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
       // EN: Redirect page
       // CZ: Přesměrování stránky/
       $_SESSION["infomsg"] = $tl["log_in"]["login11"];
-      jak_redirect(BASE_URL);
+      envo_redirect(BASE_URL);
 
     }
 

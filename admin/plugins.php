@@ -6,49 +6,47 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_SUPERADMINACCESS) jak_redirect(BASE_URL_ORIG);
+if (!JAK_SUPERADMINACCESS) envo_redirect(BASE_URL_ORIG);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$jaktable  = DB_PREFIX . 'categories';
-$jaktable1 = DB_PREFIX . 'plugins';
-$jaktable2 = DB_PREFIX . 'pluginhooks';
+$envotable  = DB_PREFIX . 'categories';
+$envotable1 = DB_PREFIX . 'plugins';
+$envotable2 = DB_PREFIX . 'pluginhooks';
 
 // Get all the Hooks
 $jakhooks = new JAK_hooks('', '');
 
 // EN: Import important settings for the template from the DB
 // CZ: Importuj důležité nastavení pro šablonu z DB
-$JAK_SETTING = jak_get_setting('module');
+$JAK_SETTING = envo_get_setting('module');
 
 // EN: Import important settings for the template from the DB (only VALUE)
 // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
-$JAK_SETTING_VAL = jak_get_setting_val('module');
+$JAK_SETTING_VAL = envo_get_setting_val('module');
 
 // Get all the hooks out the class file
 $JAK_HOOK_LOCATIONS = JAK_hooks::jakAllhooks();
 
 // Now start with the plugin use a switch to access all pages
 switch ($page1) {
-
-  // Create new blog
   case 'hooks':
 
     switch ($page2) {
       case 'lock':
 
-        if (jak_row_exist($page3, $jaktable2)) {
-          $jakdb->query('UPDATE ' . $jaktable2 . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page3) . '"');
+        if (envo_row_exist($page3, $envotable2)) {
+          $jakdb->query('UPDATE ' . $envotable2 . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page3) . '"');
         }
 
         // EN: Redirect page
         // CZ: Přesměrování stránky
-        jak_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=s');
+        envo_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&status=s');
 
         break;
       case 'edit':
 
-        if (jak_row_exist($page3, $jaktable2)) {
+        if (envo_row_exist($page3, $envotable2)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // EN: Default Variable
@@ -69,25 +67,31 @@ switch ($page1) {
 
             if (count($errors) == 0) {
 
-              $result = $jakdb->query('UPDATE ' . $jaktable2 . ' SET
-						name = "' . smartsql($defaults['jak_name']) . '",
-						hook_name = "' . smartsql($defaults['jak_hook']) . '",
-						phpcode = "' . smartsql($defaults['jak_phpcode']) . '",
-						exorder = "' . smartsql($defaults['jak_exorder']) . '",
-						pluginid = "' . smartsql($defaults['jak_plugin']) . '",
-						time = NOW() ,
-						active = 1
-						WHERE id = "' . smartsql($page3) . '"');
+              /* EN: Convert value
+               * smartsql - secure method to insert form data into a MySQL DB
+               * ------------------
+               * CZ: Převod hodnot
+               * smartsql - secure method to insert form data into a MySQL DB
+              */
+              $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET
+                        name = "' . smartsql($defaults['jak_name']) . '",
+                        hook_name = "' . smartsql($defaults['jak_hook']) . '",
+                        phpcode = "' . smartsql($defaults['jak_phpcode']) . '",
+                        exorder = "' . smartsql($defaults['jak_exorder']) . '",
+                        pluginid = "' . smartsql($defaults['jak_plugin']) . '",
+                        time = NOW() ,
+                        active = 1
+                        WHERE id = "' . smartsql($page3) . '"');
 
 
               if (!$result) {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                jak_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=edit&sssp=' . $page3 . '&ssssp=e');
+                envo_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=edit&sssp=' . $page3 . '&status=e');
               } else {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                jak_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=edit&sssp=' . $page3 . '&ssssp=s');
+                envo_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=edit&sssp=' . $page3 . '&status=s');
               }
             } else {
 
@@ -97,7 +101,7 @@ switch ($page1) {
           }
 
           // Get the data from thbe hook
-          $JAK_FORM_DATA = jak_get_data($page3, $jaktable2);
+          $JAK_FORM_DATA = envo_get_data($page3, $envotable2);
 
           // EN: Title and Description
           // CZ: Titulek a Popis
@@ -112,20 +116,20 @@ switch ($page1) {
         break;
       case 'delete':
 
-        if (jak_row_exist($page3, $jaktable2)) {
+        if (envo_row_exist($page3, $envotable2)) {
 
           if ($page3 >= 5) {
 
-            $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE id = "' . smartsql($page3) . '" LIMIT 1');
+            $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($page3) . '" LIMIT 1');
 
 
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            jak_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=s');
+            envo_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&status=s');
           } else {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            jak_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=edn');
+            envo_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&status=edn');
           }
         }
 
@@ -144,18 +148,18 @@ switch ($page1) {
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
 
-              $result = $jakdb->query('UPDATE ' . $jaktable2 . ' SET active = IF (active = 1, 0, 1) WHERE id = ' . $locked . '');
+              $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET active = IF (active = 1, 0, 1) WHERE id = ' . $locked . '');
             }
 
 
             if (!$result) {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              jak_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=e');
+              envo_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&status=e');
             } else {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              jak_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=s');
+              envo_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&status=s');
             }
 
           }
@@ -169,7 +173,7 @@ switch ($page1) {
 
               if ($locked >= 5) {
 
-                $result = $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE id = "' . smartsql($locked) . '"');
+                $result = $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($locked) . '"');
               }
 
             }
@@ -177,11 +181,11 @@ switch ($page1) {
             if (!$result) {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              jak_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=e');
+              envo_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&status=e');
             } else {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              jak_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=s');
+              envo_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&status=s');
             }
 
           }
@@ -189,7 +193,7 @@ switch ($page1) {
         }
 
         // Important template Stuff
-        $getTotal = jak_get_total($jaktable2, '', '', '');
+        $getTotal = envo_get_total($envotable2, '', '', '');
         if ($getTotal != 0) {
           // Paginator
           $pages                 = new JAK_Paginator;
@@ -275,25 +279,31 @@ switch ($page1) {
 
       if (count($errors) == 0) {
 
-        $result = $jakdb->query('INSERT INTO ' . $jaktable2 . ' SET
-				name = "' . smartsql($defaults['jak_name']) . '",
-				hook_name = "' . smartsql($defaults['jak_hook']) . '",
-				phpcode = "' . smartsql($defaults['jak_phpcode']) . '",
-				exorder = "' . smartsql($defaults['jak_exorder']) . '",
-				pluginid = "' . smartsql($defaults['jak_plugin']) . '",
-				time = NOW(),
-				active = 1');
+        /* EN: Convert value
+         * smartsql - secure method to insert form data into a MySQL DB
+         * ------------------
+         * CZ: Převod hodnot
+         * smartsql - secure method to insert form data into a MySQL DB
+        */
+        $result = $jakdb->query('INSERT INTO ' . $envotable2 . ' SET
+                  name = "' . smartsql($defaults['jak_name']) . '",
+                  hook_name = "' . smartsql($defaults['jak_hook']) . '",
+                  phpcode = "' . smartsql($defaults['jak_phpcode']) . '",
+                  exorder = "' . smartsql($defaults['jak_exorder']) . '",
+                  pluginid = "' . smartsql($defaults['jak_plugin']) . '",
+                  time = NOW(),
+                  active = 1');
 
         $rowid = $jakdb->jak_last_id();
 
         if (!$result) {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=plugins&sp=newhook&ssp=e');
+          envo_redirect(BASE_URL . 'index.php?p=plugins&sp=newhook&status=e');
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=edit&sssp=' . $rowid . '&ssssp=s');
+          envo_redirect(BASE_URL . 'index.php?p=plugins&sp=hooks&ssp=edit&sssp=' . $rowid . '&status=s');
         }
       } else {
 
@@ -317,15 +327,15 @@ switch ($page1) {
     switch ($page1) {
       case 'lock':
 
-        if (jak_row_exist($page2, $jaktable1)) {
-          $jakdb->query('UPDATE ' . $jaktable1 . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page2) . '"');
-          $jakdb->query('UPDATE ' . $jaktable . ' SET activeplugin = IF (activeplugin = 1, 0, 1) WHERE pluginid = "' . smartsql($page2) . '"');
-          $jakdb->query('UPDATE ' . $jaktable2 . ' SET active = IF (active = 1, 0, 1) WHERE pluginid = "' . smartsql($page2) . '"');
+        if (envo_row_exist($page2, $envotable1)) {
+          $jakdb->query('UPDATE ' . $envotable1 . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page2) . '"');
+          $jakdb->query('UPDATE ' . $envotable . ' SET activeplugin = IF (activeplugin = 1, 0, 1) WHERE pluginid = "' . smartsql($page2) . '"');
+          $jakdb->query('UPDATE ' . $envotable2 . ' SET active = IF (active = 1, 0, 1) WHERE pluginid = "' . smartsql($page2) . '"');
         }
 
         // EN: Redirect page
         // CZ: Přesměrování stránky
-        jak_redirect(BASE_URL . 'index.php?p=plugins&sp=s');
+        envo_redirect(BASE_URL . 'index.php?p=plugins&status=s');
 
         break;
       default:
@@ -350,7 +360,7 @@ switch ($page1) {
             }
 
             // Update in one query
-            $result1a = $jakdb->query('UPDATE ' . $jaktable1 . ' SET access = CASE id
+            $result1a = $jakdb->query('UPDATE ' . $envotable1 . ' SET access = CASE id
 		 			    	' . $updatesqla . '
 		 			    	END
 		 			    	WHERE id IN (' . $realid . ')');
@@ -367,11 +377,11 @@ switch ($page1) {
               if (!$result1) {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                jak_redirect(BASE_URL . 'index.php?p=plugins&sp=e');
+                envo_redirect(BASE_URL . 'index.php?p=plugins&status=e');
               } else {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                jak_redirect(BASE_URL . 'index.php?p=plugins&sp=s');
+                envo_redirect(BASE_URL . 'index.php?p=plugins&status=s');
               }
             }
 
@@ -380,7 +390,7 @@ switch ($page1) {
         }
 
         // Get all styles in the directory
-        $site_plugins = jak_get_site_style('../plugins/');
+        $site_plugins = envo_get_site_style('../plugins/');
 
         // EN: Title and Description
         // CZ: Titulek a Popis
