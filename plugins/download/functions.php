@@ -20,7 +20,7 @@ function jak_get_download($limit, $order, $where, $table_row, $ext_seo, $timeago
     $getTime = JAK_Base::jakTimesince($row['time'], $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $timeago);
 
     // Write content in short format with full words
-    $shortmsg = jak_cut_text($row['content'], $jkv["shortmsg"], '...');
+    $shortmsg = envo_cut_text($row['content'], $jkv["shortmsg"], '...');
 
     // There should be always a varname in categories and check if seo is valid
     $seo = "";
@@ -32,26 +32,26 @@ function jak_get_download($limit, $order, $where, $table_row, $ext_seo, $timeago
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $jakdata[] = array('id' => $row['id'], 'catid' => $row['catid'], 'title' => $row['title'], 'content' => jak_secure_site($row['content']), 'contentshort' => $shortmsg, 'file' => $row['file'], 'extfile' => $row['extfile'], 'countdl' => $row['countdl'], 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'created' => $getTime, 'comments' => $row['comments'], 'hits' => $row['hits'], 'totalcom' => $row['total'], 'previmg' => $row['previmg'], 'parseurl' => $parseurl);
+    $envodata[] = array('id' => $row['id'], 'catid' => $row['catid'], 'title' => $row['title'], 'content' => envo_secure_site($row['content']), 'contentshort' => $shortmsg, 'file' => $row['file'], 'extfile' => $row['extfile'], 'countdl' => $row['countdl'], 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'created' => $getTime, 'comments' => $row['comments'], 'hits' => $row['hits'], 'totalcom' => $row['total'], 'previmg' => $row['previmg'], 'parseurl' => $parseurl);
   }
 
 
-  return $jakdata;
+  return $envodata;
 }
 
 // Get total from a table limited to permission
-function jak_get_total_permission_dl()
+function envo_get_total_permission_dl()
 {
   global $jakdb;
-  $jaktotal = 0;
+  $envototal = 0;
   $result   = $jakdb->query('SELECT COUNT(t1.id) AS total FROM ' . DB_PREFIX . 'download as t1 LEFT JOIN ' . DB_PREFIX . 'downloadcategories as t2 ON (t1.catid = t2.id) WHERE (t1.active = 1 AND t2.active = 1) AND (FIND_IN_SET(' . JAK_USERGROUPID . ',t2.permission) OR t1.catid = t2.id AND t2.permission = 0)');
   $row      = $result->fetch_assoc();
 
   if ($row['total']) {
-    $jaktotal = $row['total'];
+    $envototal = $row['total'];
   }
 
-  return $jaktotal;
+  return $envototal;
 }
 
 ?>

@@ -91,7 +91,7 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
       $title4 = $tl["icons"]["i2"];
       $title5 = $tl["icons"]["i1"];
 
-      echo jak_build_menu_faq(0, $mheader, $lang, $title1, $title2, $title3, $title4, $title5, ' class="sortable jak_cat_move"', ' id="mheader"');
+      echo envo_build_menu_faq(0, $mheader, $lang, $title1, $title2, $title3, $title4, $title5, ' class="sortable jak_cat_move"', ' id="mheader"');
 
       ?>
 

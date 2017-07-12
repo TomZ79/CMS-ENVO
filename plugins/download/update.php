@@ -73,17 +73,12 @@ $nameofplugin  = 'Download';
           <!-- The installation button is hit -->
           <?php if (isset($_POST['install'])) {
 
-
             // --------------------------------------------
             //  START PLUGIN UPDATE PROCESS
             // --------------------------------------------
 
 
-            // EN: Insert data to table 'download'
-            // CZ: Vložení potřebných dat to tabulky 'download'
-            $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'download 
-                              ADD COLUMN `previmgfbsm`  varchar(255) DEFAULT NULL AFTER `previmg`,
-                              ADD COLUMN `previmgfblg`  varchar(255) DEFAULT NULL AFTER `previmgfbsm`');
+
 
 
             // --------------------------------------------

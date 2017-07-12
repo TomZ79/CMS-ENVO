@@ -1,26 +1,26 @@
 <?php
 
 // Get the data per array for faqs
-function jak_get_faqs($limit, $jakvar1, $table)
+function envo_get_faqs($limit, $jakvar1, $table)
 {
 
   $sqlwhere = '';
   if (!empty($jakvar1)) $sqlwhere = 'WHERE catid = ' . smartsql($jakvar1) . ' ';
 
   global $jakdb;
-  $jakdata = array();
+  $envodata = array();
   $result  = $jakdb->query('SELECT * FROM ' . $table . ' ' . $sqlwhere . 'ORDER BY id DESC ' . $limit);
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $jakdata[] = $row;
+    $envodata[] = $row;
   }
 
-  if (!empty($jakdata)) return $jakdata;
+  if (!empty($envodata)) return $envodata;
 }
 
 // Get the faq comments
-function jak_get_faq_comments($limit, $jakvar1, $jakvar2)
+function envo_get_faq_comments($limit, $jakvar1, $jakvar2)
 {
   if ($jakvar1 == 'approve') {
     $sqlwhere = 'WHERE approve = 0 AND trash = 0 ';
@@ -33,19 +33,19 @@ function jak_get_faq_comments($limit, $jakvar1, $jakvar2)
   }
 
   global $jakdb;
-  $jakdata = array();
+  $envodata = array();
   $result  = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'faqcomments ' . $sqlwhere . 'ORDER BY id, approve = 0 DESC ' . $limit);
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $jakdata[] = $row;
+    $envodata[] = $row;
   }
 
-  return $jakdata;
+  return $envodata;
 }
 
 // Menu builder function, parentId 0 is the root
-function jak_build_menu_faq($parent, $menu, $lang, $title1, $title2, $title3, $title4, $title5, $class = "", $id = "")
+function envo_build_menu_faq($parent, $menu, $lang, $title1, $title2, $title3, $title4, $title5, $class = "", $id = "")
 {
   $html = "";
   if (isset($menu['parents'][$parent])) {
@@ -76,7 +76,7 @@ function jak_build_menu_faq($parent, $menu, $lang, $title1, $title2, $title3, $t
           				<a href="index.php?p=faq&amp;sp=categories&amp;ssp=delete&amp;sssp=' . $menu["items"][$itemId]["id"] . '" class="btn btn-danger btn-xs" onclick="if(!confirm(' . $lang . '))return false;"><i class="fa fa-trash-o"></i></a>
           		</span>
           		</div>';
-        $html .= jak_build_menu_faq($itemId, $menu, $lang);
+        $html .= envo_build_menu_faq($itemId, $menu, $lang);
         $html .= "</li> \n";
       }
     }

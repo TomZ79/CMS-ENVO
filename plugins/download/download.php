@@ -12,10 +12,10 @@ include_once 'functions.php';
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$jaktable  = DB_PREFIX . 'download';
-$jaktable1 = DB_PREFIX . 'downloadcategories';
-$jaktable2 = DB_PREFIX . 'downloadcomments';
-$jaktable3 = DB_PREFIX . 'downloadhistory';
+$envotable  = DB_PREFIX . 'download';
+$envotable1 = DB_PREFIX . 'downloadcategories';
+$envotable2 = DB_PREFIX . 'downloadcomments';
+$envotable3 = DB_PREFIX . 'downloadhistory';
 
 $CHECK_USR_SESSION = session_id();
 
@@ -32,7 +32,7 @@ define('JAK_DOWNLOADRATE', $jakusergroup->getVar("downloadrate"));
 define('JAK_DOWNLOADMODERATE', $jakusergroup->getVar("downloadmoderate"));
 
 // AJAX Search
-$AJAX_SEARCH_PLUGIN_WHERE = $jaktable;
+$AJAX_SEARCH_PLUGIN_WHERE = $envotable;
 $AJAX_SEARCH_PLUGIN_URL   = 'plugins/download/ajaxsearch.php';
 $AJAX_SEARCH_PLUGIN_SEO   = $jkv["downloadurl"];
 
@@ -52,9 +52,9 @@ $JAK_TPL_PLUG_URL = $backtodl;
 switch ($page1) {
   case 'c':
 
-    if (is_numeric($page2) && jak_row_permission($page2, $jaktable1, JAK_USERGROUPID)) {
+    if (is_numeric($page2) && envo_row_permission($page2, $envotable1, JAK_USERGROUPID)) {
 
-      $getTotal = jak_get_total($jaktable, $page2, 'catid', 'active');
+      $getTotal = envo_get_total($envotable, $page2, 'catid', 'active');
 
       if ($jkv["downloadurl"]) {
         $getWhere = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, $page1, $page2, $page3, '');
@@ -82,7 +82,7 @@ switch ($page1) {
       }
 
       // Get the download categories
-      $row = $jakdb->queryRow('SELECT name, content FROM ' . $jaktable1 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
+      $row = $jakdb->queryRow('SELECT name, content FROM ' . $envotable1 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
 
       $PAGE_TITLE              = JAK_PLUGIN_NAME_DOWNLOAD . ' - ' . $row['name'];
       $PAGE_CONTENT            = $row['content'];
@@ -110,9 +110,9 @@ switch ($page1) {
 
       // SEO from the category content if available
       if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
-        $PAGE_DESCRIPTION = jak_cut_text($MAIN_PLUGIN_DESCRIPTION, 155, '');
+        $PAGE_DESCRIPTION = envo_cut_text($MAIN_PLUGIN_DESCRIPTION, 155, '');
       } else {
-        $PAGE_DESCRIPTION = jak_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
+        $PAGE_DESCRIPTION = envo_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
       }
 
       // Get the CSS and Javascript into the page
@@ -131,13 +131,13 @@ switch ($page1) {
       }
 
     } else {
-      jak_redirect($backtodl);
+      envo_redirect($backtodl);
     }
 
     break;
   case 'f':
 
-    if (is_numeric($page2) && jak_row_exist($page2, $jaktable)) {
+    if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['userPost'])) {
 
@@ -151,7 +151,7 @@ switch ($page1) {
           define('BASE_URL_IMG', BASE_URL);
 
           $cleanusername  = smartsql($arr['co_name']);
-          $cleanuserpostB = htmlspecialchars_decode(jak_clean_safe_userpost($arr['userpost']));
+          $cleanuserpostB = htmlspecialchars_decode(envo_clean_safe_userpost($arr['userpost']));
 
           // the new session check for displaying messages to user even if not approved
           $sqlset = 0;
@@ -161,7 +161,7 @@ switch ($page1) {
 
           if (JAK_USERID) {
 
-            $sql = $jakdb->query('INSERT INTO ' . $jaktable2 . ' VALUES (NULL, "' . $page2 . '", "' . JAK_USERID . '", "' . $cleanusername . '", NULL, NULL, "' . smartsql($cleanuserpostB) . '", "' . JAK_DOWNLOADPOSTAPPROVE . '", 0, NOW(), "' . $sqlset . '")');
+            $sql = $jakdb->query('INSERT INTO ' . $envotable2 . ' VALUES (NULL, "' . $page2 . '", "' . JAK_USERID . '", "' . $cleanusername . '", NULL, NULL, "' . smartsql($cleanuserpostB) . '", "' . JAK_DOWNLOADPOSTAPPROVE . '", 0, NOW(), "' . $sqlset . '")');
 
             $arr['id'] = $jakdb->jak_last_id();
 
@@ -171,7 +171,7 @@ switch ($page1) {
             $cleanemail = filter_var($arr['co_email'], FILTER_SANITIZE_EMAIL);
             $cleanurl   = filter_var($arr['co_url'], FILTER_SANITIZE_URL);
 
-            $jakdb->query('INSERT INTO ' . $jaktable2 . ' VALUES (NULL, "' . $page2 . '", 0, "' . $cleanusername . '", "' . $cleanemail . '", "' . $cleanurl . '", "' . smartsql($cleanuserpostB) . '", "' . JAK_DOWNLOADPOSTAPPROVE . '", 0, NOW(), "' . $sqlset . '")');
+            $jakdb->query('INSERT INTO ' . $envotable2 . ' VALUES (NULL, "' . $page2 . '", 0, "' . $cleanusername . '", "' . $cleanemail . '", "' . $cleanurl . '", "' . smartsql($cleanuserpostB) . '", "' . JAK_DOWNLOADPOSTAPPROVE . '", 0, NOW(), "' . $sqlset . '")');
 
             $arr['id'] = $jakdb->jak_last_id();
 
@@ -199,13 +199,13 @@ switch ($page1) {
 
           /* Outputting the markup of the just-inserted comment: */
           if (isset($arr['jakajax']) && $arr['jakajax'] == "yes") {
-            $acajax = new JAK_comment($jaktable2, 'id', $arr['id'], JAK_PLUGIN_VAR_DOWNLOAD, $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['global_text']['gtxt4']);
+            $acajax = new JAK_comment($envotable2, 'id', $arr['id'], JAK_PLUGIN_VAR_DOWNLOAD, $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['global_text']['gtxt4']);
 
             header('Cache-Control: no-cache');
             die(json_encode(array('status' => 1, 'html' => $acajax->get_commentajax($tl['general']['g102'], $tld['downl_frontend']['downl13'], $tld['dload']['g4']))));
 
           } else {
-            jak_redirect(JAK_PARSE_SUCCESS);
+            envo_redirect(JAK_PARSE_SUCCESS);
           }
 
         } else {
@@ -230,7 +230,7 @@ switch ($page1) {
         $passcrypt = hash_hmac('sha256', $defaults['dlpass'], DB_PASS_HASH);
 
         if (!is_numeric($defaults['dlsec'])) {
-          jak_redirect($backtodl);
+          envo_redirect($backtodl);
         }
 
         // Get password crypted
@@ -246,37 +246,37 @@ switch ($page1) {
         if (count($errors) == 0) {
 
           $_SESSION['pagesecurehash' . $defaults['dlsec']] = $passcrypt;
-          jak_redirect($_SERVER['HTTP_REFERER']);
+          envo_redirect($_SERVER['HTTP_REFERER']);
 
         } else {
           $errorpp = $errors;
         }
       }
 
-      $result = $jakdb->query('SELECT * FROM ' . $jaktable . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
+      $result = $jakdb->query('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
       $row    = $result->fetch_assoc();
 
       if ($row['active'] != 1) {
-        jak_redirect(JAK_rewrite::jakParseurl('offline'));
+        envo_redirect(JAK_rewrite::jakParseurl('offline'));
       } else {
 
-        if (!jak_row_permission($row['catid'], $jaktable1, JAK_USERGROUPID)) {
-          jak_redirect($backtodl);
+        if (!envo_row_permission($row['catid'], $envotable1, JAK_USERGROUPID)) {
+          envo_redirect($backtodl);
         } else {
 
           // Now let's check the vote and hits cookie
-          if (!jak_cookie_voted_hits($jaktable, $row['id'], 'hits')) {
+          if (!envo_cookie_voted_hits($envotable, $row['id'], 'hits')) {
 
-            jak_write_vote_hits_cookie($jaktable, $row['id'], 'hits');
+            envo_write_vote_hits_cookie($envotable, $row['id'], 'hits');
 
             // Update hits each time
-            JAK_base::jakUpdatehits($row['id'], $jaktable);
+            JAK_base::jakUpdatehits($row['id'], $envotable);
           }
 
           // Output the data
           $PAGE_ID          = $row['id'];
           $PAGE_TITLE       = $row['title'];
-          $PAGE_CONTENT     = jak_secure_site($row['content']);
+          $PAGE_CONTENT     = envo_secure_site($row['content']);
           $SHOWTITLE        = $row['showtitle'];
           $SHOWIMG          = $row['previmg'];
           $SHOWDATE         = $row['showdate'];
@@ -319,7 +319,7 @@ switch ($page1) {
           $DL_FILE_BUTTON = FALSE;
 
           // fix the download if allowed to
-          if (JAK_DOWNLOADCAN && $row['candownload'] == 0 || jak_get_access(JAK_USERGROUPID, $row['candownload'])) {
+          if (JAK_DOWNLOADCAN && $row['candownload'] == 0 || envo_get_access(JAK_USERGROUPID, $row['candownload'])) {
 
             $DL_FILE_BUTTON = TRUE;
           }
@@ -327,8 +327,8 @@ switch ($page1) {
           // Display contact form if whish so and do the caching
           $JAK_SHOW_C_FORM = FALSE;
           if ($row['showcontact'] != 0) {
-            $JAK_SHOW_C_FORM      = jak_create_contact_form($row['showcontact'], $tl['form_text']['formt']);
-            $JAK_SHOW_C_FORM_NAME = jak_contact_form_title($row['showcontact']);
+            $JAK_SHOW_C_FORM      = envo_create_contact_form($row['showcontact'], $tl['form_text']['formt']);
+            $JAK_SHOW_C_FORM_NAME = envo_contact_form_title($row['showcontact']);
           }
 
           // Get the url session
@@ -339,7 +339,7 @@ switch ($page1) {
 
         // Get the comments if wish so
         if ($row['comments'] == 1) {
-          $ac = new JAK_comment($jaktable2, 'fileid', $page2, JAK_PLUGIN_VAR_DOWNLOAD, $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['global_text']['gtxt4']);
+          $ac = new JAK_comment($envotable2, 'fileid', $page2, JAK_PLUGIN_VAR_DOWNLOAD, $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['global_text']['gtxt4']);
 
           $JAK_COMMENTS       = $ac->get_comments();
           $JAK_COMMENTS_TOTAL = $ac->get_total();
@@ -365,7 +365,7 @@ switch ($page1) {
         $JAK_TAGLIST = JAK_tags::jakGettaglist($page2, JAK_PLUGIN_ID_DOWNLOAD, JAK_PLUGIN_VAR_TAGS);
 
         // Page Nav
-        $nextp = jak_next_page($page2, 'title', $jaktable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
+        $nextp = envo_next_page($page2, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
         if ($nextp) {
 
           if ($jkv["downloadurl"]) {
@@ -376,7 +376,7 @@ switch ($page1) {
           $JAK_NAV_NEXT_TITLE = addslashes($nextp['title']);
         }
 
-        $prevp = jak_previous_page($page2, 'title', $jaktable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
+        $prevp = envo_previous_page($page2, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
         if ($prevp) {
 
           if ($jkv["downloadurl"]) {
@@ -388,7 +388,7 @@ switch ($page1) {
         }
 
         // Get the categories into a list
-        $resultc = $jakdb->query('SELECT id, name, varname FROM ' . $jaktable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
+        $resultc = $jakdb->query('SELECT id, name, varname FROM ' . $envotable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
         while ($rowc = $resultc->fetch_assoc()) {
 
           if ($jkv["downloadurl"]) {
@@ -412,7 +412,7 @@ switch ($page1) {
 
       }
     } else {
-      jak_redirect($backtodl);
+      envo_redirect($backtodl);
     }
 
     // Now get the new meta keywords and description maker
@@ -422,7 +422,7 @@ switch ($page1) {
       $keytags = ',' . implode(',', $keytags);
     }
     $PAGE_KEYWORDS    = str_replace(" ", " ", JAK_Base::jakCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
-    $PAGE_DESCRIPTION = jak_cut_text($PAGE_CONTENT, 155, '');
+    $PAGE_DESCRIPTION = envo_cut_text($PAGE_CONTENT, 155, '');
 
     // Get Facebook SDK Connection
     $row = $jakdb->queryRow('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "facebookconnect"  LIMIT 1');
@@ -432,8 +432,8 @@ switch ($page1) {
 
     // EN: Get random image from folder for Facebook
     // CZ: Získání náhodného obrázku z adresáře pro Facebook
-    // $fbarray  = jak_get_random_image(JAK_FILES_DIRECTORY . '/facebook/');
-    // $FB_IMAGE = BASE_URL . ltrim (jak_get_random_from_array($fbarray), '/');
+    // $fbarray  = envo_get_random_image(JAK_FILES_DIRECTORY . '/facebook/');
+    // $FB_IMAGE = BASE_URL . ltrim (envo_get_random_from_array($fbarray), '/');
 
     // EN: Load the template
     // CZ: Načti template (šablonu)
@@ -449,24 +449,24 @@ switch ($page1) {
     break;
   case 'del':
 
-    if (is_numeric($page2) && is_numeric($page3) && jak_row_exist($page2, $jaktable2)) {
+    if (is_numeric($page2) && is_numeric($page3) && envo_row_exist($page2, $envotable2)) {
 
       if (JAK_DOWNLOADMODERATE) {
 
-        $result = $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE id = "' . smartsql($page2) . '"');
+        $result = $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($page2) . '"');
 
         if (!$result) {
-          jak_redirect(JAK_PARSE_ERROR);
+          envo_redirect(JAK_PARSE_ERROR);
         } else {
-          jak_redirect(JAK_PARSE_SUCCESS);
+          envo_redirect(JAK_PARSE_SUCCESS);
         }
 
       } else {
-        jak_redirect($backtodl);
+        envo_redirect($backtodl);
       }
 
     } else {
-      jak_redirect($backtodl);
+      envo_redirect($backtodl);
     }
 
     break;
@@ -486,18 +486,18 @@ switch ($page1) {
         $errors['e'] = $tld['downl_frontend_error']['downler1'] . $jkv["downloadmaxpost"] . ' ' . $tld['downl_frontend_error']['downler2'] . $countI . '<br>';
       }
 
-      if (is_numeric($page2) && count($errors) == 0 && jak_row_exist($page2, $jaktable2)) {
+      if (is_numeric($page2) && count($errors) == 0 && envo_row_exist($page2, $envotable2)) {
 
         define('BASE_URL_IMG', BASE_URL);
 
-        $cleanpost = htmlspecialchars_decode(jak_clean_safe_userpost($defaults['userpost']));
+        $cleanpost = htmlspecialchars_decode(envo_clean_safe_userpost($defaults['userpost']));
 
-        $result = $jakdb->query('UPDATE ' . $jaktable2 . ' SET username = "' . smartsql($defaults['username']) . '", web = "' . smartsql($defaults['web']) . '", message = "' . smartsql($cleanpost) . '" WHERE id = "' . smartsql($page2) . '"');
+        $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET username = "' . smartsql($defaults['username']) . '", web = "' . smartsql($defaults['web']) . '", message = "' . smartsql($cleanpost) . '" WHERE id = "' . smartsql($page2) . '"');
 
         if (!$result) {
-          jak_redirect(html_entity_decode(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'ep', $page2, $page3, 'e')));
+          envo_redirect(html_entity_decode(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'ep', $page2, $page3, 'e')));
         } else {
-          jak_redirect(html_entity_decode(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'ep', $page2, $page3, 's')));
+          envo_redirect(html_entity_decode(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'ep', $page2, $page3, 's')));
         }
 
       } else {
@@ -506,60 +506,60 @@ switch ($page1) {
 
     }
 
-    if (is_numeric($page2) && is_numeric($page3) && jak_row_exist($page2, $jaktable2)) {
+    if (is_numeric($page2) && is_numeric($page3) && envo_row_exist($page2, $envotable2)) {
 
-      if (JAK_USERID && JAK_DOWNLOADDELETE && jak_give_right($page2, JAK_USERID, $jaktable2, 'userid') || JAK_DOWNLOADMODERATE) {
+      if (JAK_USERID && JAK_DOWNLOADDELETE && envo_give_right($page2, JAK_USERID, $envotable2, 'userid') || JAK_DOWNLOADMODERATE) {
 
-        $result = $jakdb->query('SELECT username, web, message FROM ' . $jaktable2 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
+        $result = $jakdb->query('SELECT username, web, message FROM ' . $envotable2 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
         $row    = $result->fetch_assoc();
 
         $RUNAME = $row['username'];
         $RWEB   = $row['web'];
-        $RCONT  = jak_edit_safe_userpost($row['message']);
+        $RCONT  = envo_edit_safe_userpost($row['message']);
 
         // EN: Load the template
         // CZ: Načti template (šablonu)
         $template = 'editpost.php';
 
       } else {
-        jak_redirect($backtodl);
+        envo_redirect($backtodl);
       }
 
     } else {
-      jak_redirect($backtodl);
+      envo_redirect($backtodl);
     }
     break;
   case 'trash':
-    if (is_numeric($page2) && is_numeric($page3) && jak_row_exist($page2, $jaktable2)) {
+    if (is_numeric($page2) && is_numeric($page3) && envo_row_exist($page2, $envotable2)) {
 
-      if (JAK_USERID && JAK_DOWNLOADPOSTDELETE && jak_give_right($page2, JAK_USERID, $jaktable2, 'userid') || JAK_DOWNLOADMODERATE) {
+      if (JAK_USERID && JAK_DOWNLOADPOSTDELETE && envo_give_right($page2, JAK_USERID, $envotable2, 'userid') || JAK_DOWNLOADMODERATE) {
 
-        $result = $jakdb->query('UPDATE ' . $jaktable2 . ' SET trash = 1 WHERE id = "' . smartsql($page2) . '"');
+        $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET trash = 1 WHERE id = "' . smartsql($page2) . '"');
 
         if (!$result) {
-          jak_redirect(JAK_PARSE_ERROR);
+          envo_redirect(JAK_PARSE_ERROR);
         } else {
-          jak_redirect(JAK_PARSE_SUCCESS);
+          envo_redirect(JAK_PARSE_SUCCESS);
         }
 
       } else {
-        jak_redirect($backtodl);
+        envo_redirect($backtodl);
       }
 
     } else {
-      jak_redirect($backtodl);
+      envo_redirect($backtodl);
     }
     break;
   case 'dl':
 
-    if ($_SESSION['jak_thisFileID'] == $page2 && is_numeric($page2) && jak_row_exist($page2, $jaktable)) {
+    if ($_SESSION['jak_thisFileID'] == $page2 && is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
       // EN: Get the file from DB
       // CZ: Získání souboru z DB
-      $row = $jakdb->queryRow('SELECT candownload, catid, file, extfile, active FROM ' . $jaktable . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
+      $row = $jakdb->queryRow('SELECT candownload, catid, file, extfile, active FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
 
       // Not active back to download
-      if ($row['active'] != 1) jak_redirect($backtodl);
+      if ($row['active'] != 1) envo_redirect($backtodl);
 
       if (!JAK_DOWNLOADCAN) {
         /*
@@ -572,12 +572,12 @@ switch ($page1) {
         $_SESSION["errormsg"] = $tld["downl_frontend"]["downl9"];
         // EN: Redirect page with download file
         // CZ: Přesměrování stránky
-        jak_redirect(str_replace('/dl/', '/f/', $_SERVER['REQUEST_URI']));
+        envo_redirect(str_replace('/dl/', '/f/', $_SERVER['REQUEST_URI']));
 
       } else {
 
         // No access to the file
-        if ($row['candownload'] != 0 && !jak_get_access(JAK_USERGROUPID, $row['candownload'])) jak_redirect($backtodl);
+        if ($row['candownload'] != 0 && !envo_get_access(JAK_USERGROUPID, $row['candownload'])) envo_redirect($backtodl);
 
         $dluserid = 0;
         $dlemail  = "guest";
@@ -594,7 +594,7 @@ switch ($page1) {
           $file = smartsql($row['extfile']);
         }
 
-        $jakdb->query('INSERT INTO ' . $jaktable3 . ' VALUES (NULL, "' . $page2 . '", "' . smartsql($dluserid) . '", "' . smartsql($dlemail) . '", "' . $file . '", "' . smartsql($ipa) . '", NOW())');
+        $jakdb->query('INSERT INTO ' . $envotable3 . ' VALUES (NULL, "' . $page2 . '", "' . smartsql($dluserid) . '", "' . smartsql($dlemail) . '", "' . $file . '", "' . smartsql($ipa) . '", NOW())');
 
         if (!empty($row['extfile'])) {
           /*
@@ -604,10 +604,10 @@ switch ($page1) {
 
           // EN: Update count download in DB
           // CZ: Update počet stažení v DB
-          $jakdb->query('UPDATE ' . $jaktable . ' SET countdl = countdl + 1 WHERE id = "' . smartsql($page2) . '"');
+          $jakdb->query('UPDATE ' . $envotable . ' SET countdl = countdl + 1 WHERE id = "' . smartsql($page2) . '"');
           // EN: Redirect page with download file
           // CZ: Přesměrování stránky
-          jak_redirect($row['extfile']);
+          envo_redirect($row['extfile']);
 
         } else {
           /*
@@ -686,26 +686,26 @@ switch ($page1) {
             $_SESSION["errormsg"] = $tld["downl_frontend"]["downl10"];
             // EN: Redirect page with download file
             // CZ: Přesměrování stránky
-            jak_redirect(str_replace('/dl/', '/f/', $_SERVER['REQUEST_URI']));
+            envo_redirect(str_replace('/dl/', '/f/', $_SERVER['REQUEST_URI']));
 
           }
 
           // EN: Update count download in DB
           // CZ: Update počet stažení v DB
-          $jakdb->query('UPDATE ' . $jaktable . ' SET countdl = countdl + 1 WHERE id = "' . smartsql($page2) . '"');
+          $jakdb->query('UPDATE ' . $envotable . ' SET countdl = countdl + 1 WHERE id = "' . smartsql($page2) . '"');
 
         }
 
       }
 
     } else {
-      jak_redirect($backtodl);
+      envo_redirect($backtodl);
     }
 
     break;
   default:
 
-    $getTotal = jak_get_total_permission_dl();
+    $getTotal = envo_get_total_permission_dl();
 
     if ($getTotal != 0) {
       // Paginator
@@ -753,9 +753,9 @@ switch ($page1) {
 
     // SEO from the category content if available
     if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
-      $PAGE_DESCRIPTION = jak_cut_text($MAIN_PLUGIN_DESCRIPTION, 155, '');
+      $PAGE_DESCRIPTION = envo_cut_text($MAIN_PLUGIN_DESCRIPTION, 155, '');
     } else {
-      $PAGE_DESCRIPTION = jak_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
+      $PAGE_DESCRIPTION = envo_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
     }
 
     // Get the CSS and Javascript into the page

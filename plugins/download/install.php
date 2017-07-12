@@ -246,10 +246,10 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
 		$what = 1;
 		$seowhat = $jkv[\"downloadurl\"];
 		
-		$JAK_RSS_DESCRIPTION = jak_cut_text($jkv[\"downloaddesc\"], $jkv[\"shortmsg\"], \'…\');
+		$JAK_RSS_DESCRIPTION = envo_cut_text($jkv[\"downloaddesc\"], $jkv[\"shortmsg\"], \'…\');
 		
 	} else {
-		jak_redirect(BASE_URL);
+		envo_redirect(BASE_URL);
 	}
 	
 }';
@@ -296,7 +296,7 @@ if (empty($dl) && !empty($defaults[\'jak_showdlmany\'])) {
 }';
 
       //
-      $getdl = '$JAK_GET_DOWNLOAD = jak_get_page_info(DB_PREFIX.\'download\', \'\');
+      $getdl = '$JAK_GET_DOWNLOAD = envo_get_page_info(DB_PREFIX.\'download\', \'\');
 
 if ($JAK_FORM_DATA) {
 

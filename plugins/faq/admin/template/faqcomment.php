@@ -89,7 +89,7 @@ if ($page4 == "e") { ?>
 
                   </div>
                 </td>
-                <td><?php echo jak_clean_comment($v["message"]); ?></td>
+                <td><?php echo envo_clean_comment($v["message"]); ?></td>
                 <td>
 
                   <?php if (isset($JAK_FAQ_ALL) && is_array($JAK_FAQ_ALL)) foreach ($JAK_FAQ_ALL as $z) {

@@ -6,29 +6,28 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSFAQ)) jak_redirect(BASE_URL);
+if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSFAQ)) envo_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$jaktable  = DB_PREFIX . 'faq';
-$jaktable1 = DB_PREFIX . 'faqcategories';
-$jaktable2 = DB_PREFIX . 'faqcomments';
-$jaktable3 = DB_PREFIX . 'contactform';
-$jaktable4 = DB_PREFIX . 'pagesgrid';
-$jaktable5 = DB_PREFIX . 'pluginhooks';
+$envotable  = DB_PREFIX . 'faq';
+$envotable1 = DB_PREFIX . 'faqcategories';
+$envotable2 = DB_PREFIX . 'faqcomments';
+$envotable3 = DB_PREFIX . 'contactform';
+$envotable4 = DB_PREFIX . 'pagesgrid';
+$envotable5 = DB_PREFIX . 'pluginhooks';
 
-// Get all the functions, well not many
+// EN: Include the functions
+// CZ: Vložené funkce
 include_once("../plugins/faq/admin/include/functions.php");
 
 // Now start with the plugin use a switch to access all pages
 switch ($page1) {
-
-  // Create new faq
   case 'new':
 
     // Get the important template stuff
-    $JAK_CAT           = jak_get_cat_info($jaktable1, 0);
-    $JAK_CONTACT_FORMS = jak_get_page_info($jaktable3, '');
+    $JAK_CAT           = envo_get_cat_info($envotable1, 0);
+    $JAK_CONTACT_FORMS = envo_get_page_info($envotable3, '');
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable
@@ -75,17 +74,23 @@ switch ($page1) {
 
           if (!isset($defaults['jak_social'])) $defaults['jak_social'] = 0;
 
-          $result = $jakdb->query('INSERT INTO ' . $jaktable . ' SET
-		catid = "' . smartsql($defaults['jak_catid']) . '",
-		title = "' . smartsql($defaults['jak_title']) . '",
-		content = "' . smartsql($defaults['jak_content']) . '",
-		showtitle = "' . smartsql($showtitle) . '",
-		showdate = "' . smartsql($showdate) . '",
-		showcontact = "' . smartsql($jakcon) . '",
-		comments = "' . smartsql($comment) . '",
-		socialbutton = "' . smartsql($defaults['jak_social']) . '",
-		' . $insert . '
-		time = NOW()');
+          /* EN: Convert value
+           * smartsql - secure method to insert form data into a MySQL DB
+           * ------------------
+           * CZ: Převod hodnot
+           * smartsql - secure method to insert form data into a MySQL DB
+          */
+          $result = $jakdb->query('INSERT INTO ' . $envotable . ' SET
+                    catid = "' . smartsql($defaults['jak_catid']) . '",
+                    title = "' . smartsql($defaults['jak_title']) . '",
+                    content = "' . smartsql($defaults['jak_content']) . '",
+                    showtitle = "' . smartsql($showtitle) . '",
+                    showdate = "' . smartsql($showdate) . '",
+                    showcontact = "' . smartsql($jakcon) . '",
+                    comments = "' . smartsql($comment) . '",
+                    socialbutton = "' . smartsql($defaults['jak_social']) . '",
+                    ' . $insert . '
+                    time = NOW()');
 
           $rowid = $jakdb->jak_last_id();
 
@@ -94,7 +99,7 @@ switch ($page1) {
 
           if ($defaults['jak_catid'] != 0) {
 
-            $result1 = $jakdb->query('UPDATE ' . $jaktable1 . ' SET count = count + 1 WHERE id = "' . smartsql($defaults['jak_catid']) . '"');
+            $result1 = $jakdb->query('UPDATE ' . $envotable1 . ' SET count = count + 1 WHERE id = "' . smartsql($defaults['jak_catid']) . '"');
             // Set tag active, well to active
             $tagactive = 1;
 
@@ -117,7 +122,7 @@ switch ($page1) {
                 $whatid = 0;
                 if (isset($defaults['whatid_' . $pdoith[$key]])) $whatid = $defaults['whatid_' . $pdoith[$key]];
 
-                $jakdb->query('INSERT INTO ' . $jaktable4 . ' SET faqid = "' . $rowid . '", hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '", plugin = ' . JAK_PLUGIN_FAQ);
+                $jakdb->query('INSERT INTO ' . $envotable4 . ' SET faqid = "' . $rowid . '", hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '", plugin = ' . JAK_PLUGIN_FAQ);
 
               }
 
@@ -128,7 +133,7 @@ switch ($page1) {
           if (!$result) {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            jak_redirect(BASE_URL . 'index.php?p=faq&sp=new&ssp=e');
+            envo_redirect(BASE_URL . 'index.php?p=faq&sp=new&status=e');
           } else {
 
             // Create Tags if the module is active
@@ -142,7 +147,7 @@ switch ($page1) {
 
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            jak_redirect(BASE_URL . 'index.php?p=faq&sp=edit&ssp=' . $rowid . '&sssp=s');
+            envo_redirect(BASE_URL . 'index.php?p=faq&sp=edit&ssp=' . $rowid . '&status=s');
           }
         } else {
 
@@ -157,13 +162,13 @@ switch ($page1) {
     }
 
     // Get the sidebar templates
-    $result = $jakdb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $jaktable5 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
+    $result = $jakdb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable5 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
     while ($row = $result->fetch_assoc()) {
       $JAK_HOOKS[] = $row;
     }
 
     // Get active sidebar widgets
-    $grid = $jakdb->query('SELECT hookid FROM ' . $jaktable4 . ' WHERE plugin = ' . JAK_PLUGIN_FAQ . ' ORDER BY orderid ASC');
+    $grid = $jakdb->query('SELECT hookid FROM ' . $envotable4 . ' WHERE plugin = ' . JAK_PLUGIN_FAQ . ' ORDER BY orderid ASC');
     while ($grow = $grid->fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
@@ -189,50 +194,50 @@ switch ($page1) {
     switch ($page2) {
       case 'lock':
 
-        $result = $jakdb->query('UPDATE ' . $jaktable1 . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page3) . '"');
+        $result = $jakdb->query('UPDATE ' . $envotable1 . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page3) . '"');
 
         if (!$result) {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=categories&ssp=e');
+          envo_redirect(BASE_URL . 'index.php?p=faq&sp=categories&status=e');
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=categories&ssp=s');
+          envo_redirect(BASE_URL . 'index.php?p=faq&sp=categories&status=s');
         }
 
         break;
       case 'delete':
 
-        if (jak_row_exist($page3, $jaktable1) && !jak_field_not_exist($page3, $jaktable1, $jakfield)) {
+        if (envo_row_exist($page3, $envotable1) && !envo_field_not_exist($page3, $envotable1, $jakfield)) {
 
-          $result = $jakdb->query('DELETE FROM ' . $jaktable1 . ' WHERE id = "' . smartsql($page3) . '"');
+          $result = $jakdb->query('DELETE FROM ' . $envotable1 . ' WHERE id = "' . smartsql($page3) . '"');
 
           if (!$result) {
             // EN: Redirect page
             // CZ: Přesměrování stránky s notifikací - chybné
-            jak_redirect(BASE_URL . 'index.php?p=faq&sp=categories&ssp=e');
+            envo_redirect(BASE_URL . 'index.php?p=faq&sp=categories&status=e');
           } else {
             // EN: Redirect page
             // CZ: Přesměrování stránky s notifikací - úspěšné
             /*
             NOTIFIKACE:
-            'ssp=s'   - Záznam úspěšně uložen
-            'sssp=s'  - Záznam úspěšně odstraněn
+            'status=s'   - Záznam úspěšně uložen
+            'status1=s'  - Záznam úspěšně odstraněn
             */
-            jak_redirect(BASE_URL . 'index.php?p=faq&sp=categories&ssp=s&sssp=s');
+            envo_redirect(BASE_URL . 'index.php?p=faq&sp=categories&status=s&status1=s');
           }
 
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=categories&ssp=eca');
+          envo_redirect(BASE_URL . 'index.php?p=faq&sp=categories&status=eca');
         }
 
         break;
       case 'edit':
 
-        if (jak_row_exist($page3, $jaktable1)) {
+        if (envo_row_exist($page3, $envotable1)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // EN: Default Variable
@@ -243,7 +248,7 @@ switch ($page1) {
               $errors['e1'] = $tl['general_error']['generror4'] . '<br>';
             }
 
-            if (jak_field_not_exist_id($defaults['jak_varname'], $page3, $jaktable1, $jakfield1)) {
+            if (envo_field_not_exist_id($defaults['jak_varname'], $page3, $envotable1, $jakfield1)) {
               $errors['e2'] = $tl['general_error']['generror21'] . '<br>';
             }
 
@@ -277,23 +282,29 @@ switch ($page1) {
                 $insert .= 'catimg = NULL,';
               }
 
-              $result = $jakdb->query('UPDATE ' . $jaktable1 . ' SET
-			name = "' . smartsql($defaults['jak_name']) . '",
-			varname = "' . smartsql($defaults['jak_varname']) . '",
-			content = "' . smartsql($defaults['jak_lcontent']) . '",
-			permission = "' . smartsql($permission) . '",
-			' . $insert . '
-			active = "' . smartsql($defaults['jak_active']) . '"
-			WHERE id = ' . smartsql($page3));
+              /* EN: Convert value
+               * smartsql - secure method to insert form data into a MySQL DB
+               * ------------------
+               * CZ: Převod hodnot
+               * smartsql - secure method to insert form data into a MySQL DB
+              */
+              $result = $jakdb->query('UPDATE ' . $envotable1 . ' SET
+                        name = "' . smartsql($defaults['jak_name']) . '",
+                        varname = "' . smartsql($defaults['jak_varname']) . '",
+                        content = "' . smartsql($defaults['jak_lcontent']) . '",
+                        permission = "' . smartsql($permission) . '",
+                        ' . $insert . '
+                        active = "' . smartsql($defaults['jak_active']) . '"
+                        WHERE id = ' . smartsql($page3));
 
               if (!$result) {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                jak_redirect(BASE_URL . 'index.php?p=faq&sp=categories&ssp=edit&sssp=' . $page3 . '&ssssp=e');
+                envo_redirect(BASE_URL . 'index.php?p=faq&sp=categories&ssp=edit&sssp=' . $page3 . '&status=e');
               } else {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                jak_redirect(BASE_URL . 'index.php?p=faq&sp=categories&ssp=edit&sssp=' . $page3 . '&ssssp=s');
+                envo_redirect(BASE_URL . 'index.php?p=faq&sp=categories&ssp=edit&sssp=' . $page3 . '&status=s');
               }
             } else {
 
@@ -302,8 +313,8 @@ switch ($page1) {
             }
           }
 
-          $JAK_FORM_DATA = jak_get_data($page3, $jaktable1);
-          $JAK_USERGROUP = jak_get_usergroup_all('usergroup');
+          $JAK_FORM_DATA = envo_get_data($page3, $envotable1);
+          $JAK_USERGROUP = envo_get_usergroup_all('usergroup');
 
           // EN: Title and Description
           // CZ: Titulek a Popis
@@ -317,7 +328,7 @@ switch ($page1) {
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=categories&ssp=ene');
+          envo_redirect(BASE_URL . 'index.php?p=faq&sp=categories&status=ene');
         }
         break;
       default:
@@ -330,7 +341,7 @@ switch ($page1) {
 
             if (!is_numeric($v)) $v = 0;
 
-            $result = $jakdb->query('UPDATE ' . $jaktable1 . ' SET catparent = "' . smartsql($v) . '", catorder = "' . smartsql($count) . '" WHERE id = "' . smartsql($k) . '"');
+            $result = $jakdb->query('UPDATE ' . $envotable1 . ' SET catparent = "' . smartsql($v) . '", catorder = "' . smartsql($count) . '" WHERE id = "' . smartsql($k) . '"');
 
             $count++;
 
@@ -345,7 +356,7 @@ switch ($page1) {
               // EN: Redirect page
               // CZ: Přesměrování stránky
               $_SESSION["successmsg"] = $tl["notification"]["n7"];
-              jak_redirect(BASE_URL . 'index.php?p=b2b&sp=categories');
+              envo_redirect(BASE_URL . 'index.php?p=b2b&sp=categories');
             }
           } else {
             /* Outputtng the success messages */
@@ -356,14 +367,14 @@ switch ($page1) {
               // EN: Redirect page
               // CZ: Přesměrování stránky
               $_SESSION["errormsg"] = $tl["general_error"]["generror1"];
-              jak_redirect(BASE_URL . 'index.php?p=b2b&sp=categories');
+              envo_redirect(BASE_URL . 'index.php?p=b2b&sp=categories');
             }
           }
 
         }
 
         // Get the menu
-        $result = $jakdb->query('SELECT * FROM ' . $jaktable1 . ' ORDER BY catparent, catorder, name');
+        $result = $jakdb->query('SELECT * FROM ' . $envotable1 . ' ORDER BY catparent, catorder, name');
 
         // Create a multidimensional array to conatin a list of items and parents
         $mheader = array(
@@ -394,14 +405,13 @@ switch ($page1) {
         $plugin_template = 'plugins/faq/admin/template/faqcat.php';
     }
     break;
-  // Create new faq categories
   case 'newcategory':
 
     // Additional DB Stuff
     $jakfield = 'varname';
 
     // Load all cats and get the usergroup information
-    $JAK_USERGROUP = jak_get_usergroup_all('usergroup');
+    $JAK_USERGROUP = envo_get_usergroup_all('usergroup');
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable
@@ -412,7 +422,7 @@ switch ($page1) {
         $errors['e1'] = $tl['general_error']['generror4'] . '<br>';
       }
 
-      if (jak_field_not_exist($defaults['jak_varname'], $jaktable1, $jakfield)) {
+      if (envo_field_not_exist($defaults['jak_varname'], $envotable1, $jakfield)) {
         $errors['e2'] = $tl['general_error']['generror21'] . '<br>';
       }
 
@@ -444,25 +454,31 @@ switch ($page1) {
           $insert = 'catimg = "' . $defaults['jak_img'] . '",';
         }
 
-        $result = $jakdb->query('INSERT INTO ' . $jaktable1 . ' SET
-			name = "' . smartsql($defaults['jak_name']) . '",
-			varname = "' . smartsql($defaults['jak_varname']) . '",
-			content = "' . smartsql($defaults['jak_lcontent']) . '",
-			permission = "' . smartsql($permission) . '",
-			active = "' . $catactive . '",
-			' . $insert . '
-			catparent = "' . $defaults['jak_catparent'] . '"');
+        /* EN: Convert value
+         * smartsql - secure method to insert form data into a MySQL DB
+         * ------------------
+         * CZ: Převod hodnot
+         * smartsql - secure method to insert form data into a MySQL DB
+        */
+        $result = $jakdb->query('INSERT INTO ' . $envotable1 . ' SET
+                  name = "' . smartsql($defaults['jak_name']) . '",
+                  varname = "' . smartsql($defaults['jak_varname']) . '",
+                  content = "' . smartsql($defaults['jak_lcontent']) . '",
+                  permission = "' . smartsql($permission) . '",
+                  active = "' . $catactive . '",
+                  ' . $insert . '
+                  catparent = "' . $defaults['jak_catparent'] . '"');
 
         $rowid = $jakdb->jak_last_id();
 
         if (!$result) {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=newcategory&ssp=e');
+          envo_redirect(BASE_URL . 'index.php?p=faq&sp=newcategory&status=e');
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=categories&ssp=edit&sssp=' . $rowid . '&ssssp=s');
+          envo_redirect(BASE_URL . 'index.php?p=faq&sp=categories&ssp=edit&sssp=' . $rowid . '&status=s');
         }
       } else {
 
@@ -483,7 +499,7 @@ switch ($page1) {
     break;
   case 'comment':
 
-    $getTotal = jak_get_total($jaktable2, '', '', '');
+    $getTotal = envo_get_total($envotable2, '', '', '');
     if ($getTotal != 0) {
       // Paginator
       $pages                 = new JAK_Paginator;
@@ -496,11 +512,11 @@ switch ($page1) {
       $JAK_PAGINATE = $pages->display_pages();
 
       // Get the comments
-      $JAK_FAQCOM_ALL = jak_get_faq_comments($pages->limit, '', '');
+      $JAK_FAQCOM_ALL = envo_get_faq_comments($pages->limit, '', '');
     }
 
     // Get the faq's
-    $JAK_FAQ_ALL = jak_get_faqs('', '', $jaktable);
+    $JAK_FAQ_ALL = envo_get_faqs('', '', $envotable);
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable
@@ -513,17 +529,17 @@ switch ($page1) {
 
         for ($i = 0; $i < count($lockuser); $i++) {
           $locked = $lockuser[$i];
-          $result = $jakdb->query('UPDATE ' . $jaktable2 . ' SET approve = IF (approve = 1, 0, 1), session = NULL WHERE id = "' . smartsql($locked) . '"');
+          $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET approve = IF (approve = 1, 0, 1), session = NULL WHERE id = "' . smartsql($locked) . '"');
         }
 
         if (!$result) {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=comment&ssp=e');
+          envo_redirect(BASE_URL . 'index.php?p=faq&sp=comment&status=e');
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=comment&ssp=s');
+          envo_redirect(BASE_URL . 'index.php?p=faq&sp=comment&status=s');
         }
 
       }
@@ -534,17 +550,17 @@ switch ($page1) {
 
         for ($i = 0; $i < count($lockuser); $i++) {
           $locked = $lockuser[$i];
-          $result = $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE id = "' . smartsql($locked) . '"');
+          $result = $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($locked) . '"');
         }
 
         if (!$result) {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=comment&ssp=e');
+          envo_redirect(BASE_URL . 'index.php?p=faq&sp=comment&status=e');
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=comment&ssp=s');
+          envo_redirect(BASE_URL . 'index.php?p=faq&sp=comment&status=s');
         }
 
       }
@@ -553,7 +569,7 @@ switch ($page1) {
 
     switch ($page2) {
       case 'approval':
-        $JAK_FAQCOM_ALL = jak_get_faq_comments($pages->limit, 'approve', '');
+        $JAK_FAQCOM_ALL = envo_get_faq_comments($pages->limit, 'approve', '');
 
         // EN: Title and Description
         // CZ: Titulek a Popis
@@ -573,9 +589,9 @@ switch ($page1) {
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL);
+          envo_redirect(BASE_URL);
         }
-        $getTotal = jak_get_total($jaktable2, $page4, $bu, '');
+        $getTotal = envo_get_total($envotable2, $page4, $bu, '');
         if ($getTotal != 0) {
           // Paginator
           $pages                 = new JAK_Paginator;
@@ -586,7 +602,7 @@ switch ($page1) {
           $pages->jak_where      = 'index.php?p=faq&sp=comment&ssp=sort&sssp=' . $page3 . '&ssssp=' . $page4;
           $pages->paginate();
           $JAK_PAGINATE_SORT = $pages->display_pages();
-          $JAK_FAQCOM_SORT   = jak_get_faq_comments($pages->limit, $page4, $bu);
+          $JAK_FAQCOM_SORT   = envo_get_faq_comments($pages->limit, $page4, $bu);
 
           // EN: Title and Description
           // CZ: Titulek a Popis
@@ -600,53 +616,53 @@ switch ($page1) {
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=comment&ssp=ene');
+          envo_redirect(BASE_URL . 'index.php?p=faq&sp=comment&status=ene');
         }
         break;
       case 'approve':
 
-        if (jak_row_exist($page3, $jaktable2)) {
+        if (envo_row_exist($page3, $envotable2)) {
 
-          $sql    = 'UPDATE ' . $jaktable2 . ' SET approve = IF (approve = 1, 0, 1), session = NULL WHERE id = ' . $page3;
+          $sql    = 'UPDATE ' . $envotable2 . ' SET approve = IF (approve = 1, 0, 1), session = NULL WHERE id = ' . $page3;
           $result = $jakdb->query($sql);
 
           if (!$result) {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            jak_redirect(BASE_URL . 'index.php?p=faq&sp=comment&ssp=e');
+            envo_redirect(BASE_URL . 'index.php?p=faq&sp=comment&status=e');
           } else {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            jak_redirect(BASE_URL . 'index.php?p=faq&sp=comment&ssp=s');
+            envo_redirect(BASE_URL . 'index.php?p=faq&sp=comment&status=s');
           }
 
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=comment&ssp=ene');
+          envo_redirect(BASE_URL . 'index.php?p=faq&sp=comment&status=ene');
         }
 
         break;
       case 'delete':
-        if (jak_row_exist($page3, $jaktable2)) {
+        if (envo_row_exist($page3, $envotable2)) {
 
-          $sql    = 'DELETE FROM ' . $jaktable2 . ' WHERE id = ' . smartsql($page3) . '';
+          $sql    = 'DELETE FROM ' . $envotable2 . ' WHERE id = ' . smartsql($page3) . '';
           $result = $jakdb->query($sql);
 
           if (!$result) {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            jak_redirect(BASE_URL . 'index.php?p=faq&sp=comment&ssp=e');
+            envo_redirect(BASE_URL . 'index.php?p=faq&sp=comment&status=e');
           } else {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            jak_redirect(BASE_URL . 'index.php?p=faq&sp=comment&ssp=s');
+            envo_redirect(BASE_URL . 'index.php?p=faq&sp=comment&status=s');
           }
 
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=comment&ssp=ene');
+          envo_redirect(BASE_URL . 'index.php?p=faq&sp=comment&status=ene');
         }
         break;
       default:
@@ -741,7 +757,7 @@ switch ($page1) {
               $whatid = 0;
               if (isset($defaults['whatid_' . $pdoith[$key]])) $whatid = $defaults['whatid_' . $pdoith[$key]];
 
-              $jakdb->query('INSERT INTO ' . $jaktable4 . ' SET plugin = ' . JAK_PLUGIN_FAQ . ', hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '"');
+              $jakdb->query('INSERT INTO ' . $envotable4 . ' SET plugin = ' . JAK_PLUGIN_FAQ . ', hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '"');
 
             }
 
@@ -753,11 +769,11 @@ switch ($page1) {
         if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
 
           // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
-          $row = $jakdb->queryRow('SELECT id FROM ' . $jaktable4 . ' WHERE plugin = ' . smartsql(JAK_PLUGIN_FAQ) . ' AND faqid = 0 AND hookid != 0');
+          $row = $jakdb->queryRow('SELECT id FROM ' . $envotable4 . ' WHERE plugin = ' . smartsql(JAK_PLUGIN_FAQ) . ' AND faqid = 0 AND hookid != 0');
 
           // We have something to delete
           if ($row["id"]) {
-            $jakdb->query('DELETE FROM ' . $jaktable4 . ' WHERE plugin = ' . smartsql(JAK_PLUGIN_FAQ) . ' AND faqid = 0 AND hookid != 0');
+            $jakdb->query('DELETE FROM ' . $envotable4 . ' WHERE plugin = ' . smartsql(JAK_PLUGIN_FAQ) . ' AND faqid = 0 AND hookid != 0');
           }
 
         }
@@ -777,7 +793,7 @@ switch ($page1) {
           foreach ($doith as $key => $exorder) {
 
             // Get the real what id
-            $row = $jakdb->queryRow('SELECT pluginid FROM ' . $jaktable4 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
+            $row = $jakdb->queryRow('SELECT pluginid FROM ' . $envotable4 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
 
             // Get the whatid
             $whatid = 0;
@@ -788,16 +804,16 @@ switch ($page1) {
               $updatesql1 .= sprintf("WHEN %d THEN %d ", $key, $whatid);
 
             } else {
-              $jakdb->query('DELETE FROM ' . $jaktable4 . ' WHERE id = "' . smartsql($key) . '"');
+              $jakdb->query('DELETE FROM ' . $envotable4 . ' WHERE id = "' . smartsql($key) . '"');
             }
           }
 
-          $jakdb->query('UPDATE ' . $jaktable4 . ' SET orderid = CASE id
+          $jakdb->query('UPDATE ' . $envotable4 . ' SET orderid = CASE id
 					' . $updatesql . '
 					END
 					WHERE id IN (' . $hookrealid . ')');
 
-          $jakdb->query('UPDATE ' . $jaktable4 . ' SET whatid = CASE id
+          $jakdb->query('UPDATE ' . $envotable4 . ' SET whatid = CASE id
 					' . $updatesql1 . '
 					END
 					WHERE id IN (' . $hookrealid . ')');
@@ -807,11 +823,11 @@ switch ($page1) {
         if (!$result) {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=setting&ssp=e');
+          envo_redirect(BASE_URL . 'index.php?p=faq&sp=setting&status=e');
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=setting&ssp=s');
+          envo_redirect(BASE_URL . 'index.php?p=faq&sp=setting&status=s');
         }
       } else {
 
@@ -822,15 +838,15 @@ switch ($page1) {
 
     // EN: Import important settings for the template from the DB
     // CZ: Importuj důležité nastavení pro šablonu z DB
-    $JAK_SETTING = jak_get_setting('faq');
+    $JAK_SETTING = envo_get_setting('faq');
 
     // EN: Import important settings for the template from the DB (only VALUE)
     // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
-    $JAK_SETTING_VAL = jak_get_setting_val('faq');
+    $JAK_SETTING_VAL = envo_get_setting_val('faq');
 
     // Get the sort orders for the grid
     $JAK_PAGE_GRID = array();
-    $grid          = $jakdb->query('SELECT id, hookid, whatid, orderid FROM ' . $jaktable4 . ' WHERE plugin = ' . JAK_PLUGIN_FAQ . ' AND faqid = 0 ORDER BY orderid ASC');
+    $grid          = $jakdb->query('SELECT id, hookid, whatid, orderid FROM ' . $envotable4 . ' WHERE plugin = ' . JAK_PLUGIN_FAQ . ' AND faqid = 0 ORDER BY orderid ASC');
     while ($grow = $grid->fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
@@ -839,7 +855,7 @@ switch ($page1) {
 
     // Get the sidebar templates
     $JAK_HOOKS = array();
-    $result    = $jakdb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $jaktable5 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
+    $result    = $jakdb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable5 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
     while ($row = $result->fetch_assoc()) {
       $JAK_HOOKS[] = $row;
     }
@@ -877,18 +893,18 @@ switch ($page1) {
         for ($i = 0; $i < count($deltrash); $i++) {
           $trash = $deltrash[$i];
 
-          $sql    = 'UPDATE ' . $jaktable2 . ' SET trash = IF (trash = 1, 0, 1) WHERE id = "' . $trash . '"';
+          $sql    = 'UPDATE ' . $envotable2 . ' SET trash = IF (trash = 1, 0, 1) WHERE id = "' . $trash . '"';
           $result = $jakdb->query($sql);
         }
 
         if (!$result) {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=trash&ssp=e');
+          envo_redirect(BASE_URL . 'index.php?p=faq&sp=trash&status=e');
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=trash&ssp=s');
+          envo_redirect(BASE_URL . 'index.php?p=faq&sp=trash&status=s');
         }
 
       }
@@ -901,25 +917,25 @@ switch ($page1) {
           $trash = $deltrash[$i];
 
 
-          $sql    = 'DELETE FROM ' . $jaktable2 . ' WHERE id = ' . $trash . '';
+          $sql    = 'DELETE FROM ' . $envotable2 . ' WHERE id = ' . $trash . '';
           $result = $jakdb->query($sql);
         }
 
         if (!$result) {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=trash&ssp=e');
+          envo_redirect(BASE_URL . 'index.php?p=faq&sp=trash&status=e');
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=trash&ssp=s');
+          envo_redirect(BASE_URL . 'index.php?p=faq&sp=trash&status=s');
         }
 
       }
 
     }
 
-    $sql    = 'SELECT * FROM ' . $jaktable2 . ' WHERE trash = 1 ORDER BY id DESC';
+    $sql    = 'SELECT * FROM ' . $envotable2 . ' WHERE trash = 1 ORDER BY id DESC';
     $result = $jakdb->query($sql);
     while ($row = $result->fetch_assoc()) {
       // EN: Insert each record into array
@@ -938,7 +954,7 @@ switch ($page1) {
 
     break;
   case 'quickedit':
-    if (jak_row_exist($page2, $jaktable)) {
+    if (envo_row_exist($page2, $envotable)) {
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // EN: Default Variable
@@ -952,19 +968,25 @@ switch ($page1) {
         // Now do the dirty stuff in mysql
         if (count($errors) == 0) {
 
-          $result = $jakdb->query('UPDATE ' . $jaktable . ' SET
-			title = "' . smartsql($defaults['jak_title']) . '",
-			content = "' . smartsql($defaults['jak_lcontent']) . '"
-			WHERE id = "' . smartsql($page2) . '"');
+          /* EN: Convert value
+           * smartsql - secure method to insert form data into a MySQL DB
+           * ------------------
+           * CZ: Převod hodnot
+           * smartsql - secure method to insert form data into a MySQL DB
+          */
+          $result = $jakdb->query('UPDATE ' . $envotable . ' SET
+                    title = "' . smartsql($defaults['jak_title']) . '",
+                    content = "' . smartsql($defaults['jak_lcontent']) . '"
+                    WHERE id = "' . smartsql($page2) . '"');
 
           if (!$result) {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            jak_redirect(BASE_URL . 'index.php?p=faq&sp=quickedit&ssp=' . $page2 . '&sssp=e');
+            envo_redirect(BASE_URL . 'index.php?p=faq&sp=quickedit&ssp=' . $page2 . '&status=e');
           } else {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            jak_redirect(BASE_URL . 'index.php?p=faq&sp=quickedit&ssp=' . $page2 . '&sssp=s');
+            envo_redirect(BASE_URL . 'index.php?p=faq&sp=quickedit&ssp=' . $page2 . '&status=s');
           }
         } else {
 
@@ -974,7 +996,7 @@ switch ($page1) {
       }
 
       // Get the data
-      $JAK_FORM_DATA = jak_get_data($page2, $jaktable);
+      $JAK_FORM_DATA = envo_get_data($page2, $envotable);
 
       // EN: Load the template
       // CZ: Načti template (šablonu)
@@ -983,18 +1005,18 @@ switch ($page1) {
     } else {
       // EN: Redirect page
       // CZ: Přesměrování stránky
-      jak_redirect(BASE_URL . 'index.php?p=faq&sp=ene');
+      envo_redirect(BASE_URL . 'index.php?p=faq&status=ene');
     }
     break;
   default:
 
     // Important Smarty stuff
-    $JAK_CAT           = jak_get_cat_info($jaktable1, 0);
-    $JAK_CONTACT_FORMS = jak_get_page_info($jaktable3, '');
+    $JAK_CAT           = envo_get_cat_info($envotable1, 0);
+    $JAK_CONTACT_FORMS = envo_get_page_info($envotable3, '');
 
     switch ($page1) {
       case 'showcat':
-        $getTotal = jak_get_total($jaktable, $page2, 'catid', '');
+        $getTotal = envo_get_total($envotable, $page2, 'catid', '');
         if ($getTotal != 0) {
           // Paginator
           $pages                 = new JAK_Paginator;
@@ -1005,7 +1027,7 @@ switch ($page1) {
           $pages->jak_where      = 'index.php?p=faq&sp=showcat&ssp=' . $page2;
           $pages->paginate();
           $JAK_PAGINATE_SORT = $pages->display_pages();
-          $JAK_FAQ_SORT      = jak_get_faqs($pages->limit, $page2, $jaktable);
+          $JAK_FAQ_SORT      = envo_get_faqs($pages->limit, $page2, $envotable);
 
           // EN: Title and Description
           // CZ: Titulek a Popis
@@ -1019,50 +1041,50 @@ switch ($page1) {
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=ene');
+          envo_redirect(BASE_URL . 'index.php?p=faq&status=ene');
         }
         break;
       case 'lock':
 
-        $result2 = $jakdb->query('SELECT catid, active FROM ' . $jaktable . ' WHERE id = "' . smartsql($page2) . '"');
+        $result2 = $jakdb->query('SELECT catid, active FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
         $row2    = $result2->fetch_assoc();
 
         if ($row2['active'] == 1) {
-          $jakdb->query('UPDATE ' . $jaktable1 . ' SET count = count - 1 WHERE id = "' . smartsql($row2['catid']) . '"');
+          $jakdb->query('UPDATE ' . $envotable1 . ' SET count = count - 1 WHERE id = "' . smartsql($row2['catid']) . '"');
         } else {
-          $jakdb->query('UPDATE ' . $jaktable1 . ' SET count = count + 1 WHERE id = "' . smartsql($row2['catid']) . '"');
+          $jakdb->query('UPDATE ' . $envotable1 . ' SET count = count + 1 WHERE id = "' . smartsql($row2['catid']) . '"');
         }
 
-        $result = $jakdb->query('UPDATE ' . $jaktable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page2) . '"');
+        $result = $jakdb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page2) . '"');
 
         JAK_tags::jaklocktags($page2, JAK_PLUGIN_FAQ);
 
         if (!$result) {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=e');
+          envo_redirect(BASE_URL . 'index.php?p=faq&status=e');
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=s');
+          envo_redirect(BASE_URL . 'index.php?p=faq&status=s');
         }
 
         break;
       case 'delete':
-        if (is_numeric($page2) && jak_row_exist($page2, $jaktable)) {
+        if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
-          $result2 = $jakdb->query('SELECT catid FROM ' . $jaktable . ' WHERE id = "' . smartsql($page2) . '"');
+          $result2 = $jakdb->query('SELECT catid FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
           $row2    = $result2->fetch_assoc();
 
-          $jakdb->query('UPDATE ' . $jaktable1 . ' SET count = count - 1 WHERE id = "' . smartsql($row2['catid']) . '"');
-          $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE faqid = "' . smartsql($page2) . '"');
+          $jakdb->query('UPDATE ' . $envotable1 . ' SET count = count - 1 WHERE id = "' . smartsql($row2['catid']) . '"');
+          $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE faqid = "' . smartsql($page2) . '"');
 
-          $result = $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE id = "' . smartsql($page2) . '"');
+          $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
 
           if (!$result) {
             // EN: Redirect page
             // CZ: Přesměrování stránky s notifikací - chybné
-            jak_redirect(BASE_URL . 'index.php?p=faq&sp=e');
+            envo_redirect(BASE_URL . 'index.php?p=faq&status=e');
           } else {
             JAK_tags::jakDeletetags($page2, JAK_PLUGIN_FAQ);
 
@@ -1070,21 +1092,21 @@ switch ($page1) {
             // CZ: Přesměrování stránky s notifikací - úspěšné
             /*
             NOTIFIKACE:
-            'sp=s'   - Záznam úspěšně uložen
-            'ssp=s'  - Záznam úspěšně odstraněn
+            'status=s'   - Záznam úspěšně uložen
+            'status1=s'  - Záznam úspěšně odstraněn
             */
-            jak_redirect(BASE_URL . 'index.php?p=faq&sp=s&ssp=s');
+            envo_redirect(BASE_URL . 'index.php?p=faq&status=s&status1=s');
           }
 
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=ene');
+          envo_redirect(BASE_URL . 'index.php?p=faq&status=ene');
         }
         break;
       case 'edit':
 
-        if (is_numeric($page2) && jak_row_exist($page2, $jaktable)) {
+        if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // EN: Default Variable
@@ -1106,7 +1128,7 @@ switch ($page1) {
 
             // Delete the comments
             if (!empty($defaults['jak_delete_comment'])) {
-              $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE faqid = "' . smartsql($page2) . '"');
+              $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE faqid = "' . smartsql($page2) . '"');
             }
 
             // Delete the likes
@@ -1117,7 +1139,7 @@ switch ($page1) {
 
             // Delete the hits
             if (!empty($defaults['jak_delete_hits'])) {
-              $jakdb->query('UPDATE ' . $jaktable . ' SET hits = 1 WHERE id = "' . smartsql($page2) . '"');
+              $jakdb->query('UPDATE ' . $envotable . ' SET hits = 1 WHERE id = "' . smartsql($page2) . '"');
             }
 
             if (empty($defaults['jak_title'])) {
@@ -1136,17 +1158,23 @@ switch ($page1) {
                 $insert .= 'previmg = NULL,';
               }
 
-              $result = $jakdb->query('UPDATE ' . $jaktable . ' SET
-		catid = "' . $defaults['jak_catid'] . '",
-		title = "' . smartsql($defaults['jak_title']) . '",
-		content = "' . smartsql($defaults['jak_content']) . '",
-		showtitle = "' . smartsql($defaults['jak_showtitle']) . '",
-		showcontact = "' . smartsql($defaults['jak_showcontact']) . '",
-		showdate = "' . smartsql($defaults['jak_showdate']) . '",
-		comments = "' . smartsql($defaults['jak_comment']) . '",
-		' . $insert . '
-		socialbutton = "' . smartsql($defaults['jak_social']) . '"
-		WHERE id = "' . smartsql($page2) . '"');
+              /* EN: Convert value
+               * smartsql - secure method to insert form data into a MySQL DB
+               * ------------------
+               * CZ: Převod hodnot
+               * smartsql - secure method to insert form data into a MySQL DB
+              */
+              $result = $jakdb->query('UPDATE ' . $envotable . ' SET
+                        catid = "' . $defaults['jak_catid'] . '",
+                        title = "' . smartsql($defaults['jak_title']) . '",
+                        content = "' . smartsql($defaults['jak_content']) . '",
+                        showtitle = "' . smartsql($defaults['jak_showtitle']) . '",
+                        showcontact = "' . smartsql($defaults['jak_showcontact']) . '",
+                        showdate = "' . smartsql($defaults['jak_showdate']) . '",
+                        comments = "' . smartsql($defaults['jak_comment']) . '",
+                        ' . $insert . '
+                        socialbutton = "' . smartsql($defaults['jak_social']) . '"
+                        WHERE id = "' . smartsql($page2) . '"');
 
               // Set tag active to zero
               $tagactive = 0;
@@ -1157,8 +1185,8 @@ switch ($page1) {
               }
 
               if ($defaults['jak_catid'] != 0 || $defaults['jak_catid'] != $defaults['jak_oldcatid']) {
-                $jakdb->query('UPDATE ' . $jaktable1 . ' SET count = count - 1 WHERE id = "' . smartsql($defaults['jak_oldcatid']) . '"');
-                $jakdb->query('UPDATE ' . $jaktable1 . ' SET count = count + 1 WHERE id = "' . smartsql($defaults['jak_catid']) . '"');
+                $jakdb->query('UPDATE ' . $envotable1 . ' SET count = count - 1 WHERE id = "' . smartsql($defaults['jak_oldcatid']) . '"');
+                $jakdb->query('UPDATE ' . $envotable1 . ' SET count = count + 1 WHERE id = "' . smartsql($defaults['jak_catid']) . '"');
 
                 // Set tag active, well to active
                 $tagactive = 1;
@@ -1181,7 +1209,7 @@ switch ($page1) {
                     $whatid = 0;
                     if (isset($defaults['whatid_' . $pdoith[$key]])) $whatid = $defaults['whatid_' . $pdoith[$key]];
 
-                    $jakdb->query('INSERT INTO ' . $jaktable4 . ' SET faqid = "' . $page2 . '", hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '", plugin = ' . JAK_PLUGIN_FAQ);
+                    $jakdb->query('INSERT INTO ' . $envotable4 . ' SET faqid = "' . $page2 . '", hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '", plugin = ' . JAK_PLUGIN_FAQ);
 
                   }
 
@@ -1193,11 +1221,11 @@ switch ($page1) {
               if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
 
                 // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
-                $row = $jakdb->queryRow('SELECT id FROM ' . $jaktable4 . ' WHERE faqid = "' . smartsql($page2) . '" AND hookid != 0');
+                $row = $jakdb->queryRow('SELECT id FROM ' . $envotable4 . ' WHERE faqid = "' . smartsql($page2) . '" AND hookid != 0');
 
                 // We have something to delete
                 if ($row["id"]) {
-                  $jakdb->query('DELETE FROM ' . $jaktable4 . ' WHERE faqid = "' . smartsql($page2) . '" AND hookid != 0');
+                  $jakdb->query('DELETE FROM ' . $envotable4 . ' WHERE faqid = "' . smartsql($page2) . '" AND hookid != 0');
                 }
 
               }
@@ -1213,7 +1241,7 @@ switch ($page1) {
                 foreach ($doith as $key => $exorder) {
 
                   // Get the real what id
-                  $result = $jakdb->query('SELECT pluginid FROM ' . $jaktable4 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
+                  $result = $jakdb->query('SELECT pluginid FROM ' . $envotable4 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
                   $row    = $result->fetch_assoc();
 
                   $whatid = 0;
@@ -1224,16 +1252,16 @@ switch ($page1) {
                     $updatesql1 .= sprintf("WHEN %d THEN %d ", $key, $whatid);
 
                   } else {
-                    $jakdb->query('DELETE FROM ' . $jaktable4 . ' WHERE id = "' . smartsql($key) . '"');
+                    $jakdb->query('DELETE FROM ' . $envotable4 . ' WHERE id = "' . smartsql($key) . '"');
                   }
                 }
 
-                $jakdb->query('UPDATE ' . $jaktable4 . ' SET orderid = CASE id
+                $jakdb->query('UPDATE ' . $envotable4 . ' SET orderid = CASE id
 				' . $updatesql . '
 				END
 				WHERE id IN (' . $hookrealid . ')');
 
-                $jakdb->query('UPDATE ' . $jaktable4 . ' SET whatid = CASE id
+                $jakdb->query('UPDATE ' . $envotable4 . ' SET whatid = CASE id
 				' . $updatesql1 . '
 				END
 				WHERE id IN (' . $hookrealid . ')');
@@ -1243,7 +1271,7 @@ switch ($page1) {
               if (!$result) {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                jak_redirect(BASE_URL . 'index.php?p=faq&sp=edit&ssp=' . $page2 . '&sssp=e');
+                envo_redirect(BASE_URL . 'index.php?p=faq&sp=edit&ssp=' . $page2 . '&status=e');
               } else {
 
                 // Create Tags if the module is active
@@ -1257,7 +1285,7 @@ switch ($page1) {
 
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                jak_redirect(BASE_URL . 'index.php?p=faq&sp=edit&ssp=' . $page2 . '&sssp=s');
+                envo_redirect(BASE_URL . 'index.php?p=faq&sp=edit&ssp=' . $page2 . '&status=s');
               }
 
             } else {
@@ -1267,13 +1295,13 @@ switch ($page1) {
             }
           }
 
-          $JAK_FORM_DATA = jak_get_data($page2, $jaktable);
+          $JAK_FORM_DATA = envo_get_data($page2, $envotable);
           if (JAK_TAGS) {
-            $JAK_TAGLIST = jak_get_tags($page2, JAK_PLUGIN_FAQ);
+            $JAK_TAGLIST = envo_get_tags($page2, JAK_PLUGIN_FAQ);
           }
 
           // Get the sort orders for the grid
-          $grid = $jakdb->query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . $jaktable4 . ' WHERE faqid = "' . smartsql($page2) . '" ORDER BY orderid ASC');
+          $grid = $jakdb->query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . $envotable4 . ' WHERE faqid = "' . smartsql($page2) . '" ORDER BY orderid ASC');
           while ($grow = $grid->fetch_assoc()) {
             // EN: Insert each record into array
             // CZ: Vložení získaných dat do pole
@@ -1281,7 +1309,7 @@ switch ($page1) {
           }
 
           // Get the sidebar templates
-          $result = $jakdb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $jaktable5 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
+          $result = $jakdb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable5 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
           while ($row = $result->fetch_assoc()) {
             $JAK_HOOKS[] = $row;
           }
@@ -1298,13 +1326,13 @@ switch ($page1) {
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=faq&sp=ene');
+          envo_redirect(BASE_URL . 'index.php?p=faq&status=ene');
         }
         break;
       case 'sort':
 
         // getNumber
-        $getTotal = jak_get_total($jaktable, '', '', '');
+        $getTotal = envo_get_total($envotable, '', '', '');
 
         // Now if total run paginator
         if ($getTotal != 0) {
@@ -1319,7 +1347,7 @@ switch ($page1) {
           $JAK_PAGINATE = $pages->display_pages();
         }
 
-        $result = $jakdb->query('SELECT * FROM ' . $jaktable . ' ORDER BY ' . $page2 . ' ' . $page3 . ' ' . $pages->limit);
+        $result = $jakdb->query('SELECT * FROM ' . $envotable . ' ORDER BY ' . $page2 . ' ' . $page3 . ' ' . $pages->limit);
         while ($row = $result->fetch_assoc()) {
           $faqarray[] = $row;
         }
@@ -1346,16 +1374,16 @@ switch ($page1) {
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
 
-              $result2 = $jakdb->query('SELECT catid, active FROM ' . $jaktable . ' WHERE id = "' . smartsql($locked) . '"');
+              $result2 = $jakdb->query('SELECT catid, active FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
               $row2    = $result2->fetch_assoc();
 
               if ($row2['active'] == 1) {
-                $result1 = $jakdb->query('UPDATE ' . $jaktable1 . ' SET count = count - 1 WHERE id = "' . smartsql($row2['catid']) . '"');
+                $result1 = $jakdb->query('UPDATE ' . $envotable1 . ' SET count = count - 1 WHERE id = "' . smartsql($row2['catid']) . '"');
               } else {
-                $result1 = $jakdb->query('UPDATE ' . $jaktable1 . ' SET count = count + 1 WHERE id = "' . smartsql($row2['catid']) . '"');
+                $result1 = $jakdb->query('UPDATE ' . $envotable1 . ' SET count = count + 1 WHERE id = "' . smartsql($row2['catid']) . '"');
               }
 
-              $result = $jakdb->query('UPDATE ' . $jaktable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($locked) . '"');
+              $result = $jakdb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($locked) . '"');
 
               JAK_tags::jaklocktags($locked, JAK_PLUGIN_FAQ);
             }
@@ -1363,11 +1391,11 @@ switch ($page1) {
             if (!$result) {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              jak_redirect(BASE_URL . 'index.php?p=faq&sp=e');
+              envo_redirect(BASE_URL . 'index.php?p=faq&status=e');
             } else {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              jak_redirect(BASE_URL . 'index.php?p=faq&sp=s');
+              envo_redirect(BASE_URL . 'index.php?p=faq&status=s');
             }
 
           }
@@ -1379,12 +1407,12 @@ switch ($page1) {
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
 
-              $result2 = $jakdb->query('SELECT catid FROM ' . $jaktable . ' WHERE id = "' . smartsql($locked) . '"');
+              $result2 = $jakdb->query('SELECT catid FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
               $row2    = $result2->fetch_assoc();
 
-              $result1 = $jakdb->query('UPDATE ' . $jaktable1 . ' SET count = count - 1 WHERE id = "' . smartsql($row2['catid']) . '"');
-              $result3 = $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE faqid = "' . smartsql($locked) . '"');
-              $result  = $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE id = "' . smartsql($locked) . '"');
+              $result1 = $jakdb->query('UPDATE ' . $envotable1 . ' SET count = count - 1 WHERE id = "' . smartsql($row2['catid']) . '"');
+              $result3 = $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE faqid = "' . smartsql($locked) . '"');
+              $result  = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
 
               JAK_tags::jakDeletetags($locked, JAK_PLUGIN_FAQ);
             }
@@ -1392,16 +1420,16 @@ switch ($page1) {
             if (!$result) {
               // EN: Redirect page
               // CZ: Přesměrování stránky s notifikací - chybné
-              jak_redirect(BASE_URL . 'index.php?p=faq&sp=e');
+              envo_redirect(BASE_URL . 'index.php?p=faq&status=e');
             } else {
               // EN: Redirect page
               // CZ: Přesměrování stránky s notifikací - úspěšné
               /*
               NOTIFIKACE:
-              'sp=s'   - Záznam úspěšně uložen
-              'ssp=s'  - Záznam úspěšně odstraněn
+              'status=s'   - Záznam úspěšně uložen
+              'status1=s'  - Záznam úspěšně odstraněn
               */
-              jak_redirect(BASE_URL . 'index.php?p=faq&sp=s&ssp=s');
+              envo_redirect(BASE_URL . 'index.php?p=faq&status=s&status1=s');
             }
 
           }
@@ -1409,7 +1437,7 @@ switch ($page1) {
         }
 
         // Get all faqs out
-        $getTotal = jak_get_total($jaktable, '', '', '');
+        $getTotal = envo_get_total($envotable, '', '', '');
 
         if ($getTotal != 0) {
           // Paginator
@@ -1422,7 +1450,7 @@ switch ($page1) {
           $pages->paginate();
           $JAK_PAGINATE = $pages->display_pages();
         }
-        $JAK_FAQ_ALL = jak_get_faqs($pages->limit, '', $jaktable);
+        $JAK_FAQ_ALL = envo_get_faqs($pages->limit, '', $envotable);
 
         // EN: Title and Description
         // CZ: Titulek a Popis
