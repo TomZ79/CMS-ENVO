@@ -6,16 +6,15 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$JAK_MODULEM) jak_redirect(BASE_URL);
+if (!JAK_USERID || !$JAK_MODULEM) envo_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$jaktable  = DB_PREFIX . 'categories';
-$jaktable1 = DB_PREFIX . 'pages';
+$envotable  = DB_PREFIX . 'categories';
+$envotable1 = DB_PREFIX . 'pages';
 
 // Now start with the plugin use a switch to access all pages
 switch ($page1) {
-
   case 'newcat':
 
     // Additional DB Information
@@ -30,7 +29,7 @@ switch ($page1) {
         $errors['e1'] = $tl['general_error']['generror4'] . '<br>';
       }
 
-      if (jak_field_not_exist($defaults['jak_varname'], $jaktable, $jakfield) || jak_varname_blocked($defaults['jak_varname'])) {
+      if (envo_field_not_exist($defaults['jak_varname'], $envotable, $jakfield) || envo_varname_blocked($defaults['jak_varname'])) {
         $errors['e2'] = $tl['general_error']['generror21'] . '<br>';
       }
 
@@ -68,29 +67,35 @@ switch ($page1) {
           $catimg = 'catimg = "' . smartsql($defaults['jak_img']) . '",';
         }
 
-        $result = $jakdb->query('INSERT INTO ' . $jaktable . ' SET
-																	name = "' . smartsql($defaults['jak_name']) . '",
-																	varname = "' . smartsql($defaults['jak_varname']) . '",
-																	exturl = "' . smartsql($defaults['jak_url']) . '",
-																	content = "' . smartsql($defaults['jak_lcontent']) . '",
-																	metadesc = "' . smartsql($defaults['jak_lcontent_meta_desc']) . '",
-																	metakey = "' . smartsql($defaults['jak_lcontent_meta_key']) . '",
-																	showmenu = "' . smartsql($menu) . '",
-																	showfooter = "' . smartsql($footer) . '",
-																	' . $catimg . '
-																	permission = "' . smartsql($permission) . '",
-																	catorder = 2');
+        /* EN: Convert value
+         * smartsql - secure method to insert form data into a MySQL DB
+         * ------------------
+         * CZ: Převod hodnot
+         * smartsql - secure method to insert form data into a MySQL DB
+        */
+        $result = $jakdb->query('INSERT INTO ' . $envotable . ' SET
+                  name = "' . smartsql($defaults['jak_name']) . '",
+                  varname = "' . smartsql($defaults['jak_varname']) . '",
+                  exturl = "' . smartsql($defaults['jak_url']) . '",
+                  content = "' . smartsql($defaults['jak_lcontent']) . '",
+                  metadesc = "' . smartsql($defaults['jak_lcontent_meta_desc']) . '",
+                  metakey = "' . smartsql($defaults['jak_lcontent_meta_key']) . '",
+                  showmenu = "' . smartsql($menu) . '",
+                  showfooter = "' . smartsql($footer) . '",
+                  ' . $catimg . '
+                  permission = "' . smartsql($permission) . '",
+                  catorder = 2');
 
         $rowid = $jakdb->jak_last_id();
 
         if (!$result) {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=categories&sp=newcat&ssp=e');;
+          envo_redirect(BASE_URL . 'index.php?p=categories&sp=newcat&status=e');;
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=categories&sp=edit&ssp=' . $rowid . '&sssp=s');
+          envo_redirect(BASE_URL . 'index.php?p=categories&sp=edit&ssp=' . $rowid . '&status=s');
         }
       } else {
 
@@ -100,7 +105,7 @@ switch ($page1) {
     }
 
     // Get all usergroup's
-    $JAK_USERGROUP = jak_get_usergroup_all('usergroup');
+    $JAK_USERGROUP = envo_get_usergroup_all('usergroup');
 
     // EN: Title and Description
     // CZ: Titulek a Popis
@@ -122,61 +127,61 @@ switch ($page1) {
     switch ($page1) {
       case 'delete':
 
-        if (jak_row_exist($page2, $jaktable) && $page2 != 1) {
+        if (envo_row_exist($page2, $envotable) && $page2 != 1) {
 
           // EN: If exist page for category, move page to Archiv
           // CZ: Pokud existuje stránka ke kategorii, přesuneme stránku do Archivu
-          $resultpages = $jakdb->query('SELECT id FROM ' . $jaktable1 . ' WHERE catid = "' . smartsql($page2) . '" LIMIT 1');
+          $resultpages = $jakdb->query('SELECT id FROM ' . $envotable1 . ' WHERE catid = "' . smartsql($page2) . '" LIMIT 1');
           $rowpages    = $resultpages->fetch_assoc();
           if ($rowpages) {
-            $resultpages = $jakdb->query('UPDATE ' . $jaktable1 . ' SET catid="0" WHERE id = "' . $rowpages['id'] . '"');
+            $resultpages = $jakdb->query('UPDATE ' . $envotable1 . ' SET catid="0" WHERE id = "' . $rowpages['id'] . '"');
           }
 
           //
-          $result = $jakdb->query('SELECT catparent, pluginid FROM ' . $jaktable . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
+          $result = $jakdb->query('SELECT catparent, pluginid FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
           $row    = $result->fetch_assoc();
 
           if ($row['pluginid'] == 0) {
 
             // EN: Delete category from DB
             // CZ: Smažeme kategorii v DB
-            $result = $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE id = "' . smartsql($page2) . '"');
+            $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
 
             if (!$result) {
               // EN: Redirect page
               // CZ: Přesměrování stránky s notifikací - chybné
-              jak_redirect(BASE_URL . 'index.php?p=categories&sp=e');
+              envo_redirect(BASE_URL . 'index.php?p=categories&status=e');
             } else {
               // EN: Redirect page
               // CZ: Přesměrování stránky s notifikací - úspěšné
               /*
               NOTIFIKACE:
-              'sp=s'   - Záznam úspěšně uložen
-              'ssp=s'  - Záznam úspěšně odstraněn
+              'status=s'   - Záznam úspěšně uložen
+              'status1=s'  - Záznam úspěšně odstraněn
               */
-              jak_redirect(BASE_URL . 'index.php?p=categories&sp=s&ssp=s');
+              envo_redirect(BASE_URL . 'index.php?p=categories&status=s&status1=s');
             }
 
           } else {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            jak_redirect(BASE_URL . 'index.php?p=categories&sp=epc');
+            envo_redirect(BASE_URL . 'index.php?p=categories&status=epc');
           }
 
         } elseif ($page1 == 'delete' && $page2 == 1) {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=categories&sp=ech');
+          envo_redirect(BASE_URL . 'index.php?p=categories&status=ech');
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=error&sp=ene');
+          envo_redirect(BASE_URL . 'index.php?p=error&status=ene');
         }
 
         break;
       case 'edit':
 
-        if (jak_row_exist($page2, $jaktable)) {
+        if (envo_row_exist($page2, $envotable)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // EN: Default Variable
@@ -187,7 +192,7 @@ switch ($page1) {
               $errors['e1'] = $tl['general_error']['generror4'] . '<br>';
             }
 
-            if (jak_field_not_exist_id($defaults['jak_varname'], $page2, $jaktable, $jakfield1) || jak_varname_blocked($defaults['jak_varname'])) {
+            if (envo_field_not_exist_id($defaults['jak_varname'], $page2, $envotable, $jakfield1) || envo_varname_blocked($defaults['jak_varname'])) {
               $errors['e2'] = $tl['general_error']['generror21'] . '<br>';
             }
 
@@ -215,27 +220,33 @@ switch ($page1) {
                 $insert .= 'catimg = NULL,';
               }
 
-              $result = $jakdb->query('UPDATE ' . $jaktable . ' SET
-																				name = "' . smartsql($defaults['jak_name']) . '",
-																				varname = "' . smartsql($defaults['jak_varname']) . '",
-																				exturl = "' . smartsql($defaults['jak_url']) . '",
-																				content = "' . smartsql($defaults['jak_lcontent']) . '",
-																				metadesc = "' . smartsql($defaults['jak_lcontent_meta_desc']) . '",
-																				metakey = "' . smartsql($defaults['jak_lcontent_meta_key']) . '",
-																				showmenu = "' . smartsql($defaults['jak_menu']) . '",
-																				showfooter = "' . smartsql($defaults['jak_footer']) . '",
-																				' . $insert . '
-																				permission = "' . smartsql($permission) . '"
-																				WHERE id = "' . smartsql($page2) . '"');
+              /* EN: Convert value
+               * smartsql - secure method to insert form data into a MySQL DB
+               * ------------------
+               * CZ: Převod hodnot
+               * smartsql - secure method to insert form data into a MySQL DB
+              */
+              $result = $jakdb->query('UPDATE ' . $envotable . ' SET
+                        name = "' . smartsql($defaults['jak_name']) . '",
+                        varname = "' . smartsql($defaults['jak_varname']) . '",
+                        exturl = "' . smartsql($defaults['jak_url']) . '",
+                        content = "' . smartsql($defaults['jak_lcontent']) . '",
+                        metadesc = "' . smartsql($defaults['jak_lcontent_meta_desc']) . '",
+                        metakey = "' . smartsql($defaults['jak_lcontent_meta_key']) . '",
+                        showmenu = "' . smartsql($defaults['jak_menu']) . '",
+                        showfooter = "' . smartsql($defaults['jak_footer']) . '",
+                        ' . $insert . '
+                        permission = "' . smartsql($permission) . '"
+                        WHERE id = "' . smartsql($page2) . '"');
 
               if (!$result) {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                jak_redirect(BASE_URL . 'index.php?p=categories&sp=edit&ssp=' . $page2 . '&sssp=e');
+                envo_redirect(BASE_URL . 'index.php?p=categories&sp=edit&ssp=' . $page2 . '&status=e');
               } else {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                jak_redirect(BASE_URL . 'index.php?p=categories&sp=edit&ssp=' . $page2 . '&sssp=s');
+                envo_redirect(BASE_URL . 'index.php?p=categories&sp=edit&ssp=' . $page2 . '&status=s');
               }
             } else {
               $errors['e'] = $tl['general_error']['generror'] . '<br>';
@@ -244,10 +255,10 @@ switch ($page1) {
           }
 
           // Get the data
-          $JAK_FORM_DATA = jak_get_data($page2, $jaktable);
+          $JAK_FORM_DATA = envo_get_data($page2, $envotable);
 
           // Get all usergroup's
-          $JAK_USERGROUP = jak_get_usergroup_all('usergroup');
+          $JAK_USERGROUP = envo_get_usergroup_all('usergroup');
 
           // EN: Title and Description
           // CZ: Titulek a Popis
@@ -261,7 +272,7 @@ switch ($page1) {
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=error&sp=cat-not-exist');
+          envo_redirect(BASE_URL . 'index.php?p=error&sp=cat-not-exist');
         }
 
         break;
@@ -290,7 +301,7 @@ switch ($page1) {
               // EN: Redirect page
               // CZ: Přesměrování stránky
               $_SESSION["successmsg"] = $tl["notification"]["n7"];
-              jak_redirect(BASE_URL . 'index.php?p=categories');
+              envo_redirect(BASE_URL . 'index.php?p=categories');
             }
           } else {
             /* Outputtng the success messages */
@@ -301,13 +312,13 @@ switch ($page1) {
               // EN: Redirect page
               // CZ: Přesměrování stránky
               $_SESSION["errormsg"] = $tl["general_error"]["generror1"];
-              jak_redirect(BASE_URL . 'index.php?p=categories');
+              envo_redirect(BASE_URL . 'index.php?p=categories');
             }
           }
         }
 
         // Get the menu
-        $result = $jakdb->query('SELECT * FROM ' . $jaktable . ' WHERE showmenu = 1 OR (showmenu = 1 && showfooter = 1) ORDER BY catparent, catorder, name');
+        $result = $jakdb->query('SELECT * FROM ' . $envotable . ' WHERE showmenu = 1 OR (showmenu = 1 && showfooter = 1) ORDER BY catparent, catorder, name');
         // Create a multidimensional array to conatin a list of items and parents
         $mheader = array(
           'items'   => array(),
@@ -328,7 +339,7 @@ switch ($page1) {
         }
 
         // Get the menu
-        $result = $jakdb->query('SELECT * FROM ' . $jaktable . ' WHERE showfooter = 1 ORDER BY catparent, catorder, name');
+        $result = $jakdb->query('SELECT * FROM ' . $envotable . ' WHERE showfooter = 1 ORDER BY catparent, catorder, name');
         // Create a multidimensional array to conatin a list of items and parents
         $mfooter = array(
           'items'   => array(),
@@ -350,7 +361,7 @@ switch ($page1) {
 
         // Get the menu
         $ucatblank = "";
-        $result    = $jakdb->query('SELECT * FROM ' . $jaktable . ' WHERE showmenu = 0 && showfooter = 0 ORDER BY catparent, catorder, name');
+        $result    = $jakdb->query('SELECT * FROM ' . $envotable . ' WHERE showmenu = 0 && showfooter = 0 ORDER BY catparent, catorder, name');
         while ($catblank = $result->fetch_assoc()) {
 
           // Creates entry into items array with current menu item id ie. $menu['items'][1]

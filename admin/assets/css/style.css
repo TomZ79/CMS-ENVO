@@ -12,6 +12,15 @@
  *
  */
 
+/* Bootstrap Select2 */
+.select2-container .select2-selection {
+  border-radius: 0 !important;
+}
+
+.has-error .select2-selection {
+  border-color: #f22823 !important;
+}
+
 
 /* Spinner  */
 #spinner {

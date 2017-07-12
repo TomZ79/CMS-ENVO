@@ -25,7 +25,7 @@ $.AdminEnvo.options = {
   enableBSToppltipIcon: true,
   BSTooltipSelectorIcon: ".icon_legend i",
   //Bootbox confirm dialog
-  BootboxLang: jakWeb.jak_lang,
+  BootboxLang: envoWeb.envo_lang,
 
 };
 
@@ -56,7 +56,7 @@ $(function () {
    ====================================================== */
   $.AdminEnvo.DateTimepicker = {
     tooltips: function () {
-      if (jakWeb.jak_lang = 'cs') {
+      if (envoWeb.envo_lang = 'cs') {
         var tooltip = {
           today: 'Dnešní Datum',
           clear: 'Smazat Datum',
@@ -370,7 +370,7 @@ function restoreContent(fieldname, backupid, advedit, id) {
 
   $.ajax({
     type: "POST",
-    url: jakWeb.jak_url + 'ajax/loadcontent.php',
+    url: envoWeb.envo_url + 'ajax/loadcontent.php',
     data: "backupid=" + backupid + "&contentid=" + id + "&eid=1&fid=" + fieldname,
     dataType: 'json',
     beforeSend: function (x) {

@@ -6,17 +6,15 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$JAK_MODULEM) jak_redirect(BASE_URL);
+if (!JAK_USERID || !$JAK_MODULEM) envo_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$jaktable  = DB_PREFIX . 'contactform';
-$jaktable1 = DB_PREFIX . 'contactoptions';
+$envotable  = DB_PREFIX . 'contactform';
+$envotable1 = DB_PREFIX . 'contactoptions';
 
 // Now start with the plugin use a switch to access all pages
 switch ($page1) {
-
-  // Create new contactform
   case 'newcontact':
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -34,12 +32,18 @@ switch ($page1) {
 
       if (count($errors) == 0) {
 
-        $result = $jakdb->query('INSERT INTO ' . $jaktable . ' SET
-																	title = "' . smartsql($defaults['jak_title']) . '",
-																	content = "' . smartsql($defaults['jak_lcontent']) . '",
-																	email = "' . smartsql($defaults['jak_email']) . '",
-																	showtitle = "' . smartsql($defaults['jak_showtitle']) . '",
-																	time = NOW()');
+        /* EN: Convert value
+         * smartsql - secure method to insert form data into a MySQL DB
+         * ------------------
+         * CZ: Převod hodnot
+         * smartsql - secure method to insert form data into a MySQL DB
+        */
+        $result = $jakdb->query('INSERT INTO ' . $envotable . ' SET
+                  title = "' . smartsql($defaults['jak_title']) . '",
+                  content = "' . smartsql($defaults['jak_lcontent']) . '",
+                  email = "' . smartsql($defaults['jak_email']) . '",
+                  showtitle = "' . smartsql($defaults['jak_showtitle']) . '",
+                  time = NOW()');
 
         $rowid = $jakdb->jak_last_id();
 
@@ -56,7 +60,7 @@ switch ($page1) {
               $sqlmand = $defaults['jak_optionmandatory'][$i];
             }
 
-            $jakdb->query('INSERT INTO ' . $jaktable1 . ' SET
+            $jakdb->query('INSERT INTO ' . $envotable1 . ' SET
 														formid = "' . smartsql($rowid) . '",
 														name = "' . smartsql($name) . '",
 														typeid = "' . smartsql($defaults['jak_optiontype'][$i]) . '",
@@ -70,11 +74,11 @@ switch ($page1) {
         if (!$result) {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=contactform&sp=newcontact&ssp=e');
+          envo_redirect(BASE_URL . 'index.php?p=contactform&sp=newcontact&status=e');
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=contactform&sp=edit&ssp=' . $rowid . '&sssp=s');
+          envo_redirect(BASE_URL . 'index.php?p=contactform&sp=edit&ssp=' . $rowid . '&status=s');
         }
       } else {
 
@@ -106,17 +110,17 @@ switch ($page1) {
 
         for ($i = 0; $i < count($lockuser); $i++) {
           $locked = $lockuser[$i];
-          $result = $jakdb->query('UPDATE ' . $jaktable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($locked) . '"');
+          $result = $jakdb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($locked) . '"');
         }
 
         if (!$result) {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=contactform&sp=e');
+          envo_redirect(BASE_URL . 'index.php?p=contactform&status=e');
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=contactform&sp=s');
+          envo_redirect(BASE_URL . 'index.php?p=contactform&status=s');
         }
 
       }
@@ -127,19 +131,19 @@ switch ($page1) {
 
         for ($i = 0; $i < count($lockuser); $i++) {
           $locked = $lockuser[$i];
-          $result = $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE id = "' . smartsql($locked) . '"');
-          $jakdb->query('DELETE FROM ' . $jaktable1 . ' WHERE formid = "' . smartsql($locked) . '"');
+          $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
+          $jakdb->query('DELETE FROM ' . $envotable1 . ' WHERE formid = "' . smartsql($locked) . '"');
 
         }
 
         if (!$result) {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=contactform&sp=e');
+          envo_redirect(BASE_URL . 'index.php?p=contactform&status=e');
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=contactform&sp=s');
+          envo_redirect(BASE_URL . 'index.php?p=contactform&status=s');
         }
 
       }
@@ -149,45 +153,45 @@ switch ($page1) {
     switch ($page1) {
       case 'lock':
 
-        $result = $jakdb->query('UPDATE ' . $jaktable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page2) . '"');
+        $result = $jakdb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page2) . '"');
 
         if (!$result) {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=contactform&sp=e');
+          envo_redirect(BASE_URL . 'index.php?p=contactform&status=e');
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=contactform&sp=s');
+          envo_redirect(BASE_URL . 'index.php?p=contactform&status=s');
         }
 
         break;
       case 'delete':
-        if (is_numeric($page2) && jak_row_exist($page2, $jaktable)) {
+        if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
-          $result = $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE id = "' . smartsql($page2) . '"');
+          $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
 
-          $jakdb->query('DELETE FROM ' . $jaktable1 . ' WHERE formid = "' . smartsql($page2) . '"');
+          $jakdb->query('DELETE FROM ' . $envotable1 . ' WHERE formid = "' . smartsql($page2) . '"');
 
           if (!$result) {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            jak_redirect(BASE_URL . 'index.php?p=contactform&sp=w');
+            envo_redirect(BASE_URL . 'index.php?p=contactform&status=w');
           } else {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            jak_redirect(BASE_URL . 'index.php?p=contactform&sp=s');
+            envo_redirect(BASE_URL . 'index.php?p=contactform&status=s');
           }
 
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=contactform&sp=ene');
+          envo_redirect(BASE_URL . 'index.php?p=contactform&status=ene');
         }
         break;
       case 'edit':
 
-        if (is_numeric($page2) && jak_row_exist($page2, $jaktable)) {
+        if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // EN: Default Variable
@@ -201,7 +205,7 @@ switch ($page1) {
               for ($i = 0; $i < count($odel); $i++) {
                 $optiondel = $odel[$i];
 
-                $jakdb->query('DELETE FROM ' . $jaktable1 . ' WHERE id = "' . $optiondel . '"');
+                $jakdb->query('DELETE FROM ' . $envotable1 . ' WHERE id = "' . $optiondel . '"');
               }
             }
 
@@ -217,12 +221,18 @@ switch ($page1) {
             // No errors keep going with the sql queries
             if (count($errors) == 0) {
 
-              $result = $jakdb->query('UPDATE ' . $jaktable . ' SET
-																				title = "' . smartsql($defaults['jak_title']) . '",
-																				content = "' . smartsql($defaults['jak_lcontent']) . '",
-																				email = "' . smartsql($defaults['jak_email']) . '",
-																				showtitle = "' . smartsql($defaults['jak_showtitle']) . '",
-																				time = "' . time() . '" WHERE id = "' . smartsql($page2) . '"');
+              /* EN: Convert value
+               * smartsql - secure method to insert form data into a MySQL DB
+               * ------------------
+               * CZ: Převod hodnot
+               * smartsql - secure method to insert form data into a MySQL DB
+              */
+              $result = $jakdb->query('UPDATE ' . $envotable . ' SET
+                        title = "' . smartsql($defaults['jak_title']) . '",
+                        content = "' . smartsql($defaults['jak_lcontent']) . '",
+                        email = "' . smartsql($defaults['jak_email']) . '",
+                        showtitle = "' . smartsql($defaults['jak_showtitle']) . '",
+                        time = "' . time() . '" WHERE id = "' . smartsql($page2) . '"');
 
               // Edit options
               $countoption_old = $defaults['jak_option_old'];
@@ -236,7 +246,7 @@ switch ($page1) {
                   $sqlmand = $defaults['jak_optionmandatory_old'][$i];
                 }
 
-                $jakdb->query('UPDATE ' . $jaktable1 . ' SET
+                $jakdb->query('UPDATE ' . $envotable1 . ' SET
 																name = "' . smartsql($name_old) . '",
 																typeid = "' . smartsql($defaults['jak_optiontype_old'][$i]) . '",
 																options = "' . smartsql(trim($defaults['jak_options_old'][$i])) . '",
@@ -265,7 +275,7 @@ switch ($page1) {
                     $sqlmand = $defaults['jak_optionmandatory'][$i];
                   }
 
-                  $jakdb->query('INSERT INTO ' . $jaktable1 . ' SET
+                  $jakdb->query('INSERT INTO ' . $envotable1 . ' SET
 																	formid = ' . smartsql($page2) . ',
 																	name = "' . smartsql($name) . '",
 																	typeid = "' . smartsql($defaults['jak_optiontype'][$i]) . '",
@@ -278,11 +288,11 @@ switch ($page1) {
               if (!$result) {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                jak_redirect(BASE_URL . 'index.php?p=contactform&sp=edit&ssp=' . $page2 . '&sssp=e');
+                envo_redirect(BASE_URL . 'index.php?p=contactform&sp=edit&ssp=' . $page2 . '&status=e');
               } else {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                jak_redirect(BASE_URL . 'index.php?p=contactform&sp=edit&ssp=' . $page2 . '&sssp=s');
+                envo_redirect(BASE_URL . 'index.php?p=contactform&sp=edit&ssp=' . $page2 . '&status=s');
               }
 
             } else {
@@ -291,8 +301,8 @@ switch ($page1) {
             }
           }
 
-          $JAK_FORM_DATA         = jak_get_data($page2, $jaktable);
-          $JAK_CONTACTOPTION_ALL = jak_get_contact_options($jaktable1, $page2);
+          $JAK_FORM_DATA         = envo_get_data($page2, $envotable);
+          $JAK_CONTACTOPTION_ALL = envo_get_contact_options($envotable1, $page2);
 
           // EN: Title and Description
           // CZ: Titulek a Popis
@@ -306,12 +316,12 @@ switch ($page1) {
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=contactform&sp=ene');
+          envo_redirect(BASE_URL . 'index.php?p=contactform&status=ene');
         }
         break;
       default:
 
-        $getTotal = jak_get_total($jaktable, '', '', '');
+        $getTotal = envo_get_total($envotable, '', '', '');
         if ($getTotal != 0) {
           // Paginator
           $pages                 = new JAK_Paginator;
@@ -325,7 +335,7 @@ switch ($page1) {
         }
 
         // Get all contact forms
-        $JAK_CONTACT_ALL = jak_get_page_info($jaktable, $pages->limit);
+        $JAK_CONTACT_ALL = envo_get_page_info($envotable, $pages->limit);
 
         // EN: Title and Description
         // CZ: Titulek a Popis
