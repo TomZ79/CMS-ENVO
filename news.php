@@ -6,13 +6,13 @@ if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$jaktable = DB_PREFIX . 'news';
+$envotable = DB_PREFIX . 'news';
 
 // parse url
 $backtonews = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_NEWS, '', '', '', '');
 
 // AJAX Search
-$AJAX_SEARCH_PLUGIN_WHERE = $jaktable;
+$AJAX_SEARCH_PLUGIN_WHERE = $envotable;
 $AJAX_SEARCH_PLUGIN_URL   = 'include/ajax/news.php';
 $AJAX_SEARCH_PLUGIN_SEO   = 1;
 $JAK_SEARCH_LINK          = JAK_PLUGIN_VAR_NEWS;
@@ -37,28 +37,28 @@ switch ($page1) {
       $page2 = filter_var($page2, FILTER_SANITIZE_NUMBER_INT);
 
       // Now perform the query
-      $result = $jakdb->query('SELECT * FROM ' . $jaktable . ' WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 OR enddate >= ' . time() . ')) AND (FIND_IN_SET(' . JAK_USERGROUPID . ',permission) OR permission = 0) AND id = ' . smartsql($page2));
+      $result = $jakdb->query('SELECT * FROM ' . $envotable . ' WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 OR enddate >= ' . time() . ')) AND (FIND_IN_SET(' . JAK_USERGROUPID . ',permission) OR permission = 0) AND id = ' . smartsql($page2));
 
-      if ($jakdb->affected_rows == 0) jak_redirect($backtonews);
+      if ($jakdb->affected_rows == 0) envo_redirect($backtonews);
 
       $row = $result->fetch_assoc();
 
       if ($row['active'] != 1 && !JAK_ASACCESS) {
         // EN: News is not active redirect to list of news
         // CZ: Zpráva není aktivní, přesměrování na seznam zpráv
-        jak_redirect($backtonews);
+        envo_redirect($backtonews);
 
       } else {
         // EN: News is active, display news
         // CZ: Zpráva je aktivní, zobrazit zprávu
 
         // Now let's check the hits cookie
-        if (!jak_cookie_voted_hits($jaktable, $row['id'], 'hits')) {
+        if (!envo_cookie_voted_hits($envotable, $row['id'], 'hits')) {
 
-          jak_write_vote_hits_cookie($jaktable, $row['id'], 'hits');
+          envo_write_vote_hits_cookie($envotable, $row['id'], 'hits');
 
           // Update hits each time
-          JAK_base::jakUpdatehits($row['id'], $jaktable);
+          JAK_base::jakUpdatehits($row['id'], $envotable);
         }
 
         // EN: Set variable for page
@@ -68,7 +68,7 @@ switch ($page1) {
         $MAIN_PLUGIN_DESCRIPTION     = $ca['metadesc'];
         $MAIN_SITE_DESCRIPTION       = $jkv['metadesc'];
         $PAGE_IMAGE                  = $row['previmg'];
-        $PAGE_CONTENT                = jak_secure_site($row['content']);
+        $PAGE_CONTENT                = envo_secure_site($row['content']);
         $JAK_HEADER_CSS              = $row['news_css'];
         $JAK_FOOTER_JAVASCRIPT       = $row['news_javascript'];
         $jkv["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
@@ -85,8 +85,8 @@ switch ($page1) {
         // Display contact form if whish so and do the caching
         $JAK_SHOW_C_FORM = FALSE;
         if ($row['showcontact'] != 0) {
-          $JAK_SHOW_C_FORM      = jak_create_contact_form($row['showcontact'], $tl['form_text']['formt']);
-          $JAK_SHOW_C_FORM_NAME = jak_contact_form_title($row['showcontact']);
+          $JAK_SHOW_C_FORM      = envo_create_contact_form($row['showcontact'], $tl['form_text']['formt']);
+          $JAK_SHOW_C_FORM_NAME = envo_contact_form_title($row['showcontact']);
 
         }
 
@@ -117,13 +117,13 @@ switch ($page1) {
         $JAK_TAGLIST = JAK_tags::jakGettaglist_class($page2, JAK_PLUGIN_ID_NEWS, JAK_PLUGIN_VAR_TAGS, '', $tl["title_element"]["tel"]);
 
         // Page Nav
-        $nextp = jak_next_page($page2, 'title', $jaktable, 'id', '', '', 'active');
+        $nextp = envo_next_page($page2, 'title', $envotable, 'id', '', '', 'active');
         if ($nextp) {
           $JAK_NAV_NEXT       = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_NEWS, 'a', $nextp['id'], JAK_base::jakCleanurl($nextp['title']), '');
           $JAK_NAV_NEXT_TITLE = $nextp['title'];
         }
 
-        $prevp = jak_previous_page($page2, 'title', $jaktable, 'id', '', '', 'active');
+        $prevp = envo_previous_page($page2, 'title', $envotable, 'id', '', '', 'active');
         if ($prevp) {
           $JAK_NAV_PREV       = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_NEWS, 'a', $prevp['id'], JAK_base::jakCleanurl($prevp['title']), '');
           $JAK_NAV_PREV_TITLE = $prevp['title'];
@@ -143,14 +143,14 @@ switch ($page1) {
         $keytags = ',' . implode(',', $keytags);
       }
       $PAGE_KEYWORDS    = str_replace(" ", " ", JAK_Base::jakCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
-      $PAGE_DESCRIPTION = jak_cut_text($PAGE_CONTENT, 155, '');
+      $PAGE_DESCRIPTION = envo_cut_text($PAGE_CONTENT, 155, '');
 
       // EN: Load the template
       // CZ: Načti template (šablonu)
       $template = 'newsart.php';
 
     } else {
-      jak_redirect($backtonews);
+      envo_redirect($backtonews);
     }
 
     break;
@@ -158,7 +158,7 @@ switch ($page1) {
 
     $newsloadonce = FALSE;
 
-    $getTotal = jak_get_total($jaktable, 1, 'active', '');
+    $getTotal = envo_get_total($envotable, 1, 'active', '');
 
     if ($getTotal != 0) {
       // Paginator
@@ -175,7 +175,7 @@ switch ($page1) {
       $JAK_PAGINATE = $news->display_pages();
 
       // Display the news
-      $JAK_NEWS_ALL = jak_get_news($news->limit, '', JAK_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
+      $JAK_NEWS_ALL = envo_get_news($news->limit, '', JAK_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
     }
 
     // Check if we have a language and display the right stuff
@@ -209,9 +209,9 @@ switch ($page1) {
 
     // SEO from the category content if available
     if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
-      $PAGE_DESCRIPTION = jak_cut_text($MAIN_PLUGIN_DESCRIPTION, 155, '');
+      $PAGE_DESCRIPTION = envo_cut_text($MAIN_PLUGIN_DESCRIPTION, 155, '');
     } else {
-      $PAGE_DESCRIPTION = jak_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
+      $PAGE_DESCRIPTION = envo_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
     }
 
     // EN: Load the template

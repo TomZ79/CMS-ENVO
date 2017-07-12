@@ -361,10 +361,10 @@ $succesfully = 0;
 			$what = 1;
 			$seowhat = $jkv[\"shopurl\"];
 			
-			$JAK_RSS_DESCRIPTION = jak_cut_text($jkv[\"e_desc\"], $jkv[\"shortmsg\"], \'…\');
+			$JAK_RSS_DESCRIPTION = envo_cut_text($jkv[\"e_desc\"], $jkv[\"shortmsg\"], \'…\');
 			
 		} else {
-			jak_redirect(BASE_URL);
+			envo_redirect(BASE_URL);
 		}
 		
 	}';
@@ -380,10 +380,10 @@ $succesfully = 0;
 			$what = 1;
 			$seowhat = $jkv[\"downloadurl\"];
 			
-			$JAK_RSS_DESCRIPTION = jak_cut_text($jkv[\"downloaddesc\"], $jkv[\"shortmsg\"], \'…\');
+			$JAK_RSS_DESCRIPTION = envo_cut_text($jkv[\"downloaddesc\"], $jkv[\"shortmsg\"], \'…\');
 			
 		} else {
-			jak_redirect(BASE_URL);
+			envo_redirect(BASE_URL);
 		}
 		
 	}';

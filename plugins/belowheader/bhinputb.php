@@ -6,13 +6,13 @@
 if (!$page1 && isset($PAGE_ID) && isset($JAK_PAGE_BELOW_HEADER) && is_array($JAK_PAGE_BELOW_HEADER) && array_key_exists($PAGE_ID, $JAK_PAGE_BELOW_HEADER)) {
 
   foreach ($JAK_PAGE_BELOW_HEADER as $subp) {
-    if ($subp['pageid'] == $PAGE_ID && (jak_get_access(JAK_USERGROUPID, $subp['permission']) || $subp['permission'] == 0)) {
+    if ($subp['pageid'] == $PAGE_ID && (envo_get_access(JAK_USERGROUPID, $subp['permission']) || $subp['permission'] == 0)) {
 
-      $bh_top = jak_secure_site($subp['content_below']);
+      $bh_top = envo_secure_site($subp['content_below']);
 
       if (!$bh_top) $bh_top = $subp['content_below'];
 
-      echo jak_secure_site(base64_decode($bh_top));
+      echo envo_secure_site(base64_decode($bh_top));
 
     }
   }
@@ -23,13 +23,13 @@ if (!$page1 && isset($PAGE_ID) && isset($JAK_PAGE_BELOW_HEADER) && is_array($JAK
 if (isset($backtonews) && isset($PAGE_ID) && isset($JAK_NEWS_BELOW_HEADER) && is_array($JAK_NEWS_BELOW_HEADER) && array_key_exists($PAGE_ID, $JAK_NEWS_BELOW_HEADER)) {
 
   foreach ($JAK_NEWS_BELOW_HEADER as $subn) {
-    if ($subn['newsid'] == $PAGE_ID && (jak_get_access(JAK_USERGROUPID, $subn['permission']) || $subn['permission'] == 0)) {
+    if ($subn['newsid'] == $PAGE_ID && (envo_get_access(JAK_USERGROUPID, $subn['permission']) || $subn['permission'] == 0)) {
 
-      $bh_top = jak_secure_site($subn['content_below']);
+      $bh_top = envo_secure_site($subn['content_below']);
 
       if (!$bh_top) $bh_top = $subn['content_below'];
 
-      echo jak_secure_site(base64_decode($bh_top));
+      echo envo_secure_site(base64_decode($bh_top));
 
     }
   }
@@ -41,13 +41,13 @@ if (isset($backtonews) && !$page1 && isset($JAK_NEWSMAIN_BELOW_HEADER) && is_arr
 
   foreach ($JAK_NEWSMAIN_BELOW_HEADER as $submn) {
 
-    if ($submn['newsmain'] == 1 && (jak_get_access(JAK_USERGROUPID, $submn['permission']) || $submn['permission'] == 0)) {
+    if ($submn['newsmain'] == 1 && (envo_get_access(JAK_USERGROUPID, $submn['permission']) || $submn['permission'] == 0)) {
 
-      $bh_top = jak_secure_site($submn['content_below']);
+      $bh_top = envo_secure_site($submn['content_below']);
 
       if (!$bh_top) $bh_top = $submn['content_below'];
 
-      echo jak_secure_site(base64_decode($bh_top));
+      echo envo_secure_site(base64_decode($bh_top));
 
     }
   }
@@ -59,13 +59,13 @@ if ($page == JAK_PLUGIN_VAR_TAGS && isset($JAK_TAGS_BELOW_HEADER) && is_array($J
 
   foreach ($JAK_TAGS_BELOW_HEADER as $subt) {
 
-    if ($subt['tags'] == 1 && (jak_get_access(JAK_USERGROUPID, $subt['permission']) || $subt['permission'] == 0)) {
+    if ($subt['tags'] == 1 && (envo_get_access(JAK_USERGROUPID, $subt['permission']) || $subt['permission'] == 0)) {
 
-      $bh_top = jak_secure_site($subt['content_below']);
+      $bh_top = envo_secure_site($subt['content_below']);
 
       if (!$bh_top) $bh_top = $subt['content_below'];
 
-      echo jak_secure_site(base64_decode($bh_top));
+      echo envo_secure_site(base64_decode($bh_top));
 
     }
   }
@@ -77,13 +77,13 @@ if ($page == 'search' && isset($JAK_SEARCH_BELOW_HEADER) && is_array($JAK_SEARCH
 
   foreach ($JAK_SEARCH_BELOW_HEADER as $subs) {
 
-    if ($subs['search'] == 1 && (jak_get_access(JAK_USERGROUPID, $subs['permission']) || $subs['permission'] == 0)) {
+    if ($subs['search'] == 1 && (envo_get_access(JAK_USERGROUPID, $subs['permission']) || $subs['permission'] == 0)) {
 
-      $bh_top = jak_secure_site($subs['content_below']);
+      $bh_top = envo_secure_site($subs['content_below']);
 
       if (!$bh_top) $bh_top = $subs['content_below'];
 
-      echo jak_secure_site(base64_decode($bh_top));
+      echo envo_secure_site(base64_decode($bh_top));
 
     }
   }
@@ -95,13 +95,13 @@ if ($page == JAK_PLUGIN_VAR_SITEMAP && isset($JAK_SITEMAP_BELOW_HEADER) && is_ar
 
   foreach ($JAK_SITEMAP_BELOW_HEADER as $subsit) {
 
-    if ($subsit['sitemap'] == 1 && (jak_get_access(JAK_USERGROUPID, $subsit['permission']) || $subsit['permission'] == 0)) {
+    if ($subsit['sitemap'] == 1 && (envo_get_access(JAK_USERGROUPID, $subsit['permission']) || $subsit['permission'] == 0)) {
 
-      $bh_top = jak_secure_site($subsit['content_below']);
+      $bh_top = envo_secure_site($subsit['content_below']);
 
       if (!$bh_top) $bh_top = $subsit['content_below'];
 
-      echo jak_secure_site(base64_decode($bh_top));
+      echo envo_secure_site(base64_decode($bh_top));
 
     }
   }

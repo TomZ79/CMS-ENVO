@@ -9,13 +9,13 @@ if (!file_exists('config.php')) die('[index.php] config.php not exist');
 require_once 'config.php';
 
 // Now check if there is more then one page
-$page  = ($tempp ? jak_url_input_filter($tempp) : '');
-$page1 = ($tempp1 ? jak_url_input_filter($tempp1) : '');
-$page2 = ($tempp2 ? jak_url_input_filter($tempp2) : '');
-$page3 = ($tempp3 ? jak_url_input_filter($tempp3) : '');
-$page4 = ($tempp4 ? jak_url_input_filter($tempp4) : '');
-$page5 = ($tempp5 ? jak_url_input_filter($tempp5) : '');
-$page6 = ($tempp6 ? jak_url_input_filter($tempp6) : '');
+$page  = ($tempp ? envo_url_input_filter($tempp) : '');
+$page1 = ($tempp1 ? envo_url_input_filter($tempp1) : '');
+$page2 = ($tempp2 ? envo_url_input_filter($tempp2) : '');
+$page3 = ($tempp3 ? envo_url_input_filter($tempp3) : '');
+$page4 = ($tempp4 ? envo_url_input_filter($tempp4) : '');
+$page5 = ($tempp5 ? envo_url_input_filter($tempp5) : '');
+$page6 = ($tempp6 ? envo_url_input_filter($tempp6) : '');
 
 // EN: Import the language file
 // CZ: Import jazykových souborů
@@ -297,7 +297,7 @@ foreach ($jakcategories as $ca) {
       } elseif ($ca['pageid'] > 0) {
         $pageid = $ca['pageid'];
       } else {
-        jak_redirect(JAK_rewrite::jakParseurl('404', '', '', '', ''));
+        envo_redirect(JAK_rewrite::jakParseurl('404', '', '', '', ''));
       }
 
       // Include the page php file
@@ -353,7 +353,7 @@ if ($page == 'logout') {
     $_SESSION["errormsg"] = $tl["general_error"]["generror1"];
     // EN: Redirect page
     // CZ: Přesměrování stránky
-    jak_redirect(BASE_URL);
+    envo_redirect(BASE_URL);
   }
   if (JAK_USERID) {
     $jakuserlogin->jakLogout(JAK_USERID);
@@ -363,8 +363,8 @@ if ($page == 'logout') {
     $_SESSION["infomsg"] = $tl["notification"]["n4"];
     // EN: Redirect page
     // CZ: Přesměrování stránky
-    // jak_redirect($_SERVER['HTTP_REFERER']);
-    jak_redirect(BASE_URL);
+    // envo_redirect($_SERVER['HTTP_REFERER']);
+    envo_redirect(BASE_URL);
   }
 }
 
@@ -372,7 +372,7 @@ if ($page == 'logout') {
 // CZ: Vyhledávání
 if ($page == 'search') {
   /* Redirect to base url if search isn't
-   * if (!$jkv["searchform"] || !JAK_USER_SEARCH) { jak_redirect (BASE_URL); }
+   * if (!$jkv["searchform"] || !JAK_USER_SEARCH) { envo_redirect (BASE_URL); }
   */
 
   // Get the url session
@@ -441,14 +441,20 @@ if ($page == 'offline') {
 // CZ: 'Forgot-password' stránka
 if ($page == 'forgot-password') {
 
-  if (JAK_USERID || !is_numeric($page1) || !$jakuserlogin->jakForgotactive($page1)) jak_redirect(BASE_URL);
+  if (JAK_USERID || !is_numeric($page1) || !$jakuserlogin->jakForgotactive($page1)) envo_redirect(BASE_URL);
 
   // Check the forgot code
   $row = $jakdb->queryRow('SELECT id, name, email FROM ' . DB_PREFIX . 'user WHERE forgot = "' . smartsql($page1) . '" LIMIT 1');
 
-  $password  = jak_password_creator();
+  $password  = envo_password_creator();
   $passcrypt = hash_hmac('sha256', $password, DB_PASS_HASH);
 
+  /* EN: Convert value
+   * smartsql - secure method to insert form data into a MySQL DB
+   * ------------------
+   * CZ: Převod hodnot
+   * smartsql - secure method to insert form data into a MySQL DB
+  */
   $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'user SET
    		password = "' . smartsql($passcrypt) . '"
    		WHERE id = "' . smartsql($row["id"]) . '"');
@@ -457,7 +463,7 @@ if ($page == 'forgot-password') {
 
     $_SESSION["errormsg"] = $tl["general_error"]["generror1"];
     // redirect back to home
-    jak_redirect(BASE_URL);
+    envo_redirect(BASE_URL);
 
   } else {
 
@@ -472,13 +478,13 @@ if ($page == 'forgot-password') {
 
     if ($mail->Send()) {
       $_SESSION["infomsg"] = $tl["email_text"]["emailm2"];
-      jak_redirect(BASE_URL);
+      envo_redirect(BASE_URL);
     }
 
   }
 
   $_SESSION["errormsg"] = $tl["general_error"]["generror1"];
-  jak_redirect(BASE_URL);
+  envo_redirect(BASE_URL);
 }
 
 /* =====================================================
@@ -493,7 +499,7 @@ if ($hookip) foreach ($hookip as $hip) {
 // EN: If page not found
 // CZ: Pokud stránka není nalezena
 if ($JAK_CHECK_PAGE == 0) {
-  jak_redirect(JAK_rewrite::jakParseurl('404', '', '', '', ''));
+  envo_redirect(JAK_rewrite::jakParseurl('404', '', '', '', ''));
 }
 
 // Get the categories with usergroup rights
@@ -534,7 +540,7 @@ foreach ($JAK_CAT_SITE as $itemf) {
 
 // Get News out the database, if not already in the page
 if (JAK_NEWS_ACTIVE && $newsloadonce && $jkv["shownews"]) {
-  $JAK_GET_NEWS_SORTED = jak_get_news('LIMIT ' . $jkv["shownews"], '', JAK_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
+  $JAK_GET_NEWS_SORTED = envo_get_news('LIMIT ' . $jkv["shownews"], '', JAK_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
 }
 
 // We have tags

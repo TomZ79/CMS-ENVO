@@ -32,9 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['loginusername'])) {
     if (isset($_SESSION["logintries"])) unset($_SESSION["logintries"]);
 
     if (isset($_POST['home']) && $_POST['home']) {
-      jak_redirect(BASE_URL);
+      envo_redirect(BASE_URL);
     } else {
-      jak_redirect($_SERVER['HTTP_REFERER']);
+      envo_redirect($_SERVER['HTTP_REFERER']);
     }
 
   } else {
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['loginusername'])) {
     }
     if (isset($_SESSION["logintries"]) && $_SESSION["logintries"] > 3) {
       $_SESSION["infomsg"] = $tl["general_error"]["generror23"];
-      jak_redirect(BASE_URL);
+      envo_redirect(BASE_URL);
     }
 
     $_SESSION["warningmsg"] = $tl["general_error"]["generror24"];
@@ -106,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
     if ($mail->Send()) {
       $_SESSION["infomsg"] = $tl["log_in"]["login11"];
       $_SESSION["infomsg"] = $tl["notification"]["n6"];
-      jak_redirect($_SERVER['HTTP_REFERER']);
+      envo_redirect($_SERVER['HTTP_REFERER']);
     }
 
   } else {
@@ -122,7 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['pageprotect'])) {
   $passcrypt = hash_hmac('sha256', $defaults['pagepass'], DB_PASS_HASH);
 
   if (!is_numeric($defaults['pagesec'])) {
-    jak_redirect(BASE_URL);
+    envo_redirect(BASE_URL);
   }
 
   // Get password crypted
@@ -138,7 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['pageprotect'])) {
   if (count($errors) == 0) {
 
     $_SESSION['pagesecurehash' . $defaults['pagesec']] = $passcrypt;
-    jak_redirect($_SERVER['HTTP_REFERER']);
+    envo_redirect($_SERVER['HTTP_REFERER']);
 
   } else {
     $errorpp = $errors;

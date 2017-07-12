@@ -432,12 +432,12 @@ if ($page3 == "e") { ?>
 
                         <?php
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('jak_contentb', jak_edit_safe_userpost(htmlspecialchars($JAK_FORM_DATA["content_below"])), '', '', array('id' => 'jak_editor2', 'class' => 'form-control hidden'));
+                        echo $Html->addTextarea('jak_contentb', envo_edit_safe_userpost(htmlspecialchars($JAK_FORM_DATA["content_below"])), '', '', array('id' => 'jak_editor2', 'class' => 'form-control hidden'));
 
                       } else {
 
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('jak_contentb', jak_edit_safe_userpost($JAK_FORM_DATA["content_below"]), '40', '', array('id' => 'jakEditor2', 'class' => 'form-control jakEditor'));
+                        echo $Html->addTextarea('jak_contentb', envo_edit_safe_userpost($JAK_FORM_DATA["content_below"]), '40', '', array('id' => 'jakEditor2', 'class' => 'form-control jakEditor'));
 
                       } ?>
 

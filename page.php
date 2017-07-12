@@ -6,21 +6,21 @@ if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$jaktable = DB_PREFIX . 'pages';
+$envotable = DB_PREFIX . 'pages';
 
 // Get the database stuff
-$row = $jakdb->queryRow('SELECT * FROM ' . $jaktable . ' WHERE id = "' . smartsql($pageid) . '"');
+$row = $jakdb->queryRow('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($pageid) . '"');
 
 // Check if the page is not active and we are not an admin then we redirect
-if ($row['active'] != 1 && !JAK_ASACCESS) jak_redirect(JAK_rewrite::jakParseurl($tl['link']['l3'], $tl['link']['l1'], '', '', ''));
+if ($row['active'] != 1 && !JAK_ASACCESS) envo_redirect(JAK_rewrite::jakParseurl($tl['link']['l3'], $tl['link']['l1'], '', '', ''));
 
 // Now let's check the hits cookie
-if (!jak_cookie_voted_hits($jaktable, $row['id'], 'hits')) {
+if (!envo_cookie_voted_hits($envotable, $row['id'], 'hits')) {
 
-  jak_write_vote_hits_cookie($jaktable, $row['id'], 'hits');
+  envo_write_vote_hits_cookie($envotable, $row['id'], 'hits');
 
   // Update hits each time
-  JAK_base::jakUpdatehits($row['id'], $jaktable);
+  JAK_base::jakUpdatehits($row['id'], $envotable);
 }
 
 // Output the data
@@ -46,9 +46,9 @@ $PAGE_TIME       = JAK_base::jakTimesince($row['time'], $jkv["dateformat"], $jkv
 $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
 if (JAK_USERID) {
-  $PAGE_CONTENT = jak_render_string($PAGE_CONTENT, array('members' => JAK_USERID));
+  $PAGE_CONTENT = envo_render_string($PAGE_CONTENT, array('members' => JAK_USERID));
 } else {
-  $PAGE_CONTENT = jak_render_string($PAGE_CONTENT, array('notmembers' => 0));
+  $PAGE_CONTENT = envo_render_string($PAGE_CONTENT, array('notmembers' => 0));
 }
 
 // We do not show the navbar
@@ -60,8 +60,8 @@ if ($row['showfooter'] == 0) $JAK_SHOW_FOOTER = FALSE;
 // Display contact form if whish so and do the caching
 $JAK_SHOW_C_FORM = FALSE;
 if ($row['showcontact'] != 0) {
-  $JAK_SHOW_C_FORM      = jak_create_contact_form($row['showcontact'], $tl['form_text']['formt']);
-  $JAK_SHOW_C_FORM_NAME = jak_contact_form_title($row['showcontact']);
+  $JAK_SHOW_C_FORM      = envo_create_contact_form($row['showcontact'], $tl['form_text']['formt']);
+  $JAK_SHOW_C_FORM_NAME = envo_contact_form_title($row['showcontact']);
 }
 
 // Get news if news id is > 0
@@ -73,11 +73,11 @@ if (!empty($row['shownews'])) {
 
   if (is_array($shownewsarray) && in_array("ASC", $shownewsarray) || in_array("DESC", $shownewsarray)) {
 
-    $JAK_NEWS_IN_CONTENT = jak_get_news('LIMIT ' . $shownewsarray[2], '', JAK_PLUGIN_VAR_NEWS, $shownewsarray[0] . ' ' . $shownewsarray[1], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
+    $JAK_NEWS_IN_CONTENT = envo_get_news('LIMIT ' . $shownewsarray[2], '', JAK_PLUGIN_VAR_NEWS, $shownewsarray[0] . ' ' . $shownewsarray[1], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
 
   } else {
 
-    $JAK_NEWS_IN_CONTENT = jak_get_news('', $row['shownews'], JAK_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
+    $JAK_NEWS_IN_CONTENT = envo_get_news('', $row['shownews'], JAK_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
   }
 
   // Set news load to false
@@ -110,7 +110,7 @@ $JAK_HOOK_PAGE_GRID = $jakhooks->jakGethook("tpl_page_news_grid");
 $_SESSION['jak_lastURL'] = JAK_rewrite::jakParseurl($page, $page1, $page2, '', '');
 
 // AJAX Search
-$AJAX_SEARCH_PLUGIN_WHERE = $jaktable;
+$AJAX_SEARCH_PLUGIN_WHERE = $envotable;
 $AJAX_SEARCH_PLUGIN_URL   = 'include/ajax/page.php';
 $AJAX_SEARCH_PLUGIN_SEO   = 0;
 
@@ -125,9 +125,9 @@ $PAGE_KEYWORDS = str_replace(" ", " ", ($jkv["metakey"] ? $jkv["metakey"] : JAK_
 
 // SEO from the category content if available
 if (!empty($MAIN_DESCRIPTION)) {
-  $PAGE_DESCRIPTION = jak_cut_text($MAIN_DESCRIPTION, 155, '');
+  $PAGE_DESCRIPTION = envo_cut_text($MAIN_DESCRIPTION, 155, '');
 } else {
-  $PAGE_DESCRIPTION = jak_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
+  $PAGE_DESCRIPTION = envo_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
 }
 
 // EN: Load the template

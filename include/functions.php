@@ -1,14 +1,14 @@
 <?php
 
 // Redirect to something...
-function jak_redirect($url, $code = 302)
+function envo_redirect($url, $code = 302)
 {
   header('Location: ' . $url, TRUE, $code);
   exit();
 }
 
 // Secure the site and display videos
-function jak_secure_site($input)
+function envo_secure_site($input)
 {
   $input    = stripslashes($input);
   $youtube  = strpos($input, 'youtube.com');
@@ -62,7 +62,7 @@ function jak_secure_site($input)
 }
 
 // Filter inputs
-function jak_input_filter($value)
+function envo_input_filter($value)
 {
   $value = filter_var($value, FILTER_SANITIZE_STRING);
 
@@ -70,7 +70,7 @@ function jak_input_filter($value)
 }
 
 // Filter url inputs
-function jak_url_input_filter($value)
+function envo_url_input_filter($value)
 {
   $value = html_entity_decode($value);
   $value = preg_replace('/[^\w-.]/', '', $value);
@@ -93,7 +93,7 @@ function smartsql($value)
 }
 
 // Search for lang files in the admin folder, only choose .ini files.
-function jak_get_lang_files()
+function envo_get_lang_files()
 {
 
   $langdir = APP_PATH . 'lang/';
@@ -131,7 +131,7 @@ function is_dir_empty($dir)
 
 // Get random image from folder
 // http://www.dyn-web.com/code/random-image-php/
-function jak_get_random_image($path)
+function envo_get_random_image($path)
 {
   $images = array();
   if ($img_dir = @opendir($path)) {
@@ -147,7 +147,7 @@ function jak_get_random_image($path)
   return $images;
 }
 
-function jak_get_random_from_array($ar)
+function envo_get_random_from_array($ar)
 {
   $num = array_rand($ar);
 
@@ -155,7 +155,7 @@ function jak_get_random_from_array($ar)
 }
 
 // Get random line from text file
-function jak_get_random__line($fileName, $maxLineLength = 4096)
+function envo_get_random__line($fileName, $maxLineLength = 4096)
 {
   $handle = @fopen($fileName, "r");
   if ($handle) {
@@ -184,7 +184,7 @@ function jak_get_random__line($fileName, $maxLineLength = 4096)
 }
 
 // Detect Mobile Browser in a simple way to display videos in html5 or video/template not available message
-function jak_find_browser($useragent, $wap)
+function envo_find_browser($useragent, $wap)
 {
 
   $ifmobile = preg_match('/android|avantgo|blackberry|blazer|compal|elaine|fennec|hiptop|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile|o2|opera m(ob|in)i|palm( os)?|p(ixi|re)\/|plucker|pocket|psp|smartphone|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce; (iemobile|ppc)|xiino/i', $useragent);
@@ -199,7 +199,7 @@ function jak_find_browser($useragent, $wap)
 }
 
 // Check if userid can have access to the forum, blog, gallery etc.
-function jak_get_access($jakvar, $jakvar1)
+function envo_get_access($jakvar, $jakvar1)
 {
   $usergrouparray = explode(',', $jakvar1);
   if (in_array($jakvar, $usergrouparray) || $jakvar == 3) {
@@ -208,7 +208,7 @@ function jak_get_access($jakvar, $jakvar1)
 }
 
 // Get the setting variable as well the default variable as array
-function jak_get_setting($group)
+function envo_get_setting($group)
 {
   global $jakdb;
   $setting = array();
@@ -221,7 +221,7 @@ function jak_get_setting($group)
 }
 
 // Get the setting variable as well the default variable as array
-function jak_get_setting_val($group)
+function envo_get_setting_val($group)
 {
   global $jakdb;
   $setting = array();
@@ -241,7 +241,7 @@ function jak_get_setting_val($group)
 }
 
 // Get total from a table
-function jak_get_total($jakvar, $jakvar1, $jakvar2, $jakvar3)
+function envo_get_total($jakvar, $jakvar1, $jakvar2, $jakvar3)
 {
   if (empty($jakvar1) && !empty($jakvar3)) {
     $sqlwhere = ' WHERE ' . $jakvar3 . ' = 1';
@@ -260,7 +260,7 @@ function jak_get_total($jakvar, $jakvar1, $jakvar2, $jakvar3)
 }
 
 // Get the data only per ID (e.g. edit single user, edit category)
-function jak_get_data($id, $table)
+function envo_get_data($id, $table)
 {
 
   global $jakdb;
@@ -269,30 +269,30 @@ function jak_get_data($id, $table)
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $jakdata = $row;
+    $envodata = $row;
   }
 
-  return $jakdata;
+  return $envodata;
 }
 
 // Get the data per array for galleries
-function jak_get_galleryfacebook($limit, $table, $order)
+function envo_get_galleryfacebook($limit, $table, $order)
 {
 
   global $jakdb;
-  $jakdata = array();
+  $envodata = array();
   $result  = $jakdb->query('SELECT * FROM ' . $table . ' ORDER BY id ' . $order . $limit);
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $jakdata[] = $row;
+    $envodata[] = $row;
   }
 
-  return $jakdata;
+  return $envodata;
 }
 
 // Check if row exist with custom field
-function jak_field_not_exist($check, $table, $field)
+function envo_field_not_exist($check, $table, $field)
 {
   global $jakdb;
   $result = $jakdb->query('SELECT id FROM ' . $table . ' WHERE LOWER(' . $field . ') = "' . smartsql($check) . '" LIMIT 1');
@@ -304,7 +304,7 @@ function jak_field_not_exist($check, $table, $field)
 }
 
 // Check if row exist
-function jak_row_exist($id, $table)
+function envo_row_exist($id, $table)
 {
   global $jakdb;
   $result = $jakdb->query('SELECT id FROM ' . $table . ' WHERE id = "' . smartsql($id) . '" LIMIT 1');
@@ -316,7 +316,7 @@ function jak_row_exist($id, $table)
 }
 
 // Check give access to delete or approve
-function jak_give_right($id, $extrainfo, $table, $extrafield)
+function envo_give_right($id, $extrainfo, $table, $extrafield)
 {
   global $jakdb;
   $jakdb->query('SELECT id FROM ' . $table . ' WHERE id = ' . smartsql($id) . ' AND ' . $extrafield . ' = "' . smartsql($extrainfo) . '"');
@@ -328,13 +328,13 @@ function jak_give_right($id, $extrainfo, $table, $extrafield)
 }
 
 // Check if row exist and user has permission to see it!
-function jak_row_permission($jakvar, $jakvar1, $jakvar2)
+function envo_row_permission($jakvar, $jakvar1, $jakvar2)
 {
   global $jakdb;
   $result = $jakdb->query('SELECT permission FROM ' . $jakvar1 . ' WHERE id = "' . smartsql($jakvar) . '" LIMIT 1');
   if ($jakdb->affected_rows === 1) {
     $row = $result->fetch_assoc();
-    if (jak_get_access($jakvar2, $row['permission']) || $row['permission'] == 0) {
+    if (envo_get_access($jakvar2, $row['permission']) || $row['permission'] == 0) {
       return TRUE;
     }
   } else {
@@ -343,7 +343,7 @@ function jak_row_permission($jakvar, $jakvar1, $jakvar2)
 }
 
 // Check if catid exist
-function jak_get_id_name($jakvar, $jakvar1, $jakvar2, $jakvar3)
+function envo_get_id_name($jakvar, $jakvar1, $jakvar2, $jakvar3)
 {
   $sqlwhere = '';
   global $jakdb;
@@ -358,7 +358,7 @@ function jak_get_id_name($jakvar, $jakvar1, $jakvar2, $jakvar3)
 }
 
 // Get News out the database
-function jak_get_news($jakvar, $where, $plname, $order, $datef, $timef, $timeago)
+function envo_get_news($jakvar, $where, $plname, $order, $datef, $timef, $timeago)
 {
 
   if (!empty($jakvar)) {
@@ -373,7 +373,7 @@ function jak_get_news($jakvar, $where, $plname, $order, $datef, $timef, $timeago
 
   global $jakdb;
   global $jkv;
-  $jakdata = array();
+  $envodata = array();
   $result  = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'news WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 OR enddate >= ' . time() . ')) AND (FIND_IN_SET(' . JAK_USERGROUPID . ',permission) OR permission = 0) AND ' . $sqlin . $jakvar);
   while ($row = $result->fetch_assoc()) {
 
@@ -381,24 +381,24 @@ function jak_get_news($jakvar, $where, $plname, $order, $datef, $timef, $timeago
     $PAGE_CONTENT = $row['content'];
 
     // Write content in short format with full words
-    $shortmsg = jak_cut_text($PAGE_CONTENT, $jkv["shortmsg"], '...');
+    $shortmsg = envo_cut_text($PAGE_CONTENT, $jkv["shortmsg"], '...');
 
     // Parse url for user link
     $parseurl = JAK_rewrite::jakParseurl($plname, 'a', $row['id'], JAK_base::jakCleanurl($PAGE_TITLE), '');
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $jakdata[] = array('id' => $row['id'], 'title' => jak_secure_site($PAGE_TITLE), 'content' => jak_secure_site($PAGE_CONTENT), 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'showhits' => $row['showhits'], 'created' => JAK_base::jakTimesince($row['time'], $datef, $timef, $timeago), 'titleurl' => JAK_base::jakCleanurl($row['title']), 'hits' => $row['hits'], 'previmg' => $row['previmg'], 'contentshort' => $shortmsg, 'parseurl' => $parseurl, 'date-time' => $row['time']);
+    $envodata[] = array('id' => $row['id'], 'title' => envo_secure_site($PAGE_TITLE), 'content' => envo_secure_site($PAGE_CONTENT), 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'showhits' => $row['showhits'], 'created' => JAK_base::jakTimesince($row['time'], $datef, $timef, $timeago), 'titleurl' => JAK_base::jakCleanurl($row['title']), 'hits' => $row['hits'], 'previmg' => $row['previmg'], 'contentshort' => $shortmsg, 'parseurl' => $parseurl, 'date-time' => $row['time']);
 
   }
 
-  if (!empty($jakdata)) return $jakdata;
+  if (!empty($envodata)) return $envodata;
 }
 
-function jak_next_page($page, $title, $table, $id, $where, $where2, $approve)
+function envo_next_page($page, $title, $table, $id, $where, $where2, $approve)
 {
 
-  $second = $third = $fourth = $fifth = $jakdata = FALSE;
+  $second = $third = $fourth = $fifth = $envodata = FALSE;
 
   if (!empty($title)) {
     $second = ' ,' . $title;
@@ -415,17 +415,17 @@ function jak_next_page($page, $title, $table, $id, $where, $where2, $approve)
   global $jakdb;
   $result = $jakdb->query('SELECT id' . $second . ' FROM ' . $table . ' WHERE ' . $id . ' > ' . smartsql($page) . $third . $fourth . $fifth . ' ORDER BY id ASC LIMIT 1');
   if ($jakdb->affected_rows > 0) {
-    $jakdata = $result->fetch_assoc();
+    $envodata = $result->fetch_assoc();
 
-    return $jakdata;
+    return $envodata;
   } else
     return FALSE;
 }
 
-function jak_previous_page($page, $title, $table, $id, $where, $where2, $approve)
+function envo_previous_page($page, $title, $table, $id, $where, $where2, $approve)
 {
 
-  $second = $third = $fourth = $fifth = $jakdata = FALSE;
+  $second = $third = $fourth = $fifth = $envodata = FALSE;
 
   if (!empty($title)) {
     $second = ' ,' . $title;
@@ -442,16 +442,16 @@ function jak_previous_page($page, $title, $table, $id, $where, $where2, $approve
   global $jakdb;
   $result = $jakdb->query('SELECT id' . $second . ' FROM ' . $table . ' WHERE ' . $id . ' < ' . smartsql($page) . $third . $fourth . $fifth . ' ORDER BY id DESC LIMIT 1');
   if ($jakdb->affected_rows > 0) {
-    $jakdata = $result->fetch_assoc();
+    $envodata = $result->fetch_assoc();
 
-    return $jakdata;
+    return $envodata;
   } else
     return FALSE;
 
 }
 
 // Menu builder function, parentId 0 is the root
-function jak_build_menu($parent, $menu, $active, $mainclass, $dropdown, $dropclass, $subclass, $admin, $firstli = "", $firsta = "", $from = 0, $to = 0)
+function envo_build_menu($parent, $menu, $active, $mainclass, $dropdown, $dropclass, $subclass, $admin, $firstli = "", $firsta = "", $from = 0, $to = 0)
 {
   $html = '';
   if (isset($menu['parents'][$parent])) {
@@ -467,7 +467,7 @@ function jak_build_menu($parent, $menu, $active, $mainclass, $dropdown, $dropcla
       }
       if (isset($menu['parents'][$itemId])) {
         $html .= '<li' . ($firstli ? ' class="' . $firstli . ($active == $menu["items"][$itemId]["pagename"] ? ($dropdown ? ' active ' . $dropdown . '"' : '"') : ($dropdown ? $dropdown . '"' : '"')) : ($active == $menu["items"][$itemId]["pagename"] ? ($dropdown ? ' class="active ' . $dropdown . '"' : '') : ($dropdown ? ' class="' . $dropdown . '"' : ''))) . '><a' . ($firsta ? ' class="' . $firsta . '"' : '') . ' href="' . $menu["items"][$itemId]["varname"] . '">' . ($menu["items"][$itemId]["catimg"] ? '<i class="fa ' . $menu["items"][$itemId]["catimg"] . '"></i> ' : '') . $menu["items"][$itemId]["name"] . '</a>';
-        $html .= jak_build_menu($itemId, $menu, $active, $dropclass, $subclass, $dropclass, $subclass, $admin);
+        $html .= envo_build_menu($itemId, $menu, $active, $dropclass, $subclass, $dropclass, $subclass, $admin);
         $html .= '</li>';
       }
     }
@@ -481,7 +481,7 @@ function jak_build_menu($parent, $menu, $active, $mainclass, $dropdown, $dropcla
   return $html;
 }
 
-function jak_build_comments($parent, $comm, $mainclass, $access, $session, $approve, $reply, $permission, $table, $report, $status)
+function envo_build_comments($parent, $comm, $mainclass, $access, $session, $approve, $reply, $permission, $table, $report, $status)
 {
   $html = '';
   if (isset($comm['subcomm'][$parent])) {
@@ -500,7 +500,7 @@ function jak_build_comments($parent, $comm, $mainclass, $access, $session, $appr
    	     	 				<a href="javascript:void(0);" data-cvote="up" data-id="' . $comm["comm"][$comID]["id"] . '" data-table="' . $table . '" class="jak-cvote"><i class="fa fa-thumbs-up"></i></a>
    	     	 				<a href="javascript:void(0);" data-cvote="down" data-id="' . $comm["comm"][$comID]["id"] . '" data-table="' . $table . '" class="jak-cvote"><i class="fa fa-thumbs-down"></i></a>
    	     	 				<!-- Votes -->
-   	     	 				<span id="jak-cvotec' . $comm["comm"][$comID]["id"] . '" class="label label-' . jak_comment_votes($comm["comm"][$comID]["votes"]) . '">' . $comm["comm"][$comID]["votes"] . '</span>
+   	     	 				<span id="jak-cvotec' . $comm["comm"][$comID]["id"] . '" class="label label-' . envo_comment_votes($comm["comm"][$comID]["votes"]) . '">' . $comm["comm"][$comID]["votes"] . '</span>
    	     	 				' . ($permission && $status && !$comm["comm"][$comID]["commentid"] ? '<a href="javascript:void(0);" data-id="' . $comm["comm"][$comID]["id"] . '" class="btn btn-xs btn-primary comment-reply-btn jak-creply"><i class="fa fa-share-alt"></i> ' . $reply . '</a>' : '') . '
    	     	 				' . ($access ? '<a href="' . $comm["comm"][$comID]["parseurl1"] . '" class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i></a>
    	     	 				<a href="' . $comm["comm"][$comID]["parseurl2"] . '" class="btn btn-default btn-xs commedit"><i class="fa fa-pencil"></i></a>
@@ -524,14 +524,14 @@ function jak_build_comments($parent, $comm, $mainclass, $access, $session, $appr
    	        	 				<a href="javascript:void(0);" data-cvote="up" data-id="' . $comm["comm"][$comID]["id"] . '" data-table="' . $table . '" class="jak-cvote"><i class="fa fa-thumbs-up"></i></a>
    	        	 				<a href="javascript:void(0);" data-cvote="down" data-id="' . $comm["comm"][$comID]["id"] . '" data-table="' . $table . '" class="jak-cvote"><i class="fa fa-thumbs-down"></i></a>
    	        	 				<!-- Votes -->
-   	        	 				<span id="jak-cvotec' . $comm["comm"][$comID]["id"] . '" class="label label-' . jak_comment_votes($comm["comm"][$comID]["votes"]) . '">' . $comm["comm"][$comID]["votes"] . '</span>
+   	        	 				<span id="jak-cvotec' . $comm["comm"][$comID]["id"] . '" class="label label-' . envo_comment_votes($comm["comm"][$comID]["votes"]) . '">' . $comm["comm"][$comID]["votes"] . '</span>
    	        	 				' . ($permission && $status && !$comm["comm"][$comID]["commentid"] ? '<a href="javascript:void(0);" data-id="' . $comm["comm"][$comID]["id"] . '" class="btn btn-xs btn-primary comment-reply-btn jak-creply"><i class="fa fa-share-alt"></i> ' . $reply . '</a>' : '') . '
    	        	 				' . ($access ? '<a href="' . $comm["comm"][$comID]["parseurl1"] . '" class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i></a>
    	        	 				<a href="' . $comm["comm"][$comID]["parseurl2"] . '" class="btn btn-default btn-xs commedit"><i class="fa fa-pencil"></i></a>
    	        	 				<a href="' . $comm["comm"][$comID]["parseurl3"] . '" class="btn btn-default btn-xs"><i class="fa fa-ban"></i></a>' : "") . ($report && $comm["comm"][$comID]["report"] == 0 ? ' <a href="' . $comm["comm"][$comID]["parseurl4"] . '" class="btn btn-xs btn-warning commedit"><i class="fa fa-exclamation-triangle"></i></a>' : "") . '
    	        	 			</div>
    	        	 		</div></li><li>';
-        $html .= jak_build_comments($comID, $comm, "", $access, $session, $approve, $reply, $permission, $table, $report, $status);
+        $html .= envo_build_comments($comID, $comm, "", $access, $session, $approve, $reply, $permission, $table, $report, $status);
         $html .= '</li>';
         if (!$comm["comm"][$comID]["commentid"]) {
           $html .= '<li><ul><li id="insertPost_' . $comm["comm"][$comID]["id"] . '"></li></ul></li>';
@@ -546,7 +546,7 @@ function jak_build_comments($parent, $comm, $mainclass, $access, $session, $appr
 }
 
 // only full words
-function jak_cut_text($text, $limit, $jakvar2)
+function envo_cut_text($text, $limit, $jakvar2)
 {
 
   // empty limit
@@ -561,29 +561,29 @@ function jak_cut_text($text, $limit, $jakvar2)
         return substr($text, 0, $limit) . $jakvar2;
       }
     }
-    $jakdata = substr($text, 0, $limit - $i + 1) . $jakvar2;
+    $envodata = substr($text, 0, $limit - $i + 1) . $jakvar2;
   } else {
-    $jakdata = $text;
+    $envodata = $text;
   }
 
-  return $jakdata;
+  return $envodata;
 }
 
 // Render strings from content
-function jak_render_string($str, $parms)
+function envo_render_string($str, $parms)
 {
   // if
   $str = preg_replace_callback('/{{if (?P<name>\w+)}}(?P<inner>.*?){{endif}}/is', function ($match) use ($parms) {
     if (isset($parms[$match['name']])) {
       // recursive
-      return jak_render_string($match['inner'], $parms);
+      return envo_render_string($match['inner'], $parms);
     }
   }, $str);
 
   return $str;
 }
 
-function jak_write_vote_hits_cookie($table, $id, $cookie)
+function envo_write_vote_hits_cookie($table, $id, $cookie)
 {
   if (isset($_COOKIE[$cookie])) {
 
@@ -602,7 +602,7 @@ function jak_write_vote_hits_cookie($table, $id, $cookie)
   return setcookie($cookie, $getCORE, time() + 60 * 60 * 24, JAK_COOKIE_PATH);
 }
 
-function jak_cookie_voted_hits($table, $id, $cookie)
+function envo_cookie_voted_hits($table, $id, $cookie)
 {
 
   if (isset($_COOKIE[$cookie])) {
@@ -621,7 +621,7 @@ function jak_cookie_voted_hits($table, $id, $cookie)
 }
 
 // Get a clean and secure post from user
-function jak_clean_safe_userpost($input)
+function envo_clean_safe_userpost($input)
 {
 
   // Trim text
@@ -656,7 +656,7 @@ function jak_clean_safe_userpost($input)
   }
 }
 
-function jak_edit_safe_userpost($input)
+function envo_edit_safe_userpost($input)
 {
 
   // now we convert the code stuff into code blocks
@@ -669,7 +669,7 @@ function jak_edit_safe_userpost($input)
 }
 
 // Get comments votes 
-function jak_comment_votes($votes)
+function envo_comment_votes($votes)
 {
 
   if (isset($votes) && $votes != 0) {
@@ -700,7 +700,7 @@ function get_ip_address()
 }
 
 // Password generator
-function jak_password_creator($length = 8)
+function envo_password_creator($length = 8)
 {
   return substr(md5(rand() . rand()), 0, $length);
 }
@@ -736,12 +736,12 @@ function selfURL()
   return $referrer;
 }
 
-function jak_precode($matches)
+function envo_precode($matches)
 {
   return str_replace($matches[1], htmlentities($matches[1]), $matches[0]);
 }
 
-function jak_editcode($matches)
+function envo_editcode($matches)
 {
   return str_replace($matches[1], htmlspecialchars($matches[1]), $matches[0]);
 }
