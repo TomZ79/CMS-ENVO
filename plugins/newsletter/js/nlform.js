@@ -22,13 +22,13 @@ $(document).ready(function () {
 		$(this).find('.form-group').removeClass("has-error");
 		$(this).find('.form-group').removeClass("has-success");
 
-		$(button).html(jakWeb.jak_submitwait);
+		$(button).html(envoWeb.envo_submitwait);
 
 		/* Sending the form fileds to any post request: */
-		$.post(jakWeb.jak_url + nlCMS.nlcms_url, $(this).serialize(), function (msg) {
+		$.post(envoWeb.envo_url + nlCMS.nlcms_url, $(this).serialize(), function (msg) {
 
 			working = false;
-			$(button).html(jakWeb.jak_submit);
+			$(button).html(envoWeb.envo_submit);
 
 			if (msg.status) {
 

@@ -115,7 +115,7 @@ if (file_exists(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '
             <h3><span class="semi-bold">Výpis</span> Komponentů</h3>
             <p>Seznam komponent které budou instalovány v průběhu instalačního procesu tohoto pluginu</p>
             <br>
-            <h5 class="text-uppercase">Prostudovat postup odinstalace</h5>
+            <h5 class="text-uppercase">Prostudovat postup instalace</h5>
           </div>
         </div>
 

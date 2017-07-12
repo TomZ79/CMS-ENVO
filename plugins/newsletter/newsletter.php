@@ -6,10 +6,10 @@ if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$jaktable  = DB_PREFIX . 'newsletter';
-$jaktable1 = DB_PREFIX . 'newslettergroup';
-$jaktable2 = DB_PREFIX . 'newsletteruser';
-$jaktable3 = DB_PREFIX . 'user';
+$envotable  = DB_PREFIX . 'newsletter';
+$envotable1 = DB_PREFIX . 'newslettergroup';
+$envotable2 = DB_PREFIX . 'newsletteruser';
+$envotable3 = DB_PREFIX . 'user';
 
 // Wright the Usergroup permission into define and for template
 define('JAK_NEWSLETTER', $jakusergroup->getVar("newsletter"));
@@ -38,7 +38,7 @@ switch ($page1) {
         $errorsnl['nlEmail'] = $tl['general_error']['generror14'] . '<br />';
       }
 
-      if (jak_field_not_exist($defaults['nlEmail'], $jaktable2, 'email')) {
+      if (envo_field_not_exist($defaults['nlEmail'], $envotable2, 'email')) {
         $errorsnl['nlEmail'] = $tlnl['general_error']['generror14'];
       }
 
@@ -53,7 +53,7 @@ switch ($page1) {
         } else {
 
           $_SESSION['jak_nl_errors'] = $errorsnl;
-          jak_redirect($_SERVER['HTTP_REFERER']);
+          envo_redirect($_SERVER['HTTP_REFERER']);
         }
 
       } else {
@@ -65,7 +65,7 @@ switch ($page1) {
         $random = substr(number_format(time() * rand(), 0, '', ''), 0, 10);
 
         // Insert user into database
-        $result = $jakdb->query('INSERT INTO ' . $jaktable2 . ' SET name = "' . smartsql($defaults['nlUser']) . '", email = "' . smartsql($defaults['nlEmail']) . '", delcode = "' . $random . '", time = NOW()');
+        $result = $jakdb->query('INSERT INTO ' . $envotable2 . ' SET name = "' . smartsql($defaults['nlUser']) . '", email = "' . smartsql($defaults['nlEmail']) . '", delcode = "' . $random . '", time = NOW()');
 
         if ($result) {
 
@@ -82,7 +82,7 @@ switch ($page1) {
 
             $_SESSION['jak_nl_sent']     = 1;
             $_SESSION['jak_thankyou_nl'] = JAK_NLTHANKYOU;
-            jak_redirect($_SERVER['HTTP_REFERER']);
+            envo_redirect($_SERVER['HTTP_REFERER']);
 
           }
         }
@@ -90,16 +90,16 @@ switch ($page1) {
     } else {
       // EN: Redirect page
       // CZ: Přesměrování stránky
-      jak_redirect(BASE_URL);
+      envo_redirect(BASE_URL);
     }
 
     break;
   case 'fv':
 
-    if (is_numeric($page2) && is_numeric($page3) && jak_field_not_exist($page3, $jaktable, 'fullview')) {
+    if (is_numeric($page2) && is_numeric($page3) && envo_field_not_exist($page3, $envotable, 'fullview')) {
 
       // Get the data from the newsletter
-      $row = $jakdb->queryRow('SELECT content FROM ' . $jaktable . ' WHERE id = ' . smartsql($page2));
+      $row = $jakdb->queryRow('SELECT content FROM ' . $envotable . ' WHERE id = ' . smartsql($page2));
 
       // Just the content
       $cssAtt       = array('{myweburl}', '{mywebname}', '{browserversion}', '{unsubscribe}', '{username}', '{fullname}', '{useremail}');
@@ -124,13 +124,13 @@ switch ($page1) {
     } else {
       // EN: Redirect page
       // CZ: Přesměrování stránky
-      jak_redirect(BASE_URL);
+      envo_redirect(BASE_URL);
     }
 
     break;
   case 'nlo':
 
-    if (is_numeric($page2) && jak_field_not_exist($page2, $jaktable2, 'delcode')) {
+    if (is_numeric($page2) && envo_field_not_exist($page2, $envotable2, 'delcode')) {
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nlOff'])) {
         // EN: Default Variable
@@ -142,23 +142,23 @@ switch ($page1) {
           $email_blank = TRUE;
         }
 
-        if (!$email_blank && !jak_field_not_exist($defaults['nlEmail'], $jaktable2, 'email')) {
+        if (!$email_blank && !envo_field_not_exist($defaults['nlEmail'], $envotable2, 'email')) {
           $errors['e'] = $tlnl['nletter']['e'];
         }
 
         if (count($errors) == 0) {
           $cleanemail = filter_var($defaults['nlEmail'], FILTER_SANITIZE_EMAIL);
 
-          $result = $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE email = "' . smartsql($cleanemail) . '" AND delcode = "' . smartsql($page2) . '"');
+          $result = $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE email = "' . smartsql($cleanemail) . '" AND delcode = "' . smartsql($page2) . '"');
 
           if (!$result) {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            jak_redirect(JAK_PARSE_ERROR);
+            envo_redirect(JAK_PARSE_ERROR);
           } else {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            jak_redirect(JAK_PARSE_SUCCESS);
+            envo_redirect(JAK_PARSE_SUCCESS);
           }
 
         } else {
@@ -186,13 +186,13 @@ switch ($page1) {
     } else {
       // EN: Redirect page
       // CZ: Přesměrování stránky
-      jak_redirect(BASE_URL);
+      envo_redirect(BASE_URL);
     }
 
     break;
   case 'nlom':
 
-    if (is_numeric($page2) && jak_field_not_exist($page2, $jaktable3, 'id')) {
+    if (is_numeric($page2) && envo_field_not_exist($page2, $envotable3, 'id')) {
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -207,16 +207,16 @@ switch ($page1) {
 
           if (count($errors) == 0 && JAK_USERID) {
 
-            $result = $jakdb->query('UPDATE ' . $jaktable3 . ' SET newsletter = 0 WHERE id = ' . smartsql(JAK_USERID));
+            $result = $jakdb->query('UPDATE ' . $envotable3 . ' SET newsletter = 0 WHERE id = ' . smartsql(JAK_USERID));
 
             if (!$result) {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              jak_redirect(JAK_PARSE_ERROR);
+              envo_redirect(JAK_PARSE_ERROR);
             } else {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              jak_redirect(JAK_PARSE_SUCCESS);
+              envo_redirect(JAK_PARSE_SUCCESS);
             }
 
           } else {
@@ -236,16 +236,16 @@ switch ($page1) {
 
           if (count($errors) == 0 && JAK_USERID) {
 
-            $result = $jakdb->query('UPDATE ' . $jaktable3 . ' SET newsletter = 1 WHERE id = ' . smartsql(JAK_USERID));
+            $result = $jakdb->query('UPDATE ' . $envotable3 . ' SET newsletter = 1 WHERE id = ' . smartsql(JAK_USERID));
 
             if (!$result) {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              jak_redirect(JAK_PARSE_ERROR);
+              envo_redirect(JAK_PARSE_ERROR);
             } else {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              jak_redirect(JAK_PARSE_SUCCESS);
+              envo_redirect(JAK_PARSE_SUCCESS);
             }
 
           } else {
@@ -265,7 +265,7 @@ switch ($page1) {
       if (JAK_USERID) {
 
         // Get the newsletter status from the newsletter
-        $result = $jakdb->query('SELECT newsletter FROM ' . $jaktable3 . ' WHERE id = ' . smartsql(JAK_USERID));
+        $result = $jakdb->query('SELECT newsletter FROM ' . $envotable3 . ' WHERE id = ' . smartsql(JAK_USERID));
         $row    = $result->fetch_assoc();
 
       }
@@ -284,13 +284,13 @@ switch ($page1) {
     } else {
       // EN: Redirect page
       // CZ: Přesměrování stránky
-      jak_redirect(BASE_URL);
+      envo_redirect(BASE_URL);
     }
 
     break;
   default:
     // EN: Redirect page
     // CZ: Přesměrování stránky
-    jak_redirect(BASE_URL);
+    envo_redirect(BASE_URL);
 }
 ?>

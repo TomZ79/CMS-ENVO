@@ -116,7 +116,7 @@ if (file_exists(APP_PATH . 'plugins/openurl_blank/admin/lang/' . $site_language 
               <h3><span class="semi-bold">Výpis</span> Komponentů</h3>
               <p>Seznam komponent které budou odinstalovány v průběhu odinstalačního procesu tohoto pluginu</p>
               <br>
-              <h5 class="text-uppercase">Prostudovat postup odinstalace</h5>
+              <h5 class="text-uppercase">Prostudovat postup instalace</h5>
             </div>
           </div>
         </div>
@@ -133,7 +133,7 @@ if (file_exists(APP_PATH . 'plugins/openurl_blank/admin/lang/' . $site_language 
          * Kontrola zda je plugin instalován
          * Pokud není plugin instalován, zobrazit Notifikaci s chybovou hláškou
         */
-        $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "openurl_blank"');
+        $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Openurl_blank"');
         if ($jakdb->affected_rows > 0) { ?>
 
           <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít
@@ -164,11 +164,11 @@ if (file_exists(APP_PATH . 'plugins/openurl_blank/admin/lang/' . $site_language 
 
         // EN: Insert data to table 'plugins' about this plugin
         // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
-        $jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "openurl_blank", "Open all external links in a new window/tab.", 1, ' . JAK_USERID . ', 1, "openurl_blank", NULL, NULL, NULL, NULL, "uninstall.php", "1.0", NOW())');
+        $jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Openurl_blank", "Open all external links in a new window/tab.", 1, ' . JAK_USERID . ', 1, "openurl_blank", NULL, NULL, NULL, NULL, "uninstall.php", "1.0", NOW())');
 
         // EN: Now get the plugin 'id' from table 'plugins' for futher use
         // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
-        $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "openurl_blank"');
+        $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Openurl_blank"');
         $rows    = $results->fetch_assoc();
 
         if ($rows['id']) {
@@ -206,7 +206,7 @@ if (file_exists(APP_PATH . 'plugins/openurl_blank/admin/lang/' . $site_language 
         // EN: If plugin have 'id' (plugin is not installed), uninstall
         // CZ: Pokud nemá plugin 'id' (tzn. plugin není instalován - došlo k chybě při zápisu do tabulky 'plugins'), odinstalujeme plugin
 
-        $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "openurl_blank"');
+        $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Openurl_blank"');
 
         ?>
 
