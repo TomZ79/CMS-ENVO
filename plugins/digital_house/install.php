@@ -116,7 +116,7 @@ if (file_exists(APP_PATH . 'plugins/digital_house/admin/lang/' . $site_language 
               <h3><span class="semi-bold">Výpis</span> Komponentů</h3>
               <p>Seznam komponent které budou odinstalovány v průběhu odinstalačního procesu tohoto pluginu</p>
               <br>
-              <h5 class="text-uppercase">Prostudovat postup odinstalace</h5>
+              <h5 class="text-uppercase">Prostudovat postup instalace</h5>
             </div>
           </div>
         </div>
@@ -228,7 +228,7 @@ if (file_exists(APP_PATH . 'plugins/digital_house/admin/lang/' . $site_language 
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `varname` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
         $succesfully = 1;

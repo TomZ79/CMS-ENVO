@@ -87,7 +87,7 @@ if ($page2 == "e") { ?>
 
                 </div>
               </td>
-              <td><?php echo jak_clean_comment($v["message"]); ?></td>
+              <td><?php echo envo_clean_comment($v["message"]); ?></td>
               <td>
 
                 <?php if (isset($JAK_DOWNLOAD_ALL) && is_array($JAK_DOWNLOAD_ALL)) foreach ($JAK_DOWNLOAD_ALL as $z) {

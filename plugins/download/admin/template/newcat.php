@@ -120,7 +120,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                    echo $Html->addTextarea('jak_lcontent', (isset($_REQUEST["jak_lcontent"])) ? jak_edit_safe_userpost($_REQUEST["jak_lcontent"]) : '', '4', '', array('id' => 'content', 'class' => 'form-control'));
+                    echo $Html->addTextarea('jak_lcontent', (isset($_REQUEST["jak_lcontent"])) ? envo_edit_safe_userpost($_REQUEST["jak_lcontent"]) : '', '4', '', array('id' => 'content', 'class' => 'form-control'));
                     ?>
 
                   </div>

@@ -87,7 +87,7 @@ if ($page4 == "e") { ?>
 
                 </div>
               </td>
-              <td><?php echo jak_clean_comment($v["message"]); ?></td>
+              <td><?php echo envo_clean_comment($v["message"]); ?></td>
               <td>
 
                 <?php if ($v["userid"] == '0') {

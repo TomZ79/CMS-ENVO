@@ -1,26 +1,26 @@
 <?php
 
 // Get the data per array for downloads
-function jak_get_downloads($limit, $jakvar1, $table)
+function envo_get_downloads($limit, $jakvar1, $table)
 {
 
   $sqlwhere = '';
   if (!empty($jakvar1)) $sqlwhere = 'WHERE catid = ' . smartsql($jakvar1) . ' ';
 
   global $jakdb;
-  $jakdata = array();
+  $envodata = array();
   $result  = $jakdb->query('SELECT * FROM ' . $table . ' ' . $sqlwhere . 'ORDER BY id DESC ' . $limit);
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $jakdata[] = $row;
+    $envodata[] = $row;
   }
 
-  return $jakdata;
+  return $envodata;
 }
 
 // Get the download comments
-function jak_get_download_comments($limit, $jakvar1, $jakvar2)
+function envo_get_download_comments($limit, $jakvar1, $jakvar2)
 {
 
   if ($jakvar1 == 'approve') {
@@ -34,19 +34,19 @@ function jak_get_download_comments($limit, $jakvar1, $jakvar2)
   }
 
   global $jakdb;
-  $jakdata = array();
+  $envodata = array();
   $result  = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'downloadcomments ' . $sqlwhere . 'ORDER BY id, approve = 0 DESC ' . $limit);
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $jakdata[] = $row;
+    $envodata[] = $row;
   }
 
-  return $jakdata;
+  return $envodata;
 }
 
 // Get local download files
-function jak_get_download_files($path)
+function envo_get_download_files($path)
 {
   // Extension Filter - allowed extension of file
   global $jakdb;
@@ -80,7 +80,7 @@ function jak_get_download_files($path)
 }
 
 // Menu builder function, parentId 0 is the root
-function jak_build_menu_download($parent, $menu, $lang, $title1, $title2, $title3, $title4, $title5, $class = "", $id = "")
+function envo_build_menu_download($parent, $menu, $lang, $title1, $title2, $title3, $title4, $title5, $class = "", $id = "")
 {
   $html = "";
   if (isset($menu['parents'][$parent])) {
@@ -111,7 +111,7 @@ function jak_build_menu_download($parent, $menu, $lang, $title1, $title2, $title
           				<a href="index.php?p=download&amp;sp=categories&amp;ssp=delete&amp;sssp=' . $menu["items"][$itemId]["id"] . '" class="btn btn-danger btn-xs" onclick="if(!confirm(' . $lang . '))return false;"><i class="fa fa-trash-o"></i></a>
           		</span>
           		</div>';
-        $html .= jak_build_menu_download($itemId, $menu, $lang, $title1, $title2, $title3, $title4, $title5);
+        $html .= envo_build_menu_download($itemId, $menu, $lang, $title1, $title2, $title3, $title4, $title5);
         $html .= "</li> \n";
       }
     }
