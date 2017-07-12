@@ -210,24 +210,24 @@ class JAK_base
 					$parseurl = JAK_rewrite::jakParseurl ('', '', '', '', '');
 				}
 
-				$jakdata[] = array ('id' => $row['id'], 'name' => $row['name'], 'varname' => $parseurl, 'pagename' => $row['varname'], 'content' => $row['content'], 'metadesc' => $row['metadesc'], 'metakey' => $row['metakey'], 'showmenu' => $row['showmenu'], 'showfooter' => $row['showfooter'], 'catorder' => $row['catorder'], 'catimg' => $row['catimg'], 'catparent' => $row['catparent'], 'activeplugin' => $row['activeplugin'], 'pluginid' => $row['pluginid'], 'pageid' => $row['pageid']);
+				$envodata[] = array ('id' => $row['id'], 'name' => $row['name'], 'varname' => $parseurl, 'pagename' => $row['varname'], 'content' => $row['content'], 'metadesc' => $row['metadesc'], 'metakey' => $row['metakey'], 'showmenu' => $row['showmenu'], 'showfooter' => $row['showfooter'], 'catorder' => $row['catorder'], 'catimg' => $row['catimg'], 'catparent' => $row['catparent'], 'activeplugin' => $row['activeplugin'], 'pluginid' => $row['pluginid'], 'pageid' => $row['pageid']);
 			}
 
 		}
 
-		return $jakdata;
+		return $envodata;
 
 	}
 
 	public static function jakGetcatmix ($where, $where1, $table, $usergroup, $dseo)
 	{
 
-		$jakdata = array ();
+		$envodata = array ();
 		global $jakdb;
 		$result = $jakdb->query ('SELECT * FROM ' . $table . ' WHERE active = 1 ORDER BY catorder ASC');
 		while ($row = $result->fetch_assoc ()) {
 
-			if (jak_get_access ($usergroup, $row['permission']) || $row['permission'] == 0) {
+			if (envo_get_access ($usergroup, $row['permission']) || $row['permission'] == 0) {
 
 				// There should be always a varname in categories and check if seo is valid
 				$seo = '';
@@ -243,12 +243,12 @@ class JAK_base
 
         // EN: Insert each record into array
         // CZ: Vložení získaných dat do pole
-				$jakdata[] = $row;
+				$envodata[] = $row;
 
 			}
 		}
 
-		return $jakdata;
+		return $envodata;
 	}
 
 	public static function jakCatdisplay ($jakvar, $usraccesspl, $catarray)

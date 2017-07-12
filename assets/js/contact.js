@@ -16,17 +16,17 @@ $(document).ready(function () {
 		$(this).find('.form-group').removeClass("has-error");
 		$(this).find('.form-group').removeClass("has-success");
 
-		$(button).html(jakWeb.jak_submitwait);
+		$(button).html(envoWeb.envo_submitwait);
 
 		// Now this is ajax
 		var data = $(this).serializeArray(); // convert form to array
 		data.push({name: "jakajax", value: "yes"});
 
 		/* Sending the form fields to any post request: */
-		$.post(jakWeb.jak_url + jakWeb.jakrequest_uri, $.param(data), function (msg) {
+		$.post(envoWeb.envo_url + envoWeb.request_uri, $.param(data), function (msg) {
 
 			working = false;
-			$(button).html(jakWeb.jak_submit);
+			$(button).html(envoWeb.envo_submit);
 
 			if (msg.status) {
 

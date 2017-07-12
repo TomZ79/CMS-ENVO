@@ -64,7 +64,7 @@ $tempp5 = $getURL->jakGetseg(5);
 $tempp6 = $getURL->jakGetseg(6);
 
 // Call the languages
-$lang_files = jak_get_lang_files();
+$lang_files = envo_get_lang_files();
 
 // Get the general settings out the database
 $result = $jakdb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting');

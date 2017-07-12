@@ -198,7 +198,7 @@ class JAK_tags
     if ($jakdb->affected_rows > 0) {
 
       if ($cuttext) {
-        $shorty = jak_cut_text($row[$cuttext], $jkv["shortmsg"], '...');
+        $shorty = envo_cut_text($row[$cuttext], $jkv["shortmsg"], '...');
       }
 
       if ($table == "gallerycategories") {
@@ -212,10 +212,10 @@ class JAK_tags
         $seo = JAK_base::jakCleanurl($row['title']);
       }
       $parseurl = JAK_rewrite::jakParseurl($plugin, $link, $row['id'], $seo, '');
-      $jakdata = array('parseurl' => $parseurl, 'title' => $title, 'content' => $shorty);
+      $envodata = array('parseurl' => $parseurl, 'title' => $title, 'content' => $shorty);
     }
 
-    return $jakdata;
+    return $envodata;
 
   }
 

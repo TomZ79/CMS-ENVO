@@ -4,7 +4,7 @@ tinymce.init({
 	selector: "textarea.userpost",
 	theme: "modern",
 	width: "100%",
-	language: jakWeb.jak_lang,
+	language: envoWeb.envo_lang,
 	plugins: [
 		"autolink lists emoticons paste clientcode"
 	],

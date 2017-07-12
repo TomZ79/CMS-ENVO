@@ -42,7 +42,7 @@ function jak_record_votes() {
 			this.className += ' ' + className;
 
 		var request = new XMLHttpRequest();
-		request.open('GET', jakWeb.jak_url + 'include/ajax/cvote_update.php?vid=' + this.dataset.id + '&ctable=' + this.dataset.table + '&vote=' + this.dataset.cvote, true);
+		request.open('GET', envoWeb.envo_url + 'include/ajax/cvote_update.php?vid=' + this.dataset.id + '&ctable=' + this.dataset.table + '&vote=' + this.dataset.cvote, true);
 
 		request.onload = function () {
 			if (request.status >= 200 && request.status < 400) {

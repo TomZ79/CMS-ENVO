@@ -6,19 +6,19 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$JAK_MODULES) jak_redirect(BASE_URL);
+if (!JAK_USERID || !$JAK_MODULES) envo_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$jaktable  = DB_PREFIX . 'usergroup';
-$jaktable1 = DB_PREFIX . 'user';
+$envotable  = DB_PREFIX . 'usergroup';
+$envotable1 = DB_PREFIX . 'user';
 $jakfield  = 'username';
 
 // Reset vars
 $insert = "";
 
 // Important template stuff
-$JAK_USERGROUP_ALL = jak_get_usergroup_all('usergroup');
+$JAK_USERGROUP_ALL = envo_get_usergroup_all('usergroup');
 
 // Call the hooks per name for the template
 $JAK_HOOK_ADMIN_USERGROUP_EDIT = $jakhooks->jakGethook("tpl_admin_usergroup_edit");
@@ -27,8 +27,6 @@ $JAK_HOOK_ADMIN_USERGROUP = $jakhooks->jakGethook("tpl_admin_usergroup");
 
 // Now start with the plugin use a switch to access all pages
 switch ($page1) {
-
-  // Create new user group
   case 'newgroup':
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -38,7 +36,7 @@ switch ($page1) {
 
       if (isset($defaults['create'])) {
 
-        $JAK_FORM_DATA = jak_get_data($defaults['jak_groupbase'], $jaktable);
+        $JAK_FORM_DATA = envo_get_data($defaults['jak_groupbase'], $envotable);
 
         // Get the data for the editor light
         $_REQUEST["jak_lcontent"] = $JAK_FORM_DATA["description"];
@@ -53,7 +51,7 @@ switch ($page1) {
           $errors['e1'] = $tl['general_error']['generror4'] . '<br>';
         }
 
-        if (jak_field_not_exist($defaults['jak_name'], $jaktable, "name")) {
+        if (envo_field_not_exist($defaults['jak_name'], $envotable, "name")) {
           $errors['e2'] = str_replace("%s", $defaults['jak_name'], $tl['general_error']['generror5']) . '<br>';
         }
 
@@ -69,24 +67,29 @@ switch ($page1) {
               eval($it['phpcode']);
             }
 
-
-          $result = $jakdb->query('INSERT INTO ' . $jaktable . ' SET
-			name = "' . smartsql($defaults['jak_name']) . '",
-			description = "' . smartsql($defaults['jak_lcontent']) . '",
-			advsearch = "' . smartsql($defaults['jak_advs']) . '",
-			' . $insert . '
-			canrate = "' . smartsql($defaults['jak_rate']) . '"');
+          /* EN: Convert value
+           * smartsql - secure method to insert form data into a MySQL DB
+           * ------------------
+           * CZ: Převod hodnot
+           * smartsql - secure method to insert form data into a MySQL DB
+          */
+          $result = $jakdb->query('INSERT INTO ' . $envotable . ' SET
+                    name = "' . smartsql($defaults['jak_name']) . '",
+                    description = "' . smartsql($defaults['jak_lcontent']) . '",
+                    advsearch = "' . smartsql($defaults['jak_advs']) . '",
+                    ' . $insert . '
+                    canrate = "' . smartsql($defaults['jak_rate']) . '"');
 
           $rowid = $jakdb->jak_last_id();
 
           if (!$result) {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            jak_redirect(BASE_URL . 'index.php?p=usergroup&sp=newgroup&ssp=e');
+            envo_redirect(BASE_URL . 'index.php?p=usergroup&sp=newgroup&status=e');
           } else {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            jak_redirect(BASE_URL . 'index.php?p=usergroup&sp=edit&ssp=' . $rowid . '&sssp=s');
+            envo_redirect(BASE_URL . 'index.php?p=usergroup&sp=edit&ssp=' . $rowid . '&status=s');
           }
         } else {
 
@@ -123,23 +126,23 @@ switch ($page1) {
           $locked = $lockuser[$i];
 
           if (!in_array($locked, $grouparray)) {
-            $result = $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE id = "' . smartsql($locked) . '"');
+            $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
           }
         }
 
         if (!$result) {
           // EN: Redirect page
           // CZ: Přesměrování stránky s notifikací - chybné
-          jak_redirect(BASE_URL . 'index.php?p=usergroup&sp=e');
+          envo_redirect(BASE_URL . 'index.php?p=usergroup&status=e');
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky s notifikací - úspěšné
           /*
           NOTIFIKACE:
-          'sp=s'   - Záznam úspěšně uložen
-          'ssp=s'  - Záznam úspěšně odstraněn
+          'status=s'   - Záznam úspěšně uložen
+          'status1=s'  - Záznam úspěšně odstraněn
           */
-          jak_redirect(BASE_URL . 'index.php?p=usergroup&sp=s&ssp=s');
+          envo_redirect(BASE_URL . 'index.php?p=usergroup&status=s&status1=s');
         }
 
       }
@@ -148,8 +151,8 @@ switch ($page1) {
     switch ($page1) {
       case 'user':
 
-        if (jak_row_exist($page2, $jaktable)) {
-          $getTotal = jak_get_total($jaktable1, $page2, 'usergroupid', '');
+        if (envo_row_exist($page2, $envotable)) {
+          $getTotal = envo_get_total($envotable1, $page2, 'usergroupid', '');
           if ($getTotal != 0) {
             // Paginator
             $pages                 = new JAK_Paginator;
@@ -161,7 +164,7 @@ switch ($page1) {
             $pages->paginate();
             $JAK_PAGINATE = $pages->display_pages();
           }
-          $JAK_USER_ALL = jak_get_user_all('user', $pages->limit, $page2);
+          $JAK_USER_ALL = envo_get_user_all('user', $pages->limit, $page2);
 
           // EN: Title and Description
           // CZ: Titulek a Popis
@@ -175,39 +178,39 @@ switch ($page1) {
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=usergroup&sp=ene');
+          envo_redirect(BASE_URL . 'index.php?p=usergroup&status=ene');
         }
         break;
       case 'delete':
         if ($page2 > 4) {
 
-          $result = $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE id = "' . smartsql($page2) . '"');
+          $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
 
           if (!$result) {
             // EN: Redirect page
             // CZ: Přesměrování stránky s notifikací - chybné
-            jak_redirect(BASE_URL . 'index.php?p=usergroup&sp=e');
+            envo_redirect(BASE_URL . 'index.php?p=usergroup&status=e');
           } else {
             // EN: Redirect page
             // CZ: Přesměrování stránky s notifikací - úspěšné
             /*
             NOTIFIKACE:
-            'sp=s'   - Záznam úspěšně uložen
-            'ssp=s'  - Záznam úspěšně odstraněn
+            'status=s'   - Záznam úspěšně uložen
+            'status1=s'  - Záznam úspěšně odstraněn
             */
-            jak_redirect(BASE_URL . 'index.php?p=usergroup&sp=s&ssp=s');
+            envo_redirect(BASE_URL . 'index.php?p=usergroup&status=s&status1=s');
           }
 
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=usergroup&sp=edn');
+          envo_redirect(BASE_URL . 'index.php?p=usergroup&status=edn');
         }
 
         break;
       case 'edit':
 
-        if (jak_row_exist($page2, $jaktable)) {
+        if (envo_row_exist($page2, $envotable)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // EN: Default Variable
@@ -230,23 +233,28 @@ switch ($page1) {
                   eval($it['phpcode']);
                 }
 
-
-              $result = $jakdb->query('UPDATE ' . $jaktable . ' SET
-                    name = "' . smartsql($defaults['jak_name']) . '",
-                    description = "' . smartsql($defaults['jak_lcontent']) . '",
-                    advsearch = "' . smartsql($defaults['jak_advs']) . '",
-                    ' . $insert . '
-                    canrate = "' . smartsql($defaults['jak_rate']) . '"
-                  WHERE id = "' . smartsql($page2) . '"');
+              /* EN: Convert value
+               * smartsql - secure method to insert form data into a MySQL DB
+               * ------------------
+               * CZ: Převod hodnot
+               * smartsql - secure method to insert form data into a MySQL DB
+              */
+              $result = $jakdb->query('UPDATE ' . $envotable . ' SET
+                          name = "' . smartsql($defaults['jak_name']) . '",
+                          description = "' . smartsql($defaults['jak_lcontent']) . '",
+                          advsearch = "' . smartsql($defaults['jak_advs']) . '",
+                          ' . $insert . '
+                          canrate = "' . smartsql($defaults['jak_rate']) . '"
+                        WHERE id = "' . smartsql($page2) . '"');
 
               if (!$result) {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                jak_redirect(BASE_URL . 'index.php?p=usergroup&sp=edit&ssp=' . $page2 . '&sssp=e');
+                envo_redirect(BASE_URL . 'index.php?p=usergroup&sp=edit&ssp=' . $page2 . '&status=e');
               } else {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                jak_redirect(BASE_URL . 'index.php?p=usergroup&sp=edit&ssp=' . $page2 . '&sssp=s');
+                envo_redirect(BASE_URL . 'index.php?p=usergroup&sp=edit&ssp=' . $page2 . '&status=s');
               }
             } else {
 
@@ -255,7 +263,7 @@ switch ($page1) {
             }
           }
 
-          $JAK_FORM_DATA            = jak_get_data($page2, $jaktable);
+          $JAK_FORM_DATA            = envo_get_data($page2, $envotable);
           $JAK_FORM_DATA["content"] = $JAK_FORM_DATA["description"];
 
           // EN: Title and Description
@@ -270,7 +278,7 @@ switch ($page1) {
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=usergroup&sp=ene');
+          envo_redirect(BASE_URL . 'index.php?p=usergroup&status=ene');
         }
 
         break;

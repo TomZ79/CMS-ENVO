@@ -197,7 +197,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['contactF'])) {
         } else {
 
           $_SESSION['jak_thankyou_msg'] = $row['content'];
-          jak_redirect($_SERVER['HTTP_REFERER']);
+          envo_redirect($_SERVER['HTTP_REFERER']);
 
         }
       }
@@ -205,7 +205,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['contactF'])) {
   }
 }
 
-function jak_contact_form_title($jakvar)
+function envo_contact_form_title($jakvar)
 {
   // Now get all the options from the choosen form and create the form in html include all the javascript options
   global $jakdb;
@@ -216,11 +216,11 @@ function jak_contact_form_title($jakvar)
 }
 
 
-function jak_create_contact_form($formid, $jakvar1)
+function envo_create_contact_form($formid, $jakvar1)
 {
 
 
-  $jakdata = '';
+  $envodata = '';
 
   // Reset each var the while goes thru
   $optarray = $optarrayradio = $selectopt = $radioopt = $optionsel = $optioncheck = $checkopt = '';
@@ -238,7 +238,7 @@ function jak_create_contact_form($formid, $jakvar1)
         $mandatory = '';
       }
 
-      $jakdata .= '<div class="form-group"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . '</label><input type="text" name="' . $row['id'] . '" id="' . $row['id'] . '" class="form-control" value="' . (isset($_POST[$row['id']]) ? $_POST[$row['id']] : '') . '" placeholder="' . $row['name'] . '" /></div>';
+      $envodata .= '<div class="form-group"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . '</label><input type="text" name="' . $row['id'] . '" id="' . $row['id'] . '" class="form-control" value="' . (isset($_POST[$row['id']]) ? $_POST[$row['id']] : '') . '" placeholder="' . $row['name'] . '" /></div>';
     }
 
     if ($row['typeid'] == 2) {
@@ -248,7 +248,7 @@ function jak_create_contact_form($formid, $jakvar1)
         $mandatory = '';
       }
 
-      $jakdata .= '<div class="form-group"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . '</label><textarea name="' . $row['id'] . '" id="' . $row['id'] . '" class="form-control" rows="5">' . (isset($_POST[$row['id']]) ? $_POST[$row['id']] : '') . '</textarea></div>';
+      $envodata .= '<div class="form-group"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . '</label><textarea name="' . $row['id'] . '" id="' . $row['id'] . '" class="form-control" rows="5">' . (isset($_POST[$row['id']]) ? $_POST[$row['id']] : '') . '</textarea></div>';
     }
 
     if ($row['typeid'] == 3) {
@@ -265,7 +265,7 @@ function jak_create_contact_form($formid, $jakvar1)
         $selectopt .= '<option value="' . $optarray[$i] . '"' . ($_POST[$row['id']] == $optarray[$i] ? ' selected="selected"' : "") . '>' . $optarray[$i] . '</option>';
       }
 
-      $jakdata .= '<div class="form-group1"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . '</label><select name="' . $row['id'] . '" id="' . $row['id'] . '" class="form-control"><option value="">' . $jakvar1 . '</option>' . $selectopt . '</select></div>';
+      $envodata .= '<div class="form-group1"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . '</label><select name="' . $row['id'] . '" id="' . $row['id'] . '" class="form-control"><option value="">' . $jakvar1 . '</option>' . $selectopt . '</select></div>';
     }
 
     if ($row['typeid'] == 4) {
@@ -288,7 +288,7 @@ function jak_create_contact_form($formid, $jakvar1)
         }
       }
 
-      $jakdata .= '<div class="form-group"><label class="control-label" for="' . $cleanName . '">' . $row['name'] . $mandatory . '</label>' . $radioopt . '</div>';
+      $envodata .= '<div class="form-group"><label class="control-label" for="' . $cleanName . '">' . $row['name'] . $mandatory . '</label>' . $radioopt . '</div>';
     }
 
     if ($row['typeid'] == 5) {
@@ -298,9 +298,9 @@ function jak_create_contact_form($formid, $jakvar1)
         $mandatory = '';
       }
 
-      $jakdata .= '<div class="form-group"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . ' (' . $row['options'] . ')</label><input type="file" title="' . $row['mandatory'] . '" name="' . $row['id'] . '" /></div>';
+      $envodata .= '<div class="form-group"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . ' (' . $row['options'] . ')</label><input type="file" title="' . $row['mandatory'] . '" name="' . $row['id'] . '" /></div>';
 
-      $jakdata .= '<input type="hidden" name="ext_' . $row['id'] . '" value="' . $row['options'] . '" /><input type="hidden" name="MAX_FILE_SIZE" value="1000000" />';
+      $envodata .= '<input type="hidden" name="ext_' . $row['id'] . '" value="' . $row['options'] . '" /><input type="hidden" name="MAX_FILE_SIZE" value="1000000" />';
     }
 
     if ($row['typeid'] == 6) {
@@ -328,14 +328,14 @@ function jak_create_contact_form($formid, $jakvar1)
 
       }
 
-      $jakdata .= '<div class="form-group"><label class="control-label" for="' . $cleanName . '">' . $row['name'] . $mandatory . '</label>' . $checkopt . '</div>';
+      $envodata .= '<div class="form-group"><label class="control-label" for="' . $cleanName . '">' . $row['name'] . $mandatory . '</label>' . $checkopt . '</div>';
 
     }
 
     if ($row['typeid'] == 7) {
 
 
-      $jakdata .= $row['name'];
+      $envodata .= $row['name'];
 
     }
 
@@ -365,13 +365,13 @@ function jak_create_contact_form($formid, $jakvar1)
     $optlisttype = join(",", $alloptiontype);
   }
 
-  $jakdata .= '<input type="hidden" name="optlist" value="' . base64_encode($optlist) . '" />';
-  $jakdata .= '<input type="hidden" name="optlistname" value="' . $optlistname . '" />';
-  $jakdata .= '<input type="hidden" name="optlistmandatory" value="' . base64_encode($optlistmandatory) . '" />';
-  $jakdata .= '<input type="hidden" name="optlisttype" value="' . base64_encode($optlisttype) . '" />';
-  $jakdata .= '<input type="hidden" name="formid" value="' . $formid . '" />';
+  $envodata .= '<input type="hidden" name="optlist" value="' . base64_encode($optlist) . '" />';
+  $envodata .= '<input type="hidden" name="optlistname" value="' . $optlistname . '" />';
+  $envodata .= '<input type="hidden" name="optlistmandatory" value="' . base64_encode($optlistmandatory) . '" />';
+  $envodata .= '<input type="hidden" name="optlisttype" value="' . base64_encode($optlisttype) . '" />';
+  $envodata .= '<input type="hidden" name="formid" value="' . $formid . '" />';
 
-  return $jakdata;
+  return $envodata;
 }
 
 ?>

@@ -13,7 +13,7 @@ class JAK_comment
 		*/
 
 		global $jakdb;
-		$getID  = $jakdata = array ();
+		$getID  = $envodata = array ();
 		$result = $jakdb->query ('SELECT t1.*, t2.picture, t2.lastactivity FROM ' . $table . ' AS t1 LEFT JOIN ' . DB_PREFIX . 'user AS t2 ON (t2.id = t1.userid) WHERE t1.' . $where . ' = "' . smartsql ($id) . '"' . $sqlwhere . ' AND ((t1.approve = 1 AND t1.trash = 0) OR (t1.approve = 0 AND t1.trash = 0 AND t1.session = "' . smartsql (session_id ()) . '")) ORDER BY time ASC ' . $limit);
 
 		while ($row = $result->fetch_assoc ()) {
@@ -33,7 +33,7 @@ class JAK_comment
 			}
 
 			// Sanitize the message
-			$row["message"] = jak_secure_site ($row['message']);
+			$row["message"] = envo_secure_site ($row['message']);
 
 			// There should be always a varname in categories and check if seo is valid
 			$row["parseurl1"] = JAK_rewrite::jakParseurl ($var, 'del', $row['id'], $row['userid']);
@@ -43,7 +43,7 @@ class JAK_comment
 
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
-			$jakdata[] = $row;
+			$envodata[] = $row;
 
 			// Do we have nested comments
 			if ($nested) $getID[] = $row["id"];
@@ -71,7 +71,7 @@ class JAK_comment
 				}
 
 				// Sanitize the message
-				$nes["message"] = jak_secure_site ($nes['message']);
+				$nes["message"] = envo_secure_site ($nes['message']);
 
 				// There should be always a varname in categories and check if seo is valid
 				$nes["parseurl1"] = JAK_rewrite::jakParseurl ($var, 'del', $nes['id'], $nes['userid']);
@@ -81,12 +81,12 @@ class JAK_comment
 
         // EN: Insert each record into array
         // CZ: Vložení získaných dat do pole 
-				$jakdata[] = $nes;
+				$envodata[] = $nes;
 
 			}
 		}
 
-		$this->data = $jakdata;
+		$this->data = $envodata;
 	}
 
 	public static function validate_form (&$arr, $maxpost, $ename, $eemail, $eurl, $epost, $emaxpost, $emaxpost1, $ehuman)

@@ -156,7 +156,7 @@ class JAK_search
 
 			// cut me $this->cut
 			if (isset($this->content)) $shorty = $row[ $this->content ];
-			if (isset($this->cutme)) $shorty = jak_cut_text ($row[ $this->cutme ], $jkv["shortmsg"], '...');
+			if (isset($this->cutme)) $shorty = envo_cut_text ($row[ $this->cutme ], $jkv["shortmsg"], '...');
 
 			// Get the title
 			if (isset($this->title)) $title = $row[ $this->title ];
