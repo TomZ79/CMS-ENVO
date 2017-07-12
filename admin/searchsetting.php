@@ -6,16 +6,16 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$JAK_MODULES) jak_redirect(BASE_URL);
+if (!JAK_USERID || !$JAK_MODULES) envo_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$jaktable  = DB_PREFIX . 'pagesgrid';
-$jaktable2 = DB_PREFIX . 'pluginhooks';
+$envotable  = DB_PREFIX . 'pagesgrid';
+$envotable2 = DB_PREFIX . 'pluginhooks';
 
 // EN: Import important settings for the template from the DB
 // CZ: Importuj důležité nastavení pro šablonu z DB
-$JAK_SETTING = jak_get_setting_val('search');
+$JAK_SETTING = envo_get_setting_val('search');
 
 // Let's go on with the script
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -23,16 +23,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // CZ: Hlavní proměnné
   $defaults = $_POST;
 
-  // Do the dirty work in mysql
-
+  /* EN: Convert value
+   * smartsql - secure method to insert form data into a MySQL DB
+   * ------------------
+   * CZ: Převod hodnot
+   * smartsql - secure method to insert form data into a MySQL DB
+  */
   $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-    	WHEN "searchtitle" THEN "' . smartsql($defaults['jak_title']) . '"
-    	WHEN "searchdesc" THEN "' . smartsql($defaults['jak_lcontent']) . '"
-    	WHEN "searchform" THEN ' . $defaults['jak_search'] . '
-    	WHEN "ajaxsearch" THEN ' . $defaults['jak_ajaxsearch'] . '
-    	WHEN "fulltextsearch" THEN ' . $defaults['jak_fullsearch'] . '
-    END
-		WHERE varname IN ("searchtitle","searchdesc","searchform","ajaxsearch","fulltextsearch")');
+              WHEN "searchtitle" THEN "' . smartsql($defaults['jak_title']) . '"
+              WHEN "searchdesc" THEN "' . smartsql($defaults['jak_lcontent']) . '"
+              WHEN "searchform" THEN ' . $defaults['jak_search'] . '
+              WHEN "ajaxsearch" THEN ' . $defaults['jak_ajaxsearch'] . '
+              WHEN "fulltextsearch" THEN ' . $defaults['jak_fullsearch'] . '
+            END
+            WHERE varname IN ("searchtitle","searchdesc","searchform","ajaxsearch","fulltextsearch")');
 
   // Save order for sidebar widget
   if (isset($defaults['jak_hookshow_new']) && is_array($defaults['jak_hookshow_new'])) {
@@ -51,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $whatid = 0;
         if (isset($defaults['whatid_' . $pdoith[$key]])) $whatid = $defaults['whatid_' . $pdoith[$key]];
 
-        $jakdb->query('INSERT INTO ' . $jaktable . ' SET plugin = 999999, hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '"');
+        $jakdb->query('INSERT INTO ' . $envotable . ' SET plugin = 999999, hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '"');
 
       }
 
@@ -63,11 +67,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
 
     // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
-    $row = $jakdb->queryRow('SELECT id FROM ' . $jaktable . ' WHERE plugin = 999999 AND hookid != 0');
+    $row = $jakdb->queryRow('SELECT id FROM ' . $envotable . ' WHERE plugin = 999999 AND hookid != 0');
 
     // We have something to delete
     if ($row["id"]) {
-      $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE plugin = 999999 AND hookid != 0');
+      $jakdb->query('DELETE FROM ' . $envotable . ' WHERE plugin = 999999 AND hookid != 0');
     }
 
   }
@@ -83,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     foreach ($doith as $key => $exorder) {
 
       // Get the real what id
-      $result = $jakdb->query('SELECT pluginid FROM ' . $jaktable . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
+      $result = $jakdb->query('SELECT pluginid FROM ' . $envotable . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
       $row    = $result->fetch_assoc();
 
       $whatid = 0;
@@ -94,16 +98,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $updatesql1 .= sprintf("WHEN %d THEN %d ", $key, $whatid);
 
       } else {
-        $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE id = ' . $key);
+        $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = ' . $key);
       }
     }
 
-    $jakdb->query('UPDATE ' . $jaktable . ' SET orderid = CASE id
+    $jakdb->query('UPDATE ' . $envotable . ' SET orderid = CASE id
 			' . $updatesql . '
 			END
 			WHERE id IN (' . $hookrealid . ')');
 
-    $jakdb->query('UPDATE ' . $jaktable . ' SET whatid = CASE id
+    $jakdb->query('UPDATE ' . $envotable . ' SET whatid = CASE id
 			' . $updatesql1 . '
 			END
 			WHERE id IN (' . $hookrealid . ')');
@@ -144,16 +148,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (!$result) {
     // EN: Redirect page
     // CZ: Přesměrování stránky
-    jak_redirect(BASE_URL . 'index.php?p=searchsetting&sp=e');
+    envo_redirect(BASE_URL . 'index.php?p=searchsetting&status=e');
   } else {
     // EN: Redirect page
     // CZ: Přesměrování stránky
-    jak_redirect(BASE_URL . 'index.php?p=searchsetting&sp=s');
+    envo_redirect(BASE_URL . 'index.php?p=searchsetting&status=s');
   }
 }
 
 // Get the sort orders for the grid
-$grid = $jakdb->query('SELECT id, hookid, whatid, orderid FROM ' . $jaktable . ' WHERE plugin = 999999 ORDER BY orderid ASC');
+$grid = $jakdb->query('SELECT id, hookid, whatid, orderid FROM ' . $envotable . ' WHERE plugin = 999999 ORDER BY orderid ASC');
 while ($grow = $grid->fetch_assoc()) {
   // EN: Insert each record into array
   // CZ: Vložení získaných dat do pole
@@ -161,7 +165,7 @@ while ($grow = $grid->fetch_assoc()) {
 }
 
 // Get the sidebar templates
-$result = $jakdb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $jaktable2 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
+$result = $jakdb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable2 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
 while ($row = $result->fetch_assoc()) {
   $JAK_HOOKS[] = $row;
 }

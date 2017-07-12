@@ -6,7 +6,7 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$JAK_MODULES) jak_redirect(BASE_URL);
+if (!JAK_USERID || !$JAK_MODULES) envo_redirect(BASE_URL);
 
 // EN: Reset Array (output the error in a array)
 // CZ: Reset Pole (výstupní chyby se ukládají do pole)
@@ -14,11 +14,11 @@ $success = array();
 
 // EN: Import important settings for the template from the DB
 // CZ: Importuj důležité nastavení pro šablonu z DB
-$JAK_SETTING = jak_get_setting('setting');
+$JAK_SETTING = envo_get_setting('setting');
 
 // EN: Import important settings for the template from the DB (only VALUE)
 // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
-$JAK_SETTING_VAL = jak_get_setting_val('setting');
+$JAK_SETTING_VAL = envo_get_setting_val('setting');
 
 // Basic settings Facebook
 $facebookDir      = JAK_FILES_DIRECTORY . '/facebook/';
@@ -64,20 +64,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   fclose($openfedit);
 
 
-  // Do the dirty work in mysql
+  /* EN: Convert value
+   * smartsql - secure method to insert form data into a MySQL DB
+   * ------------------
+   * CZ: Převod hodnot
+   * smartsql - secure method to insert form data into a MySQL DB
+  */
   $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-        WHEN "facebookconnect" THEN "' . smartsql($defaults['jak_facebookconnect']) . '"
-    END
-    	WHERE varname IN ("facebookconnect")');
+              WHEN "facebookconnect" THEN "' . smartsql($defaults['jak_facebookconnect']) . '"
+            END
+              WHERE varname IN ("facebookconnect")');
 
   if (!$result) {
     // EN: Redirect page
     // CZ: Přesměrování stránky
-    jak_redirect(BASE_URL . 'index.php?p=settingfacebook&sp=e');
+    envo_redirect(BASE_URL . 'index.php?p=settingfacebook&status=e');
   } else {
     // EN: Redirect page
     // CZ: Přesměrování stránky
-    jak_redirect(BASE_URL . 'index.php?p=settingfacebook&sp=s');
+    envo_redirect(BASE_URL . 'index.php?p=settingfacebook&status=s');
   }
 }
 

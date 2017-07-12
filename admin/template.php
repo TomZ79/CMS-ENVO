@@ -6,17 +6,17 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !JAK_SUPERADMINACCESS) jak_redirect(BASE_URL);
+if (!JAK_USERID || !JAK_SUPERADMINACCESS) envo_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$jaktable = DB_PREFIX . 'setting';
+$envotable = DB_PREFIX . 'setting';
 
 // EN: Import important settings for the template from the DB
 // CZ: Importuj důležité nastavení pro šablonu z DB
-$templateurl = jak_get_setting('setting');
+$templateurl = envo_get_setting('setting');
 
-$result = $jakdb->query('SELECT value FROM ' . $jaktable . ' WHERE groupname = "setting" && varname = "sitestyle" LIMIT 1');
+$result = $jakdb->query('SELECT value FROM ' . $envotable . ' WHERE groupname = "setting" && varname = "sitestyle" LIMIT 1');
 $row    = $result->fetch_assoc();
 
 $JAK_FILE_SUCCESS = $JAK_FILE_ERROR = $JAK_FILEURL = $JAK_FILECONTENT = "";
@@ -137,7 +137,7 @@ switch ($page1) {
 
       // EN: Redirect page
       // CZ: Přesměrování stránky
-      jak_redirect(BASE_URL . 'index.php?p=template&sp=cssedit');
+      envo_redirect(BASE_URL . 'index.php?p=template&sp=cssedit');
 
     }
 
@@ -211,7 +211,7 @@ switch ($page1) {
 
       // EN: Redirect page
       // CZ: Přesměrování stránky
-      jak_redirect(BASE_URL . 'index.php?p=template&sp=langedit');
+      envo_redirect(BASE_URL . 'index.php?p=template&sp=langedit');
 
     }
 
@@ -281,7 +281,7 @@ switch ($page1) {
 
       // EN: Redirect page
       // CZ: Přesměrování stránky
-      jak_redirect(BASE_URL . 'index.php?p=template&sp=edit-files');
+      envo_redirect(BASE_URL . 'index.php?p=template&sp=edit-files');
 
     }
 
@@ -335,16 +335,16 @@ switch ($page1) {
     break;
   case 'active':
 
-    $result = $jakdb->query('UPDATE ' . $jaktable . ' SET value = IF (value = 1, 0, 1) WHERE varname = "styleswitcher_tpl" && groupname = "' . smartsql($page2) . '"');
+    $result = $jakdb->query('UPDATE ' . $envotable . ' SET value = IF (value = 1, 0, 1) WHERE varname = "styleswitcher_tpl" && groupname = "' . smartsql($page2) . '"');
 
     if (!$result) {
       // EN: Redirect page
       // CZ: Přesměrování stránky
-      jak_redirect(BASE_URL . 'index.php?p=template&sp=e');
+      envo_redirect(BASE_URL . 'index.php?p=template&status=e');
     } else {
       // EN: Redirect page
       // CZ: Přesměrování stránky
-      jak_redirect(BASE_URL . 'index.php?p=template&sp=s1');
+      envo_redirect(BASE_URL . 'index.php?p=template&status=s1');
     }
 
     break;
@@ -352,7 +352,7 @@ switch ($page1) {
 
     // EN: Import important settings for the template from the DB
     // CZ: Importuj důležité nastavení pro šablonu z DB
-    $JAK_SETTING = jak_get_setting('setting');
+    $JAK_SETTING = envo_get_setting('setting');
 
     // Let's go on with the script
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -360,25 +360,30 @@ switch ($page1) {
       // CZ: Hlavní proměnné
       $defaults = $_POST;
 
-      // Do the dirty work in mysql
+      /* EN: Convert value
+       * smartsql - secure method to insert form data into a MySQL DB
+       * ------------------
+       * CZ: Převod hodnot
+       * smartsql - secure method to insert form data into a MySQL DB
+      */
       $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-		        WHEN "sitestyle" THEN "' . smartsql($defaults['btnSave']) . '"
-		    END
-				WHERE varname IN ("sitestyle")');
+                  WHEN "sitestyle" THEN "' . smartsql($defaults['btnSave']) . '"
+                END
+                WHERE varname IN ("sitestyle")');
 
       if (!$result) {
         // EN: Redirect page
         // CZ: Přesměrování stránky
-        jak_redirect(BASE_URL . 'index.php?p=template&sp=e');
+        envo_redirect(BASE_URL . 'index.php?p=template&status=e');
       } else {
         // EN: Redirect page
         // CZ: Přesměrování stránky
-        jak_redirect(BASE_URL . 'index.php?p=template&sp=s');
+        envo_redirect(BASE_URL . 'index.php?p=template&status=s');
       }
     }
 
     // Get all styles in the directory
-    $site_style_files = jak_get_site_style('../template/');
+    $site_style_files = envo_get_site_style('../template/');
 
     // EN: Title and Description
     // CZ: Titulek a Popis

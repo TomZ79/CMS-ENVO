@@ -6,12 +6,11 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$JAK_MODULES) jak_redirect(BASE_URL);
+if (!JAK_USERID || !$JAK_MODULES) envo_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$jaktable  = DB_PREFIX . 'categories';
-$jaktable1 = DB_PREFIX . 'clickstat';
+$envotable  = DB_PREFIX . 'categories';
 
 // EN: Reset Array (output the error in a array)
 // CZ: Reset Pole (výstupní chyby se ukládají do pole)
@@ -25,16 +24,6 @@ if ($getsettinghook) foreach ($getsettinghook as $sh) {
 
 // Call the hooks per name for setting template
 $JAK_HOOK_ADMIN_SETTING_EDIT = $jakhooks->jakGethook("tpl_admin_setting");
-
-if ($page1 == "trunheat") {
-
-  $result = $jakdb->query('TRUNCATE ' . $jaktable1);
-
-  // EN: Redirect page
-  // CZ: Přesměrování stránky
-  jak_redirect(BASE_URL . 'index.php?p=setting&sp=s');
-
-}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (isset($_POST["btnSave"])) {
@@ -142,73 +131,79 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // CZ: Zápis dat do databáze MySQL a vyhodnocení výsledku zápisu
     if (count($errors) == 0) {
 
+      /* EN: Convert value
+       * smartsql - secure method to insert form data into a MySQL DB
+       * ------------------
+       * CZ: Převod hodnot
+       * smartsql - secure method to insert form data into a MySQL DB
+      */
       $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-        WHEN "email" THEN "' . smartsql($defaults['jak_email']) . '"
-        WHEN "sitehttps" THEN "' . smartsql($defaults['jak_shttp']) . '"
-        WHEN "lang" THEN "' . smartsql($defaults['jak_lang']) . '"
-        WHEN "locale" THEN "' . smartsql($defaults['jak_locale']) . '"
-        WHEN "showloginside" THEN "' . smartsql($defaults['jak_loginside']) . '"
-        WHEN "useravatwidth" THEN "' . smartsql($defaults['jak_avatwidth']) . '"
-        WHEN "useravatheight" THEN "' . smartsql($defaults['jak_avatheight']) . '"
-        WHEN "printme" THEN "' . smartsql($defaults['jak_sprint']) . '"
-        WHEN "shortmsg" THEN "' . smartsql($defaults['jak_shortmsg']) . '"
-        WHEN "dateformat" THEN "' . smartsql($defaults['jak_date']) . '"
-        WHEN "timeformat" THEN "' . smartsql($defaults['jak_time']) . '"
-        WHEN "time_ago_show" THEN "' . smartsql($defaults['jak_time_ago']) . '"
-        WHEN "hvm" THEN "' . smartsql($defaults['jak_hvm']) . '"
-        WHEN "adv_editor" THEN "' . smartsql($defaults['jak_editor']) . '"
-        WHEN "usr_smilies" THEN "' . smartsql($defaults['jak_smilies']) . '"
-        WHEN "timezoneserver" THEN "' . smartsql($defaults['jak_timezone_server']) . '"
-        WHEN "contactform" THEN "' . smartsql($defaults['jak_contact']) . '"
-        WHEN "shownews" THEN "' . smartsql($defaults['jak_shownews']) . '"
-        WHEN "rss" THEN "' . smartsql($defaults['jak_rss']) . '"
-        WHEN "rssitem" THEN "' . smartsql($defaults['jak_rssitem']) . '"
-        WHEN "adminpagemid" THEN "' . smartsql($defaults['jak_mid']) . '"
-        WHEN "adminpageitem" THEN "' . smartsql($defaults['jak_item']) . '"
-        WHEN "ip_block" THEN "' . smartsql($defaults['ip_block']) . '"
-        WHEN "email_block" THEN "' . smartsql($defaults['email_block']) . '"
-        WHEN "username_block" THEN "' . smartsql($defaults['username_block']) . '"
-        WHEN "analytics" THEN "' . smartsql($defaults['jak_analytics']) . '"
-        WHEN "smtp_or_mail" THEN "' . smartsql($defaults['jak_smpt']) . '"
-        WHEN "smtp_host" THEN "' . smartsql($defaults['jak_host']) . '"
-        WHEN "smtp_port" THEN "' . smartsql($defaults['jak_port']) . '"
-        WHEN "smtp_alive" THEN "' . smartsql($defaults['jak_alive']) . '"
-        WHEN "smtp_auth" THEN "' . smartsql($defaults['jak_auth']) . '"
-        WHEN "smtp_prefix" THEN "' . smartsql($defaults['jak_prefix']) . '"
-        WHEN "smtp_user" THEN "' . smartsql($defaults['jak_smtpusername']) . '"
-        WHEN "smtp_password" THEN "' . smartsql($defaults['jak_smtppassword']) . '"
-        WHEN "acetheme" THEN "' . smartsql($defaults['jak_acetheme']) . '"
-        WHEN "acetabSize" THEN "' . smartsql($defaults['jak_acetabSize']) . '"
-        WHEN "acegutter" THEN "' . smartsql($defaults['jak_acegutter']) . '"
-        WHEN "aceinvisible" THEN "' . smartsql($defaults['jak_aceinvisible']) . '"
-        WHEN "acewraplimit" THEN "' . smartsql($defaults['jak_acewraplimit']) . '"
-        WHEN "aceactiveline" THEN "' . smartsql($defaults['jak_aceactiveline']) . '"
-        WHEN "eucookie_enabled" THEN "' . smartsql($defaults['jak_eucookie_enabled']) . '"
-        WHEN "eucookie_name" THEN "' . smartsql($defaults['jak_eucookie_name']) . '"
-        WHEN "eucookie_expiryDays" THEN "' . smartsql($defaults['jak_eucookie_expiryDays']) . '"
-        WHEN "eucookie_position" THEN "' . smartsql($defaults['jak_eucookie_position']) . '"
-        WHEN "eucookie_style" THEN "' . smartsql($defaults['jak_eucookie_style']) . '"
-        WHEN "eucookie_theme" THEN "' . smartsql($defaults['jak_eucookie_theme']) . '"
-        WHEN "eucookie_pbck" THEN "' . $eucookie_pbck . '"
-        WHEN "eucookie_ptxt" THEN "' . $eucookie_ptxt . '"
-        WHEN "eucookie_bbck" THEN "' . $eucookie_bbck . '"
-        WHEN "eucookie_btxt" THEN "' . $eucookie_btxt . '"
-        WHEN "eucookie_alpha" THEN "' . smartsql($defaults['jak_eucookie_alpha']) . '"
-        WHEN "eucookie_message" THEN "' . smartsql($defaults['jak_eucookie_message']) . '"
-        WHEN "eucookie_dismiss" THEN "' . smartsql($defaults['jak_eucookie_dismiss']) . '"
-        WHEN "eucookie_link" THEN "' . smartsql($defaults['jak_eucookie_link']) . '"
-        WHEN "eucookie_href" THEN "' . smartsql($defaults['jak_eucookie_href']) . '"
-    END
-      WHERE varname IN ("email","sitehttps","lang","locale","showloginside","loginside","useravatwidth","useravatheight","userpath","printme","shortmsg","dateformat","timeformat","time_ago_show","timezoneserver","hvm","adv_editor","usr_smilies","contactform","shownews","rss","rssitem","adminpagemid","adminpageitem","ip_block","email_block","username_block","analytics","smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password","acetheme","acetabSize","acegutter","aceinvisible","acewraplimit","aceactiveline","eucookie_enabled","eucookie_name","eucookie_expiryDays","eucookie_position","eucookie_style","eucookie_theme","eucookie_pbck","eucookie_ptxt","eucookie_bbck","eucookie_btxt","eucookie_alpha","eucookie_message","eucookie_dismiss","eucookie_link","eucookie_href")');
+                  WHEN "email" THEN "' . smartsql($defaults['jak_email']) . '"
+                  WHEN "sitehttps" THEN "' . smartsql($defaults['jak_shttp']) . '"
+                  WHEN "lang" THEN "' . smartsql($defaults['jak_lang']) . '"
+                  WHEN "locale" THEN "' . smartsql($defaults['jak_locale']) . '"
+                  WHEN "showloginside" THEN "' . smartsql($defaults['jak_loginside']) . '"
+                  WHEN "useravatwidth" THEN "' . smartsql($defaults['jak_avatwidth']) . '"
+                  WHEN "useravatheight" THEN "' . smartsql($defaults['jak_avatheight']) . '"
+                  WHEN "printme" THEN "' . smartsql($defaults['jak_sprint']) . '"
+                  WHEN "shortmsg" THEN "' . smartsql($defaults['jak_shortmsg']) . '"
+                  WHEN "dateformat" THEN "' . smartsql($defaults['jak_date']) . '"
+                  WHEN "timeformat" THEN "' . smartsql($defaults['jak_time']) . '"
+                  WHEN "time_ago_show" THEN "' . smartsql($defaults['jak_time_ago']) . '"
+                  WHEN "hvm" THEN "' . smartsql($defaults['jak_hvm']) . '"
+                  WHEN "adv_editor" THEN "' . smartsql($defaults['jak_editor']) . '"
+                  WHEN "usr_smilies" THEN "' . smartsql($defaults['jak_smilies']) . '"
+                  WHEN "timezoneserver" THEN "' . smartsql($defaults['jak_timezone_server']) . '"
+                  WHEN "contactform" THEN "' . smartsql($defaults['jak_contact']) . '"
+                  WHEN "shownews" THEN "' . smartsql($defaults['jak_shownews']) . '"
+                  WHEN "rss" THEN "' . smartsql($defaults['jak_rss']) . '"
+                  WHEN "rssitem" THEN "' . smartsql($defaults['jak_rssitem']) . '"
+                  WHEN "adminpagemid" THEN "' . smartsql($defaults['jak_mid']) . '"
+                  WHEN "adminpageitem" THEN "' . smartsql($defaults['jak_item']) . '"
+                  WHEN "ip_block" THEN "' . smartsql($defaults['ip_block']) . '"
+                  WHEN "email_block" THEN "' . smartsql($defaults['email_block']) . '"
+                  WHEN "username_block" THEN "' . smartsql($defaults['username_block']) . '"
+                  WHEN "analytics" THEN "' . smartsql($defaults['jak_analytics']) . '"
+                  WHEN "smtp_or_mail" THEN "' . smartsql($defaults['jak_smpt']) . '"
+                  WHEN "smtp_host" THEN "' . smartsql($defaults['jak_host']) . '"
+                  WHEN "smtp_port" THEN "' . smartsql($defaults['jak_port']) . '"
+                  WHEN "smtp_alive" THEN "' . smartsql($defaults['jak_alive']) . '"
+                  WHEN "smtp_auth" THEN "' . smartsql($defaults['jak_auth']) . '"
+                  WHEN "smtp_prefix" THEN "' . smartsql($defaults['jak_prefix']) . '"
+                  WHEN "smtp_user" THEN "' . smartsql($defaults['jak_smtpusername']) . '"
+                  WHEN "smtp_password" THEN "' . smartsql($defaults['jak_smtppassword']) . '"
+                  WHEN "acetheme" THEN "' . smartsql($defaults['jak_acetheme']) . '"
+                  WHEN "acetabSize" THEN "' . smartsql($defaults['jak_acetabSize']) . '"
+                  WHEN "acegutter" THEN "' . smartsql($defaults['jak_acegutter']) . '"
+                  WHEN "aceinvisible" THEN "' . smartsql($defaults['jak_aceinvisible']) . '"
+                  WHEN "acewraplimit" THEN "' . smartsql($defaults['jak_acewraplimit']) . '"
+                  WHEN "aceactiveline" THEN "' . smartsql($defaults['jak_aceactiveline']) . '"
+                  WHEN "eucookie_enabled" THEN "' . smartsql($defaults['jak_eucookie_enabled']) . '"
+                  WHEN "eucookie_name" THEN "' . smartsql($defaults['jak_eucookie_name']) . '"
+                  WHEN "eucookie_expiryDays" THEN "' . smartsql($defaults['jak_eucookie_expiryDays']) . '"
+                  WHEN "eucookie_position" THEN "' . smartsql($defaults['jak_eucookie_position']) . '"
+                  WHEN "eucookie_style" THEN "' . smartsql($defaults['jak_eucookie_style']) . '"
+                  WHEN "eucookie_theme" THEN "' . smartsql($defaults['jak_eucookie_theme']) . '"
+                  WHEN "eucookie_pbck" THEN "' . $eucookie_pbck . '"
+                  WHEN "eucookie_ptxt" THEN "' . $eucookie_ptxt . '"
+                  WHEN "eucookie_bbck" THEN "' . $eucookie_bbck . '"
+                  WHEN "eucookie_btxt" THEN "' . $eucookie_btxt . '"
+                  WHEN "eucookie_alpha" THEN "' . smartsql($defaults['jak_eucookie_alpha']) . '"
+                  WHEN "eucookie_message" THEN "' . smartsql($defaults['jak_eucookie_message']) . '"
+                  WHEN "eucookie_dismiss" THEN "' . smartsql($defaults['jak_eucookie_dismiss']) . '"
+                  WHEN "eucookie_link" THEN "' . smartsql($defaults['jak_eucookie_link']) . '"
+                  WHEN "eucookie_href" THEN "' . smartsql($defaults['jak_eucookie_href']) . '"
+                END
+                  WHERE varname IN ("email","sitehttps","lang","locale","showloginside","loginside","useravatwidth","useravatheight","userpath","printme","shortmsg","dateformat","timeformat","time_ago_show","timezoneserver","hvm","adv_editor","usr_smilies","contactform","shownews","rss","rssitem","adminpagemid","adminpageitem","ip_block","email_block","username_block","analytics","smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password","acetheme","acetabSize","acegutter","aceinvisible","acewraplimit","aceactiveline","eucookie_enabled","eucookie_name","eucookie_expiryDays","eucookie_position","eucookie_style","eucookie_theme","eucookie_pbck","eucookie_ptxt","eucookie_bbck","eucookie_btxt","eucookie_alpha","eucookie_message","eucookie_dismiss","eucookie_link","eucookie_href")');
 
       if (!$result) {
         // EN: Redirect page
         // CZ: Přesměrování stránky
-        jak_redirect(BASE_URL . 'index.php?p=setting&sp=e');
+        envo_redirect(BASE_URL . 'index.php?p=setting&status=e');
       } else {
         // EN: Redirect page
         // CZ: Přesměrování stránky
-        jak_redirect(BASE_URL . 'index.php?p=setting&sp=s');
+        envo_redirect(BASE_URL . 'index.php?p=setting&status=s');
       }
     } else {
 
@@ -224,18 +219,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // CZ: Hlavní proměnné
     $defaults = $_POST;
 
-    // Do the dirty work in mysql
+    /* EN: Convert value
+     * smartsql - secure method to insert form data into a MySQL DB
+     * ------------------
+     * CZ: Převod hodnot
+     * smartsql - secure method to insert form data into a MySQL DB
+    */
     $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-        WHEN "smtp_or_mail" THEN "' . smartsql($defaults['jak_smpt']) . '"
-        WHEN "smtp_host" THEN "' . smartsql($defaults['jak_host']) . '"
-        WHEN "smtp_port" THEN "' . smartsql($defaults['jak_port']) . '"
-        WHEN "smtp_alive" THEN "' . smartsql($defaults['jak_alive']) . '"
-        WHEN "smtp_auth" THEN "' . smartsql($defaults['jak_auth']) . '"
-        WHEN "smtp_prefix" THEN "' . smartsql($defaults['jak_prefix']) . '"
-        WHEN "smtp_user" THEN "' . smartsql($defaults['jak_smtpusername']) . '"
-        WHEN "smtp_password" THEN "' . smartsql($defaults['jak_smtppassword']) . '"
-    END
-      WHERE varname IN ("smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password")');
+                WHEN "smtp_or_mail" THEN "' . smartsql($defaults['jak_smpt']) . '"
+                WHEN "smtp_host" THEN "' . smartsql($defaults['jak_host']) . '"
+                WHEN "smtp_port" THEN "' . smartsql($defaults['jak_port']) . '"
+                WHEN "smtp_alive" THEN "' . smartsql($defaults['jak_alive']) . '"
+                WHEN "smtp_auth" THEN "' . smartsql($defaults['jak_auth']) . '"
+                WHEN "smtp_prefix" THEN "' . smartsql($defaults['jak_prefix']) . '"
+                WHEN "smtp_user" THEN "' . smartsql($defaults['jak_smtpusername']) . '"
+                WHEN "smtp_password" THEN "' . smartsql($defaults['jak_smtppassword']) . '"
+              END
+                WHERE varname IN ("smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password")');
 
     // SEND TEST EMAIL
     // Retrieve the email template required
@@ -314,15 +314,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // EN: Import important settings for the template from the DB (as ARRAY)
 // CZ: Importuj důležité nastavení pro šablonu z DB (POLE)
-$JAK_SETTING = jak_get_setting('setting');
+$JAK_SETTING = envo_get_setting('setting');
 
 // EN: Import important settings for the template from the DB (only VALUE)
 // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
-$JAK_SETTING_VAL = jak_get_setting_val('setting');
+$JAK_SETTING_VAL = envo_get_setting_val('setting');
 
 // Call the settings function
-$acp_lang_files = jak_get_lang_files(TRUE);
-$lang_files     = jak_get_lang_files(FALSE);
+$acp_lang_files = envo_get_lang_files(TRUE);
+$lang_files     = envo_get_lang_files(FALSE);
 
 // EN: Title and Description
 // CZ: Titulek a Popis

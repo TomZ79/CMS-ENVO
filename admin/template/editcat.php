@@ -177,7 +177,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('jak_lcontent', jak_edit_safe_userpost($JAK_FORM_DATA["content"]), '4', '', array('id' => 'content', 'class' => 'form-control'));
+                        echo $Html->addTextarea('jak_lcontent', envo_edit_safe_userpost($JAK_FORM_DATA["content"]), '4', '', array('id' => 'content', 'class' => 'form-control'));
                         ?>
 
                       </div>
@@ -358,7 +358,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTextArea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('jak_lcontent_meta_desc', jak_edit_safe_userpost(htmlspecialchars($JAK_FORM_DATA["metadesc"])), '4', '', array('id' => 'jak_editor_light_meta_desc', 'class' => 'form-control', 'maxlength' => '400'));
+                        echo $Html->addTextarea('jak_lcontent_meta_desc', envo_edit_safe_userpost(htmlspecialchars($JAK_FORM_DATA["metadesc"])), '4', '', array('id' => 'jak_editor_light_meta_desc', 'class' => 'form-control', 'maxlength' => '400'));
                         ?>
 
                       </div>
@@ -404,7 +404,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'jak_lcontent_meta_key', jak_edit_safe_userpost(htmlspecialchars($JAK_FORM_DATA["metakey"])), 'jak_editor_light_meta_key', 'form-control');
+                        echo $Html->addInput('text', 'jak_lcontent_meta_key', envo_edit_safe_userpost(htmlspecialchars($JAK_FORM_DATA["metakey"])), 'jak_editor_light_meta_key', 'form-control');
                         ?>
 
                       </div>

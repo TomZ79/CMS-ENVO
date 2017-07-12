@@ -6,51 +6,49 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSTAGS)) jak_redirect(BASE_URL);
+if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSTAGS)) envo_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$jaktable  = DB_PREFIX . 'tags';
-$jaktable1 = DB_PREFIX . 'tagcloud';
-$jaktable2 = DB_PREFIX . 'pagesgrid';
-$jaktable3 = DB_PREFIX . 'pluginhooks';
+$envotable  = DB_PREFIX . 'tags';
+$envotable1 = DB_PREFIX . 'tagcloud';
+$envotable2 = DB_PREFIX . 'pagesgrid';
+$envotable3 = DB_PREFIX . 'pluginhooks';
 
 // Now start with the plugin use a switch to access all pages
 switch ($page1) {
-
-  // Get the tag cloud
   case 'cloud':
 
     // Important template Stuff
-    $JAK_TAGCLOUD = jak_admin_tag_cloud();
+    $JAK_TAGCLOUD = envo_admin_tag_cloud();
 
     switch ($page2) {
       case 'delete':
 
-        if (jak_field_not_exist($page3, $jaktable1, 'tag')) {
+        if (envo_field_not_exist($page3, $envotable1, 'tag')) {
 
-          $result  = $jakdb->query('DELETE FROM ' . $jaktable1 . ' WHERE tag = "' . smartsql($page3) . '"');
-          $result1 = $jakdb->query('DELETE FROM ' . $jaktable . ' WHERE tag = "' . smartsql($page3) . '"');
+          $result  = $jakdb->query('DELETE FROM ' . $envotable1 . ' WHERE tag = "' . smartsql($page3) . '"');
+          $result1 = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE tag = "' . smartsql($page3) . '"');
 
           if (!$result || !$result1) {
             // EN: Redirect page
             // CZ: Přesměrování stránky s notifikací - chybné
-            jak_redirect(BASE_URL . 'index.php?p=tags&sp=cloud&ssp=e');
+            envo_redirect(BASE_URL . 'index.php?p=tags&sp=cloud&status=e');
           } else {
             // EN: Redirect page
             // CZ: Přesměrování stránky s notifikací - úspěšné
             /*
             NOTIFIKACE:
-            'ssp=s'   - Záznam úspěšně uložen
-            'sssp=s'  - Záznam úspěšně odstraněn
+            'status=s'   - Záznam úspěšně uložen
+            'status1=s'  - Záznam úspěšně odstraněn
             */
-            jak_redirect(BASE_URL . 'index.php?p=tags&sp=cloud&ssp=s&sssp=s');
+            envo_redirect(BASE_URL . 'index.php?p=tags&sp=cloud&status=s&status1=s');
           }
 
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=tags&sp=cloud&ssp=ene');
+          envo_redirect(BASE_URL . 'index.php?p=tags&sp=cloud&status=ene');
         }
 
         break;
@@ -72,11 +70,11 @@ switch ($page1) {
 
     // EN: Import important settings for the template from the DB
     // CZ: Importuj důležité nastavení pro šablonu z DB
-    $JAK_SETTING = jak_get_setting('tags');
+    $JAK_SETTING = envo_get_setting('tags');
 
     // EN: Import important settings for the template from the DB (only VALUE)
     // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
-    $JAK_SETTING_VAL = jak_get_setting_val('tags');
+    $JAK_SETTING_VAL = envo_get_setting_val('tags');
 
     // Let's go on with the script
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -98,16 +96,20 @@ switch ($page1) {
 
       if (count($errors) == 0) {
 
-        // Do the dirty work in mysql
-
+        /* EN: Convert value
+         * smartsql - secure method to insert form data into a MySQL DB
+         * ------------------
+         * CZ: Převod hodnot
+         * smartsql - secure method to insert form data into a MySQL DB
+        */
         $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-		    	WHEN "tagtitle" THEN "' . smartsql($defaults['jak_title']) . '"
-		    	WHEN "tagdesc" THEN "' . smartsql($defaults['jak_lcontent']) . '"
-		    	WHEN "taglimit" THEN "' . smartsql($defaults['jak_limit']) . '"
-		        WHEN "tagminfont" THEN "' . smartsql($defaults['jak_min']) . '"
-		        WHEN "tagmaxfont" THEN "' . smartsql($defaults['jak_max']) . '"
-		    END
-				WHERE varname IN ("tagtitle", "tagdesc", "taglimit", "tagminfont", "tagmaxfont")');
+                    WHEN "tagtitle" THEN "' . smartsql($defaults['jak_title']) . '"
+                    WHEN "tagdesc" THEN "' . smartsql($defaults['jak_lcontent']) . '"
+                    WHEN "taglimit" THEN "' . smartsql($defaults['jak_limit']) . '"
+                    WHEN "tagminfont" THEN "' . smartsql($defaults['jak_min']) . '"
+                    WHEN "tagmaxfont" THEN "' . smartsql($defaults['jak_max']) . '"
+                  END
+                  WHERE varname IN ("tagtitle", "tagdesc", "taglimit", "tagminfont", "tagmaxfont")');
 
         // Save order for sidebar widget
         if (isset($defaults['jak_hookshow_new']) && is_array($defaults['jak_hookshow_new'])) {
@@ -126,7 +128,7 @@ switch ($page1) {
               $whatid = 0;
               if (isset($defaults['whatid_' . $pdoith[$key]])) $whatid = $defaults['whatid_' . $pdoith[$key]];
 
-              $jakdb->query('INSERT INTO ' . $jaktable2 . ' SET plugin = 3, hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '"');
+              $jakdb->query('INSERT INTO ' . $envotable2 . ' SET plugin = 3, hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '"');
 
             }
 
@@ -138,11 +140,11 @@ switch ($page1) {
         if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
 
           // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
-          $row = $jakdb->queryRow('SELECT id FROM ' . $jaktable2 . ' WHERE plugin = 3 AND hookid != 0');
+          $row = $jakdb->queryRow('SELECT id FROM ' . $envotable2 . ' WHERE plugin = 3 AND hookid != 0');
 
           // We have something to delete
           if ($row["id"]) {
-            $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE plugin = 3 AND hookid != 0');
+            $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE plugin = 3 AND hookid != 0');
           }
 
         }
@@ -162,7 +164,7 @@ switch ($page1) {
           foreach ($doith as $key => $exorder) {
 
             // Get the real what id
-            $result = $jakdb->query('SELECT pluginid FROM ' . $jaktable2 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
+            $result = $jakdb->query('SELECT pluginid FROM ' . $envotable2 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
             $row    = $result->fetch_assoc();
 
             // Get the whatid
@@ -174,16 +176,16 @@ switch ($page1) {
               $updatesql1 .= sprintf("WHEN %d THEN %d ", $key, $whatid);
 
             } else {
-              $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE id = "' . smartsql($key) . '"');
+              $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($key) . '"');
             }
           }
 
-          $jakdb->query('UPDATE ' . $jaktable2 . ' SET orderid = CASE id
+          $jakdb->query('UPDATE ' . $envotable2 . ' SET orderid = CASE id
 					' . $updatesql . '
 					END
 					WHERE id IN (' . $hookrealid . ')');
 
-          $jakdb->query('UPDATE ' . $jaktable2 . ' SET whatid = CASE id
+          $jakdb->query('UPDATE ' . $envotable2 . ' SET whatid = CASE id
 					' . $updatesql1 . '
 					END
 					WHERE id IN (' . $hookrealid . ')');
@@ -193,11 +195,11 @@ switch ($page1) {
         if (!$result) {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=tags&sp=setting&ssp=e');
+          envo_redirect(BASE_URL . 'index.php?p=tags&sp=setting&status=e');
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=tags&sp=setting&ssp=s');
+          envo_redirect(BASE_URL . 'index.php?p=tags&sp=setting&status=s');
         }
       } else {
 
@@ -207,7 +209,7 @@ switch ($page1) {
     }
 
     // Get the sort orders for the grid
-    $grid = $jakdb->query('SELECT id, hookid, whatid, orderid FROM ' . $jaktable2 . ' WHERE plugin = 3 ORDER BY orderid ASC');
+    $grid = $jakdb->query('SELECT id, hookid, whatid, orderid FROM ' . $envotable2 . ' WHERE plugin = 3 ORDER BY orderid ASC');
     while ($grow = $grid->fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
@@ -215,7 +217,7 @@ switch ($page1) {
     }
 
     // Get the sidebar templates
-    $result = $jakdb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $jaktable3 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
+    $result = $jakdb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable3 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
     while ($row = $result->fetch_assoc()) {
       $JAK_HOOKS[] = $row;
     }
@@ -260,10 +262,10 @@ switch ($page1) {
         // CZ: Přesměrování stránky s notifikací - úspěšné
         /*
         NOTIFIKACE:
-        'sp=s'   - Záznam úspěšně uložen
-        'ssp=s'  - Záznam úspěšně odstraněn
+        'status=s'   - Záznam úspěšně uložen
+        'status1=s'  - Záznam úspěšně odstraněn
         */
-        jak_redirect(BASE_URL . 'index.php?p=tags&sp=s&ssp=s');
+        envo_redirect(BASE_URL . 'index.php?p=tags&status=s&status1=s');
 
       }
     }
@@ -274,7 +276,7 @@ switch ($page1) {
         if ($page2 == 'pluginid') {
           $bu = 'pluginid';
 
-          $getTotal = jak_get_total($jaktable, $page3, $bu, '');
+          $getTotal = envo_get_total($envotable, $page3, $bu, '');
 
           // Paginator
           if ($getTotal != 0) {
@@ -288,13 +290,13 @@ switch ($page1) {
             $tags->paginate();
             $JAK_PAGINATE = $tags->display_pages();
 
-            $JAK_TAG_ALL = jak_get_tag($tags->limit, $page3, $jakplugins->jakAdmintag(), FALSE);
+            $JAK_TAG_ALL = envo_get_tag($tags->limit, $page3, $jakplugins->jakAdmintag(), FALSE);
 
           }
 
         } elseif ($page2 == 'tag') {
 
-          $getTotal = jak_get_total($jaktable, '', '', '');
+          $getTotal = envo_get_total($envotable, '', '', '');
 
           $sortoder = 'tag ASC';
           if ($page3 == 'DESC') $sortoder = 'tag DESC';
@@ -311,14 +313,14 @@ switch ($page1) {
             $tags->paginate();
             $JAK_PAGINATE = $tags->display_pages();
 
-            $JAK_TAG_ALL = jak_get_tag($tags->limit, FALSE, $jakplugins->jakAdmintag(), $sortoder);
+            $JAK_TAG_ALL = envo_get_tag($tags->limit, FALSE, $jakplugins->jakAdmintag(), $sortoder);
 
           }
 
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=tags');
+          envo_redirect(BASE_URL . 'index.php?p=tags');
         }
 
         // EN: Title and Description
@@ -339,17 +341,17 @@ switch ($page1) {
 
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=tags&sp=s');
+          envo_redirect(BASE_URL . 'index.php?p=tags&status=s');
 
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=tags&sp=ene');
+          envo_redirect(BASE_URL . 'index.php?p=tags&status=ene');
         }
 
         break;
       case 'delete':
-        if (jak_row_exist($page2, $jaktable)) {
+        if (envo_row_exist($page2, $envotable)) {
 
           JAK_tags::jakDeleteonetag($page2);
 
@@ -357,21 +359,21 @@ switch ($page1) {
           // CZ: Přesměrování stránky s notifikací - úspěšné
           /*
           NOTIFIKACE:
-          'sp=s'   - Záznam úspěšně uložen
-          'ssp=s'  - Záznam úspěšně odstraněn
+          'status=s'   - Záznam úspěšně uložen
+          'status1=s'  - Záznam úspěšně odstraněn
           */
-          jak_redirect(BASE_URL . 'index.php?p=tags&sp=s&ssp=s');
+          envo_redirect(BASE_URL . 'index.php?p=tags&status=s&status=s');
 
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=tags&sp=ene');
+          envo_redirect(BASE_URL . 'index.php?p=tags&status=ene');
         }
         break;
       default:
 
         // Important template Stuff
-        $getTotal = jak_get_total($jaktable, '', '', '');
+        $getTotal = envo_get_total($envotable, '', '', '');
         // Paginator
         if ($getTotal != 0) {
           $tags                 = new JAK_Paginator;
@@ -383,7 +385,7 @@ switch ($page1) {
           $tags->paginate();
           $JAK_PAGINATE = $tags->display_pages();
 
-          $JAK_TAG_ALL = jak_get_tag($tags->limit, FALSE, $jakplugins->jakAdmintag(), FALSE);
+          $JAK_TAG_ALL = envo_get_tag($tags->limit, FALSE, $jakplugins->jakAdmintag(), FALSE);
         }
 
         // EN: Title and Description
