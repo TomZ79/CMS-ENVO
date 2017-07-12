@@ -228,10 +228,10 @@ if ($page1 == JAK_PLUGIN_VAR_BLOG) {
 		$what = 1;
 		$seowhat = $jkv["blogurl"];
 
-		$JAK_RSS_DESCRIPTION = jak_cut_text($jkv["blogdesc"], $jkv["shortmsg"], '…');
+		$JAK_RSS_DESCRIPTION = envo_cut_text($jkv["blogdesc"], $jkv["shortmsg"], '…');
 
 	} else {
-		jak_redirect(BASE_URL);
+		envo_redirect(BASE_URL);
 	}
 
 }
@@ -317,7 +317,7 @@ if (empty($bl) && !empty($defaults['jak_showblogmany'])) {
         <p>Use this hook to execute PHP code in the admin/page.php and admin/news.php file.</p>
 
         <pre name="code" class="brush: php;">
-$JAK_GET_BLOG = jak_get_page_info(DB_PREFIX.'blog', '');
+$JAK_GET_BLOG = envo_get_page_info(DB_PREFIX.'blog', '');
 
 if ($JAK_FORM_DATA) {
 
@@ -417,7 +417,7 @@ if (file_exists(APP_PATH.'plugins/blog/lang/'.$site_language.'.ini')) {
         <pre name="code" class="brush: php;">
 include_once APP_PATH.'plugins/blog/functions.php';
 
-$JAK_BLOG_ALL = jak_get_blog('', $jkv["blogorder"], '', '', $jkv["blogurl"], $tl['global_text']['gtxt4']);
+$JAK_BLOG_ALL = envo_get_blog('', $jkv["blogorder"], '', '', $jkv["blogurl"], $tl['global_text']['gtxt4']);
 $PAGE_TITLE = JAK_PLUGIN_NAME_BLOG;
         </pre>
 

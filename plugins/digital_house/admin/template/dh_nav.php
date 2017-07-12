@@ -1,6 +1,6 @@
 <!-- START BLOG SECTION -->
 <?php
-if ($page == 'digitalhouse') {
+if ($page == 'digital-house') {
   $classdhsection = 'open active';
   $classdhiconbg  = 'bg-success';
 }
@@ -16,7 +16,7 @@ if ($page == 'digitalhouse') {
 
   <ul class="sub-menu">
 
-    <li class="<?php echo (($page == 'digitalhouse' && $page1 == 'cities') || ($page == 'digitalhouse' && $page1 == 'newcity')) ? 'submenu-active' : ''; ?>">
+    <li class="<?php echo (($page == 'digital-house' && $page1 == 'cities') || ($page == 'digital-house' && $page1 == 'newcity')) ? 'submenu-active' : ''; ?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -26,7 +26,7 @@ if ($page == 'digitalhouse') {
       ?>
 
     </li>
-    <li class="<?php echo ($page == 'digitalhouse' && $page1 == 'cities' && $page2 == 'newcity') ? 'submenu-active' : ''; ?>">
+    <li class="<?php echo ($page == 'digital-house' && $page1 == 'cities' && $page2 == 'newcity') ? 'submenu-active' : ''; ?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -36,8 +36,8 @@ if ($page == 'digitalhouse') {
       ?>
 
     </li>
-    <?php if ($page == 'digitalhouse' && $page1 == 'cities' && $page2 == 'editcity') { ?>
-      <li class="<?php echo ($page == 'digitalhouse' && $page1 == 'cities' && $page2 == 'editcity') ? 'submenu-active' : ''; ?>">
+    <?php if ($page == 'digital-house' && $page1 == 'cities' && $page2 == 'editcity') { ?>
+      <li class="<?php echo ($page == 'digital-house' && $page1 == 'cities' && $page2 == 'editcity') ? 'submenu-active' : ''; ?>">
 
         <?php
         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -50,7 +50,7 @@ if ($page == 'digitalhouse') {
     <?php } ?>
     <li class="list-divider"></li>
 
-    <li class="<?php echo ($page == 'digitalhouse' && $page1 == 'setting') ? 'submenu-active' : ''; ?>">
+    <li class="<?php echo ($page == 'digital-house' && $page1 == 'setting') ? 'submenu-active' : ''; ?>">
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)

@@ -6,11 +6,11 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSBLOG)) jak_redirect(BASE_URL);
+if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSBLOG)) envo_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$jaktable = DB_PREFIX . 'digitalhousecities';
+$envotable = DB_PREFIX . 'digitalhousecities';
 
 // Now start with the plugin use a switch to access all pages
 switch ($page1) {
@@ -41,7 +41,7 @@ switch ($page1) {
 
             // EN: Check if the name not exists
             // CZ: Kontrola jestli název neexistuje
-            if (jak_field_not_exist($defaults['envo_cityname'], $jaktable, $jakfield)) {
+            if (envo_field_not_exist($defaults['envo_cityname'], $envotable, $jakfield)) {
               $errors['e2'] = $tl['general_error']['generror61'] . '<br>';
             }
 
@@ -49,7 +49,15 @@ switch ($page1) {
             // CZ: Všechny kontroly jsou v pořádku bez chyb - Spustit zpracování formuláře
             if (count($errors) == 0) {
 
-              $result = $jakdb->query('INSERT INTO ' . $jaktable . ' SET 
+              /* EN: Convert value
+               * smartsql - secure method to insert form data into a MySQL DB
+               * url_slug  - friendly URL slug from a string
+               * ------------------
+               * CZ: Převod hodnot
+               * smartsql - secure method to insert form data into a MySQL DB
+               * url_slug  - friendly URL slug from a string
+              */
+              $result = $jakdb->query('INSERT INTO ' . $envotable . ' SET 
                         name = "' . smartsql($defaults['envo_cityname']) . '",
                         varname = "' . url_slug($defaults['envo_cityname']) . '"');
 
@@ -58,11 +66,11 @@ switch ($page1) {
               if (!$result) {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                jak_redirect(BASE_URL . 'index.php?p=digital-house&sp=cities&ssp=newcity&status=e');
+                envo_redirect(BASE_URL . 'index.php?p=digital-house&sp=cities&ssp=newcity&status=e');
               } else {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                jak_redirect(BASE_URL . 'index.php?p=digital-house&sp=cities&ssp=editcity&id=' . $rowid . '&status=s');
+                envo_redirect(BASE_URL . 'index.php?p=digital-house&sp=cities&ssp=editcity&id=' . $rowid . '&status=s');
               }
 
             } else {
@@ -92,7 +100,7 @@ switch ($page1) {
         $pageID = $page3;
         $jakfield = 'name';
 
-        if (is_numeric($pageID) && jak_row_exist($pageID, $jaktable)) {
+        if (is_numeric($pageID) && envo_row_exist($pageID, $envotable)) {
 
           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // EN: Default Variable
@@ -109,7 +117,7 @@ switch ($page1) {
 
               // EN: Check if the name not exists
               // CZ: Kontrola jestli název neexistuje
-              if (jak_field_not_exist($defaults['envo_cityname'], $jaktable, $jakfield)) {
+              if (envo_field_not_exist($defaults['envo_cityname'], $envotable, $jakfield)) {
                 $errors['e2'] = $tl['general_error']['generror61'] . '<br>';
               }
 
@@ -117,7 +125,15 @@ switch ($page1) {
               // CZ: Všechny kontroly jsou v pořádku bez chyb - Spustit zpracování formuláře
               if (count($errors) == 0) {
 
-                $result = $jakdb->query('UPDATE ' . $jaktable . ' SET
+                /* EN: Convert value
+               * smartsql - secure method to insert form data into a MySQL DB
+               * url_slug  - friendly URL slug from a string
+               * ------------------
+               * CZ: Převod hodnot
+               * smartsql - secure method to insert form data into a MySQL DB
+               * url_slug  - friendly URL slug from a string
+              */
+                $result = $jakdb->query('UPDATE ' . $envotable . ' SET
                           name = "' . smartsql($defaults['envo_cityname']) . '",
                           varname = "' . url_slug($defaults['envo_cityname']) . '"
                           WHERE id = "' . smartsql($pageID) . '"');
@@ -126,11 +142,11 @@ switch ($page1) {
                 if (!$result) {
                   // EN: Redirect page
                   // CZ: Přesměrování stránky
-                  jak_redirect(BASE_URL . 'index.php?p=digital-house&sp=cities&ssp=editcity&id=' . $pageID . '&status=e');
+                  envo_redirect(BASE_URL . 'index.php?p=digital-house&sp=cities&ssp=editcity&id=' . $pageID . '&status=e');
                 } else {
                   // EN: Redirect page
                   // CZ: Přesměrování stránky
-                  jak_redirect(BASE_URL . 'index.php?p=digital-house&sp=cities&ssp=editcity&id=' . $pageID . '&status=s');
+                  envo_redirect(BASE_URL . 'index.php?p=digital-house&sp=cities&ssp=editcity&id=' . $pageID . '&status=s');
                 }
 
               } else {
@@ -144,7 +160,7 @@ switch ($page1) {
 
           // EN: Get all the data for the form
           // CZ: Získání všech dat pro formulář
-          $JAK_FORM_DATA = jak_get_data($pageID, $jaktable);
+          $JAK_FORM_DATA = envo_get_data($pageID, $envotable);
 
           // EN: Title and Description
           // CZ: Titulek a Popis
@@ -158,7 +174,7 @@ switch ($page1) {
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=digital-house&sp=cities&status=ene');
+          envo_redirect(BASE_URL . 'index.php?p=digital-house&sp=cities&status=ene');
         }
 
         break;
@@ -186,20 +202,26 @@ switch ($page1) {
       $defaults = $_POST;
 
       if (count($errors) == 0) {
-        // Do the dirty work in mysql
+
+        /* EN: Convert value
+         * smartsql - secure method to insert form data into a MySQL DB
+         * ------------------
+         * CZ: Převod hodnot
+         * smartsql - secure method to insert form data into a MySQL DB
+        */
         $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-		    	WHEN "digitalhousetitle" THEN "' . smartsql($defaults['jak_title']) . '"
-		    END
-				WHERE varname IN ("digitalhousetitle")');
+                    WHEN "digitalhousetitle" THEN "' . smartsql($defaults['jak_title']) . '"
+                  END
+                  WHERE varname IN ("digitalhousetitle")');
 
         if (!$result) {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=digital-house&sp=setting&ssp=e');
+          envo_redirect(BASE_URL . 'index.php?p=digital-house&sp=setting&status=e');
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          jak_redirect(BASE_URL . 'index.php?p=digital-house&sp=setting&ssp=s');
+          envo_redirect(BASE_URL . 'index.php?p=digital-house&sp=setting&status=s');
         }
       } else {
         $errors['e'] = $tl['general_error']['generror'] . '<br>';
@@ -209,11 +231,11 @@ switch ($page1) {
 
     // EN: Import important settings for the template from the DB
     // CZ: Importuj důležité nastavení pro šablonu z DB
-    $JAK_SETTING = jak_get_setting('digitalhouse');
+    $JAK_SETTING = envo_get_setting('digitalhouse');
 
     // EN: Import important settings for the template from the DB (only VALUE)
     // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
-    $JAK_SETTING_VAL = jak_get_setting_val('digitalhouse');
+    $JAK_SETTING_VAL = envo_get_setting_val('digitalhouse');
 
     // EN: Title and Description
     // CZ: Titulek a Popis

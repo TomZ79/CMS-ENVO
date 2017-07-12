@@ -225,10 +225,10 @@ if (file_exists(APP_PATH . 'plugins/blog/admin/lang/' . $site_language . '.ini')
 		$what = 1;
 		$seowhat = $jkv[\"blogurl\"];
 		
-		$JAK_RSS_DESCRIPTION = jak_cut_text($jkv[\"blogdesc\"], $jkv[\"shortmsg\"], \'…\');
+		$JAK_RSS_DESCRIPTION = envo_cut_text($jkv[\"blogdesc\"], $jkv[\"shortmsg\"], \'…\');
 		
 	} else {
-		jak_redirect(BASE_URL);
+		envo_redirect(BASE_URL);
 	}
 	
 }';
@@ -244,7 +244,7 @@ $JAK_TAG_BLOG_DATA = $blogtagData;
       // CZ: Php kód pro mapu sítě
       $sitephpsitemap = 'include_once APP_PATH.\'plugins/blog/functions.php\';
 
-$JAK_BLOG_ALL = jak_get_blog(\'\', $jkv[\"blogorder\"], \'\', \'\', $jkv[\"blogurl\"], $tl[\'general\'][\'g56\']);
+$JAK_BLOG_ALL = envo_get_blog(\'\', $jkv[\"blogorder\"], \'\', \'\', $jkv[\"blogurl\"], $tl[\'general\'][\'g56\']);
 $PAGE_TITLE = JAK_PLUGIN_NAME_BLOG;';
 
       // Fulltext search query
@@ -277,7 +277,7 @@ if (empty($bl) && !empty($defaults[\'jak_showblogmany\'])) {
 }';
 
       //
-      $getblog = '$JAK_GET_BLOG = jak_get_page_info(DB_PREFIX.\'blog\', \'\');
+      $getblog = '$JAK_GET_BLOG = envo_get_page_info(DB_PREFIX.\'blog\', \'\');
 
 if ($JAK_FORM_DATA) {
 

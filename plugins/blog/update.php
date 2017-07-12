@@ -73,16 +73,12 @@ $nameofplugin  = 'Blog';
           <!-- The installation button is hit -->
           <?php if (isset($_POST['install'])) {
 
-
             // --------------------------------------------
             //  START PLUGIN UPDATE PROCESS
             // --------------------------------------------
 
 
-            // EN: Insert data to table 'setting'
-            // CZ: Vložení potřebných dat to tabulky 'setting'
-            $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
-("blogshortmsg", "blog", "280", "280", "input", "free", "blog")');
+
 
 
             // --------------------------------------------

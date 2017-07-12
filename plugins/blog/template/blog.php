@@ -41,8 +41,8 @@
               <?php } ?>
 						</span>
               <!-- Post Content -->
-              <h3><a href="<?php echo $v["parseurl"]; ?>"><?php echo jak_cut_text($v["title"], 100, ""); ?></a></h3>
-              <p><?php echo jak_cut_text($v['content'], $jkv["blogshortmsg"], '....') ?></p>
+              <h3><a href="<?php echo $v["parseurl"]; ?>"><?php echo envo_cut_text($v["title"], 100, ""); ?></a></h3>
+              <p><?php echo envo_cut_text($v['content'], $jkv["blogshortmsg"], '....') ?></p>
               <p class="pull-right"><a href="<?php echo $v["parseurl"]; ?>"><?php echo $tlblog["blog_frontend"]["blog5"]; ?></a></p>
             </div>
           </div>
