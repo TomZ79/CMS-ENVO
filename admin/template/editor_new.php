@@ -62,12 +62,12 @@
 
             <?php
             // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-            echo $Html->addTextarea('jak_content', (isset($_REQUEST["jak_content"])) ? jak_edit_safe_userpost($_REQUEST["jak_content"]) : '', '', '', array('id' => 'jak_editor', 'class' => 'form-control hidden'));
+            echo $Html->addTextarea('jak_content', (isset($_REQUEST["jak_content"])) ? envo_edit_safe_userpost($_REQUEST["jak_content"]) : '', '', '', array('id' => 'jak_editor', 'class' => 'form-control hidden'));
 
           } else {
 
             // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-            echo $Html->addTextarea('jak_content', (isset($_REQUEST["jak_content"])) ? jak_edit_safe_userpost($_REQUEST["jak_content"]) : '', '40', '', array('id' => 'jakEditor', 'class' => 'form-control jakEditor'));
+            echo $Html->addTextarea('jak_content', (isset($_REQUEST["jak_content"])) ? envo_edit_safe_userpost($_REQUEST["jak_content"]) : '', '40', '', array('id' => 'jakEditor', 'class' => 'form-control jakEditor'));
 
           } ?>
 

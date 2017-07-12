@@ -569,7 +569,7 @@ APP_PATH.'plugins/yourplugin/file_to_include.php';
 
         <p>For example:</p>
         <pre name="code" class="brush: php;">
-if ($defaults['jak_lang'] == '') { $errors['e6'] = $tl['general_error']['generror']; }
+if ($defaults['envo_lang'] == '') { $errors['e6'] = $tl['general_error']['generror']; }
         </pre>
 
       </article>
@@ -685,7 +685,7 @@ if (empty($news) && !empty($defaults['jak_shownewsmany'])) {
 
         <p>For example:</p>
         <pre name="code" class="brush: php;">
-$JAK_GET_TICKETING = jak_get_page_info(DB_PREFIX.'tickets', '');
+$JAK_GET_TICKETING = envo_get_page_info(DB_PREFIX.'tickets', '');
         </pre>
 
         <p>If you like to include a file:</p>
@@ -702,7 +702,7 @@ APP_PATH.'plugins/yourplugin/file_to_include.php';
 
         <p>For example:</p>
         <pre name="code" class="brush: php;">
-$getpoll = $JAK_GET_POLL = jak_get_page_info(DB_PREFIX.'polls', '');
+$getpoll = $JAK_GET_POLL = envo_get_page_info(DB_PREFIX.'polls', '');
         </pre>
 
         <p>If you like to include a file:</p>
@@ -870,9 +870,9 @@ if ($pg['pluginid'] == JAK_PLUGIN_ID_FAQ && JAK_PLUGIN_ID_FAQ && !empty($row['sh
   $showfaqarray = explode(":", $row['showfaq']);
 
   if (is_array($showfaqarray) && in_array("ASC", $showfaqarray) || in_array("DESC", $showfaqarray)) {
-    $JAK_FAQ = jak_get_faq('LIMIT '.$showfaqarray[1], 't1.id '.$showfaqarray[0], '', 't1.id');
+    $JAK_FAQ = envo_get_faq('LIMIT '.$showfaqarray[1], 't1.id '.$showfaqarray[0], '', 't1.id');
   } else {
-    $JAK_FAQ = jak_get_faq('', 't1.id ASC', $row['showfaq'], 't1.id');
+    $JAK_FAQ = envo_get_faq('', 't1.id ASC', $row['showfaq'], 't1.id');
   }
 
 }
@@ -1113,11 +1113,11 @@ function cut_text($text,$limit,$ending) {
                 return substr($text,0,$limit).$ending;
             }
         }
-        $jakdata = substr($text,0,$limit-$i+1).$ending;
+        $envodata = substr($text,0,$limit-$i+1).$ending;
     } else {
-    	$jakdata = $text;
+    	$envodata = $text;
     }
-    return $jakdata;
+    return $envodata;
 }
         </pre>
         <p>Let's say you code a blog and you want to preview the article instead of showing the whole content, easily use the cut_text function. The function will cut to the length you set and does not cut off words, so your preview text always looks nice. You know how to use it now, don't you?!</p>
@@ -1167,7 +1167,7 @@ function get_ip_address() {
         <p>All modern menus are based on lists, classes and sub classes. With CMS it is super easy to use the automatic menu builder.</p>
         <p>With one line of code your menu, sub menu, sub sub menu and so on up to five levels will be build automatically.</p>
         <pre name="code" class="brush: php;">
-jak_build_menu(0, $mheader, $page, 'nav nav-main navbar-nav navbar-right', 'dropdown', 'dropdown-menu', 'dropdown-submenu', false);
+envo_build_menu(0, $mheader, $page, 'nav nav-main navbar-nav navbar-right', 'dropdown', 'dropdown-menu', 'dropdown-submenu', false);
         </pre>
         <p>Let's pull apart the function:</p>
         <ul>

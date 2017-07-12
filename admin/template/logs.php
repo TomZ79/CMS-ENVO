@@ -128,10 +128,10 @@ if ($page1 == "e") { ?>
 
                   </div>
                 </td>
-                <td><?php echo jak_cut_text($v["name"], 8, '...'); ?></td>
+                <td><?php echo envo_cut_text($v["name"], 8, '...'); ?></td>
                 <td><?php echo $v["fromwhere"]; ?></td>
                 <td><?php echo $v["ip"]; ?></td>
-                <td><?php echo jak_cut_text($v["usragent"], 20, '...'); ?></td>
+                <td><?php echo envo_cut_text($v["usragent"], 20, '...'); ?></td>
                 <td><?php echo date("d.m.Y - H:i:s", strtotime($v["time"])); ?></td>
                 <td class="text-center">
 

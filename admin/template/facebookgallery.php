@@ -69,7 +69,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                 <img src="<?php echo $v["paththumb"] . 'thumb_' . $v["title"]; ?>"/>
               </div>
               <div class="caption">
-                <h4><?php echo jak_cut_text(pathinfo($v["title"], PATHINFO_FILENAME), 18, ' ...'); ?></h4>
+                <h4><?php echo envo_cut_text(pathinfo($v["title"], PATHINFO_FILENAME), 18, ' ...'); ?></h4>
                 <div class="col-md-12 col-xs-3">
                   <p><strong>Format: </strong><?php echo pathinfo($v["title"], PATHINFO_EXTENSION); ?></p>
                 </div>

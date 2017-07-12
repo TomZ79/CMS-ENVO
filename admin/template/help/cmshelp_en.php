@@ -2892,12 +2892,12 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
     <pre><code class="language-php">
 // Confirm user
 if ($page == 'rf_ual') {
-  if (is_numeric($page1) && is_numeric($page2) && jak_row_exist($page1, DB_PREFIX.'user') && jak_field_not_exist($page2, DB_PREFIX.'user', 'activatenr')) {
+  if (is_numeric($page1) && is_numeric($page2) && envo_row_exist($page1, DB_PREFIX.'user') && envo_field_not_exist($page2, DB_PREFIX.'user', 'activatenr')) {
 
     $result = $jakdb->query('UPDATE '.DB_PREFIX.'user SET access = access - 1, activatenr = 0 WHERE id = "'.smartsql($page1).'" AND activatenr = "'.smartsql($page2).'"');
 
    	if (!$result) {
-   		jak_redirect(JAK_PARSE_ERROR);
+   		envo_redirect(JAK_PARSE_ERROR);
    		exit;
    	} else {
 
@@ -2912,11 +2912,11 @@ if ($page == 'rf_ual') {
    		$admail->MsgHTML($adbody);
    		$admail->Send(); // Send email without any warnings
 
-   		jak_redirect(JAK_PARSE_SUCCESS);
+   		envo_redirect(JAK_PARSE_SUCCESS);
    		exit;
    	}
   } else {
-    jak_redirect(BASE_URL);
+    envo_redirect(BASE_URL);
     exit;
   }
 }
@@ -3066,7 +3066,7 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
 
     <p class="all-caps fs-12 bold">For example :</p>
     <pre><code class="language-php">
-if ($defaults['jak_lang'] == '') { $errors['e6'] = $tl['general_error']['generror']; }
+if ($defaults['envo_lang'] == '') { $errors['e6'] = $tl['general_error']['generror']; }
     </code></pre>
   </section>
 
@@ -3182,7 +3182,7 @@ if (empty($news) && !empty($defaults['jak_shownewsmany'])) {
 
     <p class="all-caps fs-12 bold">For example :</p>
     <pre><code class="language-php">
-$JAK_GET_TICKETING = jak_get_page_info(DB_PREFIX.'tickets', '');
+$JAK_GET_TICKETING = envo_get_page_info(DB_PREFIX.'tickets', '');
     </code></pre>
 
     <p>If you like to include a file:</p>
@@ -3199,7 +3199,7 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
 
     <p class="all-caps fs-12 bold">For example :</p>
     <pre><code class="language-php">
-$getpoll = $JAK_GET_POLL = jak_get_page_info(DB_PREFIX.'polls', '');
+$getpoll = $JAK_GET_POLL = envo_get_page_info(DB_PREFIX.'polls', '');
     </code></pre>
 
     <p>If you like to include a file:</p>
@@ -3355,9 +3355,9 @@ if ($pg['pluginid'] == JAK_PLUGIN_ID_FAQ && JAK_PLUGIN_ID_FAQ && !empty($row['sh
   $showfaqarray = explode(":", $row['showfaq']);
 
   if (is_array($showfaqarray) && in_array("ASC", $showfaqarray) || in_array("DESC", $showfaqarray)) {
-    $JAK_FAQ = jak_get_faq('LIMIT '.$showfaqarray[1], 't1.id '.$showfaqarray[0], '', 't1.id');
+    $JAK_FAQ = envo_get_faq('LIMIT '.$showfaqarray[1], 't1.id '.$showfaqarray[0], '', 't1.id');
   } else {
-    $JAK_FAQ = jak_get_faq('', 't1.id ASC', $row['showfaq'], 't1.id');
+    $JAK_FAQ = envo_get_faq('', 't1.id ASC', $row['showfaq'], 't1.id');
   }
 
 }
