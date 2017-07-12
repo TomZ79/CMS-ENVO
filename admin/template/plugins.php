@@ -99,13 +99,18 @@ if ($page1 == "e") { ?>
                     </div>
                     <div class="col-md-2 hidden-xs actions">
 
-                      <?php if (isset($site_plugins) && is_array($site_plugins)) foreach ($site_plugins as $p) {
+                      <?php
+
+                      if (isset($site_plugins) && is_array($site_plugins)) foreach ($site_plugins as $p) {
                         if (strtolower($v["pluginpath"]) == strtolower($p)) {
 
                           $filename = '../plugins/' . $p . '/update.php';
+                          
+                          if (file_exists($filename)) {
 
-                          if (file_exists($filename) && (strtotime($v["time"]) < filemtime($filename))) {
                             echo '<a class="plugInst btn btn-success btn-xs" href="../plugins/' . $p . '/update.php" data-toggle="tooltip" data-placement="bottom" title="' . $tl["icons"]["i12"] . '"><i class="fa fa-clock-o"></i></a>';
+
+                            clearstatcache();
                           }
 
                         }
@@ -120,6 +125,8 @@ if ($page1 == "e") { ?>
                         echo $Html->addAnchor('../plugins/' . $v["pluginpath"] . '/' . $v["uninstallfile"], '<i class="fa fa-trash-o"></i>', '', 'plugInst btn btn-danger btn-xs m-l-5', array('data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
 
                       }
+
+                      clearstatcache();
                       ?>
 
                     </div>

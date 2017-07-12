@@ -289,7 +289,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                    echo $Html->addTextarea('jak_copy', jak_edit_safe_userpost($jkv["copyright"]), '4', '', array('id' => 'copyright', 'class' => 'form-control'));
+                    echo $Html->addTextarea('jak_copy', envo_edit_safe_userpost($jkv["copyright"]), '4', '', array('id' => 'copyright', 'class' => 'form-control'));
                     ?>
 
                   </div>

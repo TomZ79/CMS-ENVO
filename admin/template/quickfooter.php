@@ -4,11 +4,11 @@
 </div>
 
 <script type="text/javascript">
-  jakWeb.jak_url_orig = "<?php echo BASE_URL_ORIG;?>";
-  jakWeb.jak_url = "<?php echo BASE_URL_ADMIN;?>";
-  jakWeb.jak_path = "<?php echo BASE_PATH_ORIG;?>";
-  jakWeb.jak_lang = "<?php echo $site_language;?>";
-  jakWeb.envo_template = "<?php echo ENVO_TEMPLATE;?>";
+  envoWeb.envo_url_orig = "<?php echo BASE_URL_ORIG;?>";
+  envoWeb.envo_url = "<?php echo BASE_URL_ADMIN;?>";
+  envoWeb.envo_path = "<?php echo BASE_PATH_ORIG;?>";
+  envoWeb.envo_lang = "<?php echo $site_language;?>";
+  envoWeb.envo_template = "<?php echo ENVO_TEMPLATE;?>";
 
   <?php if (isset($_SESSION["infomsg"])) { ?>
   $.notify({icon: 'fa fa-info-circle', message: '<?php echo $_SESSION["infomsg"];?>'}, {type: 'info'});

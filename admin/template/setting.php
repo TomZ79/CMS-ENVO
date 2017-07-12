@@ -1652,7 +1652,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                          echo $Html->addTextarea('jak_eucookie_message', jak_edit_safe_userpost($JAK_SETTING_VAL["eucookie_message"]), '2', '', array('class' => 'form-control'));
+                          echo $Html->addTextarea('jak_eucookie_message', envo_edit_safe_userpost($JAK_SETTING_VAL["eucookie_message"]), '2', '', array('class' => 'form-control'));
                           ?>
 
                         </div>
