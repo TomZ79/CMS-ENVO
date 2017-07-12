@@ -634,7 +634,7 @@ if ($page3 == "e") { ?>
 
                         </div>
                         <div class="col-md-7">
-                          <?php $JAK_TAG_ALL = jak_tag_name_admin();
+                          <?php $JAK_TAG_ALL = envo_tag_name_admin();
                           if ($JAK_TAG_ALL) { ?>
                             <select name="" id="selecttags2" class="form-control selectpicker">
 

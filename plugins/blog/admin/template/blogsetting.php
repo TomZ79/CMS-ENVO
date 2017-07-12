@@ -139,7 +139,7 @@ if ($page2 == "e") { ?>
 
                         <?php
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('jak_lcontent', jak_edit_safe_userpost($JAK_SETTING_VAL["blogdesc"]), '4', '', array('class' => 'form-control'));
+                        echo $Html->addTextarea('jak_lcontent', envo_edit_safe_userpost($JAK_SETTING_VAL["blogdesc"]), '4', '', array('class' => 'form-control'));
                         ?>
 
                       </div>

@@ -1,26 +1,26 @@
 <?php
 
 // Get the data per array for blogs
-function jak_get_blogs($limit, $cid, $table)
+function envo_get_blogs($limit, $cid, $table)
 {
 
   $sqlwhere = '';
   if (!empty($cid)) $sqlwhere = 'WHERE FIND_IN_SET(' . $cid . ', catid) ';
 
   global $jakdb;
-  $jakdata = array();
+  $envodata = array();
   $result  = $jakdb->query('SELECT * FROM ' . $table . ' ' . $sqlwhere . 'ORDER BY id DESC ' . $limit);
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $jakdata[] = $row;
+    $envodata[] = $row;
   }
 
-  return $jakdata;
+  return $envodata;
 }
 
 // Get the blog comments
-function jak_get_blog_comments($limit, $jakvar1, $jakvar2)
+function envo_get_blog_comments($limit, $jakvar1, $jakvar2)
 {
   if ($jakvar1 == 'approve') {
     $sqlwhere = 'WHERE approve = 0 AND trash = 0 ';
@@ -33,19 +33,19 @@ function jak_get_blog_comments($limit, $jakvar1, $jakvar2)
   }
 
   global $jakdb;
-  $jakdata = array();
+  $envodata = array();
   $result  = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'blogcomments ' . $sqlwhere . 'ORDER BY time DESC ' . $limit);
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $jakdata[] = $row;
+    $envodata[] = $row;
   }
 
-  return $jakdata;
+  return $envodata;
 }
 
 // Menu builder function, parentId 0 is the root
-function jak_build_menu_blog($parent, $menu, $lang, $title1, $title2, $title3, $title4, $title5, $class = "", $id = "")
+function envo_build_menu_blog($parent, $menu, $lang, $title1, $title2, $title3, $title4, $title5, $class = "", $id = "")
 {
   $html = "";
   if (isset($menu['parents'][$parent])) {
@@ -76,7 +76,7 @@ function jak_build_menu_blog($parent, $menu, $lang, $title1, $title2, $title3, $
           				<a href="index.php?p=blog&amp;sp=categories&amp;ssp=delete&amp;sssp=' . $menu["items"][$itemId]["id"] . '" class="btn btn-danger btn-xs" onclick="if(!confirm(' . $lang . '))return false;"><i class="fa fa-trash-o"></i></a>
           		</span>
           		</div>';
-        $html .= jak_build_menu_blog($itemId, $menu, $lang, $title1, $title2, $title3, $title4, $title5);
+        $html .= envo_build_menu_blog($itemId, $menu, $lang, $title1, $title2, $title3, $title4, $title5);
         $html .= "</li> \n";
       }
     }
