@@ -6,7 +6,7 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, $jkv["accessmanage"])) jak_redirect(BASE_URL);
+if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, $jkv["accessmanage"])) envo_redirect(BASE_URL);
 
 require_once('class/xml.sitemap.generator.php');
 
@@ -29,8 +29,6 @@ if (!empty($row['value'])) {
 
 // Now start with the plugin use a switch to access all pages
 switch ($page1) {
-
-  // Create new Sitemap XML
   case 'create':
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -292,9 +290,10 @@ switch ($page1) {
 
       // Do the dirty work in mysql
       $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-          WHEN "xmlseodate" THEN NOW()
-        END
-        WHERE varname IN ("xmlseodate")');
+                  WHEN "xmlseodate" THEN NOW()
+                END
+                WHERE varname IN ("xmlseodate")');
+
       $error  = $error;
     }
 
@@ -308,8 +307,6 @@ switch ($page1) {
     $plugin_template = 'plugins/xml_seo/admin/template/xml_seo_create.php';
 
     break;
-
-  // View Sitemap XML
   case 'view':
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -345,8 +342,6 @@ switch ($page1) {
     $plugin_template = 'plugins/xml_seo/admin/template/xml_seo_view.php';
 
     break;
-
-  // Settings
   default:
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -380,14 +375,19 @@ switch ($page1) {
         $content = stripslashes($txtfile);
         file_put_contents($file, $content);
 
-        // Do the dirty work in mysql
+        /* EN: Convert value
+         * smartsql - secure method to insert form data into a MySQL DB
+         * ------------------
+         * CZ: Převod hodnot
+         * smartsql - secure method to insert form data into a MySQL DB
+        */
         $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-          WHEN "xmlseopath" THEN "' . smartsql($path) . '"
-          WHEN "frequency_pages" THEN "' . smartsql($defaults['jak_frepages']) . '"
-          WHEN "frequency_blog" THEN "' . smartsql($defaults['jak_freblog']) . '"
-          WHEN "frequency_download" THEN "' . smartsql($defaults['jak_fredownload']) . '"
-        END
-        WHERE varname IN ("xmlseopath","frequency_pages","frequency_blog","frequency_download")');
+                    WHEN "xmlseopath" THEN "' . smartsql($path) . '"
+                    WHEN "frequency_pages" THEN "' . smartsql($defaults['jak_frepages']) . '"
+                    WHEN "frequency_blog" THEN "' . smartsql($defaults['jak_freblog']) . '"
+                    WHEN "frequency_download" THEN "' . smartsql($defaults['jak_fredownload']) . '"
+                  END
+                  WHERE varname IN ("xmlseopath","frequency_pages","frequency_blog","frequency_download")');
 
         // Set new path and frequency change
         $XMLSEOPATH        = $path;

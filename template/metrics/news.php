@@ -39,7 +39,7 @@
 								<?php echo $tl["news"]["news3"] . ' : <span>' . $v["created"] . '</span>'; ?>
 								<?php echo $tl["news"]["news2"] . ' : <span>' . $v["hits"] . '</span>'; ?>
 							</p>
-							<h3><a href="<?php echo $v["parseurl"]; ?>"><?php echo jak_cut_text ($v["title"], 30, "..."); ?></a></h3>
+							<h3><a href="<?php echo $v["parseurl"]; ?>"><?php echo envo_cut_text ($v["title"], 30, "..."); ?></a></h3>
 						</div>
 						<div class="full-intro-content">
 							<div class="feature-box-content">

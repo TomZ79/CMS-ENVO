@@ -264,12 +264,12 @@ if (!$JAK_SHOW_FOOTER) { ?>
 
 <!-- Definition Function and Notification -->
 <script>
-  jakWeb.jak_lang = "<?php echo $site_language;?>";
-  jakWeb.jak_url = "<?php echo BASE_URL;?>";
-  jakWeb.jak_url_orig = "<?php echo BASE_URL;?>";
-  jakWeb.jak_search_link = "<?php echo $JAK_SEARCH_LINK;?>";
-  jakWeb.jakrequest_uri = "<?php echo JAK_PARSE_REQUEST;?>";
-  jakWeb.jak_quickedit = "<?php echo $tl["global_text"]["gtxt6"];?>"
+  envoWeb.envo_lang = "<?php echo $site_language;?>";
+  envoWeb.envo_url = "<?php echo BASE_URL;?>";
+  envoWeb.envo_url_orig = "<?php echo BASE_URL;?>";
+  envoWeb.envo_search_link = "<?php echo $JAK_SEARCH_LINK;?>";
+  envoWeb.request_uri = "<?php echo JAK_PARSE_REQUEST;?>";
+  envoWeb.envo_quickedit = "<?php echo $tl["global_text"]["gtxt6"];?>"
 </script>
 
 <!-- Revolutin Slider 5.0 Initialization -->
@@ -285,8 +285,8 @@ include_once APP_PATH . '/template/' . ENVO_TEMPLATE . '/js/porto-revolutionSlid
       jQuery(".cFrom").append('<input type="hidden" name="<?php echo $random_name;?>" value="<?php echo $random_value;?>" />');
     });
     <?php } ?>
-    jakWeb.jak_submit = "<?php echo $tl['form_text']['formt1'];?>";
-    jakWeb.jak_submitwait = "<?php echo $tl['form_text']['formt2'];?>";
+    envoWeb.envo_submit = "<?php echo $tl['form_text']['formt1'];?>";
+    envoWeb.envo_submitwait = "<?php echo $tl['form_text']['formt2'];?>";
   </script>
 
   <script src="/assets/js/post.js"></script>
@@ -500,6 +500,69 @@ if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT;
  */
 ?>
 <script src="<?php echo BASE_URL; ?>assets/js/comments.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+
+
+<?php
+/*
+ * TENTO SCRIP VLOŽIT DO PLUGINU PROGRAM OFFER
+ * Vytvořit načítání script souborů v pluginu. V tuto chvíli je dostupný pro všechny stránky. Chceme jen pro Program Offer.
+ */
+?>
+<script type="text/javascript">
+  /* BOOTSTRAP-EXPAND table rows */
+    $(function () {
+      $('.table-expandable').each(function () {
+        var table = $(this);
+        if (table.children('tbody').children('tr').hasClass('noresult')) {
+
+        } else {
+          table.children('thead').children('tr').append('<th></th>');
+          table.children('tbody').children('tr').filter(':odd').hide();
+          table.children('tbody').children('tr').filter(':even').click(function () {
+            var element = $(this);
+            element.toggleClass('active')
+            element.next('tr').toggle('fast');
+            element.find(".table-expandable-arrow").toggleClass("up");
+          });
+          table.children('tbody').children('tr').filter(':even').each(function () {
+            var element = $(this);
+            element.append('<td><div class="table-expandable-arrow"></div></td>');
+          });
+        }
+      });
+
+      // FILTER TABLE BY MUX - TRANSMITTER
+      $('select[id^="SelectTrans"]').on('change', function(){
+        // Get the value of the select box
+        var val = $(this).find("option:selected").val();
+
+        // Get parent div by transmitter
+        var parentel = $(this).parents('div[id^="tramsmitter-"]');
+        console.log (parentel);
+
+        // Show all tr rows in transmitter table
+        parentel.find('div[id^="Transmitter"] table tbody tr').show();
+
+        // Show all the rows
+        $('.table-expandable').each(function () {
+          var table = $(this);
+          table.children('tbody').children('tr').filter(':odd').hide();
+        });
+        // If there is a value hide all the rows except the ones with a data-year of that value
+        if(val) {
+          // Find tr with 'data-mux' in parent div
+          parentel.find('div[id^="Transmitter"] table tbody tr').not($('tbody tr[data-mux="' + val + '"]')).hide();
+          $('.table-expandable').each(function () {
+            var table = $(this);
+            table.children('tbody').children('tr').filter(':odd').hide();
+            // Remove class from Bootstrap expand table rows
+            table.find(".table-expandable-arrow").removeClass("up");
+            table.find(".active").removeClass("active");
+          });
+        }
+      });
+    });
+</script>
 
 </body>
 </html>

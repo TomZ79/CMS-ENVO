@@ -24,7 +24,7 @@
 					<!-- Post Title & Summary -->
 					<div class="post-title">
 						<h3 class="text-color"><span><a
-									href="<?php echo $v["parseurl"]; ?>"><?php echo jak_cut_text ($v["title"], 30, ""); ?></a></span></h3>
+									href="<?php echo $v["parseurl"]; ?>"><?php echo envo_cut_text ($v["title"], 30, ""); ?></a></span></h3>
 					</div>
 					<div class="post-summary">
 						<p><?php echo $v["contentshort"]; ?></p>

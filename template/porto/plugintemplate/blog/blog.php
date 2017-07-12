@@ -74,7 +74,7 @@
                   <!-- Post Content -->
                   <?php
                   if ($v["showtitle"]) {
-                    echo '<h4><a href="' . $v["parseurl"] . '">' . jak_cut_text($v["title"], 100, "") . '</a></h4>';
+                    echo '<h4><a href="' . $v["parseurl"] . '">' . envo_cut_text($v["title"], 100, "") . '</a></h4>';
                   }
                   ?>
                   <p class="post-data text-muted mb-sm">
@@ -86,7 +86,7 @@
                     ?>
                   </p>
                   <p class="no-mb">
-                    <?php echo jak_cut_text($v['content'], $jkv["blogshortmsg"], '....') ?>
+                    <?php echo envo_cut_text($v['content'], $jkv["blogshortmsg"], '....') ?>
                   </p>
                   <p class="no-mb pull-right">
                     <a href="<?php echo $v["parseurl"]; ?>">

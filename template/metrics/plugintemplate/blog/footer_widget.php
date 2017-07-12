@@ -5,7 +5,7 @@ if (JAK_PLUGIN_ACCESS_BLOG) {
   // Functions we need for this plugin
   include_once APP_PATH . 'plugins/blog/functions.php';
 
-  $JAK_BLOG_FW = jak_get_blog('LIMIT 3', $jkv["blogorder"], '', '', $jkv["blogurl"], $tl['global_text']['gtxt4']);
+  $JAK_BLOG_FW = envo_get_blog('LIMIT 3', $jkv["blogorder"], '', '', $jkv["blogurl"], $tl['global_text']['gtxt4']);
 
   if (isset($JAK_BLOG_FW) && is_array($JAK_BLOG_FW)) { ?>
 

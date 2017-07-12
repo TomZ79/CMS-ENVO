@@ -46,7 +46,7 @@
 								<span class="date-month"><?php echo $month_name; ?></span>
 							</div>
 							<div class="feature-box-content">
-								<h3><a href="<?php echo $v["parseurl"]; ?>"><?php echo jak_cut_text ($v["title"], 30, "..."); ?></a></h3>
+								<h3><a href="<?php echo $v["parseurl"]; ?>"><?php echo envo_cut_text ($v["title"], 30, "..."); ?></a></h3>
 								<h6><i class="icon-eye"></i> <?php echo $tl["news"]["news2"] . ' ' . $v["hits"]; ?></h6>
 								<hr class="mt-small mb-small">
 								<p>

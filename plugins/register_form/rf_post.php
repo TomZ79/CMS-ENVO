@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
 
   // EN: Settings all the tables we need for our work
   // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-  $jaktable = DB_PREFIX . 'user';
+  $envotable = DB_PREFIX . 'user';
 
   // spam check
   $spamcheck = TRUE;
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
         $errors['e3'] = $tl['general_error']['generror29'] . '<br />';
       }
 
-      if (isset($defaults[$formarray[$i]]) && jak_field_not_exist(strtolower($defaults[$formarray[$i]]), $jaktable, 'username')) {
+      if (isset($defaults[$formarray[$i]]) && envo_field_not_exist(strtolower($defaults[$formarray[$i]]), $envotable, 'username')) {
         $errors['e3'] = $tl['general_error']['generror30'] . '<br />';
       }
 
@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
       }
 
       // Check if email address is double
-      if (jak_field_not_exist(filter_var($defaults[$formarray[$i]], FILTER_SANITIZE_EMAIL), $jaktable, 'email')) {
+      if (envo_field_not_exist(filter_var($defaults[$formarray[$i]], FILTER_SANITIZE_EMAIL), $envotable, 'email')) {
         $errors['e4'] = $tl['general_error']['generror34'] . '<br />';
       }
 
@@ -141,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
         }
       } elseif ($formmandarray[$i] == 5) {
         // Check if value does not exist
-        if ($defaults[$formarray[$i]] == '' || jak_field_not_exist(filter_var($defaults[$formarray[$i]], FILTER_SANITIZE_EMAIL), $jaktable, strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $formnamearray[$i])) . '_' . $formarray[$i])) {
+        if ($defaults[$formarray[$i]] == '' || envo_field_not_exist(filter_var($defaults[$formarray[$i]], FILTER_SANITIZE_EMAIL), $envotable, strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $formnamearray[$i])) . '_' . $formarray[$i])) {
           $errorsA[$i] = sprintf($tl['general_error']['generror38'], $formnamearray[$i]) . '<br />';
         }
       }
@@ -177,7 +177,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
       $errors['e3'] = $tl['general_error']['generror29'] . '<br />';
     }
 
-    if (jak_field_not_exist(strtolower($defaults['username']), $jaktable, 'username')) {
+    if (envo_field_not_exist(strtolower($defaults['username']), $envotable, 'username')) {
       $errors['e3'] = $tl['general_error']['generror30'] . '<br />';
     }
 
@@ -195,7 +195,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
       }
     }
 
-    if (jak_field_not_exist(filter_var($defaults['email'], FILTER_SANITIZE_EMAIL), $jaktable, 'email')) {
+    if (envo_field_not_exist(filter_var($defaults['email'], FILTER_SANITIZE_EMAIL), $envotable, 'email')) {
       $errors['e4'] = $tl['general_error']['generror34'] . '<br />';
     }
 
@@ -210,7 +210,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
 
     if (!isset($_SESSION['rf_thankyou_msg'])) {
 
-      if ($jkv["rf_simple"]) $password = jak_password_creator();
+      if ($jkv["rf_simple"]) $password = envo_password_creator();
 
       // The new password encrypt with hash_hmac
       $passcrypt     = hash_hmac('sha256', $password, DB_PASS_HASH);
@@ -224,20 +224,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
         $insert .= 'activatenr = "' . $getuniquecode . '",';
       }
 
-      $result = $jakdb->query('INSERT INTO ' . $jaktable . ' SET
-    		username = "' . smartsql($safeusername) . '",
-    		name = "' . smartsql($safeusername) . '",
-    		email = "' . smartsql($safeemail) . '",
-    		usergroupid = "' . smartsql($jkv["rf_usergroup"]) . '",
-    		' . $sqlupdatepass . '
-    		' . $insert . '
-    		access = "' . smartsql($jkv["rf_confirm"]) . '",
-    		time = NOW()');
+      /* EN: Convert value
+       * smartsql - secure method to insert form data into a MySQL DB
+       * ------------------
+       * CZ: Převod hodnot
+       * smartsql - secure method to insert form data into a MySQL DB
+      */
+      $result = $jakdb->query('INSERT INTO ' . $envotable . ' SET
+                username = "' . smartsql($safeusername) . '",
+                name = "' . smartsql($safeusername) . '",
+                email = "' . smartsql($safeemail) . '",
+                usergroupid = "' . smartsql($jkv["rf_usergroup"]) . '",
+                ' . $sqlupdatepass . '
+                ' . $insert . '
+                access = "' . smartsql($jkv["rf_confirm"]) . '",
+                time = NOW()');
 
       $row['id'] = $jakdb->jak_last_id();
 
       if (!$result) {
-        jak_redirect(JAK_PARSE_ERROR);
+        envo_redirect(JAK_PARSE_ERROR);
       } else {
 
         $newuserpath = JAK_FILES_DIRECTORY . '/userfiles' . '/' . $row['id'];
@@ -340,7 +346,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
         }
 
         $_SESSION['rf_msg_sent'] = 1;
-        jak_redirect($_SERVER['HTTP_REFERER']);
+        envo_redirect($_SERVER['HTTP_REFERER']);
       }
 
     }

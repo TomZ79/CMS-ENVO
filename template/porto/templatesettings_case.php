@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 if ($result1) {
 	// EN: Redirect page
 	// CZ: Přesměrování stránky
-	jak_redirect (BASE_URL . 'index.php?p=template&sp=settings&ssp=s');
+  envo_redirect (BASE_URL . 'index.php?p=template&sp=settings&status=s');
 }
 
 // Reset the database settings so we have it unique

@@ -6,8 +6,8 @@ if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$jaktable  = 'pages';
-$jaktable1 = 'categories';
+$envotable  = 'pages';
+$envotable1 = 'categories';
 
 // reset urlsep
 $urlsep     = FALSE;
@@ -16,7 +16,7 @@ $specialurl = array();
 // Now do the dirty work!
 if (empty($page1)) {
 
-  $sql = 'SELECT t1.*, t2.varname FROM ' . DB_PREFIX . $jaktable . ' AS t1 LEFT JOIN ' . DB_PREFIX . $jaktable1 . ' AS t2 ON (t1.catid = t2.id) WHERE t1.active = 1 AND t1.catid != 0 AND t2.pluginid = 0 ORDER BY t1.time DESC LIMIT ' . $jkv["rssitem"];
+  $sql = 'SELECT t1.*, t2.varname FROM ' . DB_PREFIX . $envotable . ' AS t1 LEFT JOIN ' . DB_PREFIX . $envotable1 . ' AS t2 ON (t1.catid = t2.id) WHERE t1.active = 1 AND t1.catid != 0 AND t2.pluginid = 0 ORDER BY t1.time DESC LIMIT ' . $jkv["rssitem"];
 
   $what    = 0;
   $seowhat = 0;
@@ -51,9 +51,9 @@ if (!empty($sql)) {
     }
 
     if ($row['content']) {
-      $getStriped = jak_cut_text($PAGE_CONTENT, $jkv["shortmsg"], '...');
+      $getStriped = envo_cut_text($PAGE_CONTENT, $jkv["shortmsg"], '...');
     } else {
-      $getStriped = jak_cut_text($PAGE_TITLE, $jkv["shortmsg"], '...');
+      $getStriped = envo_cut_text($PAGE_TITLE, $jkv["shortmsg"], '...');
     }
 
     $getStripedT = str_replace('&nbsp;', "", $getStriped);
@@ -98,6 +98,6 @@ if (!empty($sql)) {
 } else {
   // EN: Redirect page
   // CZ: Přesměrování stránky
-  jak_redirect(BASE_URL);
+  envo_redirect(BASE_URL);
 }
 ?>

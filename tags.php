@@ -6,17 +6,17 @@ if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$jaktable  = DB_PREFIX . 'tags';
-$jaktable1 = DB_PREFIX . 'pages';
-$jaktable2 = DB_PREFIX . 'categories';
-$jaktable3 = 'news';
+$envotable  = DB_PREFIX . 'tags';
+$envotable1 = DB_PREFIX . 'pages';
+$envotable2 = DB_PREFIX . 'categories';
+$envotable3 = 'news';
 
 // Call the hooks per name
 $JAK_HOOK_TAGS  = $jakhooks->jakGethook("tpl_tags");
 $PAGE_SHOWTITLE = 1;
 
 // AJAX Search
-$AJAX_SEARCH_PLUGIN_WHERE = $jaktable1;
+$AJAX_SEARCH_PLUGIN_WHERE = $envotable1;
 $AJAX_SEARCH_PLUGIN_URL   = 'include/ajax/page.php';
 $AJAX_SEARCH_PLUGIN_SEO   = 0;
 
@@ -32,7 +32,7 @@ if (empty($page1)) {
   $cleanTag = filter_var($page1, FILTER_SANITIZE_STRING);
 
   // let's check if the tag exists
-  $result = $jakdb->query('SELECT SQL_CALC_FOUND_ROWS itemid, pluginid FROM ' . $jaktable . ' WHERE tag = "' . smartsql($cleanTag) . '"');
+  $result = $jakdb->query('SELECT SQL_CALC_FOUND_ROWS itemid, pluginid FROM ' . $envotable . ' WHERE tag = "' . smartsql($cleanTag) . '"');
   if ($result) {
     while ($row = $result->fetch_assoc()) {
 
@@ -48,11 +48,11 @@ if (empty($page1)) {
 
       } elseif ($row['pluginid'] == 0) {
 
-        $result2 = $jakdb->query('SELECT t1.varname, t2.title' . ', t2.content' . ' FROM ' . $jaktable2 . ' AS t1 LEFT JOIN ' . $jaktable1 . ' AS t2 ON t1.id = t2.catid WHERE t2.id = "' . smartsql($row['itemid']) . '" AND t2.active = 1 LIMIT 1');
+        $result2 = $jakdb->query('SELECT t1.varname, t2.title' . ', t2.content' . ' FROM ' . $envotable2 . ' AS t1 LEFT JOIN ' . $envotable1 . ' AS t2 ON t1.id = t2.catid WHERE t2.id = "' . smartsql($row['itemid']) . '" AND t2.active = 1 LIMIT 1');
         $row2    = $result2->fetch_assoc();
 
         if ($jakdb->affected_rows > 0) {
-          $getStriped = jak_cut_text($row2['content'], $jkv["shortmsg"], '...');
+          $getStriped = envo_cut_text($row2['content'], $jkv["shortmsg"], '...');
 
           $parseurl = JAK_rewrite::jakParseurl($row2['varname'], '', '', '', '');
 
@@ -61,7 +61,7 @@ if (empty($page1)) {
         }
         // Get the news data
       } elseif ($row['pluginid'] == 1) {
-        $newstagData[]     = JAK_tags::jakTagsql($jaktable3, $row['itemid'], "id, title" . ", content", "content", JAK_PLUGIN_VAR_NEWS, 'a', 1);
+        $newstagData[]     = JAK_tags::jakTagsql($envotable3, $row['itemid'], "id, title" . ", content", "content", JAK_PLUGIN_VAR_NEWS, 'a', 1);
         $JAK_TAG_NEWS_DATA = $newstagData;
       } else {
         // No Tag Data in the while

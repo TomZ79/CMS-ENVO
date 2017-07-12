@@ -88,7 +88,7 @@
 
 											<div class="item">
 												<div class="full-intro-head">
-                          <h3><a href="<?php echo $n["parseurl"]; ?>"><?php echo jak_cut_text ($n["title"], 30, "..."); ?></a></h3>
+                          <h3><a href="<?php echo $n["parseurl"]; ?>"><?php echo envo_cut_text ($n["title"], 30, "..."); ?></a></h3>
                           <p>
                             <?php echo $tl["news"]["news3"] . ' : <span>' . $n["created"] . '</span>'; ?>
                           </p>

@@ -131,7 +131,7 @@ if (file_exists(APP_PATH . 'plugins/register_form/admin/lang/' . $site_language 
        * Kontrola zda je plugin instalován
        * Pokud není plugin instalován, zobrazit Notifikaci s chybovou hláškou
       */
-      $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "register_form"');
+      $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Register_form"');
       if ($jakdb->affected_rows > 0) { ?>
 
         <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
@@ -161,7 +161,7 @@ if (file_exists(APP_PATH . 'plugins/register_form/admin/lang/' . $site_language 
 
       // EN: Insert data to table 'plugins' about this plugin
       // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
-      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "register_form", "Create a register form and connect it to any page you like", 1, ' . JAK_USERID . ', 4, "register_form", "require_once APP_PATH.\'plugins/register_form/register.php\';", "if ($page == \'register-form\') {
+      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Register_form", "Create a register form and connect it to any page you like", 1, ' . JAK_USERID . ', 4, "register_form", "require_once APP_PATH.\'plugins/register_form/register.php\';", "if ($page == \'register-form\') {
         require_once APP_PATH.\'plugins/register_form/admin/register.php\';
         $JAK_PROVED = 1;
         $checkp = 1;
@@ -169,7 +169,7 @@ if (file_exists(APP_PATH . 'plugins/register_form/admin/lang/' . $site_language 
 
       // EN: Now get the plugin 'id' from table 'plugins' for futher use
       // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
-      $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "register_form"');
+      $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Register_form"');
       $rows    = $results->fetch_assoc();
 
       if ($rows['id']) {
@@ -210,7 +210,7 @@ include_once APP_PATH.\'plugins/register_form/admin/template/rf_connect.php\';
 
       //
       $index_page = 'include_once APP_PATH.\'plugins/register_form/rf_post.php\';if ($page == \'rf_ual\') {
-if (is_numeric($page1) && is_numeric($page2) && jak_row_exist($page1, DB_PREFIX.\'user\') && jak_field_not_exist($page2, DB_PREFIX.\'user\', \'activatenr\')) {
+if (is_numeric($page1) && is_numeric($page2) && envo_row_exist($page1, DB_PREFIX.\'user\') && envo_field_not_exist($page2, DB_PREFIX.\'user\', \'activatenr\')) {
 
 		// Generate new idhash
 		$nidhash = JAK_userlogin::generateRandID();
@@ -221,7 +221,7 @@ if (is_numeric($page1) && is_numeric($page2) && jak_row_exist($page1, DB_PREFIX.
 		$_SESSION[\'idhash\'] = $nidhash;
 	
 if (!$result) {
-	jak_redirect(JAK_PARSE_ERROR);
+	envo_redirect(JAK_PARSE_ERROR);
 } else {
 
 	// Get the agreement page details!
@@ -250,12 +250,12 @@ if (!$result) {
 	$admail->MsgHTML($adbody);
 	$admail->Send(); // Send email without any warnings
 	
-	jak_redirect($register_redirect);
+	envo_redirect($register_redirect);
 }
 	
 } else {
 	$_SESSION[\"infomsg\"] = $tl[\"email_text\"][\"emailm5\"];
-	jak_redirect(BASE_URL);
+	envo_redirect(BASE_URL);
 }
 }';
 
@@ -382,7 +382,7 @@ if (!$result) {
       // EN: If plugin have 'id' (plugin is not installed), uninstall
       // CZ: Pokud nemá plugin 'id' (tzn. plugin není instalován - došlo k chybě při zápisu do tabulky 'plugins'), odinstalujeme plugin
 
-      $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "register_form"');
+      $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Register_form"');
 
       ?>
 

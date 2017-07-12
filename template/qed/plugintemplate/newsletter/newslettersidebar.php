@@ -42,8 +42,8 @@
 
 	<script type="text/javascript">
 
-		jakWeb.jak_submit = "<?php echo $tl["general"]["g10"];?>";
-		jakWeb.jak_submitwait = "<?php echo $tl['general']['g99'];?>";
+		envoWeb.envo_submit = "<?php echo $tl["general"]["g10"];?>";
+		envoWeb.envo_submitwait = "<?php echo $tl['general']['g99'];?>";
 		nlCMS.nlcms_url = "<?php echo (JAK_USE_APACHE ? substr ($NL_SUBMIT_LINK, 1) : $NL_SUBMIT_LINK);?>";
 
 	</script>

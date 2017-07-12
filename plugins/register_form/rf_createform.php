@@ -7,7 +7,7 @@ function jak_create_register_form($jakvar1, $limit, $register = FALSE)
   global $jakdb;
   global $jakuser;
 
-  $sqlwhere = $jakdata = '';
+  $sqlwhere = $envodata = '';
   if ($limit) $sqlwhere = 'WHERE id > ' . $limit . ' ';
   if ($register) $sqlwhere .= ($sqlwhere ? $sqlwhere . 'AND showregister = 1' : 'WHERE showregister = 1 ');
 
@@ -37,7 +37,7 @@ function jak_create_register_form($jakvar1, $limit, $register = FALSE)
 				</div></div>';
       }
 
-      $jakdata .= '<div class="form-group"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . '</label><div class="controls"><input type="text" class="form-control" name="' . $row['id'] . '"' . $cmeter . ' value="' . (JAK_USERID ? $jakuser->getVar(strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $row['name']) . '_' . $row['id'])) : "") . '" placeholder="' . $row['name'] . '" /></div></div>' . $cmeterdiv;
+      $envodata .= '<div class="form-group"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . '</label><div class="controls"><input type="text" class="form-control" name="' . $row['id'] . '"' . $cmeter . ' value="' . (JAK_USERID ? $jakuser->getVar(strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $row['name']) . '_' . $row['id'])) : "") . '" placeholder="' . $row['name'] . '" /></div></div>' . $cmeterdiv;
     }
 
     if ($row['typeid'] == 2) {
@@ -45,7 +45,7 @@ function jak_create_register_form($jakvar1, $limit, $register = FALSE)
       $mandatory = '';
       if ($row['mandatory']) $mandatory = ' <i class="fa fa-star"></i>';
 
-      $jakdata .= '<div class="form-group"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . '</label><div class="controls"><textarea name="' . $row['id'] . '" class="form-control' . $cmeter . '">' . (JAK_USERID ? $jakuser->getVar(strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $row['name']) . '_' . $row['id'])) : "") . '</textarea></div></div>';
+      $envodata .= '<div class="form-group"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . '</label><div class="controls"><textarea name="' . $row['id'] . '" class="form-control' . $cmeter . '">' . (JAK_USERID ? $jakuser->getVar(strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $row['name']) . '_' . $row['id'])) : "") . '</textarea></div></div>';
     }
 
     if ($row['typeid'] == 3) {
@@ -60,7 +60,7 @@ function jak_create_register_form($jakvar1, $limit, $register = FALSE)
         $selectopt .= '<option value="' . $optarray[$i] . '"' . (JAK_USERID && strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $row['name'])) . '_' . $row['id'] == $optarray[$i] ? ' selected="selected"' : "") . '>' . $optarray[$i] . '</option>';
       }
 
-      $jakdata .= '<div class="form-group"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . '</label><select name="' . $row['id'] . '" class="form-control"><option value="">' . $jakvar1 . '</option>' . $selectopt . '</select></div>';
+      $envodata .= '<div class="form-group"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . '</label><select name="' . $row['id'] . '" class="form-control"><option value="">' . $jakvar1 . '</option>' . $selectopt . '</select></div>';
     }
 
     if ($row['typeid'] == 4) {
@@ -75,7 +75,7 @@ function jak_create_register_form($jakvar1, $limit, $register = FALSE)
         $radioopt .= '<div class="radio"><label><input type="radio" name="' . $row['name'] . '" value="' . $optarrayradio[$i] . '"' . (JAK_USERID && $jakuser->getVar(strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $row['name'])) . '_' . $row['id']) == $optarrayradio[$i] ? ' checked="checked"' : "") . '> ' . $optarrayradio[$i] . '</label></div>';
       }
 
-      $jakdata .= '<div class="form-group"><label class="control-label" for="' . $row['name'] . '">' . $row['name'] . $mandatory . '</label>' . $radioopt . '</div>';
+      $envodata .= '<div class="form-group"><label class="control-label" for="' . $row['name'] . '">' . $row['name'] . $mandatory . '</label>' . $radioopt . '</div>';
     }
 
     $alloptionid[]        = $row['id'];
@@ -104,12 +104,12 @@ function jak_create_register_form($jakvar1, $limit, $register = FALSE)
     $optlisttype = join(",", $alloptiontype);
   }
 
-  $jakdata .= '<input type="hidden" name="optlist" value="' . base64_encode($optlist) . '" />';
-  $jakdata .= '<input type="hidden" name="optlistname" value="' . $optlistname . '" />';
-  $jakdata .= '<input type="hidden" name="optlistmandatory" value="' . base64_encode($optlistmandatory) . '" />';
-  $jakdata .= '<input type="hidden" name="optlisttype" value="' . base64_encode($optlisttype) . '" />';
+  $envodata .= '<input type="hidden" name="optlist" value="' . base64_encode($optlist) . '" />';
+  $envodata .= '<input type="hidden" name="optlistname" value="' . $optlistname . '" />';
+  $envodata .= '<input type="hidden" name="optlistmandatory" value="' . base64_encode($optlistmandatory) . '" />';
+  $envodata .= '<input type="hidden" name="optlisttype" value="' . base64_encode($optlisttype) . '" />';
 
-  return $jakdata;
+  return $envodata;
 }
 
 ?>

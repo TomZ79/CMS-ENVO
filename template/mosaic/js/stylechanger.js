@@ -17,7 +17,7 @@ $(document).ready(function () {
 			var csscolor = "screen.css";
 		}
 
-		$('#tplmosaic').attr('href', jakWeb.jak_url + 'template/mosaic/css/' + csscolor);
+		$('#tplmosaic').attr('href', envoWeb.envo_url + 'template/mosaic/css/' + csscolor);
 
 	});
 
@@ -131,7 +131,7 @@ $(document).ready(function () {
 			var csscolor = "screen.css";
 		}
 
-		$('#tplmosaic').attr('href', jakWeb.jak_url + 'template/mosaic/css/' + csscolor);
+		$('#tplmosaic').attr('href', envoWeb.envo_url + 'template/mosaic/css/' + csscolor);
 
 	});
 
@@ -167,7 +167,7 @@ $(document).ready(function () {
 	$(document).on('click', '.pattern', function (e) {
 		e.preventDefault();
 		pattern = $(this).data("pattern");
-		$('#sb-site').css("background-image", "url(" + jakWeb.jak_url + "template/mosaic/img/patterns/" + pattern + ".png)");
+		$('#sb-site').css("background-image", "url(" + envoWeb.envo_url + "template/mosaic/img/patterns/" + pattern + ".png)");
 		$('#pattern').val(pattern);
 	});
 
@@ -175,7 +175,7 @@ $(document).ready(function () {
 	$(document).on('click', '.patternboxed', function (e) {
 		e.preventDefault();
 		pattern = $(this).data("pattern");
-		$('.boxed-layout').css("background-image", "url(" + jakWeb.jak_url + "template/mosaic/img/patterns/" + pattern + ".png)");
+		$('.boxed-layout').css("background-image", "url(" + envoWeb.envo_url + "template/mosaic/img/patterns/" + pattern + ".png)");
 		$('#patternboxed').val(pattern);
 	});
 

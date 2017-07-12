@@ -6,11 +6,11 @@ $showfaqarray = explode(":", $row['showfaq']);
 
 if (is_array($showfaqarray) && in_array("ASC", $showfaqarray) || in_array("DESC", $showfaqarray)) {
 
-  $JAK_FAQ = jak_get_faq('LIMIT ' . $showfaqarray[1], 't1.id ' . $showfaqarray[0], '', 't1.id', $jkv["faqurl"], $tl['global_text']['gtxt4']);
+  $JAK_FAQ = envo_get_faq('LIMIT ' . $showfaqarray[1], 't1.id ' . $showfaqarray[0], '', 't1.id', $jkv["faqurl"], $tl['global_text']['gtxt4']);
 
 } else {
 
-  $JAK_FAQ = jak_get_faq('', 't1.id ASC', $row['showfaq'], 't1.id', $jkv["faqurl"], $tl['global_text']['gtxt4']);
+  $JAK_FAQ = envo_get_faq('', 't1.id ASC', $row['showfaq'], 't1.id', $jkv["faqurl"], $tl['global_text']['gtxt4']);
 }
 
 ?>

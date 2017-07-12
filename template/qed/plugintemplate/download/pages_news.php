@@ -33,7 +33,7 @@ if (is_array($showdlarray) && in_array("ASC", $showdlarray) || in_array("DESC", 
         <!-- Post Title & Summary -->
         <div class="post-title">
           <h3 class="text-color">
-            <span><a href="<?php echo $d["parseurl"]; ?>"><?php echo jak_cut_text($d["title"], 30, ""); ?></a></span>
+            <span><a href="<?php echo $d["parseurl"]; ?>"><?php echo envo_cut_text($d["title"], 30, ""); ?></a></span>
           </h3>
         </div>
         <div class="post-summary">

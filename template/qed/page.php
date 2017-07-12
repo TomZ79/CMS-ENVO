@@ -97,7 +97,7 @@
 													<span class="date-month"><?php echo $month_name; ?></span>
 												</div>
 												<div class="feature-box-content">
-													<h3><a href="<?php echo $n["parseurl"]; ?>"><?php echo jak_cut_text ($n["title"], 30, "..."); ?></a></h3>
+													<h3><a href="<?php echo $n["parseurl"]; ?>"><?php echo envo_cut_text ($n["title"], 30, "..."); ?></a></h3>
 													<h6><i class="icon-eye"></i> <?php echo $n["news"]["news2"] . ' ' . $n["hits"]; ?></h6>
 													<hr class="mt-small mb-small">
 													<p>

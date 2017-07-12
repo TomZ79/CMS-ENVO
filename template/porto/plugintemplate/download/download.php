@@ -39,7 +39,7 @@
     <table id="table">
       <thead>
       <tr>
-        <th data-field="name" data-sortable="true">Jméno</th>
+        <th data-field="name" data-sortable="false">Jméno</th>
         <th data-field="date" data-sortable="true">Datum vložení</th>
         <th data-field="text" data-sortable="false">Popis</th>
       </tr>
@@ -48,7 +48,7 @@
 
       <?php if (isset($JAK_DOWNLOAD_ALL) && is_array($JAK_DOWNLOAD_ALL)) foreach ($JAK_DOWNLOAD_ALL as $v) { ?>
         <tr>
-          <td><a href="<?php echo $v["parseurl"]; ?>"><?php echo jak_cut_text($v["title"], 40, ""); ?></a></td>
+          <td><a href="<?php echo $v["parseurl"]; ?>"><?php echo envo_cut_text($v["title"], 40, ""); ?></a></td>
           <td>
             <?php if ($v["showdate"]) echo $v["created"]; ?>
           </td>
@@ -57,7 +57,7 @@
             if (!empty($v["file"]) || !empty($v["extfile"])) {
               // EN: If exist some file
               // CZ: Pokud existuje soubor
-              echo jak_cut_text($v["contentshort"], 40, "...");
+              echo envo_cut_text($v["contentshort"], 40, "...");
             } else {
               // EN: If not exist some file
               // CZ: Pokud neexistuje soubor

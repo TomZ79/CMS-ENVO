@@ -65,7 +65,7 @@ if (is_array($showdlarray) && in_array("ASC", $showdlarray) || in_array("DESC", 
 
               <div class="item<?php if ($i == 0) { echo ' active'; } ?>">
                 <div class="col-xs-12 col-sm-6 col-md-3">
-                  <a class="downl-news-title" href="<?php echo $d["parseurl"]; ?>"><?php echo jak_cut_text($d["title"], 30, ""); ?></a>
+                  <a class="downl-news-title" href="<?php echo $d["parseurl"]; ?>"><?php echo envo_cut_text($d["title"], 30, ""); ?></a>
                   <p><?php echo $d["contentshort"]; ?></p>
                   <!-- Button -->
                   <div class="pull-left">

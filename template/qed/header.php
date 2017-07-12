@@ -277,7 +277,7 @@ echo $jkv["header_qed_tpl"]; ?> color-<?php echo $jkv["color_qed_tpl"]; ?>">
           <div class="container">
             <div class="row">
               <div class="col-md-6">
-                <h1><?php echo jak_cut_text($PAGE_TITLE, 30, "..."); ?></h1>
+                <h1><?php echo envo_cut_text($PAGE_TITLE, 30, "..."); ?></h1>
               </div>
               <div class="col-md-6">
                 <ol class="breadcrumb">
@@ -294,7 +294,7 @@ echo $jkv["header_qed_tpl"]; ?> color-<?php echo $jkv["color_qed_tpl"]; ?>">
                     echo '<li><a href="' . $JAK_TPL_PLUG_URL . '">' . $JAK_TPL_PLUG_T . '</a></li>';
                   }
                   echo '<li class="active">';
-                  echo jak_cut_text($PAGE_TITLE, 35, "...");
+                  echo envo_cut_text($PAGE_TITLE, 35, "...");
                   echo '</li>';
                   ?>
 

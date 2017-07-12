@@ -4,11 +4,11 @@ $showblogarray = explode (":", $row['showblog']);
 
 if (is_array ($showblogarray) && in_array ("ASC", $showblogarray) || in_array ("DESC", $showblogarray)) {
 
-	$JAK_BLOG = jak_get_blog ('LIMIT ' . $showblogarray[1], 't1.id ' . $showblogarray[0], '', 't1.id', $jkv["blogurl"], $tl['global_text']['gtxt4']);
+	$JAK_BLOG = envo_get_blog ('LIMIT ' . $showblogarray[1], 't1.id ' . $showblogarray[0], '', 't1.id', $jkv["blogurl"], $tl['global_text']['gtxt4']);
 
 } else {
 
-	$JAK_BLOG = jak_get_blog ('', 't1.id ASC', $row['showblog'], 't1.id', $jkv["blogurl"], $tl['global_text']['gtxt4']);
+	$JAK_BLOG = envo_get_blog ('', 't1.id ASC', $row['showblog'], 't1.id', $jkv["blogurl"], $tl['global_text']['gtxt4']);
 }
 
 ?>
@@ -34,7 +34,7 @@ if (is_array ($showblogarray) && in_array ("ASC", $showblogarray) || in_array ("
 				<!-- End Post Image -->
 				<!-- Post Title & Summary -->
 				<div class="post-title">
-					<h3><a href="<?php echo $bl["parseurl"]; ?>"><?php echo jak_cut_text ($bl["title"], 20, ""); ?></a></h3>
+					<h3><a href="<?php echo $bl["parseurl"]; ?>"><?php echo envo_cut_text ($bl["title"], 20, ""); ?></a></h3>
 				</div>
 				<div class="post-summary">
 					<p><?php echo $bl["contentshort"]; ?></p>

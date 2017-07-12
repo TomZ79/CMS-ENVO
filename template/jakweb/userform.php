@@ -60,9 +60,9 @@
 		jQuery(".cFrom").append('<input type="hidden" name="<?php echo $random_name;?>" value="<?php echo $random_value;?>" />');
 	});
 	<?php } ?>
-	jakWeb.jak_lang = "<?php echo $site_language;?>";
-	jakWeb.jak_submit = "<?php echo $tl['general']['g10'];?>";
-	jakWeb.jak_submitwait = "<?php echo $tl['general']['g99'];?>";
+	envoWeb.envo_lang = "<?php echo $site_language;?>";
+	envoWeb.envo_submit = "<?php echo $tl['general']['g10'];?>";
+	envoWeb.envo_submitwait = "<?php echo $tl['general']['g99'];?>";
 </script>
 
 <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/post.js"></script>

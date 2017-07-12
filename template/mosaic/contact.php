@@ -44,8 +44,8 @@
 			$("form").removeClass("jak-ajaxform");
 		}
 
-		jakWeb.jak_submit = "<?php echo $tl['general']['g10'];?>";
-		jakWeb.jak_submitwait = "<?php echo $tl['general']['g99'];?>";
+		envoWeb.envo_submit = "<?php echo $tl['general']['g10'];?>";
+		envoWeb.envo_submitwait = "<?php echo $tl['general']['g99'];?>";
 
 	</script>
 

@@ -325,7 +325,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
           <div class="container">
             <div class="row">
               <div class="col-md-12">
-                <h1><?php echo jak_cut_text($PAGE_TITLE, 35, "..."); ?></h1>
+                <h1><?php echo envo_cut_text($PAGE_TITLE, 35, "..."); ?></h1>
                 <ul class="breadcrumb breadcrumb-valign-mid">
 
                   <?php
@@ -340,7 +340,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
                     echo '<li><a href="' . $JAK_TPL_PLUG_URL . '">' . $JAK_TPL_PLUG_T . '</a></li>';
                   }
                   echo '<li class="active">';
-                  echo jak_cut_text($PAGE_TITLE, 35, "...");
+                  echo envo_cut_text($PAGE_TITLE, 35, "...");
                   echo '</li>';
                   ?>
 

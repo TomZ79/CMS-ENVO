@@ -6,7 +6,7 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, $jkv["accessmanage"])) jak_redirect(BASE_URL);
+if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, $jkv["accessmanage"])) envo_redirect(BASE_URL);
 
 // Form 1-2
 if (isset($_POST['action']) && $_POST['action'] == 'form1') {
@@ -34,7 +34,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'form1') {
 
     // EN: Redirect page
     // CZ: Přesměrování stránky
-    jak_redirect(BASE_URL . 'index.php?p=site-editor');
+    envo_redirect(BASE_URL . 'index.php?p=site-editor');
 
   }
 

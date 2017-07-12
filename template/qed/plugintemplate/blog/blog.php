@@ -26,7 +26,7 @@
         <span class="date-month"><?php echo $month_name; ?></span>
       </div>
       <div class="feature-box-content">
-        <h3><a href="<?php echo $v["parseurl"]; ?>"><?php echo jak_cut_text($v["title"], 100, ""); ?></a></h3>
+        <h3><a href="<?php echo $v["parseurl"]; ?>"><?php echo envo_cut_text($v["title"], 100, ""); ?></a></h3>
         <ul class="entry-meta">
           <li>
             <i class="icon-clock-1"></i> <?php echo $v["created"]; ?>
@@ -35,7 +35,7 @@
             <i class="icon-eye"></i> <?php echo $tl["global_text"]["gtxt"] . ' ' .  $v["hits"]; ?>
           </li>
         </ul>
-        <p><?php echo jak_cut_text($v['content'], $jkv["blogshortmsg"], '....') ?></p>
+        <p><?php echo envo_cut_text($v['content'], $jkv["blogshortmsg"], '....') ?></p>
 
         <p class="pull-right">
           <a href="<?php echo $v["parseurl"]; ?>">

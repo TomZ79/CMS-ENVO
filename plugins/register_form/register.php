@@ -6,7 +6,7 @@ if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$jaktable = DB_PREFIX . 'user';
+$envotable = DB_PREFIX . 'user';
 
 // AJAX Search
 $AJAX_SEARCH_PLUGIN_WHERE = DB_PREFIX . 'pages';
@@ -79,13 +79,13 @@ if (JAK_USERID) {
               create_thumbnail($targetPath, $targetFile, $smallPhoto, $jkv["useravatwidth"], $jkv["useravatheight"], 80);
 
               // SQL insert
-              $result = $jakdb->query('UPDATE ' . $jaktable . ' SET picture = "' . $dbSmall . '" WHERE id = "' . JAK_USERID . '" LIMIT 1');
+              $result = $jakdb->query('UPDATE ' . $envotable . ' SET picture = "' . $dbSmall . '" WHERE id = "' . JAK_USERID . '" LIMIT 1');
 
 
               if (!$result) {
-                jak_redirect(JAK_PARSE_ERROR);
+                envo_redirect(JAK_PARSE_ERROR);
               } else {
-                jak_redirect(JAK_PARSE_SUCCESS);
+                envo_redirect(JAK_PARSE_SUCCESS);
               }
 
             } else {
@@ -129,13 +129,13 @@ if (JAK_USERID) {
         copy(JAK_FILES_DIRECTORY . "/index.html", $targetPath . "/index.html");
       }
 
-      $result = $jakdb->query('UPDATE ' . $jaktable . ' SET picture = "' . smartsql($defaults['avatar']) . '" WHERE id = "' . smartsql(JAK_USERID) . '"');
+      $result = $jakdb->query('UPDATE ' . $envotable . ' SET picture = "' . smartsql($defaults['avatar']) . '" WHERE id = "' . smartsql(JAK_USERID) . '"');
     }
 
     if (!$result) {
-      jak_redirect(JAK_PARSE_ERROR);
+      envo_redirect(JAK_PARSE_ERROR);
     } else {
-      jak_redirect(JAK_PARSE_SUCCESS);
+      envo_redirect(JAK_PARSE_SUCCESS);
     }
 
   }
@@ -151,7 +151,7 @@ if (JAK_USERID) {
         $errors_rfs['e1'] = $tl['general_error']['generror14'] . '<br />';
       }
 
-      if (jak_field_not_exist(filter_var($defaults['email'], FILTER_SANITIZE_EMAIL), $jaktable, 'email')) {
+      if (envo_field_not_exist(filter_var($defaults['email'], FILTER_SANITIZE_EMAIL), $envotable, 'email')) {
         $errors_rfs['e1'] = $tl['general_error']['generror15'] . '<br />';
       }
 
@@ -232,17 +232,22 @@ if (JAK_USERID) {
         $safeemail = ', email = "' . smartsql(filter_var($defaults['email'], FILTER_SANITIZE_EMAIL)) . '"';
       }
 
-      // Save the result
-      $result = $jakdb->query('UPDATE ' . $jaktable . ' SET
-			name = "' . smartsql($defaults['name']) . '",
-			phone = "' . smartsql($defaults['phone']) . '"
-			' . $safeemail . $insert . '
-			WHERE id = "' . smartsql(JAK_USERID) . '"');
+      /* EN: Convert value
+       * smartsql - secure method to insert form data into a MySQL DB
+       * ------------------
+       * CZ: Převod hodnot
+       * smartsql - secure method to insert form data into a MySQL DB
+      */
+      $result = $jakdb->query('UPDATE ' . $envotable . ' SET
+                name = "' . smartsql($defaults['name']) . '",
+                phone = "' . smartsql($defaults['phone']) . '"
+                ' . $safeemail . $insert . '
+                WHERE id = "' . smartsql(JAK_USERID) . '"');
 
       if (!$result) {
-        jak_redirect(JAK_PARSE_ERROR);
+        envo_redirect(JAK_PARSE_ERROR);
       } else {
-        jak_redirect(JAK_PARSE_SUCCESS);
+        envo_redirect(JAK_PARSE_SUCCESS);
       }
 
     } else {
@@ -281,12 +286,12 @@ if (JAK_USERID) {
       // The new password encrypt with hash_hmac
       $passcrypt = hash_hmac('sha256', $pass, DB_PASS_HASH);
 
-      $result = $jakdb->query('UPDATE ' . $jaktable . ' SET password = "' . $passcrypt . '" WHERE id = ' . JAK_USERID);
+      $result = $jakdb->query('UPDATE ' . $envotable . ' SET password = "' . $passcrypt . '" WHERE id = ' . JAK_USERID);
 
       if (!$result) {
-        jak_redirect(JAK_PARSE_ERROR);
+        envo_redirect(JAK_PARSE_ERROR);
       } else {
-        jak_redirect(JAK_PARSE_SUCCESS);
+        envo_redirect(JAK_PARSE_SUCCESS);
       }
 
     } else {
@@ -326,7 +331,7 @@ if (JAK_USERID) {
 } else {
   // EN: Redirect page
   // CZ: Přesměrování stránky
-  jak_redirect(BASE_URL);
+  envo_redirect(BASE_URL);
 }
 
 ?>

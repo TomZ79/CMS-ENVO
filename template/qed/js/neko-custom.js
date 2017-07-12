@@ -65,19 +65,19 @@ $(function () {
 
 /*
  |--------------------------------------------------------------------------
- | 'jakWeb' - definition
+ | 'envoWeb' - definition
  |--------------------------------------------------------------------------
  */
 (function () {
-  jakWeb = {
-    jak_lang: "",
-    jak_url: "",
-    jak_url_orig: "",
+  envoWeb = {
+    envo_lang: "",
+    envo_url: "",
+    envo_url_orig: "",
     request_uri: "",
-    jak_search_link: "",
+    envo_search_link: "",
     envo_template: "",
-    jak_quickedit: "",
-    jak_acp_nav: false
+    envo_quickedit: "",
+    envo_acp_nav: false
   }
 })();
 
@@ -105,7 +105,7 @@ $(function () {
   $('.quickedit').on('click', function (e) {
     e.preventDefault();
     frameSrc = $(this).attr("href");
-    $('#JAKModalLabel').html(jakWeb.jak_quickedit);
+    $('#JAKModalLabel').html(envoWeb.envo_quickedit);
     $('#JAKModal').on('show.bs.modal', function () {
       $('<iframe src="' + frameSrc + '" width="100%" height="450" frameborder="0">').appendTo('.modal-body');
     });
@@ -118,7 +118,7 @@ $(function () {
   $('.commedit').on('click', function (e) {
     e.preventDefault();
     frameSrc = $(this).attr("href");
-    $('#JAKModalLabel').html(jakWeb.jak_quickedit);
+    $('#JAKModalLabel').html(envoWeb.envo_quickedit);
     $('#JAKModal').on('show.bs.modal', function () {
       $('<iframe src="' + frameSrc + '" width="100%" height="400" frameborder="0">').appendTo('.modal-body');
     });
@@ -177,8 +177,8 @@ if ($('.tag-cloud a').length) $('.tag-cloud a').tooltip({placement: 'auto'});
       // Get the result
       $.get(sett.apiURL, {
         q: usrinput,
-        url: jakWeb.jak_url,
-        url_detail: jakWeb.jak_search_link,
+        url: envoWeb.envo_url,
+        url_detail: envoWeb.envo_search_link,
         seo: sett.seo,
         searchid: sett.searchid,
         msgtypeid: sett.msgtypeid

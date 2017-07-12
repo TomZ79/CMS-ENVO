@@ -11,9 +11,9 @@
       } else {
         echo BASE_URL . ltrim ($SHOWIMG, '/');
       }?>",
-      name: "<?php echo jak_get_random__line (APP_PATH . '/_files/facebook/facebook_name.txt'); ?>",
+      name: "<?php echo envo_get_random__line (APP_PATH . '/_files/facebook/facebook_name.txt'); ?>",
       caption: "<?php echo $_SERVER['SERVER_NAME'] ?>",
-      description: "<?php echo jak_get_random__line (APP_PATH . '/_files/facebook/facebook_description.txt'); ?>"
+      description: "<?php echo envo_get_random__line (APP_PATH . '/_files/facebook/facebook_description.txt'); ?>"
     }, function (t) {
       var str = JSON.stringify(t);
       var obj = JSON.parse(str);

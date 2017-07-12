@@ -292,12 +292,12 @@ if (!$JAK_SHOW_FOOTER) { ?>
 
 <!-- Definition Function and Notification -->
 <script type="text/javascript">
-  jakWeb.jak_lang = "<?php echo $site_language;?>";
-  jakWeb.jak_url = "<?php echo BASE_URL;?>";
-  jakWeb.jak_url_orig = "<?php echo BASE_URL;?>";
-  jakWeb.jak_search_link = "<?php echo $JAK_SEARCH_LINK;?>";
-  jakWeb.jakrequest_uri = "<?php echo JAK_PARSE_REQUEST;?>";
-  jakWeb.jak_quickedit = "<?php echo $tl["global_text"]["gtxt6"];?>"
+  envoWeb.envo_lang = "<?php echo $site_language;?>";
+  envoWeb.envo_url = "<?php echo BASE_URL;?>";
+  envoWeb.envo_url_orig = "<?php echo BASE_URL;?>";
+  envoWeb.envo_search_link = "<?php echo $JAK_SEARCH_LINK;?>";
+  envoWeb.request_uri = "<?php echo JAK_PARSE_REQUEST;?>";
+  envoWeb.envo_quickedit = "<?php echo $tl["global_text"]["gtxt6"];?>"
 </script>
 
 <?php include_once APP_PATH . '/template/' . ENVO_TEMPLATE . '/js/neko-royalSlider.php' ?>
@@ -310,8 +310,8 @@ if (!$JAK_SHOW_FOOTER) { ?>
       jQuery(".cFrom").append('<input type="hidden" name="<?php echo $random_name;?>" value="<?php echo $random_value;?>" />');
     });
     <?php } ?>
-    jakWeb.jak_submit = "<?php echo $tl['form_text']['formt1'];?>";
-    jakWeb.jak_submitwait = "<?php echo $tl['form_text']['formt2'];?>";
+    envoWeb.envo_submit = "<?php echo $tl['form_text']['formt1'];?>";
+    envoWeb.envo_submitwait = "<?php echo $tl['form_text']['formt2'];?>";
   </script>
 
   <script type="text/javascript" src="/assets/js/post.js"></script>

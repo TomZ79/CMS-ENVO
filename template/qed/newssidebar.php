@@ -7,7 +7,7 @@
 				<?php if (isset($JAK_GET_NEWS_SORTED) && is_array ($JAK_GET_NEWS_SORTED)) foreach ($JAK_GET_NEWS_SORTED as $n) { ?>
 					<li>
 						<a href="<?php echo $n["parseurl"]; ?>" title="<?php echo $n["contentshort"]; ?>">
-							<?php echo jak_cut_text ($n["title"], 30, "..."); ?>
+							<?php echo envo_cut_text ($n["title"], 30, "..."); ?>
 						</a>
 					</li>
 				<?php } ?>

@@ -321,7 +321,7 @@ START PAGE TITLE SECTION
         <div class="row">
           <div class="col-md-12 text-center">
             <div class="about-head-content">
-              <h2><?php echo jak_cut_text($PAGE_TITLE, 35, "..."); ?></h2>
+              <h2><?php echo envo_cut_text($PAGE_TITLE, 35, "..."); ?></h2>
             </div>
             <div class="breadcrumbs text-center">
               <ul class="breadcrumb breadcrumb-valign-mid">
@@ -338,7 +338,7 @@ START PAGE TITLE SECTION
                   echo '<li><a href="' . $JAK_TPL_PLUG_URL . '">' . $JAK_TPL_PLUG_T . '</a></li>';
                 }
                 echo '<li class="active">';
-                echo jak_cut_text($PAGE_TITLE, 35, "...");
+                echo envo_cut_text($PAGE_TITLE, 35, "...");
                 echo '</li>';
                 ?>
 

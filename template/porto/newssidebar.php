@@ -12,7 +12,7 @@
 						<p><span><?php echo $n["created"]; ?></span></p>
 						<h3>
 							<a href="<?php echo $n["parseurl"]; ?>" title="<?php echo $n["contentshort"]; ?>">
-								<?php echo jak_cut_text ($n["title"], 30, "..."); ?>
+								<?php echo envo_cut_text ($n["title"], 30, "..."); ?>
 							</a>
 						</h3>
 

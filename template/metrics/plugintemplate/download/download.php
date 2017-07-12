@@ -51,7 +51,7 @@
                 <div class="full-intro-head">
                   <h3>
                     <span>
-                      <a href="<?php echo $v["parseurl"]; ?>"><?php echo jak_cut_text($v["title"], 30, ""); ?></a>
+                      <a href="<?php echo $v["parseurl"]; ?>"><?php echo envo_cut_text($v["title"], 30, ""); ?></a>
                     </span>
                   </h3>
                   <p>

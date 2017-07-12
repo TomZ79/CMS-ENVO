@@ -66,7 +66,7 @@ if ($JAK_SHOW_FOOTER && JAK_ASACCESS && $jkv["styleswitcher_tpl"]) { ?>
 				<div class="col-footer col-sm-4">
 					<span id="footer-content3"><?php echo $jkv["fcont3_mosaic_tpl"]; ?></span>
 					<div class="footer-nav-column">
-						<?php echo jak_build_menu (0, $mfooter, $page, 'footer-list-style footer-navigate-section', '', '', '', JAK_ASACCESS); ?>
+						<?php echo envo_build_menu (0, $mfooter, $page, 'footer-list-style footer-navigate-section', '', '', '', JAK_ASACCESS); ?>
 					</div>
 				</div>
 
@@ -117,7 +117,7 @@ if ($JAK_SHOW_FOOTER && JAK_ASACCESS && $jkv["styleswitcher_tpl"]) { ?>
 					<div class="col-footer col-sm-4">
 						<?php echo $jkv["fcont3_mosaic_tpl"]; ?>
 						<div class="footer-nav-column">
-							<?php echo jak_build_menu (0, $mfooter, $page, 'no-list-style footer-navigate-section', '', '', '', JAK_ASACCESS); ?>
+							<?php echo envo_build_menu (0, $mfooter, $page, 'no-list-style footer-navigate-section', '', '', '', JAK_ASACCESS); ?>
 						</div>
 					</div>
 
@@ -205,12 +205,12 @@ if (JAK_ASACCESS && $jkv["styleswitcher_tpl"]) include_once APP_PATH . 'template
 <?php } ?>
 
 <script type="text/javascript">
-	jakWeb.jak_lang = "<?php echo $site_language;?>";
-	jakWeb.jak_url = "<?php echo BASE_URL;?>";
-	jakWeb.jak_url_orig = "<?php echo BASE_URL;?>";
-	jakWeb.jak_search_link = "<?php echo $JAK_SEARCH_LINK;?>";
-	jakWeb.jakrequest_uri = "<?php echo JAK_PARSE_REQUEST;?>";
-	jakWeb.jak_quickedit = "<?php echo $tl["general"]["g176"];?>";
+	envoWeb.envo_lang = "<?php echo $site_language;?>";
+	envoWeb.envo_url = "<?php echo BASE_URL;?>";
+	envoWeb.envo_url_orig = "<?php echo BASE_URL;?>";
+	envoWeb.envo_search_link = "<?php echo $JAK_SEARCH_LINK;?>";
+	envoWeb.request_uri = "<?php echo JAK_PARSE_REQUEST;?>";
+	envoWeb.envo_quickedit = "<?php echo $tl["general"]["g176"];?>";
 
 	<?php if (isset($_SESSION["infomsg"])) { ?>
 	$.notify({icon: 'fa fa-info-circle', message: '<?php echo $_SESSION["infomsg"];?>'}, {type: 'info'});

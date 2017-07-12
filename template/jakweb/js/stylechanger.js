@@ -37,7 +37,7 @@ $(document).ready(function () {
 		$('.sctheme').remove();
 		$('#themes').val("");
 		if (css != "blue") {
-			$("head").append('<link rel="stylesheet" href="' + jakWeb.jak_url + 'template/jakweb/css/themes/' + css + '.css" type="text/css" class="sctheme" />');
+			$("head").append('<link rel="stylesheet" href="' + envoWeb.envo_url + 'template/jakweb/css/themes/' + css + '.css" type="text/css" class="sctheme" />');
 			$('#themes').val(css);
 		}
 
@@ -68,7 +68,7 @@ $(document).ready(function () {
 			var csscolor = "screen.css";
 		}
 
-		$('#tpljakweb').attr('href', jakWeb.jak_url + 'template/jakweb/css/' + csscolor);
+		$('#tpljakweb').attr('href', envoWeb.envo_url + 'template/jakweb/css/' + csscolor);
 
 	});
 
@@ -104,7 +104,7 @@ $(document).ready(function () {
 	$(document).on('click', '.pattern', function (e) {
 		e.preventDefault();
 		pattern = $(this).data("pattern");
-		$('#sb-site').css("background-image", "url(" + jakWeb.jak_url + "template/jakweb/img/patterns/" + pattern + ".png)");
+		$('#sb-site').css("background-image", "url(" + envoWeb.envo_url + "template/jakweb/img/patterns/" + pattern + ".png)");
 		$('#pattern').val(pattern);
 	});
 
@@ -112,7 +112,7 @@ $(document).ready(function () {
 	$(document).on('click', '.patternboxed', function (e) {
 		e.preventDefault();
 		pattern = $(this).data("pattern");
-		$('.boxed-layout').css("background-image", "url(" + jakWeb.jak_url + "template/jakweb/img/patterns/" + pattern + ".png)");
+		$('.boxed-layout').css("background-image", "url(" + envoWeb.envo_url + "template/jakweb/img/patterns/" + pattern + ".png)");
 		$('#patternboxed').val(pattern);
 	});
 

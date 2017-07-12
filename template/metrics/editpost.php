@@ -93,7 +93,7 @@
 <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 
 <script type="text/javascript">
-	jakWeb.jak_lang = "<?php echo $site_language;?>";
+	envoWeb.envo_lang = "<?php echo $site_language;?>";
 </script>
 
 <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/post.js"></script>

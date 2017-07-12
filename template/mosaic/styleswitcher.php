@@ -1261,6 +1261,6 @@ while ($row = $result->fetch_assoc ()) {
 </div>
 <script type="text/javascript" src="<?php echo BASE_URL; ?>template/mosaic/js/styleajax.js"></script>
 <script type="text/javascript">
-	jakWeb.jak_submit = "<?php echo $tl['contact']['s'];?>";
-	jakWeb.jak_submitwait = "<?php echo $tl['general']['g99'];?>";
+	envoWeb.envo_submit = "<?php echo $tl['contact']['s'];?>";
+	envoWeb.envo_submitwait = "<?php echo $tl['general']['g99'];?>";
 </script>

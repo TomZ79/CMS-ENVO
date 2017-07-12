@@ -83,7 +83,7 @@ if ($jkv["printme"]) $printme = 1; ?>
           <h4><?php echo $tlblog["blog"]["d10"]; ?> (<span id="cComT"><?php echo $JAK_COMMENTS_TOTAL; ?></span>)</h4>
           <div class="post-coments">
             <?php if (isset($JAK_COMMENTS)) {
-              echo jak_build_comments(0, $JAK_COMMENTS, 'post-comments', JAK_BLOGMODERATE, $CHECK_USR_SESSION, $tl["general"]["g103"], $tlblog["blog"]["g9"], JAK_BLOGPOST, $jaktable2, FALSE, TRUE);
+              echo envo_build_comments(0, $JAK_COMMENTS, 'post-comments', JAK_BLOGMODERATE, $CHECK_USR_SESSION, $tl["general"]["g103"], $tlblog["blog"]["g9"], JAK_BLOGPOST, $envotable2, FALSE, TRUE);
             } else { ?>
               <div class="alert alert-info" id="comments-blank"><?php echo $tlblog["blog"]["g10"]; ?></div>
             <?php } ?>
@@ -113,14 +113,14 @@ if ($jkv["printme"]) $printme = 1; ?>
           <li class="previous">
             <a href="<?php echo $JAK_NAV_PREV; ?>">
               <i class="fa fa-caret-left"></i>
-              <span class="nav_text_left"><?php echo jak_cut_text($JAK_NAV_PREV_TITLE, 30, '...'); ?></span>
+              <span class="nav_text_left"><?php echo envo_cut_text($JAK_NAV_PREV_TITLE, 30, '...'); ?></span>
             </a>
           </li>
         <?php }
         if ($JAK_NAV_NEXT) { ?>
           <li class="next">
             <a href="<?php echo $JAK_NAV_NEXT; ?>">
-              <span class="nav_text_right"><?php echo jak_cut_text($JAK_NAV_NEXT_TITLE, 30, '...'); ?></span>
+              <span class="nav_text_right"><?php echo envo_cut_text($JAK_NAV_NEXT_TITLE, 30, '...'); ?></span>
               <i class="fa fa-caret-right"></i>
             </a>
           </li>
