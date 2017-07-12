@@ -1,7 +1,7 @@
 <?php
 
 // Get faq(s) out the database
-function jak_get_faq($limit, $order, $where, $table_row, $ext_seo, $timeago)
+function envo_get_faq($limit, $order, $where, $table_row, $ext_seo, $timeago)
 {
   global $jakdb;
   global $jkv;
@@ -18,7 +18,7 @@ function jak_get_faq($limit, $order, $where, $table_row, $ext_seo, $timeago)
   while ($row = $result->fetch_assoc()) {
 
     // Write content in short format with full words
-    $shortmsg = jak_cut_text($row['content'], $jkv["faqshortmsg"], '...');
+    $shortmsg = envo_cut_text($row['content'], $jkv["faqshortmsg"], '...');
 
     // There should be always a varname in categories and check if seo is valid
     $seo = "";
@@ -34,24 +34,24 @@ function jak_get_faq($limit, $order, $where, $table_row, $ext_seo, $timeago)
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $jakdata[] = array('id' => $row['id'], 'catid' => $row['catid'], 'title' => $row['title'], 'content' => jak_secure_site($row['content']), 'contentshort' => $shortmsg, 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'created' => $getTime, 'comments' => $row['comments'], 'hits' => $row['hits'], 'totalcom' => $row['total'], 'previmg' => $row['previmg'], 'parseurl' => $parseurl);
+    $envodata[] = array('id' => $row['id'], 'catid' => $row['catid'], 'title' => $row['title'], 'content' => envo_secure_site($row['content']), 'contentshort' => $shortmsg, 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'created' => $getTime, 'comments' => $row['comments'], 'hits' => $row['hits'], 'totalcom' => $row['total'], 'previmg' => $row['previmg'], 'parseurl' => $parseurl);
   }
 
-  return $jakdata;
+  return $envodata;
 }
 
 // Get total from a table limited to permission
-function jak_get_total_permission_faq()
+function envo_get_total_permission_faq()
 {
   global $jakdb;
   $result = $jakdb->query('SELECT COUNT(t1.id) AS total FROM ' . DB_PREFIX . 'faq as t1 LEFT JOIN ' . DB_PREFIX . 'faqcategories as t2 ON (t1.catid = t2.id) WHERE (t1.active = 1 AND t2.active = 1) AND (FIND_IN_SET(' . JAK_USERGROUPID . ',t2.permission) OR t1.catid = t2.id AND t2.permission = 0)');
   $row    = $result->fetch_assoc();
 
   if ($row['total']) {
-    $jaktotal = $row['total'];
+    $envototal = $row['total'];
   }
 
-  return $jaktotal;
+  return $envototal;
 }
 
 ?>

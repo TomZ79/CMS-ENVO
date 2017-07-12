@@ -12,9 +12,9 @@ include_once 'functions.php';
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$jaktable  = DB_PREFIX . 'faq';
-$jaktable1 = DB_PREFIX . 'faqcategories';
-$jaktable2 = DB_PREFIX . 'faqcomments';
+$envotable  = DB_PREFIX . 'faq';
+$envotable1 = DB_PREFIX . 'faqcategories';
+$envotable2 = DB_PREFIX . 'faqcomments';
 
 $CHECK_USR_SESSION = session_id();
 
@@ -30,7 +30,7 @@ define('JAK_FAQRATE', $jakusergroup->getVar("faqrate"));
 define('JAK_FAQMODERATE', $jakusergroup->getVar("faqmoderate"));
 
 // AJAX Search
-$AJAX_SEARCH_PLUGIN_WHERE = $jaktable;
+$AJAX_SEARCH_PLUGIN_WHERE = $envotable;
 $AJAX_SEARCH_PLUGIN_URL   = 'plugins/faq/ajaxsearch.php';
 $AJAX_SEARCH_PLUGIN_SEO   = $jkv["faqurl"];
 
@@ -50,9 +50,9 @@ $JAK_TPL_PLUG_URL = $backtofaq;
 switch ($page1) {
   case 'c':
 
-    if (is_numeric($page2) && jak_row_permission($page2, $jaktable1, JAK_USERGROUPID)) {
+    if (is_numeric($page2) && envo_row_permission($page2, $envotable1, JAK_USERGROUPID)) {
 
-      $getTotal = jak_get_total($jaktable, $page2, 'catid', 'active');
+      $getTotal = envo_get_total($envotable, $page2, 'catid', 'active');
 
       if ($jkv["faqurl"]) {
         $getWhere = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_FAQ, $page1, $page2, $page3, '');
@@ -77,9 +77,9 @@ switch ($page1) {
         $JAK_PAGINATE = $faqc->display_pages();
       }
 
-      $JAK_FAQ_ALL = jak_get_faq($faqc->limit, $jkv["faqorder"], $page2, 't1.catid', $jkv["faqurl"], $tl['global_text']['gtxt4']);
+      $JAK_FAQ_ALL = envo_get_faq($faqc->limit, $jkv["faqorder"], $page2, 't1.catid', $jkv["faqurl"], $tl['global_text']['gtxt4']);
 
-      $result = $jakdb->query('SELECT name' . ', content' . ' FROM ' . $jaktable1 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
+      $result = $jakdb->query('SELECT name' . ', content' . ' FROM ' . $envotable1 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
       $row    = $result->fetch_assoc();
 
       $PAGE_TITLE              = JAK_PLUGIN_NAME_FAQ . ' - ' . $row['name'];
@@ -108,9 +108,9 @@ switch ($page1) {
 
       // SEO from the category content if available
       if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
-        $PAGE_DESCRIPTION = jak_cut_text($MAIN_PLUGIN_DESCRIPTION, 155, '');
+        $PAGE_DESCRIPTION = envo_cut_text($MAIN_PLUGIN_DESCRIPTION, 155, '');
       } else {
-        $PAGE_DESCRIPTION = jak_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
+        $PAGE_DESCRIPTION = envo_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
       }
 
       // Get the CSS and Javascript into the page
@@ -129,13 +129,13 @@ switch ($page1) {
       }
 
     } else {
-      jak_redirect($backtofaq);
+      envo_redirect($backtofaq);
     }
 
     break;
   case 'a':
 
-    if (is_numeric($page2) && jak_row_exist($page2, $jaktable)) {
+    if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
       if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['userPost'])) {
 
@@ -149,7 +149,7 @@ switch ($page1) {
           define('BASE_URL_IMG', BASE_URL);
 
           $cleanusername  = smartsql($arr['co_name']);
-          $cleanuserpostB = htmlspecialchars_decode(jak_clean_safe_userpost($arr['userpost']));
+          $cleanuserpostB = htmlspecialchars_decode(envo_clean_safe_userpost($arr['userpost']));
 
           // the new session check for displaying messages to user even if not approved
           $sqlset = 0;
@@ -159,7 +159,7 @@ switch ($page1) {
 
           if (JAK_USERID) {
 
-            $sql = $jakdb->query('INSERT INTO ' . $jaktable2 . ' VALUES (NULL, "' . $page2 . '", "' . JAK_USERID . '", "' . $cleanusername . '", NULL, NULL, "' . smartsql($cleanuserpostB) . '", "' . JAK_FAQPOSTAPPROVE . '", 0, NOW(), "' . $sqlset . '")');
+            $sql = $jakdb->query('INSERT INTO ' . $envotable2 . ' VALUES (NULL, "' . $page2 . '", "' . JAK_USERID . '", "' . $cleanusername . '", NULL, NULL, "' . smartsql($cleanuserpostB) . '", "' . JAK_FAQPOSTAPPROVE . '", 0, NOW(), "' . $sqlset . '")');
 
             $arr['id'] = $jakdb->jak_last_id();
 
@@ -169,7 +169,7 @@ switch ($page1) {
             $cleanemail = filter_var($arr['co_email'], FILTER_SANITIZE_EMAIL);
             $cleanurl   = filter_var($arr['co_url'], FILTER_SANITIZE_URL);
 
-            $jakdb->query('INSERT INTO ' . $jaktable2 . ' VALUES (NULL, "' . $page2 . '", 0, "' . $cleanusername . '", "' . $cleanemail . '", "' . $cleanurl . '", "' . smartsql($cleanuserpostB) . '", "' . JAK_FAQPOSTAPPROVE . '", 0, NOW(), "' . $sqlset . '")');
+            $jakdb->query('INSERT INTO ' . $envotable2 . ' VALUES (NULL, "' . $page2 . '", 0, "' . $cleanusername . '", "' . $cleanemail . '", "' . $cleanurl . '", "' . smartsql($cleanuserpostB) . '", "' . JAK_FAQPOSTAPPROVE . '", 0, NOW(), "' . $sqlset . '")');
 
             $arr['id'] = $jakdb->jak_last_id();
 
@@ -198,13 +198,13 @@ switch ($page1) {
           /* Outputting the markup of the just-inserted comment: */
           if (isset($arr['jakajax']) && $arr['jakajax'] == "yes") {
 
-            $acajax = new JAK_comment($jaktable2, 'id', $arr['id'], JAK_PLUGIN_VAR_FAQ, $jkv["faqdateformat"], $jkv["faqtimeformat"], $tl['global_text']['gtxt4']);
+            $acajax = new JAK_comment($envotable2, 'id', $arr['id'], JAK_PLUGIN_VAR_FAQ, $jkv["faqdateformat"], $jkv["faqtimeformat"], $tl['global_text']['gtxt4']);
 
             header('Cache-Control: no-cache');
             die(json_encode(array('status' => 1, 'html' => $acajax->get_commentajax($tl['general']['g102'], $tlf['faq']['g3'], $tlf['faq']['g4']))));
 
           } else {
-            jak_redirect(JAK_PARSE_SUCCESS);
+            envo_redirect(JAK_PARSE_SUCCESS);
           }
 
         } else {
@@ -220,30 +220,30 @@ switch ($page1) {
 
       }
 
-      $result = $jakdb->query('SELECT * FROM ' . $jaktable . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
+      $result = $jakdb->query('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
       $row    = $result->fetch_assoc();
 
       if ($row['active'] != 1) {
-        jak_redirect(JAK_rewrite::jakParseurl('offline'));
+        envo_redirect(JAK_rewrite::jakParseurl('offline'));
       } else {
 
-        if (!jak_row_permission($row['catid'], $jaktable1, JAK_USERGROUPID)) {
-          jak_redirect($backtofaq);
+        if (!envo_row_permission($row['catid'], $envotable1, JAK_USERGROUPID)) {
+          envo_redirect($backtofaq);
         } else {
 
           // Now let's check the hits cookie
-          if (!jak_cookie_voted_hits($jaktable, $row['id'], 'hits')) {
+          if (!envo_cookie_voted_hits($envotable, $row['id'], 'hits')) {
 
-            jak_write_vote_hits_cookie($jaktable, $row['id'], 'hits');
+            envo_write_vote_hits_cookie($envotable, $row['id'], 'hits');
 
             // Update hits each time
-            JAK_base::jakUpdatehits($row['id'], $jaktable);
+            JAK_base::jakUpdatehits($row['id'], $envotable);
           }
 
           // Now output the data
           $PAGE_ID          = $row['id'];
           $PAGE_TITLE       = $row['title'];
-          $PAGE_CONTENT     = jak_secure_site($row['content']);
+          $PAGE_CONTENT     = envo_secure_site($row['content']);
           $SHOWTITLE        = $row['showtitle'];
           $SHOWDATE         = $row['showdate'];
           $SHOWCOMMENTFORM  = $row['comments'];
@@ -256,8 +256,8 @@ switch ($page1) {
           // Display contact form if whish so and do the caching
           $JAK_SHOW_C_FORM = FALSE;
           if ($row['showcontact'] != 0) {
-            $JAK_SHOW_C_FORM      = jak_create_contact_form($row['showcontact'], $tl['form_text']['formt']);
-            $JAK_SHOW_C_FORM_NAME = jak_contact_form_title($row['showcontact']);
+            $JAK_SHOW_C_FORM      = envo_create_contact_form($row['showcontact'], $tl['form_text']['formt']);
+            $JAK_SHOW_C_FORM_NAME = envo_contact_form_title($row['showcontact']);
           }
 
           // Get the url session
@@ -267,7 +267,7 @@ switch ($page1) {
 
         // Get the comments if wish so
         if ($row['comments'] == 1) {
-          $ac = new JAK_comment($jaktable2, 'faqid', $page2, JAK_PLUGIN_VAR_FAQ, $jkv["faqdateformat"], $jkv["faqtimeformat"], $tl['global_text']['gtxt4']);
+          $ac = new JAK_comment($envotable2, 'faqid', $page2, JAK_PLUGIN_VAR_FAQ, $jkv["faqdateformat"], $jkv["faqtimeformat"], $tl['global_text']['gtxt4']);
 
           $JAK_COMMENTS       = $ac->get_comments();
           $JAK_COMMENTS_TOTAL = $ac->get_total();
@@ -294,7 +294,7 @@ switch ($page1) {
         $JAK_TAGLIST = JAK_tags::jakGettaglist($page2, JAK_PLUGIN_ID_FAQ, JAK_PLUGIN_VAR_TAGS);
 
         // Get the categories into a list
-        $resultc = $jakdb->query('SELECT id, name, varname FROM ' . $jaktable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
+        $resultc = $jakdb->query('SELECT id, name, varname FROM ' . $envotable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
         while ($rowc = $resultc->fetch_assoc()) {
 
           if ($jkv["faqurl"]) {
@@ -317,7 +317,7 @@ switch ($page1) {
         }
 
         // Page Nav
-        $nextp = jak_next_page($page2, 'title', $jaktable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
+        $nextp = envo_next_page($page2, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
         if ($nextp) {
 
           if ($jkv["faqurl"]) {
@@ -328,7 +328,7 @@ switch ($page1) {
           $JAK_NAV_NEXT_TITLE = addslashes($nextp['title']);
         }
 
-        $prevp = jak_previous_page($page2, 'title', $jaktable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
+        $prevp = envo_previous_page($page2, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
         if ($prevp) {
 
           if ($jkv["faqurl"]) {
@@ -341,7 +341,7 @@ switch ($page1) {
 
       }
     } else {
-      jak_redirect($backtofaq);
+      envo_redirect($backtofaq);
     }
 
     // Now get the new meta keywords and description maker
@@ -351,7 +351,7 @@ switch ($page1) {
       $keytags = ',' . implode(',', $keytags);
     }
     $PAGE_KEYWORDS    = str_replace(" ", " ", JAK_Base::jakCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
-    $PAGE_DESCRIPTION = jak_cut_text($PAGE_CONTENT, 155, '');
+    $PAGE_DESCRIPTION = envo_cut_text($PAGE_CONTENT, 155, '');
 
 
     // EN: Load the template
@@ -368,24 +368,24 @@ switch ($page1) {
     break;
   case 'del':
 
-    if (is_numeric($page2) && is_numeric($page3) && jak_row_exist($page2, $jaktable2)) {
+    if (is_numeric($page2) && is_numeric($page3) && envo_row_exist($page2, $envotable2)) {
 
       if (JAK_FAQMODERATE) {
 
-        $result = $jakdb->query('DELETE FROM ' . $jaktable2 . ' WHERE id = "' . smartsql($page2) . '"');
+        $result = $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($page2) . '"');
 
         if (!$result) {
-          jak_redirect(JAK_PARSE_ERROR);
+          envo_redirect(JAK_PARSE_ERROR);
         } else {
-          jak_redirect(JAK_PARSE_SUCCESS);
+          envo_redirect(JAK_PARSE_SUCCESS);
         }
 
       } else {
-        jak_redirect($backtofaq);
+        envo_redirect($backtofaq);
       }
 
     } else {
-      jak_redirect($backtofaq);
+      envo_redirect($backtofaq);
     }
 
     break;
@@ -405,18 +405,18 @@ switch ($page1) {
         $errors['e'] = $tlf['faq']['e1'] . $jkv["faqmaxpost"] . ' ' . $tlf['faq']['e2'] . $countI;
       }
 
-      if (is_numeric($page2) && count($errors) == 0 && jak_row_exist($page2, $jaktable2)) {
+      if (is_numeric($page2) && count($errors) == 0 && envo_row_exist($page2, $envotable2)) {
 
         define('BASE_URL_IMG', BASE_URL);
 
-        $cleanpost = htmlspecialchars_decode(jak_clean_safe_userpost($defaults['userpost']));
+        $cleanpost = htmlspecialchars_decode(envo_clean_safe_userpost($defaults['userpost']));
 
-        $result = $jakdb->query('UPDATE ' . $jaktable2 . ' SET username = "' . smartsql($defaults['username']) . '", web = "' . smartsql($defaults['web']) . '", message = "' . smartsql($cleanpost) . '" WHERE id = "' . smartsql($page2) . '"');
+        $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET username = "' . smartsql($defaults['username']) . '", web = "' . smartsql($defaults['web']) . '", message = "' . smartsql($cleanpost) . '" WHERE id = "' . smartsql($page2) . '"');
 
         if (!$result) {
-          jak_redirect(html_entity_decode(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_FAQ, 'ep', $page2, $page3, 'e')));
+          envo_redirect(html_entity_decode(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_FAQ, 'ep', $page2, $page3, 'e')));
         } else {
-          jak_redirect(html_entity_decode(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_FAQ, 'ep', $page2, $page3, 's')));
+          envo_redirect(html_entity_decode(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_FAQ, 'ep', $page2, $page3, 's')));
         }
 
       } else {
@@ -425,53 +425,53 @@ switch ($page1) {
 
     }
 
-    if (is_numeric($page2) && is_numeric($page3) && jak_row_exist($page2, $jaktable2)) {
+    if (is_numeric($page2) && is_numeric($page3) && envo_row_exist($page2, $envotable2)) {
 
-      if (JAK_USERID && JAK_FAQDELETE && jak_give_right($page2, JAK_USERID, $jaktable2, 'userid') || JAK_FAQMODERATE) {
+      if (JAK_USERID && JAK_FAQDELETE && envo_give_right($page2, JAK_USERID, $envotable2, 'userid') || JAK_FAQMODERATE) {
 
-        $result = $jakdb->query('SELECT username, web, message FROM ' . $jaktable2 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
+        $result = $jakdb->query('SELECT username, web, message FROM ' . $envotable2 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
         $row    = $result->fetch_assoc();
 
         $RUNAME = $row['username'];
         $RWEB   = $row['web'];
-        $RCONT  = jak_edit_safe_userpost($row['message']);
+        $RCONT  = envo_edit_safe_userpost($row['message']);
 
         // EN: Load the template
         // CZ: Načti template (šablonu)
         $template = 'editpost.php';
 
       } else {
-        jak_redirect($backtofaq);
+        envo_redirect($backtofaq);
       }
 
     } else {
-      jak_redirect($backtofaq);
+      envo_redirect($backtofaq);
     }
     break;
   case 'trash':
-    if (is_numeric($page2) && is_numeric($page3) && jak_row_exist($page2, $jaktable2)) {
+    if (is_numeric($page2) && is_numeric($page3) && envo_row_exist($page2, $envotable2)) {
 
-      if (JAK_USERID && JAK_FAQPOSTDELETE && jak_give_right($page2, JAK_USERID, $jaktable2, 'userid') || JAK_FAQMODERATE) {
+      if (JAK_USERID && JAK_FAQPOSTDELETE && envo_give_right($page2, JAK_USERID, $envotable2, 'userid') || JAK_FAQMODERATE) {
 
-        $result = $jakdb->query('UPDATE ' . $jaktable2 . ' SET trash = 1 WHERE id = "' . smartsql($page2) . '"');
+        $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET trash = 1 WHERE id = "' . smartsql($page2) . '"');
 
         if (!$result) {
-          jak_redirect(JAK_PARSE_ERROR);
+          envo_redirect(JAK_PARSE_ERROR);
         } else {
-          jak_redirect(JAK_PARSE_SUCCESS);
+          envo_redirect(JAK_PARSE_SUCCESS);
         }
 
       } else {
-        jak_redirect($backtofaq);
+        envo_redirect($backtofaq);
       }
 
     } else {
-      jak_redirect($backtofaq);
+      envo_redirect($backtofaq);
     }
     break;
   default:
 
-    $getTotal = jak_get_total_permission_faq();
+    $getTotal = envo_get_total_permission_faq();
 
     if ($getTotal != 0) {
       // Paginator
@@ -489,7 +489,7 @@ switch ($page1) {
       $JAK_PAGINATE = $faq->display_pages();
 
       // Get all FAQ articles
-      $JAK_FAQ_ALL = jak_get_faq($faq->limit, $jkv["faqorder"], '', '', $jkv["faqurl"], $tl['global_text']['gtxt4']);
+      $JAK_FAQ_ALL = envo_get_faq($faq->limit, $jkv["faqorder"], '', '', $jkv["faqurl"], $tl['global_text']['gtxt4']);
 
     }
 
@@ -519,9 +519,9 @@ switch ($page1) {
 
     // SEO from the category content if available
     if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
-      $PAGE_DESCRIPTION = jak_cut_text($MAIN_PLUGIN_DESCRIPTION, 155, '');
+      $PAGE_DESCRIPTION = envo_cut_text($MAIN_PLUGIN_DESCRIPTION, 155, '');
     } else {
-      $PAGE_DESCRIPTION = jak_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
+      $PAGE_DESCRIPTION = envo_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
     }
 
     // Get the CSS and Javascript into the page

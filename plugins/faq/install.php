@@ -115,7 +115,7 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
             <h3><span class="semi-bold">Výpis</span> Komponentů</h3>
             <p>Seznam komponent které budou odinstalovány v průběhu odinstalačního procesu tohoto pluginu</p>
             <br>
-            <h5 class="text-uppercase">Prostudovat postup odinstalace</h5>
+            <h5 class="text-uppercase">Prostudovat postup instalace</h5>
           </div>
         </div>
       </div>
@@ -223,10 +223,10 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
 		$what = 1;
 		$seowhat = $jkv[\"faqurl\"];
 		
-		$JAK_RSS_DESCRIPTION = jak_cut_text($jkv[\"faqdesc\"], $jkv[\"shortmsg\"], \'…\');
+		$JAK_RSS_DESCRIPTION = envo_cut_text($jkv[\"faqdesc\"], $jkv[\"shortmsg\"], \'…\');
 		
 	} else {
-		jak_redirect(BASE_URL);
+		envo_redirect(BASE_URL);
 	}
 	
 }';
@@ -242,7 +242,7 @@ $JAK_TAG_FAQ_DATA = $faqtagData;
       // CZ: Php kód pro mapu sítě
       $sitephpsitemap = 'include_once APP_PATH.\'plugins/faq/functions.php\';
 
-$JAK_FAQ_ALL = jak_get_faq(\'\', $jkv[\"faqorder\"], \'\', \'\', $jkv[\"faqurl\"], $tl[\'general\'][\'g56\']);
+$JAK_FAQ_ALL = envo_get_faq(\'\', $jkv[\"faqorder\"], \'\', \'\', $jkv[\"faqurl\"], $tl[\'general\'][\'g56\']);
 $PAGE_TITLE = JAK_PLUGIN_NAME_FAQ;';
 
       // Fulltext search query
@@ -275,7 +275,7 @@ if (empty($fq) && !empty($defaults[\'jak_showfaqmany\'])) {
 }';
 
       //
-      $getfaq = '$JAK_GET_FAQ = jak_get_page_info(DB_PREFIX.\'faq\', \'\');
+      $getfaq = '$JAK_GET_FAQ = envo_get_page_info(DB_PREFIX.\'faq\', \'\');
 
 if ($JAK_FORM_DATA) {
 
