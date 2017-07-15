@@ -21,7 +21,8 @@ $envotable5 = DB_PREFIX . 'pluginhooks';
 // CZ: Vložené funkce
 include_once("../plugins/download/admin/include/functions.php");
 
-// Now start with the plugin use a switch to access all pages
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'new':
 
@@ -239,8 +240,8 @@ switch ($page1) {
     $SECTION_TITLE = $tld["downl_sec_title"]["downlt1"];
     $SECTION_DESC  = $tld["downl_sec_title"]["downld1"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/download/admin/template/newdownload.php';
 
     break;
@@ -281,10 +282,10 @@ switch ($page1) {
             // CZ: Přesměrování stránky s notifikací - úspěšné
             /*
             NOTIFIKACE:
-            'status=s'   - Záznam úspěšně uložen
-            'status1=s'  - Záznam úspěšně odstraněn
+            'status=s'    - Záznam úspěšně uložen
+            'status1=s1'  - Záznam úspěšně odstraněn
             */
-            envo_redirect(BASE_URL . 'index.php?p=download&sp=categories&status=s&status1=s');
+            envo_redirect(BASE_URL . 'index.php?p=download&sp=categories&status=s&status1=s1');
           }
 
         } elseif (envo_row_exist($page3, $envotable1) && envo_field_not_exist($page3, $envotable1, $jakfield)) {
@@ -374,8 +375,8 @@ switch ($page1) {
           $SECTION_TITLE = $tld["downl_sec_title"]["downlt5"];
           $SECTION_DESC  = $tld["downl_sec_desc"]["downld5"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $plugin_template = 'plugins/download/admin/template/editcat.php';
 
         } else {
@@ -452,8 +453,8 @@ switch ($page1) {
         $SECTION_TITLE = $tld["downl_sec_title"]["downlt4"];
         $SECTION_DESC  = $tld["downl_sec_desc"]["downld4"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/download/admin/template/cat.php';
     }
     break;
@@ -544,8 +545,8 @@ switch ($page1) {
     $SECTION_TITLE = $tld["downl_sec_title"]["downlt6"];
     $SECTION_DESC  = $tld["downl_sec_desc"]["downld6"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/download/admin/template/newcat.php';
 
     break;
@@ -628,8 +629,8 @@ switch ($page1) {
         $SECTION_TITLE = $tld["downl_sec_title"]["downlt7"];
         $SECTION_DESC  = $tld["downl_sec_desc"]["downld7"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/download/admin/template/comment.php';
 
         break;
@@ -661,8 +662,8 @@ switch ($page1) {
           $SECTION_TITLE = $tld["downl_sec_title"]["downlt8"];
           $SECTION_DESC  = $tld["downl_sec_desc"]["downld8"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $plugin_template = 'plugins/download/admin/template/commentsort.php';
         } else {
           // EN: Redirect page
@@ -721,8 +722,8 @@ switch ($page1) {
         $SECTION_TITLE = $tld["downl_sec_title"]["downlt8"];
         $SECTION_DESC  = $tld["downl_sec_desc"]["downld8"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/download/admin/template/comment.php';
     }
 
@@ -926,8 +927,8 @@ switch ($page1) {
     $SECTION_TITLE = $tld["downl_sec_title"]["downlt9"];
     $SECTION_DESC  = $tld["downl_sec_desc"]["downld9"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/download/admin/template/setting.php';
 
     break;
@@ -993,8 +994,8 @@ switch ($page1) {
     $SECTION_TITLE = $tld["downl_sec_title"]["downlt10"];
     $SECTION_DESC  = $tld["downl_sec_desc"]["downld10"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/download/admin/template/trash.php';
 
     break;
@@ -1024,8 +1025,8 @@ switch ($page1) {
           $SECTION_TITLE = $tld["downl_sec_title"]["downlt2"];
           $SECTION_DESC  = $tld["downl_sec_desc"]["downld2"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $plugin_template = 'plugins/download/admin/template/catsort.php';
 
         } else {
@@ -1083,10 +1084,10 @@ switch ($page1) {
             // CZ: Přesměrování stránky s notifikací - úspěšné
             /*
             NOTIFIKACE:
-            'status=s'   - Záznam úspěšně uložen
-            'status1=s'  - Záznam úspěšně odstraněn
+            'status=s'    - Záznam úspěšně uložen
+            'status1=s1'  - Záznam úspěšně odstraněn
             */
-            envo_redirect(BASE_URL . 'index.php?p=download&status=s&status1=s');
+            envo_redirect(BASE_URL . 'index.php?p=download&status=s&status1=s1');
           }
 
         } else {
@@ -1375,8 +1376,8 @@ switch ($page1) {
           $SECTION_TITLE = $tld["downl_sec_title"]["downlt3"];
           $SECTION_DESC  = $tld["downl_sec_desc"]["downld3"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $plugin_template = 'plugins/download/admin/template/editdownload.php';
 
         } else {
@@ -1430,8 +1431,8 @@ switch ($page1) {
           // Get the data
           $JAK_FORM_DATA = envo_get_data($page2, $envotable);
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $template = 'quickedit.php';
 
         } else {
@@ -1470,8 +1471,8 @@ switch ($page1) {
         $SECTION_TITLE = $tld["downl_sec_title"]["downlt11"];
         $SECTION_DESC  = $tld["downl_sec_desc"]["downld11"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/download/admin/template/download.php';
 
         break;
@@ -1542,10 +1543,10 @@ switch ($page1) {
               // CZ: Přesměrování stránky s notifikací - úspěšné
               /*
               NOTIFIKACE:
-              'status=s'   - Záznam úspěšně uložen
-              'status1=s'  - Záznam úspěšně odstraněn
+              'status=s'    - Záznam úspěšně uložen
+              'status1=s1'  - Záznam úspěšně odstraněn
               */
-              envo_redirect(BASE_URL . 'index.php?p=download&status=s&status1=s');
+              envo_redirect(BASE_URL . 'index.php?p=download&status=s&status1=s1');
             }
 
           }
@@ -1574,8 +1575,8 @@ switch ($page1) {
         $SECTION_TITLE = $tld["downl_sec_title"]["downlt"];
         $SECTION_DESC  = $tld["downl_sec_desc"]["downld"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/download/admin/template/download.php';
     }
 }

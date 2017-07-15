@@ -28,7 +28,8 @@ $JAK_SETTING_VAL = envo_get_setting_val('module');
 // Get all the hooks out the class file
 $JAK_HOOK_LOCATIONS = JAK_hooks::jakAllhooks();
 
-// Now start with the plugin use a switch to access all pages
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'hooks':
 
@@ -108,8 +109,8 @@ switch ($page1) {
           $SECTION_TITLE = $tl["hook_sec_title"]["hookt"];
           $SECTION_DESC  = $tl["hook_sec_desc"]["hookd"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $template = 'edithook.php';
         }
 
@@ -220,8 +221,8 @@ switch ($page1) {
         $SECTION_TITLE = $tl["hook_sec_title"]["hookt1"];
         $SECTION_DESC  = $tl["hook_sec_desc"]["hookd1"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $template = 'hooks.php';
 
         break;
@@ -253,8 +254,8 @@ switch ($page1) {
     $SECTION_TITLE = $tl["hook_sec_title"]["hookt2"];
     $SECTION_DESC  = (is_numeric($page2) ? $tl["hook_sec_desc"]["hookd2"] . ': ' . $JAK_PLUGIN_NAME : $tl["hook_sec_desc"]["hookd3"] . ': ' . $page2);
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $template = 'sorthooks.php';
 
     break;
@@ -317,8 +318,8 @@ switch ($page1) {
     $SECTION_TITLE = $tl["hook_sec_title"]["hookt3"];
     $SECTION_DESC  = $tl["hook_sec_desc"]["hookd4"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $template = 'newhook.php';
 
     break;
@@ -397,8 +398,8 @@ switch ($page1) {
         $SECTION_TITLE = $tl["plug_sec_title"]["plugt"];
         $SECTION_DESC  = $tl["plug_sec_desc"]["plugd"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $template = 'plugins.php';
     }
 }

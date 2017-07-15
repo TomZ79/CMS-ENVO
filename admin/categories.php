@@ -13,7 +13,8 @@ if (!JAK_USERID || !$JAK_MODULEM) envo_redirect(BASE_URL);
 $envotable  = DB_PREFIX . 'categories';
 $envotable1 = DB_PREFIX . 'pages';
 
-// Now start with the plugin use a switch to access all pages
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'newcat':
 
@@ -112,8 +113,8 @@ switch ($page1) {
     $SECTION_TITLE = $tl["cat_sec_title"]["catt1"];
     $SECTION_DESC  = $tl["cat_sec_desc"]["catd1"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $template = 'newcat.php';
 
     break;
@@ -156,10 +157,10 @@ switch ($page1) {
               // CZ: Přesměrování stránky s notifikací - úspěšné
               /*
               NOTIFIKACE:
-              'status=s'   - Záznam úspěšně uložen
-              'status1=s'  - Záznam úspěšně odstraněn
+              'status=s'    - Záznam úspěšně uložen
+              'status1=s1'  - Záznam úspěšně odstraněn
               */
-              envo_redirect(BASE_URL . 'index.php?p=categories&status=s&status1=s');
+              envo_redirect(BASE_URL . 'index.php?p=categories&status=s&status1=s1');
             }
 
           } else {
@@ -265,8 +266,8 @@ switch ($page1) {
           $SECTION_TITLE = $tl["cat_sec_title"]["catt2"];
           $SECTION_DESC  = $tl["cat_sec_desc"]["catd2"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $template = 'editcat.php';
 
         } else {
@@ -395,8 +396,8 @@ switch ($page1) {
         $SECTION_TITLE = $tl["cat_sec_title"]["catt"];
         $SECTION_DESC  = $tl["cat_sec_desc"]["catd"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $template = 'categories.php';
     }
 }

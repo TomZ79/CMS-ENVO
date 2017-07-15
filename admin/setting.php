@@ -329,8 +329,8 @@ $lang_files     = envo_get_lang_files(FALSE);
 $SECTION_TITLE = $tl["gs_sec_title"]["gst"];
 $SECTION_DESC  = $tl["gs_sec_desc"]["gsd"];
 
-// EN: Load the template
-// CZ: Načti template (šablonu)
+// EN: Load the php template
+// CZ: Načtení php template (šablony)
 $template = 'setting.php';
 
 

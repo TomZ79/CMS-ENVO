@@ -47,6 +47,8 @@ $backtofaq = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_FAQ, '', '', '', '');
 $JAK_TPL_PLUG_T   = JAK_PLUGIN_NAME_FAQ;
 $JAK_TPL_PLUG_URL = $backtofaq;
 
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'c':
 
@@ -117,8 +119,8 @@ switch ($page1) {
       $JAK_HEADER_CSS        = $jkv["faq_css"];
       $JAK_FOOTER_JAVASCRIPT = $jkv["faq_javascript"];
 
-      // EN: Load the template
-      // CZ: Načti template (šablonu)
+      // EN: Load the php template
+      // CZ: Načtení php template (šablony)
       $pluginbasic_template = 'plugins/faq/template/faq.php';
       $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/faq/faq.php';
 
@@ -354,8 +356,8 @@ switch ($page1) {
     $PAGE_DESCRIPTION = envo_cut_text($PAGE_CONTENT, 155, '');
 
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $pluginbasic_template = 'plugins/faq/template/faqart.php';
     $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/faq/faqart.php';
 
@@ -436,8 +438,8 @@ switch ($page1) {
         $RWEB   = $row['web'];
         $RCONT  = envo_edit_safe_userpost($row['message']);
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $template = 'editpost.php';
 
       } else {
@@ -528,8 +530,8 @@ switch ($page1) {
     $JAK_HEADER_CSS        = $jkv["faq_css"];
     $JAK_FOOTER_JAVASCRIPT = $jkv["faq_javascript"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $pluginbasic_template = 'plugins/faq/template/faq.php';
     $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/faq/faq.php';
 

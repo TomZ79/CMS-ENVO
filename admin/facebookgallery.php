@@ -27,7 +27,8 @@ $envotable = DB_PREFIX . 'galleryfacebook';
 // Get the all data
 $JAK_GALLERY_ALL = envo_get_galleryfacebook('', $envotable, 'DESC');
 
-// Now start with the plugin use a switch to access all pages
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'newfacebook':
 
@@ -36,8 +37,8 @@ switch ($page1) {
     $SECTION_TITLE = $tl["fb_sec_title"]["fbt1"];
     $SECTION_DESC  = $tl["fb_sec_desc"]["fbd1"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $template = 'newfacebook.php';
 
     break;
@@ -71,10 +72,10 @@ switch ($page1) {
             // CZ: Přesměrování stránky s notifikací - úspěšné
             /*
             NOTIFIKACE:
-            'status=s'   - Záznam úspěšně uložen
-            'status1=s'  - Záznam úspěšně odstraněn
+            'status=s'    - Záznam úspěšně uložen
+            'status1=s1'  - Záznam úspěšně odstraněn
             */
-            envo_redirect(BASE_URL . 'index.php?p=facebookgallery&status=s&status1=s');
+            envo_redirect(BASE_URL . 'index.php?p=facebookgallery&status=s&status1=s1');
           }
 
         } else {
@@ -92,8 +93,8 @@ switch ($page1) {
         $SECTION_TITLE = $tl["fb_sec_title"]["fbt2"];
         $SECTION_DESC  = $tl["fb_sec_desc"]["fbd2"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $template = 'editfacebook.php';
 
         break;
@@ -104,8 +105,8 @@ switch ($page1) {
         $SECTION_TITLE = $tl["fb_sec_title"]["fbt3"];
         $SECTION_DESC  = $tl["fb_sec_desc"]["fbd3"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $template = 'facebookgallery.php';
 
     }

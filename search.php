@@ -110,7 +110,7 @@ while ($grow = $grid->fetch_assoc()) {
 $PAGE_KEYWORDS    = str_replace(" ", " ", JAK_Base::jakCleanurl($tl["placeholder"]["plc"]) . ($JAK_SEARCH_CLOUD ? "," . strip_tags($JAK_SEARCH_CLOUD) : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
 $PAGE_DESCRIPTION = $jkv["metadesc"];
 
-// EN: Load the template
-// CZ: Načti template (šablonu)
+// EN: Load the php template
+// CZ: Načtení php template (šablony)
 $template = 'search.php';
 ?>

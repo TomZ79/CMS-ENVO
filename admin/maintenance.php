@@ -68,8 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $SECTION_TITLE = $tl["mtn_sec_title"]["mtnt"];
 $SECTION_DESC  = $tl["mtn_sec_desc"]["mtnd"];
 
-// EN: Load the template
-// CZ: Načti template (šablonu)
+// EN: Load the php template
+// CZ: Načtení php template (šablony)
 $template = 'maintenance.php';
 
 ?>

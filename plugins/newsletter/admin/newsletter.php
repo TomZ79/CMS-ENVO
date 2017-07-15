@@ -39,7 +39,8 @@ function jak_get_themes($styledir)
   }
 }
 
-// Now start with the plugin use a switch to access all pages
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'new':
 
@@ -104,8 +105,8 @@ switch ($page1) {
     $SECTION_TITLE = $tlnl["newsletter_sec_title"]["nlt1"];
     $SECTION_DESC  = $tlnl["newsletter_sec_desc"]["nld1"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/newsletter/admin/template/new.php';
 
     break;
@@ -116,8 +117,8 @@ switch ($page1) {
       // Get the newsletter
       $JAK_FORM_DATA = envo_get_data($page2, $envotable);
 
-      // EN: Load the template
-      // CZ: Načti template (šablonu)
+      // EN: Load the php template
+      // CZ: Načtení php template (šablony)
       $plugin_template = 'plugins/newsletter/admin/template/preview.php';
 
     } else {
@@ -202,8 +203,8 @@ switch ($page1) {
       $SECTION_TITLE = $tlnl["newsletter_sec_title"]["nlt11"];
       $SECTION_DESC  = $tlnl["newsletter_sec_desc"]["nld11"];
 
-      // EN: Load the template
-      // CZ: Načti template (šablonu)
+      // EN: Load the php template
+      // CZ: Načtení php template (šablony)
       $plugin_template = 'plugins/newsletter/admin/template/stat.php';
 
     } else {
@@ -411,8 +412,8 @@ switch ($page1) {
       $SECTION_TITLE = $tlnl["newsletter_sec_title"]["nlt12"];
       $SECTION_DESC  = $tlnl["newsletter_sec_desc"]["nld12"];
 
-      // EN: Load the template
-      // CZ: Načti template (šablonu)
+      // EN: Load the php template
+      // CZ: Načtení php template (šablony)
       $plugin_template = 'plugins/newsletter/admin/template/send.php';
 
     } else {
@@ -548,8 +549,8 @@ switch ($page1) {
         $SECTION_TITLE = $tlnl["newsletter_sec_title"]["nlt4"];
         $SECTION_DESC  = $tlnl["newsletter_sec_desc"]["nld4"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/newsletter/admin/template/newuser.php';
 
         break;
@@ -619,8 +620,8 @@ switch ($page1) {
         $SECTION_TITLE = $tlnl["newsletter_sec_title"]["nlt5"] . ' - ' . '';
         $SECTION_DESC  = $tlnl["newsletter_sec_desc"]["nld5"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/newsletter/admin/template/edituser.php';
 
         break;
@@ -679,8 +680,8 @@ switch ($page1) {
         $SECTION_TITLE = $tlnl["newsletter_sec_title"]["nlt6"];
         $SECTION_DESC  = $tlnl["newsletter_sec_desc"]["nld6"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/newsletter/admin/template/user.php';
 
         break;
@@ -766,8 +767,8 @@ switch ($page1) {
         $SECTION_TITLE = $tlnl["newsletter_sec_title"]["nlt3"];
         $SECTION_DESC  = $tlnl["newsletter_sec_desc"]["nld3"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/newsletter/admin/template/user.php';
 
     }
@@ -824,8 +825,8 @@ switch ($page1) {
         $SECTION_TITLE = $tlnl["newsletter_sec_title"]["nlt8"];
         $SECTION_DESC  = $tlnl["newsletter_sec_desc"]["nld8"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/newsletter/admin/template/newgroup.php';
 
         break;
@@ -886,8 +887,8 @@ switch ($page1) {
         $SECTION_TITLE = $tlnl["newsletter_sec_title"]["nlt9"];
         $SECTION_DESC  = $tlnl["newsletter_sec_desc"]["nld9"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/newsletter/admin/template/editgroup.php';
 
         break;
@@ -999,8 +1000,8 @@ switch ($page1) {
         $SECTION_TITLE = $tlnl["newsletter_sec_title"]["nlt7"];
         $SECTION_DESC  = $tlnl["newsletter_sec_desc"]["nld7"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/newsletter/admin/template/usergroup.php';
     }
 
@@ -1142,8 +1143,8 @@ switch ($page1) {
     $SECTION_TITLE = $tlnl["newsletter_sec_title"]["nlt10"];
     $SECTION_DESC  = $tlnl["newsletter_sec_desc"]["nld10"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/newsletter/admin/template/settings.php';
 
     break;
@@ -1228,8 +1229,8 @@ switch ($page1) {
           $SECTION_TITLE = $tlnl["newsletter_sec_title"]["nlt2"];
           $SECTION_DESC  = $tlnl["newsletter_sec_desc"]["nld2"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $plugin_template = 'plugins/newsletter/admin/template/edit.php';
 
         } else {
@@ -1292,8 +1293,8 @@ switch ($page1) {
         $SECTION_TITLE = $tlnl["newsletter_sec_title"]["nlt"];
         $SECTION_DESC  = $tlnl["newsletter_sec_desc"]["nld"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/newsletter/admin/template/newsletter.php';
     }
 }

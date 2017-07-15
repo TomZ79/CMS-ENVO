@@ -19,7 +19,8 @@ $JAK_SEARCH = $JAK_LIST_USER = $SEARCH_WORD = $updatepass = $insert = FALSE;
 $JAK_HOOK_ADMIN_USER      = $jakhooks->jakGethook("tpl_admin_user");
 $JAK_HOOK_ADMIN_USER_EDIT = $jakhooks->jakGethook("tpl_admin_user_edit");
 
-// Now start with the plugin use a switch to access all pages
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'newuser':
 
@@ -102,8 +103,8 @@ switch ($page1) {
     $SECTION_TITLE = $tl["user_sec_title"]["usert1"];
     $SECTION_DESC  = $tl["user_sec_desc"]["userd1"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $template = 'newuser.php';
 
     break;
@@ -298,8 +299,8 @@ switch ($page1) {
         $SECTION_TITLE = $tl["user_sec_title"]["usert2"];
         $SECTION_DESC  = $tl["user_sec_desc"]["userd2"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $template = 'searchuser.php';
 
         break;
@@ -334,8 +335,8 @@ switch ($page1) {
         $SECTION_TITLE = $tl["user_sec_title"]["usert3"];
         $SECTION_DESC  = $tl["user_sec_desc"]["userd3"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $template = 'user.php';
 
         break;
@@ -485,10 +486,10 @@ switch ($page1) {
             // CZ: Přesměrování stránky s notifikací - úspěšné
             /*
             NOTIFIKACE:
-            'status=s'   - Záznam úspěšně uložen
-            'status1=s'  - Záznam úspěšně odstraněn
+            'status=s'    - Záznam úspěšně uložen
+            'status1=s1'  - Záznam úspěšně odstraněn
             */
-            envo_redirect(BASE_URL . 'index.php?p=user&status=s&status1=s');
+            envo_redirect(BASE_URL . 'index.php?p=user&status=s&status1=s1');
           }
 
         } else {
@@ -746,8 +747,8 @@ switch ($page1) {
           $SECTION_TITLE = $tl["user_sec_title"]["usert4"];
           $SECTION_DESC  = $tl["user_sec_desc"]["userd4"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $template = 'edituser.php';
 
         } else {
@@ -900,10 +901,10 @@ switch ($page1) {
               // CZ: Přesměrování stránky s notifikací - úspěšné
               /*
               NOTIFIKACE:
-              'status=s'   - Záznam úspěšně uložen
-              'status1=s'  - Záznam úspěšně odstraněn
+              'status=s'    - Záznam úspěšně uložen
+              'status1=s1'  - Záznam úspěšně odstraněn
               */
-              envo_redirect(BASE_URL . 'index.php?p=user&status=s&status1=s');
+              envo_redirect(BASE_URL . 'index.php?p=user&status=s&status1=s1');
             }
 
           }
@@ -937,8 +938,8 @@ switch ($page1) {
         $SECTION_TITLE = $tl["user_sec_title"]["usert"];
         $SECTION_DESC  = $tl["user_sec_desc"]["userd"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $template = 'user.php';
     }
 }

@@ -91,8 +91,8 @@ if (!empty($sql)) {
   $JAK_RSS_TITLE = $jkv["title"] . ' - RSS';
   $JAK_RSS_DATE  = date(DATE_RFC2822);
 
-  // EN: Load the template
-  // CZ: Načti template (šablonu)
+  // EN: Load the php template
+  // CZ: Načtení php template (šablony)
   $template = 'rss.php';
 
 } else {

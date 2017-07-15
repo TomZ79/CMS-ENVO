@@ -21,7 +21,8 @@ $insert = FALSE;
 $JAK_HOOK_ADMIN_PAGE     = $jakhooks->jakGethook("tpl_admin_page_news");
 $JAK_HOOK_ADMIN_PAGE_NEW = $jakhooks->jakGethook("tpl_admin_page_news_new");
 
-// Now start with the plugin use a switch to access all pages
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'new':
 
@@ -218,8 +219,8 @@ switch ($page1) {
     $SECTION_TITLE = $tl["news_sec_title"]["newst1"];
     $SECTION_DESC  = $tl["news_sec_desc"]["newsd1"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $template = 'newnews.php';
 
     break;
@@ -405,8 +406,8 @@ switch ($page1) {
     $SECTION_TITLE = $tl["news_sec_title"]["newst2"];
     $SECTION_DESC  = $tl["news_sec_desc"]["newsd2"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $template = 'newssetting.php';
 
     break;
@@ -455,10 +456,10 @@ switch ($page1) {
             // CZ: Přesměrování stránky s notifikací - úspěšné
             /*
             NOTIFIKACE:
-            'status=s'   - Záznam úspěšně uložen
-            'status1=s'  - Záznam úspěšně odstraněn
+            'status=s'    - Záznam úspěšně uložen
+            'status1=s1'  - Záznam úspěšně odstraněn
             */
-            envo_redirect(BASE_URL . 'index.php?p=news&status=s&status1=s');
+            envo_redirect(BASE_URL . 'index.php?p=news&status=s&status1=s1');
           }
         } else {
           // EN: Redirect page
@@ -761,8 +762,8 @@ switch ($page1) {
           $SECTION_TITLE = $tl["news_sec_title"]["newst3"];
           $SECTION_DESC  = $tl["news_sec_desc"]["newsd3"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $template = 'editnews.php';
 
         } else {
@@ -816,8 +817,8 @@ switch ($page1) {
           // Get the data
           $JAK_FORM_DATA = envo_get_data($page2, $envotable);
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $template = 'quickedit.php';
 
         } else {
@@ -851,8 +852,8 @@ switch ($page1) {
         $SECTION_TITLE = $tl["news_sec_title"]["newst"];
         $SECTION_DESC  = $tl["news_sec_desc"]["newsd"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $template = 'news.php';
     }
 }

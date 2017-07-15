@@ -14,8 +14,10 @@
       });
     }, 1000);
   </script>
-<?php }
-if ($page1 == "e") { ?>
+<?php } ?>
+
+
+<?php if ($page1 == "e") { ?>
   <script type="text/javascript">
     // Notification
     setTimeout(function () {
@@ -31,32 +33,14 @@ if ($page1 == "e") { ?>
   </script>
 <?php } ?>
 
-<?php if ($page2 == "s") { ?>
+<?php if ($page2 == "s1" || $page2 == "s2") { ?>
   <script type="text/javascript">
     // Notification
     setTimeout(function () {
       $.notify({
         // options
         icon: 'fa fa-info-circle',
-        message: '<?php echo $tl["notification"]["n2"]; ?>'
-      }, {
-        // settings
-        type: 'info',
-        delay: 5000,
-        timer: 3000
-      });
-    }, 2000);
-  </script>
-<?php } ?>
-
-<?php if ($page2 == "s1") { ?>
-  <script type="text/javascript">
-    // Notification
-    setTimeout(function () {
-      $.notify({
-        // options
-        icon: 'fa fa-info-circle',
-        message: '<?php echo $tl["notification"]["n3"]; ?>'
+        message: '<?php echo($page2 == "s1" ? $tl["notification"]["n2"] : $tl["notification"]["n3"]);?>'
       }, {
         // settings
         type: 'info',

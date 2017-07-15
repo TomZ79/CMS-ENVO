@@ -184,7 +184,7 @@ if ($hookpagei) {
 $SECTION_TITLE = $tl["ss_sec_title"]["sst"];
 $SECTION_DESC  = $tl["ss_sec_desc"]["ssd"];
 
-// EN: Load the template
-// CZ: Načti template (šablonu)
+// EN: Load the php template
+// CZ: Načtení php template (šablony)
 $template = 'searchsetting.php';
 ?>

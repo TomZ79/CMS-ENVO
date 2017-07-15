@@ -65,8 +65,8 @@ $JAK_CAT = envo_get_cat_info(DB_PREFIX . 'categories', 0);
 $SECTION_TITLE = $tl["site_sec_title"]["sitet"];
 $SECTION_DESC  = $tl["site_sec_desc"]["sited"];
 
-// EN: Load the template
-// CZ: Načti template (šablonu)
+// EN: Load the php template
+// CZ: Načtení php template (šablony)
 $template = 'site.php';
 
 ?>

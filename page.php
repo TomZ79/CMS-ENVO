@@ -130,8 +130,8 @@ if (!empty($MAIN_DESCRIPTION)) {
   $PAGE_DESCRIPTION = envo_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
 }
 
-// EN: Load the template
-// CZ: Načti template (šablonu)
+// EN: Load the php template
+// CZ: Načtení php template (šablony)
 $template = 'page.php';
 
 ?>

@@ -120,8 +120,8 @@ $SECTION_DESC  = $tl["fb_sec_desc"]["fbd"];
 // EN: Ace Mode
 $acemode = 'plain_text';
 
-// EN: Load the template
-// CZ: Načti template (šablonu)
+// EN: Load the php template
+// CZ: Načtení php template (šablony)
 $template = 'settingfacebook.php';
 
 

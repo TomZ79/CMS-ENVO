@@ -15,7 +15,8 @@ $envotable1 = DB_PREFIX . 'tagcloud';
 $envotable2 = DB_PREFIX . 'pagesgrid';
 $envotable3 = DB_PREFIX . 'pluginhooks';
 
-// Now start with the plugin use a switch to access all pages
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'cloud':
 
@@ -39,10 +40,10 @@ switch ($page1) {
             // CZ: Přesměrování stránky s notifikací - úspěšné
             /*
             NOTIFIKACE:
-            'status=s'   - Záznam úspěšně uložen
-            'status1=s'  - Záznam úspěšně odstraněn
+            'status=s'    - Záznam úspěšně uložen
+            'status1=s1'  - Záznam úspěšně odstraněn
             */
-            envo_redirect(BASE_URL . 'index.php?p=tags&sp=cloud&status=s&status1=s');
+            envo_redirect(BASE_URL . 'index.php?p=tags&sp=cloud&status=s&status1=s1');
           }
 
         } else {
@@ -60,8 +61,8 @@ switch ($page1) {
         $SECTION_TITLE = $tl["tag_sec_title"]["tagt1"];
         $SECTION_DESC  = $tl["tag_sec_desc"]["tagd1"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $template = 'tagcloud.php';
     }
 
@@ -236,8 +237,8 @@ switch ($page1) {
     $SECTION_TITLE = $tl["tag_sec_title"]["tagt2"];
     $SECTION_DESC  = $tl["tag_sec_desc"]["tagd2"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $template = 'tagsetting.php';
 
     break;
@@ -263,9 +264,9 @@ switch ($page1) {
         /*
         NOTIFIKACE:
         'status=s'   - Záznam úspěšně uložen
-        'status1=s'  - Záznam úspěšně odstraněn
+        'status1=s1'  - Záznam úspěšně odstraněn
         */
-        envo_redirect(BASE_URL . 'index.php?p=tags&status=s&status1=s');
+        envo_redirect(BASE_URL . 'index.php?p=tags&status=s&status1=s1');
 
       }
     }
@@ -328,8 +329,8 @@ switch ($page1) {
         $SECTION_TITLE = $tl["tag_sec_title"]["tagt3"];
         $SECTION_DESC  = $tl["tag_sec_desc"]["tagd3"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $template = 'tag.php';
 
         break;
@@ -393,8 +394,8 @@ switch ($page1) {
         $SECTION_TITLE = $tl["tag_sec_title"]["tagt"];
         $SECTION_DESC  = $tl["tag_sec_desc"]["tagd"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $template = 'tag.php';
     }
 }

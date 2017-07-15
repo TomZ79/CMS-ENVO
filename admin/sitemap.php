@@ -154,8 +154,8 @@ if ($hookpagei) {
 $SECTION_TITLE = $tl["sm_sec_title"]["smt"];
 $SECTION_DESC  = $tl["sm_sec_desc"]["smd"];
 
-// EN: Load the template
-// CZ: Načti template (šablonu)
+// EN: Load the php template
+// CZ: Načtení php template (šablony)
 $template = 'sitemapsetting.php';
 
 ?>

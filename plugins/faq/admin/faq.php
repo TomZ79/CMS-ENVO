@@ -21,7 +21,8 @@ $envotable5 = DB_PREFIX . 'pluginhooks';
 // CZ: Vložené funkce
 include_once("../plugins/faq/admin/include/functions.php");
 
-// Now start with the plugin use a switch to access all pages
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'new':
 
@@ -180,8 +181,8 @@ switch ($page1) {
     $SECTION_TITLE = $tlf["faq"]["m2"];
     $SECTION_DESC  = $tlf["faq"]["t1"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/faq/admin/template/newfaq.php';
 
     break;
@@ -222,10 +223,10 @@ switch ($page1) {
             // CZ: Přesměrování stránky s notifikací - úspěšné
             /*
             NOTIFIKACE:
-            'status=s'   - Záznam úspěšně uložen
-            'status1=s'  - Záznam úspěšně odstraněn
+            'status=s'    - Záznam úspěšně uložen
+            'status1=s1'  - Záznam úspěšně odstraněn
             */
-            envo_redirect(BASE_URL . 'index.php?p=faq&sp=categories&status=s&status1=s');
+            envo_redirect(BASE_URL . 'index.php?p=faq&sp=categories&status=s&status1=s1');
           }
 
         } else {
@@ -321,8 +322,8 @@ switch ($page1) {
           $SECTION_TITLE = $tl["submenu"]["sm112"];
           $SECTION_DESC  = $tl[" "][" "];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $plugin_template = 'plugins/faq/admin/template/editfaqcat.php';
 
         } else {
@@ -400,8 +401,8 @@ switch ($page1) {
         $SECTION_TITLE = $tlf["faq"]["m"] . ' - ' . $tl["submenu"]["sm110"];
         $SECTION_DESC  = "";
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/faq/admin/template/faqcat.php';
     }
     break;
@@ -492,8 +493,8 @@ switch ($page1) {
     $SECTION_TITLE = $tlf["faq"]["m"] . ' - ' . $tl["submenu"]["sm111"];
     $SECTION_DESC  = $tl["cmdesc"]["d8"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/faq/admin/template/newfaqcat.php';
 
     break;
@@ -576,8 +577,8 @@ switch ($page1) {
         $SECTION_TITLE = $tlf["faq"]["d20"];
         $SECTION_DESC  = $tlf["faq"]["t2"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/faq/admin/template/faqcomment.php';
 
         break;
@@ -609,8 +610,8 @@ switch ($page1) {
           $SECTION_TITLE = $tlf["faq"]["d20"];
           $SECTION_DESC  = $tlf["faq"]["t2"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $plugin_template = 'plugins/faq/admin/template/faqcommentsort.php';
 
         } else {
@@ -672,8 +673,8 @@ switch ($page1) {
         $SECTION_TITLE = $tlf["faq"]["d19"];
         $SECTION_DESC  = $tlf["faq"]["t2"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/faq/admin/template/faqcomment.php';
     }
 
@@ -875,8 +876,8 @@ switch ($page1) {
     $SECTION_TITLE = $tlf["faq"]["m"] . ' - ' . $tl["submenu"]["sm10"];
     $SECTION_DESC  = $tl[" "][" "];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/faq/admin/template/faqsetting.php';
 
     break;
@@ -948,8 +949,8 @@ switch ($page1) {
     $SECTION_TITLE = $tlf["faq"]["d18"];
     $SECTION_DESC  = $tlf["faq"]["t2"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/faq/admin/template/trash.php';
 
     break;
@@ -998,8 +999,8 @@ switch ($page1) {
       // Get the data
       $JAK_FORM_DATA = envo_get_data($page2, $envotable);
 
-      // EN: Load the template
-      // CZ: Načti template (šablonu)
+      // EN: Load the php template
+      // CZ: Načtení php template (šablony)
       $template = 'quickedit.php';
 
     } else {
@@ -1034,8 +1035,8 @@ switch ($page1) {
           $SECTION_TITLE = $tlf["faq"]["m1"];
           $SECTION_DESC  = $tlf["faq"]["t"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $plugin_template = 'plugins/faq/admin/template/faqcatsort.php';
 
         } else {
@@ -1092,10 +1093,10 @@ switch ($page1) {
             // CZ: Přesměrování stránky s notifikací - úspěšné
             /*
             NOTIFIKACE:
-            'status=s'   - Záznam úspěšně uložen
-            'status1=s'  - Záznam úspěšně odstraněn
+            'status=s'    - Záznam úspěšně uložen
+            'status1=s1'  - Záznam úspěšně odstraněn
             */
-            envo_redirect(BASE_URL . 'index.php?p=faq&status=s&status1=s');
+            envo_redirect(BASE_URL . 'index.php?p=faq&status=s&status1=s1');
           }
 
         } else {
@@ -1319,8 +1320,8 @@ switch ($page1) {
           $SECTION_TITLE = $tlf["faq"]["m1"];
           $SECTION_DESC  = $tlf["faq"]["t3"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $plugin_template = 'plugins/faq/admin/template/editfaq.php';
 
         } else {
@@ -1354,8 +1355,8 @@ switch ($page1) {
 
         $JAK_FAQ_ALL = $faqarray;
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/faq/admin/template/faq.php';
 
         break;
@@ -1426,10 +1427,10 @@ switch ($page1) {
               // CZ: Přesměrování stránky s notifikací - úspěšné
               /*
               NOTIFIKACE:
-              'status=s'   - Záznam úspěšně uložen
-              'status1=s'  - Záznam úspěšně odstraněn
+              'status=s'    - Záznam úspěšně uložen
+              'status1=s1'  - Záznam úspěšně odstraněn
               */
-              envo_redirect(BASE_URL . 'index.php?p=faq&status=s&status1=s');
+              envo_redirect(BASE_URL . 'index.php?p=faq&status=s&status1=s1');
             }
 
           }
@@ -1457,8 +1458,8 @@ switch ($page1) {
         $SECTION_TITLE = $tlf["faq"]["m1"];
         $SECTION_DESC  = $tlf["faq"]["t"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/faq/admin/template/faq.php';
     }
 }

@@ -825,4 +825,77 @@ function is_ajax()
 {
   return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
 }
+
+/**
+ * @name Mutlidimensional Array Sorter.
+ * @author Tufan Barış YILDIRIM
+ * @link http://www.tufanbarisyildirim.com
+ * @github http://github.com/tufanbarisyildirim
+ *
+ * This function can be used for resort a multidimensional array by like order by clause
+ *
+ * @param mixed $array
+ * @param mixed $order_by
+ * @return array
+ *
+ * -------------------------------------------
+ *
+ * #Example using.
+ * $array = array(
+ * array('name' => 'Tufan Barış','surname' => 'YILDIRIM'),
+ * array('name' => 'Tufan Barış','surname' => 'xYILDIRIM'),
+ * array('name' => 'Tufan Barış','surname' => 'aYILDIRIM'),
+ * array('name' => 'Tufan Barış','surname' => 'bYILDIRIM'),
+ * array('name' => 'Ahmet','surname' => 'Altay'),
+ * array('name' => 'Zero','surname' => 'One'),);
+ * $order_by_name = sort_array_mutlidim($array,'name DESC,surname ASC');
+ * #output.
+ * var_dump($order_by_name);
+ *
+ */
+function sort_array_mutlidim(array $array, $order_by)
+{
+  //TODO -c flexibility -o tufanbarisyildirim : this error can be deleted if you want to sort as sql like  "NULL LAST/FIRST" behavior.
+  if(!is_array($array[0]))
+    throw new Exception('$array must be a multidimensional array!',E_USER_ERROR);
+  $columns = explode(',',$order_by);
+  foreach ($columns as $col_dir)
+  {
+    preg_match('/(.*)([\s]+)(ASC|DESC)/is',$col_dir,$matches);
+    if(!array_key_exists(trim($matches[1]),$array[0]))
+      throw new Exception('Unknown Column ' . trim($matches[1]),E_USER_NOTICE);
+    else
+      $sorts[trim($matches[1])] = 'SORT_'.strtoupper(trim($matches[3]));
+  }
+  //TODO -c optimization -o tufanbarisyildirim : use array_* functions.
+  $colarr = array();
+  foreach ($sorts as $col => $order)
+  {
+    $colarr[$col] = array();
+    foreach ($array as $k => $row)
+    {
+      $colarr[$col]['_'.$k] = strtolower($row[$col]);
+    }
+  }
+  //TODO -c suggestion -o tufanbarisyildirim : call_user_func_array can be used here .
+  $runIt = 'array_multisort(';
+  foreach ($sorts as $col => $order)
+  {
+    $runIt .= '$colarr[\'' . $col .'\'],' . $order . ',';
+  }
+  $runIt = substr($runIt,0,-1).');';
+  //TODO -c nothing -o tufanbarisyildirim :  eval is evil.
+  eval($runIt);
+  $sorted_array = array();
+  foreach ($colarr as $col => $arr)
+  {
+    foreach ($arr as $k => $v)
+    {
+      $k = substr($k,1);
+      if (!isset($sorted_array[$k])) $sorted_array[$k] = $array[$k];
+      $sorted_array[$k][$col] = $array[$k][$col];
+    }
+  }
+  return array_values($sorted_array);
+}
 ?>

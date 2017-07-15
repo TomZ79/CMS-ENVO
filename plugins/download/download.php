@@ -49,6 +49,8 @@ $backtodl = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, '', '', '', '');
 $JAK_TPL_PLUG_T   = JAK_PLUGIN_NAME_DOWNLOAD;
 $JAK_TPL_PLUG_URL = $backtodl;
 
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'c':
 
@@ -119,8 +121,8 @@ switch ($page1) {
       $JAK_HEADER_CSS        = $jkv["download_css"];
       $JAK_FOOTER_JAVASCRIPT = $jkv["download_javascript"];
 
-      // EN: Load the template
-      // CZ: Načti template (šablonu)
+      // EN: Load the php template
+      // CZ: Načtení php template (šablony)
       $pluginbasic_template = 'plugins/download/template/download.php';
       $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/download/download.php';
 
@@ -435,8 +437,8 @@ switch ($page1) {
     // $fbarray  = envo_get_random_image(JAK_FILES_DIRECTORY . '/facebook/');
     // $FB_IMAGE = BASE_URL . ltrim (envo_get_random_from_array($fbarray), '/');
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $pluginbasic_template = 'plugins/download/template/downloadfile.php';
     $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/download/downloadfile.php';
 
@@ -517,8 +519,8 @@ switch ($page1) {
         $RWEB   = $row['web'];
         $RCONT  = envo_edit_safe_userpost($row['message']);
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $template = 'editpost.php';
 
       } else {
@@ -762,8 +764,8 @@ switch ($page1) {
     $JAK_HEADER_CSS        = $jkv["download_css"];
     $JAK_FOOTER_JAVASCRIPT = $jkv["download_javascript"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $pluginbasic_template = 'plugins/download/template/download.php';
     $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/download/download.php';
 

@@ -25,7 +25,8 @@ $JAK_HOOK_ADMIN_USERGROUP_EDIT = $jakhooks->jakGethook("tpl_admin_usergroup_edit
 // for the new template
 $JAK_HOOK_ADMIN_USERGROUP = $jakhooks->jakGethook("tpl_admin_usergroup");
 
-// Now start with the plugin use a switch to access all pages
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'newgroup':
 
@@ -105,8 +106,8 @@ switch ($page1) {
     $SECTION_TITLE = $tl["userg_sec_title"]["usergt3"];
     $SECTION_DESC  = $tl["userg_sec_desc"]["usergd3"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $template = 'newusergroup.php';
 
     break;
@@ -139,10 +140,10 @@ switch ($page1) {
           // CZ: Přesměrování stránky s notifikací - úspěšné
           /*
           NOTIFIKACE:
-          'status=s'   - Záznam úspěšně uložen
-          'status1=s'  - Záznam úspěšně odstraněn
+          'status=s'    - Záznam úspěšně uložen
+          'status1=s1'  - Záznam úspěšně odstraněn
           */
-          envo_redirect(BASE_URL . 'index.php?p=usergroup&status=s&status1=s');
+          envo_redirect(BASE_URL . 'index.php?p=usergroup&status=s&status1=s1');
         }
 
       }
@@ -171,8 +172,8 @@ switch ($page1) {
           $SECTION_TITLE = $tl["userg_sec_title"]["usergt2"];
           $SECTION_DESC  = $tl["userg_sec_desc"]["usergd2"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $template = 'user.php';
 
         } else {
@@ -195,10 +196,10 @@ switch ($page1) {
             // CZ: Přesměrování stránky s notifikací - úspěšné
             /*
             NOTIFIKACE:
-            'status=s'   - Záznam úspěšně uložen
-            'status1=s'  - Záznam úspěšně odstraněn
+            'status=s'    - Záznam úspěšně uložen
+            'status1=s1'  - Záznam úspěšně odstraněn
             */
-            envo_redirect(BASE_URL . 'index.php?p=usergroup&status=s&status1=s');
+            envo_redirect(BASE_URL . 'index.php?p=usergroup&status=s&status1=s1');
           }
 
         } else {
@@ -271,8 +272,8 @@ switch ($page1) {
           $SECTION_TITLE = $tl["userg_sec_title"]["usergt1"];
           $SECTION_DESC  = $tl["userg_sec_desc"]["usergd1"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $template = 'editusergroup.php';
 
         } else {
@@ -289,8 +290,8 @@ switch ($page1) {
         $SECTION_TITLE = $tl["userg_sec_title"]["usergt"];
         $SECTION_DESC  = $tl["userg_sec_desc"]["usergd"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $template = 'usergroup.php';
 
     }

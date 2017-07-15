@@ -17,6 +17,8 @@ define('JAK_NEWSLETTER', $jakusergroup->getVar("newsletter"));
 // Parse links once if needed a lot of time
 $backtonl = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_NEWSLETTER, '', '', '', '');
 
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'signup':
 
@@ -110,8 +112,8 @@ switch ($page1) {
       $JAK_HEADER_CSS        = $jkv["blog_css"];
       $JAK_FOOTER_JAVASCRIPT = $jkv["blog_javascript"];
 
-      // EN: Load the template
-      // CZ: Načti template (šablonu)
+      // EN: Load the php template
+      // CZ: Načtení php template (šablony)
       $pluginbasic_template = 'plugins/newsletter/template/newsletter.php';
       $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/newsletter/newsletter.php';
 
@@ -172,8 +174,8 @@ switch ($page1) {
       $PAGE_CONTENT = JAK_NLSIGNOFF;
       $NL_MEMBER    = FALSE;
 
-      // EN: Load the template
-      // CZ: Načti template (šablonu)
+      // EN: Load the php template
+      // CZ: Načtení php template (šablony)
       $pluginbasic_template = 'plugins/newsletter/template/nloff.php';
       $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/newsletter/nloff.php';
 
@@ -270,8 +272,8 @@ switch ($page1) {
 
       }
 
-      // EN: Load the template
-      // CZ: Načti template (šablonu)
+      // EN: Load the php template
+      // CZ: Načtení php template (šablony)
       $pluginbasic_template = 'plugins/newsletter/template/nloff.php';
       $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/newsletter/nloff.php';
 

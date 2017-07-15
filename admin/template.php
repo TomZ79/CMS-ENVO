@@ -97,6 +97,8 @@ function getTemplateFiles($dir, $level, $rootLen)
   }
 }
 
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'settings':
 
@@ -114,8 +116,8 @@ switch ($page1) {
     // CZ: Nastavení módu ACE Editoru
     $acemode = 'ini';
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $template = 'templatesettings.php';
 
     break;
@@ -188,8 +190,8 @@ switch ($page1) {
     // EN: Ace Mode
     $acemode = 'css';
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $template = 'editfiles.php';
 
     break;
@@ -258,8 +260,8 @@ switch ($page1) {
     // EN: Ace Mode
     $acemode = 'ini';
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $template = 'editfiles.php';
 
     break;
@@ -328,8 +330,8 @@ switch ($page1) {
     // EN: Ace Mode
     $acemode = 'php';
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $template = 'editfiles.php';
 
     break;
@@ -390,8 +392,8 @@ switch ($page1) {
     $SECTION_TITLE = $tl["tpl_sec_title"]["tplt"];
     $SECTION_DESC  = $tl["tpl_sec_desc"]["tpld"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $template = 'template.php';
 }
 ?>

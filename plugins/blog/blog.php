@@ -47,6 +47,8 @@ $backtoblog = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_BLOG, '', '', '', '');
 $JAK_TPL_PLUG_T   = JAK_PLUGIN_NAME_BLOG;
 $JAK_TPL_PLUG_URL = $backtoblog;
 
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'c':
 
@@ -116,8 +118,8 @@ switch ($page1) {
       $JAK_HEADER_CSS        = $jkv["blog_css"];
       $JAK_FOOTER_JAVASCRIPT = $jkv["blog_javascript"];
 
-      // EN: Load the template
-      // CZ: Načti template (šablonu)
+      // EN: Load the php template
+      // CZ: Načtení php template (šablony)
       $pluginbasic_template = 'plugins/blog/template/blog.php';
       $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/blog/blog.php';
 
@@ -379,8 +381,8 @@ switch ($page1) {
     $PAGE_KEYWORDS    = str_replace(" ", " ", JAK_Base::jakCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
     $PAGE_DESCRIPTION = envo_cut_text($PAGE_CONTENT, 155, '');
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $pluginbasic_template = 'plugins/blog/template/blogart.php';
     $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/blog/blogart.php';
 
@@ -455,8 +457,8 @@ switch ($page1) {
         $RWEB   = $row['web'];
         $RCONT  = envo_edit_safe_userpost($row['message']);
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $template = 'editpost.php';
 
       } else {
@@ -549,8 +551,8 @@ switch ($page1) {
     $JAK_HEADER_CSS        = $jkv["blog_css"];
     $JAK_FOOTER_JAVASCRIPT = $jkv["blog_javascript"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $pluginbasic_template = 'plugins/blog/template/blog.php';
     $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/blog/blog.php';
 

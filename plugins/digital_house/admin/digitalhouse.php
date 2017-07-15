@@ -12,7 +12,8 @@ if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSBLOG)) envo_
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable = DB_PREFIX . 'digitalhousecities';
 
-// Now start with the plugin use a switch to access all pages
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
 
   case 'cities':
@@ -87,8 +88,8 @@ switch ($page1) {
         $SECTION_TITLE = $tldh["dh_sec_title"]["dht2"];
         $SECTION_DESC  = $tldh["dh_sec_desc"]["dhd2"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/digital_house/admin/template/dh_newcity.php';
 
         break;
@@ -167,8 +168,8 @@ switch ($page1) {
           $SECTION_TITLE = $tldh["dh_sec_title"]["dht3"];
           $SECTION_DESC  = $tldh["dh_sec_desc"]["dhd3"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $plugin_template = 'plugins/digital_house/admin/template/dh_editcity.php';
 
         } else {
@@ -187,8 +188,8 @@ switch ($page1) {
         $SECTION_TITLE = $tldh["dh_sec_title"]["dht1"];
         $SECTION_DESC  = $tldh["dh_sec_desc"]["dhd1"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/digital_house/admin/template/dh_cities.php';
 
     }
@@ -242,8 +243,8 @@ switch ($page1) {
     $SECTION_TITLE = $tldh["dh_sec_title"]["dht"];
     $SECTION_DESC  = $tldh["dh_sec_desc"]["dhd"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/digital_house/admin/template/dh_setting.php';
 
     break;

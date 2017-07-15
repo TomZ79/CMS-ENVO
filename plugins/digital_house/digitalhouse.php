@@ -6,6 +6,8 @@ if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 $CHECK_USR_SESSION = session_id();
 
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'XXXX':
 
@@ -24,8 +26,8 @@ switch ($page1) {
       $PAGE_DESCRIPTION = envo_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
     }
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $pluginbasic_template = 'plugins/digital_house/template/digitalhouse.php';
     $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/digital_house/digitalhouse.php';
 

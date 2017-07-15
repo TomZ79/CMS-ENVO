@@ -14,24 +14,9 @@
       });
     }, 1000);
   </script>
-<?php }
-if ($page1 == "e" || $page1 == "ene") { ?>
-  <script type="text/javascript">
-    // Notification
-    setTimeout(function () {
-      $.notify({
-        // options
-        message: '<?php echo($page2 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
-      }, {
-        // settings
-        type: 'danger',
-        delay: 10000
-      });
-    }, 1000);
-  </script>
 <?php } ?>
 
-<?php if ($page2 == "s") { ?>
+<?php if ($page2 == "s1") { ?>
   <script type="text/javascript">
     // Notification
     setTimeout(function () {
@@ -46,6 +31,22 @@ if ($page1 == "e" || $page1 == "ene") { ?>
         timer: 3000
       });
     }, 2000);
+  </script>
+<?php } ?>
+
+<?php if ($page1 == "e" || $page1 == "ene") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo($page2 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
+      }, {
+        // settings
+        type: 'danger',
+        delay: 10000
+      });
+    }, 1000);
   </script>
 <?php } ?>
 

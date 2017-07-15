@@ -22,7 +22,8 @@ $envotable6 = DB_PREFIX . 'backup_content';
 // CZ: Vložené funkce
 include_once("../plugins/blog/admin/include/functions.php");
 
-// Now start with the plugin use a switch to access all pages
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'new':
 
@@ -225,8 +226,8 @@ switch ($page1) {
     $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt1"];
     $SECTION_DESC  = $tlblog["blog_sec_desc"]["blogd1"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/blog/admin/template/newblog.php';
 
     break;
@@ -362,8 +363,8 @@ switch ($page1) {
           $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt5"];
           $SECTION_DESC  = $tlblog["blog_sec_desc"]["blogd5"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $plugin_template = 'plugins/blog/admin/template/editblogcat.php';
 
         } else {
@@ -441,8 +442,8 @@ switch ($page1) {
         $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt4"];
         $SECTION_DESC  = $tlblog["blog_sec_desc"]["blogd4"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/blog/admin/template/blogcat.php';
     }
     break;
@@ -533,8 +534,8 @@ switch ($page1) {
     $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt6"];
     $SECTION_DESC  = $tlblog["blog_sec_desc"]["blogd6"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/blog/admin/template/newblogcat.php';
 
     break;
@@ -620,8 +621,8 @@ switch ($page1) {
         $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt7"];
         $SECTION_DESC  = $tlblog["blog_sec_desc"]["blogd7"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/blog/admin/template/blogcomment.php';
 
         break;
@@ -653,8 +654,8 @@ switch ($page1) {
           $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt7"];
           $SECTION_DESC  = $tlblog["blog_sec_desc"]["blogd7"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $plugin_template = 'plugins/blog/admin/template/blogcommentsort.php';
 
         } else {
@@ -714,8 +715,8 @@ switch ($page1) {
         $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt8"];
         $SECTION_DESC  = $tlblog["blog_sec_desc"]["blogd8"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/blog/admin/template/blogcomment.php';
     }
 
@@ -917,8 +918,8 @@ switch ($page1) {
     $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt9"];
     $SECTION_DESC  = $tlblog["blog_sec_desc"]["blogd9"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/blog/admin/template/blogsetting.php';
 
     break;
@@ -984,8 +985,8 @@ switch ($page1) {
     $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt10"];
     $SECTION_DESC  = $tlblog["blog_sec_desc"]["blogd10"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/blog/admin/template/trash.php';
 
     break;
@@ -1034,8 +1035,8 @@ switch ($page1) {
       // Get the data
       $JAK_FORM_DATA = envo_get_data($page2, $envotable);
 
-      // EN: Load the template
-      // CZ: Načti template (šablonu)
+      // EN: Load the php template
+      // CZ: Načtení php template (šablony)
       $template = 'quickedit.php';
 
     } else {
@@ -1076,8 +1077,8 @@ switch ($page1) {
           $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt2"];
           $SECTION_DESC  = $tlblog["blog_sec_desc"]["blogd2"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $plugin_template = 'plugins/blog/admin/template/blogcatsort.php';
 
         } else {
@@ -1168,10 +1169,10 @@ switch ($page1) {
             // CZ: Přesměrování stránky s notifikací - úspěšné
             /*
             NOTIFIKACE:
-            'status=s'   - Záznam úspěšně uložen
-            'status1=s'  - Záznam úspěšně odstraněn
+            'status=s'    - Záznam úspěšně uložen
+            'status1=s1'  - Záznam úspěšně odstraněn
             */
-            envo_redirect(BASE_URL . 'index.php?p=blog&status=s&status1=s');
+            envo_redirect(BASE_URL . 'index.php?p=blog&status=s&status1=s1');
           }
 
         } else {
@@ -1468,8 +1469,8 @@ switch ($page1) {
           $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt3"];
           $SECTION_DESC  = $tlblog["blog_sec_desc"]["blogd3"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $plugin_template = 'plugins/blog/admin/template/editblog.php';
 
         } else {
@@ -1579,10 +1580,10 @@ switch ($page1) {
               // CZ: Přesměrování stránky s notifikací - úspěšné
               /*
               NOTIFIKACE:
-              'status=s'   - Záznam úspěšně uložen
-              'status1=s'  - Záznam úspěšně odstraněn
+              'status=s'    - Záznam úspěšně uložen
+              'status1=s1'  - Záznam úspěšně odstraněn
               */
-              envo_redirect(BASE_URL . 'index.php?p=blog&status=s&status1=s');
+              envo_redirect(BASE_URL . 'index.php?p=blog&status=s&status1=s1');
             }
 
           }
@@ -1597,8 +1598,8 @@ switch ($page1) {
         $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt"];
         $SECTION_DESC  = $tlblog["blog_sec_desc"]["blogd"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/blog/admin/template/blog.php';
     }
 }

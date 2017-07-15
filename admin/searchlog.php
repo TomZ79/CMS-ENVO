@@ -56,16 +56,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // CZ: Přesměrování stránky s notifikací - úspěšné
       /*
       NOTIFIKACE:
-      'status=s'   - Záznam úspěšně uložen
-      'status1=s'  - Záznam úspěšně odstraněn
+      'status=s'    - Záznam úspěšně uložen
+      'status1=s1'  - Záznam úspěšně odstraněn
       */
-      envo_redirect(BASE_URL . 'index.php?p=searchlog&status=s&status1=s');
+      envo_redirect(BASE_URL . 'index.php?p=searchlog&status=s&status1=s1');
     }
 
   }
 
 }
 
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'delete':
     $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
@@ -79,10 +81,10 @@ switch ($page1) {
       // CZ: Přesměrování stránky s notifikací - úspěšné
       /*
       NOTIFIKACE:
-      'status=s'   - Záznam úspěšně uložen
-      'status1=s'  - Záznam úspěšně odstraněn
+      'status=s'    - Záznam úspěšně uložen
+      'status1=s1'  - Záznam úspěšně odstraněn
       */
-      envo_redirect(BASE_URL . 'index.php?p=searchlog&status=s&status1=s');
+      envo_redirect(BASE_URL . 'index.php?p=searchlog&status=s&status1=s1');
     }
     break;
   case 'truncate':
@@ -97,10 +99,10 @@ switch ($page1) {
       // CZ: Přesměrování stránky s notifikací - úspěšné
       /*
       NOTIFIKACE:
-      'status=s'   - Záznam úspěšně uložen
-      'status1=s1'  - Všechny záznamy úspěšně odstraněny
+      'status=s'    - Záznam úspěšně uložen
+      'status1=s2'  - Všechny záznamy úspěšně odstraněny
       */
-      envo_redirect(BASE_URL . 'index.php?p=searchlog&status=s&status1=s1');
+      envo_redirect(BASE_URL . 'index.php?p=searchlog&status=s&status1=s2');
     }
     break;
   default:
@@ -110,8 +112,8 @@ switch ($page1) {
     $SECTION_TITLE = $tl["slogs_sec_title"]["slogst"];
     $SECTION_DESC  = $tl["slogs_sec_desc"]["slogsd"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $template = 'searchlog.php';
 }
 ?>

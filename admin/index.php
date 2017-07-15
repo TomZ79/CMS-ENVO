@@ -194,8 +194,8 @@ if ($page == '') {
     $SECTION_TITLE = '';
     $SECTION_DESC  = '';
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $template = 'index.php';
   }
   $checkp = 1;
@@ -222,8 +222,8 @@ if ($page == '404') {
   $SECTION_TITLE = "404";
   $SECTION_DESC  = $jkv["title"];
 
-  // EN: Load the template
-  // CZ: Načti template (šablonu)
+  // EN: Load the php template
+  // CZ: Načtení php template (šablony)
   $template = '404.php';
   $checkp   = 1;
 }

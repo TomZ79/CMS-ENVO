@@ -13,7 +13,8 @@ if (!JAK_USERID || !$JAK_MODULEM) envo_redirect(BASE_URL);
 $envotable  = DB_PREFIX . 'contactform';
 $envotable1 = DB_PREFIX . 'contactoptions';
 
-// Now start with the plugin use a switch to access all pages
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'newcontact':
 
@@ -92,8 +93,8 @@ switch ($page1) {
     $SECTION_TITLE = $tl["cf_sec_title"]["cft1"];
     $SECTION_DESC  = $tl["cf_sec_desc"]["cfd1"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $template = 'newcontactform.php';
 
     break;
@@ -309,8 +310,8 @@ switch ($page1) {
           $SECTION_TITLE = $tl["cf_sec_title"]["cft2"];
           $SECTION_DESC  = $tl["cf_sec_desc"]["cfd2"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $template = 'editcontactform.php';
 
         } else {
@@ -342,8 +343,8 @@ switch ($page1) {
         $SECTION_TITLE = $tl["cf_sec_title"]["cft"];
         $SECTION_DESC  = $tl["cf_sec_desc"]["cfd"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $template = 'contactform.php';
 
     }

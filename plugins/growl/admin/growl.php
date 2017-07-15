@@ -30,7 +30,8 @@ function jak_get_growl()
   if (!empty($envodata)) return $envodata;
 }
 
-// Now start with the plugin use a switch to access all pages
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'new':
 
@@ -147,8 +148,8 @@ switch ($page1) {
     $SECTION_TITLE = $tlgwl["gwl_sec_title"]["gwlt1"];
     $SECTION_DESC  = $tlgwl["gwl_sec_desc"]["gwld1"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/growl/admin/template/new.php';
 
     break;
@@ -171,10 +172,10 @@ switch ($page1) {
             // CZ: Přesměrování stránky s notifikací - úspěšné
             /*
             NOTIFIKACE:
-            'status=s'   - Záznam úspěšně uložen
-            'status1=s'  - Záznam úspěšně odstraněn
+            'status=s'    - Záznam úspěšně uložen
+            'status1=s1'  - Záznam úspěšně odstraněn
             */
-            envo_redirect(BASE_URL . 'index.php?p=growl&status=s&status1=s');
+            envo_redirect(BASE_URL . 'index.php?p=growl&status=s&status1=s1');
           }
 
         } else {
@@ -318,8 +319,8 @@ switch ($page1) {
         $SECTION_TITLE = $tlgwl["gwl_sec_title"]["gwlt2"];
         $SECTION_DESC  = $tlgwl["gwl_sec_desc"]["gwld2"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/growl/admin/template/edit.php';
 
         break;
@@ -350,10 +351,10 @@ switch ($page1) {
               // CZ: Přesměrování stránky s notifikací - úspěšné
               /*
               NOTIFIKACE:
-              'status=s'   - Záznam úspěšně uložen
-              'status1=s'  - Záznam úspěšně odstraněn
+              'status=s'    - Záznam úspěšně uložen
+              'status1=s1'  - Záznam úspěšně odstraněn
               */
-              envo_redirect(BASE_URL . 'index.php?p=growl&status=s&status1=s');
+              envo_redirect(BASE_URL . 'index.php?p=growl&status=s&status1=s1');
             }
 
           }
@@ -390,8 +391,8 @@ switch ($page1) {
         $SECTION_TITLE = $tlgwl["gwl_sec_title"]["gwlt"];
         $SECTION_DESC  = $tlgwl["gwl_sec_desc"]["gwld"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/growl/admin/template/growl.php';
     }
 }

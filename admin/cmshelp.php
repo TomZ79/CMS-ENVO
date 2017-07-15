@@ -13,8 +13,8 @@ if (!JAK_USERID || !$JAK_MODULES) envo_redirect(BASE_URL);
 $SECTION_TITLE = '';
 $SECTION_DESC  = '';
 
-// EN: Load the template
-// CZ: Načti template (šablonu)
+// EN: Load the php template
+// CZ: Načtení php template (šablony)
 $template = 'help/cmshelp_' . $site_language . '.php';
 
 ?>

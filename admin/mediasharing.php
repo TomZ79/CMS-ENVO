@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $SECTION_TITLE = $tl["sms_sec_title"]["smst"];
 $SECTION_DESC  = $tl["sms_sec_desc"]["smsd"];
 
-// EN: Load the template
-// CZ: Načti template (šablonu)
+// EN: Load the php template
+// CZ: Načtení php template (šablony)
 $template = 'mediasharing.php';
 ?>

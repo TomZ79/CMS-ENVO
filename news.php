@@ -145,8 +145,8 @@ switch ($page1) {
       $PAGE_KEYWORDS    = str_replace(" ", " ", JAK_Base::jakCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
       $PAGE_DESCRIPTION = envo_cut_text($PAGE_CONTENT, 155, '');
 
-      // EN: Load the template
-      // CZ: Načti template (šablonu)
+      // EN: Load the php template
+      // CZ: Načtení php template (šablony)
       $template = 'newsart.php';
 
     } else {
@@ -214,8 +214,8 @@ switch ($page1) {
       $PAGE_DESCRIPTION = envo_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
     }
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $template = 'news.php';
 }
 ?>

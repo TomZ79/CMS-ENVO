@@ -38,7 +38,7 @@ while ($grow = $grid->fetch_assoc()) {
 $PAGE_KEYWORDS    = str_replace(" ", " ", JAK_Base::jakCleanurl(JAK_PLUGIN_NAME_SITEMAP) . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
 $PAGE_DESCRIPTION = $jkv["metadesc"];
 
-// EN: Load the template
-// CZ: Načti template (šablonu)
+// EN: Load the php template
+// CZ: Načtení php template (šablony)
 $template = 'sitemap.php';
 ?>

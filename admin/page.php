@@ -23,7 +23,8 @@ $JAK_HOOK_ADMIN_PAGE_NEW = $jakhooks->jakGethook("tpl_admin_page_news_new");
 
 $insert = $updatesql = "";
 
-// Now start with the plugin use a switch to access all pages
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'newpage':
 
@@ -195,8 +196,8 @@ switch ($page1) {
     $SECTION_TITLE = $tl["page_sec_title"]["paget1"];
     $SECTION_DESC  = $tl["page_sec_desc"]["paged1"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $template = 'newpage.php';
 
     break;
@@ -243,8 +244,8 @@ switch ($page1) {
         $SECTION_TITLE = $tl["page_sec_title"]["paget2"];
         $SECTION_DESC  = $tl["page_sec_desc"]["paged2"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $template = 'searchpages.php';
 
         break;
@@ -295,8 +296,8 @@ switch ($page1) {
         $SECTION_TITLE = $tl["page_sec_title"]["paget3"];
         $SECTION_DESC  = $tl["page_sec_desc"]["paged3"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $template = 'pages.php';
 
         break;
@@ -318,10 +319,10 @@ switch ($page1) {
             // CZ: Přesměrování stránky s notifikací - úspěšné
             /*
             NOTIFIKACE:
-            'status=s'   - Záznam úspěšně uložen
-            'status1=s'  - Záznam úspěšně odstraněn
+            'status=s'    - Záznam úspěšně uložen
+            'status1=s1'  - Záznam úspěšně odstraněn
             */
-            envo_redirect(BASE_URL . 'index.php?p=page&status=s&status1=s');
+            envo_redirect(BASE_URL . 'index.php?p=page&status=s&status1=s1');
           }
 
         } else {
@@ -647,8 +648,8 @@ switch ($page1) {
           $SECTION_TITLE = $tl["page_sec_title"]["paget4"];
           $SECTION_DESC  = $tl["page_sec_desc"]["paged4"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $template = 'editpage.php';
 
         } else {
@@ -702,8 +703,8 @@ switch ($page1) {
           // Get the data
           $JAK_FORM_DATA = envo_get_data($page2, $envotable);
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $template = 'quickedit.php';
 
         } else {
@@ -761,10 +762,10 @@ switch ($page1) {
               // CZ: Přesměrování stránky s notifikací - úspěšné
               /*
               NOTIFIKACE:
-              'status=s'   - Záznam úspěšně uložen
-              'status1=s'  - Záznam úspěšně odstraněn
+              'status=s'    - Záznam úspěšně uložen
+              'status1=s1'  - Záznam úspěšně odstraněn
               */
-              envo_redirect(BASE_URL . 'index.php?p=page&status=s&status1=s');
+              envo_redirect(BASE_URL . 'index.php?p=page&status=s&status1=s1');
             }
 
           }
@@ -794,8 +795,8 @@ switch ($page1) {
         $SECTION_TITLE = $tl["page_sec_title"]["paget"];
         $SECTION_DESC  = $tl["page_sec_desc"]["paged"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $template = 'pages.php';
     }
 }

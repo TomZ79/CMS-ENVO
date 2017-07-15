@@ -14,8 +14,27 @@
       });
     }, 1000);
   </script>
-<?php }
-if ($page1 == "e" || $page1 == "ene") { ?>
+<?php } ?>
+
+<?php if ($page2 == "s1") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?php echo $tl["notification"]["n2"]; ?>'
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000
+      });
+    }, 2000);
+  </script>
+<?php } ?>
+
+<?php if ($page1 == "e" || $page1 == "ene") { ?>
   <script type="text/javascript">
     // Notification
     setTimeout(function () {
@@ -34,24 +53,6 @@ if ($page1 == "e" || $page1 == "ene") { ?>
         delay: 5000
       });
     }, 1000);
-  </script>
-<?php } ?>
-
-<?php if ($page2 == "s") { ?>
-  <script type="text/javascript">
-    // Notification
-    setTimeout(function () {
-      $.notify({
-        // options
-        icon: 'fa fa-info-circle',
-        message: '<?php echo $tl["notification"]["n2"]; ?>'
-      }, {
-        // settings
-        type: 'info',
-        delay: 5000,
-        timer: 3000
-      });
-    }, 2000);
   </script>
 <?php } ?>
 

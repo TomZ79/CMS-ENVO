@@ -13,8 +13,8 @@ if (!JAK_USERID || !$JAK_MODULES) envo_redirect(BASE_URL);
 $SECTION_TITLE = $tl["ch_sec_title"]["cht"];
 $SECTION_DESC  = $tl["ch_sec_desc"]["chd"];
 
-// EN: Load the template
-// CZ: Načti template (šablonu)
+// EN: Load the php template
+// CZ: Načtení php template (šablony)
 $template = 'changelog.php';
 
 ?>
