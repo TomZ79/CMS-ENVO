@@ -16,8 +16,6 @@
     </div>
     <hr>
 
-    <a href="programova-nabidka/wizard">Wizard</a>
-    <a href="programova-nabidka/list">List</a>
     <?php
 
 

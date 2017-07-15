@@ -89,9 +89,10 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
             </div>
           </th>
-          <th class="col-md-3">Název Programu</th>
-          <th class="col-md-3">Vysílač</th>
-          <th class="col-md-2">Kanál</th>
+          <th class="col-md-4">Název Programu</th>
+          <th class="col-md-1">TV/R</th>
+          <th class="col-md-2">Vysílač</th>
+          <th class="col-md-1">Kanál</th>
           <th class="col-md-2 no-sort"></th>
         </tr>
         </thead>
@@ -118,6 +119,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
               ?>
 
             </td>
+            <td><?php echo (($tp["tvr"] == '1') ? 'TV' : 'Radio'); ?></td>
             <td>
 
               <?php
@@ -156,7 +158,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
               // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
               echo $Html->addAnchor('index.php?p=program-offer&amp;sp=tvprogram&amp;ssp=editprogram&amp;id=' . $tp["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs m-r-20', array('data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
 
-              echo $Html->addAnchor('index.php?p=program-offer&amp;sp=tvprogram&amp;ssp=delete&amp;id=' . $tp["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tlpo["po_notification"]["deltvtower"], $tp["name"] . 'K'), 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
+              echo $Html->addAnchor('index.php?p=program-offer&amp;sp=tvprogram&amp;ssp=delete&amp;id=' . $tp["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tlpo["po_notification"]["deltvtower"], $tp["name"]), 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
               ?>
 
             </td>

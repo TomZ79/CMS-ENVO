@@ -18,7 +18,8 @@ $envotable2 = DB_PREFIX . 'programoffertvprogram';
 // CZ: Vložené funkce
 include_once("../plugins/program_offer/admin/include/functions.php");
 
-// Now start with the plugin use a switch to access all pages
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'tvprogram':
 
@@ -47,8 +48,30 @@ switch ($page1) {
 
               $towerid   = $tcarray[0];
               $channelid = $tcarray[1];
+              $channelnumber = $tcarray[2];
 
             }
+
+            // EN: Get services of program
+            // CZ: Získání služeb programu
+            $dataServices = array();
+            if ($defaults['envo_teletext'] == '1') {
+              $dataServices[] = 'Teletext';
+            }
+
+            if ($defaults['envo_vps'] == '1') {
+              $dataServices[] = 'VPS';
+            }
+
+            if ($defaults['envo_epg'] == '1') {
+              $dataServices[] = 'EPG';
+            }
+
+            if ($defaults['envo_hbbtv'] == '1') {
+              $dataServices[] = 'HbbTV';
+            }
+
+            $services = implode(", ", $dataServices);
 
             // EN: All checks are OK without Errors - Start the form processing
             // CZ: Všechny kontroly jsou v pořádku bez chyb - Spustit zpracování formuláře
@@ -63,6 +86,8 @@ switch ($page1) {
               $result = $jakdb->query('INSERT INTO ' . $envotable2 . ' SET 
                         towerid = "' . smartsql($towerid) . '",
                         channelid = "' . smartsql($channelid) . '",
+                        channelnumber = "' . smartsql($channelnumber) . '",
+                        tvr = "' . smartsql($defaults['envo_programtvr']) . '",
                         name = "' . smartsql($defaults['envo_programname']) . '",
                         icon = "' . smartsql($defaults['envo_programicons']) . '",
                         online = "' . smartsql($defaults['envo_programonline']) . '",
@@ -71,6 +96,7 @@ switch ($page1) {
                         videoformat = "' . smartsql($defaults['envo_videoformat']) . '",
                         videosize = "' . smartsql($defaults['envo_videosize']) . '",
                         bitrate = "' . smartsql($defaults['envo_bitrate']) . '",
+                        services = "' . $services . '",
                         time = NOW()');
 
               $rowid = $jakdb->jak_last_id();
@@ -107,8 +133,8 @@ switch ($page1) {
         $SECTION_TITLE = $tlpo["po_sec_title"]["pot8"];
         $SECTION_DESC  = $tlpo["po_sec_desc"]["pod8"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/program_offer/admin/template/po_newprogram.php';
 
         break;
@@ -142,8 +168,30 @@ switch ($page1) {
 
                 $towerid   = $tcarray[0];
                 $channelid = $tcarray[1];
+                $channelnumber = $tcarray[2];
 
               }
+
+              // EN: Get services of program
+              // CZ: Získání služeb programu
+              $dataServices = array();
+              if ($defaults['envo_teletext'] == '1') {
+                $dataServices[] = 'Teletext';
+              }
+
+              if ($defaults['envo_vps'] == '1') {
+                $dataServices[] = 'VPS';
+              }
+
+              if ($defaults['envo_epg'] == '1') {
+                $dataServices[] = 'EPG';
+              }
+
+              if ($defaults['envo_hbbtv'] == '1') {
+                $dataServices[] = 'HbbTV';
+              }
+
+              $services = implode(", ", $dataServices);
 
               // EN: All checks are OK without Errors - Start the form processing
               // CZ: Všechny kontroly jsou v pořádku bez chyb - Spustit zpracování formuláře
@@ -158,6 +206,8 @@ switch ($page1) {
                 $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET
                           towerid = "' . smartsql($towerid) . '",
                           channelid = "' . smartsql($channelid) . '",
+                          channelnumber = "' . smartsql($channelnumber) . '",
+                          tvr = "' . smartsql($defaults['envo_programtvr']) . '",
                           name = "' . smartsql($defaults['envo_programname']) . '",
                           icon = "' . smartsql($defaults['envo_programicons']) . '",
                           online = "' . smartsql($defaults['envo_programonline']) . '",
@@ -166,6 +216,7 @@ switch ($page1) {
                           videoformat = "' . smartsql($defaults['envo_videoformat']) . '",
                           videosize = "' . smartsql($defaults['envo_videosize']) . '",
                           bitrate = "' . smartsql($defaults['envo_bitrate']) . '",
+                          services = "' . $services . '",
                           time = NOW()
                           WHERE id = "' . smartsql($pageID) . '"');
 
@@ -205,8 +256,8 @@ switch ($page1) {
           $SECTION_TITLE = $tlpo["po_sec_title"]["pot9"];
           $SECTION_DESC  = $tlpo["po_sec_desc"]["pod9"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $plugin_template = 'plugins/program_offer/admin/template/po_editprogram.php';
 
         } else {
@@ -239,6 +290,11 @@ switch ($page1) {
               } else {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky s notifikací - úspěšné
+                /*
+                NOTIFIKACE:
+                'status=s'    - Záznam úspěšně uložen
+                'status1=s1'  - Záznam úspěšně odstraněn
+                */
                 envo_redirect(BASE_URL . 'index.php?p=program-offer&sp=tvprogram&status=s&status1=s1');
               }
 
@@ -265,8 +321,8 @@ switch ($page1) {
             $SECTION_TITLE = $tlpo["po_sec_title"]["pot7"];
             $SECTION_DESC  = $tlpo["po_sec_desc"]["pod7"];
 
-            // EN: Load the template
-            // CZ: Načti template (šablonu)
+            // EN: Load the php template
+            // CZ: Načtení php template (šablony)
             $plugin_template = 'plugins/program_offer/admin/template/po_program.php';
 
             break;
@@ -289,8 +345,8 @@ switch ($page1) {
             $SECTION_TITLE = $tlpo["po_sec_title"]["pot7"];
             $SECTION_DESC  = $tlpo["po_sec_desc"]["pod7"];
 
-            // EN: Load the template
-            // CZ: Načti template (šablonu)
+            // EN: Load the php template
+            // CZ: Načtení php template (šablony)
             $plugin_template = 'plugins/program_offer/admin/template/po_program.php';
         }
     }
@@ -372,8 +428,8 @@ switch ($page1) {
         $SECTION_TITLE = $tlpo["po_sec_title"]["pot2"];
         $SECTION_DESC  = $tlpo["po_sec_desc"]["pod2"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/program_offer/admin/template/po_newchannel.php';
 
         break;
@@ -454,8 +510,8 @@ switch ($page1) {
           $SECTION_TITLE = $tlpo["po_sec_title"]["pot3"];
           $SECTION_DESC  = $tlpo["po_sec_desc"]["pod3"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $plugin_template = 'plugins/program_offer/admin/template/po_editchannel.php';
 
         } else {
@@ -501,6 +557,11 @@ switch ($page1) {
               } else {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky s notifikací - úspěšné
+                /*
+                NOTIFIKACE:
+                'status=s'    - Záznam úspěšně uložen
+                'status1=s1'  - Záznam úspěšně odstraněn
+                */
                 envo_redirect(BASE_URL . 'index.php?p=program-offer&sp=tvchannel&status=s&status1=s1');
               }
 
@@ -523,8 +584,8 @@ switch ($page1) {
             $SECTION_TITLE = $tlpo["po_sec_title"]["pot1"];
             $SECTION_DESC  = $tlpo["po_sec_desc"]["pod1"];
 
-            // EN: Load the template
-            // CZ: Načti template (šablonu)
+            // EN: Load the php template
+            // CZ: Načtení php template (šablony)
             $plugin_template = 'plugins/program_offer/admin/template/po_channel.php';
 
             break;
@@ -543,8 +604,8 @@ switch ($page1) {
             $SECTION_TITLE = $tlpo["po_sec_title"]["pot1"];
             $SECTION_DESC  = $tlpo["po_sec_desc"]["pod1"];
 
-            // EN: Load the template
-            // CZ: Načti template (šablonu)
+            // EN: Load the php template
+            // CZ: Načtení php template (šablony)
             $plugin_template = 'plugins/program_offer/admin/template/po_channel.php';
         }
     }
@@ -641,8 +702,8 @@ switch ($page1) {
         $SECTION_TITLE = $tlpo["po_sec_title"]["pot5"];
         $SECTION_DESC  = $tlpo["po_sec_desc"]["pod5"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/program_offer/admin/template/po_newtvtower.php';
 
         break;
@@ -734,8 +795,8 @@ switch ($page1) {
           $SECTION_TITLE = $tlpo["po_sec_title"]["pot6"];
           $SECTION_DESC  = $tlpo["po_sec_desc"]["pod6"];
 
-          // EN: Load the template
-          // CZ: Načti template (šablonu)
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
           $plugin_template = 'plugins/program_offer/admin/template/po_edittvtower.php';
 
         } else {
@@ -767,6 +828,11 @@ switch ($page1) {
               } else {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky s notifikací - úspěšné
+                /*
+                NOTIFIKACE:
+                'status=s'    - Záznam úspěšně uložen
+                'status1=s2'  - Všechny záznamy úspěšně odstraněny
+                */
                 envo_redirect(BASE_URL . 'index.php?p=program-offer&sp=tvtower&status=s&status1=s2');
               }
 
@@ -785,8 +851,8 @@ switch ($page1) {
             $SECTION_TITLE = $tlpo["po_sec_title"]["pot4"];
             $SECTION_DESC  = $tlpo["po_sec_desc"]["pod4"];
 
-            // EN: Load the template
-            // CZ: Načti template (šablonu)
+            // EN: Load the php template
+            // CZ: Načtení php template (šablony)
             $plugin_template = 'plugins/program_offer/admin/template/po_tvtower.php';
 
             break;
@@ -822,6 +888,11 @@ switch ($page1) {
               } else {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky s notifikací - úspěšné
+                /*
+                NOTIFIKACE:
+                'status=s'    - Záznam úspěšně uložen
+                'status1=s1'  - Záznam úspěšně odstraněn
+                */
                 envo_redirect(BASE_URL . 'index.php?p=program-offer&sp=tvtower&status=s&status1=s1');
               }
 
@@ -840,8 +911,8 @@ switch ($page1) {
             $SECTION_TITLE = $tlpo["po_sec_title"]["pot4"];
             $SECTION_DESC  = $tlpo["po_sec_desc"]["pod4"];
 
-            // EN: Load the template
-            // CZ: Načti template (šablonu)
+            // EN: Load the php template
+            // CZ: Načtení php template (šablony)
             $plugin_template = 'plugins/program_offer/admin/template/po_tvtower.php';
 
             break;
@@ -856,8 +927,8 @@ switch ($page1) {
             $SECTION_TITLE = $tlpo["po_sec_title"]["pot4"];
             $SECTION_DESC  = $tlpo["po_sec_desc"]["pod4"];
 
-            // EN: Load the template
-            // CZ: Načti template (šablonu)
+            // EN: Load the php template
+            // CZ: Načtení php template (šablony)
             $plugin_template = 'plugins/program_offer/admin/template/po_tvtower.php';
         }
     }
@@ -911,8 +982,8 @@ switch ($page1) {
     $SECTION_TITLE = $tlpo["po_sec_title"]["pot"];
     $SECTION_DESC  = $tlpo["po_sec_desc"]["pod"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/program_offer/admin/template/po_setting.php';
 
     break;

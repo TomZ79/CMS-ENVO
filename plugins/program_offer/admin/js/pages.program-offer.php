@@ -55,6 +55,8 @@
         "targets"  : 'no-sort',
         "orderable": false
       }],
+      // Page lenght
+      "pageLength": 15,
       // Show entries
       //"lengthMenu": [ [10,20, -1], [10,20, "All"] ],
       // Design Table items

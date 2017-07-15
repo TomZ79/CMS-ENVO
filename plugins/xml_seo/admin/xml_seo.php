@@ -27,7 +27,8 @@ if (!empty($row['value'])) {
   $XMLSEODATE = $tlxml["xml_error"]["xmler"];
 }
 
-// Now start with the plugin use a switch to access all pages
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'create':
 
@@ -302,8 +303,8 @@ switch ($page1) {
     $SECTION_TITLE = $tlxml["xml_sec_title"]["xmlt1"];
     $SECTION_DESC  = $tlxml["xml_sec_desc"]["xmld1"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/xml_seo/admin/template/xml_seo_create.php';
 
     break;
@@ -337,8 +338,8 @@ switch ($page1) {
     $SECTION_TITLE = $tlxml["xml_sec_title"]["xmlt2"];
     $SECTION_DESC  = $tlxml["xml_sec_desc"]["xmld2"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/xml_seo/admin/template/xml_seo_view.php';
 
     break;
@@ -430,8 +431,8 @@ switch ($page1) {
     $SECTION_TITLE = $tlxml["xml_sec_title"]["xmlt"];
     $SECTION_DESC  = $tlxml["xml_sec_desc"]["xmld"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/xml_seo/admin/template/xml_seo_setting.php';
 }
 ?>

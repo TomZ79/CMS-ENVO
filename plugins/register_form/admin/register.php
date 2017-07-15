@@ -15,7 +15,8 @@ $envotable1 = DB_PREFIX . 'user';
 $envotable2 = DB_PREFIX . 'pagesgrid';
 $envotable3 = DB_PREFIX . 'pluginhooks';
 
-// Now start with the plugin use a switch to access all pages
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'settings':
 
@@ -162,8 +163,8 @@ switch ($page1) {
     $SECTION_TITLE = $tlrf["reg_sec_title"]["regt1"];
     $SECTION_DESC  = "";
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/register_form/admin/template/settings.php';
 
     break;
@@ -300,8 +301,8 @@ switch ($page1) {
     $SECTION_TITLE = $tlrf["reg_sec_title"]["regt"];
     $SECTION_DESC  = $tlrf["reg_sec_desc"]["regd"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/register_form/admin/template/rfcreate.php';
 }
 ?>

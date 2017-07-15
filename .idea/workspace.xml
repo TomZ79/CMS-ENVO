@@ -5,62 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4346a0f-85ec-4e4d-93d1-8c74a4b74471" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/program_offer/template/programoffer_list.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/program_offer/template/programoffer_wizard.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/categories.php" afterPath="$PROJECT_DIR$/admin/categories.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/changelog.php" afterPath="$PROJECT_DIR$/admin/changelog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/cmshelp.php" afterPath="$PROJECT_DIR$/admin/cmshelp.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/contactform.php" afterPath="$PROJECT_DIR$/admin/contactform.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/facebookgallery.php" afterPath="$PROJECT_DIR$/admin/facebookgallery.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/index.php" afterPath="$PROJECT_DIR$/admin/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/login.php" afterPath="$PROJECT_DIR$/admin/login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/logs.php" afterPath="$PROJECT_DIR$/admin/logs.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/maintenance.php" afterPath="$PROJECT_DIR$/admin/maintenance.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/mediasharing.php" afterPath="$PROJECT_DIR$/admin/mediasharing.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/news.php" afterPath="$PROJECT_DIR$/admin/news.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/page.php" afterPath="$PROJECT_DIR$/admin/page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/plugins.php" afterPath="$PROJECT_DIR$/admin/plugins.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/searchlog.php" afterPath="$PROJECT_DIR$/admin/searchlog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/searchsetting.php" afterPath="$PROJECT_DIR$/admin/searchsetting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/setting.php" afterPath="$PROJECT_DIR$/admin/setting.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/settingfacebook.php" afterPath="$PROJECT_DIR$/admin/settingfacebook.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/site.php" afterPath="$PROJECT_DIR$/admin/site.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/sitemap.php" afterPath="$PROJECT_DIR$/admin/sitemap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/tag.php" afterPath="$PROJECT_DIR$/admin/tag.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template.php" afterPath="$PROJECT_DIR$/admin/template.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/categories.php" afterPath="$PROJECT_DIR$/admin/template/categories.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/facebookgallery.php" afterPath="$PROJECT_DIR$/admin/template/facebookgallery.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/logs.php" afterPath="$PROJECT_DIR$/admin/template/logs.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/news.php" afterPath="$PROJECT_DIR$/admin/template/news.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/pages.php" afterPath="$PROJECT_DIR$/admin/template/pages.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/searchlog.php" afterPath="$PROJECT_DIR$/admin/template/searchlog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/tag.php" afterPath="$PROJECT_DIR$/admin/template/tag.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/user.php" afterPath="$PROJECT_DIR$/admin/template/user.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/template/usergroup.php" afterPath="$PROJECT_DIR$/admin/template/usergroup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/user.php" afterPath="$PROJECT_DIR$/admin/user.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/usergroup.php" afterPath="$PROJECT_DIR$/admin/usergroup.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/functions.php" afterPath="$PROJECT_DIR$/include/functions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/news.php" afterPath="$PROJECT_DIR$/news.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page.php" afterPath="$PROJECT_DIR$/page.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/admin/belowheader.php" afterPath="$PROJECT_DIR$/plugins/belowheader/admin/belowheader.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/belowheader/admin/template/bh.php" afterPath="$PROJECT_DIR$/plugins/belowheader/admin/template/bh.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/blog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/blog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/js/pages.blog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/js/pages.blog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/admin/template/blog.php" afterPath="$PROJECT_DIR$/plugins/blog/admin/template/blog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/blog/blog.php" afterPath="$PROJECT_DIR$/plugins/blog/blog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/digital_house/admin/digitalhouse.php" afterPath="$PROJECT_DIR$/plugins/digital_house/admin/digitalhouse.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/digital_house/digitalhouse.php" afterPath="$PROJECT_DIR$/plugins/digital_house/digitalhouse.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/download.php" afterPath="$PROJECT_DIR$/plugins/download/admin/download.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/admin/template/download.php" afterPath="$PROJECT_DIR$/plugins/download/admin/template/download.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/download.php" afterPath="$PROJECT_DIR$/plugins/download/download.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/faq.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/faq.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/admin/template/faq.php" afterPath="$PROJECT_DIR$/plugins/faq/admin/template/faq.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/faq/faq.php" afterPath="$PROJECT_DIR$/plugins/faq/faq.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/admin/growl.php" afterPath="$PROJECT_DIR$/plugins/growl/admin/growl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/growl/admin/template/growl.php" afterPath="$PROJECT_DIR$/plugins/growl/admin/template/growl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/admin/newsletter.php" afterPath="$PROJECT_DIR$/plugins/newsletter/admin/newsletter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/newsletter/newsletter.php" afterPath="$PROJECT_DIR$/plugins/newsletter/newsletter.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/js/pages.program-offer.php" afterPath="$PROJECT_DIR$/plugins/program_offer/admin/js/pages.program-offer.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/programoffer.php" afterPath="$PROJECT_DIR$/plugins/program_offer/admin/programoffer.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_editprogram.php" afterPath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_editprogram.php" />
@@ -75,10 +20,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/admin/template/mapping.php" afterPath="$PROJECT_DIR$/plugins/urlmapping/admin/template/mapping.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/admin/urlmapping.php" afterPath="$PROJECT_DIR$/plugins/urlmapping/admin/urlmapping.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/admin/xml_seo.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/admin/xml_seo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rss.php" afterPath="$PROJECT_DIR$/rss.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/search.php" afterPath="$PROJECT_DIR$/search.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sitemap.php" afterPath="$PROJECT_DIR$/sitemap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tags.php" afterPath="$PROJECT_DIR$/tags.php" />
     </list>
     <ignored path="CMS-Bluesat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -112,7 +53,7 @@
       <file leaf-file-name="programoffer.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/plugins/program_offer/programoffer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="29">
+            <state relative-caret-position="233">
               <caret line="52" column="73" selection-start-line="52" selection-start-column="73" selection-end-line="52" selection-end-column="73" />
               <folding>
                 <marker date="1500107911324" expanded="true" signature="2591:2641" ph="SELECT * FRO... ${$envotable1}" />
@@ -534,12 +475,12 @@
       <workItem from="1497936406321" duration="23337000" />
       <workItem from="1498679326366" duration="1688000" />
       <workItem from="1499022279470" duration="5078000" />
-      <workItem from="1499505909150" duration="176664000" />
+      <workItem from="1499505909150" duration="176774000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1784135000" />
+    <option name="totallyTimeSpent" value="1784245000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
@@ -1402,7 +1343,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plugins/program_offer/programoffer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
+        <state relative-caret-position="233">
           <caret line="52" column="73" selection-start-line="52" selection-start-column="73" selection-end-line="52" selection-end-column="73" />
           <folding>
             <marker date="1500107911324" expanded="true" signature="2591:2641" ph="SELECT * FRO... ${$envotable1}" />

@@ -317,8 +317,8 @@ if (JAK_USERID) {
   $JAK_TPL_PLUG_T   = $PAGE_TITLE;
   $JAK_TPL_PLUG_URL = 1;
 
-  // EN: Load the template
-  // CZ: Načti template (šablonu)
+  // EN: Load the php template
+  // CZ: Načtení php template (šablony)
   $pluginbasic_template = 'plugins/register_form/template/rf_editprofile.php';
   $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/register_form/rf_editprofile.php';
 

@@ -258,8 +258,10 @@ if (file_exists(APP_PATH . 'plugins/program_offer/admin/lang/' . $site_language 
         $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'programoffertvprogram (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `active` smallint(1) unsigned NOT NULL DEFAULT 1,
-  `towerid` int(11) unsigned NOT NULL DEFAULT 0,
-  `channelid` int(11) unsigned NOT NULL DEFAULT 0,
+  `towerid` int(10) unsigned NOT NULL DEFAULT 0,
+  `channelid` int(10) unsigned NOT NULL DEFAULT 0,
+  `channelnumber` int(10) DEFAULT NULL,
+  `tvr` smallint(1) unsigned NOT NULL DEFAULT 1,
   `name` varchar(100) DEFAULT NULL,
   `icon` varchar(100) DEFAULT NULL,
   `online` smallint(1) unsigned NOT NULL DEFAULT 1,
@@ -268,6 +270,8 @@ if (file_exists(APP_PATH . 'plugins/program_offer/admin/lang/' . $site_language 
   `videoformat` varchar(100) DEFAULT NULL,
   `videosize` varchar(100) DEFAULT NULL,
   `bitrate` varchar(100) DEFAULT NULL,
+  `bitrate` varchar(100) DEFAULT NULL,
+  `services` varchar(255) DEFAULT NULL,
   `time` DATETIME DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');

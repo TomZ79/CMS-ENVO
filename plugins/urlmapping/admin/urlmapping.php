@@ -12,10 +12,9 @@ if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSURLMAPPING))
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable = DB_PREFIX . 'urlmapping';
 
-// Now start with the plugin use a switch to access all pages
+// EN: Switching access all pages by page name
+// CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
-
-  // Create new urlmapping
   case 'new':
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -73,8 +72,8 @@ switch ($page1) {
     $SECTION_TITLE = $tlum["urlmap_title"]["urlt1"];
     $SECTION_DESC  = $tlum["urlmap_desc"]["urld1"];
 
-    // EN: Load the template
-    // CZ: Načti template (šablonu)
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/urlmapping/admin/template/new.php';
 
     break;
@@ -96,10 +95,10 @@ switch ($page1) {
             // CZ: Přesměrování stránky s notifikací - úspěšné
             /*
             NOTIFIKACE:
-            'status=s'   - Záznam úspěšně uložen
-            'status1=s'  - Záznam úspěšně odstraněn
+            'status=s'    - Záznam úspěšně uložen
+            'status1=s1'  - Záznam úspěšně odstraněn
             */
-            envo_redirect(BASE_URL . 'index.php?p=urlmapping&status=s&status1=s');
+            envo_redirect(BASE_URL . 'index.php?p=urlmapping&status=s&status1=s1');
           }
 
         } else {
@@ -188,8 +187,8 @@ switch ($page1) {
         $SECTION_TITLE = $tlum["urlmap_title"]["urlt2"];
         $SECTION_DESC  = $tlum["urlmap_desc"]["urld2"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/urlmapping/admin/template/edit.php';
 
         break;
@@ -219,10 +218,10 @@ switch ($page1) {
               // CZ: Přesměrování stránky s notifikací - úspěšné
               /*
               NOTIFIKACE:
-              'status=s'   - Záznam úspěšně uložen
-              'status1=s'  - Záznam úspěšně odstraněn
+              'status=s'    - Záznam úspěšně uložen
+              'status1=s1'  - Záznam úspěšně odstraněn
               */
-              envo_redirect(BASE_URL . 'index.php?p=urlmapping&status=s&status1=s');
+              envo_redirect(BASE_URL . 'index.php?p=urlmapping&status=s&status1=s1');
             }
 
           }
@@ -265,8 +264,8 @@ switch ($page1) {
         $SECTION_TITLE = $tlum["urlmap_title"]["urlt"];
         $SECTION_DESC  = $tlum["urlmap_desc"]["urld"];
 
-        // EN: Load the template
-        // CZ: Načti template (šablonu)
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
         $plugin_template = 'plugins/urlmapping/admin/template/mapping.php';
     }
 }
