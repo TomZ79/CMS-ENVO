@@ -1,6 +1,9 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
-<?php if ($page2 == "s") { ?>
+<?php
+// EN: Checking of some page was successful
+// CZ: Kontrola některé stránky byla úspěšná
+if ($page2 == "s") { ?>
   <script type="text/javascript">
     // Notification
     setTimeout(function () {
@@ -14,7 +17,29 @@
       });
     }, 1000);
   </script>
-<?php }
+<?php } ?>
+
+<?php if ($page3 == "s") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-info-circle',
+        message: '<?php echo $tl["notification"]["n2"]; ?>'
+      }, {
+        // settings
+        type: 'info',
+        delay: 5000,
+        timer: 3000
+      });
+    }, 2000);
+  </script>
+<?php } ?>
+
+<?php
+// EN: Checking of some page was unsuccessful
+// CZ: Kontrola některé stránky byla neúspěšná
 if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
   <script type="text/javascript">
     // Notification
@@ -36,24 +61,6 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
         delay: 10000
       });
     }, 1000);
-  </script>
-<?php } ?>
-
-<?php if ($page3 == "s") { ?>
-  <script type="text/javascript">
-    // Notification
-    setTimeout(function () {
-      $.notify({
-        // options
-        icon: 'fa fa-info-circle',
-        message: '<?php echo $tl["notification"]["n2"]; ?>'
-      }, {
-        // settings
-        type: 'info',
-        delay: 5000,
-        timer: 3000
-      });
-    }, 2000);
   </script>
 <?php } ?>
 
