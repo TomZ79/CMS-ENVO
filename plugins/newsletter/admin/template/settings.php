@@ -1,8 +1,8 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
 <?php
-// EN: Checking of some page was successful
-// CZ: Kontrola některé stránky byla úspěšná
+// EN: The data was successfully stored in DB
+// CZ: Data byla úspěšně uložena do DB
 if ($page2 == "s") { ?>
   <script type="text/javascript">
     // Notification
@@ -13,15 +13,15 @@ if ($page2 == "s") { ?>
       }, {
         // settings
         type: 'success',
-        delay: 5000,
+        delay: 5000
       });
     }, 1000);
   </script>
 <?php } ?>
 
 <?php
-// EN: Checking of some page was unsuccessful
-// CZ: Kontrola některé stránky byla neúspěšná
+// EN: An error occurred while saving to DB
+// CZ: Při ukládání do DB došlo k chybě
 if ($page2 == "e") { ?>
   <script type="text/javascript">
     // Notification
@@ -39,8 +39,8 @@ if ($page2 == "e") { ?>
 <?php } ?>
 
 <?php
-// EN: Errors
-// CZ: Výpis chyb při zpracování
+// EN: Checking the saved elements in the page was not successful
+// CZ: Kontrola ukládaných prvků ve stránce nebyla úšpěšná
 if ($errors) { ?>
   <script type="text/javascript">
     // Notification
@@ -59,7 +59,9 @@ if ($errors) { ?>
       });
     }, 1000);
   </script>
-<?php }
+<?php } ?>
+
+<?php
 if ($success) { ?>
   <script type="text/javascript">
     // Notification

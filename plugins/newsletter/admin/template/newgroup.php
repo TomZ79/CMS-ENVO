@@ -1,8 +1,8 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
 <?php
-// EN: Checking of some page was unsuccessful
-// CZ: Kontrola některé stránky byla neúspěšná
+// EN: An error occurred while saving to DB
+// CZ: Při ukládání do DB došlo k chybě
 if ($page2 == "e") { ?>
   <script type="text/javascript">
     // Notification
@@ -20,8 +20,8 @@ if ($page2 == "e") { ?>
 <?php } ?>
 
 <?php
-// EN: Errors
-// CZ: Výpis chyb při zpracování
+// EN: Checking the saved elements in the page was not successful
+// CZ: Kontrola ukládaných prvků ve stránce nebyla úšpěšná
 if ($errors) { ?>
   <script type="text/javascript">
     // Notification
