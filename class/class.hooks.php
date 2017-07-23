@@ -42,20 +42,25 @@ class JAK_hooks
 
 	}
 
-	function jakGethook ($hook)
-	{
-		// Setting up an alias, so we don't have to write $this->data every time:
-		$d = $this->data;
+  function jakGethook ($hook, $plugin = '')
+  {
+    // Setting up an alias, so we don't have to write $this->data every time:
+    $d = $this->data;
 
-		foreach ($d as $c) {
-			if ($c['hook_name'] == $hook) {
-				$case[] = array ('phpcode' => $c['phpcode'], 'id' => $c['id']);
+    foreach ($d as $c) {
+      if (!empty($plugin)) {
+        if ($c['hook_name'] == $hook && $c['product'] == $plugin) {
+          $case[] = array ('phpcode' => $c['phpcode'], 'id' => $c['id']);
+        }
+      } else {
+        if ($c['hook_name'] == $hook) {
+          $case[] = array ('phpcode' => $c['phpcode'], 'id' => $c['id']);
+        }
+      }
+    }
 
-			}
-		}
-
-		if (!empty($case)) return $case;
-	}
+    if (!empty($case)) return $case;
+  }
 
 }
 
