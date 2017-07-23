@@ -18,11 +18,10 @@ if ($hooksitemap) {
   }
 }
 
-// Check if we have a language and display the right stuff
+// EN: Set data for the frontend page - Title, Description, Keywords and other ...
+// CZ: Nastavení dat pro frontend stránku - Titulek, Popis, Klíčová slova a další ...
 $PAGE_TITLE   = $jkv["sitemaptitle"];
 $PAGE_CONTENT = $jkv["sitemapdesc"];
-
-// Page Title
 $PAGE_SHOWTITLE = 1;
 
 // Get the sort orders for the grid

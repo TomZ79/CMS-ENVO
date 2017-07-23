@@ -291,6 +291,8 @@ switch ($page1) {
 
     break;
   default:
+    // MAIN PAGE OF PLUGIN
+
     // EN: Redirect page
     // CZ: Přesměrování stránky
     envo_redirect(BASE_URL);

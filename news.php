@@ -178,7 +178,8 @@ switch ($page1) {
       $JAK_NEWS_ALL = envo_get_news($news->limit, '', JAK_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
     }
 
-    // Check if we have a language and display the right stuff
+    // EN: Set data for the frontend page - Title, Description, Keywords and other ...
+    // CZ: Nastavení dat pro frontend stránku - Titulek, Popis, Klíčová slova a další ...
     $PAGE_TITLE              = $jkv["newstitle"];
     $PAGE_CONTENT            = $jkv["newsdesc"];
     $MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];

@@ -491,6 +491,7 @@ switch ($page1) {
     }
     break;
   default:
+    // MAIN PAGE OF PLUGIN
 
     $getTotal = envo_get_total_permission_blog();
 
@@ -516,7 +517,8 @@ switch ($page1) {
     // Get the categories
     $JAK_BLOG_CAT = JAK_Base::jakGetcatmix(JAK_PLUGIN_VAR_BLOG, '', $envotable1, JAK_USERGROUPID, $jkv["blogurl"]);
 
-    // Check if we have a language and display the right stuff
+    // EN: Set data for the frontend page - Title, Description, Keywords and other ...
+    // CZ: Nastavení dat pro frontend stránku - Titulek, Popis, Klíčová slova a další ...
     $PAGE_TITLE              = $jkv["blogtitle"];
     $MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
     $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];

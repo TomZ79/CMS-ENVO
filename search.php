@@ -90,11 +90,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jakSH']) || !empty($pa
 $JAK_SEARCH_WORD_RESULT = $SearchInput;
 $JAK_SEARCH_CLOUD       = JAK_tags::jakGettagcloud('search', 'searchlog', $jkv["taglimit"], $jkv["tagmaxfont"], $jkv["tagminfont"], $tl["title_element"]["tel"]);
 
-// Check if we have a language and display the right stuff
+// EN: Set data for the frontend page - Title, Description, Keywords and other ...
+// CZ: Nastavení dat pro frontend stránku - Titulek, Popis, Klíčová slova a další ...
 $PAGE_TITLE   = $jkv["searchtitle"];
 $PAGE_CONTENT = $jkv["searchdesc"];
-
-// Page Title
 $PAGE_SHOWTITLE = 1;
 
 // Get the sort orders for the grid

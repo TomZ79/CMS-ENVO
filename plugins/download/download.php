@@ -706,6 +706,7 @@ switch ($page1) {
 
     break;
   default:
+    // MAIN PAGE OF PLUGIN
 
     $getTotal = envo_get_total_permission_dl();
 
@@ -729,7 +730,8 @@ switch ($page1) {
 
     }
 
-    // Check if we have a language and display the right stuff
+    // EN: Set data for the frontend page - Title, Description, Keywords and other ...
+    // CZ: Nastavení dat pro frontend stránku - Titulek, Popis, Klíčová slova a další ...
     $PAGE_TITLE              = $jkv["downloadtitle"];
     $MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
     $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];

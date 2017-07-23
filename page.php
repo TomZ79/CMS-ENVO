@@ -23,7 +23,8 @@ if (!envo_cookie_voted_hits($envotable, $row['id'], 'hits')) {
   JAK_base::jakUpdatehits($row['id'], $envotable);
 }
 
-// Output the data
+// EN: Set data for the frontend page - Title, Description, Keywords and other ...
+// CZ: Nastavení dat pro frontend stránku - Titulek, Popis, Klíčová slova a další ...
 $PAGE_ID               = $row['id'];
 $PAGE_TITLE            = $row['title'];
 $PAGE_CONTENT          = $row['content'];
@@ -34,8 +35,6 @@ $SHOWDATE              = $row['showdate'];
 $SHOWTAGS              = $row['showtags'];
 $SHOWSOCIALBUTTON      = $row['socialbutton'];
 $PAGE_ACTIVE           = $row['active'];
-// EN: $PAGE_PASSWORD - main variable if page have password, use in template
-// CZ: $PAGE_PASSWORD - hlavní proměnná pro zaheslovanou stránku, používá se pro template
 $PAGE_PASSWORD               = $row['password'];
 $JAK_HEADER_CSS              = $row['page_css'];
 $JAK_FOOTER_JAVASCRIPT       = $row['page_javascript'];

@@ -660,7 +660,7 @@ function envo_edit_safe_userpost($input)
 {
 
   // now we convert the code stuff into code blocks
-  $input = preg_replace_callback('/<pre><code>(.*?)<\/code><\/pre>/imsu', 'jak_editcode', $input);
+  $input = preg_replace_callback('/<pre><code>(.*?)<\/code><\/pre>/imsu', 'envo_editcode', $input);
 
   $input = stripslashes($input);
 
