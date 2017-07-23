@@ -1,6 +1,9 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
-<?php if ($page4 == "s") { ?>
+<?php
+// EN: Checking of some page was successful
+// CZ: Kontrola některé stránky byla úspěšná
+if ($page4 == "s") { ?>
   <script type="text/javascript">
     // Notification
     setTimeout(function () {
@@ -14,7 +17,11 @@
       });
     }, 1000);
   </script>
-<?php }
+<?php } ?>
+
+<?php
+// EN: Checking of some page was unsuccessful
+// CZ: Kontrola některé stránky byla neúspěšná
 if ($page4 == "e") { ?>
   <script type="text/javascript">
     // Notification
