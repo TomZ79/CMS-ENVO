@@ -61,7 +61,6 @@ switch ($page1) {
           envo_redirect(BASE_URL . 'index.php?p=urlmapping&sp=edit&ssp=' . $rowid . '&status=s');
         }
       } else {
-
         $errors['e'] = $tl['urlmap_error']['urler'];
         $errors      = $errors;
       }
