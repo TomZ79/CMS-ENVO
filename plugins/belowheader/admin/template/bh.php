@@ -1,6 +1,9 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
-<?php if ($page1 == "s") { ?>
+<?php
+// EN: Checking of some page was successful
+// CZ: Kontrola některé stránky byla úspěšná
+if ($page1 == "s") { ?>
   <script type="text/javascript">
     setTimeout(function () {
       $.notify({
@@ -15,7 +18,10 @@
   </script>
 <?php } ?>
 
-<?php if ($page2 == "s1") { ?>
+<?php
+// EN: Remove records from DB was successful
+// CZ: Odstranění záznamu z DB bylo úspěšné
+if ($page2 == "s1") { ?>
   <script type="text/javascript">
     // Notification
     setTimeout(function () {
@@ -33,7 +39,10 @@
   </script>
 <?php } ?>
 
-<?php if ($page1 == "e" || $page1 == "ene") { ?>
+<?php
+// EN: Checking of some page was unsuccessful
+// CZ: Kontrola některé stránky byla neúspěšná
+if ($page1 == "e" || $page1 == "ene") { ?>
   <script type="text/javascript">
     setTimeout(function () {
       $.notify({

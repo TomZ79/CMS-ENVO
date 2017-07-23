@@ -1,19 +1,8 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
-<?php if ($page3 == "s") { ?>
-  <script type="text/javascript">
-    setTimeout(function () {
-      $.notify({
-        // options
-        message: '<?php echo $tl["notification"]["n7"];?>'
-      }, {
-        // settings
-        type: 'success',
-        delay: 5000
-      });
-    }, 1000);
-  </script>
-<?php }
+<?php
+// EN: An error occurred while saving to DB
+// CZ: Při ukládání do DB došlo k chybě
 if ($page3 == "e") { ?>
   <script type="text/javascript">
     setTimeout(function () {
@@ -29,7 +18,10 @@ if ($page3 == "e") { ?>
   </script>
 <?php } ?>
 
-<?php if ($errors) { ?>
+<?php
+// EN: Checking the saved elements in the page was not successful
+// CZ: Kontrola ukládaných prvků ve stránce nebyla úšpěšná
+if ($errors) { ?>
   <script type="text/javascript">
     setTimeout(function () {
       $.notify({
