@@ -73,17 +73,17 @@ switch ($page1) {
 
         // Do the dirty work in mysql
         $result = $jakdb->query('INSERT INTO ' . $envotable . ' SET
-		    pageid = "' . smartsql($pageid) . '",
-		    newsid = "' . smartsql($newsid) . '",
-		    newsmain = "' . smartsql($defaults['jak_mainnews']) . '",
-		    tags = "' . smartsql($defaults['jak_tags']) . '",
-		    search = "' . smartsql($defaults['jak_search']) . '",
-		    sitemap = "' . smartsql($defaults['jak_sitemap']) . '",
-		    title = "' . smartsql($defaults['jak_title']) . '",
-		    content = "' . smartsql($defaults['jak_content']) . '",
-		    content_below = "' . smartsql($defaults['jak_contentb']) . '",
-		    permission = "' . smartsql($permission) . '",
-		    time = NOW()');
+                  pageid = "' . smartsql($pageid) . '",
+                  newsid = "' . smartsql($newsid) . '",
+                  newsmain = "' . smartsql($defaults['jak_mainnews']) . '",
+                  tags = "' . smartsql($defaults['jak_tags']) . '",
+                  search = "' . smartsql($defaults['jak_search']) . '",
+                  sitemap = "' . smartsql($defaults['jak_sitemap']) . '",
+                  title = "' . smartsql($defaults['jak_title']) . '",
+                  content = "' . smartsql($defaults['jak_content']) . '",
+                  content_below = "' . smartsql($defaults['jak_contentb']) . '",
+                  permission = "' . smartsql($permission) . '",
+                  time = NOW()');
 
         $rowid = $jakdb->jak_last_id();
 

@@ -3,7 +3,7 @@
 <?php
 // EN: An error occurred while saving to DB
 // CZ: Při ukládání do DB došlo k chybě
-if ($page3 == "e") { ?>
+if ($page2 == "e") { ?>
   <script type="text/javascript">
     setTimeout(function () {
       $.notify({
