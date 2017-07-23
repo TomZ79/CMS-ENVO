@@ -50,7 +50,8 @@ class JAK_hooks
     foreach ($d as $c) {
       if (!empty($plugin)) {
         if ($c['hook_name'] == $hook && $c['product'] == $plugin) {
-          $case[] = array ('phpcode' => $c['phpcode'], 'id' => $c['id']);
+          $case["phpcode"] = $c['phpcode'];
+          $case["id"] = $c['id'];
         }
       } else {
         if ($c['hook_name'] == $hook) {
