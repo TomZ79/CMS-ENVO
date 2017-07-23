@@ -5,54 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4346a0f-85ec-4e4d-93d1-8c74a4b74471" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/include/functions.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/include/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/js/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/js/pages.program-offer.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/lang/cs.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/lang/en.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/lang/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/programoffer.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_channel.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_editchannel.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_editprogram.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_edittvtower.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_nav.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_newchannel.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_newprogram.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_newtvtower.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_program.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_setting.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_tvtower.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/usergroup_edit.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/usergroup_new.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/functions.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/help/help_cs.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/help/help_en.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/help/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/img/table-arrows.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/install.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/lang/cs.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/lang/en.ini" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/lang/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/programoffer.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/template/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/template/programoffer.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/template/programoffer_list.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/template/programoffer_wizard.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/uninstall.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/update.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/template/cssheader.php" afterPath="$PROJECT_DIR$/plugins/download/template/cssheader.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/metrics/footer.php" afterPath="$PROJECT_DIR$/template/metrics/footer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/css/screen.css" afterPath="$PROJECT_DIR$/template/porto/css/screen.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/css/screen.min.css" afterPath="$PROJECT_DIR$/template/porto/css/screen.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/footer.php" afterPath="$PROJECT_DIR$/template/porto/footer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/js/porto.custom.js" afterPath="$PROJECT_DIR$/template/porto/js/porto.custom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/footer.php" afterPath="$PROJECT_DIR$/template/qed/footer.php" />
     </list>
     <ignored path="CMS-Bluesat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,10 +26,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tvtower.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tvtower.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plugins/tv_tower/admin/tvtower.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
+            <state relative-caret-position="-397">
               <caret line="965" column="47" selection-start-line="965" selection-start-column="39" selection-end-line="965" selection-end-column="47" />
               <folding>
                 <element signature="e#1179#14276#0#PHP" expanded="false" />
@@ -90,6 +43,19 @@
                 <marker date="1500809929984" expanded="true" signature="27391:28118" ph="INSERT INTO ${$envotable1}... " />
                 <marker date="1500809929984" expanded="true" signature="35941:36034" ph="SELECT COUNT... ${$envotable}" />
                 <marker date="1500809929984" expanded="true" signature="36296:36366" ph="DELETE FROM " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="footer.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/template/porto/footer.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3775">
+              <caret line="251" column="26" selection-start-line="251" selection-start-column="26" selection-end-line="251" selection-end-column="26" />
+              <folding>
+                <marker date="1500810430325" expanded="true" signature="15004:15029" ph="..." />
+                <marker date="1500810430325" expanded="true" signature="15129:15162" ph="..." />
               </folding>
             </state>
           </provider>
@@ -150,7 +116,6 @@
         <option value="$PROJECT_DIR$/plugins/tv_tower/install.php" />
         <option value="$PROJECT_DIR$/plugins/tv_tower/template/tvtower_wizard.php" />
         <option value="$PROJECT_DIR$/template/porto/js/porto.custom.js" />
-        <option value="$PROJECT_DIR$/template/porto/footer.php" />
         <option value="$PROJECT_DIR$/template/metrics/footer.php" />
         <option value="$PROJECT_DIR$/template/qed/footer.php" />
         <option value="$PROJECT_DIR$/plugins/tv_tower/template/jsfooter.php" />
@@ -163,6 +128,7 @@
         <option value="$PROJECT_DIR$/plugins/tv_tower/lang/cs.ini" />
         <option value="$PROJECT_DIR$/plugins/tv_tower/admin/tvtower.php" />
         <option value="$PROJECT_DIR$/plugins/tv_tower/admin/lang/cs.ini" />
+        <option value="$PROJECT_DIR$/template/porto/footer.php" />
       </list>
     </option>
   </component>
@@ -223,60 +189,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="porto" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="porto" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -533,18 +445,18 @@
       <workItem from="1499022279470" duration="5078000" />
       <workItem from="1499505909150" duration="246127000" />
       <workItem from="1500397885079" duration="9102000" />
-      <workItem from="1500745433725" duration="20673000" />
+      <workItem from="1500745433725" duration="20815000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1883373000" />
+    <option name="totallyTimeSpent" value="1883515000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22767204" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22767204" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1014,17 +926,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/porto/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="266" column="48" selection-start-line="266" selection-start-column="34" selection-end-line="266" selection-end-column="48" />
-          <folding>
-            <marker date="1500803495338" expanded="true" signature="15050:15075" ph="..." />
-            <marker date="1500803495338" expanded="true" signature="15175:15208" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/template/porto/templatesettings.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="423">
@@ -1142,7 +1043,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plugins/tv_tower/admin/tvtower.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
+        <state relative-caret-position="-397">
           <caret line="965" column="47" selection-start-line="965" selection-start-column="39" selection-end-line="965" selection-end-column="47" />
           <folding>
             <element signature="e#1179#14276#0#PHP" expanded="false" />
@@ -1156,6 +1057,17 @@
             <marker date="1500809929984" expanded="true" signature="27391:28118" ph="INSERT INTO ${$envotable1}... " />
             <marker date="1500809929984" expanded="true" signature="35941:36034" ph="SELECT COUNT... ${$envotable}" />
             <marker date="1500809929984" expanded="true" signature="36296:36366" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/porto/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3775">
+          <caret line="251" column="26" selection-start-line="251" selection-start-column="26" selection-end-line="251" selection-end-column="26" />
+          <folding>
+            <marker date="1500810430325" expanded="true" signature="15004:15029" ph="..." />
+            <marker date="1500810430325" expanded="true" signature="15129:15162" ph="..." />
           </folding>
         </state>
       </provider>
