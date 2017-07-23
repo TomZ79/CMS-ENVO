@@ -2,16 +2,24 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists('../../../config.php')) die('ajax/[selectchannel.php] config.php not exist');
+if (!file_exists('../../../config.php')) die('ajax/[selectchannel2.php] config.php not exist');
 require_once '../../../config.php';
 
 if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
 
+// EN: Load the language file from the Hook by  name of Hook and Plugin
+// CZ: Načtení jazykového souboru z Hook podle jména Hook a Pluginu
+$hooklang = $jakhooks->jakGethook("php_lang", "tvtower");
+eval($hooklang['phpcode']);
+
+// EN: Set value
+// CZ: Nastavení hodnot
 $channelIDs = $_POST['channelIDs'];
 $ids        = implode(',', $channelIDs);
 $lasttower  = '';
 
-
+// EN: Get data from DB and write to output
+// CZ: Získání dat z DB a výpis do výstupu
 foreach ($channelIDs as $channelIDs) {
   $ids           = explode(',', $channelIDs);
   $towerid       = $ids[0];
@@ -31,13 +39,13 @@ foreach ($channelIDs as $channelIDs) {
   echo '<table class="table table-hover">';
   echo '<thead>
             <tr>
-              <th>Logo</th>
-              <th>Název programu</th>
-              <th>TV/R</th>
-              <th>Kanál</th>
-              <th>Kmitočet kanálu</th>
-              <th>Název sítě</th>
-              <th>Technologie vysílání</th>
+              <th>' . $tltt["tt_frontend_list"]["ttl6"] . '</th>
+              <th>' . $tltt["tt_frontend_list"]["ttl7"] . '</th>
+              <th>' . $tltt["tt_frontend_list"]["ttl8"] . '</th>
+              <th>' . $tltt["tt_frontend_list"]["ttl9"] . '</th>
+              <th>' . $tltt["tt_frontend_list"]["ttl10"] . '</th>
+              <th>' . $tltt["tt_frontend_list"]["ttl11"] . '</th>
+              <th>' . $tltt["tt_frontend_list"]["ttl12"] . '</th>
             </tr>
             </thead>';
   echo '<tbody>';
@@ -71,7 +79,7 @@ foreach ($channelIDs as $channelIDs) {
     }
   } else {
     echo '<tr class="noresult">';
-    echo '<td colspan="7">Nenalezen žádný záznam</td>';
+    echo '<td colspan="7">' . $tltt["tt_frontend_list"]["ttl30"] . '</td>';
     echo '</tr>';
     echo PHP_EOL; // Nový řádek ve zdrojovém kódu
   }
