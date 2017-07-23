@@ -1,6 +1,9 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
-<?php if ($page2 == "s") { ?>
+<?php
+// EN: Checking of some page was successful
+// CZ: Kontrola některé stránky byla úspěšná
+if ($page2 == "s") { ?>
   <script type="text/javascript">
     // Notification
     setTimeout(function () {
@@ -14,18 +17,22 @@
       });
     }, 1000);
   </script>
-<?php }
-if ($page2 == "e" || $page1 == "ene") { ?>
+<?php } ?>
+
+<?php
+// EN: Checking of some page was unsuccessful
+// CZ: Kontrola některé stránky byla neúspěšná
+if ($page2 == "e") { ?>
   <script type="text/javascript">
     // Notification
     setTimeout(function () {
       $.notify({
         // options
-        message: '<?php echo($page1 == "e" ? $tl["general_error"]["generror1"] : $tl["general_error"]["generror2"]);?>'
+        message: '<?php echo $tl["general_error"]["generror1"];?>'
       }, {
         // settings
-        type: 'danger',
-        delay: 10000
+        type: 'success',
+        delay: 5000
       });
     }, 1000);
   </script>
