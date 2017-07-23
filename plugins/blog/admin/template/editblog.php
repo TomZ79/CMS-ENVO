@@ -1,6 +1,9 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
-<?php if ($page3 == "s") { ?>
+<?php
+// EN: The data was successfully stored in DB
+// CZ: Data byla úspěšně uložena do DB
+if ($page3 == "s") { ?>
   <script type="text/javascript">
     // Notification
     setTimeout(function () {
@@ -14,7 +17,11 @@
       });
     }, 1000);
   </script>
-<?php }
+<?php } ?>
+
+<?php
+// EN: An error occurred while saving to DB
+// CZ: Při ukládání do DB došlo k chybě
 if ($page3 == "e") { ?>
   <script type="text/javascript">
     // Notification
@@ -31,7 +38,10 @@ if ($page3 == "e") { ?>
   </script>
 <?php } ?>
 
-<?php if ($errors) { ?>
+<?php
+// EN: Checking the saved elements in the page was not successful
+// CZ: Kontrola ukládaných prvků ve stránce nebyla úšpěšná
+if ($errors) { ?>
   <script type="text/javascript">
     // Notification
     setTimeout(function () {

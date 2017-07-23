@@ -1,6 +1,9 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
-<?php if ($page2 == "e") { ?>
+<?php
+// EN: An error occurred while saving to DB
+// CZ: Při ukládání do DB došlo k chybě
+if ($page2 == "e") { ?>
   <script type="text/javascript">
     // Notification
     setTimeout(function () {
@@ -14,7 +17,11 @@
       });
     }, 1000);
   </script>
-<?php }
+<?php } ?>
+
+<?php
+// EN: Checking the saved elements in the page was not successful
+// CZ: Kontrola ukládaných prvků ve stránce nebyla úšpěšná
 if ($errors) { ?>
   <script type="text/javascript">
     // Notification
