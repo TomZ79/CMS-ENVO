@@ -1,0 +1,160 @@
+/* XX. PAGE tvtower.php
+======================================================================== */
+.tvtower .text {
+  margin-bottom: 30px;
+  overflow: hidden;
+  height: 130px;
+}
+
+.tvtower h3 {
+  margin: 25px 0 13px 0;
+  line-height: 24px;
+}
+
+/* XX. PAGE tvtower_wizard.php and tvtower_list.php
+======================================================================== */
+.programlogo {
+  height: 19px;
+}
+
+/* Program je offline - již nevysílá */
+tr.offline td {
+  text-decoration: line-through;
+  color: #CCC;
+}
+
+tr.offline .programlogo {
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+  opacity: 0.3;
+}
+
+/* Program je online - stále vysílá */
+tr.online td {
+
+}
+
+/* Select site multiplex */
+.siteselect label {
+  text-align: left;
+  margin-right: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.siteselect select {
+  display: inline-block;
+  width: auto;
+  vertical-align: middle;
+}
+
+/* Bootstrap - Expand table rows */
+table.table-expandable > tbody > tr:nth-child(odd) {
+  cursor: pointer;
+}
+
+table.table-expandable > tbody > tr div.table-expandable-arrow {
+  background: transparent url(/plugins/tv_tower/assets/img/table-arrows.png) no-repeat scroll 0 -16px;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+table.table-expandable > tbody > tr div.table-expandable-arrow.up {
+  background-position: 0 0;
+}
+
+/* Div as Table */
+.rTable {
+  display: table;
+}
+
+.rTableRow {
+  display: table-row;
+}
+
+.rTableHeading {
+  display: table-header-group;
+}
+
+.rTableBody {
+  display: table-row-group;
+}
+
+.rTableFoot {
+  display: table-footer-group;
+}
+
+.rTableCell, .rTableHead {
+  display: table-cell;
+  height: 30px;
+  line-height: 20px;
+  padding: 5px;
+}
+
+.rTableHead, .rTableFoot {
+  font-weight: bold;
+}
+
+/* Bootstrap */
+@media (max-width: 767px) {
+
+  .text-xs-center {
+    text-align: center;
+    float: none !important;
+  }
+
+  #searchprogram {
+    width: 100% !important;
+  }
+}
+
+div[id^="tramsmitter-"] h4::first-letter {
+  font-weight: 700;
+}
+
+/* Bounce Loader */
+#bounceLoader {
+  display: none;
+  margin-top: 40px;
+  height: 30px;
+  position: relative;
+
+}
+.bounce-loader {
+  transition: all .2;
+  margin: -9px 0 0 -35px;
+  text-align: center;
+  width: 70px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  z-index: 10000;
+}
+
+.bounce-loader .bounce1, .bounce-loader .bounce2, .bounce-loader .bounce3 {
+  animation: 1.4s ease-in-out 0s normal both infinite running bouncedelay;
+  background-color: #CCC;
+  border-radius: 100%;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, .15);
+  display: inline-block;
+  height: 18px;
+  width: 18px
+}
+
+.bounce-loader .bounce1 {
+  animation-delay: -.32s
+}
+
+.bounce-loader .bounce2 {
+  animation-delay: -.16s
+}
+
+@keyframes bouncedelay {
+  0%, 100%, 80% {
+    transform: scale(0)
+  }
+  40% {
+    transform: scale(1)
+  }
+}

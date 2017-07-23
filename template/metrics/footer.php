@@ -259,14 +259,15 @@ if (!$JAK_SHOW_FOOTER) { ?>
 <!-- Metrics Custom script -->
 <script src="/template/<?php echo ENVO_TEMPLATE; ?>/js/metrics-custom.js"></script>
 
-<!-- Definition Function and Notification -->
+<!-- Definition JS value -->
 <script>
-  envoWeb.envo_lang = "<?php echo $site_language;?>";
-  envoWeb.envo_url = "<?php echo BASE_URL;?>";
-  envoWeb.envo_url_orig = "<?php echo BASE_URL;?>";
-  envoWeb.envo_search_link = "<?php echo $JAK_SEARCH_LINK;?>";
-  envoWeb.request_uri = "<?php echo JAK_PARSE_REQUEST;?>";
-  envoWeb.envo_quickedit = "<?php echo $tl["global_text"]["gtxt6"];?>"
+  envoWeb.envo_lang = '<?php echo $site_language;?>';
+  envoWeb.envo_jslang = '<?php echo $jslangdata_output;?>';
+  envoWeb.envo_url = '<?php echo BASE_URL;?>';
+  envoWeb.envo_url_orig = '<?php echo BASE_URL;?>';
+  envoWeb.envo_search_link = '<?php echo $JAK_SEARCH_LINK;?>';
+  envoWeb.request_uri = '<?php echo JAK_PARSE_REQUEST;?>';
+  envoWeb.envo_quickedit = '<?php echo $tl["global_text"]["gtxt6"];?>'
 </script>
 
 <!-- Revolutin Slider 5.0 Initialization -->

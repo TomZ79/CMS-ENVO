@@ -290,14 +290,15 @@ if (!$JAK_SHOW_FOOTER) { ?>
 <!-- Neko Custom script -->
 <script type="text/javascript" src="/template/<?php echo ENVO_TEMPLATE; ?>/js/neko-custom.js"></script>
 
-<!-- Definition Function and Notification -->
-<script type="text/javascript">
-  envoWeb.envo_lang = "<?php echo $site_language;?>";
-  envoWeb.envo_url = "<?php echo BASE_URL;?>";
-  envoWeb.envo_url_orig = "<?php echo BASE_URL;?>";
-  envoWeb.envo_search_link = "<?php echo $JAK_SEARCH_LINK;?>";
-  envoWeb.request_uri = "<?php echo JAK_PARSE_REQUEST;?>";
-  envoWeb.envo_quickedit = "<?php echo $tl["global_text"]["gtxt6"];?>"
+<!-- Definition JS value -->
+<script>
+  envoWeb.envo_lang = '<?php echo $site_language;?>';
+  envoWeb.envo_jslang = '<?php echo $jslangdata_output;?>';
+  envoWeb.envo_url = '<?php echo BASE_URL;?>';
+  envoWeb.envo_url_orig = '<?php echo BASE_URL;?>';
+  envoWeb.envo_search_link = '<?php echo $JAK_SEARCH_LINK;?>';
+  envoWeb.request_uri = '<?php echo JAK_PARSE_REQUEST;?>';
+  envoWeb.envo_quickedit = '<?php echo $tl["global_text"]["gtxt6"];?>'
 </script>
 
 <?php include_once APP_PATH . '/template/' . ENVO_TEMPLATE . '/js/neko-royalSlider.php' ?>
