@@ -41,13 +41,15 @@ define('JAK_PAGINATE_ADMIN', 0);
 define('JAK_PARSE_ERROR', html_entity_decode(JAK_rewrite::jakParseurl('error', 'mysql')));
 define('JAK_PARSE_SUCCESS', html_entity_decode(JAK_rewrite::jakParseurl('success')));
 
-// First load the language from the hook
+// EN: Get the language file from the Hook by  name of Hook
+// CZ: Načtení jazykového souboru z Hook podle jména Hook
 $hooklang = $jakhooks->jakGethook("php_lang");
 if ($hooklang) foreach ($hooklang as $hlang) {
   eval($hlang['phpcode']);
 }
 
-// Call the hooks per name
+// EN: Get all data from the Hook by name of Hook
+// CZ: Načtení všech dat z Hook podle jména Hook
 $JAK_HOOK_HEAD_TOP      = $jakhooks->jakGethook("tpl_between_head");
 $JAK_HOOK_BODY_TOP      = $jakhooks->jakGethook("tpl_body_top");
 $JAK_HOOK_HEADER        = $jakhooks->jakGethook("tpl_header");
@@ -59,7 +61,8 @@ $JAK_HOOK_FOOTER        = $jakhooks->jakGethook("tpl_footer");
 $JAK_HOOK_FOOTER_WIDGET = $jakhooks->jakGethook("tpl_footer_widgets");
 $JAK_HOOK_FOOTER_END    = $jakhooks->jakGethook("tpl_footer_end");
 
-// Get the php hook for index top
+// EN: Get all the php Hook by name of Hook for index top
+// CZ: Načtení všech php dat z Hook podle jména Hook pro 'index top'
 $indexhook = $jakhooks->jakGethook("php_index_top");
 if ($indexhook) {
   foreach ($indexhook as $it) {
