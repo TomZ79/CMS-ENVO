@@ -18,6 +18,8 @@ $envotable4 = DB_PREFIX . 'news';
 $envotable5 = DB_PREFIX . 'pluginhooks';
 $envotable6 = DB_PREFIX . 'backup_content';
 
+// EN: Get all the php Hook by name of Hook
+// CZ: Načtení všech php dat z Hook podle jména Hook
 $JAK_HOOK_ADMIN_PAGE     = $jakhooks->jakGethook("tpl_admin_page_news");
 $JAK_HOOK_ADMIN_PAGE_NEW = $jakhooks->jakGethook("tpl_admin_page_news_new");
 
@@ -66,7 +68,8 @@ switch ($page1) {
             $insert .= 'password = "' . $passcrypt . '",';
           }
 
-          // Get the php hook for display stuff in pages
+          // EN: Get all the php Hook by name of Hook
+          // CZ: Načtení všech php dat z Hook podle jména Hook
           $hookpage = $jakhooks->jakGethook("php_admin_pages_sql");
           if ($hookpage) {
             foreach ($hookpage as $hpag) {
@@ -182,7 +185,8 @@ switch ($page1) {
       $JAK_HOOKS[] = $row;
     }
 
-    // Get the php hook for display stuff in pages
+    // EN: Get all the php Hook by name of Hook
+    // CZ: Načtení všech php dat z Hook podle jména Hook
     $JAK_FORM_DATA = array();
     $hookpagei     = $jakhooks->jakGethook("php_admin_pages_news_info");
     if ($hookpagei) {
@@ -397,7 +401,8 @@ switch ($page1) {
                 $insert .= 'password = "' . hash_hmac('sha256', $defaults['jak_password'], DB_PASS_HASH) . '",';
               }
 
-              // Get the php hook for display stuff in pages
+              // EN: Get all the php Hook by name of Hook
+              // CZ: Načtení všech php dat z Hook podle jména Hook
               $hookpage = $jakhooks->jakGethook("php_admin_pages_sql");
               if ($hookpage) {
                 foreach ($hookpage as $hpag) {
@@ -624,7 +629,8 @@ switch ($page1) {
             $JAK_HOOKS[] = $row;
           }
 
-          // Get the php hook for display stuff in pages
+          // EN: Get all the php Hook by name of Hook
+          // CZ: Načtení všech php dat z Hook podle jména Hook
           $hookpagei = $jakhooks->jakGethook("php_admin_pages_news_info");
           if ($hookpagei) {
             foreach ($hookpagei as $hpagi) {

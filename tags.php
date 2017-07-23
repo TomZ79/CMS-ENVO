@@ -11,7 +11,8 @@ $envotable1 = DB_PREFIX . 'pages';
 $envotable2 = DB_PREFIX . 'categories';
 $envotable3 = 'news';
 
-// Call the hooks per name
+// EN: Get all the php Hook by name of Hook
+// CZ: Načtení všech php dat z Hook podle jména Hook
 $JAK_HOOK_TAGS  = $jakhooks->jakGethook("tpl_tags");
 $PAGE_SHOWTITLE = 1;
 
@@ -38,7 +39,8 @@ if (empty($page1)) {
 
       if ($row['pluginid'] > 0 && $row['pluginid'] != 1 && in_array($row['pluginid'], $usraccesspl)) {
 
-        // Get the php hook for tags
+        /// EN: Get all the php Hook by name of Hook for tags
+        // CZ: Načtení všech php dat z Hook podle jména Hook pro tagy
         $hooktags = $jakhooks->jakGethook("php_tags");
         if ($hooktags) {
           foreach ($hooktags as $th) {

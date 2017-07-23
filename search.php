@@ -4,7 +4,8 @@
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
-// Call the hooks per name
+// EN: Get all the php Hook by name of Hook
+// CZ: Načtení všech php dat z Hook podle jména Hook
 $JAK_HOOK_SEARCH = $jakhooks->jakGethook("tpl_search");
 
 // Reset vars
@@ -44,7 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jakSH']) || !empty($pa
     }
     $SearchInput = strtolower(smartsql($SearchInput));
 
-    // Load the hooks with the php code for search
+    // EN: Get all the php Hook by name of Hook for search
+    // CZ: Načtení všech php dat z Hook podle jména Hook pro vyhledávání
     $hooktags = $jakhooks->jakGethook("php_search");
     if ($hooktags) foreach ($hooktags as $th) {
       eval($th["phpcode"]);

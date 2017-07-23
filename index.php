@@ -61,7 +61,7 @@ $JAK_HOOK_FOOTER        = $jakhooks->jakGethook("tpl_footer");
 $JAK_HOOK_FOOTER_WIDGET = $jakhooks->jakGethook("tpl_footer_widgets");
 $JAK_HOOK_FOOTER_END    = $jakhooks->jakGethook("tpl_footer_end");
 
-// EN: Get all the php Hook by name of Hook for index top
+// EN: Get all the php Hook by name of Hook for 'index top'
 // CZ: Načtení všech php dat z Hook podle jména Hook pro 'index top'
 $indexhook = $jakhooks->jakGethook("php_index_top");
 if ($indexhook) {

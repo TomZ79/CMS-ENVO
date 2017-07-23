@@ -24,7 +24,8 @@ if (empty($page1)) {
   $JAK_RSS_DESCRIPTION = $jkv["metadesc"];
 }
 
-// Get the php hook for rss after all and with if statemant
+// EN: Get all the php Hook by name of Hook
+// CZ: Načtení všech php dat z Hook podle jména Hook
 $hookrss = $jakhooks->jakGethook("php_rss");
 if ($hookrss) {
   foreach ($hookrss as $hrss) {

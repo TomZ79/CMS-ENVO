@@ -16,13 +16,15 @@ $envotable  = DB_PREFIX . 'categories';
 // CZ: Reset Pole (výstupní chyby se ukládají do pole)
 $success = array();
 
-// Get the php hook for setting top before language control
+// EN: Get all the php Hook by name of Hook for setting top
+// CZ: Načtení všech php dat z Hook podle jména Hook
 $getsettinghook = $jakhooks->jakGethook("php_admin_setting");
 if ($getsettinghook) foreach ($getsettinghook as $sh) {
   eval($sh['phpcode']);
 }
 
-// Call the hooks per name for setting template
+// EN: Get all the php Hook by name of Hook for setting template
+// CZ: Načtení všech php dat z Hook podle jména Hook pro nastavení šablony
 $JAK_HOOK_ADMIN_SETTING_EDIT = $jakhooks->jakGethook("tpl_admin_setting");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -34,7 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // CZ: Hlavní proměnné
     $defaults = $_POST;
 
-    // Get the php hook for setting top before language control
+    // EN: Get all the php Hook by name of Hook for setting top
+    // CZ: Načtení všech php dat z Hook podle jména Hook
     $getsettingpost = $jakhooks->jakGethook("php_admin_setting_post");
     if ($getsettingpost) foreach ($getsettingpost as $shp) {
       eval($shp['phpcode']);

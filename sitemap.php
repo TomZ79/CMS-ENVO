@@ -4,13 +4,15 @@
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
-// Call the hooks per name
+// EN: Get all the php Hook by name of Hook
+// CZ: Načtení všech php dat z Hook podle jména Hook
 $JAK_HOOK_SITEMAP = $jakhooks->jakGethook("tpl_sitemap");
 
 // Get the url session
 $_SESSION['jak_lastURL'] = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_SITEMAP, '', '', '', '');
 
-// Get the php hook for sitemap
+// EN: Get all the php Hook by name of Hook for sitemap
+// CZ: Načtení všech php dat z Hook podle jména Hook pro mapu stránek
 $hooksitemap = $jakhooks->jakGethook("php_sitemap");
 if ($hooksitemap) {
   foreach ($hooksitemap as $th) {

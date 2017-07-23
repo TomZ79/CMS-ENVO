@@ -20,9 +20,12 @@ $insert = "";
 // Important template stuff
 $JAK_USERGROUP_ALL = envo_get_usergroup_all('usergroup');
 
-// Call the hooks per name for the template
+// EN: Get all the php Hook by name of Hook for the template
+// CZ: Načtení všech php dat z Hook podle jména Hook pro šablonu
 $JAK_HOOK_ADMIN_USERGROUP_EDIT = $jakhooks->jakGethook("tpl_admin_usergroup_edit");
-// for the new template
+
+// EN: Get all the php Hook by name of Hook for the new template
+// CZ: Načtení všech php dat z Hook podle jména Hook pro novou šablonu
 $JAK_HOOK_ADMIN_USERGROUP = $jakhooks->jakGethook("tpl_admin_usergroup");
 
 // EN: Switching access all pages by page name
@@ -61,7 +64,8 @@ switch ($page1) {
           // Tag Settings
           if (isset($defaults['jak_tags'])) $insert .= 'tags = "' . smartsql($defaults['jak_tags']) . '",';
 
-          // Get the php hook for index top
+          // EN: Get all the php Hook by name of Hook for 'index top'
+          // CZ: Načtení všech php dat z Hook podle jména Hook pro 'index top'
           $getinserthook = $jakhooks->jakGethook("php_admin_usergroup");
           if ($getinserthook)
             foreach ($getinserthook as $it) {
@@ -227,7 +231,8 @@ switch ($page1) {
               // Tag Settings
               if (isset($defaults['jak_tags'])) $insert .= 'tags = "' . $defaults['jak_tags'] . '",';
 
-              // Get the php hook for index top
+              // EN: Get all the php Hook by name of Hook for 'index top'
+              // CZ: Načtení všech php dat z Hook podle jména Hook pro 'index top'
               $getinserthook = $jakhooks->jakGethook("php_admin_usergroup");
               if ($getinserthook)
                 foreach ($getinserthook as $it) {

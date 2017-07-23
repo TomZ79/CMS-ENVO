@@ -83,7 +83,8 @@ if (!empty($row['shownews'])) {
   $newsloadonce = FALSE;
 }
 
-// Get the php hook for display stuff in pages
+// EN: Get all the php Hook by name of Hook
+// CZ: Načtení všech php dat z Hook podle jména Hook
 $hookpages = $jakhooks->jakGethook("php_pages_news");
 if ($hookpages) foreach ($hookpages as $hpag) {
   eval($hpag["phpcode"]);
@@ -102,7 +103,8 @@ while ($grow = $grid->fetch_assoc()) {
 // Get the tags for this page
 $JAK_TAGLIST = JAK_tags::jakGettaglist($row['id'], 0, JAK_PLUGIN_VAR_TAGS);
 
-// Get hooks from page and news grid
+// EN: Get all the php Hook by name of Hook from page and news grid
+// CZ: Načtení všech php dat z Hook podle jména Hook z rozložení stránky a zpráv (news)
 $JAK_HOOK_PAGE_GRID = $jakhooks->jakGethook("tpl_page_news_grid");
 
 // Get the url session

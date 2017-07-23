@@ -17,7 +17,8 @@ $envotable3 = DB_PREFIX . 'pluginhooks';
 
 $insert = FALSE;
 
-// Call the hooks per name for the template
+// EN: Get all the php Hook by name of Hook for the template
+// CZ: Načtení všech php dat z Hook podle jména Hook pro šablonu
 $JAK_HOOK_ADMIN_PAGE     = $jakhooks->jakGethook("tpl_admin_page_news");
 $JAK_HOOK_ADMIN_PAGE_NEW = $jakhooks->jakGethook("tpl_admin_page_news_new");
 
@@ -93,7 +94,8 @@ switch ($page1) {
           $permission = join(',', $defaults['jak_permission']);
         }
 
-        // Get the php hook for display stuff in pages
+        // EN: Get all the php Hook by name of Hook
+        // CZ: Načtení všech php dat z Hook podle jména Hook
         $hooknews = $jakhooks->jakGethook("php_admin_news_sql");
         if ($hooknews) {
           foreach ($hooknews as $hne) {
@@ -202,7 +204,8 @@ switch ($page1) {
       $JAK_ACTIVE_GRID[] = $grow;
     }
 
-    // Get the php hook for display stuff in pages
+    // EN: Get all the php Hook by name of Hook
+    // CZ: Načtení všech php dat z Hook podle jména Hook
     $JAK_FORM_DATA = array();
     $hookpagei     = $jakhooks->jakGethook("php_admin_pages_news_info");
     if ($hookpagei) {
@@ -382,7 +385,8 @@ switch ($page1) {
       $JAK_HOOKS[] = $row;
     }
 
-    // Get the php hook for display stuff in pages
+    // EN: Get all the php Hook by name of Hook
+    // CZ: Načtení všech php dat z Hook podle jména Hook
     $JAK_FORM_DATA = array();
     $hookpagei     = $jakhooks->jakGethook("php_admin_pages_news_info");
     if ($hookpagei) {
@@ -554,7 +558,8 @@ switch ($page1) {
                 $permission = join(',', $defaults['jak_permission']);
               }
 
-              // Get the php hook for display stuff in pages
+              // EN: Get all the php Hook by name of Hook
+              // CZ: Načtení všech php dat z Hook podle jména Hook
               $hooknews = $jakhooks->jakGethook("php_admin_news_sql");
               if ($hooknews) {
                 foreach ($hooknews as $hne) {
@@ -746,7 +751,8 @@ switch ($page1) {
             $JAK_HOOKS[] = $row;
           }
 
-          // Get the php hook for display stuff in pages
+          // EN: Get all the php Hook by name of Hook
+          // CZ: Načtení všech php dat z Hook podle jména Hook
           $hookpagei = $jakhooks->jakGethook("php_admin_pages_news_info");
           if ($hookpagei) {
             foreach ($hookpagei as $hpagi) {

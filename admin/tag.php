@@ -223,7 +223,8 @@ switch ($page1) {
       $JAK_HOOKS[] = $row;
     }
 
-    // Get the php hook for display stuff in pages
+    // EN: Get all the php Hook by name of Hook
+    // CZ: Načtení všech php dat z Hook podle jména Hook
     $JAK_FORM_DATA = array();
     $hookpagei     = $jakhooks->jakGethook("php_admin_pages_news_info");
     if ($hookpagei) {

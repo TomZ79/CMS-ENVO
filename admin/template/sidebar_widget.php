@@ -1,6 +1,7 @@
 <?php
 
-// We run the queries for the widgets only if we need to
+// EN: Get all the php Hook by name of Hook
+// CZ: Načtení všech php dat z Hook podle jména Hook
 $hookadminws = $jakhooks->jakGethook("php_admin_widgets_sql");
 if ($hookadminws)
   foreach ($hookadminws as $hasq) {

@@ -58,13 +58,15 @@ if (JAK_USERID) {
   // Get all the Hooks
   $jakhooks = new JAK_hooks(1, '');
 
-  // First load the language from the hook
+  // EN: Get all the php Hook by name of Hook
+  // CZ: Načtení všech php dat z Hook podle jména Hook
   $hookadminlang = $jakhooks->jakGethook("php_admin_lang");
   if ($hookadminlang) foreach ($hookadminlang as $halang) {
     eval($halang['phpcode']);
   }
 
-  // Get the admin head hook for implementing css or other stuff belongs into the head section
+  // EN: Get all the php Hook by name of Hook for implementing css or javascript into the head and footer section
+  // CZ: Načtení všech php dat z Hook podle jména Hook pro implentaci css a javascript do záhlaví a zápatí
   $JAK_HOOK_HEAD_ADMIN   = $jakhooks->jakGethook("tpl_admin_head");
   $JAK_HOOK_FOOTER_ADMIN = $jakhooks->jakGethook("tpl_admin_footer");
 
@@ -101,8 +103,8 @@ if (!isset($_SERVER['HTTP_REFERER'])) $_SERVER['HTTP_REFERER'] = '';
 // Now run the php code from the plugin section only when we logged in
 if (JAK_USERID) {
 
-  // Run the hook admin index top for sidebar widgets
-  // Admin index hook
+  // EN: Get all the php Hook by name of Hook for admin 'index top'
+  // CZ: Načtení všech php dat z Hook podle jména Hook pro admin 'index top'
   $hookadminit = $jakhooks->jakGethook("php_admin_index_top");
   if ($hookadminit) foreach ($hookadminit as $hait) {
     eval($hait['phpcode']);
@@ -147,13 +149,16 @@ if ($page == '') {
     $JAK_PROVED      = 1;
     $JAK_PAGE_ACTIVE = 1;
 
-    // Admin index hook
+    // EN: Get all the php Hook by name of Hook
+    // CZ: Načtení všech php dat z Hook podle jména Hook
     $hookadmini = $jakhooks->jakGethook("php_admin_index");
     if ($hookadmini)
       foreach ($hookadmini as $hai) {
         eval($hai['phpcode']);
       }
-    // Admin index template
+
+    // EN: Get all the php Hook by name of Hook
+    // CZ: Načtení všech php dat z Hook podle jména Hook
     $JAK_HOOK_ADMIN_INDEX = $jakhooks->jakGethook("tpl_admin_index");
 
     // Get the to-do list

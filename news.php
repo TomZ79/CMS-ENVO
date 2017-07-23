@@ -90,7 +90,8 @@ switch ($page1) {
 
         }
 
-        // Inject some code for news
+        // EN: Get all the php Hook by name of Hook for 'news'
+        // CZ: Načtení všech php dat z Hook podle jména Hook pro 'news'
         $hna = $jakhooks->jakGethook("php_pages_news");
         if ($hna) {
           foreach ($hna as $c) {
@@ -129,6 +130,8 @@ switch ($page1) {
           $JAK_NAV_PREV_TITLE = $prevp['title'];
         }
 
+        // EN: Get all the php Hook by name of Hook
+        // CZ: Načtení všech php dat z Hook podle jména Hook
         $JAK_HOOK_NEWS_GRID = $jakhooks->jakGethook("tpl_page_news_grid");
 
         // Get the url session
@@ -185,6 +188,8 @@ switch ($page1) {
     $MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
     $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];
 
+    // EN: Get all the php Hook by name of Hook
+    // CZ: Načtení všech php dat z Hook podle jména Hook
     $JAK_HOOK_NEWS = $jakhooks->jakGethook("tpl_news");
 
     $PAGE_SHOWTITLE = 1;

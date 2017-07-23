@@ -15,7 +15,8 @@ $jakfield = 'username';
 
 $JAK_SEARCH = $JAK_LIST_USER = $SEARCH_WORD = $updatepass = $insert = FALSE;
 
-// Get the hooks
+// EN: Get all the php Hook by name of Hook
+// CZ: Načtení všech php dat z Hook podle jména Hook
 $JAK_HOOK_ADMIN_USER      = $jakhooks->jakGethook("tpl_admin_user");
 $JAK_HOOK_ADMIN_USER_EDIT = $jakhooks->jakGethook("tpl_admin_user_edit");
 
@@ -49,7 +50,8 @@ switch ($page1) {
         $updatepass = 1;
       }
 
-      // Get the php hook for display stuff in user - pass it with $insert .= to the query
+      // EN: Get all the php Hook by name of Hook for display in user - pass it with $insert .= to the query
+      // CZ: Načtení všech php dat z Hook podle jména Hook
       $hookuser = $jakhooks->jakGethook("php_admin_user");
       if ($hookuser) foreach ($hookuser as $husr) {
         eval($husr['phpcode']);
@@ -265,7 +267,8 @@ switch ($page1) {
 
                 }
 
-                // Load the hooks with the php code for search
+                // EN: Get all the php Hook by name of Hook for search
+                // CZ: Načtení všech php dat z Hook podle jména Hook pro vyhledávání
                 $hookusrmassdel = $jakhooks->jakGethook("php_admin_user_delete_mass");
                 if ($hookusrmassdel)
                   foreach ($hookusrmassdel as $humd) {
@@ -471,7 +474,8 @@ switch ($page1) {
 
           @unlink($targetPath);
 
-          // Load the hooks with the php code for single delete
+          // EN: Get all the php Hook by name of Hook for single delete
+          // CZ: Načtení všech php dat z Hook podle jména Hook
           $hookusrdel = $jakhooks->jakGethook("php_admin_user_delete");
           if ($hookusrdel) foreach ($hookusrdel as $hud) {
             eval($hud['phpcode']);
@@ -548,7 +552,8 @@ switch ($page1) {
               }
             }
 
-            // Get the php hook for display stuff in user - pass it with $insert .= to the query
+            // EN: Get all the php Hook by name of Hook for display in user - pass it with $insert .= to the query
+            // CZ: Načtení všech php dat z Hook podle jména Hook
             $hookuser = $jakhooks->jakGethook("php_admin_user_edit");
             if ($hookuser) foreach ($hookusere as $husre) {
               eval($husre['phpcode']);
@@ -704,7 +709,8 @@ switch ($page1) {
                 // Now do all the dirty work if we changed the username, also check if we have more then one language installed
                 if ($defaults['jak_username'] != $defaults['jak_username_old']) {
 
-                  // Load the hooks with the php code for search
+                  // EN: Get all the php Hook by name of Hook for search
+                  // CZ: Načtení všech php dat z Hook podle jména Hook pro vyhledávání
                   $hookusrrename = $jakhooks->jakGethook("php_admin_user_rename");
                   if ($hookusrrename)
                     foreach ($hookusrrename as $hur) {
@@ -880,7 +886,8 @@ switch ($page1) {
 
                 @unlink($targetPath);
 
-                // Load the hooks with the php code for search
+                // EN: Get all the php Hook by name of Hook for search
+                // CZ: Načtení všech php dat z Hook podle jména Hook pro vyhledávání
                 $hookusrmassdel = $jakhooks->jakGethook("php_admin_user_delete_mass");
                 if ($hookusrmassdel)
                   foreach ($hookusrmassdel as $humd) {
