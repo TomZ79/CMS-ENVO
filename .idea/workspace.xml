@@ -5,21 +5,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4346a0f-85ec-4e4d-93d1-8c74a4b74471" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/include/functions.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/include/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/js/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/js/pages.program-offer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/lang/cs.ini" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/lang/en.ini" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/lang/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/programoffer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_channel.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_editchannel.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_editprogram.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_edittvtower.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_nav.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_newchannel.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_newprogram.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_newtvtower.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_program.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_setting.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_tvtower.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/usergroup_edit.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/usergroup_new.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/functions.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/help/help_cs.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/help/help_en.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/help/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/img/table-arrows.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/install.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/lang/cs.ini" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/lang/en.ini" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/lang/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/programoffer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/template/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/template/programoffer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/template/programoffer_list.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/template/programoffer_wizard.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/uninstall.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/program_offer/update.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/js/pages.program-offer.php" afterPath="$PROJECT_DIR$/plugins/program_offer/admin/js/pages.program-offer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/programoffer.php" afterPath="$PROJECT_DIR$/plugins/program_offer/admin/programoffer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_editprogram.php" afterPath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_editprogram.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_newprogram.php" afterPath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_newprogram.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_program.php" afterPath="$PROJECT_DIR$/plugins/program_offer/admin/template/po_program.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/program_offer/install.php" afterPath="$PROJECT_DIR$/plugins/program_offer/install.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/program_offer/programoffer.php" afterPath="$PROJECT_DIR$/plugins/program_offer/programoffer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/program_offer/template/programoffer.php" afterPath="$PROJECT_DIR$/plugins/program_offer/template/programoffer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/admin/register.php" afterPath="$PROJECT_DIR$/plugins/register_form/admin/register.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/register_form/register.php" afterPath="$PROJECT_DIR$/plugins/register_form/register.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/site_editor/admin/site_editor.php" afterPath="$PROJECT_DIR$/plugins/site_editor/admin/site_editor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/admin/template/mapping.php" afterPath="$PROJECT_DIR$/plugins/urlmapping/admin/template/mapping.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/urlmapping/admin/urlmapping.php" afterPath="$PROJECT_DIR$/plugins/urlmapping/admin/urlmapping.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/xml_seo/admin/xml_seo.php" afterPath="$PROJECT_DIR$/plugins/xml_seo/admin/xml_seo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/download/template/cssheader.php" afterPath="$PROJECT_DIR$/plugins/download/template/cssheader.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/metrics/footer.php" afterPath="$PROJECT_DIR$/template/metrics/footer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/css/screen.css" afterPath="$PROJECT_DIR$/template/porto/css/screen.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/css/screen.min.css" afterPath="$PROJECT_DIR$/template/porto/css/screen.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/footer.php" afterPath="$PROJECT_DIR$/template/porto/footer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/porto/js/porto.custom.js" afterPath="$PROJECT_DIR$/template/porto/js/porto.custom.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/template/qed/footer.php" afterPath="$PROJECT_DIR$/template/qed/footer.php" />
     </list>
     <ignored path="CMS-Bluesat.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,27 +72,24 @@
     <favorites_list name="CMS-Bluesat" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="programoffer.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/program_offer/template/programoffer.php">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="tvtower.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/plugins/tv_tower/admin/tvtower.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="programoffer.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/plugins/program_offer/programoffer.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="52" column="73" selection-start-line="52" selection-start-column="73" selection-end-line="52" selection-end-column="73" />
+            <state relative-caret-position="419">
+              <caret line="965" column="47" selection-start-line="965" selection-start-column="39" selection-end-line="965" selection-end-column="47" />
               <folding>
-                <marker date="1500107911324" expanded="true" signature="2591:2641" ph="SELECT * FRO... ${$envotable1}" />
-                <marker date="1500107911324" expanded="true" signature="3412:3500" ph="SELECT COUNT... ${$envotable2}" />
-                <marker date="1500107911324" expanded="true" signature="3704:3738" ph="SELECT MAX(t... ${$envotable2}" />
-                <marker date="1500107911324" expanded="true" signature="3704:3753" ph="SELECT MAX (... ${$envotable2}" />
+                <element signature="e#1179#14276#0#PHP" expanded="false" />
+                <element signature="e#14279#24945#0#PHP" expanded="false" />
+                <element signature="e#24948#38693#0#PHP" expanded="false" />
+                <marker date="1500809929984" expanded="true" signature="3211:4320" ph="INSERT INTO ${$envotable2}... " />
+                <marker date="1500809929984" expanded="true" signature="11358:11428" ph="DELETE FROM " />
+                <marker date="1500809929984" expanded="true" signature="15644:16434" ph="INSERT INTO ${$envotable}... " />
+                <marker date="1500809929984" expanded="true" signature="21785:21881" ph="SELECT COUNT... ${$envotable2}" />
+                <marker date="1500809929984" expanded="true" signature="22141:22210" ph="DELETE FROM " />
+                <marker date="1500809929984" expanded="true" signature="27391:28118" ph="INSERT INTO ${$envotable1}... " />
+                <marker date="1500809929984" expanded="true" signature="35941:36034" ph="SELECT COUNT... ${$envotable}" />
+                <marker date="1500809929984" expanded="true" signature="36296:36366" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
@@ -70,9 +100,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -82,57 +112,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/admin/settingfacebook.php" />
-        <option value="$PROJECT_DIR$/admin/site.php" />
-        <option value="$PROJECT_DIR$/admin/sitemap.php" />
-        <option value="$PROJECT_DIR$/plugins/digital_house/admin/digitalhouse.php" />
-        <option value="$PROJECT_DIR$/plugins/xml_seo/admin/xml_seo.php" />
-        <option value="$PROJECT_DIR$/plugins/site_editor/admin/site_editor.php" />
-        <option value="$PROJECT_DIR$/plugins/register_form/admin/register.php" />
-        <option value="$PROJECT_DIR$/plugins/register_form/register.php" />
-        <option value="$PROJECT_DIR$/plugins/newsletter/admin/newsletter.php" />
-        <option value="$PROJECT_DIR$/admin/template/categories.php" />
-        <option value="$PROJECT_DIR$/admin/facebookgallery.php" />
-        <option value="$PROJECT_DIR$/admin/categories.php" />
-        <option value="$PROJECT_DIR$/admin/template/facebookgallery.php" />
-        <option value="$PROJECT_DIR$/admin/news.php" />
-        <option value="$PROJECT_DIR$/admin/template/news.php" />
-        <option value="$PROJECT_DIR$/admin/page.php" />
-        <option value="$PROJECT_DIR$/admin/template/pages.php" />
-        <option value="$PROJECT_DIR$/admin/template/logs.php" />
-        <option value="$PROJECT_DIR$/admin/template/searchlog.php" />
-        <option value="$PROJECT_DIR$/admin/tag.php" />
-        <option value="$PROJECT_DIR$/admin/user.php" />
-        <option value="$PROJECT_DIR$/admin/usergroup.php" />
-        <option value="$PROJECT_DIR$/plugins/belowheader/admin/belowheader.php" />
-        <option value="$PROJECT_DIR$/plugins/belowheader/admin/template/bh.php" />
-        <option value="$PROJECT_DIR$/admin/template/tag.php" />
-        <option value="$PROJECT_DIR$/admin/template/user.php" />
-        <option value="$PROJECT_DIR$/admin/template/usergroup.php" />
-        <option value="$PROJECT_DIR$/plugins/blog/admin/blog.php" />
-        <option value="$PROJECT_DIR$/plugins/blog/admin/template/blog.php" />
-        <option value="$PROJECT_DIR$/plugins/download/admin/download.php" />
-        <option value="$PROJECT_DIR$/plugins/download/admin/template/download.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/faq.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/admin/template/faq.php" />
-        <option value="$PROJECT_DIR$/plugins/growl/admin/growl.php" />
-        <option value="$PROJECT_DIR$/plugins/growl/admin/template/growl.php" />
-        <option value="$PROJECT_DIR$/plugins/program_offer/admin/programoffer.php" />
-        <option value="$PROJECT_DIR$/plugins/urlmapping/admin/urlmapping.php" />
-        <option value="$PROJECT_DIR$/plugins/urlmapping/admin/template/mapping.php" />
-        <option value="$PROJECT_DIR$/admin/logs.php" />
-        <option value="$PROJECT_DIR$/admin/searchlog.php" />
-        <option value="$PROJECT_DIR$/admin/template.php" />
-        <option value="$PROJECT_DIR$/plugins/blog/blog.php" />
-        <option value="$PROJECT_DIR$/plugins/digital_house/digitalhouse.php" />
-        <option value="$PROJECT_DIR$/plugins/download/download.php" />
-        <option value="$PROJECT_DIR$/plugins/faq/faq.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/help/help_cs.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/help/help_en.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/ajax/selectchannel2.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/admin/template/usergroup_edit.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/admin/template/usergroup_new.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/update.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/admin/template/tt_nav.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/uninstall.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/admin/template/tt_editchannel.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/admin/template/tt_editprogram.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/admin/template/tt_edittvtower.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/admin/template/tt_newchannel.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/admin/template/tt_newtvtower.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/admin/template/tt_tvtower.php" />
+        <option value="$PROJECT_DIR$/include/functions.php" />
+        <option value="$PROJECT_DIR$/admin/template/newpage.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/admin/template/tt_channel.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/admin/template/tt_newprogram.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/admin/template/tt_program.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/ajax/selectchannel.php" />
+        <option value="$PROJECT_DIR$/plugins/download/template/cssheader.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/css/style.css" />
+        <option value="$PROJECT_DIR$/template/porto/header.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/template/tvtower_channels.php" />
         <option value="$PROJECT_DIR$/plugins/newsletter/newsletter.php" />
-        <option value="$PROJECT_DIR$/plugins/program_offer/admin/template/po_editprogram.php" />
-        <option value="$PROJECT_DIR$/plugins/program_offer/admin/template/po_newprogram.php" />
-        <option value="$PROJECT_DIR$/plugins/program_offer/template/programoffer_wizard.php" />
-        <option value="$PROJECT_DIR$/plugins/program_offer/template/programoffer.php" />
-        <option value="$PROJECT_DIR$/plugins/program_offer/programoffer.php" />
+        <option value="$PROJECT_DIR$/news.php" />
+        <option value="$PROJECT_DIR$/plugins/faq/faq.php" />
+        <option value="$PROJECT_DIR$/plugins/download/download.php" />
+        <option value="$PROJECT_DIR$/plugins/digital_house/digitalhouse.php" />
+        <option value="$PROJECT_DIR$/plugins/blog/blog.php" />
+        <option value="$PROJECT_DIR$/sitemap.php" />
+        <option value="$PROJECT_DIR$/search.php" />
+        <option value="$PROJECT_DIR$/page.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/template/tvtower.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/install.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/template/tvtower_wizard.php" />
+        <option value="$PROJECT_DIR$/template/porto/js/porto.custom.js" />
+        <option value="$PROJECT_DIR$/template/porto/footer.php" />
+        <option value="$PROJECT_DIR$/template/metrics/footer.php" />
+        <option value="$PROJECT_DIR$/template/qed/footer.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/template/jsfooter.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/template/cssheader.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/assets/js/script.js" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/tvtower.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/template/tvtower_list.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/admin/template/tt_setting.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/admin/js/pages.tv-tower.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/lang/cs.ini" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/admin/tvtower.php" />
+        <option value="$PROJECT_DIR$/plugins/tv_tower/admin/lang/cs.ini" />
       </list>
     </option>
   </component>
@@ -178,7 +208,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -207,6 +236,60 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="porto" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="porto" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="plugins" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -225,7 +308,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="program_offer" />
+              <option name="myItemId" value="tv_tower" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -243,7 +326,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="program_offer" />
+              <option name="myItemId" value="tv_tower" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -265,29 +348,15 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="program_offer" />
+              <option name="myItemId" value="tv_tower" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="faq" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -305,30 +374,17 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="faq" />
+              <option name="myItemId" value="tv_tower" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="template" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CMS-Bluesat" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -340,19 +396,19 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Github\CMS-Bluesat\plugins\program_offer\template" />
-      <recent name="D:\Github\CMS-Bluesat\plugins\register_form" />
-      <recent name="D:\Github\CMS-Bluesat\plugins\program_offer" />
-      <recent name="D:\Github\CMS-Bluesat\plugins\faq" />
-      <recent name="D:\Github\CMS-Bluesat\plugins\program_offer\admin\template" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Github\CMS-Bluesat\plugins\tv_tower\assets" />
       <recent name="D:\Github\CMS-Bluesat\plugins\digital_house\admin\js" />
       <recent name="D:\Github\CMS-Bluesat\template\porto\php\php-mailer-template" />
       <recent name="D:\Github\CMS-Bluesat\admin\template\help" />
       <recent name="D:\Github\CMS-Bluesat\plugins\belowheader\help" />
-      <recent name="D:\Github\CMS-Bluesat\plugins\blog\help" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Github\CMS-Bluesat\plugins\tv_tower\assets\js" />
+      <recent name="D:\Github\CMS-Bluesat\plugins\tv_tower\template" />
+      <recent name="D:\Github\CMS-Bluesat\plugins\tv_tower" />
+      <recent name="D:\Github\CMS-Bluesat\plugins\program_offer\ajax" />
+      <recent name="D:\Github\CMS-Bluesat\plugins\program_offer\template" />
     </key>
   </component>
   <component name="RunManager" selected="PHP Script.index.php">
@@ -475,29 +531,29 @@
       <workItem from="1497936406321" duration="23337000" />
       <workItem from="1498679326366" duration="1688000" />
       <workItem from="1499022279470" duration="5078000" />
-      <workItem from="1499505909150" duration="176774000" />
+      <workItem from="1499505909150" duration="246127000" />
+      <workItem from="1500397885079" duration="9102000" />
+      <workItem from="1500745433725" duration="20673000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1784245000" />
+    <option name="totallyTimeSpent" value="1883373000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21449487" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22767204" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31551978" sideWeight="0.4937888" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="0" y="53" width="1362" height="715" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31551978" sideWeight="0.50621116" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -505,8 +561,10 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39596274" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -545,779 +603,176 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="12" />
+      <option name="time" value="13" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/categories.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="59" />
-          <folding>
-            <marker date="1500062342807" expanded="true" signature="2613:3348" ph="INSERT INTO ${$envotable}... " />
-            <marker date="1500062342807" expanded="true" signature="4692:4775" ph="SELECT id FR... ${$envotable1}" />
-            <marker date="1500062342807" expanded="true" signature="5044:5140" ph="SELECT catpa... ${$envotable}" />
-            <marker date="1500062342807" expanded="true" signature="5351:5419" ph="DELETE FROM " />
-            <marker date="1500062342807" expanded="true" signature="12114:12236" ph="SELECT * FRO... ${$envotable}" />
-            <marker date="1500062342807" expanded="true" signature="13109:13197" ph="SELECT * FRO... ${$envotable}" />
-            <marker date="1500062342807" expanded="true" signature="14098:14202" ph="SELECT * FRO... ${$envotable}" />
-            <marker date="1500062342807" expanded="true" signature="14661:16496" ph="..." />
-            <marker date="1500062342807" expanded="true" signature="14672:16491" ph="..." />
-            <marker date="1500062342807" expanded="true" signature="14887:16485" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/changelog.php">
+    <entry file="file://$PROJECT_DIR$/plugins/digital_house/template/digitalhouse.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/cmshelp.php">
+    <entry file="file://$PROJECT_DIR$/plugins/newsletter/newsletter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="294" column="4" selection-start-line="294" selection-start-column="4" selection-end-line="294" selection-end-column="4" />
+          <folding>
+            <element signature="e#926#3256#0#PHP" expanded="false" />
+            <element signature="e#3259#4585#0#PHP" expanded="false" />
+            <element signature="e#4588#6527#0#PHP" expanded="false" />
+            <element signature="e#6530#9258#0#PHP" expanded="false" />
+            <marker date="1500406775108" expanded="true" signature="2404:2579" ph="INSERT INTO ${$envotable2}... " />
+            <marker date="1500406775108" expanded="true" signature="3453:3503" ph="SELECT conte... ${$envotable}" />
+            <marker date="1500406775108" expanded="true" signature="5370:5488" ph="DELETE FROM " />
+            <marker date="1500406775108" expanded="true" signature="8582:8636" ph="SELECT newsl... ${$envotable3}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/openurl_blank/openurlhead.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/config.php">
+    <entry file="file://$PROJECT_DIR$/plugins/register_form/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-204">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#807#4149#0#PHP" expanded="false" />
+            <element signature="e#4157#5053#0#PHP" expanded="false" />
+            <element signature="e#5057#9365#0#PHP" expanded="false" />
+            <element signature="e#9369#10567#0#PHP" expanded="false" />
+            <marker date="1500061675246" expanded="true" signature="10632:10780" ph="SELECT id, h... ${DB_PREFIX}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/urlmapping/mapping.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/contactform.php">
+    <entry file="file://$PROJECT_DIR$/plugins/faq/faq.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="17" column="8" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="8" />
+        <state relative-caret-position="222">
+          <caret line="499" column="89" selection-start-line="499" selection-start-column="89" selection-end-line="499" selection-end-column="89" />
           <folding>
-            <marker date="1500060652985" expanded="true" signature="1463:1821" ph="INSERT INTO ${$envotable}... " />
-            <marker date="1500060652985" expanded="true" signature="2294:2715" ph="INSERT INTO ${$envotable1}... " />
-            <marker date="1500060652985" expanded="true" signature="4583:4652" ph="DELETE FROM " />
-            <marker date="1500060652985" expanded="true" signature="4681:4755" ph="DELETE FROM " />
-            <marker date="1500060652985" expanded="true" signature="5777:5845" ph="DELETE FROM " />
-            <marker date="1500060652985" expanded="true" signature="5875:5948" ph="DELETE FROM " />
-            <marker date="1500060652985" expanded="true" signature="6994:7057" ph="DELETE FROM " />
-            <marker date="1500060652985" expanded="true" signature="10051:10465" ph="INSERT INTO ${$envotable1}... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/facebookgallery.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="31" column="8" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="8" />
-          <folding>
-            <marker date="1500062336632" expanded="true" signature="1758:1855" ph="SELECT title... ${$envotable}" />
-            <marker date="1500062336632" expanded="true" signature="1940:2008" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1500060676388" expanded="true" signature="4372:4613" ph="SELECT (SELE... " />
-            <marker date="1500060676388" expanded="true" signature="4399:4420" ph="SELECT COUNT... ${$envotable}" />
-            <marker date="1500060676388" expanded="true" signature="4476:4497" ph="SELECT COUNT... ${$envotable1}" />
-            <marker date="1500060676388" expanded="true" signature="4553:4574" ph="SELECT COUNT... ${$envotable2}" />
-            <marker date="1500060676388" expanded="true" signature="5432:5496" ph="SELECT * FRO... ${DB_PREFIX}" />
-            <marker date="1500060676388" expanded="true" signature="5713:6215" ph="SELECT (SELE... " />
-            <marker date="1500060676388" expanded="true" signature="5738:5798" ph="SELECT COUNT... ${DB_PREFIX}" />
-            <marker date="1500060676388" expanded="true" signature="5833:5875" ph="SELECT COUNT... ${DB_PREFIX}" />
-            <marker date="1500060676388" expanded="true" signature="5910:5952" ph="SELECT COUNT... ${DB_PREFIX}" />
-            <marker date="1500060676388" expanded="true" signature="5987:6032" ph="SELECT COUNT... ${DB_PREFIX}" />
-            <marker date="1500060676388" expanded="true" signature="6069:6118" ph="SELECT COUNT... ${DB_PREFIX}" />
-            <marker date="1500060676388" expanded="true" signature="6153:6200" ph="SELECT COUNT... ${DB_PREFIX}" />
-            <marker date="1500060676388" expanded="true" signature="6274:6348" ph="SELECT title... ${DB_PREFIX}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/logs.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="69" column="8" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="8" />
-          <folding>
-            <marker date="1500104351740" expanded="true" signature="1485:1554" ph="DELETE FROM " />
-            <marker date="1500104351740" expanded="true" signature="2212:2280" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/maintenance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/mediasharing.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/news.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="8" />
-          <folding>
-            <element signature="e#15770#16554#0#PHP" expanded="false" />
-            <marker date="1500062543509" expanded="true" signature="3732:4720" ph="INSERT INTO ${$envotable}... " />
-            <marker date="1500062543509" expanded="true" signature="5090:5218" ph="INSERT INTO ${$envotable2}... " />
-            <marker date="1500062543509" expanded="true" signature="5932:6164" ph="INSERT INTO ${$envotable2}... " />
-            <marker date="1500062543509" expanded="true" signature="7111:7250" ph="SELECT id, n... ${$envotable3}" />
-            <marker date="1500062543509" expanded="true" signature="7393:7469" ph="SELECT hooki... ${$envotable2}" />
-            <marker date="1500062543509" expanded="true" signature="11269:11474" ph="INSERT INTO ${$envotable2}... " />
-            <marker date="1500062543509" expanded="true" signature="11866:11933" ph="SELECT id FR... ${$envotable2}" />
-            <marker date="1500062543509" expanded="true" signature="12034:12098" ph="DELETE FROM " />
-            <marker date="1500062543509" expanded="true" signature="12725:12817" ph="SELECT plugi... ${$envotable2}" />
-            <marker date="1500062543509" expanded="true" signature="13251:13318" ph="DELETE FROM " />
-            <marker date="1500062543509" expanded="true" signature="14197:14294" ph="SELECT id, h... ${$envotable2}" />
-            <marker date="1500062543509" expanded="true" signature="14528:14667" ph="SELECT id, n... ${$envotable3}" />
-            <marker date="1500062543509" expanded="true" signature="16684:16752" ph="DELETE FROM " />
-            <marker date="1500062543509" expanded="true" signature="18186:18282" ph="DELETE FROM " />
-            <marker date="1500062543509" expanded="true" signature="18315:18410" ph="DELETE FROM " />
-            <marker date="1500062543509" expanded="true" signature="22642:22770" ph="INSERT INTO ${$envotable2}... " />
-            <marker date="1500062543509" expanded="true" signature="23612:23844" ph="INSERT INTO ${$envotable2}... " />
-            <marker date="1500062543509" expanded="true" signature="24715:24807" ph="SELECT id FR... ${$envotable2}" />
-            <marker date="1500062543509" expanded="true" signature="24926:25015" ph="DELETE FROM " />
-            <marker date="1500062543509" expanded="true" signature="25726:25818" ph="SELECT plugi... ${$envotable2}" />
-            <marker date="1500062543509" expanded="true" signature="26352:26419" ph="DELETE FROM " />
-            <marker date="1500062543509" expanded="true" signature="28248:28380" ph="SELECT id, p... ${$envotable2}" />
-            <marker date="1500062543509" expanded="true" signature="28656:28795" ph="SELECT id, n... ${$envotable3}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="27" column="8" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="8" />
-          <folding>
-            <element signature="e#9527#10054#0#PHP" expanded="false" />
-            <marker date="1500062619124" expanded="true" signature="3137:4390" ph="INSERT INTO ${$envotable}... " />
-            <marker date="1500062619124" expanded="true" signature="4711:4859" ph="INSERT INTO ${$envotable3}... " />
-            <marker date="1500062619124" expanded="true" signature="5601:5831" ph="INSERT INTO ${$envotable3}... " />
-            <marker date="1500062619124" expanded="true" signature="7345:7484" ph="SELECT id, n... ${$envotable5}" />
-            <marker date="1500062619124" expanded="true" signature="10728:10800" ph="SELECT * FRO... ${$envotable}" />
-            <marker date="1500062619124" expanded="true" signature="11392:11460" ph="DELETE FROM " />
-            <marker date="1500062619124" expanded="true" signature="11601:11674" ph="DELETE FROM " />
-            <marker date="1500062619124" expanded="true" signature="13130:13228" ph="DELETE FROM " />
-            <marker date="1500062619124" expanded="true" signature="13261:13358" ph="DELETE FROM " />
-            <marker date="1500062619124" expanded="true" signature="15411:15487" ph="SELECT conte... ${$envotable}" />
-            <marker date="1500062619124" expanded="true" signature="15579:15734" ph="INSERT INTO ${$envotable6}... " />
-            <marker date="1500062619124" expanded="true" signature="17794:17942" ph="INSERT INTO ${$envotable3}... " />
-            <marker date="1500062619124" expanded="true" signature="18784:19014" ph="INSERT INTO ${$envotable3}... " />
-            <marker date="1500062619124" expanded="true" signature="19918:20010" ph="SELECT id FR... ${$envotable3}" />
-            <marker date="1500062619124" expanded="true" signature="20129:20218" ph="DELETE FROM " />
-            <marker date="1500062619124" expanded="true" signature="20800:20892" ph="SELECT plugi... ${$envotable3}" />
-            <marker date="1500062619124" expanded="true" signature="21390:21457" ph="DELETE FROM " />
-            <marker date="1500062619124" expanded="true" signature="24589:24721" ph="SELECT id, p... ${$envotable3}" />
-            <marker date="1500062619124" expanded="true" signature="24997:25136" ph="SELECT id, n... ${$envotable5}" />
-            <marker date="1500062619124" expanded="true" signature="25597:25705" ph="DELETE FROM " />
-            <marker date="1500062619124" expanded="true" signature="25783:25891" ph="SELECT id, t... " />
-            <marker date="1500062619124" expanded="true" signature="29805:29874" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/plugins.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="32" column="8" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="8" />
-          <folding>
-            <element signature="e#1336#1695#0#PHP" expanded="false" />
-            <element signature="e#4329#4899#0#PHP" expanded="false" />
-            <marker date="1500060759809" expanded="true" signature="4454:4531" ph="DELETE FROM " />
-            <marker date="1500060759809" expanded="true" signature="6108:6178" ph="DELETE FROM " />
-            <marker date="1500060759809" expanded="true" signature="7239:7303" ph="SELECT * FRO... ${DB_PREFIX}" />
-            <marker date="1500060759809" expanded="true" signature="8032:8294" ph="SELECT t1.id... ${DB_PREFIX}" />
-            <marker date="1500060759809" expanded="true" signature="9778:10237" ph="INSERT INTO ${$envotable2}... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/searchlog.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="70" column="8" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="8" />
-          <folding>
-            <marker date="1500104398337" expanded="true" signature="1497:1566" ph="DELETE FROM " />
-            <marker date="1500104398337" expanded="true" signature="2234:2302" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/searchsetting.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1500060783046" expanded="true" signature="2388:2597" ph="INSERT INTO ${$envotable}... " />
-            <marker date="1500060783046" expanded="true" signature="2946:3017" ph="SELECT id FR... ${$envotable}" />
-            <marker date="1500060783046" expanded="true" signature="3100:3168" ph="DELETE FROM " />
-            <marker date="1500060783046" expanded="true" signature="3618:3709" ph="SELECT plugi... ${$envotable}" />
-            <marker date="1500060783046" expanded="true" signature="4111:4153" ph="DELETE FROM " />
-            <marker date="1500060783046" expanded="true" signature="4706:4773" ph="ALTER TABLE ${DB_PREFIX}pages... " />
-            <marker date="1500060783046" expanded="true" signature="4798:4864" ph="ALTER TABLE ${DB_PREFIX}news... " />
-            <marker date="1500060783046" expanded="true" signature="5108:5161" ph="ALTER TABLE ${DB_PREFIX}pages... " />
-            <marker date="1500060783046" expanded="true" signature="5186:5238" ph="ALTER TABLE ${DB_PREFIX}news... " />
-            <marker date="1500060783046" expanded="true" signature="5790:5891" ph="SELECT id, h... ${$envotable}" />
-            <marker date="1500060783046" expanded="true" signature="6097:6236" ph="SELECT id, n... ${$envotable2}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/setting.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/settingfacebook.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/site.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/sitemap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1500060806897" expanded="true" signature="2318:2522" ph="INSERT INTO ${$envotable}... " />
-            <marker date="1500060806897" expanded="true" signature="2871:2937" ph="SELECT id FR... ${$envotable}" />
-            <marker date="1500060806897" expanded="true" signature="3020:3083" ph="DELETE FROM " />
-            <marker date="1500060806897" expanded="true" signature="3533:3624" ph="SELECT plugi... ${$envotable}" />
-            <marker date="1500060806897" expanded="true" signature="4026:4068" ph="DELETE FROM " />
-            <marker date="1500060806897" expanded="true" signature="4706:4802" ph="SELECT id, h... ${$envotable}" />
-            <marker date="1500060806897" expanded="true" signature="5008:5147" ph="SELECT id, n... ${$envotable2}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/tag.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="25" column="12" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="12" />
-          <folding>
-            <marker date="1500101939430" expanded="true" signature="1114:1184" ph="DELETE FROM " />
-            <marker date="1500101939430" expanded="true" signature="1224:1293" ph="DELETE FROM " />
-            <marker date="1500101939430" expanded="true" signature="5041:5246" ph="INSERT INTO ${$envotable2}... " />
-            <marker date="1500101939430" expanded="true" signature="5637:5704" ph="SELECT id FR... ${$envotable2}" />
-            <marker date="1500101939430" expanded="true" signature="5805:5869" ph="DELETE FROM " />
-            <marker date="1500101939430" expanded="true" signature="6496:6588" ph="SELECT plugi... ${$envotable2}" />
-            <marker date="1500101939430" expanded="true" signature="7068:7135" ph="DELETE FROM " />
-            <marker date="1500101939430" expanded="true" signature="8014:8111" ph="SELECT id, h... ${$envotable2}" />
-            <marker date="1500101939430" expanded="true" signature="8345:8484" ph="SELECT id, n... ${$envotable3}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="100" column="59" selection-start-line="100" selection-start-column="59" selection-end-line="100" selection-end-column="59" />
-          <folding>
-            <marker date="1500104429406" expanded="true" signature="785:882" ph="SELECT value... ${$envotable}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="112" column="12" selection-start-line="112" selection-start-column="4" selection-end-line="112" selection-end-column="12" />
-          <folding>
-            <marker date="1500102009912" expanded="true" signature="2419:2778" ph="INSERT INTO ${$envotable}... " />
-            <marker date="1500102009912" expanded="true" signature="7222:7284" ph="SELECT id, u... ${$envotable}" />
-            <marker date="1500102009912" expanded="true" signature="8820:8878" ph="DELETE FROM " />
-            <marker date="1500102009912" expanded="true" signature="11174:11291" ph="SELECT id, u... ${$envotable}" />
-            <marker date="1500102009912" expanded="true" signature="12755:12840" ph="SELECT id, u... ${DB_PREFIX}" />
-            <marker date="1500102009912" expanded="true" signature="15306:15368" ph="SELECT id, u... ${$envotable}" />
-            <marker date="1500102009912" expanded="true" signature="16827:16869" ph="DELETE FROM " />
-            <marker date="1500102009912" expanded="true" signature="28615:28815" ph="..." />
-            <marker date="1500102009912" expanded="true" signature="31723:31785" ph="SELECT id, u... ${$envotable}" />
-            <marker date="1500102009912" expanded="true" signature="33321:33379" ph="DELETE FROM " />
-            <marker date="1500102009912" expanded="true" signature="35436:35525" ph="SELECT id, u... ${$envotable}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/usergroup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="8" />
-          <folding>
-            <marker date="1500102085432" expanded="true" signature="2694:3062" ph="INSERT INTO ${$envotable}... " />
-            <marker date="1500102085432" expanded="true" signature="4444:4513" ph="DELETE FROM " />
-            <marker date="1500102085432" expanded="true" signature="6425:6493" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/belowheader/admin/belowheader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="34" column="8" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="8" />
-          <folding>
-            <marker date="1500102194904" expanded="true" signature="857:916" ph="SELECT * FRO... ${DB_PREFIX}" />
-            <marker date="1500102194904" expanded="true" signature="2351:2975" ph="INSERT INTO ${$envotable}... " />
-            <marker date="1500102194904" expanded="true" signature="4253:4321" ph="DELETE FROM " />
-            <marker date="1500102194904" expanded="true" signature="9609:9678" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/belowheader/bhinput.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1499768221579" expanded="true" signature="79:220" ph="SELECT pagei... ${DB_PREFIX}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/belowheader/bhinputb.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/blog/blog.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="50" column="59" selection-start-line="50" selection-start-column="59" selection-end-line="50" selection-end-column="59" />
-          <folding>
-            <marker date="1500104469393" expanded="true" signature="2293:2505" ph="SELECT COUNT... ${$envotable}" />
-            <marker date="1500104469393" expanded="true" signature="3298:3389" ph="SELECT name,... ${$envotable1}" />
-            <marker date="1500104469393" expanded="true" signature="3744:3898" ph="SELECT id, h... ${DB_PREFIX}" />
-            <marker date="1500104469393" expanded="true" signature="6588:6872" ph="INSERT INTO ${$envotable2}... " />
-            <marker date="1500104469393" expanded="true" signature="7161:7468" ph="INSERT INTO ${$envotable2}... " />
-            <marker date="1500104469393" expanded="true" signature="9631:9809" ph="SELECT * FRO... ${$envotable}" />
-            <marker date="1500104469393" expanded="true" signature="13299:13432" ph="SELECT id, h... ${DB_PREFIX}" />
-            <marker date="1500104469393" expanded="true" signature="14671:14771" ph="SELECT id, n... ${$envotable1}" />
-            <marker date="1500104469393" expanded="true" signature="16838:16907" ph="DELETE FROM " />
-            <marker date="1500104469393" expanded="true" signature="18721:18821" ph="SELECT usern... ${$envotable2}" />
-            <marker date="1500104469393" expanded="true" signature="21115:21269" ph="SELECT id, h... ${DB_PREFIX}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/blog.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="26" column="8" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="8" />
-          <folding>
-            <element signature="e#39480#41013#0#PHP" expanded="false" />
-            <element signature="e#55369#57242#0#PHP" expanded="false" />
-            <marker date="1500102576579" expanded="true" signature="3975:4816" ph="INSERT INTO ${$envotable}... " />
-            <marker date="1500102576579" expanded="true" signature="6003:6279" ph="INSERT INTO ${$envotable4}... " />
-            <marker date="1500102576579" expanded="true" signature="7423:7562" ph="SELECT id, n... ${$envotable5}" />
-            <marker date="1500102576579" expanded="true" signature="7705:7803" ph="SELECT hooki... ${$envotable4}" />
-            <marker date="1500102576579" expanded="true" signature="9134:9203" ph="DELETE FROM " />
-            <marker date="1500102576579" expanded="true" signature="15093:15161" ph="SELECT * FRO... ${$envotable1}" />
-            <marker date="1500102576579" expanded="true" signature="18113:18554" ph="INSERT INTO ${$envotable1}... " />
-            <marker date="1500102576579" expanded="true" signature="21175:21245" ph="DELETE FROM " />
-            <marker date="1500102576579" expanded="true" signature="24492:24561" ph="DELETE FROM " />
-            <marker date="1500102576579" expanded="true" signature="29285:29524" ph="INSERT INTO ${$envotable4}... " />
-            <marker date="1500102576579" expanded="true" signature="29915:30031" ph="SELECT id FR... ${$envotable4}" />
-            <marker date="1500102576579" expanded="true" signature="30132:30245" ph="DELETE FROM " />
-            <marker date="1500102576579" expanded="true" signature="30872:30964" ph="SELECT plugi... ${$envotable4}" />
-            <marker date="1500102576579" expanded="true" signature="31398:31465" ph="DELETE FROM " />
-            <marker date="1500102576579" expanded="true" signature="32749:32895" ph="SELECT id, h... ${$envotable4}" />
-            <marker date="1500102576579" expanded="true" signature="33158:33297" ph="SELECT id, n... ${$envotable5}" />
-            <marker date="1500102576579" expanded="true" signature="35085:35154" ph="DELETE FROM " />
-            <marker date="1500102576579" expanded="true" signature="35552:35618" ph="SELECT * FRO... ${$envotable2}" />
-            <marker date="1500102576579" expanded="true" signature="38197:38289" ph="SELECT COUNT... ${$envotable}" />
-            <marker date="1500102576579" expanded="true" signature="39528:39610" ph="SELECT catid... ${$envotable}" />
-            <marker date="1500102576579" expanded="true" signature="41144:41218" ph="SELECT catid... ${$envotable}" />
-            <marker date="1500102576579" expanded="true" signature="41751:41824" ph="DELETE FROM " />
-            <marker date="1500102576579" expanded="true" signature="41864:41932" ph="DELETE FROM " />
-            <marker date="1500102576579" expanded="true" signature="43410:43483" ph="DELETE FROM " />
-            <marker date="1500102576579" expanded="true" signature="43619:43749" ph="DELETE FROM " />
-            <marker date="1500102576579" expanded="true" signature="43782:43911" ph="DELETE FROM " />
-            <marker date="1500102576579" expanded="true" signature="46090:46166" ph="SELECT conte... ${$envotable}" />
-            <marker date="1500102576579" expanded="true" signature="46258:46434" ph="INSERT INTO ${$envotable6}... " />
-            <marker date="1500102576579" expanded="true" signature="49484:49760" ph="INSERT INTO ${$envotable4}... " />
-            <marker date="1500102576579" expanded="true" signature="50193:50285" ph="SELECT id FR... ${$envotable4}" />
-            <marker date="1500102576579" expanded="true" signature="50404:50493" ph="DELETE FROM " />
-            <marker date="1500102576579" expanded="true" signature="51075:51167" ph="SELECT plugi... ${$envotable4}" />
-            <marker date="1500102576579" expanded="true" signature="51613:51680" ph="DELETE FROM " />
-            <marker date="1500102576579" expanded="true" signature="53337:53469" ph="SELECT id, p... ${$envotable4}" />
-            <marker date="1500102576579" expanded="true" signature="53745:53884" ph="SELECT id, n... ${$envotable5}" />
-            <marker date="1500102576579" expanded="true" signature="54074:54182" ph="DELETE FROM " />
-            <marker date="1500102576579" expanded="true" signature="54260:54368" ph="SELECT id, t... " />
-            <marker date="1500102576579" expanded="true" signature="55593:55676" ph="SELECT catid... ${$envotable}" />
-            <marker date="1500102576579" expanded="true" signature="57480:57555" ph="SELECT catid... ${$envotable}" />
-            <marker date="1500102576579" expanded="true" signature="58128:58202" ph="DELETE FROM " />
-            <marker date="1500102576579" expanded="true" signature="58246:58315" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/digital_house/digitalhouse.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="59" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/digital_house/admin/digitalhouse.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="16" column="8" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="8" />
-          <folding>
-            <marker date="1500061036530" expanded="true" signature="2321:2516" ph="INSERT INTO ${$envotable}... " />
+            <element signature="e#1839#5254#0#PHP" expanded="false" />
+            <element signature="e#5257#14865#0#PHP" expanded="false" />
+            <element signature="e#14868#15370#0#PHP" expanded="false" />
+            <element signature="e#15373#17520#0#PHP" expanded="false" />
+            <element signature="e#17523#18131#0#PHP" expanded="false" />
+            <marker date="1500746882577" expanded="true" signature="3506:3658" ph="SELECT id, h... ${DB_PREFIX}" />
+            <marker date="1500746882577" expanded="true" signature="6194:6413" ph="INSERT INTO ${$envotable2}... " />
+            <marker date="1500746882577" expanded="true" signature="6702:6934" ph="INSERT INTO ${$envotable2}... " />
+            <marker date="1500746882577" expanded="true" signature="9065:9143" ph="SELECT * FRO... ${$envotable}" />
+            <marker date="1500746882577" expanded="true" signature="11446:11578" ph="SELECT id, h... ${DB_PREFIX}" />
+            <marker date="1500746882577" expanded="true" signature="11953:12053" ph="SELECT id, n... ${$envotable1}" />
+            <marker date="1500746882577" expanded="true" signature="15036:15105" ph="DELETE FROM " />
+            <marker date="1500746882577" expanded="true" signature="17004:17104" ph="SELECT usern... ${$envotable2}" />
+            <marker date="1500746882577" expanded="true" signature="19404:19556" ph="SELECT id, h... ${DB_PREFIX}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plugins/download/download.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="52" column="59" selection-start-line="52" selection-start-column="59" selection-end-line="52" selection-end-column="59" />
+        <state relative-caret-position="205">
+          <caret line="733" column="89" selection-start-line="733" selection-start-column="89" selection-end-line="733" selection-end-column="89" />
           <folding>
-            <marker date="1500104497437" expanded="true" signature="3307:3398" ph="SELECT name,... ${$envotable1}" />
-            <marker date="1500104497437" expanded="true" signature="3757:3927" ph="SELECT id, h... ${DB_PREFIX}" />
-            <marker date="1500104497437" expanded="true" signature="6586:6810" ph="INSERT INTO ${$envotable2}... " />
-            <marker date="1500104497437" expanded="true" signature="7099:7336" ph="INSERT INTO ${$envotable2}... " />
-            <marker date="1500104497437" expanded="true" signature="10552:10630" ph="SELECT * FRO... ${$envotable}" />
-            <marker date="1500104497437" expanded="true" signature="14987:15130" ph="SELECT id, h... ${DB_PREFIX}" />
-            <marker date="1500104497437" expanded="true" signature="16386:16486" ph="SELECT id, n... ${$envotable1}" />
-            <marker date="1500104497437" expanded="true" signature="18082:18167" ph="SELECT value... ${DB_PREFIX}" />
-            <marker date="1500104497437" expanded="true" signature="19131:19200" ph="DELETE FROM " />
-            <marker date="1500104497437" expanded="true" signature="21182:21282" ph="SELECT usern... ${$envotable2}" />
-            <marker date="1500104497437" expanded="true" signature="22539:22657" ph="SELECT cando... ${$envotable}" />
-            <marker date="1500104497437" expanded="true" signature="24026:24200" ph="INSERT INTO ${$envotable3}... " />
-            <marker date="1500104497437" expanded="true" signature="29117:29287" ph="SELECT id, h... ${DB_PREFIX}" />
+            <element signature="e#2063#5567#0#PHP" expanded="false" />
+            <element signature="e#5570#18955#0#PHP" expanded="false" />
+            <element signature="e#18958#19463#0#PHP" expanded="false" />
+            <element signature="e#19466#21696#0#PHP" expanded="false" />
+            <element signature="e#21699#22315#0#PHP" expanded="false" />
+            <element signature="e#22318#27973#0#PHP" expanded="false" />
+            <marker date="1500746887627" expanded="true" signature="3307:3398" ph="SELECT name,... ${$envotable1}" />
+            <marker date="1500746887627" expanded="true" signature="3757:3927" ph="SELECT id, h... ${DB_PREFIX}" />
+            <marker date="1500746887627" expanded="true" signature="6586:6810" ph="INSERT INTO ${$envotable2}... " />
+            <marker date="1500746887627" expanded="true" signature="7099:7336" ph="INSERT INTO ${$envotable2}... " />
+            <marker date="1500746887627" expanded="true" signature="10552:10630" ph="SELECT * FRO... ${$envotable}" />
+            <marker date="1500746887627" expanded="true" signature="14987:15130" ph="SELECT id, h... ${DB_PREFIX}" />
+            <marker date="1500746887627" expanded="true" signature="16386:16486" ph="SELECT id, n... ${$envotable1}" />
+            <marker date="1500746887627" expanded="true" signature="18082:18167" ph="SELECT value... ${DB_PREFIX}" />
+            <marker date="1500746887627" expanded="true" signature="19131:19200" ph="DELETE FROM " />
+            <marker date="1500746887627" expanded="true" signature="21182:21282" ph="SELECT usern... ${$envotable2}" />
+            <marker date="1500746887627" expanded="true" signature="22539:22657" ph="SELECT cando... ${$envotable}" />
+            <marker date="1500746887627" expanded="true" signature="24026:24200" ph="INSERT INTO ${$envotable3}... " />
+            <marker date="1500746887627" expanded="true" signature="29258:29428" ph="SELECT id, h... ${DB_PREFIX}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/download/admin/download.php">
+    <entry file="file://$PROJECT_DIR$/plugins/digital_house/digitalhouse.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="8" />
-          <folding>
-            <element signature="e#38945#39973#0#PHP" expanded="false" />
-            <marker date="1500103276411" expanded="true" signature="4745:5709" ph="INSERT INTO ${$envotable}... " />
-            <marker date="1500103276411" expanded="true" signature="6832:7112" ph="INSERT INTO ${$envotable4}... " />
-            <marker date="1500103276411" expanded="true" signature="8271:8410" ph="SELECT id, n... ${$envotable5}" />
-            <marker date="1500103276411" expanded="true" signature="8553:8667" ph="SELECT hooki... ${$envotable4}" />
-            <marker date="1500103276411" expanded="true" signature="10098:10167" ph="DELETE FROM " />
-            <marker date="1500103276411" expanded="true" signature="16199:16267" ph="SELECT * FRO... ${$envotable1}" />
-            <marker date="1500103276411" expanded="true" signature="19214:19655" ph="INSERT INTO ${$envotable1}... " />
-            <marker date="1500103276411" expanded="true" signature="22308:22378" ph="DELETE FROM " />
-            <marker date="1500103276411" expanded="true" signature="25669:25738" ph="DELETE FROM " />
-            <marker date="1500103276411" expanded="true" signature="30746:30989" ph="INSERT INTO ${$envotable4}... " />
-            <marker date="1500103276411" expanded="true" signature="31380:31500" ph="SELECT id FR... ${$envotable4}" />
-            <marker date="1500103276411" expanded="true" signature="31601:31718" ph="DELETE FROM " />
-            <marker date="1500103276411" expanded="true" signature="32345:32437" ph="SELECT plugi... ${$envotable4}" />
-            <marker date="1500103276411" expanded="true" signature="32871:32938" ph="DELETE FROM " />
-            <marker date="1500103276411" expanded="true" signature="34200:34350" ph="SELECT id, h... ${$envotable4}" />
-            <marker date="1500103276411" expanded="true" signature="34584:34723" ph="SELECT id, n... ${$envotable5}" />
-            <marker date="1500103276411" expanded="true" signature="36505:36574" ph="DELETE FROM " />
-            <marker date="1500103276411" expanded="true" signature="36980:37046" ph="SELECT * FRO... ${$envotable2}" />
-            <marker date="1500103276411" expanded="true" signature="38993:39075" ph="SELECT catid... ${$envotable}" />
-            <marker date="1500103276411" expanded="true" signature="40104:40178" ph="SELECT catid... ${$envotable}" />
-            <marker date="1500103276411" expanded="true" signature="40378:40451" ph="DELETE FROM " />
-            <marker date="1500103276411" expanded="true" signature="40491:40559" ph="DELETE FROM " />
-            <marker date="1500103276411" expanded="true" signature="42128:42201" ph="DELETE FROM " />
-            <marker date="1500103276411" expanded="true" signature="42337:42471" ph="DELETE FROM " />
-            <marker date="1500103276411" expanded="true" signature="42504:42637" ph="DELETE FROM " />
-            <marker date="1500103276411" expanded="true" signature="48752:49032" ph="INSERT INTO ${$envotable4}... " />
-            <marker date="1500103276411" expanded="true" signature="49465:49557" ph="SELECT id FR... ${$envotable4}" />
-            <marker date="1500103276411" expanded="true" signature="49676:49765" ph="DELETE FROM " />
-            <marker date="1500103276411" expanded="true" signature="50347:50439" ph="SELECT plugi... ${$envotable4}" />
-            <marker date="1500103276411" expanded="true" signature="50937:51004" ph="DELETE FROM " />
-            <marker date="1500103276411" expanded="true" signature="52682:52814" ph="SELECT id, p... ${$envotable4}" />
-            <marker date="1500103276411" expanded="true" signature="53090:53229" ph="SELECT id, n... ${$envotable5}" />
-            <marker date="1500103276411" expanded="true" signature="56683:56755" ph="SELECT * FRO... ${$envotable}" />
-            <marker date="1500103276411" expanded="true" signature="57752:57835" ph="SELECT catid... ${$envotable}" />
-            <marker date="1500103276411" expanded="true" signature="59072:59147" ph="SELECT catid... ${$envotable}" />
-            <marker date="1500103276411" expanded="true" signature="59358:59432" ph="DELETE FROM " />
-            <marker date="1500103276411" expanded="true" signature="59475:59544" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/urlmapping/admin/urlmapping.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding>
-            <element signature="e#787#2689#0#PHP" expanded="false" />
-            <marker date="1500103607016" expanded="true" signature="1802:2162" ph="INSERT INTO ${$envotable}... " />
-            <marker date="1500103607016" expanded="true" signature="3207:3275" ph="DELETE FROM " />
-            <marker date="1500103607016" expanded="true" signature="7716:7785" ph="DELETE FROM " />
-            <marker date="1500103607016" expanded="true" signature="9274:9331" ph="SELECT * FRO... ${DB_PREFIX}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/site_editor/admin/site_editor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="222">
+          <caret line="18" column="89" selection-start-line="18" selection-start-column="89" selection-end-line="18" selection-end-column="89" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/register_form/admin/register.php">
+    <entry file="file://$PROJECT_DIR$/sitemap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="19" column="8" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="8" />
-          <folding>
-            <element signature="e#7041#11712#0#PHP" expanded="false" />
-            <marker date="1500061670016" expanded="true" signature="2891:3127" ph="INSERT INTO ${$envotable2}... " />
-            <marker date="1500061670016" expanded="true" signature="3504:3612" ph="SELECT id FR... ${$envotable2}" />
-            <marker date="1500061670016" expanded="true" signature="3707:3812" ph="DELETE FROM " />
-            <marker date="1500061670016" expanded="true" signature="4306:4398" ph="SELECT plugi... ${$envotable2}" />
-            <marker date="1500061670016" expanded="true" signature="4832:4875" ph="DELETE FROM " />
-            <marker date="1500061670016" expanded="true" signature="5626:5754" ph="SELECT id, h... ${$envotable2}" />
-            <marker date="1500061670016" expanded="true" signature="5988:6127" ph="SELECT id, n... ${$envotable3}" />
-            <marker date="1500061670016" expanded="true" signature="7812:8174" ph="INSERT INTO ${$envotable}... " />
-            <marker date="1500061670016" expanded="true" signature="8328:8473" ph="ALTER TABLE ${$envotable1}... " />
-            <marker date="1500061670016" expanded="true" signature="8724:8771" ph="SELECT name ${$envotable}" />
-            <marker date="1500061670016" expanded="true" signature="8946:9053" ph="ALTER TABLE ${$envotable1}... " />
-            <marker date="1500061670016" expanded="true" signature="9166:9208" ph="DELETE FROM " />
-            <marker date="1500061670016" expanded="true" signature="10890:11021" ph="ALTER TABLE ${$envotable1}... " />
-            <marker date="1500061670016" expanded="true" signature="11144:11316" ph="ALTER TABLE ${$envotable1}... " />
-            <marker date="1500061670016" expanded="true" signature="11367:11539" ph="ALTER TABLE ${$envotable1}... " />
-            <marker date="1500061670016" expanded="true" signature="11770:11822" ph="SELECT * FRO... ${$envotable}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/register_form/register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1500061675246" expanded="true" signature="10632:10780" ph="SELECT id, h... ${DB_PREFIX}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/newsletter/admin/newsletter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="43" column="8" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="8" />
-          <folding>
-            <element signature="e#44016#44746#0#PHP" expanded="false" />
-            <marker date="1500061759913" expanded="true" signature="2333:2670" ph="INSERT INTO ${$envotable}... " />
-            <marker date="1500061759913" expanded="true" signature="4302:4470" ph="SELECT sentt... " />
-            <marker date="1500061759913" expanded="true" signature="4743:4820" ph="SELECT id, n... ${$envotable1}" />
-            <marker date="1500061759913" expanded="true" signature="5224:5308" ph="SELECT id, e... ${$envotable2}" />
-            <marker date="1500061759913" expanded="true" signature="5963:6048" ph="SELECT id, n... ${DB_PREFIX}" />
-            <marker date="1500061759913" expanded="true" signature="6432:6525" ph="SELECT id, u... ${DB_PREFIX}" />
-            <marker date="1500061759913" expanded="true" signature="8304:8401" ph="SELECT id, t... ${$envotable}" />
-            <marker date="1500061759913" expanded="true" signature="8642:8707" ph="SELECT varna... ${DB_PREFIX}" />
-            <marker date="1500061759913" expanded="true" signature="10989:11088" ph="SELECT id, n... ${$envotable2}" />
-            <marker date="1500061759913" expanded="true" signature="12800:12927" ph="SELECT id, u... ${DB_PREFIX}" />
-            <marker date="1500061759913" expanded="true" signature="15003:15382" ph="INSERT INTO ${$envotable3}... " />
-            <marker date="1500061759913" expanded="true" signature="17565:17923" ph="INSERT INTO ${$envotable2}... " />
-            <marker date="1500061759913" expanded="true" signature="19835:19874" ph="INSERT INTO ${$envotable2}... " />
-            <marker date="1500061759913" expanded="true" signature="24010:24079" ph="DELETE FROM " />
-            <marker date="1500061759913" expanded="true" signature="25300:25381" ph="SELECT * FRO... ${$envotable2}" />
-            <marker date="1500061759913" expanded="true" signature="27320:27390" ph="DELETE FROM " />
-            <marker date="1500061759913" expanded="true" signature="28444:28478" ph="SELECT * FRO... ${$envotable2}" />
-            <marker date="1500061759913" expanded="true" signature="29847:30068" ph="INSERT INTO ${$envotable1}... " />
-            <marker date="1500061759913" expanded="true" signature="33603:33672" ph="DELETE FROM " />
-            <marker date="1500061759913" expanded="true" signature="36267:36337" ph="DELETE FROM " />
-            <marker date="1500061759913" expanded="true" signature="44140:44208" ph="DELETE FROM " />
-            <marker date="1500061759913" expanded="true" signature="46629:46735" ph="SELECT varna... ${DB_PREFIX}" />
-            <marker date="1500061759913" expanded="true" signature="47825:47894" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/newsletter/newsletter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="20" column="59" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
-          <folding>
-            <marker date="1500104535404" expanded="true" signature="2404:2579" ph="INSERT INTO ${$envotable2}... " />
-            <marker date="1500104535404" expanded="true" signature="3453:3503" ph="SELECT conte... ${$envotable}" />
-            <marker date="1500104535404" expanded="true" signature="5370:5488" ph="DELETE FROM " />
-            <marker date="1500104535404" expanded="true" signature="8582:8636" ph="SELECT newsl... ${$envotable3}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/growl/admin/growl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="34" column="8" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="8" />
-          <folding>
-            <element signature="e#6570#7049#0#PHP" expanded="false" />
-            <marker date="1500103444056" expanded="true" signature="839:892" ph="SELECT * FRO... ${DB_PREFIX}" />
-            <marker date="1500103444056" expanded="true" signature="3162:4458" ph="INSERT INTO ${$envotable}... " />
-            <marker date="1500103444056" expanded="true" signature="5759:5827" ph="DELETE FROM " />
-            <marker date="1500103444056" expanded="true" signature="12425:12494" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/admin/faq.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="8" />
-          <folding>
-            <element signature="e#37374#38387#0#PHP" expanded="false" />
-            <marker date="1500103353268" expanded="true" signature="2802:3455" ph="INSERT INTO ${$envotable}... " />
-            <marker date="1500103353268" expanded="true" signature="4569:4799" ph="INSERT INTO ${$envotable4}... " />
-            <marker date="1500103353268" expanded="true" signature="5955:6094" ph="SELECT id, n... ${$envotable5}" />
-            <marker date="1500103353268" expanded="true" signature="6237:6334" ph="SELECT hooki... ${$envotable4}" />
-            <marker date="1500103353268" expanded="true" signature="7626:7695" ph="DELETE FROM " />
-            <marker date="1500103353268" expanded="true" signature="13737:13805" ph="SELECT * FRO... ${$envotable1}" />
-            <marker date="1500103353268" expanded="true" signature="16727:17193" ph="INSERT INTO ${$envotable1}... " />
-            <marker date="1500103353268" expanded="true" signature="19797:19867" ph="DELETE FROM " />
-            <marker date="1500103353268" expanded="true" signature="23020:23088" ph="DELETE FROM " />
-            <marker date="1500103353268" expanded="true" signature="27409:27635" ph="INSERT INTO ${$envotable4}... " />
-            <marker date="1500103353268" expanded="true" signature="28026:28138" ph="SELECT id FR... ${$envotable4}" />
-            <marker date="1500103353268" expanded="true" signature="28239:28348" ph="DELETE FROM " />
-            <marker date="1500103353268" expanded="true" signature="28975:29067" ph="SELECT plugi... ${$envotable4}" />
-            <marker date="1500103353268" expanded="true" signature="29501:29568" ph="DELETE FROM " />
-            <marker date="1500103353268" expanded="true" signature="30849:30981" ph="SELECT id, h... ${$envotable4}" />
-            <marker date="1500103353268" expanded="true" signature="31244:31383" ph="SELECT id, n... ${$envotable5}" />
-            <marker date="1500103353268" expanded="true" signature="33154:33212" ph="DELETE FROM " />
-            <marker date="1500103353268" expanded="true" signature="33633:33699" ph="SELECT * FRO... ${$envotable2}" />
-            <marker date="1500103353268" expanded="true" signature="37422:37504" ph="SELECT catid... ${$envotable}" />
-            <marker date="1500103353268" expanded="true" signature="38518:38592" ph="SELECT catid... ${$envotable}" />
-            <marker date="1500103353268" expanded="true" signature="38791:38863" ph="DELETE FROM " />
-            <marker date="1500103353268" expanded="true" signature="38903:38971" ph="DELETE FROM " />
-            <marker date="1500103353268" expanded="true" signature="40445:40517" ph="DELETE FROM " />
-            <marker date="1500103353268" expanded="true" signature="40653:40782" ph="DELETE FROM " />
-            <marker date="1500103353268" expanded="true" signature="40815:40943" ph="DELETE FROM " />
-            <marker date="1500103353268" expanded="true" signature="44287:44517" ph="INSERT INTO ${$envotable4}... " />
-            <marker date="1500103353268" expanded="true" signature="44967:45058" ph="SELECT id FR... ${$envotable4}" />
-            <marker date="1500103353268" expanded="true" signature="45177:45265" ph="DELETE FROM " />
-            <marker date="1500103353268" expanded="true" signature="45847:45939" ph="SELECT plugi... ${$envotable4}" />
-            <marker date="1500103353268" expanded="true" signature="46437:46504" ph="DELETE FROM " />
-            <marker date="1500103353268" expanded="true" signature="48157:48288" ph="SELECT id, p... ${$envotable4}" />
-            <marker date="1500103353268" expanded="true" signature="48564:48703" ph="SELECT id, n... ${$envotable5}" />
-            <marker date="1500103353268" expanded="true" signature="49976:50048" ph="SELECT * FRO... ${$envotable}" />
-            <marker date="1500103353268" expanded="true" signature="50830:50913" ph="SELECT catid... ${$envotable}" />
-            <marker date="1500103353268" expanded="true" signature="52152:52227" ph="SELECT catid... ${$envotable}" />
-            <marker date="1500103353268" expanded="true" signature="52460:52533" ph="DELETE FROM " />
-            <marker date="1500103353268" expanded="true" signature="52577:52646" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/program_offer/admin/template/po_editprogram.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="187" column="20" selection-start-line="187" selection-start-column="20" selection-end-line="190" selection-end-column="74" />
+        <state relative-caret-position="222">
+          <caret line="21" column="85" selection-start-line="21" selection-start-column="85" selection-end-line="21" selection-end-column="85" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/program_offer/admin/template/po_newprogram.php">
+    <entry file="file://$PROJECT_DIR$/tags.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="174" column="74" selection-start-line="174" selection-start-column="74" selection-end-line="174" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/program_offer/admin/programoffer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="269" column="14" selection-start-line="268" selection-start-column="8" selection-end-line="269" selection-end-column="14" />
+        <state relative-caret-position="69">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
           <folding>
-            <marker date="1500103580440" expanded="true" signature="3022:4131" ph="INSERT INTO ${$envotable2}... " />
-            <marker date="1500103580440" expanded="true" signature="11196:11266" ph="DELETE FROM " />
-            <marker date="1500103580440" expanded="true" signature="15507:16297" ph="INSERT INTO ${$envotable}... " />
-            <marker date="1500103580440" expanded="true" signature="21682:21778" ph="SELECT COUNT... ${$envotable2}" />
-            <marker date="1500103580440" expanded="true" signature="22038:22107" ph="DELETE FROM " />
-            <marker date="1500103580440" expanded="true" signature="27318:28045" ph="INSERT INTO ${$envotable1}... " />
-            <marker date="1500103580440" expanded="true" signature="35922:36015" ph="SELECT COUNT... ${$envotable}" />
-            <marker date="1500103580440" expanded="true" signature="36277:36347" ph="DELETE FROM " />
+            <marker date="1500060584048" expanded="true" signature="1152:1261" ph="SELECT SQL_C... ${$envotable}" />
+            <marker date="1500060584048" expanded="true" signature="3079:3218" ph="SELECT id, h... ${DB_PREFIX}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/faq/faq.php">
+    <entry file="file://$PROJECT_DIR$/search.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="121" column="6" selection-start-line="121" selection-start-column="6" selection-end-line="130" selection-end-column="7" />
+        <state relative-caret-position="205">
+          <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
           <folding>
-            <marker date="1500104513012" expanded="true" signature="3506:3658" ph="SELECT id, h... ${DB_PREFIX}" />
-            <marker date="1500104513012" expanded="true" signature="6194:6413" ph="INSERT INTO ${$envotable2}... " />
-            <marker date="1500104513012" expanded="true" signature="6702:6934" ph="INSERT INTO ${$envotable2}... " />
-            <marker date="1500104513012" expanded="true" signature="9065:9143" ph="SELECT * FRO... ${$envotable}" />
-            <marker date="1500104513012" expanded="true" signature="11446:11578" ph="SELECT id, h... ${DB_PREFIX}" />
-            <marker date="1500104513012" expanded="true" signature="11953:12053" ph="SELECT id, n... ${$envotable1}" />
-            <marker date="1500104513012" expanded="true" signature="15036:15105" ph="DELETE FROM " />
-            <marker date="1500104513012" expanded="true" signature="17004:17104" ph="SELECT usern... ${$envotable2}" />
-            <marker date="1500104513012" expanded="true" signature="19263:19415" ph="SELECT id, h... ${DB_PREFIX}" />
+            <marker date="1500746917010" expanded="true" signature="3994:4113" ph="SELECT id, h... ${DB_PREFIX}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/program_offer/template/programoffer_list.php">
+    <entry file="file://$PROJECT_DIR$/rss.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="-365">
+          <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
           <folding>
-            <marker date="1500105001635" expanded="true" signature="7522:7541" ph="..." />
+            <marker date="1500060566485" expanded="true" signature="552:774" ph="SELECT t1.*,... ${DB_PREFIX}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/program_offer/template/programoffer_wizard.php">
+    <entry file="file://$PROJECT_DIR$/page.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="8" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="77" />
-          <folding />
+        <state relative-caret-position="196">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <marker date="1500746965618" expanded="true" signature="467:538" ph="SELECT * FRO... ${$envotable}" />
+            <marker date="1500746965618" expanded="true" signature="3773:3906" ph="SELECT id, p... ${DB_PREFIX}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="299" column="71" selection-start-line="299" selection-start-column="8" selection-end-line="299" selection-end-column="71" />
+        <state relative-caret-position="94">
+          <caret line="337" column="14" selection-start-line="337" selection-start-column="14" selection-end-line="337" selection-end-column="14" />
           <folding>
             <marker date="1499785623822" expanded="true" signature="9612:9728" ph="SELECT name,... ${DB_PREFIX}" />
             <marker date="1499785623822" expanded="true" signature="14297:14396" ph="SELECT id, n... ${DB_PREFIX}" />
@@ -1325,37 +780,388 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/news.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-50">
+          <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/faq/template/faq.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="52" column="50" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="50" />
+        <state relative-caret-position="238">
+          <caret line="42" column="62" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/program_offer/template/programoffer.php">
+    <entry file="file://$PROJECT_DIR$/plugins/tv_tower/uninstall.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/program_offer/programoffer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="52" column="73" selection-start-line="52" selection-start-column="73" selection-end-line="52" selection-end-column="73" />
+        <state relative-caret-position="227">
+          <caret line="144" column="15" selection-start-line="144" selection-start-column="15" selection-end-line="144" selection-end-column="15" />
           <folding>
-            <marker date="1500107911324" expanded="true" signature="2591:2641" ph="SELECT * FRO... ${$envotable1}" />
-            <marker date="1500107911324" expanded="true" signature="3412:3500" ph="SELECT COUNT... ${$envotable2}" />
-            <marker date="1500107911324" expanded="true" signature="3704:3738" ph="SELECT MAX(t... ${$envotable2}" />
-            <marker date="1500107911324" expanded="true" signature="3704:3753" ph="SELECT MAX (... ${$envotable2}" />
+            <marker date="1500303217105" expanded="true" signature="4417:4480" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1500303217105" expanded="true" signature="4582:4642" ph="DELETE FROM " />
+            <marker date="1500303217105" expanded="true" signature="4673:4739" ph="DELETE FROM " />
+            <marker date="1500303217105" expanded="true" signature="4770:4832" ph="DELETE FROM " />
+            <marker date="1500303217105" expanded="true" signature="4863:4916" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
+            <marker date="1500303217105" expanded="true" signature="4947:5035" ph="DELETE FROM " />
+            <marker date="1500303217105" expanded="true" signature="5102:5146" ph="DROP TABLE $... " />
+            <marker date="1500303217105" expanded="true" signature="5180:5224" ph="DROP TABLE $... " />
+            <marker date="1500303217105" expanded="true" signature="5258:5300" ph="DROP TABLE $... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1">
+          <caret line="223" column="9" selection-start-line="223" selection-start-column="9" selection-end-line="223" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/porto/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5542">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/tv_tower/template/tvtower.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="19" column="82" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/admin/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2308">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/register_form/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="21" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/porto/js/porto.custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="301" column="15" selection-start-line="301" selection-start-column="4" selection-end-line="301" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/tv_tower/install.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="205" column="16" selection-start-line="205" selection-start-column="8" selection-end-line="205" selection-end-column="16" />
+          <folding>
+            <marker date="1500749366678" expanded="true" signature="4534:4597" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1500749366678" expanded="true" signature="5657:6259" ph="INSERT INTO ${DB_PREFIX}plugins... " />
+            <marker date="1500749366678" expanded="true" signature="6457:6520" ph="SELECT id FR... ${DB_PREFIX}" />
+            <marker date="1500749366678" expanded="true" signature="8120:8944" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+            <marker date="1500749366678" expanded="true" signature="8120:9078" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+            <marker date="1500749366678" expanded="true" signature="8120:9213" ph="INSERT INTO ${DB_PREFIX}pluginhooks... " />
+            <marker date="1500749366678" expanded="true" signature="9346:9556" ph="INSERT INTO ${DB_PREFIX}setting... " />
+            <marker date="1500749366678" expanded="true" signature="9346:9760" ph="INSERT INTO ${DB_PREFIX}setting... " />
+            <marker date="1500749366678" expanded="true" signature="9897:10007" ph="ALTER TABLE ${DB_PREFIX}usergroup... " />
+            <marker date="1500749366678" expanded="true" signature="10186:10435" ph="INSERT INTO ${DB_PREFIX}categories... " />
+            <marker date="1500749366678" expanded="true" signature="10571:11042" ph="CREATE TABLE... IF" />
+            <marker date="1500749366678" expanded="true" signature="11177:11748" ph="CREATE TABLE... IF" />
+            <marker date="1500749366678" expanded="true" signature="11885:12713" ph="CREATE TABLE... IF" />
+            <marker date="1500749366678" expanded="true" signature="12862:12888" ph="..." />
+            <marker date="1500749366678" expanded="true" signature="12907:12966" ph="..." />
+            <marker date="1500749366678" expanded="true" signature="13647:13712" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/blog/blog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="356" column="192" selection-start-line="356" selection-start-column="159" selection-end-line="356" selection-end-column="192" />
+          <folding>
+            <element signature="e#1862#5456#0#PHP" expanded="false" />
+            <element signature="e#16704#17104#0#PHP" expanded="false" />
+            <element signature="e#17107#19239#0#PHP" expanded="false" />
+            <element signature="e#19242#19828#0#PHP" expanded="false" />
+            <marker date="1500746898822" expanded="true" signature="2293:2505" ph="SELECT COUNT... ${$envotable}" />
+            <marker date="1500746898822" expanded="true" signature="3298:3389" ph="SELECT name,... ${$envotable1}" />
+            <marker date="1500746898822" expanded="true" signature="3744:3898" ph="SELECT id, h... ${DB_PREFIX}" />
+            <marker date="1500746898822" expanded="true" signature="6588:6872" ph="INSERT INTO ${$envotable2}... " />
+            <marker date="1500746898822" expanded="true" signature="7161:7468" ph="INSERT INTO ${$envotable2}... " />
+            <marker date="1500746898822" expanded="true" signature="9631:9809" ph="SELECT * FRO... ${$envotable}" />
+            <marker date="1500746898822" expanded="true" signature="13299:13432" ph="SELECT id, h... ${DB_PREFIX}" />
+            <marker date="1500746898822" expanded="true" signature="14671:14771" ph="SELECT id, n... ${$envotable1}" />
+            <marker date="1500746898822" expanded="true" signature="16838:16907" ph="DELETE FROM " />
+            <marker date="1500746898822" expanded="true" signature="18721:18821" ph="SELECT usern... ${$envotable2}" />
+            <marker date="1500746898822" expanded="true" signature="21256:21410" ph="SELECT id, h... ${DB_PREFIX}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/qed/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="292" column="28" selection-start-line="292" selection-start-column="28" selection-end-line="292" selection-end-column="28" />
+          <folding>
+            <marker date="1500805801127" expanded="true" signature="16365:16390" ph="..." />
+            <marker date="1500805801127" expanded="true" signature="16490:16523" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/metrics/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="261" column="28" selection-start-line="261" selection-start-column="28" selection-end-line="261" selection-end-column="28" />
+          <folding>
+            <marker date="1500805784309" expanded="true" signature="14731:14756" ph="..." />
+            <marker date="1500805784309" expanded="true" signature="14856:14889" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/download/js/script.download.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/tv_tower/template/cssheader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="87" selection-start-line="5" selection-start-column="87" selection-end-line="5" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/tv_tower/template/tvtower_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2788">
+          <caret line="215" column="57" selection-start-line="215" selection-start-column="57" selection-end-line="215" selection-end-column="57" />
+          <folding>
+            <marker date="1500808091241" expanded="true" signature="4417:4471" ph="..." />
+            <marker date="1500808091241" expanded="true" signature="8426:8445" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="554" column="22" selection-start-line="554" selection-start-column="10" selection-end-line="554" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/tv_tower/template/tvtower_wizard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template/settingfacebook.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="199" column="67" selection-start-line="199" selection-start-column="50" selection-end-line="199" selection-end-column="67" />
+          <folding>
+            <element signature="n#div#0;n#div#1;n#form#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#1;n#form#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+          <folding>
+            <marker date="1499967592197" expanded="true" signature="2297:2348" ph="SELECT varna... ${DB_PREFIX}" />
+            <marker date="1499967592197" expanded="true" signature="4526:4618" ph="SELECT * FRO... ${DB_PREFIX}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/porto/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="266" column="48" selection-start-line="266" selection-start-column="34" selection-end-line="266" selection-end-column="48" />
+          <folding>
+            <marker date="1500803495338" expanded="true" signature="15050:15075" ph="..." />
+            <marker date="1500803495338" expanded="true" signature="15175:15208" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/porto/templatesettings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="585" column="43" selection-start-line="585" selection-start-column="33" selection-end-line="585" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/porto/js/porto.templatesettings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/settingfacebook.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="24" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/tv_tower/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/tv_tower/admin/js/pages.tv-tower.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="184" column="25" selection-start-line="184" selection-start-column="25" selection-end-line="184" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/porto/templatesettings_case.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-527">
+          <caret line="79" column="28" selection-start-line="79" selection-start-column="28" selection-end-line="79" selection-end-column="28" />
+          <folding>
+            <marker date="1499766968771" expanded="true" signature="5433:5512" ph="SELECT varna... ${DB_PREFIX}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/tv_tower/admin/lang/cs.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-264">
+          <caret line="42" column="18" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="116" column="12" selection-start-line="116" selection-start-column="4" selection-end-line="116" selection-end-column="12" />
+          <folding>
+            <marker date="1500104429406" expanded="true" signature="785:882" ph="SELECT value... ${$envotable}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/growl/admin/js/pages.growl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/tv_tower/tvtower.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+          <folding>
+            <marker date="1500807761290" expanded="true" signature="1717:1766" ph="SELECT * FRO... ${$envotable1}" />
+            <marker date="1500807761290" expanded="true" signature="2155:2224" ph="SELECT COUNT... ${$envotable1}" />
+            <marker date="1500807761290" expanded="true" signature="2795:2883" ph="SELECT COUNT... ${$envotable2}" />
+            <marker date="1500807761290" expanded="true" signature="3090:3124" ph="SELECT MAX(t... ${$envotable2}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/tv_tower/admin/template/tt_setting.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-459">
+          <caret line="244" column="71" selection-start-line="244" selection-start-column="71" selection-end-line="244" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/tv_tower/template/jsfooter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="83" selection-start-line="5" selection-start-column="83" selection-end-line="5" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/tv_tower/assets/js/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2152">
+          <caret line="44" column="19" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/tv_tower/admin/tvtower.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="965" column="47" selection-start-line="965" selection-start-column="39" selection-end-line="965" selection-end-column="47" />
+          <folding>
+            <element signature="e#1179#14276#0#PHP" expanded="false" />
+            <element signature="e#14279#24945#0#PHP" expanded="false" />
+            <element signature="e#24948#38693#0#PHP" expanded="false" />
+            <marker date="1500809929984" expanded="true" signature="3211:4320" ph="INSERT INTO ${$envotable2}... " />
+            <marker date="1500809929984" expanded="true" signature="11358:11428" ph="DELETE FROM " />
+            <marker date="1500809929984" expanded="true" signature="15644:16434" ph="INSERT INTO ${$envotable}... " />
+            <marker date="1500809929984" expanded="true" signature="21785:21881" ph="SELECT COUNT... ${$envotable2}" />
+            <marker date="1500809929984" expanded="true" signature="22141:22210" ph="DELETE FROM " />
+            <marker date="1500809929984" expanded="true" signature="27391:28118" ph="INSERT INTO ${$envotable1}... " />
+            <marker date="1500809929984" expanded="true" signature="35941:36034" ph="SELECT COUNT... ${$envotable}" />
+            <marker date="1500809929984" expanded="true" signature="36296:36366" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
     </entry>
   </component>
   <component name="webServersAuthStorage">
-    <data>AAABoAVdWpxhogbL49KE6DqCoGDYBNjU3xwWuoha/ERZviQi1yyEqamq8peOeGVCqNc/nRvFMQ4sxbs8d1N8PC4/pNT/+UQRSiMO/RsDBmsHW6iRb8S0siGYyJgxLemwZ1CeBDITXN278wo4YqGE3JL+w13vvSHqbmxitio1jGBZ6FXcJ5CiGV+7uy9kenoGLzt1w42p7TMJXxOjpOBdK/gCaOVak44kBkN/isCpBEJMMdXbKgA0WFHM2cWQUObCxc4dx0elcXxxexoNworR7ebPyBqkWBMRF5l4F0juYwAN9xOB1WYoPwT/EsOchqsu8KH92+sP6DNOqp53tTO73LG1ikM8sOy/HcQInm5HyIw3FH2nolnshvcioxPb3NC1/5MruMvQBkt5f5jHw3Le1GoqJaMEfOC0GmuUEUejeXgNC/5QxXLcU1MzgN4aiY2ShbV53tR4vA7ThE4gQrWUtgV1+QIUfdw1PZe18wrvcGDpgY3UEzpJ1hstnT/J3gYtjSsT82aTz0hn9EmsZe1yk3FNeMv0qLQlaNHZnotrFc7bXVkYUCVUtkaMF9C6iI7mOth2og==</data>
+    <data>AAABoNQFPwV6YIMyOKUhoF+5u1MuDQMGzJj+hACB6S1HnhcQb8G8h4xCFECe0ASpXO8z6c84L1MwpIzPNdQV2gJAnBNJUR8pOV/htWkRtZSx1F6NKec3rYM3KYUruu4pWwvnODVIWS4A5ptwiahBSnv57S2HGAHHZNlzcfA6KhW+J6+kRvcWz4mcdbnuUleLtZ96I/0GmYARqW41MWJbi/0DPVHJu47NY5nDcE6DwbqYrH7Mf9kvGCxfXcUltzsdMgpssK0tWwsIztVX3E7QLzY5L9zKXLJ5FLPNI9h/z0V8ULi8Pi8ly6G+1LLEjEHt2YtQEsuS/LzVmGoL1D/TaFB7VXEaFr8Z+PGwhsIlpr/Vde2YuY5VUK+7S11amwn2XWwtVYHsbLi+g3E1oKxaQN3pi5N6kM2AwufaZp7cytorNpzLch9OQR31QFxsmH+yAZSMAHE3nNtCzBQyOni1y8tfr19pk+Y7uEIq/cFS9EhLJDmlwZpRN/FQX7lc14ofBJU98mo/0fZ8wnIl5YJyBr4fzxUPR84wYDca9a4wPAw/moZu14QTgf7oFb4OFdBNoyzwXA==</data>
   </component>
 </project>
