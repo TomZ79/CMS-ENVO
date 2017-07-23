@@ -15,7 +15,8 @@ if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die($php_errorms
 // Set successfully to zero
 $succesfully = 0;
 
-// Set language for plugin
+// EN: Load the language file for plugin
+// CZ: Načtení jazykového souboru pro plugin
 if (file_exists(APP_PATH . 'plugins/blog/admin/lang/' . $site_language . '.ini')) {
   $tlblog = parse_ini_file(APP_PATH . 'plugins/blog/admin/lang/' . $site_language . '.ini', TRUE);
 } else {

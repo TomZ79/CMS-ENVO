@@ -57,6 +57,7 @@
 
   <div class="row">
     <div class="col-md-12">
+      <hr>
       <div id="bounceLoader">
         <div class="bounce-loader">
           <div class="bounce1"></div>

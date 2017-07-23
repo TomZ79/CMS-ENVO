@@ -7,7 +7,7 @@ require_once '../../../config.php';
 
 if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
 
-// EN: Load the language file from the Hook by  name of Hook and Plugin
+// EN: Load the language file from the Hook by name of Hook and Plugin
 // CZ: Načtení jazykového souboru z Hook podle jména Hook a Pluginu
 $hooklang = $jakhooks->jakGethook("php_lang", "tvtower");
 eval($hooklang['phpcode']);
