@@ -25,6 +25,7 @@
   .dataTables_wrapper .table thead tr th {
     border-bottom: 2px solid rgba(230, 230, 230, 0.7) !important;
   }
+
   table.dataTable thead .sorting::after,
   table.dataTable thead .sorting_asc::after,
   table.dataTable thead .sorting_desc::after {
@@ -43,16 +44,16 @@
 
 </style>
 <script>
-  $(document).ready(function() {
-    $('#tt_table').dataTable( {
+  $(document).ready(function () {
+    $('#tt_table').dataTable({
       // Language
       "language": {
         "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Czech.json"
       },
 
       "order": [],
-      "columnDefs": [ {
-        "targets"  : 'no-sort',
+      "columnDefs": [{
+        "targets": 'no-sort',
         "orderable": false
       }],
       // Page lenght
@@ -66,13 +67,13 @@
         {
           extend: 'excel',
           exportOptions: {
-            columns: [0,2,3,4]
+            columns: [0, 2, 3, 4]
           }
         },
         {
           extend: 'pdf',
           exportOptions: {
-            columns: [0,2,3,4]
+            columns: [0, 2, 3, 4]
           },
           customize: function (doc) {
             doc.content[1].table.widths =
@@ -83,16 +84,40 @@
         {
           extend: 'print',
           exportOptions: {
-            columns: [0,2,3,4]
+            columns: [0, 2, 3, 4]
           }
         }
       ],
       // Init bootstrap responsive table for mobile
-      "initComplete": function(settings, json){
+      "initComplete": function (settings, json) {
         $('#tt_table').wrap('<div class="table-responsive"></div>');
-      },
+      }
     });
-  } );
+
+
+    $('table.tt_table_ident').dataTable({
+      // Language
+      "language": {
+        "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Czech.json"
+      },
+      // Default sort by column
+      "order": [[ 1, "asc" ]],
+      "columnDefs": [{
+        "targets": 'no-sort',
+        "orderable": false
+      }],
+      // Design Table items
+      "dom": "<'row'<'col-sm-12'<'pull-left m-b-20'f>>>" + "<'row'<'col-sm-12'tr>>",
+      "drawCallback": function( settings ) {
+
+        $('[data-toggle="tooltip"]').tooltip({
+          container: '.box-body'
+        });
+
+      }
+    });
+
+  });
 </script>
 
 <script>
@@ -149,7 +174,7 @@
       {"number": "68", "frequency": "850.00", "freqrange": "846 - 854"},
       {"number": "69", "frequency": "858.00", "freqrange": "854 - 862"});
 
-    $( "#channelnumber" ).keyup(function() {
+    $("#channelnumber").keyup(function () {
       var findNumber = this.value; //find frequency for channel number
 
       var frequency = $.map(freqArrdvbt, function (value, key) {

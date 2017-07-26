@@ -132,7 +132,7 @@
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=logs&amp;sp=delete&amp;ssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => $tl["notification"]["n6"], 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
+                  echo $Html->addAnchor('index.php?p=logs&amp;sp=delete&amp;ssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => $tl["notification"]["n6"], 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
                   ?>
 
                 </td>
@@ -184,10 +184,10 @@
       <?php
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
       echo $Html->addTag('h3', $tl["icons"]["i"]);
-      echo $Html->addTag('i', '', 'fa fa-check', array('title' => $tl["icons"]["i16"]));
-      echo $Html->addTag('i', '', 'fa fa-exclamation', array('title' => $tl["icons"]["i17"]));
-      echo $Html->addTag('i', '', 'fa fa-exclamation-triangle', array('title' => $tl["icons"]["i15"]));
-      echo $Html->addTag('i', '', 'fa fa-trash-o', array('title' => $tl["icons"]["i1"]));
+      echo $Html->addTag('i', '', 'fa fa-check', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i16"]));
+      echo $Html->addTag('i', '', 'fa fa-exclamation', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i17"]));
+      echo $Html->addTag('i', '', 'fa fa-exclamation-triangle', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i15"]));
+      echo $Html->addTag('i', '', 'fa fa-trash-o', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
       ?>
 
     </div>

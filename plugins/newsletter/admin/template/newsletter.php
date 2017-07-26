@@ -126,7 +126,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   if ($v["sent"]) {
 
                     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                    echo $Html->addAnchor('index.php?p=newsletter&amp;sp=stat&amp;ssp=' . $v["id"], '<i class="fa fa-bar-chart"></i>', '', 'btn btn-default btn-xs nlbox', array('data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i27"]));
+                    echo $Html->addAnchor('index.php?p=newsletter&amp;sp=stat&amp;ssp=' . $v["id"], '<i class="fa fa-bar-chart"></i>', '', 'btn btn-default btn-xs nlbox', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i27"]));
 
                   }
                   ?>
@@ -136,7 +136,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=preview&amp;ssp=' . $v["id"], '<i class="fa fa-desktop"></i>', '', 'btn btn-default btn-xs nlbox', array('data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i28"]));
+                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=preview&amp;ssp=' . $v["id"], '<i class="fa fa-desktop"></i>', '', 'btn btn-default btn-xs nlbox', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i28"]));
                   ?>
 
                 </td>
@@ -144,7 +144,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=send&amp;ssp=' . $v["id"], '<i class="fa fa-envelope-o"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i29"]));
+                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=send&amp;ssp=' . $v["id"], '<i class="fa fa-envelope-o"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i29"]));
                   ?>
 
                 </td>
@@ -152,7 +152,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=edit&amp;ssp=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
+                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=edit&amp;ssp=' . $v["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
                   ?>
 
                 </td>
@@ -160,7 +160,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=delete&amp;ssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tlnl["newsletter_notification"]["deln"], $v["title"]), 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
+                  echo $Html->addAnchor('index.php?p=newsletter&amp;sp=delete&amp;ssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tlnl["newsletter_notification"]["deln"], $v["title"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
                   ?>
 
                 </td>
@@ -178,11 +178,11 @@ if ($page1 == "e" || $page1 == "ene") { ?>
       <?php
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
       echo $Html->addTag('h3', $tl["icons"]["i"]);
-      echo $Html->addTag('i', '', 'fa fa-bar-chart', array('title' => $tl["icons"]["i27"]));
-      echo $Html->addTag('i', '', 'fa fa-desktop', array('title' => $tl["icons"]["i28"]));
-      echo $Html->addTag('i', '', 'fa fa-envelope-o', array('title' => $tl["icons"]["i29"]));
-      echo $Html->addTag('i', '', 'fa fa-edit', array('title' => $tl["icons"]["i2"]));
-      echo $Html->addTag('i', '', 'fa fa-trash-o', array('title' => $tl["icons"]["i1"]));
+      echo $Html->addTag('i', '', 'fa fa-bar-chart', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i27"]));
+      echo $Html->addTag('i', '', 'fa fa-desktop', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i28"]));
+      echo $Html->addTag('i', '', 'fa fa-envelope-o', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i29"]));
+      echo $Html->addTag('i', '', 'fa fa-edit', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+      echo $Html->addTag('i', '', 'fa fa-trash-o', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
       ?>
 
     </div>

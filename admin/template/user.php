@@ -202,7 +202,7 @@
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=user&amp;sp=verify&amp;ssp=' . $va["id"], '<i class="fa fa-' . (($va["access"] == 3 || $va["access"] == 2) ? 'envelope-o' : 'lock') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => (($va["access"] == 3 || $va["access"] == 2) ? $tl["icons"]["i19"] : $tl["icons"]["i5"])));
+                echo $Html->addAnchor('index.php?p=user&amp;sp=verify&amp;ssp=' . $va["id"], '<i class="fa fa-' . (($va["access"] == 3 || $va["access"] == 2) ? 'envelope-o' : 'lock') . '"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => (($va["access"] == 3 || $va["access"] == 2) ? $tl["icons"]["i19"] : $tl["icons"]["i5"])));
                 ?>
 
               </td>
@@ -210,7 +210,7 @@
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=user&amp;sp=password&amp;ssp=' . $va["id"], '<i class="fa fa-key"></i>', '', 'btn btn-default btn-xs', array('data-confirm' => $tl["user_notification"]["pass"], 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
+                echo $Html->addAnchor('index.php?p=user&amp;sp=password&amp;ssp=' . $va["id"], '<i class="fa fa-key"></i>', '', 'btn btn-default btn-xs', array('data-confirm' => $tl["user_notification"]["pass"], 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
                 ?>
 
               </td>
@@ -218,7 +218,7 @@
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=user&amp;sp=edit&amp;ssp=' . $va["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
+                echo $Html->addAnchor('index.php?p=user&amp;sp=edit&amp;ssp=' . $va["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
                 ?>
 
               </td>
@@ -226,7 +226,7 @@
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=user&amp;sp=delete&amp;ssp=' . $va["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tl["user_notification"]["del"], $va["username"]), 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
+                echo $Html->addAnchor('index.php?p=user&amp;sp=delete&amp;ssp=' . $va["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tl["user_notification"]["del"], $va["username"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
                 ?>
 
               </td>
@@ -354,7 +354,7 @@
 
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor('index.php?p=user&amp;sp=delete&amp;ssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tl["user_notification"]["del"], $v["username"]), 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
+                echo $Html->addAnchor('index.php?p=user&amp;sp=delete&amp;ssp=' . $v["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tl["user_notification"]["del"], $v["username"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
                 ?>
 
               </td>
@@ -372,12 +372,12 @@
       <?php
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
       echo $Html->addTag('h3', $tl["icons"]["i"]);
-      echo $Html->addTag('i', '', 'fa fa-envelope-o', array('title' => $tl["icons"]["i19"]));
-      echo $Html->addTag('i', '', 'fa fa-check', array('title' => $tl["icons"]["i6"]));
-      echo $Html->addTag('i', '', 'fa fa-lock', array('title' => $tl["icons"]["i5"]));
-      echo $Html->addTag('i', '', 'fa fa-key', array('title' => $tl["icons"]["i14"]));
-      echo $Html->addTag('i', '', 'fa fa-edit', array('title' => $tl["icons"]["i2"]));
-      echo $Html->addTag('i', '', 'fa fa-trash-o', array('title' => $tl["icons"]["i1"]));
+      echo $Html->addTag('i', '', 'fa fa-envelope-o', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i19"]));
+      echo $Html->addTag('i', '', 'fa fa-check', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i6"]));
+      echo $Html->addTag('i', '', 'fa fa-lock', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i5"]));
+      echo $Html->addTag('i', '', 'fa fa-key', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i14"]));
+      echo $Html->addTag('i', '', 'fa fa-edit', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+      echo $Html->addTag('i', '', 'fa fa-trash-o', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
       ?>
 
     </div>

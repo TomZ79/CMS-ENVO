@@ -42,9 +42,9 @@
 
                   <?php
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('javascript:;', '<span class="label label-warning">Content for Members/Guests</span>', '', 'short-sc m-r-5', array('data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => $tl["global_eltitle"]["gelt"]));
-                  echo $Html->addAnchor('javascript:;', '<span class="label label-danger">Members only</span>', '', 'short-sc1 m-r-5', array('data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => $tl["global_eltitle"]["gelt1"]));
-                  echo $Html->addAnchor('javascript:;', '<span class="label label-info">Guests only</span>', '', 'short-sc2 m-r-5', array('data-toggle' => 'tooltip', 'data-placement' => 'top', 'title' => $tl["global_eltitle"]["gelt2"]));
+                  echo $Html->addAnchor('javascript:;', '<span class="label label-warning">Content for Members/Guests</span>', '', 'short-sc m-r-5', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'top', 'title' => $tl["global_eltitle"]["gelt"]));
+                  echo $Html->addAnchor('javascript:;', '<span class="label label-danger">Members only</span>', '', 'short-sc1 m-r-5', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'top', 'title' => $tl["global_eltitle"]["gelt1"]));
+                  echo $Html->addAnchor('javascript:;', '<span class="label label-info">Guests only</span>', '', 'short-sc2 m-r-5', array('data-toggle' => 'tooltipEnvo', 'data-placement' => 'top', 'title' => $tl["global_eltitle"]["gelt2"]));
                   ?>
 
                 </div>

@@ -23,7 +23,7 @@ $.AdminEnvo = {};
 $.AdminEnvo.options = {
   //Bootstrap.js tooltip for Icon
   enableBSToppltipIcon: true,
-  BSTooltipSelectorIcon: ".icon_legend i",
+  BSTooltipSelectorIcon: '[data-toggle="tooltipEnvo"]',
   //Bootbox confirm dialog
   BootboxLang: envoWeb.envo_lang,
 
@@ -48,7 +48,8 @@ $(function () {
     $('body').tooltip({
       selector: o.BSTooltipSelectorIcon,
       placement: 'bottom',
-      trigger: 'hover'
+      trigger: 'hover',
+      container: 'body'
     });
   }
 
