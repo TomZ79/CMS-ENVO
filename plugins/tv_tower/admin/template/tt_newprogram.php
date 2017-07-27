@@ -78,7 +78,7 @@ if ($errors) { ?>
                 </div>
                 <div class="col-md-7">
                   <div class="">
-                    <select name="envo_tvchannel" class="form-control selectpicker">
+                    <select name="envo_tvchannel" class="form-control selectpicker" data-search-select2="true">
 
                       <?php
                       // Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -102,7 +102,7 @@ if ($errors) { ?>
                               } else {
                                 $selected = FALSE;
                               }
-                            } else  {
+                            } else {
                               if ($page3 == $optvalue) {
                                 $selected = TRUE;
                               } else {
@@ -194,12 +194,21 @@ if ($errors) { ?>
 
                 </div>
                 <div class="col-md-7">
-                  <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
+                  <div class="input-group<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_programname', (isset($_REQUEST["envo_programname"]) ? $_REQUEST["envo_programname"] : ''), '', 'form-control');
+                    echo $Html->addInput('text', 'envo_programname', (isset($_REQUEST["envo_programname"])) ? $_REQUEST["envo_programname"] : '', 'envo_programname', 'form-control');
                     ?>
+
+                    <span class="input-group-btn">
+
+                      <?php
+                      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                      echo $Html->addAnchor('', '<i class="pg-menu_justify"></i>', 'programSelect', 'btn btn-info', array('type' => 'button', 'data-toggle' => 'tooltipEnvo', 'title' => 'Vybrat program'));
+                      ?>
+
+                    </span>
 
                   </div>
                 </div>
@@ -225,10 +234,11 @@ if ($errors) { ?>
 
 														<?php
                             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                            echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&lang=' . $managerlang . '&fldr=&field_id=envo_programicons', '<i class="pg-image"></i>', '', 'btn btn-info ifManager', array('type' => 'button', 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i22"]));
+                            echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=1&lang=' . $managerlang . '&fldr=&field_id=envo_programicons', '<i class="pg-image"></i>', '', 'btn btn-info ifManager', array('type' => 'button', 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i22"]));
                             ?>
 
-													</span>
+                    </span>
+
                   </div>
                 </div>
               </div>
@@ -258,6 +268,28 @@ if ($errors) { ?>
         <div class="box-body">
           <div class="block">
             <div class="block-content">
+              <div class="row-form">
+                <div class="col-md-5">
+
+                  <?php
+                  // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                  echo $Html->addTag('strong', 'Service ID');
+                  echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => 'Unikátní identifikátor konkrétní služby <br> přenášené transportním tokem', 'data-original-title' => 'Nápověda'));
+                  ?>
+
+                </div>
+                <div class="col-md-7">
+                  <div class="form-group no-margin">
+
+                    <?php
+                    // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                    echo $Html->addInput('text', 'envo_serviceid', (isset($_REQUEST["envo_serviceid"])) ? $_REQUEST["envo_serviceid"] : '', '', 'form-control');
+                    ?>
+
+                  </div>
+                </div>
+              </div>
               <div class="row-form">
                 <div class="col-md-5">
 
@@ -341,7 +373,8 @@ if ($errors) { ?>
                     // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
                     echo $Html->addOption('', 'Žádné', ((isset($_REQUEST["envo_videosize"]) && ($_REQUEST["envo_videosize"] == '')) || !isset($_REQUEST["envo_videosize"])) ? TRUE : FALSE);
                     echo $Html->addOption('704 x 576i', '704 x 576i', (isset($_REQUEST["envo_videosize"]) && $_REQUEST["envo_videosize"] == '704 x 576i') ? TRUE : FALSE);
-                    echo $Html->addOption('720 x 576i', '720 x 576i', (isset($_REQUEST["envo_videosize"]) && $_REQUEST["envo_videosize"] == '720 x 576i') ? TRUE : FALSE);
+                    echo $Html->addOption('DVBT-T SD (MPEG2) => 720 x 576 => 576i', 'DVBT-T SD (MPEG2) => 720 x 576 => 576i', (isset($_REQUEST["envo_videosize"]) && $_REQUEST["envo_videosize"] == 'DVBT-T SD (MPEG2) => 720 x 576 => 576i') ? TRUE : FALSE);
+                    echo $Html->addOption('DVBT-T HD (MPEG4) => 1440 x 1080 => 1080i', 'DVBT-T HD (MPEG4) => 1440 x 1080 => 1080i', (isset($_REQUEST["envo_videosize"]) && $_REQUEST["envo_videosize"] == 'DVBT-T HD (MPEG4) => 1440 x 1080 => 1080i') ? TRUE : FALSE);
                     ?>
 
                   </select>
@@ -515,4 +548,7 @@ if ($errors) { ?>
   </div>
 </form>
 
-<?php include_once APP_PATH . 'admin/template/footer.php'; ?>
+<?php
+include_once APP_PATH . 'plugins/tv_tower/admin/ajax/tt_selectprogram_modal.php';
+include_once APP_PATH . 'admin/template/footer.php';
+?>

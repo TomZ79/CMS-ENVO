@@ -65,7 +65,6 @@ var jslangdata = JSON.parse(envoWeb.envo_jslang);
           $select.empty();
 
           var res = $.parseJSON(data);
-
           // console.log(data);
 
           $.each(res, function (key, data) {
@@ -142,6 +141,14 @@ var jslangdata = JSON.parse(envoWeb.envo_jslang);
  */
 (function ($) {
 // PROGRAM LIST
+
+  // Init Boostrap Popover
+  $('[data-toggle="popover"]').popover({
+    html : true,
+    trigger: 'hover',
+    placement: 'top',
+    container: 'body'
+  });
 
   // Init SumoSelect plugin
   $('.sumoselect').SumoSelect();

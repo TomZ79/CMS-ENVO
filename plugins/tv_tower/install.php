@@ -231,13 +231,13 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
         // CZ: Vytvoření tabulky pro plugin (TV Vysílače)
         $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowertvtower (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `varname` varchar(255) DEFAULT NULL,
-  `station` varchar(255) DEFAULT NULL,
-  `district` varchar(255) DEFAULT NULL,
+  `name` varchar(255) NULL DEFAULT NULL,
+  `varname` varchar(255) NULL DEFAULT NULL,
+  `station` varchar(255) NULL DEFAULT NULL,
+  `district` varchar(255) NULL DEFAULT NULL,
   `heightsea` int(10) unsigned NOT NULL DEFAULT 0,
-  `eastlongitude` varchar(255) DEFAULT NULL,
-  `northlatitude` varchar(255) DEFAULT NULL,
+  `eastlongitude` varchar(255) NULL DEFAULT NULL,
+  `northlatitude` varchar(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
@@ -246,14 +246,14 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
         $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowertvchannel (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `towerid` int(11) unsigned NOT NULL DEFAULT 0,
-  `number` varchar(255) DEFAULT NULL,
-  `frequency` varchar(100) DEFAULT NULL,
-  `freqrange` varchar(100) DEFAULT NULL,
-  `polarization` varchar(100) DEFAULT NULL,
-  `sitename` varchar(100) DEFAULT NULL,
-  `erpkw` varchar(100) DEFAULT NULL,
-  `erpdbw` varchar(100) DEFAULT NULL,
-  `type` varchar(100) DEFAULT NULL,
+  `number` varchar(255) NULL DEFAULT NULL,
+  `frequency` varchar(100) NULL DEFAULT NULL,
+  `freqrange` varchar(100) NULL DEFAULT NULL,
+  `polarization` varchar(100) NULL DEFAULT NULL,
+  `sitename` varchar(100) NULL DEFAULT NULL,
+  `erpkw` varchar(100) NULL DEFAULT NULL,
+  `erpdbw` varchar(100) NULL DEFAULT NULL,
+  `type` varchar(100) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `towerid` (`towerid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
@@ -265,17 +265,69 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
   `active` smallint(1) unsigned NOT NULL DEFAULT 1,
   `towerid` int(10) unsigned NOT NULL DEFAULT 0,
   `channelid` int(10) unsigned NOT NULL DEFAULT 0,
-  `channelnumber` int(10) DEFAULT NULL,
+  `channelnumber` int(10) NULL DEFAULT NULL,
   `tvr` smallint(1) unsigned NOT NULL DEFAULT 1,
-  `name` varchar(100) DEFAULT NULL,
-  `icon` varchar(100) DEFAULT NULL,
+  `name` varchar(100) NULL DEFAULT NULL,
+  `icon` varchar(100) NULL DEFAULT NULL,
   `online` smallint(1) unsigned NOT NULL DEFAULT 1,
-  `videoencoding` varchar(100) DEFAULT NULL,
-  `audioencoding` varchar(100) DEFAULT NULL,
-  `videoformat` varchar(100) DEFAULT NULL,
-  `videosize` varchar(100) DEFAULT NULL,
-  `bitrate` varchar(100) DEFAULT NULL,
-  `services` varchar(255) DEFAULT NULL,
+  `service_id` varchar(100) NULL DEFAULT NULL,
+  `videoencoding` varchar(100) NULL DEFAULT NULL,
+  `audioencoding` varchar(100) NULL DEFAULT NULL,
+  `videoformat` varchar(100) NULL DEFAULT NULL,
+  `videosize` varchar(100) NULL DEFAULT NULL,
+  `bitrate` varchar(100) NULL DEFAULT NULL,
+  `services` varchar(255) NULL DEFAULT NULL,
+  `time` DATETIME DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+        // EN: Create table for plugin (S_ID TV)
+        // CZ: Vytvoření tabulky pro plugin (S_ID TV)
+        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowersidtv (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sid` varchar(100) NULL DEFAULT NULL,
+  `name` varchar(255) NULL DEFAULT NULL,
+  `time` DATETIME DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+        // EN: Create table for plugin (S_ID R)
+        // CZ: Vytvoření tabulky pro plugin (S_ID R)
+        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowersidr (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sid` varchar(100) NULL DEFAULT NULL,
+  `name` varchar(255) NULL DEFAULT NULL,
+  `time` DATETIME DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+        // EN: Create table for plugin (S_ID R)
+        // CZ: Vytvoření tabulky pro plugin (S_ID R)
+        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowersids (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sid` varchar(100) NULL DEFAULT NULL,
+  `name` varchar(255) NULL DEFAULT NULL,
+  `time` DATETIME DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+        // EN: Create table for plugin (S_ID R)
+        // CZ: Vytvoření tabulky pro plugin (S_ID R)
+        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtoweronid (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `onid` varchar(100) NULL DEFAULT NULL,
+  `country` varchar(255) NULL DEFAULT NULL,
+  `time` DATETIME DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+        // EN: Create table for plugin (S_ID R)
+        // CZ: Vytvoření tabulky pro plugin (S_ID R)
+        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowernid (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nid` varchar(100) NULL DEFAULT NULL,
+  `site` varchar(255) NULL DEFAULT NULL,
+  `operator` varchar(255) NULL DEFAULT NULL,
   `time` DATETIME DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');

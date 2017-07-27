@@ -4,6 +4,11 @@ if ($page == 'tv-tower') {
   $classttsection = 'open active';
   $classtticonbg  = 'bg-success';
 }
+if ($page == 'tv-tower' && $page1 == 'identifiers') {
+  $classttsection1 = 'open active';
+  $classttconbg1   = 'bg-success';
+  $stylett1        = 'style="display: block;"';
+}
 ?>
 <li class="<?php echo $classttsection; ?>">
 
@@ -116,6 +121,40 @@ if ($page == 'tv-tower') {
 
       </li>
     <?php } ?>
+    <li class="list-divider"></li>
+
+    <li class="<?php echo $classttsection1; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('javascript:;', '<span class="title">' . $tltt["tt_menu"]["ttm11"] . '</span><span class="arrow ' . $classttsection1 . '"></span>');
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', 'ID', 'icon-thumbnail ' . $classttconbg1);
+      ?>
+
+      <ul class="sub-menu" <?php echo $stylett1; ?>>
+        <li class="<?php echo (($page == 'tv-tower' && $page1 == 'identifiers' && $page2 == 'createident')) ? 'submenu-active' : ''; ?>">
+
+          <?php
+          // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+          echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=createident', $tltt["tt_menu"]["ttm12"]);
+          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+          echo $Html->addTag('span', text_clipping_lower($tltt["tt_menu"]["ttm12"]), 'icon-thumbnail');
+          ?>
+
+        </li>
+        <li class="<?php echo ($page == 'tv-tower' && $page1 == 'identifiers') ? 'submenu-active' : ''; ?>">
+
+          <?php
+          // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+          echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers', $tltt["tt_menu"]["ttm13"]);
+          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+          echo $Html->addTag('span', text_clipping_lower($tltt["tt_menu"]["ttm13"]), 'icon-thumbnail');
+          ?>
+
+        </li>
+      </ul>
+    </li>
     <li class="list-divider"></li>
 
     <li class="<?php echo ($page == 'tv-tower' && $page1 == 'setting') ? 'submenu-active' : ''; ?>">

@@ -7,10 +7,12 @@
     <div class="row" style="margin-bottom: 20px">
       <div class="col-md-12">
         <div class="pull-left text-xs-center">
-          <span><?php echo $tltt["tt_frontend_list"]["ttl"]; ?> <strong> <?php echo $COUNT_TVPROGRAM_ALL; ?></strong></span>
+          <span><?php echo $tltt["tt_frontend_list"]["ttl"]; ?>
+            <strong> <?php echo $COUNT_TVPROGRAM_ALL; ?></strong></span>
         </div>
         <div class="pull-right text-xs-center">
-          <span><?php echo $tltt["tt_frontend_list"]["ttl1"]; ?> <strong> <?php echo $TIME_TVPROGRAM_ALL; ?></strong></span>
+          <span><?php echo $tltt["tt_frontend_list"]["ttl1"]; ?>
+            <strong> <?php echo $TIME_TVPROGRAM_ALL; ?></strong></span>
         </div>
       </div>
     </div>
@@ -28,6 +30,17 @@
       foreach ($JAK_TVTOWER as $tt) {
         // Pokud je vysílač aktivní, není uzamčen -> vypis dat o vysílači, kanálech a programech
         if ($tt['active']) {
+
+          // Počet programů pro daný vysílač
+          if (isset($JAK_TVPROGRAM_ALL) && is_array($JAK_TVPROGRAM_ALL)) {
+            $programcounter = 0;
+            foreach ($JAK_TVPROGRAM_ALL as $tp) {
+              if ($tp["towerid"] == $tt['id']) {
+                $programcounter++;
+              }
+            }
+          }
+
           ?>
 
           <div class="row">
@@ -37,62 +50,55 @@
 
                 <div class="col-md-12" style="margin-bottom: 20px">
                   <div class="col-md-6">
-                    <div class="">
-                    <div class="form-group siteselect">
-                      <label for="SelectTrans<?php echo $tt['id']; ?>" class="sitelabel"><?php echo $tltt["tt_frontend_list"]["ttl2"]; ?></label>
-                      <div class="siteselection">
-                        <select id="SelectTrans<?php echo $tt['id']; ?>" class="form-control sumoselect">
 
-                          <option value=""><?php echo $tltt["tt_frontend_list"]["ttl3"]; ?></option>
-                          <?php
-                          // Zobrazení názvů sítí pro danný vysílač
-                          if (isset($JAK_TVCHANNEL_ALL) && is_array($JAK_TVCHANNEL_ALL)) {
-                            // Definice pole pro uložení kanálů dle podmínky
-                            $foundChannel = array();
+                    <?php if ($programcounter > 0) { ?>
 
-                            // Procházení pole s daty všech kanálů
-                            foreach ($JAK_TVCHANNEL_ALL as $tc) {
-                              if ($tc["towerid"] == $tt['id']) {
-                                // Přídání kanálů vyhovujícím podmínce do pole
-                                $foundChannel[] = $tc;
+                      <div class="form-group siteselect">
+                        <label for="SelectTrans<?php echo $tt['id']; ?>" class="sitelabel"><?php echo $tltt["tt_frontend_list"]["ttl2"]; ?></label>
+                        <div class="siteselection">
+                          <select id="SelectTrans<?php echo $tt['id']; ?>" class="form-control sumoselect">
+
+                            <option value=""><?php echo $tltt["tt_frontend_list"]["ttl3"]; ?></option>
+                            <?php
+                            // Zobrazení názvů sítí pro danný vysílač
+                            if (isset($JAK_TVCHANNEL_ALL) && is_array($JAK_TVCHANNEL_ALL)) {
+                              // Definice pole pro uložení kanálů dle podmínky
+                              $foundChannel = array();
+
+                              // Procházení pole s daty všech kanálů
+                              foreach ($JAK_TVCHANNEL_ALL as $tc) {
+                                if ($tc["towerid"] == $tt['id']) {
+                                  // Přídání kanálů vyhovujícím podmínce do pole
+                                  $foundChannel[] = $tc;
+                                }
+                              }
+
+                              // Kontrola jestli pole s nalezenými kanály obsahuje kanály nebo je prázdné
+                              if (count($foundChannel) != 0) {
+
+                                // EN: Sort array by 'sitename' keys
+                                // CZ: Setřídění pole podle 'sitename'
+                                $foundChannel = sort_array_mutlidim($foundChannel, 'sitename ASC');
+
+                                foreach ($foundChannel as $foundChannel) {
+                                  echo '<option value="' . $foundChannel['id'] . '">' . ($foundChannel['sitename'] ? $foundChannel['sitename'] : $tltt["tt_frontend_list"]["ttl4"]) . '</option>';
+                                }
                               }
                             }
+                            ?>
 
-                            // Kontrola jestli pole s nalezenými kanály obsahuje kanály nebo je prázdné
-                            if (count($foundChannel) != 0) {
-
-                              // EN: Sort array by 'sitename' keys
-                              // CZ: Setřídění pole podle 'sitename'
-                              $foundChannel = sort_array_mutlidim($foundChannel, 'sitename ASC');
-
-                              foreach ($foundChannel as $foundChannel) {
-                                echo '<option value="' . $foundChannel['id'] . '">' . ($foundChannel['sitename'] ? $foundChannel['sitename'] : $tltt["tt_frontend_list"]["ttl4"]) . '</option>';
-                              }
-                            }
-                          }
-                          ?>
-
-                        </select>
+                          </select>
+                        </div>
                       </div>
-                    </div>
-                    </div>
+
+                    <?php } ?>
                   </div>
                   <div class="col-md-6">
                     <div class="pull-right" style="margin-top: 7px;">
 
                       <?php
-
                       // Počet programů pro daný vysílač
-                      if (isset($JAK_TVPROGRAM_ALL) && is_array($JAK_TVPROGRAM_ALL)) {
-                        $counter = 0;
-                        foreach ($JAK_TVPROGRAM_ALL as $tp) {
-                          if ($tp["towerid"] == $tt['id']) {
-                            $counter++;
-                          }
-                        }
-                        echo str_replace("%s", $counter, $tltt["tt_frontend_list"]["ttl5"]);
-                      }
-
+                      echo str_replace("%s", $programcounter, $tltt["tt_frontend_list"]["ttl5"]);
                       ?>
 
                     </div>
@@ -166,24 +172,35 @@
                             echo '<td colspan="8" style="background: #edf7ee">';
                             echo '<div class="rTable col-md-12">';
                             echo '<div class="rTableRow">';
+                            echo '<div class="rTableHead col-md-2 text-center">' . $tltt["tt_frontend_list"]["ttl22"] . '<a href="javascript:void(0)" class="help_popover" data-toggle="popover" data-content="<div>Unikátní identifikátor konkrétní služby přenášené transportním tokem<br><br>Hodnota identifikátoru <strong>Service ID</strong> se stanovuje v rozsahu hodnot:<ul><li>Televizní programy - 0x0001 až 0x3FFF</li><li>Rozhlasové programy - 0x4001 až 0x7FFF</li><li>O+statní služby - 0x8001 až 0xEFFF</li></ul></div>"><i class="fa fa-question-circle"></i></a></div>';
                             echo '<div class="rTableHead col-md-2 text-center">' . $tltt["tt_frontend_list"]["ttl16"] . '</div>';
                             echo '<div class="rTableHead col-md-2 text-center">' . $tltt["tt_frontend_list"]["ttl17"] . '</div>';
                             echo '<div class="rTableHead col-md-2 text-center">' . $tltt["tt_frontend_list"]["ttl18"] . '</div>';
-                            echo '<div class="rTableHead col-md-3 text-center">' . $tltt["tt_frontend_list"]["ttl19"] . '</div>';
-                            echo '<div class="rTableHead col-md-3 text-center">' . $tltt["tt_frontend_list"]["ttl20"] . '</div>';
+                            echo '<div class="rTableHead col-md-4 text-center">' . $tltt["tt_frontend_list"]["ttl19"] . '</div>';
                             echo '</div>';
                             echo '<div class="rTableRow">';
-                            echo '<div class="rTableCell col-md-2 text-center">' . (isset($foundProgram['videoencoding']) ? $foundProgram['videoencoding'] : '-') . '</div>';
-                            echo '<div class="rTableCell col-md-2 text-center">' . (isset($foundProgram['audioencoding']) ? $foundProgram['audioencoding'] : '-') . '</div>';
-                            echo '<div class="rTableCell col-md-2 text-center">' . (isset($foundProgram['videoformat']) ? $foundProgram['videoformat'] : '-') . '</div>';
-                            echo '<div class="rTableCell col-md-3 text-center">' . (isset($foundProgram['videosize']) ? $foundProgram['videosize'] : '-') . '</div>';
-                            echo '<div class="rTableCell col-md-3 text-center">' . (isset($foundProgram['bitrate']) ? $foundProgram['bitrate'] : '-') . '</div>';
+                            echo '<div class="rTableCell col-md-2 text-center">' . (!empty($foundProgram['service_id']) ? $foundProgram['service_id'] : '-') . '</div>';
+                            echo '<div class="rTableCell col-md-2 text-center">' . (!empty($foundProgram['videoencoding']) ? $foundProgram['videoencoding'] : '-') . '</div>';
+                            echo '<div class="rTableCell col-md-2 text-center">' . (!empty($foundProgram['audioencoding']) ? $foundProgram['audioencoding'] : '-') . '</div>';
+                            echo '<div class="rTableCell col-md-2 text-center">' . (!empty($foundProgram['videoformat']) ? $foundProgram['videoformat'] : '-') . '</div>';
+                            echo '<div class="rTableCell col-md-4 text-center">' . (!empty($foundProgram['videosize']) ? $foundProgram['videosize'] : '-') . '</div>';
                             echo '</div>';
                             echo '<div class="rTableRow">';
-                            echo '<div class="rTableHead col-md-12 text-left">' . $tltt["tt_frontend_list"]["ttl21"] . '</div>';
+                            echo '<div class="rTableHead col-md-4 text-center">' . $tltt["tt_frontend_list"]["ttl20"] . '</div>';
+                            echo '<div class="rTableHead col-md-8 text-left">' . $tltt["tt_frontend_list"]["ttl21"] . '</div>';
                             echo '</div>';
                             echo '<div class="rTableRow">';
-                            echo '<div class="rTableCell col-md-12 text-left">' . (isset($foundProgram['services']) ? $foundProgram['services'] : '-') . '</div>';
+                            echo '<div class="rTableCell col-md-4 text-center">' . (!empty($foundProgram['bitrate']) ? $foundProgram['bitrate'] : '-') . '</div>';
+                            echo '<div class="rTableCell col-md-8 text-left">' . (!empty($foundProgram['services']) ? $foundProgram['services'] : '-') . '</div>';
+                            echo '</div>';
+
+                            if (JAK_ASACCESS) {
+
+                              echo '<div class="rTableRow">';
+                              echo '<div class="rTableCell col-md-12 text-right" style="height: auto;"><a href="' . BASE_URL . 'admin/index.php?p=tv-tower&sp=tvprogram&ssp=editprogram&id=' . $foundProgram["id"] . '" title="' . $tl["button"]["btn1"] . '" class="btn btn-info btn-sm jaktip"><span class="visible-xs"><i class="fa fa-edit"></i></span><span class="hidden-xs">' . $tl["button"]["btn1"] . '</span></a></div>';
+                              echo '</div>';
+                            }
+
                             echo '</div>';
                             echo '</td>';
                             echo '</tr>';

@@ -42,6 +42,21 @@
     opacity: 1;
   }
 
+  /* Bootstrap Modal */
+  #ENVOModalPlugin .modal-body{
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+
+  #ENVOModalPlugin .modal-header {
+    padding: 15px 25px !important;
+    text-align: left !important;
+  }
+
+  #ENVOModalPlugin .modal-footer {
+    padding: 15px 25px !important;
+  }
+
 </style>
 <script>
   $(document).ready(function () {
@@ -95,7 +110,28 @@
     });
 
 
-    $('table.tt_table_ident').dataTable({
+    $('#tt_table_sid').dataTable({
+      // Language
+      "language": {
+        "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Czech.json"
+      },
+      // Default sort by column
+      "order": [[ 0, "asc" ]],
+      "columnDefs": [{
+        "targets": 'no-sort',
+        "orderable": false
+      }],
+      //
+      "paging": false,
+      // Design Table items
+      "dom": "<'row m-b-20'<'col-sm-12'<'pull-left'f>>>" + "<'row'<'col-sm-12'tr>>",
+      // Init bootstrap responsive table for mobile
+      "initComplete": function (settings, json) {
+        $('#tt_table_sid').wrap('<div class="table-responsive"></div>');
+      }
+    });
+
+    $('#tt_table_sidtv').dataTable({
       // Language
       "language": {
         "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Czech.json"
@@ -106,15 +142,125 @@
         "targets": 'no-sort',
         "orderable": false
       }],
+      //
+      "paging": false,
+      // Buttons
+      buttons: [
+        {
+          tag: 'button',
+          className: 'btn btn-info btn-sm hidden-xs m-r-20 btnEnvo',
+          text: 'Nové S_ID - TV',
+          action: function ( e, dt, button, config ) {
+            window.location = "index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=createident&amp;sssp=s_idtv";
+          }
+        }
+      ],
       // Design Table items
-      "dom": "<'row'<'col-sm-12'<'pull-left m-b-20'f>>>" + "<'row'<'col-sm-12'tr>>",
-      "drawCallback": function( settings ) {
-
-        $('[data-toggle="tooltip"]').tooltip({
-          container: '.box-body'
-        });
-
+      "dom": "<'row m-b-20'<'col-sm-12'<'pull-left'f><'pull-right'B>>>" + "<'row'<'col-sm-12'tr>>",
+      // Init bootstrap responsive table for mobile
+      "initComplete": function (settings, json) {
+        $('#tt_table_sidtv').wrap('<div class="table-responsive"></div>');
+        $(".btnEnvo").removeClass( "btn-default" );
       }
+    });
+
+    $('#tt_table_sidr').dataTable({
+      // Language
+      "language": {
+        "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Czech.json"
+      },
+      // Default sort by column
+      "order": [[ 1, "asc" ]],
+      "columnDefs": [{
+        "targets": 'no-sort',
+        "orderable": false
+      }],
+      // Buttons
+      buttons: [
+        {
+          tag: 'button',
+          className: 'btn btn-info btn-sm hidden-xs m-r-20 btnEnvo',
+          text: 'Nové S_ID - R',
+          action: function ( e, dt, button, config ) {
+            window.location = "index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=createident&amp;sssp=s_idr";
+          }
+        }
+      ],
+      // Design Table items
+      "dom": "<'row m-b-20'<'col-sm-12'<'pull-left'f><'pull-right'B>>>" + "<'row'<'col-sm-12'tr>>",
+      // Init bootstrap responsive table for mobile
+      "initComplete": function (settings, json) {
+        $('#tt_table_sidr').wrap('<div class="table-responsive"></div>');
+        $(".btnEnvo").removeClass( "btn-default" );
+      }
+    });
+
+    $('#tt_table_sids').dataTable({
+      // Language
+      "language": {
+        "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Czech.json"
+      },
+      // Default sort by column
+      "order": [[ 1, "asc" ]],
+      "columnDefs": [{
+        "targets": 'no-sort',
+        "orderable": false
+      }],
+      // Buttons
+      buttons: [
+        {
+          tag: 'button',
+          className: 'btn btn-info btn-sm hidden-xs m-r-20 btnEnvo',
+          text: 'Nové S_ID - Služby',
+          action: function ( e, dt, button, config ) {
+            window.location = "index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=createident&amp;sssp=s_ids";
+          }
+        }
+      ],
+      // Design Table items
+      "dom": "<'row m-b-20'<'col-sm-12'<'pull-left'f><'pull-right'B>>>" + "<'row'<'col-sm-12'tr>>",
+      // Init bootstrap responsive table for mobile
+      "initComplete": function (settings, json) {
+        $('#tt_table_sids').wrap('<div class="table-responsive"></div>');
+        $(".btnEnvo").removeClass( "btn-default" );
+      }
+    });
+
+
+    // Show iFrame in modal - help
+    $('#programSelect').on('click', function (e) {
+      e.preventDefault();
+      $('#ENVOModalPlugin').modal('show');
+    });
+
+    $('.xxxx').click(function (event) {
+      event.preventDefault();
+
+      var valType = $(this).attr("data-type");
+      var valID = $(this).attr("data-value");
+
+      $.ajax({
+        url: "../plugins/tv_tower/admin/ajax/tt_selectprogram_process.php",
+        type: "POST",
+        datatype: 'json',
+        data: {
+          valID: valID,
+          valType: valType
+        },
+        success: function(data){
+
+          var res = $.parseJSON(data);
+
+          $('input[name="envo_programname"]').val(res.name);
+          $('input[name="envo_serviceid"]').val(res.sid);
+
+          $("#ENVOModalPlugin").modal('hide');
+        },
+        error: function(){
+          alert("failure");
+        }
+      });
+
     });
 
   });

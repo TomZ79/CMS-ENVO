@@ -170,11 +170,11 @@ if ($page2 == "n") { ?>
                 <?php
                 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                 // LOCK
-                echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=tvtower&amp;ssp=lock&amp;id=' . $tt["id"], '<i class="fa fa-' . (($tt["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs m-r-20', array('data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => ($tt["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
+                echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=tvtower&amp;ssp=lock&amp;id=' . $tt["id"], '<i class="fa fa-' . (($tt["active"] == 0) ? 'lock' : 'check') . '"></i>', '', 'btn btn-default btn-xs m-r-20', array('data-toggle' => 'tooltipEnvo', 'title' => ($tt["active"] == '0') ? $tl["icons"]["i5"] : $tl["icons"]["i6"]));
                 // EDIT
-                echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=tvtower&amp;ssp=edittvtower&amp;id=' . $tt["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs m-r-20', array('data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i2"]));
+                echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=tvtower&amp;ssp=edittvtower&amp;id=' . $tt["id"], '<i class="fa fa-edit"></i>', '', 'btn btn-default btn-xs m-r-20', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
                 // DELETE
-                echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=tvtower&amp;ssp=delete&amp;id=' . $tt["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tltt["tt_notification"]["deltvtower"], $tt["name"]), 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => $tl["icons"]["i1"]));
+                echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=tvtower&amp;ssp=delete&amp;id=' . $tt["id"], '<i class="fa fa-trash-o"></i>', '', 'btn btn-danger btn-xs', array('data-confirm' => sprintf($tltt["tt_notification"]["deltvtower"], $tt["name"]), 'data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
 
                 ?>
 
@@ -192,8 +192,8 @@ if ($page2 == "n") { ?>
       <?php
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
       echo $Html->addTag('h3', $tl["icons"]["i"]);
-      echo $Html->addTag('i', '', 'fa fa-edit', array('title' => $tl["icons"]["i2"]));
-      echo $Html->addTag('i', '', 'fa fa-trash-o', array('title' => $tl["icons"]["i1"]));
+      echo $Html->addTag('i', '', 'fa fa-edit', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i2"]));
+      echo $Html->addTag('i', '', 'fa fa-trash-o', array('data-toggle' => 'tooltipEnvo', 'title' => $tl["icons"]["i1"]));
       ?>
 
     </div>

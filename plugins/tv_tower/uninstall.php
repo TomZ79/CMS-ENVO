@@ -145,7 +145,6 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
             // $jakdb->query('DROP TABLE ' . DB_PREFIX . 'tvtowertvchannel');
             // $jakdb->query('DROP TABLE ' . DB_PREFIX . 'tvtowertvtower');
 
-
           }
 
           $succesfully = 1;

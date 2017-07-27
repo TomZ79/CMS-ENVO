@@ -17,6 +17,16 @@
   height: 19px;
 }
 
+/* Bootstrap Popover */
+.popover{
+  max-width: 90%; /* Max Width of the popover (depending on the container!) */
+  z-index: 90;
+}
+
+.help_popover {
+  margin-left: 10px;
+}
+
 /* Program je offline - již nevysílá */
 tr.offline td {
   text-decoration: line-through;
@@ -42,10 +52,14 @@ tr.online td {
   vertical-align: middle;
 }
 
-.siteselect select {
+.siteselect .siteselection {
   display: inline-block;
-  width: auto;
+  width: 50%;
   vertical-align: middle;
+}
+
+.siteselect .siteselection label {
+  margin: 0;
 }
 
 /* Bootstrap - Expand table rows */
@@ -87,7 +101,7 @@ table.table-expandable > tbody > tr div.table-expandable-arrow.up {
 
 .rTableCell, .rTableHead {
   display: table-cell;
-  height: 30px;
+  height: 35px;
   line-height: 20px;
   padding: 5px;
 }
