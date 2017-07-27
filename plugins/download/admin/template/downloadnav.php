@@ -83,28 +83,6 @@ if ($page == 'download') {
     <?php } ?>
     <li class="list-divider"></li>
 
-    <li class="<?php echo ($page == 'download' && $page1 == 'comment') ? 'submenu-active' : ''; ?>">
-
-      <?php
-      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-      echo $Html->addAnchor('index.php?p=download&amp;sp=comment', $tld["downl_menu"]["downlm7"]);
-      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-      echo $Html->addTag('span', text_clipping_lower($tld["downl_menu"]["downlm7"]), 'icon-thumbnail');
-      ?>
-
-    </li>
-    <li class="<?php echo ($page == 'download' && $page1 == 'trash') ? 'submenu-active' : ''; ?>">
-
-      <?php
-      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-      echo $Html->addAnchor('index.php?p=download&amp;sp=trash', $tld["downl_menu"]["downlm8"]);
-      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-      echo $Html->addTag('span', text_clipping_lower($tld["downl_menu"]["downlm8"]), 'icon-thumbnail');
-      ?>
-
-    </li>
-    <li class="list-divider"></li>
-
     <li class="<?php echo ($page == 'download' && $page1 == 'setting') ? 'submenu-active' : ''; ?>">
 
       <?php

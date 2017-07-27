@@ -139,8 +139,8 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
             $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE pluginid = "' . smartsql($rows['id']) . '"');
             $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "download"');
             $jakdb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "download"');
-            $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `download`, DROP `downloadcan`, DROP `downloadpost`, DROP `downloadpostdelete`, DROP `downloadpostapprove`, DROP `downloadrate`, DROP `downloadmoderate`');
-            $jakdb->query('DROP TABLE ' . DB_PREFIX . 'download, ' . DB_PREFIX . 'downloadcategories, ' . DB_PREFIX . 'downloadcomments, ' . DB_PREFIX . 'downloadhistory');
+            $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `download`, DROP `downloadcan`');
+            $jakdb->query('DROP TABLE ' . DB_PREFIX . 'download, ' . DB_PREFIX . 'downloadcategories, ' . DB_PREFIX . 'downloadhistory');
             $jakdb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
             $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pages DROP showdownload');
             $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'news DROP showdownload');

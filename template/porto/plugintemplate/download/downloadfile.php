@@ -180,54 +180,6 @@ if ($DL_PASSWORD && !JAK_ASACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash' 
     include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/contact.php';
   } ?>
 
-  <?php if (JAK_DOWNLOADPOST && $JAK_COMMENT_FORM) { ?>
-    <hr>
-    <!-- Comments -->
-    <div class="post-coments">
-      <h4><?php echo $tlblog["blog"]["d10"]; ?> (<span id="cComT"><?php echo $JAK_COMMENTS_TOTAL; ?></span>)</h4>
-      <ul class="post-comments">
-        <?php if (isset($JAK_COMMENTS) && is_array($JAK_COMMENTS)) foreach ($JAK_COMMENTS as $v) { ?>
-          <li>
-            <div class="comment-wrapper">
-              <div class="comment-author"><img src="<?php if ($v["userid"] != 0) {
-                  echo BASE_URL . JAK_FILES_DIRECTORY . '/userfiles' . $v["picture"];
-                } else {
-                  echo BASE_URL . JAK_FILES_DIRECTORY . '/userfiles' . '/standard.png';
-                } ?>" alt="avatar"/> <?php echo $v["username"]; ?></div>
-              <?php if ($CHECK_USR_SESSION == $v["session"]) { ?>
-                <div class="alert bg-info"><?php echo $tl["general"]["g103"]; ?></div>
-              <?php } ?>
-              <div class="com">
-                <?php echo $v["message"]; ?>
-              </div>
-
-              <!-- Comment Controls -->
-              <div class="comment-actions">
-                <span class="comment-date"><?php echo $v["created"]; ?></span>
-                <?php if (JAK_BLOGMODERATE) { ?>
-                  <a href="<?php echo $v["parseurl1"]; ?>" class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i></a>
-                <?php }
-                if (JAK_USERID && JAK_BLOGPOSTDELETE && $v["userid"] == JAK_USERID || JAK_BLOGMODERATE) { ?>
-                  <a href="<?php echo $v["parseurl2"]; ?>" class="btn btn-default btn-xs commedit"><i
-                      class="fa fa-pencil"></i></a>
-                <?php }
-                if (JAK_USERID && JAK_BLOGPOSTDELETE && $v["userid"] == JAK_USERID || JAK_BLOGMODERATE) { ?>
-                  <a href="<?php echo $v["parseurl3"]; ?>" class="btn btn-default btn-xs"><i class="fa fa-ban"></i></a>
-                <?php } ?>
-              </div>
-            </div>
-          </li>
-        <?php } ?>
-        <li id="insertPost"></li>
-      </ul>
-    </div>
-    <!-- End Comments -->
-
-    <!-- Show Comment Editor if set so -->
-    <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/userform.php'; ?>
-
-  <?php } ?>
-
   <!-- Show Social Buttons -->
   <?php if ($SHOWSOCIALBUTTON) { ?>
     <div class="col-md-12">

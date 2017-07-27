@@ -12,7 +12,6 @@ if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSDOWNLOAD)) e
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable  = DB_PREFIX . 'download';
 $envotable1 = DB_PREFIX . 'downloadcategories';
-$envotable2 = DB_PREFIX . 'downloadcomments';
 $envotable3 = DB_PREFIX . 'contactform';
 $envotable4 = DB_PREFIX . 'pagesgrid';
 $envotable5 = DB_PREFIX . 'pluginhooks';
@@ -54,12 +53,6 @@ switch ($page1) {
           $showdate = $defaults['jak_showdate'];
         } else {
           $showdate = '0';
-        }
-
-        if (isset($defaults['jak_comment'])) {
-          $comment = $defaults['jak_comment'];
-        } else {
-          $comment = '1';
         }
 
         if (isset($defaults['jak_showcontact'])) {
@@ -145,7 +138,6 @@ switch ($page1) {
                     showtitle = "' . smartsql($showtitle) . '",
                     showdate = "' . smartsql($showdate) . '",
                     showcontact = "' . smartsql($jakcon) . '",
-                    comments = "' . smartsql($comment) . '",
                     ftshare = "' . smartsql($ftshare) . '",
                     socialbutton = "' . smartsql($defaults['jak_social']) . '",
                     ' . $insert);
@@ -550,200 +542,12 @@ switch ($page1) {
     $plugin_template = 'plugins/download/admin/template/newcat.php';
 
     break;
-  case 'comment':
-
-    $getTotal = envo_get_total($envotable2, '', '', '');
-    if ($getTotal != 0) {
-      // Paginator
-      $pages                 = new JAK_Paginator;
-      $pages->items_total    = $getTotal;
-      $pages->mid_range      = $jkv["adminpagemid"];
-      $pages->items_per_page = $jkv["adminpageitem"];
-      $pages->jak_get_page   = $page2;
-      $pages->jak_where      = 'index.php?p=download&sp=comment';
-      $pages->paginate();
-      $JAK_PAGINATE = $pages->display_pages();
-
-      // Now get the comments
-      $JAK_DOWNLOADCOM_ALL = envo_get_download_comments($pages->limit, '', '');
-    }
-
-    // Get the files
-    $JAK_DOWNLOAD_ALL = envo_get_downloads('', '', $envotable);
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      // EN: Default Variable
-      // CZ: Hlavní proměnné
-      $defaults = $_POST;
-
-      if (isset($defaults['approve'])) {
-
-        $lockuser = $defaults['jak_delete_comment'];
-
-        for ($i = 0; $i < count($lockuser); $i++) {
-          $locked = $lockuser[$i];
-          $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET approve = IF (approve = 1, 0, 1), session = NULL WHERE id = "' . smartsql($locked) . '"');
-        }
-
-        if (!$result) {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=download&sp=comment&status=e');
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=download&sp=comment&status=s');
-        }
-
-      }
-
-      if (isset($defaults['delete'])) {
-
-        $lockuser = $defaults['jak_delete_comment'];
-
-        for ($i = 0; $i < count($lockuser); $i++) {
-          $locked = $lockuser[$i];
-          $result = $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($locked) . '"');
-        }
-
-        if (!$result) {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=download&sp=comment&status=e');
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=download&sp=comment&status=s');
-        }
-
-      }
-
-    }
-
-    switch ($page2) {
-      case 'approval':
-        $JAK_DOWNLOADCOM_APPROVE = envo_get_download_comments($pages->limit, 'approve', '');
-
-        // EN: Title and Description
-        // CZ: Titulek a Popis
-        $SECTION_TITLE = $tld["downl_sec_title"]["downlt7"];
-        $SECTION_DESC  = $tld["downl_sec_desc"]["downld7"];
-
-        // EN: Load the php template
-        // CZ: Načtení php template (šablony)
-        $plugin_template = 'plugins/download/admin/template/comment.php';
-
-        break;
-      case 'sort':
-        if ($page3 == 'download') {
-          $bu = 'fileid';
-        } elseif ($page3 == 'user') {
-          $bu = 'userid';
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL);
-        }
-        $getTotal = envo_get_total($envotable2, $page4, $bu, '');
-        if ($getTotal != 0) {
-          // Paginator
-          $pages                 = new JAK_Paginator;
-          $pages->items_total    = $getTotal;
-          $pages->mid_range      = $jkv["adminpagemid"];
-          $pages->items_per_page = $jkv["adminpageitem"];
-          $pages->jak_get_page   = $page5;
-          $pages->jak_where      = 'index.php?p=download&sp=comment&ssp=sort&sssp=' . $page3 . '&ssssp=' . $page4;
-          $pages->paginate();
-          $JAK_PAGINATE_SORT    = $pages->display_pages();
-          $JAK_DOWNLOADCOM_SORT = envo_get_download_comments($pages->limit, $page4, $bu);
-
-          // EN: Title and Description
-          // CZ: Titulek a Popis
-          $SECTION_TITLE = $tld["downl_sec_title"]["downlt8"];
-          $SECTION_DESC  = $tld["downl_sec_desc"]["downld8"];
-
-          // EN: Load the php template
-          // CZ: Načtení php template (šablony)
-          $plugin_template = 'plugins/download/admin/template/commentsort.php';
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=download&sp=comment&status=ene');
-        }
-        break;
-      case 'approve':
-
-        if (envo_row_exist($page3, $envotable2)) {
-
-          $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET approve = IF (approve = 1, 0, 1), session = NULL WHERE id = "' . smartsql($page3) . '"');
-
-          if (!$result) {
-            // EN: Redirect page
-            // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=download&sp=comment&status=e');
-          } else {
-            // EN: Redirect page
-            // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=download&sp=comment&status=s');
-          }
-
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=download&sp=comment&status=ene');
-        }
-
-        break;
-      case 'delete':
-        if (envo_row_exist($page3, $envotable2)) {
-
-          $result = $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($page3) . '"');
-
-          if (!$result) {
-            // EN: Redirect page
-            // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=download&sp=comment&status=e');
-          } else {
-            // EN: Redirect page
-            // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=download&sp=comment&status=s');
-          }
-
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=download&sp=comment&status=ene');
-        }
-        break;
-      default:
-
-        // EN: Title and Description
-        // CZ: Titulek a Popis
-        $SECTION_TITLE = $tld["downl_sec_title"]["downlt8"];
-        $SECTION_DESC  = $tld["downl_sec_desc"]["downld8"];
-
-        // EN: Load the php template
-        // CZ: Načtení php template (šablony)
-        $plugin_template = 'plugins/download/admin/template/comment.php';
-    }
-
-    break;
   case 'setting':
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable
       // CZ: Hlavní proměnné
       $defaults = $_POST;
-
-      if (!is_numeric($defaults['jak_maxpost'])) {
-        $errors['e1'] = $tl['general_error']['generror27'] . '<br>';
-      }
-
-      if (!empty($defaults['jak_email'])) {
-        if (!filter_var($defaults['jak_email'], FILTER_VALIDATE_EMAIL)) {
-          $errors['e2'] = $tl['general_error']['generror7'] . '<br>';
-        }
-      }
 
       if (empty($defaults['jak_date'])) {
         $errors['e3'] = $tl['general_error']['generror26'] . '<br>';
@@ -777,7 +581,6 @@ switch ($page1) {
         $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                     WHEN "downloadtitle" THEN "' . smartsql($defaults['jak_title']) . '"
                     WHEN "downloaddesc" THEN "' . smartsql($defaults['jak_lcontent']) . '"
-                    WHEN "downloademail" THEN "' . smartsql($defaults['jak_email']) . '"
                     WHEN "downloadorder" THEN "' . smartsql($dlorder) . '"
                     WHEN "downloaddateformat" THEN "' . smartsql($defaults['jak_date']) . '"
                     WHEN "downloadtimeformat" THEN "' . smartsql($defaults['jak_time']) . '"
@@ -785,14 +588,13 @@ switch ($page1) {
                     WHEN "downloadpath" THEN "' . smartsql($defaults['jak_path']) . '"
                     WHEN "downloadpathext" THEN "' . smartsql($defaults['jak_extension']) . '"
                     WHEN "downloadtwitter" THEN "' . smartsql($defaults['jak_twitter']) . '"
-                    WHEN "downloadmaxpost" THEN "' . smartsql($defaults['jak_maxpost']) . '"
                     WHEN "downloadpagemid" THEN "' . smartsql($defaults['jak_mid']) . '"
                     WHEN "downloadpageitem" THEN "' . smartsql($defaults['jak_item']) . '"
                     WHEN "downloadrss" THEN "' . smartsql($defaults['jak_rssitem']) . '"
                     WHEN "download_css" THEN "' . smartsql($defaults['jak_css']) . '"
                     WHEN "download_javascript" THEN "' . smartsql($defaults['jak_javascript']) . '"
                   END
-                  WHERE varname IN ("downloadtitle","downloaddesc","downloademail","downloadorder","downloaddateformat","downloadtimeformat","downloadurl","downloadpath", "downloadpathext", "downloadtwitter","downloadmaxpost","downloadpagemid","downloadpageitem","downloadrss","download_css","download_javascript")');
+                  WHERE varname IN ("downloadtitle","downloaddesc","downloadorder","downloaddateformat","downloadtimeformat","downloadurl","downloadpath", "downloadpathext", "downloadtwitter","downloadpagemid","downloadpageitem","downloadrss","download_css","download_javascript")');
 
         // Save order for sidebar widget
         if (isset($defaults['jak_hookshow_new']) && is_array($defaults['jak_hookshow_new'])) {
@@ -932,73 +734,6 @@ switch ($page1) {
     $plugin_template = 'plugins/download/admin/template/setting.php';
 
     break;
-  case 'trash':
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      // EN: Default Variable
-      // CZ: Hlavní proměnné
-      $defaults = $_POST;
-
-      if (isset($defaults['untrash'])) {
-
-        $deltrash = $defaults['jak_delete_trash'];
-
-        for ($i = 0; $i < count($deltrash); $i++) {
-          $trash  = $deltrash[$i];
-          $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET trash = IF (trash = 1, 0, 1) WHERE id = "' . smartsql($trash) . '"');
-        }
-
-        if (!$result) {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=download&sp=trash&status=e');
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=download&sp=trash&status=s');
-        }
-
-      }
-
-      if (isset($defaults['delete'])) {
-
-        $deltrash = $defaults['jak_delete_trash'];
-
-        for ($i = 0; $i < count($deltrash); $i++) {
-          $trash  = $deltrash[$i];
-          $result = $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($trash) . '"');
-        }
-
-        if (!$result) {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=download&sp=trash&status=e');
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=download&sp=trash&status=s');
-        }
-
-      }
-
-    }
-
-    $result = $jakdb->query('SELECT * FROM ' . $envotable2 . ' WHERE trash = 1 ORDER BY id DESC');
-    while ($row = $result->fetch_assoc()) {
-      // EN: Insert each record into array
-      // CZ: Vložení získaných dat do pole
-      $JAK_TRASH_ALL[] = $row;
-    }
-
-    // EN: Title and Description
-    // CZ: Titulek a Popis
-    $SECTION_TITLE = $tld["downl_sec_title"]["downlt10"];
-    $SECTION_DESC  = $tld["downl_sec_desc"]["downld10"];
-
-    // EN: Load the php template
-    // CZ: Načtení php template (šablony)
-    $plugin_template = 'plugins/download/admin/template/trash.php';
-
-    break;
   default:
 
     // Important Smarty stuff
@@ -1069,8 +804,6 @@ switch ($page1) {
 
           $jakdb->query('UPDATE ' . $envotable1 . ' SET count = count - 1 WHERE id = "' . smartsql($row2['catid']) . '"');
 
-          $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE fileid = "' . smartsql($page2) . '"');
-
           $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
 
           if (!$result) {
@@ -1117,11 +850,6 @@ switch ($page1) {
                 JAK_tags::jakDeleteonetag($tag);
 
               }
-            }
-
-            // Delete the comments
-            if (!empty($defaults['jak_delete_comment'])) {
-              $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE fileid = "' . smartsql($page2) . '"');
             }
 
             // Delete the hits
@@ -1216,7 +944,6 @@ switch ($page1) {
                         showtitle = "' . smartsql($defaults['jak_showtitle']) . '",
                         showcontact = "' . smartsql($defaults['jak_showcontact']) . '",
                         showdate = "' . smartsql($defaults['jak_showdate']) . '",
-                        comments = "' . smartsql($defaults['jak_comment']) . '",
                         countdl = "' . smartsql($defaults['jak_dltotal']) . '",
                         hits = "' . smartsql($defaults['jak_hitstotal']) . '",
                         ' . $insert . '
@@ -1522,7 +1249,6 @@ switch ($page1) {
               $row2    = $result2->fetch_assoc();
 
               $jakdb->query('UPDATE ' . $envotable1 . ' SET count = count - 1 WHERE id = "' . smartsql($row2['catid']) . '"');
-              $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE fileid = "' . smartsql($locked) . '"');
               $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
 
               JAK_tags::jakDeletetags($locked, JAK_PLUGIN_DOWNLOAD);

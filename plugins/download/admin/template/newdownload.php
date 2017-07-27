@@ -208,33 +208,6 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc24"]);
-                        ?>
-
-                      </div>
-                      <div class="col-md-7">
-                        <div class="radio radio-success">
-
-                          <?php
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_comment', '1', ((isset($_REQUEST["jak_comment"]) && $_REQUEST["jak_comment"] == '1')) ? TRUE : FALSE, 'jak_comment1');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_comment1', $tl["checkbox"]["chk"]);
-
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_comment', '0', ((isset($_REQUEST["jak_comment"]) && $_REQUEST["jak_comment"] == '0') || !isset($_REQUEST["jak_comment"])) ? TRUE : FALSE, 'jak_comment2');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_comment2', $tl["checkbox"]["chk1"]);
-                          ?>
-
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row-form">
-                      <div class="col-md-5">
-
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                         echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc25"]);
                         echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tld["downl_help"]["downlh4"], 'data-original-title' => $tld["downl_help"]["downlh"]));

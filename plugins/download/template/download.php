@@ -19,7 +19,6 @@
  * $v["showcontact"]		ano/ne
  * $v["showdate"]				ano/ne
  * $v["created"]				datum			- Datum vytvoření
- * $v["comments"]
  * $v["hits"]						číslo			- Počet zobrazení
  * $v["countdl"]				číslo			- Počet stažení
  * $v["totalcom"]

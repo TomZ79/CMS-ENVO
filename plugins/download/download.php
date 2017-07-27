@@ -11,7 +11,6 @@ include_once 'functions.php';
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable  = DB_PREFIX . 'download';
 $envotable1 = DB_PREFIX . 'downloadcategories';
-$envotable2 = DB_PREFIX . 'downloadcomments';
 $envotable3 = DB_PREFIX . 'downloadhistory';
 
 $CHECK_USR_SESSION = session_id();
@@ -21,12 +20,7 @@ $JAK_SEARCH_WHERE = JAK_PLUGIN_VAR_DOWNLOAD;
 $JAK_SEARCH_LINK  = JAK_PLUGIN_VAR_DOWNLOAD;
 
 // Wright the Usergroup permission into define and for template
-define('JAK_DOWNLOADPOST', $jakusergroup->getVar("downloadpost"));
 define('JAK_DOWNLOADCAN', $jakusergroup->getVar("downloadcan"));
-define('JAK_DOWNLOADPOSTDELETE', $jakusergroup->getVar("downloadpostdelete"));
-define('JAK_DOWNLOADPOSTAPPROVE', $jakusergroup->getVar("downloadpostapprove"));
-define('JAK_DOWNLOADRATE', $jakusergroup->getVar("downloadrate"));
-define('JAK_DOWNLOADMODERATE', $jakusergroup->getVar("downloadmoderate"));
 
 // AJAX Search
 $AJAX_SEARCH_PLUGIN_WHERE = $envotable;
@@ -137,88 +131,6 @@ switch ($page1) {
   case 'f':
 
     if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
-
-      if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['userPost'])) {
-
-        $arr = array();
-
-        $validates = JAK_comment::validate_form($arr, $jkv["downloadmaxpost"], $tl['error']['e'], $tl['error']['e1'], $tld['downl_frontend_error']['downler3'], $tl['error']['e2'], $tld['downl_frontend_error']['downler1'], $tld['downl_frontend_error']['downler2'], $tl['error']['e10']);
-
-        if ($validates) {
-          /* Everything is OK, insert to database: */
-
-          define('BASE_URL_IMG', BASE_URL);
-
-          $cleanusername  = smartsql($arr['co_name']);
-          $cleanuserpostB = htmlspecialchars_decode(envo_clean_safe_userpost($arr['userpost']));
-
-          // the new session check for displaying messages to user even if not approved
-          $sqlset = 0;
-          if (!JAK_DOWNLOADPOSTAPPROVE) {
-            $sqlset = session_id();
-          }
-
-          if (JAK_USERID) {
-
-            $sql = $jakdb->query('INSERT INTO ' . $envotable2 . ' VALUES (NULL, "' . $page2 . '", "' . JAK_USERID . '", "' . $cleanusername . '", NULL, NULL, "' . smartsql($cleanuserpostB) . '", "' . JAK_DOWNLOADPOSTAPPROVE . '", 0, NOW(), "' . $sqlset . '")');
-
-            $arr['id'] = $jakdb->jak_last_id();
-
-          } else {
-
-            // Additional Fields
-            $cleanemail = filter_var($arr['co_email'], FILTER_SANITIZE_EMAIL);
-            $cleanurl   = filter_var($arr['co_url'], FILTER_SANITIZE_URL);
-
-            $jakdb->query('INSERT INTO ' . $envotable2 . ' VALUES (NULL, "' . $page2 . '", 0, "' . $cleanusername . '", "' . $cleanemail . '", "' . $cleanurl . '", "' . smartsql($cleanuserpostB) . '", "' . JAK_DOWNLOADPOSTAPPROVE . '", 0, NOW(), "' . $sqlset . '")');
-
-            $arr['id'] = $jakdb->jak_last_id();
-
-          }
-
-          // Send an email to the owner if wish so
-          if ($jkv["downloademail"] && !JAK_DOWNLOADMODERATE) {
-
-            $mail = new PHPMailer(); // defaults to using php "mail()"
-            $body = str_ireplace("[\]", '', $tld['downl_frontend_email']['dlemail'] . ' ' . (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'f', $page2, '', '') . '<br>' . $tld['downl_frontend_email']['dlemail1'] . ' ' . BASE_URL . 'admin/index.php?p=download&sb=comment&ssb=approval&sssb=go".');
-            $mail->SetFrom($jkv["email"], $jkv["title"]);
-            $mail->AddAddress($jkv["downloademail"], $cleanusername);
-            $mail->Subject = $jkv["title"] . ' - ' . $tld['downl_frontend_email']['dlemail2'];
-            $mail->MsgHTML($body);
-            $mail->Send(); // Send email without any warnings
-          }
-
-          $arr['created'] = JAK_Base::jakTimesince(time(), $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['global_text']['gtxt4']);
-
-          /*
-          / The data in $arr is escaped for the mysql query,
-          / but we need the unescaped variables, so we apply,
-          / stripslashes to all the elements in the array:
-          /*/
-
-          /* Outputting the markup of the just-inserted comment: */
-          if (isset($arr['jakajax']) && $arr['jakajax'] == "yes") {
-            $acajax = new JAK_comment($envotable2, 'id', $arr['id'], JAK_PLUGIN_VAR_DOWNLOAD, $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['global_text']['gtxt4']);
-
-            header('Cache-Control: no-cache');
-            die(json_encode(array('status' => 1, 'html' => $acajax->get_commentajax($tl['general']['g102'], $tld['downl_frontend']['downl13'], $tld['dload']['g4']))));
-
-          } else {
-            envo_redirect(JAK_PARSE_SUCCESS);
-          }
-
-        } else {
-          /* Outputting the error messages */
-          if (isset($arr['jakajax']) && $arr['jakajax'] == "yes") {
-            header('Cache-Control: no-cache');
-            die('{"status":0, "errors":' . json_encode($arr) . '}');
-          } else {
-
-            $errors = $arr;
-          }
-        }
-
-      }
 
       // Gain access to page
       if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['dlprotect'])) {
@@ -336,21 +248,6 @@ switch ($page1) {
 
         }
 
-        // Get the comments if wish so
-        if ($row['comments'] == 1) {
-          $ac = new JAK_comment($envotable2, 'fileid', $page2, JAK_PLUGIN_VAR_DOWNLOAD, $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['global_text']['gtxt4']);
-
-          $JAK_COMMENTS       = $ac->get_comments();
-          $JAK_COMMENTS_TOTAL = $ac->get_total();
-          $JAK_COMMENT_FORM   = TRUE;
-
-        } else {
-
-          $JAK_COMMENTS_TOTAL = 0;
-          $JAK_COMMENT_FORM   = FALSE;
-
-        }
-
         // Get the sort orders for the grid
         $grid = $jakdb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE fileid = "' . smartsql($row['id']) . '" ORDER BY orderid ASC');
         while ($grow = $grid->fetch_assoc()) {
@@ -445,109 +342,6 @@ switch ($page1) {
       $plugin_template = $pluginbasic_template;
     }
 
-    break;
-  case 'del':
-
-    if (is_numeric($page2) && is_numeric($page3) && envo_row_exist($page2, $envotable2)) {
-
-      if (JAK_DOWNLOADMODERATE) {
-
-        $result = $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($page2) . '"');
-
-        if (!$result) {
-          envo_redirect(JAK_PARSE_ERROR);
-        } else {
-          envo_redirect(JAK_PARSE_SUCCESS);
-        }
-
-      } else {
-        envo_redirect($backtodl);
-      }
-
-    } else {
-      envo_redirect($backtodl);
-    }
-
-    break;
-  case 'ep':
-
-    if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['userpost']) && isset($_POST['name']) && isset($_POST['editpost'])) {
-      // EN: Default Variable
-      // CZ: Hlavní proměnné
-      $defaults = $_POST;
-
-      if (empty($defaults['userpost'])) {
-        $errors['e'] = $tl['error']['e2'] . '<br>';
-      }
-
-      if (strlen($defaults['userpost']) > $jkv["downloadmaxpost"]) {
-        $countI      = strlen($defaults['userpost']);
-        $errors['e'] = $tld['downl_frontend_error']['downler1'] . $jkv["downloadmaxpost"] . ' ' . $tld['downl_frontend_error']['downler2'] . $countI . '<br>';
-      }
-
-      if (is_numeric($page2) && count($errors) == 0 && envo_row_exist($page2, $envotable2)) {
-
-        define('BASE_URL_IMG', BASE_URL);
-
-        $cleanpost = htmlspecialchars_decode(envo_clean_safe_userpost($defaults['userpost']));
-
-        $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET username = "' . smartsql($defaults['username']) . '", web = "' . smartsql($defaults['web']) . '", message = "' . smartsql($cleanpost) . '" WHERE id = "' . smartsql($page2) . '"');
-
-        if (!$result) {
-          envo_redirect(html_entity_decode(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'ep', $page2, $page3, 'e')));
-        } else {
-          envo_redirect(html_entity_decode(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'ep', $page2, $page3, 's')));
-        }
-
-      } else {
-        $errors = $errors;
-      }
-
-    }
-
-    if (is_numeric($page2) && is_numeric($page3) && envo_row_exist($page2, $envotable2)) {
-
-      if (JAK_USERID && JAK_DOWNLOADDELETE && envo_give_right($page2, JAK_USERID, $envotable2, 'userid') || JAK_DOWNLOADMODERATE) {
-
-        $result = $jakdb->query('SELECT username, web, message FROM ' . $envotable2 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
-        $row    = $result->fetch_assoc();
-
-        $RUNAME = $row['username'];
-        $RWEB   = $row['web'];
-        $RCONT  = envo_edit_safe_userpost($row['message']);
-
-        // EN: Load the php template
-        // CZ: Načtení php template (šablony)
-        $template = 'editpost.php';
-
-      } else {
-        envo_redirect($backtodl);
-      }
-
-    } else {
-      envo_redirect($backtodl);
-    }
-    break;
-  case 'trash':
-    if (is_numeric($page2) && is_numeric($page3) && envo_row_exist($page2, $envotable2)) {
-
-      if (JAK_USERID && JAK_DOWNLOADPOSTDELETE && envo_give_right($page2, JAK_USERID, $envotable2, 'userid') || JAK_DOWNLOADMODERATE) {
-
-        $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET trash = 1 WHERE id = "' . smartsql($page2) . '"');
-
-        if (!$result) {
-          envo_redirect(JAK_PARSE_ERROR);
-        } else {
-          envo_redirect(JAK_PARSE_SUCCESS);
-        }
-
-      } else {
-        envo_redirect($backtodl);
-      }
-
-    } else {
-      envo_redirect($backtodl);
-    }
     break;
   case 'dl':
 

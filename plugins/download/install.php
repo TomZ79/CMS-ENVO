@@ -204,7 +204,7 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
       // EN: Usergroup - Insert php code (get data from plugin setting in usergroup)
       // CZ: Usergroup - Vložení php kódu (získání dat z nastavení pluginu v uživatelské skupině)
       $insertphpcode = 'if (isset($defaults[\'jak_download\'])) {
-	$insert .= \'download = \"\'.$defaults[\'jak_download\'].\'\", downloadcan = \"\'.$defaults[\'jak_candownload\'].\'\", downloadpost = \"\'.$defaults[\'jak_downloadpost\'].\'\", downloadpostapprove = \"\'.$defaults[\'jak_downloadpostapprove\'].\'\", downloadpostdelete = \"\'.$defaults[\'jak_downloadpostdelete\'].\'\", downloadrate = \"\'.$defaults[\'jak_downloadrate\'].\'\", downloadmoderate = \"\'.$defaults[\'jak_downloadmoderate\'].\'\",\'; }';
+	$insert .= \'download = \"\'.$defaults[\'jak_download\'].\'\", downloadcan = \"\'.$defaults[\'jak_candownload\'].\'\"\'; }';
 
       // EN: Set admin lang of plugin
       // CZ: Nastavení jazyka pro administrační rozhraní pluginu
@@ -407,19 +407,6 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 	}
     ';
 
-      // EN: Execute PHP code in the admin/user.php file
-      // CZ: Php kód pro soubor admin/user.php
-      $adminphpdelete = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'downloadcomments SET userid = 0 WHERE userid = \'.$page2.\'\');';
-
-      // EN: Execute PHP code in the admin/user.php file
-      // CZ: Php kód pro soubor admin/user.php
-      $adminphprename = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'downloadcomments SET username = \"\'.smartsql($defaults[\'jak_username\']).\'\" WHERE userid = \'.smartsql($page2).\'\');';
-
-      // EN: Execute PHP code in the admin/user.php file
-      // CZ: Php kód pro soubor admin/user.php
-      $adminphpmassdel = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'downloadcomments SET userid = 0 WHERE userid = \'.$locked);';
-
-
       // EN: Insert data to table 'pluginhooks'
       // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
       $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
@@ -446,9 +433,6 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 (NULL, "php_admin_pages_news_info", "Download Pages/News Info", "' . $getdl . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_page_news_grid", "Download Pages/News Display", "' . $get_dlconnect . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_search", "Download Search", "' . $get_dlsearch . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "php_admin_user_delete", "Download Delete User", "' . $adminphpdelete . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "php_admin_user_rename", "Download Rename User", "' . $adminphprename . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "php_admin_user_delete_mass", "Download Delete User Mass", "' . $adminphpmassdel . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_footer_widgets", "Download - 3 Latest Files", "' . $get_dlfooter_widgets . '", "download", 1, 3, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_footer_widgets", "Download - Show Categories", "' . $get_dlfooter_widgets1 . '", "download", 1, 3, "' . $rows['id'] . '", NOW())');
 
@@ -474,7 +458,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 
       // EN: Insert data to table 'usergroup'
       // CZ: Vložení potřebných dat to tabulky 'usergroup'
-      $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `download` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`, ADD `downloadcan` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `download`, ADD `downloadpost` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `download`, ADD `downloadpostdelete` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `downloadpost`, ADD `downloadpostapprove` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `downloadpostdelete`, ADD `downloadrate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `downloadpostdelete`, ADD `downloadmoderate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `downloadrate`');
+      $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `download` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`, ADD `downloadcan` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `download`');
 
       // Pages/News alter Table
       $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showdownload varchar(100) DEFAULT NULL AFTER showcontact');
@@ -506,7 +490,6 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
   `active` smallint(1) unsigned NOT NULL DEFAULT 1,
   `showcontact` int(11) unsigned NOT NULL DEFAULT 0,
   `showdate` smallint(1) unsigned NOT NULL DEFAULT 0,
-  `comments` smallint(1) unsigned NOT NULL DEFAULT 0,
   `ftshare` smallint(1) unsigned NOT NULL DEFAULT 0,
   `socialbutton` smallint(1) unsigned NOT NULL DEFAULT 0,
   `hits` int(10) unsigned NOT NULL DEFAULT 0,
@@ -532,24 +515,6 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
   PRIMARY KEY (`id`),
   KEY `catorder` (`catorder`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
-
-      // EN: Create table for plugin (comments)
-      // CZ: Vytvoření tabulky pro plugin (komentáře)
-      $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'downloadcomments (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `fileid` int(11) unsigned NOT NULL DEFAULT 0,
-  `userid` int(11) NOT NULL DEFAULT 0,
-  `username` varchar(100) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `web` varchar(255) DEFAULT NULL,
-  `message` text,
-  `approve` smallint(1) unsigned NOT NULL DEFAULT 0,
-  `trash` smallint(1) unsigned NOT NULL DEFAULT 0,
-  `time` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
-  `session` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fileid` (`fileid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1');
 
       // EN: Create table for plugin (downloadhistory)
       // CZ: Vytvoření tabulky pro plugin (historie stahování)

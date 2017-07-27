@@ -19,32 +19,6 @@ function envo_get_downloads($limit, $jakvar1, $table)
   return $envodata;
 }
 
-// Get the download comments
-function envo_get_download_comments($limit, $jakvar1, $jakvar2)
-{
-
-  if ($jakvar1 == 'approve') {
-    $sqlwhere = 'WHERE approve = 0 AND trash = 0 ';
-  } elseif ($jakvar2 == 'fileid') {
-    $sqlwhere = 'WHERE fileid = ' . smartsql($jakvar1) . ' AND trash = 0 ';
-  } elseif ($jakvar2 == 'userid') {
-    $sqlwhere = 'WHERE userid = ' . smartsql($jakvar1) . ' AND trash = 0 ';
-  } else {
-    $sqlwhere = 'WHERE trash = 0 ';
-  }
-
-  global $jakdb;
-  $envodata = array();
-  $result  = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'downloadcomments ' . $sqlwhere . 'ORDER BY id, approve = 0 DESC ' . $limit);
-  while ($row = $result->fetch_assoc()) {
-    // EN: Insert each record into array
-    // CZ: Vložení získaných dat do pole
-    $envodata[] = $row;
-  }
-
-  return $envodata;
-}
-
 // Get local download files
 function envo_get_download_files($path)
 {
