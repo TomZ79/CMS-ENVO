@@ -49,16 +49,16 @@ if ($page == 'template') { ?>
 
       // Close modal dialog from iFrame - call this by onclick="window.parent.closeModal(); from iFrame"
       window.closeModal = function () {
-        $('#JAKModal').modal('hide');
+        $('#ENVOModal').modal('hide');
       };
 
       $('.tempSett').on('click', function (e) {
         e.preventDefault();
         frameSrc = $(this).attr("href");
-        $('#JAKModalLabel').html("<?php echo ucwords($page);?>");
+        $('#ENVOModalLabel').html("<?php echo ucwords($page);?>");
 
-        $('#JAKModal').one('shown.bs.modal', function (e) {
-          $('#JAKModal .modal-dialog').addClass('modal-w-70p');
+        $('#ENVOModal').one('shown.bs.modal', function (e) {
+          $('#ENVOModal .modal-dialog').addClass('modal-w-70p');
           $('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
         }).one('hidden.bs.modal', function (e) {
           $(".body-content").html('');
@@ -71,10 +71,10 @@ if ($page == 'template') { ?>
       $('.tempInst').on('click', function (e) {
         e.preventDefault();
         frameSrc = $(this).attr("href");
-        $('#JAKModalLabel').html("<?php echo ucwords($page);?>");
+        $('#ENVOModalLabel').html("<?php echo ucwords($page);?>");
 
-        $('#JAKModal').one('shown.bs.modal', function (e) {
-          $('#JAKModal .modal-dialog').addClass('modal-w-70p');
+        $('#ENVOModal').one('shown.bs.modal', function (e) {
+          $('#ENVOModal .modal-dialog').addClass('modal-w-70p');
           $('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
         }).one('hidden.bs.modal', function (e) {
           $(".body-content").html('');
@@ -87,10 +87,10 @@ if ($page == 'template') { ?>
       $('.tempHelp').on('click', function (e) {
         e.preventDefault();
         frameSrc = $(this).attr("href");
-        $('#JAKModalLabel').html("<?php echo ucwords($page);?>");
+        $('#ENVOModalLabel').html("<?php echo ucwords($page);?>");
 
-        $('#JAKModal').one('shown.bs.modal', function (e) {
-          $('#JAKModal .modal-dialog').addClass('modal-w-90p');
+        $('#ENVOModal').one('shown.bs.modal', function (e) {
+          $('#ENVOModal .modal-dialog').addClass('modal-w-90p');
           $('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
         }).one('hidden.bs.modal', function (e) {
           $(".body-content").html('');

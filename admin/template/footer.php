@@ -271,7 +271,7 @@ if ($JAK_PROVED && !isset($jkv["cms_tpl"])) { ?>
 } ?>
 
 <!-- MODAL DIALOG -->
-<div class="modal fade fill-in" id="JAKModal" tabindex="-1" role="dialog" aria-labelledby="JAKModalLabel" aria-hidden="true">
+<div class="modal fade fill-in" id="ENVOModal" tabindex="-1" role="dialog" aria-labelledby="ENVOModalLabel" aria-hidden="true">
   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
     <i class="pg-close"></i>
   </button>

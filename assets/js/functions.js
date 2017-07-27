@@ -20,27 +20,27 @@ $(function () {
 	$('.quickedit').on('click', function (e) {
 		e.preventDefault();
 		frameSrc = $(this).attr("href");
-		$('#JAKModalLabel').html(envoWeb.envo_quickedit);
-		$('#JAKModal').on('show.bs.modal', function () {
+		$('#ENVOModalLabel').html(envoWeb.envo_quickedit);
+		$('#ENVOModal').on('show.bs.modal', function () {
 			$('<iframe src="' + frameSrc + '" width="100%" height="450" frameborder="0">').appendTo('.modal-body');
 		});
-		$('#JAKModal').on('hidden.bs.modal', function () {
+		$('#ENVOModal').on('hidden.bs.modal', function () {
 			window.location.reload();
 		});
-		$('#JAKModal').modal({show: true});
+		$('#ENVOModal').modal({show: true});
 	});
 
 	$('.commedit').on('click', function (e) {
 		e.preventDefault();
 		frameSrc = $(this).attr("href");
-		$('#JAKModalLabel').html(envoWeb.envo_quickedit);
-		$('#JAKModal').on('show.bs.modal', function () {
+		$('#ENVOModalLabel').html(envoWeb.envo_quickedit);
+		$('#ENVOModal').on('show.bs.modal', function () {
 			$('<iframe src="' + frameSrc + '" width="100%" height="400" frameborder="0">').appendTo('.modal-body');
 		});
-		$('#JAKModal').on('hidden.bs.modal', function () {
+		$('#ENVOModal').on('hidden.bs.modal', function () {
 			window.location.reload();
 		});
-		$('#JAKModal').modal({show: true});
+		$('#ENVOModal').modal({show: true});
 	});
 
 	$('.lightbox').on('click', function (e) {

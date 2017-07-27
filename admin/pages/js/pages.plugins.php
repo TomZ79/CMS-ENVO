@@ -60,39 +60,39 @@ if ($page == 'plugins' && $page1 == 'sorthooks') {
   $(document).ready(function () {
     // Close modal dialog from iFrame - call this by onclick="window.parent.closeModal(); from iFrame"
     window.closeModal = function () {
-      $('#JAKModal').modal('hide');
+      $('#ENVOModal').modal('hide');
     };
 
     // Show iFrame in modal - install and uninstall
     $('.plugInst').on('click', function (e) {
       e.preventDefault();
       frameSrc = $(this).attr("href");
-      $('#JAKModalLabel').html("<?php echo ucwords($page);?>");
-      $('#JAKModal').on('show.bs.modal', function () {
-        $('#JAKModal .modal-dialog').addClass('modal-w-90p');
+      $('#ENVOModalLabel').html("<?php echo ucwords($page);?>");
+      $('#ENVOModal').on('show.bs.modal', function () {
+        $('#ENVOModal .modal-dialog').addClass('modal-w-90p');
         $('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">').appendTo('.body-content');
       });
-      $('#JAKModal').on('hidden.bs.modal', function () {
+      $('#ENVOModal').on('hidden.bs.modal', function () {
         $(this).removeData();
         window.location.reload();
       });
-      $('#JAKModal').modal({show: true});
+      $('#ENVOModal').modal({show: true});
     });
 
     // Show iFrame in modal - help
     $('.plugHelp').on('click', function (e) {
       e.preventDefault();
       frameSrc = $(this).attr("href");
-      $('#JAKModalLabel').html("<?php echo ucwords($page);?>");
-      $('#JAKModal').on('show.bs.modal', function () {
-        $('#JAKModal .modal-dialog').addClass('modal-w-90p');
+      $('#ENVOModalLabel').html("<?php echo ucwords($page);?>");
+      $('#ENVOModal').on('show.bs.modal', function () {
+        $('#ENVOModal .modal-dialog').addClass('modal-w-90p');
         $('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">').appendTo('.body-content');
       });
-      $('#JAKModal').on('hidden.bs.modal', function () {
+      $('#ENVOModal').on('hidden.bs.modal', function () {
         $(this).removeData();
         window.location.reload();
       });
-      $('#JAKModal').modal({show: true});
+      $('#ENVOModal').modal({show: true});
     });
 
     /* Check all checkbox */

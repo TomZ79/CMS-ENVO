@@ -230,15 +230,15 @@ $(document).ready(function () {
 	$('.ifManager').on('click', function (e) {
 		e.preventDefault();
 		frameSrc = $(this).attr("href");
-		$('#JAKModalLabel').html("FileManager");
-		$('#JAKModal').on('show.bs.modal', function () {
-			$('#JAKModal .modal-body').html('<iframe src="' + frameSrc + '" width="100%" height="400" frameborder="0">');
+		$('#ENVOModalLabel').html("FileManager");
+		$('#ENVOModal').on('show.bs.modal', function () {
+			$('#ENVOModal .modal-body').html('<iframe src="' + frameSrc + '" width="100%" height="400" frameborder="0">');
 		});
-		$('#JAKModal').on('hidden.bs.modal', function () {
-			$('#JAKModal .modal-body').html("");
+		$('#ENVOModal').on('hidden.bs.modal', function () {
+			$('#ENVOModal .modal-body').html("");
 			$('#main-logo').attr("src", $('#sclogo').val());
 		});
-		$('#JAKModal').modal({show: true});
+		$('#ENVOModal').modal({show: true});
 	});
 
 	$("#cb1").change(function () {

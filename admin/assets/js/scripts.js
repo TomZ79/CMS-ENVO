@@ -316,10 +316,10 @@ $(function () {
   $('.ifManager').on('click', function (e) {
     e.preventDefault();
     frameSrc = $(this).attr("href");
-    $('#JAKModalLabel').html("FileManager");
+    $('#ENVOModalLabel').html("FileManager");
 
-    $('#JAKModal').one('shown.bs.modal', function (e) {
-      $('#JAKModal .modal-dialog').addClass('modal-w-70p');
+    $('#ENVOModal').one('shown.bs.modal', function (e) {
+      $('#ENVOModal .modal-dialog').addClass('modal-w-70p');
       $('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
     }).one('hidden.bs.modal', function (e) {
       $(".body-content").html('');
@@ -331,10 +331,10 @@ $(function () {
   $('.contentHelp').on('click', function (e) {
     e.preventDefault();
     frameSrc = $(this).attr("href");
-    $('#JAKModalLabel').html("Helpcontent");
+    $('#ENVOModalLabel').html("Helpcontent");
 
-    $('#JAKModal').one('shown.bs.modal', function (e) {
-      $('#JAKModal .modal-dialog').addClass('modal-w-90p');
+    $('#ENVOModal').one('shown.bs.modal', function (e) {
+      $('#ENVOModal .modal-dialog').addClass('modal-w-90p');
       $('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
     }).one('hidden.bs.modal', function (e) {
       $(".body-content").html('');
