@@ -481,70 +481,6 @@ function envo_build_menu($parent, $menu, $active, $mainclass, $dropdown, $dropcl
   return $html;
 }
 
-function envo_build_comments($parent, $comm, $mainclass, $access, $session, $approve, $reply, $permission, $table, $report, $status)
-{
-  $html = '';
-  if (isset($comm['subcomm'][$parent])) {
-
-    $html .= '<ul' . ($mainclass ? ' class="' . $mainclass . '"' : "") . '>';
-    foreach ($comm['subcomm'][$parent] as $comID) {
-      if (!isset($comm['subcomm'][$comID])) {
-        $html .= '<li><div class="comment-wrapper"><div class="comment-author"><img src="' . ($comm["comm"][$comID]["userid"] != 0 ? BASE_URL . JAK_FILES_DIRECTORY . '/userfiles' . $comm["comm"][$comID]["picture"] : BASE_URL . JAK_FILES_DIRECTORY . '/userfiles' . '/standard.png') . '" alt="avatar" /> ' . $comm["comm"][$comID]["username"] . '</div>
-   	     	 			' . (($comm["comm"][$comID]["approve"] == 0 && !empty($comm["comm"][$comID]["session"]) && $session == $comm["comm"][$comID]["session"]) ? '<div class="alert bg-info">' . $approve . '</div>' : "") . '
-   	     	 			<div class="com">
-   	     	 				' . $comm["comm"][$comID]["message"] . '
-   	     	 			</div>
-   	     	 			<!-- Comment Controls -->
-   	     	 			<div class="comment-actions">
-   	     	 				<span class="comment-date">' . $comm["comm"][$comID]["created"] . '</span>
-   	     	 				<a href="javascript:void(0);" data-cvote="up" data-id="' . $comm["comm"][$comID]["id"] . '" data-table="' . $table . '" class="jak-cvote"><i class="fa fa-thumbs-up"></i></a>
-   	     	 				<a href="javascript:void(0);" data-cvote="down" data-id="' . $comm["comm"][$comID]["id"] . '" data-table="' . $table . '" class="jak-cvote"><i class="fa fa-thumbs-down"></i></a>
-   	     	 				<!-- Votes -->
-   	     	 				<span id="jak-cvotec' . $comm["comm"][$comID]["id"] . '" class="label label-' . envo_comment_votes($comm["comm"][$comID]["votes"]) . '">' . $comm["comm"][$comID]["votes"] . '</span>
-   	     	 				' . ($permission && $status && !$comm["comm"][$comID]["commentid"] ? '<a href="javascript:void(0);" data-id="' . $comm["comm"][$comID]["id"] . '" class="btn btn-xs btn-primary comment-reply-btn jak-creply"><i class="fa fa-share-alt"></i> ' . $reply . '</a>' : '') . '
-   	     	 				' . ($access ? '<a href="' . $comm["comm"][$comID]["parseurl1"] . '" class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i></a>
-   	     	 				<a href="' . $comm["comm"][$comID]["parseurl2"] . '" class="btn btn-default btn-xs commedit"><i class="fa fa-pencil"></i></a>
-   	     	 				<a href="' . $comm["comm"][$comID]["parseurl3"] . '" class="btn btn-default btn-xs"><i class="fa fa-ban"></i></a>' : "") . ($report && $comm["comm"][$comID]["report"] == 0 ? ' <a href="' . $comm["comm"][$comID]["parseurl4"] . '" class="btn btn-xs btn-warning commedit"><i class="fa fa-exclamation-triangle"></i></a>' : "") . '
-   	     	 			</div>
-   	     	 		</div></li>';
-        if (!$comm["comm"][$comID]["commentid"]) {
-          $html .= '<li><ul><li id="insertPost_' . $comm["comm"][$comID]["id"] . '"></li></ul></li>';
-        }
-      }
-      if (isset($comm['subcomm'][$comID])) {
-        $html .= '<li><div class="comment-wrapper">
-   	        	 			<div class="comment-author"><img src="' . ($comm["comm"][$comID]["userid"] != 0 ? BASE_URL . JAK_FILES_DIRECTORY . '/userfiles' . $comm["comm"][$comID]["picture"] : BASE_URL . JAK_FILES_DIRECTORY . '/userfiles' . '/standard.png') . '" alt="avatar" /> ' . $comm["comm"][$comID]["username"] . '</div>
-   	        	 			' . (($comm["comm"][$comID]["approve"] == 0 && !empty($comm["comm"][$comID]["session"]) && $session == $comm["comm"][$comID]["session"]) ? '<div class="alert bg-info">' . $approve . '</div>' : "") . '
-   	        	 			<div class="com">
-   	        	 				' . $comm["comm"][$comID]["message"] . '
-   	        	 			</div>
-   	        	 			<!-- Comment Controls -->
-   	        	 			<div class="comment-actions">
-   	        	 				<span class="comment-date">' . $comm["comm"][$comID]["created"] . '</span>
-   	        	 				<a href="javascript:void(0);" data-cvote="up" data-id="' . $comm["comm"][$comID]["id"] . '" data-table="' . $table . '" class="jak-cvote"><i class="fa fa-thumbs-up"></i></a>
-   	        	 				<a href="javascript:void(0);" data-cvote="down" data-id="' . $comm["comm"][$comID]["id"] . '" data-table="' . $table . '" class="jak-cvote"><i class="fa fa-thumbs-down"></i></a>
-   	        	 				<!-- Votes -->
-   	        	 				<span id="jak-cvotec' . $comm["comm"][$comID]["id"] . '" class="label label-' . envo_comment_votes($comm["comm"][$comID]["votes"]) . '">' . $comm["comm"][$comID]["votes"] . '</span>
-   	        	 				' . ($permission && $status && !$comm["comm"][$comID]["commentid"] ? '<a href="javascript:void(0);" data-id="' . $comm["comm"][$comID]["id"] . '" class="btn btn-xs btn-primary comment-reply-btn jak-creply"><i class="fa fa-share-alt"></i> ' . $reply . '</a>' : '') . '
-   	        	 				' . ($access ? '<a href="' . $comm["comm"][$comID]["parseurl1"] . '" class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i></a>
-   	        	 				<a href="' . $comm["comm"][$comID]["parseurl2"] . '" class="btn btn-default btn-xs commedit"><i class="fa fa-pencil"></i></a>
-   	        	 				<a href="' . $comm["comm"][$comID]["parseurl3"] . '" class="btn btn-default btn-xs"><i class="fa fa-ban"></i></a>' : "") . ($report && $comm["comm"][$comID]["report"] == 0 ? ' <a href="' . $comm["comm"][$comID]["parseurl4"] . '" class="btn btn-xs btn-warning commedit"><i class="fa fa-exclamation-triangle"></i></a>' : "") . '
-   	        	 			</div>
-   	        	 		</div></li><li>';
-        $html .= envo_build_comments($comID, $comm, "", $access, $session, $approve, $reply, $permission, $table, $report, $status);
-        $html .= '</li>';
-        if (!$comm["comm"][$comID]["commentid"]) {
-          $html .= '<li><ul><li id="insertPost_' . $comm["comm"][$comID]["id"] . '"></li></ul></li>';
-        }
-      }
-    }
-
-    $html .= '</ul>';
-  }
-
-  return $html;
-}
-
 // only full words
 function envo_cut_text($text, $limit, $jakvar2)
 {
@@ -638,15 +574,6 @@ function envo_clean_safe_userpost($input)
   $allowedhtml = array('safe' => 1, 'elements' => 'em, p, br, img, ul, li, ol, a, strong, pre, code', 'deny_attribute' => 'class, title, id, style, on*', 'comment' => 1, 'cdata' => 1, 'valid_xhtml' => 1, 'make_tag_strict' => 1);
   $allowedatr  = '';
   $input       = htmLawed($input, $allowedhtml, $allowedatr);
-  global $jkv;
-  if ($jkv["usr_smilies"]) {
-
-    require_once APP_PATH . 'class/class.smileyparser.php';
-
-    // More dirty custom work and smiley parser
-    $smileyparser = new JAK_smiley();
-    $input        = $smileyparser->parseSmileytext($input);
-  }
 
   // Now return the input
   if ($input) {

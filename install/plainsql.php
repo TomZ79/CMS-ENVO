@@ -260,7 +260,6 @@ $jakdb->query("INSERT INTO " . DB_PREFIX . "setting VALUES
 ('adminpageitem', 'setting', '15', '10', 'input', 'number', 'cms'),
 ('timezoneserver', 'setting', 'Europe/Zurich', 'Europe/Zurich', 'select', 'free', 'cms'),
 ('rss', 'setting', '0', '1', 'yesno', 'boolean', 'cms'),
-('usr_smilies', 'setting', '0', '0', 'yesno', 'boolean', 'cms'),
 ('adv_editor', 'setting', '1', '0', 'yesno', 'boolean', 'cms'),
 ('rssitem', 'setting', '10', '10', 'input', 'number', 'cms'),
 ('lang', 'setting', 'cs', 'cs', 'input', 'free', 'cms'),
@@ -398,7 +397,6 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "usergroup (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
   `description` mediumtext,
-  `canrate` smallint(1) unsigned NOT NULL DEFAULT 0,
   `tags` smallint(1) unsigned NOT NULL DEFAULT 0,
   `advsearch` smallint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
@@ -410,37 +408,5 @@ $jakdb->query("INSERT INTO " . DB_PREFIX . "usergroup VALUES
 (3, 'Administrator', 'Administrator user group, usually full access and no approval for posts.', 1, 1, 1),
 (4, 'Moderator', 'Moderator user group, they can delete other post from blog, forum, gallery or shop.', 0, 1, 1),
 (5, 'Banned', 'Banned user can only browse thru the page.', 0, 0, 0)");
-
-$jakdb->query("CREATE TABLE " . DB_PREFIX . "like_counter (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `btnid` int(11) unsigned NOT NULL DEFAULT '0',
-  `locid` int(11) unsigned NOT NULL DEFAULT '0',
-  `blike` int(11) unsigned NOT NULL DEFAULT '0',
-  `blove` int(11) unsigned NOT NULL DEFAULT '0',
-  `brofl` int(11) unsigned NOT NULL DEFAULT '0',
-  `bsmile` int(11) unsigned NOT NULL DEFAULT '0',
-  `bwow` int(11) unsigned NOT NULL DEFAULT '0',
-  `bsad` int(11) unsigned NOT NULL DEFAULT '0',
-  `bangry` int(11) unsigned NOT NULL DEFAULT '0',
-  `firstcreated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `lastentered` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`),
-  KEY `btnid` (`btnid`,`locid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci");
-
-$jakdb->query("CREATE TABLE " . DB_PREFIX . "like_client (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `btnid` int(11) unsigned NOT NULL DEFAULT '0',
-  `locid` int(11) unsigned NOT NULL DEFAULT '0',
-  `userid` int(11) unsigned NOT NULL DEFAULT '0',
-  `username` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `sessionid` varchar(64) DEFAULT NULL,
-  `ip` char(15) DEFAULT NULL,
-  `status` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`),
-  KEY `btnid` (`btnid`,`userid`,`sessionid`,`ip`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci");
 
 ?>

@@ -4,9 +4,6 @@
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
-// Include the comment class file
-require_once APP_PATH . 'class/class.comment.php';
-
 // Functions we need for this plugin
 include_once 'functions.php';
 

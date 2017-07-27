@@ -4,9 +4,6 @@
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
-// Include the comment class file
-require_once 'class/class.comment.php';
-
 // Functions we need for this plugin
 include_once 'functions.php';
 
@@ -14,20 +11,12 @@ include_once 'functions.php';
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable  = DB_PREFIX . 'blog';
 $envotable1 = DB_PREFIX . 'blogcategories';
-$envotable2 = DB_PREFIX . 'blogcomments';
 
 $CHECK_USR_SESSION = session_id();
 
 // Get the important template stuff
 $JAK_SEARCH_WHERE = JAK_PLUGIN_VAR_BLOG;
 $JAK_SEARCH_LINK  = JAK_PLUGIN_VAR_BLOG;
-
-// Wright the Usergroup permission into define and for template
-define('JAK_BLOGPOST', $jakusergroup->getVar("blogpost"));
-define('JAK_BLOGPOSTDELETE', $jakusergroup->getVar("blogpostdelete"));
-define('JAK_BLOGPOSTAPPROVE', $jakusergroup->getVar("blogpostapprove"));
-define('JAK_BLOGRATE', $jakusergroup->getVar("blograte"));
-define('JAK_BLOGMODERATE', $jakusergroup->getVar("blogmoderate"));
 
 // AJAX Search
 $AJAX_SEARCH_PLUGIN_WHERE = $envotable;
@@ -78,6 +67,7 @@ switch ($page1) {
         $blogc->jak_nexttext   = $tl["pagination"]["pagin1"];
         $blogc->paginate();
         $JAK_PAGINATE = $blogc->display_pages();
+
       }
 
       $JAK_BLOG_ALL = envo_get_blog($blogc->limit, $jkv["blogorder"], $page2, 't1.catid', $jkv["blogurl"], $tl['global_text']['gtxt4']);
@@ -139,90 +129,6 @@ switch ($page1) {
 
     if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
-      if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['userPost'])) {
-
-        $arr = array();
-
-        $validates = JAK_comment::validate_form($arr, $jkv["blogmaxpost"], $tl['error']['e'], $tl['error']['e1'], $tlblog['blog']['e3'], $tl['error']['e2'], $tlblog['blog']['e1'], $tlblog['blog']['e2'], $tl['error']['e10']);
-
-        if ($validates) {
-          /* Everything is OK, insert to database: */
-
-          define('BASE_URL_IMG', BASE_URL);
-
-          $cleanusername  = smartsql($arr['co_name']);
-          $cleanuserpostB = htmlspecialchars_decode(envo_clean_safe_userpost($arr['userpost']));
-
-          // is this an answer of another comment
-          $quotemsg = 0;
-          if (isset($arr['comanswerid']) && $arr['comanswerid'] > 0) $quotemsg = $arr['comanswerid'];
-
-          // the new session check for displaying messages to user even if not approved
-          $sqlset = 0;
-          if (!JAK_BLOGPOSTAPPROVE) {
-            $sqlset = session_id();
-          }
-
-          if (JAK_USERID) {
-
-            $sql = $jakdb->query('INSERT INTO ' . $envotable2 . ' VALUES (NULL, "' . $page2 . '", "' . smartsql($quotemsg) . '", "' . smartsql(JAK_USERID) . '", "' . $cleanusername . '", NULL, NULL, "' . smartsql($cleanuserpostB) . '", "' . smartsql(JAK_BLOGPOSTAPPROVE) . '", 0, 0, NOW(), "' . smartsql($sqlset) . '")');
-
-            $arr['id'] = $jakdb->jak_last_id();
-
-          } else {
-
-            // Additional Fields
-            $cleanemail = filter_var($arr['co_email'], FILTER_SANITIZE_EMAIL);
-            $cleanurl   = filter_var($arr['co_url'], FILTER_SANITIZE_URL);
-
-            $jakdb->query('INSERT INTO ' . $envotable2 . ' VALUES (NULL, "' . $page2 . '", "' . smartsql($quotemsg) . '", 0, "' . $cleanusername . '", "' . smartsql($cleanemail) . '", "' . smartsql($cleanurl) . '", "' . smartsql($cleanuserpostB) . '", "' . smartsql(JAK_BLOGPOSTAPPROVE) . '", 0, 0, NOW(), "' . smartsql($sqlset) . '")');
-
-            $arr['id'] = $jakdb->jak_last_id();
-
-          }
-
-          // Send an email to the owner if wish so
-          if ($jkv["blogemail"] && !JAK_BLOGMODERATE) {
-
-            $mail = new PHPMailer(); // defaults to using php "mail()"
-            $body = str_ireplace("[\]", '', $tlblog['blog']['d5'] . ' ' . (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_BLOG, 'a', $page2, '', '') . '<br>' . $tlblog['blog']['g6'] . ' ' . BASE_URL . 'admin/index.php?p=blog&sb=blogcomment&ssb=approval&sssb=go".');
-            $mail->SetFrom($jkv["email"], $jkv["title"]);
-            $mail->AddAddress($jkv["blogemail"], $cleanusername);
-            $mail->Subject = $jkv["title"] . ' - ' . $tlblog['blog']['g5'];
-            $mail->MsgHTML($body);
-            $mail->Send(); // Send email without any warnings
-          }
-
-          $arr['created'] = JAK_Base::jakTimesince(time(), $jkv["blogdateformat"], $jkv["blogtimeformat"], $tl['global_text']['gtxt4']);
-
-          /*
-          /	The data in $arr is escaped for the mysql query,
-          /	but we need the unescaped variables, so we apply,
-          /	stripslashes to all the elements in the array:
-          /*/
-
-          /* Outputting the markup of the just-inserted comment: */
-          if (isset($arr['jakajax']) && $arr['jakajax'] == "yes") {
-            $acajax = new JAK_comment($envotable2, 'id', $arr['id'], JAK_PLUGIN_VAR_BLOG, $jkv["blogdateformat"], $jkv["blogtimeformat"], $tl['global_text']['gtxt4']);
-
-            header('Cache-Control: no-cache');
-            die(json_encode(array('status' => 1, 'html' => $acajax->get_commentajax($tl['general']['g102'], $tlblog['blog']['g3'], $tlblog['blog']['g4']))));
-
-          } else {
-            envo_redirect(JAK_PARSE_SUCCESS);
-          }
-
-        } else {
-          /* Outputtng the error messages */
-          if (isset($arr['jakajax']) && $arr['jakajax'] == "yes") {
-            header('Cache-Control: no-cache');
-            die('{"status":0, "errors":' . json_encode($arr) . '}');
-          } else {
-            $errors = $arr;
-          }
-        }
-
-      }
 
       $result = $jakdb->query('SELECT * FROM ' . $envotable . ' WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 || enddate >= ' . time() . ')) AND id = "' . smartsql($page2) . '" LIMIT 1');
       $row    = $result->fetch_assoc();
@@ -272,39 +178,6 @@ switch ($page1) {
 
           // Get the url session
           $_SESSION['jak_lastURL'] = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_BLOG, $page1, $page2, $page3, '');
-
-        }
-
-        // Get the comments if wish so
-        if ($row['comments'] == 1) {
-
-          $ac = new JAK_comment($envotable2, 'blogid', $page2, JAK_PLUGIN_VAR_BLOG, $jkv["blogdateformat"], $jkv["blogtimeformat"], $tl['global_text']['gtxt4'], "", ' AND t1.commentid = 0', TRUE);
-
-          $comments_naked = $ac->get_comments();
-
-          // Get the header navigation
-          $JAK_COMMENTS = array(
-            'comm'    => array(),
-            'subcomm' => array()
-          );
-          // Builds the array lists with data from the menu table
-          if (isset($comments_naked)) foreach ($comments_naked as $comm) {
-            // Creates entry into items array with current menu item id ie. $menu['items'][1]
-            $JAK_COMMENTS['comm'][$comm['id']] = $comm;
-            // Creates entry into parents array. Parents array contains a list of all items with children
-            $JAK_COMMENTS['subcomm'][$comm['commentid']][] = $comm['id'];
-          }
-
-          // $ac = new JAK_comment($envotable2, 'blogid', $page2, JAK_PLUGIN_VAR_BLOG, $jkv["blogdateformat"], $jkv["blogtimeformat"], $tl['global_text']['gtxt4']);
-
-          // $JAK_COMMENTS = $ac->get_comments();
-          $JAK_COMMENTS_TOTAL = $ac->get_total();
-          $JAK_COMMENT_FORM   = TRUE;
-
-        } else {
-
-          $JAK_COMMENTS_TOTAL = 0;
-          $JAK_COMMENT_FORM   = FALSE;
 
         }
 
@@ -392,103 +265,6 @@ switch ($page1) {
       $plugin_template = $pluginbasic_template;
     }
 
-    break;
-  case 'del':
-
-    if (is_numeric($page2) && envo_row_exist($page2, $envotable2) && JAK_BLOGMODERATE) {
-
-      $result = $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($page2) . '"');
-
-      if (!$result) {
-        envo_redirect(JAK_PARSE_ERROR);
-      } else {
-        envo_redirect(JAK_PARSE_SUCCESS);
-      }
-
-    } else {
-      envo_redirect($backtoblog);
-    }
-
-    break;
-  case 'ep':
-
-    if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['userpost']) && isset($_POST['name']) && isset($_POST['editpost'])) {
-      // EN: Default Variable
-      // CZ: Hlavní proměnné
-      $defaults = $_POST;
-
-      if (empty($defaults['userpost'])) {
-        $errors['e'] = $tl['error']['e2'];
-      }
-
-      if (strlen($defaults['userpost']) > $jkv["blogmaxpost"]) {
-        $countI      = strlen($defaults['userpost']);
-        $errors['e'] = $tlblog['blog']['e1'] . $jkv["blogmaxpost"] . ' ' . $tlblog['blog']['e2'] . $countI;
-      }
-
-      if (is_numeric($page2) && count($errors) == 0 && envo_row_exist($page2, $envotable2)) {
-
-        define('BASE_URL_IMG', BASE_URL);
-
-        $cleanpost = htmlspecialchars_decode(envo_clean_safe_userpost($defaults['userpost']));
-
-        $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET username = "' . smartsql($defaults['username']) . '", web = "' . smartsql($defaults['web']) . '", message = "' . smartsql($cleanpost) . '" WHERE id = "' . smartsql($page2) . '"');
-
-        if (!$result) {
-          envo_redirect(html_entity_decode(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_BLOG, 'ep', $page2, $page3, 'e')));
-        } else {
-          envo_redirect(html_entity_decode(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_BLOG, 'ep', $page2, $page3, 's')));
-        }
-
-      } else {
-        $errors = $errors;
-      }
-
-    }
-
-    if (is_numeric($page2) && envo_row_exist($page2, $envotable2)) {
-
-      if (JAK_USERID && JAK_BLOGDELETE && envo_give_right($page2, JAK_USERID, $envotable2, 'userid') || JAK_BLOGMODERATE) {
-
-        $result = $jakdb->query('SELECT username, message, web FROM ' . $envotable2 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
-        $row    = $result->fetch_assoc();
-
-        $RUNAME = $row['username'];
-        $RWEB   = $row['web'];
-        $RCONT  = envo_edit_safe_userpost($row['message']);
-
-        // EN: Load the php template
-        // CZ: Načtení php template (šablony)
-        $template = 'editpost.php';
-
-      } else {
-        envo_redirect($backtoblog);
-      }
-
-    } else {
-      envo_redirect($backtoblog);
-    }
-    break;
-  case 'trash':
-    if (is_numeric($page2) && envo_row_exist($page2, $envotable2)) {
-
-      if (JAK_USERID && JAK_BLOGDELETE && envo_give_right($page2, JAK_USERID, $envotable2, 'userid') || JAK_BLOGMODERATE) {
-
-        $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET trash = 1 WHERE id = "' . smartsql($page2) . '"');
-
-        if (!$result) {
-          envo_redirect(JAK_PARSE_ERROR);
-        } else {
-          envo_redirect(JAK_PARSE_SUCCESS);
-        }
-
-      } else {
-        envo_redirect($backtoblog);
-      }
-
-    } else {
-      envo_redirect($backtoblog);
-    }
     break;
   default:
     // MAIN PAGE OF PLUGIN

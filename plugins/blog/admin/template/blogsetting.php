@@ -159,26 +159,6 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tlblog["blog_box_content"]["blogbc2"]);
-                        ?>
-
-                      </div>
-                      <div class="col-md-7">
-                        <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-
-                          <?php
-                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_email', $jkv["blogemail"], '', 'form-control');
-                          ?>
-
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row-form">
-                      <div class="col-md-5">
-
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                         echo $Html->addTag('strong', $tlblog["blog_box_content"]["blogbc3"]);
                         ?>
 
@@ -232,26 +212,6 @@ if ($errors) { ?>
                           } ?>
 
                         </select>
-                      </div>
-                    </div>
-                    <div class="row-form">
-                      <div class="col-md-5">
-
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tlblog["blog_box_content"]["blogbc5"]);
-                        ?>
-
-                      </div>
-                      <div class="col-md-7">
-                        <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-
-                          <?php
-                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_maxpost', $jkv["blogmaxpost"], '', 'form-control');
-                          ?>
-
-                        </div>
                       </div>
                     </div>
                     <div class="row-form">

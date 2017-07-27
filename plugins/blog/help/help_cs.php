@@ -129,15 +129,12 @@
                     <li class="file">blog_connect_new.php</li>
                     <li class="file">blogcat.php</li>
                     <li class="file">blogcatsort.php</li>
-                    <li class="file">blogcomment.php</li>
-                    <li class="file">blogcommentsort.php</li>
                     <li class="file">blognav.php <span>(backend - sidebar menu)</span></li>
                     <li class="file">blogsetting.php <span>(backend - nastavení)</span></li>
                     <li class="file">editblog.php <span>(backend - editace článku)</span></li>
                     <li class="file">editblogcat.php <span>(backend - editace kategorie)</span></li>
                     <li class="file">newblog.php <span>(backend - nový článek)</span></li>
                     <li class="file">newblogcat.php <span>(backend - nová kategorie)</span></li>
-                    <li class="file">trash.php</li>
                     <li class="file">usergroup_edit.php</li>
                     <li class="file">usergroup_new.php</li>
                   </ul>
@@ -374,7 +371,7 @@ $jakdb->query('UPDATE '.DB_PREFIX.'blogcomments SET userid = 0 WHERE userid = '.
         <p>For example:</p>
         <pre name="code" class="brush: php;">
 if (isset($defaults['jak_blog'])) {
-	$insert .= 'blog = "'.$defaults['jak_blog'].'", blogpost = "'.$defaults['jak_blogpost'].'", blogpostapprove = "'.$defaults['jak_blogpostapprove'].'", blogpostdelete = "'.$defaults['jak_blogpostdelete'].'", blograte = "'.$defaults['jak_blograte'].'", blogmoderate = "'.$defaults['jak_blogmoderate'].'",'; }
+	$insert .= 'blog = "'.$defaults['jak_blog'].'",'; }
         </pre>
 
       </article>

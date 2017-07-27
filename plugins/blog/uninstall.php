@@ -139,9 +139,7 @@ if (file_exists(APP_PATH . 'plugins/blog/admin/lang/' . $site_language . '.ini')
             $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE pluginid = "' . smartsql($rows['id']) . '"');
             $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "blog"');
             $jakdb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "blog"');
-            $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `blog`, DROP `blogpost`, DROP `blogpostdelete`, DROP `blogpostapprove`, DROP `blograte`, DROP `blogmoderate`');
-
-            //$jakdb->query('DROP TABLE ' . DB_PREFIX . 'blog, ' . DB_PREFIX . 'blogcategories, ' . DB_PREFIX . 'blogcomments');
+            $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `blog`');
 
             $jakdb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
             $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pages DROP showblog');

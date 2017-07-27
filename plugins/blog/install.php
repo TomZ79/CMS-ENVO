@@ -182,7 +182,7 @@ if (file_exists(APP_PATH . 'plugins/blog/admin/lang/' . $site_language . '.ini')
       // EN: Usergroup - Insert php code (get data from plugin setting in usergroup)
       // CZ: Usergroup - Vložení php kódu (získání dat z nastavení pluginu v uživatelské skupině)
       $insertphpcode = 'if (isset($defaults[\'jak_blog\'])) {
-	$insert .= \'blog = \"\'.$defaults[\'jak_blog\'].\'\", blogpost = \"\'.$defaults[\'jak_blogpost\'].\'\", blogpostapprove = \"\'.$defaults[\'jak_blogpostapprove\'].\'\", blogpostdelete = \"\'.$defaults[\'jak_blogpostdelete\'].\'\", blograte = \"\'.$defaults[\'jak_blograte\'].\'\", blogmoderate = \"\'.$defaults[\'jak_blogmoderate\'].\'\",\'; }';
+	$insert .= \'blog = \"\'.$defaults[\'jak_blog\'].\'\",\'; }';
 
 
       // EN: Set admin lang of plugin
@@ -383,18 +383,6 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
 	}
     ';
 
-      // EN: Execute PHP code in the admin/user.php file
-      // CZ: Php kód pro soubor admin/user.php
-      $adminphpdelete = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'blogcomments SET userid = 0 WHERE userid = \'.$page2.\'\');';
-
-      // EN: Execute PHP code in the admin/user.php file
-      // CZ: Php kód pro soubor admin/user.php
-      $adminphprename = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'blogcomments SET username = \"\'.smartsql($defaults[\'jak_username\']).\'\" WHERE userid = \'.smartsql($page2).\'\');';
-
-      // EN: Execute PHP code in the admin/user.php file
-      // CZ: Php kód pro soubor admin/user.php
-      $adminphpmassdel = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'blogcomments SET userid = 0 WHERE userid = \'.$locked.\'\');';
-
       // EN: Insert data to table 'pluginhooks'
       // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
       $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
@@ -420,9 +408,6 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
 (NULL, "php_admin_pages_news_info", "Blog Pages/News Info", "' . $getblog . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_page_news_grid", "Blog Pages/News Display", "' . $get_blconnect . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_search", "Blog Search", "' . $get_blsearch . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "php_admin_user_delete", "Blog Delete User", "' . $adminphpdelete . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "php_admin_user_rename", "Blog Rename User", "' . $adminphprename . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "php_admin_user_delete_mass", "Blog Delete User Mass", "' . $adminphpmassdel . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_footer_widgets", "Blog - 3 Latest Files", "' . $get_blfooter_widgets . '", "blog", 1, 3, "' . $row['id'] . '", NOW()),
 (NULL, "tpl_footer_widgets", "Blog - Show Categories", "' . $get_blfooter_widgets1 . '", "blog", 1, 3, "' . $row['id'] . '", NOW())');
 
@@ -431,11 +416,9 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
       $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
 ("blogtitle", "blog", "Blog", "Blog", "input", "free", "blog"),
 ("blogdesc", "blog", "Write something about your Blog", "Write something about your Blog", "textarea", "free", "blog"),
-("blogemail", "blog", NULL, NULL, "input", "free", "blog"),
 ("blogdateformat", "blog", "d.m.Y", "d.m.Y", "input", "free", "blog"),
 ("blogtimeformat", "blog", NULL, NULL, "input", "free", "blog"),
 ("blogurl", "blog", 0, 0, "yesno", "boolean", "blog"),
-("blogmaxpost", "blog", 2000, 2000, "input", "boolean", "blog"),
 ("blogpagemid", "blog", 3, 3, "yesno", "number", "blog"),
 ("blogpageitem", "blog", 4, 4, "yesno", "number", "blog"),
 ("blogorder", "blog", "id ASC", "", "input", "free", "blog"),
@@ -446,7 +429,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
 
       // EN: Insert data to table 'usergroup'
       // CZ: Vložení potřebných dat to tabulky 'usergroup'
-      $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `blog` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`, ADD `blogpost` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `blog`, ADD `blogpostdelete` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `blogpost`, ADD `blogpostapprove` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `blogpostdelete`, ADD `blograte` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `blogpostdelete`, ADD `blogmoderate` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `blograte`');
+      $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `blog` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
 
       // Pages/News alter Table
       $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showblog varchar(100) DEFAULT NULL AFTER showcontact');
@@ -476,7 +459,6 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
   `active` smallint(1) unsigned NOT NULL DEFAULT 1,
   `showcontact` int(11) unsigned NOT NULL DEFAULT 0,
   `showdate` smallint(1) unsigned NOT NULL DEFAULT 0,
-  `comments` smallint(1) unsigned NOT NULL DEFAULT 0,
   `socialbutton` smallint(1) unsigned NOT NULL DEFAULT 0,
   `hits` int(10) unsigned NOT NULL DEFAULT 0,
   `time` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
@@ -502,26 +484,6 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
   PRIMARY KEY (`id`),
   KEY `catorder` (`catorder`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
-
-      // EN: Create table for plugin (comments)
-      // CZ: Vytvoření tabulky pro plugin (komentáře)
-      $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'blogcomments (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `blogid` int(11) unsigned NOT NULL DEFAULT 0,
-  `commentid` int(11) unsigned NOT NULL DEFAULT 0,
-  `userid` int(11) NOT NULL DEFAULT 0,
-  `username` varchar(100) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `web` varchar(255) DEFAULT NULL,
-  `message` text,
-  `approve` smallint(1) unsigned NOT NULL DEFAULT 0,
-  `trash` smallint(1) unsigned NOT NULL DEFAULT 0,
-  `votes` int(10) NOT NULL DEFAULT 0,
-  `time` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
-  `session` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `blogid` (`blogid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1');
 
       // Full text search is activated we do so for the blog table as well
       if ($jkv["fulltextsearch"]) {

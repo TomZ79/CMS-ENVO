@@ -1132,12 +1132,6 @@ switch ($page1) {
               $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE faqid = "' . smartsql($page2) . '"');
             }
 
-            // Delete the likes
-            if (!empty($defaults['jak_delete_rate'])) {
-              $jakdb->query('DELETE FROM ' . DB_PREFIX . 'like_counter WHERE btnid = "' . smartsql($page2) . '" AND locid = "' . smartsql(JAK_PLUGIN_FAQ) . '"');
-              $jakdb->query('DELETE FROM ' . DB_PREFIX . 'like_client WHERE btnid = "' . smartsql($page2) . '" AND locid = "' . smartsql(JAK_PLUGIN_FAQ) . '"');
-            }
-
             // Delete the hits
             if (!empty($defaults['jak_delete_hits'])) {
               $jakdb->query('UPDATE ' . $envotable . ' SET hits = 1 WHERE id = "' . smartsql($page2) . '"');

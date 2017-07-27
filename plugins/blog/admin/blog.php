@@ -12,7 +12,6 @@ if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSBLOG)) envo_
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable  = DB_PREFIX . 'blog';
 $envotable1 = DB_PREFIX . 'blogcategories';
-$envotable2 = DB_PREFIX . 'blogcomments';
 $envotable3 = DB_PREFIX . 'contactform';
 $envotable4 = DB_PREFIX . 'pagesgrid';
 $envotable5 = DB_PREFIX . 'pluginhooks';
@@ -64,12 +63,6 @@ switch ($page1) {
           $showdate = $defaults['jak_showdate'];
         } else {
           $showdate = 0;
-        }
-
-        if (isset($defaults['jak_comment'])) {
-          $comment = $defaults['jak_comment'];
-        } else {
-          $comment = 1;
         }
 
         if (isset($defaults['jak_showcontact'])) {
@@ -128,7 +121,6 @@ switch ($page1) {
                     showtitle = "' . smartsql($defaults['jak_showtitle']) . '",
                     showdate = "' . smartsql($showdate) . '",
                     showcontact = "' . smartsql($jakcon) . '",
-                    comments = "' . smartsql($comment) . '",
                     socialbutton = "' . smartsql($defaults['jak_social']) . '",
                     ' . $insert);
 
@@ -539,204 +531,12 @@ switch ($page1) {
     $plugin_template = 'plugins/blog/admin/template/newblogcat.php';
 
     break;
-  case 'comment':
-
-    $getTotal = envo_get_total($envotable2, '', '', '');
-    if ($getTotal != 0) {
-      // Paginator
-      $pages                 = new JAK_Paginator;
-      $pages->items_total    = $getTotal;
-      $pages->mid_range      = $jkv["adminpagemid"];
-      $pages->items_per_page = $jkv["adminpageitem"];
-      $pages->jak_get_page   = $page2;
-      $pages->jak_where      = 'index.php?p=blog&sp=blogcomment';
-      $pages->paginate();
-      $JAK_PAGINATE = $pages->display_pages();
-
-      // Get the comments
-      $JAK_BLOGCOM_ALL = envo_get_blog_comments($pages->limit, '', '');
-    }
-
-    // Get the blogs
-    $JAK_BLOG_ALL = envo_get_blogs('', '', $envotable);
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      // EN: Default Variable
-      // CZ: Hlavní proměnné
-      $defaults = $_POST;
-
-      if (isset($defaults['approve'])) {
-
-        $lockuser = $defaults['jak_delete_comment'];
-
-        for ($i = 0; $i < count($lockuser); $i++) {
-          $locked = $lockuser[$i];
-
-          $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET approve = IF (approve = 1, 0, 1), session = NULL WHERE id = "' . smartsql($locked) . '"');
-        }
-
-        if (!$result) {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=blog&sp=comment&status=e');
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=blog&sp=comment&status=s');
-        }
-
-      }
-
-      if (isset($defaults['delete'])) {
-
-        $lockuser = $defaults['jak_delete_comment'];
-
-        for ($i = 0; $i < count($lockuser); $i++) {
-          $locked = $lockuser[$i];
-
-          $result = $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($locked) . '"');
-
-        }
-
-        if (!$result) {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=blog&sp=comment&status=e');
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=blog&sp=comment&status=s');
-        }
-
-      }
-
-    }
-
-    switch ($page2) {
-      case 'approval':
-        $JAK_BLOGCOM_ALL = envo_get_blog_comments($pages->limit, 'approve', '');
-
-        // EN: Title and Description
-        // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt7"];
-        $SECTION_DESC  = $tlblog["blog_sec_desc"]["blogd7"];
-
-        // EN: Load the php template
-        // CZ: Načtení php template (šablony)
-        $plugin_template = 'plugins/blog/admin/template/blogcomment.php';
-
-        break;
-      case 'sort':
-        if ($page3 == 'blog') {
-          $bu = 'blogid';
-        } elseif ($page3 == 'user') {
-          $bu = 'userid';
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL);
-        }
-        $getTotal = envo_get_total($envotable2, $page4, $bu, '');
-        if ($getTotal != 0) {
-          // Paginator
-          $pages                 = new JAK_Paginator;
-          $pages->items_total    = $getTotal;
-          $pages->mid_range      = $jkv["adminpagemid"];
-          $pages->items_per_page = $jkv["adminpageitem"];
-          $pages->jak_get_page   = $page5;
-          $pages->jak_where      = 'index.php?p=blog&sp=blogcomment&ssp=sort&sssp=' . $page3 . '&ssssp=' . $page4;
-          $pages->paginate();
-          $JAK_PAGINATE_SORT = $pages->display_pages();
-          $JAK_BLOGCOM_SORT  = envo_get_blog_comments($pages->limit, $page4, $bu);
-
-          // EN: Title and Description
-          // CZ: Titulek a Popis
-          $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt7"];
-          $SECTION_DESC  = $tlblog["blog_sec_desc"]["blogd7"];
-
-          // EN: Load the php template
-          // CZ: Načtení php template (šablony)
-          $plugin_template = 'plugins/blog/admin/template/blogcommentsort.php';
-
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=blog&sp=comment&status=ene');
-        }
-        break;
-      case 'approve':
-
-        if (envo_row_exist($page3, $envotable2)) {
-
-          $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET approve = IF (approve = 1, 0, 1), session = NULL WHERE id = "' . smartsql($page3) . '"');
-
-          if (!$result) {
-            // EN: Redirect page
-            // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=blog&sp=comment&status=e');
-          } else {
-            // EN: Redirect page
-            // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=blog&sp=comment&status=s');
-          }
-
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=blog&sp=comment&status=ene');
-        }
-
-        break;
-      case 'delete':
-        if (envo_row_exist($page3, $envotable2)) {
-
-          $result = $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($page3) . '"');
-
-          if (!$result) {
-            // EN: Redirect page
-            // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=blog&sp=comment&status=e');
-          } else {
-            // EN: Redirect page
-            // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=blog&sp=comment&status=s');
-          }
-
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=blog&sp=comment&status=ene');
-        }
-        break;
-      default:
-
-        // EN: Title and Description
-        // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt8"];
-        $SECTION_DESC  = $tlblog["blog_sec_desc"]["blogd8"];
-
-        // EN: Load the php template
-        // CZ: Načtení php template (šablony)
-        $plugin_template = 'plugins/blog/admin/template/blogcomment.php';
-    }
-
-    break;
   case 'setting':
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable
       // CZ: Hlavní proměnné
       $defaults = $_POST;
-
-      if (!is_numeric($defaults['jak_maxpost'])) {
-        $errors['e1'] = $tl['general_error']['generror27'] . '<br>';
-      }
-
-      if (!empty($defaults['jak_email'])) {
-        if (!filter_var($defaults['jak_email'], FILTER_VALIDATE_EMAIL)) {
-          $errors['e2'] = $tl['general_error']['generror7'] . '<br>';
-        }
-      }
 
       if (empty($defaults['jak_date'])) {
         $errors['e3'] = $tl['general_error']['generror26'] . '<br>';
@@ -768,13 +568,11 @@ switch ($page1) {
         $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                     WHEN "blogtitle" THEN "' . smartsql($defaults['jak_title']) . '"
                     WHEN "blogdesc" THEN "' . smartsql($defaults['jak_lcontent']) . '"
-                    WHEN "blogemail" THEN "' . smartsql($defaults['jak_email']) . '"
                     WHEN "blogorder" THEN "' . $blogorder . '"
                     WHEN "bloghlimit" THEN "' . smartsql($defaults['jak_bloglimit']) . '"
                     WHEN "blogdateformat" THEN "' . smartsql($defaults['jak_date']) . '"
                     WHEN "blogtimeformat" THEN "' . smartsql($defaults['jak_time']) . '"
                     WHEN "blogurl" THEN "' . smartsql($defaults['jak_blogurl']) . '"
-                    WHEN "blogmaxpost" THEN "' . smartsql($defaults['jak_maxpost']) . '"
                     WHEN "blogrss" THEN "' . smartsql($defaults['jak_rssitem']) . '"
                     WHEN "blogpagemid" THEN "' . smartsql($defaults['jak_mid']) . '"
                     WHEN "blogpageitem" THEN "' . smartsql($defaults['jak_item']) . '"
@@ -782,7 +580,7 @@ switch ($page1) {
                     WHEN "blog_css" THEN "' . smartsql($defaults['jak_css']) . '"
                     WHEN "blog_javascript" THEN "' . smartsql($defaults['jak_javascript']) . '"
                   END
-                  WHERE varname IN ("blogtitle", "blogdesc", "blogemail", "blogorder", "bloghlimit", "blogdateformat", "blogtimeformat", "blogurl","blogmaxpost", "blogpagemid", "blogpageitem", "blogshortmsg", "blogrss", "blog_css", "blog_javascript")');
+                  WHERE varname IN ("blogtitle", "blogdesc", "blogorder", "bloghlimit", "blogdateformat", "blogtimeformat", "blogurl", "blogpagemid", "blogpageitem", "blogshortmsg", "blogrss", "blog_css", "blog_javascript")');
 
         // Save order for sidebar widget
         if (isset($defaults['jak_hookshow_new']) && !empty($defaults['jak_hookshow_new'])) {
@@ -921,73 +719,6 @@ switch ($page1) {
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
     $plugin_template = 'plugins/blog/admin/template/blogsetting.php';
-
-    break;
-  case 'trash':
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      // EN: Default Variable
-      // CZ: Hlavní proměnné
-      $defaults = $_POST;
-
-      if (isset($defaults['untrash'])) {
-
-        $deltrash = $defaults['jak_delete_trash'];
-
-        for ($i = 0; $i < count($deltrash); $i++) {
-          $trash  = $deltrash[$i];
-          $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET trash = IF (trash = 1, 0, 1) WHERE id = "' . smartsql($trash) . '"');
-        }
-
-        if (!$result) {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=blog&sp=trash&status=e');
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=blog&sp=trash&status=s');
-        }
-
-      }
-
-      if (isset($defaults['delete'])) {
-
-        $deltrash = $defaults['jak_delete_trash'];
-
-        for ($i = 0; $i < count($deltrash); $i++) {
-          $trash  = $deltrash[$i];
-          $result = $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($trash) . '"');
-        }
-
-        if (!$result) {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=blog&sp=trash&status=e');
-        } else {
-          // EN: Redirect page
-          // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=blog&sp=trash&status=s');
-        }
-
-      }
-
-    }
-
-    $result = $jakdb->query('SELECT * FROM ' . $envotable2 . ' WHERE trash = 1 ORDER BY id DESC');
-    while ($row = $result->fetch_assoc()) {
-      // EN: Insert each record into array
-      // CZ: Vložení získaných dat do pole
-      $JAK_TRASH_ALL[] = $row;
-    }
-
-    // EN: Title and Description
-    // CZ: Titulek a Popis
-    $SECTION_TITLE = $tlblog["blog_sec_title"]["blogt10"];
-    $SECTION_DESC  = $tlblog["blog_sec_desc"]["blogd10"];
-
-    // EN: Load the php template
-    // CZ: Načtení php template (šablony)
-    $plugin_template = 'plugins/blog/admin/template/trash.php';
 
     break;
   case 'quickedit':
@@ -1153,8 +884,6 @@ switch ($page1) {
 
           }
 
-          $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE blogid = "' . smartsql($page2) . '"');
-
           $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
 
           if (!$result) {
@@ -1200,17 +929,6 @@ switch ($page1) {
                 JAK_tags::jakDeleteonetag($tag);
 
               }
-            }
-
-            // Delete the comments
-            if (!empty($defaults['jak_delete_comment'])) {
-              $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE blogid = "' . smartsql($page2) . '"');
-            }
-
-            // Delete the likes
-            if (!empty($defaults['jak_delete_rate'])) {
-              $jakdb->query('DELETE FROM ' . DB_PREFIX . 'like_counter WHERE btnid = "' . smartsql($page2) . '" AND locid = "' . smartsql(JAK_PLUGIN_BLOG) . '"');
-              $jakdb->query('DELETE FROM ' . DB_PREFIX . 'like_client WHERE btnid = "' . smartsql($page2) . '" AND locid = "' . smartsql(JAK_PLUGIN_BLOG) . '"');
             }
 
             // Delete the hits
@@ -1298,7 +1016,6 @@ switch ($page1) {
                         showtitle = "' . smartsql($defaults['jak_showtitle']) . '",
                         showcontact = "' . smartsql($defaults['jak_showcontact']) . '",
                         showdate = "' . smartsql($defaults['jak_showdate']) . '",
-                        comments = "' . smartsql($defaults['jak_comment']) . '",
                         ' . $insert . '
                         socialbutton = "' . smartsql($defaults['jak_social']) . '"
                         WHERE id = "' . smartsql($page2) . '"');
@@ -1396,15 +1113,9 @@ switch ($page1) {
                   }
                 }
 
-                $jakdb->query('UPDATE ' . $envotable4 . ' SET orderid = CASE id
-				' . $updatesql . '
-				END
-				WHERE id IN (' . $hookrealid . ')');
+                $jakdb->query('UPDATE ' . $envotable4 . ' SET orderid = CASE id ' . $updatesql . ' END WHERE id IN (' . $hookrealid . ')');
 
-                $jakdb->query('UPDATE ' . $envotable4 . ' SET whatid = CASE id
-				' . $updatesql1 . '
-				END
-				WHERE id IN (' . $hookrealid . ')');
+                $jakdb->query('UPDATE ' . $envotable4 . ' SET whatid = CASE id ' . $updatesql1 . ' END WHERE id IN (' . $hookrealid . ')');
 
               }
 
@@ -1563,8 +1274,6 @@ switch ($page1) {
                 }
 
               }
-
-              $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE blogid = "' . smartsql($locked) . '"');
 
               $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
 

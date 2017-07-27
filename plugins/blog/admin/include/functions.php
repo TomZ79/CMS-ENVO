@@ -19,31 +19,6 @@ function envo_get_blogs($limit, $cid, $table)
   return $envodata;
 }
 
-// Get the blog comments
-function envo_get_blog_comments($limit, $jakvar1, $jakvar2)
-{
-  if ($jakvar1 == 'approve') {
-    $sqlwhere = 'WHERE approve = 0 AND trash = 0 ';
-  } elseif ($jakvar2 == 'blogid') {
-    $sqlwhere = 'WHERE blogid = ' . smartsql($jakvar1) . ' AND trash = 0 ';
-  } elseif ($jakvar2 == 'userid') {
-    $sqlwhere = 'WHERE userid = ' . smartsql($jakvar1) . ' AND trash = 0 ';
-  } else {
-    $sqlwhere = 'WHERE trash = 0 ';
-  }
-
-  global $jakdb;
-  $envodata = array();
-  $result  = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'blogcomments ' . $sqlwhere . 'ORDER BY time DESC ' . $limit);
-  while ($row = $result->fetch_assoc()) {
-    // EN: Insert each record into array
-    // CZ: Vložení získaných dat do pole
-    $envodata[] = $row;
-  }
-
-  return $envodata;
-}
-
 // Menu builder function, parentId 0 is the root
 function envo_build_menu_blog($parent, $menu, $lang, $title1, $title2, $title3, $title4, $title5, $class = "", $id = "")
 {

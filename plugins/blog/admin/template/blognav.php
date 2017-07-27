@@ -83,28 +83,6 @@ if ($page == 'blog') {
     <?php } ?>
     <li class="list-divider"></li>
 
-    <li class="<?php echo ($page == 'blog' && $page1 == 'comment') ? 'submenu-active' : ''; ?>">
-
-      <?php
-      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-      echo $Html->addAnchor('index.php?p=blog&amp;sp=comment', $tlblog["blog_menu"]["blogm7"]);
-      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-      echo $Html->addTag('span', text_clipping_lower($tlblog["blog_menu"]["blogm7"]), 'icon-thumbnail');
-      ?>
-
-    </li>
-    <li class="<?php echo ($page == 'blog' && $page1 == 'trash') ? 'submenu-active' : ''; ?>">
-
-      <?php
-      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-      echo $Html->addAnchor('index.php?p=blog&amp;sp=trash', $tlblog["blog_menu"]["blogm8"]);
-      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-      echo $Html->addTag('span', text_clipping_lower($tlblog["blog_menu"]["blogm8"]), 'icon-thumbnail');
-      ?>
-
-    </li>
-    <li class="list-divider"></li>
-
     <li class="<?php echo ($page == 'blog' && $page1 == 'setting') ? 'submenu-active' : ''; ?>">
 
       <?php

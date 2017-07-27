@@ -229,33 +229,6 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tlblog["blog_box_content"]["blogbc29"]);
-                        ?>
-
-                      </div>
-                      <div class="col-md-7">
-                        <div class="radio radio-success">
-
-                          <?php
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_comment', '1', ($JAK_FORM_DATA["comments"] == '1') ? TRUE : FALSE, 'jak_comment1');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_comment1', $tl["checkbox"]["chk"]);
-
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_comment', '0', ($JAK_FORM_DATA["comments"] == '0') ? TRUE : FALSE, 'jak_comment2');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_comment2', $tl["checkbox"]["chk1"]);
-                          ?>
-
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row-form">
-                      <div class="col-md-5">
-
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                         echo $Html->addTag('strong', $tlblog["blog_box_content"]["blogbc31"]);
                         ?>
 
@@ -332,50 +305,6 @@ if ($errors) { ?>
                             ?>
 
                           </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row-form">
-                      <div class="col-md-5">
-
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tlblog["blog_box_content"]["blogbc34"]);
-                        ?>
-
-                      </div>
-                      <div class="col-md-7">
-                        <div class="checkbox-singel check-success">
-
-                          <?php
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addCheckbox('jak_delete_rate', '', FALSE, 'jak_delete_rate');
-                          echo $Html->addLabel('jak_delete_rate', '');
-                          ?>
-
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row-form">
-                      <div class="col-md-5">
-
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tlblog["blog_box_content"]["blogbc41"]);
-                        ?>
-
-                      </div>
-                      <div class="col-md-7">
-                        <div class="checkbox-singel check-success">
-
-                          <?php
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addCheckbox('jak_delete_comment', '', FALSE, 'jak_delete_comment');
-                          echo $Html->addLabel('jak_delete_comment', '');
-                          ?>
-
                         </div>
                       </div>
                     </div>

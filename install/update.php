@@ -70,38 +70,6 @@ $succesfully = 0;
             $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'news DROP `voteup`, DROP `votedown`');
             $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'categories CHANGE `permission` `permission` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 0');
 
-            $jakdb->query("CREATE TABLE " . DB_PREFIX . "like_counter (
-	  `id` int(11) NOT NULL AUTO_INCREMENT,
-	  `btnid` int(11) unsigned NOT NULL DEFAULT '0',
-	  `locid` int(11) unsigned NOT NULL DEFAULT '0',
-	  `blike` int(11) unsigned NOT NULL DEFAULT '0',
-	  `blove` int(11) unsigned NOT NULL DEFAULT '0',
-	  `brofl` int(11) unsigned NOT NULL DEFAULT '0',
-	  `bsmile` int(11) unsigned NOT NULL DEFAULT '0',
-	  `bwow` int(11) unsigned NOT NULL DEFAULT '0',
-	  `bsad` int(11) unsigned NOT NULL DEFAULT '0',
-	  `bangry` int(11) unsigned NOT NULL DEFAULT '0',
-	  `firstcreated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-	  `lastentered` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-	  PRIMARY KEY (`id`),
-	  KEY `btnid` (`btnid`,`locid`)
-	) ENGINE=MyISAM DEFAULT CHARSET=utf8");
-
-            $jakdb->query("CREATE TABLE " . DB_PREFIX . "like_client (
-	  `id` int(11) NOT NULL AUTO_INCREMENT,
-	  `btnid` int(11) unsigned NOT NULL DEFAULT '0',
-	  `locid` int(11) unsigned NOT NULL DEFAULT '0',
-	  `userid` int(11) unsigned NOT NULL DEFAULT '0',
-	  `username` varchar(255) DEFAULT NULL,
-	  `email` varchar(255) DEFAULT NULL,
-	  `sessionid` varchar(64) DEFAULT NULL,
-	  `ip` char(15) DEFAULT NULL,
-	  `status` tinyint(1) unsigned NOT NULL DEFAULT '0',
-	  `time` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-	  PRIMARY KEY (`id`),
-	  KEY `btnid` (`btnid`,`userid`,`sessionid`,`ip`)
-	) ENGINE=MyISAM DEFAULT CHARSET=utf8");
-
           }
 
           if ($row["value"] <= "1.3") {

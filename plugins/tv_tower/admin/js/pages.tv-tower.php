@@ -122,6 +122,7 @@
         "orderable": false
       }],
       //
+      // Off Pagination
       "paging": false,
       // Design Table items
       "dom": "<'row m-b-20'<'col-sm-12'<'pull-left'f>>>" + "<'row'<'col-sm-12'tr>>",
@@ -142,7 +143,7 @@
         "targets": 'no-sort',
         "orderable": false
       }],
-      //
+      // Off Pagination
       "paging": false,
       // Buttons
       buttons: [
@@ -175,6 +176,8 @@
         "targets": 'no-sort',
         "orderable": false
       }],
+      // Off Pagination
+      "paging": false,
       // Buttons
       buttons: [
         {
@@ -206,6 +209,8 @@
         "targets": 'no-sort',
         "orderable": false
       }],
+      // Off Pagination
+      "paging": false,
       // Buttons
       buttons: [
         {

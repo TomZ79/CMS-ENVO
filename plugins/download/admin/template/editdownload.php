@@ -408,28 +408,6 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc31"]);
-                        ?>
-
-                      </div>
-                      <div class="col-md-7">
-                        <div class="checkbox-singel check-success">
-
-                          <?php
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addCheckbox('jak_delete_rate', '', FALSE, 'jak_delete_rate');
-                          echo $Html->addLabel('jak_delete_rate', '');
-                          ?>
-
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row-form">
-                      <div class="col-md-5">
-
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                         echo $Html->addTag('strong', $tld["downl_box_content"]["downlbc32"]);
                         ?>
 
