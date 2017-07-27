@@ -492,15 +492,5 @@ if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT;
   </script>
 <?php } ?>
 
-
-
-<?php
-/*
- * TENTO SCRIP VLOŽIT DO PLUGINU BLOG
- * Vytvořit načítání script souborů v pluginu. V tuto chvíli je dostupný pro všechny stránky. Chceme jen pro Blog.
- */
-?>
-<script src="<?php echo BASE_URL; ?>assets/js/comments.js?=<?php echo $jkv["updatetime"]; ?>"></script>
-
 </body>
 </html>

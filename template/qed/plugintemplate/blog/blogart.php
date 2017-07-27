@@ -72,28 +72,6 @@ if ($jkv["printme"])
       include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/contact.php';
     } ?>
 
-    <hr>
-    <?php if (JAK_BLOGPOST && $JAK_COMMENT_FORM) { ?>
-      <!-- Comments -->
-      <h4><?php echo $tlblog["blog"]["d10"]; ?> (<span id="cComT"><?php echo $JAK_COMMENTS_TOTAL; ?></span>)</h4>
-      <div class="post-coments">
-        <?php if (isset($JAK_COMMENTS)) {
-          echo envo_build_comments(0, $JAK_COMMENTS, 'post-comments', JAK_BLOGMODERATE, $CHECK_USR_SESSION, $tl["general"]["g103"], $tlblog["blog"]["g9"], JAK_BLOGPOST, $envotable2, false, true);
-        } else { ?>
-          <div class="alert bg-info" id="comments-blank"><?php echo $tlblog["blog"]["g10"]; ?></div>
-        <?php } ?>
-
-        <!-- Show Comment Editor if set so -->
-        <?php if (JAK_BLOGPOST) { ?>
-          <ul class="post-comments">
-            <li id="insertPost"></li>
-          </ul>
-          <?php include APP_PATH . 'template/' . ENVO_TEMPLATE . '/userform.php';
-        } ?>
-
-      </div>
-      <!-- End Comments -->
-    <?php } ?>
   </div>
   <!-- End Print Post -->
 
