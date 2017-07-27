@@ -191,52 +191,6 @@ if ($errors) { ?>
                         </div>
                       </div>
                     </div>
-                    <div class="row-form">
-                      <div class="col-md-5">
-
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["userg_box_content"]["usergbc4"]);
-                        ?>
-
-
-                      </div>
-                      <div class="col-md-7">
-                        <div class="radio radio-success">
-
-                          <?php
-                          if (isset($JAK_FORM_DATA["canrate"]) && ($JAK_FORM_DATA["canrate"] == '1')) {
-                            $checked = TRUE;
-                          } elseif (isset($_REQUEST["jak_rate"]) && ($_REQUEST["jak_rate"] == '1')) {
-                            $checked = TRUE;
-                          } else {
-                            $checked = FALSE;
-                          }
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_rate', '1', $checked, 'jak_rate1');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_rate1', $tl["checkbox"]["chk"]);
-
-
-                          if (isset($JAK_FORM_DATA["canrate"]) && ($JAK_FORM_DATA["canrate"] == '0')) {
-                            $checked = TRUE;
-                          } elseif (isset($_REQUEST["jak_rate"]) && ($_REQUEST["jak_rate"] == '0')) {
-                            $checked = TRUE;
-                          } elseif (($JAK_FORM_DATA["canrate"] == '1') || ($_REQUEST["jak_rate"] == '1')) {
-                            $checked = FALSE;
-                          } else {
-                            $checked = TRUE;
-                          }
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_rate', '0', $checked, 'jak_rate2');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_rate2', $tl["checkbox"]["chk1"]);
-
-                          ?>
-
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>

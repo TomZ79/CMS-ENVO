@@ -1171,33 +1171,6 @@ if ($success) { ?>
                       </div>
                     </div>
                     <div class="row-form">
-                      <div class="col-md-6">
-
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tl["gs_box_content"]["gsbc52"]);
-                        ?>
-
-                      </div>
-                      <div class="col-md-6">
-                        <div class="radio radio-success">
-
-                          <?php
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_smilies', '1', ($JAK_SETTING_VAL["usr_smilies"] == '1') ? TRUE : FALSE, 'jak_smilies1');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_smilies1', $tl["checkbox"]["chk"]);
-
-                          // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_smilies', '0', ($JAK_SETTING_VAL["usr_smilies"] == '0') ? TRUE : FALSE, 'jak_smilies2');
-                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_smilies2', $tl["checkbox"]["chk1"]);
-                          ?>
-
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row-form">
                       <div class="col-md-5">
 
                         <?php

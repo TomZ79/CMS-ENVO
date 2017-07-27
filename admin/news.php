@@ -492,12 +492,6 @@ switch ($page1) {
 
             }
 
-            // Delete the likes
-            if (!empty($defaults['jak_delete_rate'])) {
-              $jakdb->query('DELETE FROM ' . DB_PREFIX . 'like_counter WHERE btnid = "' . smartsql($page2) . '" AND locid = 1');
-              $jakdb->query('DELETE FROM ' . DB_PREFIX . 'like_client WHERE btnid = "' . smartsql($page2) . '" AND locid = 1');
-            }
-
             // Delete the hits
             if (!empty($defaults['jak_delete_hits'])) {
               $jakdb->query('UPDATE ' . $envotable . ' SET hits = 1 WHERE id = "' . smartsql($page2) . '"');

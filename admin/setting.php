@@ -10,7 +10,7 @@ if (!JAK_USERID || !$JAK_MODULES) envo_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
-$envotable  = DB_PREFIX . 'categories';
+$envotable = DB_PREFIX . 'categories';
 
 // EN: Reset Array (output the error in a array)
 // CZ: Reset Pole (výstupní chyby se ukládají do pole)
@@ -155,7 +155,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   WHEN "time_ago_show" THEN "' . smartsql($defaults['jak_time_ago']) . '"
                   WHEN "hvm" THEN "' . smartsql($defaults['jak_hvm']) . '"
                   WHEN "adv_editor" THEN "' . smartsql($defaults['jak_editor']) . '"
-                  WHEN "usr_smilies" THEN "' . smartsql($defaults['jak_smilies']) . '"
                   WHEN "timezoneserver" THEN "' . smartsql($defaults['jak_timezone_server']) . '"
                   WHEN "contactform" THEN "' . smartsql($defaults['jak_contact']) . '"
                   WHEN "shownews" THEN "' . smartsql($defaults['jak_shownews']) . '"
@@ -197,7 +196,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   WHEN "eucookie_link" THEN "' . smartsql($defaults['jak_eucookie_link']) . '"
                   WHEN "eucookie_href" THEN "' . smartsql($defaults['jak_eucookie_href']) . '"
                 END
-                  WHERE varname IN ("email","sitehttps","lang","locale","showloginside","loginside","useravatwidth","useravatheight","userpath","printme","shortmsg","dateformat","timeformat","time_ago_show","timezoneserver","hvm","adv_editor","usr_smilies","contactform","shownews","rss","rssitem","adminpagemid","adminpageitem","ip_block","email_block","username_block","analytics","smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password","acetheme","acetabSize","acegutter","aceinvisible","acewraplimit","aceactiveline","eucookie_enabled","eucookie_name","eucookie_expiryDays","eucookie_position","eucookie_style","eucookie_theme","eucookie_pbck","eucookie_ptxt","eucookie_bbck","eucookie_btxt","eucookie_alpha","eucookie_message","eucookie_dismiss","eucookie_link","eucookie_href")');
+                  WHERE varname IN ("email","sitehttps","lang","locale","showloginside","loginside","useravatwidth","useravatheight","userpath","printme","shortmsg","dateformat","timeformat","time_ago_show","timezoneserver","hvm","adv_editor","contactform","shownews","rss","rssitem","adminpagemid","adminpageitem","ip_block","email_block","username_block","analytics","smtp_or_mail","smtp_host","smtp_port","smtp_alive","smtp_auth","smtp_prefix","smtp_user","smtp_password","acetheme","acetabSize","acegutter","aceinvisible","acewraplimit","aceactiveline","eucookie_enabled","eucookie_name","eucookie_expiryDays","eucookie_position","eucookie_style","eucookie_theme","eucookie_pbck","eucookie_ptxt","eucookie_bbck","eucookie_btxt","eucookie_alpha","eucookie_message","eucookie_dismiss","eucookie_link","eucookie_href")');
 
       if (!$result) {
         // EN: Redirect page

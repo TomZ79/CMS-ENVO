@@ -61,9 +61,6 @@ switch ($page1) {
 
         if (count($errors) == 0) {
 
-          // Tag Settings
-          if (isset($defaults['jak_tags'])) $insert .= 'tags = "' . smartsql($defaults['jak_tags']) . '",';
-
           // EN: Get all the php Hook by name of Hook for 'index top'
           // CZ: Načtení všech php dat z Hook podle jména Hook pro 'index top'
           $getinserthook = $jakhooks->jakGethook("php_admin_usergroup");
@@ -71,6 +68,9 @@ switch ($page1) {
             foreach ($getinserthook as $it) {
               eval($it['phpcode']);
             }
+
+          // Tag Settings
+          if (isset($defaults['jak_tags'])) $insert .= 'tags = "' . smartsql($defaults['jak_tags']) . '"';
 
           /* EN: Convert value
            * smartsql - secure method to insert form data into a MySQL DB
@@ -82,8 +82,7 @@ switch ($page1) {
                     name = "' . smartsql($defaults['jak_name']) . '",
                     description = "' . smartsql($defaults['jak_lcontent']) . '",
                     advsearch = "' . smartsql($defaults['jak_advs']) . '",
-                    ' . $insert . '
-                    canrate = "' . smartsql($defaults['jak_rate']) . '"');
+                    ' . $insert );
 
           $rowid = $jakdb->jak_last_id();
 
@@ -228,9 +227,6 @@ switch ($page1) {
 
             if (count($errors) == 0) {
 
-              // Tag Settings
-              if (isset($defaults['jak_tags'])) $insert .= 'tags = "' . $defaults['jak_tags'] . '",';
-
               // EN: Get all the php Hook by name of Hook for 'index top'
               // CZ: Načtení všech php dat z Hook podle jména Hook pro 'index top'
               $getinserthook = $jakhooks->jakGethook("php_admin_usergroup");
@@ -238,6 +234,9 @@ switch ($page1) {
                 foreach ($getinserthook as $it) {
                   eval($it['phpcode']);
                 }
+
+              // Tag Settings
+              if (isset($defaults['jak_tags'])) $insert .= 'tags = "' . $defaults['jak_tags'] . '"';
 
               /* EN: Convert value
                * smartsql - secure method to insert form data into a MySQL DB
@@ -250,7 +249,6 @@ switch ($page1) {
                           description = "' . smartsql($defaults['jak_lcontent']) . '",
                           advsearch = "' . smartsql($defaults['jak_advs']) . '",
                           ' . $insert . '
-                          canrate = "' . smartsql($defaults['jak_rate']) . '"
                         WHERE id = "' . smartsql($page2) . '"');
 
               if (!$result) {

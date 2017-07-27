@@ -355,12 +355,6 @@ switch ($page1) {
               }
             }
 
-            // Delete the likes
-            if (!empty($defaults['jak_delete_rate'])) {
-              $jakdb->query('DELETE FROM ' . DB_PREFIX . 'like_counter WHERE btnid = "' . smartsql($page2) . '" AND locid = 999');
-              $jakdb->query('DELETE FROM ' . DB_PREFIX . 'like_client WHERE btnid = "' . smartsql($page2) . '" AND locid = 999');
-            }
-
             // Delete the password
             if (!empty($defaults['jak_delete_password'])) {
               $defaults['jak_password'] = '';
