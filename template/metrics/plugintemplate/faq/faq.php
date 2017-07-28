@@ -12,7 +12,6 @@
  * $created					datum			- Datum vytvoření
  * $comments
  * $hits						číslo			- Počet zobrazení
- * $totalcom
  * $previmg
  * $parseurl
  *

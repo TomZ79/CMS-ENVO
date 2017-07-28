@@ -369,18 +369,6 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
 	}
     ';
 
-      // EN: Execute PHP code in the admin/user.php file
-      // CZ: Php kód pro soubor admin/user.php
-      $adminphpdelete = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'faqcomments SET userid = 0 WHERE userid = \'.$page2.\'\');';
-
-      // EN: Execute PHP code in the admin/user.php file
-      // CZ: Php kód pro soubor admin/user.php
-      $adminphprename = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'faqcomments SET username = \"\'.smartsql($defaults[\'jak_username\']).\'\" WHERE userid = \'.smartsql($page2).\'\');';
-
-      // EN: Execute PHP code in the admin/user.php file
-      // CZ: Php kód pro soubor admin/user.php
-      $adminphpmassdel = '$jakdb->query(\'UPDATE \'.DB_PREFIX.\'faqcomments SET userid = 0 WHERE userid = \'.$locked);';
-
       // EN: Insert data to table 'pluginhooks'
       // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
       $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
@@ -406,9 +394,6 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
 (NULL, "php_admin_pages_news_info", "Faq Pages/News Info", "' . $getfaq . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_page_news_grid", "Faq Pages/News Display", "' . $get_faqconnect . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_search", "Faq Search", "' . $get_faqsearch . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "php_admin_user_delete", "FAQ Delete User", "' . $adminphpdelete . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "php_admin_user_rename", "FAQ Rename User", "' . $adminphprename . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "php_admin_user_delete_mass", "FAQ Delete User Mass", "' . $adminphpmassdel . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_footer_widgets", "FAQ - 3 Latest Entries", "' . $get_faqfooter_widgets . '", "faq", 1, 3, "' . $rows['id'] . '", NOW())');
 
       // EN: Insert data to table 'setting'
@@ -455,7 +440,6 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
   `active` smallint(1) unsigned NOT NULL DEFAULT 1,
   `showcontact` int(11) unsigned NOT NULL DEFAULT 0,
   `showdate` smallint(1) unsigned NOT NULL DEFAULT 0,
-  `comments` smallint(1) unsigned NOT NULL DEFAULT 0,
   `socialbutton` smallint(1) unsigned NOT NULL DEFAULT 0,
   `hits` int(10) unsigned NOT NULL DEFAULT 0,
   `time` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
@@ -479,24 +463,6 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
   PRIMARY KEY (`id`),
   KEY `catorder` (`catorder`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
-
-      // EN: Create table for plugin (comments)
-      // CZ: Vytvoření tabulky pro plugin (komentáře)
-      $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'faqcomments (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `faqid` int(11) unsigned NOT NULL DEFAULT 0,
-  `userid` int(11) NOT NULL DEFAULT 0,
-  `username` varchar(100) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `web` varchar(255) DEFAULT NULL,
-  `message` text,
-  `approve` smallint(1) unsigned NOT NULL DEFAULT 0,
-  `trash` smallint(1) unsigned NOT NULL DEFAULT 0,
-  `time` datetime NOT NULL DEFAULT \'0000-00-00 00:00:00\',
-  `session` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `faqid` (`faqid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1');
 
       // Full text search is activated we do so for the faq table as well
       if ($jkv["fulltextsearch"]) {

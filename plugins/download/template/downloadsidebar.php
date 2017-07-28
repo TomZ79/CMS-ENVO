@@ -21,7 +21,6 @@
  * $c["created"]				datum			- Datum vytvoření
  * $c["hits"]						číslo			- Počet zobrazení
  * $c["countdl"]				číslo			- Počet stažení
- * $c["totalcom"]
  * $c["previmg"]
  * $c["parseurl"]       text      - Adresa URL
  *

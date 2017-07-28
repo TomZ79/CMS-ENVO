@@ -14,7 +14,7 @@ function envo_get_faq($limit, $order, $where, $table_row, $ext_seo, $timeago)
     $sqlin = 't1.catid != 0 AND t1.active = 1 AND';
   }
 
-  $result = $jakdb->query('SELECT t1.*, COUNT(t3.id) AS total FROM ' . DB_PREFIX . 'faq AS t1 LEFT JOIN ' . DB_PREFIX . 'faqcategories AS t2 ON (t1.catid = t2.id) LEFT JOIN ' . DB_PREFIX . 'faqcomments AS t3 ON (t1.id = t3.faqid AND t3.approve = 1) WHERE ' . $sqlin . ' (FIND_IN_SET(' . JAK_USERGROUPID . ',t2.permission) OR t2.permission = 0) GROUP BY t1.id ORDER BY ' . $order . ' ' . $limit);
+  $result = $jakdb->query('SELECT t1.* FROM ' . DB_PREFIX . 'faq AS t1 LEFT JOIN ' . DB_PREFIX . 'faqcategories AS t2 ON (t1.catid = t2.id) WHERE ' . $sqlin . ' (FIND_IN_SET(' . JAK_USERGROUPID . ',t2.permission) OR t2.permission = 0) GROUP BY t1.id ORDER BY ' . $order . ' ' . $limit);
   while ($row = $result->fetch_assoc()) {
 
     // Write content in short format with full words
@@ -34,7 +34,7 @@ function envo_get_faq($limit, $order, $where, $table_row, $ext_seo, $timeago)
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $envodata[] = array('id' => $row['id'], 'catid' => $row['catid'], 'title' => $row['title'], 'content' => envo_secure_site($row['content']), 'contentshort' => $shortmsg, 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'created' => $getTime, 'comments' => $row['comments'], 'hits' => $row['hits'], 'totalcom' => $row['total'], 'previmg' => $row['previmg'], 'parseurl' => $parseurl);
+    $envodata[] = array('id' => $row['id'], 'catid' => $row['catid'], 'title' => $row['title'], 'content' => envo_secure_site($row['content']), 'contentshort' => $shortmsg, 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'created' => $getTime, 'hits' => $row['hits'], 'previmg' => $row['previmg'], 'parseurl' => $parseurl);
   }
 
   return $envodata;

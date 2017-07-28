@@ -79,8 +79,6 @@ if (JAK_USERID) {
   $JAK_USERNAME_LINK = strtolower($jakuser->getVar("username"));
   $JAK_USERNAME      = $jakuser->getVar("username");
   $P_USR_LOGOUT      = JAK_rewrite::jakParseurl('logout', '', '', '', '');
-  // Get the avatar for once
-  $JAK_USER_AVATAR = JAK_USERRPATH_BASE . $jakuser->getVar("picture");
 
   // does the user have admin access
   if ($jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) {
@@ -110,9 +108,6 @@ $JAK_NAV_NEXT = $JAK_NAV_NEXT_TITLE = $JAK_NAV_PREV = $JAK_NAV_PREV_TITLE = $JAK
 
 // Something that needs to be true by standard
 $JAK_SHOW_NAVBAR = $JAK_SHOW_FOOTER = $newsloadonce = TRUE;
-
-//
-
 
 // Include post functionality
 include_once 'include/loginpass.php';
@@ -279,8 +274,8 @@ foreach ($jakcategories as $ca) {
 
 // Get the PLUGIN categories available in the db
 // Plugin Register Form
-if(is_numeric(JAK_PLUGIN_ID_REGISTER_FORM) && JAK_PLUGIN_ID_REGISTER_FORM > 0) {
-  $result = $jakdb->query('SELECT name, varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . JAK_PLUGIN_ID_REGISTER_FORM . '" LIMIT 1');
+if (is_numeric(JAK_PLUGIN_ID_REGISTER_FORM) && JAK_PLUGIN_ID_REGISTER_FORM > 0) {
+  $result        = $jakdb->query('SELECT name, varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . JAK_PLUGIN_ID_REGISTER_FORM . '" LIMIT 1');
   $PLUGIN_RF_CAT = $result->fetch_assoc();
 }
 

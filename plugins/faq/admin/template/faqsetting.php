@@ -158,26 +158,6 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tlf["faq_box_content"]["faqbc2"]);
-                        ?>
-
-                      </div>
-                      <div class="col-md-7">
-                        <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
-
-                          <?php
-                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_email', $jkv["faqemail"], '', 'form-control');
-                          ?>
-
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row-form">
-                      <div class="col-md-5">
-
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                         echo $Html->addTag('strong', $tlf["faq_box_content"]["faqbc3"]);
                         ?>
 
@@ -209,24 +189,6 @@ if ($errors) { ?>
                             </select>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                    <div class="row-form">
-                      <div class="col-md-5">
-
-                        <?php
-                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('strong', $tlf["faq_box_content"]["faqbc5"]);
-                        ?>
-
-                      </div>
-                      <div class="col-md-7">
-
-                        <?php
-                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'jak_maxpost', $jkv["faqmaxpost"], '', 'form-control');
-                        ?>
-
                       </div>
                     </div>
                     <div class="row-form">

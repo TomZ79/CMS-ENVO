@@ -303,23 +303,6 @@ if (!$JAK_SHOW_FOOTER) { ?>
 
 <?php include_once APP_PATH . '/template/' . ENVO_TEMPLATE . '/js/neko-royalSlider.php' ?>
 
-<!-- Comments Script -->
-<?php if ($JAK_COMMENT_FORM) { ?>
-  <script type="text/javascript">
-    <?php if ($jkv["hvm"]) { ?>
-    jQuery(document).ready(function () {
-      jQuery(".cFrom").append('<input type="hidden" name="<?php echo $random_name;?>" value="<?php echo $random_value;?>" />');
-    });
-    <?php } ?>
-    envoWeb.envo_submit = "<?php echo $tl['form_text']['formt1'];?>";
-    envoWeb.envo_submitwait = "<?php echo $tl['form_text']['formt2'];?>";
-  </script>
-
-  <script type="text/javascript" src="/assets/js/post.js"></script>
-  <script type="text/javascript" src="/assets/plugins/tinymce/tinymce.min.js"></script>
-  <script type="text/javascript" src="/assets/js/usreditor.js"></script>
-<?php } ?>
-
 <?php
 if (isset($JAK_HOOK_FOOTER_END) && is_array($JAK_HOOK_FOOTER_END)) foreach ($JAK_HOOK_FOOTER_END as $hfootere) {
   include_once APP_PATH . $hfootere['phpcode'];

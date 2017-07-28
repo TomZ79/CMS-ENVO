@@ -83,28 +83,6 @@ if ($page == 'faq') {
     <?php } ?>
     <li class="list-divider"></li>
 
-    <li class="<?php echo ($page == 'faq' && $page1 == 'comment') ? 'submenu-active' : ''; ?>">
-
-      <?php
-      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-      echo $Html->addAnchor('index.php?p=faq&amp;sp=comment', $tlf["faq_menu"]["faqm7"]);
-      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-      echo $Html->addTag('span', text_clipping_lower($tlf["faq_menu"]["faqm7"]), 'icon-thumbnail');
-      ?>
-
-    </li>
-    <li class="<?php echo ($page == 'faq' && $page1 == 'trash') ? 'submenu-active' : ''; ?>">
-
-      <?php
-      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-      echo $Html->addAnchor('index.php?p=faq&amp;sp=trash', $tlf["faq_menu"]["faqm8"]);
-      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-      echo $Html->addTag('span', text_clipping_lower($tlf["faq_menu"]["faqm8"]), 'icon-thumbnail');
-      ?>
-
-    </li>
-    <li class="list-divider"></li>
-
     <li class="<?php echo ($page == 'faq' && $page1 == 'setting') ? 'submenu-active' : ''; ?>">
 
       <?php

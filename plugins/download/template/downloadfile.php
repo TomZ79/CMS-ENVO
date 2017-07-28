@@ -23,7 +23,6 @@
  * $DL_LINK
  * $PAGE_TIME             date        - Datum vytvoření souboru
  * $PAGE_TIME_HTML5
- * $JAK_COMMENT_FORM      ano/ne      - Zobrazení komentářů
  * $DOWNLOAD_CATLIST      text        - Seznam kategorií
  *
  */
@@ -85,7 +84,7 @@ if ($DL_PASSWORD && !JAK_ASACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash' 
         } else { ?>
 
           <div class="thumb-download text-center">
-            <img src="/plugins/download/img/file-for-download.png" alt="<?php echo $PAGE_TITLE; ?>" class="img-thumbnail img-responsive">
+            <img src="/plugins/download/assets/img/file-for-download.png" alt="<?php echo $PAGE_TITLE; ?>" class="img-thumbnail img-responsive">
             <div class="caption text-center">
               <span class="color1"><?php echo $tld["downl_frontend"]["downl14"]; ?></span>
               <span class="color2"><?php echo $tld["downl_frontend"]["downl15"]; ?></span>

@@ -11,15 +11,6 @@ function envo_varname_blocked($jakvar)
   }
 }
 
-// Get the usergroup per array with no limit
-function envo_clean_comment($jakvar)
-{
-
-  $input = strip_tags(stripslashes($jakvar));
-
-  return $input;
-}
-
 // Get the not used Categories out the database
 function envo_get_cat_notused()
 {

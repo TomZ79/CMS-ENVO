@@ -19,31 +19,6 @@ function envo_get_faqs($limit, $jakvar1, $table)
   if (!empty($envodata)) return $envodata;
 }
 
-// Get the faq comments
-function envo_get_faq_comments($limit, $jakvar1, $jakvar2)
-{
-  if ($jakvar1 == 'approve') {
-    $sqlwhere = 'WHERE approve = 0 AND trash = 0 ';
-  } elseif ($jakvar2 == 'faqid') {
-    $sqlwhere = 'WHERE faqid = ' . smartsql($jakvar1) . ' AND trash = 0 ';
-  } elseif ($jakvar2 == 'userid') {
-    $sqlwhere = 'WHERE userid = ' . smartsql($jakvar1) . ' AND trash = 0 ';
-  } else {
-    $sqlwhere = 'WHERE trash = 0 ';
-  }
-
-  global $jakdb;
-  $envodata = array();
-  $result  = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'faqcomments ' . $sqlwhere . 'ORDER BY id, approve = 0 DESC ' . $limit);
-  while ($row = $result->fetch_assoc()) {
-    // EN: Insert each record into array
-    // CZ: Vložení získaných dat do pole
-    $envodata[] = $row;
-  }
-
-  return $envodata;
-}
-
 // Menu builder function, parentId 0 is the root
 function envo_build_menu_faq($parent, $menu, $lang, $title1, $title2, $title3, $title4, $title5, $class = "", $id = "")
 {

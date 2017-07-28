@@ -21,7 +21,6 @@
  * $v["comments"]
  * $v["hits"]						číslo			- Počet zobrazení
  * $v["countdl"]				číslo			- Počet stažení
- * $v["totalcom"]
  * $v["previmg"]
  * $v["parseurl"]       text      - Adresa URL
  * $v["file"]           text      - Url cesta k souboru

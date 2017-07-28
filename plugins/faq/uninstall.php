@@ -141,7 +141,7 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
             $jakdb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "faq"');
             $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `faq`, DROP `faqpost`, DROP `faqpostdelete`, DROP `faqpostapprove`, DROP `faqrate`, DROP `faqmoderate`');
 
-            $jakdb->query('DROP TABLE ' . DB_PREFIX . 'faq, ' . DB_PREFIX . 'faqcategories, ' . DB_PREFIX . 'faqcomments');
+            $jakdb->query('DROP TABLE ' . DB_PREFIX . 'faq, ' . DB_PREFIX . 'faqcategories');
             $jakdb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
             $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pages DROP showfaq');
             $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'news DROP showfaq');

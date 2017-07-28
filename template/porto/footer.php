@@ -278,23 +278,6 @@ if (!$JAK_SHOW_FOOTER) { ?>
 include_once APP_PATH . '/template/' . ENVO_TEMPLATE . '/js/porto-revolutionSlider.php'
 ?>
 
-<!-- Comments Script -->
-<?php if ($JAK_COMMENT_FORM) { ?>
-  <script>
-    <?php if ($jkv["hvm"]) { ?>
-    jQuery(document).ready(function () {
-      jQuery(".cFrom").append('<input type="hidden" name="<?php echo $random_name;?>" value="<?php echo $random_value;?>" />');
-    });
-    <?php } ?>
-    envoWeb.envo_submit = "<?php echo $tl['form_text']['formt1'];?>";
-    envoWeb.envo_submitwait = "<?php echo $tl['form_text']['formt2'];?>";
-  </script>
-
-  <script src="/assets/js/post.js"></script>
-  <script src="/assets/plugins/tinymce/tinymce.min.js"></script>
-  <script src="/assets/js/usreditor.js"></script>
-<?php } ?>
-
 <?php
 if (isset($JAK_HOOK_FOOTER_END) && is_array($JAK_HOOK_FOOTER_END)) foreach ($JAK_HOOK_FOOTER_END as $hfootere) {
   include_once APP_PATH . $hfootere['phpcode'];

@@ -11,20 +11,12 @@ include_once 'functions.php';
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable  = DB_PREFIX . 'faq';
 $envotable1 = DB_PREFIX . 'faqcategories';
-$envotable2 = DB_PREFIX . 'faqcomments';
 
 $CHECK_USR_SESSION = session_id();
 
 // Get the important template stuff
 $JAK_SEARCH_WHERE = JAK_PLUGIN_VAR_FAQ;
 $JAK_SEARCH_LINK  = JAK_PLUGIN_VAR_FAQ;
-
-// Wright the Usergroup permission into define and for template
-define('JAK_FAQPOST', $jakusergroup->getVar("faqpost"));
-define('JAK_FAQPOSTDELETE', $jakusergroup->getVar("faqpostdelete"));
-define('JAK_FAQPOSTAPPROVE', $jakusergroup->getVar("faqpostapprove"));
-define('JAK_FAQRATE', $jakusergroup->getVar("faqrate"));
-define('JAK_FAQMODERATE', $jakusergroup->getVar("faqmoderate"));
 
 // AJAX Search
 $AJAX_SEARCH_PLUGIN_WHERE = $envotable;
@@ -136,89 +128,6 @@ switch ($page1) {
 
     if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
-      if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['userPost'])) {
-
-        $arr = array();
-
-        $validates = JAK_comment::validate_form($arr, $jkv["faqmaxpost"], $tl['error']['e'], $tl['error']['e1'], $tlf['faq']['e3'], $tl['error']['e2'], $tlf['faq']['e1'], $tlf['faq']['e2'], $tl['error']['e10']);
-
-        if ($validates) {
-          /* Everything is OK, insert to database: */
-
-          define('BASE_URL_IMG', BASE_URL);
-
-          $cleanusername  = smartsql($arr['co_name']);
-          $cleanuserpostB = htmlspecialchars_decode(envo_clean_safe_userpost($arr['userpost']));
-
-          // the new session check for displaying messages to user even if not approved
-          $sqlset = 0;
-          if (!JAK_FAQPOSTAPPROVE) {
-            $sqlset = session_id();
-          }
-
-          if (JAK_USERID) {
-
-            $sql = $jakdb->query('INSERT INTO ' . $envotable2 . ' VALUES (NULL, "' . $page2 . '", "' . JAK_USERID . '", "' . $cleanusername . '", NULL, NULL, "' . smartsql($cleanuserpostB) . '", "' . JAK_FAQPOSTAPPROVE . '", 0, NOW(), "' . $sqlset . '")');
-
-            $arr['id'] = $jakdb->jak_last_id();
-
-          } else {
-
-            // Additional Fields
-            $cleanemail = filter_var($arr['co_email'], FILTER_SANITIZE_EMAIL);
-            $cleanurl   = filter_var($arr['co_url'], FILTER_SANITIZE_URL);
-
-            $jakdb->query('INSERT INTO ' . $envotable2 . ' VALUES (NULL, "' . $page2 . '", 0, "' . $cleanusername . '", "' . $cleanemail . '", "' . $cleanurl . '", "' . smartsql($cleanuserpostB) . '", "' . JAK_FAQPOSTAPPROVE . '", 0, NOW(), "' . $sqlset . '")');
-
-            $arr['id'] = $jakdb->jak_last_id();
-
-          }
-
-          // Send an email to the owner if wish so
-          if ($jkv["faqemail"] && !JAK_FAQMODERATE) {
-
-            $mail = new PHPMailer(); // defaults to using php "mail()"
-            $body = str_ireplace("[\]", '', $tlf['faq']['d5'] . ' ' . (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_FAQ, 'a', $page2, '', '') . '<br>' . $tlf['faq']['g6'] . ' ' . BASE_URL . 'admin/index.php?p=faq&sb=comment&ssb=approval&sssb=go".');
-            $mail->SetFrom($jkv["email"], $jkv["title"]);
-            $mail->AddAddress($jkv["faqemail"], $cleanusername);
-            $mail->Subject = $jkv["title"] . ' - ' . $tlf['faq']['g5'];
-            $mail->MsgHTML($body);
-            $mail->Send(); // Send email without any warnings
-          }
-
-          $arr['created'] = JAK_Base::jakTimesince(time(), $jkv["faqdateformat"], $jkv["faqtimeformat"], $tl['global_text']['gtxt4']);
-
-          /*
-          /	The data in $arr is escaped for the mysql query,
-          /	but we need the unescaped variables, so we apply,
-          /	stripslashes to all the elements in the array:
-          /*/
-
-          /* Outputting the markup of the just-inserted comment: */
-          if (isset($arr['jakajax']) && $arr['jakajax'] == "yes") {
-
-            $acajax = new JAK_comment($envotable2, 'id', $arr['id'], JAK_PLUGIN_VAR_FAQ, $jkv["faqdateformat"], $jkv["faqtimeformat"], $tl['global_text']['gtxt4']);
-
-            header('Cache-Control: no-cache');
-            die(json_encode(array('status' => 1, 'html' => $acajax->get_commentajax($tl['general']['g102'], $tlf['faq']['g3'], $tlf['faq']['g4']))));
-
-          } else {
-            envo_redirect(JAK_PARSE_SUCCESS);
-          }
-
-        } else {
-          /* Outputtng the error messages */
-          if (isset($arr['jakajax']) && $arr['jakajax'] == "yes") {
-            header('Cache-Control: no-cache');
-            die('{"status":0, "errors":' . json_encode($arr) . '}');
-          } else {
-
-            $errors = $arr;
-          }
-        }
-
-      }
-
       $result = $jakdb->query('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
       $row    = $result->fetch_assoc();
 
@@ -245,7 +154,6 @@ switch ($page1) {
           $PAGE_CONTENT     = envo_secure_site($row['content']);
           $SHOWTITLE        = $row['showtitle'];
           $SHOWDATE         = $row['showdate'];
-          $SHOWCOMMENTFORM  = $row['comments'];
           $SHOWSOCIALBUTTON = $row['socialbutton'];
           $FAQ_HITS         = $row['hits'];
 
@@ -261,21 +169,6 @@ switch ($page1) {
 
           // Get the url session
           $_SESSION['jak_lastURL'] = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_FAQ, $page1, $page2, $page3, '');
-
-        }
-
-        // Get the comments if wish so
-        if ($row['comments'] == 1) {
-          $ac = new JAK_comment($envotable2, 'faqid', $page2, JAK_PLUGIN_VAR_FAQ, $jkv["faqdateformat"], $jkv["faqtimeformat"], $tl['global_text']['gtxt4']);
-
-          $JAK_COMMENTS       = $ac->get_comments();
-          $JAK_COMMENTS_TOTAL = $ac->get_total();
-          $JAK_COMMENT_FORM   = TRUE;
-
-        } else {
-
-          $JAK_COMMENTS_TOTAL = 0;
-          $JAK_COMMENT_FORM   = FALSE;
 
         }
 
@@ -365,109 +258,7 @@ switch ($page1) {
     }
 
     break;
-  case 'del':
 
-    if (is_numeric($page2) && is_numeric($page3) && envo_row_exist($page2, $envotable2)) {
-
-      if (JAK_FAQMODERATE) {
-
-        $result = $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($page2) . '"');
-
-        if (!$result) {
-          envo_redirect(JAK_PARSE_ERROR);
-        } else {
-          envo_redirect(JAK_PARSE_SUCCESS);
-        }
-
-      } else {
-        envo_redirect($backtofaq);
-      }
-
-    } else {
-      envo_redirect($backtofaq);
-    }
-
-    break;
-  case 'ep':
-
-    if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['userpost']) && isset($_POST['name']) && isset($_POST['editpost'])) {
-      // EN: Default Variable
-      // CZ: Hlavní proměnné
-      $defaults = $_POST;
-
-      if (empty($defaults['userpost'])) {
-        $errors['e'] = $tl['error']['e2'] . '<br>';
-      }
-
-      if (strlen($defaults['userpost']) > $jkv["faqmaxpost"]) {
-        $countI      = strlen($defaults['userpost']);
-        $errors['e'] = $tlf['faq']['e1'] . $jkv["faqmaxpost"] . ' ' . $tlf['faq']['e2'] . $countI;
-      }
-
-      if (is_numeric($page2) && count($errors) == 0 && envo_row_exist($page2, $envotable2)) {
-
-        define('BASE_URL_IMG', BASE_URL);
-
-        $cleanpost = htmlspecialchars_decode(envo_clean_safe_userpost($defaults['userpost']));
-
-        $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET username = "' . smartsql($defaults['username']) . '", web = "' . smartsql($defaults['web']) . '", message = "' . smartsql($cleanpost) . '" WHERE id = "' . smartsql($page2) . '"');
-
-        if (!$result) {
-          envo_redirect(html_entity_decode(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_FAQ, 'ep', $page2, $page3, 'e')));
-        } else {
-          envo_redirect(html_entity_decode(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_FAQ, 'ep', $page2, $page3, 's')));
-        }
-
-      } else {
-        $errors = $errors;
-      }
-
-    }
-
-    if (is_numeric($page2) && is_numeric($page3) && envo_row_exist($page2, $envotable2)) {
-
-      if (JAK_USERID && JAK_FAQDELETE && envo_give_right($page2, JAK_USERID, $envotable2, 'userid') || JAK_FAQMODERATE) {
-
-        $result = $jakdb->query('SELECT username, web, message FROM ' . $envotable2 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
-        $row    = $result->fetch_assoc();
-
-        $RUNAME = $row['username'];
-        $RWEB   = $row['web'];
-        $RCONT  = envo_edit_safe_userpost($row['message']);
-
-        // EN: Load the php template
-        // CZ: Načtení php template (šablony)
-        $template = 'editpost.php';
-
-      } else {
-        envo_redirect($backtofaq);
-      }
-
-    } else {
-      envo_redirect($backtofaq);
-    }
-    break;
-  case 'trash':
-    if (is_numeric($page2) && is_numeric($page3) && envo_row_exist($page2, $envotable2)) {
-
-      if (JAK_USERID && JAK_FAQPOSTDELETE && envo_give_right($page2, JAK_USERID, $envotable2, 'userid') || JAK_FAQMODERATE) {
-
-        $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET trash = 1 WHERE id = "' . smartsql($page2) . '"');
-
-        if (!$result) {
-          envo_redirect(JAK_PARSE_ERROR);
-        } else {
-          envo_redirect(JAK_PARSE_SUCCESS);
-        }
-
-      } else {
-        envo_redirect($backtofaq);
-      }
-
-    } else {
-      envo_redirect($backtofaq);
-    }
-    break;
   default:
     // MAIN PAGE OF PLUGIN
 

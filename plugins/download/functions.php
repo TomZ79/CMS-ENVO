@@ -14,7 +14,7 @@ function jak_get_download($limit, $order, $where, $table_row, $ext_seo, $timeago
     $sqlin = 't1.catid != 0 AND t1.active = 1 AND';
   }
 
-  $result = $jakdb->query('SELECT t1.*, COUNT(t3.id) AS total FROM ' . DB_PREFIX . 'download AS t1 LEFT JOIN ' . DB_PREFIX . 'downloadcategories AS t2 ON (t1.catid = t2.id) LEFT JOIN ' . DB_PREFIX . 'downloadcomments AS t3 ON (t1.id = t3.fileid AND t3.approve = 1) WHERE ' . $sqlin . ' (FIND_IN_SET(' . JAK_USERGROUPID . ',t2.permission) OR t2.permission = 0) GROUP BY t1.id ORDER BY ' . $order . ' ' . $limit);
+  $result = $jakdb->query('SELECT t1.* FROM ' . DB_PREFIX . 'download AS t1 LEFT JOIN ' . DB_PREFIX . 'downloadcategories AS t2 ON (t1.catid = t2.id) WHERE ' . $sqlin . ' (FIND_IN_SET(' . JAK_USERGROUPID . ',t2.permission) OR t2.permission = 0) GROUP BY t1.id ORDER BY ' . $order . ' ' . $limit);
   while ($row = $result->fetch_assoc()) {
 
     $getTime = JAK_Base::jakTimesince($row['time'], $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $timeago);
@@ -32,7 +32,7 @@ function jak_get_download($limit, $order, $where, $table_row, $ext_seo, $timeago
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $envodata[] = array('id' => $row['id'], 'catid' => $row['catid'], 'title' => $row['title'], 'content' => envo_secure_site($row['content']), 'contentshort' => $shortmsg, 'file' => $row['file'], 'extfile' => $row['extfile'], 'countdl' => $row['countdl'], 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'created' => $getTime, 'hits' => $row['hits'], 'totalcom' => $row['total'], 'previmg' => $row['previmg'], 'parseurl' => $parseurl);
+    $envodata[] = array('id' => $row['id'], 'catid' => $row['catid'], 'title' => $row['title'], 'content' => envo_secure_site($row['content']), 'contentshort' => $shortmsg, 'file' => $row['file'], 'extfile' => $row['extfile'], 'countdl' => $row['countdl'], 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'created' => $getTime, 'hits' => $row['hits'], 'previmg' => $row['previmg'], 'parseurl' => $parseurl);
   }
 
 

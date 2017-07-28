@@ -315,18 +315,6 @@ function envo_row_exist($id, $table)
   }
 }
 
-// Check give access to delete or approve
-function envo_give_right($id, $extrainfo, $table, $extrafield)
-{
-  global $jakdb;
-  $jakdb->query('SELECT id FROM ' . $table . ' WHERE id = ' . smartsql($id) . ' AND ' . $extrafield . ' = "' . smartsql($extrainfo) . '"');
-  if ($jakdb->affected_rows === 1) {
-    return TRUE;
-  } else {
-    return FALSE;
-  }
-}
-
 // Check if row exist and user has permission to see it!
 function envo_row_permission($jakvar, $jakvar1, $jakvar2)
 {

@@ -1,8 +1,8 @@
 <?php if ($JAK_GROWL_SHOW) { ?>
-  <script src="<?php echo BASE_URL; ?>plugins/growl/js/gritter.js" type="text/javascript"></script>
+  <script src="<?php echo BASE_URL; ?>plugins/growl/asstes/js/gritter.js" type="text/javascript"></script>
   <script type="text/javascript">
     $(document).ready(function () {
-      $('head').append('<link rel="stylesheet" href="<?php echo BASE_URL;?>plugins/growl/css/style.css?=<?php echo $jkv["updatetime"];?>" type="text/css" />');
+      $('head').append('<link rel="stylesheet" href="<?php echo BASE_URL;?>plugins/growl/assets/css/style.css?=<?php echo $jkv["updatetime"];?>" type="text/css" />');
     });
   </script>
   <?php

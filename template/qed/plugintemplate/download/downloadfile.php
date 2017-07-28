@@ -23,7 +23,6 @@
  * $DL_LINK
  * $PAGE_TIME             date        - Datum vytvoření souboru
  * $PAGE_TIME_HTML5
- * $JAK_COMMENT_FORM      ano/ne      - Zobrazení komentářů
  * $DOWNLOAD_CATLIST      text        - Seznam kategorií
  *
  */
