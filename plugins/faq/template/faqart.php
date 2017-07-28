@@ -7,7 +7,6 @@
  * $PAGE_CONTENT         text        - Celý popis článku
  * $SHOWTITLE            ano/ne      - Zobrazení nadpisu
  * $SHOWDATE             ano/ne      - Zobrazení datumu
- * $JAK_COMMENT_FORM     ano/ne      - Zobrazení komentářů
  * $SHOWSOCIALBUTTON     ano/ne      - Zobrazení sociálních tlačítek
  * $FAQ_HITS             číslo       - Počet Zobrazení
  * $PAGE_TIME            date        - Datum vytvoření článku
@@ -55,57 +54,6 @@ if ($jkv["printme"]) $printme = 1; ?>
 <?php if ($JAK_SHOW_C_FORM) {
   include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/contact.php';
 } ?>
-
-<?php if (JAK_FAQPOST && $JAK_COMMENT_FORM) { ?>
-  <!-- Comments -->
-  <div class="post-coments">
-    <h4><?php echo $tlf["faq"]["d10"]; ?> (<span id="cComT"><?php echo $JAK_COMMENTS_TOTAL; ?></span>)</h4>
-    <ul class="post-comments">
-      <?php if (isset($JAK_COMMENTS) && is_array($JAK_COMMENTS)) foreach ($JAK_COMMENTS as $v) { ?>
-        <li>
-          <div class="comment-wrapper">
-            <div class="comment-author"><img src="<?php if ($v["userid"] != 0) {
-                echo BASE_URL . JAK_FILES_DIRECTORY . '/userfiles' . $v["picture"];
-              } else {
-                echo BASE_URL . JAK_FILES_DIRECTORY . '/userfiles' . '/standard.png';
-              } ?>" alt="avatar"/> <?php echo $v["username"]; ?></div>
-            <?php if ($CHECK_USR_SESSION == $v["session"]) { ?>
-              <div class="alert bg-info"><?php echo $tl["general"]["g103"]; ?></div>
-            <?php } ?>
-            <div class="com">
-              <?php echo $v["message"]; ?>
-            </div>
-
-            <!-- Comment Controls -->
-            <div class="comment-actions">
-              <span class="comment-date"><?php echo $v["created"]; ?></span>
-              <?php if (JAK_FAQMODERATE) { ?>
-                <a href="<?php echo $v["parseurl1"]; ?>" class="btn btn-default btn-xs"><i
-                    class="fa fa-trash-o"></i></a>
-              <?php }
-              if (JAK_USERID && JAK_FAQPOSTDELETE && $v["userid"] == JAK_USERID || JAK_FAQMODERATE) { ?>
-                <a href="<?php echo $v["parseurl2"]; ?>" class="btn btn-default btn-xs commedit"><i
-                    class="fa fa-pencil"></i></a>
-              <?php }
-              if (JAK_USERID && JAK_FAQPOSTDELETE && $v["userid"] == JAK_USERID || JAK_FAQMODERATE) { ?>
-                <a href="<?php echo $v["parseurl3"]; ?>" class="btn btn-default btn-xs"><i class="fa fa-ban"></i></a>
-              <?php } ?>
-            </div>
-          </div>
-        </li>
-      <?php } ?>
-      <li id="insertPost"></li>
-    </ul>
-
-    <!-- Show Comment Editor if set so -->
-    <?php if (JAK_FAQPOST && $JAK_COMMENT_FORM) {
-      include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/userform.php';
-    } ?>
-
-  </div>
-  <!-- End Comments -->
-
-<?php } ?>
 
   <!-- Show Social Buttons -->
 <?php if ($SHOWSOCIALBUTTON) { ?>

@@ -258,7 +258,6 @@ switch ($page1) {
     }
 
     break;
-
   default:
     // MAIN PAGE OF PLUGIN
 
