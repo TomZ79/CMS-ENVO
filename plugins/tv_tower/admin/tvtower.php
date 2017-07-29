@@ -308,7 +308,7 @@ switch ($page1) {
 
         switch ($page2) {
           case 'delete':
-            // DELETE TV PROGRAM by click button in some records without checkbox
+            // DELETE TV PROGRAM by click button
 
             // EN: Default Variable
             // CZ: Hlavní proměnné
@@ -562,7 +562,7 @@ switch ($page1) {
 
         switch ($page2) {
           case 'delete':
-            // DELETE TV CHANNEL by click button in some records without checkbox
+            // DELETE TV CHANNEL by click button
 
             // EN: Default Variable
             // CZ: Hlavní proměnné
@@ -847,7 +847,7 @@ switch ($page1) {
 
         switch ($page2) {
           case 'lock':
-            // LOCK TV TOWER by click button in some records without checkbox
+            // LOCK TV TOWER by click button
 
             // EN: Default Variable
             // CZ: Hlavní proměnné
@@ -893,7 +893,7 @@ switch ($page1) {
 
             break;
           case 'delete':
-            // DELETE TV TOWER by click button in some records without checkbox
+            // DELETE TV TOWER by click button
 
             // EN: Default Variable
             // CZ: Hlavní proměnné
