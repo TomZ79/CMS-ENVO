@@ -43,7 +43,7 @@
   }
 
   /* Bootstrap Modal */
-  #ENVOModalPlugin .modal-body{
+  #ENVOModalPlugin .modal-body {
     max-height: calc(100vh - 200px);
     overflow-y: auto;
   }
@@ -116,12 +116,13 @@
         "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Czech.json"
       },
       // Default sort by column
-      "order": [[ 0, "asc" ]],
+      "order": [[0, "asc"]],
       "columnDefs": [{
         "targets": 'no-sort',
         "orderable": false
       }],
-      //
+      // Off auto width of column
+      "autoWidth": false,
       // Off Pagination
       "paging": false,
       // Design Table items
@@ -138,7 +139,7 @@
         "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Czech.json"
       },
       // Default sort by column
-      "order": [[ 1, "asc" ]],
+      "order": [[1, "asc"]],
       "columnDefs": [{
         "targets": 'no-sort',
         "orderable": false
@@ -151,7 +152,7 @@
           tag: 'button',
           className: 'btn btn-info btn-sm hidden-xs m-r-20 btnEnvo',
           text: 'Nové S_ID - TV',
-          action: function ( e, dt, button, config ) {
+          action: function (e, dt, button, config) {
             window.location = "index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=createident&amp;sssp=s_idtv";
           }
         }
@@ -161,7 +162,7 @@
       // Init bootstrap responsive table for mobile
       "initComplete": function (settings, json) {
         $('#tt_table_sidtv').wrap('<div class="table-responsive"></div>');
-        $(".btnEnvo").removeClass( "btn-default" );
+        $(".btnEnvo").removeClass("btn-default");
       }
     });
 
@@ -171,7 +172,7 @@
         "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Czech.json"
       },
       // Default sort by column
-      "order": [[ 1, "asc" ]],
+      "order": [[1, "asc"]],
       "columnDefs": [{
         "targets": 'no-sort',
         "orderable": false
@@ -184,7 +185,7 @@
           tag: 'button',
           className: 'btn btn-info btn-sm hidden-xs m-r-20 btnEnvo',
           text: 'Nové S_ID - R',
-          action: function ( e, dt, button, config ) {
+          action: function (e, dt, button, config) {
             window.location = "index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=createident&amp;sssp=s_idr";
           }
         }
@@ -194,7 +195,7 @@
       // Init bootstrap responsive table for mobile
       "initComplete": function (settings, json) {
         $('#tt_table_sidr').wrap('<div class="table-responsive"></div>');
-        $(".btnEnvo").removeClass( "btn-default" );
+        $(".btnEnvo").removeClass("btn-default");
       }
     });
 
@@ -204,7 +205,7 @@
         "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Czech.json"
       },
       // Default sort by column
-      "order": [[ 1, "asc" ]],
+      "order": [[1, "asc"]],
       "columnDefs": [{
         "targets": 'no-sort',
         "orderable": false
@@ -217,7 +218,7 @@
           tag: 'button',
           className: 'btn btn-info btn-sm hidden-xs m-r-20 btnEnvo',
           text: 'Nové S_ID - Služby',
-          action: function ( e, dt, button, config ) {
+          action: function (e, dt, button, config) {
             window.location = "index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=createident&amp;sssp=s_ids";
           }
         }
@@ -227,7 +228,7 @@
       // Init bootstrap responsive table for mobile
       "initComplete": function (settings, json) {
         $('#tt_table_sids').wrap('<div class="table-responsive"></div>');
-        $(".btnEnvo").removeClass( "btn-default" );
+        $(".btnEnvo").removeClass("btn-default");
       }
     });
 
@@ -252,7 +253,7 @@
           valID: valID,
           valType: valType
         },
-        success: function(data){
+        success: function (data) {
 
           var res = $.parseJSON(data);
 
@@ -261,7 +262,7 @@
 
           $("#ENVOModalPlugin").modal('hide');
         },
-        error: function(){
+        error: function () {
           alert("failure");
         }
       });
