@@ -11,8 +11,8 @@
           <table id="tt_table_sid" class="table table-striped table-hover">
             <thead>
             <tr>
-              <th>S_ID</th>
-              <th>Název</th>
+              <th class="col-md-6">S_ID</th>
+              <th class="col-md-6">Název</th>
             </tr>
             </thead>
 
