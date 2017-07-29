@@ -63,7 +63,7 @@ tr.online td {
 }
 
 /* Bootstrap - Expand table rows */
-table.table-expandable > tbody > tr:nth-child(odd) {
+table.table-expandable > tbody > tr:nth-child(odd):not(.noresult) {
   cursor: pointer;
 }
 
