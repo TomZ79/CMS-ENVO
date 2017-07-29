@@ -1,7 +1,7 @@
 <?php
 
-// EN: Getting all the data about the TV Channel without limit
-// CZ: Získání všech dat o televizním kanálu bez limitu
+// EN: Getting all the data about the TV Channel
+// CZ: Získání všech dat o televizním kanálu
 function envo_get_tvchannel_info($table)
 {
   global $jakdb;
@@ -16,8 +16,8 @@ function envo_get_tvchannel_info($table)
   if (isset($envodata)) return $envodata;
 }
 
-// EN: Getting the data about the TV Tower without limit
-// CZ: Získání dat o televizním vysílači bez limitu
+// EN: Getting the data about the TV Tower
+// CZ: Získání dat o televizním vysílači
 function envo_get_tvtower_info($table)
 {
   global $jakdb;
@@ -32,8 +32,8 @@ function envo_get_tvtower_info($table)
   if (isset($envodata)) return $envodata;
 }
 
-// EN: Getting the data about the TV Program without limit
-// CZ: Získání všech dat o televizních programech bez limitu
+// EN: Getting the data about the TV Program
+// CZ: Získání všech dat o televizních programech
 function envo_get_tvprogram_info($table)
 {
   global $jakdb;
