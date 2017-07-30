@@ -312,7 +312,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 
       // EN: Insert code into admin/index.php
       // CZ: Vložení kódu do admin/index.php
-      $insertadminindex = 'plugins/register_form/admin/template/stat.php';
+      $insertadminindex = 'plugins/download/admin/template/stat.php';
 
       // EN: Frontend - template for display connect
       // CZ: Frontend - šablona
