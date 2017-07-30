@@ -57,7 +57,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $tl["button"]["btn19"]; ?></button>
+        <button type="button" class="btn btn-info" data-dismiss="modal"><?php echo $tl["button"]["btn19"]; ?></button>
       </div>
     </div>
   </div>
