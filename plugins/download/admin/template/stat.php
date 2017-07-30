@@ -21,7 +21,7 @@ $resdlh3 = $jakdb->query('SELECT fileid, email, filename, time FROM ' . DB_PREFI
 while ($rwresdlh3 = $resdlh3->fetch_assoc()) {
   // EN: Insert each record into array
   // CZ: Vložení získaných dat do pole
-  $envodata[] = array('fileid' => $rwresdlh3['fileid'], 'email' => $rwresdlh3['email'], 'filename' => $rwresdlh3['filename'], 'time' => $rwresdlh3['time']);
+  $dl_envodata[] = array('fileid' => $rwresdlh3['fileid'], 'email' => $rwresdlh3['email'], 'filename' => $rwresdlh3['filename'], 'time' => $rwresdlh3['time']);
 }
 
 ?>
@@ -68,17 +68,17 @@ while ($rwresdlh3 = $resdlh3->fetch_assoc()) {
         <tbody>
 
         <?php
-        if (isset($envodata)) foreach ($envodata as $e) {
-          $resdl   = $jakdb->query('SELECT title FROM ' . DB_PREFIX . 'download WHERE id=' . $e["fileid"]);
+        if (isset($dl_envodata)) foreach ($dl_envodata as $dle) {
+          $resdl   = $jakdb->query('SELECT title FROM ' . DB_PREFIX . 'download WHERE id=' . $dle["fileid"]);
           $rwresdl = $resdl->fetch_assoc();
         ?>
 
           <tr>
-            <td><?php echo $e["fileid"]; ?></td>
+            <td><?php echo $dle["fileid"]; ?></td>
             <td><?php echo $rwresdl["title"]; ?></td>
-            <td><?php echo $e["email"]; ?></td>
-            <td><?php echo $e["filename"]; ?></td>
-            <td><?php echo $e["time"]; ?></td>
+            <td><?php echo $dle["email"]; ?></td>
+            <td><?php echo $dle["filename"]; ?></td>
+            <td><?php echo $dle["time"]; ?></td>
           </tr>
         <?php } ?>
 
