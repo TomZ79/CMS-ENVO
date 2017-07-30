@@ -12,7 +12,7 @@
         <hr>
       </div>
       <div class="col-md-12">
-        <div class="col-md-6 text-center">
+        <div class="col-md-4 text-center">
           <div class="image">
             <img src="/plugins/tv_tower/assets/img/tvtower_image_01.png" class="img-responsive" alt="TV Tower" style="display: inline-block;">
           </div>
@@ -27,7 +27,7 @@
           </div>
 
         </div>
-        <div class="col-md-6 text-center">
+        <div class="col-md-4 text-center">
           <div class="image">
             <img src="/plugins/tv_tower/assets/img/tvtower_image_02.png" class="img-responsive" alt="TV Tower" style="display: inline-block;">
           </div>
@@ -38,6 +38,21 @@
           <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-sm-10 col-sm-offset-1">
               <a href="/programova-nabidka/list" class="btn btn-info" style="width: 100%;margin-bottom:50px;"><?php echo $tltt["tt_frontend_mainpage"]["ttmp3"]; ?></a>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="image">
+            <img src="/plugins/tv_tower/assets/img/tvtower_image_04.png" class="img-responsive" alt="TV Tower" style="display: inline-block;">
+          </div>
+          <div class="text">
+            <h3 class="title"><?php echo $tltt["tt_frontend_mainpage"]["ttmp4"]; ?></h3>
+            <div class="description">Export do PDF programové nabídky, SID, ONID, NID.</div>
+          </div>
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-sm-10 col-sm-offset-1">
+              <a href="/programova-nabidka/export" class="btn btn-info" style="width: 100%;margin-bottom:50px;"><?php echo $tltt["tt_frontend_mainpage"]["ttmp5"]; ?></a>
             </div>
           </div>
 

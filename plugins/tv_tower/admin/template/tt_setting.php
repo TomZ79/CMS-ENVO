@@ -76,6 +76,11 @@ if ($page2 == "e") { ?>
           <span class="text"><?php echo $tltt["tt_section_tab"]["tttab4"]; ?></span>
         </a>
       </li>
+      <li role="presentation">
+        <a href="#cmsPage6" role="tab" id="cmsPage6-tab" data-toggle="tab" aria-controls="cmsPage6">
+          <span class="text"><?php echo $tltt["tt_section_tab"]["tttab5"]; ?></span>
+        </a>
+      </li>
     </ul>
 
     <div class="tab-content">
@@ -235,6 +240,56 @@ if ($page2 == "e") { ?>
         </div>
       </div>
       <div role="tabpanel" class="tab-pane fade" id="cmsPage5" aria-labelledby="cmsPage5-tab">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="box box-success">
+              <div class="box-header with-border">
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tltt["tt_box_title"]["ttbt"], 'box-title');
+                ?>
+
+              </div>
+              <div class="box-body">
+                <div class="block">
+                  <div class="block-content">
+                    <div class="row-form">
+                      <div class="col-md-5">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html->addTag('strong', $tltt["tt_box_content"]["ttbc"]);
+                        ?>
+
+                      </div>
+                      <div class="col-md-7">
+                        <div class="form-group no-margin">
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html->addInput('text', 'envo_title_export', $JAK_SETTING_VAL["tvtowerexporttitle"], '', 'form-control');
+                          ?>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="box-footer">
+
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                ?>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="cmsPage6" aria-labelledby="cmsPage6-tab">
         <div class="row">
           <div class="col-md-12">
             <div class="box box-success">

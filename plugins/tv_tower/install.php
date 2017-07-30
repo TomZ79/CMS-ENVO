@@ -216,7 +216,8 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
         $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
 ("tvtowertitle", "tvtower", "TV Tower", "TV Tower", "input", "free", "tvtower"),
 ("tvtowerwizardtitle", "tvtower", "TV Tower - Wizard", "TV Tower - Wizard", "input", "free", "tvtower"),
-("tvtowerlisttitle", "tvtower", "TV Tower - List", "TV Tower - List", "input", "free", "tvtower")');
+("tvtowerlisttitle", "tvtower", "TV Tower - List", "TV Tower - List", "input", "free", "tvtower"),
+("tvtowerexporttitle", "tvtower", "TV Tower - Export", "TV Tower - Export", "input", "free", "tvtower")');
 
         // EN: Insert data to table 'usergroup'
         // CZ: Vložení potřebných dat to tabulky 'usergroup'

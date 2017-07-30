@@ -18,7 +18,7 @@
 }
 
 /* Bootstrap Popover */
-.popover{
+.popover {
   max-width: 90%; /* Max Width of the popover (depending on the container!) */
   z-index: 90;
 }
@@ -115,11 +115,20 @@ table.table-expandable > tbody > tr div.table-expandable-arrow.up {
 
   .text-xs-center {
     text-align: center;
-    float: none !important;
   }
 
   #searchprogram {
     width: 100% !important;
+  }
+
+  .dl-list {
+    margin-top: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .dl-list {
+    float: right !important;
   }
 }
 
@@ -135,6 +144,7 @@ div[id^="tramsmitter-"] h4::first-letter {
   position: relative;
 
 }
+
 .bounce-loader {
   transition: all .2;
   margin: -9px 0 0 -35px;
