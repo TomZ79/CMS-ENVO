@@ -300,7 +300,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
                         <?php
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=editident&amp;sssp=s_idtv&amp;id=' . $onid["id"], $onid["country"]);
+                        echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=editident&amp;sssp=on_id&amp;id=' . $onid["id"], $onid["country"]);
                         ?>
 
                       </td>

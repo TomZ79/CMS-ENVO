@@ -1,9 +1,28 @@
 <?php include_once APP_PATH . 'admin/template/header.php'; ?>
 
 <?php
+// EN: The data was successfully stored in DB
+// CZ: Data byla úspěšně uložena do DB
+if ($page5 == "s") { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        message: '<?php echo $tl["notification"]["n7"];?>'
+      }, {
+        // settings
+        type: 'success',
+        delay: 5000
+      });
+    }, 1000);
+  </script>
+<?php } ?>
+
+<?php
 // EN: An error occurred while saving to DB
 // CZ: Při ukládání do DB došlo k chybě
-if ($page4 == "e") { ?>
+if ($page5 == "e") { ?>
   <script type="text/javascript">
     // Notification
     setTimeout(function () {
@@ -30,8 +49,7 @@ if ($errors) { ?>
         // options
         message: '<?php if (isset($errors["e"])) echo $errors["e"];
           if (isset($errors["e1"])) echo $errors["e1"];
-          if (isset($errors["e2"])) echo $errors["e2"];
-          if (isset($errors["e3"])) echo $errors["e3"];?>'
+          if (isset($errors["e2"])) echo $errors["e2"];?>'
       }, {
         // settings
         type: 'danger',
@@ -49,7 +67,7 @@ if ($errors) { ?>
       // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
       echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"] . ' !! ', '', 'btn btn-success button', array('data-loading-text' => $tl["button"]["btn41"]));
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-      echo $Html->addAnchor('index.php?p=tv-tower&amp;sp=identifiers&amp;ssp=createident', $tl["button"]["btn19"], '', 'btn btn-info button');
+      echo $Html->addAnchor('index.php?p=tv-tower&sp=identifiers', $tl["button"]["btn19"], '', 'btn btn-info button');
       ?>
 
     </div>
@@ -79,11 +97,11 @@ if ($errors) { ?>
 
                   </div>
                   <div class="col-md-3">
-                    <div class="form-group no-margin<?php if (isset($errors["e1"]) || isset($errors["e3"])) echo " has-error"; ?>">
+                    <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'envo_onid', (isset($_REQUEST["envo_onid"]) ? $_REQUEST["envo_onid"] : ''), '', 'form-control');
+                      echo $Html->addInput('text', 'envo_onid', $JAK_FORM_DATA["onid"], '', 'form-control');
                       ?>
 
                     </div>
@@ -102,7 +120,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'envo_onidcountry', (isset($_REQUEST["envo_onidcountry"]) ? $_REQUEST["envo_onidcountry"] : ''), '', 'form-control');
+                      echo $Html->addInput('text', 'envo_onidcountry', $JAK_FORM_DATA["country"], '', 'form-control');
                       ?>
 
                     </div>
