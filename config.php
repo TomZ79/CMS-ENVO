@@ -32,7 +32,8 @@ require_once 'class/class.db.php';
 $jakdb = new jak_mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
 $jakdb->set_charset("utf8");
 
-// All important files
+// EN: Important all Class - files
+// CZ: Import všech tříd
 include_once 'include/functions.php';
 include_once 'class/class.jakbase.php';
 include_once 'class/PHPMailerAutoload.php';
@@ -46,6 +47,8 @@ include_once 'class/class.tags.php';
 include_once 'class/class.resizeimage.php';
 include_once 'class/class.debug.php';
 include_once 'class/class.htmlelement.php';
+// Include the main mPDF library
+require 'class/mpdf/vendor/autoload.php';
 include_once 'assets/plugins/captcha/simple-php-captcha/simple-php-captcha.php';
 
 // Create instance of HTML_Form from htmlelement.php Class
