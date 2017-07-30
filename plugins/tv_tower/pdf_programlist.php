@@ -13,6 +13,7 @@ include_once 'functions.php';
 $envotable  = DB_PREFIX . 'tvtowertvchannel';
 $envotable1 = DB_PREFIX . 'tvtowertvtower';
 $envotable2 = DB_PREFIX . 'tvtowertvprogram';
+$envotable3 = DB_PREFIX . 'tvtowerexporthistory';
 
 // EN: Getting date of last update of programs
 // CZ: Získání data poslední aktualizace programů
@@ -205,6 +206,22 @@ while ($row1 = $result1->fetch_assoc()) {
 
 // Create html
 $mpdf->writeHTML($html);
+
+// - - - - - - - - - - - - - - - - STATISTIC - - - - - - - - - - - - -
+
+// Get the users email
+$dluserid = 0;
+$dlemail  = "guest";
+if (JAK_USERID) {
+  $dluserid = JAK_USERID;
+  $dlemail  = $jakuser->getVar("email");
+}
+
+// Get the users ip address
+$ipa = get_ip_address();
+
+// Insert data to DB
+$jakdb->query('INSERT INTO ' . $envotable3 . ' VALUES (NULL, "' . smartsql($dluserid) . '", "' . smartsql($dlemail) . '", "Bluesat-programova-nabidka-' . $timetoday . '.pdf", "' . smartsql($ipa) . '", NOW())');
 
 // - - - - - - - - - - - - - - - - OUTPUT - - - - - - - - - - - - -
 

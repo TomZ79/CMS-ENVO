@@ -195,6 +195,11 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
 } else {
   $tltt = parse_ini_file(APP_PATH.\'plugins/tv_tower/lang/en.ini\', true);
 }';
+
+        // EN: Insert code into admin/index.php
+        // CZ: Vložení kódu do admin/index.php
+        $insertadminindex = 'plugins/tv_tower/admin/template/tt_stat.php';
+
         // EN: Usergroup - Insert php code (get data from plugin setting in usergroup)
         // CZ: Usergroup - Vložení php kódu (získání dat z nastavení pluginu v uživatelské skupině)
         $insertphpcode = 'if (isset($defaults[\'envo_tvtower\'])) {
@@ -205,6 +210,7 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
         $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "TV Tower Admin Language", "' . $adminlang . '", "tvtower", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "TV Tower Site Language", "' . $sitelang . '", "tvtower", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_index", "TV Tower Statistics Admin", "' . $insertadminindex . '", "tvtower", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup", "TV Tower Usergroup New", "plugins/tv_tower/admin/template/usergroup_new.php", "tvtower", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup_edit", "TV Tower Usergroup Edit", "plugins/tv_tower/admin/template/usergroup_edit.php", "tvtower", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_usergroup", "TV Tower Usergroup SQL", "' . $insertphpcode . '", "tvtower", 1, 1, "' . $rows['id'] . '", NOW()),
@@ -332,6 +338,18 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
   `time` DATETIME DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+        // EN: Create table for plugin (export history)
+        // CZ: Vytvoření tabulky pro plugin (historie exportu)
+        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowerexporthistory (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+	`userid` INT(11) UNSIGNED NOT NULL DEFAULT 0,
+	`email` VARCHAR(255) NOT NULL,
+	`exportname` VARCHAR(255) NOT NULL,
+	`ip` CHAR(15) NOT NULL,
+	`time` DATETIME DEFAULT NULL,
+	PRIMARY KEY (`id`)
+) ENGINE = MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1');
 
         $succesfully = 1;
 
