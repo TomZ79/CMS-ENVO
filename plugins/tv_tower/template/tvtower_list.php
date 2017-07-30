@@ -5,15 +5,16 @@
   <div class="col-md-12" style="margin: 10px 0 50px 0;">
 
     <div class="row" style="margin-bottom: 20px">
-      <div class="col-md-12">
-        <div class="pull-left text-xs-center">
-          <span><?php echo $tltt["tt_frontend_list"]["ttl"]; ?>
-            <strong> <?php echo $COUNT_TVPROGRAM_ALL; ?></strong></span>
-        </div>
-        <div class="pull-right text-xs-center">
-          <span><?php echo $tltt["tt_frontend_list"]["ttl1"]; ?>
-            <strong> <?php echo $TIME_TVPROGRAM_ALL; ?></strong></span>
-        </div>
+      <div class="col-md-6">
+          <div class="row"  style="line-height: 34px;">
+            <span class="col-xs-12 col-md-6 text-xs-center"><?php echo $tltt["tt_frontend_list"]["ttl"]; ?><strong> <?php echo $COUNT_TVPROGRAM_ALL; ?></strong></span>
+            <span class="col-xs-12 col-md-6 text-xs-center"><?php echo $tltt["tt_frontend_list"]["ttl1"]; ?><strong> <?php echo $TIME_TVPROGRAM_ALL; ?></strong></span>
+          </div>
+      </div>
+      <div class="col-md-6 text-xs-center">
+        <form class="dl-list" action="/plugins/tv_tower/pdf_programlist.php" target="_blank">
+          <button type="submit" class="btn btn-info">Stáhnout PDF seznam programů</button>
+        </form>
       </div>
     </div>
     <hr>

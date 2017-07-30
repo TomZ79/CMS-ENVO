@@ -5,12 +5,10 @@
   <div class="col-md-12" style="margin: 10px 0 50px 0;">
 
   <div class="row" style="margin-bottom: 20px">
-    <div class="col-md-12">
-      <div class="pull-left text-xs-center">
-        <span><?php echo $tltt["tt_frontend_wizard"]["ttw"]; ?> <strong> <?php echo $COUNT_TVPROGRAM_ALL; ?></strong></span>
-      </div>
-      <div class="pull-right text-xs-center">
-        <span><?php echo $tltt["tt_frontend_wizard"]["ttw1"]; ?> <strong> <?php echo $TIME_TVPROGRAM_ALL; ?></strong></span>
+    <div class="col-md-6">
+      <div class="row"  style="line-height: 34px;">
+        <span class="col-xs-12 col-md-6 text-xs-center"><?php echo $tltt["tt_frontend_list"]["ttl"]; ?><strong> <?php echo $COUNT_TVPROGRAM_ALL; ?></strong></span>
+        <span class="col-xs-12 col-md-6 text-xs-center"><?php echo $tltt["tt_frontend_list"]["ttl1"]; ?><strong> <?php echo $TIME_TVPROGRAM_ALL; ?></strong></span>
       </div>
     </div>
   </div>
