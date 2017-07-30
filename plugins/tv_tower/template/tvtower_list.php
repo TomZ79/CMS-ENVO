@@ -13,7 +13,7 @@
       </div>
       <div class="col-md-6 text-xs-center">
         <form class="dl-list" action="/plugins/tv_tower/pdf_programlist.php" target="_blank">
-          <button type="submit" class="btn btn-info">Stáhnout PDF seznam programů</button>
+          <button type="submit" class="btn btn-info">Export programů do PDF</button>
         </form>
       </div>
     </div>

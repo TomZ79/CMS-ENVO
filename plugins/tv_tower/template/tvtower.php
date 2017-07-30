@@ -48,7 +48,7 @@
           </div>
           <div class="text">
             <h3 class="title"><?php echo $tltt["tt_frontend_mainpage"]["ttmp4"]; ?></h3>
-            <div class="description">Export do PDF programové nabídky, SID, ONID, NID.</div>
+            <div class="description">Export seznamu programů do PDF ze všech vysílačů jejichž signál lze přijímat v Karlovarském kraji včetně identifikátorů ONID, NID, SID</div>
           </div>
           <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-sm-10 col-sm-offset-1">

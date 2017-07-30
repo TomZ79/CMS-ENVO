@@ -209,7 +209,7 @@ $mpdf->writeHTML($html);
 // - - - - - - - - - - - - - - - - OUTPUT - - - - - - - - - - - - -
 
 // Output a PDF file directly to the browser
-$mpdf->Output('Bluesat-identifikatory-' . $timetoday . '.pdf', 'D');
+$mpdf->Output('Bluesat-programova-nabidka-' . $timetoday . '.pdf', 'D');
 
 exit;
 
