@@ -981,7 +981,8 @@ switch ($page1) {
 
             // EN: Default Variable
             // CZ: Hlavní proměnné
-            $jakfield = 'sid';
+            $envofield1 = 'sid';
+            $envofield2 = 'name';
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               // EN: Default Variable
@@ -1004,7 +1005,7 @@ switch ($page1) {
 
                 // EN: Check if the name not exists
                 // CZ: Kontrola jestli název neexistuje
-                if (envo_field_not_exist($defaults['envo_sidtv'], $envotable3, $jakfield)) {
+                if (envo_field_not_exist($defaults['envo_sidtv'], $envotable3, $envofield1, $defaults['envo_sidtvname'], $envofield2)) {
                   $errors['e3'] = $tl['general_error']['generror61'] . '<br>';
                 }
 
@@ -1070,7 +1071,8 @@ switch ($page1) {
 
             // EN: Default Variable
             // CZ: Hlavní proměnné
-            $jakfield = 'sid';
+            $envofield1 = 'sid';
+            $envofield2 = 'name';
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               // EN: Default Variable
@@ -1093,7 +1095,7 @@ switch ($page1) {
 
                 // EN: Check if the name not exists
                 // CZ: Kontrola jestli název neexistuje
-                if (envo_field_not_exist($defaults['envo_sidr'], $envotable4, $jakfield)) {
+                if (envo_field_not_exist($defaults['envo_sidr'], $envotable4, $envofield1, $defaults['envo_sidrname'], $envofield2)) {
                   $errors['e3'] = $tl['general_error']['generror61'] . '<br>';
                 }
 
@@ -1158,7 +1160,8 @@ switch ($page1) {
 
             // EN: Default Variable
             // CZ: Hlavní proměnné
-            $jakfield = 'sid';
+            $envofield1 = 'sid';
+            $envofield2 = 'name';
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               // EN: Default Variable
@@ -1181,7 +1184,7 @@ switch ($page1) {
 
                 // EN: Check if the name not exists
                 // CZ: Kontrola jestli název neexistuje
-                if (envo_field_not_exist($defaults['envo_sids'], $envotable5, $jakfield)) {
+                if (envo_field_not_exist($defaults['envo_sids'], $envotable5, $envofield1, $defaults['envo_sidsname'], $envofield2)) {
                   $errors['e3'] = $tl['general_error']['generror61'] . '<br>';
                 }
 
@@ -1243,6 +1246,84 @@ switch ($page1) {
 
             break;
           case 'on_id':
+            // ADD NEW ON_ID TO DB
+
+            // EN: Default Variable
+            // CZ: Hlavní proměnné
+            $envofield1 = 'onid';
+            $envofield2 = 'country';
+
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+              // EN: Default Variable
+              // CZ: Hlavní proměnné
+              $defaults = $_POST;
+
+              if (isset($_POST['btnSave'])) {
+
+                // EN: Check if s_id isn't empty
+                // CZ: Kontrola jestli existuje s_id
+                if (empty($defaults['envo_onid'])) {
+                  $errors['e1'] = $tl['general_error']['generror60'] . '<br>';
+                }
+
+                // EN: Check if s_id isn't empty
+                // CZ: Kontrola jestli existuje s_id
+                if (empty($defaults['envo_onidcountry'])) {
+                  $errors['e2'] = $tl['general_error']['generror60'] . '<br>';
+                }
+
+                // EN: Check if the name not exists
+                // CZ: Kontrola jestli název neexistuje
+                if (envo_field_not_exist($defaults['envo_onid'], $envotable6, $envofield1, $defaults['envo_onidcountry'], $envofield2)) {
+                  $errors['e3'] = $tl['general_error']['generror61'] . '<br>';
+                }
+
+                // EN: All checks are OK without Errors - Start the form processing
+                // CZ: Všechny kontroly jsou v pořádku bez chyb - Spustit zpracování formuláře
+                if (count($errors) == 0) {
+
+                  /* EN: UPDATE DATA INTO DB
+                   * CZ: AKTUALIZACE DAT DO DB
+                   * ========================
+                   * EN: Info about embedded columns
+                   * id - primary key (autofill)
+                   * ... other columns are inserted from the form
+                   * ------------------------
+                   * CZ: Info o vkládaných sloupcích
+                   * id - primary key (automatické vyplnění)
+                   * ... ostatní sloupce jsou vkládány z formuláře
+                   * ========================
+                   * EN: Conversion of values
+                   * smartsql - secure method to insert form data into a MySQL DB
+                   * ------------------
+                   * CZ: Převod hodnot
+                   * smartsql - secure method to insert form data into a MySQL DB
+                  */
+                  $result = $jakdb->query('INSERT INTO ' . $envotable6 . ' SET 
+                            onid = "' . smartsql($defaults['envo_onid']) . '",
+                            country = "' . smartsql($defaults['envo_onidcountry']) . '",
+                            time = NOW()');
+
+                  $rowid = $jakdb->jak_last_id();
+
+                  if (!$result) {
+                    // EN: Redirect page
+                    // CZ: Přesměrování stránky
+                    envo_redirect(BASE_URL . 'index.php?p=tv-tower&sp=identifiers&ssp=createident&sssp=on_id&status=e');
+                  } else {
+                    // EN: Redirect page
+                    // CZ: Přesměrování stránky
+                    envo_redirect(BASE_URL . 'index.php?p=tv-tower&sp=identifiers&ssp=editident&sssp=on_id&id=' . $rowid . '&status=s');
+                  }
+
+                } else {
+                  $errors['e'] = $tl['general_error']['generror'] . '<br>';
+                  $errors      = $errors;
+                }
+
+              }
+
+            }
 
             // EN: Title and Description
             // CZ: Titulek a Popis
@@ -1288,7 +1369,7 @@ switch ($page1) {
             // EN: Default Variable
             // CZ: Hlavní proměnné
             $pageID   = $page4;
-            $jakfield = 'name';
+            $envofield1 = 'name';
 
             if (is_numeric($pageID) && envo_row_exist($pageID, $envotable3)) {
 
@@ -1385,7 +1466,7 @@ switch ($page1) {
             // EN: Default Variable
             // CZ: Hlavní proměnné
             $pageID   = $page4;
-            $jakfield = 'name';
+            $envofield1 = 'name';
 
             if (is_numeric($pageID) && envo_row_exist($pageID, $envotable4)) {
 
@@ -1482,7 +1563,6 @@ switch ($page1) {
             // EN: Default Variable
             // CZ: Hlavní proměnné
             $pageID   = $page4;
-            $jakfield = 'name';
 
             if (is_numeric($pageID) && envo_row_exist($pageID, $envotable5)) {
 
@@ -1574,15 +1654,99 @@ switch ($page1) {
 
             break;
           case 'on_id':
+            // EDITW S_ID S
 
-            // EN: Title and Description
-            // CZ: Titulek a Popis
-            $SECTION_TITLE = $tltt["tt_sec_title"]["ttt15"];
-            $SECTION_DESC  = $tltt["tt_sec_desc"]["ttd15"];
+            // EN: Default Variable
+            // CZ: Hlavní proměnné
+            $pageID   = $page4;
 
-            // EN: Load the php template
-            // CZ: Načtení php template (šablony)
-            $plugin_template = 'plugins/tv_tower/admin/template/tt_createident_onid.php';
+            if (is_numeric($pageID) && envo_row_exist($pageID, $envotable6)) {
+
+              if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // EN: Default Variable
+                // CZ: Hlavní proměnné
+                $defaults = $_POST;
+
+                if (isset($_POST['btnSave'])) {
+
+                  // EN: Check if s_id isn't empty
+                  // CZ: Kontrola jestli existuje s_id
+                  if (empty($defaults['envo_onid'])) {
+                    $errors['e1'] = $tl['general_error']['generror60'] . '<br>';
+                  }
+
+                  // EN: Check if s_id isn't empty
+                  // CZ: Kontrola jestli existuje s_id
+                  if (empty($defaults['envo_onidcountry'])) {
+                    $errors['e2'] = $tl['general_error']['generror60'] . '<br>';
+                  }
+
+
+                  // EN: All checks are OK without Errors - Start the form processing
+                  // CZ: Všechny kontroly jsou v pořádku bez chyb - Spustit zpracování formuláře
+                  if (count($errors) == 0) {
+
+                    /* EN: UPDATE DATA INTO DB
+                     * CZ: AKTUALIZACE DAT DO DB
+                     * ========================
+                     * EN: Info about embedded columns
+                     * id - primary key (autofill)
+                     * ... other columns are inserted from the form
+                     * ------------------------
+                     * CZ: Info o vkládaných sloupcích
+                     * id - primary key (automatické vyplnění)
+                     * ... ostatní sloupce jsou vkládány z formuláře
+                     * ========================
+                     * EN: Conversion of values
+                     * smartsql - secure method to insert form data into a MySQL DB
+                     * ------------------
+                     * CZ: Převod hodnot
+                     * smartsql - secure method to insert form data into a MySQL DB
+                    */
+                    $result = $jakdb->query('UPDATE ' . $envotable6 . ' SET
+                              onid = "' . smartsql($defaults['envo_onid']) . '",
+                              country = "' . smartsql($defaults['envo_onidcountry']) . '",
+                              time = NOW()
+                              WHERE id = "' . smartsql($pageID) . '"');
+
+
+                    if (!$result) {
+                      // EN: Redirect page
+                      // CZ: Přesměrování stránky
+                      envo_redirect(BASE_URL . 'index.php?p=tv-tower&sp=identifiers&ssp=editident&sssp=on_id&id=' . $pageID . '&status=e');
+                    } else {
+                      // EN: Redirect page
+                      // CZ: Přesměrování stránky
+                      envo_redirect(BASE_URL . 'index.php?p=tv-tower&sp=identifiers&ssp=editident&sssp=on_id&id=' . $pageID . '&status=s');
+                    }
+
+                  } else {
+                    $errors['e'] = $tl['general_error']['generror'] . '<br>';
+                    $errors      = $errors;
+                  }
+
+                }
+
+              }
+
+              // EN: Get all the data for the form
+              // CZ: Získání všech dat pro formulář
+              $JAK_FORM_DATA = envo_get_data($pageID, $envotable6);
+
+              // EN: Title and Description
+              // CZ: Titulek a Popis
+              $SECTION_TITLE = $tltt["tt_sec_title"]["ttt15"];
+              $SECTION_DESC  = $tltt["tt_sec_desc"]["ttd15"];
+
+              // EN: Load the php template
+              // CZ: Načtení php template (šablony)
+              $plugin_template = 'plugins/tv_tower/admin/template/tt_editident_onid.php';
+
+            } else {
+              // EN: Redirect page
+              // CZ: Přesměrování stránky
+              envo_redirect(BASE_URL . 'index.php?p=tv-tower&sp=identifiers&ssp=createident&status=ene');
+            }
 
             break;
           case 'n_id':

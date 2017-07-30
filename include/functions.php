@@ -292,10 +292,10 @@ function envo_get_galleryfacebook($limit, $table, $order)
 }
 
 // Check if row exist with custom field
-function envo_field_not_exist($check, $table, $field)
+function envo_field_not_exist($check1, $table, $field1, $check2 = '', $field2 = '')
 {
   global $jakdb;
-  $result = $jakdb->query('SELECT id FROM ' . $table . ' WHERE LOWER(' . $field . ') = "' . smartsql($check) . '" LIMIT 1');
+  $result = $jakdb->query('SELECT id FROM ' . $table . ' WHERE LOWER(' . $field1 . ') = "' . smartsql($check1) . '" AND LOWER(' . $field2 . ') = "' . smartsql($check2) . '" LIMIT 1');
   if ($jakdb->affected_rows === 1) {
     return TRUE;
   } else {
