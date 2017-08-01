@@ -117,7 +117,8 @@ table.table-expandable > tbody > tr div.table-expandable-arrow.up {
     text-align: center;
   }
 
-  #searchprogram {
+  #searchprogram,
+  #exportprogram {
     width: 100% !important;
   }
 
@@ -129,6 +130,10 @@ table.table-expandable > tbody > tr div.table-expandable-arrow.up {
 @media (min-width: 768px) {
   .dl-list {
     float: right !important;
+  }
+
+  #exportprogram {
+    margin-left:10px;
   }
 }
 

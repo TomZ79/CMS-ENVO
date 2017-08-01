@@ -5,7 +5,7 @@
 if (!file_exists('../../config.php')) die('[test.php] config.php not exist');
 require_once '../../config.php';
 
-// Functions we need for this plugin
+// EN: Functions we need for this plugin
 include_once 'functions.php';
 
 // EN: Settings all the tables we need for our work
@@ -23,11 +23,14 @@ $envotable6 = DB_PREFIX . 'tvtowerexporthistory';
 $resulttime = $jakdb->query('SELECT  MAX(time) AS maxTime FROM ' . $envotable2);
 $rowtime    = $resulttime->fetch_assoc();
 
+// EN: Set value
+// CZ: Nastavení hodnot
+$html = '';
 $timetoday = date('d-m-Y', time());
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// Create new PDF document
+// EN: Create new PDF document
 $mpdf = new mPDF(
   '',           // mode - default ''
   'A4',         // format - A4, for example, default ''
@@ -41,10 +44,10 @@ $mpdf = new mPDF(
   '10',          // margin footer
   'L');         // L - landscape, P - portrait
 
-// Specify the initial Display Mode when the PDF file is opened in Adobe Reader
+// EN: Specify the initial Display Mode when the PDF file is opened in Adobe Reader
 $mpdf->SetDisplayMode('fullpage');
 
-// Set document information
+// EN: Set document information
 $mpdf->SetCreator('Bluesat.cz');
 $mpdf->SetAuthor('Bluesat.cz');
 $mpdf->SetTitle('Programová nabídka');
@@ -52,7 +55,7 @@ $mpdf->SetSubject('Programová nabídka');
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// Sets a page footer
+// EN: Sets a page footer
 $footer = array(
   'L' => array(
     'content'    => '{DATE j-m-Y} | Bluesat.cz',
@@ -102,7 +105,7 @@ $html = '<style>
 
 // - - - - - - - - - - - - - - - - NEW PAGE - - - - - - - - - - - - -
 
-// Add a new page
+// EN: Add a new page
 $mpdf->AddPage();
 
 $html .= '<div class="center-div">
@@ -110,12 +113,12 @@ $html .= '<div class="center-div">
             <h1>Anténní a satelitní systémy</h1>
            </div>';
 
-// Write html
+// EN: Write html
 $mpdf->WriteHTML($html);
 
 // - - - - - - - - - - - - - - - - NEW PAGE - - - - - - - - - - - - -
 
-// Add a new page
+// EN: Add a new page
 $mpdf->AddPage();
 
 // - - - - TV TOWER
@@ -141,17 +144,17 @@ for ($i = 1; $row = $result->fetch_assoc(); ++$i) {
 
 $html .= '</table>';
 
-// Write html
+// EN: Write html
 $mpdf->WriteHTML($html);
 
 // - - - - - - - - - - - - - - - - NEW PAGE - - - - - - - - - - - - -
 
-// Add a new page
+// EN: Add a new page
 $mpdf->AddPage();
 
 // - - - - ONID
 
-// If exist row in DB get Maxtime
+// EN: If exist row in DB get Maxtime
 $num_results  = $jakdb->query('SELECT id FROM ' . $envotable4);
 if ($num_results->num_rows !== 0) {
   $resulttime  = $jakdb->query('SELECT MAX(time) AS maxTime FROM ' . $envotable4);
@@ -161,7 +164,7 @@ if ($num_results->num_rows !== 0) {
   $maxtime = '';
 }
 
-// Create html
+// EN: Create html
 $html = '<div><h2>Seznam ONID (Original Network ID)</h2></div>';
 $html .= '<div><h4>' . $maxtime . '</h4></div>';
 $html .= '<p>Unikátní identifikátor společný pro všechny sítě v rámci konkrétní země.</p>';
@@ -179,7 +182,6 @@ $html .= '<tr>
 $result1 = $jakdb->query('SELECT * FROM ' . $envotable4 . ' ORDER BY onid ASC');
 
 for ($i = 1; $row1 = $result1->fetch_assoc(); ++$i) {
-  // concatenate a string, instead of calling $pdf->writeHTML()
   $html .= '<tr>
               <td style="text-align: center;">' . $i . '</td>
               <td style="padding-left: 20px;">' . $row1['onid'] . '</td>
@@ -191,7 +193,7 @@ $html .= '</table>';
 
 // - - - - NID
 
-// If exist row in DB get Maxtime
+// EN: If exist row in DB get Maxtime
 $num_results1  = $jakdb->query('SELECT id FROM ' . $envotable5);
 if ($num_results1->num_rows !== 0) {
   $resulttime1  = $jakdb->query('SELECT MAX(time) AS maxTime FROM ' . $envotable5);
@@ -201,7 +203,7 @@ if ($num_results1->num_rows !== 0) {
   $maxtime1 = '';
 }
 
-// Create html
+// EN: Create html
 $html .= '<div><h2>Seznam NID (Network ID)</h2></div>';
 $html .= '<div><h4>' . $maxtime1 . '</h4></div>';
 $html .= '<p>Unikátní identifikátor konkrétní sítě.</p>';
@@ -220,7 +222,6 @@ $html .= '<tr>
 $result2 = $jakdb->query('SELECT * FROM ' . $envotable5 . ' ORDER BY nid ASC');
 
 for ($i = 1; $row2 = $result2->fetch_assoc(); ++$i) {
-  // concatenate a string, instead of calling $pdf->writeHTML()
   $html .= '<tr>
               <td style="text-align: center;">' . $i . '</td>
               <td style="padding-left: 20px;">' . $row2['nid'] . '</td>
@@ -231,17 +232,17 @@ for ($i = 1; $row2 = $result2->fetch_assoc(); ++$i) {
 
 $html .= '</table>';
 
-// Write html
+// EN: Write html
 $mpdf->WriteHTML($html);
 
 // - - - - - - - - - - - - - - - - NEW PAGE - - - - - - - - - - - - -
 
-// Add a new page
+// EN: Add a new page
 $mpdf->AddPage();
 
 // - - - - SID TV
 
-// If exist row in DB get Maxtime
+// EN: If exist row in DB get Maxtime
 $num_results2  = $jakdb->query('SELECT id FROM ' . $envotable1);
 if ($num_results2->num_rows !== 0) {
   $resulttime2  = $jakdb->query('SELECT MAX(time) AS maxTime FROM ' . $envotable1);
@@ -251,7 +252,7 @@ if ($num_results2->num_rows !== 0) {
   $maxtime2 = '';
 }
 
-// Create html
+// EN: Create html
 $html = '<div><h2>Seznam SID (Service ID) - Televizní programy</h2></div>';
 $html .= '<div><h4>' . $maxtime2 . '</h4></div>';
 $html .= '<p>Unikátní identifikátor konkrétní služby přenášené transportním tokem (televizní program, rozhlasový program, ostatní služby).</p>';
@@ -274,7 +275,6 @@ $html .= '<tr>
 $result3 = $jakdb->query('SELECT * FROM ' . $envotable1 . ' ORDER BY sid ASC');
 
 for ($i = 1; $row3 = $result3->fetch_assoc(); ++$i) {
-  // concatenate a string, instead of calling $pdf->writeHTML()
   $html .= '<tr>
               <td style="text-align: center;">' . $i . '</td>
               <td style="padding-left: 20px;">' . $row3['sid'] . '</td>
@@ -284,17 +284,17 @@ for ($i = 1; $row3 = $result3->fetch_assoc(); ++$i) {
 
 $html .= '</table>';
 
-// Write html
+// EN: Write html
 $mpdf->WriteHTML($html);
 
 // - - - - - - - - - - - - - - - - NEW PAGE - - - - - - - - - - - - -
 
-// Add a new page
+// EN: Add a new page
 $mpdf->AddPage();
 
 // - - - - SID R
 
-// If exist row in DB get Maxtime
+// EN: If exist row in DB get Maxtime
 $num_results3  = $jakdb->query('SELECT id FROM ' . $envotable2);
 if ($num_results3->num_rows !== 0) {
   $resulttime3  = $jakdb->query('SELECT MAX(time) AS maxTime FROM ' . $envotable2);
@@ -304,7 +304,7 @@ if ($num_results3->num_rows !== 0) {
   $maxtime3 = '';
 }
 
-// Create html
+// EN: Create html
 $html = '<div><h2>Seznam SID (Service ID) - Rozhlasové programy</h2></div>';
 $html .= '<div><h4>' . $maxtime3 . '</h4></div>';
 $html .= '<p>Unikátní identifikátor konkrétní služby přenášené transportním tokem (televizní program, rozhlasový program, ostatní služby).</p>';
@@ -327,7 +327,6 @@ $html .= '<tr>
 $result4 = $jakdb->query('SELECT * FROM ' . $envotable2 . ' ORDER BY sid ASC');
 
 for ($i = 1; $row4 = $result4->fetch_assoc(); ++$i) {
-  // concatenate a string, instead of calling $pdf->writeHTML()
   $html .= '<tr>
               <td style="text-align: center;">' . $i . '</td>
               <td style="padding-left: 20px;">' . $row4['sid'] . '</td>
@@ -337,17 +336,17 @@ for ($i = 1; $row4 = $result4->fetch_assoc(); ++$i) {
 
 $html .= '</table>';
 
-// Write html
+// EN: Write html
 $mpdf->WriteHTML($html);
 
 // - - - - - - - - - - - - - - - - NEW PAGE - - - - - - - - - - - - -
 
-// Add a new page
+// EN: Add a new page
 $mpdf->AddPage();
 
 // - - - - SID S
 
-// If exist row in DB get Maxtime
+// EN: If exist row in DB get Maxtime
 $num_results4  = $jakdb->query('SELECT id FROM ' . $envotable3);
 if ($num_results4->num_rows !== 0) {
   $resulttime4  = $jakdb->query('SELECT MAX(time) AS maxTime FROM ' . $envotable3);
@@ -357,7 +356,7 @@ if ($num_results4->num_rows !== 0) {
   $maxtime4 = '';
 }
 
-// Create html
+// EN: Create html
 $html = '<div><h2>Seznam SID (Service ID) - Ostatní služby</h2></div>';
 $html .= '<div><h4>' . $maxtime4 . '</h4></div>';
 $html .= '<p>Unikátní identifikátor konkrétní služby přenášené transportním tokem (televizní program, rozhlasový program, ostatní služby).</p>';
@@ -380,7 +379,6 @@ $html .= '<tr>
 $result5 = $jakdb->query('SELECT * FROM ' . $envotable3 . ' ORDER BY sid ASC');
 
 for ($i = 1; $row5 = $result5->fetch_assoc(); ++$i) {
-  // concatenate a string, instead of calling $pdf->writeHTML()
   $html .= '<tr>
               <td style="text-align: center;">' . $i . '</td>
               <td style="padding-left: 20px;">' . $row5['sid'] . '</td>
@@ -390,12 +388,12 @@ for ($i = 1; $row5 = $result5->fetch_assoc(); ++$i) {
 
 $html .= '</table>';
 
-// Write html
+// EN: Write html
 $mpdf->WriteHTML($html);
 
 // - - - - - - - - - - - - - - - - NEW PAGE - - - - - - - - - - - - -
 
-// Add a new page
+// EN: Add a new page
 $mpdf->AddPage();
 
 // - - - - WIKI
@@ -410,12 +408,12 @@ Parametry SID, TSID a NID přiděluje ČTÚ (viz příslušný dokument na webu 
 $html .= '<p><strong>ONID (original_network_id)</strong> je identifikace přidělená mezinárodně pro každý stát - pro ČR je 0x20CB. V minulosti způsobovaly stejné parametry NID a ONID nemožnost naladit současně naše a polské programy.</p>';
 $html .= '<p></p>';
 
-// Write html
+// EN: Write html
 $mpdf->WriteHTML($html);
 
 // - - - - - - - - - - - - - - - - STATISTIC - - - - - - - - - - - - -
 
-// Get the users email
+// EN: Get the users email
 $dluserid = 0;
 $dlemail  = "guest";
 if (JAK_USERID) {
@@ -423,15 +421,15 @@ if (JAK_USERID) {
   $dlemail  = $jakuser->getVar("email");
 }
 
-// Get the users ip address
+// EN: Get the users ip address
 $ipa = get_ip_address();
 
-// Insert data to DB
+// EN: Insert data to DB
 $jakdb->query('INSERT INTO ' . $envotable6 . ' VALUES (NULL, "' . smartsql($dluserid) . '", "' . smartsql($dlemail) . '", "Bluesat-identifikatory-' . $timetoday . '.pdf", "' . smartsql($ipa) . '", NOW())');
 
 // - - - - - - - - - - - - - - - - OUTPUT - - - - - - - - - - - - -
 
-// Output a PDF file directly to the browser
+// EN: Output a PDF file directly to the browser
 $mpdf->Output('Bluesat-identifikatory-' . $timetoday . '.pdf', 'D');
 
 exit;

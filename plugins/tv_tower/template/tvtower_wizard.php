@@ -45,10 +45,13 @@
         </div>
       </div>
       <div class="col-md-4">
+
         <?php
         // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
         echo $Html->addButtonSubmit('search', $tltt["tt_frontend_button"]["ttbtn"], 'searchprogram', 'btn btn-info', array('style' => 'margin-top: 28px;'));
+        echo $Html->addButtonSubmit('export', 'Export programů do PDF', 'exportprogram', 'btn btn-info', array('style' => 'margin-top: 28px;'));
         ?>
+
       </div>
     </div>
   </div>

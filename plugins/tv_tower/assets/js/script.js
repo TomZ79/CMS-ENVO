@@ -132,6 +132,45 @@ var jslangdata = JSON.parse(envoWeb.envo_jslang);
   });
 
 
+  $('#exportprogram').click(function () {
+    var channelIDs = $('#selectChannel').val();
+
+    if (channelIDs) {
+      $('#resultData').empty();
+      $('#bounceLoader').show();
+
+      $.ajax({
+        url: '/plugins/tv_tower/pdf_programlist_ajax.php',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+          channelIDs: channelIDs
+        },
+        success: function (response) {
+
+          setTimeout(function () {
+            $('#bounceLoader').hide();
+
+            if(response.URL){
+              $('#resultData').html('Export seznamu programů do PDF proběhl úspěšně');
+
+              // Initiate download using direct path to file
+              window.location = response.URL;
+            } else{
+              $('#resultData').html(response.ERROR);
+            }
+
+          }, 1500);
+
+        }
+      });
+
+    } else {
+      $('#resultData').html('<div class="alert alert-danger">Vyberte kanál ze seznamu kanálů</div>');
+    }
+
+  });
+
 })(jQuery);
 
 /*

@@ -5,7 +5,7 @@
 if (!file_exists('../../config.php')) die('[test.php] config.php not exist');
 require_once '../../config.php';
 
-// Functions we need for this plugin
+// EN: Functions we need for this plugin
 include_once 'functions.php';
 
 // EN: Settings all the tables we need for our work
@@ -20,12 +20,15 @@ $envotable3 = DB_PREFIX . 'tvtowerexporthistory';
 $resulttime = $jakdb->query('SELECT MAX(time) AS maxTime FROM ' . $envotable2);
 $rowtime    = $resulttime->fetch_assoc();
 
+// EN: Set value
+// CZ: Nastavení hodnot
+$html = '';
 $timetoday = date('d-m-Y', time());
 $maxtime      = date('d.m.Y', strtotime($rowtime['maxTime']));
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// Create new PDF document
+// EN: Create new PDF document
 $mpdf = new mPDF(
   '',           // mode - default ''
   'A4',         // format - A4, for example, default ''
@@ -39,10 +42,10 @@ $mpdf = new mPDF(
   '10',          // margin footer
   'L');         // L - landscape, P - portrait
 
-// Specify the initial Display Mode when the PDF file is opened in Adobe Reader
+// EN: Specify the initial Display Mode when the PDF file is opened in Adobe Reader
 $mpdf->SetDisplayMode('fullpage');
 
-// Set document information
+// EN: Set document information
 $mpdf->SetCreator('Bluesat.cz');
 $mpdf->SetAuthor('Bluesat.cz');
 $mpdf->SetTitle('Programová nabídka');
@@ -50,7 +53,7 @@ $mpdf->SetSubject('Programová nabídka');
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// Sets a page footer
+// EN: Sets a page footer
 $footer = array(
   'L' => array(
     'content'    => '{DATE j-m-Y} | Bluesat.cz',
@@ -100,7 +103,7 @@ $html = '<style>
 
 // - - - - - - - - - - - - - - - - NEW PAGE - - - - - - - - - - - - -
 
-// Add a new page
+// EN: Add a new page
 $mpdf->AddPage();
 
 $html .= '<div class="center-div">
@@ -108,12 +111,12 @@ $html .= '<div class="center-div">
             <h1>Anténní a satelitní systémy</h1>
            </div>';
 
-// Write html
+// EN: Write html
 $mpdf->WriteHTML($html);
 
 // - - - - - - - - - - - - - - - - NEW PAGE - - - - - - - - - - - - -
 
-// Add a new page
+// EN: Add a new page
 $mpdf->AddPage();
 
 $html = '<div><h2>Seznam vysílačů pro Karlovarský kraj</h2></div>';
@@ -137,15 +140,15 @@ for ($i = 1; $row = $result->fetch_assoc(); ++$i) {
 
 $html .= '</table>';
 
-// Write html
+// EN: Write html
 $mpdf->WriteHTML($html);
 
 // - - - - - - - - - - - - - - - - NEW PAGE - - - - - - - - - - - - -
 
-// Add a new page
+// EN: Add a new page
 $mpdf->AddPage();
 
-// If exist row in DB get Maxtime
+// EN: If exist row in DB get Maxtime
 $num_results  = $jakdb->query('SELECT id FROM ' . $envotable2);
 if ($num_results->num_rows !== 0) {
   $resulttime  = $jakdb->query('SELECT MAX(time) AS maxTime FROM ' . $envotable2);
@@ -155,7 +158,7 @@ if ($num_results->num_rows !== 0) {
   $maxtime = '';
 }
 
-// Create html
+// EN: Create html
 $html = '<div><h2>Seznam programů pro Karlovarský kraj</h2></div>';
 $html .= '<div><h4>' . $maxtime . '</h4></div>';
 
@@ -167,7 +170,7 @@ while ($row1 = $result1->fetch_assoc()) {
   $html .= '<div>';
   $html .= '<div><h3>' . $row1['station'] . ' - ' . $row1['name'] . '</h3></div>';
 
-  $html .= '<table  class="table">';
+  $html .= '<table class="table">';
   $html .= '<tr>
               <th style="width: 29%;font-weight:bold;background-color: #037acc;color: #FFF;">Název programu</th>
               <th style="width: 13%;font-weight:bold;background-color: #037acc;color: #FFF;">TV/R</th>
@@ -204,12 +207,12 @@ while ($row1 = $result1->fetch_assoc()) {
 
 }
 
-// Create html
+// EN: Create html
 $mpdf->writeHTML($html);
 
 // - - - - - - - - - - - - - - - - STATISTIC - - - - - - - - - - - - -
 
-// Get the users email
+// EN: Get email
 $dluserid = 0;
 $dlemail  = "guest";
 if (JAK_USERID) {
@@ -217,15 +220,15 @@ if (JAK_USERID) {
   $dlemail  = $jakuser->getVar("email");
 }
 
-// Get the users ip address
+// EN: Get the users ip address
 $ipa = get_ip_address();
 
-// Insert data to DB
+// EN: Insert data to DB
 $jakdb->query('INSERT INTO ' . $envotable3 . ' VALUES (NULL, "' . smartsql($dluserid) . '", "' . smartsql($dlemail) . '", "Bluesat-programova-nabidka-' . $timetoday . '.pdf", "' . smartsql($ipa) . '", NOW())');
 
 // - - - - - - - - - - - - - - - - OUTPUT - - - - - - - - - - - - -
 
-// Output a PDF file directly to the browser
+// EN: Output a PDF file directly to the browser
 $mpdf->Output('Bluesat-programova-nabidka-' . $timetoday . '.pdf', 'D');
 
 exit;

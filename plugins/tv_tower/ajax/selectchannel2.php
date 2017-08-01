@@ -38,16 +38,16 @@ foreach ($channelIDs as $channelIDs) {
   echo '<div class="table-responsive">';
   echo '<table class="table table-hover">';
   echo '<thead>
-            <tr>
-              <th>' . $tltt["tt_frontend_list"]["ttl6"] . '</th>
-              <th>' . $tltt["tt_frontend_list"]["ttl7"] . '</th>
-              <th>' . $tltt["tt_frontend_list"]["ttl8"] . '</th>
-              <th>' . $tltt["tt_frontend_list"]["ttl9"] . '</th>
-              <th>' . $tltt["tt_frontend_list"]["ttl10"] . '</th>
-              <th>' . $tltt["tt_frontend_list"]["ttl11"] . '</th>
-              <th>' . $tltt["tt_frontend_list"]["ttl12"] . '</th>
-            </tr>
-            </thead>';
+          <tr>
+            <th>' . $tltt["tt_frontend_list"]["ttl6"] . '</th>
+            <th>' . $tltt["tt_frontend_list"]["ttl7"] . '</th>
+            <th>' . $tltt["tt_frontend_list"]["ttl8"] . '</th>
+            <th>' . $tltt["tt_frontend_list"]["ttl9"] . '</th>
+            <th>' . $tltt["tt_frontend_list"]["ttl10"] . '</th>
+            <th>' . $tltt["tt_frontend_list"]["ttl11"] . '</th>
+            <th>' . $tltt["tt_frontend_list"]["ttl12"] . '</th>
+          </tr>
+        </thead>';
   echo '<tbody>';
 
   $result1 = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'tvtowertvprogram WHERE towerid =' . $towerid . ' AND channelid =' . $channelid . ' ORDER BY tvr DESC');
