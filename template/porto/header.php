@@ -514,6 +514,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
         echo '<section class="pt-small mb-small">';
         echo '<div class="container">';
         echo '<div class="row">';
+        echo '<div class="col-md-12">';
 
         break;
       case 'B':

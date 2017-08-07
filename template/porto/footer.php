@@ -5,6 +5,7 @@ switch ($section) {
 
     echo '</div>';
     echo '</div>';
+    echo '</div>';
     echo '</section>';
 
     break;
