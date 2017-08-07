@@ -71,7 +71,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 
   <!-- Google Webmaste Tools
   ================================================== -->
-  <meta name="google-site-verification" content="s4oCyzc_RZ6-oBFDsGRdkZRZx7As2jQTSy75qo07X3c" />
+  <meta name="google-site-verification" content="s4oCyzc_RZ6-oBFDsGRdkZRZx7As2jQTSy75qo07X3c"/>
 
   <!-- CSS and FONTS
   ================================================== -->
@@ -99,8 +99,8 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
   <!-- Skin CSS -->
   <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/css/skins/skin-bluesat.min.css">
   <!-- Print CSS -->
-  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/css/bootstrap-print.css" media="print" />
-  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/css/bootstrap-print-md.css" media="print" />
+  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/css/bootstrap-print.css" media="print"/>
+  <link rel="stylesheet" href="/template/<?php echo ENVO_TEMPLATE; ?>/css/bootstrap-print-md.css" media="print"/>
 
   <?php if ($SHOWSOCIALBUTTON) { ?>
     <!-- Sollist -->
@@ -163,7 +163,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
           <div class="container">
             <div class="usernav pull-left">
               <label for="drop" class="toggle">Uživatelské MENU</label>
-              <input type="checkbox" id="drop" />
+              <input type="checkbox" id="drop"/>
               <ul class="header-links text-color-light">
 
                 <?php
@@ -363,81 +363,176 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
     }
     ?>
 
+
     <?php
 
-    /* GRID SYSTEM FOR DIFFERENT PAGE - show main section without sidebar
-     * (empty($JAK_HOOK_SIDE_GRID) && (!empty($page)) && (!$PAGE_PASSWORD) => show section if page have not GRID, isn't HOME PAGE and not exist password for page
-     * ($page != 'offline') => show section if site isn't offline
-     * ($page != '404') => show section if page isn't 404
-     * ($jkv["searchform"]) =>
-     * ((empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSION['pagesecurehash' . $PAGE_ID]) => show section if page have not GRID, have password and password is different as password in SESSION
-     * (empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && JAK_ASACCESS) => show section if page have not GRID, have password, but user access is Administrator
-     */
+    if (!$page) {
+      // Jedná se o titulní stránku - $page neobsahuje žádnou hodnotu
 
-    if ((empty($JAK_HOOK_SIDE_GRID) && (!empty($page)) && (!$PAGE_PASSWORD)) &&
-    ($page != 'offline') &&
-    ($page != '404') &&
-    ($jkv["searchform"]) ||
-    (empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSION['pagesecurehash' . $PAGE_ID]) ||
-    (empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && JAK_ASACCESS)) {
+      // Titulní stránka má Grid systém nebo heslo
+      if ($JAK_HOOK_SIDE_GRID || $PAGE_PASSWORD) {
+      } else {
+      }
+
+      $section = 'DEFAULT';
+
+    } else {
+      // Jedná se o speciální stránku - $page obsahuje hodnotu 'offline' nebo '404'
+      // Nejedná se o titulní stránku - $page obsahuje hodnotu
+
+      // Stránka - $page obsahuje hodnotu 'offline' => Web je v offline režimu
+      if ($page == 'offline') {
+        // SÍŤ JE OFFLINE
+        // Pokud není přihlášen administrátor '$page má hodnotu offline', pokud je administrátor přihlášen '$page nemá hodnotu offline' ale má hodnotu názvu stránky dle parsování URL adresy
+
+        $section = 'DEFAULT';
+
+      }
+
+      // Stránka - $page obsahuje hodnotu '404' => Chybová stránka
+      if ($page == '404') {
+
+        $section = 'DEFAULT';
+
+      }
+
+      // Stránka - $page neobsahuje hodnotu 'offline' nebo '404' - jedná se o různé stránky
+      if ($page != 'offline' && $page != '404') {
+
+        // Stránka má heslo, heslo ve stránce bylo správně zadané, stránka nemá heslo
+        if ($PAGE_PASSWORD && ($PAGE_PASSWORD != $_SESSION['pagesecurehash' . $PAGE_ID])) {
+          // STRÁNKA MÁ HESLO
+
+          // Přihlášení administrátora
+          if (JAK_ASACCESS) {
+            // ADMINISTRÁTOR JE PŘIHLÁŠEN
+
+            // Stránka má Grid systém
+            if ($JAK_HOOK_SIDE_GRID) {
+
+              $section = 'B';
+
+            } else {
+
+              $section = 'A';
+
+            }
+
+          } else {
+            // ADMINISTRÁTOR NENÍ PŘIHLÁŠEN
+
+            // Stránka má Grid systém
+            if ($JAK_HOOK_SIDE_GRID) {
+
+              $section = 'DEFAULT';
+
+            } else {
+
+              $section = 'DEFAULT';
+
+            }
+
+          }
+
+        } elseif ($PAGE_PASSWORD && ($PAGE_PASSWORD == $_SESSION['pagesecurehash' . $PAGE_ID])) {
+          // STRÁNKA MÁ HESLO A HESLO BYLO SPRÁVNĚ ZADANÉ VE STRÁNCE
+
+          // Přihlášení administrátora
+          if (JAK_ASACCESS) {
+            // ADMINISTRÁTOR JE PŘIHLÁŠEN
+
+            // Stránka má Grid systém
+            if ($JAK_HOOK_SIDE_GRID) {
+
+              $section = 'B';
+
+            } else {
+
+              $section = 'A';
+
+            }
+
+          } else {
+            // ADMINISTRÁTOR NENÍ PŘIHLÁŠEN
+
+            // Stránka má Grid systém
+            if ($JAK_HOOK_SIDE_GRID) {
+
+              $section = 'B';
+
+            } else {
+
+              $section = 'A';
+
+            }
+
+          }
+
+        } else {
+          // STRÁNKA NEMÁ HESLO
+
+          // Přihlášení administrátora
+          if (JAK_ASACCESS) {
+            // ADMINISTRÁTOR JE PŘIHLÁŠEN
+
+            // Stránka má Grid systém
+            if ($JAK_HOOK_SIDE_GRID) {
+
+              $section = 'B';
+
+            } else {
+
+              $section = 'A';
+
+            }
+
+          } else {
+            // ADMINISTRÁTOR NENÍ PŘIHLÁŠEN
+
+            // Stránka má Grid systém
+            if ($JAK_HOOK_SIDE_GRID) {
+
+              $section = 'B';
+
+            } else {
+
+              $section = 'A';
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+    switch ($section) {
+      case 'A':
+
+        echo '<section class="pt-small mb-small">';
+        echo '<div class="container">';
+        echo '<div class="row">';
+
+        break;
+      case 'B':
+
+        echo '<section class="pt-small mb-small">';
+        echo '<div class="container">';
+        echo '<div class="row">';
+
+        // Sidebar if left
+        if (!empty($JAK_HOOK_SIDE_GRID) && $jkv["sidebar_location_tpl"] == "left") {
+          include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/sidebar.php';
+        }
+
+        echo '<div class="' . ($JAK_HOOK_SIDE_GRID ? 'col-md-9' : 'col-md-12') . '">';
+
+        break;
+      default:
+
+    }
 
     ?>
-
-    <section class="pt-small  mb-small">
-
-      <div class="container">
-        <div class="row">
-
-          <?php } ?>
-
-          <?php
-
-          /* GRID SYSTEM FOR DIFFERENT PAGE - hide all main section
-           * (empty($JAK_HOOK_SIDE_GRID) && empty($page) && $PAGE_PASSWORD) => hide section if page have not GRID, is HOME PAGE and exist password for page
-           * ($page == 'offline') => hide section if site is offline
-           * ($page == '404') => hide section if page is 404
-           * (!$jkv["searchform"]) =>
-           * ($PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSION['pagesecurehash' . $PAGE_ID]) => hide section if page have password and pasword is different as password in SESSION
-           */
-
-          if ((empty($JAK_HOOK_SIDE_GRID) && empty($page) && $PAGE_PASSWORD) ||
-            ($page == 'offline') ||
-            ($page == '404') ||
-            (!$jkv["searchform"]) ||
-            ($PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSION['pagesecurehash' . $PAGE_ID])
-          ) {
-
-            ?>
-
-          <?php } ?>
-
-
-          <?php
-
-          /* GRID SYSTEM FOR DIFFERENT PAGE - show main section with sidebar
-           * (!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSION['pagesecurehash' . $PAGE_ID]) => show section if page have GRID (have sidebar), have password and password is same as password  in SESSION
-           * (!empty($JAK_HOOK_SIDE_GRID) && !$PAGE_PASSWORD) => show section if page have GRID (have sidebar), have not password
-           * (!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && JAK_ASACCESS) => show section if page have GRID (have sidebar), have password, but user access is Administrator
-           * (!empty($JAK_HOOK_SIDE_GRID) && !empty($page) && !$PAGE_PASSWORD) => show section if page have GRID, page isn't blank (isn't home page), have not password
-           */
-
-          if ((!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSION['pagesecurehash' . $PAGE_ID]) ||
-          (!empty($JAK_HOOK_SIDE_GRID) && !$PAGE_PASSWORD) ||
-          (!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && JAK_ASACCESS) ||
-          (!empty($JAK_HOOK_SIDE_GRID) && !empty($page) && !$PAGE_PASSWORD)) {
-
-          ?>
-
-          <section class="pt-small  mb-small">
-
-            <div class="container">
-              <div class="row">
-
-                <!-- Sidebar if left -->
-                <?php if (!empty($JAK_HOOK_SIDE_GRID) && $jkv["sidebar_location_tpl"] == "left") include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/sidebar.php'; ?>
-                <!-- / sidebar -->
-                <div class="<?php echo($JAK_HOOK_SIDE_GRID ? "col-md-9" : "col-md-12"); ?>">
-
-                  <?php } ?>
-
 

@@ -1,41 +1,30 @@
 <?php
 
-/* GRID SYSTEM FOR DIFFERENT PAGE - show main section without sidebar - END TAG */
+switch ($section) {
+  case 'A':
 
-if ((empty($JAK_HOOK_SIDE_GRID) && (!empty($page)) && (!$PAGE_PASSWORD)) &&
-  ($page != 'offline') &&
-  ($page != '404') &&
-  ($jkv["searchform"]) ||
-  (empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSION['pagesecurehash' . $PAGE_ID]) ||
-  (empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && JAK_ASACCESS)
-) {
-  ?>
-  </div>
-  </div>
-  </section>
-<?php } ?>
+    echo '</div>';
+    echo '</div>';
+    echo '</section>';
 
-<?php
+    break;
+  case 'B':
 
-/* GRID SYSTEM FOR DIFFERENT PAGE - show main section with sidebar - END TAG */
+    echo '</div>';
 
-if ((!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && $PAGE_PASSWORD == $_SESSION['pagesecurehash' . $PAGE_ID]) ||
-  (!empty($JAK_HOOK_SIDE_GRID) && !$PAGE_PASSWORD) ||
-  (!empty($JAK_HOOK_SIDE_GRID) && $PAGE_PASSWORD && JAK_ASACCESS) ||
-  (!empty($JAK_HOOK_SIDE_GRID) && !empty($page) && !$PAGE_PASSWORD)
-) {
-  ?>
-  </div>
+    // Sidebar if right
+    if (!empty($JAK_HOOK_SIDE_GRID) && $jkv["sidebar_location_tpl"] == "right") {
+      include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/sidebar.php';
+    }
 
-  <!-- Sidebar if right -->
-  <?php if (!empty($JAK_HOOK_SIDE_GRID) && $jkv["sidebar_location_tpl"] == "right") {
-    include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/sidebar.php';
-  } ?>
+    echo '</section>';
 
-  </div>
-  </div>
-  </section>
-<?php } ?>
+    break;
+  default:
+
+}
+
+?>
 
 </div><!-- END MAIN CONTENT -->
 
