@@ -17,14 +17,14 @@
 
 <?php } ?>
 
-	<!-- 404 PAGE -->
+	<!-- OFFLINE PAGE -->
 	<section class="pt-large pb-large light-color">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="text-center">
 						<h1><?php echo $tl["general_error"]["generror6"]; ?></h1>
-						<?php echo $tl["general_error"]["generror7"]; ?>
+						<p><?php echo $tl["general_error"]["generror7"]; ?></p>
 					</div>
 				</div>
 			</div>
