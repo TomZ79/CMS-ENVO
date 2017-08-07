@@ -298,26 +298,13 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
     ============================== -->
     <?php if ($JAK_SHOW_NAVBAR) {
 
-      /* GRID SYSTEM FOR DIFFERENT PAGE - hide page title
-       * !isset($page =>
-       * empty($page) =>
-       * $page == 'offline' =>
-       * $page == '404' =>
-       * !$jkv["searchform"] || !JAK_USER_SEARCH =>
-       * * ($PAGE_PASSWORD && !JAK_ASACCESS && $PAGE_PASSWORD != $_SESSION['pagesecurehash' . $PAGE_ID]) => If page have password and password isn't same as in Session without Administrator access
-       */
-      if (!isset($page) ||
-        empty($page) ||
-        ($page == 'offline') ||
-        /* ($page == '404') || */
-        (!$jkv["searchform"] || !JAK_USER_SEARCH)
-        /* || ($PAGE_PASSWORD && !JAK_ASACCESS && $PAGE_PASSWORD != $_SESSION['pagesecurehash' . $PAGE_ID]) */
-      ) {
-
+      /* GRID SYSTEM FOR DIFFERENT PAGE - hide page title */
+      if (!$page || empty($page) || ($page == 'offline') || (!$jkv["searchform"] || !JAK_USER_SEARCH)) {
         // Code for homepage and other blank page
-        ?>
 
-      <?php } elseif (isset($page)) {
+      }
+
+      if ($page) {
         // Code for all page without home page
         ?>
 
@@ -371,7 +358,9 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 
       // Titulní stránka má Grid systém nebo heslo
       if ($JAK_HOOK_SIDE_GRID || $PAGE_PASSWORD) {
+
       } else {
+
       }
 
       $section = 'DEFAULT';
