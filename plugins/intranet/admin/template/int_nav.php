@@ -22,9 +22,9 @@ if ($page == 'intranet') {
 
       <?php
       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-      echo $Html->addAnchor('index.php?p=intranet&amp;sp=setting', $tlint["int_menu"]["intm9"]);
+      echo $Html->addAnchor('index.php?p=intranet&amp;sp=setting', $tlint["int_menu"]["intm1"]);
       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-      echo $Html->addTag('span', text_clipping_lower($tlint["int_menu"]["intm9"]), 'icon-thumbnail');
+      echo $Html->addTag('span', text_clipping_lower($tlint["int_menu"]["intm1"]), 'icon-thumbnail');
       ?>
 
     </li>
