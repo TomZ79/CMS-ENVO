@@ -103,10 +103,76 @@ if ($page2 == "e") { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_title', $JAK_SETTING_VAL["intranettitle"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_title', $JAK_SETTING_VAL["intranettitle"], '', 'form-control');
                           ?>
 
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="box-footer">
+
+                <?php
+                // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                ?>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="box box-success">
+              <div class="box-header with-border">
+
+                <?php
+                // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                echo $Html->addTag('h3', $tlint["int_box_title"]["intbt1"], 'box-title');
+                ?>
+
+              </div>
+              <div class="box-body">
+                <div class="block">
+                  <div class="block-content">
+                    <div class="row-form">
+                      <div class="col-md-5">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html->addTag('strong', $tlint["int_box_content"]["intbc1"]);
+                        ?>
+
+                      </div>
+                      <div class="col-md-7">
+                        <select name="envo_skin" class="form-control selectpicker">
+
+                          <?php
+                          // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                          echo $Html->addOption('', 'Default', ($JAK_SETTING_VAL["intranetskin"] == "") ? TRUE : FALSE);
+                          echo $Html->addOption('header-dark', '<div class="header-brand color-brand bg-primary"></div> Dark', ($JAK_SETTING_VAL["intranetskin"] == "header-dark") ? TRUE : FALSE);
+                          echo $Html->addOption('header-red', 'Red', ($JAK_SETTING_VAL["intranetskin"] == "header-red") ? TRUE : FALSE);
+                          echo $Html->addOption('header-pink', 'Pink', ($JAK_SETTING_VAL["intranetskin"] == "header-pink") ? TRUE : FALSE);
+                          echo $Html->addOption('header-purple', 'Purple', ($JAK_SETTING_VAL["intranetskin"] == "header-purple") ? TRUE : FALSE);
+                          echo $Html->addOption('header-deeppurple', 'Deeppurple', ($JAK_SETTING_VAL["intranetskin"] == "header-deeppurple") ? TRUE : FALSE);
+                          echo $Html->addOption('header-indigo', 'Indigo', ($JAK_SETTING_VAL["intranetskin"] == "header-indigo") ? TRUE : FALSE);
+                          echo $Html->addOption('header-blue', 'Blue', ($JAK_SETTING_VAL["intranetskin"] == "header-blue") ? TRUE : FALSE);
+                          echo $Html->addOption('header-lightblue', 'Lightblue', ($JAK_SETTING_VAL["intranetskin"] == "header-lightblue") ? TRUE : FALSE);
+                          echo $Html->addOption('header-cyan', 'Cyan', ($JAK_SETTING_VAL["intranetskin"] == "header-cyan") ? TRUE : FALSE);
+                          echo $Html->addOption('header-teal', 'Teal', ($JAK_SETTING_VAL["intranetskin"] == "header-teal") ? TRUE : FALSE);
+                          echo $Html->addOption('header-green', 'Green', ($JAK_SETTING_VAL["intranetskin"] == "header-green") ? TRUE : FALSE);
+                          echo $Html->addOption('header-lightgreen', 'Lightgreen', ($JAK_SETTING_VAL["intranetskin"] == "header-lightgreen") ? TRUE : FALSE);
+                          echo $Html->addOption('header-lime', 'Lime', ($JAK_SETTING_VAL["intranetskin"] == "header-lime") ? TRUE : FALSE);
+                          echo $Html->addOption('header-yellow', 'Yellow', ($JAK_SETTING_VAL["intranetskin"] == "header-yellow") ? TRUE : FALSE);
+                          echo $Html->addOption('header-amber', 'Amber', ($JAK_SETTING_VAL["intranetskin"] == "header-amber") ? TRUE : FALSE);
+                          echo $Html->addOption('header-orange', 'Orange', ($JAK_SETTING_VAL["intranetskin"] == "header-orange") ? TRUE : FALSE);
+                          echo $Html->addOption('header-deeporange', 'Deeporange', ($JAK_SETTING_VAL["intranetskin"] == "header-deeporange") ? TRUE : FALSE);
+                          echo $Html->addOption('header-brown', 'Brown', ($JAK_SETTING_VAL["intranetskin"] == "header-brown") ? TRUE : FALSE);
+                          echo $Html->addOption('header-grey', 'Grey', ($JAK_SETTING_VAL["intranetskin"] == "header-grey") ? TRUE : FALSE);
+                          echo $Html->addOption('header-bluegrey', 'Bluegrey', ($JAK_SETTING_VAL["intranetskin"] == "header-bluegrey") ? TRUE : FALSE);
+                          ?>
+
+                        </select>
                       </div>
                     </div>
                   </div>

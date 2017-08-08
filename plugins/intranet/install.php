@@ -212,7 +212,8 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
         // EN: Insert data to table 'setting'
         // CZ: Vložení potřebných dat to tabulky 'setting'
         $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
-("intranettitle", "intranet", "Intranet", "Intranet", "input", "free", "intranet")');
+("intranettitle", "intranet", "Intranet", "Intranet", "input", "free", "intranet"),
+("intranetskin", "intranet", "", "", "select", "free", "intranet")');
 
         // EN: Insert data to table 'usergroup'
         // CZ: Vložení potřebných dat to tabulky 'usergroup'

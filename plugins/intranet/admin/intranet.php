@@ -28,9 +28,10 @@ switch ($page1) {
          * smartsql - secure method to insert form data into a MySQL DB
         */
         $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-                    WHEN "intranettitle" THEN "' . smartsql($defaults['jak_title']) . '"
+                    WHEN "intranettitle" THEN "' . smartsql($defaults['envo_title']) . '"
+                    WHEN "intranetskin" THEN "' . smartsql($defaults['envo_skin']) . '"
                   END
-                  WHERE varname IN ("intranettitle")');
+                  WHERE varname IN ("intranettitle", "intranetskin")');
 
         if (!$result) {
           // EN: Redirect page

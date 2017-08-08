@@ -34,7 +34,7 @@
 
 </head>
 
-<body class="page-loading header-blue">
+<body class="page-loading <?php echo $JAK_SETTING_VAL["intranetskin"]; ?>">
 <!-- page loading spinner -->
 <div class="pageload">
   <div class="pageload-inner">
@@ -46,11 +46,6 @@
   <!-- sidebar panel -->
   <div class="sidebar-panel offscreen-left">
     <div class="brand">
-      <!-- toggle small sidebar menu -->
-      <a href="javascript:;" class="toggle-apps hidden-xs" data-toggle="quick-launch">
-        <i class="icon-grid"></i>
-      </a>
-      <!-- /toggle small sidebar menu -->
       <!-- toggle offscreen menu -->
       <div class="toggle-offscreen">
         <a href="javascript:;" class="visible-xs hamburger-icon" data-toggle="offscreen" data-move="ltr">
@@ -67,98 +62,9 @@
       <a href="#" class="small-menu-visible brand-logo">INT</a>
       <!-- /logo -->
     </div>
-    <ul class="quick-launch-apps hide">
-      <li>
-        <a href="apps-gallery.html">
-            <span class="app-icon bg-danger text-white">
-            G
-            </span>
-          <span class="app-title">Gallery</span>
-        </a>
-      </li>
-      <li>
-        <a href="apps-messages.html">
-            <span class="app-icon bg-success text-white">
-            M
-            </span>
-          <span class="app-title">Messages</span>
-        </a>
-      </li>
-      <li>
-        <a href="apps-social.html">
-            <span class="app-icon bg-primary text-white">
-            S
-            </span>
-          <span class="app-title">Social</span>
-        </a>
-      </li>
-      <li>
-        <a href="apps-travel.html">
-            <span class="app-icon bg-info text-white">
-            T
-            </span>
-          <span class="app-title">Travel</span>
-        </a>
-      </li>
-    </ul>
     <!-- main navigation -->
     <nav role="navigation">
-      <ul class="nav">
-        <!-- dashboard -->
-        <li>
-          <a href="index.html">
-            <i class="icon-compass"></i>
-            <span>Dashboard</span>
-          </a>
-        </li>
-        <!-- /dashboard -->
-        <!-- menu levels -->
-        <li>
-          <a href="javascript:;">
-            <i class="icon-frame"></i>
-            <span>Menu Level</span>
-          </a>
-          <ul class="sub-menu">
-            <li>
-              <a href="javascript:;">
-                <i class="toggle-accordion"></i>
-                <span>Level</span>
-              </a>
-              <ul class="sub-menu">
-                <li>
-                  <a href="javascript:;">
-                    <i class="toggle-accordion"></i>
-                    <span>Level</span>
-                  </a>
-                  <ul class="sub-menu">
-                    <li>
-                      <a href="javascript:;">
-                        <span>Level</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="javascript:;">
-                        <span>Level</span>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="javascript:;">
-                    <span>Level</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="javascript:;">
-                <span>Level</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <!-- menu levels -->
-      </ul>
+      <?php include_once APP_PATH . 'plugins/intranet/template/int_nav.php'; ?>
     </nav>
     <!-- /main navigation -->
   </div>
@@ -207,7 +113,7 @@
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a href="<?php echo BASE_URL; ?>">Websíť <?php echo $jkv["title"]; ?></a>
+              <a href="<?php echo BASE_URL; ?>" target="_blank">Websíť <?php echo $jkv["title"]; ?></a>
             </li>
             <li>
               <a href="<?php echo $P_USR_LOGOUT; ?>" id="logout">Logout</a>
