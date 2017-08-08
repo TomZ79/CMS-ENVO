@@ -207,21 +207,18 @@ $path     = '/' . JAK_FILES_DIRECTORY . '/export/';
 
 if(is_dir(APP_PATH . $path)){
 
-  // EN: Remove file if it already exists
-  if(file_exists($path . $filename)) unlink($path . $filename);
-
   // EN: Output a PDF file directly to the browser
   $mpdf->Output(APP_PATH . $path . $filename, 'F');
 
-  $response = json_encode(array('URL' => $path . $filename));
+  $response = array('URL' => $path . $filename);
 
 } else {
 
-  $response = json_encode(array('ERROR' => '<div class="alert alert-danger"> Chyba exportu souboru <strong>' . $filename . '</strong></div>' . $path));
+  $response = array('ERROR' => '<div class="alert alert-danger"> Chyba exportu souboru <strong>' . $filename . '</strong></div>' . $path);
 
 }
 
-echo $response;
+echo json_encode($response);
 
 exit;
 

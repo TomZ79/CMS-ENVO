@@ -157,7 +157,7 @@ if ($errors) { ?>
 
                   <?php
                   // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                  echo $Html->addTag('strong', 'TV / Radio');
+                  echo $Html->addTag('strong', 'TV / Radio / Stream');
                   ?>
 
                 </div>

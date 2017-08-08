@@ -119,7 +119,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
               ?>
 
             </td>
-            <td><?php echo (($tp["tvr"] == '1') ? 'TV' : 'Radio'); ?></td>
+            <td><?php echo (($tp['tvr'] == '1') ? 'TV' : (($tp['tvr'] == '2') ? 'Stream TV' : 'Radio')); ?></td>
             <td>
 
               <?php

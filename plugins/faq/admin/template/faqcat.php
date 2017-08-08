@@ -91,7 +91,7 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
       <?php
 
       // Build menu for categories header and header/footer
-      $lang   = $tl["faq_notification"]["catdel"];
+      $lang   = $tlf["faq_notification"]["catdel"];
       $title1 = $tl["icons"]["i5"];
       $title2 = $tl["icons"]["i6"];
       $title3 = $tl["icons"]["i25"];
