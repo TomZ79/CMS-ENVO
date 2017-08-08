@@ -1,4 +1,4 @@
-<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
+<?php include_once $BASE_PLUGIN_URL . 'int_header.php'; ?>
 
 <?php if (JAK_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=intranet&amp;sp=setting'; ?>
 
@@ -6,4 +6,4 @@
 
   </div>
 
-<?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>
+<?php include_once $BASE_PLUGIN_URL . 'int_footer.php'; ?>
