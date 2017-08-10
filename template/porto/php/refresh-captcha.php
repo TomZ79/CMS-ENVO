@@ -1,5 +1,8 @@
 <?php
+// EN: Start a PHP Session
+// CZ: Start PHP Session
 session_start();
+
 $_SESSION = array();
 
 include ('../../../assets/plugins/captcha/simple-php-captcha/simple-php-captcha.php');

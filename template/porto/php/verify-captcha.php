@@ -1,5 +1,8 @@
 <?php
+// EN: Start a PHP Session
+// CZ: Start PHP Session
 session_start();
+
 session_cache_limiter('nocache');
 header('Expires: ' . gmdate('r', 0));
 

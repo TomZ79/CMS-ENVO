@@ -124,8 +124,12 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
 
       <!-- UNINSTALLATION -->
       <?php if (isset($_POST['uninstall'])) {
-        // Validate
+        // VALIDATE
+
+        // EN: Start a PHP Session
+        // CZ: Start PHP Session
         session_start();
+
         if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
 
           // Now get the plugin id for futher use

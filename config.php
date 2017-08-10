@@ -12,7 +12,8 @@ if (is_dir('install')) die('Please delete or rename install folder.');
 // Files directory does not exist? abort.
 if (!JAK_FILES_DIRECTORY) die('Please define a files directory in the db.php.');
 
-// Start the session
+// EN: Start a PHP Session
+// CZ: Start PHP Session
 session_start();
 
 // Absolute Path

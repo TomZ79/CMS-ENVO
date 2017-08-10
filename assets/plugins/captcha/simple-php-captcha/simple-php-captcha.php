@@ -115,6 +115,8 @@ if (!function_exists('hex2rgb')) {
 // Draw the image
 if (isset($_GET['_CAPTCHA'])) {
 
+  // EN: Start a PHP Session
+  // CZ: Start PHP Session
   session_start();
 
   $captcha_config = unserialize($_SESSION['_CAPTCHA']['config']);
