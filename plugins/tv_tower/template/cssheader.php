@@ -3,7 +3,7 @@
  * PLUGIN TV TOWER - POPIS SOUBORU cssheader.php
  * ----------------------------------------------
  *
- * Soubor slouží pro vložení css stylu souboru 'plugins/tv_tower/assets/css/style.css' do záhlaví webu - frontend
+ * Soubor slouží pro vložení css stylů, externích css souborů a souboru 'plugins/tv_tower/assets/css/style.css' do záhlaví webu - frontend
  *
  */
 ?>

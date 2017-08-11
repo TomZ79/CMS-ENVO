@@ -3,7 +3,7 @@
  * PLUGIN DOWNLOAD - POPIS SOUBORU cssheader.php
  * ----------------------------------------------
  *
- * Soubor slouží pro vložení css stylu souboru 'plugins/download/assets/css/style.css' do záhlaví webu - frontend
+ * Soubor slouží pro vložení css stylů, externích css souborů a souboru 'plugins/download/assets/css/style.css' do záhlaví webu - frontend
  *
  */
 ?>

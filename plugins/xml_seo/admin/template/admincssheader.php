@@ -3,7 +3,7 @@
  * PLUGIN XML SEO - POPIS SOUBORU admincssheader.php
  * ----------------------------------------------
  *
- * Soubor slouží pro vložení css stylu souboru 'plugins/xml_seo/admin/css/style.css' do záhlaví webu - admin
+ * Soubor slouží pro vložení css stylů, externích css souborů a souboru 'plugins/xml_seo/admin/css/style.css' do záhlaví webu - admin
  *
  */
 ?>
