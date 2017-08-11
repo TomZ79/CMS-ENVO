@@ -366,8 +366,14 @@
     Pages.prototype.initCustomSelect2Plugin = function(context) {
         $.fn.select2 && $('.selectpicker', context).each(function() {
             $(this).select2({
-                minimumResultsForSearch: ($(this).attr('data-search-select2') == 'true' ? 1 : -1)
-            })
+                minimumResultsForSearch: ($(this).attr('data-search-select2') == 'true' ? 1 : -1),
+                dropdownParent: $('.page-content-wrapper'),
+                width: '100%',
+            }).on('select2:open', function() {
+                $.fn.scrollbar && $('.select2-results__options').scrollbar({
+                    ignoreMobile: false
+                })
+            });
         });
     }
     /** @function initScrollBarPlugin

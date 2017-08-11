@@ -13,12 +13,20 @@
  */
 
 /* Bootstrap Select2 */
-.select2-container {
-  width: 100% !important;
-}
-
 .select2-container .select2-selection {
   border-radius: 0 !important;
+}
+
+.select2-results .select2-results__option--highlighted {
+  background-color: #CFF5F2 !important;
+  border-radius: 0;
+  color: #626262 !important;
+}
+
+.select2-results ul li[aria-selected="true"] {
+  background-color: #CFF5F2 !important;
+  border-radius: 0;
+  color: #626262 !important;
 }
 
 .has-error .select2-selection {
