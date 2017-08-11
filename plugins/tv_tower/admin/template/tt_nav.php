@@ -16,7 +16,7 @@ if ($page == 'tv-tower' && $page1 == 'identifiers') {
   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
   echo $Html->addAnchor('javascript:;', '<span class="title">' . $tltt["tt_menu"]["ttm"] . '</span><span class="arrow ' . $classttsection . '"></span>');
   // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-  echo $Html->addTag('span', 'PO', 'icon-thumbnail ' . $classtticonbg);
+  echo $Html->addTag('span', 'TT', 'icon-thumbnail ' . $classtticonbg);
   ?>
 
   <ul class="sub-menu">
