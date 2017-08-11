@@ -2,8 +2,8 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists('../../../config.php')) die('[ajax/selectchannel2.php] config.php not exist');
-require_once '../../../config.php';
+if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/config.php')) die('[' . __DIR__ . '/selectchannel2.php] => "config.php" not found');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
 if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
 

@@ -3,12 +3,10 @@
  * SEARCHING IN ARTICLE of PAGES, BLOG, NEWS, DOWNLOAD and FAQ
  */
 
-$root = $_SERVER['DOCUMENT_ROOT'];
-
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists($root . '/config.php')) die('[index.php] config.php not found');
-require_once $root . '/config.php';
+if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/overlay-search.php] => "config.php" not found');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
 // EN: Include some functions for the ADMIN Area
 // CZ: Vložení funkcí pro ADMINistrační rozhraní

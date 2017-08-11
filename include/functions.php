@@ -264,7 +264,7 @@ function envo_get_data($id, $table)
 {
 
   global $jakdb;
-  $setting = array();
+  $envodata = array();
   $result  = $jakdb->query('SELECT * FROM ' . $table . ' WHERE id = "' . smartsql($id) . '"');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array

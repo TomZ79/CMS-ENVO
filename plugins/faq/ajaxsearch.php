@@ -2,8 +2,8 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists('../../config.php')) die('plugins/faq/[ajaxsearch.php] config.php not exist');
-require_once '../../config.php';
+if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/config.php')) die('[' . __DIR__ . '/ajaxsearch.php] => "config.php" not found');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
 //
 if (!file_exists('../../class/class.search.php')) die('ajaxsearch/[faq.php] class.search.php not exist');

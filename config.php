@@ -16,6 +16,14 @@ if (!JAK_FILES_DIRECTORY) die('Please define a files directory in the db.php.');
 // CZ: Start PHP Session
 session_start();
 
+// -----------------------------------------------------------------------
+// DEFINE SEPERATOR ALIASES
+// -----------------------------------------------------------------------
+define("URL_SEPARATOR", '/');
+define("DS", DIRECTORY_SEPARATOR);
+define("PS", PATH_SEPARATOR);
+define("US", URL_SEPARATOR);
+
 // Absolute Path
 define('APP_PATH', dirname(__file__) . DIRECTORY_SEPARATOR);
 if (isset($_SERVER['SCRIPT_NAME'])) {

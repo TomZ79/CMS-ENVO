@@ -2,8 +2,8 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists('../../../../config.php')) die('ajax/[tt_selectprogram_process.php] config.php not exist');
-require_once '../../../../config.php';
+if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/tt_selectprogram_process.php] => "config.php" not found');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
 if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
 

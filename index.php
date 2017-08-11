@@ -5,8 +5,8 @@ define('JAK_PREVENT_ACCESS', 1);
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists('config.php')) die('[index.php] config.php not exist');
-require_once 'config.php';
+if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/config.php')) die('[' . __DIR__ . '/index.php] => "config.php" not found');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
 // Now check if there is more then one page
 $page  = ($tempp ? envo_url_input_filter($tempp) : '');

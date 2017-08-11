@@ -2,8 +2,8 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists('../../config.php')) die('[test.php] config.php not exist');
-require_once '../../config.php';
+if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/config.php')) die('[' . __DIR__ . '/pdf_identifiers.php] => "config.php" not found');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
 // EN: Functions we need for this plugin
 include_once 'functions.php';

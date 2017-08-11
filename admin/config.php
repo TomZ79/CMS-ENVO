@@ -6,10 +6,10 @@ if (is_dir('../install')) die($tl['general_error']['generror41']);
 
 // EN: The DB connections data
 // CZ: Spojení do DB
-require_once '../include/db.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/include/db.php';
 
 // Get the real stuff
-require_once '../config.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
 // EN: Base definition
 // CZ: Základní definice
