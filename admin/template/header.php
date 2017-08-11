@@ -78,11 +78,11 @@ echo $Html->addDoctype('html5');
           document.head.innerHTML += '<link rel="stylesheet" type="text/css" href="pages/css/windows.chrome.fix.css" />'
       }
     </script>
+
     <!-- BEGIN HOOKS - HEADER -->
     <?php if (isset($JAK_HOOK_HEAD_ADMIN) && is_array($JAK_HOOK_HEAD_ADMIN)) foreach ($JAK_HOOK_HEAD_ADMIN as $headt) {
       include_once APP_PATH . $headt['phpcode'];
     } ?>
-
 
   </head>
 <body class="fixed-header has-detached-right">
