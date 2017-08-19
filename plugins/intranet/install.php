@@ -2,8 +2,8 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists('../../config.php')) die('[install.php] config.php not found');
-require_once '../../config.php';
+if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/config.php')) die('[' . __DIR__ . '/install.php] => "config.php" not found');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
 // Check if the file is accessed only from a admin if not stop the script from running
 $php_errormsg = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
@@ -205,6 +205,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
         $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "Intranet Admin Language", "' . $adminlang . '", "intranet", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Intranet Site Language", "' . $sitelang . '", "intranet", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_head", "Intranet Admin CSS", "plugins/intranet/admin/template/admincssheader.php", "intranet", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup", "Intranet Usergroup New", "plugins/intranet/admin/template/usergroup_new.php", "intranet", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup_edit", "Intranet Usergroup Edit", "plugins/intranet/admin/template/usergroup_edit.php", "intranet", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_usergroup", "Intranet Usergroup SQL", "' . $insertphpcode . '", "intranet", 1, 1, "' . $rows['id'] . '", NOW())');
@@ -224,6 +225,49 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
         $jakdb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES
 (NULL, "Intranet", "intranet", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
 
+        // EN: Create table for plugin (House)
+        // CZ: Vytvoření tabulky pro plugin (Bytový dům)
+        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouse (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NULL DEFAULT NULL,
+  `varname` varchar(255) NULL DEFAULT NULL,
+  `street` varchar(255) NULL DEFAULT NULL,
+  `city` varchar(255) NULL DEFAULT NULL,
+  `psc` varchar(100) NULL DEFAULT NULL,
+  `state` varchar(255) NULL DEFAULT NULL,
+  `ic` varchar(100) NULL DEFAULT NULL,
+  `dic` varchar(100) NULL DEFAULT NULL,
+  `permission` varchar(100) NOT NULL DEFAULT 0,
+  `countentrance` int(5) unsigned NOT NULL DEFAULT 0,
+  `countapartment` int(10) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+        // EN: Create table for plugin (House - Appartements)
+        // CZ: Vytvoření tabulky pro plugin (Bytový dům - Byty)
+        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousedetail (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `houseid` int(10) unsigned NOT NULL DEFAULT 0,
+  `numberentrance` varchar(100) NULL DEFAULT NULL,
+  `countapartment` varchar(100) NULL DEFAULT NULL,
+  `countetage` varchar(100) NULL DEFAULT NULL,
+  `elevator` varchar(100) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+        // EN: Create table for plugin (House - Appartements)
+        // CZ: Vytvoření tabulky pro plugin (Bytový dům - Byty)
+        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranetappartement (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `houseid` int(10) unsigned NOT NULL DEFAULT 0,
+  `entrance` varchar(255) NULL DEFAULT NULL,
+  `number` varchar(255) NULL DEFAULT NULL,
+  `etage` varchar(255) NULL DEFAULT NULL,
+  `name` varchar(255) NULL DEFAULT NULL,
+  `phone` varchar(255) NULL DEFAULT NULL,
+  `commission` varchar(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
 
         $succesfully = 1;

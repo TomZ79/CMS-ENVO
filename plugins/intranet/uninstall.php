@@ -2,8 +2,8 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists('../../config.php')) die('[install.php] config.php not found');
-require_once '../../config.php';
+if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/config.php')) die('[' . __DIR__ . '/uninstall.php] => "config.php" not found');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
 // Check if the file is accessed only from a admin if not stop the script from running
 $php_errormsg = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
@@ -124,8 +124,12 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
       <!-- UNINSTALLATION -->
       <?php if (isset($_POST['uninstall'])) {
-        // Validate
+        // VALIDATE
+
+        // EN: Start a PHP Session
+        // CZ: Start PHP Session
         session_start();
+
         if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
 
           // Now get the plugin id for futher use
@@ -140,6 +144,9 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
             $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `intranet`');
             $jakdb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
 
+            /* Remove tables */
+            $jakdb->query('DROP TABLE ' . DB_PREFIX . 'intranethouse');
+            $jakdb->query('DROP TABLE ' . DB_PREFIX . 'intranetappartement');
           }
 
           $succesfully = 1;

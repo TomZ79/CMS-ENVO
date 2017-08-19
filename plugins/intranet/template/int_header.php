@@ -125,3 +125,10 @@
     <!-- /top header -->
     <!-- main area -->
     <div class="main-content">
+
+      <div class="page-title">
+        <ul class="breadcrumb">
+          <li><h5 class="title bold">Uživatelé - Editace</h5></li>
+          <li><span class="desc">Editace uživatele</span></li>
+        </ul>
+      </div>

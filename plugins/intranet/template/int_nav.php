@@ -7,6 +7,31 @@
     </a>
   </li>
   <!-- /dashboard -->
+  <!-- house -->
+  <li>
+    <a href="javascript:;">
+      <i class="icon-folder-alt"></i>
+      <span>Bytové domy</span>
+    </a>
+    <ul class="sub-menu">
+      <li>
+        <a href="/intranet/">
+          <span>Seznam domů</span>
+        </a>
+      </li>
+      <li>
+        <a href="/intranet/">
+          <span>Nový dům</span>
+        </a>
+      </li>
+      <li>
+        <a href="/intranet/">
+          <span>Editace domu</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  <!-- /house -->
   <!-- installation -->
   <li>
     <a href="javascript:;">

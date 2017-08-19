@@ -21,6 +21,7 @@
   height: calc(100vh - 40px);
 }
 
+/* Error page 404 */
 .error-page {
   position: relative;
   top: 50%;
@@ -33,6 +34,44 @@
   font-size: 80px;
   font-weight: 700;
   line-height: 80px;
+}
+
+/* Page Title */
+.main-panel .page-title {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.main-panel .page-title .breadcrumb {
+  margin: 0;
+  background-color: transparent;
+  text-transform: uppercase;
+  padding: 5px 0;
+  display: block;
+}
+
+.main-panel .page-title.breadcrumb > li {
+  display: inline-block;
+}
+
+.main-panel .page-title .breadcrumb li .desc {
+  text-transform: initial;
+}
+
+@media (max-width: 768px) {
+  .main-panel .page-title .breadcrumb {
+    padding: 15px 0;
+    text-align: center;
+  }
+
+  .main-panel .page-title .breadcrumb > li + li {
+    width: 90%;
+  }
+
+  .main-panel .page-title .breadcrumb > li + li:before {
+    padding: 0;
+    content: "";
+  }
 }
 
 /* Color skins */
