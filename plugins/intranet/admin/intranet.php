@@ -112,18 +112,7 @@ switch ($page1) {
 
               $rowid = $jakdb->jak_last_id();
 
-              // EN: Insert Users to DB
-              // CZ: Vložení uživatelů do DB
-              $numberentrance = $defaults['envo_numberentrance'];
-              $countapartment = $defaults['envo_countapartment'];
-              $countetage     = $defaults['envo_countetage'];
-              $elevator       = $defaults['envo_elevator'];
-
-              for ($i = 0; $i < count($numberentrance); $i++) {
-                $result1 = $jakdb->query('INSERT INTO ' . $envotable1 . ' VALUES (NULL, "' . $rowid . '", "' . $numberentrance[$i] . '", "' . $countapartment[$i] . '", "' . $countetage[$i] . '", "' . $elevator[$i] . '")');
-              }
-
-              if (!$result || !$result1) {
+              if (!$result) {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
                 envo_redirect(BASE_URL . 'index.php?p=intranet&sp=house&ssp=newhouse&status=e');
@@ -137,8 +126,6 @@ switch ($page1) {
               $errors['e'] = $tl['general_error']['generror'] . '<br>';
               $errors      = $errors;
             }
-
-
           }
         }
 
@@ -268,7 +255,11 @@ switch ($page1) {
 
           // EN: Get all the data for the form - entrance
           // CZ: Získání všech dat pro formulář - vchody
-          $JAK_FORM_DATA_ENT = envo_get_housedetail_info($pageID, $envotable1);
+          $JAK_FORM_DATA_ENT = envo_get_house_entrance($pageID, $envotable1);
+
+          // EN: Get all the data for the form - apartment
+          // CZ: Získání všech dat pro formulář - byty
+          $JAK_FORM_DATA_APT = envo_get_house_apartment($pageID, $envotable2);
 
           // EN: Title and Description
           // CZ: Titulek a Popis

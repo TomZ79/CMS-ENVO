@@ -146,6 +146,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
             /* Remove tables */
             $jakdb->query('DROP TABLE ' . DB_PREFIX . 'intranethouse');
+            $jakdb->query('DROP TABLE ' . DB_PREFIX . 'intranethousedetail');
             $jakdb->query('DROP TABLE ' . DB_PREFIX . 'intranetappartement');
           }
 

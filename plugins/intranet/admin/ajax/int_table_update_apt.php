@@ -21,15 +21,15 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
 // PHP QUESTION TO MYSQL DB
 if ($input['action'] === 'edit') {
 
-  $jakdb->query('UPDATE ' . DB_PREFIX . 'intranethousedetail SET numberentrance = "' . $input['numberentrance'] . '", countapartment = "' . $input['countapartment'] . '", countetage = "' . $input['countetage'] . '", elevator = "' . $input['elevator'] . '" WHERE id = "' . $input['id'] . '"');
+  $jakdb->query('UPDATE ' . DB_PREFIX . 'intranetappartement SET number = "' . $input['number'] . '", etage = "' . $input['etage'] . '", name = "' . $input['name'] . '", phone = "' . $input['phone'] . '", commission = "' . $input['commission'] . '" WHERE id = "' . $input['id'] . '"');
 
   $envodata = json_encode($input);
 
 } else if ($input['action'] === 'delete') {
 
-  $jakdb->query('DELETE FROM ' . DB_PREFIX . 'intranethousedetail WHERE id = "' . $input['id'] . '"');
+  $jakdb->query('DELETE FROM ' . DB_PREFIX . 'intranetappartement WHERE id = "' . $input['id'] . '"');
 
-  //$envodata = json_encode($input);
+  $envodata = json_encode($input);
 
 } else if ($input['action'] === 'restore') {
 

@@ -72,7 +72,32 @@ if ($errors) { ?>
     </li>
     <li role="presentation">
       <a href="#cmsPage3" role="tab" id="cmsPage3-tab" data-toggle="tab" aria-controls="cmsPage3">
+        <span class="text">Hlavní kontakty</span>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="#cmsPage4" role="tab" id="cmsPage4-tab" data-toggle="tab" aria-controls="cmsPage4">
         <span class="text">Vchody - Byty</span>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="#cmsPage5" role="tab" id="cmsPage5-tab" data-toggle="tab" aria-controls="cmsPage5">
+        <span class="text">Nájemníci</span>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="#cmsPage6" role="tab" id="cmsPage6-tab" data-toggle="tab" aria-controls="cmsPage6">
+        <span class="text">Servisy</span>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="#cmsPage7" role="tab" id="cmsPage7-tab" data-toggle="tab" aria-controls="cmsPage7">
+        <span class="text">Dokumenty</span>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="#cmsPage8" role="tab" id="cmsPage8-tab" data-toggle="tab" aria-controls="cmsPage8">
+        <span class="text">Fotogalerie</span>
       </a>
     </li>
   </ul>
@@ -409,83 +434,43 @@ if ($errors) { ?>
     </div>
     <div role="tabpanel" class="tab-pane fade" id="cmsPage3" aria-labelledby="cmsPage3-tab">
       <div class="row">
-        <div class="col-md-12 m-b-20">
-
-          <?php
-          // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-          echo $Html->addButton('button', '', 'Přidat nový řádek', 'button', 'addRowNew', 'btn btn-info pull-right', array('onclick' => 'add_row(tableentrance);'));
-          ?>
-
+        <div class="col-md-12">
+          <h5>Zadání <strong>Hlavních kontaků</strong> je dostupné v editaci domu po uložení základních dat o domu.</h5>
         </div>
       </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="cmsPage4" aria-labelledby="cmsPage4-tab">
       <div class="row">
         <div class="col-md-12">
-          <div class="box box-success">
-            <div class="box-body no-padding">
-              <div class="table-responsive">
-                <table id="tableentrance" class="table">
-                  <thead>
-                  <tr>
-                    <th class="col-md-1">#</th>
-                    <th class="col-md-2">Číslo vchodu</th>
-                    <th class="col-md-2">Počet bytů</th>
-                    <th class="col-md-2">Počet pater</th>
-                    <th class="col-md-2">Výtah</th>
-                    <th class="col-md-3 text-center">Akce</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr id="row1">
-                    <td class="id">1</td>
-                    <td>
-                      <div class="form-group no-margin">
-
-                        <?php
-                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_numberentrance[]', (isset($_REQUEST["envo_numberentrance"])) ? $_REQUEST["envo_numberentrance"] : '', '', 'form-control');
-                        ?>
-
-                      </div>
-                    </td>
-                    <td>
-                      <div class="form-group no-margin">
-
-                        <?php
-                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_countapartment[]', (isset($_REQUEST["envo_countapartment"])) ? $_REQUEST["envo_countapartment"] : '', '', 'form-control');
-                        ?>
-
-                      </div>
-                    </td>
-                    <td>
-                      <div class="form-group no-margin">
-
-                        <?php
-                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_countetage[]', (isset($_REQUEST["envo_countetage"])) ? $_REQUEST["envo_countetage"] : '', '', 'form-control');
-                        ?>
-
-                      </div>
-                    </td>
-                    <td>
-                      <select name="envo_elevator[]" class="form-control selectpicker">
-
-                        <?php
-                        // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                        echo $Html->addOption('2', 'Není známo', ((isset($_REQUEST["envo_elevator"]) && ($_REQUEST["envo_elevator"] == '2'))) ? TRUE : FALSE);
-                        echo $Html->addOption('1', 'Ano', ((isset($_REQUEST["envo_elevator"]) && ($_REQUEST["envo_elevator"] == '1'))) ? TRUE : FALSE);
-                        echo $Html->addOption('0', 'Ne', ((isset($_REQUEST["envo_elevator"]) && ($_REQUEST["envo_elevator"] == '0'))) ? TRUE : FALSE);
-                        ?>
-
-                      </select>
-                    </td>
-                    <td></td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+          <h5>Zadání <strong>Vchodů a Bytů</strong> je dostupné v editaci domu po uložení základních dat o domu.</h5>
+        </div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="cmsPage5" aria-labelledby="cmsPage5-tab">
+      <div class="row">
+        <div class="col-md-12">
+          <h5>Zadání <strong>Nájemníků</strong> je dostupné v editaci domu po uložení základních dat o domu.</h5>
+        </div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="cmsPage6" aria-labelledby="cmsPage6-tab">
+      <div class="row">
+        <div class="col-md-12">
+          <h5>Zadání <strong>Servisů</strong> je dostupné v editaci domu po uložení základních dat o domu.</h5>
+        </div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="cmsPage7" aria-labelledby="cmsPage7-tab">
+      <div class="row">
+        <div class="col-md-12">
+          <h5>Zadání <strong>Dokumentů</strong> je dostupné v editaci domu po uložení základních dat o domu.</h5>
+        </div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="cmsPage8" aria-labelledby="cmsPage8-tab">
+      <div class="row">
+        <div class="col-md-12">
+          <h5>Zadání <strong>Fotogalerie</strong> je dostupné v editaci domu po uložení základních dat o domu.</h5>
         </div>
       </div>
     </div>

@@ -56,95 +56,109 @@
 
   <script>
 
-    $('#tableentrance').Tabledit({
-      url: '/plugins/intranet/admin/ajax/int_table_update.php',
-      inputClass: 'form-control',
-      restoreButton: false,
-      lang: 'cz',
-      debug: false,
-      editmethod: 'post',
-      columns: {
-        identifier: [0, 'id'],
-        editable: [
-          [1, 'numberentrance', 'input'],
-          [2, 'countapartment', 'number'],
-          [3, 'countetage', 'input'],
-          [4, 'elevator', 'select', '{"2": "Není známo", "1": "Ano", "0": "Ne"}']
-        ]
-      }
-    });
+    /* Tabledit init and config
+     ========================================= */
+    // If exist 'table' -> init Plugin Jquery-Tabledit
+    if ($('#tableentrance').length > 0) {
+      // Tabledit init config
+      $('#tableentrance').Tabledit({
+        url: '/plugins/intranet/admin/ajax/int_table_update.php',
+        inputClass: 'form-control',
+        restoreButton: false,
+        lang: 'cz',
+        debug: false,
+        mutedClass: 'text-muted warning',
+        columns: {
+          identifier: [0, 'id'],
+          editable: [
+            [1, 'numberentrance', 'input'],
+            [2, 'countapartment', 'input'],
+            [3, 'countetage', 'input'],
+            [4, 'elevator', 'select', '{"0": "Není známo", "1": "Ano", "2": "Ne"}']
+          ]
+        }
+      });
+    }
 
+    // If exist 'table' -> init Plugin Jquery-Tabledit
+    if ($('table[id^="tableapartment_"]').length > 0) {
+      // Tabledit init config
+      $('table[id^="tableapartment_"]').Tabledit({
+        url: '/plugins/intranet/admin/ajax/int_table_update_apt.php',
+        inputClass: 'form-control',
+        restoreButton: false,
+        lang: 'cz',
+        debug: false,
+        mutedClass: 'text-muted warning',
+        columns: {
+          identifier: [0, 'id'],
+          editable: [
+            [1, 'number', 'input'],
+            [2, 'etage', 'input'],
+            [3, 'name', 'input'],
+            [4, 'phone', 'input'],
+            [5, 'commission', 'select', '{"0": "Není ve Výboru", "1": "Předseda", "2": "Člen Výboru", "3": "Pověřený vlastník"}']
+          ]
+        }
+      });
+    }
+
+    /* Tabledit add new row to table
+     ========================================= */
     $("#addRowEdit").on('click', function () {
-      // Getting value
+      // Get value
       var houseID = <?php echo $page3; ?>;
+      var entrance = $('input[name="addRowEnt"]').val();
 
       $.ajax({
         type: "POST",
         url: "/plugins/intranet/admin/ajax/int_table_addnew.php",
-        datatype: 'html',
+        datatype: 'json',
         data: {
-          houseID: houseID
+          houseID: houseID,
+          entrance: entrance
         },
         success: function (data) {
           $('#tableentrance tbody').html(data);
 
           $('#tableentrance').Tabledit('update');
 
+          /*setInterval(function () {
+            location.reload(true);
+          }, 1500);*/
+
         },
         error: function () {
 
         }
       })
-
     });
 
-  </script>
+    $(".addRowEditApt").on('click', function () {
+      // Get value
+      var houseID = <?php echo $page3; ?>;
+      var entrance = $(this).attr("data-entrance");
 
-<? } ?>
+      $.ajax({
+        type: "POST",
+        url: "/plugins/intranet/admin/ajax/int_table_addnew_apt.php",
+        datatype: 'html',
+        data: {
+          houseID: houseID,
+          entrance: entrance
+        },
+        success: function (data) {
+          $('#tableapartment_' + entrance + ' tbody').html(data);
 
-<?php if ($page2 == 'newhouse') { ?>
+          $('#tableapartment_' + entrance).Tabledit('update');
 
-  <script>
-    function add_row(id_table) {
-      // Definition
-      var table_tr = $('#' + id_table.id + ' tbody tr');
-      var table_tr_last = $('#' + id_table.id + ' tbody tr:last');
-      var row_no_origin = table_tr.length;
+        },
+        error: function () {
 
-      console.log(row_no_origin);
+        }
+      })
+    });
 
-      // Value
-      $row_no_new = row_no_origin + 1;
-
-      // Insert new row to table
-      table_tr_last.after(
-        "<tr id='row" + $row_no_new + "'>" +
-          "<td>" + $row_no_new + "</td>" +
-          "<td><input name='envo_numberentrance[]' class='form-control' type='text'></td>" +
-          "<td><input name='envo_countapartment[]' class='form-control' type='text'></td>" +
-          "<td><input name='envo_countetage[]' class='form-control' type='text'></td>" +
-          "<td>" +
-            "<select name='envo_elevator[]' class='form-control selectpicker'>" +
-            "<option value='2'>Není známo</option><option value='1'>Ano</option><option value='0'>Ne</option>" +
-            "</select>" +
-          "</td>" +
-          "<td class='text-center'><button type='button' name='button' id='deleteRowNew' class='btn btn-danger' onclick=delete_row(row" + $row_no_new + ',' + id_table.id + ")><span class='glyphicon glyphicon-trash'></span></button></td>" +
-        "</tr>");
-    }
-
-    function delete_row(row_no,table) {
-      var row = row_no.id;
-
-      $('#' + row).remove();
-
-      // New ID in first 'td' of each row
-      var id = 1;
-      $('#' + table.id + ' tbody tr td:first-child').each(function() {
-        $(this).text(id++);
-      });
-
-
-    }
   </script>
 
 <? } ?>

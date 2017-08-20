@@ -56,10 +56,12 @@ table.dataTable thead .sorting_desc::after {
 
 /* XX. TABLEDIT
 ======================================================================== */
-table[id^="tableentrance"] tbody tr td {
+table[id^="tableentrance"] tbody tr td,
+table[id^="tableapartment"] tbody tr td {
   vertical-align: middle;
 }
 
-table[id^="tableentrance"] tbody tr td:first-child {
+table[id^="tableentrance"] tbody tr td:first-child,
+table[id^="tableapartment"] tbody tr td:first-child {
   padding-left: 19px !important;
 }

@@ -13,7 +13,7 @@
 
 /**
  * The modified version
- * @version 1.2.6
+ * @version 1.2.7 DEV
  * @author  BluesatKV
  * @link    https://github.com/BluesatKV/jquery-tabledit
  *
@@ -106,8 +106,8 @@ if (typeof jQuery === 'undefined') {
         options.lang = $table.Tabledit.defaults.lang;
       }
 
-      // Overwrite default options with user provided ones and merge them into "settings" - recursively
-      var settings = $.extend(true, $table.Tabledit.defaults, options);
+      // Overwrite default options with user provided ones and merge them into "settings" object for multiple instance
+      var settings = $.extend({}, $table.Tabledit.defaults, options);
 
       // Save settings by using the 'data' function
       $(this).data(dataPrefix, $.extend({}, $table.Tabledit.defaults, options || {}));
@@ -148,9 +148,10 @@ if (typeof jQuery === 'undefined') {
       }
 
       // Output to console with data
-      if (options.debug) console.log('Tabledit Init -> Element:', $(this));
+      if (options.debug) console.log('Tabledit Init -> Element:', $table);
       if (options.debug) console.log('Tabledit Init -> dataPrefix:', dataPrefix);
       if (options.debug) console.log('Tabledit Init -> Settings: ', settings);
+      if (options.debug) console.log('Tabledit Init: -----------------------------------');
 
       /**
        * Escape HTML
@@ -245,11 +246,11 @@ if (typeof jQuery === 'undefined') {
 
           if (textStatus == 'success') {
             if (action === settings.buttons.edit.action) {
-              $lastEditedRow.removeClass(settings.dangerClass).addClass(settings.warningClass);
+              $lastEditedRow.removeClass(settings.dangerClass).addClass(settings.successClass);
               setTimeout(function () {
-                //$lastEditedRow.removeClass(settings.warningClass);
-                $table.find('tr.' + settings.warningClass).removeClass(settings.warningClass);
-              }, 1400);
+                //$lastEditedRow.removeClass(settings.successClass);
+                $table.find('tr.' + settings.successClass).removeClass(settings.successClass);
+              }, 1500);
             }
 
             // Initiate save successful custom callback
@@ -305,12 +306,17 @@ if (typeof jQuery === 'undefined') {
               $table.find('th:nth-child(' + parseInt(settings.columns.identifier[0]) + 1 + '), tbody td:nth-child(' + parseInt(settings.columns.identifier[0]) + 1 + ')').hide();
             }
 
-            var $td = $table.find('tbody td:nth-child(' + (parseInt(settings.columns.identifier[0]) + 1) + ')');
+            // var $td = $table.find('tbody td:nth-child(' + (parseInt(settings.columns.identifier[0]) + 1) + ')');
+            var $td = $table.find('tbody tr:not(".' + settings.noEditClass + '") td:not(".' + settings.noEditClass + '")').filter(':nth-child(' + (parseInt(settings.columns.identifier[0]) + 1) + ')');
 
             $td.each(function () {
+              // Get text of this cell.
+              var text = $.trim($(this).text().replace(/^\s+|\s+$/g, ''));
+              var text = settings.escapehtml ? escapeHTML(text) : text;
+
               // Create hidden input with row identifier.
-              var span = '<span class="tabledit-span tabledit-identifier">' + $.trim($(this).text()) + '</span>';
-              var input = '<input class="tabledit-input tabledit-identifier" type="hidden" name="' + settings.columns.identifier[1] + '" value="' + $.trim($(this).text()) + '" disabled>';
+              var span = '<span class="tabledit-span tabledit-identifier">' + text + '</span>';
+              var input = '<input class="tabledit-input tabledit-identifier" type="hidden" name="' + settings.columns.identifier[1] + '" value="' + text + '" disabled>';
 
               // Add elements to table cell.
               $(this).html(span + input);
@@ -321,12 +327,13 @@ if (typeof jQuery === 'undefined') {
           },
           editable: function () {
             for (var i = 0; i < settings.columns.editable.length; i++) {
-              var $td = $table.find('tbody td:nth-child(' + (parseInt(settings.columns.editable[i][0]) + 1) + ')');
+              var $td = $table.find('tbody tr:not(".' + settings.noEditClass + '") td:not(".' + settings.noEditClass + '")').filter(':nth-child(' + (parseInt(settings.columns.editable[i][0]) + 1) + ')');
 
               $td.each(function () {
-                // Get text of this cell.
-                var text = $.trim($(this).text());
-                var text = settings.escapehtml ? escapeHTML($(this).text()) : text;
+                // Get text of this cell
+                // RegEx (Trim Leading and Trailing) -> Before: "   a b    c d e " / After: "a b    c d e"
+                var text = $.trim($(this).text().replace(/(^\s+|\s+$)/g, ''));
+                var text = settings.escapehtml ? escapeHTML(text) : text;
 
                 // Add pointer as cursor.
                 if (!settings.editButton) {
@@ -383,6 +390,7 @@ if (typeof jQuery === 'undefined') {
                       // Create options for select element.
                       $.each($.parseJSON(settings.columns.editable[i][3]), function (index, value) {
                         value = $.trim(value);
+
                         if (text === value) {
                           input += '<option value="' + index + '" selected>' + value + '</option>';
                         } else {
@@ -456,8 +464,10 @@ if (typeof jQuery === 'undefined') {
                                            ' + restoreButton + '\n\
                                        </div></div>';
 
-              // Add toolbar column cells.
-              $table.find('tbody>tr').append('<td class="toolbar" style="white-space: nowrap; width: 1%;">' + toolbar + '</td>');
+              // Add toolbar column cells for normal cell
+              $table.find('tbody > tr:not(".' + settings.noEditClass + '")').append('<td class="toolbar" style="white-space: nowrap; width: 1%;">' + toolbar + '</td>');
+              // Add toolbar column with a ban on row editing
+              $table.find('tbody > tr.' + settings.noEditClass).append('<td class="toolbar" style="white-space: nowrap; width: 1%;"></td>');
             }
           }
         }
@@ -946,9 +956,11 @@ if (typeof jQuery === 'undefined') {
     // Class for row when ajax request fails
     dangerClass: 'danger',
     // Class for row when save changes
-    warningClass: 'warning',
+    successClass: 'success',
     // Class for row when is deleted
     mutedClass: 'text-muted',
+    // Class for prohibiting cell editing
+    noEditClass: 'noedit',
     // Trigger to change for edit mode
     eventType: 'click',
     // Change the name of attribute in td element for the row identifier
