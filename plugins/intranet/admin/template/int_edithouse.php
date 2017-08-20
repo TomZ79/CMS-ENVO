@@ -91,12 +91,32 @@ if ($errors) { ?>
     </li>
     <li role="presentation">
       <a href="#cmsPage3" role="tab" id="cmsPage3-tab" data-toggle="tab" aria-controls="cmsPage3">
-        <span class="text">Vchody - Byty</span>
+        <span class="text">Hlavní kontakty</span>
       </a>
     </li>
     <li role="presentation">
       <a href="#cmsPage4" role="tab" id="cmsPage4-tab" data-toggle="tab" aria-controls="cmsPage4">
+        <span class="text">Vchody - Byty</span>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="#cmsPage5" role="tab" id="cmsPage5-tab" data-toggle="tab" aria-controls="cmsPage5">
         <span class="text">Nájemníci</span>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="#cmsPage6" role="tab" id="cmsPage6-tab" data-toggle="tab" aria-controls="cmsPage6">
+        <span class="text">Servisy</span>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="#cmsPage7" role="tab" id="cmsPage7-tab" data-toggle="tab" aria-controls="cmsPage7">
+        <span class="text">Dokumenty</span>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="#cmsPage8" role="tab" id="cmsPage8-tab" data-toggle="tab" aria-controls="cmsPage8">
+        <span class="text">Fotogalerie</span>
       </a>
     </li>
   </ul>
@@ -424,8 +444,29 @@ if ($errors) { ?>
     </div>
     <div role="tabpanel" class="tab-pane fade" id="cmsPage3" aria-labelledby="cmsPage3-tab">
       <div class="row">
-        <div class="col-md-12 m-b-20">
-          <input type="button" value="Přidat nový řádek" id="addRowEdit" class="btn btn-info pull-right">
+        <div class="col-md-12">
+          <h5>Zadání <strong>Hlavních kontaků</strong> je dostupné v editaci domu po uložení základních dat o domu.</h5>
+        </div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="cmsPage4" aria-labelledby="cmsPage4-tab">
+      <div class="row m-b-20">
+        <div class="col-md-12">
+
+          <?php
+          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+          echo $Html->addInput('button', '', 'Přidat nový řádek', 'addRowEdit', 'btn btn-info pull-right');
+          ?>
+          <div class="m-r-20 pull-right">
+
+            <label><strong>Číslo vchodu:</strong></label>
+
+            <?php
+            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+            echo $Html->addInput('text', 'addRowEnt', (isset($_REQUEST["addRowEnt"])) ? $_REQUEST["addRowEnt"] : '0', 'addRowEnt', 'input input-sm', array('style' => 'height: 35px;'));
+            ?>
+
+          </div>
         </div>
       </div>
       <div class="row">
@@ -445,14 +486,29 @@ if ($errors) { ?>
                   </thead>
                   <tbody>
 
-                  <?php foreach ($JAK_FORM_DATA_ENT as $e) { ?>
+                  <?php if (isset($JAK_FORM_DATA_ENT) && is_array($JAK_FORM_DATA_ENT)) foreach ($JAK_FORM_DATA_ENT as $e) { ?>
 
                     <tr>
                       <td><?php echo $e["id"]; ?></td>
                       <td><?php echo $e["numberentrance"]; ?></td>
                       <td><?php echo $e["countapartment"]; ?></td>
                       <td><?php echo $e["countetage"]; ?></td>
-                      <td><?php echo($e["elevator"] == 1 ? 'Ano' : ($e["elevator"] == 2 ? 'Není známo' : 'Ne')); ?></td>
+                      <td>
+
+                        <?php
+                        switch ($e["elevator"]) {
+                          case '0':
+                            echo 'Není známo';
+                            break;
+                          case '1':
+                            echo 'Ano';
+                            break;
+                          case '2':
+                            echo 'Ne';
+                            break;
+                        }
+                        ?>
+
                     </tr>
 
                   <?php } ?>
@@ -465,18 +521,20 @@ if ($errors) { ?>
         </div>
       </div>
     </div>
-    <div role="tabpanel" class="tab-pane fade" id="cmsPage4" aria-labelledby="cmsPage4-tab">
-      <?php foreach ($JAK_FORM_DATA_ENT as $e) { ?>
+    <div role="tabpanel" class="tab-pane fade" id="cmsPage5" aria-labelledby="cmsPage5-tab">
+
+      <?php if (!empty($JAK_FORM_DATA_ENT) && is_array($JAK_FORM_DATA_ENT)) { foreach ($JAK_FORM_DATA_ENT as $e) { ?>
+
         <div class="row">
           <div class="col-md-12 m-b-20">
             <div class="col-md-6">
-              <h5 style="margin: 2px;">Číslo vchodu: <strong><?php echo $e["numberentrance"]; ?></strong></h5>
+              <h5 style="margin: 2px;">Číslo vchodu: <strong><?php echo ($e["numberentrance"] ? $e["numberentrance"] : '0'); ?></strong></h5>
             </div>
             <div class="col-md-6">
 
               <?php
               // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-              echo $Html->addButton('button', '', 'Přidat nový řádek', 'button', 'addRowNew', 'btn btn-info pull-right', array('onclick' => 'add_row(tableapartment' . $e["numberentrance"] . ');'));
+              echo $Html->addButton('button', '', 'Přidat nový řádek', 'button', '', 'btn btn-info pull-right addRowEditApt', array('data-entrance' => ($e["numberentrance"] ? $e["numberentrance"] : '0')));
               ?>
 
             </div>
@@ -487,7 +545,7 @@ if ($errors) { ?>
             <div class="box box-success">
               <div class="box-body no-padding">
                 <div class="table-responsive">
-                  <table id="tableapartment<?php echo $e["numberentrance"]; ?>" class="table">
+                  <table id="tableapartment_<?php echo ($e["numberentrance"] ? $e["numberentrance"] : '0'); ?>" class="table">
                     <thead>
                     <tr>
                       <th class="col-md-1">#</th>
@@ -496,30 +554,62 @@ if ($errors) { ?>
                       <th class="col-md-2">Jméno</th>
                       <th class="col-md-2">Telefon</th>
                       <th class="col-md-2">Výbor</th>
-                      <th class="col-md-1"></th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr id="row1">
-                      <td class="id">1</td>
-                      <td><input type="text" name="envo_number[]" class="form-control"></td>
-                      <td><input type="text" name="envo_etage[]" class="form-control"></td>
-                      <td><input type="text" name="envo_name[]" class="form-control"></td>
-                      <td><input type="text" name="envo_phone[]" class="form-control"></td>
-                      <td>
-                        <select name="envo_commission[]" class="form-control selectpicker">
 
-                          <?php
-                          // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                          echo $Html->addOption('', 'Není ve Výboru', ((isset($_REQUEST["envo_commission"]) && ($_REQUEST["envo_commission"] == ''))) ? TRUE : FALSE);
-                          echo $Html->addOption('Předseda', 'Předseda', ((isset($_REQUEST["envo_commission"]) && ($_REQUEST["envo_commission"] == 'Předseda'))) ? TRUE : FALSE);
-                          echo $Html->addOption('Člen Výboru', 'Člen Výboru', ((isset($_REQUEST["envo_commission"]) && ($_REQUEST["envo_commission"] == 'Člen Výboru'))) ? TRUE : FALSE);
-                          echo $Html->addOption('Pověřený vlastník', 'Pověřený vlastník', ((isset($_REQUEST["envo_commission"]) && ($_REQUEST["envo_commission"] == 'Pověřený vlastník'))) ? TRUE : FALSE);
-                          ?>
+                    <?php
 
-                        </select>
-                      </td>
-                    </tr>
+                    if (isset($JAK_FORM_DATA_APT) && is_array($JAK_FORM_DATA_APT)) {
+                      $foundApt = array();
+                      foreach ($JAK_FORM_DATA_APT as $a) {
+                        if ($a["entrance"] == $e["numberentrance"]) {
+                          $foundApt[] = $a;
+                        }
+                      }
+
+                      if (count($foundApt) != 0) {
+
+                        foreach ($foundApt as $foundApt) {
+
+                          echo '<tr>';
+
+                          echo '<td>' . $foundApt['id'] . '</td>';
+                          echo '<td>' . $foundApt['number'] . '</td>';
+                          echo '<td>' . $foundApt['etage'] . '</td>';
+                          echo '<td>' . $foundApt['name'] . '</td>';
+                          echo '<td>' . $foundApt['phone'] . '</td>';
+                          echo '<td>';
+
+                          switch ($foundApt["commission"]) {
+                            case '0':
+                              echo 'Není ve Výboru';
+                              break;
+                            case '1':
+                              echo 'Předseda';
+                              break;
+                            case '2':
+                              echo 'Člen Výboru';
+                              break;
+                            case '3':
+                              echo 'Pověřený vlastník';
+                              break;
+                          }
+
+                          echo '</td>';
+
+                          echo '</tr>';
+
+                        }
+
+                      } else {
+                        echo '<tr class="noedit" style="height: 49px"><td colspan="6">Nenalezen žádný záznam</td></tr>';
+                      }
+
+                    }
+
+                    ?>
+
                     </tbody>
                   </table>
                 </div>
@@ -527,8 +617,43 @@ if ($errors) { ?>
             </div>
           </div>
         </div>
+
+      <?php } } else { ?>
+
+        <div class="row">
+          <div class="col-md-12">
+
+            <?php
+            // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+            echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
+            ?>
+
+          </div>
+        </div>
+
       <?php } ?>
 
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="cmsPage6" aria-labelledby="cmsPage6-tab">
+      <div class="row">
+        <div class="col-md-12">
+          <h5>Zadání <strong>Servisů</strong> je dostupné v editaci domu po uložení základních dat o domu.</h5>
+        </div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="cmsPage7" aria-labelledby="cmsPage7-tab">
+      <div class="row">
+        <div class="col-md-12">
+          <h5>Zadání <strong>Dokumentů</strong> je dostupné v editaci domu po uložení základních dat o domu.</h5>
+        </div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="cmsPage8" aria-labelledby="cmsPage8-tab">
+      <div class="row">
+        <div class="col-md-12">
+          <h5>Zadání <strong>Fotogalerie</strong> je dostupné v editaci domu po uložení základních dat o domu.</h5>
+        </div>
+      </div>
     </div>
   </div>
 
