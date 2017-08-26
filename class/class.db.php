@@ -59,9 +59,9 @@ class jak_mysql extends mysqli
 	public function queryRow ($query)
 	{
 		$result  = parent::query ($query);
-		$jakdata = mysqli_fetch_array ($result, MYSQLI_BOTH);
+		$envodata = mysqli_fetch_array ($result, MYSQLI_BOTH);
 
-		return $jakdata;
+		return $envodata;
 	}
 
 	public function query ($query)

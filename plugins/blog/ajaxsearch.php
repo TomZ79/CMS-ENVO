@@ -10,6 +10,8 @@ if (!file_exists('../../class/class.search.php')) die('ajaxsearch/[blog.php] cla
 
 include_once '../../class/class.search.php';
 
+// EN: Detecting AJAX Requests
+// CZ: Detekce AJAX Požadavku
 if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
 
 $SearchInput = strip_tags(smartsql(strtolower($_GET['q'])));

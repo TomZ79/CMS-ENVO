@@ -9,6 +9,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 if (!file_exists('../../class/class.search.php')) die('ajax/[page.php] class.search.php not exist');
 include_once '../../class/class.search.php';
 
+// EN: Detecting AJAX Requests
+// CZ: Detekce AJAX Požadavku
 if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
 
 $SearchInput = strip_tags(smartsql($_GET['q']));

@@ -309,7 +309,7 @@ $(function () {
   });
 })(window.jQuery);
 
-/* 00. INITIALIZES SEARCH OVERLAY PLUGIN
+/* 00. XXXX
  ========================================================================*/
 $(function () {
   // Initializes search overlay plugin.

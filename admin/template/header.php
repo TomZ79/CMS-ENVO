@@ -85,7 +85,7 @@ echo $Html->addDoctype('html5');
     } ?>
 
   </head>
-<body class="fixed-header has-detached-right">
+<body class="fixed-header has-detached-right overlay-disabled">
 <?php if ($JAK_PROVED) { ?>
   <!-- BEGIN SIDEBAR -->
   <div class="page-sidebar" data-pages="sidebar">
