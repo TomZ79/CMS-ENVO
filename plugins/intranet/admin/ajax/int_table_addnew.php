@@ -8,7 +8,12 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 // CZ: Detekce AJAX Požadavku
 if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
 
-header("Content-Type: application/json;charset=utf-8");
+// EN: Set the JSON header content-type
+// CZ: Nastavení záhlaví JSON
+header('Content-Type: application/json;charset=utf-8');
+
+// PHP CODE and DB
+//-------------------------
 
 // EN: Get value from ajax
 // CZ: Získání dat z ajax
@@ -80,6 +85,7 @@ if ($row_cnt > 0) {
 // $jakdb->query('INSERT ' . DB_PREFIX . 'intranethouseapt SET id = NULL, houseid = "' . $houseID . '",  entrance = "' . $entrance . '", number = "", etage = "", name = "", phone = "", commission = ""');
 
 // RETURN JSON OUTPUT
+//-------------------------
 $json_output = json_encode($envodata);
 echo $json_output;
 

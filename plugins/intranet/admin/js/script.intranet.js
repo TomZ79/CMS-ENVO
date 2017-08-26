@@ -45,19 +45,6 @@ $.urlParam = function (name) {
 // Page ID
 var pageID = $.urlParam('id');
 
-switch (envoWeb.envo_lang) {
-  case 'en':
-
-    var notifySuccess = 'Uložení zadaných dat proběhlo úspěšně';
-
-    break;
-  case 'cs':
-
-    var notifySuccess = 'Uložení zadaných dat proběhlo úspěšně';
-
-    break;
-}
-
 /* 00. UPLOAD FILE TO SERVER
  ========================================================================*/
 
@@ -118,7 +105,7 @@ $(function () {
 
           $('#docuoutput').html('<div class="alert alert-success" role="alert">' +
             '<button class="close" data-dismiss="alert"></button>' +
-            '<strong>Success: </strong> File upload was successful.' +
+            '<strong>Success: </strong>' +  data.status_msg +
             '</div>');
 
           var str = JSON.stringify(data);
@@ -161,7 +148,7 @@ $(function () {
           setTimeout(function () {
             $.notify({
               // options
-              message: notifySuccess
+              message: data.status_msg
             }, {
               // settings
               type: 'success',
@@ -176,6 +163,18 @@ $(function () {
             '<button class="close" data-dismiss="alert"></button>' +
             '<strong>Error: </strong>' + data.status + ' => ' + data.status_msg +
             '</div>');
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: data.status_msg
+            }, {
+              // settings
+              type: 'danger',
+              delay: 2000
+            });
+          }, 1000);
 
         }
 
@@ -425,7 +424,7 @@ $(function () {
             setTimeout(function () {
               $.notify({
                 // options
-                message: notifySuccess
+                message: data.status_msg
               }, {
                 // settings
                 type: 'success',
@@ -440,7 +439,7 @@ $(function () {
             setTimeout(function () {
               $.notify({
                 // options
-                message: 'Záznam je již uložen v DB'
+                message: data.status_msg
               }, {
                 // settings
                 type: 'danger',
@@ -454,7 +453,7 @@ $(function () {
         error: function () {
 
         }
-      })
+      });
 
       // Set border for input - error
       contact.parent().removeClass('has-error');
@@ -540,7 +539,7 @@ $(function () {
             setTimeout(function () {
               $.notify({
                 // options
-                message: notifySuccess + ', stránka bude obnovena'
+                message: data.status_msg + ', stránka bude obnovena'
               }, {
                 // settings
                 type: 'success',
@@ -559,7 +558,7 @@ $(function () {
             setTimeout(function () {
               $.notify({
                 // options
-                message: 'Záznam je již uložen v DB'
+                message: data.status_msg
               }, {
                 // settings
                 type: 'danger',

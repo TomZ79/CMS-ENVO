@@ -9,6 +9,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 // CZ: Detekce AJAX Požadavku
 if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
 
+// PHP CODE and DB
+//-------------------------
+
 // EN: Get value from ajax
 // CZ: Získání dat z ajax
 $houseID = $_POST['houseID'];
@@ -46,6 +49,8 @@ while ($row = $result->fetch_assoc()) {
                ';
 }
 
+// RETURN HTML OUTPUT
+//-------------------------
 echo $envodata;
 
 ?>

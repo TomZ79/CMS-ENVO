@@ -9,9 +9,11 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 // CZ: Detekce AJAX Požadavku
 if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
 
-header("Content-Type: application/json;charset=utf-8");
+// EN: Set the JSON header content-type
+// CZ: Nastavení záhlaví JSON
+header('Content-Type: application/json;charset=utf-8');
 
-// PHP UPLOAD FILE
+// PHP CODE and DB
 //-------------------------
 
 // Define variable
@@ -50,10 +52,10 @@ if (isset($_FILES['file'])) {
 
     if (move_uploaded_file($tmp, $pathfull)) {
 
-      //
+      // Insert info about file into DB
       $jakdb->query('INSERT ' . DB_PREFIX . 'intranethousedocu SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", description = "", filepath = "' . $filepath . '"');
 
-      //
+      // Get all files for house
       $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'intranethousedocu WHERE houseid = "' . $_REQUEST['houseID'] . '" ORDER BY id ASC');
 
       while ($row = $result->fetch_assoc()) {
@@ -67,7 +69,7 @@ if (isset($_FILES['file'])) {
       // Data for JSON
       $envodata = array(
         'status'     => 'upload_success',
-        'status_msg' => 'File Upload successfull.',
+        'status_msg' => 'File upload was successful.',
         'data'       => $myarray
       );
 

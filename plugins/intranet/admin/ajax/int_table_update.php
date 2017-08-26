@@ -8,7 +8,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 // CZ: Detekce AJAX Požadavku
 if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
 
-header("Content-Type: application/json;charset=utf-8");
+// EN: Set the JSON header content-type
+// CZ: Nastavení záhlaví JSON
+header('Content-Type: application/json;charset=utf-8');
 
 // CHECK REQUEST METHOD
 if ($_SERVER['REQUEST_METHOD']=='POST') {
@@ -17,7 +19,9 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
   $input = filter_input_array(INPUT_GET);
 }
 
-// PHP QUESTION TO MYSQL DB
+// PHP CODE and DB
+//-------------------------
+
 if ($input['action'] === 'edit') {
   // ACTION - EDIT
 
@@ -53,6 +57,7 @@ if ($input['action'] === 'edit') {
 }
 
 // RETURN JSON OUTPUT
+//-------------------------
 $json_output = json_encode($envodata);
 echo $json_output;
 
