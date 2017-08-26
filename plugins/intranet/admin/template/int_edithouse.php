@@ -807,9 +807,9 @@ if ($errors) { ?>
 
                         <tr>
                           <td><?php echo $d["id"]; ?></td>
-                          <td></td>
+                          <td><?php echo envo_extension_icon($d["filename"]); ?></td>
                           <td><?php echo $d["description"]; ?></td>
-                          <td><?php echo '<a href="/' . JAK_FILES_DIRECTORY . $d["filepath"] . '">Soubor</a>'; ?></td>
+                          <td><?php echo '<a href="/' . JAK_FILES_DIRECTORY . $d["fullpath"] . '">Soubor</a>'; ?></td>
                         </tr>
 
                       <?php } else {

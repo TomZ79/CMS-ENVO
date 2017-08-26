@@ -5,6 +5,10 @@
 if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/int_table_upload_docu.php] => "config.php" not found');
 require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
+// EN: Include the functions
+// CZ: Vložené funkce
+include_once("../include/functions.php");
+
 // EN: Detecting AJAX Requests
 // CZ: Detekce AJAX Požadavku
 if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
@@ -34,17 +38,17 @@ $valid_extensions = array(
 $pathfull = APP_PATH . '/' . JAK_FILES_DIRECTORY . $_REQUEST['folderdocumentspath'] . '/documents/';
 
 if (isset($_FILES['file'])) {
-  $file = $_FILES['file']['name'];
-  $tmp = $_FILES['file']['tmp_name'];
+  $filename = $_FILES['file']['name'];
+  $tmp      = $_FILES['file']['tmp_name'];
 
   // Get uploaded file's extension
-  $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+  $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
 
   // Can upload same image using rand function
-  $final_file = strtolower(rand(1000, 1000000) . '_' . $file);
+  $final_file = strtolower(rand(1000, 1000000) . '_' . $filename);
 
   //
-  $filepath = $_REQUEST['folderdocumentspath'] . '/documents/' . $final_file;
+  $fullpath = $_REQUEST['folderdocumentspath'] . '/documents/' . $final_file;
 
   // Check's valid format
   if (in_array($ext, $valid_extensions)) {
@@ -53,7 +57,7 @@ if (isset($_FILES['file'])) {
     if (move_uploaded_file($tmp, $pathfull)) {
 
       // Insert info about file into DB
-      $jakdb->query('INSERT ' . DB_PREFIX . 'intranethousedocu SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", description = "", filepath = "' . $filepath . '"');
+      $jakdb->query('INSERT ' . DB_PREFIX . 'intranethousedocu SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", description = "", filename = "' . $filename . '", fullpath = "' . $fullpath . '"');
 
       // Get all files for house
       $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'intranethousedocu WHERE houseid = "' . $_REQUEST['houseID'] . '" ORDER BY id ASC');
@@ -62,7 +66,8 @@ if (isset($_FILES['file'])) {
         $myarray[] = array(
           'id'          => $row["id"],
           'description' => $row["description"],
-          'filepath'    => $row["filepath"]
+          'fileicon'    => envo_extension_icon($row["filename"]),
+          'fullpath'    => '/' . JAK_FILES_DIRECTORY . $row["fullpath"]
         );
       }
 
@@ -85,7 +90,7 @@ if (isset($_FILES['file'])) {
     // Data for JSON
     $envodata = array(
       'status'     => 'upload_error_E02',
-      'status_msg' => 'Please upload only valid files ' . implode(", ",$valid_extensions) . '.'
+      'status_msg' => 'Please upload only valid files ' . implode(", ", $valid_extensions) . '.'
     );
 
   }

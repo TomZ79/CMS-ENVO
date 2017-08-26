@@ -120,16 +120,15 @@ $(function () {
 
               $.each(data, function (index, data) {
                 // console.log('ID: ', data['id']);
-                // console.log('Entrance: ', data['entrance']);
-                // console.log('Appartement: ', data['countapartment']);
-                // console.log('Etage: ', data['countetage']);
-                // console.log('Elevator: ', data['elevator']);
+                // console.log('File Icon: ', data['fileicon']);
+                // console.log('Description: ', data['description']);
+                // console.log('Filepath: ', data['fullpath']);
 
                 tabledata += '<tr>' +
                   '<td>' + data["id"] + '</td>' +
-                  '<td></td>' +
+                  '<td>' + data["fileicon"] + '</td>' +
                   '<td>' + data["description"] + '</td>' +
-                  '<td>' + data["filepath"] + '</td>' +
+                  '<td><a href="' + data["fullpath"] + '">Soubor</a></td>' +
                   '</tr>';
 
               })
@@ -344,7 +343,7 @@ $(function () {
   if ($('#tableadocu').length > 0) {
     // Tabledit init config
     $('#tableadocu').Tabledit({
-      url: '/plugins/intranet/admin/ajax/int_table_update.php',
+      url: '/plugins/intranet/admin/ajax/int_table_update_docu.php',
       inputClass: 'form-control',
       restoreButton: false,
       lang: 'cz',
@@ -619,15 +618,5 @@ $(function () {
       }
     })
   });
-
-});
-
-/* 00. XXXX
- ========================================================================*/
-
-$(function () {
-
-  'use strict';
-
 
 });

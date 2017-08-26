@@ -289,7 +289,8 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `houseid` int(10) unsigned NOT NULL DEFAULT 0,
   `description` varchar(255) NULL DEFAULT NULL,
-  `filepath` varchar(255) NULL DEFAULT NULL,
+  `filename` varchar(255) NULL DEFAULT NULL,
+  `fullpath` varchar(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
