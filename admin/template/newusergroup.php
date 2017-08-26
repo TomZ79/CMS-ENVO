@@ -117,10 +117,10 @@ if ($errors) { ?>
                         <div class="form-group no-margin<?php if (isset($errors["e1"]) || isset($errors["e2"])) echo " has-error"; ?>">
 
                           <?php
-                          if (!isset($JAK_FORM_DATA["name"]) && isset($_REQUEST["jak_name"])) {
+                          if (!isset($ENVO_FORM_DATA["name"]) && isset($_REQUEST["jak_name"])) {
                             $value = $_REQUEST["jak_name"];
-                          } elseif (isset($JAK_FORM_DATA["name"])) {
-                            $value = $JAK_FORM_DATA["name"];
+                          } elseif (isset($ENVO_FORM_DATA["name"])) {
+                            $value = $ENVO_FORM_DATA["name"];
                           }
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
                           echo $Html->addInput('text', 'jak_name', $value, '', 'form-control');
@@ -160,7 +160,7 @@ if ($errors) { ?>
                         <div class="radio radio-success">
 
                           <?php
-                          if (isset($JAK_FORM_DATA["advsearch"]) && ($JAK_FORM_DATA["advsearch"] == '1')) {
+                          if (isset($ENVO_FORM_DATA["advsearch"]) && ($ENVO_FORM_DATA["advsearch"] == '1')) {
                             $checked = TRUE;
                           } elseif (isset($_REQUEST["jak_advs"]) && ($_REQUEST["jak_advs"] == '1')) {
                             $checked = TRUE;
@@ -173,11 +173,11 @@ if ($errors) { ?>
                           echo $Html->addLabel('jak_advs1', $tl["checkbox"]["chk"]);
 
 
-                          if (isset($JAK_FORM_DATA["advsearch"]) && ($JAK_FORM_DATA["advsearch"] == '0')) {
+                          if (isset($ENVO_FORM_DATA["advsearch"]) && ($ENVO_FORM_DATA["advsearch"] == '0')) {
                             $checked = TRUE;
                           } elseif (isset($_REQUEST["jak_advs"]) && ($_REQUEST["jak_advs"] == '0')) {
                             $checked = TRUE;
-                          } elseif (($JAK_FORM_DATA["advsearch"] == '1') || ($_REQUEST["jak_advs"] == '1')) {
+                          } elseif (($ENVO_FORM_DATA["advsearch"] == '1') || ($_REQUEST["jak_advs"] == '1')) {
                             $checked = FALSE;
                           } else {
                             $checked = TRUE;
@@ -223,7 +223,7 @@ if ($errors) { ?>
                           <div class="radio radio-success">
 
                             <?php
-                            if (isset($JAK_FORM_DATA["tags"]) && ($JAK_FORM_DATA["tags"] == '1')) {
+                            if (isset($ENVO_FORM_DATA["tags"]) && ($ENVO_FORM_DATA["tags"] == '1')) {
                               $checked = TRUE;
                             } elseif (isset($_REQUEST["jak_tags"]) && ($_REQUEST["jak_tags"] == '1')) {
                               $checked = TRUE;
@@ -235,11 +235,11 @@ if ($errors) { ?>
                             // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                             echo $Html->addLabel('jak_tags1', $tl["checkbox"]["chk"]);
 
-                            if (isset($JAK_FORM_DATA["tags"]) && ($JAK_FORM_DATA["tags"] == '0')) {
+                            if (isset($ENVO_FORM_DATA["tags"]) && ($ENVO_FORM_DATA["tags"] == '0')) {
                               $checked = TRUE;
                             } elseif (isset($_REQUEST["jak_tags"]) && ($_REQUEST["jak_tags"] == '0')) {
                               $checked = TRUE;
-                            } elseif (($JAK_FORM_DATA["tags"] == '1') || ($_REQUEST["jak_tags"] == '1')) {
+                            } elseif (($ENVO_FORM_DATA["tags"] == '1') || ($_REQUEST["jak_tags"] == '1')) {
                               $checked = FALSE;
                             } else {
                               $checked = TRUE;

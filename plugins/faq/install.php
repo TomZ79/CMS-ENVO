@@ -278,14 +278,14 @@ if (empty($fq) && !empty($defaults[\'jak_showfaqmany\'])) {
       //
       $getfaq = '$JAK_GET_FAQ = envo_get_page_info(DB_PREFIX.\'faq\', \'\');
 
-if ($JAK_FORM_DATA) {
+if ($ENVO_FORM_DATA) {
 
-$showfaqarray = explode(\":\", $JAK_FORM_DATA[\'showfaq\']);
+$showfaqarray = explode(\":\", $ENVO_FORM_DATA[\'showfaq\']);
 
 if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DESC\", $showfaqarray)) {
 
-		$JAK_FORM_DATA[\'showfaqorder\'] = $showfaqarray[0];
-		$JAK_FORM_DATA[\'showfaqmany\'] = $showfaqarray[1];
+		$ENVO_FORM_DATA[\'showfaqorder\'] = $showfaqarray[0];
+		$ENVO_FORM_DATA[\'showfaqmany\'] = $showfaqarray[1];
 	
 } }';
 

@@ -100,7 +100,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
-                    $selected = ($JAK_FORM_DATA["towerid"] == '0') ? TRUE : FALSE;
+                    $selected = ($ENVO_FORM_DATA["towerid"] == '0') ? TRUE : FALSE;
 
                     echo $Html->addOption('0', 'Archiv', $selected);
 
@@ -112,8 +112,8 @@ if ($errors) { ?>
                       if (isset($JAK_TVCHANNEL_ALL) && is_array($JAK_TVCHANNEL_ALL)) foreach ($JAK_TVCHANNEL_ALL as $tc) {
 
                         if ($tt["id"] == $tc["towerid"]) {
-                          if ($JAK_FORM_DATA["channelid"] != '0') {
-                            if ($JAK_FORM_DATA["channelid"] == $tc["id"]) {
+                          if ($ENVO_FORM_DATA["channelid"] != '0') {
+                            if ($ENVO_FORM_DATA["channelid"] == $tc["id"]) {
                               $selected = TRUE;
                             } else {
                               $selected = FALSE;
@@ -149,12 +149,12 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                    echo $Html->addRadio('envo_programonline', '1', ($JAK_FORM_DATA["online"] == '1') ? TRUE : FALSE, 'envo_programonline1');
+                    echo $Html->addRadio('envo_programonline', '1', ($ENVO_FORM_DATA["online"] == '1') ? TRUE : FALSE, 'envo_programonline1');
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                     echo $Html->addLabel('envo_programonline1', $tl["checkbox"]["chk"]);
 
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                    echo $Html->addRadio('envo_programonline', '0', ($JAK_FORM_DATA["online"] == '0') ? TRUE : FALSE, 'envo_programonline2');
+                    echo $Html->addRadio('envo_programonline', '0', ($ENVO_FORM_DATA["online"] == '0') ? TRUE : FALSE, 'envo_programonline2');
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                     echo $Html->addLabel('envo_programonline2', $tl["checkbox"]["chk1"]);
                     ?>
@@ -176,17 +176,17 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                    echo $Html->addRadio('envo_programtvr', '1', ($JAK_FORM_DATA["tvr"] == '1') ? TRUE : FALSE, 'envo_programtvr1');
+                    echo $Html->addRadio('envo_programtvr', '1', ($ENVO_FORM_DATA["tvr"] == '1') ? TRUE : FALSE, 'envo_programtvr1');
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                     echo $Html->addLabel('envo_programtvr1', 'TV');
 
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                    echo $Html->addRadio('envo_programtvr', '0', ($JAK_FORM_DATA["tvr"] == '0') ? TRUE : FALSE, 'envo_programtvr2');
+                    echo $Html->addRadio('envo_programtvr', '0', ($ENVO_FORM_DATA["tvr"] == '0') ? TRUE : FALSE, 'envo_programtvr2');
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                     echo $Html->addLabel('envo_programtvr2', 'Radio');
 
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                    echo $Html->addRadio('envo_programtvr', '2', ($JAK_FORM_DATA["tvr"] == '2') ? TRUE : FALSE, 'envo_programtvr3');
+                    echo $Html->addRadio('envo_programtvr', '2', ($ENVO_FORM_DATA["tvr"] == '2') ? TRUE : FALSE, 'envo_programtvr3');
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                     echo $Html->addLabel('envo_programtvr3', 'Stream TV');
                     ?>
@@ -208,7 +208,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_programname', $JAK_FORM_DATA["name"], 'envo_programname', 'form-control');
+                    echo $Html->addInput('text', 'envo_programname', $ENVO_FORM_DATA["name"], 'envo_programname', 'form-control');
                     ?>
 
                     <span class="input-group-btn">
@@ -237,7 +237,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_programicons', $JAK_FORM_DATA["icon"], 'envo_programicons', 'form-control');
+                    echo $Html->addInput('text', 'envo_programicons', $ENVO_FORM_DATA["icon"], 'envo_programicons', 'form-control');
                     ?>
 
                     <span class="input-group-btn">
@@ -293,7 +293,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_serviceid', $JAK_FORM_DATA["service_id"], '', 'form-control');
+                    echo $Html->addInput('text', 'envo_serviceid', $ENVO_FORM_DATA["service_id"], '', 'form-control');
                     ?>
 
                   </div>
@@ -313,10 +313,10 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                    echo $Html->addOption('', 'Žádné', ($JAK_FORM_DATA["videoencoding"] == '') ? TRUE : FALSE);
-                    echo $Html->addOption('MPEG-2', 'MPEG-2', ($JAK_FORM_DATA["videoencoding"] == 'MPEG-2') ? TRUE : FALSE);
-                    echo $Html->addOption('MPEG-2 MP@ML', 'MPEG-2 MP@ML', ($JAK_FORM_DATA["videoencoding"] == 'MPEG-2 MP@ML') ? TRUE : FALSE);
-                    echo $Html->addOption('MPEG-4', 'MPEG-4', ($JAK_FORM_DATA["videoencoding"] == 'MPEG-4') ? TRUE : FALSE);
+                    echo $Html->addOption('', 'Žádné', ($ENVO_FORM_DATA["videoencoding"] == '') ? TRUE : FALSE);
+                    echo $Html->addOption('MPEG-2', 'MPEG-2', ($ENVO_FORM_DATA["videoencoding"] == 'MPEG-2') ? TRUE : FALSE);
+                    echo $Html->addOption('MPEG-2 MP@ML', 'MPEG-2 MP@ML', ($ENVO_FORM_DATA["videoencoding"] == 'MPEG-2 MP@ML') ? TRUE : FALSE);
+                    echo $Html->addOption('MPEG-4', 'MPEG-4', ($ENVO_FORM_DATA["videoencoding"] == 'MPEG-4') ? TRUE : FALSE);
                     ?>
 
                   </select>
@@ -336,9 +336,9 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                    echo $Html->addOption('', 'Žádné', ($JAK_FORM_DATA["audioencoding"] == '') ? TRUE : FALSE);
-                    echo $Html->addOption('MPEG-1', 'MPEG-1', ($JAK_FORM_DATA["audioencoding"] == 'MPEG-1') ? TRUE : FALSE);
-                    echo $Html->addOption('MPEG-1 Layer II', 'MPEG-1 Layer II', ($JAK_FORM_DATA["audioencoding"] == 'MPEG-1 Layer II') ? TRUE : FALSE);
+                    echo $Html->addOption('', 'Žádné', ($ENVO_FORM_DATA["audioencoding"] == '') ? TRUE : FALSE);
+                    echo $Html->addOption('MPEG-1', 'MPEG-1', ($ENVO_FORM_DATA["audioencoding"] == 'MPEG-1') ? TRUE : FALSE);
+                    echo $Html->addOption('MPEG-1 Layer II', 'MPEG-1 Layer II', ($ENVO_FORM_DATA["audioencoding"] == 'MPEG-1 Layer II') ? TRUE : FALSE);
                     ?>
 
                   </select>
@@ -358,9 +358,9 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                    echo $Html->addOption('', 'Žádný', ($JAK_FORM_DATA["videoformat"] == '') ? TRUE : FALSE);
-                    echo $Html->addOption('16:9', '16:9', ($JAK_FORM_DATA["videoformat"] == '16:9') ? TRUE : FALSE);
-                    echo $Html->addOption('4:3', '4:3', ($JAK_FORM_DATA["videoformat"] == '4:3') ? TRUE : FALSE);
+                    echo $Html->addOption('', 'Žádný', ($ENVO_FORM_DATA["videoformat"] == '') ? TRUE : FALSE);
+                    echo $Html->addOption('16:9', '16:9', ($ENVO_FORM_DATA["videoformat"] == '16:9') ? TRUE : FALSE);
+                    echo $Html->addOption('4:3', '4:3', ($ENVO_FORM_DATA["videoformat"] == '4:3') ? TRUE : FALSE);
                     ?>
 
                   </select>
@@ -380,10 +380,10 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                    echo $Html->addOption('', 'Žádné', ($JAK_FORM_DATA["videosize"] == '') ? TRUE : FALSE);
-                    echo $Html->addOption('704 x 576i', '704 x 576i', ($JAK_FORM_DATA["videosize"] == '704 x 576i') ? TRUE : FALSE);
-                    echo $Html->addOption('DVBT-T SD (MPEG2) => 720 x 576 => 576i', 'DVBT-T SD (MPEG2) => 720 x 576 => 576i', ($JAK_FORM_DATA["videosize"] == 'DVBT-T SD (MPEG2) => 720 x 576 => 576i') ? TRUE : FALSE);
-                    echo $Html->addOption('DVBT-T HD (MPEG4) => 1440 x 1080 => 1080i', 'DVBT-T HD (MPEG4) => 1440 x 1080 => 1080i', ($JAK_FORM_DATA["videosize"] == 'DVBT-T HD (MPEG4) => 1440 x 1080 => 1080i') ? TRUE : FALSE);
+                    echo $Html->addOption('', 'Žádné', ($ENVO_FORM_DATA["videosize"] == '') ? TRUE : FALSE);
+                    echo $Html->addOption('704 x 576i', '704 x 576i', ($ENVO_FORM_DATA["videosize"] == '704 x 576i') ? TRUE : FALSE);
+                    echo $Html->addOption('DVBT-T SD (MPEG2) => 720 x 576 => 576i', 'DVBT-T SD (MPEG2) => 720 x 576 => 576i', ($ENVO_FORM_DATA["videosize"] == 'DVBT-T SD (MPEG2) => 720 x 576 => 576i') ? TRUE : FALSE);
+                    echo $Html->addOption('DVBT-T HD (MPEG4) => 1440 x 1080 => 1080i', 'DVBT-T HD (MPEG4) => 1440 x 1080 => 1080i', ($ENVO_FORM_DATA["videosize"] == 'DVBT-T HD (MPEG4) => 1440 x 1080 => 1080i') ? TRUE : FALSE);
                     ?>
 
                   </select>
@@ -403,7 +403,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_bitrate', $JAK_FORM_DATA["bitrate"], '', 'form-control');
+                    echo $Html->addInput('text', 'envo_bitrate', $ENVO_FORM_DATA["bitrate"], '', 'form-control');
                     ?>
 
                   </div>
@@ -437,7 +437,7 @@ if ($errors) { ?>
               <?php
               // EN: Get Tower, Channel ID from selection
               // CZ: Získání ID Vysílače, Kanálu z výběru
-              $dataServices = explode(", ", $JAK_FORM_DATA["services"]);
+              $dataServices = explode(", ", $ENVO_FORM_DATA["services"]);
               ?>
 
               <div class="row-form">

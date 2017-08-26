@@ -280,14 +280,14 @@ if (empty($bl) && !empty($defaults[\'jak_showblogmany\'])) {
       //
       $getblog = '$JAK_GET_BLOG = envo_get_page_info(DB_PREFIX.\'blog\', \'\');
 
-if ($JAK_FORM_DATA) {
+if ($ENVO_FORM_DATA) {
 
-$showblogarray = explode(\":\", $JAK_FORM_DATA[\'showblog\']);
+$showblogarray = explode(\":\", $ENVO_FORM_DATA[\'showblog\']);
 
 if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"DESC\", $showblogarray)) {
 
-		$JAK_FORM_DATA[\'showblogorder\'] = $showblogarray[0];
-		$JAK_FORM_DATA[\'showblogmany\'] = $showblogarray[1];
+		$ENVO_FORM_DATA[\'showblogorder\'] = $showblogarray[0];
+		$ENVO_FORM_DATA[\'showblogmany\'] = $showblogarray[1];
 	
 } }';
       // EN: Frontend - template for display connect

@@ -86,7 +86,7 @@ switch ($page1) {
         break;
       case 'edit':
 
-        $JAK_FORM_DATA = envo_get_data($page2, $envotable);
+        $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
 
         // EN: Title and Description
         // CZ: Titulek a Popis

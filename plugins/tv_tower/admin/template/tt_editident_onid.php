@@ -101,7 +101,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'envo_onid', $JAK_FORM_DATA["onid"], '', 'form-control');
+                      echo $Html->addInput('text', 'envo_onid', $ENVO_FORM_DATA["onid"], '', 'form-control');
                       ?>
 
                     </div>
@@ -120,7 +120,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'envo_onidcountry', $JAK_FORM_DATA["country"], '', 'form-control');
+                      echo $Html->addInput('text', 'envo_onidcountry', $ENVO_FORM_DATA["country"], '', 'form-control');
                       ?>
 
                     </div>

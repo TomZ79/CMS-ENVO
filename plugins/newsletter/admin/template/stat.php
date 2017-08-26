@@ -7,7 +7,7 @@
 
           <div style="float: left;background: #f4f4f4;border: 2px solid #cecdcd;border-radius: 5px;padding: 10px;text-align: center;margin: 5px;width: 155px;">
 
-            <h2 style="font-size: 15px;margin-bottom: 5px;"><?php echo $JAK_FORM_DATA["title"]; ?></h2>
+            <h2 style="font-size: 15px;margin-bottom: 5px;"><?php echo $ENVO_FORM_DATA["title"]; ?></h2>
             <p><?php echo $tlnl["nletter"]["d33"] . $v["total"]; ?></p>
             <p><?php echo $tlnl["nletter"]["d34"] . $v["notsent"]; ?></p>
             <p><?php echo $tlnl["nletter"]["d4"] . ': ' . $v["time"]; ?></p>

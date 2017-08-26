@@ -102,7 +102,7 @@ switch ($page1) {
           }
 
           // Get the data from thbe hook
-          $JAK_FORM_DATA = envo_get_data($page3, $envotable2);
+          $ENVO_FORM_DATA = envo_get_data($page3, $envotable2);
 
           // EN: Title and Description
           // CZ: Titulek a Popis

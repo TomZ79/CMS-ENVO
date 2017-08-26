@@ -24,12 +24,12 @@
 
               <?php
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('jak_digitalhouse', '1', ($JAK_FORM_DATA["digitalhouse"] == '1') ? TRUE : FALSE, 'jak_digitalhouse1');
+              echo $Html->addRadio('jak_digitalhouse', '1', ($ENVO_FORM_DATA["digitalhouse"] == '1') ? TRUE : FALSE, 'jak_digitalhouse1');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
               echo $Html->addLabel('jak_digitalhouse1', $tl["checkbox"]["chk"]);
 
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('jak_digitalhouse', '0', ($JAK_FORM_DATA["digitalhouse"] == '0') ? TRUE : FALSE, 'jak_digitalhouse2');
+              echo $Html->addRadio('jak_digitalhouse', '0', ($ENVO_FORM_DATA["digitalhouse"] == '0') ? TRUE : FALSE, 'jak_digitalhouse2');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
               echo $Html->addLabel('jak_digitalhouse2', $tl["checkbox"]["chk1"]);
               ?>

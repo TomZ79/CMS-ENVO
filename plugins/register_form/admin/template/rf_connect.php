@@ -6,12 +6,12 @@
 
       <?php
       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-      echo $Html->addRadio('jak_rfconnect', '1', (isset($_REQUEST["jak_rfconnect"]) && $_REQUEST["jak_rfconnect"] == '1' || $JAK_FORM_DATA["showregister"] == '1') ? TRUE : FALSE, 'jak_rfconnect1');
+      echo $Html->addRadio('jak_rfconnect', '1', (isset($_REQUEST["jak_rfconnect"]) && $_REQUEST["jak_rfconnect"] == '1' || $ENVO_FORM_DATA["showregister"] == '1') ? TRUE : FALSE, 'jak_rfconnect1');
       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
       echo $Html->addLabel('jak_rfconnect1', $tl["checkbox"]["chk"]);
 
       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-      echo $Html->addRadio('jak_rfconnect', '0', (isset($_REQUEST["jak_rfconnect"]) && $_REQUEST["jak_rfconnect"] == '0' || $JAK_FORM_DATA["showregister"] == '0') ? TRUE : FALSE, 'jak_rfconnect2');
+      echo $Html->addRadio('jak_rfconnect', '0', (isset($_REQUEST["jak_rfconnect"]) && $_REQUEST["jak_rfconnect"] == '0' || $ENVO_FORM_DATA["showregister"] == '0') ? TRUE : FALSE, 'jak_rfconnect2');
       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
       echo $Html->addLabel('jak_rfconnect2', $tl["checkbox"]["chk1"]);
       ?>

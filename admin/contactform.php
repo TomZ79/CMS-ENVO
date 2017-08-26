@@ -302,7 +302,7 @@ switch ($page1) {
             }
           }
 
-          $JAK_FORM_DATA         = envo_get_data($page2, $envotable);
+          $ENVO_FORM_DATA         = envo_get_data($page2, $envotable);
           $JAK_CONTACTOPTION_ALL = envo_get_contact_options($envotable1, $page2);
 
           // EN: Title and Description

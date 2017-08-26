@@ -104,7 +104,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_name', $JAK_FORM_DATA["name"], 'jak_name', 'form-control');
+                      echo $Html->addInput('text', 'jak_name', $ENVO_FORM_DATA["name"], 'jak_name', 'form-control');
                       ?>
 
                     </div>
@@ -127,7 +127,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_varname', $JAK_FORM_DATA["varname"], 'jak_varname', 'form-control');
+                      echo $Html->addInput('text', 'jak_varname', $ENVO_FORM_DATA["varname"], 'jak_varname', 'form-control');
                       ?>
 
                     </div>
@@ -146,7 +146,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                    echo $Html->addTextarea('jak_lcontent', envo_edit_safe_userpost($JAK_FORM_DATA["content"]), '4', '', array('id' => 'content', 'class' => 'form-control'));
+                    echo $Html->addTextarea('jak_lcontent', envo_edit_safe_userpost($ENVO_FORM_DATA["content"]), '4', '', array('id' => 'content', 'class' => 'form-control'));
                     ?>
 
                   </div>
@@ -165,12 +165,12 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('jak_active', '1', ($JAK_FORM_DATA["active"] == '1') ? TRUE : FALSE, 'jak_active1');
+                      echo $Html->addRadio('jak_active', '1', ($ENVO_FORM_DATA["active"] == '1') ? TRUE : FALSE, 'jak_active1');
                       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                       echo $Html->addLabel('jak_active1', $tl["checkbox"]["chk"]);
 
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('jak_active', '0', ($JAK_FORM_DATA["active"] == '0') ? TRUE : FALSE, 'jak_active2');
+                      echo $Html->addRadio('jak_active', '0', ($ENVO_FORM_DATA["active"] == '0') ? TRUE : FALSE, 'jak_active2');
                       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                       echo $Html->addLabel('jak_active2', $tl["checkbox"]["chk1"]);
                       ?>
@@ -195,7 +195,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_img', $JAK_FORM_DATA["catimg"], 'jak_img', 'form-control text-center');
+                      echo $Html->addInput('text', 'jak_img', $ENVO_FORM_DATA["catimg"], 'jak_img', 'form-control text-center');
                       ?>
 
                       <span class="input-group-btn">
@@ -241,12 +241,12 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                      $selected = ($JAK_FORM_DATA["permission"] == '0') ? TRUE : FALSE;
+                      $selected = ($ENVO_FORM_DATA["permission"] == '0') ? TRUE : FALSE;
 
                       echo $Html->addOption('0', $tlblog["blog_box_content"]["blogbc24"], $selected);
                       if (isset($JAK_USERGROUP) && is_array($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) {
 
-                        $selected = (in_array($v["id"], explode(',', $JAK_FORM_DATA["permission"]))) ? TRUE : FALSE;
+                        $selected = (in_array($v["id"], explode(',', $ENVO_FORM_DATA["permission"]))) ? TRUE : FALSE;
                         echo $Html->addOption($v["id"], $v["name"], $selected);
 
                       }

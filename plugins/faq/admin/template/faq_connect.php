@@ -10,8 +10,8 @@
 
             <?php
             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-            echo $Html->addOption('ASC', $tl["selection"]["sel13"], (isset($JAK_FORM_DATA["showfaqorder"]) && $JAK_FORM_DATA["showfaqorder"] == "ASC") ? TRUE : FALSE);
-            echo $Html->addOption('DESC', $tl["selection"]["sel14"], (isset($JAK_FORM_DATA["showfaqorder"]) && $JAK_FORM_DATA["showfaqorder"] == "DESC") ? TRUE : FALSE);
+            echo $Html->addOption('ASC', $tl["selection"]["sel13"], (isset($ENVO_FORM_DATA["showfaqorder"]) && $ENVO_FORM_DATA["showfaqorder"] == "ASC") ? TRUE : FALSE);
+            echo $Html->addOption('DESC', $tl["selection"]["sel14"], (isset($ENVO_FORM_DATA["showfaqorder"]) && $ENVO_FORM_DATA["showfaqorder"] == "DESC") ? TRUE : FALSE);
             ?>
 
           </select>
@@ -22,7 +22,7 @@
             <?php for ($i = 0; $i <= 10; $i++) {
 
               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-              echo $Html->addOption($i, $i, ((isset($JAK_FORM_DATA["showfaqmany"]) && $JAK_FORM_DATA["showfaqmany"] == $i)) ? TRUE : FALSE);
+              echo $Html->addOption($i, $i, ((isset($ENVO_FORM_DATA["showfaqmany"]) && $ENVO_FORM_DATA["showfaqmany"] == $i)) ? TRUE : FALSE);
 
             } ?>
 
@@ -37,12 +37,12 @@
 
         <?php
         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-        $selected = (isset($JAK_FORM_DATA["showfaq"]) && $JAK_FORM_DATA["showfaq"] == 0) ? TRUE : FALSE;
+        $selected = (isset($ENVO_FORM_DATA["showfaq"]) && $ENVO_FORM_DATA["showfaq"] == 0) ? TRUE : FALSE;
 
         echo $Html->addOption('0', $tlf["faq_connect"]["faqc9"], $selected);
         if (isset($JAK_GET_FAQ) && is_array($JAK_GET_FAQ)) foreach ($JAK_GET_FAQ as $fq) {
 
-          echo $Html->addOption($fq["id"], $fq["title"], (isset($JAK_FORM_DATA["showfaq"]) && (in_array($fq["id"], explode(',', $JAK_FORM_DATA["showfaq"])))) ? TRUE : FALSE);
+          echo $Html->addOption($fq["id"], $fq["title"], (isset($ENVO_FORM_DATA["showfaq"]) && (in_array($fq["id"], explode(',', $ENVO_FORM_DATA["showfaq"])))) ? TRUE : FALSE);
 
         }
         ?>

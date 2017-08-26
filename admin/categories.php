@@ -256,7 +256,7 @@ switch ($page1) {
           }
 
           // Get the data
-          $JAK_FORM_DATA = envo_get_data($page2, $envotable);
+          $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
 
           // Get all usergroup's
           $JAK_USERGROUP = envo_get_usergroup_all('usergroup');

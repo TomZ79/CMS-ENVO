@@ -306,7 +306,7 @@ switch ($page1) {
             }
           }
 
-          $JAK_FORM_DATA = envo_get_data($page3, $envotable1);
+          $ENVO_FORM_DATA = envo_get_data($page3, $envotable1);
           $JAK_USERGROUP = envo_get_usergroup_all('usergroup');
 
           // EN: Title and Description
@@ -723,7 +723,7 @@ switch ($page1) {
       }
 
       // Get the data
-      $JAK_FORM_DATA = envo_get_data($page2, $envotable);
+      $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
 
       // EN: Load the php template
       // CZ: Načtení php template (šablony)
@@ -1009,7 +1009,7 @@ switch ($page1) {
             }
           }
 
-          $JAK_FORM_DATA = envo_get_data($page2, $envotable);
+          $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
           if (JAK_TAGS) {
             $JAK_TAGLIST = envo_get_tags($page2, JAK_PLUGIN_FAQ);
           }

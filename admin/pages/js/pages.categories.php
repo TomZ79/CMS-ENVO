@@ -10,13 +10,13 @@
 
     /* Bootstrap Icon Picker */
     <?php
-    if (isset($JAK_FORM_DATA["catimg"])) {
-      $str = $JAK_FORM_DATA["catimg"];
+    if (isset($ENVO_FORM_DATA["catimg"])) {
+      $str = $ENVO_FORM_DATA["catimg"];
 
       if (strpos($str, 'glyphicons ') !== FALSE) {
-        $categoryimg = str_replace('glyphicons ', '', $JAK_FORM_DATA["catimg"]);
+        $categoryimg = str_replace('glyphicons ', '', $ENVO_FORM_DATA["catimg"]);
       } else {
-        $categoryimg = str_replace('fa ', '', $JAK_FORM_DATA["catimg"]);
+        $categoryimg = str_replace('fa ', '', $ENVO_FORM_DATA["catimg"]);
       }
     } else {
       $categoryimg = 'fa-font';

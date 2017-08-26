@@ -225,7 +225,7 @@ switch ($page1) {
 
     // EN: Get all the php Hook by name of Hook
     // CZ: Načtení všech php dat z Hook podle jména Hook
-    $JAK_FORM_DATA = array();
+    $ENVO_FORM_DATA = array();
     $hookpagei     = $jakhooks->jakGethook("php_admin_pages_news_info");
     if ($hookpagei) {
       foreach ($hookpagei as $hpagi) {

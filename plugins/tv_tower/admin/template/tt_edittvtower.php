@@ -100,7 +100,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_tvtowername', $JAK_FORM_DATA["name"], '', 'form-control');
+                    echo $Html->addInput('text', 'envo_tvtowername', $ENVO_FORM_DATA["name"], '', 'form-control');
                     ?>
 
                   </div>
@@ -120,7 +120,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_tvtowerstation', $JAK_FORM_DATA["station"], '', 'form-control');
+                    echo $Html->addInput('text', 'envo_tvtowerstation', $ENVO_FORM_DATA["station"], '', 'form-control');
                     ?>
 
                   </div>
@@ -140,7 +140,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_tvtowerdistrict', $JAK_FORM_DATA["district"], '', 'form-control');
+                    echo $Html->addInput('text', 'envo_tvtowerdistrict', $ENVO_FORM_DATA["district"], '', 'form-control');
                     ?>
 
                   </div>
@@ -160,7 +160,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_tvtowerhsea', $JAK_FORM_DATA["heightsea"], '', 'form-control');
+                    echo $Html->addInput('text', 'envo_tvtowerhsea', $ENVO_FORM_DATA["heightsea"], '', 'form-control');
                     ?>
 
                   </div>
@@ -180,7 +180,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_tvtowerlongitude', $JAK_FORM_DATA["eastlongitude"], '', 'form-control');
+                    echo $Html->addInput('text', 'envo_tvtowerlongitude', $ENVO_FORM_DATA["eastlongitude"], '', 'form-control');
                     ?>
 
                   </div>
@@ -200,7 +200,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_tvtowerlatitude', $JAK_FORM_DATA["northlatitude"], '', 'form-control');
+                    echo $Html->addInput('text', 'envo_tvtowerlatitude', $ENVO_FORM_DATA["northlatitude"], '', 'form-control');
                     ?>
 
                   </div>

@@ -115,7 +115,7 @@ switch ($page1) {
     if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
       // Get the newsletter
-      $JAK_FORM_DATA = envo_get_data($page2, $envotable);
+      $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
 
       // EN: Load the php template
       // CZ: Načtení php template (šablony)
@@ -196,7 +196,7 @@ switch ($page1) {
       $JAK_STAT_DATA = $envodata;
 
       // Get the newsletter
-      $JAK_FORM_DATA = envo_get_data($page2, $envotable);
+      $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
 
       // EN: Title and Description
       // CZ: Titulek a Popis
@@ -604,7 +604,7 @@ switch ($page1) {
             }
           }
 
-          $JAK_FORM_DATA = envo_get_data($page3, $envotable2);
+          $ENVO_FORM_DATA = envo_get_data($page3, $envotable2);
 
         } else {
           // EN: Redirect page
@@ -874,7 +874,7 @@ switch ($page1) {
             }
           }
 
-          $JAK_FORM_DATA = envo_get_data($page3, $envotable1);
+          $ENVO_FORM_DATA = envo_get_data($page3, $envotable1);
 
         } else {
           // EN: Redirect page
@@ -1218,7 +1218,7 @@ switch ($page1) {
           }
 
           // Get the newsletter
-          $JAK_FORM_DATA = envo_get_data($page2, $envotable);
+          $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
 
           // Get the cat var name
           $resultc = $jakdb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql(JAK_PLUGIN_NEWSLETTER) . '"');

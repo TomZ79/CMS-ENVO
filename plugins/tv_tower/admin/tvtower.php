@@ -265,7 +265,7 @@ switch ($page1) {
 
           // EN: Get all the data for the form
           // CZ: Získání všech dat pro formulář
-          $JAK_FORM_DATA = envo_get_data($pageID, $envotable2);
+          $ENVO_FORM_DATA = envo_get_data($pageID, $envotable2);
 
           // EN: Getting the data about the TV Tower
           // CZ: Získání dat o televizním vysílači
@@ -535,7 +535,7 @@ switch ($page1) {
 
           // EN: Get all the data for the form
           // CZ: Získání všech dat pro formulář
-          $JAK_FORM_DATA = envo_get_data($pageID, $envotable);
+          $ENVO_FORM_DATA = envo_get_data($pageID, $envotable);
 
           // EN: Getting the data about the TV Tower
           // CZ: Získání dat o televizním vysílači
@@ -824,7 +824,7 @@ switch ($page1) {
 
           // EN: Get all the data for the form
           // CZ: Získání všech dat pro formulář
-          $JAK_FORM_DATA = envo_get_data($pageID, $envotable1);
+          $ENVO_FORM_DATA = envo_get_data($pageID, $envotable1);
 
           // EN: Title and Description
           // CZ: Titulek a Popis
@@ -1442,7 +1442,7 @@ switch ($page1) {
 
               // EN: Get all the data for the form
               // CZ: Získání všech dat pro formulář
-              $JAK_FORM_DATA = envo_get_data($pageID, $envotable3);
+              $ENVO_FORM_DATA = envo_get_data($pageID, $envotable3);
 
               // EN: Title and Description
               // CZ: Titulek a Popis
@@ -1539,7 +1539,7 @@ switch ($page1) {
 
               // EN: Get all the data for the form
               // CZ: Získání všech dat pro formulář
-              $JAK_FORM_DATA = envo_get_data($pageID, $envotable4);
+              $ENVO_FORM_DATA = envo_get_data($pageID, $envotable4);
 
               // EN: Title and Description
               // CZ: Titulek a Popis
@@ -1635,7 +1635,7 @@ switch ($page1) {
 
               // EN: Get all the data for the form
               // CZ: Získání všech dat pro formulář
-              $JAK_FORM_DATA = envo_get_data($pageID, $envotable5);
+              $ENVO_FORM_DATA = envo_get_data($pageID, $envotable5);
 
               // EN: Title and Description
               // CZ: Titulek a Popis
@@ -1731,7 +1731,7 @@ switch ($page1) {
 
               // EN: Get all the data for the form
               // CZ: Získání všech dat pro formulář
-              $JAK_FORM_DATA = envo_get_data($pageID, $envotable6);
+              $ENVO_FORM_DATA = envo_get_data($pageID, $envotable6);
 
               // EN: Title and Description
               // CZ: Titulek a Popis

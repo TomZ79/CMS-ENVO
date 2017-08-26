@@ -40,10 +40,10 @@ switch ($page1) {
 
       if (isset($defaults['create'])) {
 
-        $JAK_FORM_DATA = envo_get_data($defaults['jak_groupbase'], $envotable);
+        $ENVO_FORM_DATA = envo_get_data($defaults['jak_groupbase'], $envotable);
 
         // Get the data for the editor light
-        $_REQUEST["jak_lcontent"] = $JAK_FORM_DATA["description"];
+        $_REQUEST["jak_lcontent"] = $ENVO_FORM_DATA["description"];
 
       }
 
@@ -267,8 +267,8 @@ switch ($page1) {
             }
           }
 
-          $JAK_FORM_DATA            = envo_get_data($page2, $envotable);
-          $JAK_FORM_DATA["content"] = $JAK_FORM_DATA["description"];
+          $ENVO_FORM_DATA            = envo_get_data($page2, $envotable);
+          $ENVO_FORM_DATA["content"] = $ENVO_FORM_DATA["description"];
 
           // EN: Title and Description
           // CZ: Titulek a Popis

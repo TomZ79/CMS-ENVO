@@ -100,12 +100,12 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                    $selected = ($JAK_FORM_DATA["towerid"] == '0') ? TRUE : FALSE;
+                    $selected = ($ENVO_FORM_DATA["towerid"] == '0') ? TRUE : FALSE;
 
                     echo $Html->addOption('0', 'Archiv', $selected);
                     if (isset($JAK_TVTOWER_ALL) && is_array($JAK_TVTOWER_ALL)) foreach ($JAK_TVTOWER_ALL as $tt) {
 
-                      $selected = (in_array($tt["id"], explode(',', $JAK_FORM_DATA["towerid"]))) ? TRUE : FALSE;
+                      $selected = (in_array($tt["id"], explode(',', $ENVO_FORM_DATA["towerid"]))) ? TRUE : FALSE;
                       echo $Html->addOption($tt["id"], $tt["name"], $selected);
 
                     }
@@ -128,7 +128,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_channelnumber', $JAK_FORM_DATA["number"], 'channelnumber', 'form-control');
+                    echo $Html->addInput('text', 'envo_channelnumber', $ENVO_FORM_DATA["number"], 'channelnumber', 'form-control');
                     ?>
 
                   </div>
@@ -148,7 +148,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_channelfrequency', $JAK_FORM_DATA["frequency"], 'channelfrequency', 'form-control');
+                    echo $Html->addInput('text', 'envo_channelfrequency', $ENVO_FORM_DATA["frequency"], 'channelfrequency', 'form-control');
                     ?>
 
                   </div>
@@ -168,7 +168,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_channelfreqrange', $JAK_FORM_DATA["freqrange"], 'channelfreqrange', 'form-control');
+                    echo $Html->addInput('text', 'envo_channelfreqrange', $ENVO_FORM_DATA["freqrange"], 'channelfreqrange', 'form-control');
                     ?>
 
                   </div>
@@ -214,7 +214,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_sitename', $JAK_FORM_DATA["sitename"], '', 'form-control');
+                    echo $Html->addInput('text', 'envo_sitename', $ENVO_FORM_DATA["sitename"], '', 'form-control');
                     ?>
 
                   </div>
@@ -234,9 +234,9 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                    echo $Html->addOption('', 'Žádná', ($JAK_FORM_DATA["type"] == '') ? TRUE : FALSE);
-                    echo $Html->addOption('DVB-T', 'DVB-T', ($JAK_FORM_DATA["type"] == 'DVB-T') ? TRUE : FALSE);
-                    echo $Html->addOption('DVB-T2', 'DVB-T2', ($JAK_FORM_DATA["type"] == 'DVB-T2') ? TRUE : FALSE);
+                    echo $Html->addOption('', 'Žádná', ($ENVO_FORM_DATA["type"] == '') ? TRUE : FALSE);
+                    echo $Html->addOption('DVB-T', 'DVB-T', ($ENVO_FORM_DATA["type"] == 'DVB-T') ? TRUE : FALSE);
+                    echo $Html->addOption('DVB-T2', 'DVB-T2', ($ENVO_FORM_DATA["type"] == 'DVB-T2') ? TRUE : FALSE);
                     ?>
 
                   </select>
@@ -256,9 +256,9 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                    echo $Html->addOption('0', 'Žádná', ($JAK_FORM_DATA["polarization"] == '') ? TRUE : FALSE);
-                    echo $Html->addOption('H', 'Horizontální - H', ($JAK_FORM_DATA["polarization"] == 'H') ? TRUE : FALSE);
-                    echo $Html->addOption('V', 'Vertikální - V', ($JAK_FORM_DATA["polarization"] == 'V') ? TRUE : FALSE);
+                    echo $Html->addOption('0', 'Žádná', ($ENVO_FORM_DATA["polarization"] == '') ? TRUE : FALSE);
+                    echo $Html->addOption('H', 'Horizontální - H', ($ENVO_FORM_DATA["polarization"] == 'H') ? TRUE : FALSE);
+                    echo $Html->addOption('V', 'Vertikální - V', ($ENVO_FORM_DATA["polarization"] == 'V') ? TRUE : FALSE);
                     ?>
 
                   </select>
@@ -278,7 +278,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_erpkw', $JAK_FORM_DATA["erpkw"], '', 'form-control');
+                    echo $Html->addInput('text', 'envo_erpkw', $ENVO_FORM_DATA["erpkw"], '', 'form-control');
                     ?>
 
                   </div>
@@ -298,7 +298,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_erpdbw', $JAK_FORM_DATA["erpdbw"], '', 'form-control');
+                    echo $Html->addInput('text', 'envo_erpdbw', $ENVO_FORM_DATA["erpdbw"], '', 'form-control');
                     ?>
 
                   </div>

@@ -102,7 +102,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_name', $JAK_FORM_DATA["name"], 'jak_name', 'form-control');
+                      echo $Html->addInput('text', 'jak_name', $ENVO_FORM_DATA["name"], 'jak_name', 'form-control');
                       ?>
 
                     </div>
@@ -123,7 +123,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_email', $JAK_FORM_DATA["email"], '', 'form-control');
+                      echo $Html->addInput('text', 'jak_email', $ENVO_FORM_DATA["email"], '', 'form-control');
                       ?>
 
                     </div>
@@ -144,7 +144,7 @@ if ($errors) { ?>
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
                       if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
-                        echo $Html->addOption($v["id"], $v["name"], ($v["id"] == $JAK_FORM_DATA["usergroupid"]) ? TRUE : FALSE);
+                        echo $Html->addOption($v["id"], $v["name"], ($v["id"] == $ENVO_FORM_DATA["usergroupid"]) ? TRUE : FALSE);
                       }
                       ?>
 

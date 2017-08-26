@@ -24,12 +24,12 @@
 
               <?php
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('envo_tvtower', '1', ($JAK_FORM_DATA["tvtower"] == '1') ? TRUE : FALSE, 'envo_tvtower1');
+              echo $Html->addRadio('envo_tvtower', '1', ($ENVO_FORM_DATA["tvtower"] == '1') ? TRUE : FALSE, 'envo_tvtower1');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
               echo $Html->addLabel('envo_tvtower1', $tl["checkbox"]["chk"]);
 
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('envo_tvtower', '0', ($JAK_FORM_DATA["tvtower"] == '0') ? TRUE : FALSE, 'envo_tvtower2');
+              echo $Html->addRadio('envo_tvtower', '0', ($ENVO_FORM_DATA["tvtower"] == '0') ? TRUE : FALSE, 'envo_tvtower2');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
               echo $Html->addLabel('envo_tvtower2', $tl["checkbox"]["chk1"]);
               ?>

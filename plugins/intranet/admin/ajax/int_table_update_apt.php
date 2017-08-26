@@ -1,8 +1,4 @@
 <?php
-// Basic example of PHP script to handle with jQuery-Tabledit plug-in.
-// Note that is just an example. Should take precautions such as filtering the input data.
-
-header('Content-Type: application/json');
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
@@ -12,6 +8,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 // EN: Detecting AJAX Requests
 // CZ: Detekce AJAX Požadavku
 if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
+
+header("Content-Type: application/json;charset=utf-8");
 
 // CHECK REQUEST METHOD
 if ($_SERVER['REQUEST_METHOD']=='POST') {

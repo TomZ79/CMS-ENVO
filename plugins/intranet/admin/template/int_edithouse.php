@@ -742,7 +742,9 @@ if ($errors) { ?>
             </div>
             <div class="box-body">
               <div class="col-sm-6">
-                <p class="padding-15 no-margin">Složka dokumentů: <strong><?php echo '/' . JAK_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/documents'; ?></strong></p>
+                <p class="padding-15 no-margin">Složka dokumentů:
+                  <strong><?php echo '/' . JAK_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/documents'; ?></strong>
+                </p>
               </div>
               <div class="col-sm-6">
                 <!-- Upload Files -->
@@ -750,18 +752,18 @@ if ($errors) { ?>
                   <div class="row">
                     <div class="col-xs-12 col-sm-9 col-lg-10 m-t-10">
                       <div class="input-group file" style="width: 100%;">
-                      <span class="input-group-btn" style="width: 1%;">
-                        <!-- File-clear button -->
-                        <button type="button" class="btn btn-default file-clear" style="display:none;">
-                          <span class="fa fa-remove"></span> Smazat
-                        </button>
-                        <!-- File-input button-->
-                        <div class="btn btn-default file-input">
-                          <span class="fa fa-folder-open"></span>
-                          <span class="file-input-title">Vybrat Soubor</span>
-                          <input type="file" name="input-file" id="fileinput" accept=".doc, .docx, .docm, .xls, .xlsx, .xlsm, .pdf"/>
-                        </div>
-                      </span>
+                        <span class="input-group-btn" style="width: 1%;">
+                          <!-- File-clear button -->
+                          <button type="button" class="btn btn-default file-clear" style="display:none;">
+                            <span class="fa fa-remove"></span> Smazat
+                          </button>
+                          <!-- File-input button-->
+                          <div class="btn btn-default file-input">
+                            <span class="fa fa-folder-open"></span>
+                            <span class="file-input-title">Vybrat Soubor</span>
+                            <input type="file" name="input-file" id="fileinput" accept=".doc, .docx, .docm, .xls, .xlsx, .xlsm, .pdf"/>
+                          </div>
+                        </span>
                         <input type="text" class="form-control file-filename" style="margin-left: -1px;" disabled>
                       </div>
                     </div>
@@ -805,7 +807,7 @@ if ($errors) { ?>
 
                         <tr>
                           <td><?php echo $d["id"]; ?></td>
-                          <td> </td>
+                          <td></td>
                           <td><?php echo $d["description"]; ?></td>
                           <td><?php echo '<a href="/' . JAK_FILES_DIRECTORY . $d["filepath"] . '">Soubor</a>'; ?></td>
                         </tr>

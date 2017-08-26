@@ -24,12 +24,12 @@
 
               <?php
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('jak_intranet', '1', ($JAK_FORM_DATA["intranet"] == '1') ? TRUE : FALSE, 'jak_intranet1');
+              echo $Html->addRadio('jak_intranet', '1', ($ENVO_FORM_DATA["intranet"] == '1') ? TRUE : FALSE, 'jak_intranet1');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
               echo $Html->addLabel('jak_intranet1', $tl["checkbox"]["chk"]);
 
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('jak_intranet', '0', ($JAK_FORM_DATA["intranet"] == '0') ? TRUE : FALSE, 'jak_intranet2');
+              echo $Html->addRadio('jak_intranet', '0', ($ENVO_FORM_DATA["intranet"] == '0') ? TRUE : FALSE, 'jak_intranet2');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
               echo $Html->addLabel('jak_intranet2', $tl["checkbox"]["chk1"]);
               ?>

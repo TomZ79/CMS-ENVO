@@ -206,7 +206,7 @@ switch ($page1) {
 
     // EN: Get all the php Hook by name of Hook
     // CZ: Načtení všech php dat z Hook podle jména Hook
-    $JAK_FORM_DATA = array();
+    $ENVO_FORM_DATA = array();
     $hookpagei     = $jakhooks->jakGethook("php_admin_pages_news_info");
     if ($hookpagei) {
       foreach ($hookpagei as $hpagi) {
@@ -387,7 +387,7 @@ switch ($page1) {
 
     // EN: Get all the php Hook by name of Hook
     // CZ: Načtení všech php dat z Hook podle jména Hook
-    $JAK_FORM_DATA = array();
+    $ENVO_FORM_DATA = array();
     $hookpagei     = $jakhooks->jakGethook("php_admin_pages_news_info");
     if ($hookpagei) {
       foreach ($hookpagei as $hpagi) {
@@ -728,7 +728,7 @@ switch ($page1) {
             }
           }
 
-          $JAK_FORM_DATA = envo_get_data($page2, $envotable);
+          $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
           if (JAK_TAGS) $JAK_TAGLIST = envo_get_tags($page2, 1);
 
           // Get the sort orders for the grid
@@ -815,7 +815,7 @@ switch ($page1) {
           }
 
           // Get the data
-          $JAK_FORM_DATA = envo_get_data($page2, $envotable);
+          $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)

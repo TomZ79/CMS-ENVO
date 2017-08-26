@@ -107,7 +107,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_name', $JAK_FORM_DATA["name"], 'jak_name', 'form-control');
+                          echo $Html->addInput('text', 'jak_name', $ENVO_FORM_DATA["name"], 'jak_name', 'form-control');
                           ?>
 
                         </div>
@@ -126,7 +126,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('jak_lcontent', envo_edit_safe_userpost($JAK_FORM_DATA["content"]), '4', '', array('class' => 'form-control'));
+                        echo $Html->addTextarea('jak_lcontent', envo_edit_safe_userpost($ENVO_FORM_DATA["content"]), '4', '', array('class' => 'form-control'));
                         ?>
 
                       </div>
@@ -145,12 +145,12 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_advs', '1', ($JAK_FORM_DATA["advsearch"] == '1') ? TRUE : FALSE, 'jak_advs1');
+                          echo $Html->addRadio('jak_advs', '1', ($ENVO_FORM_DATA["advsearch"] == '1') ? TRUE : FALSE, 'jak_advs1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_advs1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_advs', '0', ($JAK_FORM_DATA["advsearch"] == '0') ? TRUE : FALSE, 'jak_advs2');
+                          echo $Html->addRadio('jak_advs', '0', ($ENVO_FORM_DATA["advsearch"] == '0') ? TRUE : FALSE, 'jak_advs2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('jak_advs2', $tl["checkbox"]["chk1"]);
                           ?>
@@ -191,12 +191,12 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                            echo $Html->addRadio('jak_tags', '1', ($JAK_FORM_DATA["tags"] == '1') ? TRUE : FALSE, 'jak_tags1');
+                            echo $Html->addRadio('jak_tags', '1', ($ENVO_FORM_DATA["tags"] == '1') ? TRUE : FALSE, 'jak_tags1');
                             // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                             echo $Html->addLabel('jak_tags1', $tl["checkbox"]["chk"]);
 
                             // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                            echo $Html->addRadio('jak_tags', '0', ($JAK_FORM_DATA["tags"] == '0') ? TRUE : FALSE, 'jak_tags2');
+                            echo $Html->addRadio('jak_tags', '0', ($ENVO_FORM_DATA["tags"] == '0') ? TRUE : FALSE, 'jak_tags2');
                             // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                             echo $Html->addLabel('jak_tags2', $tl["checkbox"]["chk1"]);
                             ?>

@@ -732,7 +732,7 @@ switch ($page1) {
             }
           }
 
-          $JAK_FORM_DATA = envo_get_data($page2, $envotable);
+          $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
           // Get the usergroups
           $JAK_USERGROUP_ALL = envo_get_usergroup_all('usergroup');
 
@@ -742,7 +742,7 @@ switch ($page1) {
             if (!in_array($f, $existf)) {
 
               $extrafields .= '<div class="row-form"><div class="col-md-5"><strong>' . ucfirst($f) . '</strong></div>
-						<div class="col-md-7"><input type="text" class="form-control" name="' . $f . '" value="' . $JAK_FORM_DATA[$f] . '" /></div></div>';
+						<div class="col-md-7"><input type="text" class="form-control" name="' . $f . '" value="' . $ENVO_FORM_DATA[$f] . '" /></div></div>';
 
             }
 

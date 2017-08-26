@@ -92,7 +92,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_name', $JAK_FORM_DATA["name"], 'jak_name', 'form-control');
+                      echo $Html->addInput('text', 'jak_name', $ENVO_FORM_DATA["name"], 'jak_name', 'form-control');
                       ?>
 
                     </div>
@@ -114,12 +114,12 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                        $selected = ($JAK_FORM_DATA["hook_name"] == '0') ? TRUE : FALSE;
+                        $selected = ($ENVO_FORM_DATA["hook_name"] == '0') ? TRUE : FALSE;
 
                         echo $Html->addOption('0', $tl["selection"]["sel7"], $selected);
                         if (isset($JAK_HOOK_LOCATIONS) && is_array($JAK_HOOK_LOCATIONS)) foreach ($JAK_HOOK_LOCATIONS as $h) {
 
-                          echo $Html->addOption($h, $h, ($h == $JAK_FORM_DATA["hook_name"]) ? TRUE : FALSE);
+                          echo $Html->addOption($h, $h, ($h == $ENVO_FORM_DATA["hook_name"]) ? TRUE : FALSE);
 
                         }
                         ?>
@@ -142,12 +142,12 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                      $selected = ($JAK_FORM_DATA["pluginid"] == '0') ? TRUE : FALSE;
+                      $selected = ($ENVO_FORM_DATA["pluginid"] == '0') ? TRUE : FALSE;
 
                       echo $Html->addOption('0', $tl["global_text"]["globaltxt13"], $selected);
                       if (isset($JAK_PLUGINS) && is_array($JAK_PLUGINS)) foreach ($JAK_PLUGINS as $p) {
 
-                        echo $Html->addOption($p["id"], $p["name"], ($p["id"] == $JAK_FORM_DATA["pluginid"]) ? TRUE : FALSE);
+                        echo $Html->addOption($p["id"], $p["name"], ($p["id"] == $ENVO_FORM_DATA["pluginid"]) ? TRUE : FALSE);
 
                       }
                       ?>
@@ -170,7 +170,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_exorder', $JAK_FORM_DATA["exorder"], '', 'form-control', array('maxlength' => '5'));
+                      echo $Html->addInput('text', 'jak_exorder', $ENVO_FORM_DATA["exorder"], '', 'form-control', array('maxlength' => '5'));
                       ?>
 
                     </div>
@@ -203,7 +203,7 @@ if ($errors) { ?>
             // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
             echo $Html->addDiv('', 'htmleditor');
             // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-            echo $Html->addTextarea('jak_phpcode', $JAK_FORM_DATA["phpcode"], '', '', array('id' => 'jak_phpcode', 'class' => 'form-control hidden'));
+            echo $Html->addTextarea('jak_phpcode', $ENVO_FORM_DATA["phpcode"], '', '', array('id' => 'jak_phpcode', 'class' => 'form-control hidden'));
             ?>
 
           </div>

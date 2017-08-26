@@ -161,7 +161,7 @@ switch ($page1) {
 
           // EN: Get all the data for the form
           // CZ: Získání všech dat pro formulář
-          $JAK_FORM_DATA = envo_get_data($pageID, $envotable);
+          $ENVO_FORM_DATA = envo_get_data($pageID, $envotable);
 
           // EN: Title and Description
           // CZ: Titulek a Popis

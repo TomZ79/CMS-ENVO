@@ -42,7 +42,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 
           <?php
           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-          echo $Html->addInput('text', '', $JAK_FORM_DATA["catimg"], 'input-bts-ex-1', 'form-control live-search', array('placeholder' => $tl["placeholder"]["p3"], 'aria-describedby' => 'search-icon1'));
+          echo $Html->addInput('text', '', $ENVO_FORM_DATA["catimg"], 'input-bts-ex-1', 'form-control live-search', array('placeholder' => $tl["placeholder"]["p3"], 'aria-describedby' => 'search-icon1'));
           ?>
 
         </div>

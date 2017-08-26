@@ -10,8 +10,8 @@
 
             <?php
             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-            echo $Html->addOption('ASC', $tl["selection"]["sel13"], (isset($JAK_FORM_DATA["showblogorder"]) && $JAK_FORM_DATA["showblogorder"] == "ASC") ? TRUE : FALSE);
-            echo $Html->addOption('DESC', $tl["selection"]["sel14"], (isset($JAK_FORM_DATA["showblogorder"]) && $JAK_FORM_DATA["showblogorder"] == "DESC") ? TRUE : FALSE);
+            echo $Html->addOption('ASC', $tl["selection"]["sel13"], (isset($ENVO_FORM_DATA["showblogorder"]) && $ENVO_FORM_DATA["showblogorder"] == "ASC") ? TRUE : FALSE);
+            echo $Html->addOption('DESC', $tl["selection"]["sel14"], (isset($ENVO_FORM_DATA["showblogorder"]) && $ENVO_FORM_DATA["showblogorder"] == "DESC") ? TRUE : FALSE);
             ?>
 
           </select>
@@ -22,7 +22,7 @@
             <?php for ($i = 0; $i <= 10; $i++) {
 
               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-              echo $Html->addOption($i, $i, ($JAK_FORM_DATA["showblogmany"] == $i) ? TRUE : FALSE);
+              echo $Html->addOption($i, $i, ($ENVO_FORM_DATA["showblogmany"] == $i) ? TRUE : FALSE);
 
             } ?>
 
@@ -37,12 +37,12 @@
 
         <?php
         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-        $selected = (isset($JAK_FORM_DATA["showblog"]) && $JAK_FORM_DATA["showblog"] == 0) ? TRUE : FALSE;
+        $selected = (isset($ENVO_FORM_DATA["showblog"]) && $ENVO_FORM_DATA["showblog"] == 0) ? TRUE : FALSE;
 
         echo $Html->addOption('0', $tlblog["blog_connect"]["blogc2"], $selected);
         if (isset($JAK_GET_BLOG) && is_array($JAK_GET_BLOG)) foreach ($JAK_GET_BLOG as $fq) {
 
-          echo $Html->addOption($fq["id"], $fq["title"], (isset($JAK_FORM_DATA["showblog"]) && (in_array($fq["id"], explode(',', $JAK_FORM_DATA["showblog"])))) ? TRUE : FALSE);
+          echo $Html->addOption($fq["id"], $fq["title"], (isset($ENVO_FORM_DATA["showblog"]) && (in_array($fq["id"], explode(',', $ENVO_FORM_DATA["showblog"])))) ? TRUE : FALSE);
 
         }
         ?>

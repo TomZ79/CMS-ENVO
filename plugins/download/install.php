@@ -299,14 +299,14 @@ if (empty($dl) && !empty($defaults[\'jak_showdlmany\'])) {
       //
       $getdl = '$JAK_GET_DOWNLOAD = envo_get_page_info(DB_PREFIX.\'download\', \'\');
 
-if ($JAK_FORM_DATA) {
+if ($ENVO_FORM_DATA) {
 
-$showdlarray = explode(\":\", $JAK_FORM_DATA[\'showdownload\']);
+$showdlarray = explode(\":\", $ENVO_FORM_DATA[\'showdownload\']);
 
 if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC\", $showdlarray)) {
 
-		$JAK_FORM_DATA[\'showdlorder\'] = $showdlarray[0];
-		$JAK_FORM_DATA[\'showdlmany\'] = $showdlarray[1];
+		$ENVO_FORM_DATA[\'showdlorder\'] = $showdlarray[0];
+		$ENVO_FORM_DATA[\'showdlmany\'] = $showdlarray[1];
 	
 } }';
 

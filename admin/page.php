@@ -187,7 +187,7 @@ switch ($page1) {
 
     // EN: Get all the php Hook by name of Hook
     // CZ: Načtení všech php dat z Hook podle jména Hook
-    $JAK_FORM_DATA = array();
+    $ENVO_FORM_DATA = array();
     $hookpagei     = $jakhooks->jakGethook("php_admin_pages_news_info");
     if ($hookpagei) {
       foreach ($hookpagei as $hpagi) {
@@ -591,18 +591,18 @@ switch ($page1) {
           }
 
           // Get the data
-          $JAK_FORM_DATA   = envo_get_data($page2, $envotable);
+          $ENVO_FORM_DATA   = envo_get_data($page2, $envotable);
           $JAK_GET_NEWS    = envo_get_page_info($envotable4, '');
           $JAK_CAT_NOTUSED = envo_get_cat_notused();
 
           // Now let's check if we display news with second option
-          $shownewsarray = explode(":", $JAK_FORM_DATA['shownews']);
+          $shownewsarray = explode(":", $ENVO_FORM_DATA['shownews']);
 
           if (is_array($shownewsarray) && in_array("ASC", $shownewsarray) || in_array("DESC", $shownewsarray)) {
 
-            $JAK_FORM_DATA['shownewswhat']  = $shownewsarray[0];
-            $JAK_FORM_DATA['shownewsorder'] = $shownewsarray[1];
-            $JAK_FORM_DATA['shownewsmany']  = $shownewsarray[2];
+            $ENVO_FORM_DATA['shownewswhat']  = $shownewsarray[0];
+            $ENVO_FORM_DATA['shownewsorder'] = $shownewsarray[1];
+            $ENVO_FORM_DATA['shownewsmany']  = $shownewsarray[2];
 
           }
 
@@ -701,7 +701,7 @@ switch ($page1) {
           }
 
           // Get the data
-          $JAK_FORM_DATA = envo_get_data($page2, $envotable);
+          $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)

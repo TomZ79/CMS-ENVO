@@ -176,7 +176,7 @@ if ($errors) { ?>
                     echo $Html->addLabel('envo_programtvr2', 'Radio');
 
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                    echo $Html->addRadio('envo_programtvr', '2', ($JAK_FORM_DATA["tvr"] == '2') ? TRUE : FALSE, 'envo_programtvr3');
+                    echo $Html->addRadio('envo_programtvr', '2', ($ENVO_FORM_DATA["tvr"] == '2') ? TRUE : FALSE, 'envo_programtvr3');
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                     echo $Html->addLabel('envo_programtvr3', 'Stream TV');
                     ?>
