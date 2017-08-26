@@ -16,7 +16,7 @@ $SHORT_PLUGIN_URL = '/plugins/intranet/template/';
 
 // EN: Import important settings for the template from the DB (only VALUE)
 // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
-$JAK_SETTING_VAL = envo_get_setting_val('intranet');
+$ENVO_SETTING_VAL = envo_get_setting_val('intranet');
 
 // EN: Set data for the frontend page - Title, Description, Keywords and other ...
 // CZ: Nastavení dat pro frontend stránku - Titulek, Popis, Klíčová slova a další ...

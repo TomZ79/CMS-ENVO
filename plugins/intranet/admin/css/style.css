@@ -56,12 +56,41 @@ table.dataTable thead .sorting_desc::after {
 
 /* XX. TABLEDIT
 ======================================================================== */
-table[id^="tableentrance"] tbody tr td,
-table[id^="tableapartment"] tbody tr td {
+#tablecontacts tbody tr td,
+#tableentrance tbody tr td,
+table[id^="tableapartment"] tbody tr td,
+#tableadocu tbody tr td {
   vertical-align: middle;
 }
 
-table[id^="tableentrance"] tbody tr td:first-child,
-table[id^="tableapartment"] tbody tr td:first-child {
+#tablecontacts tbody tr td:first-child,
+#tableentrance tbody tr td:first-child,
+table[id^="tableapartment"] tbody tr td:first-child,
+#tableadocu tbody tr td:first-child {
   padding-left: 19px !important;
+}
+
+/* XX.
+======================================================================== */
+.file-input {
+  position: relative;
+  overflow: hidden;
+  margin: 0px;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+.file-input input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.file-input-title {
+  margin-left:2px;
 }

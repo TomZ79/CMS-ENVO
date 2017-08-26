@@ -103,7 +103,7 @@ if ($page2 == "e") { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'envo_title', $JAK_SETTING_VAL["intranettitle"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_title', $ENVO_SETTING_VAL["intranettitle"], '', 'form-control');
                           ?>
 
                         </div>
@@ -149,27 +149,27 @@ if ($page2 == "e") { ?>
 
                           <?php
                           // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                          echo $Html->addOption('', 'Default', ($JAK_SETTING_VAL["intranetskin"] == "") ? TRUE : FALSE);
-                          echo $Html->addOption('header-dark', '<div class="header-brand color-brand bg-primary"></div> Dark', ($JAK_SETTING_VAL["intranetskin"] == "header-dark") ? TRUE : FALSE);
-                          echo $Html->addOption('header-red', 'Red', ($JAK_SETTING_VAL["intranetskin"] == "header-red") ? TRUE : FALSE);
-                          echo $Html->addOption('header-pink', 'Pink', ($JAK_SETTING_VAL["intranetskin"] == "header-pink") ? TRUE : FALSE);
-                          echo $Html->addOption('header-purple', 'Purple', ($JAK_SETTING_VAL["intranetskin"] == "header-purple") ? TRUE : FALSE);
-                          echo $Html->addOption('header-deeppurple', 'Deeppurple', ($JAK_SETTING_VAL["intranetskin"] == "header-deeppurple") ? TRUE : FALSE);
-                          echo $Html->addOption('header-indigo', 'Indigo', ($JAK_SETTING_VAL["intranetskin"] == "header-indigo") ? TRUE : FALSE);
-                          echo $Html->addOption('header-blue', 'Blue', ($JAK_SETTING_VAL["intranetskin"] == "header-blue") ? TRUE : FALSE);
-                          echo $Html->addOption('header-lightblue', 'Lightblue', ($JAK_SETTING_VAL["intranetskin"] == "header-lightblue") ? TRUE : FALSE);
-                          echo $Html->addOption('header-cyan', 'Cyan', ($JAK_SETTING_VAL["intranetskin"] == "header-cyan") ? TRUE : FALSE);
-                          echo $Html->addOption('header-teal', 'Teal', ($JAK_SETTING_VAL["intranetskin"] == "header-teal") ? TRUE : FALSE);
-                          echo $Html->addOption('header-green', 'Green', ($JAK_SETTING_VAL["intranetskin"] == "header-green") ? TRUE : FALSE);
-                          echo $Html->addOption('header-lightgreen', 'Lightgreen', ($JAK_SETTING_VAL["intranetskin"] == "header-lightgreen") ? TRUE : FALSE);
-                          echo $Html->addOption('header-lime', 'Lime', ($JAK_SETTING_VAL["intranetskin"] == "header-lime") ? TRUE : FALSE);
-                          echo $Html->addOption('header-yellow', 'Yellow', ($JAK_SETTING_VAL["intranetskin"] == "header-yellow") ? TRUE : FALSE);
-                          echo $Html->addOption('header-amber', 'Amber', ($JAK_SETTING_VAL["intranetskin"] == "header-amber") ? TRUE : FALSE);
-                          echo $Html->addOption('header-orange', 'Orange', ($JAK_SETTING_VAL["intranetskin"] == "header-orange") ? TRUE : FALSE);
-                          echo $Html->addOption('header-deeporange', 'Deeporange', ($JAK_SETTING_VAL["intranetskin"] == "header-deeporange") ? TRUE : FALSE);
-                          echo $Html->addOption('header-brown', 'Brown', ($JAK_SETTING_VAL["intranetskin"] == "header-brown") ? TRUE : FALSE);
-                          echo $Html->addOption('header-grey', 'Grey', ($JAK_SETTING_VAL["intranetskin"] == "header-grey") ? TRUE : FALSE);
-                          echo $Html->addOption('header-bluegrey', 'Bluegrey', ($JAK_SETTING_VAL["intranetskin"] == "header-bluegrey") ? TRUE : FALSE);
+                          echo $Html->addOption('', 'Default', ($ENVO_SETTING_VAL["intranetskin"] == "") ? TRUE : FALSE);
+                          echo $Html->addOption('header-dark', '<div class="header-brand color-brand bg-primary"></div> Dark', ($ENVO_SETTING_VAL["intranetskin"] == "header-dark") ? TRUE : FALSE);
+                          echo $Html->addOption('header-red', 'Red', ($ENVO_SETTING_VAL["intranetskin"] == "header-red") ? TRUE : FALSE);
+                          echo $Html->addOption('header-pink', 'Pink', ($ENVO_SETTING_VAL["intranetskin"] == "header-pink") ? TRUE : FALSE);
+                          echo $Html->addOption('header-purple', 'Purple', ($ENVO_SETTING_VAL["intranetskin"] == "header-purple") ? TRUE : FALSE);
+                          echo $Html->addOption('header-deeppurple', 'Deeppurple', ($ENVO_SETTING_VAL["intranetskin"] == "header-deeppurple") ? TRUE : FALSE);
+                          echo $Html->addOption('header-indigo', 'Indigo', ($ENVO_SETTING_VAL["intranetskin"] == "header-indigo") ? TRUE : FALSE);
+                          echo $Html->addOption('header-blue', 'Blue', ($ENVO_SETTING_VAL["intranetskin"] == "header-blue") ? TRUE : FALSE);
+                          echo $Html->addOption('header-lightblue', 'Lightblue', ($ENVO_SETTING_VAL["intranetskin"] == "header-lightblue") ? TRUE : FALSE);
+                          echo $Html->addOption('header-cyan', 'Cyan', ($ENVO_SETTING_VAL["intranetskin"] == "header-cyan") ? TRUE : FALSE);
+                          echo $Html->addOption('header-teal', 'Teal', ($ENVO_SETTING_VAL["intranetskin"] == "header-teal") ? TRUE : FALSE);
+                          echo $Html->addOption('header-green', 'Green', ($ENVO_SETTING_VAL["intranetskin"] == "header-green") ? TRUE : FALSE);
+                          echo $Html->addOption('header-lightgreen', 'Lightgreen', ($ENVO_SETTING_VAL["intranetskin"] == "header-lightgreen") ? TRUE : FALSE);
+                          echo $Html->addOption('header-lime', 'Lime', ($ENVO_SETTING_VAL["intranetskin"] == "header-lime") ? TRUE : FALSE);
+                          echo $Html->addOption('header-yellow', 'Yellow', ($ENVO_SETTING_VAL["intranetskin"] == "header-yellow") ? TRUE : FALSE);
+                          echo $Html->addOption('header-amber', 'Amber', ($ENVO_SETTING_VAL["intranetskin"] == "header-amber") ? TRUE : FALSE);
+                          echo $Html->addOption('header-orange', 'Orange', ($ENVO_SETTING_VAL["intranetskin"] == "header-orange") ? TRUE : FALSE);
+                          echo $Html->addOption('header-deeporange', 'Deeporange', ($ENVO_SETTING_VAL["intranetskin"] == "header-deeporange") ? TRUE : FALSE);
+                          echo $Html->addOption('header-brown', 'Brown', ($ENVO_SETTING_VAL["intranetskin"] == "header-brown") ? TRUE : FALSE);
+                          echo $Html->addOption('header-grey', 'Grey', ($ENVO_SETTING_VAL["intranetskin"] == "header-grey") ? TRUE : FALSE);
+                          echo $Html->addOption('header-bluegrey', 'Bluegrey', ($ENVO_SETTING_VAL["intranetskin"] == "header-bluegrey") ? TRUE : FALSE);
                           ?>
 
                         </select>

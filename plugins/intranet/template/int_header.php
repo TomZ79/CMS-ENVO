@@ -34,7 +34,7 @@
 
 </head>
 
-<body class="page-loading <?php echo $JAK_SETTING_VAL["intranetskin"]; ?>">
+<body class="page-loading <?php echo $ENVO_SETTING_VAL["intranetskin"]; ?>">
 <!-- page loading spinner -->
 <div class="pageload">
   <div class="pageload-inner">

@@ -122,6 +122,8 @@ if ($errors) { ?>
   </ul>
 
   <div class="tab-content">
+
+
     <div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
       <div class="row">
         <div class="col-md-5">
@@ -152,7 +154,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housename', $JAK_FORM_DATA["name"], '', 'form-control');
+                        echo $Html->addInput('text', 'envo_housename', $ENVO_FORM_DATA["name"], '', 'form-control');
                         ?>
 
                       </div>
@@ -172,7 +174,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housestreet', $JAK_FORM_DATA["street"], '', 'form-control');
+                        echo $Html->addInput('text', 'envo_housestreet', $ENVO_FORM_DATA["street"], '', 'form-control');
                         ?>
 
                       </div>
@@ -192,7 +194,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housecity', $JAK_FORM_DATA["city"], '', 'form-control');
+                        echo $Html->addInput('text', 'envo_housecity', $ENVO_FORM_DATA["city"], '', 'form-control');
                         ?>
 
                       </div>
@@ -212,7 +214,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housepsc', $JAK_FORM_DATA["psc"], '', 'form-control');
+                        echo $Html->addInput('text', 'envo_housepsc', $ENVO_FORM_DATA["psc"], '', 'form-control');
                         ?>
 
                       </div>
@@ -232,7 +234,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housestate', $JAK_FORM_DATA["state"], '', 'form-control');
+                        echo $Html->addInput('text', 'envo_housestate', $ENVO_FORM_DATA["state"], '', 'form-control');
                         ?>
 
                       </div>
@@ -279,7 +281,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_countentranceall', $JAK_FORM_DATA["countentrance"], '', 'form-control');
+                        echo $Html->addInput('text', 'envo_countentranceall', $ENVO_FORM_DATA["countentrance"], '', 'form-control');
                         ?>
 
                       </div>
@@ -300,7 +302,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_countapartmentall', $JAK_FORM_DATA["countapartment"], '', 'form-control');
+                        echo $Html->addInput('text', 'envo_countapartmentall', $ENVO_FORM_DATA["countapartment"], '', 'form-control');
                         ?>
 
                       </div>
@@ -339,16 +341,16 @@ if ($errors) { ?>
                 <div class="block-content">
                   <div class="row-form">
                     <div class="col-md-12">
-                      <select name="jak_permission[]" multiple="multiple" class="form-control">
+                      <select name="envo_permission[]" multiple="multiple" class="form-control">
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                        $selected = ($JAK_FORM_DATA["permission"] == '0') ? TRUE : FALSE;
+                        $selected = ($ENVO_FORM_DATA["permission"] == '0') ? TRUE : FALSE;
 
                         echo $Html->addOption('0', $tlgwl["gwl_box_content"]["gwlbc16"], $selected);
-                        if (isset($JAK_USERGROUP) && is_array($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) {
+                        if (isset($ENVO_USERGROUP) && is_array($ENVO_USERGROUP)) foreach ($ENVO_USERGROUP as $v) {
 
-                          $selected = (in_array($v["id"], explode(',', $JAK_FORM_DATA["permission"]))) ? TRUE : FALSE;
+                          $selected = (in_array($v["id"], explode(',', $ENVO_FORM_DATA["permission"]))) ? TRUE : FALSE;
                           echo $Html->addOption($v["id"], $v["name"], $selected);
 
                         }
@@ -401,7 +403,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_houseic', $JAK_FORM_DATA["ic"], '', 'form-control');
+                        echo $Html->addInput('text', 'envo_houseic', $ENVO_FORM_DATA["ic"], '', 'form-control');
                         ?>
 
                       </div>
@@ -421,7 +423,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_housedic', $JAK_FORM_DATA["dic"], '', 'form-control');
+                        echo $Html->addInput('text', 'envo_housedic', $ENVO_FORM_DATA["dic"], '', 'form-control');
                         ?>
 
                       </div>
@@ -443,29 +445,109 @@ if ($errors) { ?>
       </div>
     </div>
     <div role="tabpanel" class="tab-pane fade" id="cmsPage3" aria-labelledby="cmsPage3-tab">
+      <div class="row m-b-20">
+        <div class="col-md-12 p-l-15 p-r-15 ">
+          <div class="form-inline pull-right-sm pull-right-md pull-right-lg">
+            <div class="form-group">
+              <label for="name">Jméno: </label>
+
+              <?php
+              // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+              echo $Html->addInput('text', 'addRowCont', (isset($_REQUEST["addRowCont"])) ? $_REQUEST["addRowCont"] : '', '', 'form-control', array('style' => 'height: 35px;', 'placeholder' => 'Celé jméno'));
+              ?>
+
+            </div>
+            <div class="form-group">
+
+              <?php
+              // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+              echo $Html->addInput('button', '', 'Přidat nový kontakt', 'addRowCont', 'btn btn-info');
+              ?>
+
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-12">
-          <h5>Zadání <strong>Hlavních kontaků</strong> je dostupné v editaci domu po uložení základních dat o domu.</h5>
+          <div class="box box-success">
+            <div class="box-body no-padding">
+              <div class="table-responsive">
+                <table id="tablecontacts" class="table table-hover">
+                  <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Jméno</th>
+                    <th>Adresa</th>
+                    <th>Telefon</th>
+                    <th>Email</th>
+                    <th>Výbor</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+
+                  <?php if (!empty($ENVO_FORM_DATA_CONT) && is_array($ENVO_FORM_DATA_CONT)) foreach ($ENVO_FORM_DATA_CONT as $c) { ?>
+
+                    <tr>
+                      <td><?php echo $c["id"]; ?></td>
+                      <td><?php echo $c["name"]; ?></td>
+                      <td><?php echo $c["address"]; ?></td>
+                      <td><?php echo $c["phone"]; ?></td>
+                      <td><?php echo $c["email"]; ?></td>
+                      <td>
+
+                        <?php
+                        switch ($foundApt["commission"]) {
+                          case '0':
+                            echo 'Není ve Výboru';
+                            break;
+                          case '1':
+                            echo 'Předseda';
+                            break;
+                          case '2':
+                            echo 'Člen Výboru';
+                            break;
+                          case '3':
+                            echo 'Pověřený vlastník';
+                            break;
+                        }
+                        ?>
+
+                    </tr>
+
+                  <?php } else {
+                    echo '<tr class="noedit" style="height: 49px"><td colspan="6">Nenalezen žádný záznam</td></tr>';
+                  } ?>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div role="tabpanel" class="tab-pane fade" id="cmsPage4" aria-labelledby="cmsPage4-tab">
       <div class="row m-b-20">
-        <div class="col-md-12">
+        <div class="col-md-12 p-l-15 p-r-15 ">
+          <div class="form-inline pull-right-sm pull-right-md pull-right-lg">
+            <div class="form-group">
+              <label for="name">Číslo vchodu: </label>
 
-          <?php
-          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-          echo $Html->addInput('button', '', 'Přidat nový řádek', 'addRowEdit', 'btn btn-info pull-right');
-          ?>
-          <div class="m-r-20 pull-right">
+              <?php
+              // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+              echo $Html->addInput('text', 'addRowEnt', (isset($_REQUEST["addRowEnt"])) ? $_REQUEST["addRowEnt"] : '', 'addRowEnt', 'form-control', array('style' => 'height: 35px;', 'placeholder' => 'Číslo vchodu'));
+              ?>
 
-            <label><strong>Číslo vchodu:</strong></label>
+            </div>
+            <div class="form-group">
 
-            <?php
-            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-            echo $Html->addInput('text', 'addRowEnt', (isset($_REQUEST["addRowEnt"])) ? $_REQUEST["addRowEnt"] : '0', 'addRowEnt', 'input input-sm', array('style' => 'height: 35px;'));
-            ?>
+              <?php
+              // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+              echo $Html->addInput('button', '', 'Přidat nový řádek', 'addRowEdit', 'btn btn-info');
+              ?>
 
+            </div>
           </div>
         </div>
       </div>
@@ -486,11 +568,11 @@ if ($errors) { ?>
                   </thead>
                   <tbody>
 
-                  <?php if (isset($JAK_FORM_DATA_ENT) && is_array($JAK_FORM_DATA_ENT)) foreach ($JAK_FORM_DATA_ENT as $e) { ?>
+                  <?php if (!empty($ENVO_FORM_DATA_ENT) && is_array($ENVO_FORM_DATA_ENT)) foreach ($ENVO_FORM_DATA_ENT as $e) { ?>
 
                     <tr>
                       <td><?php echo $e["id"]; ?></td>
-                      <td><?php echo $e["numberentrance"]; ?></td>
+                      <td><?php echo $e["entrance"]; ?></td>
                       <td><?php echo $e["countapartment"]; ?></td>
                       <td><?php echo $e["countetage"]; ?></td>
                       <td>
@@ -508,10 +590,12 @@ if ($errors) { ?>
                             break;
                         }
                         ?>
-
+                      </td>
                     </tr>
 
-                  <?php } ?>
+                  <?php } else {
+                    echo '<tr class="noedit" style="height: 49px"><td colspan="6">Nenalezen žádný záznam</td></tr>';
+                  } ?>
 
                   </tbody>
                 </table>
@@ -523,102 +607,105 @@ if ($errors) { ?>
     </div>
     <div role="tabpanel" class="tab-pane fade" id="cmsPage5" aria-labelledby="cmsPage5-tab">
 
-      <?php if (!empty($JAK_FORM_DATA_ENT) && is_array($JAK_FORM_DATA_ENT)) { foreach ($JAK_FORM_DATA_ENT as $e) { ?>
+      <?php if (!empty($ENVO_FORM_DATA_ENT) && is_array($ENVO_FORM_DATA_ENT)) {
+        foreach ($ENVO_FORM_DATA_ENT as $e) { ?>
 
-        <div class="row">
-          <div class="col-md-12 m-b-20">
-            <div class="col-md-6">
-              <h5 style="margin: 2px;">Číslo vchodu: <strong><?php echo ($e["numberentrance"] ? $e["numberentrance"] : '0'); ?></strong></h5>
-            </div>
-            <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-12 m-b-20">
+              <div class="col-md-6">
+                <h5 style="margin: 2px;">Číslo vchodu:
+                  <strong><?php echo($e["entrance"] ? $e["entrance"] : '0'); ?></strong></h5>
+              </div>
+              <div class="col-md-6">
 
-              <?php
-              // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-              echo $Html->addButton('button', '', 'Přidat nový řádek', 'button', '', 'btn btn-info pull-right addRowEditApt', array('data-entrance' => ($e["numberentrance"] ? $e["numberentrance"] : '0')));
-              ?>
+                <?php
+                // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+                echo $Html->addButton('button', '', 'Přidat nový řádek', 'button', '', 'btn btn-info pull-right addRowEditApt', array('data-entrance' => ($e["entrance"] ? $e["entrance"] : '0')));
+                ?>
 
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="box box-success">
-              <div class="box-body no-padding">
-                <div class="table-responsive">
-                  <table id="tableapartment_<?php echo ($e["numberentrance"] ? $e["numberentrance"] : '0'); ?>" class="table">
-                    <thead>
-                    <tr>
-                      <th class="col-md-1">#</th>
-                      <th class="col-md-1">Číslo bytu</th>
-                      <th class="col-md-1">Patro</th>
-                      <th class="col-md-2">Jméno</th>
-                      <th class="col-md-2">Telefon</th>
-                      <th class="col-md-2">Výbor</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="box box-success">
+                <div class="box-body no-padding">
+                  <div class="table-responsive">
+                    <table id="tableapartment_<?php echo($e["entrance"] ? $e["entrance"] : '0'); ?>" class="table">
+                      <thead>
+                      <tr>
+                        <th class="col-md-1">#</th>
+                        <th class="col-md-1">Číslo bytu</th>
+                        <th class="col-md-1">Patro</th>
+                        <th class="col-md-2">Jméno</th>
+                        <th class="col-md-2">Telefon</th>
+                        <th class="col-md-2">Výbor</th>
+                      </tr>
+                      </thead>
+                      <tbody>
 
-                    <?php
+                      <?php
 
-                    if (isset($JAK_FORM_DATA_APT) && is_array($JAK_FORM_DATA_APT)) {
-                      $foundApt = array();
-                      foreach ($JAK_FORM_DATA_APT as $a) {
-                        if ($a["entrance"] == $e["numberentrance"]) {
-                          $foundApt[] = $a;
+                      if (isset($ENVO_FORM_DATA_APT) && is_array($ENVO_FORM_DATA_APT)) {
+                        $foundApt = array();
+                        foreach ($ENVO_FORM_DATA_APT as $a) {
+                          if ($a["entrance"] == $e["entrance"]) {
+                            $foundApt[] = $a;
+                          }
                         }
-                      }
 
-                      if (count($foundApt) != 0) {
+                        if (count($foundApt) != 0) {
 
-                        foreach ($foundApt as $foundApt) {
+                          foreach ($foundApt as $foundApt) {
 
-                          echo '<tr>';
+                            echo '<tr>';
 
-                          echo '<td>' . $foundApt['id'] . '</td>';
-                          echo '<td>' . $foundApt['number'] . '</td>';
-                          echo '<td>' . $foundApt['etage'] . '</td>';
-                          echo '<td>' . $foundApt['name'] . '</td>';
-                          echo '<td>' . $foundApt['phone'] . '</td>';
-                          echo '<td>';
+                            echo '<td>' . $foundApt['id'] . '</td>';
+                            echo '<td>' . $foundApt['number'] . '</td>';
+                            echo '<td>' . $foundApt['etage'] . '</td>';
+                            echo '<td>' . $foundApt['name'] . '</td>';
+                            echo '<td>' . $foundApt['phone'] . '</td>';
+                            echo '<td>';
 
-                          switch ($foundApt["commission"]) {
-                            case '0':
-                              echo 'Není ve Výboru';
-                              break;
-                            case '1':
-                              echo 'Předseda';
-                              break;
-                            case '2':
-                              echo 'Člen Výboru';
-                              break;
-                            case '3':
-                              echo 'Pověřený vlastník';
-                              break;
+                            switch ($foundApt["commission"]) {
+                              case '0':
+                                echo 'Není ve Výboru';
+                                break;
+                              case '1':
+                                echo 'Předseda';
+                                break;
+                              case '2':
+                                echo 'Člen Výboru';
+                                break;
+                              case '3':
+                                echo 'Pověřený vlastník';
+                                break;
+                            }
+
+                            echo '</td>';
+
+                            echo '</tr>';
+
                           }
 
-                          echo '</td>';
-
-                          echo '</tr>';
-
+                        } else {
+                          echo '<tr class="noedit" style="height: 49px"><td colspan="6">Nenalezen žádný záznam</td></tr>';
                         }
 
-                      } else {
-                        echo '<tr class="noedit" style="height: 49px"><td colspan="6">Nenalezen žádný záznam</td></tr>';
                       }
 
-                    }
+                      ?>
 
-                    ?>
-
-                    </tbody>
-                  </table>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-      <?php } } else { ?>
+        <?php }
+      } else { ?>
 
         <div class="row">
           <div class="col-md-12">
@@ -644,7 +731,102 @@ if ($errors) { ?>
     <div role="tabpanel" class="tab-pane fade" id="cmsPage7" aria-labelledby="cmsPage7-tab">
       <div class="row">
         <div class="col-md-12">
-          <h5>Zadání <strong>Dokumentů</strong> je dostupné v editaci domu po uložení základních dat o domu.</h5>
+          <div class="box box-success">
+            <div class="box-header with-border">
+
+              <?php
+              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+              echo $Html->addTag('h3', 'Seznam dokumentů', 'box-title');
+              ?>
+
+            </div>
+            <div class="box-body">
+              <div class="col-sm-6">
+                <p class="padding-15 no-margin">Složka dokumentů: <strong><?php echo '/' . JAK_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/documents'; ?></strong></p>
+              </div>
+              <div class="col-sm-6">
+                <!-- Upload Files -->
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-9 col-lg-10 m-t-10">
+                      <div class="input-group file" style="width: 100%;">
+                      <span class="input-group-btn" style="width: 1%;">
+                        <!-- File-clear button -->
+                        <button type="button" class="btn btn-default file-clear" style="display:none;">
+                          <span class="fa fa-remove"></span> Smazat
+                        </button>
+                        <!-- File-input button-->
+                        <div class="btn btn-default file-input">
+                          <span class="fa fa-folder-open"></span>
+                          <span class="file-input-title">Vybrat Soubor</span>
+                          <input type="file" name="input-file" id="fileinput" accept=".doc, .docx, .docm, .xls, .xlsx, .xlsm, .pdf"/>
+                        </div>
+                      </span>
+                        <input type="text" class="form-control file-filename" style="margin-left: -1px;" disabled>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-lg-2 m-t-10">
+                      <div class="form-group">
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html->addInput('button', '', 'Upload', 'uploadBtn', 'btn btn-info');
+                        ?>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12 m-t-10">
+                      <!-- Upload Files Output -->
+                      <p id="docuprogress" class="small hint-text" style="display: none;">Determinate progress
+                        <span id="percent"></span>
+                      </p>
+                      <p id="docuoutput" style="display: none;"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="table-responsive">
+                    <table id="tableadocu" class="table">
+                      <thead>
+                      <tr>
+                        <th class="col-md-1">#</th>
+                        <th class="col-md-2">Typ souboru</th>
+                        <th class="col-md-7">Popis</th>
+                        <th class="col-md-2">Soubor</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+
+                      <?php if (!empty($ENVO_FORM_DATA_DOCU) && is_array($ENVO_FORM_DATA_DOCU)) foreach ($ENVO_FORM_DATA_DOCU as $d) { ?>
+
+                        <tr>
+                          <td><?php echo $d["id"]; ?></td>
+                          <td> </td>
+                          <td><?php echo $d["description"]; ?></td>
+                          <td><?php echo '<a href="/' . JAK_FILES_DIRECTORY . $d["filepath"] . '">Soubor</a>'; ?></td>
+                        </tr>
+
+                      <?php } else {
+                        echo '<tr class="noedit" style="height: 49px"><td colspan="6">Nenalezen žádný záznam</td></tr>';
+                      } ?>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <input type="hidden" name="folderdocumentspath" value="<?php echo $ENVO_FORM_DATA["folder"]; ?>">
+
+            </div>
+            <div class="box-footer">
+
+            </div>
+          </div>
         </div>
       </div>
     </div>

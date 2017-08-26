@@ -66,15 +66,36 @@
         inputClass: 'form-control',
         restoreButton: false,
         lang: 'cz',
-        debug: false,
         mutedClass: 'text-muted warning',
         columns: {
           identifier: [0, 'id'],
           editable: [
-            [1, 'numberentrance', 'input'],
+            [1, 'entrance', 'input'],
             [2, 'countapartment', 'input'],
             [3, 'countetage', 'input'],
             [4, 'elevator', 'select', '{"0": "Není známo", "1": "Ano", "2": "Ne"}']
+          ]
+        }
+      });
+    }
+
+    // If exist 'table' -> init Plugin Jquery-Tabledit
+    if ($('#tablecontacts').length > 0) {
+      // Tabledit init config
+      $('#tablecontacts').Tabledit({
+        url: '/plugins/intranet/admin/ajax/int_table_update_cont.php',
+        inputClass: 'form-control',
+        restoreButton: false,
+        lang: 'cz',
+        mutedClass: 'text-muted warning',
+        columns: {
+          identifier: [0, 'id'],
+          editable: [
+            [1, 'name', 'input'],
+            [2, 'address', 'input'],
+            [3, 'phone', 'input'],
+            [4, 'email', 'input'],
+            [5, 'commission', 'select', '{"0": "Není ve Výboru", "1": "Předseda", "2": "Člen Výboru", "3": "Pověřený vlastník"}']
           ]
         }
       });
@@ -88,7 +109,6 @@
         inputClass: 'form-control',
         restoreButton: false,
         lang: 'cz',
-        debug: false,
         mutedClass: 'text-muted warning',
         columns: {
           identifier: [0, 'id'],
@@ -103,35 +123,259 @@
       });
     }
 
+    // If exist 'table' -> init Plugin Jquery-Tabledit
+    if ($('#tableadocu').length > 0) {
+      // Tabledit init config
+      $('#tableadocu').Tabledit({
+        url: '/plugins/intranet/admin/ajax/int_table_update.php',
+        inputClass: 'form-control',
+        restoreButton: false,
+        lang: 'cz',
+        mutedClass: 'text-muted warning',
+        columns: {
+          identifier: [0, 'id'],
+          editable: [
+            [2, 'description', 'input']
+          ]
+        }
+      });
+    }
+
     /* Tabledit add new row to table
      ========================================= */
+    $("#addRowCont").on('click', function () {
+      // Get value
+      var houseID = <?php echo $page3; ?>;
+      var contact = $('input[name="addRowCont"]');
+      var contactval = contact.val();
+
+      if (contactval.length > 0) {
+        // Ajax
+        $.ajax({
+          type: "POST",
+          url: "/plugins/intranet/admin/ajax/int_table_addnew_cont.php",
+          datatype: 'json',
+          data: {
+            houseID: houseID,
+            contact: contactval
+          },
+          success: function (data) {
+
+            if (data.status == 'success') {
+              // IF DATA SUCCESS
+
+              var str = JSON.stringify(data);
+              var result = JSON.parse(str);
+
+              var tabledata = '';
+
+              $.each(result, function (key, data) {
+                //console.log('Key: ' + key + ' => ' + 'Value: ' + data);
+
+                if (key === 'data') {
+
+                  $.each(data, function (index, data) {
+                    // console.log('ID: ', data['id']);
+                    // console.log('Name: ', data['name']);
+                    // console.log('Address: ', data['address']);
+                    // console.log('Phone: ', data['phone']);
+                    // console.log('Email: ', data['email']);
+                    // console.log('Commission: ', data['commission']);
+
+                    tabledata += '<tr>' +
+                      '<td>' + data["id"] + '</td>' +
+                      '<td>' + data["name"] + '</td>' +
+                      '<td>' + data["address"] + '</td>' +
+                      '<td>' + data["phone"] + '</td>' +
+                      '<td>' + data["email"] + '</td>' +
+                      '<td>' + data["commission"] + '</td>' +
+                      '</tr>';
+
+                  })
+
+                }
+
+              });
+
+              // Put data to table
+              $('#tablecontacts tbody').html(tabledata);
+
+              // Update Jquery Tabledit Plugin
+              $('#tablecontacts').Tabledit('update');
+
+              // Notification
+              setTimeout(function () {
+                $.notify({
+                  // options
+                  message: '<?php echo $tl["notification"]["n7"];?>'
+                }, {
+                  // settings
+                  type: 'success',
+                  delay: 2000
+                });
+              }, 1000);
+
+            } else {
+              // IF DATA ERROR
+
+              // Notification
+              setTimeout(function () {
+                $.notify({
+                  // options
+                  message: 'Záznam je již uložen v DB'
+                }, {
+                  // settings
+                  type: 'danger',
+                  delay: 5000
+                });
+              }, 1000);
+
+            }
+
+          },
+          error: function () {
+
+          }
+        })
+
+        // Set border for input - error
+        contact.parent().removeClass('has-error');
+
+      } else {
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            message: 'Před vložením nového kontaktu zadejte celé jméno'
+          }, {
+            // settings
+            type: 'danger',
+            delay: 5000
+          });
+        }, 1000);
+
+        // Set border for input - error
+        contact.parent().addClass('has-error');
+      }
+
+    });
+
     $("#addRowEdit").on('click', function () {
       // Get value
       var houseID = <?php echo $page3; ?>;
-      var entrance = $('input[name="addRowEnt"]').val();
+      var entrance = $('input[name="addRowEnt"]');
+      var entranceval = entrance.val();
 
-      $.ajax({
-        type: "POST",
-        url: "/plugins/intranet/admin/ajax/int_table_addnew.php",
-        datatype: 'json',
-        data: {
-          houseID: houseID,
-          entrance: entrance
-        },
-        success: function (data) {
-          $('#tableentrance tbody').html(data);
+      if (entranceval.length > 0) {
+        // Ajax
+        $.ajax({
+          type: "POST",
+          url: "/plugins/intranet/admin/ajax/int_table_addnew.php",
+          datatype: 'json',
+          data: {
+            houseID: houseID,
+            entrance: entranceval
+          },
+          success: function (data) {
 
-          $('#tableentrance').Tabledit('update');
+            if (data.status == 'success') {
+              // IF DATA SUCCESS
 
-          /*setInterval(function () {
-            location.reload(true);
-          }, 1500);*/
+              var str = JSON.stringify(data);
+              var result = JSON.parse(str);
 
-        },
-        error: function () {
+              var tabledata = '';
 
-        }
-      })
+              $.each(result, function (key, data) {
+                //console.log('Key: ' + key + ' => ' + 'Value: ' + data);
+
+                if (key === 'data') {
+
+                  $.each(data, function (index, data) {
+                    // console.log('ID: ', data['id']);
+                    // console.log('Entrance: ', data['entrance']);
+                    // console.log('Appartement: ', data['countapartment']);
+                    // console.log('Etage: ', data['countetage']);
+                    // console.log('Elevator: ', data['elevator']);
+
+                    tabledata += '<tr>' +
+                      '<td>' + data["id"] + '</td>' +
+                      '<td>' + data["entrance"] + '</td>' +
+                      '<td>' + data["countapartment"] + '</td>' +
+                      '<td>' + data["countetage"] + '</td>' +
+                      '<td>' + data["elevator"] + '</td>' +
+                      '</tr>';
+
+                  })
+
+                }
+
+              });
+
+              // Put data to table
+              $('#tableentrance tbody').html(tabledata);
+
+              // Update Jquery Tabledit Plugin
+              $('#tableentrance').Tabledit('update');
+
+              // Notification
+              setTimeout(function () {
+                $.notify({
+                  // options
+                  message: '<?php echo $tl["notification"]["n7"];?>, stránka bude obnovena'
+                }, {
+                  // settings
+                  type: 'success',
+                  delay: 2000
+                });
+              }, 1000);
+
+              setInterval(function () {
+                location.reload(true);
+              }, 5000);
+
+            } else {
+              // IF DATA ERROR
+
+              // Notification
+              setTimeout(function () {
+                $.notify({
+                  // options
+                  message: 'Záznam je již uložen v DB'
+                }, {
+                  // settings
+                  type: 'danger',
+                  delay: 5000
+                });
+              }, 1000);
+
+            }
+
+          },
+          error: function () {
+
+          }
+        });
+
+        // Set border for input - error
+        entrance.parent().removeClass('has-error');
+      } else {
+        // Notification
+        setTimeout(function () {
+          $.notify({
+            // options
+            message: 'Před vložením nového řádku zadejte číslo vchodu'
+          }, {
+            // settings
+            type: 'danger',
+            delay: 5000
+          });
+        }, 1000);
+
+        // Set border for input - error
+        entrance.parent().addClass('has-error');
+      }
+
     });
 
     $(".addRowEditApt").on('click', function () {

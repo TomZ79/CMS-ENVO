@@ -320,17 +320,17 @@ if ($errors) { ?>
                 <div class="block-content">
                   <div class="row-form">
                     <div class="col-md-12">
-                      <select name="jak_permission[]" multiple="multiple" class="form-control">
+                      <select name="envo_permission[]" multiple="multiple" class="form-control">
 
                         <?php
                         // Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
-                        $selected = ((isset($_REQUEST["jak_permission"]) && ($_REQUEST["jak_permission"] == '0' || (in_array('0', $_REQUEST["jak_permission"]))) || !isset($_REQUEST["jak_permission"]))) ? TRUE : FALSE;
+                        $selected = ((isset($_REQUEST["envo_permission"]) && ($_REQUEST["envo_permission"] == '0' || (in_array('0', $_REQUEST["envo_permission"]))) || !isset($_REQUEST["envo_permission"]))) ? TRUE : FALSE;
 
                         echo $Html->addOption('0', $tl["cat_box_content"]["catbc7"], $selected);
-                        if (isset($JAK_USERGROUP) && is_array($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) {
+                        if (isset($ENVO_USERGROUP) && is_array($ENVO_USERGROUP)) foreach ($ENVO_USERGROUP as $v) {
 
-                          if (isset($_REQUEST["jak_permission"]) && (in_array($v["id"], $_REQUEST["jak_permission"]))) {
-                            if (isset($_REQUEST["jak_permission"]) && (in_array('0', $_REQUEST["jak_permission"]))) {
+                          if (isset($_REQUEST["envo_permission"]) && (in_array($v["id"], $_REQUEST["envo_permission"]))) {
+                            if (isset($_REQUEST["envo_permission"]) && (in_array('0', $_REQUEST["envo_permission"]))) {
                               $selected = FALSE;
                             } else {
                               $selected = TRUE;

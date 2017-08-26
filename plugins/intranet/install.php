@@ -240,15 +240,29 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   `permission` varchar(100) NOT NULL DEFAULT 0,
   `countentrance` int(5) unsigned NOT NULL DEFAULT 0,
   `countapartment` int(10) unsigned NOT NULL DEFAULT 0,
+  `folder` varchar(100) NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-        // EN: Create table for plugin (House - Appartements)
-        // CZ: Vytvoření tabulky pro plugin (Bytový dům - Byty)
-        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousedetail (
+        // EN: Create table for plugin (House - Main Contacts)
+        // CZ: Vytvoření tabulky pro plugin (Bytový dům - Hlavní kontakty)
+        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousecontact (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `houseid` int(10) unsigned NOT NULL DEFAULT 0,
-  `numberentrance` varchar(100) NULL DEFAULT NULL,
+  `name` varchar(100) NULL DEFAULT NULL,
+  `address` varchar(100) NULL DEFAULT NULL,
+  `phone` varchar(100) NULL DEFAULT NULL,
+  `email` varchar(100) NULL DEFAULT NULL,
+  `commission` varchar(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+        // EN: Create table for plugin (House - Entrance)
+        // CZ: Vytvoření tabulky pro plugin (Bytový dům - Vchody)
+        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouseent (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `houseid` int(10) unsigned NOT NULL DEFAULT 0,
+  `entrance` varchar(100) NULL DEFAULT NULL,
   `countapartment` varchar(100) NULL DEFAULT NULL,
   `countetage` varchar(100) NULL DEFAULT NULL,
   `elevator` varchar(100) NULL DEFAULT NULL,
@@ -257,7 +271,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (House - Appartements)
         // CZ: Vytvoření tabulky pro plugin (Bytový dům - Byty)
-        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranetappartement (
+        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouseapt (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `houseid` int(10) unsigned NOT NULL DEFAULT 0,
   `entrance` varchar(255) NULL DEFAULT NULL,
@@ -266,6 +280,16 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   `name` varchar(255) NULL DEFAULT NULL,
   `phone` varchar(255) NULL DEFAULT NULL,
   `commission` varchar(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+        // EN: Create table for plugin (House - Appartements)
+        // CZ: Vytvoření tabulky pro plugin (Bytový dům - Byty)
+        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousedocu (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `houseid` int(10) unsigned NOT NULL DEFAULT 0,
+  `description` varchar(255) NULL DEFAULT NULL,
+  `filepath` varchar(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 

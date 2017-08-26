@@ -10,7 +10,7 @@
 
   </div>
 
-<?php if (!empty($JAK_HOUSE_ALL) && is_array($JAK_HOUSE_ALL)) { ?>
+<?php if (!empty($ENVO_HOUSE_ALL) && is_array($ENVO_HOUSE_ALL)) { ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="box box-success">
@@ -39,7 +39,7 @@
           </tr>
           </thead>
           <tbody>
-          <?php foreach ($JAK_HOUSE_ALL as $h) { ?>
+          <?php foreach ($ENVO_HOUSE_ALL as $h) { ?>
             <tr>
               <td><?php echo $h["id"]; ?></td>
               <td>

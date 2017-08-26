@@ -11,8 +11,10 @@ if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSBLOG)) envo_
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable  = DB_PREFIX . 'intranethouse';
-$envotable1 = DB_PREFIX . 'intranethousedetail';
-$envotable2 = DB_PREFIX . 'intranetappartement';
+$envotable1 = DB_PREFIX . 'intranethouseent';
+$envotable2 = DB_PREFIX . 'intranethouseapt';
+$envotable3 = DB_PREFIX . 'intranethousecontact';
+$envotable4 = DB_PREFIX . 'intranethousedocu';
 
 // EN: Include the functions
 // CZ: Vložené funkce
@@ -81,12 +83,32 @@ switch ($page1) {
             // CZ: Všechny kontroly jsou v pořádku bez chyb - Spustit zpracování formuláře
             if (count($errors) == 0) {
 
-              if (!isset($defaults['jak_permission'])) {
+              // Permissions
+              if (!isset($defaults['envo_permission'])) {
                 $permission = 0;
-              } elseif (in_array(0, $defaults['jak_permission'])) {
+              } elseif (in_array(0, $defaults['envo_permission'])) {
                 $permission = 0;
               } else {
-                $permission = join(',', $defaults['jak_permission']);
+                $permission = join(',', $defaults['envo_permission']);
+              }
+
+              // EN: New folder of house for documents, images and other ...
+              // CZ: Nová složka domu pro dokumenty, obrázky a další ...
+              // -----------------
+              //The name of the directory that we need to create
+              $uniqfolder = uniqid('house_');
+              $pathfolder = '/intranet/houses/' . $uniqfolder;
+              //Check if the directory already exists.
+              if (!is_dir(APP_PATH . $pathfolder)) {
+                //Directory does not exist, so lets create it.
+
+                // Main folder
+                mkdir(APP_PATH . JAK_FILES_DIRECTORY . $pathfolder, 0755, TRUE);
+                // Document folder
+                mkdir(APP_PATH . JAK_FILES_DIRECTORY . $pathfolder . '/documents/', 0755, TRUE);
+                // Image folder
+                mkdir(APP_PATH . JAK_FILES_DIRECTORY . $pathfolder . '/images/', 0755, TRUE);
+
               }
 
               /* EN: Convert value
@@ -108,7 +130,8 @@ switch ($page1) {
                         dic = "' . smartsql($defaults['envo_housedic']) . '",
                         countentrance = "' . smartsql($defaults['envo_countentranceall']) . '",
                         countapartment = "' . smartsql($defaults['envo_countapartmentall']) . '",
-                        permission = "' . smartsql($permission) . '"');
+                        permission = "' . smartsql($permission) . '",
+                        folder = "' . $pathfolder . '"');
 
               $rowid = $jakdb->jak_last_id();
 
@@ -130,7 +153,7 @@ switch ($page1) {
         }
 
         // Get all usergroup's
-        $JAK_USERGROUP = envo_get_usergroup_all('usergroup');
+        $ENVO_USERGROUP = envo_get_usergroup_all('usergroup');
 
         // EN: Title and Description
         // CZ: Titulek a Popis
@@ -198,12 +221,13 @@ switch ($page1) {
               // CZ: Všechny kontroly jsou v pořádku bez chyb - Spustit zpracování formuláře
               if (count($errors) == 0) {
 
-                if (!isset($defaults['jak_permission'])) {
+                // Permissions
+                if (!isset($defaults['envo_permission'])) {
                   $permission = 0;
-                } elseif (in_array(0, $defaults['jak_permission'])) {
+                } elseif (in_array(0, $defaults['envo_permission'])) {
                   $permission = 0;
                 } else {
-                  $permission = join(',', $defaults['jak_permission']);
+                  $permission = join(',', $defaults['envo_permission']);
                 }
 
                 /* EN: Convert value
@@ -247,19 +271,27 @@ switch ($page1) {
           }
 
           // Get all usergroup's
-          $JAK_USERGROUP = envo_get_usergroup_all('usergroup');
+          $ENVO_USERGROUP = envo_get_usergroup_all('usergroup');
 
           // EN: Get all the data for the form - house
           // CZ: Získání všech dat pro formulář - bytový dům
-          $JAK_FORM_DATA = envo_get_data($pageID, $envotable);
+          $ENVO_FORM_DATA = envo_get_data($pageID, $envotable);
+
+          // EN: Get all the data for the form - contacts
+          // CZ: Získání všech dat pro formulář - hlavní kontakty
+          $ENVO_FORM_DATA_CONT = envo_get_house_entrance($pageID, $envotable3);
 
           // EN: Get all the data for the form - entrance
           // CZ: Získání všech dat pro formulář - vchody
-          $JAK_FORM_DATA_ENT = envo_get_house_entrance($pageID, $envotable1);
+          $ENVO_FORM_DATA_ENT = envo_get_house_entrance($pageID, $envotable1);
+
+          // EN: Get all the data for the form - documents
+          // CZ: Získání všech dat pro formulář - dokumenty
+          $ENVO_FORM_DATA_DOCU = envo_get_house_documents($pageID, $envotable4);
 
           // EN: Get all the data for the form - apartment
           // CZ: Získání všech dat pro formulář - byty
-          $JAK_FORM_DATA_APT = envo_get_house_apartment($pageID, $envotable2);
+          $ENVO_FORM_DATA_APT = envo_get_house_apartment($pageID, $envotable2);
 
           // EN: Title and Description
           // CZ: Titulek a Popis
@@ -282,7 +314,7 @@ switch ($page1) {
 
         // EN: Getting the data about the Houses
         // CZ: Získání dat o bytových domech
-        $JAK_HOUSE_ALL = envo_get_house_info($envotable);
+        $ENVO_HOUSE_ALL = envo_get_house_info($envotable);
 
         // EN: Title and Description
         // CZ: Titulek a Popis
@@ -334,11 +366,11 @@ switch ($page1) {
 
     // EN: Import important settings for the template from the DB
     // CZ: Importuj důležité nastavení pro šablonu z DB
-    $JAK_SETTING = envo_get_setting('intranet');
+    $ENVO_SETTING = envo_get_setting('intranet');
 
     // EN: Import important settings for the template from the DB (only VALUE)
     // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
-    $JAK_SETTING_VAL = envo_get_setting_val('intranet');
+    $ENVO_SETTING_VAL = envo_get_setting_val('intranet');
 
     // EN: Title and Description
     // CZ: Titulek a Popis
