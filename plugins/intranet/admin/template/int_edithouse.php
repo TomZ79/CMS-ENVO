@@ -750,8 +750,8 @@ if ($errors) { ?>
                 <!-- Upload Files -->
                 <div class="form-group">
                   <div class="row">
-                    <div class="col-xs-12 col-sm-9 col-lg-10 m-t-10">
-                      <div class="input-group file" style="width: 100%;">
+                    <div class="col-xs-12 col-sm-9 col-lg-9 m-t-10">
+                      <div id="upload" class="input-group" style="width: 100%;">
                         <span class="input-group-btn" style="width: 1%;">
                           <!-- File-clear button -->
                           <button type="button" class="btn btn-default file-clear" style="display:none;">
@@ -761,18 +761,18 @@ if ($errors) { ?>
                           <div class="btn btn-default file-input">
                             <span class="fa fa-folder-open"></span>
                             <span class="file-input-title">Vybrat Soubor</span>
-                            <input type="file" name="input-file" id="fileinput" accept=".doc, .docx, .docm, .xls, .xlsx, .xlsm, .pdf"/>
+                            <input type="file" name="input-file" id="fileinput_doc" accept=".doc, .docx, .docm, .xls, .xlsx, .xlsm, .pdf"/>
                           </div>
                         </span>
                         <input type="text" class="form-control file-filename" style="margin-left: -1px;" disabled>
                       </div>
                     </div>
-                    <div class="col-xs-12 col-sm-3 col-lg-2 m-t-10">
+                    <div class="col-xs-12 col-sm-3 col-lg-3 m-t-10">
                       <div class="form-group">
 
                         <?php
-                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('button', '', 'Upload', 'uploadBtn', 'btn btn-info');
+                        // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+                        echo $Html->addButton('button', '', '<i class="fa fa-cloud-upload m-r-5"></i> Upload', '', 'uploadBtnDocu', 'btn btn-info', array('style' => 'width: 100%;'));
                         ?>
 
                       </div>
@@ -782,7 +782,7 @@ if ($errors) { ?>
                     <div class="col-sm-12 m-t-10">
                       <!-- Upload Files Output -->
                       <p id="docuprogress" class="small hint-text" style="display: none;">Determinate progress
-                        <span id="percent"></span>
+                        <span id="docupercent"></span>
                       </p>
                       <p id="docuoutput" style="display: none;"></p>
                     </div>
@@ -809,7 +809,15 @@ if ($errors) { ?>
                           <td><?php echo $d["id"]; ?></td>
                           <td><?php echo envo_extension_icon($d["filename"]); ?></td>
                           <td><?php echo $d["description"]; ?></td>
-                          <td><?php echo '<a href="/' . JAK_FILES_DIRECTORY . $d["fullpath"] . '">Soubor</a>'; ?></td>
+                          <td>
+
+                            <?php
+                            echo '<a href="/' . JAK_FILES_DIRECTORY . $d["fullpath"] . '" target="_blank">Zobrazit</a>';
+                            echo ' | ';
+                            echo '<a href="/' . JAK_FILES_DIRECTORY . $d["fullpath"] . '" download>Stáhnout</a>';
+                            ?>
+
+                          </td>
                         </tr>
 
                       <?php } else {
@@ -822,8 +830,6 @@ if ($errors) { ?>
                 </div>
               </div>
 
-              <input type="hidden" name="folderdocumentspath" value="<?php echo $ENVO_FORM_DATA["folder"]; ?>">
-
             </div>
             <div class="box-footer">
 
@@ -835,12 +841,172 @@ if ($errors) { ?>
     <div role="tabpanel" class="tab-pane fade" id="cmsPage8" aria-labelledby="cmsPage8-tab">
       <div class="row">
         <div class="col-md-12">
-          <h5>Zadání <strong>Fotogalerie</strong> je dostupné v editaci domu po uložení základních dat o domu.</h5>
+          <div class="box box-success">
+            <div class="box-header with-border">
+
+              <?php
+              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+              echo $Html->addTag('h3', 'Fotogalerie', 'box-title');
+              ?>
+
+            </div>
+            <div class="box-body">
+              <div class="col-sm-6">
+                <p class="padding-15 no-margin">Složka dokumentů:
+                  <strong><?php echo '/' . JAK_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/images'; ?></strong>
+                </p>
+              </div>
+              <div class="col-sm-6">
+                <!-- Upload Files -->
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-lg-9 m-t-10">
+                      <div id="upload_img" class="input-group" style="width: 100%;">
+                        <span class="input-group-btn" style="width: 1%;">
+                          <!-- File-clear button -->
+                          <button type="button" class="btn btn-default file-clear" style="display:none;">
+                            <span class="fa fa-remove"></span> Smazat
+                          </button>
+                          <!-- File-input button-->
+                          <div class="btn btn-default file-input">
+                            <span class="fa fa-folder-open"></span>
+                            <span class="file-input-title">Vybrat Soubor</span>
+                            <input type="file" name="input-file" id="fileinput_img" accept="image/*"/>
+                          </div>
+                        </span>
+                        <input type="text" class="form-control file-filename" style="margin-left: -1px;" disabled>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-lg-3 m-t-10">
+                      <div class="form-group">
+
+                        <?php
+                        // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+                        echo $Html->addButton('button', '', '<i class="fa fa-cloud-upload m-r-5"></i> Upload', '', 'uploadBtnImg', 'btn btn-info', array('style' => 'width: 100%;'));
+                        ?>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12 m-t-10">
+                      <!-- Upload Files Output -->
+                      <p id="imgprogress" class="small hint-text" style="display: none;">Determinate progress
+                        <span id="imgpercent"></span>
+                      </p>
+                      <p id="imgoutput" style="display: none;"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div id="gallery_envo" class="gallery_envo">
+
+                    <?php
+                    if (!empty($ENVO_FORM_DATA_IMG) && is_array($ENVO_FORM_DATA_IMG)) {
+
+                      foreach ($ENVO_FORM_DATA_IMG as $img) {
+
+                        echo '<div id="' . $img["id"] . '" class="gallery-item-' . $img["id"] . '" data-width="1" data-height="1">';
+
+                        echo '<img src="/' . JAK_FILES_DIRECTORY . $img["fullpath"] . '" alt="">';
+
+
+                        echo '<div class="overlays full-width gradient-grey p-l-20 p-r-20 p-t-25 p-b-25">
+                                <div class="">
+                                  <div class="text">
+                                  <a data-fancybox="gallery" href="/' . JAK_FILES_DIRECTORY . $img["fullpath"] . '" alt="">
+                                    <button class="btn btn-default btn-xs btn-mini fs-14" type="button">
+                                     <i class="pg-image"></i>
+                                    </button>
+                                  </a>
+                                  <button class="btn btn-default btn-xs btn-mini fs-14 dialog-open" type="button" data-dialog="itemDetails">
+                                    <i class="fa fa-edit"></i>
+                                  </button>
+                                  </div>
+                                </div>
+                              </div>';
+
+                        echo '<div class="hidden">
+                                <div class="content">
+                                  <div class="col-sm-7 no-padding full-height">
+                                    <div class="full-height bg-master-lighter" style="overflow: hidden;">
+                                      <img src="/' . JAK_FILES_DIRECTORY . $img["fullpath"] . '" alt="" class="img-responsive" style="max-width: 100%;max-height: 100%;position: absolute;left: 0;right: 0;top: 0;bottom: 0;margin: auto;">
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-5 p-r-35 p-t-35 p-l-35 full-height item-description" style="overflow-y: auto">
+                                    <h4 class="semi-bold no-margin font-montserrat">' . $img["filename"] . '</h2>
+                                    <div class="m-t-30">
+                                      <p class="bold">POPIS</p><hr>
+                                      <textarea></textarea>
+                                      <p class="bold">EXIF DATA</p><hr>
+                                      <table class="table">
+                                        <tbody>
+                                          <tr>
+                                            <td><strong>Exif Make</strong></td><td>' . $img["exifmake"] . '</td>
+                                          </tr>
+                                          <tr>
+                                            <td><strong>Exif Model</strong></td><td>' . $img["exifmodel"] . '</td>
+                                          </tr>
+                                          <tr>
+                                            <td><strong>Exif Software</strong></td><td>' . $img["exifsoftware"] . '</td>
+                                          </tr>
+                                          <tr>
+                                            <td><strong>Exif Image Widht</strong></td><td>' . $img["exifimagewidth"] . '</td>
+                                          </tr>
+                                          <tr>
+                                            <td><strong>Exif Image Height</strong></td><td>' . $img["exifimageheight"] . '</td>
+                                          </tr>
+                                          <tr>
+                                            <td><strong>Exif Orientation</strong></td><td>' . $img["exiforientation"] . '</td>
+                                          </tr>
+                                          <tr>
+                                            <td><strong>Exif Create Date</strong></td><td>' . $img["exifcreatedate"] . '</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                    <button class="btn btn-success">Buy Now</button>
+                                  </div>
+                                </div>
+                              </div>';
+
+                        echo '</div>';
+
+                      }
+                    } ?>
+
+                  </div>
+
+                  <div id="itemDetails" class="dialog item-details">
+                    <div class="dialog__overlay"></div>
+                    <div class="dialog__content">
+                      <div class="container-fluid">
+                        <div class="row dialog__overview">
+
+                        </div>
+                      </div>
+                      <button class="close action top-right" type="button" data-dialog-close>
+                        <i class="pg-close fs-14"></i>
+                      </button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            </div>
+            <div class="box-footer">
+
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
+  <input type="hidden" name="folderpath" value="<?php echo $ENVO_FORM_DATA["folder"]; ?>">
 </form>
 
 <?php include_once APP_PATH . 'admin/template/footer.php'; ?>

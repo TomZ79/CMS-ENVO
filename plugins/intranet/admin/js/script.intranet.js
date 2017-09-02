@@ -52,7 +52,7 @@ $(function () {
 
   'use strict';
 
-  $("#uploadBtn").on('click', (function (event) {
+  $("#uploadBtnDocu").on('click', (function (event) {
     event.preventDefault();
 
     // Hide output
@@ -60,18 +60,18 @@ $(function () {
     // Show progress info
     $('#docuprogress').show();
     // Reset
-    $("#percent").html('0%');
+    $("#docupercent").html('0%');
 
     // Get Data - properties of file from file field
-    var file_data = $('#fileinput').prop('files')[0];
+    var file_data = $('#fileinput_doc').prop('files')[0];
     // Get Data - value of folder from file field
-    var folder_path = $('input[name="folderdocumentspath"]').val();
+    var folder_path = $('input[name="folderpath"]').val();
     // Creating object of FormData class
     var form_data = new FormData();
     // Appending parameter named file with properties of file_field to form_data
     form_data.append('file', file_data);
     // Adding extra parameters to form_data
-    form_data.append('folderdocumentspath', folder_path);
+    form_data.append('folderpath', folder_path);
     form_data.append('houseID', pageID);
 
     // Ajax
@@ -92,7 +92,7 @@ $(function () {
           if (evt.lengthComputable) {
             var percent = (evt.loaded / evt.total) * 100;
             var percentComplete = percent.toFixed(2) + '%';
-            $('#percent').html(percentComplete);
+            $('#docupercent').html(percentComplete);
           }
         }, false);
 
@@ -105,7 +105,7 @@ $(function () {
 
           $('#docuoutput').html('<div class="alert alert-success" role="alert">' +
             '<button class="close" data-dismiss="alert"></button>' +
-            '<strong>Success: </strong>' +  data.status_msg +
+            '<strong>Success: </strong>' + data.status_msg +
             '</div>');
 
           var str = JSON.stringify(data);
@@ -128,7 +128,7 @@ $(function () {
                   '<td>' + data["id"] + '</td>' +
                   '<td>' + data["fileicon"] + '</td>' +
                   '<td>' + data["description"] + '</td>' +
-                  '<td><a href="' + data["fullpath"] + '">Soubor</a></td>' +
+                  '<td><a href="' + data["fullpath"] + '" target="_blank">Zobrazit</a> | <a href="' + data["fullpath"] + '" download>Stáhnout</a></td>' +
                   '</tr>';
 
               })
@@ -188,6 +188,148 @@ $(function () {
     });
   }));
 
+  $("#uploadBtnImg").on('click', (function (event) {
+    event.preventDefault();
+
+    // Hide output
+    $('#imgoutput').hide();
+    // Show progress info
+    $('#imgprogress').show();
+    // Reset
+    $("#imgpercent").html('0%');
+
+    // Get Data - properties of file from file field
+    var file_data = $('#fileinput_img').prop('files')[0];
+    // Get Data - value of folder from file field
+    var folder_path = $('input[name="folderpath"]').val();
+    // Creating object of FormData class
+    var form_data = new FormData();
+    // Appending parameter named file with properties of file_field to form_data
+    form_data.append('file', file_data);
+    // Adding extra parameters to form_data
+    form_data.append('folderpath', folder_path);
+    form_data.append('houseID', pageID);
+
+    // Ajax
+    $.ajax({
+      url: "/plugins/intranet/admin/ajax/int_table_upload_img.php",
+      type: "POST",
+      data: form_data,
+      contentType: false,
+      cache: false,
+      processData: false,
+      beforeSend: function () {
+
+      },
+      xhr: function () {
+        var xhr = new window.XMLHttpRequest();
+        //Upload progress bar
+        xhr.upload.addEventListener("progress", function (evt) {
+          if (evt.lengthComputable) {
+            var percent = (evt.loaded / evt.total) * 100;
+            var percentComplete = percent.toFixed(2) + '%';
+            $('#imgpercent').html(percentComplete);
+          }
+        }, false);
+
+        return xhr;
+      },
+      success: function (data) {
+
+        if (data.status == 'upload_success') {
+          // IF DATA SUCCESS
+
+          $('#imgoutput').html('<div class="alert alert-success" role="alert">' +
+            '<button class="close" data-dismiss="alert"></button>' +
+            '<strong>Success: </strong>' + data.status_msg +
+            '</div>');
+
+          var str = JSON.stringify(data);
+          var result = JSON.parse(str);
+
+          var divdata = '';
+
+          $.each(result, function (key, data) {
+            console.log('Key: ' + key + ' => ' + 'Value: ' + data);
+
+            if (key === 'data') {
+
+              $.each(data, function (index, data) {
+                console.log('ID: ', data['id']);
+                // console.log('File Icon: ', data['fileicon']);
+                // console.log('Description: ', data['description']);
+                // console.log('Filepath: ', data['fullpath']);
+
+                divdata +=  '<div id="' + data["id"] + '" class="gallery-item-' + data["id"] + '" data-width="1" data-height="1">' +
+                              '<a data-fancybox="gallery" href="' + data["fullpath"] + '" alt="">' +
+                              '<img src="' + data["fullpath"] + '" alt="" class="image-responsive-height">' +
+                              '</a>' +
+                            '</div>';
+
+              })
+
+            }
+
+          });
+
+          // Put data to table
+          $('#gallery_envo').prepend(divdata);
+
+          $('#gallery_envo').isotope('destroy');
+          $('#gallery_envo').isotope({
+            itemSelector: 'div[class^="gallery-item-"]',
+            masonry: {
+              columnWidth: 280,
+              gutter: 10,
+              isFitWidth: true
+            }
+          });
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: data.status_msg
+            }, {
+              // settings
+              type: 'success',
+              delay: 2000
+            });
+          }, 1000);
+
+        } else if (data.status.indexOf('upload_error') != -1) {
+          // IF DATA ERROR
+
+          $('#imgoutput').html('<div class="alert alert-danger" role="alert">' +
+            '<button class="close" data-dismiss="alert"></button>' +
+            '<strong>Error: </strong>' + data.status + ' => ' + data.status_msg +
+            '</div>');
+
+          // Notification
+          setTimeout(function () {
+            $.notify({
+              // options
+              message: data.status_msg
+            }, {
+              // settings
+              type: 'danger',
+              delay: 2000
+            });
+          }, 1000);
+
+        }
+
+      },
+      error: function () {
+
+      },
+      complete: function () {
+        $("#imgprogress").hide();
+        $("#imgoutput").show();
+      }
+    });
+  }));
+
 });
 
 /* 00. SELECT FILE FOR UPLOAD TO SERVER
@@ -197,19 +339,22 @@ $(function () {
 
   // Clear button
   $('.file-clear').click(function () {
-    $('.file').attr("data-content", "").popover('hide');
-    $('.file-filename').val("");
-    $('.file-clear').hide();
-    $('.file-input input:file').val("");
-    $(".file-input-title").text("Vybrat Soubor");
+    var parent = $(this).parents(":eq(1)").attr('id');
+
+    $('#' + parent + ' .file-filename').val('');
+    $('#' + parent + ' .file-clear').hide();
+    $('#' + parent + ' .file-input input:file').val('');
+    $('#' + parent + ' .file-input-title').text('Vybrat Soubor');
   });
 
   // Change button
-  $(".file-input input:file").change(function () {
+  $('.file-input input:file').change(function () {
+    var parent = $(this).parents(":eq(2)").attr('id');
     var file = this.files[0];
-    $(".file-input-title").text("Změnit");
-    $(".file-clear").show();
-    $(".file-filename").val(file.name);
+
+    $('#' + parent + ' .file-input-title').text('Změnit');
+    $('#' + parent + ' .file-clear').show();
+    $('#' + parent + ' .file-filename').val(file.name);
   });
 
 });

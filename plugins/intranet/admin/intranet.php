@@ -15,6 +15,7 @@ $envotable1 = DB_PREFIX . 'intranethouseent';
 $envotable2 = DB_PREFIX . 'intranethouseapt';
 $envotable3 = DB_PREFIX . 'intranethousecontact';
 $envotable4 = DB_PREFIX . 'intranethousedocu';
+$envotable5 = DB_PREFIX . 'intranethouseimg';
 
 // EN: Include the functions
 // CZ: Vložené funkce
@@ -288,6 +289,10 @@ switch ($page1) {
           // EN: Get all the data for the form - documents
           // CZ: Získání všech dat pro formulář - dokumenty
           $ENVO_FORM_DATA_DOCU = envo_get_house_documents($pageID, $envotable4);
+
+          // EN: Get all the data for the form - images
+          // CZ: Získání všech dat pro formulář - obrázky
+          $ENVO_FORM_DATA_IMG = envo_get_house_image($pageID, $envotable5);
 
           // EN: Get all the data for the form - apartment
           // CZ: Získání všech dat pro formulář - byty

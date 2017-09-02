@@ -283,14 +283,38 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-        // EN: Create table for plugin (House - Appartements)
-        // CZ: Vytvoření tabulky pro plugin (Bytový dům - Byty)
+        // EN: Create table for plugin (House - Documents)
+        // CZ: Vytvoření tabulky pro plugin (Bytový dům - Dokumentace)
         $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousedocu (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `houseid` int(10) unsigned NOT NULL DEFAULT 0,
   `description` varchar(255) NULL DEFAULT NULL,
   `filename` varchar(255) NULL DEFAULT NULL,
   `fullpath` varchar(255) NULL DEFAULT NULL,
+  `timedefault` DATETIME DEFAULT NULL,
+  `timeedit` DATETIME DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+        // EN: Create table for plugin (House - Photo Gallery)
+        // CZ: Vytvoření tabulky pro plugin (Bytový dům - Foto Galerie)
+        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouseimg (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `houseid` int(10) unsigned NOT NULL DEFAULT 0,
+  `description` varchar(255) NULL DEFAULT NULL,
+  `filename` varchar(255) NULL DEFAULT NULL,
+  `fullpath` varchar(255) NULL DEFAULT NULL,
+  `width` varchar(255) NULL DEFAULT NULL,
+  `height` varchar(255) NULL DEFAULT NULL,
+  `timedefault` DATETIME DEFAULT NULL,
+  `timeedit` DATETIME DEFAULT NULL,
+  `exifmake` varchar(255) NULL DEFAULT NULL,
+  `exifmodel` varchar(255) NULL DEFAULT NULL,
+  `exifsoftware` varchar(255) NULL DEFAULT NULL,
+  `exifimagewidth` varchar(255) NULL DEFAULT NULL,
+  `exifimageheight` varchar(255) NULL DEFAULT NULL,
+  `exiforientation` varchar(255) NULL DEFAULT NULL,
+  `exifcreatedate` DATETIME DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 

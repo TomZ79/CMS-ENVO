@@ -59,14 +59,16 @@ table.dataTable thead .sorting_desc::after {
 #tablecontacts tbody tr td,
 #tableentrance tbody tr td,
 table[id^="tableapartment"] tbody tr td,
-#tableadocu tbody tr td {
+#tableadocu tbody tr td,
+#tableaimg tbody tr td {
   vertical-align: middle;
 }
 
 #tablecontacts tbody tr td:first-child,
 #tableentrance tbody tr td:first-child,
 table[id^="tableapartment"] tbody tr td:first-child,
-#tableadocu tbody tr td:first-child {
+#tableadocu tbody tr td:first-child,
+#tableaimg tbody tr td:first-child {
   padding-left: 19px !important;
 }
 
@@ -77,20 +79,85 @@ table[id^="tableapartment"] tbody tr td:first-child,
   overflow: hidden;
   margin: 0px;
   color: #333;
-  background-color: #fff;
-  border-color: #ccc;
+  background-color: #FFF;
+  border-color: #CCC;
 }
+
 .file-input input[type=file] {
   position: absolute;
   top: 0;
   right: 0;
+  bottom: 0;
   margin: 0;
   padding: 0;
-  font-size: 20px;
   cursor: pointer;
-  opacity: 0;
-  filter: alpha(opacity=0);
+  opacity: 0 !important;
+  filter: alpha(opacity=0) !important;
+  overflow: hidden !important;
+  width: 100%;
 }
+
 .file-input-title {
-  margin-left:2px;
+  margin-left: 2px;
+}
+
+/* XX.
+======================================================================== */
+.gallery_envo {
+  margin: 70px auto 0 auto;
+}
+
+div[class^="gallery-item-"] {
+  overflow: hidden;
+  cursor: default;
+  background-color: #F0F0F0;
+  margin-bottom: 10px;
+  position: relative;
+  width: 280px;
+  height: 240px;
+}
+
+div[class^="gallery-item-"] img {
+  object-fit: cover;
+  width: 280px;
+  height: 240px;
+}
+
+div[class^="gallery-item-"][data-width="1"] {
+  width: 280px;
+}
+
+div[class^="gallery-item-"][data-height="1"] {
+  height: 240px;
+}
+
+div[class^="gallery-item-"] .overlays {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+div[class^="gallery-item-"] .overlays.fullwidth {
+  width: 100%;
+}
+
+div[class^="gallery-item-"]:hover .overlays {
+  height: 50%;
+}
+
+div[class^="gallery-item-"] .text {
+  white-space: nowrap;
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
 }

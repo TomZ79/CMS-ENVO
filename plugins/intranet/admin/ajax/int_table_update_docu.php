@@ -25,13 +25,21 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
 if ($input['action'] === 'edit') {
   // ACTION - EDIT
 
-  $jakdb->query('UPDATE ' . DB_PREFIX . 'intranethousedocu SET description = "' . $input['description'] . '" WHERE id = "' . $input['id'] . '"');
+  $jakdb->query('UPDATE ' . DB_PREFIX . 'intranethousedocu SET description = "' . $input['description'] . '", timeedit = NOW() WHERE id = "' . $input['id'] . '"');
 
   $envodata = $input;
 
 } else if ($input['action'] === 'delete') {
   // ACTION - DELETE
 
+  // Delete file from folder
+  $result = $jakdb->query('SELECT fullpath FROM ' . DB_PREFIX . 'intranethousedocu WHERE id = "' . $input['id'] . '"');
+  $row    = $result->fetch_assoc();
+
+  $fullpath = APP_PATH . JAK_FILES_DIRECTORY . $row['fullpath'];
+  unlink($fullpath);
+
+  // Delete row in DB
   $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'intranethousedocu WHERE id = "' . $input['id'] . '"');
 
   if ($result) {

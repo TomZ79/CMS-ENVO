@@ -35,7 +35,7 @@ $valid_extensions = array(
 );
 
 // Upload directory
-$pathfull = APP_PATH . '/' . JAK_FILES_DIRECTORY . $_REQUEST['folderdocumentspath'] . '/documents/';
+$pathfull = APP_PATH . '/' . JAK_FILES_DIRECTORY . $_REQUEST['folderpath'] . '/documents/';
 
 if (isset($_FILES['file'])) {
   $filename = $_FILES['file']['name'];
@@ -48,7 +48,7 @@ if (isset($_FILES['file'])) {
   $final_file = strtolower(rand(1000, 1000000) . '_' . $filename);
 
   //
-  $fullpath = $_REQUEST['folderdocumentspath'] . '/documents/' . $final_file;
+  $fullpath = $_REQUEST['folderpath'] . '/documents/' . $final_file;
 
   // Check's valid format
   if (in_array($ext, $valid_extensions)) {
@@ -57,7 +57,7 @@ if (isset($_FILES['file'])) {
     if (move_uploaded_file($tmp, $pathfull)) {
 
       // Insert info about file into DB
-      $jakdb->query('INSERT ' . DB_PREFIX . 'intranethousedocu SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", description = "", filename = "' . $filename . '", fullpath = "' . $fullpath . '"');
+      $jakdb->query('INSERT ' . DB_PREFIX . 'intranethousedocu SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", description = "", filename = "' . $filename . '", fullpath = "' . $fullpath . '", timedefault = NOW(), timeedit = NOW()');
 
       // Get all files for house
       $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'intranethousedocu WHERE houseid = "' . $_REQUEST['houseID'] . '" ORDER BY id ASC');
@@ -82,7 +82,7 @@ if (isset($_FILES['file'])) {
       // Data for JSON
       $envodata = array(
         'status'     => 'upload_error_E03',
-        'status_msg' => 'Unable to move image.'
+        'status_msg' => 'Unable to move file.'
       );
     }
 
