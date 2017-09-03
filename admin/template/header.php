@@ -140,9 +140,7 @@ echo $Html->addDoctype('html5');
     </div>
     <!-- BEGIN SIDEBAR HEADER -->
     <div class="sidebar-header">
-      <a href="<?php echo BASE_URL_ORIG ?>" target="_blank">
-        <img src="assets/img/logo_white.png" alt="logo" class="brand" data-src="assets/img/logo_white.png" data-src-retina="assets/img/logo_white_2x.png" width="78" height="22">
-      </a>
+      <img src="assets/img/logo_white.png" alt="logo" class="brand" data-src="assets/img/logo_white.png" data-src-retina="assets/img/logo_white_2x.png" width="78" height="22">
 
       <div class="sidebar-header-controls">
         <button data-pages-toggle="#appMenu" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20" type="button">
@@ -186,9 +184,7 @@ echo $Html->addDoctype('html5');
       <div class="pull-center hidden-md hidden-lg">
         <div class="header-inner">
           <div class="brand inline">
-            <a href="<?php echo BASE_URL_ORIG ?>" target="_blank">
-              <img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
-            </a>
+            <img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
           </div>
         </div>
       </div>
