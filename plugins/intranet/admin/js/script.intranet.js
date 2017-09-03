@@ -41,18 +41,203 @@ $.urlParam = function (name) {
   }
 };
 
-// Setting variable from url for other uses
-// Page ID
+/**
+ * Setting variable from url for other uses
+ */
 var pageID = $.urlParam('id');
+
+/**
+ * Jquery Function - Edit Description
+ * Remove attribute 'disabled' from textarea and hide Edit button, show Save-Close button
+ * Example:
+ * -----------------
+ * <textarea id="desc" disabled>' . $text . '</textarea>
+ * <button id="editdesc" type="button">Edit Description</button>
+ * <button id="savedesc" style="display:none;" data-id="' . $id . '" type="button">Save</button>
+ * <button id="closedesc" style="display:none;" type="button">Close</button>
+ */
+function editDesc(event) {
+  // Stop, the default action of the event will not be triggered
+  event.preventDefault();
+
+  // Remove attribute from textarea
+  $('#desc').removeAttr('disabled');
+  // Hide click (this) element
+  $(this).hide();
+  // Show Save and Close button
+  $('#savedesc').show();
+  $('#closedesc').show();
+
+  return false;
+}
+
+/**
+ * Jquery Function - Save Description
+ * Save description over Ajax
+ * Example:
+ * -----------------
+ * <textarea id="desc">' . $text . '</textarea>
+ * <button id="savedesc"  data-id="' . $id . '" type="button">Save</button>
+ * <button id="closedesc" type="button">Close</button>
+ */
+function saveDesc(event) {
+  // Stop, the default action of the event will not be triggered
+  event.preventDefault();
+
+  // Get ID of image
+  var imageID = $(this).attr('data-id');
+  // Get Description
+  var descImage = $('#desc').val();
+
+  // Ajax
+  $.ajax({
+    url: "/plugins/intranet/admin/ajax/int_table_update_img.php",
+    type: "POST",
+    datatype: 'json',
+    data: {
+      imageID: imageID,
+      descImage: descImage
+    },
+    success: function (data) {
+
+      if (data.status == 'update_success') {
+        // IF DATA SUCCESS
+
+        // Edit Time
+        $('#timeedit').html(data.data[0].timeedit);
+
+        // Debug to console
+        // console.log(data.data[0].timeedit);
+
+        // Add attribute to textarea
+        $('#desc').attr("disabled", "disabled");
+        // Hide Save and Close button
+        $('#savedesc').hide();
+        $('#closedesc').hide();
+        // Show Edit button
+        $('#editdesc').show();
+
+        // Apply the plugin to the container
+        $('#notificationcontainer').pgNotification({
+          style: 'bar',
+          message: data.status_msg,
+          position: 'top',
+          timeout: 2000,
+          type: 'success',
+          showClose: false
+        }).show();
+      }
+    },
+    error: function () {
+
+    }
+  });
+
+  return false;
+}
+
+/**
+ * Jquery Function - Save Description
+ * Close editing description
+ * Example:
+ * -----------------
+ * <textarea id="desc">' . $text . '</textarea>
+ * <button id="editdesc" type="button" style="display:none;">Edit Description</button>
+ * <button id="savedesc" type="button"  data-id="' . $id . '">Save</button>
+ * <button id="closedesc" type="button">Close</button>
+ */
+function closeDesc(event) {
+  // Stop, the default action of the event will not be triggered
+  event.preventDefault();
+
+  // Add attribute to textarea
+  $('#desc').attr("disabled", "disabled");
+  // Hide click (this) element and hide Save button
+  $(this).hide();
+  // Show Edit button
+  $('#savedesc').hide();
+  $('#editdesc').show();
+
+  return false;
+}
+
+/**
+ * Jquery Function - DialogFX Open
+ * Close editing description
+ * Example:
+ * Attribute 'data-dialog' in button => ID of dialog 'div' block
+ * -----------------
+ * <button class="dialog-open" type="button" data-dialog="itemDetails"></button>
+ *
+ *  <div id="itemDetails" class="dialog item-details">
+ *    <div class="dialog__overlay"></div>
+ *    <div class="dialog__content">
+ *      <div class="container-fluid">
+ *        <div class="row dialog__overview">
+ *          <!-- Data over AJAX  -->
+ *        </div>
+ *      </div>
+ *      <button class="close action top-right" type="button" data-dialog-close>
+ *        <i class="pg-close fs-14"></i>
+ *      </button>
+ *    </div>
+ *  </div>
+ */
+function openDialog(event) {
+  // Stop, the default action of the event will not be triggered
+  event.preventDefault();
+
+  // Get Data-Dialog
+  thisDataDialog = $(this).attr('data-dialog');
+  // Get ID of image
+  var imageID = $(this).parents(":eq(4)").attr('id');
+
+  // Ajax
+  $.ajax({
+    url: "/plugins/intranet/admin/ajax/int_table_dialog_img.php",
+    type: "POST",
+    datatype: 'html',
+    data: {
+      imageID: imageID
+    },
+    beforeSend: function () {
+      // Show progress circle
+      $('#itemDetails .dialog__overview').html('<div class="progress-circle-indeterminate" style="display:block;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);"></div>');
+    },
+    success: function (data) {
+      setTimeout(function () {
+        // Add html data to 'div'
+        $('#itemDetails .dialog__overview').hide().html(data).fadeIn('slow');
+
+        // Call function for edit description - textarea
+        $('#editdesc').click(editDesc);
+        $('#closedesc').click(closeDesc);
+        $('#savedesc').click(saveDesc);
+
+      }, 1000);
+    },
+    error: function () {
+
+    }
+  });
+
+
+  // Open DialogFX
+  dialogEl = document.getElementById(thisDataDialog);
+  dlg = new DialogFx(dialogEl);
+  dlg.toggle(dlg);
+
+  return false;
+}
 
 /* 00. UPLOAD FILE TO SERVER
  ========================================================================*/
-
 $(function () {
 
   'use strict';
 
   $("#uploadBtnDocu").on('click', (function (event) {
+    // Stop, the default action of the event will not be triggered
     event.preventDefault();
 
     // Hide output
@@ -189,6 +374,7 @@ $(function () {
   }));
 
   $("#uploadBtnImg").on('click', (function (event) {
+    // Stop, the default action of the event will not be triggered
     event.preventDefault();
 
     // Hide output
@@ -250,21 +436,35 @@ $(function () {
           var divdata = '';
 
           $.each(result, function (key, data) {
-            console.log('Key: ' + key + ' => ' + 'Value: ' + data);
+            // console.log('Key: ' + key + ' => ' + 'Value: ' + data);
 
             if (key === 'data') {
 
               $.each(data, function (index, data) {
-                console.log('ID: ', data['id']);
-                // console.log('File Icon: ', data['fileicon']);
+                // console.log('ID: ', data['id']);
                 // console.log('Description: ', data['description']);
-                // console.log('Filepath: ', data['fullpath']);
+                // console.log('Filethumbpath: ', data['filethumbpath']);
 
-                divdata +=  '<div id="' + data["id"] + '" class="gallery-item-' + data["id"] + '" data-width="1" data-height="1">' +
-                              '<a data-fancybox="gallery" href="' + data["fullpath"] + '" alt="">' +
-                              '<img src="' + data["fullpath"] + '" alt="" class="image-responsive-height">' +
-                              '</a>' +
-                            '</div>';
+                divdata += '<div id="' + data["id"] + '" class="gallery-item-' + data["id"] + '" data-width="1" data-height="1">' +
+                  '<img src="' + data["filethumbpath"] + '" alt="" class="image-responsive-height">' +
+                  '<div class="overlays full-width">' +
+                  '<div class="col-sm-12 full-height">' +
+                  '<div class="col-xs-5 full-height">' +
+                  '<div class="text">' +
+                  '<div class="text font-montserrat">' + data["filenamethumb"].substring(data["filenamethumb"].lastIndexOf('.') + 1).toUpperCase() + '</div>' +
+                  '</div>' +
+                  '</div>' +
+                  '<div class="col-xs-7 full-height">' +
+                  '<div class="text">' +
+                  '<a data-fancybox="gallery" href="' + data["filethumbpath"] + '" alt="">' +
+                  '<button class="btn btn-info btn-xs btn-mini m-r-5 fs-14" type="button"><i class="pg-image"></i></button>' +
+                  '</a>' +
+                  '<button class="btn btn-info btn-xs btn-mini fs-14 dialog-open" type="button" data-dialog="itemDetails"><i class="fa fa-edit"></i></button>' +
+                  '</div>' +
+                  '</div>' +
+                  '</div>' +
+                  '</div>' +
+                  '</div>';
 
               })
 
@@ -275,6 +475,10 @@ $(function () {
           // Put data to table
           $('#gallery_envo').prepend(divdata);
 
+          // Call dialogFX function
+          $('.dialog-open').click(openDialog);
+
+          // Isotope for photo gallery
           $('#gallery_envo').isotope('destroy');
           $('#gallery_envo').isotope({
             itemSelector: 'div[class^="gallery-item-"]',

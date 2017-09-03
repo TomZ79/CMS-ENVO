@@ -53,13 +53,15 @@ if (isset($_FILES['file'])) {
   // Can upload same image using rand function for original image and thumbs
   $rand          = rand(1000, 1000000);
   $name_original = strtolower($rand . '_' . $filename . '_original.' . $ext);
-  $name_thubms   = strtolower($rand . '_' . $filename . '_thumbs.' . $ext);
-  // Get image path - original and thumbs
-  $pathimg_original = $_REQUEST['folderpath'] . '/images/' . $name_original;
-  $pathimg_thumbs   = $_REQUEST['folderpath'] . '/images/' . $name_thubms;
+  $name_thumbs   = strtolower($rand . '_' . $filename . '_thumbs.' . $ext);
+  // Setting main image folder
+  $mainfolder = $_REQUEST['folderpath'] . '/images/';
+  // Setting image path - original and thumbs
+  $pathimg_original = $mainfolder . $name_original;
+  $pathimg_thumbs   = $mainfolder . $name_thumbs;
   // Set Upload directory - original and thumbs
-  $pathimgfull_original = APP_PATH . '/' . JAK_FILES_DIRECTORY . $pathimg_original;
-  $pathimgfull_thumbs   = APP_PATH . '/' . JAK_FILES_DIRECTORY . $pathimg_thumbs;
+  $pathimgfull_original = APP_PATH . JAK_FILES_DIRECTORY . $pathimg_original;
+  $pathimgfull_thumbs   = APP_PATH . JAK_FILES_DIRECTORY . $pathimg_thumbs;
   //  The dimensions with the file type and a height/width - thumbs
   list($width_o, $height_o, $type, $attr) = getimagesize($tmp_name);
 
@@ -111,7 +113,7 @@ if (isset($_FILES['file'])) {
 
                 break;
               case 5:
-                //Mirror horizontal and rotate 270 CW
+                // Mirror horizontal and rotate 270 CW
 
                 break;
               case 6:
@@ -148,7 +150,7 @@ if (isset($_FILES['file'])) {
             // width < height
             if ($width_o < $height_o) {
               // Portrait (Na výšku)
-              $width_n  = $maxDimens / $ratio;
+              $width_n  = $maxDimens * $ratio;
               $height_n = $maxDimens;
             }
           } else {
@@ -213,8 +215,8 @@ if (isset($_FILES['file'])) {
 
             // Preserve transparency
             imagecolortransparent($dst, imagecolorallocatealpha($dst, 0, 0, 0, 127));
-            imagealphablending($dst, false);
-            imagesavealpha($dst, true);
+            imagealphablending($dst, FALSE);
+            imagesavealpha($dst, TRUE);
 
             // Copy and resize part of an image with resampling
             imagecopyresampled($dst, $src, 0, 0, 0, 0, $width_n, $height_n, $width_o, $height_o);
@@ -233,8 +235,8 @@ if (isset($_FILES['file'])) {
 
             // Preserve transparency
             imagecolortransparent($dst, imagecolorallocatealpha($dst, 0, 0, 0, 127));
-            imagealphablending($dst, false);
-            imagesavealpha($dst, true);
+            imagealphablending($dst, FALSE);
+            imagesavealpha($dst, TRUE);
 
             // Copy and resize part of an image with resampling
             imagecopyresampled($dst, $src, 0, 0, 0, 0, $width_n, $height_n, $width_o, $height_o);
@@ -250,8 +252,9 @@ if (isset($_FILES['file'])) {
         imagedestroy($dst);
 
         // Insert info about image into DB
-        $result = $jakdb->query('INSERT ' . DB_PREFIX . 'intranethouseimg SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", description = "", filename = "' . $name . '", fullpath = "' . $pathimg_thumbs . '", width = "' . $width_o . '", height = "' . $height_o . '", timedefault = NOW(), timeedit = NOW(), exifmake = "' . $exifmake . '", exifmodel = "' . $exifmodel . '", exifsoftware = "' . $exifsoftware . '", exifimagewidth = "' . $exifimagewidth . '", exifimageheight = "' . $exifimageheight . '", exiforientation = "' . $exiforientation . '", exifcreatedate = "' . $exifcreatedate . '"');
+        $result = $jakdb->query('INSERT ' . DB_PREFIX . 'intranethouseimg SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", description = "", filenameoriginal = "' . $name_original . '", filenamethumb = "' . $name_thumbs . '", widthoriginal = "' . $width_o . '", heightoriginal = "' . $height_o . '", widththumb = "' . $width_n . '", heightthumb = "' . $height_n . '", mainfolder = "' . $mainfolder . '", timedefault = NOW(), timeedit = NOW(), exifmake = "' . $exifmake . '", exifmodel = "' . $exifmodel . '", exifsoftware = "' . $exifsoftware . '", exifimagewidth = "' . $exifimagewidth . '", exifimageheight = "' . $exifimageheight . '", exiforientation = "' . $exiforientation . '", exifcreatedate = "' . $exifcreatedate . '"');
 
+        // Get last row ID from DB
         $rowid = $jakdb->jak_last_id();
 
         // Getting info uploaded image from DB
@@ -261,8 +264,8 @@ if (isset($_FILES['file'])) {
         $myarray[] = array(
           'id'              => $row1["id"],
           'description'     => $row1["description"],
-          'filename'        => $row1["filename"],
-          'fullpath'        => '/' . JAK_FILES_DIRECTORY . $row1["fullpath"],
+          'filenamethumb'   => $row1["filenamethumb"],
+          'filethumbpath'   => '/' . JAK_FILES_DIRECTORY . $row1["mainfolder"] . $row1["filenamethumb"],
           'exifmake'        => $row1["exifmake"],
           'exifmodel'       => $row1["exifmodel"],
           'exifsoftware'    => $row1["exifsoftware"],

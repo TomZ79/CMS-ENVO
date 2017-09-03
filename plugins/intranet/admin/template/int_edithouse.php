@@ -707,15 +707,13 @@ if ($errors) { ?>
         <?php }
       } else { ?>
 
-        <div class="row">
-          <div class="col-md-12">
+        <div class="col-md-12">
 
-            <?php
-            // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-            echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
-            ?>
+          <?php
+          // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+          echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
+          ?>
 
-          </div>
         </div>
 
       <?php } ?>
@@ -852,9 +850,7 @@ if ($errors) { ?>
             </div>
             <div class="box-body">
               <div class="col-sm-6">
-                <p class="padding-15 no-margin">Složka dokumentů:
-                  <strong><?php echo '/' . JAK_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/images'; ?></strong>
-                </p>
+
               </div>
               <div class="col-sm-6">
                 <!-- Upload Files -->
@@ -910,64 +906,25 @@ if ($errors) { ?>
 
                         echo '<div id="' . $img["id"] . '" class="gallery-item-' . $img["id"] . '" data-width="1" data-height="1">';
 
-                        echo '<img src="/' . JAK_FILES_DIRECTORY . $img["fullpath"] . '" alt="">';
+                        echo '<img src="/' . JAK_FILES_DIRECTORY . $img["mainfolder"] . $img["filenamethumb"] . '" alt="">';
 
 
-                        echo '<div class="overlays full-width gradient-grey p-l-20 p-r-20 p-t-25 p-b-25">
-                                <div class="">
-                                  <div class="text">
-                                  <a data-fancybox="gallery" href="/' . JAK_FILES_DIRECTORY . $img["fullpath"] . '" alt="">
-                                    <button class="btn btn-default btn-xs btn-mini fs-14" type="button">
-                                     <i class="pg-image"></i>
-                                    </button>
-                                  </a>
-                                  <button class="btn btn-default btn-xs btn-mini fs-14 dialog-open" type="button" data-dialog="itemDetails">
-                                    <i class="fa fa-edit"></i>
-                                  </button>
+                        echo '<div class="overlays full-width">
+                                <div class="col-sm-12 full-height">
+                                  <div class="col-xs-5 full-height">
+                                    <div class="text font-montserrat">' . strtoupper(pathinfo($img["filenamethumb"], PATHINFO_EXTENSION)) . '</div>
                                   </div>
-                                </div>
-                              </div>';
-
-                        echo '<div class="hidden">
-                                <div class="content">
-                                  <div class="col-sm-7 no-padding full-height">
-                                    <div class="full-height bg-master-lighter" style="overflow: hidden;">
-                                      <img src="/' . JAK_FILES_DIRECTORY . $img["fullpath"] . '" alt="" class="img-responsive" style="max-width: 100%;max-height: 100%;position: absolute;left: 0;right: 0;top: 0;bottom: 0;margin: auto;">
+                                  <div class="col-xs-7 full-height">
+                                    <div class="text">
+                                      <a data-fancybox="gallery" href="/' . JAK_FILES_DIRECTORY . $img["mainfolder"] . $img["filenamethumb"] . '" alt="">
+                                        <button class="btn btn-info btn-xs btn-mini fs-14" type="button">
+                                         <i class="pg-image"></i>
+                                        </button>
+                                      </a>
+                                      <button class="btn btn-info btn-xs btn-mini fs-14 dialog-open" type="button" data-dialog="itemDetails">
+                                        <i class="fa fa-edit"></i>
+                                      </button>
                                     </div>
-                                  </div>
-                                  <div class="col-sm-5 p-r-35 p-t-35 p-l-35 full-height item-description" style="overflow-y: auto">
-                                    <h4 class="semi-bold no-margin font-montserrat">' . $img["filename"] . '</h2>
-                                    <div class="m-t-30">
-                                      <p class="bold">POPIS</p><hr>
-                                      <textarea></textarea>
-                                      <p class="bold">EXIF DATA</p><hr>
-                                      <table class="table">
-                                        <tbody>
-                                          <tr>
-                                            <td><strong>Exif Make</strong></td><td>' . $img["exifmake"] . '</td>
-                                          </tr>
-                                          <tr>
-                                            <td><strong>Exif Model</strong></td><td>' . $img["exifmodel"] . '</td>
-                                          </tr>
-                                          <tr>
-                                            <td><strong>Exif Software</strong></td><td>' . $img["exifsoftware"] . '</td>
-                                          </tr>
-                                          <tr>
-                                            <td><strong>Exif Image Widht</strong></td><td>' . $img["exifimagewidth"] . '</td>
-                                          </tr>
-                                          <tr>
-                                            <td><strong>Exif Image Height</strong></td><td>' . $img["exifimageheight"] . '</td>
-                                          </tr>
-                                          <tr>
-                                            <td><strong>Exif Orientation</strong></td><td>' . $img["exiforientation"] . '</td>
-                                          </tr>
-                                          <tr>
-                                            <td><strong>Exif Create Date</strong></td><td>' . $img["exifcreatedate"] . '</td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                    </div>
-                                    <button class="btn btn-success">Buy Now</button>
                                   </div>
                                 </div>
                               </div>';
@@ -984,15 +941,14 @@ if ($errors) { ?>
                     <div class="dialog__content">
                       <div class="container-fluid">
                         <div class="row dialog__overview">
-
+                          <!-- Data over AJAX  -->
                         </div>
                       </div>
                       <button class="close action top-right" type="button" data-dialog-close>
-                        <i class="pg-close fs-14"></i>
+                        <i class="pg-close fs-30"></i>
                       </button>
+                    </div>
                   </div>
-
-                </div>
               </div>
             </div>
 

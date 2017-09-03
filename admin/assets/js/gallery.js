@@ -22,7 +22,7 @@ $(function () {
     }
   });
 
-  $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+  $('a[href="#cmsPage8"]').on('shown.bs.tab', function (e) {
     $gallery.isotope('layout');
   });
 
@@ -33,18 +33,8 @@ $(function () {
    Toggle detail view using DialogFx
    http://tympanus.net/Development/DialogEffects/
    */
-  $('.dialog-open').click(function(){
-    // Get Data-Dialog
-    thisDataDialog = $(this).attr('data-dialog');
-    // Copy outerHtml
-    var parent = $(this).parents(":eq(3)").attr('id');
-    var content = $('#' + parent + ' div.hidden div.content').html();
-    $('#' + thisDataDialog + ' .dialog__overview').html(content);
-    // Open DialogFX
-    dialogEl = document.getElementById( thisDataDialog );
-    dlg = new DialogFx( dialogEl );
-    dlg.toggle(dlg);
-  });
+
+  $('.dialog-open').click(openDialog);
 
   $('.close').click(function(event){
     event.stopPropagation();
