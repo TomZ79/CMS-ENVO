@@ -1,4 +1,4 @@
-<?php include_once $BASE_PLUGIN_URL . 'int_header.php'; ?>
+<?php include_once $BASE_PLUGIN_URL_TEMPLATE . 'int_header.php'; ?>
 
   <div class="col-md-6 text-center error-page">
 
@@ -19,4 +19,4 @@
 
   </div>
 
-<?php include_once $BASE_PLUGIN_URL . 'int_footer.php'; ?>
+<?php include_once $BASE_PLUGIN_URL_TEMPLATE . 'int_footer.php'; ?>

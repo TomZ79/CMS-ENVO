@@ -14,8 +14,8 @@ $JAK_MODULES = $jakuser->jakModuleaccess(JAK_USERID, "1,23");
 
 // EN: Set base plugin folder
 // CZ: Nastavení základní složky pluginu
-$BASE_PLUGIN_URL  = APP_PATH . 'plugins/intranet/template/';
-$SHORT_PLUGIN_URL = '/plugins/intranet/template/';
+$BASE_PLUGIN_URL_TEMPLATE  = APP_PATH . 'plugins/intranet/template/';
+$SHORT_PLUGIN_URL_TEMPLATE = '/plugins/intranet/template/';
 
 // EN: Import important settings for the template from the DB (only VALUE)
 // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)

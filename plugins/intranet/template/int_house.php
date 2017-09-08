@@ -1,4 +1,4 @@
-<?php include_once $BASE_PLUGIN_URL . 'int_header.php'; ?>
+<?php include_once $BASE_PLUGIN_URL_TEMPLATE . 'int_header.php'; ?>
 
 <?php if (!empty($ENVO_HOUSE_ALL) && is_array($ENVO_HOUSE_ALL)) { ?>
 
@@ -68,4 +68,4 @@
 
 <?php } ?>
 
-<?php include_once $BASE_PLUGIN_URL . 'int_footer.php'; ?>
+<?php include_once $BASE_PLUGIN_URL_TEMPLATE . 'int_footer.php'; ?>

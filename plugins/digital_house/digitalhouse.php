@@ -6,6 +6,17 @@ if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 $CHECK_USR_SESSION = session_id();
 
+// -------- DATA FOR ALL FRONTEND PAGES --------
+// -------- DATA PRO VŠECHNY FRONTEND STRÁNKY --------
+
+// EN: Set base plugin folder
+// CZ: Nastavení základní složky pluginu
+$BASE_PLUGIN_URL  = APP_PATH . 'plugins/digital_house/template/';
+$SHORT_PLUGIN_URL = '/plugins/digital_house/template/';
+
+// -------- DATA FOR SELECTED FRONTEND PAGES --------
+// -------- DATA PRO VYBRANÉ FRONTEND STRÁNKY --------
+
 // EN: Switching access all pages by page name
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
@@ -30,7 +41,7 @@ switch ($page1) {
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
-    $pluginbasic_template = 'plugins/digital_house/template/digitalhouse.php';
+    $pluginbasic_template = $SHORT_PLUGIN_URL . 'digitalhouse.php';
     $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/digital_house/digitalhouse.php';
 
     if (file_exists($pluginsite_template)) {

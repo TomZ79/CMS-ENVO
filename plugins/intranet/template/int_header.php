@@ -16,21 +16,21 @@
 
   <!-- CSS and FONTS
   ================================================== -->
-  <link rel="stylesheet" href="<?php echo $SHORT_PLUGIN_URL; ?>styles/webfont.css">
-  <link rel="stylesheet" href="<?php echo $SHORT_PLUGIN_URL; ?>styles/climacons-font.css">
+  <link rel="stylesheet" href="<?php echo $SHORT_PLUGIN_URL_TEMPLATE; ?>styles/webfont.css">
+  <link rel="stylesheet" href="<?php echo $SHORT_PLUGIN_URL_TEMPLATE; ?>styles/climacons-font.css">
   <!-- Bootstrap -->
   <link rel="stylesheet" href="/assets/plugins/bootstrapv3/css/bootstrap.min.css?=v3.3.7">
   <!-- Fontawesome icon -->
   <link rel="stylesheet" href="/assets/plugins/font-awesome/4.7.0/css/font-awesome.min.css?=v4.7.0">
   <!--  -->
-  <link rel="stylesheet" href="<?php echo $SHORT_PLUGIN_URL; ?>styles/card.css">
+  <link rel="stylesheet" href="<?php echo $SHORT_PLUGIN_URL_TEMPLATE; ?>styles/card.css">
   <!--  -->
-  <link rel="stylesheet" href="<?php echo $SHORT_PLUGIN_URL; ?>styles/sli.css">
+  <link rel="stylesheet" href="<?php echo $SHORT_PLUGIN_URL_TEMPLATE; ?>styles/sli.css">
   <!-- Animate -->
-  <link rel="stylesheet" href="<?php echo $SHORT_PLUGIN_URL; ?>styles/animate.css">
+  <link rel="stylesheet" href="<?php echo $SHORT_PLUGIN_URL_TEMPLATE; ?>styles/animate.css">
   <!-- App CSS -->
-  <link rel="stylesheet" href="<?php echo $SHORT_PLUGIN_URL; ?>styles/app.css">
-  <link rel="stylesheet" href="<?php echo $SHORT_PLUGIN_URL; ?>styles/app.skins.css">
+  <link rel="stylesheet" href="<?php echo $SHORT_PLUGIN_URL_TEMPLATE; ?>styles/app.css">
+  <link rel="stylesheet" href="<?php echo $SHORT_PLUGIN_URL_TEMPLATE; ?>styles/app.skins.css">
   <!-- Fancybox -->
   <link rel="stylesheet" href="/assets/plugins/fancybox/3.0/css/jquery.fancybox.min.css">
 

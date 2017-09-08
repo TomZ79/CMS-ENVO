@@ -19,14 +19,14 @@
 
 <!-- JS and PLUGIN
   ================================================== -->
-<script src="<?php echo $SHORT_PLUGIN_URL; ?>scripts/helpers/modernizr.js"></script>
+<script src="<?php echo $SHORT_PLUGIN_URL_TEMPLATE; ?>scripts/helpers/modernizr.js"></script>
 <script src="/assets/plugins/jquery/jquery-2.2.4.min.js?=v2.2.4"></script>
 <script src="/assets/plugins/bootstrapv3/js/bootstrap.min.js"></script>
-<script src="<?php echo $SHORT_PLUGIN_URL; ?>vendor/fastclick/lib/fastclick.js"></script>
-<script src="<?php echo $SHORT_PLUGIN_URL; ?>vendor/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
-<script src="<?php echo $SHORT_PLUGIN_URL; ?>scripts/helpers/smartresize.js"></script>
-<script src="<?php echo $SHORT_PLUGIN_URL; ?>scripts/constants.js"></script>
-<script src="<?php echo $SHORT_PLUGIN_URL; ?>scripts/main.js"></script>
+<script src="<?php echo $SHORT_PLUGIN_URL_TEMPLATE; ?>vendor/fastclick/lib/fastclick.js"></script>
+<script src="<?php echo $SHORT_PLUGIN_URL_TEMPLATE; ?>vendor/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+<script src="<?php echo $SHORT_PLUGIN_URL_TEMPLATE; ?>scripts/helpers/smartresize.js"></script>
+<script src="<?php echo $SHORT_PLUGIN_URL_TEMPLATE; ?>scripts/constants.js"></script>
+<script src="<?php echo $SHORT_PLUGIN_URL_TEMPLATE; ?>scripts/main.js"></script>
 <script src="/assets/plugins/fancybox/3.0/js/jquery.fancybox.min.js"></script>
 
 <?php if ($page1 == 'house') { ?>
