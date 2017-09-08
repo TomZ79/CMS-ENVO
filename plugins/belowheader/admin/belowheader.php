@@ -8,27 +8,26 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSBELOWHEADER)) envo_redirect(BASE_URL);
 
+// -------- DATA FOR ALL ADMIN PAGES --------
+// -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
+
+// EN: Set base plugin folder - template
+// CZ: Nastavení základní složky pluginu - šablony
+$BASE_PLUGIN_URL_TEMPLATE  = APP_PATH . 'plugins/belowheader/admin/template/';
+$SHORT_PLUGIN_URL_TEMPLATE = '/plugins/belowheader/admin/template/';
+
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable  = DB_PREFIX . 'belowheader';
 $envotable1 = DB_PREFIX . 'pages';
 $envotable2 = DB_PREFIX . 'news';
 
-// Get all the functions, well not many
-function jak_get_belowheader()
-{
+// EN: Include the functions
+// CZ: Vložené funkce
+include_once("../plugins/belowheader/admin/include/functions.php");
 
-  global $jakdb;
-  $envodata = array();
-  $result  = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'belowheader ORDER BY id DESC');
-  while ($row = $result->fetch_assoc()) {
-    // EN: Insert each record into array
-    // CZ: Vložení získaných dat do pole
-    $envodata[] = $row;
-  }
-
-  if (!empty($envodata)) return $envodata;
-}
+// -------- DATA FOR SELECTED ADMIN PAGES --------
+// -------- DATA PRO VYBRANÉ ADMIN STRÁNKY --------
 
 // EN: Switching access all pages by page name
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
@@ -117,7 +116,7 @@ switch ($page1) {
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
-    $plugin_template = 'plugins/belowheader/admin/template/newbh.php';
+    $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'newbh.php';
 
     break;
   default:
@@ -253,7 +252,7 @@ switch ($page1) {
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
-        $plugin_template = 'plugins/belowheader/admin/template/editbh.php';
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'editbh.php';
 
         break;
       default:
@@ -325,7 +324,7 @@ switch ($page1) {
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
-        $plugin_template = 'plugins/belowheader/admin/template/bh.php';
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'bh.php';
     }
 }
 ?>
