@@ -9,10 +9,7 @@ $CHECK_USR_SESSION = session_id();
 // -------- DATA FOR ALL FRONTEND PAGES --------
 // -------- DATA PRO VŠECHNY FRONTEND STRÁNKY --------
 
-// EN: Set base plugin folder
-// CZ: Nastavení základní složky pluginu
-$BASE_PLUGIN_URL  = APP_PATH . 'plugins/digital_house/template/';
-$SHORT_PLUGIN_URL = '/plugins/digital_house/template/';
+
 
 // -------- DATA FOR SELECTED FRONTEND PAGES --------
 // -------- DATA PRO VYBRANÉ FRONTEND STRÁNKY --------
