@@ -4,15 +4,23 @@
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
-// Functions we need for this plugin
-include_once 'functions.php';
+$CHECK_USR_SESSION = session_id();
+
+// -------- DATA FOR ALL FRONTEND PAGES --------
+// -------- DATA PRO VŠECHNY FRONTEND STRÁNKY --------
+
+// EN: Set base plugin folder - template
+// CZ: Nastavení základní složky pluginu - šablony
+$BASE_PLUGIN_URL_TEMPLATE  = APP_PATH . 'plugins/blog/template/';
+$SHORT_PLUGIN_URL_TEMPLATE = '/plugins/blog/template/';
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable  = DB_PREFIX . 'blog';
 $envotable1 = DB_PREFIX . 'blogcategories';
 
-$CHECK_USR_SESSION = session_id();
+// Functions we need for this plugin
+include_once 'functions.php';
 
 // Get the important template stuff
 $JAK_SEARCH_WHERE = JAK_PLUGIN_VAR_BLOG;
@@ -35,6 +43,9 @@ $backtoblog = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_BLOG, '', '', '', '');
 // Template Call
 $JAK_TPL_PLUG_T   = JAK_PLUGIN_NAME_BLOG;
 $JAK_TPL_PLUG_URL = $backtoblog;
+
+// -------- DATA FOR SELECTED FRONTEND PAGES --------
+// -------- DATA PRO VYBRANÉ FRONTEND STRÁNKY --------
 
 // EN: Switching access all pages by page name
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
@@ -110,7 +121,7 @@ switch ($page1) {
 
       // EN: Load the php template
       // CZ: Načtení php template (šablony)
-      $pluginbasic_template = 'plugins/blog/template/blog.php';
+      $pluginbasic_template = $SHORT_PLUGIN_URL_TEMPLATE . 'blog.php';
       $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/blog/blog.php';
 
       if (file_exists($pluginsite_template)) {
@@ -256,7 +267,7 @@ switch ($page1) {
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
-    $pluginbasic_template = 'plugins/blog/template/blogart.php';
+    $pluginbasic_template = $SHORT_PLUGIN_URL_TEMPLATE . 'blogart.php';
     $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/blog/blogart.php';
 
     if (file_exists($pluginsite_template)) {
@@ -331,7 +342,7 @@ switch ($page1) {
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
-    $pluginbasic_template = 'plugins/blog/template/blog.php';
+    $pluginbasic_template = $SHORT_PLUGIN_URL_TEMPLATE . 'blog.php';
     $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/blog/blog.php';
 
     if (file_exists($pluginsite_template)) {
