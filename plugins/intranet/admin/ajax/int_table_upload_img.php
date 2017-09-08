@@ -2,7 +2,7 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/int_table_upload_docu.php] => "config.php" not found');
+if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/int_table_upload_img.php] => "config.php" not found');
 require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
 // EN: Include the functions
@@ -21,7 +21,7 @@ header('Content-Type: application/json;charset=utf-8');
 //-------------------------
 
 // Define basic variable
-$myarray = array();
+$data_array = array();
 
 // Set basic value
 
@@ -33,7 +33,7 @@ $maxDimens = 1200;
 
 // Compress quality of image
 // Ranges from 0 (worst quality, smaller file) to 100 (best quality, biggest file)
-$compress = 70;
+$compress = 80;
 
 // Valid the valid file extensions
 $valid_extensions = array('jpg', 'jpeg', 'png', 'gif');
@@ -252,7 +252,7 @@ if (isset($_FILES['file'])) {
         imagedestroy($dst);
 
         // Insert info about image into DB
-        $result = $jakdb->query('INSERT ' . DB_PREFIX . 'intranethouseimg SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", description = "", filenameoriginal = "' . $name_original . '", filenamethumb = "' . $name_thumbs . '", widthoriginal = "' . $width_o . '", heightoriginal = "' . $height_o . '", widththumb = "' . $width_n . '", heightthumb = "' . $height_n . '", mainfolder = "' . $mainfolder . '", timedefault = NOW(), timeedit = NOW(), exifmake = "' . $exifmake . '", exifmodel = "' . $exifmodel . '", exifsoftware = "' . $exifsoftware . '", exifimagewidth = "' . $exifimagewidth . '", exifimageheight = "' . $exifimageheight . '", exiforientation = "' . $exiforientation . '", exifcreatedate = "' . $exifcreatedate . '"');
+        $result = $jakdb->query('INSERT ' . DB_PREFIX . 'intranethouseimg SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", shortdescription = "", description = "", filenameoriginal = "' . $name_original . '", filenamethumb = "' . $name_thumbs . '", widthoriginal = "' . $width_o . '", heightoriginal = "' . $height_o . '", widththumb = "' . $width_n . '", heightthumb = "' . $height_n . '", mainfolder = "' . $mainfolder . '", category = "' . $_REQUEST['imageCategory'] . '", subcategory = "", timedefault = NOW(), timeedit = NOW(), exifmake = "' . $exifmake . '", exifmodel = "' . $exifmodel . '", exifsoftware = "' . $exifsoftware . '", exifimagewidth = "' . $exifimagewidth . '", exifimageheight = "' . $exifimageheight . '", exiforientation = "' . $exiforientation . '", exifcreatedate = "' . $exifcreatedate . '"');
 
         // Get last row ID from DB
         $rowid = $jakdb->jak_last_id();
@@ -261,11 +261,13 @@ if (isset($_FILES['file'])) {
         $result1 = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'intranethouseimg WHERE id = "' . $rowid . '"');
         $row1    = $result1->fetch_assoc();
 
-        $myarray[] = array(
+        $data_array[] = array(
           'id'              => $row1["id"],
+          'shortdescription'     => $row1["shortdescription"],
           'description'     => $row1["description"],
           'filenamethumb'   => $row1["filenamethumb"],
           'filethumbpath'   => '/' . JAK_FILES_DIRECTORY . $row1["mainfolder"] . $row1["filenamethumb"],
+          'category'        => $row1["category"],
           'exifmake'        => $row1["exifmake"],
           'exifmodel'       => $row1["exifmodel"],
           'exifsoftware'    => $row1["exifsoftware"],
@@ -281,7 +283,7 @@ if (isset($_FILES['file'])) {
         $envodata = array(
           'status'     => 'upload_success',
           'status_msg' => 'Image upload was successful.',
-          'data'       => $myarray
+          'data'       => $data_array
         );
 
       } else {

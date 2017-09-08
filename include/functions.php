@@ -204,6 +204,8 @@ function envo_get_access($jakvar, $jakvar1)
   $usergrouparray = explode(',', $jakvar1);
   if (in_array($jakvar, $usergrouparray) || $jakvar == 3) {
     return TRUE;
+  } else {
+    return FALSE;
   }
 }
 
@@ -586,21 +588,6 @@ function envo_edit_safe_userpost($input)
 
   return $input;
 
-}
-
-// Get comments votes 
-function envo_comment_votes($votes)
-{
-
-  if (isset($votes) && $votes != 0) {
-    if ($votes < 0) {
-      return 'danger';
-    } else {
-      return 'success';
-    }
-  } else {
-    return 'default';
-  }
 }
 
 // Get the real IP Address

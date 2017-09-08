@@ -1,25 +1,25 @@
-/*!
- * Tabledit v1.2.3 ()
- * Copyright (c) 2015 Celso Marques
- * Licensed under MIT (https://github.com/markcell/jQuery-Tabledit/blob/master/LICENSE)
- */
-
 /**
  * @description Inline editor for HTML tables compatible with Bootstrap
- * @version 1.2.3
- * @author  Celso Marques
- * @link    https://github.com/markcell/jQuery-Tabledit
+ * @version     1.2.3
+ * @author      Celso Marques
+ * @copyright   Copyright (c) 2015 Celso Marques
+ * @link        https://github.com/markcell/jQuery-Tabledit
  */
 
 /**
  * The modified version
- * @version 1.2.7 DEV
- * @author  BluesatKV
- * @link    https://github.com/BluesatKV/jquery-tabledit
+ * @version     1.2.8 DEV
+ * @author      Thomas Zukal
+ * @copyright   Copyright (c) 2017 Thomas Zukal
+ * @link        https://github.com/BluesatKV/jquery-tabledit
+ *
+ * @language    EN - Thomas Zukal (https://github.com/BluesatKV)
+ *              DE -
+ *              FR - Twimmcook (https://github.com/Twimmcook)
+ *              CZ - Thomas Zukal (https://github.com/BluesatKV)
  *
  * REQUIRED USER OPTIONS
  * --------------------
- * // Example #1
  *
  *  columns: {
  *
@@ -31,7 +31,7 @@
  *    // [column_index, input_name]
  *    identifier: [0, 'id'],
  *
- *    // Columns to transform in editable cells -> supported type "input", "hidden", "number", "select", "textarea"
+ *    // Columns to transform in editable cells -> supported type "input", "hidden", "number", "date", "select", "textarea"
  *
  *    editable: [
  *
@@ -39,16 +39,19 @@
  *          [1, 'col1', 'input'],
  *
  *          // [[column_index, input_name, input_type_hidden]
- *          [2, 'col1', 'hidden'],
+ *          [2, 'col2', 'hidden'],
  *
  *          // [[column_index, input_name, input_type_number]
  *          [3, 'col3', 'number'],
  *
+ *          // [[column_index, input_name, input_type_date]
+ *          [4, 'col4', 'date'],
+ *
  *          // [[column_index, input_name, textarea_type, textarea_options] -> supported attributes "rows", "cols", "maxlength", "wrap"
- *          [4, 'col4', , 'textarea', '{"rows": "3", "cols": "10", "maxlength": "200", "wrap": "hard"}'],
+ *          [5, 'col5', , 'textarea', '{"rows": "3", "cols": "10", "maxlength": "200", "wrap": "hard"}'],
  *
  *          [column_index, input_name, select_type, select_options]]
- *          [5, 'col5', 'select', '{"1": "Red", "2": "Green", "3": "Blue"}']
+ *          [6, 'col6', 'select', '{"1": "Red", "2": "Green", "3": "Blue"}']
  *       ]
  *    }
  *
@@ -78,13 +81,13 @@ if (typeof jQuery === 'undefined') {
   var methods = {
     init: function (options) {
 
-      // Check if element is 'table'
-      if (!this.is('table')) {
-        throw new Error('Tabledit only works when applied to a table.');
-      }
-
       // jQuery wrapper for clicked element
       var $table = this;
+
+      // Check if element is 'table'
+      if ($table.prop("tagName") !== 'TABLE') {
+        throw new Error('Tabledit only works when applied to a table.');
+      }
 
       // Function - check if value isn't ...
       var notNull = function (value) {
@@ -347,7 +350,7 @@ if (typeof jQuery === 'undefined') {
                 // Section for settings of valid types, values, attributes and other ...
                 // -----------------------------------
                 // List of valid types for columnType
-                var supportedTypes = ["input", "hidden", "number", "select", "textarea"];
+                var supportedTypes = ["input", "hidden", "number", "date", "select", "textarea"];
                 // List of valid attributes for columnType 'textarea'
                 var supportedAttrTextarea = ["rows", "cols", "maxlength", "wrap"];
                 // -----------------------------------
@@ -380,6 +383,13 @@ if (typeof jQuery === 'undefined') {
                     input = '<input class="tabledit-input ' + settings.inputClass + '" type="number" name="' + settings.columns.editable[i][1] + '" value="' + text + '" style="display: none;" disabled>';
 
                     break;
+                  case 'date':
+                    // NOTE: [type="date"] is not supported in Firefox, or Internet Explorer 11 and earlier versions
+
+                    // Create text input element.
+                    input = '<input class="tabledit-input ' + settings.inputClass + '" type="date" name="' + settings.columns.editable[i][1] + '" value="' + text + '" style="display: none;" disabled>';
+
+                    break;
                   case 'select':
 
                     // Check if exists the third parameter of editable array.
@@ -405,13 +415,33 @@ if (typeof jQuery === 'undefined') {
                     break;
                   case 'textarea':
 
+                    var counttext;
+
                     // Create textarea element.
                     input = '<textarea ';
-                    $.each($.parseJSON(settings.columns.editable[i][3]), function (index, value) {
-                      // Ignore attribute if not of supported type
-                      input += ($.inArray(index, supportedAttrTextarea) != -1) ? index + '="' + value + '" ' : '';
-                    });
-                    input += ' class="tabledit-input ' + settings.inputClass + '" name="' + settings.columns.editable[i][1] + '" style="display: none;" disabled>' + text + '</textarea><span class="count_" style="display: none;"><span class="countno_"></span> ' + $table.Tabledit.langs[settings.lang].txt_remain + '</span>';
+
+                    // Check if exists the third parameter of editable array.
+                    if (typeof settings.columns.editable[i][3] !== 'undefined') {
+
+                      $.each($.parseJSON(settings.columns.editable[i][3]), function (index, value) {
+
+                        // Ignore attribute if not of supported type
+                        input += ($.inArray(index, supportedAttrTextarea) != -1) ? index + '="' + value + '" ' : '';
+
+                        // Check if maxlength attribute exists and set text to character count
+                        if (index == 'maxlength' && value.length > 0) {
+                          counttext = ($table.Tabledit.langs[settings.lang].txt_allowchar).replace('%s', value) + ' | <span class="countno_"></span> ' + $table.Tabledit.langs[settings.lang].txt_remain;
+                        } else {
+                          counttext = $table.Tabledit.langs[settings.lang].txt_nolimit;
+                        }
+
+                      });
+
+                    } else {
+                      counttext = $table.Tabledit.langs[settings.lang].txt_nolimit;
+                    }
+
+                    input += ' class="tabledit-input ' + settings.inputClass + '" name="' + settings.columns.editable[i][1] + '" style="display: none;" disabled>' + text + '</textarea><span class="count_" style="display: none;">' + counttext + '</span>';
 
                     break;
 
@@ -433,7 +463,7 @@ if (typeof jQuery === 'undefined') {
 
               // Add toolbar column header if not exists.
               if ($table.find('th.tabledit-toolbar-column').length === 0) {
-                $table.find('tr:first').append('<th class="tabledit-toolbar-column">' + $table.Tabledit.langs[settings.lang].txt_action + '</th>');
+                $table.find('tr:first').append('<th class="tabledit-toolbar-column ' + settings.toolbarHeaderClass + '">' + $table.Tabledit.langs[settings.lang].txt_action + '</th>');
               }
 
               // Create edit button.
@@ -870,10 +900,15 @@ if (typeof jQuery === 'undefined') {
         var length = $(this).val().length;
         // Get maxlength attribute
         var maxLength = $(this).attr('maxlength');
-        // Check the value and get the length of it, store it in a variable
-        var length = maxLength - length;
-        // Show result
-        $(this).parent().find('.countno_').text(length);
+        // For some browsers, `attr` is undefined; for others, `attr` is false. Check for both.
+        if (typeof maxLength !== typeof undefined && maxLength !== false) {
+          if (maxLength.length > 0) {
+            // Check the value and get the length of it, store it in a variable
+            var length = maxLength - length;
+            // Show result
+            $(this).parent().find('.countno_').text(length);
+          }
+        }
       });
 
       return this;
@@ -891,6 +926,22 @@ if (typeof jQuery === 'undefined') {
       $table.find('.tabledit-toolbar-column').remove();
       // Remove toolbar
       $table.find('.toolbar').remove();
+
+      // Remove all '.tabledit-span' and all created element
+      $table.find('td').each(function () {
+        // Get input element.
+        var $input = $(this).find('.tabledit-input');
+        // Get span text.
+        if ($input.length != 0) {
+          var text = $.trim($(this).find('.tabledit-span').text());
+        } else {
+          var text = $.trim($(this).html());
+        }
+        // Put text to table cell
+        $(this).html(text)
+
+      });
+
 
       return;
     },
@@ -947,12 +998,14 @@ if (typeof jQuery === 'undefined') {
     // Server request method for action 'edit' and 'delete'
     editmethod: 'post',
     deletemethod: 'post',
-    // Class for form inputs
-    inputClass: 'form-control input-sm',
+    // Class for toolbar header column
+    toolbarHeaderClass: '',
     // Class for buttons toolbar
     toolbarClass: 'btn-toolbar',
     // Class for buttons group
     groupClass: 'btn-group btn-group-sm',
+    // Class for form inputs
+    inputClass: 'form-control input-sm',
     // Class for row when ajax request fails
     dangerClass: 'danger',
     // Class for row when save changes
@@ -1035,7 +1088,7 @@ if (typeof jQuery === 'undefined') {
     onAjax: function () {
       return;
     }
-  }
+  };
 
   // LANGUAGE/LOCALIZATION
   $.fn.Tabledit.langs = {
@@ -1046,6 +1099,8 @@ if (typeof jQuery === 'undefined') {
       btn_save: 'Save',
       btn_restore: 'Restore',
       txt_action: 'Actions',
+      txt_nolimit: 'Count of characters without limit',
+      txt_allowchar: 'Allowed count of characters %s',
       txt_remain: 'characters remaining'
     },
     de: {
@@ -1055,16 +1110,20 @@ if (typeof jQuery === 'undefined') {
       btn_save: 'Speichern',
       btn_restore: 'Inhalt',
       txt_action: 'Aktion',
+      txt_nolimit: '',
+      txt_allowchar: '',
       txt_remain: ''
     },
     fr: {
-      btn_edit: 'Éditer',
+      btn_edit: 'Editer',
       btn_delete: 'Supprimer',
       btn_confirm: 'Confirmer',
-      btn_save: 'Sauver',
+      btn_save: 'Enregistrer',
       btn_restore: 'Restaurer',
-      txt_action: 'Mode',
-      txt_remain: ''
+      txt_action: 'Actions',
+      txt_nolimit: 'Nombre de caractères sans limite',
+      txt_allowchar: 'Nombre de caractères autorisés %s',
+      txt_remain: 'caractères restants'
     },
     cz: {
       btn_edit: 'Editovat',
@@ -1073,6 +1132,8 @@ if (typeof jQuery === 'undefined') {
       btn_save: 'Uložit',
       btn_restore: 'Obnovit',
       txt_action: 'Akce',
+      txt_nolimit: 'Počet znaků bez omezení',
+      txt_allowchar: 'Povoleno celkem %s znaků',
       txt_remain: 'znak(ů) zbývá'
     }
   };

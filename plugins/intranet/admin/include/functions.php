@@ -66,6 +66,23 @@ function envo_get_house_apartment($id, $table)
   if (isset($envodata)) return $envodata;
 }
 
+// EN: Getting the data about the services of Houses without limit
+// CZ: Získání dat o servisech bytových domů bez limitu
+function envo_get_house_services($id, $table)
+{
+
+  global $jakdb;
+  $envodata = array();
+  $result   = $jakdb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id DESC');
+  while ($row = $result->fetch_assoc()) {
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
+    $envodata[] = $row;
+  }
+
+  if (isset($envodata)) return $envodata;
+}
+
 // EN: Getting the data about the documents of Houses without limit
 // CZ: Získání dat o dokumentech bytových domů bez limitu
 function envo_get_house_documents($id, $table)
@@ -124,25 +141,25 @@ function envo_extension_icon($filename)
       return '<i class="fa fa-file-word-o fa-2x m-l-30" style="color:#2B5796;"></i>';
       break;
     case ('docx'):
-      return '<i class="fa fa-file-word-o fa-2x m-l-30" style="color:#2B5796;;"></i>';
+      return '<i class="fa fa-file-word-o fa-2x m-l-30" style="color:#2B5796;"></i>';
       break;
     case ('docm'):
-      return '<i class="fa fa-file-word-o fa-2x m-l-30" style="color:#2B5796;;"></i>';
+      return '<i class="fa fa-file-word-o fa-2x m-l-30" style="color:#2B5796;"></i>';
       break;
     case ('xls'):
       return '<i class="fa fa-file-excel-o fa-2x m-l-30" style="color:#1E7145;"></i>';
       break;
     case ('xlsx'):
-      return '<i class="fa fa-file-excel-o fa-2x m-l-30" style="color:#1E7145;;"></i>';
+      return '<i class="fa fa-file-excel-o fa-2x m-l-30" style="color:#1E7145;"></i>';
       break;
     case ('xlsm'):
-      return '<i class="fa fa-file-excel-o fa-2x m-l-30" style="color:#1E7145;;"></i>';
+      return '<i class="fa fa-file-excel-o fa-2x m-l-30" style="color:#1E7145;"></i>';
       break;
     case 'pdf':
-      return '<i class="fa fa-file-pdf-o fa-2x m-l-30" style="color:#EE3226;;"></i>';
+      return '<i class="fa fa-file-pdf-o fa-2x m-l-30" style="color:#EE3226;"></i>';
       break;
     case ('jpg'):
-      return '<i class="fa fa-file-image-o fa-2x m-l-30" style="color:#000;;"></i>';
+      return '<i class="fa fa-file-image-o fa-2x m-l-30" style="color:#000;"></i>';
       break;
     default:
       return FALSE;

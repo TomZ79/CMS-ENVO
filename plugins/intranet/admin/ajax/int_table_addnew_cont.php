@@ -47,7 +47,7 @@ if ($row_cnt > 0) {
   // Get all Entrance for House
   $result1 = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'intranethousecontact WHERE houseid = "' . $houseID . '" ORDER BY id ASC');
 
-  $myarray = array();
+  $data_array = array();
 
   while ($row1 = $result1->fetch_assoc()) {
     switch ($row1["commission"]) {
@@ -65,7 +65,7 @@ if ($row_cnt > 0) {
         break;
     }
 
-    $myarray[] = array(
+    $data_array[] = array(
       'id'         => $row1["id"],
       'name'       => $row1["name"],
       'address'    => $row1["address"],
@@ -80,7 +80,7 @@ if ($row_cnt > 0) {
   $envodata = array(
     'status'     => 'success',
     'status_msg' => 'New row insert do DB',
-    'data'       => $myarray
+    'data'       => $data_array
   );
 
 }

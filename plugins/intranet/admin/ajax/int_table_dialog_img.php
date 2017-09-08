@@ -2,7 +2,7 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/int_table_addnew_apt.php] => "config.php" not found');
+if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/int_table_dialog_img.php] => "config.php" not found');
 require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
 // EN: Detecting AJAX Requests
@@ -55,23 +55,61 @@ $envodata .= '
 <div class="col-sm-8 p-r-35 p-t-35 p-l-35 full-height item-description">
   <div id="notificationcontainer"></div>
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#info1">Description</a></li>
-    <li><a data-toggle="tab" href="#info2">Thumbnail</a></li>
-    <li><a data-toggle="tab" href="#info3">Original</a></li>
+    <li class="active"><a data-toggle="tab" href="#info1" style="padding: 12px 10px;">Main</a></li>
+    <li><a data-toggle="tab" href="#info2" style="padding: 12px 10px;">Thumbnail</a></li>
+    <li><a data-toggle="tab" href="#info3" style="padding: 12px 10px;">Original</a></li>
   </ul>
   <div class="tab-content">
-    <div id="info1" class="tab-pane fade in active" style="height:350px;overflow-y:auto;width:100%;">
-      <p><strong>Description</strong></p>
-      <p><textarea id="desc" style="width: 100%;height: 100px;padding: 10px;" disabled>' . $row["description"] . '</textarea></p>
-      <p><strong>Date of edit description</strong></p>
-      <p id="timeedit">' . $row["timeedit"] . '</p>
-      <div class="pull-right">
-        <button id="editdesc" class="btn btn-info" type="button">Edit Description</button>
-        <button id="savedesc" class="btn btn-success" type="button" style="display:none;" data-id="' . $row["id"] . '">Save and Close</button>
-        <button id="closedesc" class="btn btn-info" type="button" style="display:none;">Close</button>
+    <div id="info1" class="tab-pane fade in active" style="height:350px;overflow-y:auto;width:100%;padding-right: 20px;">
+      <div class="row m-b-10">
+        <div class="col-sm-12">
+          <p><strong>Short Description</strong> - maxlength 70 characters</p>
+          <p><input type="text" id="shortdesc" class="form-control" value="' . $row["shortdescription"] . '" maxlength="70" readonly></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <p><strong>Description</strong></p>
+          <p><textarea id="desc" style="width: 100%;height: 100px;padding: 10px;" readonly>' . $row["description"] . '</textarea></p>
+          <div class="pull-right">
+            <button id="editdesc" class="btn btn-info btn-xs" type="button">Edit Description</button>
+            <button id="savedesc" class="btn btn-success btn-xs" type="button" style="display:none;" data-id="' . $row["id"] . '">Save and Close</button>
+            <button id="closedesc" class="btn btn-info btn-xs" type="button" style="display:none;">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="row m-b-10">
+        <div class="col-sm-12">
+          <p><strong>Category</strong></p>
+        </div>
+      </div>
+      <div class="row m-b-10">
+        <div class="col-sm-6">
+          <div class="form-group no-margin">
+            <select name="envo_imgcategory_dialog" class="form-control selectpicker" style="width:100%;" disabled>
+              <option value="">Bez kategorie</option>
+              <option value="service" '. ($row["category"] == "service" ? "selected": "") . '>Servisy</option>
+              <option value="reconstruction" '. ($row["category"] == "reconstruction" ? "selected": "") . '>Rekonstrukce</option>
+              <option value="installation" '. ($row["category"] == "installation" ? "selected": "") . '>Instalace</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="pull-right">
+            <button id="editcat" class="btn btn-info btn-xs" type="button">Edit Category</button>
+            <button id="savecat" class="btn btn-success btn-xs" type="button" style="display:none;" data-id="' . $row["id"] . '">Save and Close</button>
+            <button id="closecat" class="btn btn-info btn-xs" type="button" style="display:none;">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="row m-b-10">
+        <div class="col-sm-12">
+          <p><strong>Date of edit description or category</strong></p>
+          <p id="timeedit">' . $row["timeedit"] . '</p>
+        </div>
       </div>
     </div>
-    <div id="info2" class="tab-pane fade" style="height:350px;overflow-y:auto;width:100%;">
+    <div id="info2" class="tab-pane fade" style="height:350px;overflow-y:auto;width:100%;padding-right: 20px;">
       <p><strong>Main Folder</strong></p>
       <p>/' . JAK_FILES_DIRECTORY . $row["mainfolder"] . '</p>
       <p><strong>Thumb Name</strong></p>
@@ -83,7 +121,7 @@ $envodata .= '
       <p><strong>Date of upload thumb</strong></p>
       <p>' . $row["timedefault"] . '</p>
     </div>
-    <div id="info3" class="tab-pane fade" style="height:350px;overflow-y:auto;width:100%;">
+    <div id="info3" class="tab-pane fade" style="height:350px;overflow-y:auto;width:100%;padding-right: 20px;">
       <h6><strong>BASIC INFO</strong></h6>
       <hr>
       <p><strong>Main Folder</strong></p>

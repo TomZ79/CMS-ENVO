@@ -2,7 +2,7 @@
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/int_table_update_apt.php] => "config.php" not found');
+if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/int_table_update_.php] => "config.php" not found');
 require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
 // EN: Detecting AJAX Requests
@@ -20,29 +20,29 @@ header('Content-Type: application/json;charset=utf-8');
 // CZ: Získání dat z ajax
 $imageID  = $_POST['imageID'];
 $descImage  = $_POST['descImage'];
-
-// PHP CODE and DB
-//-------------------------
+$shortdescImage  = $_POST['shortdescImage'];
 
 // Define basic variable
-$myarray = array();
+$data_array = array();
 
 // Update row in DB
-$jakdb->query('UPDATE ' . DB_PREFIX . 'intranethouseimg SET description = "' . $descImage . '", timeedit = NOW() WHERE id = "' . $imageID . '"');
+$jakdb->query('UPDATE ' . DB_PREFIX . 'intranethouseimg SET shortdescription = "' . $shortdescImage . '", description = "' . $descImage . '", timeedit = NOW() WHERE id = "' . $imageID . '"');
 
 // Getting info from DB
 $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'intranethouseimg WHERE id = "' . $imageID . '"');
 $row    = $result->fetch_assoc();
 
-$myarray[] = array(
-  'timeedit'        => $row["timeedit"],
+$data_array[] = array(
+  'id'       => $row["id"],
+  'timeedit' => $row["timeedit"],
+  'shortdescription' => $row["shortdescription"]
 );
 
 // Data for JSON
 $envodata = array(
   'status'     => 'update_success',
   'status_msg' => 'Saving data was successful.',
-  'data'       => $myarray
+  'data'       => $data_array
 );
 
 // RETURN JSON OUTPUT

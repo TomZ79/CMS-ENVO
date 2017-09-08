@@ -21,7 +21,7 @@ header('Content-Type: application/json;charset=utf-8');
 //-------------------------
 
 // Define variable
-$myarray = array();
+$data_array = array();
 
 // Valid extensions
 $valid_extensions = array(
@@ -63,7 +63,7 @@ if (isset($_FILES['file'])) {
       $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'intranethousedocu WHERE houseid = "' . $_REQUEST['houseID'] . '" ORDER BY id ASC');
 
       while ($row = $result->fetch_assoc()) {
-        $myarray[] = array(
+        $data_array[] = array(
           'id'          => $row["id"],
           'description' => $row["description"],
           'fileicon'    => envo_extension_icon($row["filename"]),
@@ -75,7 +75,7 @@ if (isset($_FILES['file'])) {
       $envodata = array(
         'status'     => 'upload_success',
         'status_msg' => 'File upload was successful.',
-        'data'       => $myarray
+        'data'       => $data_array
       );
 
     } else {

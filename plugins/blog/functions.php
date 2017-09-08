@@ -31,7 +31,21 @@ function envo_get_blog($limit, $order, $where, $table_row, $ext_seo, $timeago)
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $envodata[] = array('id' => $row['id'], 'catid' => $row['catid'], 'title' => $row['title'], 'content' => envo_secure_site($row['content']), 'contentshort' => $shortmsg, 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'created' => $getTime, 'hits' => $row['hits'], 'previmg' => $row['previmg'], 'parseurl' => $parseurl, 'date-time' => $row['time']);
+    $envodata[] = array(
+      'id' => $row['id'],
+      'catid' => $row['catid'],
+      'title' => $row['title'],
+      'content' => envo_secure_site($row['content']),
+      'contentshort' => $shortmsg,
+      'showtitle' => $row['showtitle'],
+      'showcontact' => $row['showcontact'],
+      'showdate' => $row['showdate'],
+      'created' => $getTime,
+      'hits' => $row['hits'],
+      'previmg' => $row['previmg'],
+      'parseurl' => $parseurl,
+      'date-time' => $row['time']
+    );
   }
 
 
@@ -44,7 +58,7 @@ function envo_get_total_permission_blog()
 
   global $jakdb;
   $envototal = 0;
-  $row      = $jakdb->queryRow('SELECT COUNT(t1.id) AS total FROM ' . DB_PREFIX . 'blog as t1 LEFT JOIN ' . DB_PREFIX . 'blogcategories as t2 ON (t1.catid = t2.id) WHERE (t1.active = 1 AND t2.active = 1) AND (FIND_IN_SET(' . JAK_USERGROUPID . ',t2.permission) OR t1.catid = t2.id AND t2.permission = 0)');
+  $row       = $jakdb->queryRow('SELECT COUNT(t1.id) AS total FROM ' . DB_PREFIX . 'blog as t1 LEFT JOIN ' . DB_PREFIX . 'blogcategories as t2 ON (t1.catid = t2.id) WHERE (t1.active = 1 AND t2.active = 1) AND (FIND_IN_SET(' . JAK_USERGROUPID . ',t2.permission) OR t1.catid = t2.id AND t2.permission = 0)');
 
   if ($row['total']) $envototal = $row['total'];
 

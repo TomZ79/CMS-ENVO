@@ -122,8 +122,6 @@ if ($errors) { ?>
   </ul>
 
   <div class="tab-content">
-
-
     <div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
       <div class="row">
         <div class="col-md-5">
@@ -240,69 +238,61 @@ if ($errors) { ?>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="box-footer">
-
-              <?php
-              // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
-              ?>
-
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="box box-success">
-            <div class="box-header with-border">
-
-              <?php
-              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-              echo $Html->addTag('h3', 'Vchody a Byty', 'box-title');
-              ?>
-
-            </div>
-            <div class="box-body">
-              <div class="block">
-                <div class="block-content">
                   <div class="row-form">
-                    <div class="col-md-8">
+                    <div class="col-md-5">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'Celkový Počet Vchodů');
-                      echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
+                      echo $Html->addTag('strong', 'GPS - Koordináty');
                       ?>
 
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-group no-margin<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
+                    <div class="col-md-7">
+                      <div class="form-group no-margin">
 
                         <?php
-                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_countentranceall', $ENVO_FORM_DATA["countentrance"], '', 'form-control');
+                        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                        echo $Html->addAnchor('https://www.gps-coordinates.net/', 'Získat GPS pozici', '', '', array('target' => '_blank'));
                         ?>
 
                       </div>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-8">
+                    <div class="col-md-5">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'Celkový Počet Bytů');
-                      echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
+                      echo $Html->addTag('strong', 'GPS - Latitude');
                       ?>
 
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-group no-margin<?php if (isset($errors["e4"]) || isset($errors["e5"])) echo " has-error"; ?>">
+                    <div class="col-md-7">
+                      <div class="form-group no-margin">
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_countapartmentall', $ENVO_FORM_DATA["countapartment"], '', 'form-control');
+                        echo $Html->addInput('text', 'envo_housegpslat', $ENVO_FORM_DATA["latitude"], '', 'form-control');
+                        ?>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row-form">
+                    <div class="col-md-5">
+
+                      <?php
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      echo $Html->addTag('strong', 'GPS - Longitude');
+                      ?>
+
+                    </div>
+                    <div class="col-md-7">
+                      <div class="form-group no-margin">
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html->addInput('text', 'envo_housegpslng', $ENVO_FORM_DATA["longitude"], '', 'form-control');
                         ?>
 
                       </div>
@@ -321,54 +311,222 @@ if ($errors) { ?>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="box box-success">
-            <div class="box-header with-border">
+        <div class="col-md-7">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="box box-success">
+                <div class="box-header with-border">
 
-              <?php
-              // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-              echo $Html->startTag('h3', array('class' => 'box-title'));
-              echo $tl["cat_box_title"]["catbt3"];
-              // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-              echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tl["cat_help"]["cath3"], 'data-original-title' => $tl["cat_help"]["cath"]));
-              // Add Html Element -> endTag (Arguments: tag)
-              echo $Html->endTag('h3');
-              ?>
+                  <?php
+                  // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                  echo $Html->addTag('h3', 'Vchody a Byty', 'box-title');
+                  ?>
 
-            </div>
-            <div class="box-body">
-              <div class="block">
-                <div class="block-content">
-                  <div class="row-form">
-                    <div class="col-md-12">
-                      <select name="envo_permission[]" multiple="multiple" class="form-control">
+                </div>
+                <div class="box-body">
+                  <div class="block">
+                    <div class="block-content">
+                      <div class="row-form">
+                        <div class="col-md-8">
 
-                        <?php
-                        // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                        $selected = ($ENVO_FORM_DATA["permission"] == '0') ? TRUE : FALSE;
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', 'Celkový Počet Vchodů');
+                          echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
+                          ?>
 
-                        echo $Html->addOption('0', $tlgwl["gwl_box_content"]["gwlbc16"], $selected);
-                        if (isset($ENVO_USERGROUP) && is_array($ENVO_USERGROUP)) foreach ($ENVO_USERGROUP as $v) {
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group no-margin<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
 
-                          $selected = (in_array($v["id"], explode(',', $ENVO_FORM_DATA["permission"]))) ? TRUE : FALSE;
-                          echo $Html->addOption($v["id"], $v["name"], $selected);
+                            <?php
+                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                            echo $Html->addInput('text', 'envo_countentranceall', $ENVO_FORM_DATA["countentrance"], '', 'form-control');
+                            ?>
 
-                        }
-                        ?>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row-form">
+                        <div class="col-md-8">
 
-                      </select>
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', 'Celkový Počet Bytů');
+                          echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
+                          ?>
+
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group no-margin<?php if (isset($errors["e4"]) || isset($errors["e5"])) echo " has-error"; ?>">
+
+                            <?php
+                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                            echo $Html->addInput('text', 'envo_countapartmentall', $ENVO_FORM_DATA["countapartment"], '', 'form-control');
+                            ?>
+
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <div class="box-footer">
+
+                  <?php
+                  // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                  echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                  ?>
+
+                </div>
               </div>
             </div>
-            <div class="box-footer">
+            <div class="col-md-6">
+              <div class="box box-success">
+                <div class="box-header with-border">
 
-              <?php
-              // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
-              ?>
+                  <?php
+                  // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+                  echo $Html->startTag('h3', array('class' => 'box-title'));
+                  echo $tl["cat_box_title"]["catbt3"];
+                  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                  echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tl["cat_help"]["cath3"], 'data-original-title' => $tl["cat_help"]["cath"]));
+                  // Add Html Element -> endTag (Arguments: tag)
+                  echo $Html->endTag('h3');
+                  ?>
 
+                </div>
+                <div class="box-body">
+                  <div class="block">
+                    <div class="block-content">
+                      <div class="row-form">
+                        <div class="col-md-12">
+                          <select name="envo_permission[]" multiple="multiple" class="form-control">
+
+                            <?php
+                            // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                            $selected = ($ENVO_FORM_DATA["permission"] == '0') ? TRUE : FALSE;
+
+                            echo $Html->addOption('0', $tlgwl["gwl_box_content"]["gwlbc16"], $selected);
+                            if (isset($ENVO_USERGROUP) && is_array($ENVO_USERGROUP)) foreach ($ENVO_USERGROUP as $v) {
+
+                              $selected = (in_array($v["id"], explode(',', $ENVO_FORM_DATA["permission"]))) ? TRUE : FALSE;
+                              echo $Html->addOption($v["id"], $v["name"], $selected);
+
+                            }
+                            ?>
+
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-footer">
+
+                  <?php
+                  // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                  echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                  ?>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="box box-success">
+                <div class="box-header with-border">
+
+                  <?php
+                  // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                  echo $Html->addTag('h3', 'Popis a složky domu', 'box-title');
+                  ?>
+
+                </div>
+                <div class="box-body">
+                  <div class="block">
+                    <div class="block-content">
+                      <div class="row-form">
+                        <div class="col-md-3">
+
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', 'Složka dokumentů');
+                          ?>
+
+                        </div>
+                        <div class="col-md-9">
+                          <div class="input-group">
+
+                            <?php
+                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                            echo $Html->addInput('text', '', '/' . JAK_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/documents', '', 'form-control', array ('readonly' => 'readonly'));
+                            ?>
+
+                            <span class="input-group-btn">
+
+                              <?php
+                              // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                              echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang='.$managerlang.'&fldr=' . $ENVO_FORM_DATA["folder"], '<i class="pg-folder_alt"></i>', '', 'btn btn-info ifManager', array('type' => 'button'));
+                              ?>
+
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row-form">
+                        <div class="col-md-3">
+
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', 'Složka obrázků');
+                          ?>
+
+                        </div>
+                        <div class="col-md-9">
+                          <div class="input-group">
+
+                            <?php
+                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                            echo $Html->addInput('text', '', '/' . JAK_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/images', '', 'form-control', array ('readonly' => 'readonly'));
+                            ?>
+
+                            <span class="input-group-btn">
+
+                              <?php
+                              // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                              echo $Html->addAnchor('../assets/plugins/tinymce/plugins/filemanager/dialog.php?type=2&lang='.$managerlang.'&fldr=' . $ENVO_FORM_DATA["folder"], '<i class="pg-folder_alt"></i>', '', 'btn btn-info ifManager', array('type' => 'button'));
+                              ?>
+
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row-form">
+                        <div class="col-md-12">
+
+                          <?php
+                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                          echo $Html->addLabel('', '<strong>Popis</strong>');
+                          // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+                          echo $Html->addTextarea('envo_housedescription', $ENVO_FORM_DATA["description"], '4', '', array('class' => 'form-control'));
+                          ?>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-footer">
+
+                  <?php
+                  // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                  echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                  ?>
+
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -460,8 +618,8 @@ if ($errors) { ?>
             <div class="form-group">
 
               <?php
-              // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-              echo $Html->addInput('button', '', 'Přidat nový kontakt', 'addRowCont', 'btn btn-info');
+              // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+              echo $Html->addButton('button', '', 'Přidat nový kontakt', '', 'addRowCont', 'btn btn-info', array('style' => 'width: 100%;'));
               ?>
 
             </div>
@@ -536,15 +694,15 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-              echo $Html->addInput('text', 'addRowEnt', (isset($_REQUEST["addRowEnt"])) ? $_REQUEST["addRowEnt"] : '', 'addRowEnt', 'form-control', array('style' => 'height: 35px;', 'placeholder' => 'Číslo vchodu'));
+              echo $Html->addInput('text', 'addRowEnt', (isset($_REQUEST["addRowEnt"])) ? $_REQUEST["addRowEnt"] : '', '', 'form-control', array('style' => 'height: 35px;', 'placeholder' => 'Číslo vchodu'));
               ?>
 
             </div>
             <div class="form-group">
 
               <?php
-              // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-              echo $Html->addInput('button', '', 'Přidat nový řádek', 'addRowEdit', 'btn btn-info');
+              // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+              echo $Html->addButton('button', '', 'Přidat nový vchod', '', 'addRowEnt', 'btn btn-info', array('style' => 'width: 100%;'));
               ?>
 
             </div>
@@ -620,7 +778,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-                echo $Html->addButton('button', '', 'Přidat nový řádek', 'button', '', 'btn btn-info pull-right addRowEditApt', array('data-entrance' => ($e["entrance"] ? $e["entrance"] : '0')));
+                echo $Html->addButton('button', '', 'Přidat nový Byt', 'button', '', 'btn btn-info pull-right addRowApt', array('data-entrance' => ($e["entrance"] ? $e["entrance"] : '0')));
                 ?>
 
               </div>
@@ -720,9 +878,56 @@ if ($errors) { ?>
 
     </div>
     <div role="tabpanel" class="tab-pane fade" id="cmsPage6" aria-labelledby="cmsPage6-tab">
+      <div class="row m-b-20">
+        <div class="col-md-12 p-l-15 p-r-15 ">
+          <div class="form-inline pull-right-sm pull-right-md pull-right-lg">
+            <div class="form-group">
+
+              <?php
+              // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+              echo $Html->addButton('button', '', 'Přidat nový servis', '', 'addRowServ', 'btn btn-info', array('style' => 'width: 100%;'));
+              ?>
+
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-12">
-          <h5>Zadání <strong>Servisů</strong> je dostupné v editaci domu po uložení základních dat o domu.</h5>
+          <div class="box box-success">
+            <div class="box-body no-padding">
+              <div class="table-responsive">
+                <table id="tableservice" class="table table-hover">
+                  <thead>
+                  <tr>
+                    <th class="col-sm-1">Id</th>
+                    <th class="col-sm-5">Popis</th>
+                    <th class="col-sm-2">Datum Zadání</th>
+                    <th class="col-sm-2">Datum Nahlášení</th>
+                    <th class="col-sm-2">Datum Ukončení</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+
+                  <?php if (!empty($ENVO_FORM_DATA_SERV) && is_array($ENVO_FORM_DATA_SERV)) foreach ($ENVO_FORM_DATA_SERV as $s) { ?>
+
+                    <tr>
+                      <td><?php echo $s["id"]; ?></td>
+                      <td><?php echo $s["description"]; ?></td>
+                      <td><?php echo $s["timedefault"]; ?></td>
+                      <td><?php echo $s["timestart"]; ?></td>
+                      <td><?php echo $s["timeend"]; ?></td>
+                    </tr>
+
+                  <?php } else {
+                    echo '<tr class="noedit" style="height: 49px"><td colspan="5">Nenalezen žádný záznam</td></tr>';
+                  } ?>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -740,9 +945,7 @@ if ($errors) { ?>
             </div>
             <div class="box-body">
               <div class="col-sm-6">
-                <p class="padding-15 no-margin">Složka dokumentů:
-                  <strong><?php echo '/' . JAK_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/documents'; ?></strong>
-                </p>
+
               </div>
               <div class="col-sm-6">
                 <!-- Upload Files -->
@@ -790,7 +993,7 @@ if ($errors) { ?>
               <div class="row">
                 <div class="col-sm-12">
                   <div class="table-responsive">
-                    <table id="tableadocu" class="table">
+                    <table id="tabledocu" class="table">
                       <thead>
                       <tr>
                         <th class="col-md-1">#</th>
@@ -849,15 +1052,31 @@ if ($errors) { ?>
 
             </div>
             <div class="box-body">
-              <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-3 m-t-10">
 
-              </div>
-              <div class="col-sm-6">
-                <!-- Upload Files -->
-                <div class="form-group">
-                  <div class="row">
-                    <div class="col-xs-12 col-sm-8 col-lg-9 m-t-10">
-                      <div id="upload_img" class="input-group" style="width: 100%;">
+                </div>
+                <div class="col-sm-3 m-t-10">
+                  <div class="form-group no-margin">
+                    <select name="envo_imgcategory" class="form-control selectpicker" data-placeholder="Výběr kategorie">
+
+                      <?php
+                      // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                      echo $Html->addOption('', 'Bez kategorie');
+                      echo $Html->addOption('service', 'Servisy');
+                      echo $Html->addOption('reconstruction', 'Rekonstrukce');
+                      echo $Html->addOption('installation', 'Instalace');
+                      ?>
+
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <!-- Upload Files -->
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-8 col-lg-9 m-t-10">
+                        <div id="upload_img" class="input-group" style="width: 100%;">
                         <span class="input-group-btn" style="width: 1%;">
                           <!-- File-clear button -->
                           <button type="button" class="btn btn-default file-clear" style="display:none;">
@@ -870,33 +1089,62 @@ if ($errors) { ?>
                             <input type="file" name="input-file" id="fileinput_img" accept="image/*"/>
                           </div>
                         </span>
-                        <input type="text" class="form-control file-filename" style="margin-left: -1px;" disabled>
+                          <input type="text" class="form-control file-filename" style="margin-left: -1px;" disabled>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-4 col-lg-3 m-t-10">
+                        <div class="form-group">
+
+                          <?php
+                          // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
+                          echo $Html->addButton('button', '', '<i class="fa fa-cloud-upload m-r-5"></i> Upload', '', 'uploadBtnImg', 'btn btn-info', array('style' => 'width: 100%;'));
+                          ?>
+
+                        </div>
                       </div>
                     </div>
-                    <div class="col-xs-12 col-sm-4 col-lg-3 m-t-10">
-                      <div class="form-group">
-
-                        <?php
-                        // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-                        echo $Html->addButton('button', '', '<i class="fa fa-cloud-upload m-r-5"></i> Upload', '', 'uploadBtnImg', 'btn btn-info', array('style' => 'width: 100%;'));
-                        ?>
-
+                    <div class="row">
+                      <div class="col-sm-12 m-t-10">
+                        <!-- Upload Files Output -->
+                        <p id="imgprogress" class="small hint-text" style="display: none;">Determinate progress
+                          <span id="imgpercent"></span>
+                        </p>
+                        <p id="imgoutput" style="display: none;"></p>
                       </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-12 m-t-10">
-                      <!-- Upload Files Output -->
-                      <p id="imgprogress" class="small hint-text" style="display: none;">Determinate progress
-                        <span id="imgpercent"></span>
-                      </p>
-                      <p id="imgoutput" style="display: none;"></p>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-3 padding-20">
+
+                  <?php
+                  // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                  echo $Html->addTag('h5', 'Kategorie', 'bold');
+                  ?>
+
+                  <ul class="filters">
+                    <li><a href="javascript:;" class="filter" data-filter="*">Vše</a></li>
+                    <li><a href="javascript:;" class="filter" data-filter=".service">Servisy</a></li>
+                    <li><a href="javascript:;" class="filter" data-filter=".reconstruction">Rekonstrukce</a></li>
+                    <li><a href="javascript:;" class="filter" data-filter=".installation">Instalace</a></li>
+                  </ul>
+
+                  <?php
+                  // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                  echo $Html->addTag('h5', 'Vyhledat', 'bold');
+                  ?>
+
+                  <p>
+
+                    <?php
+                    // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                    echo $Html->addInput('text', 'quicksearch', '', 'quicksearch', 'form-control', array('placeholder' => 'Search Image'));
+                    ?>
+
+                  </p>
+                </div>
+                <div class="col-sm-9">
                   <div id="gallery_envo" class="gallery_envo">
 
                     <?php
@@ -904,12 +1152,12 @@ if ($errors) { ?>
 
                       foreach ($ENVO_FORM_DATA_IMG as $img) {
 
-                        echo '<div id="' . $img["id"] . '" class="gallery-item-' . $img["id"] . '" data-width="1" data-height="1">';
+                        echo '<div id="' . $img["id"] . '" class="gallery-item-' . $img["id"] . ' ' . $img["category"] . '" data-width="1" data-height="1">';
 
-                        echo '<img src="/' . JAK_FILES_DIRECTORY . $img["mainfolder"] . $img["filenamethumb"] . '" alt="">';
+                        echo '<div class="img_container"><img src="/' . JAK_FILES_DIRECTORY . $img["mainfolder"] . $img["filenamethumb"] . '" alt=""></div>';
 
 
-                        echo '<div class="overlays full-width">
+                        echo '<div class="overlays">
                                 <div class="col-sm-12 full-height">
                                   <div class="col-xs-5 full-height">
                                     <div class="text font-montserrat">' . strtoupper(pathinfo($img["filenamethumb"], PATHINFO_EXTENSION)) . '</div>
@@ -924,10 +1172,19 @@ if ($errors) { ?>
                                       <button class="btn btn-info btn-xs btn-mini fs-14 dialog-open" type="button" data-dialog="itemDetails">
                                         <i class="fa fa-edit"></i>
                                       </button>
+                                      <button class="btn btn-info btn-xs btn-mini fs-14 delete-img" type="button" data-id="' . $img["id"] . '">
+                                        <i class="fa fa-trash"></i>
+                                      </button>
                                     </div>
                                   </div>
                                 </div>
                               </div>';
+
+                        echo '<div class="full-width padding-10">';
+
+                        echo '<p class="bold">Short description</p><p class="shortdesc">' . $img["shortdescription"] . '</p>';
+
+                        echo '</div>';
 
                         echo '</div>';
 

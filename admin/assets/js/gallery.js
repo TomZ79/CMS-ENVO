@@ -6,25 +6,6 @@
 
 $(function () {
 
-  /* GRID
-   -------------------------------------------------------------*/
-
-  /*  Apply Isotope plugin
-   isotope.metafizzy.co
-   */
-  var $gallery = $('#gallery_envo');
-  $gallery.isotope({
-    itemSelector: 'div[class^="gallery-item-"]',
-    masonry: {
-      columnWidth: 280,
-      gutter: 10,
-      isFitWidth: true
-    }
-  });
-
-  $('a[href="#cmsPage8"]').on('shown.bs.tab', function (e) {
-    $gallery.isotope('layout');
-  });
 
   /* DETAIL VIEW
    -------------------------------------------------------------*/

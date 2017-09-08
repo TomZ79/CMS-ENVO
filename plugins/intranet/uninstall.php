@@ -151,6 +151,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
             $jakdb->query('DROP TABLE ' . DB_PREFIX . 'intranethousecontact');
             $jakdb->query('DROP TABLE ' . DB_PREFIX . 'intranethousedocu');
             $jakdb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseimg');
+            $jakdb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseserv');
           }
 
           $succesfully = 1;

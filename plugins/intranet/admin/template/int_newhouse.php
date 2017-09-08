@@ -184,7 +184,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'PSC');
+                      echo $Html->addTag('strong', 'PSČ');
                       ?>
 
                     </div>
@@ -219,69 +219,61 @@ if ($errors) { ?>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="box-footer">
-
-              <?php
-              // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
-              ?>
-
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="box box-success">
-            <div class="box-header with-border">
-
-              <?php
-              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-              echo $Html->addTag('h3', 'Vchody a Byty', 'box-title');
-              ?>
-
-            </div>
-            <div class="box-body">
-              <div class="block">
-                <div class="block-content">
                   <div class="row-form">
-                    <div class="col-md-8">
+                    <div class="col-md-5">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'Celkový Počet Vchodů');
-                      echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
+                      echo $Html->addTag('strong', 'GPS - Koordináty');
                       ?>
 
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-group no-margin<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
+                    <div class="col-md-7">
+                      <div class="form-group no-margin">
 
                         <?php
-                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_countentranceall', (isset($_REQUEST["envo_countentranceall"]) ? $_REQUEST["envo_countentranceall"] : ''), '', 'form-control');
+                        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                        echo $Html->addAnchor('https://www.gps-coordinates.net/', 'Získat GPS pozici', '', '', array('target' => '_blank'));
                         ?>
 
                       </div>
                     </div>
                   </div>
                   <div class="row-form">
-                    <div class="col-md-8">
+                    <div class="col-md-5">
 
                       <?php
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('strong', 'Celkový Počet Bytů');
-                      echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
+                      echo $Html->addTag('strong', 'GPS - Latitude');
                       ?>
 
                     </div>
-                    <div class="col-md-4">
-                      <div class="form-group no-margin<?php if (isset($errors["e4"]) || isset($errors["e5"])) echo " has-error"; ?>">
+                    <div class="col-md-7">
+                      <div class="form-group no-margin">
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_countapartmentall', (isset($_REQUEST["envo_countapartmentall"]) ? $_REQUEST["envo_countapartmentall"] : ''), '', 'form-control');
+                        echo $Html->addInput('text', 'envo_housegpslat', (isset($_REQUEST["envo_housegpslat"]) ? $_REQUEST["envo_housegpslat"] : ''), '', 'form-control');
+                        ?>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row-form">
+                    <div class="col-md-5">
+
+                      <?php
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      echo $Html->addTag('strong', 'GPS - Longitude');
+                      ?>
+
+                    </div>
+                    <div class="col-md-7">
+                      <div class="form-group no-margin">
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html->addInput('text', 'envo_housegpslng', (isset($_REQUEST["envo_housegpslng"]) ? $_REQUEST["envo_housegpslng"] : ''), '', 'form-control');
                         ?>
 
                       </div>
@@ -300,63 +292,175 @@ if ($errors) { ?>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="box box-success">
-            <div class="box-header with-border">
+        <div class="col-md-7">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="box box-success">
+                <div class="box-header with-border">
 
-              <?php
-              // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-              echo $Html->startTag('h3', array('class' => 'box-title'));
-              echo $tl["cat_box_title"]["catbt3"];
-              // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-              echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tl["cat_help"]["cath3"], 'data-original-title' => $tl["cat_help"]["cath"]));
-              // Add Html Element -> endTag (Arguments: tag)
-              echo $Html->endTag('h3');
-              ?>
+                  <?php
+                  // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                  echo $Html->addTag('h3', 'Vchody a Byty', 'box-title');
+                  ?>
 
+                </div>
+                <div class="box-body">
+                  <div class="block">
+                    <div class="block-content">
+                      <div class="row-form">
+                        <div class="col-md-8">
+
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', 'Celkový Počet Vchodů');
+                          echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
+                          ?>
+
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group no-margin<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
+
+                            <?php
+                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                            echo $Html->addInput('text', 'envo_countentranceall', (isset($_REQUEST["envo_countentranceall"]) ? $_REQUEST["envo_countentranceall"] : ''), '', 'form-control');
+                            ?>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row-form">
+                        <div class="col-md-8">
+
+                          <?php
+                          // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                          echo $Html->addTag('strong', 'Celkový Počet Bytů');
+                          echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
+                          ?>
+
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group no-margin<?php if (isset($errors["e4"]) || isset($errors["e5"])) echo " has-error"; ?>">
+
+                            <?php
+                            // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                            echo $Html->addInput('text', 'envo_countapartmentall', (isset($_REQUEST["envo_countapartmentall"]) ? $_REQUEST["envo_countapartmentall"] : ''), '', 'form-control');
+                            ?>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-footer">
+
+                  <?php
+                  // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                  echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                  ?>
+
+                </div>
+              </div>
             </div>
-            <div class="box-body">
-              <div class="block">
-                <div class="block-content">
-                  <div class="row-form">
-                    <div class="col-md-12">
-                      <select name="envo_permission[]" multiple="multiple" class="form-control">
+            <div class="col-md-6">
+              <div class="box box-success">
+                <div class="box-header with-border">
 
-                        <?php
-                        // Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
-                        $selected = ((isset($_REQUEST["envo_permission"]) && ($_REQUEST["envo_permission"] == '0' || (in_array('0', $_REQUEST["envo_permission"]))) || !isset($_REQUEST["envo_permission"]))) ? TRUE : FALSE;
+                  <?php
+                  // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+                  echo $Html->startTag('h3', array('class' => 'box-title'));
+                  echo $tl["cat_box_title"]["catbt3"];
+                  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                  echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => $tl["cat_help"]["cath3"], 'data-original-title' => $tl["cat_help"]["cath"]));
+                  // Add Html Element -> endTag (Arguments: tag)
+                  echo $Html->endTag('h3');
+                  ?>
 
-                        echo $Html->addOption('0', $tl["cat_box_content"]["catbc7"], $selected);
-                        if (isset($ENVO_USERGROUP) && is_array($ENVO_USERGROUP)) foreach ($ENVO_USERGROUP as $v) {
+                </div>
+                <div class="box-body">
+                  <div class="block">
+                    <div class="block-content">
+                      <div class="row-form">
+                        <div class="col-md-12">
+                          <select name="envo_permission[]" multiple="multiple" class="form-control">
 
-                          if (isset($_REQUEST["envo_permission"]) && (in_array($v["id"], $_REQUEST["envo_permission"]))) {
-                            if (isset($_REQUEST["envo_permission"]) && (in_array('0', $_REQUEST["envo_permission"]))) {
-                              $selected = FALSE;
-                            } else {
-                              $selected = TRUE;
+                            <?php
+                            // Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
+                            $selected = ((isset($_REQUEST["envo_permission"]) && ($_REQUEST["envo_permission"] == '0' || (in_array('0', $_REQUEST["envo_permission"]))) || !isset($_REQUEST["envo_permission"]))) ? TRUE : FALSE;
+
+                            echo $Html->addOption('0', $tl["cat_box_content"]["catbc7"], $selected);
+                            if (isset($ENVO_USERGROUP) && is_array($ENVO_USERGROUP)) foreach ($ENVO_USERGROUP as $v) {
+
+                              if (isset($_REQUEST["envo_permission"]) && (in_array($v["id"], $_REQUEST["envo_permission"]))) {
+                                if (isset($_REQUEST["envo_permission"]) && (in_array('0', $_REQUEST["envo_permission"]))) {
+                                  $selected = FALSE;
+                                } else {
+                                  $selected = TRUE;
+                                }
+                              } else {
+                                $selected = FALSE;
+                              }
+
+                              echo $Html->addOption($v["id"], $v["name"], $selected);
+
                             }
-                          } else {
-                            $selected = FALSE;
-                          }
+                            ?>
 
-                          echo $Html->addOption($v["id"], $v["name"], $selected);
-
-                        }
-                        ?>
-
-                      </select>
+                          </select>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <div class="box-footer">
+
+                  <?php
+                  // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                  echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                  ?>
+
+                </div>
               </div>
             </div>
-            <div class="box-footer">
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="box box-success">
+                <div class="box-header with-border">
 
-              <?php
-              // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
-              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
-              ?>
+                  <?php
+                  // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                  echo $Html->addTag('h3', 'Popis', 'box-title');
+                  ?>
 
+                </div>
+                <div class="box-body">
+                  <div class="block">
+                    <div class="block-content">
+                      <div class="row-form">
+                        <div class="col-md-12">
+
+                          <?php
+                          // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
+                          echo $Html->addLabel('', '<strong>Popis</strong>');
+                          // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+                          echo $Html->addTextarea('envo_housedescription', (isset($_REQUEST["envo_housedescription"]) ? $_REQUEST["envo_housedescription"] : ''), '4', '', array('class' => 'form-control'));
+                          ?>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-footer">
+
+                  <?php
+                  // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+                  echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+                  ?>
+
+                </div>
+              </div>
             </div>
           </div>
         </div>

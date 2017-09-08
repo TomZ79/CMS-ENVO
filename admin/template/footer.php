@@ -40,19 +40,19 @@
       <!-- END Overlay Header !-->
       <div class="container-fluid">
         <!-- BEGIN Overlay Controls !-->
-        <input id="overlay-search" class="no-border overlay-search bg-transparent" placeholder="<?php echo $tl["search_overlay"]["so1"];?>" autocomplete="off" spellcheck="false">
+        <input id="overlay-search" class="no-border overlay-search bg-transparent" placeholder="<?php echo $tl["search_overlay"]["so1"]; ?>" autocomplete="off" spellcheck="false">
         <br>
         <!-- END Overlay Controls !-->
       </div>
       <!-- BEGIN Overlay Search Results, This part is for demo purpose, you can add anything you like !-->
       <div class="container-fluid p-t-10">
         <span>
-          <strong><?php echo $tl["search_overlay"]["so2"];?></strong>
+          <strong><?php echo $tl["search_overlay"]["so2"]; ?></strong>
         </span>
         <span id="overlay-suggestions"></span>
         <br>
         <div class="search-results m-t-30">
-          <p class="bold"><?php echo $tl["search_overlay"]["so3"];?></p>
+          <p class="bold"><?php echo $tl["search_overlay"]["so3"]; ?></p>
           <div class="results-container">
             <!-- Results are appended here -->
           </div>
@@ -69,6 +69,16 @@
 <?php } ?>
 
 <!-- BEGIN VENDOR JS -->
+
+<script>
+  // Pace.min.js config
+  window.paceOptions = {
+    target: '#pace',
+    restartOnPushState: false,
+    restartOnRequestAfter: false
+  }
+</script>
+
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
 echo $Html->addScript('assets/plugins/pace/pace.min.js');
@@ -115,7 +125,7 @@ if ($site_language = 'cs') {
 echo $Html->addScript('../assets/js/functions.js?=' . $jkv["updatetime"]);
 ?>
 
-<script type="text/javascript">
+<script>
   envoWeb.envo_url_orig = "<?php echo BASE_URL_ORIG;?>";
   envoWeb.envo_url = "<?php echo BASE_URL_ADMIN;?>";
   envoWeb.envo_path = "<?php echo BASE_PATH_ORIG;?>";
@@ -137,7 +147,7 @@ echo $Html->addScript('assets/js/scripts.js');
 <!-- BEGIN JS FOR GENERAL PAGE and PLUGINS -->
 <?php
 $notify =
-  '<script type="text/javascript">' .
+  '<script>' .
   '$.notify({' .
   '  message: "Soubor <strong>%s\</strong> neexistuje.<br>Kontaktujte vývojáře CMS !!!",' .
   '}, {' .
@@ -198,7 +208,7 @@ if ($page == 'template' && $page1 == 'settings') {
 ?>
 <!-- BEGIN NOTIFY CONFIG JS -->
 <?php if (isset($_SESSION["loginmsg"])) { ?>
-  <script type="text/javascript">
+  <script>
     $.notify({
       // Options
       title: '<?php echo $tl["hf_text"]["hftxt6"] . ' , ' . $JAK_WELCOME_NAME; ?>!',
@@ -217,31 +227,35 @@ if ($page == 'template' && $page1 == 'settings') {
   </script>
 <?php }
 if (isset($_SESSION["infomsg"])) { ?>
-  <script type="text/javascript">$.notify({
+  <script>$.notify({
       icon: 'fa fa-info-circle',
       message: '<?php echo $_SESSION["infomsg"];?>'
-    }, {type: 'info'});</script>
+    }, {type: 'info'});
+  </script>
 <?php }
 if (isset($_SESSION["successmsg"])) { ?>
-  <script type="text/javascript">$.notify({
+  <script>$.notify({
       icon: 'fa fa-check-square-o',
       message: '<?php echo $_SESSION["successmsg"];?>'
-    }, {type: 'success'});</script>
+    }, {type: 'success'});
+  </script>
 <?php }
 if (isset($_SESSION["errormsg"])) { ?>
-  <script type="text/javascript">$.notify({
+  <script>$.notify({
       icon: 'fa fa-exclamation-triangle',
       message: '<?php echo $_SESSION["errormsg"];?>'
-    }, {type: 'danger'});</script>
+    }, {type: 'danger'});
+  </script>
 <?php }
 if (isset($_SESSION["warningmsg"])) { ?>
-  <script type="text/javascript">$.notify({
+  <script>$.notify({
       icon: 'fa fa-exclamation-triangle',
       message: '<?php echo $_SESSION["warningmsg"];?>'
-    }, {type: 'warning'});</script>
+    }, {type: 'warning'});
+  </script>
 <?php }
 if ($JAK_PROVED && !isset($jkv["cms_tpl"])) { ?>
-  <script type="text/javascript">
+  <script>
     // Notification
     $.notify({
       // options
@@ -256,7 +270,8 @@ if ($JAK_PROVED && !isset($jkv["cms_tpl"])) { ?>
       '<span data-notify="icon"></span> ' +
       '<span data-notify="message">{2}</span>' +
       '</div>'
-    });</script>
+    });
+  </script>
 <?php } ?>
 <!-- BEGIN TINYMCE EDITOR -->
 <?php if ($JAK_PROVED && (!$jkv["adv_editor"])) {

@@ -31,6 +31,8 @@
   <!-- App CSS -->
   <link rel="stylesheet" href="<?php echo $SHORT_PLUGIN_URL; ?>styles/app.css">
   <link rel="stylesheet" href="<?php echo $SHORT_PLUGIN_URL; ?>styles/app.skins.css">
+  <!-- Fancybox -->
+  <link rel="stylesheet" href="/assets/plugins/fancybox/3.0/css/jquery.fancybox.min.css">
 
 </head>
 
@@ -126,9 +128,13 @@
     <!-- main area -->
     <div class="main-content">
 
+      <?php if (!empty($page1)) { ?>
+
       <div class="page-title">
         <ul class="breadcrumb">
-          <li><h5 class="title bold">Uživatelé - Editace</h5></li>
-          <li><span class="desc">Editace uživatele</span></li>
+          <li><h5 class="title bold"><?php echo $SECTION_TITLE; ?></h5></li>
+          <li><span class="desc"><?php echo $SECTION_DESC; ?></span></li>
         </ul>
       </div>
+
+      <?php } ?>

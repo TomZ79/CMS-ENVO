@@ -12,6 +12,23 @@
  *
  */
 
+/* 00. PACE.JS CONFIG
+ ========================================================================*/
+
+$(function () {
+
+  Pace.on('done', function() {
+    // Animate Background
+    $("#pace" ).animate({
+      opacity: 0
+    }, 800, function() {
+      $('#pace').removeClass('active').addClass('inactive').hide();
+    });
+  });
+
+});
+
+
 /* 00. BASIC ADMIN ENVO CONFIG
  ========================================================================*/
 $.AdminEnvo = {};
@@ -25,7 +42,7 @@ $.AdminEnvo.options = {
   enableBSToppltipIcon: true,
   BSTooltipSelectorIcon: '[data-toggle="tooltipEnvo"]',
   //Bootbox confirm dialog
-  BootboxLang: envoWeb.envo_lang,
+  BootboxLang: envoWeb.envo_lang
 
 };
 
@@ -312,14 +329,14 @@ $(function () {
 /* 00. XXXX
  ========================================================================*/
 $(function () {
-  // Initializes search overlay plugin.
+  // Initializes TinyMce Filemanger plugin.
   $('.ifManager').on('click', function (e) {
     e.preventDefault();
     frameSrc = $(this).attr("href");
     $('#ENVOModalLabel').html("FileManager");
 
     $('#ENVOModal').one('shown.bs.modal', function (e) {
-      $('#ENVOModal .modal-dialog').addClass('modal-w-70p');
+      $('#ENVOModal .modal-dialog').addClass('modal-w-95p');
       $('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
     }).one('hidden.bs.modal', function (e) {
       $(".body-content").html('');

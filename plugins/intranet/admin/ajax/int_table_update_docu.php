@@ -1,7 +1,7 @@
 <?php
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
-if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/int_table_update.php] => "config.php" not found');
+if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/int_table_update_docu.php] => "config.php" not found');
 require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
 // EN: Detecting AJAX Requests
@@ -13,7 +13,7 @@ if (!isset($_SERVER['HTTP_X_REQUESTED_WITH'])) die("Nothing to see here");
 header('Content-Type: application/json;charset=utf-8');
 
 // CHECK REQUEST METHOD
-if ($_SERVER['REQUEST_METHOD']=='POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $input = filter_input_array(INPUT_POST);
 } else {
   $input = filter_input_array(INPUT_GET);
@@ -21,6 +21,9 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
 
 // PHP CODE and DB
 //-------------------------
+
+// Define basic variable
+$data_array = array();
 
 if ($input['action'] === 'edit') {
   // ACTION - EDIT
@@ -43,18 +46,27 @@ if ($input['action'] === 'edit') {
   $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'intranethousedocu WHERE id = "' . $input['id'] . '"');
 
   if ($result) {
+    $data_array[] = array(
+      'id'     => $input["id"],
+      'action' => $input["action"],
+    );
+
     // Data for JSON
     $envodata = array(
       'status'     => 'delete_success',
       'status_msg' => 'Deleting the record from DB was successful',
-      'data'       => $input
+      'data'       => $data_array
     );
   } else {
+    $data_array[] = array(
+      'id'     => $input["id"]
+    );
+
     // Data for JSON
     $envodata = array(
       'status'     => 'delete_error',
       'status_msg' => 'Deleting the record from DB was incorrect',
-      'data'       => ''
+      'data'       => $data_array
     );
   }
 

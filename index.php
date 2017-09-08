@@ -17,6 +17,13 @@ $page4 = ($tempp4 ? envo_url_input_filter($tempp4) : '');
 $page5 = ($tempp5 ? envo_url_input_filter($tempp5) : '');
 $page6 = ($tempp6 ? envo_url_input_filter($tempp6) : '');
 
+// Only the SuperAdmin in the config file see everything
+if (JAK_USERID && $jakuser->jakSuperadminaccess(JAK_USERID)) {
+  define('JAK_SUPERADMINACCESS', TRUE);
+} else {
+  define('JAK_SUPERADMINACCESS', FALSE);
+}
+
 // EN: Import the language file
 // CZ: Import jazykových souborů
 if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {

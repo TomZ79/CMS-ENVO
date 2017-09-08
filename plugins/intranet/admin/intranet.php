@@ -6,7 +6,7 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSBLOG)) envo_redirect(BASE_URL);
+if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSINTRANET)) envo_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
@@ -16,6 +16,7 @@ $envotable2 = DB_PREFIX . 'intranethouseapt';
 $envotable3 = DB_PREFIX . 'intranethousecontact';
 $envotable4 = DB_PREFIX . 'intranethousedocu';
 $envotable5 = DB_PREFIX . 'intranethouseimg';
+$envotable6 = DB_PREFIX . 'intranethouseserv';
 
 // EN: Include the functions
 // CZ: Vložené funkce
@@ -127,6 +128,9 @@ switch ($page1) {
                         city = "' . smartsql($defaults['envo_housecity']) . '",
                         psc = "' . smartsql($defaults['envo_housepsc']) . '",
                         state = "' . smartsql($defaults['envo_housestate']) . '",
+                        latitude = "' . smartsql($defaults['envo_housegpslat']) . '",
+                        longitude = "' . smartsql($defaults['envo_housegpslng']) . '",
+                        description = "' . smartsql($defaults['envo_housedescription']) . '",
                         ic = "' . smartsql($defaults['envo_houseic']) . '",
                         dic = "' . smartsql($defaults['envo_housedic']) . '",
                         countentrance = "' . smartsql($defaults['envo_countentranceall']) . '",
@@ -246,6 +250,9 @@ switch ($page1) {
                         city = "' . smartsql($defaults['envo_housecity']) . '",
                         psc = "' . smartsql($defaults['envo_housepsc']) . '",
                         state = "' . smartsql($defaults['envo_housestate']) . '",
+                        latitude = "' . smartsql($defaults['envo_housegpslat']) . '",
+                        longitude = "' . smartsql($defaults['envo_housegpslng']) . '",
+                        description = "' . smartsql($defaults['envo_housedescription']) . '",
                         ic = "' . smartsql($defaults['envo_houseic']) . '",
                         dic = "' . smartsql($defaults['envo_housedic']) . '",
                         countentrance = "' . smartsql($defaults['envo_countentranceall']) . '",
@@ -285,6 +292,10 @@ switch ($page1) {
           // EN: Get all the data for the form - entrance
           // CZ: Získání všech dat pro formulář - vchody
           $ENVO_FORM_DATA_ENT = envo_get_house_entrance($pageID, $envotable1);
+
+          // EN: Get all the data for the form - services
+          // CZ: Získání všech dat pro formulář - servisy
+          $ENVO_FORM_DATA_SERV = envo_get_house_services($pageID, $envotable6);
 
           // EN: Get all the data for the form - documents
           // CZ: Získání všech dat pro formulář - dokumenty

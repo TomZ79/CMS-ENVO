@@ -27,7 +27,8 @@ echo $Html->addDoctype('html5');
     <!-- BEGIN Vendor CSS-->
     <?php
     // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-    echo $Html->addStylesheet('assets/plugins/pace/pace-theme-flash.css');
+    // Pace preloader
+    echo $Html->addStylesheet('assets/plugins/pace/templates/pace-theme-loading-bar.css');
     // Bootstrap
     echo $Html->addStylesheet('assets/plugins/bootstrapv3/css/bootstrap.min.css');
     // Font Awesomemin
@@ -86,6 +87,8 @@ echo $Html->addDoctype('html5');
 
   </head>
 <body class="fixed-header has-detached-right overlay-disabled">
+  <!-- PACE PRELOADER -->
+  <div id="pace" class="active"></div>
 <?php if ($JAK_PROVED) { ?>
   <!-- BEGIN SIDEBAR -->
   <div class="page-sidebar" data-pages="sidebar">

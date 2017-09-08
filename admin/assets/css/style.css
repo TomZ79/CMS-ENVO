@@ -12,6 +12,86 @@
  *
  */
 
+/* Pace.js custom style */
+#pace.active {
+  z-index: 2000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+#pace.inactive {
+ 
+}
+
+/* Bootsrap pull right responsive */
+.pull-right-not-xs, .pull-right-not-sm, .pull-right-not-md, .pull-right-not-lg {
+  float: right;
+}
+
+.pull-left-not-xs, .pull-left-not-sm, .pull-left-not-md, .pull-left-not-lg {
+  float: left;
+}
+
+@media (max-width: 767px) {
+  .pull-right-not-xs, .pull-left-not-xs {
+    float: none;
+  }
+
+  .pull-right-xs {
+    float: right;
+  }
+
+  .pull-left-xs {
+    float: left;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .pull-right-not-sm, .pull-left-not-sm {
+    float: none;
+  }
+
+  .pull-right-sm {
+    float: right;
+  }
+
+  .pull-left-sm {
+    float: left;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .pull-right-not-md, .pull-left-not-md {
+    float: none;
+  }
+
+  .pull-right-md {
+    float: right;
+  }
+
+  .pull-left-md {
+    float: left;
+  }
+}
+
+@media (min-width: 1200px) {
+  .pull-right-not-lg, .pull-left-not-lg {
+    float: none;
+  }
+
+  .pull-right-lg {
+    float: right;
+  }
+
+  .pull-left-lg {
+    float: left;
+  }
+}
+
 /* Bootstrap Select2 */
 .select2-container .select2-selection {
   border-radius: 0 !important;
@@ -30,9 +110,12 @@
 }
 
 .has-error .select2-selection {
-  border-color: #f22823 !important;
+  border-color: #F22823 !important;
 }
 
+.select2-dropdown.zindex1060 {
+  z-index: 1060;
+}
 
 /* Spinner  */
 #spinner {
@@ -46,7 +129,7 @@
 #spinner > div {
   width: 10px;
   height: 10px;
-  background-color: #3b4752;
+  background-color: #3B4752;
 
   border-radius: 100%;
   display: inline-block;
@@ -93,6 +176,7 @@
     transform: scale(1.0);
   }
 }
+
 /* Pages class */
 .pull-center {
   width: 80%;
@@ -253,7 +337,6 @@ h3.popover-title {
 }
 
 /* BOOTSTRAP SELECT */
-
 
 .bootstrap-select .btn-default {
   background-color: transparent !important;
@@ -1430,6 +1513,10 @@ pre[class*="language-"] {
   .modal-w-90p {
     width: 90%;
   }
+
+  .modal-w-95p {
+    width: 95%;
+  }
 }
 
 /* 00. BOOTSTRAP NOTIFY
@@ -2000,9 +2087,8 @@ a.discardChanges {
     font-weight: 400;
     line-height: 1;
     border: none;
-    background: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    background: none !important;
+    transition: none !important;
   }
 
   .nav-tabs-responsive > li.prev > a:after {

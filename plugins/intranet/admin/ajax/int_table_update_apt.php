@@ -23,25 +23,55 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
 // PHP CODE and DB
 //-------------------------
 
+// Define basic variable
+$data_array = array();
+
 if ($input['action'] === 'edit') {
+  // ACTION - EDIT
 
   $jakdb->query('UPDATE ' . DB_PREFIX . 'intranethouseapt SET number = "' . $input['number'] . '", etage = "' . $input['etage'] . '", name = "' . $input['name'] . '", phone = "' . $input['phone'] . '", commission = "' . $input['commission'] . '" WHERE id = "' . $input['id'] . '"');
 
-  $envodata = json_encode($input);
+  $envodata = $input;
 
 } else if ($input['action'] === 'delete') {
+  // ACTION - DELETE
 
   $jakdb->query('DELETE FROM ' . DB_PREFIX . 'intranethouseapt WHERE id = "' . $input['id'] . '"');
 
-  $envodata = json_encode($input);
+  if ($result) {
+    $data_array[] = array(
+      'id'     => $input["id"],
+      'action' => $input["action"],
+    );
+
+    // Data for JSON
+    $envodata = array(
+      'status'     => 'delete_success',
+      'status_msg' => 'Deleting the record from DB was successful',
+      'data'       => $data_array
+    );
+  } else {
+    $data_array[] = array(
+      'id'     => $input["id"]
+    );
+
+    // Data for JSON
+    $envodata = array(
+      'status'     => 'delete_error_E01',
+      'status_msg' => 'Deleting the record from DB was incorrect',
+      'data'       => $data_array
+    );
+  }
 
 } else if ($input['action'] === 'restore') {
+  // ACTION - RESTORE
 
-
+  $envodata = $input;
 }
 
 // RETURN JSON OUTPUT
 //-------------------------
-echo $envodata;
+$json_output = json_encode($envodata);
+echo $json_output;
 
 ?>

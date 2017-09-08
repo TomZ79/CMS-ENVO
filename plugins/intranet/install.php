@@ -235,6 +235,9 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   `city` varchar(255) NULL DEFAULT NULL,
   `psc` varchar(100) NULL DEFAULT NULL,
   `state` varchar(255) NULL DEFAULT NULL,
+  `latitude` varchar(255) NULL DEFAULT NULL,
+  `longitude` varchar(255) NULL DEFAULT NULL,
+  `description` varchar(255) NULL DEFAULT NULL,
   `ic` varchar(100) NULL DEFAULT NULL,
   `dic` varchar(100) NULL DEFAULT NULL,
   `permission` varchar(100) NOT NULL DEFAULT 0,
@@ -283,6 +286,20 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
+        // EN: Create table for plugin (House - Services)
+        // CZ: Vytvoření tabulky pro plugin (Bytový dům - Servis)
+        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouseserv (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `houseid` int(10) unsigned NOT NULL DEFAULT 0,
+  `description` varchar(255) NULL DEFAULT NULL,
+  `timedefault` DATETIME DEFAULT NULL,
+  `timestart` DATETIME DEFAULT NULL,
+  `timeend` DATETIME DEFAULT NULL,
+  `timeedit` DATETIME DEFAULT NULL,
+  `deleted` int(10) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
         // EN: Create table for plugin (House - Documents)
         // CZ: Vytvoření tabulky pro plugin (Bytový dům - Dokumentace)
         $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousedocu (
@@ -301,6 +318,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
         $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouseimg (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `houseid` int(10) unsigned NOT NULL DEFAULT 0,
+  `shortdescription` varchar(255) NULL DEFAULT NULL,
   `description` varchar(255) NULL DEFAULT NULL,
   `filenameoriginal` varchar(255) NULL DEFAULT NULL,
   `filenamethumb` varchar(255) NULL DEFAULT NULL,
@@ -309,6 +327,8 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   `widththumb` varchar(255) NULL DEFAULT NULL,
   `heightthumb` varchar(255) NULL DEFAULT NULL,
   `mainfolder` varchar(255) NULL DEFAULT NULL,
+  `category` varchar(255) NULL DEFAULT NULL,
+  `subcategory` varchar(255) NULL DEFAULT NULL,
   `timedefault` DATETIME DEFAULT NULL,
   `timeedit` DATETIME DEFAULT NULL,
   `exifmake` varchar(255) NULL DEFAULT NULL,
