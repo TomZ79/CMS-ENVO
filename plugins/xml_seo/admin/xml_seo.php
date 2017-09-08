@@ -8,7 +8,13 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, $jkv["accessmanage"])) envo_redirect(BASE_URL);
 
-require_once('class/xml.sitemap.generator.php');
+// -------- DATA FOR ALL ADMIN PAGES --------
+// -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
+
+// EN: Set base plugin folder - template
+// CZ: Nastavení základní složky pluginu - šablony
+$BASE_PLUGIN_URL_TEMPLATE  = APP_PATH . 'plugins/xml_seo/admin/template/';
+$SHORT_PLUGIN_URL_TEMPLATE = '/plugins/xml_seo/admin/template/';
 
 // Get the xmlseo path and time from db
 $result = $jakdb->query('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "xmlseopath"');
@@ -26,6 +32,13 @@ if (!empty($row['value'])) {
 } else {
   $XMLSEODATE = $tlxml["xml_error"]["xmler"];
 }
+
+// EN: Require the functions
+// CZ: Požadované funkce
+require_once('class/xml.sitemap.generator.php');
+
+// -------- DATA FOR SELECTED ADMIN PAGES --------
+// -------- DATA PRO VYBRANÉ ADMIN STRÁNKY --------
 
 // EN: Switching access all pages by page name
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
@@ -305,7 +318,7 @@ switch ($page1) {
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
-    $plugin_template = 'plugins/xml_seo/admin/template/xml_seo_create.php';
+    $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'xml_seo_create.php';
 
     break;
   case 'view':
@@ -340,7 +353,7 @@ switch ($page1) {
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
-    $plugin_template = 'plugins/xml_seo/admin/template/xml_seo_view.php';
+    $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'xml_seo_view.php';
 
     break;
   default:
@@ -433,6 +446,6 @@ switch ($page1) {
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
-    $plugin_template = 'plugins/xml_seo/admin/template/xml_seo_setting.php';
+    $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'xml_seo_setting.php';
 }
 ?>
