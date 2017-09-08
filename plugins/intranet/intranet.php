@@ -12,8 +12,8 @@ $CHECK_USR_SESSION = session_id();
 // Show content in template only the user have access
 $JAK_MODULES = $jakuser->jakModuleaccess(JAK_USERID, "1,23");
 
-// EN: Set base plugin folder
-// CZ: Nastavení základní složky pluginu
+// EN: Set base plugin folder - template
+// CZ: Nastavení základní složky pluginu - šablony
 $BASE_PLUGIN_URL_TEMPLATE  = APP_PATH . 'plugins/intranet/template/';
 $SHORT_PLUGIN_URL_TEMPLATE = '/plugins/intranet/template/';
 
@@ -50,7 +50,7 @@ switch ($page1) {
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
-    $plugin_template = 'plugins/intranet/template/int_404.php';
+    $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_404.php';
 
     break;
   case 'house':
@@ -115,7 +115,7 @@ switch ($page1) {
 
             // EN: Load the php template
             // CZ: Načtení php template (šablony)
-            $plugin_template = 'plugins/intranet/template/int_house_detail.php';
+            $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_house_detail.php';
 
           } else {
             // USER HAVE NOT PERMISSION
@@ -157,7 +157,7 @@ switch ($page1) {
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
-        $plugin_template = 'plugins/intranet/template/int_house.php';
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_house.php';
 
     }
 
@@ -204,7 +204,7 @@ switch ($page1) {
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
-    $plugin_template = 'plugins/intranet/template/int_index.php';
+    $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_index.php';
 
 }
 ?>

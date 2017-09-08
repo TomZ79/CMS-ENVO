@@ -66,7 +66,7 @@
     </div>
     <!-- main navigation -->
     <nav role="navigation">
-      <?php include_once APP_PATH . 'plugins/intranet/template/int_nav.php'; ?>
+      <?php include_once $BASE_PLUGIN_URL_TEMPLATE . 'int_nav.php'; ?>
     </nav>
     <!-- /main navigation -->
   </div>

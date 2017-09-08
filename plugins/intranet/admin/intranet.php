@@ -8,6 +8,14 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSINTRANET)) envo_redirect(BASE_URL);
 
+// -------- DATA FOR ALL ADMIN PAGES --------
+// -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
+
+// EN: Set base plugin folder - template
+// CZ: Nastavení základní složky pluginu - šablony
+$BASE_PLUGIN_URL_TEMPLATE  = APP_PATH . 'plugins/intranet/admin/template/';
+$SHORT_PLUGIN_URL_TEMPLATE = '/plugins/intranet/admin/template/';
+
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable  = DB_PREFIX . 'intranethouse';
@@ -21,6 +29,9 @@ $envotable6 = DB_PREFIX . 'intranethouseserv';
 // EN: Include the functions
 // CZ: Vložené funkce
 include_once("../plugins/intranet/admin/include/functions.php");
+
+// -------- DATA FOR SELECTED ADMIN PAGES --------
+// -------- DATA PRO VYBRANÉ ADMIN STRÁNKY --------
 
 // EN: Switching access all pages by page name
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
@@ -167,7 +178,7 @@ switch ($page1) {
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
-        $plugin_template = 'plugins/intranet/admin/template/int_newhouse.php';
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_newhouse.php';
 
         break;
       case 'edithouse':
@@ -316,7 +327,7 @@ switch ($page1) {
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)
-          $plugin_template = 'plugins/intranet/admin/template/int_edithouse.php';
+          $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_edithouse.php';
 
         } else {
           // EN: Redirect page
@@ -339,7 +350,7 @@ switch ($page1) {
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
-        $plugin_template = 'plugins/intranet/admin/template/int_house.php';
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_house.php';
 
     }
 
@@ -395,7 +406,7 @@ switch ($page1) {
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
-    $plugin_template = 'plugins/intranet/admin/template/int_setting.php';
+    $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_setting.php';
 
     break;
   default:
