@@ -8,6 +8,14 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSFAQ)) envo_redirect(BASE_URL);
 
+// -------- DATA FOR ALL ADMIN PAGES --------
+// -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
+
+// EN: Set base plugin folder - template
+// CZ: Nastavení základní složky pluginu - šablony
+$BASE_PLUGIN_URL_TEMPLATE  = APP_PATH . 'plugins/faq/admin/template/';
+$SHORT_PLUGIN_URL_TEMPLATE = '/plugins/faq/admin/template/';
+
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable  = DB_PREFIX . 'faq';
@@ -15,6 +23,9 @@ $envotable1 = DB_PREFIX . 'faqcategories';
 $envotable3 = DB_PREFIX . 'contactform';
 $envotable4 = DB_PREFIX . 'pagesgrid';
 $envotable5 = DB_PREFIX . 'pluginhooks';
+
+// -------- DATA FOR SELECTED ADMIN PAGES --------
+// -------- DATA PRO VYBRANÉ ADMIN STRÁNKY --------
 
 // EN: Include the functions
 // CZ: Vložené funkce
@@ -175,7 +186,7 @@ switch ($page1) {
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
-    $plugin_template = 'plugins/faq/admin/template/newfaq.php';
+    $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'newfaq.php';
 
     break;
   case 'categories':
@@ -316,7 +327,7 @@ switch ($page1) {
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)
-          $plugin_template = 'plugins/faq/admin/template/editfaqcat.php';
+          $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'editfaqcat.php';
 
         } else {
           // EN: Redirect page
@@ -395,7 +406,7 @@ switch ($page1) {
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
-        $plugin_template = 'plugins/faq/admin/template/faqcat.php';
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'faqcat.php';
     }
     break;
   case 'newcategory':
@@ -487,7 +498,7 @@ switch ($page1) {
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
-    $plugin_template = 'plugins/faq/admin/template/newfaqcat.php';
+    $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'newfaqcat.php';
 
     break;
   case 'setting':
@@ -677,7 +688,7 @@ switch ($page1) {
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
-    $plugin_template = 'plugins/faq/admin/template/faqsetting.php';
+    $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'faqsetting.php';
 
     break;
   case 'quickedit':
@@ -763,7 +774,7 @@ switch ($page1) {
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)
-          $plugin_template = 'plugins/faq/admin/template/faqcatsort.php';
+          $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'faqcatsort.php';
 
         } else {
           // EN: Redirect page
@@ -1035,7 +1046,7 @@ switch ($page1) {
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)
-          $plugin_template = 'plugins/faq/admin/template/editfaq.php';
+          $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'editfaq.php';
 
         } else {
           // EN: Redirect page
@@ -1070,7 +1081,7 @@ switch ($page1) {
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
-        $plugin_template = 'plugins/faq/admin/template/faq.php';
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'faq.php';
 
         break;
       default:
@@ -1173,7 +1184,7 @@ switch ($page1) {
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
-        $plugin_template = 'plugins/faq/admin/template/faq.php';
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'faq.php';
     }
 }
 ?>
