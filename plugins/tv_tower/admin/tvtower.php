@@ -8,6 +8,14 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSTV_TOWER)) envo_redirect(BASE_URL);
 
+// -------- DATA FOR ALL ADMIN PAGES --------
+// -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
+
+// EN: Set base plugin folder - template
+// CZ: Nastavení základní složky pluginu - šablony
+$BASE_PLUGIN_URL_TEMPLATE  = APP_PATH . 'plugins/tv_tower/admin/template/';
+$SHORT_PLUGIN_URL_TEMPLATE = '/plugins/tv_tower/admin/template/';
+
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable  = DB_PREFIX . 'tvtowertvchannel';
@@ -27,6 +35,9 @@ $langfile = $langdir . $site_language . '.ini';
 // EN: Include the functions
 // CZ: Vložené funkce
 include_once("../plugins/tv_tower/admin/include/functions.php");
+
+// -------- DATA FOR SELECTED ADMIN PAGES --------
+// -------- DATA PRO VYBRANÉ ADMIN STRÁNKY --------
 
 // EN: Switching access all pages by page name
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
@@ -158,7 +169,7 @@ switch ($page1) {
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
-        $plugin_template = 'plugins/tv_tower/admin/template/tt_newprogram.php';
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_newprogram.php';
 
         break;
       case 'editprogram':
@@ -294,7 +305,7 @@ switch ($page1) {
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)
-          $plugin_template = 'plugins/tv_tower/admin/template/tt_editprogram.php';
+          $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_editprogram.php';
 
         } else {
           // EN: Redirect page
@@ -359,7 +370,7 @@ switch ($page1) {
 
             // EN: Load the php template
             // CZ: Načtení php template (šablony)
-            $plugin_template = 'plugins/tv_tower/admin/template/tt_program.php';
+            $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_program.php';
 
             break;
           default:
@@ -383,7 +394,7 @@ switch ($page1) {
 
             // EN: Load the php template
             // CZ: Načtení php template (šablony)
-            $plugin_template = 'plugins/tv_tower/admin/template/tt_program.php';
+            $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_program.php';
         }
     }
 
@@ -466,7 +477,7 @@ switch ($page1) {
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
-        $plugin_template = 'plugins/tv_tower/admin/template/tt_newchannel.php';
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_newchannel.php';
 
         break;
       case 'editchannel':
@@ -548,7 +559,7 @@ switch ($page1) {
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)
-          $plugin_template = 'plugins/tv_tower/admin/template/tt_editchannel.php';
+          $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_editchannel.php';
 
         } else {
           // EN: Redirect page
@@ -622,7 +633,7 @@ switch ($page1) {
 
             // EN: Load the php template
             // CZ: Načtení php template (šablony)
-            $plugin_template = 'plugins/tv_tower/admin/template/tt_channel.php';
+            $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_channel.php';
 
             break;
           default:
@@ -642,7 +653,7 @@ switch ($page1) {
 
             // EN: Load the php template
             // CZ: Načtení php template (šablony)
-            $plugin_template = 'plugins/tv_tower/admin/template/tt_channel.php';
+            $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_channel.php';
         }
     }
 
@@ -740,7 +751,7 @@ switch ($page1) {
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
-        $plugin_template = 'plugins/tv_tower/admin/template/tt_newtvtower.php';
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_newtvtower.php';
 
         break;
       case 'edittvtower':
@@ -833,7 +844,7 @@ switch ($page1) {
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)
-          $plugin_template = 'plugins/tv_tower/admin/template/tt_edittvtower.php';
+          $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_edittvtower.php';
 
         } else {
           // EN: Redirect page
@@ -889,7 +900,7 @@ switch ($page1) {
 
             // EN: Load the php template
             // CZ: Načtení php template (šablony)
-            $plugin_template = 'plugins/tv_tower/admin/template/tt_tvtower.php';
+            $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_tvtower.php';
 
             break;
           case 'delete':
@@ -949,7 +960,7 @@ switch ($page1) {
 
             // EN: Load the php template
             // CZ: Načtení php template (šablony)
-            $plugin_template = 'plugins/tv_tower/admin/template/tt_tvtower.php';
+            $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_tvtower.php';
 
             break;
           default:
@@ -965,7 +976,7 @@ switch ($page1) {
 
             // EN: Load the php template
             // CZ: Načtení php template (šablony)
-            $plugin_template = 'plugins/tv_tower/admin/template/tt_tvtower.php';
+            $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_tvtower.php';
         }
     }
 
@@ -1063,7 +1074,7 @@ switch ($page1) {
 
             // EN: Load the php template
             // CZ: Načtení php template (šablony)
-            $plugin_template = 'plugins/tv_tower/admin/template/tt_createident_s_idtv.php';
+            $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_createident_s_idtv.php';
 
             break;
           case 's_idr':
@@ -1152,7 +1163,7 @@ switch ($page1) {
 
             // EN: Load the php template
             // CZ: Načtení php template (šablony)
-            $plugin_template = 'plugins/tv_tower/admin/template/tt_createident_s_idr.php';
+            $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_createident_s_idr.php';
 
             break;
           case 's_ids':
@@ -1242,7 +1253,7 @@ switch ($page1) {
 
             // EN: Load the php template
             // CZ: Načtení php template (šablony)
-            $plugin_template = 'plugins/tv_tower/admin/template/tt_createident_s_ids.php';
+            $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_createident_s_ids.php';
 
             break;
           case 'on_id':
@@ -1332,7 +1343,7 @@ switch ($page1) {
 
             // EN: Load the php template
             // CZ: Načtení php template (šablony)
-            $plugin_template = 'plugins/tv_tower/admin/template/tt_createident_onid.php';
+            $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_createident_onid.php';
 
             break;
           case 'n_id':
@@ -1344,7 +1355,7 @@ switch ($page1) {
 
             // EN: Load the php template
             // CZ: Načtení php template (šablony)
-            $plugin_template = 'plugins/tv_tower/admin/template/tt_createident_nid.php';
+            $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_createident_nid.php';
 
             break;
           default:
@@ -1356,7 +1367,7 @@ switch ($page1) {
 
             // EN: Load the php template
             // CZ: Načtení php template (šablony)
-            $plugin_template = 'plugins/tv_tower/admin/template/tt_createident.php';
+            $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_createident.php';
         }
 
         break;
@@ -1451,7 +1462,7 @@ switch ($page1) {
 
               // EN: Load the php template
               // CZ: Načtení php template (šablony)
-              $plugin_template = 'plugins/tv_tower/admin/template/tt_editident_s_idtv.php';
+              $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_editident_s_idtv.php';
 
             } else {
               // EN: Redirect page
@@ -1548,7 +1559,7 @@ switch ($page1) {
 
               // EN: Load the php template
               // CZ: Načtení php template (šablony)
-              $plugin_template = 'plugins/tv_tower/admin/template/tt_editident_s_idr.php';
+              $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_editident_s_idr.php';
 
             } else {
               // EN: Redirect page
@@ -1644,7 +1655,7 @@ switch ($page1) {
 
               // EN: Load the php template
               // CZ: Načtení php template (šablony)
-              $plugin_template = 'plugins/tv_tower/admin/template/tt_editident_s_ids.php';
+              $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_editident_s_ids.php';
 
             } else {
               // EN: Redirect page
@@ -1740,7 +1751,7 @@ switch ($page1) {
 
               // EN: Load the php template
               // CZ: Načtení php template (šablony)
-              $plugin_template = 'plugins/tv_tower/admin/template/tt_editident_onid.php';
+              $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_editident_onid.php';
 
             } else {
               // EN: Redirect page
@@ -1758,7 +1769,7 @@ switch ($page1) {
 
             // EN: Load the php template
             // CZ: Načtení php template (šablony)
-            $plugin_template = 'plugins/tv_tower/admin/template/tt_createident_nid.php';
+            $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_createident_nid.php';
 
             break;
           default:
@@ -1921,7 +1932,7 @@ switch ($page1) {
 
             // EN: Load the php template
             // CZ: Načtení php template (šablony)
-            $plugin_template = 'plugins/tv_tower/admin/template/tt_showident.php';
+            $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_showident.php';
         }
 
     }
@@ -2003,7 +2014,7 @@ switch ($page1) {
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
-    $plugin_template = 'plugins/tv_tower/admin/template/tt_setting.php';
+    $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'tt_setting.php';
 
     break;
   default:
