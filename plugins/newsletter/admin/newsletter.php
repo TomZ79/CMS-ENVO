@@ -8,6 +8,14 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
 if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSNEWSLETTER)) envo_redirect(BASE_URL);
 
+// -------- DATA FOR ALL ADMIN PAGES --------
+// -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
+
+// EN: Set base plugin folder - template
+// CZ: Nastavení základní složky pluginu - šablony
+$BASE_PLUGIN_URL_TEMPLATE  = APP_PATH . 'plugins/newsletter/admin/template/';
+$SHORT_PLUGIN_URL_TEMPLATE = '/plugins/newsletter/admin/template/';
+
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable  = DB_PREFIX . 'newsletter';
@@ -19,25 +27,12 @@ $envotable3 = DB_PREFIX . 'newsletterstat';
 // CZ: Reset Pole (výstupní chyby se ukládají do pole)
 $success = array();
 
-// Get newsletter skins
-function jak_get_themes($styledir)
-{
+// EN: Include the functions
+// CZ: Vložené funkce
+include_once("../plugins/newsletter/admin/include/functions.php");
 
-  if ($handle = opendir($styledir)) {
-
-    /* This is the correct way to loop over the directory. */
-    while (FALSE !== ($template = readdir($handle))) {
-      if ($template != '.' && $template != '..' && is_dir($styledir . '/' . $template)) {
-        $getstyle[] = $template;
-
-      }
-    }
-
-    return $getstyle;
-    clearstatcache();
-    closedir($handle);
-  }
-}
+// -------- DATA FOR SELECTED ADMIN PAGES --------
+// -------- DATA PRO VYBRANÉ ADMIN STRÁNKY --------
 
 // EN: Switching access all pages by page name
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
@@ -107,7 +102,7 @@ switch ($page1) {
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
-    $plugin_template = 'plugins/newsletter/admin/template/new.php';
+    $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'new.php';
 
     break;
   case 'preview':
@@ -119,7 +114,7 @@ switch ($page1) {
 
       // EN: Load the php template
       // CZ: Načtení php template (šablony)
-      $plugin_template = 'plugins/newsletter/admin/template/preview.php';
+      $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'preview.php';
 
     } else {
       // EN: Redirect page
@@ -205,7 +200,7 @@ switch ($page1) {
 
       // EN: Load the php template
       // CZ: Načtení php template (šablony)
-      $plugin_template = 'plugins/newsletter/admin/template/stat.php';
+      $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'stat.php';
 
     } else {
       // EN: Redirect page
@@ -414,7 +409,7 @@ switch ($page1) {
 
       // EN: Load the php template
       // CZ: Načtení php template (šablony)
-      $plugin_template = 'plugins/newsletter/admin/template/send.php';
+      $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'send.php';
 
     } else {
       // EN: Redirect page
@@ -551,7 +546,7 @@ switch ($page1) {
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
-        $plugin_template = 'plugins/newsletter/admin/template/newuser.php';
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'newuser.php';
 
         break;
       case 'edit':
@@ -622,7 +617,7 @@ switch ($page1) {
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
-        $plugin_template = 'plugins/newsletter/admin/template/edituser.php';
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'edituser.php';
 
         break;
       case 'delete':
@@ -682,7 +677,7 @@ switch ($page1) {
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
-        $plugin_template = 'plugins/newsletter/admin/template/user.php';
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'user.php';
 
         break;
       default:
@@ -769,7 +764,7 @@ switch ($page1) {
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
-        $plugin_template = 'plugins/newsletter/admin/template/user.php';
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'user.php';
 
     }
 
@@ -827,7 +822,7 @@ switch ($page1) {
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
-        $plugin_template = 'plugins/newsletter/admin/template/newgroup.php';
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'newgroup.php';
 
         break;
       case 'edit':
@@ -889,7 +884,7 @@ switch ($page1) {
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
-        $plugin_template = 'plugins/newsletter/admin/template/editgroup.php';
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'editgroup.php';
 
         break;
       case 'delete':
@@ -1002,7 +997,7 @@ switch ($page1) {
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
-        $plugin_template = 'plugins/newsletter/admin/template/usergroup.php';
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'usergroup.php';
     }
 
     break;
@@ -1145,7 +1140,7 @@ switch ($page1) {
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)
-    $plugin_template = 'plugins/newsletter/admin/template/settings.php';
+    $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'settings.php';
 
     break;
   default:
@@ -1231,7 +1226,7 @@ switch ($page1) {
 
           // EN: Load the php template
           // CZ: Načtení php template (šablony)
-          $plugin_template = 'plugins/newsletter/admin/template/edit.php';
+          $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'edit.php';
 
         } else {
           // EN: Redirect page
@@ -1295,7 +1290,7 @@ switch ($page1) {
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
-        $plugin_template = 'plugins/newsletter/admin/template/newsletter.php';
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'newsletter.php';
     }
 }
 ?>

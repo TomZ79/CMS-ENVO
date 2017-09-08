@@ -4,6 +4,16 @@
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
 if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
+$CHECK_USR_SESSION = session_id();
+
+// -------- DATA FOR ALL FRONTEND PAGES --------
+// -------- DATA PRO VŠECHNY FRONTEND STRÁNKY --------
+
+// EN: Set base plugin folder - template
+// CZ: Nastavení základní složky pluginu - šablony
+$BASE_PLUGIN_URL_TEMPLATE  = APP_PATH . 'plugins/newsletter/template/';
+$SHORT_PLUGIN_URL_TEMPLATE = '/plugins/newsletter/template/';
+
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable  = DB_PREFIX . 'newsletter';
@@ -16,6 +26,9 @@ define('JAK_NEWSLETTER', $jakusergroup->getVar("newsletter"));
 
 // Parse links once if needed a lot of time
 $backtonl = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_NEWSLETTER, '', '', '', '');
+
+// -------- DATA FOR SELECTED FRONTEND PAGES --------
+// -------- DATA PRO VYBRANÉ FRONTEND STRÁNKY --------
 
 // EN: Switching access all pages by page name
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
@@ -114,7 +127,7 @@ switch ($page1) {
 
       // EN: Load the php template
       // CZ: Načtení php template (šablony)
-      $pluginbasic_template = 'plugins/newsletter/template/newsletter.php';
+      $pluginbasic_template = $SHORT_PLUGIN_URL_TEMPLATE . 'newsletter.php';
       $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/newsletter/newsletter.php';
 
       if (file_exists($pluginsite_template)) {
@@ -176,7 +189,7 @@ switch ($page1) {
 
       // EN: Load the php template
       // CZ: Načtení php template (šablony)
-      $pluginbasic_template = 'plugins/newsletter/template/nloff.php';
+      $pluginbasic_template = $SHORT_PLUGIN_URL_TEMPLATE . 'nloff.php';
       $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/newsletter/nloff.php';
 
       if (file_exists($pluginsite_template)) {
@@ -274,7 +287,7 @@ switch ($page1) {
 
       // EN: Load the php template
       // CZ: Načtení php template (šablony)
-      $pluginbasic_template = 'plugins/newsletter/template/nloff.php';
+      $pluginbasic_template = $SHORT_PLUGIN_URL_TEMPLATE . 'nloff.php';
       $pluginsite_template  = 'template/' . ENVO_TEMPLATE . '/plugintemplate/newsletter/nloff.php';
 
       if (file_exists($pluginsite_template)) {
