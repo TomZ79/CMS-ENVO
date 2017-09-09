@@ -10,7 +10,7 @@ $CHECK_USR_SESSION = session_id();
 // -------- DATA PRO VŠECHNY FRONTEND STRÁNKY --------
 
 // Show content in template only the user have access
-$JAK_MODULES = $jakuser->jakModuleaccess(JAK_USERID, "1,23");
+$ENVO_MODULES = $jakuser->jakModuleaccess(JAK_USERID, "1,23");
 
 // EN: Set base plugin folder - template
 // CZ: Nastavení základní složky pluginu - šablony

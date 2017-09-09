@@ -210,7 +210,7 @@
   </div>
   <a href="#" class="scrollup">Scroll</a>
 
-  <?php if ($JAK_MODULES) { ?>
+  <?php if ($ENVO_MODULES) { ?>
 
     <div class="footer-widget">
       <div class="progress transparent progress-small no-radius no-margin">

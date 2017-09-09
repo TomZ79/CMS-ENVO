@@ -9,8 +9,15 @@
  * =======================================================================
  * INDEX:
  *
+ * 01. Prototype constructor function
+ * 02. Begin main menu toggle
+ * 03. Bind Functions Jquery- LAYOUT OPTIONS API
+ * 04. Initialize layouts and plugins
  *
  */
+
+/* 01. PROTOTYPE CONSTRUCTOR FUNCTION
+ ========================================================================*/
 
 (function ($) {
 
@@ -339,7 +346,7 @@
 })(window.jQuery);
 
 
-/* 00. BEGIN Main Menu Toggle
+/* 02. BEGIN Main Menu Toggle
  ========================================================================*/
 $(function () {
 
@@ -372,7 +379,7 @@ $(function () {
 
 });
 
-/* 00. Bind Functions Jquery- LAYOUT OPTIONS API
+/* 03. Bind Functions Jquery- LAYOUT OPTIONS API
  ========================================================================*/
 (function ($) {
 
@@ -421,7 +428,7 @@ $(function () {
 
 })(jQuery);
 
-/* 00. Initialize layouts and plugins
+/* 04. Initialize layouts and plugins
  ========================================================================*/
 $(function () {
 

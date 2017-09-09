@@ -22,7 +22,7 @@
 
     </div>
 
-    <?php if ($JAK_MODULES) { ?>
+    <?php if ($ENVO_MODULES) { ?>
 
 
     <?php } ?>
