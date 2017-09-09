@@ -1,17 +1,18 @@
-<ul class="nav">
+<ul>
   <!-- dashboard -->
   <li>
     <a href="<?php echo JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_INTRANET, '', '', '', '')?>">
-      <i class="icon-screen-desktop"></i>
-      <span>Dashboard</span>
+      <i class="material-icons">dashboard</i>
+      <span class="title">Dashboard</span>
     </a>
   </li>
   <!-- /dashboard -->
   <!-- house -->
   <li>
-    <a href="javascript:;">
-      <i class="icon-home"></i>
-      <span>Bytové domy</span>
+    <a href="javascript:;" class="auto">
+      <i class="material-icons">home</i>
+      <span class="title">Bytové domy</span>
+      <span class="arrow"></span>
     </a>
     <ul class="sub-menu">
       <li>
