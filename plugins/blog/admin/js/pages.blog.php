@@ -395,8 +395,8 @@
       ],
       // Init bootstrap responsive table for mobile
       "initComplete": function(settings, json){
-        $('#blog_table').wrap('<div class="table-responsive"></div>');
-      },
+        $(this).wrap('<div class="table-responsive"></div>');
+      }
     });
   } );
 </script>

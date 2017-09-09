@@ -35,6 +35,20 @@ $envotable3 = DB_PREFIX . 'intranethouseimg';
 // Parse links once if needed a lot of time
 $backtoblog = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_INTRANET, '', '', '', '');
 
+// EN: If the user is logged in, get username and usergroup name
+// CZ: Pokud je uživatel přihlášen, získej uživatelské jméno a jméno uživatelské skupiny
+if (JAK_USERID) {
+
+  // Get the user name
+  $ENVO_USER_NAME = $jakuser->getVar('name');
+  // Get the user avatar
+  $ENVO_USER_AVATAR = $jakuser->getVar('picture');
+  // Get the user group name
+  $result          = $jakdb->query('SELECT name FROM ' . DB_PREFIX . 'usergroup WHERE id="' . $jakuser->getVar("usergroupid") . '"');
+  $row             = $result->fetch_assoc();
+  $ENVO_USER_GROUP = $row['name'];
+}
+
 // EN: Include the functions
 // CZ: Vložené funkce
 include_once("functions.php");
@@ -183,23 +197,35 @@ switch ($page1) {
     if (JAK_USERGROUPID == 3) {
       // If usergroup is 'Administrator'
 
-      // EN: Getting count of records in DB
-      // CZ: Získání počtu záznamů v DB
-      $result = $jakdb->query('SELECT COUNT(*) as houseCtotal FROM ' . $envotable);
-      $row    = $result->fetch_assoc();
+      // EN: Getting count of all records in DB
+      // CZ: Získání počtu všech záznamů v DB
+      $result    = $jakdb->query('SELECT COUNT(*) as houseCtotal FROM ' . $envotable);
+      $rowCtotal = $result->fetch_assoc();
 
-      $ENVO_COUNTS = $row['houseCtotal'];
+      // Count of all records by usergroup
+      $ENVO_COUNTS  = $rowCtotal['houseCtotal'];
+      // Percentage - records by usergroup / all records
+      $ENVO_PERCENT = ($rowCtotal['houseCtotal'] * 100) . '%';
 
     } else {
       // For other usergroup
 
-      // EN: Getting count of records in DB
-      // CZ: Získání počtu záznamů v DB
+      // EN: Getting count of all records in DB
+      // CZ: Získání počtu všech záznamů v DB
+      $result    = $jakdb->query('SELECT COUNT(*) as houseCtotal FROM ' . $envotable);
+      $rowCtotal = $result->fetch_assoc();
+
+      // EN: Getting count of records in DB by usergroup
+      // CZ: Získání počtu záznamů v DB podle uživatelské skupiny
       // Find in permission column 'usergroupid' or '0'. 0 means availability for all user groups.
-      $result         = $jakdb->query('SELECT * FROM ' . $envotable . ' WHERE FIND_IN_SET("' . JAK_USERGROUPID . '", permission) OR  FIND_IN_SET("0", permission)');
+      $result = $jakdb->query('SELECT * FROM ' . $envotable . ' WHERE FIND_IN_SET("' . JAK_USERGROUPID . '", permission) OR  FIND_IN_SET("0", permission)');
       // Determine number of rows result set
-      $row_cnt = $result->num_rows;
-      $ENVO_COUNTS = $row_cnt;
+      $row_cnt      = $result->num_rows;
+
+      // Count of all records by usergroup
+      $ENVO_COUNTS  = $row_cnt;
+      // Percentage - records by usergroup / all records
+      $ENVO_PERCENT = ($row_cnt / $rowCtotal['houseCtotal'] * 100) . '%';
     }
 
     // EN: Load the php template

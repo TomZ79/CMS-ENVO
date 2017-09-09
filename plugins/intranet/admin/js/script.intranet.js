@@ -1,7 +1,7 @@
 /*
  *
  * CMS ENVO
- * JS for Plugin Intranet
+ * JS for Plugin Intranet - Admin
  * Copyright © 2016 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas
@@ -49,7 +49,7 @@ var pageID = $.urlParam('id');
 /**
  * Jquery Function - DialogFX Open
  * Close editing description
- * Example:
+ * @example
  * Attribute 'data-dialog' in button => ID of dialog 'div' block
  * -----------------
  * <button class="dialog-open" type="button" data-dialog="itemDetails"></button>
@@ -134,7 +134,7 @@ function openDialog(event) {
 /**
  * Jquery Function - Edit Description
  * Remove attribute 'disabled' from textarea and hide Edit button, show Save-Close button
- * Example:
+ * @example
  * -----------------
  * <textarea id="desc" disabled>' . $text . '</textarea>
  * <button id="editdesc" type="button">Edit Description</button>
@@ -160,7 +160,7 @@ function editDesc(event) {
 /**
  * Jquery Function - Save Description
  * Save description over Ajax
- * Example:
+ * @example
  * -----------------
  * <textarea id="desc">' . $text . '</textarea>
  * <button id="savedesc"  data-id="' . $id . '" type="button">Save</button>
@@ -229,7 +229,7 @@ function saveDesc(event) {
 /**
  * Jquery Function - Save Description
  * Close editing description
- * Example:
+ * @example
  * -----------------
  * <textarea id="desc">' . $text . '</textarea>
  * <button id="editdesc" type="button" style="display:none;">Edit Description</button>
@@ -711,7 +711,7 @@ function addRowServ() {
   });
 }
 
-/* 00. UPLOAD FILE TO SERVER
+/* 00. ISOTOPE PHOTO GALLERY
  ========================================================================*/
 $(function () {
 
@@ -721,17 +721,17 @@ $(function () {
   /* Apply Isotope plugin - isotope.metafizzy.co
    ========================================= */
 
-// quick search regex
+  // quick search regex
   var qsRegex;
   var filters;
 
-// init Isotope
+  // init Isotope
   var $gallery = $('#gallery_envo');
   $gallery.isotope({
     itemSelector: 'div[class^="gallery-item-"]',
     masonry: {
       columnWidth: 280,
-      gutter: 10,
+      gutter: 10,         // The horizontal space between item elements
       isFitWidth: true
     },
     filter: function () {
@@ -753,7 +753,7 @@ $(function () {
     $gallery.isotope();
   });
 
-// use value of search field to filter
+  // use value of search field to filter
   var $quicksearch = $('#quicksearch').keyup(debounce(function () {
     qsRegex = new RegExp($quicksearch.val(), 'gi');
     $gallery.isotope();
@@ -787,6 +787,11 @@ $(function () {
     $gallery.isotope('layout');
   });
 
+});
+
+/* 00. UPLOAD FILE TO SERVER AND DELETE FILES FROM SERVER
+ ========================================================================*/
+$(function () {
 
   /* Upload Files
    ========================================= */

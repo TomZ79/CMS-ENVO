@@ -13,7 +13,7 @@ function envo_get_house_info($table, $ext_seo, $usergroupid)
     $usergrouparray = explode(',', $row['permission']);
 
     // Check if 'usergroupid' is in permission array or if is 'usergroupid' = 3 (administrator group) or permission is 0
-    if (in_array($usergroupid, $usergrouparray) || $usergroupid == 3  || $row['permission'] == 0) {
+    if (in_array($usergroupid, $usergrouparray) || $usergroupid == 3 || $row['permission'] == 0) {
 
       // There should be always a varname in categories and check if seo is valid
       $seo = "";
@@ -23,10 +23,10 @@ function envo_get_house_info($table, $ext_seo, $usergroupid)
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
       $envodata[] = array(
-        'id' => $row['id'],
-        'name' => $row['name'],
-        'street' => $row['street'],
-        'city' => $row['city'],
+        'id'       => $row['id'],
+        'name'     => $row['name'],
+        'street'   => $row['street'],
+        'city'     => $row['city'],
         'parseurl' => $parseurl,
       );
     }
@@ -36,4 +36,15 @@ function envo_get_house_info($table, $ext_seo, $usergroupid)
   if (isset($envodata)) return $envodata;
 }
 
+/** EN: Server CPU Usage
+ *
+ * Example:
+ * <span class="result"><?php get_server_cpu_usage() ?>%</span>
+*/
+function get_server_cpu_usage(){
+
+  $load = sys_getloadavg();
+  return $load[0];
+
+}
 ?>
