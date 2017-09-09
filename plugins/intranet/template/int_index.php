@@ -2,27 +2,30 @@
 
   <div class="col-md-12" style="margin: 10px 0 50px 0;">
 
-    <div class="col-sm-4">
-      <div class="card card-block b-a-0 bg-teal text-white">
-        <div class="card-circle-bg-icon"> <i class="icon-home"></i> </div>
-        <div class="h4 m-a-0"><?php echo $ENVO_COUNTS; ?></div>
-        <div>Bytové domy v databázi</div>
+    <div class="row 2col">
+      <div class="col-md-3 col-sm-6 spacing-bottom-sm spacing-bottom">
+        <div class="tiles blue added-margin">
+          <div class="tiles-body">
+            <div class="tiles-title"> BYTOVÉ DOMY V DATABÁZI </div>
+            <div class="heading">
+              <span class="animate-number" data-value="<?php echo $ENVO_COUNTS; ?>" data-animation-duration="1200">0</span>
+            </div>
+            <div class="progress transparent progress-small no-radius">
+              <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="<?php echo $ENVO_PERCENT; ?>"></div>
+            </div>
+            <div class="description">
+              <span class="text-white mini-description ">Počet bytů <span class="blend">uložených v databázi</span></span>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
-    <div class="col-sm-4">
-      <div class="card card-block b-a-0 bg-purple text-white">
-        <div class="card-circle-bg-icon"> <i class="icon-tag"></i> </div>
-        <div class="h4 m-a-0">4,894K</div>
-        <div>Sales products</div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card card-block b-a-0 bg-cyan text-white">
-        <div class="card-circle-bg-icon"> <i class="icon-cloud-upload"></i> </div>
-        <div class="h4 m-a-0">4,894K</div>
-        <div>Files synced</div>
-      </div>
-    </div>
+
+    <?php if ($JAK_MODULES) { ?>
+
+
+    <?php } ?>
 
   </div>
 

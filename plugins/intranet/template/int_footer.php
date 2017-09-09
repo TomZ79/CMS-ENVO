@@ -1,66 +1,88 @@
+<!-- END PAGE -->
 </div>
-<!-- /main area -->
 </div>
-<!-- /content panel -->
-<!-- bottom footer -->
-<footer class="content-footer hidden-xs">
-  <nav class="footer-right">
-    <ul class="nav">
-      <li>
-        <a href="javascript:;" class="scroll-up">
-          <i class="fa fa-angle-up"></i>
-        </a>
-      </li>
-    </ul>
-  </nav>
-</footer>
-<!-- /bottom footer -->
+<!-- END CONTAINER -->
 </div>
 
 <!-- JS and PLUGIN
   ================================================== -->
-<script src="<?php echo $SHORT_PLUGIN_URL_TEMPLATE; ?>scripts/helpers/modernizr.js"></script>
-<script src="/assets/plugins/jquery/jquery-2.2.4.min.js?=v2.2.4"></script>
-<script src="/assets/plugins/bootstrapv3/js/bootstrap.min.js"></script>
-<script src="<?php echo $SHORT_PLUGIN_URL_TEMPLATE; ?>vendor/fastclick/lib/fastclick.js"></script>
-<script src="<?php echo $SHORT_PLUGIN_URL_TEMPLATE; ?>vendor/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
-<script src="<?php echo $SHORT_PLUGIN_URL_TEMPLATE; ?>scripts/helpers/smartresize.js"></script>
-<script src="<?php echo $SHORT_PLUGIN_URL_TEMPLATE; ?>scripts/constants.js"></script>
-<script src="<?php echo $SHORT_PLUGIN_URL_TEMPLATE; ?>scripts/main.js"></script>
-<script src="/assets/plugins/fancybox/3.0/js/jquery.fancybox.min.js"></script>
+<!-- BEGIN JS DEPENDECENCIES-->
 
-<?php if ($page1 == 'house') { ?>
+<?php
+// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+echo $Html->addScript('/assets/plugins/jquery/jquery-2.2.4.min.js?=v2.2.4');
+echo $Html->addScript('/assets/plugins/bootstrapv3/js/bootstrap.min.js');
+echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-scrollbar/jquery.scrollbar.min.js');
+echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-numberAnimate/jquery.animateNumbers.js');
+?>
 
-<script src="https://maps.google.com/maps/api/js?sensor=true."></script>
-<script>
+<!-- END CORE JS DEPENDECENCIES-->
+<!-- BEGIN CORE TEMPLATE JS -->
 
-  (function() {
-    var map, mapOptions, marker, position;
+<?php
+// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/webarch.js');
+?>
 
-    position = new google.maps.LatLng(<?php echo $envo_house_latitude . ',' . $envo_house_longitude; ?>);
+<!-- END CORE TEMPLATE JS -->
+<!-- BEGIN PAGE LEVEL JS -->
 
-    mapOptions = {
-      zoom: 17,
-      center: position,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
+<?php
+// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+// Script only for pages which contains 'table'
+if ($page1 == 'house' && empty($page2)) echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-datatable/js/jquery.dataTables.min.js?=v1.10.15');
+?>
 
-    map = new google.maps.Map($('#google-container')[0], mapOptions);
+<!-- END PAGE LEVEL PLUGINS   -->
+<!-- PAGE JS -->
 
-    marker = new google.maps.Marker({
-      position: position,
-      map: map
-    });
+<?php
+// Add Html Element -> addScript (Arguments: src, optional assoc. array)
+// Script only for Dashboard
+if (empty($page1)) echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/dashboard.js');
+// Script only for pages which contains 'table'
+if ($page1 == 'house' && empty($page2)) echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/datatables.js');
+?>
 
-    marker.setMap(map);
+<?php if ($page1 == 'house' && !empty($page2)) { ?>
 
-  }).call(this);
+  <?php
+  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
+  // Google maps
+  echo $Html->addScript('https://maps.google.com/maps/api/js?sensor=true.');
+  // Isotope
+  echo $Html->addScript('https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js');
+  // Photo gallery
+  echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/gallery.js');
+  ?>
+
+  <script>
+
+    (function() {
+      var map, mapOptions, marker, position;
+
+      position = new google.maps.LatLng(<?php echo $envo_house_latitude . ',' . $envo_house_longitude; ?>);
+
+      mapOptions = {
+        zoom: 17,
+        center: position,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+
+      map = new google.maps.Map($('#google-container')[0], mapOptions);
+
+      marker = new google.maps.Marker({
+        position: position,
+        map: map
+      });
+
+      marker.setMap(map);
+
+    }).call(this);
 
 
-</script>
+  </script>
 
 <?php } ?>
-
 </body>
-
 </html>

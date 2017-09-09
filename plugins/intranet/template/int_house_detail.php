@@ -9,69 +9,94 @@
       </li>
       <li class="next">
         <a href="#tabs2" data-toggle="tab">
-          <span class="text">Hlavní Kontakty</span>
+          <span class="text">Stav Techniky</span>
         </a>
       </li>
       <li>
         <a href="#tabs3" data-toggle="tab">
-          <span class="text">Nájemníci</span>
+          <span class="text">Hlavní Kontakty</span>
         </a>
       </li>
       <li>
         <a href="#tabs4" data-toggle="tab">
-          <span class="text">Servisy</span>
+          <span class="text">Nájemníci</span>
         </a>
       </li>
       <li>
         <a href="#tabs5" data-toggle="tab">
-          <span class="text">Dokumenty</span>
+          <span class="text">Servisy</span>
         </a>
       </li>
       <li>
         <a href="#tabs6" data-toggle="tab">
+          <span class="text">Dokumenty</span>
+        </a>
+      </li>
+      <li>
+        <a href="#tabs7" data-toggle="tab">
           <span class="text">Fotogalerie</span>
         </a>
       </li>
     </ul>
 
-    <div class="tab-content" style="margin-top: 30px;">
+    <div class="tab-content" style="padding-top: 20px;">
       <div id="tabs1" class="tab-pane fade in active">
         <div class="row">
 
           <?php if (!empty($ENVO_HOUSE_DETAIL) && is_array($ENVO_HOUSE_DETAIL)) foreach ($ENVO_HOUSE_DETAIL as $hdetail) { ?>
 
             <div class="col-md-6">
-              <div class="card bg-white m-b">
-                <div class="card-header">
-                  Obecné Informace
+              <div class="grid simple">
+                <div class="grid-title no-border">
+                  <h4>Obecné Informace</h4>
+                  <div class="tools">
+                    <a href="javascript:;" class="collapse"></a>
+                    <a href="javascript:;" class="remove"></a>
+                  </div>
                 </div>
-                <div class="card-block">
-                  <p>Název Domu</p>
-                  <div class="m-b">
-                    <input class="form-control" type="text" value="<?php echo $hdetail["name"] ?>" disabled>
-                  </div>
-                  <p>Ulice</p>
-                  <div class="m-b">
-                    <input class="form-control" type="text" value="<?php echo $hdetail["street"] ?>" disabled>
-                  </div>
-                  <p>Město</p>
-                  <div class="m-b">
-                    <input class="form-control" type="text" value="<?php echo $hdetail["city"] ?>" disabled>
-                  </div>
-                  <p>PSČ</p>
-                  <div class="m-b">
-                    <input class="form-control" type="text" value="<?php echo $hdetail["psc"] ?>" disabled>
+                <div class="grid-body no-border">
+                  <div class="row-fluid">
+                    <div class="form-group">
+                      <label class="form-label">Název Domu</label>
+                      <div class="controls">
+                        <input class="form-control" type="text" value="<?php echo $hdetail["name"] ?>" disabled>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Ulice</label>
+                      <div class="controls">
+                        <input class="form-control" type="text" value="<?php echo $hdetail["street"] ?>" disabled>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Město</label>
+                      <div class="controls">
+                        <input class="form-control" type="text" value="<?php echo $hdetail["city"] ?>" disabled>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">PSČ</label>
+                      <div class="controls">
+                        <input class="form-control" type="text" value="<?php echo $hdetail["psc"] ?>" disabled>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-md-6">
-              <div class="card bg-white m-b">
-                <div class="card-header">
-                  Mapa
+              <div class="grid simple">
+                <div class="grid-title no-border">
+                  <h4>Mapa</h4>
+                  <div class="tools">
+                    <a href="javascript:;" class="collapse"></a>
+                    <a href="javascript:;" class="remove"></a>
+                  </div>
                 </div>
-                <div class="card-block">
-                  <div id="google-container"></div>
+                <div class="grid-body no-border">
+                  <div class="row-fluid">
+                    <div id="google-container" style="height: 350px;"></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -82,62 +107,78 @@
       </div>
       <div id="tabs2" class="tab-pane fade">
         <div class="row">
+
+        </div>
+      </div>
+      <div id="tabs3" class="tab-pane fade">
+        <div class="row">
           <div class="col-md-12">
-            <div class="card bg-white m-b">
-              <div class="card-header">
-                Hlavní Kontakty
+            <div class="grid simple">
+              <div class="grid-title no-border">
+                <h4>Hlavní Kontakty</h4>
+                <div class="tools">
+                  <a href="javascript:;" class="collapse"></a>
+                  <a href="javascript:;" class="remove"></a>
+                </div>
               </div>
-              <div class="card-block">
+              <div class="grid-body no-border">
+                <div class="row-fluid">
 
-                <?php if (!empty($ENVO_HOUSE_CONT) && is_array($ENVO_HOUSE_CONT)) { ?>
-                  <div class="table-responsive">
-                    <table class="table table-bordered table-striped m-b-0">
-                      <thead>
-                      <tr>
-                        <th>Jméno</th>
-                        <th>Adresa</th>
-                        <th>Telefon</th>
-                        <th>Email</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-
-                      <?php foreach ($ENVO_HOUSE_CONT as $hcont) { ?>
+                  <?php if (!empty($ENVO_HOUSE_CONT) && is_array($ENVO_HOUSE_CONT)) { ?>
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
                         <tr>
-                          <td><?php echo $hcont["name"]; ?></td>
-                          <td><?php echo $hcont["address"]; ?></td>
-                          <td><?php echo $hcont["phone"]; ?></td>
-                          <td><?php echo $hcont["email"]; ?></td>
+                          <th>Jméno</th>
+                          <th>Adresa</th>
+                          <th>Telefon</th>
+                          <th>Email</th>
                         </tr>
-                      <?php } ?>
+                        </thead>
+                        <tbody>
 
-                      </tbody>
-                    </table>
-                  </div>
-                <?php } ?>
+                        <?php foreach ($ENVO_HOUSE_CONT as $hcont) { ?>
+                          <tr>
+                            <td><?php echo $hcont["name"]; ?></td>
+                            <td><?php echo $hcont["address"]; ?></td>
+                            <td><?php echo $hcont["phone"]; ?></td>
+                            <td><?php echo $hcont["email"]; ?></td>
+                          </tr>
+                        <?php } ?>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  <?php } ?>
+
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div id="tabs3" class="tab-pane fade">
+      <div id="tabs4" class="tab-pane fade">
         <div class="row">
 
         </div>
       </div>
-      <div id="tabs4" class="tab-pane fade">
+      <div id="tabs5" class="tab-pane fade">
         <div class="row">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card bg-white m-b">
-                <div class="card-header">
-                  Servisy
+          <div class="col-md-12">
+            <div class="grid simple">
+              <div class="grid-title no-border">
+                <h4>Servisy</h4>
+                <div class="tools">
+                  <a href="javascript:;" class="collapse"></a>
+                  <a href="javascript:;" class="remove"></a>
                 </div>
-                <div class="card-block">
+              </div>
+              <div class="grid-body no-border">
+                <div class="row-fluid">
 
                   <?php if (!empty($ENVO_HOUSE_SERV) && is_array($ENVO_HOUSE_SERV)) { ?>
                     <div class="table-responsive">
-                      <table class="table table-bordered table-striped m-b-0">
+                      <table class="table table-bordered">
                         <thead>
                         <tr>
                           <th class="col-sm-6">Popis</th>
@@ -161,148 +202,113 @@
                       </table>
                     </div>
                   <?php } ?>
+
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div id="tabs5" class="tab-pane fade">
-        <div class="row">
 
+          </div>
         </div>
       </div>
       <div id="tabs6" class="tab-pane fade">
+        <div class="row">
 
-        <?php if ($JAK_MODULES) { ?>
-
-          <div class="row">
-            <div class="col-xs-12 col-sm-8 col-lg-9 m-t-10">
-              <div id="upload_img" class="input-group" style="width: 100%;">
-                        <span class="input-group-btn" style="width: 1%;">
-                          <!-- File-clear button -->
-                          <button type="button" class="btn btn-default file-clear" style="display:none;">
-                            <span class="fa fa-remove"></span> Smazat
-                          </button>
-                          <!-- File-input button-->
-                          <div class="btn btn-default file-input">
-                            <span class="fa fa-folder-open"></span>
-                            <span class="file-input-title">Vybrat Soubor</span>
-                            <input type="file" name="input-file" id="fileinput_img" accept="image/*"/>
-                          </div>
-                        </span>
-                <input type="text" class="form-control file-filename" style="margin-left: -1px;" disabled>
+        </div>
+      </div>
+      <div id="tabs7" class="tab-pane fade">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="grid simple">
+              <div class="grid-title no-border">
+                <h4>Fotogalerie</h4>
+                <div class="tools">
+                  <a href="javascript:;" class="collapse"></a>
+                  <a href="javascript:;" class="remove"></a>
+                </div>
               </div>
-            </div>
-            <div class="col-xs-12 col-sm-4 col-lg-3 m-t-10">
-              <div class="form-group">
+              <div class="grid-body no-border">
+                <div class="row">
+                  <div class="col-sm-3">
 
-                <?php
-                // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-                echo $Html->addButton('button', '', '<i class="fa fa-cloud-upload m-r-5"></i> Upload', '', 'uploadBtnImg', 'btn btn-info', array('style' => 'width: 100%;'));
-                ?>
+                    <?php
+                    // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                    echo $Html->addTag('h5', 'Kategorie', 'bold');
+                    ?>
 
+                    <ul class="filters">
+                      <li><a href="javascript:;" class="filter" data-filter="*">Vše</a></li>
+                      <li><a href="javascript:;" class="filter" data-filter=".service">Servisy</a></li>
+                      <li><a href="javascript:;" class="filter" data-filter=".reconstruction">Rekonstrukce</a></li>
+                      <li><a href="javascript:;" class="filter" data-filter=".installation">Instalace</a></li>
+                    </ul>
+
+                    <?php
+                    // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                    echo $Html->addTag('h5', 'Vyhledat', 'bold');
+                    ?>
+
+                    <p>
+
+                      <?php
+                      // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                      echo $Html->addInput('text', 'quicksearch', '', 'quicksearch', 'form-control', array('placeholder' => 'Search Image'));
+                      ?>
+
+                    </p>
+
+                  </div>
+                  <div class="col-sm-9">
+
+                    <?php if (!empty($ENVO_HOUSE_IMG) && is_array($ENVO_HOUSE_IMG)) { ?>
+
+                      <div id="gallery">
+
+                        <?php foreach ($ENVO_HOUSE_IMG as $himg) { ?>
+                          <div class="gallery-item-<?php echo $himg["id"] . ' ' . $himg["category"]; ?>" data-width="1" data-height="1">
+                            <div class="img_container">
+                              <a data-fancybox="gallery" href="<?php echo '/' . JAK_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>">
+                                <img src="<?php echo '/' . JAK_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>" class="img-responsive" alt="" >
+                              </a>
+                            </div>
+                            <div class="overlays">
+                              <div class="col-sm-12 full-height">
+                                <div class="col-xs-5 full-height">
+                                  <div class="text font-montserrat"></div>
+                                </div>
+                                <div class="col-xs-7 full-height">
+                                  <div class="text">
+                                    <a data-fancybox="gallery" href="" alt="">
+                                    <button class="btn btn-success btn-xs btn-mini" type="button">
+                                      <i class="fa fa-image"></i>
+                                    </button>
+                                    </a>
+                                    <button class="btn btn-success btn-xs btn-mini dialog-open" type="button" data-dialog="itemDetails">
+                                      <i class="fa fa-info"></i>
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="full-width padding-10">
+                              <p class="bold">Short description</p>
+                              <p class="shortdesc"><?php echo $himg["shortdescription"]; ?></p>
+                            </div>
+                          </div>
+                        <?php } ?>
+
+                      </div>
+
+                    <?php } ?>
+
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-
-        <?php } ?>
-
-        <div class="row">
-          <?php if (!empty($ENVO_HOUSE_IMG) && is_array($ENVO_HOUSE_IMG)) { ?>
-
-            <div class="gallery">
-
-              <?php foreach ($ENVO_HOUSE_IMG as $himg) { ?>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                  <a data-fancybox="gallery" href="<?php echo '/' . JAK_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>">
-                    <img alt="" src="<?php echo '/' . JAK_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>" class="img-responsive">
-                  </a>
-                </div>
-              <?php } ?>
-
-            </div>
-
-          <?php } ?>
         </div>
       </div>
     </div>
 
   </div>
-
-
-  <style>
-    /*==================================================
-=            Bootstrap 3 Media Queries             =
-==================================================*/
-
-
-    /*==========  Mobile First Method  ==========*/
-
-    /* Custom, iPhone Retina */
-    @media only screen and (min-width : 320px) {
-      .gallery a img {
-        object-fit: cover;
-        width: 45vw;
-        height: 45vw;
-      }
-    }
-
-    /* Extra Small Devices, Phones */
-    @media only screen and (min-width : 480px) {
-
-    }
-
-    /* Small Devices, Tablets */
-    @media only screen and (min-width : 768px) {
-
-    }
-
-    /* Medium Devices, Desktops */
-    @media only screen and (min-width : 992px) {
-      .gallery a img {
-        object-fit: cover;
-        width: 20vw;
-        height: 17vw;
-      }
-    }
-
-    /* Large Devices, Wide Screens */
-    @media only screen and (min-width : 1200px) {
-      .gallery a img {
-        object-fit: cover;
-        width: 30vw;
-        height: 20vw;
-      }
-    }
-
-
-    /*==========  Non-Mobile First Method  ==========*/
-
-    /* Large Devices, Wide Screens */
-    @media only screen and (max-width : 1200px) {
-
-    }
-
-    /* Medium Devices, Desktops */
-    @media only screen and (max-width : 992px) {
-
-    }
-
-    /* Small Devices, Tablets */
-    @media only screen and (max-width : 768px) {
-
-    }
-
-    /* Extra Small Devices, Phones */
-    @media only screen and (max-width : 480px) {
-
-    }
-
-    /* Custom, iPhone Retina */
-    @media only screen and (max-width : 320px) {
-
-    }
-  </style>
 
 <?php include_once $BASE_PLUGIN_URL_TEMPLATE . 'int_footer.php'; ?>

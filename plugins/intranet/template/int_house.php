@@ -2,55 +2,61 @@
 
 <?php if (!empty($ENVO_HOUSE_ALL) && is_array($ENVO_HOUSE_ALL)) { ?>
 
-  <div class="card bg-white m-b">
-    <div class="card-header">
-      Seznam Bytových Domů
-    </div>
-    <div class="card-block">
-      <div class="table-responsive">
-        <table class="table table-bordered table-striped m-b-0">
-          <thead>
-          <tr>
-            <th>#</th>
-            <th>Název</th>
-            <th>Ulice</th>
-            <th>Město</th>
-            <th></th>
-          </tr>
-          </thead>
-          <tbody>
-
-          <?php foreach ($ENVO_HOUSE_ALL as $h) { ?>
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="grid simple ">
+        <div class="grid-title">
+          <h4>Seznam Bytových Domů</h4>
+          <div class="tools">
+            <a href="javascript:;" class="collapse"></a>
+            <a href="javascript:;" class="remove"></a>
+          </div>
+        </div>
+        <div class="grid-body ">
+          <table class="table table-striped table-hover" id="datatable">
+            <thead>
             <tr>
-              <td><?php echo $h["id"]; ?></td>
-              <td>
-
-                <?php
-                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                echo $Html->addAnchor($h["parseurl"], $h["name"]);
-                ?>
-
-              </td>
-              <td>
-                <?php echo $h["street"];?>
-              </td>
-              <td>
-                <?php echo $h["city"];?>
-              </td>
-              <td class="text-center">
-
-                <?php
-                // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                // EDIT
-                echo $Html->addAnchor($h["parseurl"], '<i class="fa fa-eye"></i>', '', 'btn btn-info btn-sm');
-                ?>
-
-              </td>
+              <th class="no-sort">#</th>
+              <th>Název</th>
+              <th>Ulice</th>
+              <th>Město</th>
+              <th class="no-sort"></th>
             </tr>
-          <?php } ?>
+            </thead>
+            <tbody>
 
-          </tbody>
-        </table>
+            <?php foreach ($ENVO_HOUSE_ALL as $h) { ?>
+              <tr>
+                <td><?php echo $h["id"]; ?></td>
+                <td>
+
+                  <?php
+                  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                  echo $Html->addAnchor($h["parseurl"], $h["name"]);
+                  ?>
+
+                </td>
+                <td>
+                  <?php echo $h["street"];?>
+                </td>
+                <td>
+                  <?php echo $h["city"];?>
+                </td>
+                <td class="text-center">
+
+                  <?php
+                  // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                  // EDIT
+                  echo $Html->addAnchor($h["parseurl"], '<i class="fa fa-eye"></i>', '', 'btn btn-info btn-mini');
+                  ?>
+
+                </td>
+              </tr>
+            <?php } ?>
+
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
