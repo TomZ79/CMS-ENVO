@@ -277,10 +277,10 @@
                                 </div>
                                 <div class="col-xs-7 full-height">
                                   <div class="text">
-                                    <a data-fancybox="gallery" href="" alt="">
-                                    <button class="btn btn-success btn-xs btn-mini" type="button">
-                                      <i class="fa fa-image"></i>
-                                    </button>
+                                    <a data-fancybox="gallery" href="<?php echo '/' . JAK_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>" alt="">
+                                      <button class="btn btn-success btn-xs btn-mini" type="button">
+                                        <i class="fa fa-image"></i>
+                                      </button>
                                     </a>
                                     <button class="btn btn-success btn-xs btn-mini dialog-open" type="button" data-dialog="itemDetails">
                                       <i class="fa fa-info"></i>

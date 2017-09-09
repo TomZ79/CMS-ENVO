@@ -52,6 +52,8 @@ if ($page1 == 'house' && empty($page2)) echo $Html->addScript($SHORT_PLUGIN_URL_
   echo $Html->addScript('https://maps.google.com/maps/api/js?sensor=true.');
   // Isotope
   echo $Html->addScript('https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js');
+  // Fancybox
+  echo $Html->addScript('/assets/plugins/fancybox/3.0/js/jquery.fancybox.min.js');
   // Photo gallery
   echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/gallery.js');
   ?>

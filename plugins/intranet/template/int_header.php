@@ -29,6 +29,8 @@
   echo $Html->addStylesheet('https://fonts.googleapis.com/icon?family=Material+Icons');
   // DataTables (Stylesheet only for pages which contains 'table')
   if ($page1 == 'house' && empty($page2)) echo $Html->addStylesheet($SHORT_PLUGIN_URL_TEMPLATE . 'plugins/jquery-datatable/extra/css/jquery.webarch_dataTables.min.css');
+  //
+  if ($page1 == 'house' && !empty($page2)) echo $Html->addStylesheet('/assets/plugins/fancybox/3.0/css/jquery.fancybox.min.css');
   ?>
 
   <!-- END PLUGIN CSS -->
@@ -111,9 +113,6 @@
       <div id="notification-list" style="display:none">
         <div style="width:300px">
           <div class="notification-messages info">
-            <div class="user-profile">
-              <img src="assets/img/profiles/d.jpg" alt="" width="35" height="35">
-            </div>
             <div class="message-wrapper">
               <div class="heading">
                 David Nester - Commented on your wall
@@ -128,9 +127,6 @@
             <div class="clearfix"></div>
           </div>
           <div class="notification-messages danger">
-            <div class="iconholder">
-              <i class="icon-warning-sign"></i>
-            </div>
             <div class="message-wrapper">
               <div class="heading">
                 Server load limited
@@ -145,9 +141,6 @@
             <div class="clearfix"></div>
           </div>
           <div class="notification-messages success">
-            <div class="user-profile">
-              <img src="assets/img/profiles/h.jpg" alt="" width="35" height="35">
-            </div>
             <div class="message-wrapper">
               <div class="heading">
                 You haveve got 150 messages

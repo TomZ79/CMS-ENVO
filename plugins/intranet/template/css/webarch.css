@@ -1,42 +1,48 @@
+/*
+ *
+ * CMS ENVO
+ * CSS for Plugin Intranet - Frontend
+ * Copyright © 2016 Bluesat.cz
+ * -----------------------------------------------------------------------
+ * Css Template: Webarch v2.8.1
+ * Theme : Default
+ * Author: Thomas
+ * Email: bluesatkv@gmail.com
+ * =======================================================================
+ * INDEX:
+ *
+ * 01. Import fonts
+ * 02. Layouts
+ * 03. Icons
+ * 04. Horizontal Menu
+ * 05. Typography
+ * 06. Misc
+ * 07. Form Elements
+ * 08. Portlets
+ * 09. Message and Notification
+ * 10. Tiles
+ * 11. Buttons
+ * 12. Tabs and Accordians
+ * 13. Sliders
+ * 14. Tables
+ * 15. Datatables
+ * 16. Charts
+ * 17. User Profile
+ * 18. Vector Map
+ * 19. Error Page
+ * 20. Timeline
+ * 21. Search Results
+ * 22. RTL
+ * 23. Photo Gallery
+ *
+ */
+
+/* 01. Import fonts
+ ========================================================================*/
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
 
-/*------------------------------------------------------------------
-Webarch v2.8
-Theme : Default
-Generated From LESS
-[Table of contents]
-
-1. Layouts
-2. Icons
-3. Horizontal Menu
-4. Typography
-5. Misc
-6. Form Elements
-7. Portlets
-8. Message and Notification
-9. Tiles
-10. Buttons
-11. Tabs & Accordians
-12. Sliders
-13. Tables
-14. Datatables
-15. Charts
-16. User Profile
-17. Vector Map
-18. Error Page
-19. Timeline
-20. Search Results
-21. RTL
-22. Print
-23. Slider
-24. Photo Gallery
--------------------------------------------------------------------*/
-/*!
-* direction.less v0.1.0
-*/
-/*------------------------------------------------------------------
-[1. Layouts]
-*/
+/* 02. Layouts
+ ========================================================================*/
 :-moz-placeholder {
   color: #333843;
 }
@@ -2058,9 +2064,8 @@ body.boxed-layout .footer-widget {
   float: right !important;
 }
 
-/*------------------------------------------------------------------
-[2. Icons]
-*/
+/* 03. Icons
+ ========================================================================*/
 @font-face {
   font-family: 'icomoon';
   src: url('../fonts/custom-set.eot');
@@ -2217,9 +2222,8 @@ you can use the generic selector below, but it's slower:
   content: "\e017";
 }
 
-/*------------------------------------------------------------------
-[3. Horizontal Menu]
-*/
+/* 04. Horizontal Menu
+ ========================================================================*/
 .horizontal-menu .header-seperation {
   display: none;
 }
@@ -2448,9 +2452,8 @@ you can use the generic selector below, but it's slower:
   }
 }
 
-/*------------------------------------------------------------------
-[4. Typography]
-*/
+/* 05. Typography
+ ========================================================================*/
 .h-ribbon {
   width: 100%;
   height: 4px;
@@ -2917,9 +2920,8 @@ hr {
   border: none;
 }
 
-/*------------------------------------------------------------------
-[5. Misc]
-*/
+/* 06. Misc
+ ========================================================================*/
 span.iconset {
   display: block;
 }
@@ -4093,9 +4095,8 @@ div.DTTT_print_info p {
   right: 0;
 }
 
-/*------------------------------------------------------------------
-[6. Form Elements]
-*/
+/* 07. Form Elements
+ ========================================================================*/
 label,
 input,
 button,
@@ -5816,9 +5817,8 @@ form legend,
   z-index: 10;
 }
 
-/*------------------------------------------------------------------
-[7. Portlets]
-*/
+/* 08. Portlets
+ ========================================================================*/
 .grid {
   clear: both;
   margin-top: 0;
@@ -6360,9 +6360,8 @@ form legend,
   font-size: 16px;
 }
 
-/*------------------------------------------------------------------
-[8. Message and Notification]
-*/
+/* 09. Message and Notification
+ ========================================================================*/
 .alert {
   color: #CE8F22;
   background-color: #FFFCEE;
@@ -6532,7 +6531,7 @@ form legend,
 
 .notification-messages .message-wrapper {
   display: inline-block;
-  width: 70%;
+  width: 100%;
   height: 43px;
   float: left;
 }
@@ -6887,9 +6886,8 @@ form legend,
   top: 4px;
 }
 
-/*------------------------------------------------------------------
-[9. Tiles]
-*/
+/* 10. Tiles
+ ========================================================================*/
 .tiles-container {
   margin-left: 0;
   margin-right: 0;
@@ -7683,6 +7681,8 @@ h4.custom-line-height {
   }
 }
 
+/* 11. Buttons
+ ========================================================================*/
 .btn {
   display: inline-block;
   padding: 9px 12px;
@@ -8196,9 +8196,8 @@ code:hover {
   vertical-align: -5px;
 }
 
-/*------------------------------------------------------------------
-[11. Tabs and Accordians]
-*/
+/* 12. Tabs and Accordians
+ ========================================================================*/
 .tabbable:after {
   clear: both;
 }
@@ -8555,9 +8554,8 @@ code:hover {
   margin-top: 2px;
 }
 
-/*------------------------------------------------------------------
-[23. Slider]
-*/
+/* 13. Sliders
+ ========================================================================*/
 .slider {
   margin: 5px 0;
   direction: ltr;
@@ -8660,9 +8658,8 @@ code:hover {
   cursor: point2;
 }
 
-/*------------------------------------------------------------------
-[13. Tables]
-*/
+/* 14. Tables
+ ========================================================================*/
 .table > thead > tr > th {
   border-bottom: 0;
   font-size: 12px;
@@ -8848,9 +8845,8 @@ input[type="checkbox"] {
   border-radius: 0;
 }
 
-/*------------------------------------------------------------------
-[14. Datatables]
-*/
+/* 15. Datatables
+ ========================================================================*/
 .dataTables_wrapper .pagination ul {
   box-shadow: none;
   font-size: 12px;
@@ -8928,9 +8924,8 @@ input[type="checkbox"] {
   background-color: #E8EDF3;
 }
 
-/*------------------------------------------------------------------
-[15. Charts]
-*/
+/* 16. Charts
+ ========================================================================*/
 .easy-pie-custom {
   position: relative;
   display: inline-block;
@@ -9026,9 +9021,8 @@ input[type="checkbox"] {
   margin: 15px 16px;
 }
 
-/*------------------------------------------------------------------
-[16. User Profile]
-*/
+/* 17. User Profile
+ ========================================================================*/
 .profile-img-wrapper {
   float: left;
   border-radius: 100px 100px 100px 100px;
@@ -9453,9 +9447,8 @@ input[type="checkbox"] {
   opacity: 1;
 }
 
-/*------------------------------------------------------------------
-[17. Vector Map]
-*/
+/* 18. Vector Map
+ ========================================================================*/
 .jvectormap-zoomin {
   bottom: 15px;
   top: auto;
@@ -9516,9 +9509,8 @@ input[type="checkbox"] {
   animation: pace-spinner 400ms linear infinite;
 }
 
-/*------------------------------------------------------------------
-[18. Error Page]
-*/
+/* 19. Error Page
+ ========================================================================*/
 #wrap {
   min-height: 100%;
   height: auto;
@@ -9663,9 +9655,8 @@ input[type="checkbox"] {
   text-decoration: none;
 }
 
-/*------------------------------------------------------------------
-[19. Timeline]
-*/
+/* 20. Timeline
+ ========================================================================*/
 .cbp_tmtimeline {
   margin: 30px 0 0 0;
   padding: 0;
@@ -9871,9 +9862,8 @@ input[type="checkbox"] {
   }
 }
 
-/*------------------------------------------------------------------
-[20. Search Results]
-*/
+/* 21. Search Results
+ ========================================================================*/
 #Parks {
   margin-bottom: 30px;
 }
@@ -10173,9 +10163,8 @@ input[type="checkbox"] {
   }
 }
 
-/*------------------------------------------------------------------
-[21. RTL]
-*/
+/* 22. RTL
+ ========================================================================*/
 body.rtl {
   overflow-x: hidden;
 }
@@ -12314,11 +12303,8 @@ body.rtl .footer-widget {
   }
 }
 
-/*------------------------------------------------------------------
-[24. Photo Gallery]
-*/
-
-/* Photo Gallery */
+/* 23. Photo Gallery
+ ========================================================================*/
 .gallery {
   margin: 20px auto 0 auto;
 }
