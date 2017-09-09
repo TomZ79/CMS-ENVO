@@ -43,6 +43,19 @@
     this.color_info = "#3b4751";
   };
 
+  // Page preloader
+  Webarch.prototype.initPagePreloader = function () {
+    $(window).on('load', function () {
+      if ($('body > .pageload').length) {
+        if ($('body').hasClass('page-loaded')) {
+          return;
+        }
+        $('body').addClass('page-loaded').removeClass('page-loading');
+        $('body > .pageload').fadeOut();
+      }
+    });
+  };
+
   // Tooltip
   // Required plugin: Bootstrap v3
   Webarch.prototype.initTooltipPlugin = function () {
@@ -327,6 +340,7 @@
   // Call initializers
   Webarch.prototype.init = function () {
     // init layout
+    this.initPagePreloader();
     this.initScrollUp();
     this.initPortletTools();
     this.initSideBar();

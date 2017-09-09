@@ -44,7 +44,24 @@
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
-<body class="">
+<body  class="page-loading">
+<!-- BEGIN PAGE PRELOADER -->
+<div class="pageload">
+  <div class="pageload-inner">
+    <div class="sk-cube-grid">
+      <div class="sk-cube sk-cube1"></div>
+      <div class="sk-cube sk-cube2"></div>
+      <div class="sk-cube sk-cube3"></div>
+      <div class="sk-cube sk-cube4"></div>
+      <div class="sk-cube sk-cube5"></div>
+      <div class="sk-cube sk-cube6"></div>
+      <div class="sk-cube sk-cube7"></div>
+      <div class="sk-cube sk-cube8"></div>
+      <div class="sk-cube sk-cube9"></div>
+    </div>
+  </div>
+</div>
+<!-- END PAGE PRELOADER -->
 <!-- BEGIN HEADER -->
 <div class="header navbar navbar-inverse ">
   <!-- BEGIN TOP NAVIGATION BAR -->
