@@ -105,7 +105,7 @@
       ],
       // Init bootstrap responsive table for mobile
       "initComplete": function (settings, json) {
-        $('#tt_table').wrap('<div class="table-responsive"></div>');
+        $(this).wrap('<div class="table-responsive"></div>');
       }
     });
 
@@ -129,7 +129,7 @@
       "dom": "<'row m-b-20'<'col-sm-12'<'pull-left'f>>>" + "<'row'<'col-sm-12'tr>>",
       // Init bootstrap responsive table for mobile
       "initComplete": function (settings, json) {
-        $('#tt_table_sid').wrap('<div class="table-responsive"></div>');
+        $(this).wrap('<div class="table-responsive"></div>');
       }
     });
 
@@ -161,7 +161,7 @@
       "dom": "<'row m-b-20'<'col-sm-12'<'pull-left'f><'pull-right'B>>>" + "<'row'<'col-sm-12'tr>>",
       // Init bootstrap responsive table for mobile
       "initComplete": function (settings, json) {
-        $('#tt_table_sidtv').wrap('<div class="table-responsive"></div>');
+        $(this).wrap('<div class="table-responsive"></div>');
         $(".btnEnvo").removeClass("btn-default");
       }
     });
@@ -194,7 +194,7 @@
       "dom": "<'row m-b-20'<'col-sm-12'<'pull-left'f><'pull-right'B>>>" + "<'row'<'col-sm-12'tr>>",
       // Init bootstrap responsive table for mobile
       "initComplete": function (settings, json) {
-        $('#tt_table_sidr').wrap('<div class="table-responsive"></div>');
+        $(this).wrap('<div class="table-responsive"></div>');
         $(".btnEnvo").removeClass("btn-default");
       }
     });
@@ -227,7 +227,7 @@
       "dom": "<'row m-b-20'<'col-sm-12'<'pull-left'f><'pull-right'B>>>" + "<'row'<'col-sm-12'tr>>",
       // Init bootstrap responsive table for mobile
       "initComplete": function (settings, json) {
-        $('#tt_table_sids').wrap('<div class="table-responsive"></div>');
+        $(this).wrap('<div class="table-responsive"></div>');
         $(".btnEnvo").removeClass("btn-default");
       }
     });
