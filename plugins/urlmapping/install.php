@@ -217,6 +217,7 @@ if (file_exists(APP_PATH . 'plugins/urlmapping/admin/lang/' . $site_language . '
       // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
       $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "URL Mapping Admin Language", "' . $adminlang . '", "urlmapping", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_head", "URL Mapping Admin CSS", "plugins/urlmapping/admin/template/css.urlmapping.php", "urlmapping", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_index_top", "URL Mapping Index", "' . $index_top . '", "urlmapping", 1, 1, "' . $rows['id'] . '", NOW())');
 
       // EN: Create table for plugin

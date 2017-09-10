@@ -1,13 +1,13 @@
 <?php include_once $BASE_PLUGIN_URL_TEMPLATE . 'int_header.php'; ?>
 
   <div>
-    <ul class="nav nav-tabs nav-tabs-responsive">
+    <ul class="nav nav-tabs nav-tabs-responsive" id="keepTabs">
       <li class="active">
         <a href="#tabs1" data-toggle="tab">
           <span class="text">Obecné Info</span>
         </a>
       </li>
-      <li class="next">
+      <li>
         <a href="#tabs2" data-toggle="tab">
           <span class="text">Stav Techniky</span>
         </a>

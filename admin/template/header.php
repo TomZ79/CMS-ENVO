@@ -3,89 +3,89 @@ echo $Html->addDoctype('html5');
 ?>
 
 <html lang="<?php echo $site_language; ?>">
-  <head>
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
-    <meta charset="utf-8"/>
-    <title>ENVO - Admin Dashboard</title>
-    <link rel="apple-touch-icon" href="pages/ico/60.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="pages/ico/76.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="pages/ico/120.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="pages/ico/152.png">
-    <?php
-    // Add Html Element -> endTag (Arguments: name, content)
-    $meta = array(
-      array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'),
-      array('name' => 'apple-mobile-web-app-capable', 'content' => 'yes'),
-      array('name' => 'apple-touch-fullscreen', 'content' => 'yes'),
-      array('name' => 'apple-mobile-web-app-status-bar-style', 'content' => 'default'),
-      array('name' => 'description', 'content' => ''),
-      array('name' => 'author', 'content' => ''),
-    );
-    echo $Html->addMeta($meta);
-    ?>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+  <meta charset="utf-8"/>
+  <title>ENVO - Admin Dashboard</title>
+  <link rel="apple-touch-icon" href="pages/ico/60.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="pages/ico/76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="pages/ico/120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="pages/ico/152.png">
+  <?php
+  // Add Html Element -> endTag (Arguments: name, content)
+  $meta = array(
+    array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'),
+    array('name' => 'apple-mobile-web-app-capable', 'content' => 'yes'),
+    array('name' => 'apple-touch-fullscreen', 'content' => 'yes'),
+    array('name' => 'apple-mobile-web-app-status-bar-style', 'content' => 'default'),
+    array('name' => 'description', 'content' => ''),
+    array('name' => 'author', 'content' => ''),
+  );
+  echo $Html->addMeta($meta);
+  ?>
 
-    <!-- BEGIN Vendor CSS-->
-    <?php
-    // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-    // Pace preloader
-    echo $Html->addStylesheet('assets/plugins/pace/templates/pace-theme-loading-bar.css');
-    // Bootstrap
-    echo $Html->addStylesheet('assets/plugins/bootstrapv3/css/bootstrap.min.css');
-    // Font Awesomemin
-    echo $Html->addStylesheet('../assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
-    // Scrollbar
-    echo $Html->addStylesheet('assets/plugins/jquery-scrollbar/jquery.scrollbar.css', 'screen');
-    //FileInput
-    echo $Html->addStylesheet('assets/plugins/bootstrap-fileinput/css/fileinput.min.css', 'screen');
-    // Bootstrap Select
-    echo $Html->addStylesheet('assets/plugins/bootstrap-select2/4.0.3/css/select2.min.css', 'screen');
-    // Bootstrap TagsInput
-    echo $Html->addStylesheet('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css', 'screen');
-    // Bootstrap DateTimePicker
-    echo $Html->addStylesheet('assets/plugins/bootstrap-datetimepicker-4/css/bootstrap-datetimepicker.min.css');
-    // Bootstrap IconPicker
-    echo $Html->addStylesheet('assets/plugins/bootstrap-iconpicker/css/bootstrap-iconpicker.min.css');
-    // Bootstrap GlyphIcons
-    echo $Html->addStylesheet('../assets/plugins/bootstrap-glyphicons/glyphicons-pro/css/glyphicons-pro.min.css');
-    //
-    echo $Html->addStylesheet('assets/plugins/switchery/css/switchery.min.css', 'screen');
-    //
-    echo $Html->addStylesheet('assets/plugins/prism/prism.css', 'screen');
+  <!-- BEGIN Vendor CSS-->
+  <?php
+  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+  // Pace preloader
+  echo $Html->addStylesheet('assets/plugins/pace/templates/pace-theme-loading-bar.css');
+  // Bootstrap
+  echo $Html->addStylesheet('assets/plugins/bootstrapv3/css/bootstrap.min.css');
+  // Font Awesomemin
+  echo $Html->addStylesheet('../assets/plugins/font-awesome/4.7.0/css/font-awesome.css');
+  // Scrollbar
+  echo $Html->addStylesheet('assets/plugins/jquery-scrollbar/jquery.scrollbar.css', 'screen');
+  //FileInput
+  echo $Html->addStylesheet('assets/plugins/bootstrap-fileinput/css/fileinput.min.css', 'screen');
+  // Bootstrap Select
+  echo $Html->addStylesheet('assets/plugins/bootstrap-select2/4.0.3/css/select2.min.css', 'screen');
+  // Bootstrap TagsInput
+  echo $Html->addStylesheet('assets/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css', 'screen');
+  // Bootstrap DateTimePicker
+  echo $Html->addStylesheet('assets/plugins/bootstrap-datetimepicker-4/css/bootstrap-datetimepicker.min.css');
+  // Bootstrap IconPicker
+  echo $Html->addStylesheet('assets/plugins/bootstrap-iconpicker/css/bootstrap-iconpicker.min.css');
+  // Bootstrap GlyphIcons
+  echo $Html->addStylesheet('../assets/plugins/bootstrap-glyphicons/glyphicons-pro/css/glyphicons-pro.min.css');
+  //
+  echo $Html->addStylesheet('assets/plugins/switchery/css/switchery.min.css', 'screen');
+  //
+  echo $Html->addStylesheet('assets/plugins/prism/prism.css', 'screen');
 
-    // Animate
-    echo $Html->addStylesheet('assets/css/animate.min.css');
-    ?>
+  // Animate
+  echo $Html->addStylesheet('assets/css/animate.min.css');
+  ?>
 
-    <!-- BEGIN Pages CSS-->
-    <?php
-    // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-    echo $Html->addStylesheet('pages/css/pages-icons.css');
-    echo $Html->addStylesheet('pages/css/pages.css', '', array('class' => 'main-stylesheet'));
-    ?>
+  <!-- BEGIN Pages CSS-->
+  <?php
+  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+  echo $Html->addStylesheet('pages/css/pages-icons.css');
+  echo $Html->addStylesheet('pages/css/pages.css', '', array('class' => 'main-stylesheet'));
+  ?>
 
-    <!-- BEGIN General Stylesheet with custom modifications -->
-    <?php
-    // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
-    echo $Html->addStylesheet('assets/css/style.css');
-    ?>
+  <!-- BEGIN General Stylesheet with custom modifications -->
+  <?php
+  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+  echo $Html->addStylesheet('assets/css/style.css');
+  ?>
 
-    <!--[if lte IE 9]>
-    <link href="pages/css/ie9.css" rel="stylesheet" type="text/css"/>
-    <![endif]-->
-    <script type="text/javascript">
-      window.onload = function () {
-        // fix for windows 8
-        if (navigator.appVersion.indexOf("Windows NT 6.2") != -1)
-          document.head.innerHTML += '<link rel="stylesheet" type="text/css" href="pages/css/windows.chrome.fix.css" />'
-      }
-    </script>
+  <!--[if lte IE 9]>
+  <link href="pages/css/ie9.css" rel="stylesheet" type="text/css"/>
+  <![endif]-->
+  <script type="text/javascript">
+    window.onload = function () {
+      // fix for windows 8
+      if (navigator.appVersion.indexOf("Windows NT 6.2") != -1)
+        document.head.innerHTML += '<link rel="stylesheet" type="text/css" href="pages/css/windows.chrome.fix.css" />'
+    }
+  </script>
 
-    <!-- BEGIN HOOKS - HEADER -->
-    <?php if (isset($JAK_HOOK_HEAD_ADMIN) && is_array($JAK_HOOK_HEAD_ADMIN)) foreach ($JAK_HOOK_HEAD_ADMIN as $headt) {
-      include_once APP_PATH . $headt['phpcode'];
-    } ?>
+  <!-- BEGIN HOOKS - HEADER -->
+  <?php if (isset($JAK_HOOK_HEAD_ADMIN) && is_array($JAK_HOOK_HEAD_ADMIN)) foreach ($JAK_HOOK_HEAD_ADMIN as $headt) {
+    include_once APP_PATH . $headt['phpcode'];
+  } ?>
 
-  </head>
+</head>
 <body class="fixed-header has-detached-right overlay-disabled">
   <!-- PACE PRELOADER -->
   <div id="pace" class="active"></div>

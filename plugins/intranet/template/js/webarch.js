@@ -13,6 +13,7 @@
  * 02. Begin main menu toggle
  * 03. Bind Functions Jquery- LAYOUT OPTIONS API
  * 04. Initialize layouts and plugins
+ * 05. Bootstrap 3: Keep selected tab on page refresh
  *
  */
 
@@ -450,5 +451,51 @@ $(function () {
 
   // Initialize layouts and plugins
   $.Webarch.init();
+
+});
+
+/* 05. Bootstrap 3: Keep selected tab on page refresh
+ ========================================================================*/
+
+$(function () {
+
+  $('#keepTabs a').click(function (event) {
+    event.preventDefault();
+    $(this).tab('show');
+  });
+
+  // Responsive Tabs on clicking a tab
+  $(document).on('show.bs.tab', '.nav-tabs-responsive [data-toggle="tab"]', function (event) {
+    // store the currently selected tab in the hash value
+    var id = $(event.target).attr("href").substr(1);
+    window.location.hash = id;
+
+    var $target = $(event.target);
+    var $tabs = $target.closest('.nav-tabs-responsive');
+    var $current = $target.closest('li');
+    var $next = $current.next();
+    var $prev = $current.prev();
+
+    $tabs.find('>li').removeClass('current next prev');
+    $current.addClass('current');
+    $prev.addClass('prev');
+    $next.addClass('next');
+
+  });
+
+  // On load of the page: switch to the currently selected tab
+  var hash = window.location.hash;
+  $('#keepTabs a[href="' + hash + '"]').tab('show');
+
+  // On load of the page: Create Responsive Tabs
+  var $target = $('.nav-tabs-responsive');
+  var $current = $target.find('li a[href="' + hash + '"]').parents('li');
+  var $current = hash.length > 0 ? $target.find('li a[href="' + hash + '"]').parents('li') : $target.find('li:first-child');
+  var $next = $current.next();
+  var $prev = $current.prev();
+
+  $current.addClass('current');
+  $prev.addClass('prev');
+  $next.addClass('next');
 
 });

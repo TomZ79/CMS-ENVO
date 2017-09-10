@@ -144,7 +144,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
             $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `intranet`');
             $jakdb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
 
-            /* Remove tables */
+            /* Remove tables with data */
             $jakdb->query('DROP TABLE ' . DB_PREFIX . 'intranethouse');
             $jakdb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseent');
             $jakdb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseapt');

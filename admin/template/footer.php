@@ -132,6 +132,7 @@ echo $Html->addScript('../assets/js/functions.js?=' . $jkv["updatetime"]);
   envoWeb.envo_lang = "<?php echo $site_language;?>";
   envoWeb.envo_template = "<?php echo ENVO_TEMPLATE;?>";
 </script>
+
 <!-- BEGIN CORE TEMPLATE JS -->
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
@@ -179,7 +180,7 @@ if (!empty($page)) {
     }
     $debug->debug("JS Script path for this plugin or page: " . $jscodefile, NULL, INFO);
   } elseif (!in_array($page, $ap) && !empty($page) && ($page != '404')) {
-    $jscodefile = '../plugins/' . str_replace('-', '_', $page) . '/admin/js/pages.' . $page . '.php';
+    $jscodefile = '../plugins/' . str_replace('-', '_', $page) . '/admin/template/script.' . $page . '.php';
     if (file_exists($jscodefile)) {
       include_once($jscodefile);
     } else {
@@ -206,6 +207,7 @@ if ($page == 'template' && $page1 == 'settings') {
 }
 
 ?>
+
 <!-- BEGIN NOTIFY CONFIG JS -->
 <?php if (isset($_SESSION["loginmsg"])) { ?>
   <script>
@@ -273,12 +275,14 @@ if ($JAK_PROVED && !isset($jkv["cms_tpl"])) { ?>
     });
   </script>
 <?php } ?>
+
 <!-- BEGIN TINYMCE EDITOR -->
 <?php if ($JAK_PROVED && (!$jkv["adv_editor"])) {
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   echo $Html->addScript('../assets/plugins/tinymce/tinymce.min.js?=v4.5.2');
   include_once('pages/js/tiny.editor.php');
 } ?>
+
 <!-- BEGIN HOOKS - FOOTER -->
 <?php if (isset($JAK_HOOK_FOOTER_ADMIN) && is_array($JAK_HOOK_FOOTER_ADMIN)) foreach ($JAK_HOOK_FOOTER_ADMIN as $foota) {
   // Import all hooks for footer just before /body
