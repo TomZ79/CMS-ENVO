@@ -140,6 +140,8 @@ if (file_exists(APP_PATH . 'plugins/growl/admin/lang/' . $site_language . '.ini'
 
             $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Growl"');
             $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "growl"');
+
+            /* Remove tables with data */
             $jakdb->query('DROP TABLE ' . DB_PREFIX . 'growl');
 
           }

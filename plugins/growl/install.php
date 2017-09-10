@@ -195,6 +195,7 @@ if (file_exists(APP_PATH . 'plugins/growl/admin/lang/' . $site_language . '.ini'
       // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
       $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "Growl Admin Language", "' . $adminlang . '", "growl", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_head", "Growl Admin CSS", "plugins/growl/admin/template/css.growl.php", "growl", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_between_head", "Growl CSS", "' . $growlheader . '", "growl", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_footer_end", "Growl Javascript", "' . $growlfooter . '", "growl", 1, 1, "' . $rows['id'] . '", NOW())');
 
