@@ -210,6 +210,7 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
         $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "TV Tower Admin Language", "' . $adminlang . '", "tvtower", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "TV Tower Site Language", "' . $sitelang . '", "tvtower", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_head", "TV Tower Admin CSS", "plugins/tv_tower/admin/template/css.tv_tower.php", "tvtower", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_index", "TV Tower Statistics Admin", "' . $insertadminindex . '", "tvtower", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup", "TV Tower Usergroup New", "plugins/tv_tower/admin/template/usergroup_new.php", "tvtower", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup_edit", "TV Tower Usergroup Edit", "plugins/tv_tower/admin/template/usergroup_edit.php", "tvtower", 1, 1, "' . $rows['id'] . '", NOW()),

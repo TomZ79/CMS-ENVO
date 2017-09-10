@@ -145,9 +145,15 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
             $jakdb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
 
             /* Remove tables */
-            // $jakdb->query('DROP TABLE ' . DB_PREFIX . 'tvtowertvprogram');
-            // $jakdb->query('DROP TABLE ' . DB_PREFIX . 'tvtowertvchannel');
             // $jakdb->query('DROP TABLE ' . DB_PREFIX . 'tvtowertvtower');
+            // $jakdb->query('DROP TABLE ' . DB_PREFIX . 'tvtowertvchannel');
+            // $jakdb->query('DROP TABLE ' . DB_PREFIX . 'tvtowertvprogram');
+            // $jakdb->query('DROP TABLE ' . DB_PREFIX . 'tvtowersidtv');
+            // $jakdb->query('DROP TABLE ' . DB_PREFIX . 'tvtowersidr');
+            // $jakdb->query('DROP TABLE ' . DB_PREFIX . 'tvtowersids');
+            // $jakdb->query('DROP TABLE ' . DB_PREFIX . 'tvtoweronid');
+            // $jakdb->query('DROP TABLE ' . DB_PREFIX . 'tvtowernid');
+            // $jakdb->query('DROP TABLE ' . DB_PREFIX . 'tvtowerexporthistory');
 
           }
 
