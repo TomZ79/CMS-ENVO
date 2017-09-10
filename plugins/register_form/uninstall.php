@@ -152,7 +152,7 @@ if (file_exists(APP_PATH . 'plugins/register_form/admin/lang/' . $site_language 
             $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . $rows['id']);
             $jakdb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . $rows['id']);
 
-            // Clean up database
+            /* Remove tables */
             $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pages DROP showregister');
             $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'news DROP showregister');
             $jakdb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET active = 1 WHERE id = 3');

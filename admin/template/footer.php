@@ -172,21 +172,22 @@ if (!empty($page)) {
   $ap = array("logs", "searchlog", "changelog", "site", "setting", "plugins", "template", "maintenance", "facebookgallery", "settingfacebook", "mediasharing", "user", "usergroup", "categories", "page", "contactform", "sitemap", "searchsetting", "news", "tags", "cmshelp");
 
   if (in_array($page, $ap)) {
-    $jscodefile = 'pages/js/pages.' . $page . '.php';
-    if (file_exists($jscodefile)) {
-      include_once($jscodefile);
+    $jscodeFile = 'pages/js/pages.' . $page . '.php';
+    if (file_exists($jscodeFile)) {
+      include_once($jscodeFile);
     } else {
-      echo sprintf($notify, $jscodefile);
+      echo sprintf($notify, $jscodeFile);
     }
-    $debug->debug("JS Script path for this plugin or page: " . $jscodefile, NULL, INFO);
+    $debug->debug("JS Script path for this plugin or page: " . $jscodeFile, NULL, INFO);
   } elseif (!in_array($page, $ap) && !empty($page) && ($page != '404')) {
-    $jscodefile = '../plugins/' . str_replace('-', '_', $page) . '/admin/template/script.' . $page . '.php';
-    if (file_exists($jscodefile)) {
-      include_once($jscodefile);
+    $rPage = str_replace('-', '_', $page);
+    $jscodeFile = '../plugins/' . $rPage . '/admin/template/script.' . $rPage . '.php';
+    if (file_exists($jscodeFile)) {
+      include_once($jscodeFile);
     } else {
-      echo sprintf($notify, $jscodefile);
+      echo sprintf($notify, $jscodeFile);
     }
-    $debug->debug("JS Script path for this plugin or page: " . $jscodefile, NULL, INFO);
+    $debug->debug("JS Script path for this plugin or page: " . $jscodeFile, NULL, INFO);
   }
 
 } elseif (empty($page) && !JAK_USERID) {
@@ -197,13 +198,13 @@ if (!empty($page)) {
 
 // JS pages for Template Settings
 if ($page == 'template' && $page1 == 'settings') {
-  $jscodefile = APP_PATH . '/template/' . ENVO_TEMPLATE . '/js/' . ENVO_TEMPLATE . '.templatesettings.php';
-  if (file_exists($jscodefile)) {
-    include_once($jscodefile);
+  $jscodeFile = APP_PATH . '/template/' . ENVO_TEMPLATE . '/js/' . ENVO_TEMPLATE . '.templatesettings.php';
+  if (file_exists($jscodeFile)) {
+    include_once($jscodeFile);
   } else {
-    echo sprintf($notify, $jscodefile);
+    echo sprintf($notify, $jscodeFile);
   }
-  $debug->debug("JS Script path template settings page: " . $jscodefile, NULL, INFO);
+  $debug->debug("JS Script path template settings page: " . $jscodeFile, NULL, INFO);
 }
 
 ?>
@@ -214,7 +215,7 @@ if ($page == 'template' && $page1 == 'settings') {
     $.notify({
       // Options
       title: '<?php echo $tl["hf_text"]["hftxt6"] . ' , ' . $JAK_WELCOME_NAME; ?>!',
-      message: '<?php echo $_SESSION["loginmsg"];?>',
+      message: '<?php echo $_SESSION["loginmsg"];?>'
     }, {
       // Settings
       timer: 8000,

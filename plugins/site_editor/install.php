@@ -208,7 +208,8 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
       // EN: Insert data to table 'pluginhooks'
       // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
       $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
-(NULL, "php_admin_lang", "SITE Editor Admin Language", "' . $adminlang . '", "site_editor", 1, 4, "' . $rows['id'] . '", NOW())');
+(NULL, "php_admin_lang", "Site Editor Admin Language", "' . $adminlang . '", "site_editor", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_head", "Site Editor Admin CSS", "plugins/site_editor/admin/template/css.site_editor.php", "site_editor", 1, 4, "' . $rows['id'] . '", NOW())');
 
       $succesfully = 1;
 

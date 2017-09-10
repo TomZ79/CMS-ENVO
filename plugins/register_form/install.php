@@ -305,14 +305,15 @@ if (!$result) {
       // EN: Insert data to table 'pluginhooks'
       // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
       $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+(NULL, "php_admin_lang", "Register Form Admin Language", "' . $adminlang . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
+(NULL, "php_lang", "Register Form Site Language", "' . $sitelang . '", "registerf", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_head", "Register Form Admin CSS", "plugins/register_form/admin/template/css.register_form.php", "registerf", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_page_news", "Register Form Admin - Page/News", "' . $pages . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_page_news_new", "Register Form Admin - Page/News - New", "plugins/register_form/admin/template/rf_connect_new.php", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_sidebar", "Profile/Login Form Sidebar", "' . $get_rfsidebar . '", "registerf", 1, 5, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_footer_widgets", "Profile/Login Form Footer Widget", "' . $get_rffooter_widgets . '", "registerf", 1, 2, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_pages_sql", "Profile/Login Form SQL", "' . $sqlinsert . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_news_sql", "Profile/Login Form SQL", "' . $sqlinsert . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "php_admin_lang", "Register Form Admin Language", "' . $adminlang . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "php_lang", "Register Form Site Language", "' . $sitelang . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_pages_news", "Register Form Pages/News", "' . $pn_include . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_page_news_grid", "Register Form TPL - Pages/News", "' . $get_rfregform . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_index_page", "Register User Validate", "' . $index_page . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
