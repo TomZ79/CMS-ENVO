@@ -232,6 +232,7 @@ if (file_exists(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '
 (NULL, "php_admin_usergroup", "Newsletter Usergroup SQL", "' . $insertphpcode . '", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_lang", "Newsletter Admin Language", "' . $adminlang . '", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Newsletter Site Language", "' . $sitelang . '", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_head", "Newsletter Admin CSS", "plugins/newsletter/admin/template/css.newsletter.php", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup", "Newsletter Usergroup New", "plugins/newsletter/admin/template/usergroup_new.php", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup_edit", "Newsletter Usergroup Edit", "plugins/newsletter/admin/template/usergroup_edit.php", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_sidebar", "Newsletter SignUp", "' . $get_nlsidebar . '", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),

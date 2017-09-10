@@ -205,7 +205,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
         $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "Intranet Admin Language", "' . $adminlang . '", "intranet", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Intranet Site Language", "' . $sitelang . '", "intranet", 1, 1, "' . $rows['id'] . '", NOW()),
-(NULL, "tpl_admin_head", "Intranet Admin CSS", "plugins/intranet/admin/template/admincssheader.php", "intranet", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_head", "Intranet Admin CSS", "plugins/intranet/admin/template/css.intranet.php", "intranet", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup", "Intranet Usergroup New", "plugins/intranet/admin/template/usergroup_new.php", "intranet", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_usergroup_edit", "Intranet Usergroup Edit", "plugins/intranet/admin/template/usergroup_edit.php", "intranet", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_usergroup", "Intranet Usergroup SQL", "' . $insertphpcode . '", "intranet", 1, 1, "' . $rows['id'] . '", NOW())');
