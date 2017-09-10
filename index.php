@@ -26,7 +26,7 @@ if (JAK_USERID && $jakuser->jakSuperadminaccess(JAK_USERID)) {
 
 // EN: Import the language file
 // CZ: Import jazykových souborů
-if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
+if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'lang/' . $site_language . '.ini')) {
   $tl = parse_ini_file(APP_PATH . 'lang/' . $site_language . '.ini', TRUE);
 } else {
   $tl = parse_ini_file(APP_PATH . 'lang/' . $jkv["lang"] . '.ini', TRUE);

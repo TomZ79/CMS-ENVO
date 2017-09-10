@@ -410,9 +410,10 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
       // EN: Insert data to table 'pluginhooks'
       // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
       $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
-(NULL, "php_admin_usergroup", "Download Usergroup SQL", "' . $insertphpcode . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_lang", "Download Admin Language", "' . $adminlang . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Download Site Language", "' . $sitelang . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_head", "Download Admin CSS", "plugins/download/admin/template/css.download.php", "download", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_usergroup", "Download Usergroup SQL", "' . $insertphpcode . '", "download", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_index", "Download Statistics Admin", "' . $insertadminindex . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_search", "Download Search PHP", "' . $sitephpsearch . '", "download", 1, 8, "' . $rows['id'] . '", NOW()),
 (NULL, "php_rss", "Download RSS PHP", "' . $sitephprss . '", "download", 1, 1, "' . $rows['id'] . '", NOW()),

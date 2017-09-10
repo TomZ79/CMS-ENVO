@@ -123,15 +123,9 @@ if ($site_language = 'cs') {
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
 echo $Html->addScript('../assets/js/functions.js?=' . $jkv["updatetime"]);
+// Setting variable for Jquery external script files
+echo $Html->addScript('generated_js.php', array('type' => 'text/javascript'));
 ?>
-
-<script>
-  envoWeb.envo_url_orig = "<?php echo BASE_URL_ORIG;?>";
-  envoWeb.envo_url = "<?php echo BASE_URL_ADMIN;?>";
-  envoWeb.envo_path = "<?php echo BASE_PATH_ORIG;?>";
-  envoWeb.envo_lang = "<?php echo $site_language;?>";
-  envoWeb.envo_template = "<?php echo ENVO_TEMPLATE;?>";
-</script>
 
 <!-- BEGIN CORE TEMPLATE JS -->
 <?php

@@ -18,7 +18,7 @@ define('BASE_URL_ORIG', str_replace('/admin/', '/', BASE_URL));
 define('BASE_PATH_ORIG', str_replace('/admin', '/', _APP_MAIN_DIR));
 
 // EN: Include some functions for the ADMIN Area
-// CZ: Vložení funkcí pro ADMINistrační rozhraní
+// CZ: Vložení funkcí pro Administrační rozhraní
 include_once 'include/admin.function.php';
 
 // Overwrite url for admin

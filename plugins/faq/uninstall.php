@@ -216,7 +216,7 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
             <input type="text" name="captcha" class="form-control" id="text">
             <img src="../../assets/plugins/captcha/simple/captcha.php" class="m-l-10"/>
           </div>
-          <button type="submit" name="uninstall" class="btn btn-complete btn-block"><?php echo $tlf["faq_uninstall"]["faquninst5"]; ?></button>
+          <button type="submit" name="uninstall" class="btn btn-complete btn-block"><?php echo $tlf["faq_uninstall"]["faquninst6"]; ?></button>
         </form>
       <?php } ?>
 

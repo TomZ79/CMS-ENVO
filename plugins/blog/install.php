@@ -386,9 +386,10 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
       // EN: Insert data to table 'pluginhooks'
       // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
       $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
-(NULL, "php_admin_usergroup", "Blog Usergroup SQL", "' . $insertphpcode . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_lang", "Blog Admin Language", "' . $adminlang . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Blog Site Language", "' . $sitelang . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_head", "Blog Admin CSS", "plugins/blog/admin/template/css.blog.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_usergroup", "Blog Usergroup SQL", "' . $insertphpcode . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_search", "Blog Search PHP", "' . $sitephpsearch . '", "blog", 1, 8, "' . $rows['id'] . '", NOW()),
 (NULL, "php_rss", "Blog RSS PHP", "' . $sitephprss . '", "blog", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_tags", "Blog Tags PHP", "' . $sitephptag . '", "blog", 1, 8, "' . $rows['id'] . '", NOW()),

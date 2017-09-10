@@ -1,4 +1,4 @@
-<?php include "header.php"; ?>
+  <?php include "header.php"; ?>
 
 <?php if ($page2 == "e") { ?>
   <script type="text/javascript">
@@ -95,7 +95,7 @@ if ($errors) { ?>
                   </div>
                   <div class="col-md-7">
                     <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-                      <select name="jak_hook" class="form-control selectpicker">
+                      <select name="jak_hook" class="form-control selectpicker" data-search-select2="true">
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)

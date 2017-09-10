@@ -372,9 +372,10 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
       // EN: Insert data to table 'pluginhooks'
       // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
       $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
-(NULL, "php_admin_usergroup", "Faq Usergroup SQL", "' . $insertphpcode . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_lang", "Faq Admin Language", "' . $adminlang . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Faq Site Language", "' . $sitelang . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "tpl_admin_head", "Faq Admin CSS", "plugins/faq/admin/template/css.faq.php", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
+(NULL, "php_admin_usergroup", "Faq Usergroup SQL", "' . $insertphpcode . '", "faq", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_search", "Faq Search PHP", "' . $sitephpsearch . '", "faq", 1, 8, "' . $rows['id'] . '", NOW()),
 (NULL, "php_rss", "FAQ RSS PHP", "' . $sitephprss . '", "faq", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_tags", "Faq Tags PHP", "' . $sitephptag . '", "faq", 1, 8, "' . $rows['id'] . '", NOW()),
