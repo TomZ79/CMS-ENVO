@@ -64,7 +64,7 @@
 <?php }
 if (!$jkv["adv_editor"]) { ?>
   <script type="text/javascript" src="../assets/plugins/tinymce/tinymce.min.js"></script>
-  <?php include_once('pages/js/tiny.editor.php');
+  <?php include_once('assets/js/tiny.editor.php');
 } ?>
 
 <?php if (isset($JAK_HOOK_FOOTER_ADMIN) && is_array($JAK_HOOK_FOOTER_ADMIN)) foreach ($JAK_HOOK_FOOTER_ADMIN as $foota) {

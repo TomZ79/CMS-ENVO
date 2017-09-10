@@ -172,7 +172,7 @@ if (!empty($page)) {
   $ap = array("logs", "searchlog", "changelog", "site", "setting", "plugins", "template", "maintenance", "facebookgallery", "settingfacebook", "mediasharing", "user", "usergroup", "categories", "page", "contactform", "sitemap", "searchsetting", "news", "tags", "cmshelp");
 
   if (in_array($page, $ap)) {
-    $jscodeFile = 'pages/js/pages.' . $page . '.php';
+    $jscodeFile = 'assets/js/script.' . $page . '.php';
     if (file_exists($jscodeFile)) {
       include_once($jscodeFile);
     } else {
@@ -281,7 +281,7 @@ if ($JAK_PROVED && !isset($jkv["cms_tpl"])) { ?>
 <?php if ($JAK_PROVED && (!$jkv["adv_editor"])) {
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   echo $Html->addScript('../assets/plugins/tinymce/tinymce.min.js?=v4.5.2');
-  include_once('pages/js/tiny.editor.php');
+  include_once('assets/js/tiny.editor.php');
 } ?>
 
 <!-- BEGIN HOOKS - FOOTER -->
