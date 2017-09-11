@@ -17,8 +17,6 @@
 /** 01. Basic config for plugin's administration
  ========================================================================*/
 
-$(function () {
-
   /** ACE Editor
    * Initialisation of ACE Editor
    * @required_plugin: ACE Editor Plugin
@@ -37,18 +35,18 @@ $(function () {
    ========================================= */
   if ($('#htmleditor').length) {
     var htmlACE = ace.edit('htmleditor');
-    htmlACE.setTheme('ace/theme/' + aceEditor['acetheme']); // Theme chrome, monokai
+    htmlACE.setTheme('ace/theme/' + aceEditor.acetheme); // Theme chrome, monokai
     htmlACE.session.setUseWrapMode(true);
-    htmlACE.session.setWrapLimitRange(aceEditor['acewraplimit'] + ',' + aceEditor['acewraplimit']);
+    htmlACE.session.setWrapLimitRange(aceEditor.acewraplimit + ',' + aceEditor.acewraplimit);
     htmlACE.setOptions({
       // session options
       mode: "ace/mode/ini",
-      tabSize: aceEditor['acetabSize'],
+      tabSize: aceEditor.acetabSize,
       useSoftTabs: true,
-      highlightActiveLine: aceEditor['aceactiveline'],
+      highlightActiveLine: aceEditor.aceactiveline,
       // renderer options
-      showInvisibles: aceEditor['aceinvisible'],
-      showGutter: aceEditor['acegutter']
+      showInvisibles: aceEditor.aceinvisible,
+      showGutter: aceEditor.acegutter
     });
     // This is to remove following warning message on console:
     // Automatically scrolling cursor into view after selection change this will be disabled in the next version
@@ -70,6 +68,7 @@ $(function () {
     }
   }
 
+$(function () {
   /* Submit Form
    ========================================= */
   $('form').submit(function () {
@@ -103,6 +102,7 @@ $(function () {
 });
 
 /** 02. DateTimePicker
+ * @required_plugin: DateTimePicker Plugin
  ========================================================================*/
 
 $(function () {

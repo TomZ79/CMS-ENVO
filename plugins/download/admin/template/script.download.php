@@ -36,20 +36,9 @@ if ($page == 'download') {
   ?>
 
   <script>
-    var aceEditor = {
-      acetheme: <?php echo json_encode($jkv["acetheme"]); ?>,
-      acewraplimit: <?php echo json_encode($jkv["acewraplimit"]); ?>,
-      acetabSize: <?php echo json_encode($jkv["acetabSize"]); ?>,
-      aceactiveline: <?php echo json_encode($jkv["aceactiveline"]); ?>,
-      aceinvisible: <?php echo json_encode($jkv["aceinvisible"]); ?>,
-      acegutter: <?php echo json_encode($jkv["acegutter"]); ?>
-    };
-
-    var iconpicker = {
-      icon: <?php echo json_encode($categoryimg); ?>,
-      searchText: <?php echo json_encode($tl["placeholder"]["p4"]); ?>,
-      labelFooter: <?php echo json_encode($tl["global_text"]["globaltxt18"]); ?>
-    };
+    // Add to Global settings javascript object
+    iconPicker['icon'] = <?php echo json_encode($categoryimg); ?>;
+    globalSettings['pageID2'] = <?php echo (!empty($page2) && is_numeric($page2) ? $page2 : '""'); ?>;
   </script>
 
   <?php

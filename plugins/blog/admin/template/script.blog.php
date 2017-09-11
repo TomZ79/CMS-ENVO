@@ -20,7 +20,6 @@ if ($page == 'blog') {
 
   echo PHP_EOL . '<!-- Start JS Blog -->';
 
-  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Setting variable for Jquery external script
   if (isset($ENVO_FORM_DATA["catimg"])) {
     $str = $ENVO_FORM_DATA["catimg"];
@@ -36,28 +35,21 @@ if ($page == 'blog') {
   ?>
 
   <script>
-    var iconPicker = {
-      icon: <?php echo json_encode($categoryimg); ?>
-    };
-    // Global settings
-    var global = {
-      pageID: <?php echo json_encode($page); ?>,
-      pageID1: <?php echo json_encode($page1); ?>,
-      pageID2: <?php echo json_encode($page2); ?>,
-      pageID3: <?php echo json_encode($page3); ?>,
-      pageID4: <?php echo json_encode($page4); ?>,
-      pageID5: <?php echo json_encode($page5); ?>,
-      pageID6: <?php echo json_encode($page6); ?>
-    };
+    // Add to Global settings javascript object
+    iconPicker['icon'] = <?php echo json_encode($categoryimg); ?>;
+    globalSettings['pageID2'] = <?php echo (!empty($page2) && is_numeric($page2) ? $page2 : '""'); ?>;
   </script>
 
   <?php
+  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Plugin ACE Editor
   echo $Html->addScript('assets/plugins/ace/ace.js');
   // Plugin Slug
   echo $Html->addScript('assets/js/slug.js');
   // Order Category
   echo $Html->addScript('assets/js/catorder.js');
+  // Plugin DataTable
+  echo $Html->addScript('https://cdn.datatables.net/v/bs/jszip-3.1.3/pdfmake-0.1.27/dt-1.10.15/b-1.3.1/b-html5-1.3.1/b-print-1.3.1/datatables.min.js');
   // Plugin Javascript
   echo $Html->addScript(BASE_URL_ORIG . 'plugins/blog/admin/js/script.blog.js');
 

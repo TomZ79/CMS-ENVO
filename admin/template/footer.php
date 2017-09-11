@@ -185,9 +185,9 @@ if (!empty($page)) {
   }
 
 } elseif (empty($page) && !JAK_USERID) {
-  include_once 'pages/js/pages.login.php';
+  include_once 'assets/js/script.login.php';
 } else {
-  include_once 'pages/js/pages.index.php';
+  include_once 'assets/js/script.index.php';
 }
 
 // JS pages for Template Settings

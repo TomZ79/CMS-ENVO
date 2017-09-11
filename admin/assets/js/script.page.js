@@ -1,7 +1,7 @@
 /*
  *
  * CMS ENVO
- * JS for Plugin Download - Admin
+ * JS for Pages - Admin
  * Copyright © 2016 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas
@@ -10,13 +10,8 @@
  * INDEX:
  *
  * 01. Basic config for plugin's administration
- * 02. Slug
- * 03. Bootstrap Icon Picker
- * 04. DateTimePicker
- * 05. NestedSortable
  *
  */
-
 
 /** 01. Basic config for plugin's administration
  ========================================================================*/
@@ -33,18 +28,22 @@
  * @param: 'aceEditor.aceinvisible' from generated_js.php
  * @param: 'aceEditor.acegutter' from generated_js.php
  *
- * @example: Example add other variable setting to aceEditor object in script.download.php
+ * @example: Example variable setting
  *
- * <script>
- *  // Add to aceEditor settings javascript object
- *  aceEditor['otherconfigvariable'] = <?php echo json_encode($othervalue); ?>;
- * </script>
+ * var aceEditor = {
+ *    acetheme: <?php echo json_encode($jkv["acetheme"]); ?>,
+ *    acewraplimit: <?php echo json_encode($jkv["acewraplimit"]); ?>,
+ *    acetabSize: <?php echo json_encode($jkv["acetabSize"]); ?>,
+ *    aceactiveline: <?php echo json_encode($jkv["aceactiveline"]); ?>,
+ *    aceinvisible: <?php echo json_encode($jkv["aceinvisible"]); ?>,
+ *    acegutter: <?php echo json_encode($jkv["acegutter"]); ?>
+ * };
  ========================================= */
 if ($('#htmleditor').length) {
   var htmlACE = ace.edit('htmleditor');
   htmlACE.setTheme('ace/theme/' + aceEditor.acetheme); // Theme chrome, monokai
   htmlACE.session.setUseWrapMode(true);
-  htmlACE.session.setWrapLimitRange(aceEditor.acewraplimit + ',' + aceEditor.acewraplimit);
+  htmlACE.session.setWrapLimitRange(aceEditor.acewraplimit +  ',' + aceEditor.acewraplimit);
   htmlACE.setOptions({
     // session options
     mode: "ace/mode/html",
@@ -60,7 +59,7 @@ if ($('#htmleditor').length) {
   // set editor.$blockScrolling = Infinity to disable this message
   htmlACE.$blockScrolling = Infinity;
 
-  texthtml = $('#jak_editor').val();
+  var texthtml = $("#jak_editor").val();
   htmlACE.session.setValue(texthtml);
 }
 
@@ -83,13 +82,12 @@ if ($('#javaeditor').length) {
 }
 
 /* Responsive Filemanager
- * @required_plugin: TinyMCE Filemanager Plugin
  ========================================= */
 function responsive_filemanager_callback(field_id) {
 
   if (field_id == "csseditor" || field_id == "javaeditor" || field_id == "htmleditor") {
 
-    // get the path for the ace file
+    // Get the path for the ACE file
     var acefile = jQuery('#' + field_id).val();
 
     if (field_id == "csseditor") {
@@ -103,6 +101,25 @@ function responsive_filemanager_callback(field_id) {
 }
 
 $(function () {
+
+  /** Restore content of ACE Editor
+   * @param: 'notification.confirmRestore' from generated_js.php
+   * @param: 'globalSettings.pageID2' from script.page.php
+   * @param: 'globalSettings.advEditor' from generated_js.php
+   ========================================= */
+  if ($('#restorcontent').length) {
+    $("#restorcontent").change(function () {
+      if ($(this).val() != 0) {
+        if (!confirm(notification.confirmRestore)) {
+          $("#restorcontent").val(0);
+          return false;
+        } else {
+          restoreContent('pageid', globalSettings.pageID2, globalSettings.advEditor, $(this).val());
+        }
+      }
+    });
+  }
+
   /* Insert block to ACE Editor
    ========================================= */
   $("#addCssBlock").click(function () {
@@ -110,6 +127,20 @@ $(function () {
   });
   $("#addJavascriptBlock").click(function () {
     jsACE.insert(insert_javascript());
+  });
+
+  /* Insert Short Code to ACE Editor
+   ========================================= */
+  $(".short-sc").click(function () {
+    htmlACE.insert(insert_code_member_guest());
+  });
+
+  $(".short-sc1").click(function () {
+    htmlACE.insert(insert_code_member());
+  });
+
+  $(".short-sc2").click(function () {
+    htmlACE.insert(insert_code_guest());
   });
 
   /* Submit Form
@@ -150,119 +181,4 @@ $(function () {
 
 });
 
-/** 02. Slug
- ========================================================================*/
 
-$(function () {
-
-  $("#jak_name").keyup(function () {
-    // Checked, copy values
-    $("#jak_varname").val(jakSlug($("#jak_name").val()));
-  });
-
-});
-
-/** 03. Bootstrap Icon Picker
- * @required_plugin: Icon Picker Plugin
- ========================================================================*/
-
-$(function () {
-
-  $('.iconpicker').iconpicker({
-    arrowClass: 'btn-info',
-    icon: iconPicker.icon,
-    iconset: 'fontawesome',
-    searchText: iconPicker.searchText,
-    labelFooter: iconPicker.labelFooter,
-    arrowPrevIconClass: 'fa fa-chevron-left',
-    arrowNextIconClass: 'fa fa-chevron-right',
-    selectedClass: 'btn-success',
-    unselectedClass: '',
-    rows: 5,
-    cols: 8
-  });
-
-  $('.iconpicker').on('change', function (e) {
-    $("#jak_img").val('fa ' + e.icon);
-  });
-
-  $('.iconpicker1').iconpicker({
-    arrowClass: 'btn-info',
-    icon: iconpicker['icon'],
-    iconset: 'glyphicons',
-    searchText: iconPicker.searchText,
-    labelFooter: iconPicker.labelFooter,
-    arrowPrevIconClass: 'fa fa-chevron-left',
-    arrowNextIconClass: 'fa fa-chevron-right',
-    selectedClass: 'btn-success',
-    unselectedClass: '',
-    rows: 5,
-    cols: 8
-  });
-
-  $('.iconpicker1').on('change', function (e) {
-    $("#jak_img").val('glyphicons ' + e.icon);
-  });
-
-});
-
-/** 04. DateTimePicker
- * @required_plugin: DateTimePicker Plugin
- ========================================================================*/
-
-$(function () {
-
-  /* DateTimePicker
-   ========================================= */
-  $('#datepickerTime').datetimepicker({
-    // Language
-    locale: envoWeb.envo_lang,
-    // Date-Time format
-    format: 'YYYY-MM-DD HH:mm',
-    // Icons
-    icons: $.AdminEnvo.DateTimepicker.icons(),
-    // Tooltips
-    tooltips: $.AdminEnvo.DateTimepicker.tooltips(),
-    // Show Button
-    showTodayButton: true,
-    showClear: true,
-    // Other
-    calendarWeeks: true,
-    ignoreReadonly: true,
-    keepInvalid: true
-  });
-
-});
-
-/** 05. NestedSortable
- * @required_plugin: NestedSortable Plugin
- ========================================================================*/
-
-$(function () {
-
-  $(".sortable").nestedSortable({maxLevels: 2});
-
-  $(".save-menu-plugin").on("click", function () {
-    mlist = $(this).data("menu");
-    serialized = $("#" + mlist).nestedSortable("serialize");
-
-    /* Sending the form fileds to any post request: */
-    var request = $.ajax({
-      url: "index.php?p=download&amp;sp=categories",
-      type: "POST",
-      data: serialized,
-      dataType: "json",
-      cache: false
-    });
-    request.done(function (data) {
-      if (data.status == 1) {
-        $("#" + mlist + " li").animate({backgroundColor: '#c9ffc9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
-        $.notify({icon: 'fa fa-check-square-o', message: data.html}, {type: 'success'});
-      } else {
-        $("#" + mlist + " li").animate({backgroundColor: '#ffc9c9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
-        $.notify({icon: 'fa fa-exclamation-triangle', message: data.html}, {type: 'danger'});
-      }
-    });
-  });
-
-});

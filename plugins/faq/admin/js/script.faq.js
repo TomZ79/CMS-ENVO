@@ -19,112 +19,111 @@
 /** 01. Basic config for plugin's administration
  ========================================================================*/
 
+
+
+/** ACE Editor
+ * Initialisation of ACE Editor
+ * @required_plugin: ACE Editor Plugin
+ *
+ * Set variable in php file as array (script.tv-tower.php)
+ * @param: 'aceEditor.acetheme' from generated_js.php
+ * @param: 'aceEditor.acewraplimit' from generated_js.php
+ * @param: 'aceEditor.acetabSize' from generated_js.php
+ * @param: 'aceEditor.aceactiveline' from generated_js.php
+ * @param: 'aceEditor.aceinvisible' from generated_js.php
+ * @param: 'aceEditor.acegutter' from generated_js.php
+ *
+ * @example: Example add other variable setting to aceEditor object in script.download.php
+ *
+ * <script>
+ *  // Add to aceEditor settings javascript object
+ *  aceEditor['otherconfigvariable'] = <?php echo json_encode($othervalue); ?>;
+ * </script>
+ ========================================= */
+if ($('#htmleditor').length) {
+  var htmlACE = ace.edit('htmleditor');
+  htmlACE.setTheme('ace/theme/' + aceEditor.acetheme); // Theme chrome, monokai
+  htmlACE.session.setUseWrapMode(true);
+  htmlACE.session.setWrapLimitRange(aceEditor.acewraplimit + ',' + aceEditor.acewraplimit);
+  htmlACE.setOptions({
+    // session options
+    mode: "ace/mode/ini",
+    tabSize: aceEditor.acetabSize,
+    useSoftTabs: true,
+    highlightActiveLine: aceEditor.aceactiveline,
+    // renderer options
+    showInvisibles: aceEditor.aceinvisible,
+    showGutter: aceEditor.acegutter
+  });
+  // This is to remove following warning message on console:
+  // Automatically scrolling cursor into view after selection change this will be disabled in the next version
+  // set editor.$blockScrolling = Infinity to disable this message
+  htmlACE.$blockScrolling = Infinity;
+
+  texthtml = $('#jak_editor').val();
+  htmlACE.session.setValue(texthtml);
+}
+
+if ($('#csseditor').length) {
+  var cssACE = ace.edit("csseditor");
+  cssACE.setTheme("ace/theme/chrome");
+  cssACE.session.setMode("ace/mode/html");
+  textcss = $("#jak_css").val();
+  cssACE.session.setValue(textcss);
+  cssACE.$blockScrolling = Infinity;
+}
+
+if ($('#javaeditor').length) {
+  var jsACE = ace.edit("javaeditor");
+  jsACE.setTheme("ace/theme/chrome");
+  jsACE.session.setMode("ace/mode/html");
+  textjs = $("#jak_javascript").val();
+  jsACE.session.setValue(textjs);
+  jsACE.$blockScrolling = Infinity;
+}
+
+/* Responsive Filemanager
+ ========================================= */
+function responsive_filemanager_callback(field_id) {
+
+  if (field_id == "csseditor" || field_id == "javaeditor" || field_id == "htmleditor") {
+
+    // get the path for the ace file
+    var acefile = jQuery('#' + field_id).val();
+
+    if (field_id == "csseditor") {
+      cssACE.insert('<link rel="stylesheet" href="' + acefile + '" type="text/css" />');
+    } else if (field_id == "javaeditor") {
+      jsACE.insert('<script src="' + acefile + '"><\/script>');
+    } else {
+      htmlACE.insert(acefile);
+    }
+  }
+}
+
 $(function () {
-
-  /** ACE Editor
-   * Initialisation of ACE Editor
-   * @required_plugin: ACE Editor Plugin
-   * @variable_setting: Set variable in php file as array (script.tv-tower.php)
-   *
-   * @example: Example variable setting
-   *
-   * var aceEditor = {
-   *    acetheme: <?php echo json_encode($jkv["acetheme"]); ?>,
-   *    acewraplimit: <?php echo json_encode($jkv["acewraplimit"]); ?>,
-   *    acetabSize: <?php echo json_encode($jkv["acetabSize"]); ?>,
-   *    aceactiveline: <?php echo json_encode($jkv["aceactiveline"]); ?>,
-   *    aceinvisible: <?php echo json_encode($jkv["aceinvisible"]); ?>,
-   *    acegutter: <?php echo json_encode($jkv["acegutter"]); ?>
-   * };
-   ========================================= */
-  if ($('#htmleditor').length) {
-    var htmlACE = ace.edit('htmleditor');
-    htmlACE.setTheme('ace/theme/' + aceEditor['acetheme']); // Theme chrome, monokai
-    htmlACE.session.setUseWrapMode(true);
-    htmlACE.session.setWrapLimitRange(aceEditor['acewraplimit'] +  ',' + aceEditor['acewraplimit']);
-    htmlACE.setOptions({
-      // session options
-      mode: "ace/mode/ini",
-      tabSize: aceEditor['acetabSize'],
-      useSoftTabs: true,
-      highlightActiveLine: aceEditor['aceactiveline'],
-      // renderer options
-      showInvisibles: aceEditor['aceinvisible'],
-      showGutter: aceEditor['acegutter']
-    });
-    // This is to remove following warning message on console:
-    // Automatically scrolling cursor into view after selection change this will be disabled in the next version
-    // set editor.$blockScrolling = Infinity to disable this message
-    htmlACE.$blockScrolling = Infinity;
-
-    texthtml = $('#jak_editor').val();
-    htmlACE.session.setValue(texthtml);
-  }
-
-  if ($('#csseditor').length) {
-    var cssACE = ace.edit("csseditor");
-    cssACE.setTheme("ace/theme/chrome");
-    cssACE.session.setMode("ace/mode/html");
-    textcss = $("#jak_css").val();
-    cssACE.session.setValue(textcss);
-  }
-
-  if ($('#javaeditor').length) {
-    var jsACE = ace.edit("javaeditor");
-    jsACE.setTheme("ace/theme/chrome");
-    jsACE.session.setMode("ace/mode/html");
-    textjs = $("#jak_javascript").val();
-    jsACE.session.setValue(textjs);
-  }
-
   /* Insert block to ACE Editor
    ========================================= */
-  $(document).ready(function () {
-
-    $("#addCssBlock").click(function () {
-      cssACE.insert(insert_cssblock());
-    });
-    $("#addJavascriptBlock").click(function () {
-      jsACE.insert(insert_javascript());
-    });
+  $("#addCssBlock").click(function () {
+    cssACE.insert(insert_cssblock());
+  });
+  $("#addJavascriptBlock").click(function () {
+    jsACE.insert(insert_javascript());
   });
 
   /* Submit Form
    ========================================= */
   $('form').submit(function () {
-
     if ($('#jak_editor').length) {
       $("#jak_editor").val(htmlACE.getValue());
     }
-
     if ($('#csseditor').length) {
       $("#jak_css").val(cssACE.getValue());
     }
-
     if ($('#javaeditor').length) {
       $("#jak_javascript").val(jsACE.getValue());
     }
-
   });
-
-  /* Responsive Filemanager
-   ========================================= */
-  function responsive_filemanager_callback(field_id) {
-
-    if (field_id == "csseditor" || field_id == "javaeditor" || field_id == "htmleditor") {
-
-      // get the path for the ace file
-      var acefile = jQuery('#' + field_id).val();
-
-      if (field_id == "csseditor") {
-        cssACE.insert('<link rel="stylesheet" href="' + acefile + '" type="text/css" />');
-      } else if (field_id == "javaeditor") {
-        jsACE.insert('<script src="' + acefile + '"><\/script>');
-      } else {
-        htmlACE.insert(acefile);
-      }
-    }
-  }
 
   /* Check all checkbox
    ========================================= */
@@ -163,16 +162,17 @@ $(function () {
 });
 
 /** 03. Bootstrap Icon Picker
+ * @required_plugin: Icon Picker Plugin
  ========================================================================*/
 
 $(function () {
 
   $('.iconpicker').iconpicker({
     arrowClass: 'btn-info',
-    icon: iconpicker['icon'],
+    icon: iconPicker.icon,
     iconset: 'fontawesome',
-    searchText: iconpicker['searchText'],
-    labelFooter: iconpicker['labelFooter'],
+    searchText: iconPicker.searchText,
+    labelFooter: iconPicker.labelFooter,
     arrowPrevIconClass: 'fa fa-chevron-left',
     arrowNextIconClass: 'fa fa-chevron-right',
     selectedClass: 'btn-success',
@@ -187,10 +187,10 @@ $(function () {
 
   $('.iconpicker1').iconpicker({
     arrowClass: 'btn-info',
-    icon: iconpicker['icon'],
+    icon: iconPicker.icon,
     iconset: 'glyphicons',
-    searchText: iconpicker['searchText'],
-    labelFooter: iconpicker['labelFooter'],
+    searchText: iconPicker.searchText,
+    labelFooter: iconPicker.labelFooter,
     arrowPrevIconClass: 'fa fa-chevron-left',
     arrowNextIconClass: 'fa fa-chevron-right',
     selectedClass: 'btn-success',
@@ -206,6 +206,7 @@ $(function () {
 });
 
 /** 04. NestedSortable
+ * @required_plugin: NestedSortable Plugin
  ========================================================================*/
 
 $(function () {

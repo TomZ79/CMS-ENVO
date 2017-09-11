@@ -20,6 +20,18 @@ if ($page == 'xml_seo') {
 
   echo PHP_EOL . '<!-- Start JS XML Seo -->';
 
+  // Setting variable for Jquery external script
+  ?>
+
+  <script>
+    var stepForm = {
+      nextBtn: <?php echo json_encode($tlxml["xml_button"]["xmlbtn"]); ?>,
+      prevBtn: <?php echo json_encode($tlxml["xml_button"]["xmlbtn1"]); ?>,
+      finishBtn: <?php echo json_encode($tlxml["xml_button"]["xmlbtn2"]); ?>,
+    };
+  </script>
+
+  <?php
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Step Form Wizard plugin
   echo $Html->addScript('/assets/plugins/step-form-wizard/2.3/step-form-wizard/js/step-form-wizard.js');
