@@ -45,9 +45,9 @@ if ($page == 'download') {
   // Plugin ACE Editor
   echo $Html->addScript('assets/plugins/ace/ace.js');
   // Plugin Slug
-  echo $Html->addScript('assets/js/slug.js');
+  echo $Html->addScript('assets/js/global_js/slug.js');
   // Order Category
-  echo $Html->addScript('assets/js/catorder.js');
+  echo $Html->addScript('assets/js/global_js/catorder.js');
   // Plugin Javascript
   echo $Html->addScript(BASE_URL_ORIG . 'plugins/download/admin/js/script.download.js');
 

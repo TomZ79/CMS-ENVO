@@ -1,25 +1,33 @@
-<script type="text/javascript">
-  $(document).ready(function () {
+<?php
+/*
+ * AKP Search Log - ADMIN
+ * EN: Description of file
+ * CZ: Popis souboru
+ * ----------------------------------------------
+ *
+ * EN: The file insert other files into the site footer:
+ *      - javascript code
+ *      - external javascript files
+ *      - the file 'assets/js/script.searchlog.js'
+ * CZ: Soubor vkládá další soubory do zápatí webu:
+ *      - javascript kód
+ *      - externí javascript soubory
+ *      - soubor 'assets/js/script.searchlog.js'
+ *
+ */
 
-    /* Check all checkbox */
-    $("#jak_delete_all").click(function () {
-      var checkedStatus = this.checked;
-      $(".highlight").each(function () {
-        $(this).prop('checked', checkedStatus);
-      });
-      $('#button_delete').prop('disabled', function (i, v) {
-        return !v;
-      });
-    });
+if ($page == 'searchlog') {
 
-    /* Disable submit button if checkbox is not checked */
-    $(".highlight").change(function () {
-      if (this.checked) {
-        $("#button_delete").removeAttr("disabled");
-      } else {
-        $("#button_delete").attr("disabled", "disabled");
-      }
-    });
+  echo PHP_EOL . '<!-- Start JS AKP Search Log -->';
 
-  });
-</script>
+  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
+  // Plugin Javascript
+  echo $Html->addScript('assets/js/script.searchlog.js');
+
+  echo PHP_EOL . '<!-- End JS AKP Search Log -->' . PHP_EOL;
+
+}
+
+// New line in source code
+echo PHP_EOL;
+?>

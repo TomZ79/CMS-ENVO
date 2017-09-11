@@ -39,12 +39,12 @@ if ($page == 'plugins') {
   // Load 'pluginorder.js'  - only for selected pages
   if ($page == 'plugins' && $page1 == '') {
     // Plugin ACE Editor
-    echo $Html->addScript('assets/js/pluginorder.js');
+    echo $Html->addScript('assets/js/global_js/pluginorder.js');
   }
   // Load 'hookorder.js'  - only for selected pages
   if ($page == 'plugins' && $page1 == 'sorthooks') {
     // Plugin ACE Editor
-    echo $Html->addScript('assets/js/hookorder.js');
+    echo $Html->addScript('assets/js/global_js/hookorder.js');
   }
   // Plugin Javascript
   echo $Html->addScript('assets/js/script.plugins.js');

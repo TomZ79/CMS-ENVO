@@ -33,7 +33,7 @@ if ($page == 'intranet') {
   // Plugin Isotope
   echo $Html->addScript('assets/plugins/jquery-isotope/isotope.pkgd.min.js');
   //
-  echo $Html->addScript('assets/js/gallery.js');
+  echo $Html->addScript('assets/js/global_js/gallery.js');
   // Plugin Javascript
   echo $Html->addScript(BASE_URL_ORIG . 'plugins/intranet/admin/js/script.intranet.js');
 

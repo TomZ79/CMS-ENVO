@@ -1,8 +1,8 @@
-<script src="assets/js/todo.js" type="text/javascript"></script>
+<script src="assets/js/global_js/todo.js" type="text/javascript"></script>
 
 <?php if ($pageCdata) { ?>
-  <script type="text/javascript" src="chart/highcharts.js"></script>
-  <script type="text/javascript" src="chart/exporting.js"></script>
+  <script type="text/javascript" src="assets/chart/highcharts.js"></script>
+  <script type="text/javascript" src="assets/chart/exporting.js"></script>
 
   <!-- First Stat -->
   <script type="text/javascript">

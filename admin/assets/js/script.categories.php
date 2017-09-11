@@ -1,5 +1,5 @@
-<script src="assets/js/catorder.js" type="text/javascript"></script>
-<script src="assets/js/slug.js" type="text/javascript"></script>
+<script src="assets/js/global_js/catorder.js" type="text/javascript"></script>
+<script src="assets/js/global_js/slug.js" type="text/javascript"></script>
 
 <script type="text/javascript">
   $(document).ready(function () {

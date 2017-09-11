@@ -32,6 +32,7 @@ if (isset($tpl_customcss)) {
 		filemanager_title: "Filemanager",
 		external_plugins: {"filemanager": "plugins/filemanager/plugin.min.js"}
 	});
+
 	tinymce.init({
 		selector: "textarea.jakEditor, textarea.jakEditor2, textarea.jakEditor3",
 		theme: "modern",
@@ -55,6 +56,7 @@ if (isset($tpl_customcss)) {
 		filemanager_title: "Filemanager",
 		external_plugins: {"filemanager": "plugins/filemanager/plugin.min.js"}
 	});
+
 	tinymce.init({
 		selector: "textarea.jakEditorF, textarea.jakEditorF2, textarea.jakEditorF3",
 		theme: "modern",

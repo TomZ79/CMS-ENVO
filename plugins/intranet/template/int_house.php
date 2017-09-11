@@ -67,7 +67,7 @@
 
     <?php
     // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-    echo $Html->addDiv($tl["general_error"]["generror3"], '', array('class' => 'alert bg-info text-white'));
+    echo $Html->addDiv('Nejsou dostupná žádná data.', '', array('class' => 'alert'));
     ?>
 
   </div>

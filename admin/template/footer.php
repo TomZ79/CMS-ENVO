@@ -136,7 +136,7 @@ echo $Html->addScript('pages/js/pages.js');
 <!-- BEGIN PAGE LEVEL JS -->
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-echo $Html->addScript('assets/js/scripts.js');
+echo $Html->addScript('assets/js/global_js/scripts.js');
 ?>
 
 <!-- BEGIN JS FOR GENERAL PAGE and PLUGINS -->
