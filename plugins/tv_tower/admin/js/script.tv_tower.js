@@ -20,48 +20,50 @@
 /** 01. Basic config for plugin's administration
  ========================================================================*/
 
+/** ACE Editor
+ * Initialisation of ACE Editor
+ * @required_plugin: ACE Editor Plugin
+ *
+ * Set variable in php file as array (script.tv-tower.php)
+ * @param: 'aceEditor.acetheme' from generated_js.php
+ * @param: 'aceEditor.acewraplimit' from generated_js.php
+ * @param: 'aceEditor.acetabSize' from generated_js.php
+ * @param: 'aceEditor.aceactiveline' from generated_js.php
+ * @param: 'aceEditor.aceinvisible' from generated_js.php
+ * @param: 'aceEditor.acegutter' from generated_js.php
+ *
+ * @example: Example add other variable setting to aceEditor object in script.download.php
+ *
+ * <script>
+ *  // Add to aceEditor settings javascript object
+ *  aceEditor['otherconfigvariable'] = <?php echo json_encode($othervalue); ?>;
+ * </script>
+ ========================================= */
+if ($('#htmleditor').length) {
+  var htmlACE = ace.edit('htmleditor');
+  htmlACE.setTheme('ace/theme/' + aceEditor.acetheme); // Theme chrome, monokai
+  htmlACE.session.setUseWrapMode(true);
+  htmlACE.session.setWrapLimitRange(aceEditor.acewraplimit + ',' + aceEditor.acewraplimit);
+  htmlACE.setOptions({
+    // session options
+    mode: "ace/mode/ini",
+    tabSize: aceEditor.acetabSize,
+    useSoftTabs: true,
+    highlightActiveLine: aceEditor.aceactiveline,
+    // renderer options
+    showInvisibles: aceEditor.aceinvisible,
+    showGutter: aceEditor.acegutter
+  });
+  // This is to remove following warning message on console:
+  // Automatically scrolling cursor into view after selection change this will be disabled in the next version
+  // set editor.$blockScrolling = Infinity to disable this message
+  htmlACE.$blockScrolling = Infinity;
+
+  texthtml = $('#jak_filecontent').val();
+  htmlACE.session.setValue(texthtml);
+}
+
 $(function () {
-
-  /** ACE Editor
-   * Initialisation of ACE Editor
-   * @required_plugin: ACE Editor Plugin
-   * @variable_setting: Set variable in php file as array (script.tv-tower.php)
-   *
-   * @example: Example variable setting
-   *
-   * var aceEditor = {
-   *    acetheme: <?php echo json_encode($jkv["acetheme"]); ?>,
-   *    acewraplimit: <?php echo json_encode($jkv["acewraplimit"]); ?>,
-   *    acetabSize: <?php echo json_encode($jkv["acetabSize"]); ?>,
-   *    aceactiveline: <?php echo json_encode($jkv["aceactiveline"]); ?>,
-   *    aceinvisible: <?php echo json_encode($jkv["aceinvisible"]); ?>,
-   *    acegutter: <?php echo json_encode($jkv["acegutter"]); ?>
-   * };
-   ========================================= */
-  if ($('#htmleditor').length) {
-    var htmlACE = ace.edit('htmleditor');
-    htmlACE.setTheme('ace/theme/' + aceEditor['acetheme']); // Theme chrome, monokai
-    htmlACE.session.setUseWrapMode(true);
-    htmlACE.session.setWrapLimitRange(aceEditor['acewraplimit'] +  ',' + aceEditor['acewraplimit']);
-    htmlACE.setOptions({
-      // session options
-      mode: "ace/mode/ini",
-      tabSize: aceEditor['acetabSize'],
-      useSoftTabs: true,
-      highlightActiveLine: aceEditor['aceactiveline'],
-      // renderer options
-      showInvisibles: aceEditor['aceinvisible'],
-      showGutter: aceEditor['acegutter']
-    });
-    // This is to remove following warning message on console:
-    // Automatically scrolling cursor into view after selection change this will be disabled in the next version
-    // set editor.$blockScrolling = Infinity to disable this message
-    htmlACE.$blockScrolling = Infinity;
-
-    texthtml = $('#jak_filecontent').val();
-    htmlACE.session.setValue(texthtml);
-  }
-
   /* Submit Form
    ========================================= */
   $('form').submit(function () {

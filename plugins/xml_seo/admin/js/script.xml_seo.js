@@ -13,7 +13,7 @@
  *
  */
 
-/** 01. STEP FORM WIZARD INITIALISATION
+/** 01. Step Form wizard initialisation
  * @required_plugin: Step Form Wizard plugin
  ========================================================================*/
 

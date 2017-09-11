@@ -25,7 +25,7 @@ if ($page == 'page') {
 
   <script>
     // Add to Global settings javascript object
-    globalSettings['pageID2'] = <?php echo json_encode($page2); ?>;
+    globalSettings['pageID2'] = <?php echo (!empty($page2) && is_numeric($page2) ? $page2 : '""'); ?>;
   </script>
 
   <?php

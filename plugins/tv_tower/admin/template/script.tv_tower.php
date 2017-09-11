@@ -21,21 +21,6 @@ if ($page == 'tv-tower') {
   echo PHP_EOL . '<!-- Start JS TV Tower -->';
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  // Setting variable for Jquery external script
-  ?>
-
-  <script>
-    var aceEditor = {
-      acetheme: <?php echo json_encode($jkv["acetheme"]); ?>,
-      acewraplimit: <?php echo json_encode($jkv["acewraplimit"]); ?>,
-      acetabSize: <?php echo json_encode($jkv["acetabSize"]); ?>,
-      aceactiveline: <?php echo json_encode($jkv["aceactiveline"]); ?>,
-      aceinvisible: <?php echo json_encode($jkv["aceinvisible"]); ?>,
-      acegutter: <?php echo json_encode($jkv["acegutter"]); ?>
-    };
-  </script>
-
-  <?php
   // Plugin ACE Editor
   echo $Html->addScript('assets/plugins/ace/ace.js');
   // Plugin DataTable
