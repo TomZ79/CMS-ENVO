@@ -113,7 +113,7 @@
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane fade in active" id="cmsPage1" aria-labelledby="cmsPage1-tab">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
           <div class="box box-success">
             <div class="box-header">
 
@@ -124,11 +124,32 @@
               ?>
 
             </div>
-            <div class="box-body no-padding table-responsive">
+            <div class="box-body no-padding">
 
               <?php
               // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
               echo $Html->addDiv('', 'chart_total', array('class' => 'charts'));
+              ?>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="box box-success">
+            <div class="box-header">
+
+              <?php
+              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+              echo $Html->addTag('i', '', 'fa fa-pie-chart');
+              echo $Html->addTag('h3', $tl["dashb_box_title"]["dbbt2"], 'box-title');
+              ?>
+
+            </div>
+            <div class="box-body no-padding">
+
+              <?php
+              // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+              echo $Html->addDiv('', 'page_total', array('class' => 'charts'));
               ?>
 
             </div>

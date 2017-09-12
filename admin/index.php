@@ -182,7 +182,7 @@ if ($page == '') {
 																	(SELECT COUNT(*) FROM ' . DB_PREFIX . 'searchlog) AS searchClog');
 
     // Get the page hits
-    $result = $jakdb->query('SELECT title, hits FROM ' . DB_PREFIX . 'pages ORDER BY hits DESC LIMIT 10');
+    $result = $jakdb->query('SELECT title, hits FROM ' . DB_PREFIX . 'pages ORDER BY hits DESC LIMIT 15');
 
     // Iterate through the rows
     $totalhits = 0;
@@ -192,7 +192,10 @@ if ($page == '') {
       $totalhits += $row["hits"];
     }
 
-    if ($pageCdata) $pageCdata = join(", ", $pageCdata);
+    if ($pageCdata) {
+      $pageCdata = join(", ", $pageCdata);
+
+    }
 
     // EN: Title and Description
     // CZ: Titulek a Popis

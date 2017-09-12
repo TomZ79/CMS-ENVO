@@ -77,7 +77,6 @@ var notification = {
 var globalSettings = {
   advEditor: '{$jkv["adv_editor"]}',
 };
-
 EOT;
 
 ?>

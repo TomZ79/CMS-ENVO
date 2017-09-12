@@ -1,89 +1,188 @@
-<script src="assets/js/global_js/todo.js" type="text/javascript"></script>
+<?php
+/*
+ * AKP Dashboard - ADMIN
+ * EN: Description of file
+ * CZ: Popis souboru
+ * ----------------------------------------------
+ *
+ * EN: The file insert other files into the site footer:
+ *      - javascript code
+ *      - external javascript files
+ *      - the file 'assets/js/script.index.js'
+ * CZ: Soubor vkládá další soubory do zápatí webu:
+ *      - javascript kód
+ *      - externí javascript soubory
+ *      - soubor 'assets/js/script.index.js'
+ *
+ */
 
-<?php if ($pageCdata) { ?>
-  <script type="text/javascript" src="assets/chart/highcharts.js"></script>
-  <script type="text/javascript" src="assets/chart/exporting.js"></script>
+if ($page == '') {
 
-  <!-- First Stat -->
-  <script type="text/javascript">
-    var jakchart;
-    $(document).ready(function () {
+  echo PHP_EOL . '<!-- Start JS AKP Dashboard -->';
 
-      jakchart = new Highcharts.Chart({
-        chart: {
-          renderTo: 'chart_total'
-        },
-        title: {
-          text: '<?php echo $tl["dashb_charts_content"]["dbchc"];?>'
-        },
-        xAxis: {
-          categories: ['<?php echo $tl["dashb_charts_content"]["dbchc1"];?>'],
-          title: {
-            text: null
-          }
-        },
-        yAxis: {
-          min: 0,
-          title: {
-            text: '<?php echo $tl["dashb_charts_content"]["dbchc2"];?>',
-            align: 'high'
-          }
-        },
-        tooltip: {
-          formatter: function () {
-            var s;
-            if (this.point.name) { // the pie chart
-              s = '' +
-                this.point.name + ': ' + this.y + ' <?php echo $tl["dashb_charts_content"]["dbchc3"];?>';
-            } else {
-              s = '' +
-                this.series.name + ': ' + this.y;
-            }
-            return s;
-          }
-        },
-        labels: {
-          items: [{
-            html: '<?php echo $tl["dashb_charts_content"]["dbchc4"];?>',
-            style: {
-              left: '5px',
-              top: '5px',
-              color: 'black'
-            }
-          }]
-        },
-        series: [{
-          type: 'column',
-          name: '<?php echo $tl["dashb_charts_content"]["dbchc5"];?>',
-          data: [<?php echo $JAK_COUNTS["pageCtotal"];?>]
-        }, {
-          type: 'column',
-          name: '<?php echo $tl["dashb_charts_content"]["dbchc6"];?>',
-          data: [<?php echo $JAK_COUNTS["tagsCtotal"];?>]
-        }, {
-          type: 'column',
-          name: '<?php echo $tl["dashb_charts_content"]["dbchc7"];?>',
-          data: [<?php echo $JAK_COUNTS["userCtotal"];?>]
-        }, {
-          type: 'column',
-          name: '<?php echo $tl["dashb_charts_content"]["dbchc8"];?>',
-          data: [<?php echo $JAK_COUNTS["pluginCtotal"];?>]
-        }, {
-          type: 'column',
-          name: '<?php echo $tl["dashb_charts_content"]["dbchc9"];?>',
-          data: [<?php echo $JAK_COUNTS["hookCtotal"];?>]
-        }, {
-          type: 'pie',
-          name: '<?php echo $tl["dashb_charts_content"]["dbchc4"];?>',
-          data: [<?php echo $pageCdata;?>],
-          center: [60, 80],
-          size: 100,
-          showInLegend: false,
-          dataLabels: {
-            enabled: false
-          }
-        }]
-      });
-    });
-  </script>
-<?php } ?>
+  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
+  //
+  echo $Html->addScript('assets/js/global_js/todo.js');
+  //
+  echo $Html->addScript('assets/plugins/highcharts/v5.0.14/highcharts.js');
+  // Plugin Javascript
+  echo $Html->addScript('assets/js/script.index.js');
+
+  echo PHP_EOL;
+
+  // Highcharts
+  $str = <<<EOT
+<script>
+// Run script after Pace is done
+Pace.on('done', function() {
+
+  var envochart;
+  var envochart1;
+  
+  // Radialize the colors
+  Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function (color) {
+      return {
+          radialGradient: {
+              cx: 0.5,
+              cy: 0.3,
+              r: 0.7
+          },
+          stops: [
+              [0, color],
+              [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
+          ]
+      };
+  });
+  
+  // Build the chart 'envochart'
+  envochart = new Highcharts.Chart({
+    // Credits link
+    credits: {
+      enabled: false
+    },
+
+    chart: {
+      // Chart types
+      type: 'column',
+      renderTo: 'chart_total'
+    },
+    title: {
+      text: 'CMS Všeobecná Statistika'
+    },
+
+    subtitle: {
+      text: 'Počet stránek, tagů, uživatelů, pluginů a hooks'
+    },
+
+    xAxis: {
+      categories: ['CMS'],
+      title: {
+        text: null
+      }
+    },
+
+    yAxis: {
+      min: 0,
+      title: {
+        text: 'Total',
+        align: 'high'
+      }
+    },
+
+    tooltip: {
+      formatter: function () {
+        var s;
+        s = '' + this.series.name + ': ' + '<b>' + this.y + '</b>';
+        return s;
+      }
+    },
+
+    series: [{
+      type: 'column',
+      name: 'Stránky',
+      data: [{$JAK_COUNTS["pageCtotal"]}]
+    }, {
+      type: 'column',
+      name: 'Tagy (Štítky)',
+      data: [{$JAK_COUNTS["tagsCtotal"]}]
+    }, {
+      type: 'column',
+      name: 'Uživatelé',
+      data: [{$JAK_COUNTS["userCtotal"]}]
+    }, {
+      type: 'column',
+      name: 'Pluginy',
+      data: [{$JAK_COUNTS["pluginCtotal"]}]
+    }, {
+      type: 'column',
+      name: 'Hooky',
+      data: [{$JAK_COUNTS["hookCtotal"]}]
+    }]
+  });
+  
+  // Build the chart 'envochart1'
+  envochart1 = new Highcharts.Chart({
+    // Credits link
+    credits: {
+      enabled: false
+    },
+
+    chart: {
+      // Chart types
+      type: 'pie',
+      renderTo: 'page_total',
+      plotBackgroundColor: null,
+      plotBorderWidth: null,
+      plotShadow: false,
+      // Edit chart spacing
+      spacingLeft: 30,
+      spacingRight: 30,
+    },
+    title: {
+      text: 'Počet zobrazených stránek'
+    },
+
+    subtitle: {
+      text: 'Zobrazení 15 nejoblíbenějších stránek od spuštění webové sítě'
+    },
+
+    tooltip: {
+      headerFormat: '<span style="font-size:14px;">{point.key}</span><br>',
+      pointFormat: '{series.name}: <b>{point.y} -  {point.percentage:.1f}%</b>'
+    },
+    
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+          enabled: true,
+          format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+          style: {
+              color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+          },
+          connectorColor: 'silver'
+        }
+      }
+    },
+
+    series: [{
+      name: 'Počet zobrazených stránek',
+      data: [{$pageCdata}],
+      size: 140
+    }]
+  });
+  
+});
+</script>
+EOT;
+
+  echo $str;
+
+  echo PHP_EOL . '<!-- End JS AKP Dashboard -->' . PHP_EOL;
+
+}
+
+// New line in source code
+echo PHP_EOL;
+?>
