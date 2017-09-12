@@ -49,7 +49,7 @@
         this.$body.addClass('ie9');
       }
     }
-  }
+  };
 
   /** @function isVisibleXs
    * @description Checks if the screen size is XS - Extra Small i.e below W480px
@@ -58,7 +58,7 @@
   Pages.prototype.isVisibleXs = function () {
     (!$('#pg-visible-xs').length) && this.$body.append('<div id="pg-visible-xs" class="visible-xs" />');
     return $('#pg-visible-xs').is(':visible');
-  }
+  };
 
   /** @function isVisibleSm
    * @description Checks if the screen size is SM - Small Screen i.e Above W480px
@@ -67,7 +67,7 @@
   Pages.prototype.isVisibleSm = function () {
     (!$('#pg-visible-sm').length) && this.$body.append('<div id="pg-visible-sm" class="visible-sm" />');
     return $('#pg-visible-sm').is(':visible');
-  }
+  };
 
   /** @function isVisibleMd
    * @description Checks if the screen size is MD - Medium Screen i.e Above W1024px
@@ -76,7 +76,7 @@
   Pages.prototype.isVisibleMd = function () {
     (!$('#pg-visible-md').length) && this.$body.append('<div id="pg-visible-md" class="visible-md" />');
     return $('#pg-visible-md').is(':visible');
-  }
+  };
 
   /** @function isVisibleLg
    * @description Checks if the screen size is LG - Large Screen i.e Above W1200px
@@ -85,7 +85,7 @@
   Pages.prototype.isVisibleLg = function () {
     (!$('#pg-visible-lg').length) && this.$body.append('<div id="pg-visible-lg" class="visible-lg" />');
     return $('#pg-visible-lg').is(':visible');
-  }
+  };
 
   /** @function getUserAgent
    * @description Get Current User Agent.
@@ -93,7 +93,7 @@
    */
   Pages.prototype.getUserAgent = function () {
     return $('body').hasClass('mobile') ? "mobile" : "desktop";
-  }
+  };
 
   /** @function setFullScreen
    * @description Make Browser fullscreen.
@@ -110,7 +110,7 @@
         wscript.SendKeys("{F11}");
       }
     }
-  }
+  };
 
   /** @function getColor
    * @description Get Color from CSS
@@ -131,7 +131,7 @@
     var rgba = "rgba(" + rgb[1] + ", " + rgb[2] + ", " + rgb[3] + ', ' + opacity + ')';
 
     return rgba;
-  }
+  };
 
   /** @function initSidebar
    * @description Initialize side bar to open and close
@@ -140,10 +140,10 @@
    */
   Pages.prototype.initSidebar = function (context) {
     $('[data-pages="sidebar"]', context).each(function () {
-      var $sidebar = $(this)
+      var $sidebar = $(this);
       $sidebar.sidebar($sidebar.data())
     })
-  }
+  };
 
   /** @function initDropDown
    * @description Initialize Boot-Strap dropdown Menue
@@ -165,7 +165,7 @@
         $(this).find('.dropdown-menu').width(btn.actual('outerWidth'));
       }
     });
-  }
+  };
 
   /** @function initFormGroupDefault
    * @description Initialize Pages form group input
@@ -200,7 +200,7 @@
     }, function () {
       $(this).parents('.form-group').removeClass('focused');
     });
-  }
+  };
 
   /** @function initSlidingTabs
    * @description Initialize Bootstrap Custom Sliding Tabs
@@ -235,7 +235,8 @@
       updateDropdownMenu($current, 'center');
       updateDropdownMenu($next, 'right');
     });
-  }
+  };
+
   /** @function reponsiveTabs
    * @description Responsive handlers for Bootstrap Tabs
    */
@@ -269,7 +270,7 @@
 
     //Tab to Accordian
     $.fn.tabCollapse && $('[data-init-reponsive-tabs="collapse"]').tabCollapse();
-  }
+  };
 
   /** @function initNotificationCenter
    * @description Initialize Pages Header Notifcation Dropdown
@@ -284,7 +285,7 @@
         p.toggleClass('open');
       });
     });
-  }
+  };
 
   /** @function initProgressBars
    * @description Initialize Pages ProgressBars
@@ -294,7 +295,7 @@
       // Hack: FF doesn't play SVG animations set as background-image
       $('.progress-bar-indeterminate, .progress-circle-indeterminate').hide().show(0);
     });
-  }
+  };
 
   /** @function initInputFile
    * @description Initialize File Input for Bootstrap Buttons and Input groups
@@ -316,7 +317,8 @@
         $(this).parent().html(log);
       }
     });
-  }
+  };
+
   /** @function initHorizontalMenu
    * @description Initialize Horizontal Dropdown Menu
    */
@@ -333,7 +335,8 @@
       e.preventDefault();
       $('body').toggleClass('menu-opened');
     });
-  }
+  };
+
   /** @function initTooltipPlugin
    * @description Initialize Bootstrap tooltip
    * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
@@ -341,7 +344,8 @@
    */
   Pages.prototype.initTooltipPlugin = function (context) {
     $.fn.tooltip && $('[data-toggle="tooltip"]', context).tooltip();
-  }
+  };
+
   /** @function initSelect2Plugin
    * @description Initialize select2 dropdown
    * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
@@ -358,6 +362,7 @@
       });
     });
   };
+
   /** @function initCustomSelect2Plugin
    * @description Initialize select2 dropdown
    * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
@@ -376,6 +381,7 @@
       });
     });
   };
+
   /** @function initScrollBarPlugin
    * @description Initialize Global Scroller
    * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
@@ -386,6 +392,7 @@
       ignoreOverlay: false
     });
   };
+
   /** @function initListView
    * @description Initialize iOS like List view plugin
    * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
@@ -397,37 +404,8 @@
     $.fn.scrollbar && $('.list-view-wrapper', context).scrollbar({
       ignoreOverlay: false
     });
-  }
+  };
 
-  /** @function initSwitcheryPlugin
-   * @description Initialize iOS like List view plugin
-   * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
-   * @example <caption>data-init-plugin="switchery"</caption>
-   * @requires Switchery.js
-   */
-  Pages.prototype.initSwitcheryPlugin = function (context) {
-    // Switchery - ios7 switch
-    window.Switchery && $('[data-init-plugin="switchery"]', context).each(function () {
-      var el = $(this);
-      new Switchery(el.get(0), {
-        color: (el.data("color") != null ? $.Pages.getColor(el.data("color")) : $.Pages.getColor('success')),
-        size: (el.data("size") != null ? el.data("size") : "default")
-      });
-    });
-  }
-
-  /** @function initSelectFxPlugin
-   * @description Initialize iOS like List view plugin
-   * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
-   * @example <caption>select[data-init-plugin="cs-select"]</caption>
-   */
-  Pages.prototype.initSelectFxPlugin = function (context) {
-    window.SelectFx && $('select[data-init-plugin="cs-select"]', context).each(function () {
-      var el = $(this).get(0);
-      $(el).wrap('<div class="cs-wrapper"></div>');
-      new SelectFx(el);
-    });
-  }
   /** @function initUnveilPlugin
    * @description To load retina images to img tag
    * @param {(Element|JQuery)} [context] - A DOM Element, Document, or jQuery to use as context.
@@ -435,7 +413,7 @@
   Pages.prototype.initUnveilPlugin = function (context) {
     // lazy load retina images
     $.fn.unveil && $("img", context).unveil();
-  }
+  };
 
   /** @function initValidatorPlugin
    * @description Inintialize and Overide exsisting jquery-validate methods.
@@ -502,7 +480,7 @@
         }
       }
     });
-  }
+  };
 
   /** @function init
    * @description Inintialize all core components.
@@ -521,488 +499,17 @@
     this.initSelect2Plugin();
     this.initCustomSelect2Plugin();
     this.initScrollBarPlugin();
-    this.initSwitcheryPlugin();
-    this.initSelectFxPlugin();
     this.initUnveilPlugin();
     this.initValidatorPlugin();
     this.initListView();
     this.initInputFile();
     this.reponsiveTabs();
-  }
+  };
 
   $.Pages = new Pages();
   $.Pages.Constructor = Pages;
 
 })(window.jQuery);
-
-/**
- * selectFx.js v1.0.0
- * http://www.codrops.com
- *
- * Licensed under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- *
- * Copyright 2014, Codrops
- * http://www.codrops.com
- */
-;
-(function (window) {
-
-  'use strict';
-
-  /**
-   * based on from https://github.com/inuyaksa/jquery.nicescroll/blob/master/jquery.nicescroll.js
-   */
-  function hasParent(e, p) {
-    if (!e) return false;
-    var el = e.target || e.srcElement || e || false;
-    while (el && el != p) {
-      el = el.parentNode || false;
-    }
-    return (el !== false);
-  };
-
-  /**
-   * extend obj function
-   */
-  function extend(a, b) {
-    for (var key in b) {
-      if (b.hasOwnProperty(key)) {
-        a[key] = b[key];
-      }
-    }
-    return a;
-  }
-
-  /**
-   * SelectFx function
-   */
-  function SelectFx(el, options) {
-    this.el = el;
-    this.options = extend({}, this.options);
-    extend(this.options, options);
-    this._init();
-  }
-
-  /**
-   * Pure-JS alternative to jQuery closest()
-   */
-  function closest(elem, selector) {
-    var matchesSelector = elem.matches || elem.webkitMatchesSelector || elem.mozMatchesSelector || elem.msMatchesSelector;
-    while (elem) {
-      if (matchesSelector.bind(elem)(selector)) {
-        return elem;
-      } else {
-        elem = elem.parentElement;
-      }
-    }
-    return false;
-  }
-
-  /**
-   * jQuery offset() in pure JS
-   */
-  function offset(el) {
-    return {
-      left: el.getBoundingClientRect().left + window.pageXOffset - el.ownerDocument.documentElement.clientLeft,
-      top: el.getBoundingClientRect().top + window.pageYOffset - el.ownerDocument.documentElement.clientTop
-    }
-
-  }
-
-  /**
-   * jQuery after() in pure JS
-   */
-  function insertAfter(newNode, referenceNode) {
-    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-  }
-
-  /**
-   * SelectFx options
-   */
-  SelectFx.prototype.options = {
-    // if true all the links will open in a new tab.
-    // if we want to be redirected when we click an option, we need to define a data-link attr on the option of the native select element
-    newTab: true,
-    // when opening the select element, the default placeholder (if any) is shown
-    stickyPlaceholder: true,
-    // default container is body
-    container: 'body',
-    // callback when changing the value
-    onChange: function (el) {
-      var event = document.createEvent('HTMLEvents');
-      event.initEvent('change', true, false);
-      el.dispatchEvent(event);
-    }
-  }
-
-  /**
-   * init function
-   * initialize and cache some vars
-   */
-  SelectFx.prototype._init = function () {
-    // check if we are using a placeholder for the native select box
-    // we assume the placeholder is disabled and selected by default
-    var selectedOpt = document.querySelector('option[selected]');
-    this.hasDefaultPlaceholder = selectedOpt && selectedOpt.disabled;
-
-    // get selected option (either the first option with attr selected or just the first option)
-    this.selectedOpt = selectedOpt || this.el.querySelector('option');
-
-    // create structure
-    this._createSelectEl();
-
-    // all options
-    this.selOpts = [].slice.call(this.selEl.querySelectorAll('li[data-option]'));
-
-    // total options
-    this.selOptsCount = this.selOpts.length;
-
-    // current index
-    this.current = this.selOpts.indexOf(this.selEl.querySelector('li.cs-selected')) || -1;
-
-    // placeholder elem
-    this.selPlaceholder = this.selEl.querySelector('span.cs-placeholder');
-
-    // init events
-    this._initEvents();
-
-    this.el.onchange = function () {
-      var index = this.selectedIndex;
-      var inputText = this.children[index].innerHTML.trim();
-    }
-
-  }
-
-  /**
-   * creates the structure for the select element
-   */
-  SelectFx.prototype._createSelectEl = function () {
-    var self = this,
-      options = '',
-      createOptionHTML = function (el) {
-        var optclass = '',
-          classes = '',
-          link = '';
-
-        if (el.selectedOpt && !this.foundSelected && !this.hasDefaultPlaceholder) {
-          classes += 'cs-selected ';
-          this.foundSelected = true;
-        }
-        // extra classes
-        if (el.getAttribute('data-class')) {
-          classes += el.getAttribute('data-class');
-        }
-        // link options
-        if (el.getAttribute('data-link')) {
-          link = 'data-link=' + el.getAttribute('data-link');
-        }
-
-        if (classes !== '') {
-          optclass = 'class="' + classes + '" ';
-        }
-
-        return '<li ' + optclass + link + ' data-option data-value="' + el.value + '"><span>' + el.textContent + '</span></li>';
-      };
-
-    [].slice.call(this.el.children).forEach(function (el) {
-      if (el.disabled) {
-        return;
-      }
-
-      var tag = el.tagName.toLowerCase();
-
-      if (tag === 'option') {
-        options += createOptionHTML(el);
-      } else if (tag === 'optgroup') {
-        options += '<li class="cs-optgroup"><span>' + el.label + '</span><ul>';
-        [].slice.call(el.children).forEach(function (opt) {
-          options += createOptionHTML(opt);
-        })
-        options += '</ul></li>';
-      }
-    });
-
-    var opts_el = '<div class="cs-options"><ul>' + options + '</ul></div>';
-    this.selEl = document.createElement('div');
-    this.selEl.className = this.el.className;
-    this.selEl.tabIndex = this.el.tabIndex;
-    this.selEl.innerHTML = '<span class="cs-placeholder">' + this.selectedOpt.textContent + '</span>' + opts_el;
-    this.el.parentNode.appendChild(this.selEl);
-    this.selEl.appendChild(this.el);
-
-    // backdrop to support dynamic heights of the dropdown
-    var backdrop = document.createElement('div');
-    backdrop.className = 'cs-backdrop';
-    this.selEl.appendChild(backdrop);
-  }
-
-  /**
-   * initialize the events
-   */
-  SelectFx.prototype._initEvents = function () {
-    var self = this;
-
-    // open/close select
-    this.selPlaceholder.addEventListener('click', function () {
-      self._toggleSelect();
-    });
-
-    // clicking the options
-    this.selOpts.forEach(function (opt, idx) {
-      opt.addEventListener('click', function () {
-        self.current = idx;
-        self._changeOption();
-        // close select elem
-        self._toggleSelect();
-      });
-    });
-
-    // close the select element if the target it´s not the select element or one of its descendants..
-    document.addEventListener('click', function (ev) {
-      var target = ev.target;
-      if (self._isOpen() && target !== self.selEl && !hasParent(target, self.selEl)) {
-        self._toggleSelect();
-      }
-    });
-
-    // keyboard navigation events
-    this.selEl.addEventListener('keydown', function (ev) {
-      var keyCode = ev.keyCode || ev.which;
-
-      switch (keyCode) {
-        // up key
-        case 38:
-          ev.preventDefault();
-          self._navigateOpts('prev');
-          break;
-        // down key
-        case 40:
-          ev.preventDefault();
-          self._navigateOpts('next');
-          break;
-        // space key
-        case 32:
-          ev.preventDefault();
-          if (self._isOpen() && typeof self.preSelCurrent != 'undefined' && self.preSelCurrent !== -1) {
-            self._changeOption();
-          }
-          self._toggleSelect();
-          break;
-        // enter key
-        case 13:
-          ev.preventDefault();
-          if (self._isOpen() && typeof self.preSelCurrent != 'undefined' && self.preSelCurrent !== -1) {
-            self._changeOption();
-            self._toggleSelect();
-          }
-          break;
-        // esc key
-        case 27:
-          ev.preventDefault();
-          if (self._isOpen()) {
-            self._toggleSelect();
-          }
-          break;
-      }
-    });
-  }
-
-  /**
-   * navigate with up/dpwn keys
-   */
-  SelectFx.prototype._navigateOpts = function (dir) {
-    if (!this._isOpen()) {
-      this._toggleSelect();
-    }
-
-    var tmpcurrent = typeof this.preSelCurrent != 'undefined' && this.preSelCurrent !== -1 ? this.preSelCurrent : this.current;
-
-    if (dir === 'prev' && tmpcurrent > 0 || dir === 'next' && tmpcurrent < this.selOptsCount - 1) {
-      // save pre selected current - if we click on option, or press enter, or press space this is going to be the index of the current option
-      this.preSelCurrent = dir === 'next' ? tmpcurrent + 1 : tmpcurrent - 1;
-      // remove focus class if any..
-      this._removeFocus();
-      // add class focus - track which option we are navigating
-      classie.add(this.selOpts[this.preSelCurrent], 'cs-focus');
-    }
-  }
-
-  /**
-   * open/close select
-   * when opened show the default placeholder if any
-   */
-  SelectFx.prototype._toggleSelect = function () {
-    var backdrop = this.selEl.querySelector('.cs-backdrop');
-    var container = document.querySelector(this.options.container);
-    var mask = container.querySelector('.dropdown-mask');
-    var csOptions = this.selEl.querySelector('.cs-options');
-    var csPlaceholder = this.selEl.querySelector('.cs-placeholder');
-
-    var csPlaceholderWidth = csPlaceholder.offsetWidth;
-    var csPlaceholderHeight = csPlaceholder.offsetHeight;
-    var csOptionsWidth = csOptions.scrollWidth;
-
-    if (this._isOpen()) {
-      if (this.current !== -1) {
-        // update placeholder text
-        this.selPlaceholder.textContent = this.selOpts[this.current].textContent;
-      }
-
-      var dummy = this.selEl.data;
-
-      var parent = dummy.parentNode;
-      //parent.appendChild(this.selEl);
-      insertAfter(this.selEl, dummy);
-      this.selEl.removeAttribute('style');
-
-      parent.removeChild(dummy);
-
-      // Hack for FF
-      // http://stackoverflow.com/questions/12088819/css-transitions-on-new-elements
-      var x = this.selEl.clientHeight;
-
-      // reset backdrop
-      backdrop.style.transform = backdrop.style.webkitTransform = backdrop.style.MozTransform = backdrop.style.msTransform = backdrop.style.OTransform = 'scale3d(1,1,1)';
-      classie.remove(this.selEl, 'cs-active');
-
-      mask.style.display = 'none';
-      csOptions.style.overflowY = 'hidden';
-      csOptions.style.width = 'auto';
-
-      var parentFormGroup = closest(this.selEl, '.form-group');
-      parentFormGroup && classie.removeClass(parentFormGroup, 'focused');
-
-    } else {
-      if (this.hasDefaultPlaceholder && this.options.stickyPlaceholder) {
-        // everytime we open we wanna see the default placeholder text
-        this.selPlaceholder.textContent = this.selectedOpt.textContent;
-      }
-
-      var dummy;
-      if (this.selEl.parentNode.querySelector('.dropdown-placeholder')) {
-        dummy = this.selEl.parentNode.querySelector('.dropdown-placeholder');
-      } else {
-        dummy = document.createElement('div');
-        classie.add(dummy, 'dropdown-placeholder');
-        //this.selEl.parentNode.appendChild(dummy);
-        insertAfter(dummy, this.selEl);
-
-      }
-
-
-      dummy.style.height = csPlaceholderHeight + 'px';
-      dummy.style.width = this.selEl.offsetWidth + 'px';
-
-      this.selEl.data = dummy;
-
-
-      this.selEl.style.position = 'absolute';
-      var offsetselEl = offset(this.selEl);
-
-      this.selEl.style.left = offsetselEl.left + 'px';
-      this.selEl.style.top = offsetselEl.top + 'px';
-
-      container.appendChild(this.selEl);
-
-      // decide backdrop's scale factor depending on the content height
-      var contentHeight = csOptions.offsetHeight;
-      var originalHeight = csPlaceholder.offsetHeight;
-
-      var contentWidth = csOptions.offsetWidth;
-      var originalWidth = csPlaceholder.offsetWidth;
-
-      var scaleV = contentHeight / originalHeight;
-      var scaleH = (contentWidth > originalWidth) ? contentWidth / originalWidth : 1.05;
-      //backdrop.style.transform = backdrop.style.webkitTransform = backdrop.style.MozTransform = backdrop.style.msTransform = backdrop.style.OTransform = 'scale3d(' + scaleH + ', ' + scaleV + ', 1)';
-      backdrop.style.transform = backdrop.style.webkitTransform = backdrop.style.MozTransform = backdrop.style.msTransform = backdrop.style.OTransform = 'scale3d(' + 1 + ', ' + scaleV + ', 1)';
-
-      if (!mask) {
-        mask = document.createElement('div');
-        classie.add(mask, 'dropdown-mask');
-        container.appendChild(mask);
-      }
-
-      mask.style.display = 'block';
-
-      classie.add(this.selEl, 'cs-active');
-
-      var resizedWidth = (csPlaceholderWidth < csOptionsWidth) ? csOptionsWidth : csPlaceholderWidth;
-
-      this.selEl.style.width = resizedWidth + 'px';
-      this.selEl.style.height = originalHeight + 'px';
-      csOptions.style.width = '100%';
-
-      setTimeout(function () {
-        csOptions.style.overflowY = 'auto';
-      }, 300);
-
-    }
-  }
-
-  /**
-   * change option - the new value is set
-   */
-  SelectFx.prototype._changeOption = function () {
-    // if pre selected current (if we navigate with the keyboard)...
-    if (typeof this.preSelCurrent != 'undefined' && this.preSelCurrent !== -1) {
-      this.current = this.preSelCurrent;
-      this.preSelCurrent = -1;
-    }
-
-    // current option
-    var opt = this.selOpts[this.current];
-
-    // update current selected value
-    this.selPlaceholder.textContent = opt.textContent;
-
-    // change native select element´s value
-    this.el.value = opt.getAttribute('data-value');
-
-    // remove class cs-selected from old selected option and add it to current selected option
-    var oldOpt = this.selEl.querySelector('li.cs-selected');
-    if (oldOpt) {
-      classie.remove(oldOpt, 'cs-selected');
-    }
-    classie.add(opt, 'cs-selected');
-
-    // if there´s a link defined
-    if (opt.getAttribute('data-link')) {
-      // open in new tab?
-      if (this.options.newTab) {
-        window.open(opt.getAttribute('data-link'), '_blank');
-      } else {
-        window.location = opt.getAttribute('data-link');
-      }
-    }
-
-    // callback
-    this.options.onChange(this.el);
-  }
-
-  /**
-   * returns true if select element is opened
-   */
-  SelectFx.prototype._isOpen = function (opt) {
-    return classie.has(this.selEl, 'cs-active');
-  }
-
-  /**
-   * removes the focus class from the option
-   */
-  SelectFx.prototype._removeFocus = function (opt) {
-    var focusEl = this.selEl.querySelector('li.cs-focus')
-    if (focusEl) {
-      classie.remove(focusEl, 'cs-focus');
-    }
-  }
-
-  /**
-   * add to global namespace
-   */
-  window.SelectFx = SelectFx;
-
-})(window);
 /* ============================================================
  * Pages Chat
  * ============================================================ */
@@ -1065,7 +572,8 @@
       this.$pie.$left.css('transform', 'rotate(' + deg + 'deg)');
     }
 
-  }
+  };
+
   Progress.VERSION = "1.0.0";
 
   Progress.prototype.value = function (val) {
@@ -1086,7 +594,7 @@
       this.$pie.$left.css('transform', 'rotate(' + deg + 'deg)');
     }
 
-  }
+  };
 
   // CIRCULAR PROGRESS PLUGIN DEFINITION
   // =======================
@@ -1102,15 +610,15 @@
     })
   }
 
-  var old = $.fn.circularProgress
+  var old = $.fn.circularProgress;
 
-  $.fn.circularProgress = Plugin
-  $.fn.circularProgress.Constructor = Progress
+  $.fn.circularProgress = Plugin;
+  $.fn.circularProgress.Constructor = Progress;
 
 
   $.fn.circularProgress.defaults = {
     value: 0
-  }
+  };
 
   // CIRCULAR PROGRESS NO CONFLICT
   // ====================
@@ -1118,17 +626,17 @@
   $.fn.circularProgress.noConflict = function () {
     $.fn.circularProgress = old;
     return this;
-  }
+  };
 
   // CIRCULAR PROGRESS DATA API
   //===================
 
   $(window).on('load', function () {
     $('[data-pages-progress="circle"]').each(function () {
-      var $progress = $(this)
+      var $progress = $(this);
       $progress.circularProgress($progress.data())
     })
-  })
+  });
 
   function perc2deg(p) {
     return parseInt(p / 100 * 360);
@@ -1319,7 +827,8 @@
     this.options = $.extend(true, {}, $.fn.portlet.defaults, options);
     this.$loader = null;
     this.$body = this.$element.find('.panel-body');
-  }
+  };
+
   Portlet.VERSION = "1.0.0";
   // Button actions
   Portlet.prototype.collapse = function () {
@@ -1337,12 +846,12 @@
     this.$element.addClass('panel-collapsed');
     icon.removeClass().addClass('pg-arrow_minimize');
     $.isFunction(this.options.onCollapse) && this.options.onCollapse(this);
-  }
+  };
 
   Portlet.prototype.close = function () {
     this.$element.remove();
     $.isFunction(this.options.onClose) && this.options.onClose(this);
-  }
+  };
 
   Portlet.prototype.maximize = function () {
     var icon = this.$element.find(this.options.maximizeButton + ' > i');
@@ -1356,7 +865,7 @@
       icon.removeClass('pg-fullscreen').addClass('pg-fullscreen_restore');
       $.isFunction(this.options.onMaximize) && this.options.onMaximize(this);
     }
-  }
+  };
 
   // Options
   Portlet.prototype.refresh = function (refresh) {
@@ -1435,7 +944,7 @@
         _this.options.refresh = false;
       });
     }
-  }
+  };
 
   Portlet.prototype.error = function (error) {
     if (error) {
@@ -1454,7 +963,7 @@
         }
       }).show();
     }
-  }
+  };
 
   // PORTLET PLUGIN DEFINITION
   // =======================
@@ -1472,10 +981,10 @@
     })
   }
 
-  var old = $.fn.portlet
+  var old = $.fn.portlet;
 
-  $.fn.portlet = Plugin
-  $.fn.portlet.Constructor = Portlet
+  $.fn.portlet = Plugin;
+  $.fn.portlet.Constructor = Portlet;
 
 
   $.fn.portlet.defaults = {
@@ -1496,7 +1005,7 @@
     // onMaximize: function(portlet) {},
     // onRestore: function(portlet) {},
     // onClose: function(portlet) {}
-  }
+  };
 
   // PORTLET NO CONFLICT
   // ====================
@@ -1504,7 +1013,7 @@
   $.fn.portlet.noConflict = function () {
     $.fn.portlet = old;
     return this;
-  }
+  };
 
   // PORTLET DATA API
   //===================
@@ -1514,14 +1023,14 @@
     var $target = $this.closest('.panel');
     if ($this.is('a')) e.preventDefault();
     $target.data('pg.portlet') && $target.portlet('collapse');
-  })
+  });
 
   $(document).on('click.pg.portlet.data-api', '[data-toggle="close"]', function (e) {
     var $this = $(this);
     var $target = $this.closest('.panel');
     if ($this.is('a')) e.preventDefault();
     $target.data('pg.portlet') && $target.portlet('close');
-  })
+  });
 
   $(document).on('click.pg.portlet.data-api', '[data-toggle="refresh"]', function (e) {
     var $this = $(this);
@@ -1530,18 +1039,18 @@
     $target.data('pg.portlet') && $target.portlet({
       refresh: true
     })
-  })
+  });
 
   $(document).on('click.pg.portlet.data-api', '[data-toggle="maximize"]', function (e) {
     var $this = $(this);
     var $target = $this.closest('.panel');
     if ($this.is('a')) e.preventDefault();
     $target.data('pg.portlet') && $target.portlet('maximize');
-  })
+  });
 
   $(window).on('load', function () {
     $('[data-pages="portlet"]').each(function () {
-      var $portlet = $(this)
+      var $portlet = $(this);
       $portlet.portlet($portlet.data())
     })
   })
@@ -1573,7 +1082,7 @@
       el.toggleClass(data.viewAnimation);
       self.options.onNavigate(toView, data.viewAnimation);
       return false;
-    })
+    });
     return this; // enable chaining
   };
   $.fn.pgMobileViews = function (options) {
@@ -1584,13 +1093,13 @@
     //Returns Target View & Animation Type
     onNavigate: function (view, animation) {
     }
-  }
+  };
   // MOBILE VIEW DATA API
   //===================
 
   $(window).on('load', function () {
     $('[data-navigate="view"]').each(function () {
-      var $mobileView = $(this)
+      var $mobileView = $(this);
       $mobileView.pgMobileViews();
     })
   });
@@ -1647,7 +1156,8 @@
       $(this).toggleClass('active');
     });
 
-  }
+  };
+
   Quickview.VERSION = "1.0.0";
 
   // QUICKVIEW PLUGIN DEFINITION
@@ -1663,10 +1173,10 @@
     })
   }
 
-  var old = $.fn.quickview
+  var old = $.fn.quickview;
 
-  $.fn.quickview = Plugin
-  $.fn.quickview.Constructor = Quickview
+  $.fn.quickview = Plugin;
+  $.fn.quickview.Constructor = Quickview;
 
 
   $.fn.quickview.defaults = {
@@ -1679,7 +1189,7 @@
     deleteNoteConfirmButton: '.btn-remove-notes',
     newNoteButton: '.new-note-link',
     backButton: '.close-note-link'
-  }
+  };
 
   // QUICKVIEW NO CONFLICT
   // ====================
@@ -1687,7 +1197,7 @@
   $.fn.quickview.noConflict = function () {
     $.fn.quickview = old;
     return this;
-  }
+  };
 
   // QUICKVIEW DATA API
   //===================
@@ -1695,7 +1205,7 @@
   $(window).on('load', function () {
 
     $('[data-pages="quickview"]').each(function () {
-      var $quickview = $(this)
+      var $quickview = $(this);
       $quickview.quickview($quickview.data())
     })
   });
@@ -1748,7 +1258,8 @@
       img.remove();
     }
 
-  }
+  };
+
   Parallax.VERSION = "1.0.0";
 
   Parallax.prototype.animate = function () {
@@ -1781,7 +1292,7 @@
       });
     }
 
-  }
+  };
 
   // PARALLAX PLUGIN DEFINITION
   // =======================
@@ -1796,10 +1307,10 @@
     })
   }
 
-  var old = $.fn.parallax
+  var old = $.fn.parallax;
 
-  $.fn.parallax = Plugin
-  $.fn.parallax.Constructor = Parallax
+  $.fn.parallax = Plugin;
+  $.fn.parallax.Constructor = Parallax;
 
 
   $.fn.parallax.defaults = {
@@ -1807,7 +1318,7 @@
       coverPhoto: 0.3,
       content: 0.17
     }
-  }
+  };
 
   // PARALLAX NO CONFLICT
   // ====================
@@ -1815,7 +1326,7 @@
   $.fn.parallax.noConflict = function () {
     $.fn.parallax = old;
     return this;
-  }
+  };
 
   // PARALLAX DATA API
   //===================
@@ -1823,7 +1334,7 @@
   $(window).on('load', function () {
 
     $('[data-pages="parallax"]').each(function () {
-      var $parallax = $(this)
+      var $parallax = $(this);
       $parallax.parallax($parallax.data())
     })
   });
@@ -1964,7 +1475,7 @@
         return;
 
       if ($('.sidebar-overlay-slide').hasClass('show')) {
-        $('.sidebar-overlay-slide').removeClass('show')
+        $('.sidebar-overlay-slide').removeClass('show');
         $("[data-pages-toggle']").removeClass('active')
 
       }
@@ -1980,7 +1491,7 @@
           left: '-' + _this.sideBarWidthCondensed + 'px'
         }, 400, $.bez(_this.bezierEasing), function () {
 
-          _this.$body.removeClass('sidebar-visible')
+          _this.$body.removeClass('sidebar-visible');
           setTimeout(function () {
             $('.close-sidebar').data({
               clicked: false
@@ -1994,7 +1505,7 @@
     this.$element.bind('mouseenter mouseleave', sidebarMouseEnter);
     this.$pageContainer.bind('mouseover', sidebarMouseLeave);
 
-  }
+  };
 
 
   // Toggle sidebar for mobile view
@@ -2020,7 +1531,7 @@
 
     }
 
-  }
+  };
 
   Sidebar.prototype.togglePinSidebar = function (toggle) {
     if (toggle == 'hide') {
@@ -2031,7 +1542,7 @@
       this.$body.toggleClass('menu-pin');
     }
 
-  }
+  };
 
 
   // SIDEBAR PLUGIN DEFINITION
@@ -2055,7 +1566,7 @@
 
   $.fn.sidebar.defaults = {
     pageContainer: '.page-container'
-  }
+  };
 
   // SIDEBAR PROGRESS NO CONFLICT
   // ====================
@@ -2063,7 +1574,7 @@
   $.fn.sidebar.noConflict = function () {
     $.fn.sidebar = old;
     return this;
-  }
+  };
 
   // SIDEBAR PROGRESS DATA API
   //===================
@@ -2074,7 +1585,7 @@
     var $target = $('[data-pages="sidebar"]');
     $target.data('pg.sidebar').togglePinSidebar();
     return false;
-  })
+  });
   $(document).on('click.pg.sidebar.data-api touchstart', '[data-toggle="sidebar"]', function (e) {
     e.preventDefault();
     var $this = $(this);
@@ -2099,7 +1610,8 @@
     this.$element = $(element);
     this.options = $.extend(true, {}, $.fn.search.defaults, options);
     this.init();
-  }
+  };
+
   Search.VERSION = "1.0.0";
 
   Search.prototype.init = function () {
@@ -2150,7 +1662,7 @@
       }
     });
 
-  }
+  };
 
 
   Search.prototype.keypress = function (e) {
@@ -2167,7 +1679,7 @@
     if (e.which !== 0 && e.charCode !== 0 && !e.ctrlKey && !e.metaKey && !e.altKey && e.keyCode != 27) {
       this.toggleOverlay('show', String.fromCharCode(e.keyCode | e.charCode));
     }
-  }
+  };
 
 
   Search.prototype.toggleOverlay = function (action, key) {
@@ -2220,17 +1732,17 @@
     })
   }
 
-  var old = $.fn.search
+  var old = $.fn.search;
 
-  $.fn.search = Plugin
-  $.fn.search.Constructor = Search
+  $.fn.search = Plugin;
+  $.fn.search.Constructor = Search;
 
   $.fn.search.defaults = {
     searchField: '[data-search="searchField"]',
     closeButton: '[data-search="closeButton"]',
     suggestions: '[data-search="suggestions"]',
     brand: '[data-search="brand"]'
-  }
+  };
 
   // SEARCH NO CONFLICT
   // ====================
@@ -2238,7 +1750,7 @@
   $.fn.search.noConflict = function () {
     $.fn.search = old;
     return this;
-  }
+  };
 
   $(document).on('click.pg.search.data-api', '[data-toggle="search"]', function (e) {
     var $this = $(this);
