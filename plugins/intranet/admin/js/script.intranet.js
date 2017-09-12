@@ -1598,3 +1598,23 @@ $(function () {
   $('#addRowServ').click(addRowServ);
 
 });
+
+/** 00. Bootstrap 3: Keep selected tab on page refresh
+ ========================================================================*/
+
+$(function () {
+
+  if ($('.nav.nav-tabs.nav-tabs-fillup').length > 0) {
+    // Responsive Tabs on clicking a tab
+    $(document).on('show.bs.tab', '.nav.nav-tabs.nav-tabs-fillup', function (event) {
+      // store the currently selected tab in the hash value
+      var id = $(event.target).attr("href").substr(1);
+      window.location.hash = id;
+    });
+
+    // On load of the page: switch to the currently selected tab
+    var hash = window.location.hash;
+    $('.nav.nav-tabs.nav-tabs-fillup a[href="' + hash + '"]').tab('show');
+  }
+
+});

@@ -46,7 +46,7 @@
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
-<body  class="page-loading">
+<body class="page-loading">
 <!-- BEGIN PAGE PRELOADER -->
 <div class="pageload">
   <div class="pageload-inner">

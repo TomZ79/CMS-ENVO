@@ -106,16 +106,21 @@ if ($errors) { ?>
     </li>
     <li role="presentation">
       <a href="#cmsPage6" role="tab" id="cmsPage6-tab" data-toggle="tab" aria-controls="cmsPage6">
-        <span class="text">Servisy</span>
+        <span class="text">Stav Techniky</span>
       </a>
     </li>
     <li role="presentation">
       <a href="#cmsPage7" role="tab" id="cmsPage7-tab" data-toggle="tab" aria-controls="cmsPage7">
-        <span class="text">Dokumenty</span>
+        <span class="text">Servisy</span>
       </a>
     </li>
     <li role="presentation">
       <a href="#cmsPage8" role="tab" id="cmsPage8-tab" data-toggle="tab" aria-controls="cmsPage8">
+        <span class="text">Dokumenty</span>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="#cmsPage9" role="tab" id="cmsPage9-tab" data-toggle="tab" aria-controls="cmsPage9">
         <span class="text">Fotogalerie</span>
       </a>
     </li>
@@ -878,6 +883,13 @@ if ($errors) { ?>
 
     </div>
     <div role="tabpanel" class="tab-pane fade" id="cmsPage6" aria-labelledby="cmsPage6-tab">
+      <div class="row">
+        <div class="col-md-12">
+
+        </div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="cmsPage7" aria-labelledby="cmsPage7-tab">
       <div class="row m-b-20">
         <div class="col-md-12 p-l-15 p-r-15 ">
           <div class="form-inline pull-right-sm pull-right-md pull-right-lg">
@@ -931,7 +943,7 @@ if ($errors) { ?>
         </div>
       </div>
     </div>
-    <div role="tabpanel" class="tab-pane fade" id="cmsPage7" aria-labelledby="cmsPage7-tab">
+    <div role="tabpanel" class="tab-pane fade" id="cmsPage8" aria-labelledby="cmsPage8-tab">
       <div class="row">
         <div class="col-md-12">
           <div class="box box-success">
@@ -1039,7 +1051,7 @@ if ($errors) { ?>
         </div>
       </div>
     </div>
-    <div role="tabpanel" class="tab-pane fade" id="cmsPage8" aria-labelledby="cmsPage8-tab">
+    <div role="tabpanel" class="tab-pane fade" id="cmsPage9" aria-labelledby="cmsPage9-tab">
       <div class="row">
         <div class="col-md-12">
           <div class="box box-success">
