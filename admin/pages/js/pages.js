@@ -292,7 +292,7 @@
   Pages.prototype.initProgressBars = function () {
     $(window).on('load', function () {
       // Hack: FF doesn't play SVG animations set as background-image
-      $('.progress-bar-indeterminate, .progress-circle-indeterminate, .mapplic-pin').hide().show(0);
+      $('.progress-bar-indeterminate, .progress-circle-indeterminate').hide().show(0);
     });
   }
 
