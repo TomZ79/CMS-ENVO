@@ -266,6 +266,7 @@ switch ($page1) {
                         description = "' . smartsql($defaults['envo_housedescription']) . '",
                         ic = "' . smartsql($defaults['envo_houseic']) . '",
                         dic = "' . smartsql($defaults['envo_housedic']) . '",
+                        housedesctech = "' . smartsql($defaults['envo_housedesctech']) . '",
                         countentrance = "' . smartsql($defaults['envo_countentranceall']) . '",
                         countapartment = "' . smartsql($defaults['envo_countapartmentall']) . '",
                         permission = "' . smartsql($permission) . '"

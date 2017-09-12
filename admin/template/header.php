@@ -48,8 +48,6 @@ echo $Html->addDoctype('html5');
   // Bootstrap GlyphIcons
   echo $Html->addStylesheet('../assets/plugins/bootstrap-glyphicons/glyphicons-pro/css/glyphicons-pro.min.css');
   //
-  echo $Html->addStylesheet('assets/plugins/switchery/css/switchery.min.css', 'screen');
-  //
   echo $Html->addStylesheet('assets/plugins/prism/prism.css', 'screen');
 
   // Animate

@@ -1,4 +1,20 @@
 <?php
+/*
+ * AKP Tiny Editor - ADMIN
+ * EN: Description of file
+ * CZ: Popis souboru
+ * ----------------------------------------------
+ *
+ * EN: The file insert other files into the site footer:
+ *      - javascript code
+ *      - external javascript files
+ *      - the file 'assets/js/tiny.editor.js'
+ * CZ: Soubor vkládá další soubory do zápatí webu:
+ *      - javascript kód
+ *      - externí javascript soubory
+ *      - soubor 'assets/js/tiny.editor.js'
+ *
+ */
 
 // Get the stylesheets
 if (isset($tpl_customcss)) {
@@ -6,78 +22,9 @@ if (isset($tpl_customcss)) {
 } else {
 	$customCSS = "../assets/css/stylesheet.css,../css/editorcustom.css";
 }
+// Tiny Editor Javascript
+echo $Html->addScript('assets/js/tiny.editor.js');
 
+// New line in source code
+echo PHP_EOL;
 ?>
-<script type="text/javascript">
-	tinymce.init({
-		selector: "textarea.jakEditorLight, textarea.jakEditorLight2, textarea.jakEditorLight3",
-		theme: "modern",
-		width: "100%",
-		height: 200,
-		language: envoWeb.envo_lang,
-		plugins: [
-			"advlist autolink lists link image charmap print preview anchor",
-			"searchreplace visualblocks code fullscreen",
-			"insertdatetime media table contextmenu paste responsivefilemanager"
-		],
-		toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code | clientcode",
-		content_css: "<?php echo $customCSS;?>",
-		statusbar: false,
-		menubar: false,
-		relative_urls: false,
-		remove_script_host: true,
-		document_base_url: "/",
-		valid_elements: "*[*]",
-		external_filemanager_path: "../assets/plugins/tinymce/plugins/filemanager/",
-		filemanager_title: "Filemanager",
-		external_plugins: {"filemanager": "plugins/filemanager/plugin.min.js"}
-	});
-
-	tinymce.init({
-		selector: "textarea.jakEditor, textarea.jakEditor2, textarea.jakEditor3",
-		theme: "modern",
-		width: "100%",
-		height: 500,
-		language: envoWeb.envo_lang,
-		plugins: [
-			"advlist autolink link image lists charmap preview hr anchor pagebreak",
-			"searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-			"save table contextmenu directionality emoticons paste textcolor responsivefilemanager clientcode bootstrap3"
-		],
-		content_css: "<?php echo $customCSS;?>",
-		toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image | preview media fullpage | forecolor backcolor emoticons | clientcode bootstrap3",
-		statusbar: false,
-		image_advtab: true,
-		relative_urls: false,
-		remove_script_host: true,
-		document_base_url: "/",
-		valid_elements: "*[*]",
-		external_filemanager_path: "../assets/plugins/tinymce/plugins/filemanager/",
-		filemanager_title: "Filemanager",
-		external_plugins: {"filemanager": "plugins/filemanager/plugin.min.js"}
-	});
-
-	tinymce.init({
-		selector: "textarea.jakEditorF, textarea.jakEditorF2, textarea.jakEditorF3",
-		theme: "modern",
-		width: "100%",
-		height: 500,
-		language: envoWeb.envo_lang,
-		plugins: [
-			"advlist autolink link image lists charmap preview hr anchor pagebreak fullpage",
-			"searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-			"save table contextmenu directionality emoticons paste textcolor responsivefilemanager clientcode bootstrap3"
-		],
-		toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image | preview media fullpage | forecolor backcolor emoticons | clientcode fullpage bootstrap3",
-		statusbar: false,
-		image_advtab: true,
-		relative_urls: false,
-		convert_urls: false,
-		remove_script_host: true,
-		document_base_url: "/",
-		valid_elements: "*[*]",
-		external_filemanager_path: "../assets/plugins/tinymce/plugins/filemanager/",
-		filemanager_title: "Filemanager",
-		external_plugins: {"filemanager": "plugins/filemanager/plugin.min.js"}
-	});
-</script>

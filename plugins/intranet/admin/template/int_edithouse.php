@@ -884,9 +884,105 @@ if ($errors) { ?>
     </div>
     <div role="tabpanel" class="tab-pane fade" id="cmsPage6" aria-labelledby="cmsPage6-tab">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-4">
           <div class="box box-success">
-            <div class="box-body no-padding">
+            <div class="box-header with-border">
+
+              <?php
+              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+              echo $Html->addTag('h3', 'Obecné Informace', 'box-title');
+              ?>
+
+            </div>
+            <div class="box-body">
+              <div class="block">
+                <div class="block-content">
+                  <div class="row-form">
+                    <div class="col-md-8">
+
+                      <?php
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      echo $Html->addTag('strong', 'Přijímané kanály');
+                      ?>
+
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group no-margin<?php if (isset($errors["e2"]) || isset($errors["e3"])) echo " has-error"; ?>">
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html->addInput('text', 'envo_countentranceall', $ENVO_FORM_DATA["countentrance"], '', 'form-control');
+                        ?>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row-form">
+                    <div class="col-md-8">
+
+                      <?php
+                      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                      echo $Html->addTag('strong', 'Přijímané vysílače');
+                      ?>
+
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group no-margin<?php if (isset($errors["e4"]) || isset($errors["e5"])) echo " has-error"; ?>">
+
+                        <?php
+                        // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                        echo $Html->addInput('text', 'envo_countapartmentall', $ENVO_FORM_DATA["countapartment"], '', 'form-control');
+                        ?>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="box-footer">
+
+              <?php
+              // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+              ?>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="box box-success">
+            <div class="box-header with-border">
+
+              <?php
+              // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+              echo $Html->addTag('h3', 'Popis', 'box-title');
+              ?>
+
+            </div>
+            <div class="box-body">
+
+              <?php if ($jkv["adv_editor"]) {
+
+                // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                echo $Html->addDiv('', 'htmleditor');
+                // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+                echo $Html->addTextarea('envo_housedesctech', envo_edit_safe_userpost(htmlspecialchars($ENVO_FORM_DATA["housedesctech"])), '', '', array('id' => 'jak_editor', 'class' => 'form-control hidden'));
+
+              } else {
+
+                // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
+                echo $Html->addTextarea('envo_housedesctech', envo_edit_safe_userpost($ENVO_FORM_DATA["housedesctech"]), '40', '', array('id' => 'jakEditor', 'class' => 'form-control jakEditor'));
+
+              } ?>
+
+            </div>
+            <div class="box-footer">
+
+              <?php
+              // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
+              echo $Html->addButtonSubmit('btnSave', '<i class="fa fa-save m-r-5"></i>' . $tl["button"]["btn1"], '', 'btn btn-success pull-right', array('data-loading-text' => $tl["button"]["btn41"]));
+              ?>
 
             </div>
           </div>

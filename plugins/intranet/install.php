@@ -240,6 +240,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   `description` varchar(255) NULL DEFAULT NULL,
   `ic` varchar(100) NULL DEFAULT NULL,
   `dic` varchar(100) NULL DEFAULT NULL,
+  `housedesctech` varchar(255) NULL DEFAULT NULL,
   `permission` varchar(100) NOT NULL DEFAULT 0,
   `countentrance` int(5) unsigned NOT NULL DEFAULT 0,
   `countapartment` int(10) unsigned NOT NULL DEFAULT 0,

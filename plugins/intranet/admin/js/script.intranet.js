@@ -12,6 +12,64 @@
  *
  */
 
+/** 01. Basic config for plugin's administration
+ ========================================================================*/
+
+/** ACE Editor
+ * Initialisation of ACE Editor
+ * @required_plugin: ACE Editor Plugin
+ *
+ * Set variable in php file as array (script.tv-tower.php)
+ * @param: 'aceEditor.acetheme' from generated_js.php
+ * @param: 'aceEditor.acewraplimit' from generated_js.php
+ * @param: 'aceEditor.acetabSize' from generated_js.php
+ * @param: 'aceEditor.aceactiveline' from generated_js.php
+ * @param: 'aceEditor.aceinvisible' from generated_js.php
+ * @param: 'aceEditor.acegutter' from generated_js.php
+ *
+ * @example: Example add other variable setting to aceEditor object in script.download.php
+ *
+ * <script>
+ *  // Add to aceEditor settings javascript object
+ *  aceEditor['otherconfigvariable'] = <?php echo json_encode($othervalue); ?>;
+ * </script>
+ ========================================= */
+if ($('#htmleditor').length) {
+  var htmlACE = ace.edit('htmleditor');
+  htmlACE.setTheme('ace/theme/' + aceEditor.acetheme); // Theme chrome, monokai
+  htmlACE.session.setUseWrapMode(true);
+  htmlACE.session.setWrapLimitRange(aceEditor.acewraplimit +  ',' + aceEditor.acewraplimit);
+  htmlACE.setOptions({
+    // session options
+    mode: "ace/mode/html",
+    tabSize: aceEditor.acetabSize,
+    useSoftTabs: true,
+    highlightActiveLine: aceEditor.aceactiveline,
+    // renderer options
+    showInvisibles: aceEditor.aceinvisible,
+    showGutter: aceEditor.acegutter
+  });
+  // This is to remove following warning message on console:
+  // Automatically scrolling cursor into view after selection change this will be disabled in the next version
+  // set editor.$blockScrolling = Infinity to disable this message
+  htmlACE.$blockScrolling = Infinity;
+
+  var texthtml = $("#jak_editor").val();
+  htmlACE.session.setValue(texthtml);
+}
+
+$(function () {
+
+  /* Submit Form
+   ========================================= */
+  $('form').submit(function () {
+    if ($('#jak_editor').length) {
+      $("#jak_editor").val(htmlACE.getValue());
+    }
+  });
+
+});
+
 /* 00. JQUERY CODE SNIPPET TO GET THE DYNAMIC VARIABLE
  ======================================================================== */
 /* jQuery code snippet to get the dynamic variables stored in the url as parameters and
