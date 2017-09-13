@@ -188,7 +188,7 @@ $(function () {
 
   $('.iconpicker1').iconpicker({
     arrowClass: 'btn-info',
-    icon: iconpicker['icon'],
+    icon: iconPicker.icon,
     iconset: 'glyphicons',
     searchText: iconPicker.searchText,
     labelFooter: iconPicker.labelFooter,

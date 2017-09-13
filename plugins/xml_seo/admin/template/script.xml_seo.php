@@ -27,7 +27,7 @@ if ($page == 'xml_seo') {
     var stepForm = {
       nextBtn: <?php echo json_encode($tlxml["xml_button"]["xmlbtn"]); ?>,
       prevBtn: <?php echo json_encode($tlxml["xml_button"]["xmlbtn1"]); ?>,
-      finishBtn: <?php echo json_encode($tlxml["xml_button"]["xmlbtn2"]); ?>,
+      finishBtn: <?php echo json_encode($tlxml["xml_button"]["xmlbtn2"]); ?>
     };
   </script>
 

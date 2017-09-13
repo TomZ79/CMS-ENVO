@@ -1,68 +1,59 @@
-<script src="assets/js/global_js/catorder.js" type="text/javascript"></script>
-<script src="assets/js/global_js/slug.js" type="text/javascript"></script>
+<?php
+/*
+ * AKP Categories - ADMIN
+ * EN: Description of file
+ * CZ: Popis souboru
+ * ----------------------------------------------
+ *
+ * EN: The file insert other files into the site footer:
+ *      - javascript code
+ *      - external javascript files
+ *      - the file 'assets/js/script.categories.js'
+ * CZ: Soubor vkládá další soubory do zápatí webu:
+ *      - javascript kód
+ *      - externí javascript soubory
+ *      - soubor 'assets/js/script.categories.js'
+ *
+ */
 
-<script type="text/javascript">
-  $(document).ready(function () {
+if ($page == 'categories') {
 
-    $("#jak_name").keyup(function () {
-      $("#jak_varname").val(jakSlug($("#jak_name").val()));
-    });
+  echo PHP_EOL . '<!-- Start JS AKP Categories -->';
 
-    /* Bootstrap Icon Picker */
-    <?php
-    if (isset($ENVO_FORM_DATA["catimg"])) {
-      $str = $ENVO_FORM_DATA["catimg"];
+  // Setting variable for Jquery external script
+  if (isset($ENVO_FORM_DATA["catimg"])) {
+    $str = $ENVO_FORM_DATA["catimg"];
 
-      if (strpos($str, 'glyphicons ') !== FALSE) {
-        $categoryimg = str_replace('glyphicons ', '', $ENVO_FORM_DATA["catimg"]);
-      } else {
-        $categoryimg = str_replace('fa ', '', $ENVO_FORM_DATA["catimg"]);
-      }
+    if (strpos($str, 'glyphicons ') !== FALSE) {
+      $categoryimg = str_replace('glyphicons ', '', $ENVO_FORM_DATA["catimg"]);
     } else {
-      $categoryimg = 'fa-font';
+      $categoryimg = str_replace('fa ', '', $ENVO_FORM_DATA["catimg"]);
     }
-    ?>
+  } else {
+    $categoryimg = 'fa-font';
+  }
+  ?>
 
-    $('.iconpicker').iconpicker({
-      arrowClass: 'btn-info',
-      icon: '<?php echo $categoryimg; ?>',
-      iconset: 'fontawesome',
-      searchText: '<?php echo $tl["placeholder"]["p4"]; ?>',
-      labelFooter: '<?php echo $tl["global_text"]["globaltxt18"]; ?>',
-      arrowPrevIconClass: 'fa fa-chevron-left',
-      arrowNextIconClass: 'fa fa-chevron-right',
-      selectedClass: 'btn-success',
-      unselectedClass: '',
-      rows: 5,
-      cols: 8
-    });
+  <script>
+    // Add to Global settings javascript object
+    iconPicker['icon'] = <?php echo json_encode($categoryimg); ?>;
+    globalSettings['pageID2'] = <?php echo (!empty($page2) && is_numeric($page2) ? $page2 : '""'); ?>;
+  </script>
 
-    $('.iconpicker').on('change', function (e) {
-      $("#jak_img").val('fa ' + e.icon);
-    });
+  <?php
 
-    $('.iconpicker1').iconpicker({
-      arrowClass: 'btn-info',
-      icon: '<?php echo $categoryimg; ?>',
-      iconset: 'glyphicons',
-      searchText: '<?php echo $tl["placeholder"]["p4"]; ?>',
-      labelFooter: '<?php echo $tl["global_text"]["globaltxt18"]; ?>',
-      arrowPrevIconClass: 'fa fa-chevron-left',
-      arrowNextIconClass: 'fa fa-chevron-right',
-      selectedClass: 'btn-success',
-      unselectedClass: '',
-      rows: 5,
-      cols: 8
-    });
+  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
+  // Plugin Slug
+  echo $Html->addScript('assets/js/global_js/slug.js');
+  // Order Category
+  echo $Html->addScript('assets/js/global_js/catorder.js');
+  // Plugin Javascript
+  echo $Html->addScript('assets/js/script.categories.js');
 
-    $('.iconpicker1').on('change', function (e) {
-      $("#jak_img").val('glyphicons ' + e.icon);
-    });
+  echo PHP_EOL . '<!-- End JS AKP Categories -->' . PHP_EOL;
 
-    /* Copy Value */
-    $("#copy1").click(function () {
-      $("#jak_editor_light_meta_desc").val($("#content").val());
-    });
+}
 
-  });
-</script>
+// New line in source code
+echo PHP_EOL;
+?>

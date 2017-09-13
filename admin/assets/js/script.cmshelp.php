@@ -1,63 +1,42 @@
-<script>
-  $(document).ready(function () {
-    //Scrollspy offset
-    $('body').scrollspy({
-      target: '#myScrollspy',
-      offset: 70
-    });
+<?php
+/*
+ * AKP Help - ADMIN
+ * EN: Description of file
+ * CZ: Popis souboru
+ * ----------------------------------------------
+ *
+ * EN: The file insert other files into the site footer:
+ *      - javascript code
+ *      - external javascript files
+ *      - the file 'assets/js/script.cmshelp.js'
+ * CZ: Soubor vkládá další soubory do zápatí webu:
+ *      - javascript kód
+ *      - externí javascript soubory
+ *      - soubor 'assets/js/script.cmshelp.js'
+ *
+ */
 
-    // Spy and scroll menu boogey - animate
-    $("#myScrollspy ul li a[href^='#']").on('click', function (e) {
-      // prevent default anchor click behavior
-      e.preventDefault()
-      // store hash
-      var hash = this.hash
-      // animate
-      $('html, body').animate({
-        scrollTop: $(this.hash).offset().top
-      }, 400, function () {
-        window.location.hash = hash
-      })
+if ($page == 'cmshelp') {
 
-    })
-  });
-</script>
-<script>
-  $(document).ready(function(){
-    $('#filter').keyup(function(){
+  echo PHP_EOL . '<!-- Start JS AKP Help -->';
 
-      // Retrieve the input field text and reset the count to zero
-      var filter = $(this).val(), count = 0;
+  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
+  // Plugin Javascript
+  echo $Html->addScript('assets/js/script.cmshelp.js');
 
-      // Loop through the comment list
-      $('#pgicons li').each(function(){
+  echo PHP_EOL . '<!-- End JS AKP Help -->' . PHP_EOL;
 
-        // If the list item does not contain the text phrase fade it out
-        if ($(this).text().search(new RegExp(filter, "i")) < 0) {
-          $(this).hide();
+}
 
-          // Show the list item if the phrase matches and increase the count by 1
-        } else {
-          $(this).show();
-          count++;
-        }
-      });
+// New line in source code
+echo PHP_EOL;
+?>
 
-      // Update the count
-      var numberItems = count;
-      if (filter == '')  {
-        $("#filter-count").text('');
-      } else {
-        $("#filter-count").text("Počet vyhledaných ikon : " + count);
-      }
-    });
-  });
-</script>
 <style>
   /*  */
   .secondary-sidebar {
     height: calc(100% - 60px) !important;
-    overflow-y: scroll;
+    overflow-y: auto;
     width: 330px !important;
   }
 

@@ -1,52 +1,42 @@
 <?php
-// Load FileInput Jquery Plugin  - only for selected pages
-if ($page1 == 'newfacebook') {
-  ?>
-  <script src="assets/plugins/bootstrap-fileinput/js/fileinput.js" type="text/javascript"></script>
-  <script src="assets/plugins/bootstrap-fileinput/js/locales/cz.js" type="text/javascript"></script>
-  <script src="assets/plugins/bootstrap-fileinput/themes/fa/theme.js" type="text/javascript"></script>
+/*
+ * AKP Facebook Gallery - ADMIN
+ * EN: Description of file
+ * CZ: Popis souboru
+ * ----------------------------------------------
+ *
+ * EN: The file insert other files into the site footer:
+ *      - javascript code
+ *      - external javascript files
+ *      - the file 'assets/js/script.facebookgallery.js'
+ * CZ: Soubor vkládá další soubory do zápatí webu:
+ *      - javascript kód
+ *      - externí javascript soubory
+ *      - soubor 'assets/js/script.facebookgallery.js'
+ *
+ */
 
-  <script>
-    $(document).on("ready", function () {
-      $("#images").fileinput({
-        theme: 'fa',
-        language: 'cz',
-        maxFileSize: 4500,
-        allowedFileExtensions: ['jpg', 'png', 'gif'],
-        uploadAsync: false,
-        uploadUrl: "ajax/uploadfacebook.php", // your upload server url
-        maxFileCount: 3,
-        layoutTemplates: {
-          main1: '{preview}\n' +
-          '<div class="input-group {class}">\n' +
-          '   <div class="input-group-btn">\n' +
-          '       {browse}\n' +
-          '       {upload}\n' +
-          '       {remove}\n' +
-          '   </div>\n' +
-          '   {caption}\n' +
-          '</div>',
-          actions: '<div class="file-actions">\n' +
-          '    <div class="file-footer-buttons">\n' +
-          '        {upload} {delete} {zoom} {other}' +
-          '    </div>\n' +
-          '    {drag}\n' +
-          '    <div class="file-upload-indicator" title="{indicatorTitle}">{indicator}</div>\n' +
-          '    <div class="clearfix"></div>\n' +
-          '</div>'
-        }
-      });
-    });
-  </script>
-<?php } ?>
+if ($page == 'facebookgallery') {
 
-<script>
-  /* Toggle list and grid view */
-  $('.btn-toggle').click(function () {
-    $('.toggle').toggleClass('hidden visible');
-    $('.btn-toggle i').toggleClass("fa-th-list fa-th");
-  });
-</script>
+  echo PHP_EOL . '<!-- Start JS AKP Facebook Gallery -->';
+
+  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
+  // Load FileInput Jquery Plugin  - only for selected pages
+  if ($page1 == 'newfacebook') {
+    echo $Html->addScript('assets/plugins/bootstrap-fileinput/js/fileinput.js');
+    echo $Html->addScript('assets/plugins/bootstrap-fileinput/js/locales/cz.js');
+    echo $Html->addScript('assets/plugins/bootstrap-fileinput/themes/fa/theme.js');
+  }
+  // Plugin Javascript
+  echo $Html->addScript('assets/js/script.facebookgallery.js');
+
+  echo PHP_EOL . '<!-- End JS AKP Facebook Gallery -->' . PHP_EOL;
+
+}
+
+// New line in source code
+echo PHP_EOL;
+?>
 
 <style type="text/css">
   .gridview {

@@ -1047,6 +1047,8 @@ $(function () {
       },
       success: function (data) {
 
+        console.log(data);
+
         if (data.status == 'upload_success') {
           // IF DATA SUCCESS
 
@@ -1098,7 +1100,7 @@ $(function () {
                 // Isotope Plugin
                 // Adds and lays out newly prepended item elements at the beginning of layout
                 // Prepend items to gallery
-                $gallery.prepend($isotopeContent)
+                $('#gallery_envo').prepend($isotopeContent)
                 // Add and lay out newly prepended items
                   .isotope('prepended', $isotopeContent);
 
@@ -1176,7 +1178,7 @@ $(function () {
           // IF DATA SUCCESS
 
           // Removes elements from the Isotope instance and DOM
-          $gallery.isotope('remove', $('#' + data.data[0].id))
+          $('#gallery_envo').isotope('remove', $('#' + data.data[0].id))
           // Layout remaining item elements
             .isotope('layout');
 

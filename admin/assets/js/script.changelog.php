@@ -1,52 +1,37 @@
-<script>
-  $(document).ready(function () {
-    //Scrollspy offset
-    $('body').scrollspy({
-      target: '.sidebar-scroll',
-      offset: 70
-    });
-  });
+<?php
+/*
+ * AKP Changelog - ADMIN
+ * EN: Description of file
+ * CZ: Popis souboru
+ * ----------------------------------------------
+ *
+ * EN: The file insert other files into the site footer:
+ *      - javascript code
+ *      - external javascript files
+ *      - the file 'assets/js/script.changelog.js'
+ * CZ: Soubor vkládá další soubory do zápatí webu:
+ *      - javascript kód
+ *      - externí javascript soubory
+ *      - soubor 'assets/js/script.changelog.js'
+ *
+ */
 
-  $(function () {
-    /* Resize sidebar on scroll
-     ========================================= */
-    // Resize detached sidebar vertically when bottom reached
-    function resizeDetached() {
-      $(window).on('load scroll', function () {
-        if ($(window).scrollTop() > $(document).height() - $(window).height() - 40) {
-          $('.sidebar-scroll').addClass('fixed-sidebar-space');
-        }
-        else {
-          $('.sidebar-scroll').removeClass('fixed-sidebar-space');
-        }
-      });
-    }
+if ($page == 'changelog') {
 
-    /* Affix detached sidebar
-     ========================================= */
-    // Init nicescroll when sidebar affixed
-    $('.sidebar-scroll').on('affix.bs.affix', function () {
-      resizeDetached();
-    });
-    // Attach BS affix component to the sidebar
-    $('.sidebar-scroll').affix({
-      offset: {
-        top: $('.sidebar-scroll').offset().top - 60 // top offset - computed line height
-      }
-    });
-    // Remove affix and scrollbar on mobile
-    $(window).on('resize', function () {
-      setTimeout(function () {
-        if ($(window).width() <= 768) {
-          // Remove affix on mobile
-          $(window).off('.affix')
-          $('.sidebar-scroll').removeData('affix').removeClass('affix affix-top affix-bottom');
-        }
-      }, 100);
-    }).resize();
+  echo PHP_EOL . '<!-- Start JS AKP Changelog -->';
 
-  });
-</script>
+  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
+  // Plugin Javascript
+  echo $Html->addScript('assets/js/script.changelog.js');
+
+  echo PHP_EOL . '<!-- End JS AKP Changelog -->' . PHP_EOL;
+
+}
+
+// New line in source code
+echo PHP_EOL;
+?>
+
 <style type="text/css">
   body {
     position: relative;
