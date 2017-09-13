@@ -163,6 +163,8 @@ $notify =
 $debug = new PHPDebug();
 
 if (!empty($page)) {
+  // EN: Insert javascript files for page in array $ap'
+  // CZ: Vložení javascript souborů pro stránky jejichž jména jsou v poli '$ap'
   $ap = array("logs", "searchlog", "changelog", "site", "setting", "plugins", "template", "maintenance", "facebookgallery", "settingfacebook", "mediasharing", "user", "usergroup", "categories", "page", "contactform", "sitemap", "searchsetting", "news", "tags", "cmshelp");
 
   if (in_array($page, $ap)) {
@@ -185,8 +187,12 @@ if (!empty($page)) {
   }
 
 } elseif (empty($page) && !JAK_USERID) {
+  // EN: Insert javascript files for login page
+  // CZ: Vložení javascript souborů pro stránku 'login' -> přihlášení do administračního rozhraní
   include_once 'assets/js/script.login.php';
 } else {
+  // EN: Insert script for index page -> Dashboard
+  // CZ: Vložení javascript souborů pro index stránku -> Dashboard
   include_once 'assets/js/script.index.php';
 }
 

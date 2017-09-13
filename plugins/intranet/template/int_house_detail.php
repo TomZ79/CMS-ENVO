@@ -95,7 +95,16 @@
                 </div>
                 <div class="grid-body no-border">
                   <div class="row-fluid">
-                    <div id="google-container" style="height: 350px;"></div>
+                    <div id="google-container-map" style="height: 350px;position: relative;">
+
+                      <?php
+                      if (empty($envo_house_latitude) || empty($envo_house_longitude)) {
+                        // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                        echo $Html->addDiv('Mapa není k dispozici', 'txteditor', array('style' => 'position: absolute;top: 50%;left: 50%;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);'));
+                      }
+                      ?>
+
+                    </div>
                   </div>
                 </div>
               </div>
@@ -149,6 +158,17 @@
                         </tbody>
                       </table>
                     </div>
+                  <?php } else { ?>
+
+                    <div class="col-md-12">
+
+                      <?php
+                      // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                      echo $Html->addDiv('Nejsou dostupná žádná data.', '', array('class' => 'alert'));
+                      ?>
+
+                    </div>
+
                   <?php } ?>
 
                 </div>
@@ -201,6 +221,17 @@
                         </tbody>
                       </table>
                     </div>
+                  <?php } else { ?>
+
+                    <div class="col-md-12">
+
+                      <?php
+                      // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                      echo $Html->addDiv('Nejsou dostupná žádná data.', '', array('class' => 'alert'));
+                      ?>
+
+                    </div>
+
                   <?php } ?>
 
                 </div>
@@ -267,7 +298,7 @@
                           <div class="gallery-item-<?php echo $himg["id"] . ' ' . $himg["category"]; ?>" data-width="1" data-height="1">
                             <div class="img_container">
                               <a data-fancybox="gallery" href="<?php echo '/' . JAK_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>">
-                                <img src="<?php echo '/' . JAK_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>" class="img-responsive" alt="" >
+                                <img src="<?php echo '/' . JAK_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>" class="img-responsive" alt="">
                               </a>
                             </div>
                             <div class="overlays">
@@ -295,6 +326,17 @@
                             </div>
                           </div>
                         <?php } ?>
+
+                      </div>
+
+                    <?php } else { ?>
+
+                      <div class="col-md-12">
+
+                        <?php
+                        // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                        echo $Html->addDiv('Nejsou dostupná žádná data.', '', array('class' => 'alert'));
+                        ?>
 
                       </div>
 

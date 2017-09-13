@@ -1,3 +1,12 @@
+/*
+ * List of Error:
+ * -----------------------------------------
+ * E01: Scrollbar Plugin not exist
+ * E02: Scrollbar or Ioslist Plugin not exist
+ * E03: Scrollbar or Select2 Plugin not exist
+ *
+ */
+
 (function ($) {
   'use strict';
 
@@ -20,7 +29,7 @@
 
     this.setUserOS();
     this.setUserAgent();
-  }
+  };
 
   /** @function setUserOS
    * @description SET User Operating System eg: mac,windows,etc
@@ -34,7 +43,7 @@
     if (navigator.appVersion.indexOf("Linux") != -1) OSName = "linux";
 
     this.$body.addClass(OSName);
-  }
+  };
 
   /** @function setUserAgent
    * @description SET User Device Name to mobile | desktop
@@ -245,7 +254,7 @@
     $('[data-init-reponsive-tabs="dropdownfx"]').each(function () {
       var drop = $(this);
       drop.addClass("hidden-sm hidden-xs");
-      var content = '<select class="cs-select cs-skin-slide full-width" data-init-plugin="cs-select">'
+      var content = '<select class="cs-select cs-skin-slide full-width" data-init-plugin="cs-select">';
       for (var i = 1; i <= drop.children("li").length; i++) {
         var li = drop.children("li:nth-child(" + i + ")");
         var selected = "";
@@ -256,14 +265,14 @@
         content += li.children('a').text();
         content += '</option>';
       }
-      content += '</select>'
+      content += '</select>';
       drop.after(content);
       var select = drop.next()[0];
       $(select).on('change', function (e) {
         var optionSelected = $("option:selected", this);
         var valueSelected = this.value;
         drop.find('a[href="' + valueSelected + '"]').tab('show')
-      })
+      });
       $(select).wrap('<div class="nav-tab-dropdown cs-wrapper full-width p-t-10 visible-xs visible-sm"></div>');
       new SelectFx(select);
     });
@@ -352,15 +361,21 @@
    * @requires select2.js version 4.0.x
    */
   Pages.prototype.initSelect2Plugin = function (context) {
-    $.fn.select2 && $('[data-init-plugin="select2"]', context).each(function () {
-      $(this).select2({
-        minimumResultsForSearch: ($(this).attr('data-disable-search') == 'true' ? -1 : 1)
-      }).on('select2:open', function () {
-        $.fn.scrollbar && $('.select2-results__options').scrollbar({
-          ignoreMobile: false
-        })
+    // Use the jQuery.isFunction() method to see if $.fn.someMethod is indeed a function
+    if ((typeof $.fn.select2 !== 'undefined' && $.isFunction($.fn.select2)) || typeof $.fn.scrollbar !== 'undefined' && $.isFunction($.fn.scrollbar)) {
+      $.fn.select2 && $('[data-init-plugin="select2"]', context).each(function () {
+        $(this).select2({
+          minimumResultsForSearch: ($(this).attr('data-disable-search') == 'true' ? -1 : 1)
+        }).on('select2:open', function () {
+          $.fn.scrollbar && $('.select2-results__options').scrollbar({
+            ignoreMobile: false
+          })
+        });
       });
-    });
+    } else {
+      // Output to console
+      console.log('Error E01: $.fn.scrollbar is not function');
+    }
   };
 
   /** @function initCustomSelect2Plugin
@@ -369,17 +384,23 @@
    * @requires select2.js version 4.0.x
    */
   Pages.prototype.initCustomSelect2Plugin = function (context) {
-    $.fn.select2 && $('.selectpicker', context).each(function () {
-      $(this).select2({
-        minimumResultsForSearch: ($(this).attr('data-search-select2') == 'true' ? 1 : -1),
-        dropdownParent: $('.page-content-wrapper'),
-        width: '100%'
-      }).on('select2:open', function () {
-        $.fn.scrollbar && $('.select2-results__options').scrollbar({
-          ignoreMobile: false
-        })
+    // Use the jQuery.isFunction() method to see if $.fn.someMethod is indeed a function
+    if ((typeof $.fn.select2 !== 'undefined' && $.isFunction($.fn.select2)) || typeof $.fn.scrollbar !== 'undefined' && $.isFunction($.fn.scrollbar)) {
+      $.fn.select2 && $('.selectpicker', context).each(function () {
+        $(this).select2({
+          minimumResultsForSearch: ($(this).attr('data-search-select2') == 'true' ? 1 : -1),
+          dropdownParent: $('.page-content-wrapper'),
+          width: '100%'
+        }).on('select2:open', function () {
+          $.fn.scrollbar && $('.select2-results__options').scrollbar({
+            ignoreMobile: false
+          })
+        });
       });
-    });
+    } else {
+      // Output to console
+      console.log('Error E03: $.fn.select2 or $.fn.scrollbar is not function');
+    }
   };
 
   /** @function initScrollBarPlugin
@@ -388,9 +409,15 @@
    * @requires jquery-scrollbar.js
    */
   Pages.prototype.initScrollBarPlugin = function (context) {
-    $.fn.scrollbar && $('.scrollable', context).scrollbar({
-      ignoreOverlay: false
-    });
+    // Use the jQuery.isFunction() method to see if $.fn.someMethod is indeed a function
+    if (typeof $.fn.scrollbar !== 'undefined' && $.isFunction($.fn.scrollbar)) {
+      $.fn.scrollbar && $('.scrollable', context).scrollbar({
+        ignoreOverlay: false
+      });
+    } else {
+      // Output to console
+      console.log('Error E01: $.fn.scrollbar is not function');
+    }
   };
 
   /** @function initListView
@@ -400,10 +427,15 @@
    * @requires jquery-ioslist.js
    */
   Pages.prototype.initListView = function (context) {
-    $.fn.ioslist && $('[data-init-list-view="ioslist"]', context).ioslist();
-    $.fn.scrollbar && $('.list-view-wrapper', context).scrollbar({
-      ignoreOverlay: false
-    });
+    if ((typeof $.fn.scrollbar !== 'undefined' && $.isFunction($.fn.scrollbar)) || (typeof $.fn.ioslist !== 'undefined' && $.isFunction($.fn.ioslist))) {
+      $.fn.ioslist && $('[data-init-list-view="ioslist"]', context).ioslist();
+      $.fn.scrollbar && $('.list-view-wrapper', context).scrollbar({
+        ignoreOverlay: false
+      });
+    } else {
+      // Output to console
+      console.log('Error E02: $.fn.scrollbar or $.fn.ioslist is not function');
+    }
   };
 
   /** @function initUnveilPlugin
@@ -1121,7 +1153,6 @@
 
     $(this.options.notes).on('click', '.list > ul > li', function (e) {
       var note = $(this).find('.note-preview');
-      var note = $(this).find('.note-preview');
       $(_this.options.noteEditor).html(note.html());
       $(_this.options.notes).toggleClass('push');
     });
@@ -1279,7 +1310,7 @@
     });
 
     this.$content.css({
-      'transform': direction + '(' + scrollPos * this.options.speed.content + 'px)',
+      'transform': direction + '(' + scrollPos * this.options.speed.content + 'px)'
     });
 
     if (scrollPos > opacityKeyFrame) {
@@ -1376,12 +1407,17 @@
 
     if (!this.$sidebarMenu.length) return;
 
-    // apply perfectScrollbar plugin only for desktops
-    ($.Pages.getUserAgent() == 'desktop') && this.$sidebarMenu.scrollbar({
-      ignoreOverlay: false,
-      disableBodyScroll: (this.$element.data("disableBodyScroll") == true) ? true : false
-    });
-
+    // Apply Scrollbar plugin only for desktops
+    // Use the jQuery.isFunction() method to see if $.fn.someMethod is indeed a function
+    if (typeof $.fn.scrollbar !== 'undefined' && $.isFunction($.fn.scrollbar)) {
+      ($.Pages.getUserAgent() == 'desktop') && this.$sidebarMenu.scrollbar({
+        ignoreOverlay: false,
+        disableBodyScroll: (this.$element.data("disableBodyScroll") == true) ? true : false
+      });
+    } else {
+      // Output to console
+      console.log('Error E01: $.fn.scrollbar is not function');
+    }
 
     if (!Modernizr.csstransitions)
       this.cssAnimation = false;
@@ -1476,8 +1512,7 @@
 
       if ($('.sidebar-overlay-slide').hasClass('show')) {
         $('.sidebar-overlay-slide').removeClass('show');
-        $("[data-pages-toggle']").removeClass('active')
-
+        $("[data-pages-toggle]").removeClass('active')
       }
 
       if (_this.cssAnimation) {

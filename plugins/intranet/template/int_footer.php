@@ -44,47 +44,47 @@ if (empty($page1)) echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/dashbo
 if ($page1 == 'house' && empty($page2)) echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/datatables.js');
 ?>
 
-<?php if ($page1 == 'house' && !empty($page2)) { ?>
+<?php if ($page1 == 'house' && !empty($page2)) {
 
-  <?php
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Google maps
-  echo $Html->addScript('https://maps.google.com/maps/api/js?sensor=true.');
+  echo $Html->addScript('https://maps.google.com/maps/api/js?key=AIzaSyC0YxpRvj4Sv6j1JJFaDuX4cO6OGYD3EpM');
   // Isotope
   echo $Html->addScript('https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js');
   // Fancybox
   echo $Html->addScript('/assets/plugins/fancybox/3.0/js/jquery.fancybox.min.js');
   // Photo gallery
   echo $Html->addScript($SHORT_PLUGIN_URL_TEMPLATE . 'js/gallery.js');
-  ?>
 
-  <script>
+  echo PHP_EOL;
 
-    (function() {
-      var map, mapOptions, marker, position;
+  $str = <<<EOT
+<script>
+$(document).ready(function() {
+  var map, mapOptions, marker, position;
 
-      position = new google.maps.LatLng(<?php echo $envo_house_latitude . ',' . $envo_house_longitude; ?>);
+  position = new google.maps.LatLng({$envo_house_latitude}, {$envo_house_longitude});
 
-      mapOptions = {
-        zoom: 17,
-        center: position,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
+  mapOptions = {
+    zoom: 17,
+    center: position,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  
+  map = new google.maps.Map(document.getElementById("google-container-map"), mapOptions);
 
-      map = new google.maps.Map($('#google-container')[0], mapOptions);
+  marker = new google.maps.Marker({
+    position: position,
+    map: map
+  });
+});
+</script>
+EOT;
 
-      marker = new google.maps.Marker({
-        position: position,
-        map: map
-      });
+  if (!empty($envo_house_latitude) || !empty($envo_house_longitude)) echo $str;
 
-      marker.setMap(map);
+  echo PHP_EOL;
 
-    }).call(this);
-
-
-  </script>
-
-<?php } ?>
+} ?>
 </body>
 </html>
