@@ -1,6 +1,6 @@
 /*
  * CMS ENVO
- * JS for Search Log - Admin
+ * JS for Search Log - ADMIN
  * Copyright © 2016 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas

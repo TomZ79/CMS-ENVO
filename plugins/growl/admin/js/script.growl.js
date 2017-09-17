@@ -1,7 +1,7 @@
 /*
  *
  * CMS ENVO
- * JS for Plugin Growl - Admin
+ * JS for Plugin Growl - ADMIN
  * Copyright © 2016 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas

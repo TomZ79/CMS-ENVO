@@ -1,6 +1,6 @@
 /*
  * CMS ENVO
- * JS for Media Sharing - Admin
+ * JS for Media Sharing - ADMIN
  * Copyright © 2016 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas

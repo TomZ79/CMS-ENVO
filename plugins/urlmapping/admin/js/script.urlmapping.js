@@ -1,7 +1,7 @@
 /*
  *
  * CMS ENVO
- * JS for Plugin URL Mapping - Admin
+ * JS for Plugin URL Mapping - ADMIN
  * Copyright © 2016 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas

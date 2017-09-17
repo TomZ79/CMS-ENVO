@@ -1,6 +1,6 @@
 /*
  * CMS ENVO
- * JS for Plugins - ADMIN
+ * JS for Template - ADMIN
  * Copyright © 2016 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas
@@ -9,7 +9,8 @@
  * INDEX:
  *
  * 01. Basic config for plugin's administration
- * 02. Show iFrame in modal - Plugins
+ * 02. AutoGrow text block
+ * 03. Show iFrame in modal
  *
  */
 
@@ -36,13 +37,13 @@
  * </script>
  ========================================= */
 if ($('#htmleditor').length) {
-  var htmlefACE = ace.edit("htmleditor");
-  htmlACE.setTheme('ace/theme/' + aceEditor.acetheme); // Theme chrome, monokai
+  var htmlefACE = ace.edit('htmleditor');
+  htmlefACE.setTheme('ace/theme/' + aceEditor.acetheme); // Theme chrome, monokai
   htmlefACE.session.setUseWrapMode(true);
-  htmlACE.session.setWrapLimitRange(aceEditor.acewraplimit + ',' + aceEditor.acewraplimit);
+  htmlefACE.session.setWrapLimitRange(aceEditor.acewraplimit +  ',' + aceEditor.acewraplimit);
   htmlefACE.setOptions({
     // session options
-    mode: "ace/mode/php",
+    mode: "ace/mode/html",
     tabSize: aceEditor.acetabSize,
     useSoftTabs: true,
     highlightActiveLine: aceEditor.aceactiveline,
@@ -55,7 +56,7 @@ if ($('#htmleditor').length) {
   // set editor.$blockScrolling = Infinity to disable this message
   htmlefACE.$blockScrolling = Infinity;
 
-  texthtmlef = $("#jak_phpcode").val();
+  var texthtmlef = $("#jak_filecontent").val();
   htmlefACE.session.setValue(texthtmlef);
 }
 
@@ -64,72 +65,79 @@ $(function () {
   /* Submit Form
    ========================================= */
   $('form').submit(function () {
-    $("#jak_phpcode").val(htmlefACE.getValue());
-  });
-
-  /* Check all checkbox */
-  $("#jak_delete_all").click(function () {
-    var checkedStatus = this.checked;
-    $(".highlight").each(function () {
-      $(this).prop('checked', checkedStatus);
-    });
-    $('#button_delete').prop('disabled', function (i, v) {
-      return !v;
-    });
-  });
-
-  /* Disable submit button if checkbox is not checked */
-  $(".highlight").change(function () {
-    if (this.checked) {
-      $("#button_delete").removeAttr("disabled");
-    } else {
-      $("#button_delete").attr("disabled", "disabled");
-    }
+    $("#jak_filecontent").val(htmlefACE.getValue());
   });
 
 });
 
-/** 02. Show iFrame in modal - Plugins
+/** 02. AutoGrow text block
+ * @required_plugin: AutoGrow Plugin
  ========================================================================*/
 
 $(function () {
 
-  // Close modal dialog from iFrame - call this by onclick="window.parent.closeModal(); from iFrame"
+  $(".txtautogrow").autoGrow();
+
+});
+
+/** 03. Show iFrame in modal
+ ========================================================================*/
+
+$(function () {
+
+// Close modal dialog from iFrame - call this by onclick="window.parent.closeModal(); from iFrame"
   window.closeModal = function () {
     $('#ENVOModal').modal('hide');
   };
 
-  // Show iFrame in modal - install and uninstall
-  $('.plugInst').on('click', function (e) {
+  $('.tempSett').on('click', function (e) {
     e.preventDefault();
     frameSrc = $(this).attr("href");
     $('#ENVOModalLabel').html("<?php echo ucwords($page);?>");
-    $('#ENVOModal').on('show.bs.modal', function () {
-      $('#ENVOModal .modal-dialog').addClass('modal-w-90p');
-      $('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">').appendTo('.body-content');
-    });
-    $('#ENVOModal').on('hidden.bs.modal', function () {
-      $(this).removeData();
+
+    $('#ENVOModal').one('shown.bs.modal', function (e) {
+      $('#ENVOModal .modal-dialog').addClass('modal-w-70p');
+      $('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
+    }).one('hidden.bs.modal', function (e) {
+      $(".body-content").html('');
       window.location.reload();
-    });
-    $('#ENVOModal').modal({show: true});
+    }).modal('show');
+
+  });
+
+  // Show iFrame in modal - install and uninstall
+  $('.tempInst').on('click', function (e) {
+    e.preventDefault();
+    frameSrc = $(this).attr("href");
+    $('#ENVOModalLabel').html("<?php echo ucwords($page);?>");
+
+    $('#ENVOModal').one('shown.bs.modal', function (e) {
+      $('#ENVOModal .modal-dialog').addClass('modal-w-70p');
+      $('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
+    }).one('hidden.bs.modal', function (e) {
+      $(".body-content").html('');
+      window.location.reload();
+    }).modal('show');
+
   });
 
   // Show iFrame in modal - help
-  $('.plugHelp').on('click', function (e) {
+  $('.tempHelp').on('click', function (e) {
     e.preventDefault();
     frameSrc = $(this).attr("href");
     $('#ENVOModalLabel').html("<?php echo ucwords($page);?>");
-    $('#ENVOModal').on('show.bs.modal', function () {
+
+    $('#ENVOModal').one('shown.bs.modal', function (e) {
       $('#ENVOModal .modal-dialog').addClass('modal-w-90p');
-      $('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">').appendTo('.body-content');
-    });
-    $('#ENVOModal').on('hidden.bs.modal', function () {
-      $(this).removeData();
-      window.location.reload();
-    });
-    $('#ENVOModal').modal({show: true});
+      $('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
+    }).one('hidden.bs.modal', function (e) {
+      $(".body-content").html('');
+    }).modal('show');
+
   });
 
+  $('.disabled').click(function (e) {
+    e.preventDefault();
+  })
 
 });

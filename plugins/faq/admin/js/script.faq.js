@@ -1,7 +1,7 @@
 /*
  *
  * CMS ENVO
- * JS for Plugin Faq - Admin
+ * JS for Plugin Faq - ADMIN
  * Copyright © 2016 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas

@@ -1,7 +1,7 @@
 /*
  *
  * CMS ENVO
- * JS for Plugin TV Tower - Admin
+ * JS for Plugin TV Tower - ADMIN
  * Copyright © 2016 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas

@@ -1,7 +1,7 @@
 /*
  *
  * CMS ENVO
- * JS for Plugin Register Form - Admin
+ * JS for Plugin Register Form - ADMIN
  * Copyright © 2016 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas

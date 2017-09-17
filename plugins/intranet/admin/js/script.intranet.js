@@ -1,7 +1,7 @@
 /*
  *
  * CMS ENVO
- * JS for Plugin Intranet - Admin
+ * JS for Plugin Intranet - ADMIN
  * Copyright © 2016 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas

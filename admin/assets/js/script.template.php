@@ -1,107 +1,35 @@
-<script src="assets/plugins/ace/ace.js" type="text/javascript"></script>
-
 <?php
-// Init ace  - only for selected pages
-if ($JAK_FILECONTENT) { ?>
-  <script type="text/javascript">
+/*
+ * AKP Template - ADMIN
+ * EN: Description of file
+ * CZ: Popis souboru
+ * ----------------------------------------------
+ *
+ * EN: The file insert other files into the site footer:
+ *      - javascript code
+ *      - external javascript files
+ *      - the file 'assets/js/script.template.js'
+ * CZ: Soubor vkládá další soubory do zápatí webu:
+ *      - javascript kód
+ *      - externí javascript soubory
+ *      - soubor 'assets/js/script.template.js'
+ *
+ */
 
-    /* ACE Editor
-     ========================================= */
-    if ($('#htmleditor').length) {
-      var htmlefACE = ace.edit("htmleditor");
-      htmlefACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
-      htmlefACE.session.setUseWrapMode(true);
-      htmlefACE.session.setWrapLimitRange(<?php echo $jkv["acewraplimit"] . ',' . $jkv["acewraplimit"]; ?>);
-      htmlefACE.setOptions({
-        // session options
-        mode: "ace/mode/<?php echo $acemode;?>",
-        tabSize: <?php echo $jkv["acetabSize"]; ?>,
-        useSoftTabs: true,
-        highlightActiveLine: <?php echo $jkv["aceactiveline"]; ?>,
-        // renderer options
-        showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
-        showGutter: <?php echo $jkv["acegutter"]; ?>,
-      });
-      // This is to remove following warning message on console:
-      // Automatically scrolling cursor into view after selection change this will be disabled in the next version
-      // set editor.$blockScrolling = Infinity to disable this message
-      htmlefACE.$blockScrolling = Infinity;
+if ($page == 'template') {
 
-      texthtmlef = $("#jak_filecontent").val();
-      htmlefACE.session.setValue(texthtmlef);
-    }
+  echo PHP_EOL . '<!-- Start JS AKP Template -->';
 
-    /* Submit Form
-     ========================================= */
-    $('form').submit(function () {
-      $("#jak_filecontent").val(htmlefACE.getValue());
-    });
-  </script>
-<?php } ?>
+  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
+  // Plugin ACE Editor
+  echo $Html->addScript('assets/plugins/ace/ace.js');
+  // Plugin Javascript
+  echo $Html->addScript('assets/js/script.template.js');
 
-<?php
-// Load script  - only for selected pages
-if ($page == 'template') { ?>
-  <script type="text/javascript">
-    $(document).ready(function () {
-      // AutoGrow TextArea with ' class="txtautogrow" '
-      $(".txtautogrow").autoGrow();
+  echo PHP_EOL . '<!-- End JS AKP Template -->' . PHP_EOL;
 
-      // Close modal dialog from iFrame - call this by onclick="window.parent.closeModal(); from iFrame"
-      window.closeModal = function () {
-        $('#ENVOModal').modal('hide');
-      };
+}
 
-      $('.tempSett').on('click', function (e) {
-        e.preventDefault();
-        frameSrc = $(this).attr("href");
-        $('#ENVOModalLabel').html("<?php echo ucwords($page);?>");
-
-        $('#ENVOModal').one('shown.bs.modal', function (e) {
-          $('#ENVOModal .modal-dialog').addClass('modal-w-70p');
-          $('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
-        }).one('hidden.bs.modal', function (e) {
-          $(".body-content").html('');
-          window.location.reload();
-        }).modal('show');
-
-      });
-
-      // Show iFrame in modal - install and uninstall
-      $('.tempInst').on('click', function (e) {
-        e.preventDefault();
-        frameSrc = $(this).attr("href");
-        $('#ENVOModalLabel').html("<?php echo ucwords($page);?>");
-
-        $('#ENVOModal').one('shown.bs.modal', function (e) {
-          $('#ENVOModal .modal-dialog').addClass('modal-w-70p');
-          $('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
-        }).one('hidden.bs.modal', function (e) {
-          $(".body-content").html('');
-          window.location.reload();
-        }).modal('show');
-
-      });
-
-      // Show iFrame in modal - help
-      $('.tempHelp').on('click', function (e) {
-        e.preventDefault();
-        frameSrc = $(this).attr("href");
-        $('#ENVOModalLabel').html("<?php echo ucwords($page);?>");
-
-        $('#ENVOModal').one('shown.bs.modal', function (e) {
-          $('#ENVOModal .modal-dialog').addClass('modal-w-90p');
-          $('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
-        }).one('hidden.bs.modal', function (e) {
-          $(".body-content").html('');
-        }).modal('show');
-
-      });
-
-      $('.disabled').click(function (e) {
-        e.preventDefault();
-      })
-    });
-  </script>
-<?php } ?>
-
+// New line in source code
+echo PHP_EOL;
+?>

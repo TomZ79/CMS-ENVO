@@ -1,6 +1,6 @@
 /*
  * CMS ENVO
- * JS for Log of user login - Admin
+ * JS for Log of user login - ADMIN
  * Copyright © 2016 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas

@@ -1,6 +1,6 @@
 /*
  * CMS ENVO
- * JS for Settings - Admin
+ * JS for Settings - ADMIN
  * Copyright © 2016 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas

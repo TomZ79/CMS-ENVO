@@ -1,6 +1,6 @@
 /*
  * CMS ENVO
- * JS for Changelog - Admin
+ * JS for Changelog - ADMIN
  * Copyright © 2016 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas

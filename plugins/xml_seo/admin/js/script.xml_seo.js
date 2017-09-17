@@ -1,7 +1,7 @@
 /*
  *
  * CMS ENVO
- * JS for Plugin XML Seo - Admin
+ * JS for Plugin XML Seo - ADMIN
  * Copyright © 2016 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas

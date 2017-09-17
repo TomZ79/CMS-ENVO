@@ -1,6 +1,6 @@
 /*
  * CMS ENVO
- * JS for Facebook Gallery - Admin
+ * JS for Facebook Gallery - ADMIN
  * Copyright © 2016 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas
