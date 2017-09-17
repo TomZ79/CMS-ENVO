@@ -1,67 +1,35 @@
-<script src="assets/plugins/ace/ace.js" type="text/javascript"></script>
+<?php
+/*
+ * AKP Setting Facebook - ADMIN
+ * EN: Description of file
+ * CZ: Popis souboru
+ * ----------------------------------------------
+ *
+ * EN: The file insert other files into the site footer:
+ *      - javascript code
+ *      - external javascript files
+ *      - the file 'assets/js/script.settingfacebook.js'
+ * CZ: Soubor vkládá další soubory do zápatí webu:
+ *      - javascript kód
+ *      - externí javascript soubory
+ *      - soubor 'assets/js/script.settingfacebook.js'
+ *
+ */
 
-<script type="text/javascript">
+if ($page == 'settingfacebook') {
 
-  /* ACE Editor
-   ========================================= */
-  if ($('#txteditor').length) {
-    var txtACE = ace.edit("txteditor");
-    txtACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
-    txtACE.session.setUseWrapMode(true);
-    txtACE.session.setWrapLimitRange(<?php echo $jkv["acewraplimit"] . ',' . $jkv["acewraplimit"]; ?>);
-    txtACE.setOptions({
-      // session options
-      mode: "ace/mode/<?php echo $acemode;?>",
-      tabSize: <?php echo $jkv["acetabSize"]; ?>,
-      useSoftTabs: true,
-      highlightActiveLine: <?php echo $jkv["aceactiveline"]; ?>,
-      // renderer options
-      showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
-      showGutter: <?php echo $jkv["acegutter"]; ?>,
-    });
-    // This is to remove following warning message on console:
-    // Automatically scrolling cursor into view after selection change this will be disabled in the next version
-    // set editor.$blockScrolling = Infinity to disable this message
-    txtACE.$blockScrolling = Infinity;
+  echo PHP_EOL . '<!-- Start JS AKP Setting Facebook -->';
 
-    textcontent = $("#jak_filecontent").val();
-    txtACE.session.setValue(textcontent);
-  }
+  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
+  // Plugin ACE Editor
+  echo $Html->addScript('assets/plugins/ace/ace.js');
+  // Plugin Javascript
+  echo $Html->addScript('assets/js/script.settingfacebook.js');
 
-  if ($('#txteditor1').length) {
-    var txtACE1 = ace.edit("txteditor1");
-    txtACE1.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
-    txtACE1.session.setUseWrapMode(true);
-    txtACE1.session.setWrapLimitRange(<?php echo $jkv["acewraplimit"] . ',' . $jkv["acewraplimit"]; ?>);
-    txtACE1.setOptions({
-      // session options
-      mode: "ace/mode/<?php echo $acemode;?>",
-      tabSize: <?php echo $jkv["acetabSize"]; ?>,
-      useSoftTabs: true,
-      highlightActiveLine: <?php echo $jkv["aceactiveline"]; ?>,
-      // renderer options
-      showInvisibles: <?php echo $jkv["aceinvisible"]; ?>,
-      showGutter: <?php echo $jkv["acegutter"]; ?>,
-    });
-    // This is to remove following warning message on console:
-    // Automatically scrolling cursor into view after selection change this will be disabled in the next version
-    // set editor.$blockScrolling = Infinity to disable this message
-    txtACE1.$blockScrolling = Infinity;
+  echo PHP_EOL . '<!-- End JS AKP Setting Facebook -->' . PHP_EOL;
 
-    textcontent1 = $("#jak_filecontent1").val();
-    txtACE1.session.setValue(textcontent1);
-  }
+}
 
-  /* Submit Form
-   ========================================= */
-  $('form').submit(function () {
-    $("#jak_filecontent").val(txtACE.getValue());
-    $("#jak_filecontent1").val(txtACE1.getValue());
-  });
-
-  /* Other config
-   ========================================= */
-  $(document).ready(function () {
-    $(".txtautogrow").autoGrow();
-  });
-</script>
+// New line in source code
+echo PHP_EOL;
+?>

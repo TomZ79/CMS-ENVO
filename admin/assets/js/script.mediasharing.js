@@ -8,12 +8,11 @@
  * =======================================================================
  * INDEX:
  *
- * 01. Initialisation fo Fileinput Plugin
- * 02. Toggle list and grid view
+ * 01. Initialisation fo Sollist Plugin
  *
  */
 
-/** 00. Initialisation of Sollist Plugin
+/** 01. Initialisation of Sollist Plugin
  ========================================================================*/
 
 $(function () {

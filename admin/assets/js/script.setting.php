@@ -1,20 +1,36 @@
-<script type="text/javascript">
-  $(document).ready(function () {
-    $(".txtautogrow").autoGrow();
+<?php
+/*
+ * AKP Setting - ADMIN
+ * EN: Description of file
+ * CZ: Popis souboru
+ * ----------------------------------------------
+ *
+ * EN: The file insert other files into the site footer:
+ *      - javascript code
+ *      - external javascript files
+ *      - the file 'assets/js/script.setting.js'
+ * CZ: Soubor vkládá další soubory do zápatí webu:
+ *      - javascript kód
+ *      - externí javascript soubory
+ *      - soubor 'assets/js/script.setting.js'
+ *
+ */
 
-    // Show/Hide block form SMTP settings
-    $("input[name=jak_smpt]:radio").change(function () {
-      if ($('input[name=jak_smpt]:checked').val() == "1") {
-        $('#smtpsettings').show();
+if ($page == 'setting') {
 
-      } else if ($('input[name=jak_smpt]:checked').val() == "0") {
-        $('#smtpsettings').hide();
+  echo PHP_EOL . '<!-- Start JS AKP Setting -->';
 
-      }
-    });
+  // Add Html Element -> addScript (Arguments: src, optional assoc. array)
+  // Plugin Javascript
+  echo $Html->addScript('assets/js/script.setting.js');
 
-  });
-</script>
+  echo PHP_EOL . '<!-- End JS AKP Setting -->' . PHP_EOL;
+
+}
+
+// New line in source code
+echo PHP_EOL;
+?>
 
 <style>
   .cookie-consent-configurator {
