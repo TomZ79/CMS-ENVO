@@ -416,7 +416,7 @@ echo $Html->addDoctype('html5');
           </button>
           <ul class="dropdown-menu profile-dropdown" role="menu">
             <li>
-              <a href="index.php?p=user&amp;sp=edit&amp;ssp=<?php echo JAK_USERID; ?>">
+              <a href="index.php?p=users&amp;sp=edit&amp;ssp=<?php echo JAK_USERID; ?>">
                 <i class="pg-settings_small"></i> <?php echo $tl["hf_text"]["hftxt4"]; ?>
               </a>
             </li>

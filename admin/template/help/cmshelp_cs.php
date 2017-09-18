@@ -2901,7 +2901,7 @@ if ($page == 'rf_ual') {
    		exit;
    	} else {
 
-   		$userlink = BASE_URL.'admin/index.php?p=user&sp=edit&ssp='.$page1;
+   		$userlink = BASE_URL.'admin/index.php?p=users&sp=edit&ssp='.$page1;
 
    		$admail = new PHPMailer();
    		$adlinkmessage = $tl['xxxxx']['yyyyy'].$userlink;
@@ -2978,7 +2978,7 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
   <section id="php_admin_user_rename" class="scrollspyoffset">
     <h2 class="text-center">Hook: php_admin_user_rename</h2>
     <hr>
-    <p>Use this hook to execute PHP code in the admin/user.php file.</p>
+    <p>Use this hook to execute PHP code in the admin/users.php file.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
     <pre><code class="language-php">
@@ -2995,7 +2995,7 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
   <section id="php_admin_user_delete" class="scrollspyoffset">
     <h2 class="text-center">Hook: php_admin_user_delete</h2>
     <hr>
-    <p>Use this hook to execute PHP code in the admin/user.php file.</p>
+    <p>Use this hook to execute PHP code in the admin/users.php file.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
     <pre><code class="language-php">
@@ -3012,7 +3012,7 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
   <section id="php_admin_user_delete_mass" class="scrollspyoffset">
     <h2 class="text-center">Hook: php_admin_user_delete_mass</h2>
     <hr>
-    <p>Use this hook to execute PHP code in the admin/user.php file.</p>
+    <p>Use this hook to execute PHP code in the admin/users.php file.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
     <pre><code class="language-php">
@@ -3074,7 +3074,7 @@ if ($defaults['envo_lang'] == '') { $errors['e6'] = $tl['general_error']['generr
   <section id="php_admin_user" class="scrollspyoffset">
     <h2 class="text-center">Hook: php_admin_user</h2>
     <hr>
-    <p>Use this hook to execute PHP code in the admin/user.php file.</p>
+    <p>Use this hook to execute PHP code in the admin/users.php file.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
     <pre><code class="language-php">
@@ -3091,7 +3091,7 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
   <section id="php_admin_user_edit" class="scrollspyoffset">
     <h2 class="text-center">Hook: php_admin_user_edit</h2>
     <hr>
-    <p>Use this hook to execute PHP code in the admin/user.php file.</p>
+    <p>Use this hook to execute PHP code in the admin/users.php file.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
     <pre><code class="language-php">

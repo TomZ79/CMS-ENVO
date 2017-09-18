@@ -46,7 +46,8 @@ if ($page == 'blog') {
   echo $Html->addScript('assets/plugins/ace/ace.js');
   // Plugin Slug
   echo $Html->addScript('assets/js/global_js/slug.js');
-  // Order Category
+  // Categories plugin and script
+  echo $Html->addScript('assets/plugins/jquery-nestedsortable/jquery.mjs.nestedSortable.min.js');
   echo $Html->addScript('assets/js/global_js/catorder.js');
   // Plugin DataTable
   echo $Html->addScript('https://cdn.datatables.net/v/bs/jszip-3.1.3/pdfmake-0.1.27/dt-1.10.15/b-1.3.1/b-html5-1.3.1/b-print-1.3.1/datatables.min.js');

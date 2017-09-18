@@ -1,8 +1,7 @@
 /*
- *
  * CMS ENVO
  * JS for Plugin Newsletter - ADMIN
- * Copyright © 2016 Bluesat.cz
+ * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas
  * Email: bluesatkv@gmail.com
@@ -63,7 +62,7 @@ $(function () {
 });
 
 /** 03. Short Code Insert to TinyMCE
- * @required_plugin: TinyMCE Plugin
+ * @require: TinyMCE Plugin
  ========================================================================*/
 
 $(function () {
@@ -84,7 +83,7 @@ $(function () {
 });
 
 /** 04. TinyMCE Initialisation
- * @required_plugin: TinyMCE Plugin
+ * @require: TinyMCE Plugin
  ========================================================================*/
 
 $(function () {

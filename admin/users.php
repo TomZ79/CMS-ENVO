@@ -77,7 +77,7 @@ switch ($page1) {
         if (!$result) {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=user&sp=newuser&status=e');
+          envo_redirect(BASE_URL . 'index.php?p=users&sp=newuser&status=e');
         } else {
 
           $newuserpath = '../' . JAK_FILES_DIRECTORY . '/userfiles/' . $rowid;
@@ -88,7 +88,7 @@ switch ($page1) {
           }
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=user&sp=edit&ssp=' . $rowid . '&status=s');
+          envo_redirect(BASE_URL . 'index.php?p=users&sp=edit&ssp=' . $rowid . '&status=s');
         }
       } else {
 
@@ -162,11 +162,11 @@ switch ($page1) {
             if (!$result) {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=user&status=e');
+              envo_redirect(BASE_URL . 'index.php?p=users&status=e');
             } else {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=user&status=s');
+              envo_redirect(BASE_URL . 'index.php?p=users&status=s');
             }
 
           }
@@ -187,11 +187,11 @@ switch ($page1) {
             if (!$result) {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=user&status=e');
+              envo_redirect(BASE_URL . 'index.php?p=users&status=e');
             } else {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=user&status=s');
+              envo_redirect(BASE_URL . 'index.php?p=users&status=s');
             }
 
           }
@@ -233,11 +233,11 @@ switch ($page1) {
             if (!$result) {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=user&status=e');
+              envo_redirect(BASE_URL . 'index.php?p=users&status=e');
             } else {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=user&status=s');
+              envo_redirect(BASE_URL . 'index.php?p=users&status=s');
             }
 
           }
@@ -283,11 +283,11 @@ switch ($page1) {
             if (!$result) {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=user&status=e');
+              envo_redirect(BASE_URL . 'index.php?p=users&status=e');
             } else {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=user&status=s');
+              envo_redirect(BASE_URL . 'index.php?p=users&status=s');
             }
 
           }
@@ -320,7 +320,7 @@ switch ($page1) {
           $pages->mid_range      = $jkv["adminpagemid"];
           $pages->items_per_page = $jkv["adminpageitem"];
           $pages->jak_get_page   = $page4;
-          $pages->jak_where      = 'index.php?p=user&sp=sort&ssp=' . $page2 . '&sssp=' . $page3;
+          $pages->jak_where      = 'index.php?p=users&sp=sort&ssp=' . $page2 . '&sssp=' . $page3;
           $pages->paginate();
           $JAK_PAGINATE = $pages->display_pages();
         }
@@ -340,7 +340,7 @@ switch ($page1) {
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
-        $template = 'user.php';
+        $template = 'users.php';
 
         break;
       case 'lock':
@@ -352,16 +352,16 @@ switch ($page1) {
           if (!$result) {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=user&status=e');
+            envo_redirect(BASE_URL . 'index.php?p=users&status=e');
           } else {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=user&status=s');
+            envo_redirect(BASE_URL . 'index.php?p=users&status=s');
           }
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=user&status=edp');
+          envo_redirect(BASE_URL . 'index.php?p=users&status=edp');
         }
 
         break;
@@ -385,11 +385,11 @@ switch ($page1) {
           if ($mail->Send()) {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=user&status=s');
+            envo_redirect(BASE_URL . 'index.php?p=users&status=s');
           } else {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=user&status=e');
+            envo_redirect(BASE_URL . 'index.php?p=users&status=e');
           }
 
         } else {
@@ -399,7 +399,7 @@ switch ($page1) {
           if (!$result1) {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=user&status=e');
+            envo_redirect(BASE_URL . 'index.php?p=users&status=e');
           } else {
 
             // Send info that the account has been verified
@@ -413,7 +413,7 @@ switch ($page1) {
 
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=user&status=s');
+            envo_redirect(BASE_URL . 'index.php?p=users&status=s');
           }
 
         }
@@ -444,16 +444,16 @@ switch ($page1) {
 
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=user&status=s');
+            envo_redirect(BASE_URL . 'index.php?p=users&status=s');
           } else {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            envo_redirect(BASE_URL . 'index.php?p=user&status=e');
+            envo_redirect(BASE_URL . 'index.php?p=users&status=e');
           }
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=user&status=edp');
+          envo_redirect(BASE_URL . 'index.php?p=users&status=edp');
         }
 
         break;
@@ -484,7 +484,7 @@ switch ($page1) {
           if (!$result) {
             // EN: Redirect page
             // CZ: Přesměrování stránky s notifikací - chybné
-            envo_redirect(BASE_URL . 'index.php?p=user&status=e');
+            envo_redirect(BASE_URL . 'index.php?p=users&status=e');
           } else {
             // EN: Redirect page
             // CZ: Přesměrování stránky s notifikací - úspěšné
@@ -493,13 +493,13 @@ switch ($page1) {
             'status=s'    - Záznam úspěšně uložen
             'status1=s1'  - Záznam úspěšně odstraněn
             */
-            envo_redirect(BASE_URL . 'index.php?p=user&status=s&status1=s1');
+            envo_redirect(BASE_URL . 'index.php?p=users&status=s&status1=s1');
           }
 
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=user&status=edp');
+          envo_redirect(BASE_URL . 'index.php?p=users&status=edp');
         }
 
         break;
@@ -704,7 +704,7 @@ switch ($page1) {
               if (!$result) {
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                envo_redirect(BASE_URL . 'index.php?p=user&sp=edit&ssp=' . $page2 . '&status=e');
+                envo_redirect(BASE_URL . 'index.php?p=users&sp=edit&ssp=' . $page2 . '&status=e');
               } else {
                 // Now do all the dirty work if we changed the username, also check if we have more then one language installed
                 if ($defaults['jak_username'] != $defaults['jak_username_old']) {
@@ -721,7 +721,7 @@ switch ($page1) {
 
                 // EN: Redirect page
                 // CZ: Přesměrování stránky
-                envo_redirect(BASE_URL . 'index.php?p=user&sp=edit&ssp=' . $page2 . '&status=s');
+                envo_redirect(BASE_URL . 'index.php?p=users&sp=edit&ssp=' . $page2 . '&status=s');
               }
 
               // Output the errors
@@ -760,7 +760,7 @@ switch ($page1) {
         } else {
           // EN: Redirect page
           // CZ: Přesměrování stránky
-          envo_redirect(BASE_URL . 'index.php?p=user&status=ene');
+          envo_redirect(BASE_URL . 'index.php?p=users&status=ene');
         }
 
         break;
@@ -784,11 +784,11 @@ switch ($page1) {
             if (!$result) {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=user&status=e');
+              envo_redirect(BASE_URL . 'index.php?p=users&status=e');
             } else {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=user&status=s');
+              envo_redirect(BASE_URL . 'index.php?p=users&status=s');
             }
 
           }
@@ -809,11 +809,11 @@ switch ($page1) {
             if (!$result) {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=user&status=e');
+              envo_redirect(BASE_URL . 'index.php?p=users&status=e');
             } else {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=user&status=s');
+              envo_redirect(BASE_URL . 'index.php?p=users&status=s');
             }
 
           }
@@ -855,11 +855,11 @@ switch ($page1) {
             if (!$result) {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=user&status=e');
+              envo_redirect(BASE_URL . 'index.php?p=users&status=e');
             } else {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=user&status=s');
+              envo_redirect(BASE_URL . 'index.php?p=users&status=s');
             }
 
           }
@@ -902,7 +902,7 @@ switch ($page1) {
             if (!$result) {
               // EN: Redirect page
               // CZ: Přesměrování stránky s notifikací - chybné
-              envo_redirect(BASE_URL . 'index.php?p=user&status=e');
+              envo_redirect(BASE_URL . 'index.php?p=users&status=e');
             } else {
               // EN: Redirect page
               // CZ: Přesměrování stránky s notifikací - úspěšné
@@ -911,7 +911,7 @@ switch ($page1) {
               'status=s'    - Záznam úspěšně uložen
               'status1=s1'  - Záznam úspěšně odstraněn
               */
-              envo_redirect(BASE_URL . 'index.php?p=user&status=s&status1=s1');
+              envo_redirect(BASE_URL . 'index.php?p=users&status=s&status1=s1');
             }
 
           }
@@ -928,7 +928,7 @@ switch ($page1) {
           $pages->mid_range      = $jkv["adminpagemid"];
           $pages->items_per_page = $jkv["adminpageitem"];
           $pages->jak_get_page   = $page1;
-          $pages->jak_where      = 'index.php?p=user';
+          $pages->jak_where      = 'index.php?p=users';
           $pages->paginate();
           $JAK_PAGINATE = $pages->display_pages();
         }
@@ -947,7 +947,7 @@ switch ($page1) {
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
-        $template = 'user.php';
+        $template = 'users.php';
     }
 }
 ?>

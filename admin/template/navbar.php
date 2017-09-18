@@ -352,7 +352,7 @@
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-          echo $Html->addAnchor('index.php?p=user', $tl["submenu"]["sm90"]);
+          echo $Html->addAnchor('index.php?p=users', $tl["submenu"]["sm90"]);
           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
           echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm90"]), 'icon-thumbnail');
           ?>
@@ -362,7 +362,7 @@
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-          echo $Html->addAnchor('index.php?p=user&amp;sp=newuser', $tl["submenu"]["sm91"]);
+          echo $Html->addAnchor('index.php?p=users&amp;sp=newuser', $tl["submenu"]["sm91"]);
           // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
           echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm91"]), 'icon-thumbnail');
           ?>
@@ -373,7 +373,7 @@
 
             <?php
             // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-            echo $Html->addAnchor('index.php?p=user&amp;sp=edit&amp;ssp=' . $page2, $tl["submenu"]["sm92"]);
+            echo $Html->addAnchor('index.php?p=users&amp;sp=edit&amp;ssp=' . $page2, $tl["submenu"]["sm92"]);
             // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
             echo $Html->addTag('span', text_clipping_lower($tl["submenu"]["sm92"]), 'icon-thumbnail');
             ?>

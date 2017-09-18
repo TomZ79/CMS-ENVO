@@ -45,7 +45,8 @@ if ($page == 'categories') {
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Plugin Slug
   echo $Html->addScript('assets/js/global_js/slug.js');
-  // Order Category
+  // Categories plugin and script
+  echo $Html->addScript('assets/plugins/jquery-nestedsortable/jquery.mjs.nestedSortable.min.js');
   echo $Html->addScript('assets/js/global_js/catorder.js');
   // Plugin Javascript
   echo $Html->addScript('assets/js/script.categories.js');

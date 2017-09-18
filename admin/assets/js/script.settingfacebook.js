@@ -1,7 +1,7 @@
 /*
  * CMS ENVO
  * JS for Settings - ADMIN
- * Copyright © 2016 Bluesat.cz
+ * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas
  * Email: bluesatkv@gmail.com
@@ -19,7 +19,7 @@
 
 /** ACE Editor
  * Initialisation of ACE Editor
- * @required_plugin: ACE Editor Plugin
+ * @require: ACE Editor Plugin
  *
  * Set variable in php file as array (script.tv-tower.php)
  * @param: 'aceEditor.acetheme' from generated_js.php
@@ -93,7 +93,7 @@ $(function () {
 });
 
 /** 02. AutoGrow text block
- * @required_plugin: AutoGrow Plugin
+ * @require: AutoGrow Plugin
  ========================================================================*/
 
 $(function () {

@@ -1,7 +1,7 @@
 /*
  * CMS ENVO
  * JS for Log of user login - ADMIN
- * Copyright © 2016 Bluesat.cz
+ * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas
  * Email: bluesatkv@gmail.com

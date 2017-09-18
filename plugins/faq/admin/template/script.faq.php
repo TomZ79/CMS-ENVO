@@ -46,7 +46,8 @@ if ($page == 'faq') {
   echo $Html->addScript('assets/plugins/ace/ace.js');
   // Plugin Slug
   echo $Html->addScript('assets/js/global_js/slug.js');
-  // Order Category
+  // Categories plugin and script
+  echo $Html->addScript('assets/plugins/jquery-nestedsortable/jquery.mjs.nestedSortable.min.js');
   echo $Html->addScript('assets/js/global_js/catorder.js');
   // Plugin Javascript
   echo $Html->addScript(BASE_URL_ORIG . 'plugins/faq/admin/js/script.faq.js');

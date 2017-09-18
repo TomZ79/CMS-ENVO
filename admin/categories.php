@@ -297,7 +297,7 @@ switch ($page1) {
             /* Outputtng the success messages */
             if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])) {
               header('Cache-Control: no-cache');
-              die(json_encode(array("status" => 1, "html" => $tl["notification"]["n7"])));
+              die(json_encode(array('status' => 'success', 'html' => $tl["notification"]["n7"])));
             } else {
               // EN: Redirect page
               // CZ: Přesměrování stránky
@@ -308,7 +308,7 @@ switch ($page1) {
             /* Outputtng the success messages */
             if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])) {
               header('Cache-Control: no-cache');
-              die(json_encode(array("status" => 0, "html" => $tl["general_error"]["generror1"])));
+              die(json_encode(array('status' => 'error', 'html'=> $tl["general_error"]["generror1"])));
             } else {
               // EN: Redirect page
               // CZ: Přesměrování stránky

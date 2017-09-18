@@ -1,7 +1,7 @@
 /*
  * CMS ENVO
  * JS for Categories - ADMIN
- * Copyright © 2016 Bluesat.cz
+ * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas
  * Email: bluesatkv@gmail.com
@@ -15,7 +15,7 @@
  */
 
 /** 01. Bootstrap Icon Picker
- * @required_plugin: Icon Picker Plugin
+ * @require: Icon Picker Plugin
  ========================================================================*/
 
 $(function () {

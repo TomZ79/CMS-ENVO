@@ -1,8 +1,7 @@
 /*
- *
  * CMS ENVO
  * JS for Plugin Download - ADMIN
- * Copyright © 2016 Bluesat.cz
+ * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas
  * Email: bluesatkv@gmail.com
@@ -23,7 +22,7 @@
 
 /** ACE Editor
  * Initialisation of ACE Editor
- * @required_plugin: ACE Editor Plugin
+ * @require: ACE Editor Plugin
  *
  * Set variable in php file as array (script.tv-tower.php)
  * @param: 'aceEditor.acetheme' from generated_js.php
@@ -83,7 +82,7 @@ if ($('#javaeditor').length) {
 }
 
 /* Responsive Filemanager
- * @required_plugin: TinyMCE Filemanager Plugin
+ * @require: TinyMCE Filemanager Plugin
  ========================================= */
 function responsive_filemanager_callback(field_id) {
 
@@ -163,7 +162,7 @@ $(function () {
 });
 
 /** 03. Bootstrap Icon Picker
- * @required_plugin: Icon Picker Plugin
+ * @require: Icon Picker Plugin
  ========================================================================*/
 
 $(function () {
@@ -207,7 +206,7 @@ $(function () {
 });
 
 /** 04. DateTimePicker
- * @required_plugin: DateTimePicker Plugin
+ * @require: DateTimePicker Plugin
  ========================================================================*/
 
 $(function () {
@@ -235,7 +234,7 @@ $(function () {
 });
 
 /** 05. NestedSortable
- * @required_plugin: NestedSortable Plugin
+ * @require: NestedSortable Plugin
  ========================================================================*/
 
 $(function () {
@@ -256,10 +255,10 @@ $(function () {
     });
     request.done(function (data) {
       if (data.status == 1) {
-        $("#" + mlist + " li").animate({backgroundColor: '#c9ffc9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
+        $("#" + mlist + " li").animate({backgroundColor: '#C9FFC9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
         $.notify({icon: 'fa fa-check-square-o', message: data.html}, {type: 'success'});
       } else {
-        $("#" + mlist + " li").animate({backgroundColor: '#ffc9c9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
+        $("#" + mlist + " li").animate({backgroundColor: '#FFC9C9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
         $.notify({icon: 'fa fa-exclamation-triangle', message: data.html}, {type: 'danger'});
       }
     });

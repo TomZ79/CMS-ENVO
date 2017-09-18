@@ -240,7 +240,7 @@ if (!$result) {
 		$register_redirect = BASE_URL;
 	}
 
-	$userlink = BASE_URL.\'admin/index.php?p=user&sp=edit&ssp=\'.$page1;
+	$userlink = BASE_URL.\'admin/index.php?p=users&sp=edit&ssp=\'.$page1;
 
 	$admail = new PHPMailer();
 	$adlinkmessage = $tl[\'email_text\'][\'emailm3\'].$userlink;

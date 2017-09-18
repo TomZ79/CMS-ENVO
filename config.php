@@ -47,7 +47,7 @@ include_once 'include/functions.php';
 include_once 'class/class.jakbase.php';
 include_once 'class/PHPMailerAutoload.php';
 include_once 'class/class.userlogin.php';
-include_once 'class/class.user.php';
+include_once 'class/class.users.php';
 include_once 'class/class.usergroup.php';
 include_once 'class/class.plugins.php';
 include_once 'class/class.hooks.php';

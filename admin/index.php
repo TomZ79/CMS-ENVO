@@ -283,8 +283,8 @@ if ($page == 'mediasharing') {
   $JAK_PAGE_ACTIVE = 1;
   $checkp          = 1;
 }
-if ($page == 'user') {
-  require_once 'user.php';
+if ($page == 'users') {
+  require_once 'users.php';
   $JAK_PROVED      = 1;
   $JAK_PAGE_ACTIVE = 1;
   $checkp          = 1;

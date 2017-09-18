@@ -5,7 +5,8 @@
 if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __DIR__ . '/loadcontent.php] => "config.php" not found');
 require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
-//
+// EN: Detecting AJAX Requests
+// CZ: Detekce AJAX Požadavku
 if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || !JAK_USERID || !$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die("Nothing to see here");
 
 $content_array = array("status" => 0, "rcontent" => "");

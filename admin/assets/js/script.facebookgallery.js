@@ -1,7 +1,7 @@
 /*
  * CMS ENVO
  * JS for Facebook Gallery - ADMIN
- * Copyright © 2016 Bluesat.cz
+ * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas
  * Email: bluesatkv@gmail.com
@@ -14,7 +14,7 @@
  */
 
 /** 01. Initialisation fo Fileinput Plugin
- * @required_plugin: FileInput Plugin
+ * @require: FileInput Plugin
  ========================================================================*/
 
 $(function () {

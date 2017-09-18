@@ -35,7 +35,7 @@ echo <<<EOT
 /*
  * CMS ENVO
  * PHP Generated javascript file with variable for external js files  - ADMIN
- * Copyright © 2016 Bluesat.cz
+ * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas
  * Email: bluesatkv@gmail.com

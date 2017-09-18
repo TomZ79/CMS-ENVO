@@ -1,8 +1,7 @@
 /*
- *
  * CMS ENVO
  * Extra Custom JS for Admin Control Panel with custom modification
- * Copyright © 2016 Bluesat.cz
+ * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas
  * Email: bluesatkv@gmail.com
@@ -1078,7 +1077,7 @@ $(".jak_widget_move").sortable({
       position += 1;
     });
 
-    $(".jakwidget").animate({backgroundColor: '#e7fdfb'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
+    $(".jakwidget").animate({backgroundColor: '#C9FFC9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
 
   },
   stop: function (e, ui) {
@@ -1111,7 +1110,7 @@ $(".jak_content_move").sortable({
       position += 1;
     });
 
-    $(".jakcontent").animate({backgroundColor: '#e7fdfb'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
+    $(".jakcontent").animate({backgroundColor: '#C9FFC9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
 
   },
   stop: function (e, ui) {
@@ -1140,7 +1139,7 @@ $("#cform_sort").sortable({
     ui.item.removeClass('ui-state-highlight').addClass('jakcform');
     ui.item.find(".jakread").removeAttr("readonly").val("");
     ui.item.find(".cforder-orig").removeClass('cforder-orig').addClass('cforder');
-    $(".jakcform").animate({backgroundColor: '#c9ffc9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
+    $(".jakcform").animate({backgroundColor: '#C9FFC9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
 
     // Get the new order into the hidden input
     var position = 1;

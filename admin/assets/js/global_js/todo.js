@@ -31,9 +31,9 @@ $(function () {
 			$.get('ajax/todo.php', {action: 'rearrange', positions: arr},
 				function (data) {
 					if (data == 1) {
-						$(".todo").animate({backgroundColor: '#e7fdfb'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
+						$(".todo").animate({backgroundColor: '#C9FFC9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
 					} else {
-						$(".todo").animate({backgroundColor: '#fccfcf'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
+						$(".todo").animate({backgroundColor: '#FFC9C9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
 					}
 				});
 		},

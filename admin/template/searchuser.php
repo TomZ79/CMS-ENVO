@@ -106,7 +106,7 @@
                   <label for="jak_delete_user<?php echo $v["id"]; ?>"></label>
                 </div>
               </td>
-              <td><a href="index.php?p=user&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
+              <td><a href="index.php?p=users&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
               </td>
               <td><?php echo $v["email"]; ?></td>
               <td><?php echo $v["username"]; ?></td>
@@ -118,7 +118,7 @@
                 } ?>
               </td>
               <td>
-                <a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["access"] == '1') {
+                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php if ($v["access"] == '1') {
                   echo $tl["icons"]["i6"];
                 } else {
                   echo $tl["icons"]["i5"];
@@ -127,17 +127,17 @@
                 </a>
               </td>
               <td>
-                <a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=password&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["user_notification"]["pass"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i14"]; ?>">
+                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=password&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["user_notification"]["pass"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i14"]; ?>">
                   <i class="fa fa-key"></i>
                 </a>
               </td>
               <td>
-                <a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i2"]; ?>">
+                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i2"]; ?>">
                   <i class="fa fa-edit"></i>
                 </a>
               </td>
               <td>
-                <a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo sprintf($tl["user_notification"]["del"], $v["name"]); ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo sprintf($tl["user_notification"]["del"], $v["name"]); ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                   <i class="fa fa-trash-o"></i>
                 </a>
               </td>
@@ -153,7 +153,7 @@
                   <label for="jak_delete_user<?php echo $v["id"]; ?>"></label>
                 </div>
               </td>
-              <td><a href="index.php?p=user&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
+              <td><a href="index.php?p=users&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
               </td>
               <td><?php echo $v["email"]; ?></td>
               <td><?php echo $v["username"]; ?></td>
@@ -162,22 +162,22 @@
                     <ahref="index.php?p=usergroup&amp;sp=user&amp;ssp=<?php echo $y["id"]; ?>"><?php echo $y["name"]; ?></a><?php }
                 } ?></td>
               <td>
-                <a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>">
+                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=lock&amp;ssp=<?php echo $v["id"]; ?>">
                   <i class="fa fa-<?php if ($v["access"] == '1') { ?>check<?php } else { ?>lock<?php } ?>"></i>
                 </a>
               </td>
               <td>
-                <a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=password&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["user_notification"]["pass"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i14"]; ?>">
+                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=password&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo $tl["user_notification"]["pass"]; ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i14"]; ?>">
                   <i class="fa fa-key"></i>
                 </a>
               </td>
               <td>
-                <a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>">
+                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>">
                   <i class="fa fa-edit"></i>
                 </a>
               </td>
               <td>
-                <a class="btn btn-default btn-xs" href="index.php?p=user&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo sprintf($tl["user_notification"]["del"], $v["username"]); ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
+                <a class="btn btn-default btn-xs" href="index.php?p=users&amp;sp=delete&amp;ssp=<?php echo $v["id"]; ?>" data-confirm="<?php echo sprintf($tl["user_notification"]["del"], $v["username"]); ?>" data-toggle="tooltip" data-placement="bottom" title="<?php echo $tl["icons"]["i1"]; ?>">
                   <i class="fa fa-trash-o"></i>
                 </a>
               </td>

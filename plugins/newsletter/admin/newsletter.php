@@ -177,7 +177,7 @@ switch ($page1) {
           $result4 = $jakdb->query('SELECT id, username, email FROM ' . DB_PREFIX . 'user WHERE id IN(' . $row["notsentcms"] . ')');
           while ($row4 = $result4->fetch_assoc()) {
 
-            $cmsuser[] = '<a href="index.php?p=user&amp;sp=edit&amp;ssp="' . $row4["id"] . '>' . $row4["name"] . '(' . $row4["email"] . ')</a>';
+            $cmsuser[] = '<a href="index.php?p=users&amp;sp=edit&amp;ssp="' . $row4["id"] . '>' . $row4["name"] . '(' . $row4["email"] . ')</a>';
 
           }
 
@@ -677,7 +677,7 @@ switch ($page1) {
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
-        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'user.php';
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'users.php';
 
         break;
       default:
@@ -764,7 +764,7 @@ switch ($page1) {
 
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
-        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'user.php';
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'users.php';
 
     }
 

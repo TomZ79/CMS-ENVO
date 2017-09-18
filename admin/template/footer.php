@@ -165,7 +165,7 @@ $debug = new PHPDebug();
 if (!empty($page)) {
   // EN: Insert javascript files for page in array $ap'
   // CZ: Vložení javascript souborů pro stránky jejichž jména jsou v poli '$ap'
-  $ap = array("logs", "searchlog", "changelog", "site", "setting", "plugins", "template", "maintenance", "facebookgallery", "settingfacebook", "mediasharing", "user", "usergroup", "categories", "page", "contactform", "sitemap", "searchsetting", "news", "tags", "cmshelp");
+  $ap = array("logs", "searchlog", "changelog", "site", "setting", "plugins", "template", "maintenance", "facebookgallery", "settingfacebook", "mediasharing", "users", "usergroup", "categories", "page", "contactform", "sitemap", "searchsetting", "news", "tags", "cmshelp");
 
   if (in_array($page, $ap)) {
     $jscodeFile = 'assets/js/script.' . $page . '.php';

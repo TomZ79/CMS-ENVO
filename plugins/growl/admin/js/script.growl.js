@@ -1,8 +1,7 @@
 /*
- *
  * CMS ENVO
  * JS for Plugin Growl - ADMIN
- * Copyright © 2016 Bluesat.cz
+ * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas
  * Email: bluesatkv@gmail.com
@@ -19,7 +18,7 @@
 
   /** ACE Editor
    * Initialisation of ACE Editor
-   * @required_plugin: ACE Editor Plugin
+   * @require: ACE Editor Plugin
    * @variable_setting: Set variable in php file as array (script.tv-tower.php)
    *
    * @example: Example variable setting
@@ -102,7 +101,7 @@ $(function () {
 });
 
 /** 02. DateTimePicker
- * @required_plugin: DateTimePicker Plugin
+ * @require: DateTimePicker Plugin
  ========================================================================*/
 
 $(function () {

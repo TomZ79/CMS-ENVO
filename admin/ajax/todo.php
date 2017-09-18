@@ -41,9 +41,11 @@ try {
 	}
 
 }
+
 catch(Exception $e){
 //	echo $e->getMessage();
 	die("0");
 }
+
 die("1");
 ?>

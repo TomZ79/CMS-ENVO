@@ -1,7 +1,7 @@
 /*
  * CMS ENVO
  * JS for Settings - ADMIN
- * Copyright © 2016 Bluesat.cz
+ * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
  * Author: Thomas
  * Email: bluesatkv@gmail.com
@@ -31,7 +31,7 @@ $(function () {
 });
 
 /** 02. AutoGrow text block
- * @required_plugin: AutoGrow Plugin
+ * @require: AutoGrow Plugin
  ========================================================================*/
 
 $(function () {

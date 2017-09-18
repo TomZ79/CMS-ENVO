@@ -333,7 +333,7 @@ if (is_array($showblogarray) && in_array("ASC", $showblogarray) || in_array("DES
       <!-- Hook: php_admin_user_delete -->
       <article>
         <h4>Hook: php_admin_user_delete</h4>
-        <p>Use this hook to execute PHP code in the admin/user.php file.</p>
+        <p>Use this hook to execute PHP code in the admin/users.php file.</p>
 
         <pre name="code" class="brush: php;">
 $jakdb->query('UPDATE '.DB_PREFIX.'blogcomments SET userid = 0 WHERE userid = '.$page2.'');
@@ -344,7 +344,7 @@ $jakdb->query('UPDATE '.DB_PREFIX.'blogcomments SET userid = 0 WHERE userid = '.
       <!-- Hook: php_admin_user_rename -->
       <article>
         <h4>Hook: php_admin_user_rename</h4>
-        <p>Use this hook to execute PHP code in the admin/user.php file.</p>
+        <p>Use this hook to execute PHP code in the admin/users.php file.</p>
 
         <pre name="code" class="brush: php;">
 $jakdb->query('UPDATE '.DB_PREFIX.'blogcomments SET username = "'.smartsql($defaults['jak_username']).'" WHERE userid = '.smartsql($page2).'');
@@ -355,7 +355,7 @@ $jakdb->query('UPDATE '.DB_PREFIX.'blogcomments SET username = "'.smartsql($defa
       <!-- Hook: php_admin_user_delete_mass -->
       <article>
         <h4>Hook: php_admin_user_delete_mass</h4>
-        <p>Use this hook to execute PHP code in the admin/user.php file.</p>
+        <p>Use this hook to execute PHP code in the admin/users.php file.</p>
 
         <pre name="code" class="brush: php;">
 $jakdb->query('UPDATE '.DB_PREFIX.'blogcomments SET userid = 0 WHERE userid = '.$locked.'');
