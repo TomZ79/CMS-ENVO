@@ -36,11 +36,11 @@
  * </script>
  ========================================= */
 if ($('#htmleditor').length) {
-  var htmlefACE = ace.edit("htmleditor");
+  var htmlACE = ace.edit('htmleditor');
   htmlACE.setTheme('ace/theme/' + aceEditor.acetheme); // Theme chrome, monokai
-  htmlefACE.session.setUseWrapMode(true);
+  htmlACE.session.setUseWrapMode(true);
   htmlACE.session.setWrapLimitRange(aceEditor.acewraplimit + ',' + aceEditor.acewraplimit);
-  htmlefACE.setOptions({
+  htmlACE.setOptions({
     // session options
     mode: "ace/mode/php",
     tabSize: aceEditor.acetabSize,
@@ -53,10 +53,10 @@ if ($('#htmleditor').length) {
   // This is to remove following warning message on console:
   // Automatically scrolling cursor into view after selection change this will be disabled in the next version
   // set editor.$blockScrolling = Infinity to disable this message
-  htmlefACE.$blockScrolling = Infinity;
+  htmlACE.$blockScrolling = Infinity;
 
-  texthtmlef = $("#jak_phpcode").val();
-  htmlefACE.session.setValue(texthtmlef);
+  texthtmlef = $('#jak_phpcode').val();
+  htmlACE.session.setValue(texthtmlef);
 }
 
 $(function () {
@@ -64,13 +64,13 @@ $(function () {
   /* Submit Form
    ========================================= */
   $('form').submit(function () {
-    $("#jak_phpcode").val(htmlefACE.getValue());
+    $('#jak_phpcode').val(htmlACE.getValue());
   });
 
   /* Check all checkbox */
-  $("#jak_delete_all").click(function () {
+  $('#jak_delete_all').click(function () {
     var checkedStatus = this.checked;
-    $(".highlight").each(function () {
+    $('.highlight').each(function () {
       $(this).prop('checked', checkedStatus);
     });
     $('#button_delete').prop('disabled', function (i, v) {
@@ -79,11 +79,11 @@ $(function () {
   });
 
   /* Disable submit button if checkbox is not checked */
-  $(".highlight").change(function () {
+  $('.highlight').change(function () {
     if (this.checked) {
-      $("#button_delete").removeAttr("disabled");
+      $('#button_delete').removeAttr("disabled");
     } else {
-      $("#button_delete").attr("disabled", "disabled");
+      $('#button_delete').attr("disabled", "disabled");
     }
   });
 
@@ -94,42 +94,47 @@ $(function () {
 
 $(function () {
 
+  var element = $('#ENVOModal');
+
   // Close modal dialog from iFrame - call this by onclick="window.parent.closeModal(); from iFrame"
   window.closeModal = function () {
-    $('#ENVOModal').modal('hide');
+    element.modal('hide');
   };
 
-  // Show iFrame in modal - install and uninstall
+  // Show iFrame in Bootstrap modal  - Install and Uninstall
   $('.plugInst').on('click', function (e) {
     e.preventDefault();
-    frameSrc = $(this).attr("href");
-    $('#ENVOModalLabel').html("<?php echo ucwords($page);?>");
-    $('#ENVOModal').on('show.bs.modal', function () {
-      $('#ENVOModal .modal-dialog').addClass('modal-w-90p');
-      $('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">').appendTo('.body-content');
-    });
-    $('#ENVOModal').on('hidden.bs.modal', function () {
-      $(this).removeData();
+    $frameSrc = $(this).attr('href');
+
+    element.on('shown.bs.modal', function (e) {
+
+      $(this).find('.modal-dialog').addClass('modal-w-90p');
+      $(this).find('.body-content').html('<iframe src="' + $frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
+
+    }).on('hidden.bs.modal', function (e) {
+
       window.location.reload();
-    });
-    $('#ENVOModal').modal({show: true});
+
+    }).modal('show');
+
   });
 
-  // Show iFrame in modal - help
+  // Show iFrame in Bootstrap modal - Help
   $('.plugHelp').on('click', function (e) {
     e.preventDefault();
-    frameSrc = $(this).attr("href");
-    $('#ENVOModalLabel').html("<?php echo ucwords($page);?>");
-    $('#ENVOModal').on('show.bs.modal', function () {
-      $('#ENVOModal .modal-dialog').addClass('modal-w-90p');
-      $('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">').appendTo('.body-content');
-    });
-    $('#ENVOModal').on('hidden.bs.modal', function () {
-      $(this).removeData();
-      window.location.reload();
-    });
-    $('#ENVOModal').modal({show: true});
-  });
+    $frameSrc = $(this).attr('href');
 
+    element.on('shown.bs.modal', function (e) {
+
+      $(this).find('.modal-dialog').addClass('modal-w-90p');
+      $(this).find('.body-content').html('<iframe src="' + $frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
+
+    }).on('hidden.bs.modal', function (e) {
+
+      $(this).find('.body-content').html('');
+
+    }).modal('show');
+
+  });
 
 });

@@ -8,27 +8,28 @@
  * =======================================================================
  * INDEX:
  *
+ * 01. PACE.js config
+ * 02. Basic admin ENVO config
  *
  */
 
-/* 00. PACE.JS CONFIG
+/* 01. PACE.js config
  ========================================================================*/
 
 $(function () {
 
-  Pace.on('done', function() {
+  Pace.on('done', function () {
     // Animate Background
-    $("#pace" ).animate({
+    $("#pace").animate({
       opacity: 0
-    }, 800, function() {
+    }, 800, function () {
       $('#pace').removeClass('active').addClass('inactive').hide();
     });
   });
 
 });
 
-
-/* 00. BASIC ADMIN ENVO CONFIG
+/* 02. Basic admin ENVO config
  ========================================================================*/
 $.AdminEnvo = {};
 /* --------------------
@@ -158,7 +159,7 @@ $(function () {
   });
 
   // Bootbox - Confirm dialog for Delete All button
-  $("#button_delete").on("click", function (e) {
+  $('#button_delete').on("click", function (e) {
     // Init
     var self = $(this);
     e.preventDefault();
@@ -187,7 +188,7 @@ $(function () {
   });
 
   // Bootbox - Confirm dialog for Truncate button
-  $("#button_truncate").on("click", function (e) {
+  $('#button_truncate').on("click", function (e) {
     // Init
     var links = $(this).attr("href");
     e.preventDefault();
@@ -248,19 +249,19 @@ $(function () {
  ========================================================================*/
 $(function () {
   // Button 'Save'
-  $('button[name = "btnSave"]').on('click', function() {
+  $('button[name = "btnSave"]').on('click', function () {
     var $this = $(this);
     $this.button('loading');
-    setTimeout(function() {
+    setTimeout(function () {
       $this.button('reset');
     }, 1000);
   });
 
   // Button 'Send Test Mail'
-  $('button[name = "btnTestMail"]').on('click', function() {
+  $('button[name = "btnTestMail"]').on('click', function () {
     var $this = $(this);
     $this.button('loading');
-    setTimeout(function() {
+    setTimeout(function () {
       $this.button('reset');
     }, 1000);
   });
@@ -268,7 +269,7 @@ $(function () {
   // Anchor
   $('a[data-loading-text]').click(function () {
     $(this).button('loading');
-    setTimeout(function() {
+    setTimeout(function () {
       $this.button('reset');
     }, 1000);
   });
@@ -325,20 +326,26 @@ $(function () {
   });
 })(window.jQuery);
 
-/* 00. XXXX
+/* 00. Show iFrame in modal - Filemanger and Search overlay
  ========================================================================*/
 $(function () {
+
+  var element = $('#ENVOModal');
+
   // Initializes TinyMce Filemanger plugin.
   $('.ifManager').on('click', function (e) {
     e.preventDefault();
-    frameSrc = $(this).attr("href");
-    $('#ENVOModalLabel').html("FileManager");
+    $frameSrc = $(this).attr('href');
 
-    $('#ENVOModal').one('shown.bs.modal', function (e) {
-      $('#ENVOModal .modal-dialog').addClass('modal-w-95p');
-      $('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
-    }).one('hidden.bs.modal', function (e) {
-      $(".body-content").html('');
+    element.on('shown.bs.modal', function (e) {
+
+      $(this).find('.modal-dialog').addClass('modal-w-95p');
+      $(this).find('.body-content').html('<iframe src="' + $frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
+
+    }).on('hidden.bs.modal', function (e) {
+
+      $(this).find('.body-content').html('');
+
     }).modal('show');
 
   });
@@ -346,14 +353,17 @@ $(function () {
   // Initializes search overlay plugin for editor help.php
   $('.contentHelp').on('click', function (e) {
     e.preventDefault();
-    frameSrc = $(this).attr("href");
-    $('#ENVOModalLabel').html("Helpcontent");
+    $frameSrc = $(this).attr('href');
 
-    $('#ENVOModal').one('shown.bs.modal', function (e) {
-      $('#ENVOModal .modal-dialog').addClass('modal-w-90p');
-      $('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
-    }).one('hidden.bs.modal', function (e) {
-      $(".body-content").html('');
+    element.on('shown.bs.modal', function (e) {
+
+      $(this).find('.modal-dialog').addClass('modal-w-90p');
+      $(this).find('.body-content').html('<iframe src="' + $frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
+
+    }).on('hidden.bs.modal', function (e) {
+
+      $(this).find('.body-content').html('');
+
     }).modal('show');
 
   });
@@ -383,7 +393,7 @@ function insert_code_guest() {
   return '{{if notmembers}}\n\n For Guest \n\n{{endif}}\n\n';
 }
 
-function restoreContent(fieldname, backupid, advedit, id) {
+function restoreContent(fieldname, backupid, id) {
 
   $.ajax({
     type: "POST",
@@ -393,24 +403,25 @@ function restoreContent(fieldname, backupid, advedit, id) {
     beforeSend: function (x) {
       $('#spinner').css('visibility', 'visible');
     },
-    success: function (msg) {
+    success: function (data) {
 
       setTimeout(function () {
         $('#spinner').css('visibility', 'hidden');
       }, 2000);
 
-      if (parseInt(msg.status) != 1) {
+      if (parseInt(data.status) != 1) {
         return false;
 
       } else {
 
         $("#restorcontent").val(0);
 
-        $("#jakEditor").text(msg.rcontent);
-        if (advedit) {
-          htmlACE.session.setValue(msg.rcontent);
+        $("#jakEditor").text(data.rcontent);
+
+        if (globalSettings.advEditor > 0) {
+          htmlACE.session.setValue(data.rcontent);
         } else {
-          tinyMCE.get('jakEditor').setContent(msg.rcontent);
+          tinyMCE.get('jakEditor').setContent(data.rcontent);
         }
       }
 

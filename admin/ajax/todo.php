@@ -8,6 +8,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 //
 require "../../class/class.todo.php";
 
+// EN: Detecting AJAX Requests
+// CZ: Detekce AJAX Požadavku
 if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || !$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die("Nothing to see here");
 
 if (isset($_GET['id'])) $id = (int)$_GET['id'];

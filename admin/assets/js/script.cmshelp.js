@@ -24,7 +24,7 @@ $(function () {
   });
 
   // Spy and scroll menu boogey - animate
-  $("#myScrollspy ul li a[href^='#']").on('click', function (e) {
+  $('#myScrollspy ul li a[href^="#"]').on('click', function (e) {
     // prevent default anchor click behavior
     e.preventDefault();
     // store hash
@@ -66,9 +66,9 @@ $(function () {
     // Update the count
     var numberItems = count;
     if (filter == '')  {
-      $("#filter-count").text('');
+      $('#filter-count').text('');
     } else {
-      $("#filter-count").text("Počet vyhledaných ikon : " + count);
+      $('#filter-count').text("Počet vyhledaných ikon : " + count);
     }
   });
 

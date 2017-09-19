@@ -17,7 +17,7 @@
 
 $(function () {
 
-  $("#sollist-sharing").sollist({
+  $('#sollist-sharing').sollist({
     pixelsBetweenItems: sollist.pixels,
     size: sollist.size,
     theme: sollist.theme,

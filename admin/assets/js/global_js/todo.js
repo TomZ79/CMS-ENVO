@@ -1,7 +1,7 @@
 $(function () {
 	/* The following code is executed once the DOM is loaded */
 
-	$(".todoList").sortable({
+	$('.todoList').sortable({
 		placeholder: "ui-state-highlight",
 		axis: 'y',
 		revert: 250,
@@ -85,7 +85,7 @@ $(function () {
 				doneLink.removeClass("notdone").addClass("done");
 				$(textEl).css({
 					'text-decoration': 'line-through',
-					'color': '#CCC',
+					'color': '#CCC'
 				});
 
 				console.log($(textEl).html());
@@ -93,7 +93,7 @@ $(function () {
 				doneLink.removeClass("done").addClass("notdone");
 				$(textEl).css({
 					'text-decoration': 'none',
-					'color': '#626262',
+					'color': '#626262'
 				});
 			}
 		})

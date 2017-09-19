@@ -56,7 +56,7 @@ if ($('#htmleditor').length) {
   // set editor.$blockScrolling = Infinity to disable this message
   htmlefACE.$blockScrolling = Infinity;
 
-  var texthtmlef = $("#jak_filecontent").val();
+  var texthtmlef = $('#jak_filecontent').val();
   htmlefACE.session.setValue(texthtmlef);
 }
 
@@ -65,7 +65,7 @@ $(function () {
   /* Submit Form
    ========================================= */
   $('form').submit(function () {
-    $("#jak_filecontent").val(htmlefACE.getValue());
+    $('#jak_filecontent').val(htmlefACE.getValue());
   });
 
 });
@@ -76,7 +76,7 @@ $(function () {
 
 $(function () {
 
-  $(".txtautogrow").autoGrow();
+  $('.txtautogrow').autoGrow();
 
 });
 
@@ -85,53 +85,45 @@ $(function () {
 
 $(function () {
 
-// Close modal dialog from iFrame - call this by onclick="window.parent.closeModal(); from iFrame"
+  var element = $('#ENVOModal');
+
+  // Close modal dialog from iFrame - call this by onclick="window.parent.closeModal(); from iFrame"
   window.closeModal = function () {
     $('#ENVOModal').modal('hide');
   };
 
-  $('.tempSett').on('click', function (e) {
-    e.preventDefault();
-    frameSrc = $(this).attr("href");
-    $('#ENVOModalLabel').html("<?php echo ucwords($page);?>");
-
-    $('#ENVOModal').one('shown.bs.modal', function (e) {
-      $('#ENVOModal .modal-dialog').addClass('modal-w-70p');
-      $('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
-    }).one('hidden.bs.modal', function (e) {
-      $(".body-content").html('');
-      window.location.reload();
-    }).modal('show');
-
-  });
-
-  // Show iFrame in modal - install and uninstall
+  // Show iFrame in Bootstrap modal  - Install and Uninstall
   $('.tempInst').on('click', function (e) {
     e.preventDefault();
-    frameSrc = $(this).attr("href");
-    $('#ENVOModalLabel').html("<?php echo ucwords($page);?>");
+    $frameSrc = $(this).attr('href');
 
-    $('#ENVOModal').one('shown.bs.modal', function (e) {
-      $('#ENVOModal .modal-dialog').addClass('modal-w-70p');
-      $('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
-    }).one('hidden.bs.modal', function (e) {
-      $(".body-content").html('');
+    element.on('shown.bs.modal', function (e) {
+
+      $(this).find('.modal-dialog').addClass('modal-w-90p');
+      $(this).find('.body-content').html('<iframe src="' + $frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
+
+    }).on('hidden.bs.modal', function (e) {
+
       window.location.reload();
+
     }).modal('show');
 
   });
 
-  // Show iFrame in modal - help
+  // Show iFrame in Bootstrap modal - Help
   $('.tempHelp').on('click', function (e) {
     e.preventDefault();
-    frameSrc = $(this).attr("href");
-    $('#ENVOModalLabel').html("<?php echo ucwords($page);?>");
+    $frameSrc = $(this).attr('href');
 
-    $('#ENVOModal').one('shown.bs.modal', function (e) {
-      $('#ENVOModal .modal-dialog').addClass('modal-w-90p');
-      $('.body-content').html('<iframe src="' + frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
-    }).one('hidden.bs.modal', function (e) {
-      $(".body-content").html('');
+    element.on('shown.bs.modal', function (e) {
+
+      $(this).find('.modal-dialog').addClass('modal-w-90p');
+      $(this).find('.body-content').html('<iframe src="' + $frameSrc + '" width="100%" frameborder="0" style="flex-grow: 1;">');
+
+    }).on('hidden.bs.modal', function (e) {
+
+      $(this).find('.body-content').html('');
+
     }).modal('show');
 
   });

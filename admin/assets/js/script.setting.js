@@ -18,7 +18,7 @@
 
 $(function () {
 
-  $("input[name=jak_smpt]:radio").change(function () {
+  $('input[name=jak_smpt]:radio').change(function () {
     if ($('input[name=jak_smpt]:checked').val() == "1") {
       $('#smtpsettings').show();
 
@@ -36,6 +36,6 @@ $(function () {
 
 $(function () {
 
-  $(".txtautogrow").autoGrow();
+  $('.txtautogrow').autoGrow();
 
 });

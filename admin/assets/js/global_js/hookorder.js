@@ -17,7 +17,7 @@
 
 $(function () {
 
-  $(".jak_hooks_move").sortable({
+  $('.jak_hooks_move').sortable({
     // Jquery UI Sortable config
     // --------------------------
 

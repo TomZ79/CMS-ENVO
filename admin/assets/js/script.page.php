@@ -31,11 +31,8 @@ if ($page == 'page') {
   <?php
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
-  // Load 'ace.js'  - only for selected pages
-  if ($jkv["adv_editor"] && (($page == 'page' && $page1 == 'newpage') || ($page == 'page' && $page1 == 'edit'))) {
-    // Plugin ACE Editor
-    echo $Html->addScript('assets/plugins/ace/ace.js');
-  }
+  // Plugin ACE Editor
+  echo $Html->addScript('assets/plugins/ace/ace.js');
   // Plugin Javascript
   echo $Html->addScript('assets/js/script.page.js');
 

@@ -20,7 +20,13 @@ if ($page == 'changelog') {
 
   echo PHP_EOL . '<!-- Start JS AKP Changelog -->';
 
+  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+  // Code-prettify CSS
+  echo $Html->addStylesheet('assets/plugins/code-prettify-master/themes/github/github.min.css');
+
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
+  // Code-prettify JS
+  echo $Html->addScript('assets/plugins/code-prettify-master/src/run_prettify.js');
   // Plugin Javascript
   echo $Html->addScript('assets/js/script.changelog.js');
 

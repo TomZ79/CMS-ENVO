@@ -19,9 +19,9 @@
 $(function () {
 
   /* Check all checkbox */
-  $("#jak_delete_all").click(function () {
+  $('#jak_delete_all').click(function () {
     var checkedStatus = this.checked;
-    $(".highlight").each(function () {
+    $('.highlight').each(function () {
       $(this).prop('checked', checkedStatus);
     });
     $('#button_delete').prop('disabled', function (i, v) {
@@ -30,9 +30,9 @@ $(function () {
   });
 
   /* Check all checkbox */
-  $("#jak_delete_all_approve").click(function () {
+  $('#jak_delete_all_approve').click(function () {
     var checkedStatus = this.checked;
-    $(".highlight_approve").each(function () {
+    $('.highlight_approve').each(function () {
       $(this).prop('checked', checkedStatus);
     });
     $('#button_delete_approve').prop('disabled', function (i, v) {
@@ -41,20 +41,20 @@ $(function () {
   });
 
   /* Disable submit button if checkbox is not checked */
-  $(".highlight").change(function () {
+  $('.highlight').change(function () {
     if (this.checked) {
-      $("#button_delete").removeAttr("disabled");
+      $('#button_delete').removeAttr("disabled");
     } else {
-      $("#button_delete").attr("disabled", "disabled");
+      $('#button_delete').attr("disabled", "disabled");
     }
   });
 
   /* Disable submit button if checkbox is not checked */
-  $(".highlight_approve").change(function () {
+  $('.highlight_approve').change(function () {
     if (this.checked) {
-      $("#button_delete_approve").removeAttr("disabled");
+      $('#button_delete_approve').removeAttr("disabled");
     } else {
-      $("#button_delete_approve").attr("disabled", "disabled");
+      $('#button_delete_approve').attr("disabled", "disabled");
     }
   });
 

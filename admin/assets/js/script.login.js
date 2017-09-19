@@ -18,10 +18,10 @@ $(function () {
   $('body').addClass('overflow-hidden');
 
   // Switch buttons from "Log In" to "Forget password"
-  $(".lost-pwd").click(function (event) {
+  $('.lost-pwd').click(function (event) {
     event.preventDefault();
-    $(".loginF").slideToggle();
-    $(".forgotP").toggleClass('hide');
+    $('.loginF').slideToggle();
+    $('.forgotP').toggleClass('hide');
   });
 
   $('#form-login').validate();

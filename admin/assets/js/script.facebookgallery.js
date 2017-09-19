@@ -19,8 +19,8 @@
 
 $(function () {
 
-  if ($("#images").length > 0) {
-    $("#images").fileinput({
+  if ($('#images').length) {
+    $('#images').fileinput({
       theme: 'fa',
       language: 'cz',
       maxFileSize: 4500,

@@ -30,4 +30,5 @@ $temppa3 = $getURL->jakGetsegAdmin(3);
 $temppa4 = $getURL->jakGetsegAdmin(4);
 $temppa5 = $getURL->jakGetsegAdmin(5);
 $temppa6 = $getURL->jakGetsegAdmin(6);
+
 ?>

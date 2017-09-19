@@ -1,7 +1,4 @@
 <?php
-/**
- * SEARCHING IN ARTICLE of PAGES, BLOG, NEWS, DOWNLOAD and FAQ
- */
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...

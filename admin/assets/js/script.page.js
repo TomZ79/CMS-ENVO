@@ -54,15 +54,16 @@ if ($('#htmleditor').length) {
   // set editor.$blockScrolling = Infinity to disable this message
   htmlACE.$blockScrolling = Infinity;
 
-  var texthtml = $("#jak_editor").val();
+  var texthtml = $('#jak_editor').val();
   htmlACE.session.setValue(texthtml);
 }
+
 
 if ($('#csseditor').length) {
   var cssACE = ace.edit("csseditor");
   cssACE.setTheme("ace/theme/chrome");
   cssACE.session.setMode("ace/mode/html");
-  textcss = $("#jak_css").val();
+  textcss = $('#jak_css').val();
   cssACE.session.setValue(textcss);
   cssACE.$blockScrolling = Infinity;
 }
@@ -71,7 +72,7 @@ if ($('#javaeditor').length) {
   var jsACE = ace.edit("javaeditor");
   jsACE.setTheme("ace/theme/chrome");
   jsACE.session.setMode("ace/mode/html");
-  textjs = $("#jak_javascript").val();
+  textjs = $('#jak_javascript').val();
   jsACE.session.setValue(textjs);
   jsACE.$blockScrolling = Infinity;
 }
@@ -103,13 +104,13 @@ $(function () {
    * @param: 'globalSettings.advEditor' from generated_js.php
    ========================================= */
   if ($('#restorcontent').length) {
-    $("#restorcontent").change(function () {
+    $('#restorcontent').change(function () {
       if ($(this).val() != 0) {
         if (!confirm(notification.confirmRestore)) {
           $("#restorcontent").val(0);
           return false;
         } else {
-          restoreContent('pageid', globalSettings.pageID2, globalSettings.advEditor, $(this).val());
+          restoreContent('pageid', globalSettings.pageID2, $(this).val());
         }
       }
     });
@@ -117,24 +118,24 @@ $(function () {
 
   /* Insert block to ACE Editor
    ========================================= */
-  $("#addCssBlock").click(function () {
+  $('#addCssBlock').click(function () {
     cssACE.insert(insert_cssblock());
   });
-  $("#addJavascriptBlock").click(function () {
+  $('#addJavascriptBlock').click(function () {
     jsACE.insert(insert_javascript());
   });
 
   /* Insert Short Code to ACE Editor
    ========================================= */
-  $(".short-sc").click(function () {
+  $('.short-sc').click(function () {
     htmlACE.insert(insert_code_member_guest());
   });
 
-  $(".short-sc1").click(function () {
+  $('.short-sc1').click(function () {
     htmlACE.insert(insert_code_member());
   });
 
-  $(".short-sc2").click(function () {
+  $('.short-sc2').click(function () {
     htmlACE.insert(insert_code_guest());
   });
 
@@ -142,21 +143,21 @@ $(function () {
    ========================================= */
   $('form').submit(function () {
     if ($('#jak_editor').length) {
-      $("#jak_editor").val(htmlACE.getValue());
+      $('#jak_editor').val(htmlACE.getValue());
     }
     if ($('#csseditor').length) {
-      $("#jak_css").val(cssACE.getValue());
+      $('#jak_css').val(cssACE.getValue());
     }
     if ($('#javaeditor').length) {
-      $("#jak_javascript").val(jsACE.getValue());
+      $('#jak_javascript').val(jsACE.getValue());
     }
   });
 
   /* Check all checkbox
    ========================================= */
-  $("#jak_delete_all").click(function () {
+  $('#jak_delete_all').click(function () {
     var checkedStatus = this.checked;
-    $(".highlight").each(function () {
+    $('.highlight').each(function () {
       $(this).prop('checked', checkedStatus);
     });
     $('#button_delete').prop('disabled', function (i, v) {
@@ -166,14 +167,12 @@ $(function () {
 
   /* Disable submit button if checkbox is not checked
    ========================================= */
-  $(".highlight").change(function () {
+  $('.highlight').change(function () {
     if (this.checked) {
-      $("#button_delete").removeAttr("disabled");
+      $('#button_delete').removeAttr("disabled");
     } else {
-      $("#button_delete").attr("disabled", "disabled");
+      $('#button_delete').attr("disabled", "disabled");
     }
   });
 
 });
-
-

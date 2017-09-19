@@ -63,9 +63,9 @@ $(function () {
 
 $(function () {
 
-  $("#jak_name").keyup(function () {
+  $('#jak_name').keyup(function () {
     // Checked, copy values
-    $("#jak_varname").val(jakSlug($("#jak_name").val()));
+    $('#jak_varname').val(jakSlug($('#jak_name').val()));
   });
 
 });
@@ -75,8 +75,8 @@ $(function () {
 
 $(function () {
 
-  $("#copy1").click(function () {
-    $("#jak_editor_light_meta_desc").val($("#content").val());
+  $('#copy1').click(function () {
+    $('#jak_editor_light_meta_desc').val($('#content').val());
   });
 
 });
