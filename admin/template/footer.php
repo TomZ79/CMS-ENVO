@@ -104,13 +104,6 @@ echo $Html->addScript('assets/plugins/jquery-actual/jquery.actual.min.js');
 echo $Html->addScript('assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js');
 ?>
 
-<!-- Prism -->
-<?php
-// Add Html Element -> addScript (Arguments: src, optional assoc. array)
-echo $Html->addScript('assets/plugins/prism/preCode.js');
-echo $Html->addScript('assets/plugins/prism/prism.js');
-?>
-
 <!-- Validadion -->
 <?php
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
@@ -159,7 +152,8 @@ $notify =
   '});' .
   '</script>';
 
-// Init debug mode - debug to console.log
+// EN: Init debug mode - debug php to console.log
+// CZ: Inicializace debug módu - debug php do console
 $debug = new PHPDebug();
 
 if (!empty($page)) {
@@ -174,7 +168,7 @@ if (!empty($page)) {
     } else {
       echo sprintf($notify, $jscodeFile);
     }
-    $debug->debug("JS Script path for this plugin or page: " . $jscodeFile, NULL, INFO);
+    // $debug->debug("JS Script path for this plugin or page: " . $jscodeFile, NULL, INFO);
   } elseif (!in_array($page, $ap) && !empty($page) && ($page != '404')) {
     $rPage = str_replace('-', '_', $page);
     $jscodeFile = '../plugins/' . $rPage . '/admin/template/script.' . $rPage . '.php';
@@ -183,7 +177,7 @@ if (!empty($page)) {
     } else {
       echo sprintf($notify, $jscodeFile);
     }
-    $debug->debug("JS Script path for this plugin or page: " . $jscodeFile, NULL, INFO);
+    // $debug->debug("JS Script path for this plugin or page1: " . $jscodeFile, NULL, INFO);
   }
 
 } elseif (empty($page) && !JAK_USERID) {
@@ -204,7 +198,7 @@ if ($page == 'template' && $page1 == 'settings') {
   } else {
     echo sprintf($notify, $jscodeFile);
   }
-  $debug->debug("JS Script path template settings page: " . $jscodeFile, NULL, INFO);
+  // $debug->debug("JS Script path template settings page: " . $jscodeFile, NULL, INFO);
 }
 
 ?>
@@ -291,7 +285,7 @@ if ($JAK_PROVED && !isset($jkv["cms_tpl"])) { ?>
 } ?>
 
 <!-- MODAL DIALOG -->
-<div class="modal fade fill-in" id="ENVOModal" tabindex="-1" role="dialog" aria-labelledby="ENVOModalLabel" aria-hidden="true">
+<div class="modal fade fill-in" id="ENVOModal" tabindex="-1" role="dialog" aria-labelledby="ENVOModalLabel">
   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
     <i class="pg-close"></i>
   </button>

@@ -1,6 +1,5 @@
 <?php include "header.php"; ?>
 
-<h5>&#169</h5>
 <?php if ($page1 == "s") { ?>
   <script type="text/javascript">
     // Notification

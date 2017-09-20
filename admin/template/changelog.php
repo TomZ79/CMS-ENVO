@@ -19,7 +19,7 @@
             <div class="panel-body">
               <p class="content-group">Version 1.2 includes bug fixing for reported issues, new components and updated plugins/libraries to the latest stable versions. </p>
 
-              <pre><code class="language-markup">
+              <pre class="prettyprint">
 // # List of new components
 // ------------------------------
 
@@ -109,7 +109,7 @@ http://99webtools.com/blog/php-simple-captcha-script/
 [removed] Jquery slimScroll plugins
 [removed] Remove plugins - Ecommerce, Owl, Retailer, Ticketing, Gallery, Slider, Social Buttons
 [removed] Admin LTE Template
-									</code></pre>
+									</pre>
             </div>
           </div>
         </div>
@@ -129,7 +129,7 @@ http://99webtools.com/blog/php-simple-captcha-script/
             <div class="panel-body">
               <p class="content-group">First update is the most simplified and includes urgent bug fixes of core components, plugins and libraries. Also version 1.1 includes updates of some components to the latest stable versions. Below you can find general list of all changes and details about upgrading.</p>
 
-              <pre><code class="language-markup">
+              <pre class="prettyprint">
 // # List of new components
 // ------------------------------
 
@@ -154,7 +154,7 @@ http://99webtools.com/blog/php-simple-captcha-script/
 [fixed] Reformat code
 [fixed] Remove extra installation (Modern, Mosaic) - only one typo of install ( Plain)
 [fixed] Bootstrap is in external file (move from stylsheet.css)
-									</code></pre>
+									</pre>
             </div>
           </div>
         </div>

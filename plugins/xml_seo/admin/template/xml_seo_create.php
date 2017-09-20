@@ -30,7 +30,7 @@
 
   <div>
     <p><strong><?php echo $tlxml["xml_box_content"]["xmlbc23"]; ?></strong></p>
-    <pre style="overflow: auto; max-height: 30em; white-space: pre;"><code class="language-xml"><?php echo htmlentities($xml_result); ?></code></pre>
+    <pre class="prettyprint linenums lang-xml" style="overflow: auto; max-height: 30em; white-space: pre;"><?php echo htmlentities($xml_result); ?></pre>
   </div>
 <?php } else { ?>
 

@@ -2,16 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>METRICS Template Documentation</title>
+  <title>PORTO Template Documentation</title>
 
   <!-- ======= FONTS ======= -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&subset=latin-ext" rel="stylesheet">
-  <link rel="stylesheet" href="icons/custom-icons/css/custom-icons.css">
 
   <!-- ======= CSS STYLE ======= -->
-  <link rel="stylesheet" href="/assets/doc/css/doc.css">
-  <link rel="stylesheet" href="/assets/doc/js/syntaxhighlighter/styles/shCoreKreatura.css">
-  <link rel="stylesheet" href="/assets/doc/js/syntaxhighlighter/styles/shThemeKreatura.css">
+  <!-- Code-prettify -->
+  <link href="/admin/assets/plugins/code-prettify-master/themes/github/github.css" rel="stylesheet" type="text/css"/>
+  <script src="/admin/assets/plugins/code-prettify-master/src/prettify.js"></script>
+  <!-- Main style -->
+  <link rel="stylesheet" href="/admin/assets/doc/css/doc.css">
+
+
+  <!--[if lt IE 9]>
+  <script src="/admin/assets/doc/js/html5.js"></script>
+  <![endif]-->
 
 </head>
 <body>
@@ -440,12 +446,6 @@
         $("#filter-count").text("Počet vyhledaných ikon : " + count);
       }
     });
-  });
-</script>
-<script>
-  $(document).ready(function() {
-    //Initialize Pages core
-    hljs.initHighlightingOnLoad();
   });
 </script>
 

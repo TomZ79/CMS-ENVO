@@ -138,7 +138,7 @@ $(function () {
           $("#restorcontent").val(0);
           return false;
         } else {
-          restoreContent('blogid', globalSettings.pageID2, globalSettings.advEditor, $(this).val());
+          restoreContent('blogid', globalSettings.pageID2, $(this).val());
         }
       }
     });

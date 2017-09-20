@@ -172,11 +172,17 @@
   };
 
   var btn = document.getElementById('resizeContainer');
-  btn.addEventListener('click', function () {
-    resizeFirstEditor();
-  });
-  var btn = document.getElementById('resizeContainerAndEditor');
-  btn.addEventListener('click', function () {
-    resizeFirstEditor(true);
-  });
+  if(btn){
+    btn.addEventListener('click', function () {
+      resizeFirstEditor();
+    });
+  }
+
+  var btn1 = document.getElementById('resizeContainerAndEditor');
+  if(btn1){
+    btn1.addEventListener('click', function () {
+      resizeFirstEditor(true);
+    });
+  }
+
 </script>

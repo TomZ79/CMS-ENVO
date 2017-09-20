@@ -8,12 +8,15 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&subset=latin-ext" rel="stylesheet">
 
   <!-- ======= CSS STYLE ======= -->
-  <link rel="stylesheet" href="/assets/doc/css/doc.css">
-  <link rel="stylesheet" href="/assets/doc/js/syntaxhighlighter/styles/shCoreKreatura.css">
-  <link rel="stylesheet" href="/assets/doc/js/syntaxhighlighter/styles/shThemeKreatura.css">
+  <!-- Code-prettify -->
+  <link href="/admin/assets/plugins/code-prettify-master/themes/github/github.css" rel="stylesheet" type="text/css"/>
+  <script src="/admin/assets/plugins/code-prettify-master/src/prettify.js"></script>
+  <!-- Main style -->
+  <link rel="stylesheet" href="/admin/assets/doc/css/doc.css">
+
 
   <!--[if lt IE 9]>
-  <script src="/assets/doc/js/html5.js"></script>
+  <script src="/admin/assets/doc/js/html5.js"></script>
   <![endif]-->
 
 </head>
@@ -38,6 +41,14 @@
           <li data-deeplink="about-plugin" class="active">About Plugin</li>
           <li data-deeplink="folders-files">Folder-Files</li>
           <li data-deeplink="changelog">Changelog</li>
+        </ul>
+      </li>
+      <li>
+        <span>Hooks</span>
+        <ul>
+          <li data-deeplink="tpl_below_header">Hook: tpl_below_header</li>
+          <li data-deeplink="tpl_below_content">Hook: tpl_below_content</li>
+          <li data-deeplink="php_admin_lang">Hook: php_admin_lang</li>
         </ul>
       </li>
     </ul>
@@ -66,27 +77,27 @@
       <article>
         <h4>Changelog</h4>
         <h5>v 1.1</h5>
-        <pre name="code" class="brush: plain;">
-// # List of new components
+        <pre class="prettyprint">
+// # Seznam nových komponent
 // ------------------------------
 
-[new] Better notification
-[new] Use class for create hmtl element
-[new] Add help for plugin
-[new] Better install/unistall wizard
-[new] New design
+[nový] Better notification
+[nový] Use class for create hmtl element
+[nový] Add help for plugin
+[nový] Better install/unistall wizard
+[nový] New design
 
-// # List of fixed bugs
+// # Seznam opravených chyb
 // ------------------------------
 
-[fixed] Reformat code
-[fixed] Language file cs.ini
-[fixed] Fix typo
+[opraveno] Reformat code
+[opraveno] Language file cs.ini
+[opraveno] Fix typo
 
-// # List of removed components
+// # Seznam odstraněných komponent
 // ------------------------------
 
-[removed] Remove unnecessary code
+[odstraněno] Remove unnecessary code
 				</pre>
 
         <h5>v 1.0</h5>
@@ -97,23 +108,64 @@
 
     </section>
 
+    <!-- Hooks -->
+    <section>
+
+      <!-- Hook: tpl_below_header -->
+      <article>
+        <h4>Hook: tpl_below_header</h4>
+        <p>Template Hook: tpl_below_header</p>
+        <p>This hook is located below the header, display advertising, buttons or whatever you like below the navigation and logo.</p>
+
+        <p>You can include a file, for example:</p>
+        <pre class="prettyprint linenums lang-php">
+plugins/belowheader/bhinput.php
+</pre>
+
+      </article>
+
+      <!-- Hook: tpl_below_content -->
+      <article>
+        <h4>Hook: tpl_below_content</h4>
+        <p>Template Hook: tpl_below_content</p>
+        <p>This is the brother from the below_header hook. You can close some divs or add some extra stuff that doesn't fit in the main section.</p>
+
+        <p>You can include a file, for example:</p>
+        <pre class="prettyprint linenums lang-php">
+plugins/belowheader/bhinputb.php
+</pre>
+
+      </article>
+
+      <!-- Hook: php_admin_lang -->
+      <article>
+        <h4>Hook: php_admin_lang</h4>
+        <p>Use this hook to execute PHP language code in the admin/index.php file.</p>
+
+        <p>For example:</p>
+        <pre class="prettyprint linenums lang-php">
+if (file_exists(APP_PATH.'plugins/belowheader/admin/lang/'.$site_language.'.ini')) {
+    $tlbh = parse_ini_file(APP_PATH.'plugins/belowheader/admin/lang/'.$site_language.'.ini', true);
+} else {
+    $tlbh = parse_ini_file(APP_PATH.'plugins/belowheader/admin/lang/en.ini', true);
+}
+</pre>
+
+      </article>
+
+    </section>
+
   </div>
 </div>
 
 <!-- ======= JQUERY SCRIPT ======= -->
 <script src="/assets/plugins/jquery/jquery-2.2.4.min.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shCore.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushXml.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushCss.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushPhp.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushPlain.js" type="text/javascript"></script>
-<script src="/assets/doc/js/doc.js"></script>
+<script src="/admin/assets/doc/js/doc.js"></script>
 
 <script>
-  $(document).ready(function () {
-    //Initialize Pages core
-    hljs.initHighlightingOnLoad();
+  // Init Code-Prettify
+  window.onload = (function () {
+    prettyPrint();
   });
 </script>
 

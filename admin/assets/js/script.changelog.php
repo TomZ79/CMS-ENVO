@@ -26,9 +26,20 @@ if ($page == 'changelog') {
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Code-prettify JS
-  echo $Html->addScript('assets/plugins/code-prettify-master/src/run_prettify.js');
+  echo $Html->addScript('assets/plugins/code-prettify-master/src/prettify.js');
   // Plugin Javascript
   echo $Html->addScript('assets/js/script.changelog.js');
+
+  ?>
+
+  <script>
+    // Init Code-Prettify
+    window.onload = (function () {
+      prettyPrint();
+    });
+  </script>
+
+  <?php
 
   echo PHP_EOL . '<!-- End JS AKP Changelog -->' . PHP_EOL;
 

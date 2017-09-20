@@ -442,12 +442,6 @@
     });
   });
 </script>
-<script>
-  $(document).ready(function() {
-    //Initialize Pages core
-    hljs.initHighlightingOnLoad();
-  });
-</script>
 
 </body>
 </html>

@@ -38,7 +38,7 @@
               echo $Html->addTag('p', $Html->addTag('strong', $tlxml["xml_box_content"]["xmlbc23"]));
               ?>
 
-              <pre style="overflow: auto; max-height: 30em; white-space: pre;"><code class="language-xml"><?php echo htmlentities($contentxml); ?></code></pre>
+              <pre class="prettyprint linenums lang-xml" style="overflow: auto; max-height: 30em; white-space: pre;"><?php echo htmlentities($contentxml); ?></pre>
             </div>
           <?php } ?>
         </div>

@@ -8,12 +8,15 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&subset=latin-ext" rel="stylesheet">
 
   <!-- ======= CSS STYLE ======= -->
-  <link rel="stylesheet" href="/assets/doc/css/doc.css">
-  <link rel="stylesheet" href="/assets/doc/js/syntaxhighlighter/styles/shCoreKreatura.css">
-  <link rel="stylesheet" href="/assets/doc/js/syntaxhighlighter/styles/shThemeKreatura.css">
+  <!-- Code-prettify -->
+  <link href="/admin/assets/plugins/code-prettify-master/themes/github/github.css" rel="stylesheet" type="text/css"/>
+  <script src="/admin/assets/plugins/code-prettify-master/src/prettify.js"></script>
+  <!-- Main style -->
+  <link rel="stylesheet" href="/admin/assets/doc/css/doc.css">
+
 
   <!--[if lt IE 9]>
-  <script src="/assets/doc/js/html5.js"></script>
+  <script src="/admin/assets/doc/js/html5.js"></script>
   <![endif]-->
 
 </head>
@@ -175,7 +178,7 @@
       <article>
         <h4>Changelog</h4>
         <h5>v 1.1</h5>
-        <pre name="code" class="brush: plain;">
+        <pre class="prettyprint">
 // # Seznam nových komponent
 // ------------------------------
 
@@ -184,7 +187,7 @@
 [nový] Add help for plugin
 [nový] Better install/unistall wizard
 [nový] New design
-[nový] Add edit of article's time
+[nový] Add edit of articles time
 
 // # Seznam opravených chyb
 // ------------------------------
@@ -215,7 +218,7 @@
         <h4>Hook: php_rss</h4>
         <p>Use this hook to execute PHP code in the rss.php file.</p>
 
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 if ($page1 == JAK_PLUGIN_VAR_BLOG) {
 
 	if ($jkv["blogrss"]) {
@@ -241,7 +244,7 @@ if ($page1 == JAK_PLUGIN_VAR_BLOG) {
         <h4>Hook: php_admin_fulltext_add</h4>
         <p>Use this hook to execute PHP code in the admin/setting.php file.</p>
 
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 $jakdb->query('ALTER TABLE '.DB_PREFIX.'blog ADD FULLTEXT(`title`, `content`)');
         </pre>
 
@@ -252,7 +255,7 @@ $jakdb->query('ALTER TABLE '.DB_PREFIX.'blog ADD FULLTEXT(`title`, `content`)');
         <h4>Hook: php_admin_fulltext_remove</h4>
         <p>Use this hook to execute PHP code in the admin/setting.php file.</p>
 
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 $jakdb->query('ALTER TABLE '.DB_PREFIX.'blog DROP INDEX `title`');
         </pre>
 
@@ -263,7 +266,7 @@ $jakdb->query('ALTER TABLE '.DB_PREFIX.'blog DROP INDEX `title`');
         <h4>Hook: php_admin_pages_sql</h4>
         <p>Use this hook to execute PHP code in the admin/page.php file on two locations. This hook is located when edit or create a new page.</p>
 
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 if (!isset($defaults['jak_showblog'])) {
 	$bl = 0;
 } else if (in_array(0, $defaults['jak_showblog'])) {
@@ -288,7 +291,7 @@ if (empty($bl) && !empty($defaults['jak_showblogmany'])) {
         <h4>Hook: php_admin_news_sql</h4>
         <p>Use this hook to execute PHP code in the admin/news.php file on two locations. This hook is located when edit or create a new news.</p>
 
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 if (!isset($defaults['jak_showblog'])) {
 	$bl = 0;
 } else if (in_array(0, $defaults['jak_showblog'])) {
@@ -313,7 +316,7 @@ if (empty($bl) && !empty($defaults['jak_showblogmany'])) {
         <h4>Hook: php_admin_pages_news_info</h4>
         <p>Use this hook to execute PHP code in the admin/page.php and admin/news.php file.</p>
 
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 $JAK_GET_BLOG = envo_get_page_info(DB_PREFIX.'blog', '');
 
 if ($ENVO_FORM_DATA) {
@@ -335,7 +338,7 @@ if (is_array($showblogarray) && in_array("ASC", $showblogarray) || in_array("DES
         <h4>Hook: php_admin_user_delete</h4>
         <p>Use this hook to execute PHP code in the admin/users.php file.</p>
 
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 $jakdb->query('UPDATE '.DB_PREFIX.'blogcomments SET userid = 0 WHERE userid = '.$page2.'');
         </pre>
 
@@ -346,7 +349,7 @@ $jakdb->query('UPDATE '.DB_PREFIX.'blogcomments SET userid = 0 WHERE userid = '.
         <h4>Hook: php_admin_user_rename</h4>
         <p>Use this hook to execute PHP code in the admin/users.php file.</p>
 
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 $jakdb->query('UPDATE '.DB_PREFIX.'blogcomments SET username = "'.smartsql($defaults['jak_username']).'" WHERE userid = '.smartsql($page2).'');
         </pre>
 
@@ -357,7 +360,7 @@ $jakdb->query('UPDATE '.DB_PREFIX.'blogcomments SET username = "'.smartsql($defa
         <h4>Hook: php_admin_user_delete_mass</h4>
         <p>Use this hook to execute PHP code in the admin/users.php file.</p>
 
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 $jakdb->query('UPDATE '.DB_PREFIX.'blogcomments SET userid = 0 WHERE userid = '.$locked.'');
         </pre>
 
@@ -369,7 +372,7 @@ $jakdb->query('UPDATE '.DB_PREFIX.'blogcomments SET userid = 0 WHERE userid = '.
         <p>Use this hook to execute PHP code in the admin/usergroup.php file.</p>
 
         <p>For example:</p>
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 if (isset($defaults['jak_blog'])) {
 	$insert .= 'blog = "'.$defaults['jak_blog'].'",'; }
         </pre>
@@ -381,7 +384,7 @@ if (isset($defaults['jak_blog'])) {
         <h4>Hook: php_admin_lang</h4>
         <p>Use this hook to execute PHP language code in the admin/index.php file.</p>
 
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 if (file_exists(APP_PATH.'plugins/blog/admin/lang/'.$site_language.'.ini')) {
     $tlblog = parse_ini_file(APP_PATH.'plugins/blog/admin/lang/'.$site_language.'.ini', true);
 } else {
@@ -396,7 +399,7 @@ if (file_exists(APP_PATH.'plugins/blog/admin/lang/'.$site_language.'.ini')) {
         <h4>Hook: php_lang</h4>
         <p>Use this hook to execute PHP language code in the index.php file.</p>
 
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 if (file_exists(APP_PATH.'plugins/blog/lang/'.$site_language.'.ini')) {
     $tlblog = parse_ini_file(APP_PATH.'plugins/blog/lang/'.$site_language.'.ini', true);
 } else {
@@ -411,7 +414,7 @@ if (file_exists(APP_PATH.'plugins/blog/lang/'.$site_language.'.ini')) {
         <h4>Hook: php_sitemap</h4>
         <p>Use this hook to execute PHP code in the sitemap.php file.</p>
 
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 include_once APP_PATH.'plugins/blog/functions.php';
 
 $JAK_BLOG_ALL = envo_get_blog('', $jkv["blogorder"], '', '', $jkv["blogurl"], $tl['global_text']['gtxt4']);
@@ -425,7 +428,7 @@ $PAGE_TITLE = JAK_PLUGIN_NAME_BLOG;
         <h4>Hook: php_search</h4>
         <p>Use this hook to execute PHP code in the search.php file.</p>
 
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 $blog = new JAK_search($SearchInput);
         	$blog->jakSettable('blog',"");
         	$blog->jakAndor("OR");
@@ -446,7 +449,7 @@ $blog = new JAK_search($SearchInput);
         <h4>Hook: php_tags</h4>
         <p>Use this hook to execute PHP code in the tags.php file.</p>
 
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 if ($row['pluginid'] == JAK_PLUGIN_ID_BLOG) {
 	$blogtagData[] = JAK_tags::jakTagsql("blog", $row['itemid'], "id, title, content", "content", JAK_PLUGIN_VAR_BLOG, "a", $jkv["blogurl"]);
 	$JAK_TAG_BLOG_DATA = $blogtagData;
@@ -461,7 +464,7 @@ if ($row['pluginid'] == JAK_PLUGIN_ID_BLOG) {
         <p>Template Hook: tpl_admin_page_news</p>
         <p>This hook is located in admin/template/footer.php and will work together with the grid system, you can use PHP and HTML code.</p>
 
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 if ($pg['pluginid'] == JAK_PLUGIN_BLOG) {
 	include_once APP_PATH.'plugins/blog/admin/template/blog_connect.php';
 }
@@ -475,7 +478,7 @@ if ($pg['pluginid'] == JAK_PLUGIN_BLOG) {
         <p>Template Hook: tpl_admin_page_news_new</p>
         <p>This hook is located in admin/template/footer.php and will be executed to display new plugin stuff in the grid system.</p>
 
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 plugins/blog/admin/template/blog_connect_new.php
         </pre>
 
@@ -487,7 +490,7 @@ plugins/blog/admin/template/blog_connect_new.php
         <p>Template Hook: tpl_page_news_grid</p>
         <p>This hook is located in template/yourtemplate/page.php / template/yourtemplate/newsart.php and will be executed to display your plugin grid result.</p>
 
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 if (JAK_PLUGIN_ACCESS_BLOG && $pg['pluginid'] == JAK_PLUGIN_ID_BLOG && !empty($row['showblog'])) {
 	include_once APP_PATH.'template/'.ENVO_TEMPLATE.'/plugintemplate/blog/pages_news.php';
 }
@@ -501,7 +504,7 @@ if (JAK_PLUGIN_ACCESS_BLOG && $pg['pluginid'] == JAK_PLUGIN_ID_BLOG && !empty($r
         <p>Template Hook: tpl_search</p>
         <p>This hook is located in template/yourtemplate/search.php and will be executed to display your plugin search result.</p>
 
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 include_once APP_PATH.'template/'.ENVO_TEMPLATE.'/plugintemplate/blog/search.php';
         </pre>
 
@@ -513,7 +516,7 @@ include_once APP_PATH.'template/'.ENVO_TEMPLATE.'/plugintemplate/blog/search.php
         <p>Template Hook: tpl_admin_usergroup</p>
         <p>This hook is located in admin/template/editusergroup.php and will be executed to display your plugin user-group permission.</p>
 
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 plugins/blog/admin/template/usergroup_new.php
         </pre>
 
@@ -525,7 +528,7 @@ plugins/blog/admin/template/usergroup_new.php
         <p>Template Hook: tpl_admin_usergroup_edit</p>
         <p>This hook is located in admin/template/editusergroup.php and will be executed to display your plugin user-group permission.</p>
 
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 plugins/blog/admin/template/usergroup_edit.php
         </pre>
 
@@ -537,7 +540,7 @@ plugins/blog/admin/template/usergroup_edit.php
         <p>Template Hook: tpl_tags</p>
         <p>This hook is located in template/yourtemplate/tags.php and will be executed to display your plugin tags.</p>
 
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 plugins/blog/template/tag.php
         </pre>
 
@@ -549,7 +552,7 @@ plugins/blog/template/tag.php
         <p>Template Hook: tpl_sidebar</p>
         <p>This hook is in the sidebar and does work together with the grid/widget system, display advertising, buttons or whatever you like in the sidebar.</p>
 
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 include_once APP_PATH.'template/'.ENVO_TEMPLATE.'/plugintemplate/blog/blogsidebar.php';
         </pre>
 
@@ -562,18 +565,12 @@ include_once APP_PATH.'template/'.ENVO_TEMPLATE.'/plugintemplate/blog/blogsideba
 
 <!-- ======= JQUERY SCRIPT ======= -->
 <script src="/assets/plugins/jquery/jquery-2.2.4.min.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shCore.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushXml.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushCss.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushPhp.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushPlain.js" type="text/javascript"></script>
-<script src="/assets/doc/js/doc.js"></script>
+<script src="/admin/assets/doc/js/doc.js"></script>
 
 <script>
-  $(document).ready(function () {
-    //Initialize Pages core
-    hljs.initHighlightingOnLoad();
+  // Init Code-Prettify
+  window.onload = (function () {
+    prettyPrint();
   });
 </script>
 

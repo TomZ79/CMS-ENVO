@@ -20,9 +20,26 @@ if ($page == 'cmshelp') {
 
   echo PHP_EOL . '<!-- Start JS AKP Help -->';
 
+  // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
+  // Code-prettify CSS
+  echo $Html->addStylesheet('assets/plugins/code-prettify-master/themes/atelier_sulphurpool_light/atelier-sulphurpool-light.min.css');
+
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
+  // Code-prettify JS
+  echo $Html->addScript('assets/plugins/code-prettify-master/src/prettify.js');
   // Plugin Javascript
   echo $Html->addScript('assets/js/script.cmshelp.js');
+
+  ?>
+
+  <script>
+    // Init Code-Prettify
+    window.onload = (function () {
+      prettyPrint();
+    });
+  </script>
+
+  <?php
 
   echo PHP_EOL . '<!-- End JS AKP Help -->' . PHP_EOL;
 

@@ -531,20 +531,20 @@
     </p>
     <p>Important information about the db.php file. Please open this file in any text or php editor, the file is located in the include/ directory.</p>
     <p class="all-caps fs-12 bold">Database Connection :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 define('DB_HOST', 'localhost'); // Database host ## Datenbank Server
 define('DB_PORT', 3306); // Enter the database port for your mysql server
 define('DB_USER', ''); // Database user ## Datenbank Benutzername
 define('DB_PASS', ''); // Database password ## Datenbank Passwort
 define('DB_NAME', ''); // Database name ## Datenbank Name
 define('DB_PREFIX', ''); // Database prefix use (a-z) and (_)
-    </code></pre>
+</pre>
     <p>This should be clear, important information for PHP to connect to your MySQL database and table. Please choose a strong password when you setup your MySQL table. For example:
       <strong>4k2+!kSSowk9</strong></p>
     <p class="all-caps fs-12 bold">Define a unique key :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 define('DB_PASS_HASH', '');
-    </code></pre>
+</pre>
     <p>This unique key will be used to make the password of your members even stronger, do not change this key after setup, otherwise your members cannot login again. Use a very strong key to protect your members password. For example:
       <strong>%3ko**è,LwlKK</strong></p>
     <p>The rest should be clear...</p>
@@ -556,11 +556,11 @@ define('DB_PASS_HASH', '');
     <hr>
     <p>If you server is running on Apache you can use the build in optimisation for short url's. This gives you the possibilities to have shorter and cleaner URL's and a better search engine performance.</p>
     <p>To use the build in SEO in CMS you need to do two things, first open the db.php file and set following definition:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 define('JAK_USE_APACHE', 1);
-    </code></pre>
+</pre>
     <p>Then upload the .htaccess file provided in the download package or create your own with following content:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 # Enable the Rewrite engine
 RewriteEngine On
 
@@ -589,10 +589,10 @@ AddOutputFilterByType DEFLATE application/javascript
 AddOutputFilterByType DEFLATE application/x-javascript
 
 # 1 WEEK
-<FilesMatch "\.(jpg|jpeg|png|gif|swf)$">
+&lt;FilesMatch &quot;\.(jpg|jpeg|png|gif|swf)$&quot;&gt;
 Header set Cache-Control "max-age=604800, public"
-        </FilesMatch>
-    </code></pre>
+&lt;/FilesMatch&gt;
+</pre>
     <p>Upload both files into the correct location .htaccess needs to be in the root directory and enjoy the apache version of CMS.</p>
   </section>
 
@@ -1300,13 +1300,13 @@ Header set Cache-Control "max-age=604800, public"
       </div>
     </div>
     <p class="all-caps fs-12 bold">Example :</p>
-    <pre><code class="language-html">
+    <pre class="prettyprint linenums lang-html">
 &lt;!-- In Paragraph --&gt;
 &lt;p class=&quot;text-primary&quot;&gt;Font Colour Changes! &lt;/p&gt;
 
 &lt;!-- In any other tag --&gt;
 &lt;div class=&quot;text-success&quot;&gt;Font Colour Changes! &lt;/div&gt;
-    </code></pre>
+</pre>
 
     <h4 class="m-t-50">Font Size Classes</h4>
     <hr>
@@ -1319,7 +1319,7 @@ Header set Cache-Control "max-age=604800, public"
       <p class="fs-15">Font Size 15px </p>
       <p class="fs-16">Font Size 16px </p>
     </div>
-    <pre><code class="language-html">
+    <pre class="prettyprint linenums lang-html">
 &lt;!-- In Font Size 12 --&gt;
 &lt;p class=&quot;fs-12&quot;&gt;Font Size 12px &lt;/p&gt;
 
@@ -1334,7 +1334,7 @@ Header set Cache-Control "max-age=604800, public"
 
 &lt;!-- In Font Size 16 --&gt;
 &lt;p class=&quot;fs-16&quot;&gt;Font Size 16px &lt;/p&gt;
-    </code></pre>
+</pre>
 
     <h4 class="m-t-50">Font Weights</h4>
     <hr>
@@ -1345,7 +1345,7 @@ Header set Cache-Control "max-age=604800, public"
       <h5 class="semi-bold">Semi-bold</h5>
       <h5 class="bold">Most Boldest</h5>
     </div>
-    <pre><code class="language-html">
+    <pre class="prettyprint linenums lang-html">
 &lt;!-- Heading Light Weight --&gt;
 &lt;h5 class=&quot;light&quot;&gt;Thinnest&lt;/h5&gt;
 
@@ -1354,7 +1354,7 @@ Header set Cache-Control "max-age=604800, public"
 
 &lt;!-- Heading bold Weight --&gt;
 &lt;h5 class=&quot;bold&quot;&gt;Most Boldest&lt;/h5&gt;
-    </code></pre>
+</pre>
 
     <h4 class="m-t-50">Font Face Switching</h4>
     <hr>
@@ -1364,13 +1364,13 @@ Header set Cache-Control "max-age=604800, public"
       <h5 class="font-arial">Im now Arial</h5>
       <p class="font-montserrat">I look different now</p>
     </div>
-    <pre><code class="language-html">
+    <pre class="prettyprint linenums lang-html">
 &lt;!-- Heading with Arial font --&gt;
 &lt;h5 class=&quot;font-arial&quot;&gt;Im now Arial&lt;/h5&gt;
 
 &lt;!-- Paragraph with heading font --&gt;
 &lt;p class=&quot;font-montserrat&quot;&gt;I look different now&lt;/p&gt;
-    </code></pre>
+</pre>
 
     <div class="well bs-ref m-t-50 clearfix">
       <span class="pull-left">For native Bootstrap typography classes </span><a href="http://getbootstrap.com/css/#type" target="_blank" class="btn btn-primary pull-right ">Bootstrap Documentation</a>
@@ -1391,20 +1391,21 @@ Header set Cache-Control "max-age=604800, public"
     <p>Follow these steps to include an icon on to your page </p>
     <h5 class="semi-bold">Step one</h5>
     <p>Check if the following Style sheet is already added inside the <code>&lt;head&gt;</code> tag</p>
-    <pre><code class="language-css">
+    <pre class="prettyprint linenums lang-html">
 &lt;link href=&quot;pages/css/pages-icon.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
-    </code></pre>
+</pre>
     <h5 class="semi-bold">Step two</h5>
     <p>
-      Place the icon class in a <code>&lt;i&gt;&lt;/i&gt;</code> tag, pages icon prefix class starts with <code>pg-</code>.
+      Place the icon class in a <code>&lt;i&gt;&lt;/i&gt;</code> tag, pages icon prefix class starts with
+      <code>pg-</code>.
     </p>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
       <p><i class="pg-social"></i></p>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-html">
 &lt;i class=&quot;pg-social&quot;&gt;&lt;/i&gt;
-    </code></pre>
+</pre>
     <div class="m-t-20">
       <h5 class="semi-bold">Envo Icons classes</h5>
       <form id="live-search" action="" class="live-search m-b-20" method="post">
@@ -1522,18 +1523,20 @@ Header set Cache-Control "max-age=604800, public"
     <p>Follow these steps to include an icon on to your page </p>
     <h5 class="semi-bold">Step one</h5>
     <p>Check if the following Style sheet is already added inside the <code>&lt;head&gt;</code> tag</p>
-    <pre><code class="language-css">
+    <pre class="prettyprint linenums lang-html">
 &lt;link href=&quot;'../assets/plugins/font-awesome/4.7.0/css/font-awesome.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
-    </code></pre>
+</pre>
     <h5 class="semi-bold">Step two</h5>
-    <p>Place the icon class in a <code>&lt;i&gt;&lt;/i&gt;</code> tag, pages icon prefix class starts with <code>fa fa-</code>. To view all classes in Font Awesome go to <a href="http://fontawesome.io/icons/" target="_blank">icons example</a> . </p>
+    <p>Place the icon class in a <code>&lt;i&gt;&lt;/i&gt;</code> tag, pages icon prefix class starts with
+      <code>fa fa-</code>. To view all classes in Font Awesome go to
+      <a href="http://fontawesome.io/icons/" target="_blank">icons example</a> . </p>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
       <p><i class="fa fa-address-book"></i></p>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-html">
 &lt;i class=&quot;fa fa-address-book&quot;&gt;&lt;/i&gt;
-    </code></pre>
+</pre>
   </section>
 
   <!-- UI Elements - Buttons -->
@@ -1553,18 +1556,21 @@ Header set Cache-Control "max-age=604800, public"
       <button class="btn btn-warning btn-cons m-b-10">Warning</button>
       <button class="btn btn-danger btn-cons m-b-10">Danger</button>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-html">
 &lt;button class=&quot;btn btn-primary btn-cons&quot;&gt;Primary&lt;/button&gt;
 &lt;button class=&quot;btn btn-success btn-cons&quot;&gt;Success&lt;/button&gt;
 &lt;button class=&quot;btn btn-complete btn-cons&quot;&gt;Complete&lt;/button&gt;
 &lt;button class=&quot;btn btn-info btn-cons&quot;&gt;Info&lt;/button&gt;
 &lt;button class=&quot;btn btn-warning btn-cons&quot;&gt;Warning&lt;/button&gt;
 &lt;button class=&quot;btn btn-danger btn-cons&quot;&gt;Danger&lt;/button&gt;
-    </code></pre>
+</pre>
 
     <h4 class="m-t-50">Button animation</h4>
     <hr>
-    <p>Content inside a button can be animate on hover. Simply include the classes <code>.btn-animated</code> together with <code>.from-top</code> or <code>.from-left</code> to specify the animation direction, followed by the desired <a href="">icon font</a> class name (ex: <code>fa fa-check</code>)</p>
+    <p>Content inside a button can be animate on hover. Simply include the classes
+      <code>.btn-animated</code> together with <code>.from-top</code> or
+      <code>.from-left</code> to specify the animation direction, followed by the desired
+      <a href="">icon font</a> class name (ex: <code>fa fa-check</code>)</p>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
       <button class="btn btn-primary btn-cons btn-animated from-left fa fa-check" type="button">
@@ -1574,21 +1580,23 @@ Header set Cache-Control "max-age=604800, public"
         <span>Clock</span>
       </button>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-html">
 &lt;button class=&quot;btn btn-primary btn-animated from-left fa fa-check&quot; type=&quot;button&quot;&gt;
   &lt;span&gt;Checkbox&lt;/span&gt;
 &lt;/button&gt;
 &lt;button class=&quot;btn btn-primary btn-animated from-top pg pg-clock&quot; type=&quot;button&quot;&gt;
   &lt;span&gt;Clock&lt;/span&gt;
 &lt;/button&gt;
-    </code></pre>
+</pre>
 
     <h4 class="m-t-50">Default Dropdown</h4>
     <hr>
     <div class="alert alert-info">
-      AngularJS users will have to append <code>pg-dropdown</code> directive to the <code>&lt;div class="btn-group dropdown-default"&gt;</code> element
+      AngularJS users will have to append <code>pg-dropdown</code> directive to the
+      <code>&lt;div class="btn-group dropdown-default"&gt;</code> element
     </div>
-    <p>Tired of seeing the standard Bootstrap dropdown? Wrap your dropdown toggle button and dropdown menu within <code>.dropdown-default</code> to get a modern and clean feel</p>
+    <p>Tired of seeing the standard Bootstrap dropdown? Wrap your dropdown toggle button and dropdown menu within
+      <code>.dropdown-default</code> to get a modern and clean feel</p>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
       <div class="btn-group dropdown-default">
@@ -1614,7 +1622,7 @@ Header set Cache-Control "max-age=604800, public"
         </ul>
       </div>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-html">
 &lt;!-- Downside dropdown --&gt;
 &lt;div class=&quot;btn-group dropdown-default&quot;&gt;
   &lt;a class=&quot;btn dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; href=&quot;#&quot;&gt; Dropdown
@@ -1644,11 +1652,13 @@ Header set Cache-Control "max-age=604800, public"
     &lt;/li&gt;
   &lt;/ul&gt;
 &lt;/div&gt;
-    </code></pre>
+</pre>
 
     <h4 class="m-t-50">Tag Options</h4>
     <hr>
-    <p>Add <code>.btn-tag</code> followed by <code>.btn-tag-light</code> or <code>.btn-tag-dark</code> to have tag options with color variations for buttons. Additionally, rounded tags can be achieved by adding <code>.btn-tag-rounded</code></p>
+    <p>Add <code>.btn-tag</code> followed by <code>.btn-tag-light</code> or
+      <code>.btn-tag-dark</code> to have tag options with color variations for buttons. Additionally, rounded tags can be achieved by adding
+      <code>.btn-tag-rounded</code></p>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
       <button class="btn btn-tag  btn-tag-light m-r-20">Link me</button>
@@ -1658,7 +1668,7 @@ Header set Cache-Control "max-age=604800, public"
       <button class="btn btn-tag   btn-tag-light btn-tag-rounded m-r-20">Link me</button>
       <button class="btn btn-tag   btn-tag-dark btn-tag-rounded">Link me</button>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-html">
 &lt;!-- Tag with a light background --&gt;
 &lt;button class=&quot;btn btn-tag  btn-tag-light m-r-20&quot;&gt;Link me&lt;/button&gt;
 
@@ -1670,7 +1680,7 @@ Header set Cache-Control "max-age=604800, public"
 
 &lt;!-- Rounded tag with a dark background --&gt;
 &lt;button class=&quot;btn btn-tag   btn-tag-dark btn-tag-rounded&quot;&gt;Link me&lt;/button&gt;
-    </code></pre>
+</pre>
 
     <h4 class="m-t-50">Rounded buttons</h4>
     <hr>
@@ -1683,7 +1693,7 @@ Header set Cache-Control "max-age=604800, public"
       <br>
       <button class="btn btn-sm btn-rounded">Small</button>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-html">
 &lt;!-- Large rounded button --&gt;
 &lt;button class=&quot;btn btn-lg btn-rounded&quot;&gt;Large rounded&lt;/button&gt;
 
@@ -1692,7 +1702,7 @@ Header set Cache-Control "max-age=604800, public"
 
 &lt;!-- Small rounded button --&gt;
 &lt;button class=&quot;btn btn-sm btn-rounded&quot;&gt;Small&lt;/button&gt;
-    </code></pre>
+</pre>
 
     <div class="well bs-ref m-t-50 clearfix">
       <span class="pull-left">For native Bootstrap button classes </span><a href="http://getbootstrap.com/css/#buttons" target="_blank" class="btn btn-primary pull-right ">Bootstrap Documentation</a>
@@ -1710,9 +1720,9 @@ Header set Cache-Control "max-age=604800, public"
       <p class="all-caps fs-12 bold">Example :</p>
       <p></p>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-html">
 
-    </code></pre>
+</pre>
   </section>
 
   <!-- UI Elements - Create HTML Element - DOCTYPE html -->
@@ -1721,9 +1731,9 @@ Header set Cache-Control "max-age=604800, public"
     <hr>
     <p>Create an doctype tag.</p>
     <div class="phpcode">
-      <pre><code class="language-php">
+      <pre class="prettyprint linenums lang-php">
 $Html->addDoctype(Arguments: type);
-      </code></pre>
+</pre>
     </div>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
@@ -1736,7 +1746,7 @@ $Html->addDoctype(Arguments: type);
       <p>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;</p>
       <p>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd"&gt;</p>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 // returns &lt;!DOCTYPE html PUBLIC ... &gt;
 echo $Html-&gt;addDoctype('xhtml11');
 
@@ -1760,7 +1770,7 @@ echo $Html-&gt;addDoctype('html4-trans');
 
 // returns &lt;!DOCTYPE html PUBLIC ... &gt;
 echo $Html-&gt;addDoctype('html4-frame');
-    </code></pre>
+</pre>
   </section>
 
   <!-- UI Elements - Create HTML Element - META Tag -->
@@ -1769,9 +1779,9 @@ echo $Html-&gt;addDoctype('html4-frame');
     <hr>
     <p>Create meta tag or tags if multi-level array is supplied.</p>
     <div class="phpcode">
-      <pre><code class="language-php">
+      <pre class="prettyprint linenums lang-php">
 $Html->addMeta(Arguments: name, content);
-      </code></pre>
+</pre>
     </div>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
@@ -1781,7 +1791,7 @@ $Html->addMeta(Arguments: name, content);
       <p>&lt;meta name="description" content="Meta Example!" /&gt;</p>
       <p>&lt;meta name="keywords" content="fuel, rocks" /&gt;</p>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 // Add Html Element -> addMeta (Arguments: name, content)
 
 // returns &lt;meta name="description" content="Meta Example!" /&gt;
@@ -1800,7 +1810,7 @@ $meta = array(
 );
 
 echo $Html->addMeta($meta);
-    </code></pre>
+</pre>
   </section>
 
   <!-- UI Elements - Create HTML Element - STYLESHEET Tag -->
@@ -1809,20 +1819,20 @@ echo $Html->addMeta($meta);
     <hr>
     <p>Create an stylesheet tag.</p>
     <div class="phpcode">
-      <pre><code class="language-php">
+      <pre class="prettyprint linenums lang-php">
 $Html->addStylesheet(Arguments: href, media, optional assoc. array);
-      </code></pre>
+</pre>
     </div>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
       <p>&lt;link href="assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css"&gt;</p>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 // Add Html Element -> addStylesheet (Arguments: href, media, optional assoc. array)
 
 // returns &lt;link href="assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css"&gt;
 echo $Html->addStylesheet('assets/plugins/pace/pace-theme-flash.css');
-    </code></pre>
+</pre>
   </section>
 
   <!-- UI Elements - Create HTML Element - SCRIPT Tag -->
@@ -1834,12 +1844,12 @@ echo $Html->addStylesheet('assets/plugins/pace/pace-theme-flash.css');
       <p class="all-caps fs-12 bold">Example :</p>
       <p>&lt;script src="https://code.jquery.com/jquery-2.1.1.min.js"&gt;&lt;/script&gt;</p>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 // Add Html Element -> addScript (Arguments: src, optional assoc. array)
 
 // returns &lt;script src="https://code.jquery.com/jquery-2.1.1.min.js"&gt;&lt;/script&gt;
 echo $Html->addScript('https://code.jquery.com/jquery-2.1.1.min.js');
-    </code></pre>
+</pre>
   </section>
 
   <!-- UI Elements - Create HTML Element - START - END Tag -->
@@ -1848,10 +1858,10 @@ echo $Html->addScript('https://code.jquery.com/jquery-2.1.1.min.js');
     <hr>
     <p>Create an HTML tag.</p>
     <div class="phpcode">
-      <pre><code class="language-php">
+      <pre class="prettyprint linenums lang-php">
 $Html->startTag(Arguments: tag, optional assoc. array);
 $Html->endTag(Arguments: tag);
-      </code></pre>
+</pre>
     </div>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
@@ -1886,7 +1896,7 @@ $Html->endTag(Arguments: tag);
         </tbody>
       </table>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
 // Add Html Element -> endTag (Arguments: tag)
 
@@ -1895,7 +1905,7 @@ echo $Html->startTag('strong') . 'Text in tag' . $Html->endTag('strong');
 
 // returns &lt;strong style="color:red"&gt;Text in tag&lt;/strong&gt;
 echo $Html->startTag('strong', array ('style' => 'color:red')) . 'Text in tag' . $Html->endTag('strong');
-    </code></pre>
+</pre>
   </section>
 
   <!-- UI Elements - Create HTML Element - ANCHOR Tag -->
@@ -1904,9 +1914,9 @@ echo $Html->startTag('strong', array ('style' => 'color:red')) . 'Text in tag' .
     <hr>
     <p>Create an HTML anchor tag.</p>
     <div class="phpcode">
-      <pre><code class="language-php">
+      <pre class="prettyprint linenums lang-php">
 $Html->addAnchor(Arguments: href_link, text, id, class, optional assoc. array);
-      </code></pre>
+</pre>
     </div>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
@@ -1954,14 +1964,14 @@ $Html->addAnchor(Arguments: href_link, text, id, class, optional assoc. array);
           </td>
           <td>
             <?php
-            echo $Html->addAnchor('http://www.google.com', 'Text in anchor', 'cmshelp', 'plugHelp',  array ('style' => 'color:red'));
+            echo $Html->addAnchor('http://www.google.com', 'Text in anchor', 'cmshelp', 'plugHelp', array('style' => 'color:red'));
             ?>
           </td>
         </tr>
         </tbody>
       </table>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
 
 // returns &lt;a href="http://www.google.com"&gt;Text in anchor&lt;/a&gt;
@@ -1975,7 +1985,7 @@ echo $Html->addAnchor('http://www.google.com', 'Text in anchor', 'cmshelp', 'plu
 
 // returns &lt;a href="http://www.google.com" id="cmshelp" class="plugHelp" style="color:red"&gt;Text in anchor&lt;/a&gt;
 echo $Html->addAnchor('http://www.google.com', 'Text in anchor', 'cmshelp', 'plugHelp',  array ('style' => 'color:red'));
-    </code></pre>
+</pre>
   </section>
 
   <!-- UI Elements - Create HTML Element - IMAGE Tag -->
@@ -1984,9 +1994,9 @@ echo $Html->addAnchor('http://www.google.com', 'Text in anchor', 'cmshelp', 'plu
     <hr>
     <p>Create an HTML image tag.</p>
     <div class="phpcode">
-      <pre><code class="language-php">
+      <pre class="prettyprint linenums lang-php">
 $Html->addImg(Arguments: src, optional assoc. array);
-      </code></pre>
+</pre>
     </div>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
@@ -2021,7 +2031,7 @@ $Html->addImg(Arguments: src, optional assoc. array);
         </tbody>
       </table>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 // Add Html Element -> addImg (Arguments: src, optional assoc. array)
 
 // returns &lt;img src="path/to/image.png" alt="image.png" /&gt;
@@ -2029,7 +2039,7 @@ echo $Html->addImg('assets/img/logo.png');
 
 // returns &lt;img src="path/to/image.png" alt="Alt Message" class="myclass" /&gt;
 echo $Html->addImg('assets/img/logo.png', array("alt" => "Alt Message", 'class' => "myclass"));
-    </code></pre>
+</pre>
   </section>
 
   <!-- UI Elements - Create HTML Element - BUTTONF Tag -->
@@ -2038,9 +2048,9 @@ echo $Html->addImg('assets/img/logo.png', array("alt" => "Alt Message", 'class' 
     <hr>
     <p>Creates an html button element.</p>
     <div class="phpcode">
-      <pre><code class="language-php">
+      <pre class="prettyprint linenums lang-php">
 $Html->addButtonF(Arguments: fieldname, value, optional assoc. array);
-      </code></pre>
+</pre>
     </div>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
@@ -2085,7 +2095,7 @@ $Html->addButtonF(Arguments: fieldname, value, optional assoc. array);
         </tbody>
       </table>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 // Add Html Element -> addButtonF (Arguments: fieldname, value, optional assoc. array)
 
 // returns &lt;button type="button" class="btn btn-success" name="subject"&gt;Value&lt;/button&gt;
@@ -2096,7 +2106,7 @@ echo $Html->addButtonF('subject', 'Value', array('type' => 'button', 'class' => 
 
 // returns &lt;button type="button" class="btn btn-success" disabled="disabled" name="subject"&gt;Value&lt;/button&gt;
 echo $Html->addButtonF('subject', 'Value', array('type' => 'button', 'class' => 'btn btn-success', 'disabled' => 'disabled'));
-    </code></pre>
+</pre>
   </section>
 
   <!-- UI Elements - Create HTML Element - BUTTON Tag -->
@@ -2127,12 +2137,12 @@ echo $Html->addButtonF('subject', 'Value', array('type' => 'button', 'class' => 
         </tbody>
       </table>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
 
 // returns &lt;button type="button" name="button" class="btn btn-success"&gt;Button&lt;/button&gt;
 echo $Html->addButton('button', '', 'Button', 'button', '', 'btn btn-success');
-    </code></pre>
+</pre>
   </section>
 
   <!-- UI Elements - Create HTML Element - SUBMITF BUTTON Tag -->
@@ -2141,9 +2151,9 @@ echo $Html->addButton('button', '', 'Button', 'button', '', 'btn btn-success');
     <hr>
     <p>Creates an html button element.</p>
     <div class="phpcode">
-      <pre><code class="language-php">
+      <pre class="prettyprint linenums lang-php">
 $Html->addSubmitF(Arguments: fieldname, value, optional assoc. array);
-      </code></pre>
+</pre>
     </div>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
@@ -2178,7 +2188,7 @@ $Html->addSubmitF(Arguments: fieldname, value, optional assoc. array);
         </tbody>
       </table>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 // Add Html Element -> addSubmitF (Arguments: fieldname, value, optional assoc. array)
 
 // returns &lt;button name="submit" value="Submit" type="submit"&gt;Submit&lt;/button&gt;
@@ -2186,7 +2196,7 @@ echo $Html->addSubmitF();
 
 // returns &lt;button name="submit" value="Submit" id="a1" class="sample" style="color:red" type="submit"&gt;Submit&lt;/button&gt;
 echo $Html->addSubmitF('submit', 'Submit', array('id' => 'a1', 'class' => 'sample', 'style' => 'color:red'));
-    </code></pre>
+</pre>
   </section>
 
   <!-- UI Elements - Create HTML Element - SUBMIT BUTTON Tag -->
@@ -2195,9 +2205,9 @@ echo $Html->addSubmitF('submit', 'Submit', array('id' => 'a1', 'class' => 'sampl
     <hr>
     <p>Creates an html button element.</p>
     <div class="phpcode">
-      <pre><code class="language-php">
+      <pre class="prettyprint linenums lang-php">
 $Html->addButtonSubmit(Arguments: name, value, id, class, optional assoc. array);
-      </code></pre>
+</pre>
     </div>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
@@ -2242,7 +2252,7 @@ $Html->addButtonSubmit(Arguments: name, value, id, class, optional assoc. array)
         </tbody>
       </table>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
 
 // returns &lt;button type="submit" name="submit"&gt;Submit&lt;/button&gt;
@@ -2253,7 +2263,7 @@ echo $Html->addButtonSubmit('save', '&lt;i class="fa fa-save m-r-5"&gt;&lt;/i&gt
 
 // returns &lt;button type="submit" name="save" class="btn btn-success" style="color:red"&gt;&lt;i class="fa fa-save m-r-5"&gt;&lt;/i&gt; Submit&lt;/button&gt;
 echo $Html->addButtonSubmit('save', '&lt;i class="fa fa-save m-r-5"&gt;&lt;/i&gt; Submit', '', 'btn btn-success', array('style' => 'color:red'));
-    </code></pre>
+</pre>
   </section>
 
   <!-- UI Elements - Create HTML Element - TEXTAREAF Tag -->
@@ -2262,9 +2272,9 @@ echo $Html->addButtonSubmit('save', '&lt;i class="fa fa-save m-r-5"&gt;&lt;/i&gt
     <hr>
     <p>Creates an html textarea element.</p>
     <div class="phpcode">
-      <pre><code class="language-php">
+      <pre class="prettyprint linenums lang-php">
 $Html->addTextareaF(Arguments: fieldname, value, optional assoc. array);
-      </code></pre>
+</pre>
     </div>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
@@ -2299,7 +2309,7 @@ $Html->addTextareaF(Arguments: fieldname, value, optional assoc. array);
         </tbody>
       </table>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 // Add Html Element -> addTextareaF (Arguments: fieldname, value, optional assoc. array)
 
 //returns &lt;textarea rows="4" cols="12" name="editor"&gt;Text for textarea&lt;/textarea&gt;
@@ -2307,7 +2317,7 @@ echo $Html->addTextareaF('editor', 'Text for textarea', array('rows' => 4, 'cols
 
 //returns &lt;textarea id="editor" class="form-control" maxlength="400" name="editor"&gt;Text for textarea&lt;/textarea&gt;
 echo $Html->addTextareaF('editor', 'Text for textarea', array('id' => 'editor', 'class' => 'form-control', 'maxlength' => '400'));
-    </code></pre>
+</pre>
   </section>
 
   <!-- UI Elements - Create HTML Element - TEXTAREA Tag -->
@@ -2316,9 +2326,9 @@ echo $Html->addTextareaF('editor', 'Text for textarea', array('id' => 'editor', 
     <hr>
     <p>Creates an html textarea element.</p>
     <div class="phpcode">
-      <pre><code class="language-php">
+      <pre class="prettyprint linenums lang-php">
 $Html->addTextarea(Arguments: name, value, rows, cols, optional assoc. array);
-      </code></pre>
+</pre>
     </div>
     <div class="example">
       <p class="all-caps fs-12 bold">Example :</p>
@@ -2353,7 +2363,7 @@ $Html->addTextarea(Arguments: name, value, rows, cols, optional assoc. array);
         </tbody>
       </table>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
 
 // returns &lt;textarea name="content"&gt;Text for textarea&lt;/textarea&gt;
@@ -2361,7 +2371,7 @@ echo $Html->addTextarea('content', 'Text for textarea');
 
 // returns &lt;textarea name="content" id="editor" class="form-control"&gt;Text for textarea&lt;/textarea&gt;
 echo $Html->addTextarea('content', 'Text for textarea', '', '', array('id' => 'editor', 'class' => 'form-control'));
-    </code></pre>
+</pre>
   </section>
 
   <!-- UI Elements - Create HTML Element - LABELF and RADIOF BUTTON Tag -->
@@ -2385,7 +2395,7 @@ echo $Html->addTextarea('content', 'Text for textarea', '', '', array('id' => 'e
           </td>
           <td>
             <?php
-            echo $Html->addRadioF('gender', 'Female','gender1');
+            echo $Html->addRadioF('gender', 'Female', 'gender1');
             echo $Html->addLabelF('Male', 'gender1');
             ?>
           </td>
@@ -2397,7 +2407,7 @@ echo $Html->addTextarea('content', 'Text for textarea', '', '', array('id' => 'e
           </td>
           <td>
             <?php
-            echo $Html->addRadioF('gender', 'Male', 'gender2', true);
+            echo $Html->addRadioF('gender', 'Male', 'gender2', TRUE);
             echo $Html->addLabelF('Female', 'gender2');
             ?>
           </td>
@@ -2405,7 +2415,7 @@ echo $Html->addTextarea('content', 'Text for textarea', '', '', array('id' => 'e
         </tbody>
       </table>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 // Add Html Element -> addLabelF (Arguments: label, id, optional assoc. array)
 // Add Html Element -> addRadioF (Arguments: fieldname, value, id, checked, optional assoc. array)
 
@@ -2420,7 +2430,7 @@ echo $Html->addRadioF('gender', 'Female','gender1');
 // &lt;input name="gender" value="Male" checked="checked" id="gender2" type="radio"&gt;
 echo $Html->addLabelF('Female', 'gender2');
 echo $Html->addRadioF('gender', 'Male', 'gender2', true);
-    </code></pre>
+</pre>
   </section>
 
   <!-- UI Elements - Create HTML Element - LABELF and CHECKBOXF BUTTON Tag -->
@@ -2456,7 +2466,7 @@ echo $Html->addRadioF('gender', 'Male', 'gender2', true);
           </td>
           <td>
             <?php
-            echo $Html->addCheckboxF('gender', 'Female', 'gender4', true);
+            echo $Html->addCheckboxF('gender', 'Female', 'gender4', TRUE);
             echo $Html->addLabelF('Female', 'gender4');
             ?>
           </td>
@@ -2464,7 +2474,7 @@ echo $Html->addRadioF('gender', 'Male', 'gender2', true);
         </tbody>
       </table>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 // Add Html Element -> addLabelF (Arguments: label, id, optional assoc. array)
 // Add Html Element -> addCheckboxF (Arguments: fieldname, value, id, checked, optional assoc. array)
 
@@ -2479,7 +2489,7 @@ echo $Html->addCheckboxF('gender', 'Male', 'gender3');
 // &lt;input name=&quot;gender&quot; value=&quot;Female&quot; checked=&quot;checked&quot; id=&quot;gender4&quot; type=&quot;checkbox&quot;&gt;
 echo $Html->addLabelF('Female', 'gender4');
 echo $Html->addCheckboxF('gender', 'Female', 'gender4', true);
-    </code></pre>
+</pre>
   </section>
 
   <!-- UI Elements - Create HTML Element - LABEL and RADIO BUTTON Tag -->
@@ -2503,7 +2513,7 @@ echo $Html->addCheckboxF('gender', 'Female', 'gender4', true);
           </td>
           <td>
             <?php
-            echo $Html->addRadio('gender', 'Female', true, 'gender5');
+            echo $Html->addRadio('gender', 'Female', TRUE, 'gender5');
             echo $Html->addLabel('gender5', 'Female');
             ?>
           </td>
@@ -2523,7 +2533,7 @@ echo $Html->addCheckboxF('gender', 'Female', 'gender4', true);
         </tbody>
       </table>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
 // Add Html Element -> addRadio (Arguments: name, value, checked, id, class, optional assoc. array)
 
@@ -2538,7 +2548,7 @@ echo $Html->addRadio('gender', 'Female', true, 'gender5');
 // &lt;input name=&quot;gender&quot; id=&quot;gender6&quot; value=&quot;Male&quot; type=&quot;radio&quot;&gt;
 echo $Html->addLabel('gender6', 'Male');
 echo $Html->addRadio('gender', 'Male', '', 'gender6');
-    </code></pre>
+</pre>
   </section>
 
   <!-- UI Elements - Create HTML Element - LABEL and CHECKBOX BUTTON Tag -->
@@ -2562,7 +2572,7 @@ echo $Html->addRadio('gender', 'Male', '', 'gender6');
           </td>
           <td>
             <?php
-            echo $Html->addCheckbox('gender', 'Female', true, 'gender7');
+            echo $Html->addCheckbox('gender', 'Female', TRUE, 'gender7');
             echo $Html->addLabel('gender7', 'Female');
             ?>
           </td>
@@ -2582,7 +2592,7 @@ echo $Html->addRadio('gender', 'Male', '', 'gender6');
         </tbody>
       </table>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
 // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
 
@@ -2597,7 +2607,7 @@ echo $Html->addCheckbox('gender', 'Female', true, 'gender7');
 // &lt;input name=&quot;gender&quot; id=&quot;gender8&quot; value=&quot;Male&quot; type=&quot;checkbox&quot;&gt;
 echo $Html->addLabel('gender8', 'Male');
 echo $Html->addCheckbox('gender', 'Male', '', 'gender8');
-    </code></pre>
+</pre>
   </section>
 
   <!-- UI Elements - Create HTML Element - INPUT Tag -->
@@ -2605,9 +2615,9 @@ echo $Html->addCheckbox('gender', 'Male', '', 'gender8');
     <h4>INPUT Tag</h4>
     <hr>
     <div class="phpcode">
-      <pre><code class="language-php">
+      <pre class="prettyprint linenums lang-php">
 $Html->addInput(Arguments: type, name, value, id, class, optional assoc. array);
-      </code></pre>
+</pre>
     </div>
     <table class="parameters">
       <thead>
@@ -2673,12 +2683,12 @@ $Html->addInput(Arguments: type, name, value, id, class, optional assoc. array);
         </tbody>
       </table>
     </div>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
 
 // returns &lt;input name=&quot;text&quot; id=&quot;text&quot; value=&quot;Text for textinput&quot; type=&quot;text&quot;&gt;
 echo $Html->addInput('text', 'text', 'Text for textinput');
-    </code></pre>
+</pre>
   </section>
 
   <!-- Plugins -->
@@ -2734,15 +2744,17 @@ echo $Html->addInput('text', 'text', 'Text for textinput');
   <section id="pluginopenurl" class="scrollspyoffset">
     <h2 class="text-center">Open URL</h2>
     <hr>
-    <p>The plugin <strong>Open URL</strong> will add a tiny javascript code to open all external URL's in a new page/tab. That is better for SEO and easier for the administrator.</p>
+    <p>The plugin
+      <strong>Open URL</strong> will add a tiny javascript code to open all external URL's in a new page/tab. That is better for SEO and easier for the administrator.
+    </p>
     <p>The javascript code is as follow:</p>
-    <pre><code class="language-javascript">
+    <pre class="prettyprint linenums lang-php">
 $("a[href^='http']:not([href^=''])")
   .attr({
     target: "_blank"
   })
 });
-    </code></pre>
+</pre>
   </section>
 
   <!-- Plugins - Register Form -->
@@ -2787,14 +2799,14 @@ $("a[href^='http']:not([href^=''])")
     <p>Use this hook to execute PHP code in the search.php file.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 if ($SearchInput) { echo "Your search term: ".$SearchInput; }
-    </code></pre>
+</pre>
 
     <p>If you like to include a file:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 APP_PATH . 'plugins/yourplugin/file_to_include.php';
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_tags -->
@@ -2804,14 +2816,14 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
     <p>Use this hook to execute PHP code in the tags.php file.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 if ($cleanTag) { echo "Your tag: ".$cleanTag; }
-    </code></pre>
+</pre>
 
     <p>If you like to include a file:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 APP_PATH . 'plugins/yourplugin/file_to_include.php';
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_sitemap -->
@@ -2821,14 +2833,14 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
     <p>Use this hook to execute PHP code in the sitemap.php file.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 if ($cat) { echo "Categories: ".$cat; }
-    </code></pre>
+</pre>
 
     <p>If you like to include a file:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 APP_PATH . 'plugins/yourplugin/file_to_include.php';
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_index_top -->
@@ -2838,14 +2850,14 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
     <p>Use this hook to execute PHP code in the index.php file before anything else.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 define('MY_VAR', "cool");
-    </code></pre>
+</pre>
 
     <p>If you like to include a file:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 APP_PATH . 'plugins/yourplugin/file_to_include.php';
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_rss -->
@@ -2855,14 +2867,14 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
     <p>Use this hook to execute PHP code in the rss.php file.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 if ($displayRSS) { echo "My RSS: ".$displayRSS; }
-    </code></pre>
+</pre>
 
     <p>If you like to include a file:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 APP_PATH . 'plugins/yourplugin/file_to_include.php';
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_index_bottom -->
@@ -2872,14 +2884,14 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
     <p>Use this hook to execute PHP code at the very end in the index.php file.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 if (isset($page3)) { echo "CMS is ready..."; } else { echo "CMS is always ready..."; }
-    </code></pre>
+</pre>
 
     <p>If you like to include a file:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 APP_PATH . 'plugins/yourplugin/file_to_include.php';
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_index_page -->
@@ -2889,7 +2901,7 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
     <p>Use this hook to execute PHP code in the index.php file between the page.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 // Confirm user
 if ($page == 'rf_ual') {
   if (is_numeric($page1) && is_numeric($page2) && envo_row_exist($page1, DB_PREFIX.'user') && envo_field_not_exist($page2, DB_PREFIX.'user', 'activatenr')) {
@@ -2920,7 +2932,7 @@ if ($page == 'rf_ual') {
     exit;
   }
 }
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_lang -->
@@ -2930,13 +2942,13 @@ if ($page == 'rf_ual') {
     <p>Use this hook to execute PHP language code in the index.php file.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 if (file_exists(APP_PATH.'plugins/yourplugin/lang/'.$jkv["lang"].'.ini')) {
   $tlt = parse_ini_file(APP_PATH.'plugins/yourplugin/lang/'.$jkv["lang"].'.ini', true);
 } else {
   $tlt = parse_ini_file(APP_PATH.'plugins/yourplugin/lang/en.ini', true);
 }
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_pages_news -->
@@ -2946,14 +2958,14 @@ if (file_exists(APP_PATH.'plugins/yourplugin/lang/'.$jkv["lang"].'.ini')) {
     <p>Use this hook to execute PHP code in the index.php and news.php file. This hook is used in pages and news, the same php code will be executed.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 if (!empty($PAGE_ACTIVE)) { $myplugin = 1; }
-    </code></pre>
+</pre>
 
     <p>If you like to include a file:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 APP_PATH . 'plugins/yourplugin/file_to_include.php';
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_admin_usergroup -->
@@ -2963,15 +2975,15 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
     <p>Use this hook to execute PHP code in the admin/usergroup.php file.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 if (isset($defaults['jak_download'])) {
 	$insert .= 'download = "'.$defaults['jak_download'].'", downloadpost = "'.$defaults['jak_downloadpost'].'", downloadpostapprove = "'.$defaults['jak_downloadpostapprove'].'", downloadpostdelete = "'.$defaults['jak_downloadpostdelete'].'", downloadrate = "'.$defaults['jak_downloadrate'].'", downloadmoderate = "'.$defaults['jak_downloadmoderate'].'",'; }
-    </code></pre>
+</pre>
 
     <p>If you like to include a file:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 APP_PATH . 'plugins/yourplugin/file_to_include.php';
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_admin_user_rename -->
@@ -2981,14 +2993,14 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
     <p>Use this hook to execute PHP code in the admin/users.php file.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 $jakdb->query('UPDATE '.DB_PREFIX.'faqcomments SET username = "'.smartsql($defaults['jak_username']).'" WHERE userid = '.smartsql($page2).'');
-    </code></pre>
+</pre>
 
     <p>If you like to include a file:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 APP_PATH . 'plugins/yourplugin/file_to_include.php';
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_admin_user_delete -->
@@ -2998,14 +3010,14 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
     <p>Use this hook to execute PHP code in the admin/users.php file.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 $jakdb->query('UPDATE '.DB_PREFIX.'faqcomments SET userid = 0 WHERE userid = '.$page2.'');
-    </code></pre>
+</pre>
 
     <p>If you like to include a file:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 APP_PATH . 'plugins/yourplugin/file_to_include.php';
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_admin_user_delete_mass -->
@@ -3015,14 +3027,14 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
     <p>Use this hook to execute PHP code in the admin/users.php file.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 $jakdb->query('UPDATE '.DB_PREFIX.'faqcomments SET userid = 0 WHERE userid = '.$page2.'');
-    </code></pre>
+</pre>
 
     <p>If you like to include a file:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 APP_PATH . 'plugins/yourplugin/file_to_include.php';
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_admin_lang -->
@@ -3032,13 +3044,13 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
     <p>Use this hook to execute PHP language code in the admin/index.php file.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 if (file_exists(APP_PATH.'plugins/yourplugin../assets/lang/'.$jkv["lang"].'.ini')) {
   $tld = parse_ini_file(APP_PATH.'plugins/yourplugin../assets/lang/'.$jkv["lang"].'.ini', true);
 } else {
   $tld = parse_ini_file(APP_PATH.'plugins/yourplugin../assets/lang/en.ini', true);
 }
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_admin_setting -->
@@ -3048,14 +3060,14 @@ if (file_exists(APP_PATH.'plugins/yourplugin../assets/lang/'.$jkv["lang"].'.ini'
     <p>Use this hook to execute PHP code in the admin/setting.php file.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 $plugin_setting = "working...";
-    </code></pre>
+</pre>
 
     <p>If you like to include a file:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 APP_PATH . 'plugins/yourplugin/file_to_include.php';
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_admin_setting_post -->
@@ -3065,9 +3077,9 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
     <p>Use this hook to execute PHP code in the admin/setting.php file.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 if ($defaults['envo_lang'] == '') { $errors['e6'] = $tl['general_error']['generror']; }
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_admin_user -->
@@ -3077,14 +3089,14 @@ if ($defaults['envo_lang'] == '') { $errors['e6'] = $tl['general_error']['generr
     <p>Use this hook to execute PHP code in the admin/users.php file.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 $plugin_user = "Display stuff when showing user in admin";
-    </code></pre>
+</pre>
 
     <p>If you like to include a file:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 APP_PATH . 'plugins/yourplugin/file_to_include.php';
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_admin_user_edit -->
@@ -3094,14 +3106,14 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
     <p>Use this hook to execute PHP code in the admin/users.php file.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 $plugin_user_edit = "Display stuff when edit user";
-    </code></pre>
+</pre>
 
     <p>If you like to include a file:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 APP_PATH . 'plugins/yourplugin/file_to_include.php';
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_admin_index -->
@@ -3111,15 +3123,15 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
     <p>Use this hook to execute PHP code in the admin/index.php file. This hook is located when you open the administration panel.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 $JAK_CMS_VERSION = $jaknewversion;
 $JAK_CMS_NEWS = $jaknewnews;
-    </code></pre>
+</pre>
 
     <p>If you like to include a file:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 APP_PATH . 'plugins/yourplugin/file_to_include.php';
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_admin_fulltext_add -->
@@ -3129,9 +3141,9 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
     <p>Use this hook to execute PHP code in the admin/setting.php file.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 $jakdb->query('ALTER TABLE '.DB_PREFIX.'pages ADD FULLTEXT(`title`, `content`)');
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_admin_fulltext_remove -->
@@ -3141,9 +3153,9 @@ $jakdb->query('ALTER TABLE '.DB_PREFIX.'pages ADD FULLTEXT(`title`, `content`)')
     <p>Use this hook to execute PHP code in the admin/setting.php file.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 $jakdb->query('ALTER TABLE '.DB_PREFIX.'pages DROP INDEX `title`');
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_admin_pages_sql -->
@@ -3153,11 +3165,11 @@ $jakdb->query('ALTER TABLE '.DB_PREFIX.'pages DROP INDEX `title`');
     <p>Use this hook to execute PHP code in the admin/page.php file on two locations. This hook is located when edit or create a new page.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 if (empty($news) && !empty($defaults['jak_shownewsmany'])) {
   $insert .= $defaults['jak_showorder'];
 }
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_admin_news_sql -->
@@ -3167,11 +3179,11 @@ if (empty($news) && !empty($defaults['jak_shownewsmany'])) {
     <p>Use this hook to execute PHP code in the admin/news.php file on two locations. This hook is located when edit or create a new news.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 if (empty($news) && !empty($defaults['jak_shownewsmany'])) {
   $insert .= $defaults['jak_showorder'];
 }
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_admin_pages_news_info -->
@@ -3181,14 +3193,14 @@ if (empty($news) && !empty($defaults['jak_shownewsmany'])) {
     <p>Use this hook to execute PHP code in the admin/page.php and admin/news.php file.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 $JAK_GET_TICKETING = envo_get_page_info(DB_PREFIX.'tickets', '');
-    </code></pre>
+</pre>
 
     <p>If you like to include a file:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 APP_PATH . 'plugins/yourplugin/file_to_include.php';
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: php_admin_widgets_sql -->
@@ -3198,14 +3210,14 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
     <p>This hook enables to fire some sql in the admin widgets section.</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 $getpoll = $JAK_GET_POLL = envo_get_page_info(DB_PREFIX.'polls', '');
-    </code></pre>
+ </pre>
 
     <p>If you like to include a file:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 APP_PATH . 'plugins/yourplugin/file_to_include.php';
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_body_top -->
@@ -3215,9 +3227,9 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
     <p>You can include a file on the very top in the template. This hook is located between theand the very first</p>
 
     <p>You can include a file, for example:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 plugins/yourplugin/template/body_top.php
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_between_head -->
@@ -3227,9 +3239,9 @@ plugins/yourplugin/template/body_top.php
     <p>This hook is located between thetag.</p>
 
     <p>You can include a file, for example:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 plugins/yourplugin/template/css.php
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_header -->
@@ -3239,9 +3251,9 @@ plugins/yourplugin/template/css.php
     <p>This hook is located in between the header, display advertising, buttons or whatever you like next to the logo.</p>
 
     <p>You can include a file, for example:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 plugins/yourplugin/template/css.php
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_below_header -->
@@ -3251,9 +3263,9 @@ plugins/yourplugin/template/css.php
     <p>This hook is located below the header, display advertising, buttons or whatever you like below the navigation and logo.</p>
 
     <p>You can include a file, for example:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 plugins/yourplugin/template/advert.php
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_sidebar -->
@@ -3263,9 +3275,9 @@ plugins/yourplugin/template/advert.php
     <p>This hook is in the sidebar and does work together with the grid/widget system, display advertising, buttons or whatever you like in the sidebar.</p>
 
     <p>You can include a file, for example:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 plugins/yourplugin/template/sidebar.php
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_page -->
@@ -3275,9 +3287,9 @@ plugins/yourplugin/template/sidebar.php
     <p>This hook is located in template/yourtemplate/page.php and will be executed between title and content.</p>
 
     <p>You can include a file, for example:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 plugins/yourplugin/template/page.php
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_footer -->
@@ -3287,9 +3299,9 @@ plugins/yourplugin/template/page.php
     <p>This hook is located in template/yourtemplate/footer.php and will be executed at the very beginning in the footer template.</p>
 
     <p>You can include a file, for example:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 plugins/yourplugin/template/footer.php
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_footer_end -->
@@ -3299,9 +3311,9 @@ plugins/yourplugin/template/footer.php
     <p>This hook is located in template/yourtemplate/footer.php and will be executed at the very end just before the tag.</p>
 
     <p>You can include a file, for example:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 plugins/yourplugin/template/end.php
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_tags -->
@@ -3311,9 +3323,9 @@ plugins/yourplugin/template/end.php
     <p>This hook is located in template/yourtemplate/tags.php and will be executed to display your plugin tags.</p>
 
     <p>You can include a file, for example:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 plugins/yourplugin/template/tags.php
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_sitemap -->
@@ -3323,9 +3335,9 @@ plugins/yourplugin/template/tags.php
     <p>This hook is located in template/yourtemplate/sitemap.php and will be executed to display your plugin sitemap list.</p>
 
     <p>You can include a file, for example:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 plugins/yourplugin/template/sitemap.php
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_search -->
@@ -3335,9 +3347,9 @@ plugins/yourplugin/template/sitemap.php
     <p>This hook is located in template/yourtemplate/search.php and will be executed to display your plugin search result.</p>
 
     <p>You can include a file, for example:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 plugins/yourplugin/template/mysearchresult.php
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_page_news_grid -->
@@ -3347,7 +3359,7 @@ plugins/yourplugin/template/mysearchresult.php
     <p>This hook is located in template/yourtemplate/page.php / template/yourtemplate/newsart.php and will be executed to display your plugin grid result.</p>
 
     <p>You can include a file, for example:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 if ($pg['pluginid'] == JAK_PLUGIN_ID_FAQ && JAK_PLUGIN_ID_FAQ && !empty($row['showfaq'])) {
 
   include_once APP_PATH.'plugins/faq/functions.php';
@@ -3361,7 +3373,7 @@ if ($pg['pluginid'] == JAK_PLUGIN_ID_FAQ && JAK_PLUGIN_ID_FAQ && !empty($row['sh
   }
 
 }
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_admin_usergroup_edit -->
@@ -3371,9 +3383,9 @@ if ($pg['pluginid'] == JAK_PLUGIN_ID_FAQ && JAK_PLUGIN_ID_FAQ && !empty($row['sh
     <p>This hook is located in admin/template/editusergroup.php and will be executed to display your plugin user-group permission.</p>
 
     <p>You can include a file, for example:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 plugins/yourplugin/template/usergroup_edit.php
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_admin_usergroup -->
@@ -3383,9 +3395,9 @@ plugins/yourplugin/template/usergroup_edit.php
     <p>This hook is located in admin/template/editusergroup.php and will be executed to display your plugin user-group permission.</p>
 
     <p>You can include a file, for example:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 plugins/yourplugin/template/usergroup_new.php
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_admin_setting -->
@@ -3395,9 +3407,9 @@ plugins/yourplugin/template/usergroup_new.php
     <p>This hook is located in admin/template/setting.php and will be executed to display your plugin settings.</p>
 
     <p>You can include a file, for example:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 plugins/yourplugin/template/my_setting.php
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_admin_head -->
@@ -3407,9 +3419,9 @@ plugins/yourplugin/template/my_setting.php
     <p>This hook is located in admin/template/header.php and will be executed for your css or javascript files needed for your plugin.</p>
 
     <p>You can include a file, for example:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 plugins/yourplugin/template/my_css_javascript.php
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_admin_footer -->
@@ -3419,9 +3431,9 @@ plugins/yourplugin/template/my_css_javascript.php
     <p>This hook is located in admin/template/footer.php and will be executed at the very end just before the tag.</p>
 
     <p>You can include a file, for example:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 plugins/yourplugin/template/my_copyright.php
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_admin_page_news -->
@@ -3431,11 +3443,11 @@ plugins/yourplugin/template/my_copyright.php
     <p>This hook is located in admin/template/footer.php and will work together with the grid system, you can use PHP and HTML code.</p>
 
     <p>You can include a file, for example:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 if ($pg['pluginid'] == JAK_PLUGIN_FAQ) {
   include_once APP_PATH.'plugins/faq../assets/template/faq_connect.php';
 }
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_admin_page_news_new -->
@@ -3445,9 +3457,9 @@ if ($pg['pluginid'] == JAK_PLUGIN_FAQ) {
     <p>This hook is located in admin/template/footer.php and will be executed to display new plugin stuff in the grid system.</p>
 
     <p>You can include a file, for example:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 plugins/faq../assets/template/connect_new.php
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_admin_user -->
@@ -3457,9 +3469,9 @@ plugins/faq../assets/template/connect_new.php
     <p>This hook is located in admin/template/newuser.php.</p>
 
     <p>You can include a file, for example:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 plugins/yourplugin/template/more_user_information.php
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_admin_user_edit -->
@@ -3469,9 +3481,9 @@ plugins/yourplugin/template/more_user_information.php
     <p>This hook is located in admin/template/edituser.php.</p>
 
     <p>You can include a file, for example:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 plugins/yourplugin/template/more_user_information_edit.php
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_admin_index -->
@@ -3481,9 +3493,9 @@ plugins/yourplugin/template/more_user_information_edit.php
     <p>This hook is located in admin/template/index.php and is made for displaying news about your plugin.</p>
 
     <p>You can include a file, for example:</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 plugins/yourplugin/template/news_on_index.php
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_footer_widgets -->
@@ -3493,7 +3505,7 @@ plugins/yourplugin/template/news_on_index.php
     <p>Place some widgets dynamically in the footer. This is an example how igrid used this hook:</p>
 
     <p class="all-caps fs-12 bold">For example :</p>
-    <pre><code class="language-php">
+    <pre class="prettyprint linenums lang-php">
 if (is_numeric(JAK_BCONTENT1_IGRID_TPL)) {
   if (isset($JAK_HOOK_FOOTER_WIDGET) && is_array($JAK_HOOK_FOOTER_WIDGET)) foreach($JAK_HOOK_FOOTER_WIDGET as $hfw) {
     if ($hfw["id"] == JAK_BCONTENT1_IGRID_TPL) {
@@ -3503,7 +3515,7 @@ if (is_numeric(JAK_BCONTENT1_IGRID_TPL)) {
 } else {
   echo JAK_BCONTENT1_IGRID_TPL;
 }
-    </code></pre>
+</pre>
   </section>
 
   <!-- Hooks - Hook: tpl_below_content -->

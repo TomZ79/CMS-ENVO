@@ -1,4 +1,4 @@
-  <?php include "header.php"; ?>
+<?php include "header.php"; ?>
 
 <?php if ($page2 == "e") { ?>
   <script type="text/javascript">

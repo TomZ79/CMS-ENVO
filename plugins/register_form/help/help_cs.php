@@ -8,12 +8,15 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&subset=latin-ext" rel="stylesheet">
 
   <!-- ======= CSS STYLE ======= -->
-  <link rel="stylesheet" href="/assets/doc/css/doc.css">
-  <link rel="stylesheet" href="/assets/doc/js/syntaxhighlighter/styles/shCoreKreatura.css">
-  <link rel="stylesheet" href="/assets/doc/js/syntaxhighlighter/styles/shThemeKreatura.css">
+  <!-- Code-prettify -->
+  <link href="/admin/assets/plugins/code-prettify-master/themes/github/github.css" rel="stylesheet" type="text/css"/>
+  <script src="/admin/assets/plugins/code-prettify-master/src/prettify.js"></script>
+  <!-- Main style -->
+  <link rel="stylesheet" href="/admin/assets/doc/css/doc.css">
+
 
   <!--[if lt IE 9]>
-  <script src="/assets/doc/js/html5.js"></script>
+  <script src="/admin/assets/doc/js/html5.js"></script>
   <![endif]-->
 
 </head>
@@ -66,7 +69,7 @@
       <article>
         <h4>Changelog</h4>
         <h5>v 1.2</h5>
-        <pre name="code" class="brush: plain;">
+        <pre class="prettyprint">
 // # Seznam nových komponent
 // ------------------------------
 
@@ -86,7 +89,7 @@
 				</pre>
 
         <h5>v 1.1</h5>
-        <pre name="code" class="brush: plain;">
+        <pre class="prettyprint">
 // # Seznam nových komponent
 // ------------------------------
 
@@ -119,18 +122,12 @@
 
 <!-- ======= JQUERY SCRIPT ======= -->
 <script src="/assets/plugins/jquery/jquery-2.2.4.min.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shCore.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushXml.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushCss.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushPhp.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushPlain.js" type="text/javascript"></script>
-<script src="/assets/doc/js/doc.js"></script>
+<script src="/admin/assets/doc/js/doc.js"></script>
 
 <script>
-  $(document).ready(function () {
-    //Initialize Pages core
-    hljs.initHighlightingOnLoad();
+  // Init Code-Prettify
+  window.onload = (function () {
+    prettyPrint();
   });
 </script>
 

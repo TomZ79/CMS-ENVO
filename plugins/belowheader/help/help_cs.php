@@ -8,12 +8,15 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&subset=latin-ext" rel="stylesheet">
 
   <!-- ======= CSS STYLE ======= -->
-  <link rel="stylesheet" href="/assets/doc/css/doc.css">
-  <link rel="stylesheet" href="/assets/doc/js/syntaxhighlighter/styles/shCoreKreatura.css">
-  <link rel="stylesheet" href="/assets/doc/js/syntaxhighlighter/styles/shThemeKreatura.css">
+  <!-- Code-prettify -->
+  <link href="/admin/assets/plugins/code-prettify-master/themes/github/github.css" rel="stylesheet" type="text/css"/>
+  <script src="/admin/assets/plugins/code-prettify-master/src/prettify.js"></script>
+  <!-- Main style -->
+  <link rel="stylesheet" href="/admin/assets/doc/css/doc.css">
+
 
   <!--[if lt IE 9]>
-  <script src="/assets/doc/js/html5.js"></script>
+  <script src="/admin/assets/doc/js/html5.js"></script>
   <![endif]-->
 
 </head>
@@ -95,57 +98,14 @@
       <!-- Folders and Files -->
       <article>
         <h4>Soubory a Složky</h4>
-        <div class="css-treeview">
-          <ul>
-            <li>
-              <input type="checkbox" id="item-0"/>
-              <label for="item-0">admin</label>
-              <span>(administrace pluginu)</span>
-              <ul>
-                <li>
-                  <input type="checkbox" id="item-0-0"/>
-                  <label for="item-0-0">js</label>
-                  <span>(javascript a jquery soubory)</span>
-                  <ul>
-                    <li class="file">pages.belowheader.php</li>
-                  </ul>
-                </li>
-                <li>
-                  <input type="checkbox" id="item-0-1"/>
-                  <label for="item-0-1">lang</label>
-                  <span>(jazykové soubory)</span>
-                  <ul>
-                    <li class="file">cs.ini</li>
-                    <li class="file">en.ini</li>
-                  </ul>
-                </li>
-                <li>
-                  <input type="checkbox" id="item-0-2"/>
-                  <label for="item-0-2">template</label>
-                  <span>(šablony pro administrační rozhraní)</span>
-                  <ul>
-                    <li class="file">bh.php</li>
-                    <li class="file">bhnav.php</li>
-                    <li class="file">editbh.php</li>
-                    <li class="file">newbh.php</li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li class="file">bhinput.php</li>
-            <li class="file">bhinputb.php</li>
-            <li class="file">help.php</li>
-            <li class="file">install.php</li>
-            <li class="file">uninstall.php</li>
-          </ul>
-        </div>
+
       </article>
 
       <!-- Changelog -->
       <article>
         <h4>Changelog</h4>
         <h5>v 1.1</h5>
-        <pre name="code" class="brush: plain;">
+        <pre class="prettyprint">
 // # Seznam nových komponent
 // ------------------------------
 
@@ -186,9 +146,9 @@
         <p>This hook is located below the header, display advertising, buttons or whatever you like below the navigation and logo.</p>
 
         <p>You can include a file, for example:</p>
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 plugins/belowheader/bhinput.php
-        </pre>
+</pre>
 
       </article>
 
@@ -199,9 +159,9 @@ plugins/belowheader/bhinput.php
         <p>This is the brother from the below_header hook. You can close some divs or add some extra stuff that doesn't fit in the main section.</p>
 
         <p>You can include a file, for example:</p>
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 plugins/belowheader/bhinputb.php
-        </pre>
+</pre>
 
       </article>
 
@@ -211,13 +171,13 @@ plugins/belowheader/bhinputb.php
         <p>Use this hook to execute PHP language code in the admin/index.php file.</p>
 
         <p>For example:</p>
-        <pre name="code" class="brush: php;">
+        <pre class="prettyprint linenums lang-php">
 if (file_exists(APP_PATH.'plugins/belowheader/admin/lang/'.$site_language.'.ini')) {
     $tlbh = parse_ini_file(APP_PATH.'plugins/belowheader/admin/lang/'.$site_language.'.ini', true);
 } else {
     $tlbh = parse_ini_file(APP_PATH.'plugins/belowheader/admin/lang/en.ini', true);
 }
-        </pre>
+</pre>
 
       </article>
 
@@ -228,18 +188,12 @@ if (file_exists(APP_PATH.'plugins/belowheader/admin/lang/'.$site_language.'.ini'
 
 <!-- ======= JQUERY SCRIPT ======= -->
 <script src="/assets/plugins/jquery/jquery-2.2.4.min.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shCore.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushJScript.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushXml.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushCss.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushPhp.js" type="text/javascript"></script>
-<script src="/assets/doc/js/syntaxhighlighter/scripts/shBrushPlain.js" type="text/javascript"></script>
-<script src="/assets/doc/js/doc.js"></script>
+<script src="/admin/assets/doc/js/doc.js"></script>
 
 <script>
-  $(document).ready(function () {
-    //Initialize Pages core
-    hljs.initHighlightingOnLoad();
+  // Init Code-Prettify
+  window.onload = (function () {
+    prettyPrint();
   });
 </script>
 

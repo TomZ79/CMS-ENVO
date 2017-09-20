@@ -5,10 +5,6 @@ $(document).ready(function () {
 		document.location.hash = 'overview';
 	}
 
-	// Init syntax highlighter
-	SyntaxHighlighter.defaults['toolbar'] = false;
-	SyntaxHighlighter.all();
-
 	// jump to deeplink
 	$('a[data-goto]').click(function () {
 		$('aside li[data-deeplink="' + $(this).data('goto') + '"]').click();
