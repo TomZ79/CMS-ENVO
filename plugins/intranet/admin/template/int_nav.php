@@ -49,6 +49,40 @@ if ($page == 'intranet') {
     <?php } ?>
     <li class="list-divider"></li>
 
+    <li class="<?php echo (($page == 'intranet' && $page1 == 'notification') || ($page == 'intranet' && $page1 == 'newnotification')) ? 'submenu-active' : ''; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=intranet&amp;sp=notification', $tlint["int_menu"]["intm4"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tlint["int_menu"]["intm4"]), 'icon-thumbnail');
+      ?>
+
+    </li>
+    <li class="<?php echo ($page == 'intranet' && $page1 == 'notification' && $page2 == 'newnotification') ? 'submenu-active' : ''; ?>">
+
+      <?php
+      // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+      echo $Html->addAnchor('index.php?p=intranet&amp;sp=notification&amp;ssp=newnotification', $tlint["int_menu"]["intm5"]);
+      // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+      echo $Html->addTag('span', text_clipping_lower($tlint["int_menu"]["intm5"]), 'icon-thumbnail');
+      ?>
+
+    </li>
+    <?php if ($page == 'intranet' && $page1 == 'notification' && $page2 == 'editnotification') { ?>
+      <li class="<?php echo ($page == 'intranet' && $page1 == 'notification' && $page2 == 'editnotification') ? 'submenu-active' : ''; ?>">
+
+        <?php
+        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+        echo $Html->addAnchor('index.php?p=intranet&amp;sp=notification&amp;ssp=editnotification&amp;id=' . $page2, $tlint["int_menu"]["intm6"]);
+        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+        echo $Html->addTag('span', text_clipping_lower($tlint["int_menu"]["intm6"]), 'icon-thumbnail');
+        ?>
+
+      </li>
+    <?php } ?>
+    <li class="list-divider"></li>
+
     <li class="<?php echo ($page == 'intranet' && $page1 == 'setting') ? 'submenu-active' : ''; ?>">
 
       <?php

@@ -25,6 +25,7 @@ $envotable3 = DB_PREFIX . 'intranethousecontact';
 $envotable4 = DB_PREFIX . 'intranethousedocu';
 $envotable5 = DB_PREFIX . 'intranethouseimg';
 $envotable6 = DB_PREFIX . 'intranethouseserv';
+$envotable7 = DB_PREFIX . 'intranethousenotifications';
 
 // EN: Include the functions
 // CZ: Vložené funkce
@@ -352,6 +353,64 @@ switch ($page1) {
         // EN: Load the php template
         // CZ: Načtení php template (šablony)
         $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_house.php';
+
+    }
+
+    break;
+  case 'notification':
+
+    switch ($page2) {
+      case 'newnotification':
+        // ADD NEW NOTIFICATION TO DB
+
+        // EN: Title and Description
+        // CZ: Titulek a Popis
+        $SECTION_TITLE = $tlint["int_sec_title"]["intt5"];
+        $SECTION_DESC  = $tlint["int_sec_desc"]["intd5"];
+
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_newnotification.php';
+
+        break;
+      case 'editnotification':
+        // EDIT NOTIFICATION
+
+        // EN: Default Variable
+        // CZ: Hlavní proměnné
+        $pageID = $page3;
+
+        if (is_numeric($pageID) && envo_row_exist($pageID, $envotable7)) {
+
+
+
+          // EN: Title and Description
+          // CZ: Titulek a Popis
+          $SECTION_TITLE = $tlint["int_sec_title"]["intt6"];
+          $SECTION_DESC  = $tlint["int_sec_desc"]["intd6"];
+
+          // EN: Load the php template
+          // CZ: Načtení php template (šablony)
+          $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_editnotification.php';
+
+        } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
+          envo_redirect(BASE_URL . 'index.php?p=intranet&sp=notification&status=ene');
+        }
+
+        break;
+      default:
+        // LIST OF NOTIFICATION
+
+        // EN: Title and Description
+        // CZ: Titulek a Popis
+        $SECTION_TITLE = $tlint["int_sec_title"]["intt4"];
+        $SECTION_DESC  = $tlint["int_sec_desc"]["intd4"];
+
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_notification.php';
 
     }
 
