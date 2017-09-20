@@ -1,1 +1,0 @@
-<script src="/plugins/register_form/js/script.registerform.js" type="text/javascript"></script>

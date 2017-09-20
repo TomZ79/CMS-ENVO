@@ -817,10 +817,5 @@ pre {
   word-wrap: break-word;
   background-color: #F5F5F5;
   border: 1px solid #CCC;
-  overflow: auto;
-  font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important;
-}
-
-pre span {
-  font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important;
+  font-family: "Courier New", monospace !important;
 }
