@@ -57,6 +57,20 @@ if ($('#htmleditor').length) {
   htmlACE.session.setValue(texthtml);
 }
 
+/* Responsive Filemanager
+ * @require: TinyMCE Filemanager Plugin
+ ========================================= */
+function responsive_filemanager_callback(field_id) {
+
+  if (field_id == "htmleditor") {
+
+    // get the path for the ace file
+    var acefile = jQuery('#' + field_id).val();
+
+    htmlACE.insert(acefile);
+  }
+}
+
 $(function () {
 
   /* Submit Form

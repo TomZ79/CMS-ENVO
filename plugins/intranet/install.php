@@ -342,14 +342,25 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
-        // EN: Create table for plugin (House - Documents)
-        // CZ: Vytvoření tabulky pro plugin (Bytový dům - Dokumentace)
+        // EN: Create table for plugin (House - Notification)
+        // CZ: Vytvoření tabulky pro plugin (Bytový dům - Notifikace)
         $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousenotifications (
-        `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `recipient_id` int(11) NOT NULL,
-  `unread`  varchar(255) NOT NULL DEFAULT 0,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `type` varchar(255) NULL DEFAULT NULL,
-  `text` text NOT NULL,
+  `title` varchar(255) NULL DEFAULT NULL,
+  `content` varchar(255) NULL DEFAULT NULL,
+  `permission` varchar(100) NOT NULL DEFAULT 0,
+  `created` DATETIME DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
+
+        // EN: Create table for plugin (House - Notification)
+        // CZ: Vytvoření tabulky pro plugin (Bytový dům - Notifikace)
+        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousenotificationug (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `notification_id` varchar(100) NOT NULL DEFAULT 0,
+  `usergroup_id` varchar(100) NOT NULL DEFAULT 0,
+  `unread`  varchar(255) NOT NULL DEFAULT 0,
   `created` DATETIME DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');

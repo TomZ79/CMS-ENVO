@@ -31,6 +31,8 @@ $envotable  = DB_PREFIX . 'intranethouse';
 $envotable1 = DB_PREFIX . 'intranethousecontact';
 $envotable2 = DB_PREFIX . 'intranethouseserv';
 $envotable3 = DB_PREFIX . 'intranethouseimg';
+$envotable4 = DB_PREFIX . 'intranethousenotifications';
+$envotable5 = DB_PREFIX . 'intranethousenotificationug';
 
 // Parse links once if needed a lot of time
 $backtoblog = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_INTRANET, '', '', '', '');

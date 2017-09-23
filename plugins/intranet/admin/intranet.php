@@ -26,6 +26,7 @@ $envotable4 = DB_PREFIX . 'intranethousedocu';
 $envotable5 = DB_PREFIX . 'intranethouseimg';
 $envotable6 = DB_PREFIX . 'intranethouseserv';
 $envotable7 = DB_PREFIX . 'intranethousenotifications';
+$envotable8 = DB_PREFIX . 'intranethousenotificationug';
 
 // EN: Include the functions
 // CZ: Vložené funkce
@@ -363,6 +364,93 @@ switch ($page1) {
       case 'newnotification':
         // ADD NEW NOTIFICATION TO DB
 
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          // EN: Default Variable
+          // CZ: Hlavní proměnné
+          $defaults = $_POST;
+
+          if (isset($_POST['btnSave'])) {
+
+            // EN: Check if name of house isn't empty
+            // CZ: Kontrola jestli je zadáný název domu
+            if (empty($defaults['envo_title'])) {
+              $errors['e1'] = $tlint['int_error']['interror7'] . '<br>';
+            }
+
+            // EN: All checks are OK without Errors - Start the form processing
+            // CZ: Všechny kontroly jsou v pořádku bez chyb - Spustit zpracování formuláře
+            if (count($errors) == 0) {
+
+              // Permissions
+              if (!isset($defaults['envo_permission'])) {
+                $permission = 0;
+              } elseif (in_array(0, $defaults['envo_permission'])) {
+                $permission = 0;
+              } else {
+                $permission = join(',', $defaults['envo_permission']);
+              }
+
+              /* EN: Convert value
+               * smartsql - secure method to insert form data into a MySQL DB
+               * url_slug  - friendly URL slug from a string
+               * ------------------
+               * CZ: Převod hodnot
+               * smartsql - secure method to insert form data into a MySQL DB
+               * url_slug  - friendly URL slug from a string
+              */
+              $result = $jakdb->query('INSERT INTO ' . $envotable7 . ' SET 
+                        type = "",
+                        title = "' . smartsql($defaults['envo_title']) . '",
+                        content = "' . smartsql($defaults['jak_content']) . '",
+                        permission = "' . smartsql($permission) . '",
+                        created = NOW()');
+
+              $rowid = $jakdb->jak_last_id();
+
+              // EN: User group access for notification
+              // CZ: Přístup jednotlivých uživatelských skupin k notifikaci
+              if (!isset($defaults['envo_permission'])) {
+                $jakdb->query('INSERT INTO ' . $envotable8 . ' SET 
+                        notification_id = "' . $rowid . '",
+                        usergroup_id = "0",
+                        unread = "0",
+                        created = NOW()');
+              } elseif (in_array(0, $defaults['envo_permission'])) {
+                $jakdb->query('INSERT INTO ' . $envotable8 . ' SET 
+                        notification_id = "' . $rowid . '",
+                        usergroup_id = "0",
+                        unread = "0",
+                        created = NOW()');
+              } else {
+                foreach ($defaults['envo_permission'] as $permission) {
+                  $jakdb->query('INSERT INTO ' . $envotable8 . ' SET 
+                        notification_id = "' . $rowid . '",
+                        usergroup_id = "' . $permission . '",
+                        unread = "0",
+                        created = NOW()');
+                }
+              }
+
+              if (!$result) {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
+                envo_redirect(BASE_URL . 'index.php?p=intranet&sp=notification&ssp=newnotification&status=e');
+              } else {
+                // EN: Redirect page
+                // CZ: Přesměrování stránky
+                envo_redirect(BASE_URL . 'index.php?p=intranet&sp=notification&ssp=editnotification&id=' . $rowid . '&status=s');
+              }
+
+            } else {
+              $errors['e'] = $tl['general_error']['generror'] . '<br>';
+              $errors      = $errors;
+            }
+          }
+        }
+
+        // Get all usergroup's
+        $ENVO_USERGROUP = envo_get_usergroup_all('usergroup');
+
         // EN: Title and Description
         // CZ: Titulek a Popis
         $SECTION_TITLE = $tlint["int_sec_title"]["intt5"];
@@ -382,7 +470,97 @@ switch ($page1) {
 
         if (is_numeric($pageID) && envo_row_exist($pageID, $envotable7)) {
 
+          if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // EN: Default Variable
+            // CZ: Hlavní proměnné
+            $defaults = $_POST;
 
+            if (isset($_POST['btnSave'])) {
+
+              // EN: Check if name of house isn't empty
+              // CZ: Kontrola jestli je zadáný název domu
+              if (empty($defaults['envo_title'])) {
+                $errors['e1'] = $tlint['int_error']['interror7'] . '<br>';
+              }
+
+              // EN: All checks are OK without Errors - Start the form processing
+              // CZ: Všechny kontroly jsou v pořádku bez chyb - Spustit zpracování formuláře
+              if (count($errors) == 0) {
+
+                // Permissions
+                if (!isset($defaults['envo_permission'])) {
+                  $permission = 0;
+                } elseif (in_array(0, $defaults['envo_permission'])) {
+                  $permission = 0;
+                } else {
+                  $permission = join(',', $defaults['envo_permission']);
+                }
+
+                /* EN: Convert value
+                 * smartsql - secure method to insert form data into a MySQL DB
+                 * url_slug  - friendly URL slug from a string
+                 * ------------------
+                 * CZ: Převod hodnot
+                 * smartsql - secure method to insert form data into a MySQL DB
+                 * url_slug  - friendly URL slug from a string
+                */
+                $result = $jakdb->query('UPDATE ' . $envotable7 . ' SET
+                        type = "",
+                        title = "' . smartsql($defaults['envo_title']) . '",
+                        content = "' . smartsql($defaults['jak_content']) . '",
+                        permission = "' . smartsql($permission) . '"
+                        WHERE id = "' . smartsql($pageID) . '"');
+
+                // Delete the Content
+                $jakdb->query('DELETE FROM ' . $envotable8 . ' WHERE notification_id = "' . smartsql($pageID) . '"');
+
+                // Permissions
+                if (!isset($defaults['envo_permission'])) {
+                  $jakdb->query('INSERT INTO ' . $envotable8 . ' SET 
+                        notification_id = "' . $pageID . '",
+                        usergroup_id = "0",
+                        unread = "0",
+                        created = NOW()');
+                } elseif (in_array(0, $defaults['envo_permission'])) {
+                  $jakdb->query('INSERT INTO ' . $envotable8 . ' SET 
+                        notification_id = "' . $pageID . '",
+                        usergroup_id = "0",
+                        unread = "0",
+                        created = NOW()');
+                } else {
+                  foreach ($defaults['envo_permission'] as $permission) {
+                    $jakdb->query('INSERT INTO ' . $envotable8 . ' SET 
+                        notification_id = "' . $pageID . '",
+                        usergroup_id = "' . $permission . '",
+                        unread = "0",
+                        created = NOW()');
+                  }
+                }
+
+                if (!$result) {
+                  // EN: Redirect page
+                  // CZ: Přesměrování stránky
+                  envo_redirect(BASE_URL . 'index.php?p=intranet&sp=notification&ssp=editnotification&id=' . $pageID . '&status=e');
+                } else {
+                  // EN: Redirect page
+                  // CZ: Přesměrování stránky
+                  envo_redirect(BASE_URL . 'index.php?p=intranet&sp=notification&ssp=editnotification&id=' . $pageID . '&status=s');
+                }
+
+              } else {
+                $errors['e'] = $tl['general_error']['generror'] . '<br>';
+                $errors      = $errors;
+              }
+
+            }
+          }
+
+          // Get all usergroup's
+          $ENVO_USERGROUP = envo_get_usergroup_all('usergroup');
+
+          // EN: Get all the data for the form - house
+          // CZ: Získání všech dat pro formulář - bytový dům
+          $ENVO_FORM_DATA = envo_get_data($pageID, $envotable7);
 
           // EN: Title and Description
           // CZ: Titulek a Popis
@@ -401,7 +579,7 @@ switch ($page1) {
 
         break;
       default:
-        // LIST OF NOTIFICATION
+        // LIST OF NOTIFICATIONS
 
         // EN: Title and Description
         // CZ: Titulek a Popis
