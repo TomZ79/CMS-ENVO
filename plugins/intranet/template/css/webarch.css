@@ -37,7 +37,6 @@
  * 25. Responsive Bootstrap Tabs
  *
  */
-
 /* 01. Import fonts
  ========================================================================*/
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
@@ -3073,6 +3072,10 @@ span.iconset {
   margin: 0 !important;
 }
 
+.no-border {
+  border: none !important;
+}
+
 .spacing-bottom {
   margin-bottom: 30px;
 }
@@ -3108,11 +3111,19 @@ span.iconset {
 }
 
 .padding-10 {
-  padding: 10px;
+  padding: 10px !important;
 }
 
 .padding-20 {
-  padding: 20px;
+  padding: 20px !important;
+}
+
+.padding-30 {
+  padding: 30px !important;
+}
+
+.padding-40 {
+  padding: 40px !important;
 }
 
 .p-t-5 {
@@ -3645,22 +3656,6 @@ span.iconset {
 
 .hide {
   display: none;
-}
-
-.margin-top-10 {
-  margin-top: 10px;
-}
-
-.margin-top-20 {
-  margin-top: 20px;
-}
-
-.margin-bottom-10 {
-  margin-bottom: 10px;
-}
-
-.margin-bottom-20 {
-  margin-bottom: 20px;
 }
 
 .inline {
@@ -5819,7 +5814,7 @@ form legend,
 .grid {
   clear: both;
   margin-top: 0;
-  /* margin-bottom: 25px; */
+  margin-bottom: 25px;
   padding: 0;
 }
 
@@ -5997,11 +5992,6 @@ form legend,
   position: relative;
 }
 
-.grid.simple .grid-title.no-border {
-  border: 0;
-  border-bottom: 0;
-}
-
 .grid.simple .form-actions {
   margin-right: -26px !important;
   margin-left: -26px !important;
@@ -6026,18 +6016,9 @@ form legend,
   color: #6F7B8A;
 }
 
-.grid.simple .grid-body.no-padding {
-  padding: 0;
-}
-
 .grid.simple .grid-body .wrap-body {
   padding: 0 26px;
   padding-top: 10px;
-}
-
-.grid.simple .grid-body.no-border {
-  border: 0;
-  padding-top: 1px;
 }
 
 .grid.simple .grid-body h4 {
@@ -6493,7 +6474,6 @@ form legend,
 
 .notification-messages.success:hover {
   background-color: #D9EDF1;
-  cursor: pointer;
 }
 
 .notification-messages.success .iconholder i {
@@ -6506,7 +6486,6 @@ form legend,
 
 .notification-messages.danger:hover {
   background-color: #FAE1E1;
-  cursor: pointer;
 }
 
 .notification-messages.danger .iconholder i {
@@ -6519,7 +6498,6 @@ form legend,
 
 .notification-messages.info:hover {
   background-color: #D8EBF4;
-  cursor: pointer;
 }
 
 .notification-messages.info .iconholder i {
@@ -8692,10 +8670,6 @@ code:hover {
   padding: 11px 12px !important;
   color: #576475;
   font-size: 13px;
-}
-
-.table td.no-border {
-  border: none;
 }
 
 .table td:first-child {
@@ -12480,52 +12454,72 @@ ul.filters li a.active {
   -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
   animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
 }
+
 .sk-cube-grid .sk-cube1 {
   -webkit-animation-delay: 0.2s;
-  animation-delay: 0.2s; }
+  animation-delay: 0.2s;
+}
+
 .sk-cube-grid .sk-cube2 {
   -webkit-animation-delay: 0.3s;
-  animation-delay: 0.3s; }
+  animation-delay: 0.3s;
+}
+
 .sk-cube-grid .sk-cube3 {
   -webkit-animation-delay: 0.4s;
-  animation-delay: 0.4s; }
+  animation-delay: 0.4s;
+}
+
 .sk-cube-grid .sk-cube4 {
   -webkit-animation-delay: 0.1s;
-  animation-delay: 0.1s; }
+  animation-delay: 0.1s;
+}
+
 .sk-cube-grid .sk-cube5 {
   -webkit-animation-delay: 0.2s;
-  animation-delay: 0.2s; }
+  animation-delay: 0.2s;
+}
+
 .sk-cube-grid .sk-cube6 {
   -webkit-animation-delay: 0.3s;
-  animation-delay: 0.3s; }
+  animation-delay: 0.3s;
+}
+
 .sk-cube-grid .sk-cube7 {
   -webkit-animation-delay: 0s;
-  animation-delay: 0s; }
+  animation-delay: 0s;
+}
+
 .sk-cube-grid .sk-cube8 {
   -webkit-animation-delay: 0.1s;
-  animation-delay: 0.1s; }
+  animation-delay: 0.1s;
+}
+
 .sk-cube-grid .sk-cube9 {
   -webkit-animation-delay: 0.2s;
-  animation-delay: 0.2s; }
+  animation-delay: 0.2s;
+}
 
 @-webkit-keyframes sk-cubeGridScaleDelay {
   0%, 70%, 100% {
     -webkit-transform: scale3D(1, 1, 1);
     transform: scale3D(1, 1, 1);
-  } 35% {
-      -webkit-transform: scale3D(0, 0, 1);
-      transform: scale3D(0, 0, 1);
-    }
+  }
+  35% {
+    -webkit-transform: scale3D(0, 0, 1);
+    transform: scale3D(0, 0, 1);
+  }
 }
 
 @keyframes sk-cubeGridScaleDelay {
   0%, 70%, 100% {
     -webkit-transform: scale3D(1, 1, 1);
     transform: scale3D(1, 1, 1);
-  } 35% {
-      -webkit-transform: scale3D(0, 0, 1);
-      transform: scale3D(0, 0, 1);
-    }
+  }
+  35% {
+    -webkit-transform: scale3D(0, 0, 1);
+    transform: scale3D(0, 0, 1);
+  }
 }
 
 /* 25. Responsive Bootstrap Tabs

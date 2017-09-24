@@ -73,7 +73,7 @@ if ($errors) { ?>
 
                 <?php
                 // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                echo $Html->addTag('h3', 'Titulek', 'box-title');
+                echo $Html->addTag('h3', 'Titulek a Typ', 'box-title');
                 ?>
 
               </div>
@@ -99,6 +99,28 @@ if ($errors) { ?>
                           ?>
 
                         </div>
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html->addTag('strong', 'Type');
+                        ?>
+
+                      </div>
+                      <div class="col-md-7">
+                        <select name="envo_type" class="form-control selectpicker">
+
+                          <?php
+                          // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                          echo $Html->addOption('info', 'Info', (isset($_REQUEST["envo_type"]) && $_REQUEST["envo_type"] == 'info') ? TRUE : FALSE);
+                          echo $Html->addOption('success', 'Success', (isset($_REQUEST["envo_type"]) && $_REQUEST["envo_type"] == 'success') ? TRUE : FALSE);
+                          echo $Html->addOption('danger', 'Danger', (isset($_REQUEST["envo_type"]) && $_REQUEST["envo_type"] == 'danger') ? TRUE : FALSE);
+                          ?>
+
+                        </select>
                       </div>
                     </div>
                   </div>

@@ -346,9 +346,10 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
         // CZ: Vytvoření tabulky pro plugin (Bytový dům - Notifikace)
         $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousenotifications (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NULL DEFAULT NULL,
+  `varname` varchar(255) NULL DEFAULT NULL,
   `type` varchar(255) NULL DEFAULT NULL,
-  `title` varchar(255) NULL DEFAULT NULL,
-  `content` varchar(255) NULL DEFAULT NULL,
+  `content` text NULL,
   `permission` varchar(100) NOT NULL DEFAULT 0,
   `created` DATETIME DEFAULT NULL,
   PRIMARY KEY (`id`)

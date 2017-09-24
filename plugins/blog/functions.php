@@ -22,7 +22,7 @@ function envo_get_blog($limit, $order, $where, $table_row, $ext_seo, $timeago)
     $shortmsg = envo_cut_text($row['content'], $jkv["shortmsg"], '...');
 
     // There should be always a varname in categories and check if seo is valid
-    $seo = "";
+    $seo = '';
     if ($ext_seo) $seo = JAK_base::jakCleanurl($row['title']);
     $parseurl = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_BLOG, 'a', $row['id'], $seo);
 

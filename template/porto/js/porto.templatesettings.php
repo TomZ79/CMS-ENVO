@@ -4,7 +4,7 @@
    ========================================= */
   if ($('#htmleditor2').length) {
     var htmlefACE2 = ace.edit("htmleditor2");
-    htmlefACE2.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
+    htmlefACE2.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>");
     htmlefACE2.session.setUseWrapMode(true);
     htmlefACE2.session.setWrapLimitRange(<?php echo $jkv["acewraplimit"] . ',' . $jkv["acewraplimit"]; ?>);
     htmlefACE2.setOptions({
@@ -28,7 +28,7 @@
 
   if ($('#htmleditor3').length) {
     var htmlefACE3 = ace.edit("htmleditor3");
-    htmlefACE3.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
+    htmlefACE3.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>");
     htmlefACE3.session.setUseWrapMode(true);
     htmlefACE3.session.setWrapLimitRange(<?php echo $jkv["acewraplimit"] . ',' . $jkv["acewraplimit"]; ?>);
     htmlefACE3.setOptions({

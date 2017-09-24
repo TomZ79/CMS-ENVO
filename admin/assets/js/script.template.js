@@ -36,11 +36,17 @@
  *  aceEditor['otherconfigvariable'] = <?php echo json_encode($othervalue); ?>;
  * </script>
  ========================================= */
+// Set WrapLimitRange from generated_js.php
+$wrapLimitRange = {
+  min: aceEditor.acewraplimit,
+  max: aceEditor.acewraplimit
+};
+
 if ($('#htmleditor').length) {
   var htmlefACE = ace.edit('htmleditor');
-  htmlefACE.setTheme('ace/theme/' + aceEditor.acetheme); // Theme chrome, monokai
+  htmlefACE.setTheme('ace/theme/' + aceEditor.acetheme);
   htmlefACE.session.setUseWrapMode(true);
-  htmlefACE.session.setWrapLimitRange(aceEditor.acewraplimit +  ',' + aceEditor.acewraplimit);
+  htmlefACE.session.setWrapLimitRange($wrapLimitRange.min, $wrapLimitRange.max);
   htmlefACE.setOptions({
     // session options
     mode: "ace/mode/html",

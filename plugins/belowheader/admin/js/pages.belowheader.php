@@ -10,7 +10,7 @@
   // ACE editor 1
   if ($('#htmleditor').length) {
     var htmlACE = ace.edit("htmleditor");
-    htmlACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
+    htmlACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>");
     htmlACE.session.setUseWrapMode(true);
     htmlACE.session.setWrapLimitRange(<?php echo $jkv["acewraplimit"] . ',' . $jkv["acewraplimit"]; ?>);
     htmlACE.setOptions({
@@ -35,7 +35,7 @@
   // ACE editor 2
   if ($('#htmleditor2').length) {
     var htmlACE2 = ace.edit("htmleditor2");
-    htmlACE2.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
+    htmlACE2.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>");
     htmlACE2.session.setUseWrapMode(true);
     htmlACE2.session.setWrapLimitRange(<?php echo $jkv["acewraplimit"] . ',' . $jkv["acewraplimit"]; ?>);
     htmlACE2.setOptions({

@@ -1,6 +1,13 @@
 <?php
 // EN: Getting the data about the Houses without limit by usergroupid
-// CZ: Získání dat o bytových domech bez limitu podle id uživatelské skupiny
+// CZ: Získání dat o bytových domech bez limitu podle 'id' uživatelské skupiny
+
+/**
+ * @param $table
+ * @param $ext_seo
+ * @param $usergroupid
+ * @return array
+ */
 function envo_get_house_info($table, $ext_seo, $usergroupid)
 {
   global $jakdb;
@@ -16,7 +23,7 @@ function envo_get_house_info($table, $ext_seo, $usergroupid)
     if (in_array($usergroupid, $usergrouparray) || $usergroupid == 3 || $row['permission'] == 0) {
 
       // There should be always a varname in categories and check if seo is valid
-      $seo = "";
+      $seo = '';
       if ($ext_seo) $seo = JAK_base::jakCleanurl($row['varname']);
       $parseurl = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_INTRANET . '/house', 'h', $row['id'], $seo);
 
@@ -36,15 +43,168 @@ function envo_get_house_info($table, $ext_seo, $usergroupid)
   if (isset($envodata)) return $envodata;
 }
 
+/**
+ * EN: Getting the data about the Notifications without limit by usergroupid
+ * CZ: Získání dat o Notifikacích bez limitu podle 'id' uživatelské skupiny
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $ext_seo      boolean   - TRUE or FALSE (TRUE => parseurl with add 'varname' to url)
+ * @param $usergroupid  integer   - Usergorup ID
+ * @return array
+ *
+ * Example of returned array
+ *
+ *  array (
+ *   0 =>
+ *    array (
+ *      'count' => 3,
+ *      'count_msg' => 'Message for count',
+ *    ),
+ *    1 =>
+ *    array (
+ *      'id' => '1',
+ *      'name' => 'Notifikace 1',
+ *      'varname' => 'notifikace-1',
+ *      'type' => 'info',
+ *      'content' => 'Content of notification',
+ *      'permission' => '3,8,9',
+ *      'created' => '2017-09-23 19:28:57',
+ *      'parseurl' => '/intranet/house/h/1',
+ *    ),
+ *  )
+ *
+ */
+function envo_get_notification_unread($ext_seo, $usergroupid)
+{
+  global $jakdb;
+  $envodata = array();
+
+  $result = $jakdb->query('
+            SELECT 
+            
+            ' . DB_PREFIX . 'intranethousenotifications.*
+            
+            FROM 
+            ' . DB_PREFIX . 'intranethousenotifications
+            
+            INNER JOIN
+            ' . DB_PREFIX . 'intranethousenotificationug
+            
+            ON
+            ' . DB_PREFIX . 'intranethousenotificationug.notification_id = ' . DB_PREFIX . 'intranethousenotifications.id
+            
+            WHERE
+            ' . DB_PREFIX . 'intranethousenotificationug.usergroup_id = ' . $usergroupid . '
+            
+            AND
+            ' . DB_PREFIX . 'intranethousenotificationug.unread = 0
+            
+            ORDER BY id DESC
+            
+            ');
+
+  // Determine number of rows result set
+  $row_cnt = $result->num_rows;
+
+  // Add count to array
+  $envodata[] = array(
+    'count'     => $row_cnt,
+    'count_msg' => ''
+  );
+
+  if ($row_cnt > 0) {
+    while ($row = $result->fetch_assoc()) {
+      // There should be always a varname in notification and check if seo is valid
+      $seo = '';
+      if ($ext_seo) $seo = JAK_base::jakCleanurl($row['varname']);
+      $parseurl = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_INTRANET . '/notification', 'n', $row['id'], $seo);
+
+      // EN: Insert each record into array
+      // CZ: Vložení získaných dat do pole
+      $envodata[] = array(
+        'id'         => $row['id'],
+        'name'       => $row['name'],
+        'varname'    => $row['varname'],
+        'type'       => $row['type'],
+        'created'    => $row['created'],
+        'parseurl'   => $parseurl,
+      );
+    }
+  } else {
+
+  }
+
+  if (isset($envodata)) return $envodata;
+}
+
+
+function envo_get_notification_all($ext_seo, $usergroupid)
+{
+  global $jakdb;
+  $envodata = array();
+
+  $result = $jakdb->query('
+            SELECT 
+            
+            ' . DB_PREFIX . 'intranethousenotifications.*
+            
+            FROM 
+            ' . DB_PREFIX . 'intranethousenotifications
+            
+            INNER JOIN
+            ' . DB_PREFIX . 'intranethousenotificationug
+            
+            ON
+            ' . DB_PREFIX . 'intranethousenotificationug.notification_id = ' . DB_PREFIX . 'intranethousenotifications.id
+            
+            WHERE
+            ' . DB_PREFIX . 'intranethousenotificationug.usergroup_id = ' . $usergroupid . '
+            
+            ORDER BY id DESC
+            
+            ');
+
+  // Determine number of rows result set
+  $row_cnt = $result->num_rows;
+
+  if ($row_cnt > 0) {
+    while ($row = $result->fetch_assoc()) {
+      // There should be always a varname in notification and check if seo is valid
+      $seo = '';
+      if ($ext_seo) $seo = JAK_base::jakCleanurl($row['varname']);
+      $parseurl = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_INTRANET . '/notification', 'n', $row['id'], $seo);
+
+      // EN: Insert each record into array
+      // CZ: Vložení získaných dat do pole
+      $envodata[] = array(
+        'name'       => $row['name'],
+        'type'       => $row['type'],
+        'content'    => $row['content'],
+        'created'    => $row['created'],
+        'parseurl'   => $parseurl,
+      );
+    }
+  } else {
+
+  }
+
+  if (isset($envodata)) return $envodata;
+}
 /** EN: Server CPU Usage
  *
  * Example:
  * <span class="result"><?php get_server_cpu_usage() ?>%</span>
-*/
-function get_server_cpu_usage(){
+ */
+function get_server_cpu_usage()
+{
 
   $load = sys_getloadavg();
+
   return $load[0];
 
 }
+
 ?>

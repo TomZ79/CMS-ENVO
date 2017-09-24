@@ -115,10 +115,32 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'envo_title', $ENVO_FORM_DATA["title"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_title', $ENVO_FORM_DATA["name"], '', 'form-control');
                           ?>
 
                         </div>
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html->addTag('strong', 'Type');
+                        ?>
+
+                      </div>
+                      <div class="col-md-7">
+                        <select name="envo_type" class="form-control selectpicker">
+
+                          <?php
+                          // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                          echo $Html->addOption('info', 'Info', ($ENVO_FORM_DATA["type"] == 'info') ? TRUE : FALSE);
+                          echo $Html->addOption('success', 'Success', ($ENVO_FORM_DATA["type"] == 'success') ? TRUE : FALSE);
+                          echo $Html->addOption('danger', 'Danger', ($ENVO_FORM_DATA["type"] == 'danger') ? TRUE : FALSE);
+                          ?>
+
+                        </select>
                       </div>
                     </div>
                   </div>

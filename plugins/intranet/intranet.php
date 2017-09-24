@@ -49,11 +49,16 @@ if (JAK_USERID) {
   $result          = $jakdb->query('SELECT name FROM ' . DB_PREFIX . 'usergroup WHERE id="' . $jakuser->getVar("usergroupid") . '"');
   $row             = $result->fetch_assoc();
   $ENVO_USER_GROUP = $row['name'];
+
 }
 
 // EN: Include the functions
 // CZ: Vložené funkce
 include_once("functions.php");
+
+// EN: Info about notifications
+// CZ: Info o notifikacích
+$ENVO_NOTIFICATION = envo_get_notification_unread(FALSE, JAK_USERGROUPID);
 
 // -------- DATA FOR SELECTED FRONTEND PAGES --------
 // -------- DATA PRO VYBRANÉ FRONTEND STRÁNKY --------
@@ -140,7 +145,6 @@ switch ($page1) {
 
           }
 
-
         } else {
           envo_redirect($backtoblog);
         }
@@ -163,7 +167,7 @@ switch ($page1) {
         // -------- VŠE V POŘÁDKU: KÓD PRO HLAVNÍ STRÁNKU --------
 
         // EN: Getting the data about the Houses by usergroupid
-        // CZ: Získání dat o bytových domech podle id uživatelské skupiny
+        // CZ: Získání dat o bytových domech podle 'id' uživatelské skupiny
         $ENVO_HOUSE_ALL = envo_get_house_info($envotable, FALSE, JAK_USERGROUPID);
 
         // EN: Title and Description
@@ -177,6 +181,121 @@ switch ($page1) {
 
     }
 
+    break;
+  case 'notification':
+    // NOTIFICATION
+
+    switch ($page2) {
+      case 'n':
+        // INFO ABOUT NOTIFICATION
+
+        // EN: Default Variable
+        // CZ: Hlavní proměnné
+        $pageID = $page3;
+
+        if (is_numeric($pageID) && envo_row_exist($pageID, $envotable4)) {
+
+          // EN: Check if user has permission to see it - usergroup 'Administrator' have permission to all data automatically
+          // Cz: Kontrola jestli má uživatel přístup k datům - Uživatelská skupina 'Administrátor' má přístup ke všem datům automaticky
+          if (envo_row_permission($pageID, $envotable4, JAK_USERGROUPID)) {
+            // USER HAVE PERMISSION
+
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+              // EN: Default Variable
+              // CZ: Hlavní proměnné
+              $defaults = $_POST;
+
+              if (isset($_POST['btnRead'])) {
+
+                /* EN: Convert value
+                   * smartsql - secure method to insert form data into a MySQL DB
+                   * url_slug  - friendly URL slug from a string
+                   * ------------------
+                   * CZ: Převod hodnot
+                   * smartsql - secure method to insert form data into a MySQL DB
+                   * url_slug  - friendly URL slug from a string
+                  */
+                $result = $jakdb->query('UPDATE ' . $envotable5 . ' SET
+                        unread = "1"
+                        WHERE notification_id = "' . smartsql($pageID) . '"');
+
+                if (!$result) {
+
+                } else {
+                  // EN: Info about notifications - refresh data
+                  // CZ: Info o notifikacích - refresh data
+                  $ENVO_NOTIFICATION = envo_get_notification_unread(FALSE, JAK_USERGROUPID);
+                }
+
+              }
+
+            }
+
+            $result = $jakdb->query('
+                      SELECT ' . $envotable4 . '.*, ' . $envotable5 . '.unread 
+                      FROM ' . $envotable4 . ', ' . $envotable5 . ' 
+                      WHERE ' . $envotable4 . '.id = "' . smartsql($pageID) . '"
+                      AND ' . $envotable5 . '.notification_id="' . smartsql($pageID) . '"
+                      AND ' . $envotable5 . '.usergroup_id="' . JAK_USERGROUPID . '"
+                      LIMIT 1
+                      ');
+            while ($row = $result->fetch_assoc()) {
+              // EN: Insert each record into array
+              // CZ: Vložení získaných dat do pole
+              $ENVO_NOTIFICATION_DETAIL[]  = $row;
+            }
+
+            // EN: Title and Description
+            // CZ: Titulek a Popis
+            $SECTION_TITLE = 'Notifikace';
+            $SECTION_DESC  = 'Detail notifikace';
+
+            // EN: Load the php template
+            // CZ: Načtení php template (šablony)
+            $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_notification_detail.php';
+
+          } else {
+            // USER HAVE NOT PERMISSION
+
+            envo_redirect(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_INTRANET, '404', '', '', ''));
+
+          }
+
+        } else {
+          envo_redirect($backtoblog);
+        }
+
+        break;
+      default:
+
+        // ----------- ERROR: REDIRECT PAGE ------------
+        // -------- CHYBA: PŘESMĚROVÁNÍ STRÁNKY --------
+
+        // EN: If not exist value in 'case', redirect page to 404
+        // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
+        if (!empty($page2)) {
+          if ($page2 != 'n') {
+            envo_redirect(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_INTRANET, '404', '', '', ''));
+          }
+        }
+
+        // ----------- SUCCESS: CODE FOR MAIN PAGE ------------
+        // -------- VŠE V POŘÁDKU: KÓD PRO HLAVNÍ STRÁNKU --------
+
+        // EN: Getting the data about the Notifications by usergroupid
+        // CZ: Získání dat o Notifikacích podle 'id' uživatelské skupiny
+        $ENVO_NOTIFICATION_ALL = envo_get_notification_all(FALSE, JAK_USERGROUPID);
+
+        // EN: Title and Description
+        // CZ: Titulek a Popis
+        $SECTION_TITLE = 'Notifikace';
+        $SECTION_DESC  = 'Seznam notifikací';
+
+        // EN: Load the php template
+        // CZ: Načtení php template (šablony)
+        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'int_notification.php';
+
+    }
     break;
   default:
     // MAIN PAGE OF PLUGIN - DASHBOARD
@@ -197,7 +316,8 @@ switch ($page1) {
 
     // Get the stats
     if (JAK_USERGROUPID == 3) {
-      // If usergroup is 'Administrator'
+      // EN: If usergroup is 'Administrator'
+      // CZ: Pokud je uživatelská skupiny přihlášeného uživatele 'Administrator'
 
       // EN: Getting count of all records in DB
       // CZ: Získání počtu všech záznamů v DB
@@ -210,24 +330,42 @@ switch ($page1) {
       $ENVO_PERCENT = ($rowCtotal['houseCtotal'] * 100) . '%';
 
     } else {
-      // For other usergroup
+      // EN: For other usergroup
+      // CZ: Ostatní uživatelské skupiny přihlášených uživatelů
 
       // EN: Getting count of all records in DB
       // CZ: Získání počtu všech záznamů v DB
       $result    = $jakdb->query('SELECT COUNT(*) as houseCtotal FROM ' . $envotable);
       $rowCtotal = $result->fetch_assoc();
 
-      // EN: Getting count of records in DB by usergroup
-      // CZ: Získání počtu záznamů v DB podle uživatelské skupiny
-      // Find in permission column 'usergroupid' or '0'. 0 means availability for all user groups.
-      $result = $jakdb->query('SELECT * FROM ' . $envotable . ' WHERE FIND_IN_SET("' . JAK_USERGROUPID . '", permission) OR  FIND_IN_SET("0", permission)');
-      // Determine number of rows result set
-      $row_cnt      = $result->num_rows;
+      if ($rowCtotal['houseCtotal'] > 0) {
+        // EN: If '$rowCtotal' have some record
+        // CZ: Pokud '$rowCtotal' obsahuje záznam
 
-      // Count of all records by usergroup
-      $ENVO_COUNTS  = $row_cnt;
-      // Percentage - records by usergroup / all records
-      $ENVO_PERCENT = ($row_cnt / $rowCtotal['houseCtotal'] * 100) . '%';
+        // EN: Getting count of records in DB by usergroup
+        // CZ: Získání počtu záznamů v DB podle uživatelské skupiny
+        // Find in permission column 'usergroupid' or '0'. 0 means availability for all user groups.
+        $result = $jakdb->query('SELECT * FROM ' . $envotable . ' WHERE FIND_IN_SET("' . JAK_USERGROUPID . '", permission) OR  FIND_IN_SET("0", permission)');
+        // Determine number of rows result set
+        $row_cnt      = $result->num_rows;
+
+        // Count of all records by usergroup
+        $ENVO_COUNTS  = $row_cnt;
+        // Percentage - records by usergroup / all records
+        $ENVO_PERCENT = ($row_cnt / $rowCtotal['houseCtotal'] * 100) . '%';
+
+      } else {
+        // EN: If '$rowCtotal' have not some record
+        // CZ: Pokud '$rowCtotal' neobsahuje záznam
+
+        // Count of all records by usergroup
+        $ENVO_COUNTS  = 0;
+        // Percentage - records by usergroup / all records
+        $ENVO_PERCENT = '0%';
+
+
+      }
+
     }
 
     // EN: Load the php template

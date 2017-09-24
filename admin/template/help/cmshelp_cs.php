@@ -405,6 +405,18 @@
         </li>
       </ul>
     </li>
+    <li class="active">
+      <a href="#phphelptools">
+        <span class="title"><i class="pg-folder"></i> PHP Help a Tools</span>
+      </a>
+      <ul class="sub-menu no-padding">
+        <li>
+          <a href="#phparray">
+            <span class="title">PHP Array</span>
+          </a>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
 <!-- END SECONDARY SIDEBAR MENU -->
@@ -3523,6 +3535,28 @@ if (is_numeric(JAK_BCONTENT1_IGRID_TPL)) {
     <h2 class="text-center">Hook: tpl_below_content</h2>
     <hr>
     <p>This is the brother from the below_header hook. You can close some divs or add some extra stuff that doesn't fit in the main section.</p>
+  </section>
+
+
+  <!-- PHP Help a Tools -->
+  <section id="phphelptools" class="scrollspyoffset">
+    <h2 class="text-center">PHP Help a Tools</h2>
+    <hr>
+
+  </section>
+
+  <!-- PHP Array -->
+  <section id="phparray" class="scrollspyoffset">
+    <h2 class="text-center">PHP Array</h2>
+    <hr>
+    <h4 class="m-t-50">PHP Array - Output formatted array</h4>
+    <hr>
+    <p></p>
+    <pre class="prettyprint linenums lang-php">
+// Output a formatted array
+print('&lt;pre&gt;' . var_export($ARRAY, TRUE) . '&lt;/pre&gt;');
+</pre>
+
   </section>
 
   <!-- XXXX -->

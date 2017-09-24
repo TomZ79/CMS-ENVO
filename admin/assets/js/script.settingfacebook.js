@@ -36,11 +36,17 @@
  *  aceEditor['otherconfigvariable'] = <?php echo json_encode($othervalue); ?>;
  * </script>
  ========================================= */
+// Set WrapLimitRange from generated_js.php
+$wrapLimitRange = {
+  min: aceEditor.acewraplimit,
+  max: aceEditor.acewraplimit
+};
+
 if ($('#txteditor').length) {
   var txtACE = ace.edit("txteditor");
-  txtACE.setTheme('ace/theme/' + aceEditor.acetheme); // Theme chrome, monokai
+  txtACE.setTheme('ace/theme/' + aceEditor.acetheme);
   txtACE.session.setUseWrapMode(true);
-  txtACE.session.setWrapLimitRange(aceEditor.acewraplimit + ',' + aceEditor.acewraplimit);
+  txtACE.session.setWrapLimitRange($wrapLimitRange.min, $wrapLimitRange.max);
   txtACE.setOptions({
     // session options
     mode: "ace/mode/php",
@@ -62,9 +68,9 @@ if ($('#txteditor').length) {
 
 if ($('#txteditor1').length) {
   var txtACE1 = ace.edit("txteditor1");
-  txtACE1.setTheme('ace/theme/' + aceEditor.acetheme); // Theme chrome, monokai
+  txtACE1.setTheme('ace/theme/' + aceEditor.acetheme);
   txtACE1.session.setUseWrapMode(true);
-  txtACE1.session.setWrapLimitRange(aceEditor.acewraplimit + ',' + aceEditor.acewraplimit);
+  txtACE1.session.setWrapLimitRange($wrapLimitRange.min, $wrapLimitRange.max);
   txtACE1.setOptions({
     // session options
     mode: "ace/mode/php",

@@ -1,3 +1,11 @@
+<?php
+// EN: Number of notifications
+// CZ: Počet oznámení
+if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
+  $notifCount = $ENVO_NOTIFICATION[0]["count"];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="<?php echo $site_language; ?>">
 <head>
@@ -103,57 +111,70 @@
         <ul class="nav quick-section">
           <li class="quicklinks"><span class="h-seperate"></span></li>
           <li class="quicklinks">
-            <a href="#" class="" id="my-task-list" data-placement="bottom" data-content='' data-toggle="dropdown" data-original-title="Notifications">
+            <a href="#" class="" id="my-task-list" data-placement="bottom" data-content='' data-toggle="dropdown" data-original-title="Notifikace">
               <i class="material-icons">email</i>
-              <span class="badge badge-important animated bounceIn">2</span>
+
+                <?php
+                if ($notifCount > 0) {
+                  // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                  echo $Html->addTag('span', $notifCount, 'badge badge-important animated bounceIn');
+                }
+                ?>
+
             </a>
           </li>
         </ul>
       </div>
       <div id="notification-list" style="display:none">
         <div style="width:300px">
-          <div class="notification-messages info">
-            <div class="message-wrapper">
-              <div class="heading">
-                David Nester - Commented on your wall
-              </div>
-              <div class="description">
-                Meeting postponed to tomorrow
-              </div>
-              <div class="date pull-left">
-                A min ago
-              </div>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-          <div class="notification-messages danger">
-            <div class="message-wrapper">
-              <div class="heading">
-                Server load limited
-              </div>
-              <div class="description">
-                Database server has reached its daily capicity
-              </div>
-              <div class="date pull-left">
-                2 mins ago
-              </div>
-            </div>
-            <div class="clearfix"></div>
-          </div>
-          <div class="notification-messages success">
-            <div class="message-wrapper">
-              <div class="heading">
-                You haveve got 150 messages
-              </div>
-              <div class="description">
-                150 newly unread messages in your inbox
-              </div>
-              <div class="date pull-left">
-                An hour ago
-              </div>
-            </div>
-            <div class="clearfix"></div>
-          </div>
+
+          <?php
+
+          if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
+
+            if ($notifCount > 0) {
+
+              // EN: Start foreach loop on array at the second item - First item is info obout count of notifications
+              // CZ: Spuštění foreach smyčky na pole u druhé položky - První položka je informace o počtu oznámení
+              foreach (array_slice($ENVO_NOTIFICATION, 1)  as $en) {
+
+                // Start - Notification
+                echo '<div class="notification-messages ' . $en["type"] . '">';
+                echo '<div class="message-wrapper">';
+                // Start - Heading
+                echo '<div class="heading">';
+                echo '<a href="' . $en["parseurl"] . '">' . $en["name"] . '</a>';
+                echo '</div>';
+                // End - Heading
+                // Start - Description
+                echo '<div class="description">';
+                echo 'Meeting postponed to tomorrow';
+                echo '</div>';
+                // End - Description
+                // Start - Date
+                echo '<div class="date pull-left">';
+                echo $en["created"];
+                echo '</div>';
+                // End - Date
+                echo '</div>';
+                echo '<div class="clearfix"></div>';
+                echo '</div>';
+                // End - Notification
+
+              }
+
+            } else {
+              // Start - Notification not exists
+              echo '<div class="text-center padding-10">';
+              echo 'Žádná notifikace k zobrazení';
+              echo '</div>';
+              // End - Notification not exists
+            }
+
+          }
+
+          ?>
+
         </div>
       </div>
       <!-- END TOP NAVIGATION MENU -->
@@ -172,16 +193,23 @@
             </a>
             <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
               <li>
-                <a href="#"> My Account</a>
+                <a href="#"> Uživatelský Profil</a>
               </li>
               <li>
-                <a href="#"> Messages
-                  <span class="badge badge-important animated bounceIn">2</span>
+                <a href="<?php echo JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_INTRANET, 'notification', '', '', ''); ?>"> Notifikace
+
+                  <?php
+                  if ($notifCount > 0) {
+                    // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                    echo $Html->addTag('span', $notifCount, 'badge badge-important animated bounceIn');
+                  }
+                  ?>
+
                 </a>
               </li>
               <li class="divider"></li>
               <li>
-                <a href="<?php echo $P_USR_LOGOUT; ?>"><i class="material-icons">power_settings_new</i>&nbsp;&nbsp;Log Out</a>
+                <a href="<?php echo $P_USR_LOGOUT; ?>"><i class="material-icons">power_settings_new</i>&nbsp;&nbsp;Odhlásit</a>
               </li>
             </ul>
           </li>

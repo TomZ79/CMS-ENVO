@@ -35,11 +35,18 @@
  *  aceEditor['otherconfigvariable'] = <?php echo json_encode($othervalue); ?>;
  * </script>
  ========================================= */
+// Set WrapLimitRange from generated_js.php
+$wrapLimitRange = {
+  min: aceEditor.acewraplimit,
+  max: aceEditor.acewraplimit
+};
+
+
 if ($('#htmleditorlight').length > 0) {
   var htmlACE = ace.edit('htmleditorlight');
-  htmlACE.setTheme('ace/theme/' + aceEditor.acetheme); // Theme chrome, monokai
+  htmlACE.setTheme('ace/theme/' + aceEditor.acetheme);
   htmlACE.session.setUseWrapMode(true);
-  htmlACE.session.setWrapLimitRange(80, 80);
+  htmlACE.session.setWrapLimitRange($wrapLimitRange.min, $wrapLimitRange.max);
   htmlACE.setOptions({
     // session options
     mode: "ace/mode/html",
@@ -61,9 +68,9 @@ if ($('#htmleditorlight').length > 0) {
 
 if ($('#htmleditorlight1').length > 0) {
   var htmlACE1 = ace.edit("htmleditorlight1");
-  htmlACE1.setTheme('ace/theme/' + aceEditor.acetheme); // Theme chrome, monokai
+  htmlACE1.setTheme('ace/theme/' + aceEditor.acetheme);
   htmlACE1.session.setUseWrapMode(true);
-  htmlACE1.session.setWrapLimitRange(80, 80);
+  htmlACE1.session.setWrapLimitRange($wrapLimitRange.min, $wrapLimitRange.max);
   htmlACE1.setOptions({
     // session options
     mode: "ace/mode/html",

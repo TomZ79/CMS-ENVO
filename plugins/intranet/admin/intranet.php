@@ -399,8 +399,9 @@ switch ($page1) {
                * url_slug  - friendly URL slug from a string
               */
               $result = $jakdb->query('INSERT INTO ' . $envotable7 . ' SET 
-                        type = "",
-                        title = "' . smartsql($defaults['envo_title']) . '",
+                        name = "' . smartsql($defaults['envo_title']) . '",
+                        varname = "' . url_slug($defaults['envo_title'], array('transliterate' => TRUE)) . '",
+                        type = "' . smartsql($defaults['envo_type']) . '",
                         content = "' . smartsql($defaults['jak_content']) . '",
                         permission = "' . smartsql($permission) . '",
                         created = NOW()');
@@ -410,18 +411,29 @@ switch ($page1) {
               // EN: User group access for notification
               // CZ: Přístup jednotlivých uživatelských skupin k notifikaci
               if (!isset($defaults['envo_permission'])) {
+                // EN: Usergroup not exists
+                // CZ: Uživatelská skupina neexistuje
+
                 $jakdb->query('INSERT INTO ' . $envotable8 . ' SET 
                         notification_id = "' . $rowid . '",
                         usergroup_id = "0",
                         unread = "0",
                         created = NOW()');
+
               } elseif (in_array(0, $defaults['envo_permission'])) {
+                // EN: Usergroup exists, selection contains '0' value
+                // CZ: Uživatelská skupina existuje, výběr obsahuje hodnotu "0"
+
                 $jakdb->query('INSERT INTO ' . $envotable8 . ' SET 
                         notification_id = "' . $rowid . '",
                         usergroup_id = "0",
                         unread = "0",
                         created = NOW()');
+
               } else {
+                // EN: Usergoup exists, selection contains array
+                // CZ: Uživatelská skupina existuje, výběr obsahuje pole
+
                 foreach ($defaults['envo_permission'] as $permission) {
                   $jakdb->query('INSERT INTO ' . $envotable8 . ' SET 
                         notification_id = "' . $rowid . '",
@@ -429,6 +441,7 @@ switch ($page1) {
                         unread = "0",
                         created = NOW()');
                 }
+
               }
 
               if (!$result) {
@@ -505,29 +518,43 @@ switch ($page1) {
                  * url_slug  - friendly URL slug from a string
                 */
                 $result = $jakdb->query('UPDATE ' . $envotable7 . ' SET
-                        type = "",
-                        title = "' . smartsql($defaults['envo_title']) . '",
+                        name = "' . smartsql($defaults['envo_title']) . '",
+                        varname = "' . url_slug($defaults['envo_title'], array('transliterate' => TRUE)) . '",
+                        type = "' . smartsql($defaults['envo_type']) . '",
                         content = "' . smartsql($defaults['jak_content']) . '",
                         permission = "' . smartsql($permission) . '"
                         WHERE id = "' . smartsql($pageID) . '"');
 
-                // Delete the Content
+                // EN: Delete user group acces for notification by 'id'
+                // CZ: Odstranění přístupu uživatelské skupiny pro notifikaci podle 'id'
                 $jakdb->query('DELETE FROM ' . $envotable8 . ' WHERE notification_id = "' . smartsql($pageID) . '"');
 
-                // Permissions
+                // EN: User group access for notification
+                // CZ: Přístup jednotlivých uživatelských skupin k notifikaci
                 if (!isset($defaults['envo_permission'])) {
+                  // EN: Usergroup not exists
+                  // CZ: Uživatelská skupina neexistuje
+
                   $jakdb->query('INSERT INTO ' . $envotable8 . ' SET 
                         notification_id = "' . $pageID . '",
                         usergroup_id = "0",
                         unread = "0",
                         created = NOW()');
+
                 } elseif (in_array(0, $defaults['envo_permission'])) {
+                  // EN: Usergroup exists, selection contains '0' value
+                  // CZ: Uživatelská skupina existuje, výběr obsahuje hodnotu "0"
+
                   $jakdb->query('INSERT INTO ' . $envotable8 . ' SET 
                         notification_id = "' . $pageID . '",
                         usergroup_id = "0",
                         unread = "0",
                         created = NOW()');
+
                 } else {
+                  // EN: Usergoup exists, selection contains array
+                  // CZ: Uživatelská skupina existuje, výběr obsahuje pole
+
                   foreach ($defaults['envo_permission'] as $permission) {
                     $jakdb->query('INSERT INTO ' . $envotable8 . ' SET 
                         notification_id = "' . $pageID . '",
@@ -535,6 +562,7 @@ switch ($page1) {
                         unread = "0",
                         created = NOW()');
                   }
+
                 }
 
                 if (!$result) {

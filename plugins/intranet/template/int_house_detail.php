@@ -350,7 +350,6 @@
         </div>
       </div>
     </div>
-
   </div>
 
 <?php include_once $BASE_PLUGIN_URL_TEMPLATE . 'int_footer.php'; ?>

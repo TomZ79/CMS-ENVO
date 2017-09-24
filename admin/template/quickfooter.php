@@ -26,7 +26,7 @@
     /* ACE Editor
      ========================================= */
     var htmlelACE = ace.edit("htmleditorlight");
-    htmlelACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>"); // Theme chrome, monokai
+    htmlelACE.setTheme("ace/theme/<?php echo $jkv["acetheme"]; ?>");
     htmlelACE.session.setUseWrapMode(true);
     htmlelACE.session.setWrapLimitRange();
     htmlelACE.setOptions({
