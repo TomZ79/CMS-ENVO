@@ -1,4 +1,5 @@
 <?php
+
 $root = $_SERVER['DOCUMENT_ROOT'];
 $config = parse_ini_file($root . '/include/db.ini');
 
@@ -30,4 +31,5 @@ define('JAK_FILES_DIRECTORY', $config[ 'filefolder' ]);
 
 // Important Stuff
 define('JAK_SUPERADMIN', '1'); // Not deletable and SuperADMIN User, more user separate with comma. e.g. '1,4,5,6' (userid's)
+
 ?>

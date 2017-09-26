@@ -267,7 +267,7 @@ function envo_get_data($id, $table)
 
   global $jakdb;
   $envodata = array();
-  $result  = $jakdb->query('SELECT * FROM ' . $table . ' WHERE id = "' . smartsql($id) . '"');
+  $result   = $jakdb->query('SELECT * FROM ' . $table . ' WHERE id = "' . smartsql($id) . '"');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -283,7 +283,7 @@ function envo_get_galleryfacebook($limit, $table, $order)
 
   global $jakdb;
   $envodata = array();
-  $result  = $jakdb->query('SELECT * FROM ' . $table . ' ORDER BY id ' . $order . $limit);
+  $result   = $jakdb->query('SELECT * FROM ' . $table . ' ORDER BY id ' . $order . $limit);
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -369,7 +369,7 @@ function envo_get_news($jakvar, $where, $plname, $order, $datef, $timef, $timeag
   global $jakdb;
   global $jkv;
   $envodata = array();
-  $result  = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'news WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 OR enddate >= ' . time() . ')) AND (FIND_IN_SET(' . JAK_USERGROUPID . ',permission) OR permission = 0) AND ' . $sqlin . $jakvar);
+  $result   = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'news WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 OR enddate >= ' . time() . ')) AND (FIND_IN_SET(' . JAK_USERGROUPID . ',permission) OR permission = 0) AND ' . $sqlin . $jakvar);
   while ($row = $result->fetch_assoc()) {
 
     $PAGE_TITLE   = $row['title'];
@@ -615,7 +615,8 @@ function envo_password_creator($length = 8)
 /**
  * Encrypt email address (prevent spam)
  *
- * The function takes a string input (the email address), loops through each character replacing the letter with the character's ASCII value, and returns the encoded email address.
+ * The function takes a string input (the email address), loops through each character replacing the letter with the
+ * character's ASCII value, and returns the encoded email address.
  *
  * Example:
  * Input  - echo 'mailto' . envo_encode_email(info@info.com)
@@ -736,7 +737,7 @@ function is_ajax()
 /**
  * @name Mutlidimensional Array Sorter.
  * @author Tufan Barış YILDIRIM
- * @link http://www.tufanbarisyildirim.com
+ * @link   http://www.tufanbarisyildirim.com
  * @github http://github.com/tufanbarisyildirim
  *
  * This function can be used for resort a multidimensional array by like order by clause
@@ -763,46 +764,71 @@ function is_ajax()
 function sort_array_mutlidim(array $array, $order_by)
 {
   //TODO -c flexibility -o tufanbarisyildirim : this error can be deleted if you want to sort as sql like  "NULL LAST/FIRST" behavior.
-  if(!is_array($array[0]))
-    throw new Exception('$array must be a multidimensional array!',E_USER_ERROR);
-  $columns = explode(',',$order_by);
-  foreach ($columns as $col_dir)
-  {
-    preg_match('/(.*)([\s]+)(ASC|DESC)/is',$col_dir,$matches);
-    if(!array_key_exists(trim($matches[1]),$array[0]))
-      throw new Exception('Unknown Column ' . trim($matches[1]),E_USER_NOTICE);
+  if (!is_array($array[0]))
+    throw new Exception('$array must be a multidimensional array!', E_USER_ERROR);
+  $columns = explode(',', $order_by);
+  foreach ($columns as $col_dir) {
+    preg_match('/(.*)([\s]+)(ASC|DESC)/is', $col_dir, $matches);
+    if (!array_key_exists(trim($matches[1]), $array[0]))
+      throw new Exception('Unknown Column ' . trim($matches[1]), E_USER_NOTICE);
     else
-      $sorts[trim($matches[1])] = 'SORT_'.strtoupper(trim($matches[3]));
+      $sorts[trim($matches[1])] = 'SORT_' . strtoupper(trim($matches[3]));
   }
   //TODO -c optimization -o tufanbarisyildirim : use array_* functions.
   $colarr = array();
-  foreach ($sorts as $col => $order)
-  {
+  foreach ($sorts as $col => $order) {
     $colarr[$col] = array();
-    foreach ($array as $k => $row)
-    {
-      $colarr[$col]['_'.$k] = strtolower($row[$col]);
+    foreach ($array as $k => $row) {
+      $colarr[$col]['_' . $k] = strtolower($row[$col]);
     }
   }
   //TODO -c suggestion -o tufanbarisyildirim : call_user_func_array can be used here .
   $runIt = 'array_multisort(';
-  foreach ($sorts as $col => $order)
-  {
-    $runIt .= '$colarr[\'' . $col .'\'],' . $order . ',';
+  foreach ($sorts as $col => $order) {
+    $runIt .= '$colarr[\'' . $col . '\'],' . $order . ',';
   }
-  $runIt = substr($runIt,0,-1).');';
+  $runIt = substr($runIt, 0, -1) . ');';
   //TODO -c nothing -o tufanbarisyildirim :  eval is evil.
   eval($runIt);
   $sorted_array = array();
-  foreach ($colarr as $col => $arr)
-  {
-    foreach ($arr as $k => $v)
-    {
-      $k = substr($k,1);
+  foreach ($colarr as $col => $arr) {
+    foreach ($arr as $k => $v) {
+      $k = substr($k, 1);
       if (!isset($sorted_array[$k])) $sorted_array[$k] = $array[$k];
       $sorted_array[$k][$col] = $array[$k][$col];
     }
   }
+
   return array_values($sorted_array);
 }
+
+/**
+ * EN: Getting the version of plugin without limit
+ * CZ: Získání verze pluginu bez limitu
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $pluginname   string    | name of plugin e.g. ('Intranet')
+ * @return string
+ *
+ * @exmaple
+ * echo get_pluginversion('Intranet');
+ */
+function get_pluginversion($pluginname)
+{
+
+  global $jakdb;
+  $envodata = '';
+
+  $result = $jakdb->query('SELECT pluginversion FROM ' . DB_PREFIX . 'plugins WHERE name = "' . $pluginname . '"');
+  $row    = $result->fetch_assoc();
+
+  $envodata = $row['pluginversion'];
+
+  if (!empty($envodata)) return $envodata;
+
+}
+
 ?>

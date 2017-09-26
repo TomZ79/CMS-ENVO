@@ -47,9 +47,6 @@ echo $Html->addDoctype('html5');
   echo $Html->addStylesheet('assets/plugins/bootstrap-iconpicker/css/bootstrap-iconpicker.min.css');
   // Bootstrap GlyphIcons
   echo $Html->addStylesheet('../assets/plugins/bootstrap-glyphicons/glyphicons-pro/css/glyphicons-pro.min.css');
-  //
-  echo $Html->addStylesheet('assets/plugins/prism/prism.css', 'screen');
-
   // Animate
   echo $Html->addStylesheet('assets/css/animate.min.css');
   ?>

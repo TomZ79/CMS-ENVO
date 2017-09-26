@@ -58,6 +58,7 @@ var aceEditor = {
   acewraplimit: '{$jkv["acewraplimit"]}',
   acetabSize: '{$jkv["acetabSize"]}',
   aceactiveline: '{$jkv["aceactiveline"]}',
+  fontSize: '{$jkv["acefontsize"]}',
   aceinvisible: '{$jkv["aceinvisible"]}',
   acegutter: '{$jkv["acegutter"]}'
 };
