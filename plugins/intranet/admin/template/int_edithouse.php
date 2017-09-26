@@ -1178,6 +1178,7 @@ if ($errors) { ?>
                       echo $Html->addOption('service', 'Servisy');
                       echo $Html->addOption('reconstruction', 'Rekonstrukce');
                       echo $Html->addOption('installation', 'Instalace');
+                      echo $Html->addOption('complaint', 'Reklamace');
                       ?>
 
                     </select>
@@ -1240,6 +1241,7 @@ if ($errors) { ?>
                     <li><a href="javascript:;" class="filter" data-filter=".service">Servisy</a></li>
                     <li><a href="javascript:;" class="filter" data-filter=".reconstruction">Rekonstrukce</a></li>
                     <li><a href="javascript:;" class="filter" data-filter=".installation">Instalace</a></li>
+                    <li><a href="javascript:;" class="filter" data-filter=".complaint">Reklamace</a></li>
                   </ul>
 
                   <?php
@@ -1251,7 +1253,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'quicksearch', '', 'quicksearch', 'form-control', array('placeholder' => 'Search Image'));
+                    echo $Html->addInput('text', 'quicksearch', '', 'quicksearch', 'form-control', array('placeholder' => 'Vyhledat ...'));
                     ?>
 
                   </p>

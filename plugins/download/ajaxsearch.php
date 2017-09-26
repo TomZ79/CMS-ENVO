@@ -51,4 +51,5 @@ if (strlen($SearchInput) >= 3) {
   echo $text;
 
 }
+
 ?>

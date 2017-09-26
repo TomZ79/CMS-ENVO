@@ -130,8 +130,71 @@ function envo_house_not_exist($ic, $table)
   }
 }
 
-// EN:
-// CZ:
+// EN: Getting the data about the Notification without limit
+// CZ: Získání dat o Notifikacích bez limitu
+function envo_get_notification_info($table)
+{
+  global $jakdb;
+  $envodata = array();
+  $result   = $jakdb->query('SELECT * FROM ' . $table . ' ORDER BY id ASC');
+  while ($row = $result->fetch_assoc()) {
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
+    $envodata[] = $row;
+  }
+
+  if (isset($envodata)) return $envodata;
+}
+
+/**
+ * EN: Getting the Usergroup by plugin column names without limit
+ * CZ: Získání Uživatelských skupin podle sloupců pro plugin
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $table          string
+ * @param $column1        string
+ * @param null $column2   string
+ * @return array
+ *
+ */
+function envo_plugin_usergroup_all($table, $column1, $column2 = NULL)
+{
+  global $jakdb;
+  $envodata = array();
+
+  if (!empty($column1)) $sqlwhere = ' WHERE ' . $column1 . ' = 1';
+  if (!empty($column1) && !empty($column2)) $sqlwhere = ' WHERE ' . $column1 . ' = 1 AND ' . $column2 . ' = 1';
+
+  $result = $jakdb->query('
+            SELECT id, name, description 
+            FROM ' . DB_PREFIX . $table . '
+            ' . $sqlwhere . '
+            ORDER BY id ASC
+            ');
+
+  while ($row = $result->fetch_assoc()) {
+    // EN: Insert each record into array
+    // CZ: Vložení získaných dat do pole
+    $envodata[] = $row;
+  }
+
+  return $envodata;
+}
+
+/**
+ * EN: Get FontAwesome icon by file extensions
+ * CZ: Získání FontAwesome ikon podle typu souboru
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $filename       string    | name of file
+ * @return bool|string
+ */
 function envo_extension_icon($filename)
 {
   $extension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));

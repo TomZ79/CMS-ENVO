@@ -38,6 +38,28 @@ if ($page2 == "e") { ?>
   </script>
 <?php } ?>
 
+<?php
+// EN: Checking the saved elements in the page was not successful
+// CZ: Kontrola ukládaných prvků ve stránce nebyla úšpěšná
+if ($errors) { ?>
+  <script type="text/javascript">
+    // Notification
+    setTimeout(function () {
+      $.notify({
+        // options
+        icon: 'fa fa-warning',
+        message: '<?php if (isset($errors["e"])) echo $errors["e"];
+          if (isset($errors["e1"])) echo $errors["e1"];
+          if (isset($errors["e2"])) echo $errors["e2"];?>'
+      }, {
+        // settings
+        type: 'danger',
+        delay: 10000
+      });
+    }, 1000);
+  </script>
+<?php } ?>
+
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton-small hidden-xs">
@@ -99,12 +121,85 @@ if ($page2 == "e") { ?>
 
                       </div>
                       <div class="col-md-7">
-                        <div class="form-group no-margin">
+                        <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
                           echo $Html->addInput('text', 'envo_title', $ENVO_SETTING_VAL["intranettitle"], '', 'form-control');
                           ?>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html->addTag('strong', $tlint["int_box_content"]["intbc2"]);
+                        echo $Html->addTag('span', '*', 'star-item text-danger-800 m-l-10');
+                        ?>
+
+                      </div>
+                      <div class="col-md-7">
+                        <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
+                          <select name="envo_date" class="form-control selectpicker">
+
+                            <?php
+                            // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                            echo $Html->addOption('', $tl["selection"]["sel110"], ($ENVO_SETTING_VAL['intranetdateformat'] == '') ? TRUE : FALSE);
+
+                            echo $Html->addOption('d.m.Y', 'd.m.Y (01.01.2017)', ($ENVO_SETTING_VAL['intranetdateformat'] == 'd.m.Y') ? TRUE : FALSE);
+                            echo $Html->addOption('d F Y', 'd F Y (01 January 2017)', ($ENVO_SETTING_VAL['intranetdateformat'] == 'd F Y') ? TRUE : FALSE);
+                            echo $Html->addOption('l m.Y', 'l m.Y (Monday 01.2017)', ($ENVO_SETTING_VAL['intranetdateformat'] == 'l m.Y') ? TRUE : FALSE);
+                            echo $Html->addOption('l F Y', 'l F Y (Monday January 2017)', ($ENVO_SETTING_VAL['intranetdateformat'] == 'l F Y') ? TRUE : FALSE);
+                            ?>
+
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row-form">
+                      <div class="col-md-5">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        echo $Html->addTag('strong', $tlint["int_box_content"]["intbc3"]);
+                        ?>
+
+                      </div>
+                      <div class="col-md-7">
+                        <div class="form-group no-margin">
+                          <select name="envo_time" class="form-control selectpicker">
+
+                            <?php
+                            // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                            echo $Html->addOption('', $tl["selection"]["sel110"], ($ENVO_SETTING_VAL['intranettimeformat'] == '') ? TRUE : FALSE);
+                            ?>
+
+                            <optgroup label="<?php echo $tl["selection"]["sel111"]; ?>">
+
+                              <?php
+                              // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                              echo $Html->addOption(' - h:i A', ' - h:i A ( - 01:00 PM)', ($ENVO_SETTING_VAL['intranettimeformat'] == ' - h:i A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - h:i:s A', ' - h:i:s A ( - 01:00:00 PM)', ($ENVO_SETTING_VAL['intranettimeformat'] == ' - h:i:s A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - g:i A', ' - g:i A ( - 1:00 PM)', ($ENVO_SETTING_VAL['intranettimeformat'] == ' - g:i A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - g:i:s A', ' - g:i:s A ( - 1:00:00 PM)', ($ENVO_SETTING_VAL['intranettimeformat'] == ' - g:i:s A') ? TRUE : FALSE);
+                              ?>
+
+                            </optgroup>
+                            <optgroup label="<?php echo $tl["selection"]["sel112"]; ?>">
+
+                              <?php
+                              // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
+                              echo $Html->addOption(' - H:i', ' - H:i ( - 13:00)', ($ENVO_SETTING_VAL['intranettimeformat'] == ' - H:i') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i:s', ' - H:i:s ( - 13:00:00)', ($ENVO_SETTING_VAL['intranettimeformat'] == ' - H:i:s') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i:s T O', ' - H:i:s T O ( - 13:00:00 CEST +0200)', ($ENVO_SETTING_VAL['intranettimeformat'] == ' - H:i:s T O') ? TRUE : FALSE);
+                              ?>
+
+                            </optgroup>
+
+                          </select>
 
                         </div>
                       </div>

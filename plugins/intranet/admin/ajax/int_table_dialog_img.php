@@ -91,6 +91,7 @@ $envodata .= '
               <option value="service" '. ($row["category"] == "service" ? "selected": "") . '>Servisy</option>
               <option value="reconstruction" '. ($row["category"] == "reconstruction" ? "selected": "") . '>Rekonstrukce</option>
               <option value="installation" '. ($row["category"] == "installation" ? "selected": "") . '>Instalace</option>
+              <option value="complaint" '. ($row["category"] == "complaint" ? "selected": "") . '>Reklamace</option>
             </select>
           </div>
         </div>

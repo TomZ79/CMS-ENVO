@@ -170,8 +170,8 @@ switch ($page1) {
           }
         }
 
-        // Get all usergroup's
-        $ENVO_USERGROUP = envo_get_usergroup_all('usergroup');
+        // Get all usergroup's for active plugin
+        $ENVO_USERGROUP = envo_plugin_usergroup_all('usergroup', 'intranet');
 
         // EN: Title and Description
         // CZ: Titulek a Popis
@@ -292,8 +292,8 @@ switch ($page1) {
             }
           }
 
-          // Get all usergroup's
-          $ENVO_USERGROUP = envo_get_usergroup_all('usergroup');
+          // Get all usergroup's for active plugin
+          $ENVO_USERGROUP = envo_plugin_usergroup_all('usergroup', 'intranet');
 
           // EN: Get all the data for the form - house
           // CZ: Získání všech dat pro formulář - bytový dům
@@ -402,6 +402,7 @@ switch ($page1) {
                         name = "' . smartsql($defaults['envo_title']) . '",
                         varname = "' . url_slug($defaults['envo_title'], array('transliterate' => TRUE)) . '",
                         type = "' . smartsql($defaults['envo_type']) . '",
+                        shortdescription = "' . smartsql($defaults['envo_shortdescription']) . '",
                         content = "' . smartsql($defaults['jak_content']) . '",
                         permission = "' . smartsql($permission) . '",
                         created = NOW()');
@@ -461,8 +462,8 @@ switch ($page1) {
           }
         }
 
-        // Get all usergroup's
-        $ENVO_USERGROUP = envo_get_usergroup_all('usergroup');
+        // Get all usergroup's with active plugin
+        $ENVO_USERGROUP = envo_plugin_usergroup_all('usergroup', 'intranet');
 
         // EN: Title and Description
         // CZ: Titulek a Popis
@@ -521,6 +522,7 @@ switch ($page1) {
                         name = "' . smartsql($defaults['envo_title']) . '",
                         varname = "' . url_slug($defaults['envo_title'], array('transliterate' => TRUE)) . '",
                         type = "' . smartsql($defaults['envo_type']) . '",
+                        shortdescription = "' . smartsql($defaults['envo_shortdescription']) . '",
                         content = "' . smartsql($defaults['jak_content']) . '",
                         permission = "' . smartsql($permission) . '"
                         WHERE id = "' . smartsql($pageID) . '"');
@@ -583,11 +585,11 @@ switch ($page1) {
             }
           }
 
-          // Get all usergroup's
-          $ENVO_USERGROUP = envo_get_usergroup_all('usergroup');
+          // Get all usergroup's for active plugin
+          $ENVO_USERGROUP = envo_plugin_usergroup_all('usergroup', 'intranet');
 
-          // EN: Get all the data for the form - house
-          // CZ: Získání všech dat pro formulář - bytový dům
+          // EN: Get all the data for the form - Notification
+          // CZ: Získání všech dat pro formulář - Notifikace
           $ENVO_FORM_DATA = envo_get_data($pageID, $envotable7);
 
           // EN: Title and Description
@@ -606,8 +608,45 @@ switch ($page1) {
         }
 
         break;
+      case 'delete':
+        // DELETE NOTIFICATION FROM DB
+
+        // EN: Default Variable
+        // CZ: Hlavní proměnné
+        $pageID = $page3;
+
+        if (is_numeric($pageID) && envo_row_exist($pageID, $envotable7)) {
+
+          // Delete the Content
+          $result = $jakdb->query('DELETE FROM ' . $envotable7 . ' WHERE id = "' . smartsql($pageID) . '"');
+
+          if (!$result) {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - chybné
+            envo_redirect(BASE_URL . 'index.php?p=intranet&sp=notification&status=e');
+          } else {
+            // EN: Redirect page
+            // CZ: Přesměrování stránky s notifikací - úspěšné
+            /*
+            NOTIFIKACE:
+            'status=s'    - Záznam úspěšně uložen
+            'status1=s1'  - Záznam úspěšně odstraněn
+            */
+            envo_redirect(BASE_URL . 'index.php?p=intranet&sp=notification&status=s&status1=s1');
+          }
+
+        } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
+          envo_redirect(BASE_URL . 'index.php?p=intranet&sp=notification&status=ene');
+        }
+        break;
       default:
         // LIST OF NOTIFICATIONS
+
+        // EN: Getting the data about the Houses
+        // CZ: Získání dat o bytových domech
+        $ENVO_NOTIFICATION_ALL = envo_get_notification_info($envotable7);
 
         // EN: Title and Description
         // CZ: Titulek a Popis
@@ -628,6 +667,14 @@ switch ($page1) {
       // CZ: Hlavní proměnné
       $defaults = $_POST;
 
+      if (empty($defaults['envo_title'])) {
+        $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
+      }
+
+      if (empty($defaults['envo_date'])) {
+        $errors['e2'] = $tl['general_error']['generror26'] . '<br>';
+      }
+
       if (count($errors) == 0) {
 
         /* EN: Convert value
@@ -638,9 +685,11 @@ switch ($page1) {
         */
         $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                     WHEN "intranettitle" THEN "' . smartsql($defaults['envo_title']) . '"
+                    WHEN "intranetdateformat" THEN "' . smartsql($defaults['envo_date']) . '"
+                    WHEN "intranettimeformat" THEN "' . smartsql($defaults['envo_time']) . '"
                     WHEN "intranetskin" THEN "' . smartsql($defaults['envo_skin']) . '"
                   END
-                  WHERE varname IN ("intranettitle", "intranetskin")');
+                  WHERE varname IN ("intranettitle", "intranetdateformat", "intranettimeformat", "intranetskin")');
 
         if (!$result) {
           // EN: Redirect page

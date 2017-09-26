@@ -39,6 +39,35 @@ $wrapLimitRange = {
   max: aceEditor.acewraplimit
 };
 
+// Set default ACE other options
+$options = {
+  tabSize: '2',
+  activeLine: false,
+  fontSize: '12px',
+  invisible: false,
+  gutter: false
+};
+
+if (aceEditor.acetabSize > 0) {
+  $options.tabSize = aceEditor.acetabSize;
+}
+
+if (aceEditor.aceactiveline > 0) {
+  $options.activeLine = true;
+}
+
+if (aceEditor.fontSize != '') {
+  $options.fontSize = aceEditor.fontSize;
+}
+
+if (aceEditor.aceinvisible > 0) {
+  $options.invisible = true;
+}
+
+if (aceEditor.acegutter > 0) {
+  $options.gutter = true;
+}
+
 if ($('#htmleditor').length) {
   var htmlACE = ace.edit('htmleditor');
   htmlACE.setTheme('ace/theme/' + aceEditor.acetheme);
@@ -47,19 +76,20 @@ if ($('#htmleditor').length) {
   htmlACE.setOptions({
     // session options
     mode: "ace/mode/html",
-    tabSize: aceEditor.acetabSize,
+    tabSize: $options.tabSize,
     useSoftTabs: true,
-    highlightActiveLine: aceEditor.aceactiveline,
+    highlightActiveLine: $options.activeLine,
     // renderer options
-    showInvisibles: aceEditor.aceinvisible,
-    showGutter: aceEditor.acegutter
+    fontSize: $options.fontSize,
+    showInvisibles: $options.invisible,
+    showGutter: $options.gutter
   });
   // This is to remove following warning message on console:
   // Automatically scrolling cursor into view after selection change this will be disabled in the next version
   // set editor.$blockScrolling = Infinity to disable this message
   htmlACE.$blockScrolling = Infinity;
 
-  var texthtml = $("#jak_editor").val();
+  texthtml = $('#jak_editor').val();
   htmlACE.session.setValue(texthtml);
 }
 

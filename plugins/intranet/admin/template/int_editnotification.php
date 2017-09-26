@@ -143,6 +143,28 @@ if ($errors) { ?>
                         </select>
                       </div>
                     </div>
+                    <div class="row-form">
+                      <div class="col-md-5">
+
+                        <?php
+                        // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
+                        // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
+                        echo $Html->addTag('strong', 'Zkrácený Popis');
+                        echo $Html->addAnchor('javascript:void(0)', '<i class="fa fa-question-circle"></i>', '', 'cms-help', array('data-content' => 'Maximální počet znaků <br> pro zkrácený popis je 45 znaků', 'data-original-title' => 'Nápověda'));
+                        ?>
+
+                      </div>
+                      <div class="col-md-7">
+                        <div class="form-group no-margin">
+
+                          <?php
+                          // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
+                          echo $Html->addInput('text', 'envo_shortdescription', $ENVO_FORM_DATA["shortdescription"], '', 'form-control', array('maxlength' => '45'));
+                          ?>
+
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
