@@ -79,4 +79,5 @@ switch ($page1) {
   default:
 
 }
+
 ?>

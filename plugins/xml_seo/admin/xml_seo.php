@@ -448,4 +448,5 @@ switch ($page1) {
     // CZ: Načtení php template (šablony)
     $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'xml_seo_setting.php';
 }
+
 ?>

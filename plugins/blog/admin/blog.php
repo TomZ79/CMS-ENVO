@@ -1323,4 +1323,5 @@ switch ($page1) {
         $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'blog.php';
     }
 }
+
 ?>

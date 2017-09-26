@@ -101,4 +101,5 @@ if (!empty($sql)) {
   // CZ: Přesměrování stránky
   envo_redirect(BASE_URL);
 }
+
 ?>

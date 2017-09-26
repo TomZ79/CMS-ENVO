@@ -48,4 +48,5 @@ $SECTION_DESC  = $tlsedi["siteedit_sec_desc"]["sed"];
 // EN: Load the php template
 // CZ: Načtení php template (šablony)
 $plugin_template = 'plugins/site_editor/admin/template/site_editor.php';
+
 ?>

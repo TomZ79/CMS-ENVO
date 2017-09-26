@@ -33,6 +33,7 @@ $envotable2 = DB_PREFIX . 'intranethouseserv';
 $envotable3 = DB_PREFIX . 'intranethouseimg';
 $envotable4 = DB_PREFIX . 'intranethousenotifications';
 $envotable5 = DB_PREFIX . 'intranethousenotificationug';
+$envotable6 = DB_PREFIX . 'intranethousedocu';
 
 // Parse links once if needed a lot of time
 $backtoblog = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_INTRANET, '', '', '', '');
@@ -58,7 +59,7 @@ include_once("functions.php");
 
 // EN: Info about notifications
 // CZ: Info o notifikacích
-$ENVO_NOTIFICATION = envo_get_notification_unread(FALSE, JAK_USERGROUPID);
+$ENVO_NOTIFICATION = envo_get_notification_unread(JAK_USERGROUPID, FALSE, $ENVO_SETTING_VAL['intranetdateformat'], $ENVO_SETTING_VAL['intranettimeformat']);
 
 // -------- DATA FOR SELECTED FRONTEND PAGES --------
 // -------- DATA PRO VYBRANÉ FRONTEND STRÁNKY --------
@@ -92,6 +93,8 @@ switch ($page1) {
           if (envo_row_permission($pageID, $envotable, JAK_USERGROUPID)) {
             // USER HAVE PERMISSION
 
+            // EN: Get the data of house
+            // CZ: Získání dat o domu
             $result = $jakdb->query('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1');
             while ($row = $result->fetch_assoc()) {
               // EN: Insert each record into array
@@ -101,6 +104,8 @@ switch ($page1) {
               $envo_house_longitude = $row['longitude'];
             }
 
+            // EN: Get the data of main contacts
+            // CZ: Získání dat o hlavních kontaktech
             $result = $jakdb->query('SELECT * FROM ' . $envotable1 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY id ASC');
             while ($row = $result->fetch_assoc()) {
               // EN: Insert each record into array
@@ -108,20 +113,26 @@ switch ($page1) {
               $ENVO_HOUSE_CONT[] = $row;
             }
 
-            $result = $jakdb->query('SELECT * FROM ' . $envotable2 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY id DESC');
+            // EN: Get the data of services
+            // CZ: Získání dat o servisech
+            $result = $jakdb->query('SELECT * FROM ' . $envotable2 . ' WHERE houseid = "' . smartsql($pageID) . '" AND deleted = 0 ORDER BY id DESC');
             while ($row = $result->fetch_assoc()) {
               // EN: Insert each record into array
               // CZ: Vložení získaných dat do pole
               $ENVO_HOUSE_SERV[] = $row;
             }
 
-            $result = $jakdb->query('SELECT * FROM ' . $envotable2 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY id DESC');
+            // EN: Get the data of documentation
+            // CZ: Získání dat o dokumentech
+            $result = $jakdb->query('SELECT * FROM ' . $envotable6 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY id ASC');
             while ($row = $result->fetch_assoc()) {
               // EN: Insert each record into array
               // CZ: Vložení získaných dat do pole
               $ENVO_HOUSE_DOCU[] = $row;
             }
 
+            // EN: Get the data of images
+            // CZ: Získání dat o obrázcích
             $result = $jakdb->query('SELECT * FROM ' . $envotable3 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY id DESC');
             while ($row = $result->fetch_assoc()) {
               // EN: Insert each record into array
@@ -216,15 +227,16 @@ switch ($page1) {
                    * url_slug  - friendly URL slug from a string
                   */
                 $result = $jakdb->query('UPDATE ' . $envotable5 . ' SET
-                        unread = "1"
-                        WHERE notification_id = "' . smartsql($pageID) . '"');
+                          unread = "1"
+                          WHERE notification_id = "' . smartsql($pageID) . '"
+                          AND usergroup_id = "' . JAK_USERGROUPID . '"');
 
                 if (!$result) {
 
                 } else {
                   // EN: Info about notifications - refresh data
                   // CZ: Info o notifikacích - refresh data
-                  $ENVO_NOTIFICATION = envo_get_notification_unread(FALSE, JAK_USERGROUPID);
+                  $ENVO_NOTIFICATION = envo_get_notification_unread(JAK_USERGROUPID, FALSE, $ENVO_SETTING_VAL['intranetdateformat'], $ENVO_SETTING_VAL['intranettimeformat']);
                 }
 
               }
@@ -239,10 +251,16 @@ switch ($page1) {
                       AND ' . $envotable5 . '.usergroup_id="' . JAK_USERGROUPID . '"
                       LIMIT 1
                       ');
+
             while ($row = $result->fetch_assoc()) {
               // EN: Insert each record into array
               // CZ: Vložení získaných dat do pole
-              $ENVO_NOTIFICATION_DETAIL[]  = $row;
+              $ENVO_NOTIFICATION_DETAIL[] = array(
+                'name'     => $row['name'],
+                'type'     => $row['type'],
+                'content'  => $row['content'],
+                'created'  => date($ENVO_SETTING_VAL['intranetdateformat'] . $ENVO_SETTING_VAL['intranettimeformat'], strtotime($row['created']))
+              );
             }
 
             // EN: Title and Description
@@ -284,7 +302,7 @@ switch ($page1) {
 
         // EN: Getting the data about the Notifications by usergroupid
         // CZ: Získání dat o Notifikacích podle 'id' uživatelské skupiny
-        $ENVO_NOTIFICATION_ALL = envo_get_notification_all(FALSE, JAK_USERGROUPID);
+        $ENVO_NOTIFICATION_ALL = envo_get_notification_all(JAK_USERGROUPID, FALSE, $ENVO_SETTING_VAL['intranetdateformat'], $ENVO_SETTING_VAL['intranettimeformat']);
 
         // EN: Title and Description
         // CZ: Titulek a Popis
@@ -325,7 +343,7 @@ switch ($page1) {
       $rowCtotal = $result->fetch_assoc();
 
       // Count of all records by usergroup
-      $ENVO_COUNTS  = $rowCtotal['houseCtotal'];
+      $ENVO_COUNTS = $rowCtotal['houseCtotal'];
       // Percentage - records by usergroup / all records
       $ENVO_PERCENT = ($rowCtotal['houseCtotal'] * 100) . '%';
 
@@ -347,10 +365,10 @@ switch ($page1) {
         // Find in permission column 'usergroupid' or '0'. 0 means availability for all user groups.
         $result = $jakdb->query('SELECT * FROM ' . $envotable . ' WHERE FIND_IN_SET("' . JAK_USERGROUPID . '", permission) OR  FIND_IN_SET("0", permission)');
         // Determine number of rows result set
-        $row_cnt      = $result->num_rows;
+        $row_cnt = $result->num_rows;
 
         // Count of all records by usergroup
-        $ENVO_COUNTS  = $row_cnt;
+        $ENVO_COUNTS = $row_cnt;
         // Percentage - records by usergroup / all records
         $ENVO_PERCENT = ($row_cnt / $rowCtotal['houseCtotal'] * 100) . '%';
 
@@ -359,10 +377,9 @@ switch ($page1) {
         // CZ: Pokud '$rowCtotal' neobsahuje záznam
 
         // Count of all records by usergroup
-        $ENVO_COUNTS  = 0;
+        $ENVO_COUNTS = 0;
         // Percentage - records by usergroup / all records
         $ENVO_PERCENT = '0%';
-
 
       }
 

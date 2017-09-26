@@ -596,5 +596,5 @@ unset($_SESSION["rf_msg_sent"]);
 // EN: Finally close all db connections
 // CZ: Uzavření spojení do databáze
 $jakdb->jak_close();
-?>
 
+?>

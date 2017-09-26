@@ -310,4 +310,5 @@ switch ($page1) {
     // CZ: Přesměrování stránky
     envo_redirect(BASE_URL);
 }
+
 ?>

@@ -9,4 +9,5 @@ $umrow = $jakdb->queryRow('SELECT urlnew, redirect FROM ' . DB_PREFIX . 'urlmapp
 if ($jakdb->affected_rows === 1) {
   envo_redirect(BASE_URL . $umrow["urlnew"], $umrow["redirect"]);
 }
+
 ?>

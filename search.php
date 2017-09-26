@@ -114,4 +114,5 @@ $PAGE_DESCRIPTION = $jkv["metadesc"];
 // EN: Load the php template
 // CZ: Načtení php template (šablony)
 $template = 'search.php';
+
 ?>

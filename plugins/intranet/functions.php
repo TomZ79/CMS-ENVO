@@ -48,11 +48,13 @@ function envo_get_house_info($table, $ext_seo, $usergroupid)
  * CZ: Získání dat o Notifikacích bez limitu podle 'id' uživatelské skupiny
  *
  * @author  BluesatKV
- * @version 1.0.0
+ * @version 1.0.3
  * @date    09/2017
  *
- * @param $ext_seo      boolean   - TRUE or FALSE (TRUE => parseurl with add 'varname' to url)
  * @param $usergroupid  integer   - Usergorup ID
+ * @param $ext_seo      boolean   - TRUE or FALSE (TRUE => parseurl with add 'varname' to url)
+ * @param $dateformat
+ * @param $timeformat
  * @return array
  *
  * Example of returned array
@@ -69,15 +71,14 @@ function envo_get_house_info($table, $ext_seo, $usergroupid)
  *      'name' => 'Notifikace 1',
  *      'varname' => 'notifikace-1',
  *      'type' => 'info',
- *      'content' => 'Content of notification',
- *      'permission' => '3,8,9',
- *      'created' => '2017-09-23 19:28:57',
+ *      'shortdescription' => 'Short description',
+ *      'created' => 'Date by format',
  *      'parseurl' => '/intranet/house/h/1',
  *    ),
  *  )
  *
  */
-function envo_get_notification_unread($ext_seo, $usergroupid)
+function envo_get_notification_unread($usergroupid, $ext_seo, $dateformat, $timeformat)
 {
   global $jakdb;
   $envodata = array();
@@ -125,12 +126,13 @@ function envo_get_notification_unread($ext_seo, $usergroupid)
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
       $envodata[] = array(
-        'id'         => $row['id'],
-        'name'       => $row['name'],
-        'varname'    => $row['varname'],
-        'type'       => $row['type'],
-        'created'    => $row['created'],
-        'parseurl'   => $parseurl,
+        'id'               => $row['id'],
+        'name'             => $row['name'],
+        'varname'          => $row['varname'],
+        'type'             => $row['type'],
+        'shortdescription' => $row['shortdescription'],
+        'created'          => date($dateformat . $timeformat, strtotime($row['created'])),
+        'parseurl'         => $parseurl,
       );
     }
   } else {
@@ -141,7 +143,7 @@ function envo_get_notification_unread($ext_seo, $usergroupid)
 }
 
 
-function envo_get_notification_all($ext_seo, $usergroupid)
+function envo_get_notification_all($usergroupid, $ext_seo, $dateformat, $timeformat)
 {
   global $jakdb;
   $envodata = array();
@@ -180,11 +182,11 @@ function envo_get_notification_all($ext_seo, $usergroupid)
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
       $envodata[] = array(
-        'name'       => $row['name'],
-        'type'       => $row['type'],
-        'content'    => $row['content'],
-        'created'    => $row['created'],
-        'parseurl'   => $parseurl,
+        'name'     => $row['name'],
+        'type'     => $row['type'],
+        'content'  => $row['content'],
+        'created'  => date($dateformat . $timeformat, strtotime($row['created'])),
+        'parseurl' => $parseurl,
       );
     }
   } else {
@@ -193,18 +195,50 @@ function envo_get_notification_all($ext_seo, $usergroupid)
 
   if (isset($envodata)) return $envodata;
 }
-/** EN: Server CPU Usage
+
+/**
+ * EN: Get FontAwesome icon by file extensions
+ * CZ: Získání FontAwesome ikon podle typu souboru
  *
- * Example:
- * <span class="result"><?php get_server_cpu_usage() ?>%</span>
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $filename       string    | name of file
+ * @return bool|string
  */
-function get_server_cpu_usage()
+function envo_extension_icon($filename)
 {
+  $extension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
 
-  $load = sys_getloadavg();
-
-  return $load[0];
-
+  switch ($extension) {
+    case ('doc'):
+      return '<i class="fa fa-file-word-o fa-2x m-l-30" style="color:#2B5796;"></i>';
+      break;
+    case ('docx'):
+      return '<i class="fa fa-file-word-o fa-2x m-l-30" style="color:#2B5796;"></i>';
+      break;
+    case ('docm'):
+      return '<i class="fa fa-file-word-o fa-2x m-l-30" style="color:#2B5796;"></i>';
+      break;
+    case ('xls'):
+      return '<i class="fa fa-file-excel-o fa-2x m-l-30" style="color:#1E7145;"></i>';
+      break;
+    case ('xlsx'):
+      return '<i class="fa fa-file-excel-o fa-2x m-l-30" style="color:#1E7145;"></i>';
+      break;
+    case ('xlsm'):
+      return '<i class="fa fa-file-excel-o fa-2x m-l-30" style="color:#1E7145;"></i>';
+      break;
+    case 'pdf':
+      return '<i class="fa fa-file-pdf-o fa-2x m-l-30" style="color:#EE3226;"></i>';
+      break;
+    case ('jpg'):
+      return '<i class="fa fa-file-image-o fa-2x m-l-30" style="color:#000;"></i>';
+      break;
+    default:
+      return FALSE;
+  }
 }
 
 ?>

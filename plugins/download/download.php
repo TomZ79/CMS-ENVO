@@ -580,4 +580,5 @@ switch ($page1) {
       $plugin_template = $pluginbasic_template;
     }
 }
+
 ?>

@@ -214,7 +214,9 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
         // CZ: Vložení potřebných dat to tabulky 'setting'
         $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
 ("intranettitle", "intranet", "Intranet", "Intranet", "input", "free", "intranet"),
-("intranetskin", "intranet", "", "", "select", "free", "intranet")');
+("intranetskin", "intranet", "", "", "select", "free", "intranet"),
+("intranetdateformat", "intranet", "d.m.Y", "d.m.Y", "input", "free", "blog"),
+("intranettimeformat", "intranet", NULL, NULL, "input", "free", "blog")');
 
         // EN: Insert data to table 'usergroup'
         // CZ: Vložení potřebných dat to tabulky 'usergroup'
@@ -349,6 +351,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
   `name` varchar(255) NULL DEFAULT NULL,
   `varname` varchar(255) NULL DEFAULT NULL,
   `type` varchar(255) NULL DEFAULT NULL,
+  `shortdescription` varchar(255) NULL DEFAULT NULL,
   `content` text NULL,
   `permission` varchar(100) NOT NULL DEFAULT 0,
   `created` DATETIME DEFAULT NULL,
