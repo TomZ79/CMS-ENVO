@@ -148,7 +148,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
                 // End - Heading
                 // Start - Description
                 echo '<div class="description">';
-                echo 'Meeting postponed to tomorrow';
+                echo $en["shortdescription"];
                 echo '</div>';
                 // End - Description
                 // Start - Date
@@ -192,9 +192,6 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
               <i class="material-icons">tune</i>
             </a>
             <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
-              <li>
-                <a href="#"> Uživatelský Profil</a>
-              </li>
               <li>
                 <a href="<?php echo JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_INTRANET, 'notification', '', '', ''); ?>"> Notifikace
 
@@ -248,32 +245,14 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
   </div>
   <a href="#" class="scrollup">Scroll</a>
 
-  <?php if ($ENVO_MODULES) { ?>
-
-    <div class="footer-widget">
-      <div class="progress transparent progress-small no-radius no-margin">
-        <div class="progress-bar progress-bar-success animate-progress-bar" data-percentage="<?php echo get_server_cpu_usage() . '%'; ?>"></div>
-      </div>
-      <div class="pull-right">
-        <div class="details-status">
-          <span class="animate-number" data-value="<?php echo get_server_cpu_usage(); ?>" data-animation-duration="560" data-toggle="tooltip" title="Server CPU usage">0</span>%
-        </div>
-      </div>
+  <div class="footer-widget">
+    <div class="text-center">
+      <span>Intranet verze <?php echo get_pluginversion('Intranet'); ?></span>
     </div>
-
-  <?php } ?>
+  </div>
 
   <!-- END SIDEBAR -->
   <!-- BEGIN PAGE CONTAINER-->
   <div class="page-content">
-    <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-    <div id="portlet-config" class="modal hide">
-      <div class="modal-header">
-        <button data-dismiss="modal" class="close" type="button"></button>
-        <h3>Widget Settings</h3>
-      </div>
-      <div class="modal-body"> Widget settings form goes here</div>
-    </div>
-    <div class="clearfix"></div>
     <div class="content ">
       <!-- START PAGE -->

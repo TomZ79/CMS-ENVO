@@ -55,29 +55,29 @@
                   </div>
                 </div>
                 <div class="grid-body no-border">
-                  <div class="row-fluid">
+                  <div class="row">
                     <div class="form-group">
                       <label class="form-label">Název Domu</label>
                       <div class="controls">
-                        <input class="form-control" type="text" value="<?php echo $hdetail["name"] ?>" disabled>
+                        <input class="form-control" type="text" value="<?php echo $hdetail["name"] ?>" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="form-label">Ulice</label>
                       <div class="controls">
-                        <input class="form-control" type="text" value="<?php echo $hdetail["street"] ?>" disabled>
+                        <input class="form-control" type="text" value="<?php echo $hdetail["street"] ?>" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="form-label">Město</label>
                       <div class="controls">
-                        <input class="form-control" type="text" value="<?php echo $hdetail["city"] ?>" disabled>
+                        <input class="form-control" type="text" value="<?php echo $hdetail["city"] ?>" readonly>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="form-label">PSČ</label>
                       <div class="controls">
-                        <input class="form-control" type="text" value="<?php echo $hdetail["psc"] ?>" disabled>
+                        <input class="form-control" type="text" value="<?php echo $hdetail["psc"] ?>" readonly>
                       </div>
                     </div>
                   </div>
@@ -94,7 +94,7 @@
                   </div>
                 </div>
                 <div class="grid-body no-border">
-                  <div class="row-fluid">
+                  <div class="row">
                     <div id="google-container-map" style="height: 350px;position: relative;">
 
                       <?php
@@ -131,7 +131,7 @@
                 </div>
               </div>
               <div class="grid-body no-border">
-                <div class="row-fluid">
+                <div class="row">
 
                   <?php if (!empty($ENVO_HOUSE_CONT) && is_array($ENVO_HOUSE_CONT)) { ?>
                     <div class="table-responsive">
@@ -194,7 +194,7 @@
                 </div>
               </div>
               <div class="grid-body no-border">
-                <div class="row-fluid">
+                <div class="row">
 
                   <?php if (!empty($ENVO_HOUSE_SERV) && is_array($ENVO_HOUSE_SERV)) { ?>
                     <div class="table-responsive">
@@ -243,7 +243,66 @@
       </div>
       <div id="tabs6" class="tab-pane fade">
         <div class="row">
+          <div class="col-md-12">
+            <div class="grid simple">
+              <div class="grid-title no-border">
+                <h4>Dokumenty</h4>
+                <div class="tools">
+                  <a href="javascript:;" class="collapse"></a>
+                  <a href="javascript:;" class="remove"></a>
+                </div>
+              </div>
+              <div class="grid-body no-border">
+                <div class="row">
 
+                  <?php if (!empty($ENVO_HOUSE_DOCU) && is_array($ENVO_HOUSE_DOCU)) { ?>
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                          <th>Typ Souboru</th>
+                          <th>Popis</th>
+                          <th>Soubor</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <?php foreach ($ENVO_HOUSE_DOCU as $hdocu) { ?>
+                          <tr>
+                            <td><?php echo envo_extension_icon($hdocu["filename"]); ?></td>
+                            <td><?php echo $hdocu["description"]; ?></td>
+                            <td>
+
+                              <?php
+                              echo '<a href="/' . JAK_FILES_DIRECTORY . $hdocu["fullpath"] . '" target="_blank">Zobrazit</a>';
+                              echo ' | ';
+                              echo '<a href="/' . JAK_FILES_DIRECTORY . $hdocu["fullpath"] . '" download>Stáhnout</a>';
+                              ?>
+
+                            </td>
+                          </tr>
+                        <?php } ?>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  <?php } else { ?>
+
+                    <div class="col-md-12">
+
+                      <?php
+                      // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
+                      echo $Html->addDiv('Nejsou dostupná žádná data.', '', array('class' => 'alert'));
+                      ?>
+
+                    </div>
+
+                  <?php } ?>
+
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div id="tabs7" class="tab-pane fade">
@@ -271,6 +330,7 @@
                       <li><a href="javascript:;" class="filter" data-filter=".service">Servisy</a></li>
                       <li><a href="javascript:;" class="filter" data-filter=".reconstruction">Rekonstrukce</a></li>
                       <li><a href="javascript:;" class="filter" data-filter=".installation">Instalace</a></li>
+                      <li><a href="javascript:;" class="filter" data-filter=".complaint">Reklamace</a></li>
                     </ul>
 
                     <?php
@@ -282,7 +342,7 @@
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'quicksearch', '', 'quicksearch', 'form-control', array('placeholder' => 'Search Image'));
+                      echo $Html->addInput('text', 'quicksearch', '', 'quicksearch', 'form-control', array('placeholder' => 'Vyhledat ...'));
                       ?>
 
                     </p>
@@ -335,7 +395,7 @@
 
                         <?php
                         // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
-                        echo $Html->addDiv('Nejsou dostupná žádná data.', '', array('class' => 'alert'));
+                        echo $Html->addDiv('Nejsou dostupné žádné fotografie.', '', array('class' => 'alert'));
                         ?>
 
                       </div>

@@ -13,7 +13,7 @@
           </div>
         </div>
         <div class="grid-body ">
-          <table class="table table-striped table-hover" id="datatable">
+          <table class="table table-striped table-hover m-b-10" id="datatable">
             <thead>
             <tr>
               <th class="no-sort">#</th>

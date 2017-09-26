@@ -14,7 +14,7 @@
               <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="<?php echo $ENVO_PERCENT; ?>"></div>
             </div>
             <div class="description">
-              <span class="text-white mini-description ">Počet bytů <span class="blend">uložených v databázi</span></span>
+              <span class="text-white mini-description ">Počet domů <span class="blend">uložených v databázi</span></span>
             </div>
           </div>
         </div>
