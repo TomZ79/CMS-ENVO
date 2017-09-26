@@ -224,4 +224,5 @@ switch ($page1) {
     // CZ: Načtení php template (šablony)
     $template = 'news.php';
 }
+
 ?>

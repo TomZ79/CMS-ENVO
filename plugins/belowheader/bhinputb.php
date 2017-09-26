@@ -107,4 +107,5 @@ if ($page == JAK_PLUGIN_VAR_SITEMAP && isset($JAK_SITEMAP_BELOW_HEADER) && is_ar
   }
 
 }
+
 ?>

@@ -321,6 +321,7 @@ $jakdb->query("INSERT INTO " . DB_PREFIX . "setting VALUES
 ('aceinvisible', 'setting', '0', '0', 'yesno', 'boolean', 'cms'),
 ('acewraplimit', 'setting', '100', '100', 'input', 'free', 'cms'),
 ('aceactiveline', 'setting', '1', '1', 'yesno', 'boolean', 'cms'),
+('acefontsize', 'setting', '12px', '12px', 'input', 'free', 'cms'),
 ('eucookie_enabled', 'setting', '0', '0', 'yesno', 'boolean', 'cms'),
 ('eucookie_name', 'setting', 'cookieconsent_status', 'cookieconsent_status', 'input', 'free', 'cms'),
 ('eucookie_expiryDays', 'setting', '365', '365', 'input', 'free', 'cms'),

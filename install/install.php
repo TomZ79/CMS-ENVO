@@ -1,4 +1,5 @@
 <?php
+
 $root = $_SERVER['DOCUMENT_ROOT'];
 
 $langserver = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
@@ -96,6 +97,7 @@ if (DB_USER && DB_PASS) {
   @mysqli_close($linkdb);
 
 }
+
 ?>
 
 <!DOCTYPE html>
