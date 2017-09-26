@@ -67,7 +67,7 @@ for($i=0; $i < count($filenames); $i++){
 
   // EN: Insert to DB
   // CZ: Zápis dat do DB
-  $jakdb->query('INSERT INTO ' . $envotable . ' SET id = NULL,  title = "' . $filenameext . '", paththumb = "' . $fileDirThumb . '", pathoriginal = "' . $fileDir . '", width = "' . $imagesize[0] . '", height = "' . $imagesize[1] . '",  size = "' . filesize($target) . '", time = NOW()');
+  $envodb->query('INSERT INTO ' . $envotable . ' SET id = NULL,  title = "' . $filenameext . '", paththumb = "' . $fileDirThumb . '", pathoriginal = "' . $fileDir . '", width = "' . $imagesize[0] . '", height = "' . $imagesize[1] . '",  size = "' . filesize($target) . '", time = NOW()');
 
   // *** 1) Initialise / load image
   $file = $_SERVER['DOCUMENT_ROOT'] . '/' . JAK_FILES_DIRECTORY . '/facebook/' . $filenameext;

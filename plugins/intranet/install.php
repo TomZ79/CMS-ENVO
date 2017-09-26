@@ -134,8 +134,8 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
          * Kontrola zda je plugin instalován
          * Pokud není plugin instalován, zobrazit Notifikaci s chybovou hláškou
         */
-        $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "intranet"');
-        if ($jakdb->affected_rows > 0) { ?>
+        $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "intranet"');
+        if ($envodb->affected_rows > 0) { ?>
 
           <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít
           </button>
@@ -165,7 +165,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Insert data to table 'plugins' about this plugin
         // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
-        $jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Intranet", "Intranet.", 1, ' . JAK_USERID . ', 1, "intranet", "require_once APP_PATH.\'plugins/intranet/intranet.php\';", "if ($page == \'intranet\') {
+        $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Intranet", "Intranet.", 1, ' . JAK_USERID . ', 1, "intranet", "require_once APP_PATH.\'plugins/intranet/intranet.php\';", "if ($page == \'intranet\') {
         require_once APP_PATH.\'plugins/intranet/admin/intranet.php\';
            $JAK_PROVED = 1;
            $checkp = 1;
@@ -173,7 +173,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Now get the plugin 'id' from table 'plugins' for futher use
         // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
-        $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Intranet"');
+        $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Intranet"');
         $rows    = $results->fetch_assoc();
 
         if ($rows['id']) {
@@ -202,7 +202,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Insert data to table 'pluginhooks'
         // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
-        $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+        $envodb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "Intranet Admin Language", "' . $adminlang . '", "intranet", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Intranet Site Language", "' . $sitelang . '", "intranet", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_head", "Intranet Admin CSS", "plugins/intranet/admin/template/css.intranet.php", "intranet", 1, 4, "' . $rows['id'] . '", NOW()),
@@ -212,7 +212,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Insert data to table 'setting'
         // CZ: Vložení potřebných dat to tabulky 'setting'
-        $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+        $envodb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
 ("intranettitle", "intranet", "Intranet", "Intranet", "input", "free", "intranet"),
 ("intranetskin", "intranet", "", "", "select", "free", "intranet"),
 ("intranetdateformat", "intranet", "d.m.Y", "d.m.Y", "input", "free", "blog"),
@@ -220,16 +220,16 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Insert data to table 'usergroup'
         // CZ: Vložení potřebných dat to tabulky 'usergroup'
-        $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `intranet` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
+        $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `intranet` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
 
         // EN: Insert data to table 'categories' (create category)
         // CZ: Vložení potřebných dat to tabulky 'categories' (vytvoření kategorie)
-        $jakdb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES
+        $envodb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES
 (NULL, "Intranet", "intranet", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
 
         // EN: Create table for plugin (House)
         // CZ: Vytvoření tabulky pro plugin (Bytový dům)
-        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouse (
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouse (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NULL DEFAULT NULL,
   `varname` varchar(255) NULL DEFAULT NULL,
@@ -252,7 +252,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (House - Main Contacts)
         // CZ: Vytvoření tabulky pro plugin (Bytový dům - Hlavní kontakty)
-        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousecontact (
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousecontact (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `houseid` int(10) unsigned NOT NULL DEFAULT 0,
   `name` varchar(100) NULL DEFAULT NULL,
@@ -265,7 +265,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (House - Entrance)
         // CZ: Vytvoření tabulky pro plugin (Bytový dům - Vchody)
-        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouseent (
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouseent (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `houseid` int(10) unsigned NOT NULL DEFAULT 0,
   `entrance` varchar(100) NULL DEFAULT NULL,
@@ -277,7 +277,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (House - Appartements)
         // CZ: Vytvoření tabulky pro plugin (Bytový dům - Byty)
-        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouseapt (
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouseapt (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `houseid` int(10) unsigned NOT NULL DEFAULT 0,
   `entrance` varchar(255) NULL DEFAULT NULL,
@@ -291,7 +291,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (House - Services)
         // CZ: Vytvoření tabulky pro plugin (Bytový dům - Servis)
-        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouseserv (
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouseserv (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `houseid` int(10) unsigned NOT NULL DEFAULT 0,
   `description` varchar(255) NULL DEFAULT NULL,
@@ -305,7 +305,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (House - Documents)
         // CZ: Vytvoření tabulky pro plugin (Bytový dům - Dokumentace)
-        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousedocu (
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousedocu (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `houseid` int(10) unsigned NOT NULL DEFAULT 0,
   `description` varchar(255) NULL DEFAULT NULL,
@@ -318,7 +318,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (House - Photo Gallery)
         // CZ: Vytvoření tabulky pro plugin (Bytový dům - Foto Galerie)
-        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouseimg (
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethouseimg (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `houseid` int(10) unsigned NOT NULL DEFAULT 0,
   `shortdescription` varchar(255) NULL DEFAULT NULL,
@@ -346,7 +346,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (House - Notification)
         // CZ: Vytvoření tabulky pro plugin (Bytový dům - Notifikace)
-        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousenotifications (
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousenotifications (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NULL DEFAULT NULL,
   `varname` varchar(255) NULL DEFAULT NULL,
@@ -360,7 +360,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (House - Notification)
         // CZ: Vytvoření tabulky pro plugin (Bytový dům - Notifikace)
-        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousenotificationug (
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'intranethousenotificationug (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `notification_id` varchar(100) NOT NULL DEFAULT 0,
   `usergroup_id` varchar(100) NOT NULL DEFAULT 0,
@@ -395,7 +395,7 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
         // EN: If plugin have 'id' (plugin is not installed), uninstall
         // CZ: Pokud nemá plugin 'id' (tzn. plugin není instalován - došlo k chybě při zápisu do tabulky 'plugins'), odinstalujeme plugin
 
-        $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Intranet"');
+        $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Intranet"');
 
         ?>
 

@@ -28,7 +28,7 @@ foreach ($channelIDs as $channelIDs) {
 
 
   if ($towerid != $lasttower) {
-    $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'tvtowertvtower WHERE id =' . $towerid);
+    $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'tvtowertvtower WHERE id =' . $towerid);
     $row    = $result->fetch_assoc();
 
     echo '<div id="tramsmitter-' . $row['varname'] . '">';
@@ -50,7 +50,7 @@ foreach ($channelIDs as $channelIDs) {
         </thead>';
   echo '<tbody>';
 
-  $result1 = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'tvtowertvprogram WHERE towerid =' . $towerid . ' AND channelid =' . $channelid . ' ORDER BY tvr DESC');
+  $result1 = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'tvtowertvprogram WHERE towerid =' . $towerid . ' AND channelid =' . $channelid . ' ORDER BY tvr DESC');
   // Determine number of rows result set
   $row_cnt = $result1->num_rows;
 
@@ -64,7 +64,7 @@ foreach ($channelIDs as $channelIDs) {
       echo '<td>' . (($row1['tvr'] == '1') ? 'TV' : (($row1['tvr'] == '2') ? 'Stream TV' : 'Radio')) . '</td>';
 
 
-      $result2 = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'tvtowertvchannel WHERE id =' . $channelid);
+      $result2 = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'tvtowertvchannel WHERE id =' . $channelid);
 
       while ($row2 = $result2->fetch_assoc()) {
         echo '<td>' . $row2['number'] . ' K</td>';  // Číslo kanálu

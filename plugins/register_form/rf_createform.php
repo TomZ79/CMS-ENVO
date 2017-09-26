@@ -4,14 +4,14 @@ function jak_create_register_form($jakvar1, $limit, $register = FALSE)
 {
 
   // Now get all the options from the choosen form and create the form in html include all the javascript options
-  global $jakdb;
+  global $envodb;
   global $jakuser;
 
   $sqlwhere = $envodata = '';
   if ($limit) $sqlwhere = 'WHERE id > ' . $limit . ' ';
   if ($register) $sqlwhere .= ($sqlwhere ? $sqlwhere . 'AND showregister = 1' : 'WHERE showregister = 1 ');
 
-  $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'registeroptions ' . $sqlwhere . 'ORDER BY forder ASC');
+  $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'registeroptions ' . $sqlwhere . 'ORDER BY forder ASC');
   while ($row = $result->fetch_assoc()) {
 
     // Reset each var the while goes thru

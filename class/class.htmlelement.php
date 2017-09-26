@@ -3,6 +3,7 @@
 // ---------------------------------------------------------------------------------------------------------------------
 //			HTML ELEMENT
 // ---------------------------------------------------------------------------------------------------------------------
+
 /**
  * Html Class
  *
@@ -42,9 +43,9 @@ class HTML_Element
   /**
    * Generates a html meta tag
    *
-   * @param    string|array    | $name    - Multiple inputs or name/http-equiv value
-   * @param    string            $content - Content value
-   * @param    string            $type    - Name or http-equiv
+   * @param    string|array    | $name - Multiple inputs or name/http-equiv value
+   * @param    string $content         - Content value
+   * @param    string $type            - Name or http-equiv
    *
    * @return  string
    */
@@ -55,7 +56,7 @@ class HTML_Element
     } elseif (is_array($name)) {
       $result = "";
       foreach ($name as $array) {
-        $meta = $array;
+        $meta   = $array;
         $result .= "\n\t" . html_tag('meta', $meta);
       }
     }
@@ -67,8 +68,8 @@ class HTML_Element
    * Generates a stylesheet tag
    *
    * @param    string|array    | $href
-   * @param    string            $media
-   * @param    array             $attributes - Array with more tag attribute settings
+   * @param    string $media
+   * @param    array $attributes - Array with more tag attribute settings
    *
    * @return  string
    */
@@ -90,7 +91,7 @@ class HTML_Element
    * Generates a script tag
    *
    * @param    string|array    | $src
-   * @param    array             $attributes - Array with more tag attribute settings
+   * @param    array $attributes - Array with more tag attribute settings
    *
    * @return  string
    */
@@ -110,15 +111,15 @@ class HTML_Element
   /**
    * Create a form start tag
    *
-   * @param   string          | $tag        - Tag Element
-   * @param   array             $attributes - Array with more tag attribute settings
+   * @param   string          | $tag - Tag Element
+   * @param   array $attributes      - Array with more tag attribute settings
    *
    * @return  string
    */
   function startTag($tag, $attributes = array())
   {
     $this->tag = $tag;
-    $html = "<$tag";
+    $html      = "<$tag";
     if ($attributes) {
       $html .= $this->addAttributes($attributes);
     }
@@ -136,7 +137,7 @@ class HTML_Element
    */
   function endTag($tag = NULL)
   {
-    $html = $tag ? "</$tag>" : "</$this->tag>";
+    $html      = $tag ? "</$tag>" : "</$this->tag>";
     $this->tag = '';
 
     return $html;
@@ -145,18 +146,18 @@ class HTML_Element
   /**
    * Creates an html link
    *
-   * @param   string          | $href       - Source 'href' of anchor
-   * @param   string            $text       - Text value of anchor
-   * @param   string            $id         - Id of anchor
-   * @param   string            $class      - Class of anchor
-   * @param   array             $attributes - Array with more tag attribute settings
+   * @param   string          | $href - Source 'href' of anchor
+   * @param   string $text            - Text value of anchor
+   * @param   string $id              - Id of anchor
+   * @param   string $class           - Class of anchor
+   * @param   array $attributes       - Array with more tag attribute settings
    *
    * @return  string
    */
 
   public function addAnchor($href, $text, $id = NULL, $class = NULL, $attributes = array())
   {
-    $id = (empty($id) ? '' : ' id="' . $id . '"');
+    $id    = (empty($id) ? '' : ' id="' . $id . '"');
     $class = (empty($class) ? '' : ' class="' . $class . '"');
 
     $html = "<a href=\"$href\"" . $id . $class . "";
@@ -173,8 +174,8 @@ class HTML_Element
    *
    * Sets the alt attribute to filename of it is not supplied.
    *
-   * @param    string         | $src        - Source of image
-   * @param    array            $attributes - Array with more tag attribute settings
+   * @param    string         | $src - Source of image
+   * @param    array $attributes     - Array with more tag attribute settings
    *
    * @return  string
    */
@@ -194,9 +195,10 @@ class HTML_Element
   /**
    * Create a button
    *
-   * @param   string|array    | $fieldname  - Either fieldname or full attributes array (when array other params are ignored)
-   * @param   string            $value      - Value for Button
-   * @param   array             $attributes - Array with more tag attribute settings
+   * @param   string|array    | $fieldname - Either fieldname or full attributes array (when array other params are
+   *                            ignored)
+   * @param   string $value                - Value for Button
+   * @param   array $attributes            - Array with more tag attribute settings
    *
    * @return  string
    */
@@ -204,10 +206,10 @@ class HTML_Element
   {
     if (is_array($fieldname)) {
       $attributes = $fieldname;
-      $value = isset($attributes['value']) ? $attributes['value'] : $value;
+      $value      = isset($attributes['value']) ? $attributes['value'] : $value;
     } else {
       $attributes['name'] = (string)$fieldname;
-      $value = isset($value) ? $value : $attributes['name'];
+      $value              = isset($value) ? $value : $attributes['name'];
     }
 
     return html_tag('button', $this->attr_to_string($attributes), $value);
@@ -216,21 +218,21 @@ class HTML_Element
   /**
    * Create a button
    *
-   * @param   string          | $type       - Type of Button
-   * @param   string            $value      - Value for Button
-   * @param   string            $text       - Text for Button
-   * @param   string            $name       - Name of Button
-   * @param   string            $id         - Id for Button
-   * @param   string            $class      - Class for Button
-   * @param   array             $attributes - Array with more tag attribute settings
+   * @param   string          | $type - Type of Button
+   * @param   string $value           - Value for Button
+   * @param   string $text            - Text for Button
+   * @param   string $name            - Name of Button
+   * @param   string $id              - Id for Button
+   * @param   string $class           - Class for Button
+   * @param   array $attributes       - Array with more tag attribute settings
    *
    * @return  string
    */
   public function addButton($type, $value, $text, $name = NULL, $id = NULL, $class = NULL, $attributes = array())
   {
-    $name = (empty($name) ? '' : ' name="' . $name . '"');
+    $name  = (empty($name) ? '' : ' name="' . $name . '"');
     $value = (empty($value) ? '' : ' value="' . $value . '"');
-    $id = (empty($id) ? '' : ' id="' . $id . '"');
+    $id    = (empty($id) ? '' : ' id="' . $id . '"');
     $class = (empty($class) ? '' : ' class="' . $class . '"');
 
     $html = "<button type=\"$type\"" . $name . $value . $id . $class . "";
@@ -245,9 +247,10 @@ class HTML_Element
   /**
    * Create a submit button
    *
-   * @param   string|array    | $fieldname  - Either fieldname or full attributes array (when array other params are ignored)
-   * @param   string            $value      - Value for Button
-   * @param   array             $attributes - Array with more tag attribute settings
+   * @param   string|array    | $fieldname - Either fieldname or full attributes array (when array other params are
+   *                            ignored)
+   * @param   string $value                - Value for Button
+   * @param   array $attributes            - Array with more tag attribute settings
    *
    * @return  string
    */
@@ -256,7 +259,7 @@ class HTML_Element
     if (is_array($fieldname)) {
       $attributes = $fieldname;
     } else {
-      $attributes['name'] = (string)$fieldname;
+      $attributes['name']  = (string)$fieldname;
       $attributes['value'] = (string)$value;
     }
     $attributes['type'] = 'submit';
@@ -267,19 +270,19 @@ class HTML_Element
   /**
    * Create a submit button
    *
-   * @param   string          | $name       - Name of Button
-   * @param   string            $value      - Value for Button
-   * @param   string            $id         - Id for Button
-   * @param   string            $class      - Class for Button
-   * @param   array             $attributes - Array with more tag attribute settings
+   * @param   string          | $name - Name of Button
+   * @param   string $value           - Value for Button
+   * @param   string $id              - Id for Button
+   * @param   string $class           - Class for Button
+   * @param   array $attributes       - Array with more tag attribute settings
    *
    * @return  string
    */
   public function addButtonSubmit($name = 'submit', $value = 'Submit', $id = NULL, $class = NULL, $attributes = array())
   {
-    $name = (empty($name) ? '' : ' name="' . $name . '"');
+    $name  = (empty($name) ? '' : ' name="' . $name . '"');
     $value = (empty($value) ? '' : $value);
-    $id = (empty($id) ? '' : ' id="' . $id . '"');
+    $id    = (empty($id) ? '' : ' id="' . $id . '"');
     $class = (empty($class) ? '' : ' class="' . $class . '"');
 
     $html = "<button type=\"submit\"" . $name . $id . $class . "";
@@ -294,9 +297,10 @@ class HTML_Element
   /**
    * Create a textarea field
    *
-   * @param   string|array    | $fieldname  - Either fieldname or full attributes array (when array other params are ignored)
-   * @param   string            $value      - Value for Texarea
-   * @param   array             $attributes - Array with more tag attribute settings
+   * @param   string|array    | $fieldname - Either fieldname or full attributes array (when array other params are
+   *                            ignored)
+   * @param   string $value                - Value for Texarea
+   * @param   array $attributes            - Array with more tag attribute settings
    *
    * @return  string
    */
@@ -305,7 +309,7 @@ class HTML_Element
     if (is_array($fieldname)) {
       $attributes = $fieldname;
     } else {
-      $attributes['name'] = (string)$fieldname;
+      $attributes['name']  = (string)$fieldname;
       $attributes['value'] = (string)$value;
     }
     $value = is_scalar($attributes['value']) ? $attributes['value'] : '';
@@ -317,11 +321,11 @@ class HTML_Element
   /**
    * Create a textarea field
    *
-   * @param   string          | $name       - Name of Taxtarea
-   * @param   string            $value      - Value for Texarea
-   * @param   string            $rows       - Rows in Textarea
-   * @param   string            $cols       - Column in Textarea
-   * @param   array             $attributes - Array with more tag attribute settings
+   * @param   string          | $name - Name of Taxtarea
+   * @param   string $value           - Value for Texarea
+   * @param   string $rows            - Rows in Textarea
+   * @param   string $cols            - Column in Textarea
+   * @param   array $attributes       - Array with more tag attribute settings
    *
    * @return  string
    */
@@ -342,11 +346,12 @@ class HTML_Element
   /**
    * Create a radio button
    *
-   * @param   string|array    | $fieldname  - Either fieldname or full attributes array (when array other params are ignored)
-   * @param   string            $value      - Value for Radio
-   * @param   string            $id         - Id of Radio
-   * @param   mixed             $checked    - Either attributes (array) or bool/string to set checked status
-   * @param   array             $attributes - Array with more tag attribute settings
+   * @param   string|array    | $fieldname - Either fieldname or full attributes array (when array other params are
+   *                            ignored)
+   * @param   string $value                - Value for Radio
+   * @param   string $id                   - Id of Radio
+   * @param   mixed $checked               - Either attributes (array) or bool/string to set checked status
+   * @param   array $attributes            - Array with more tag attribute settings
    *
    * @return  string
    */
@@ -356,7 +361,7 @@ class HTML_Element
       $attributes = $fieldname;
     } else {
       is_array($checked) and $attributes = $checked;
-      $attributes['name'] = (string)$fieldname;
+      $attributes['name']  = (string)$fieldname;
       $attributes['value'] = (string)$value;
 
       # Added for 1.2 to allow checked true/false. in 3rd argument, used to be attributes
@@ -386,11 +391,12 @@ class HTML_Element
   /**
    * Create a checkbox
    *
-   * @param   string|array    | $fieldname  - Either fieldname or full attributes array (when array other params are ignored)
-   * @param   string            $value      - Value for Checkbox
-   * @param   string            $id         - Id of Checkbox
-   * @param   mixed             $checked    - Either attributes (array) or bool/string to set checked status
-   * @param   array             $attributes - Array with more tag attribute settings
+   * @param   string|array    | $fieldname - Either fieldname or full attributes array (when array other params are
+   *                            ignored)
+   * @param   string $value                - Value for Checkbox
+   * @param   string $id                   - Id of Checkbox
+   * @param   mixed $checked               - Either attributes (array) or bool/string to set checked status
+   * @param   array $attributes            - Array with more tag attribute settings
    *
    * @return  string
    */
@@ -400,7 +406,7 @@ class HTML_Element
       $attributes = $fieldname;
     } else {
       is_array($checked) and $attributes = $checked;
-      $attributes['name'] = (string)$fieldname;
+      $attributes['name']  = (string)$fieldname;
       $attributes['value'] = (string)$value;
 
       # Added for 1.2 to allow checked true/false. in 3rd argument, used to be attributes
@@ -431,9 +437,9 @@ class HTML_Element
   /**
    * Create a label field
    *
-   * @param   string|array    | $label      - Either fieldname or full attributes array (when array other params are ignored)
-   * @param   string            $id         - Id of Label
-   * @param   array             $attributes - Array with more tag attribute settings
+   * @param   string|array    | $label - Either fieldname or full attributes array (when array other params are ignored)
+   * @param   string $id               - Id of Label
+   * @param   array $attributes        - Array with more tag attribute settings
    *
    * @return  string
    */
@@ -441,7 +447,7 @@ class HTML_Element
   {
     if (is_array($label)) {
       $attributes = $label;
-      $label = $attributes['label'];
+      $label      = $attributes['label'];
       isset($attributes['id']) and $id = $attributes['id'];
     }
 
@@ -455,19 +461,19 @@ class HTML_Element
   /**
    * Create a radio button
    *
-   * @param   string    | $name       - Name of Radio
-   * @param   string      $value      - Value of Radio
-   * @param   mixed       $checked    - Either attributes (array) or bool/string to set checked status
-   * @param   string      $id         - Id of Radio
-   * @param   string      $class      - Class of Radio
-   * @param   array       $attributes - Array with more tag attribute settings
+   * @param   string    | $name - Name of Radio
+   * @param   string $value     - Value of Radio
+   * @param   mixed $checked    - Either attributes (array) or bool/string to set checked status
+   * @param   string $id        - Id of Radio
+   * @param   string $class     - Class of Radio
+   * @param   array $attributes - Array with more tag attribute settings
    *
    * @return  string
    */
   function addRadio($name, $value, $checked = NULL, $id = NULL, $class = NULL, $attributes = array())
   {
 
-    $id = (empty($id) ? ' id="' . $name . '"' : ' id="' . $id . '"');
+    $id    = (empty($id) ? ' id="' . $name . '"' : ' id="' . $id . '"');
     $class = (empty($class) ? '' : ' class="' . $class . '"');
 
     $html = "<input type=\"radio\" name=\"" . $name . '"' . $id . $class . ' value="' . $value . '"' . "";
@@ -489,12 +495,12 @@ class HTML_Element
   /**
    * Create a checkbox
    *
-   * @param   string    | $name       - Name of Checkbox
-   * @param   string      $value      - Value of Checkbox
-   * @param   mixed       $checked    - Either attributes (array) or bool/string to set checked status
-   * @param   string      $id         - Id of Checkbox
-   * @param   string      $class      - Class of Checkbox
-   * @param   array       $attributes - Array with more tag attribute settings
+   * @param   string    | $name - Name of Checkbox
+   * @param   string $value     - Value of Checkbox
+   * @param   mixed $checked    - Either attributes (array) or bool/string to set checked status
+   * @param   string $id        - Id of Checkbox
+   * @param   string $class     - Class of Checkbox
+   * @param   array $attributes - Array with more tag attribute settings
    *
    * @return  string
    */
@@ -502,7 +508,7 @@ class HTML_Element
   {
     $nameA = (empty($name) ? '' : ' name="' . $name . '"');
     $value = (empty($value) ? '' : ' value="' . $value . '"');
-    $id = (empty($id) ? ' id="' . $name . '"' : ' id="' . $id . '"');
+    $id    = (empty($id) ? ' id="' . $name . '"' : ' id="' . $id . '"');
     $class = (empty($class) ? '' : ' class="' . $class . '"');
 
     $html = "<input type=\"checkbox\"" . $nameA . $id . $class . $value . "";
@@ -525,8 +531,8 @@ class HTML_Element
    * Create a label field
    *
    * @param   string    | $for
-   * @param   string      $label
-   * @param   array       $attributes - Array with more tag attribute settings
+   * @param   string $label
+   * @param   array $attributes - Array with more tag attribute settings
    *
    * @return  string
    */
@@ -544,21 +550,21 @@ class HTML_Element
   /**
    * Create a input
    *
-   * @param   string    | $type       - Type of Input
-   * @param   string      $name       - Name of Input
-   * @param   string      $value      - Value of Input
-   * @param   string      $id         - Id of Input
-   * @param   string      $class      - Class of Input
-   * @param   array       $attributes - Array with more tag attribute settings
+   * @param   string    | $type - Type of Input
+   * @param   string $name      - Name of Input
+   * @param   string $value     - Value of Input
+   * @param   string $id        - Id of Input
+   * @param   string $class     - Class of Input
+   * @param   array $attributes - Array with more tag attribute settings
    *
    * @return  string
    */
   function addInput($type, $name = NULL, $value = NULL, $id = NULL, $class = NULL, $attributes = array())
   {
 
-    $name = (empty($name) ? '' : ' name="' . $name . '"');
+    $name  = (empty($name) ? '' : ' name="' . $name . '"');
     $value = ((empty($value) && $value != '0') ? '' : ' value="' . $value . '"');
-    $id = (empty($id) ? '' : ' id="' . $id . '"');
+    $id    = (empty($id) ? '' : ' id="' . $id . '"');
     $class = (empty($class) ? '' : ' class="' . $class . '"');
 
     $html = "<input type=\"$type\"" . $name . $id . $class . $value . "";
@@ -575,14 +581,14 @@ class HTML_Element
    * Create a div
    *
    * @param   string    | $value
-   * @param   string      $id
-   * @param   array       $attributes - Array with more tag attribute settings
+   * @param   string $id
+   * @param   array $attributes - Array with more tag attribute settings
    *
    * @return  string
    */
   function addDiv($value = NULL, $id = NULL, $attributes = array())
   {
-    $id = (empty($id) ? '' : 'id="' . $id . '"');
+    $id    = (empty($id) ? '' : 'id="' . $id . '"');
     $value = (empty($value) ? '' : $value);
 
     $html = "<div " . $id . "";
@@ -598,16 +604,16 @@ class HTML_Element
    * Create a tag
    *
    * @param   string    | $tag
-   * @param   string      $text
-   * @param   string      $class
-   * @param   array       $attributes - Array with more tag attribute settings
+   * @param   string $text
+   * @param   string $class
+   * @param   array $attributes - Array with more tag attribute settings
    *
    * @return  string
    */
   function addTag($tag, $text = NULL, $class = NULL, $attributes = array())
   {
-    $text = (empty($text) ? '' : $text);
-    $class = (empty($class) ? '' : ' class="' . $class . '"');
+    $text          = (empty($text) ? '' : $text);
+    $class         = (empty($class) ? '' : ' class="' . $class . '"');
     $_valid_inputs = array(
       'caption', 'code', 'del', 'figcaption', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'i', 'iframe', 'ins', 'label', 'legend',
       'option', 'p', 'pre', 'q', 's', 'samp', 'small', 'span', 'strong', 'sub', 'sup', 'th', 'td', 'textarea',
@@ -630,19 +636,19 @@ class HTML_Element
   /**
    * Create a option
    *
-   * @param   string      $value      - Value of Option
-   * @param   string      $text       - Text of Option
-   * @param   string      $selected   - Selected of Option
-   * @param   string      $id         - Id of Option
-   * @param   string      $class      - Class of Option
-   * @param   array       $attributes - Array with more tag attribute settings
+   * @param   string $value     - Value of Option
+   * @param   string $text      - Text of Option
+   * @param   string $selected  - Selected of Option
+   * @param   string $id        - Id of Option
+   * @param   string $class     - Class of Option
+   * @param   array $attributes - Array with more tag attribute settings
    *
    * @return  string
    */
   function addOption($value, $text, $selected = NULL, $id = NULL, $class = NULL, $attributes = array())
   {
 
-    $id = (empty($id) ? '' : ' id="' . $id . '"');
+    $id    = (empty($id) ? '' : ' id="' . $id . '"');
     $class = (empty($class) ? '' : ' class="' . $class . '"');
 
     $html = "<option value=\"$value\"" . $id . $class . "";
@@ -664,7 +670,7 @@ class HTML_Element
    * Generates a html un-ordered list tag
    *
    * @param  array|string      | $list - List items, may be nested
-   * @param  array|string        $attr - Outer list attributes
+   * @param  array|string $attr        - Outer list attributes
    *
    * @return  string
    */
@@ -677,7 +683,7 @@ class HTML_Element
    * Generates a html ordered list tag
    *
    * @param  array|string      | $list - List items, may be nested
-   * @param  array|string        $attr - Outer list attributes
+   * @param  array|string $attr        - Outer list attributes
    *
    * @return  string
    */
@@ -690,10 +696,10 @@ class HTML_Element
   /**
    * Generates the html for the list methods
    *
-   * @param  string  $type   list type (ol or ul)
-   * @param  array   $list   list items, may be nested
-   * @param  boolean $attr   tag attributes
-   * @param  string  $indent indentation
+   * @param  string $type   list type (ol or ul)
+   * @param  array $list    list items, may be nested
+   * @param  boolean $attr  tag attributes
+   * @param  string $indent indentation
    *
    * @return  string
    */

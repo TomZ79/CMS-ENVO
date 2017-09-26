@@ -28,7 +28,7 @@ $data_array = array();
 if ($input['action'] === 'edit') {
   // ACTION - EDIT
 
-  $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'intranethouseserv SET description = "' . $input['description'] . '", timestart = "' . $input['timestart'] . '", timeend = "' . $input['timeend'] . '" WHERE id = "' . $input['id'] . '"');
+  $result = $envodb->query('UPDATE ' . DB_PREFIX . 'intranethouseserv SET description = "' . $input['description'] . '", timestart = "' . $input['timestart'] . '", timeend = "' . $input['timeend'] . '" WHERE id = "' . $input['id'] . '"');
 
   if ($result) {
     // Data for JSON
@@ -49,7 +49,7 @@ if ($input['action'] === 'edit') {
 } else if ($input['action'] === 'delete') {
   // ACTION - DELETE
 
-  $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'intranethouseserv SET deleted = "1" WHERE id = "' . $input['id'] . '"');
+  $result = $envodb->query('UPDATE ' . DB_PREFIX . 'intranethouseserv SET deleted = "1" WHERE id = "' . $input['id'] . '"');
 
   if ($result) {
     $data_array[] = array(
@@ -79,7 +79,7 @@ if ($input['action'] === 'edit') {
 } else if ($input['action'] === 'restore') {
   // ACTION - RESTORE
 
-  $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'intranethouseserv SET deleted = "0" WHERE id = "' . $input['id'] . '"');
+  $result = $envodb->query('UPDATE ' . DB_PREFIX . 'intranethouseserv SET deleted = "0" WHERE id = "' . $input['id'] . '"');
 
   if ($result) {
     // Data for JSON

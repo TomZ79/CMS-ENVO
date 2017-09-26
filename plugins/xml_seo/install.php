@@ -152,8 +152,8 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
        * Kontrola zda je plugin instalován
        * Pokud není plugin instalován, zobrazit Notifikaci s chybovou hláškou
       */
-      $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "XML_SEO"');
-      if ($jakdb->affected_rows > 0) { ?>
+      $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "XML_SEO"');
+      if ($envodb->affected_rows > 0) { ?>
 
         <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
         <script>
@@ -182,7 +182,7 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
 
       // EN: Insert data to table 'plugins' about this plugin
       // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
-      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "XML_SEO", "XML Sitemap for better SEO.", 1, ' . JAK_USERID . ', 4, "xml_seo", "NULL", "if ($page == \'xml_seo\') {
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "XML_SEO", "XML Sitemap for better SEO.", 1, ' . JAK_USERID . ', 4, "xml_seo", "NULL", "if ($page == \'xml_seo\') {
         require_once APP_PATH.\'plugins/xml_seo/admin/xml_seo.php\';
            $JAK_PROVED = 1;
            $checkp = 1;
@@ -190,7 +190,7 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
 
       // EN: Now get the plugin 'id' from table 'plugins' for futher use
       // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
-      $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "XML_SEO"');
+      $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "XML_SEO"');
       $rows    = $results->fetch_assoc();
 
       if ($rows['id']) {
@@ -207,13 +207,13 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
 
       // EN: Insert data to table 'pluginhooks'
       // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
-      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES 
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES 
 (NULL, "php_admin_lang", "XML SEO Admin Language", "' . $adminlang . '", "xmlseo", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_head", "XML SEO Admin CSS", "plugins/xml_seo/admin/template/css.xml_seo.php", "xmlseo", 1, 4, "' . $rows['id'] . '", NOW())');
 
       // EN: Insert data to table 'setting'
       // CZ: Vložení potřebných dat to tabulky 'setting'
-      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES 
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES 
 ("xmlseopath", "xmlseo", "plugins/xml_seo/files/", "plugins/xml_seo/files/", "input", "free", "xmlseo"),
 ("xmlseodate", "xmlseo", NULL, NULL, "timestamp", "free", "xmlseo"),
 ("frequency_pages", "xmlseo", "monthly" , "monthly", "select", "free", "xmlseo"),
@@ -245,7 +245,7 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
       // EN: If plugin have 'id' (plugin is not installed), uninstall
       // CZ: Pokud nemá plugin 'id' (tzn. plugin není instalován - došlo k chybě při zápisu do tabulky 'plugins'), odinstalujeme plugin
 
-      $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "xml_seo"');
+      $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "xml_seo"');
 
       ?>
 

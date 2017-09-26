@@ -2,17 +2,17 @@
 
 // EN: Count of all exports in DB
 // CZ: Celkový počet exportů v DB
-$resexh   = $jakdb->query('SELECT COUNT(*) as totalM FROM ' . DB_PREFIX . 'tvtowerexporthistory');
+$resexh   = $envodb->query('SELECT COUNT(*) as totalM FROM ' . DB_PREFIX . 'tvtowerexporthistory');
 $rwresexh = $resexh->fetch_assoc();
 
 // EN: Count of exports for last 1 month
 // CZ: Počet exportů za poslední měsíc
-$resexh1   = $jakdb->query('SELECT COUNT(*) as totalMM FROM ' . DB_PREFIX . 'tvtowerexporthistory WHERE time > DATE_SUB(CURDATE(), INTERVAL 4 WEEK)');
+$resexh1   = $envodb->query('SELECT COUNT(*) as totalMM FROM ' . DB_PREFIX . 'tvtowerexporthistory WHERE time > DATE_SUB(CURDATE(), INTERVAL 4 WEEK)');
 $rwresexh1 = $resexh1->fetch_assoc();
 
 // EN: Get data from 'tvtowerexporthistory'
 // CZ: Získání dat z 'tvtowerexporthistory'
-$resexh2 = $jakdb->query('SELECT email, exportname, time FROM ' . DB_PREFIX . 'tvtowerexporthistory WHERE time > DATE_SUB(CURDATE(), INTERVAL 4 WEEK)');
+$resexh2 = $envodb->query('SELECT email, exportname, time FROM ' . DB_PREFIX . 'tvtowerexporthistory WHERE time > DATE_SUB(CURDATE(), INTERVAL 4 WEEK)');
 while ($rwresexh2 = $resexh2->fetch_assoc()) {
   // EN: Insert each record into array
   // CZ: Vložení získaných dat do pole

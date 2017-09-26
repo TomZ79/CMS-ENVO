@@ -27,7 +27,7 @@ $envodata = array();
 
 if (!is_numeric($_POST['backupid']) && !is_numeric($_POST['contentid'])) die("There is no such content!");
 
-$row = $jakdb->queryRow('SELECT content FROM ' . DB_PREFIX . 'backup_content WHERE id = "' . smartsql($contentid) . '" AND ' . $fid . ' = "' . smartsql($backupid) . '"');
+$row = $envodb->queryRow('SELECT content FROM ' . DB_PREFIX . 'backup_content WHERE id = "' . smartsql($contentid) . '" AND ' . $fid . ' = "' . smartsql($backupid) . '"');
 
 if (!$row) {
     // Data for JSON

@@ -133,27 +133,27 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
         if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
 
           // Now get the plugin id for futher use
-          $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Tv_tower"');
+          $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Tv_tower"');
           $rows    = $results->fetch_assoc();
 
           if ($rows) {
 
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Tv_tower"');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "tvtower"');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "tvtower"');
-            $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `tvtower`');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Tv_tower"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "tvtower"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "tvtower"');
+            $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `tvtower`');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
 
             /* Remove tables */
-            // $jakdb->query('DROP TABLE ' . DB_PREFIX . 'tvtowertvtower');
-            // $jakdb->query('DROP TABLE ' . DB_PREFIX . 'tvtowertvchannel');
-            // $jakdb->query('DROP TABLE ' . DB_PREFIX . 'tvtowertvprogram');
-            // $jakdb->query('DROP TABLE ' . DB_PREFIX . 'tvtowersidtv');
-            // $jakdb->query('DROP TABLE ' . DB_PREFIX . 'tvtowersidr');
-            // $jakdb->query('DROP TABLE ' . DB_PREFIX . 'tvtowersids');
-            // $jakdb->query('DROP TABLE ' . DB_PREFIX . 'tvtoweronid');
-            // $jakdb->query('DROP TABLE ' . DB_PREFIX . 'tvtowernid');
-            // $jakdb->query('DROP TABLE ' . DB_PREFIX . 'tvtowerexporthistory');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'tvtowertvtower');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'tvtowertvchannel');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'tvtowertvprogram');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'tvtowersidtv');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'tvtowersidr');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'tvtowersids');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'tvtoweronid');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'tvtowernid');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'tvtowerexporthistory');
 
           }
 

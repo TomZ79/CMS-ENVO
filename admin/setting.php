@@ -140,7 +140,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
        * CZ: Převod hodnot
        * smartsql - secure method to insert form data into a MySQL DB
       */
-      $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+      $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                   WHEN "email" THEN "' . smartsql($defaults['jak_email']) . '"
                   WHEN "sitehttps" THEN "' . smartsql($defaults['jak_shttp']) . '"
                   WHEN "lang" THEN "' . smartsql($defaults['jak_lang']) . '"
@@ -228,7 +228,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      * CZ: Převod hodnot
      * smartsql - secure method to insert form data into a MySQL DB
     */
-    $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+    $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                 WHEN "smtp_or_mail" THEN "' . smartsql($defaults['jak_smpt']) . '"
                 WHEN "smtp_host" THEN "' . smartsql($defaults['jak_host']) . '"
                 WHEN "smtp_port" THEN "' . smartsql($defaults['jak_port']) . '"

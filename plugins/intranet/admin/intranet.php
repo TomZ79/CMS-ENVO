@@ -134,7 +134,7 @@ switch ($page1) {
                * smartsql - secure method to insert form data into a MySQL DB
                * url_slug  - friendly URL slug from a string
               */
-              $result = $jakdb->query('INSERT INTO ' . $envotable . ' SET 
+              $result = $envodb->query('INSERT INTO ' . $envotable . ' SET 
                         name = "' . smartsql($defaults['envo_housename']) . '",
                         varname = "' . url_slug($defaults['envo_housename'], array('transliterate' => TRUE)) . '",
                         street = "' . smartsql($defaults['envo_housestreet']) . '",
@@ -151,7 +151,7 @@ switch ($page1) {
                         permission = "' . smartsql($permission) . '",
                         folder = "' . $pathfolder . '"');
 
-              $rowid = $jakdb->jak_last_id();
+              $rowid = $envodb->envo_last_id();
 
               if (!$result) {
                 // EN: Redirect page
@@ -256,7 +256,7 @@ switch ($page1) {
                  * smartsql - secure method to insert form data into a MySQL DB
                  * url_slug  - friendly URL slug from a string
                 */
-                $result = $jakdb->query('UPDATE ' . $envotable . ' SET
+                $result = $envodb->query('UPDATE ' . $envotable . ' SET
                         name = "' . smartsql($defaults['envo_housename']) . '",
                         varname = "' . url_slug($defaults['envo_housename'], array('transliterate' => TRUE)) . '",
                         street = "' . smartsql($defaults['envo_housestreet']) . '",
@@ -398,7 +398,7 @@ switch ($page1) {
                * smartsql - secure method to insert form data into a MySQL DB
                * url_slug  - friendly URL slug from a string
               */
-              $result = $jakdb->query('INSERT INTO ' . $envotable7 . ' SET 
+              $result = $envodb->query('INSERT INTO ' . $envotable7 . ' SET 
                         name = "' . smartsql($defaults['envo_title']) . '",
                         varname = "' . url_slug($defaults['envo_title'], array('transliterate' => TRUE)) . '",
                         type = "' . smartsql($defaults['envo_type']) . '",
@@ -407,7 +407,7 @@ switch ($page1) {
                         permission = "' . smartsql($permission) . '",
                         created = NOW()');
 
-              $rowid = $jakdb->jak_last_id();
+              $rowid = $envodb->envo_last_id();
 
               // EN: User group access for notification
               // CZ: Přístup jednotlivých uživatelských skupin k notifikaci
@@ -415,7 +415,7 @@ switch ($page1) {
                 // EN: Usergroup not exists
                 // CZ: Uživatelská skupina neexistuje
 
-                $jakdb->query('INSERT INTO ' . $envotable8 . ' SET 
+                $envodb->query('INSERT INTO ' . $envotable8 . ' SET 
                         notification_id = "' . $rowid . '",
                         usergroup_id = "0",
                         unread = "0",
@@ -425,7 +425,7 @@ switch ($page1) {
                 // EN: Usergroup exists, selection contains '0' value
                 // CZ: Uživatelská skupina existuje, výběr obsahuje hodnotu "0"
 
-                $jakdb->query('INSERT INTO ' . $envotable8 . ' SET 
+                $envodb->query('INSERT INTO ' . $envotable8 . ' SET 
                         notification_id = "' . $rowid . '",
                         usergroup_id = "0",
                         unread = "0",
@@ -436,7 +436,7 @@ switch ($page1) {
                 // CZ: Uživatelská skupina existuje, výběr obsahuje pole
 
                 foreach ($defaults['envo_permission'] as $permission) {
-                  $jakdb->query('INSERT INTO ' . $envotable8 . ' SET 
+                  $envodb->query('INSERT INTO ' . $envotable8 . ' SET 
                         notification_id = "' . $rowid . '",
                         usergroup_id = "' . $permission . '",
                         unread = "0",
@@ -518,7 +518,7 @@ switch ($page1) {
                  * smartsql - secure method to insert form data into a MySQL DB
                  * url_slug  - friendly URL slug from a string
                 */
-                $result = $jakdb->query('UPDATE ' . $envotable7 . ' SET
+                $result = $envodb->query('UPDATE ' . $envotable7 . ' SET
                         name = "' . smartsql($defaults['envo_title']) . '",
                         varname = "' . url_slug($defaults['envo_title'], array('transliterate' => TRUE)) . '",
                         type = "' . smartsql($defaults['envo_type']) . '",
@@ -529,7 +529,7 @@ switch ($page1) {
 
                 // EN: Delete user group acces for notification by 'id'
                 // CZ: Odstranění přístupu uživatelské skupiny pro notifikaci podle 'id'
-                $jakdb->query('DELETE FROM ' . $envotable8 . ' WHERE notification_id = "' . smartsql($pageID) . '"');
+                $envodb->query('DELETE FROM ' . $envotable8 . ' WHERE notification_id = "' . smartsql($pageID) . '"');
 
                 // EN: User group access for notification
                 // CZ: Přístup jednotlivých uživatelských skupin k notifikaci
@@ -537,7 +537,7 @@ switch ($page1) {
                   // EN: Usergroup not exists
                   // CZ: Uživatelská skupina neexistuje
 
-                  $jakdb->query('INSERT INTO ' . $envotable8 . ' SET 
+                  $envodb->query('INSERT INTO ' . $envotable8 . ' SET 
                         notification_id = "' . $pageID . '",
                         usergroup_id = "0",
                         unread = "0",
@@ -547,7 +547,7 @@ switch ($page1) {
                   // EN: Usergroup exists, selection contains '0' value
                   // CZ: Uživatelská skupina existuje, výběr obsahuje hodnotu "0"
 
-                  $jakdb->query('INSERT INTO ' . $envotable8 . ' SET 
+                  $envodb->query('INSERT INTO ' . $envotable8 . ' SET 
                         notification_id = "' . $pageID . '",
                         usergroup_id = "0",
                         unread = "0",
@@ -558,7 +558,7 @@ switch ($page1) {
                   // CZ: Uživatelská skupina existuje, výběr obsahuje pole
 
                   foreach ($defaults['envo_permission'] as $permission) {
-                    $jakdb->query('INSERT INTO ' . $envotable8 . ' SET 
+                    $envodb->query('INSERT INTO ' . $envotable8 . ' SET 
                         notification_id = "' . $pageID . '",
                         usergroup_id = "' . $permission . '",
                         unread = "0",
@@ -618,7 +618,7 @@ switch ($page1) {
         if (is_numeric($pageID) && envo_row_exist($pageID, $envotable7)) {
 
           // Delete the Content
-          $result = $jakdb->query('DELETE FROM ' . $envotable7 . ' WHERE id = "' . smartsql($pageID) . '"');
+          $result = $envodb->query('DELETE FROM ' . $envotable7 . ' WHERE id = "' . smartsql($pageID) . '"');
 
           if (!$result) {
             // EN: Redirect page
@@ -683,7 +683,7 @@ switch ($page1) {
          * CZ: Převod hodnot
          * smartsql - secure method to insert form data into a MySQL DB
         */
-        $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+        $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                     WHEN "intranettitle" THEN "' . smartsql($defaults['envo_title']) . '"
                     WHEN "intranetdateformat" THEN "' . smartsql($defaults['envo_date']) . '"
                     WHEN "intranettimeformat" THEN "' . smartsql($defaults['envo_time']) . '"

@@ -3,7 +3,7 @@ $JAK_GROWL_SHOW = FALSE;
 $JAK_NEWS_GROWL = array();
 
 // Get the general settings out the database
-$resultgw = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'growl WHERE active = 1');
+$resultgw = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'growl WHERE active = 1');
 while ($rowgw = $resultgw->fetch_assoc()) {
   $gwtitle   = base64_encode(trim($rowgw['title']));
   $gwcontent = base64_encode(trim($rowgw['content']));

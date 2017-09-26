@@ -39,14 +39,14 @@ switch ($page1) {
          * CZ: Převod hodnot
          * smartsql - secure method to insert form data into a MySQL DB
         */
-        $result = $jakdb->query('INSERT INTO ' . $envotable . ' SET
+        $result = $envodb->query('INSERT INTO ' . $envotable . ' SET
                   title = "' . smartsql($defaults['jak_title']) . '",
                   content = "' . smartsql($defaults['jak_lcontent']) . '",
                   email = "' . smartsql($defaults['jak_email']) . '",
                   showtitle = "' . smartsql($defaults['jak_showtitle']) . '",
                   time = NOW()');
 
-        $rowid = $jakdb->jak_last_id();
+        $rowid = $envodb->envo_last_id();
 
         $countoption = $defaults['jak_option'];
 
@@ -61,7 +61,7 @@ switch ($page1) {
               $sqlmand = $defaults['jak_optionmandatory'][$i];
             }
 
-            $jakdb->query('INSERT INTO ' . $envotable1 . ' SET
+            $envodb->query('INSERT INTO ' . $envotable1 . ' SET
 														formid = "' . smartsql($rowid) . '",
 														name = "' . smartsql($name) . '",
 														typeid = "' . smartsql($defaults['jak_optiontype'][$i]) . '",
@@ -111,7 +111,7 @@ switch ($page1) {
 
         for ($i = 0; $i < count($lockuser); $i++) {
           $locked = $lockuser[$i];
-          $result = $jakdb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($locked) . '"');
+          $result = $envodb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($locked) . '"');
         }
 
         if (!$result) {
@@ -132,8 +132,8 @@ switch ($page1) {
 
         for ($i = 0; $i < count($lockuser); $i++) {
           $locked = $lockuser[$i];
-          $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
-          $jakdb->query('DELETE FROM ' . $envotable1 . ' WHERE formid = "' . smartsql($locked) . '"');
+          $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
+          $envodb->query('DELETE FROM ' . $envotable1 . ' WHERE formid = "' . smartsql($locked) . '"');
 
         }
 
@@ -154,7 +154,7 @@ switch ($page1) {
     switch ($page1) {
       case 'lock':
 
-        $result = $jakdb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page2) . '"');
+        $result = $envodb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page2) . '"');
 
         if (!$result) {
           // EN: Redirect page
@@ -170,9 +170,9 @@ switch ($page1) {
       case 'delete':
         if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
-          $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
+          $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
 
-          $jakdb->query('DELETE FROM ' . $envotable1 . ' WHERE formid = "' . smartsql($page2) . '"');
+          $envodb->query('DELETE FROM ' . $envotable1 . ' WHERE formid = "' . smartsql($page2) . '"');
 
           if (!$result) {
             // EN: Redirect page
@@ -206,7 +206,7 @@ switch ($page1) {
               for ($i = 0; $i < count($odel); $i++) {
                 $optiondel = $odel[$i];
 
-                $jakdb->query('DELETE FROM ' . $envotable1 . ' WHERE id = "' . $optiondel . '"');
+                $envodb->query('DELETE FROM ' . $envotable1 . ' WHERE id = "' . $optiondel . '"');
               }
             }
 
@@ -228,7 +228,7 @@ switch ($page1) {
                * CZ: Převod hodnot
                * smartsql - secure method to insert form data into a MySQL DB
               */
-              $result = $jakdb->query('UPDATE ' . $envotable . ' SET
+              $result = $envodb->query('UPDATE ' . $envotable . ' SET
                         title = "' . smartsql($defaults['jak_title']) . '",
                         content = "' . smartsql($defaults['jak_lcontent']) . '",
                         email = "' . smartsql($defaults['jak_email']) . '",
@@ -247,7 +247,7 @@ switch ($page1) {
                   $sqlmand = $defaults['jak_optionmandatory_old'][$i];
                 }
 
-                $jakdb->query('UPDATE ' . $envotable1 . ' SET
+                $envodb->query('UPDATE ' . $envotable1 . ' SET
 																name = "' . smartsql($name_old) . '",
 																typeid = "' . smartsql($defaults['jak_optiontype_old'][$i]) . '",
 																options = "' . smartsql(trim($defaults['jak_options_old'][$i])) . '",
@@ -276,7 +276,7 @@ switch ($page1) {
                     $sqlmand = $defaults['jak_optionmandatory'][$i];
                   }
 
-                  $jakdb->query('INSERT INTO ' . $envotable1 . ' SET
+                  $envodb->query('INSERT INTO ' . $envotable1 . ' SET
 																	formid = ' . smartsql($page2) . ',
 																	name = "' . smartsql($name) . '",
 																	typeid = "' . smartsql($defaults['jak_optiontype'][$i]) . '",

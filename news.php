@@ -37,9 +37,9 @@ switch ($page1) {
       $page2 = filter_var($page2, FILTER_SANITIZE_NUMBER_INT);
 
       // Now perform the query
-      $result = $jakdb->query('SELECT * FROM ' . $envotable . ' WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 OR enddate >= ' . time() . ')) AND (FIND_IN_SET(' . JAK_USERGROUPID . ',permission) OR permission = 0) AND id = ' . smartsql($page2));
+      $result = $envodb->query('SELECT * FROM ' . $envotable . ' WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 OR enddate >= ' . time() . ')) AND (FIND_IN_SET(' . JAK_USERGROUPID . ',permission) OR permission = 0) AND id = ' . smartsql($page2));
 
-      if ($jakdb->affected_rows == 0) envo_redirect($backtonews);
+      if ($envodb->affected_rows == 0) envo_redirect($backtonews);
 
       $row = $result->fetch_assoc();
 
@@ -101,7 +101,7 @@ switch ($page1) {
 
         // Get the sort orders for the grid
         $JAK_HOOK_SIDE_GRID = $JAK_PAGE_GRID = FALSE;
-        $grid               = $jakdb->query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE newsid = "' . $row['id'] . '" ORDER BY orderid ASC');
+        $grid               = $envodb->query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE newsid = "' . $row['id'] . '" ORDER BY orderid ASC');
         while ($grow = $grid->fetch_assoc()) {
           // EN: Insert each record into array
           // CZ: Vložení získaných dat do pole
@@ -198,7 +198,7 @@ switch ($page1) {
     $_SESSION['jak_lastURL'] = $backtonews;
 
     // Get the sort orders for the grid
-    $grid = $jakdb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . JAK_PLUGIN_ID_NEWS . ' ORDER BY orderid ASC');
+    $grid = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . JAK_PLUGIN_ID_NEWS . ' ORDER BY orderid ASC');
     while ($grow = $grid->fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole

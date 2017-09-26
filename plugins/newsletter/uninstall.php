@@ -134,24 +134,24 @@ if (file_exists(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '
         if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
 
           // Now get the plugin id for futher use
-          $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Newsletter"');
+          $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Newsletter"');
           $rows    = $results->fetch_assoc();
 
           if ($rows) {
 
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Newsletter"');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . $rows['id'] . '"');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE pluginid = "' . $rows['id'] . '"');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "newsletter"');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "newsletter"');
-            $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `newsletter`');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Newsletter"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . $rows['id'] . '"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE pluginid = "' . $rows['id'] . '"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "newsletter"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "newsletter"');
+            $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `newsletter`');
 
             // Clean user table
-            $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'user DROP `newsletter`');
+            $envodb->query('ALTER TABLE ' . DB_PREFIX . 'user DROP `newsletter`');
 
-            $jakdb->query('DROP TABLE ' . DB_PREFIX . 'newsletter, ' . DB_PREFIX . 'newslettergroup, ' . DB_PREFIX . 'newsletteruser, ' . DB_PREFIX . 'newsletterstat');
+            $envodb->query('DROP TABLE ' . DB_PREFIX . 'newsletter, ' . DB_PREFIX . 'newslettergroup, ' . DB_PREFIX . 'newsletteruser, ' . DB_PREFIX . 'newsletterstat');
 
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . $rows['id'] . '"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . $rows['id'] . '"');
 
             $succesfully = 1;
 

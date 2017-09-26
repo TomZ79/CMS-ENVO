@@ -80,7 +80,7 @@ switch ($page1) {
         $random = substr(number_format(time() * rand(), 0, '', ''), 0, 10);
 
         // Insert user into database
-        $result = $jakdb->query('INSERT INTO ' . $envotable2 . ' SET name = "' . smartsql($defaults['nlUser']) . '", email = "' . smartsql($defaults['nlEmail']) . '", delcode = "' . $random . '", time = NOW()');
+        $result = $envodb->query('INSERT INTO ' . $envotable2 . ' SET name = "' . smartsql($defaults['nlUser']) . '", email = "' . smartsql($defaults['nlEmail']) . '", delcode = "' . $random . '", time = NOW()');
 
         if ($result) {
 
@@ -114,7 +114,7 @@ switch ($page1) {
     if (is_numeric($page2) && is_numeric($page3) && envo_field_not_exist($page3, $envotable, 'fullview')) {
 
       // Get the data from the newsletter
-      $row = $jakdb->queryRow('SELECT content FROM ' . $envotable . ' WHERE id = ' . smartsql($page2));
+      $row = $envodb->queryRow('SELECT content FROM ' . $envotable . ' WHERE id = ' . smartsql($page2));
 
       // Just the content
       $cssAtt       = array('{myweburl}', '{mywebname}', '{browserversion}', '{unsubscribe}', '{username}', '{fullname}', '{useremail}');
@@ -164,7 +164,7 @@ switch ($page1) {
         if (count($errors) == 0) {
           $cleanemail = filter_var($defaults['nlEmail'], FILTER_SANITIZE_EMAIL);
 
-          $result = $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE email = "' . smartsql($cleanemail) . '" AND delcode = "' . smartsql($page2) . '"');
+          $result = $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE email = "' . smartsql($cleanemail) . '" AND delcode = "' . smartsql($page2) . '"');
 
           if (!$result) {
             // EN: Redirect page
@@ -222,7 +222,7 @@ switch ($page1) {
 
           if (count($errors) == 0 && JAK_USERID) {
 
-            $result = $jakdb->query('UPDATE ' . $envotable3 . ' SET newsletter = 0 WHERE id = ' . smartsql(JAK_USERID));
+            $result = $envodb->query('UPDATE ' . $envotable3 . ' SET newsletter = 0 WHERE id = ' . smartsql(JAK_USERID));
 
             if (!$result) {
               // EN: Redirect page
@@ -251,7 +251,7 @@ switch ($page1) {
 
           if (count($errors) == 0 && JAK_USERID) {
 
-            $result = $jakdb->query('UPDATE ' . $envotable3 . ' SET newsletter = 1 WHERE id = ' . smartsql(JAK_USERID));
+            $result = $envodb->query('UPDATE ' . $envotable3 . ' SET newsletter = 1 WHERE id = ' . smartsql(JAK_USERID));
 
             if (!$result) {
               // EN: Redirect page
@@ -280,7 +280,7 @@ switch ($page1) {
       if (JAK_USERID) {
 
         // Get the newsletter status from the newsletter
-        $result = $jakdb->query('SELECT newsletter FROM ' . $envotable3 . ' WHERE id = ' . smartsql(JAK_USERID));
+        $result = $envodb->query('SELECT newsletter FROM ' . $envotable3 . ' WHERE id = ' . smartsql(JAK_USERID));
         $row    = $result->fetch_assoc();
 
       }

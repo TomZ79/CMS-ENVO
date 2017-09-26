@@ -38,7 +38,7 @@ switch ($page1) {
          * CZ: Převod hodnot
          * smartsql - secure method to insert form data into a MySQL DB
         */
-        $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+        $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                     WHEN "blankplugintitle" THEN "' . smartsql($defaults['jak_title']) . '"
                   END
                   WHERE varname IN ("blankplugintitle")');

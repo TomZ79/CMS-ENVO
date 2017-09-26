@@ -79,7 +79,7 @@ if (JAK_USERID) {
               create_thumbnail($targetPath, $targetFile, $smallPhoto, $jkv["useravatwidth"], $jkv["useravatheight"], 80);
 
               // SQL insert
-              $result = $jakdb->query('UPDATE ' . $envotable . ' SET picture = "' . $dbSmall . '" WHERE id = "' . JAK_USERID . '" LIMIT 1');
+              $result = $envodb->query('UPDATE ' . $envotable . ' SET picture = "' . $dbSmall . '" WHERE id = "' . JAK_USERID . '" LIMIT 1');
 
 
               if (!$result) {
@@ -129,7 +129,7 @@ if (JAK_USERID) {
         copy(JAK_FILES_DIRECTORY . "/index.html", $targetPath . "/index.html");
       }
 
-      $result = $jakdb->query('UPDATE ' . $envotable . ' SET picture = "' . smartsql($defaults['avatar']) . '" WHERE id = "' . smartsql(JAK_USERID) . '"');
+      $result = $envodb->query('UPDATE ' . $envotable . ' SET picture = "' . smartsql($defaults['avatar']) . '" WHERE id = "' . smartsql(JAK_USERID) . '"');
     }
 
     if (!$result) {
@@ -238,7 +238,7 @@ if (JAK_USERID) {
        * CZ: Převod hodnot
        * smartsql - secure method to insert form data into a MySQL DB
       */
-      $result = $jakdb->query('UPDATE ' . $envotable . ' SET
+      $result = $envodb->query('UPDATE ' . $envotable . ' SET
                 name = "' . smartsql($defaults['name']) . '",
                 phone = "' . smartsql($defaults['phone']) . '"
                 ' . $safeemail . $insert . '
@@ -286,7 +286,7 @@ if (JAK_USERID) {
       // The new password encrypt with hash_hmac
       $passcrypt = hash_hmac('sha256', $pass, DB_PASS_HASH);
 
-      $result = $jakdb->query('UPDATE ' . $envotable . ' SET password = "' . $passcrypt . '" WHERE id = ' . JAK_USERID);
+      $result = $envodb->query('UPDATE ' . $envotable . ' SET password = "' . $passcrypt . '" WHERE id = ' . JAK_USERID);
 
       if (!$result) {
         envo_redirect(JAK_PARSE_ERROR);
@@ -301,7 +301,7 @@ if (JAK_USERID) {
   }
 
   // Get the sort orders for the grid
-  $grid = $jakdb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . JAK_PLUGIN_ID_REGISTER_FORM . ' ORDER BY orderid ASC');
+  $grid = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . JAK_PLUGIN_ID_REGISTER_FORM . ' ORDER BY orderid ASC');
   while ($grow = $grid->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole

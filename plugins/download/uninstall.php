@@ -133,40 +133,40 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
         if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
 
           // Now get the plugin id for futher use
-          $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
+          $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
           $rows    = $results->fetch_assoc();
 
           if ($rows) {
 
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql($rows['id']) . '"');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE pluginid = "' . smartsql($rows['id']) . '"');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "download"');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "download"');
-            $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `download`, DROP `downloadcan`');
-            $jakdb->query('DROP TABLE ' . DB_PREFIX . 'download, ' . DB_PREFIX . 'downloadcategories, ' . DB_PREFIX . 'downloadhistory');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
-            $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pages DROP showdownload');
-            $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'news DROP showdownload');
-            $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pagesgrid DROP fileid');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql($rows['id']) . '"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE pluginid = "' . smartsql($rows['id']) . '"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "download"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "download"');
+            $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `download`, DROP `downloadcan`');
+            $envodb->query('DROP TABLE ' . DB_PREFIX . 'download, ' . DB_PREFIX . 'downloadcategories, ' . DB_PREFIX . 'downloadhistory');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
+            $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pages DROP showdownload');
+            $envodb->query('ALTER TABLE ' . DB_PREFIX . 'news DROP showdownload');
+            $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pagesgrid DROP fileid');
 
             // Now delete all tags
-            $result = $jakdb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE pluginid = "' . smartsql($rows['id']) . '"');
+            $result = $envodb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE pluginid = "' . smartsql($rows['id']) . '"');
             while ($row = $result->fetch_assoc()) {
-              $result1 = $jakdb->query('SELECT count FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($row['tag']) . '" LIMIT 1');
+              $result1 = $envodb->query('SELECT count FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($row['tag']) . '" LIMIT 1');
               $count   = $result1->fetch_assoc();
 
               if ($count['count'] <= '1') {
-                $jakdb->query('DELETE FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($row['tag']) . '"');
+                $envodb->query('DELETE FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($row['tag']) . '"');
 
               } else {
 
-                $jakdb->query('UPDATE ' . DB_PREFIX . 'tagcloud SET count = count - 1 WHERE tag = "' . smartsql($row['tag']) . '"');
+                $envodb->query('UPDATE ' . DB_PREFIX . 'tagcloud SET count = count - 1 WHERE tag = "' . smartsql($row['tag']) . '"');
 
               }
             }
 
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'tags WHERE pluginid = "' . smartsql($rows['id']) . '"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'tags WHERE pluginid = "' . smartsql($rows['id']) . '"');
 
           }
 

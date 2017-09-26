@@ -9,7 +9,7 @@ if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 $envotable = DB_PREFIX . 'pages';
 
 // Get the database stuff
-$row = $jakdb->queryRow('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($pageid) . '"');
+$row = $envodb->queryRow('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($pageid) . '"');
 
 // Check if the page is not active and we are not an admin then we redirect
 if ($row['active'] != 1 && !JAK_ASACCESS) envo_redirect(JAK_rewrite::jakParseurl($tl['link']['l3'], $tl['link']['l1'], '', '', ''));
@@ -92,7 +92,7 @@ if ($hookpages) foreach ($hookpages as $hpag) {
 
 // Get the sort orders for the grid
 $JAK_PAGE_GRID = $JAK_HOOK_SIDE_GRID = array();
-$grid          = $jakdb->query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE pageid = "' . $row['id'] . '" ORDER BY orderid ASC');
+$grid          = $envodb->query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE pageid = "' . $row['id'] . '" ORDER BY orderid ASC');
 while ($grow = $grid->fetch_assoc()) {
   // Load the main grid
   if ($grow["pluginid"] && !$grow["hookid"]) $JAK_PAGE_GRID[] = $grow;

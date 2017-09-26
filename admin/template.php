@@ -16,7 +16,7 @@ $envotable = DB_PREFIX . 'setting';
 // CZ: Importuj důležité nastavení pro šablonu z DB
 $templateurl = envo_get_setting('setting');
 
-$result = $jakdb->query('SELECT value FROM ' . $envotable . ' WHERE groupname = "setting" && varname = "sitestyle" LIMIT 1');
+$result = $envodb->query('SELECT value FROM ' . $envotable . ' WHERE groupname = "setting" && varname = "sitestyle" LIMIT 1');
 $row    = $result->fetch_assoc();
 
 $JAK_FILE_SUCCESS = $JAK_FILE_ERROR = $JAK_FILEURL = $JAK_FILECONTENT = "";
@@ -337,7 +337,7 @@ switch ($page1) {
     break;
   case 'active':
 
-    $result = $jakdb->query('UPDATE ' . $envotable . ' SET value = IF (value = 1, 0, 1) WHERE varname = "styleswitcher_tpl" && groupname = "' . smartsql($page2) . '"');
+    $result = $envodb->query('UPDATE ' . $envotable . ' SET value = IF (value = 1, 0, 1) WHERE varname = "styleswitcher_tpl" && groupname = "' . smartsql($page2) . '"');
 
     if (!$result) {
       // EN: Redirect page
@@ -368,7 +368,7 @@ switch ($page1) {
        * CZ: Převod hodnot
        * smartsql - secure method to insert form data into a MySQL DB
       */
-      $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+      $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                   WHEN "sitestyle" THEN "' . smartsql($defaults['btnSave']) . '"
                 END
                 WHERE varname IN ("sitestyle")');

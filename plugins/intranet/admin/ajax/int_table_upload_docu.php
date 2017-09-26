@@ -57,10 +57,10 @@ if (isset($_FILES['file'])) {
     if (move_uploaded_file($tmp, $pathfull)) {
 
       // Insert info about file into DB
-      $jakdb->query('INSERT ' . DB_PREFIX . 'intranethousedocu SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", description = "", filename = "' . $filename . '", fullpath = "' . $fullpath . '", timedefault = NOW(), timeedit = NOW()');
+      $envodb->query('INSERT ' . DB_PREFIX . 'intranethousedocu SET id = NULL, houseid = "' . $_REQUEST['houseID'] . '", description = "", filename = "' . $filename . '", fullpath = "' . $fullpath . '", timedefault = NOW(), timeedit = NOW()');
 
       // Get all files for house
-      $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'intranethousedocu WHERE houseid = "' . $_REQUEST['houseID'] . '" ORDER BY id ASC');
+      $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethousedocu WHERE houseid = "' . $_REQUEST['houseID'] . '" ORDER BY id ASC');
 
       while ($row = $result->fetch_assoc()) {
         $data_array[] = array(

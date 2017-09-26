@@ -63,7 +63,7 @@ switch ($page1) {
           $insert .= 'password = "' . hash_hmac('sha256', $defaults['jak_password'], DB_PASS_HASH) . '",';
         }
 
-        $result = $jakdb->query('INSERT INTO ' . $envotable . ' SET
+        $result = $envodb->query('INSERT INTO ' . $envotable . ' SET
 			username = "' . smartsql($defaults['jak_username']) . '",
 			name = "' . smartsql($defaults['jak_name']) . '",
 			email = "' . smartsql($defaults['jak_email']) . '",
@@ -72,7 +72,7 @@ switch ($page1) {
 			' . $insert . '
 			time = NOW()');
 
-        $rowid = $jakdb->jak_last_id();
+        $rowid = $envodb->envo_last_id();
 
         if (!$result) {
           // EN: Redirect page
@@ -156,7 +156,7 @@ switch ($page1) {
 
             for ($i = 0; $i < count($jakmove); $i++) {
               $move   = $jakmove[$i];
-              $result = $jakdb->query('UPDATE ' . $envotable . ' SET usergroupid = ' . $jakgrid . ' WHERE id = "' . smartsql($move) . '"');
+              $result = $envodb->query('UPDATE ' . $envotable . ' SET usergroupid = ' . $jakgrid . ' WHERE id = "' . smartsql($move) . '"');
             }
 
             if (!$result) {
@@ -180,7 +180,7 @@ switch ($page1) {
               $locked = $lockuser[$i];
 
               if (!in_array($locked, $useridarray)) {
-                $result = $jakdb->query('UPDATE ' . $envotable . ' SET access = IF (access = 1, 0, 1) WHERE id = "' . smartsql($locked) . '"');
+                $result = $envodb->query('UPDATE ' . $envotable . ' SET access = IF (access = 1, 0, 1) WHERE id = "' . smartsql($locked) . '"');
               }
             }
 
@@ -213,7 +213,7 @@ switch ($page1) {
                 // Generate random password
                 $password = envo_password_creator();
 
-                $result = $jakdb->query('SELECT id, username, email FROM ' . $envotable . ' WHERE id = ' . smartsql($locked));
+                $result = $envodb->query('SELECT id, username, email FROM ' . $envotable . ' WHERE id = ' . smartsql($locked));
                 $row    = $result->fetch_assoc();
 
                 // Send email to member with new password
@@ -226,7 +226,7 @@ switch ($page1) {
                 $mail->Send();
 
                 // Update database
-                $jakdb->query('UPDATE ' . $envotable . ' SET password = "' . hash_hmac('sha256', $password, DB_PASS_HASH) . '" WHERE id = ' . $row["id"]);
+                $envodb->query('UPDATE ' . $envotable . ' SET password = "' . hash_hmac('sha256', $password, DB_PASS_HASH) . '" WHERE id = ' . $row["id"]);
               }
             }
 
@@ -253,7 +253,7 @@ switch ($page1) {
               if (!in_array($locked, $useridarray)) {
 
 
-                $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = ' . $locked . '');
+                $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = ' . $locked . '');
 
                 // Delete Avatar if yes
                 if (!empty($defaults['jak_delete_avatar'])) {
@@ -325,7 +325,7 @@ switch ($page1) {
           $JAK_PAGINATE = $pages->display_pages();
         }
 
-        $result = $jakdb->query('SELECT id, usergroupid, username, email, name, access FROM ' . $envotable . ' ORDER BY ' . $page2 . ' ' . $page3 . ' ' . $pages->limit);
+        $result = $envodb->query('SELECT id, usergroupid, username, email, name, access FROM ' . $envotable . ' ORDER BY ' . $page2 . ' ' . $page3 . ' ' . $pages->limit);
         while ($row = $result->fetch_assoc()) {
           $user[] = array('id' => $row['id'], 'usergroupid' => $row['usergroupid'], 'username' => $row['username'], 'email' => $row['email'], 'name' => $row['name'], 'access' => $row['access']);
         }
@@ -347,7 +347,7 @@ switch ($page1) {
 
         if (envo_user_exist_deletable($page2)) {
 
-          $result = $jakdb->query('UPDATE ' . $envotable . ' SET access = IF (access = 1, 0, 1) WHERE id = ' . smartsql($page2));
+          $result = $envodb->query('UPDATE ' . $envotable . ' SET access = IF (access = 1, 0, 1) WHERE id = ' . smartsql($page2));
 
           if (!$result) {
             // EN: Redirect page
@@ -367,7 +367,7 @@ switch ($page1) {
         break;
       case 'verify':
 
-        $result = $jakdb->query('SELECT id, username, email, activatenr, access FROM ' . DB_PREFIX . 'user WHERE id = ' . smartsql($page2));
+        $result = $envodb->query('SELECT id, username, email, activatenr, access FROM ' . DB_PREFIX . 'user WHERE id = ' . smartsql($page2));
         $row    = $result->fetch_assoc();
 
         if ($row['access'] == 3) {
@@ -394,7 +394,7 @@ switch ($page1) {
 
         } else {
 
-          $result1 = $jakdb->query('UPDATE ' . DB_PREFIX . 'user SET access = 1 WHERE id = ' . smartsql($page2));
+          $result1 = $envodb->query('UPDATE ' . DB_PREFIX . 'user SET access = 1 WHERE id = ' . smartsql($page2));
 
           if (!$result1) {
             // EN: Redirect page
@@ -426,7 +426,7 @@ switch ($page1) {
           // Generate random password
           $password = envo_password_creator();
 
-          $result = $jakdb->query('SELECT id, username, email FROM ' . $envotable . ' WHERE id = ' . smartsql($page2));
+          $result = $envodb->query('SELECT id, username, email FROM ' . $envotable . ' WHERE id = ' . smartsql($page2));
           $row    = $result->fetch_assoc();
 
           // Send email to member with new password
@@ -440,7 +440,7 @@ switch ($page1) {
           if ($mail->Send()) {
 
             // Update database
-            $result = $jakdb->query('UPDATE ' . $envotable . ' SET password = "' . hash_hmac('sha256', $password, DB_PASS_HASH) . '" WHERE id = ' . $row["id"]);
+            $result = $envodb->query('UPDATE ' . $envotable . ' SET password = "' . hash_hmac('sha256', $password, DB_PASS_HASH) . '" WHERE id = ' . $row["id"]);
 
             // EN: Redirect page
             // CZ: Přesměrování stránky
@@ -463,7 +463,7 @@ switch ($page1) {
         if (envo_user_exist_deletable($page2)) {
 
           // Now check how many languages are installed and do the dirty work
-          $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = ' . smartsql($page2));
+          $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = ' . smartsql($page2));
 
           // Delete Avatar
           $targetPath   = '../' . JAK_FILES_DIRECTORY . '/' . $page2 . '/';
@@ -513,7 +513,7 @@ switch ($page1) {
           //First an array with existing fields
           $existf = array('id', 'usergroupid', 'username', 'password', 'idhash', 'session', 'email', 'name', 'ulang', 'picture', 'time', 'lastactivity', 'backtogroup', 'backtime', 'logins', 'access', 'activatenr', 'forgot', 'phone', 'description');
 
-          $queryfields = $jakdb->query('DESCRIBE ' . $envotable);
+          $queryfields = $envodb->query('DESCRIBE ' . $envotable);
           while ($rowf = $queryfields->fetch_assoc()) {
             $schema[] = $rowf['Field'];
           }
@@ -570,7 +570,7 @@ switch ($page1) {
                 copy($avatarpid, $targetPath . "/index.html");
               }
 
-              $jakdb->query('UPDATE ' . $envotable . ' SET picture = "/standard.png" WHERE id = ' . smartsql($page2) . '');
+              $envodb->query('UPDATE ' . $envotable . ' SET picture = "/standard.png" WHERE id = ' . smartsql($page2) . '');
 
             }
 
@@ -628,7 +628,7 @@ switch ($page1) {
                       create_thumbnail($targetPath, $targetFile, $smallPhoto, $jkv["useravatwidth"], $jkv["useravatheight"], 80);
 
                       // SQL insert
-                      $jakdb->query('UPDATE ' . $envotable . ' SET picture = "' . smartsql($dbSmall) . '" WHERE id = "' . smartsql($page2) . '" LIMIT 1');
+                      $envodb->query('UPDATE ' . $envotable . ' SET picture = "' . smartsql($dbSmall) . '" WHERE id = "' . smartsql($page2) . '" LIMIT 1');
 
                     } else {
                       $errors['e4'] = $tl['search']['s7'] . '<br />';
@@ -690,7 +690,7 @@ switch ($page1) {
                * CZ: Převod hodnot
                * smartsql - secure method to insert form data into a MySQL DB
               */
-              $result = $jakdb->query('UPDATE ' . $envotable . ' SET
+              $result = $envodb->query('UPDATE ' . $envotable . ' SET
                         username = "' . smartsql($defaults['jak_username']) . '",
                         name = "' . smartsql($defaults['jak_name']) . '",
                         email = "' . filter_var($defaults['jak_email'], FILTER_SANITIZE_EMAIL) . '",
@@ -778,7 +778,7 @@ switch ($page1) {
 
             for ($i = 0; $i < count($jakmove); $i++) {
               $move   = $jakmove[$i];
-              $result = $jakdb->query('UPDATE ' . $envotable . ' SET usergroupid = ' . $jakgrid . ' WHERE id = "' . smartsql($move) . '"');
+              $result = $envodb->query('UPDATE ' . $envotable . ' SET usergroupid = ' . $jakgrid . ' WHERE id = "' . smartsql($move) . '"');
             }
 
             if (!$result) {
@@ -802,7 +802,7 @@ switch ($page1) {
               $locked = $lockuser[$i];
 
               if (!in_array($locked, $useridarray)) {
-                $result = $jakdb->query('UPDATE ' . $envotable . ' SET access = IF (access = 1, 0, 1) WHERE id = "' . smartsql($locked) . '"');
+                $result = $envodb->query('UPDATE ' . $envotable . ' SET access = IF (access = 1, 0, 1) WHERE id = "' . smartsql($locked) . '"');
               }
             }
 
@@ -835,7 +835,7 @@ switch ($page1) {
                 // Generate random password
                 $password = envo_password_creator();
 
-                $result = $jakdb->query('SELECT id, username, email FROM ' . $envotable . ' WHERE id = ' . smartsql($locked));
+                $result = $envodb->query('SELECT id, username, email FROM ' . $envotable . ' WHERE id = ' . smartsql($locked));
                 $row    = $result->fetch_assoc();
 
                 // Send email to member with new password
@@ -848,7 +848,7 @@ switch ($page1) {
                 $mail->Send();
 
                 // Update database
-                $jakdb->query('UPDATE ' . $envotable . ' SET password = "' . hash_hmac('sha256', $password, DB_PASS_HASH) . '" WHERE id = ' . $row["id"]);
+                $envodb->query('UPDATE ' . $envotable . ' SET password = "' . hash_hmac('sha256', $password, DB_PASS_HASH) . '" WHERE id = ' . $row["id"]);
               }
             }
 
@@ -875,7 +875,7 @@ switch ($page1) {
               if (!in_array($locked, $useridarray)) {
 
 
-                $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = ' . $locked . '');
+                $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = ' . $locked . '');
 
                 // Delete Avatar
                 $targetPath   = '../' . JAK_FILES_DIRECTORY . '/' . $locked . '/';
@@ -935,7 +935,7 @@ switch ($page1) {
         $JAK_USER_ALL      = envo_get_user_all('user', $pages->limit, '');
         $JAK_USERGROUP_ALL = envo_get_usergroup_all('usergroup');
 
-        $resulta = $jakdb->query('SELECT id, usergroupid, username, email, access FROM ' . $envotable . ' WHERE access >= 2');
+        $resulta = $envodb->query('SELECT id, usergroupid, username, email, access FROM ' . $envotable . ' WHERE access >= 2');
         while ($rowa = $resulta->fetch_assoc()) {
           $JAK_USER_ALL_APPROVE[] = array('id' => $rowa['id'], 'usergroupid' => $rowa['usergroupid'], 'username' => $rowa['username'], 'email' => $rowa['email'], 'access' => $rowa['access']);
         }

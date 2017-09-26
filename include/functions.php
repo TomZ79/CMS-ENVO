@@ -81,12 +81,12 @@ function envo_url_input_filter($value)
 // Get a secure mysql input
 function smartsql($value)
 {
-  global $jakdb;
+  global $envodb;
   if (get_magic_quotes_gpc()) {
     $value = stripslashes($value);
   }
   if (!is_int($value)) {
-    $value = $jakdb->real_escape_string($value);
+    $value = $envodb->real_escape_string($value);
   }
 
   return $value;
@@ -212,9 +212,9 @@ function envo_get_access($jakvar, $jakvar1)
 // Get the setting variable as well the default variable as array
 function envo_get_setting($group)
 {
-  global $jakdb;
+  global $envodb;
   $setting = array();
-  $result  = $jakdb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE groupname = "' . smartsql($group) . '"');
+  $result  = $envodb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE groupname = "' . smartsql($group) . '"');
   while ($row = $result->fetch_assoc()) {
     $setting[] = $row;
   }
@@ -225,9 +225,9 @@ function envo_get_setting($group)
 // Get the setting variable as well the default variable as array
 function envo_get_setting_val($group)
 {
-  global $jakdb;
+  global $envodb;
   $setting = array();
-  $result  = $jakdb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE groupname = "' . smartsql($group) . '"');
+  $result  = $envodb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE groupname = "' . smartsql($group) . '"');
   while ($row = $result->fetch_assoc()) {
     // Now check if sting contains html and do something about it!
     if (strlen($row['value']) != strlen(filter_var($row['value'], FILTER_SANITIZE_STRING))) {
@@ -255,8 +255,8 @@ function envo_get_total($jakvar, $jakvar1, $jakvar2, $jakvar3)
     $sqlwhere = '';
   }
 
-  global $jakdb;
-  $row = $jakdb->queryRow('SELECT COUNT(*) as totalAll FROM ' . $jakvar . $sqlwhere . '');
+  global $envodb;
+  $row = $envodb->queryRow('SELECT COUNT(*) as totalAll FROM ' . $jakvar . $sqlwhere . '');
 
   return $row['totalAll'];
 }
@@ -265,9 +265,9 @@ function envo_get_total($jakvar, $jakvar1, $jakvar2, $jakvar3)
 function envo_get_data($id, $table)
 {
 
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result   = $jakdb->query('SELECT * FROM ' . $table . ' WHERE id = "' . smartsql($id) . '"');
+  $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE id = "' . smartsql($id) . '"');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -281,9 +281,9 @@ function envo_get_data($id, $table)
 function envo_get_galleryfacebook($limit, $table, $order)
 {
 
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result   = $jakdb->query('SELECT * FROM ' . $table . ' ORDER BY id ' . $order . $limit);
+  $result   = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY id ' . $order . $limit);
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -296,14 +296,14 @@ function envo_get_galleryfacebook($limit, $table, $order)
 // Check if row exist with custom field
 function envo_field_not_exist($check1, $table, $field1, $check2 = '', $field2 = '')
 {
-  global $jakdb;
+  global $envodb;
 
   if ($check2) {
-    $result = $jakdb->query('SELECT id FROM ' . $table . ' WHERE LOWER(' . $field1 . ') = "' . smartsql($check1) . '" AND LOWER(' . $field2 . ') = "' . smartsql($check2) . '" LIMIT 1');
+    $result = $envodb->query('SELECT id FROM ' . $table . ' WHERE LOWER(' . $field1 . ') = "' . smartsql($check1) . '" AND LOWER(' . $field2 . ') = "' . smartsql($check2) . '" LIMIT 1');
   } else {
-    $result = $jakdb->query('SELECT id FROM ' . $table . ' WHERE LOWER(' . $field1 . ') = "' . smartsql($check1) . '" LIMIT 1');
+    $result = $envodb->query('SELECT id FROM ' . $table . ' WHERE LOWER(' . $field1 . ') = "' . smartsql($check1) . '" LIMIT 1');
   }
-  if ($jakdb->affected_rows === 1) {
+  if ($envodb->affected_rows === 1) {
     return TRUE;
   } else {
     return FALSE;
@@ -313,9 +313,9 @@ function envo_field_not_exist($check1, $table, $field1, $check2 = '', $field2 = 
 // Check if row exist
 function envo_row_exist($id, $table)
 {
-  global $jakdb;
-  $result = $jakdb->query('SELECT id FROM ' . $table . ' WHERE id = "' . smartsql($id) . '" LIMIT 1');
-  if ($jakdb->affected_rows === 1) {
+  global $envodb;
+  $result = $envodb->query('SELECT id FROM ' . $table . ' WHERE id = "' . smartsql($id) . '" LIMIT 1');
+  if ($envodb->affected_rows === 1) {
     return TRUE;
   } else {
     return FALSE;
@@ -325,9 +325,9 @@ function envo_row_exist($id, $table)
 // Check if row exist and user has permission to see it!
 function envo_row_permission($jakvar, $jakvar1, $jakvar2)
 {
-  global $jakdb;
-  $result = $jakdb->query('SELECT permission FROM ' . $jakvar1 . ' WHERE id = "' . smartsql($jakvar) . '" LIMIT 1');
-  if ($jakdb->affected_rows === 1) {
+  global $envodb;
+  $result = $envodb->query('SELECT permission FROM ' . $jakvar1 . ' WHERE id = "' . smartsql($jakvar) . '" LIMIT 1');
+  if ($envodb->affected_rows === 1) {
     $row = $result->fetch_assoc();
     if (envo_get_access($jakvar2, $row['permission']) || $row['permission'] == 0) {
       return TRUE;
@@ -341,9 +341,9 @@ function envo_row_permission($jakvar, $jakvar1, $jakvar2)
 function envo_get_id_name($jakvar, $jakvar1, $jakvar2, $jakvar3)
 {
   $sqlwhere = '';
-  global $jakdb;
-  $result = $jakdb->query('SELECT id FROM ' . $jakvar2 . ' WHERE ' . $jakvar1 . ' = "' . smartsql($jakvar) . '"' . $sqlwhere . ' LIMIT 1');
-  if ($jakdb->affected_rows > 0) {
+  global $envodb;
+  $result = $envodb->query('SELECT id FROM ' . $jakvar2 . ' WHERE ' . $jakvar1 . ' = "' . smartsql($jakvar) . '"' . $sqlwhere . ' LIMIT 1');
+  if ($envodb->affected_rows > 0) {
     $row = $result->fetch_assoc();
 
     return $row['id'];
@@ -366,10 +366,10 @@ function envo_get_news($jakvar, $where, $plname, $order, $datef, $timef, $timeag
     $sqlin = 'active = 1 ORDER BY ' . $order . ' LIMIT 1';
   }
 
-  global $jakdb;
+  global $envodb;
   global $jkv;
   $envodata = array();
-  $result   = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'news WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 OR enddate >= ' . time() . ')) AND (FIND_IN_SET(' . JAK_USERGROUPID . ',permission) OR permission = 0) AND ' . $sqlin . $jakvar);
+  $result   = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'news WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 OR enddate >= ' . time() . ')) AND (FIND_IN_SET(' . JAK_USERGROUPID . ',permission) OR permission = 0) AND ' . $sqlin . $jakvar);
   while ($row = $result->fetch_assoc()) {
 
     $PAGE_TITLE   = $row['title'];
@@ -407,9 +407,9 @@ function envo_next_page($page, $title, $table, $id, $where, $where2, $approve)
   if (!empty($approve)) {
     $fifth = ' AND ' . $approve . ' = 1';
   }
-  global $jakdb;
-  $result = $jakdb->query('SELECT id' . $second . ' FROM ' . $table . ' WHERE ' . $id . ' > ' . smartsql($page) . $third . $fourth . $fifth . ' ORDER BY id ASC LIMIT 1');
-  if ($jakdb->affected_rows > 0) {
+  global $envodb;
+  $result = $envodb->query('SELECT id' . $second . ' FROM ' . $table . ' WHERE ' . $id . ' > ' . smartsql($page) . $third . $fourth . $fifth . ' ORDER BY id ASC LIMIT 1');
+  if ($envodb->affected_rows > 0) {
     $envodata = $result->fetch_assoc();
 
     return $envodata;
@@ -434,9 +434,9 @@ function envo_previous_page($page, $title, $table, $id, $where, $where2, $approv
   if (!empty($approve)) {
     $fifth = ' AND ' . $approve . ' = 1';
   }
-  global $jakdb;
-  $result = $jakdb->query('SELECT id' . $second . ' FROM ' . $table . ' WHERE ' . $id . ' < ' . smartsql($page) . $third . $fourth . $fifth . ' ORDER BY id DESC LIMIT 1');
-  if ($jakdb->affected_rows > 0) {
+  global $envodb;
+  $result = $envodb->query('SELECT id' . $second . ' FROM ' . $table . ' WHERE ' . $id . ' < ' . smartsql($page) . $third . $fourth . $fifth . ' ORDER BY id DESC LIMIT 1');
+  if ($envodb->affected_rows > 0) {
     $envodata = $result->fetch_assoc();
 
     return $envodata;
@@ -819,10 +819,10 @@ function sort_array_mutlidim(array $array, $order_by)
 function get_pluginversion($pluginname)
 {
 
-  global $jakdb;
+  global $envodb;
   $envodata = '';
 
-  $result = $jakdb->query('SELECT pluginversion FROM ' . DB_PREFIX . 'plugins WHERE name = "' . $pluginname . '"');
+  $result = $envodb->query('SELECT pluginversion FROM ' . DB_PREFIX . 'plugins WHERE name = "' . $pluginname . '"');
   $row    = $result->fetch_assoc();
 
   $envodata = $row['pluginversion'];

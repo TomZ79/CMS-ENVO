@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     for ($i = 0; $i < count($lockuser); $i++) {
       $locked = $lockuser[$i];
-      $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
+      $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
 
     }
 
@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'delete':
-    $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
+    $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
 
     if (!$result) {
       // EN: Redirect page
@@ -87,7 +87,7 @@ switch ($page1) {
     }
     break;
   case 'truncate':
-    $result = $jakdb->query('TRUNCATE ' . $envotable);
+    $result = $envodb->query('TRUNCATE ' . $envotable);
 
     if (!$result) {
       // EN: Redirect page

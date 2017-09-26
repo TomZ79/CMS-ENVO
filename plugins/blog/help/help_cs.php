@@ -245,7 +245,7 @@ if ($page1 == JAK_PLUGIN_VAR_BLOG) {
         <p>Use this hook to execute PHP code in the admin/setting.php file.</p>
 
         <pre class="prettyprint linenums lang-php">
-$jakdb->query('ALTER TABLE '.DB_PREFIX.'blog ADD FULLTEXT(`title`, `content`)');
+$envodb->query('ALTER TABLE '.DB_PREFIX.'blog ADD FULLTEXT(`title`, `content`)');
         </pre>
 
       </article>
@@ -256,7 +256,7 @@ $jakdb->query('ALTER TABLE '.DB_PREFIX.'blog ADD FULLTEXT(`title`, `content`)');
         <p>Use this hook to execute PHP code in the admin/setting.php file.</p>
 
         <pre class="prettyprint linenums lang-php">
-$jakdb->query('ALTER TABLE '.DB_PREFIX.'blog DROP INDEX `title`');
+$envodb->query('ALTER TABLE '.DB_PREFIX.'blog DROP INDEX `title`');
         </pre>
 
       </article>
@@ -339,7 +339,7 @@ if (is_array($showblogarray) && in_array("ASC", $showblogarray) || in_array("DES
         <p>Use this hook to execute PHP code in the admin/users.php file.</p>
 
         <pre class="prettyprint linenums lang-php">
-$jakdb->query('UPDATE '.DB_PREFIX.'blogcomments SET userid = 0 WHERE userid = '.$page2.'');
+$envodb->query('UPDATE '.DB_PREFIX.'blogcomments SET userid = 0 WHERE userid = '.$page2.'');
         </pre>
 
       </article>
@@ -350,7 +350,7 @@ $jakdb->query('UPDATE '.DB_PREFIX.'blogcomments SET userid = 0 WHERE userid = '.
         <p>Use this hook to execute PHP code in the admin/users.php file.</p>
 
         <pre class="prettyprint linenums lang-php">
-$jakdb->query('UPDATE '.DB_PREFIX.'blogcomments SET username = "'.smartsql($defaults['jak_username']).'" WHERE userid = '.smartsql($page2).'');
+$envodb->query('UPDATE '.DB_PREFIX.'blogcomments SET username = "'.smartsql($defaults['jak_username']).'" WHERE userid = '.smartsql($page2).'');
         </pre>
 
       </article>
@@ -361,7 +361,7 @@ $jakdb->query('UPDATE '.DB_PREFIX.'blogcomments SET username = "'.smartsql($defa
         <p>Use this hook to execute PHP code in the admin/users.php file.</p>
 
         <pre class="prettyprint linenums lang-php">
-$jakdb->query('UPDATE '.DB_PREFIX.'blogcomments SET userid = 0 WHERE userid = '.$locked.'');
+$envodb->query('UPDATE '.DB_PREFIX.'blogcomments SET userid = 0 WHERE userid = '.$locked.'');
         </pre>
 
       </article>

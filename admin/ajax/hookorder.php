@@ -47,7 +47,7 @@ if (!is_numeric($id) && !is_array($positions)) {
   } else {
 
     // We are using the CASE SQL operator to update the categories positions en masse:
-    $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET exorder = CASE id
+    $result = $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET exorder = CASE id
 				' . join($strVals) . '
 				ELSE exorder
 				END');

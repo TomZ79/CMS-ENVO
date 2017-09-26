@@ -74,7 +74,7 @@ switch ($page1) {
          * CZ: Převod hodnot
          * smartsql - secure method to insert form data into a MySQL DB
         */
-        $result = $jakdb->query('INSERT INTO ' . $envotable . ' SET
+        $result = $envodb->query('INSERT INTO ' . $envotable . ' SET
                   name = "' . smartsql($defaults['jak_name']) . '",
                   varname = "' . smartsql($defaults['jak_varname']) . '",
                   exturl = "' . smartsql($defaults['jak_url']) . '",
@@ -87,7 +87,7 @@ switch ($page1) {
                   permission = "' . smartsql($permission) . '",
                   catorder = 2');
 
-        $rowid = $jakdb->jak_last_id();
+        $rowid = $envodb->envo_last_id();
 
         if (!$result) {
           // EN: Redirect page
@@ -132,21 +132,21 @@ switch ($page1) {
 
           // EN: If exist page for category, move page to Archiv
           // CZ: Pokud existuje stránka ke kategorii, přesuneme stránku do Archivu
-          $resultpages = $jakdb->query('SELECT id FROM ' . $envotable1 . ' WHERE catid = "' . smartsql($page2) . '" LIMIT 1');
+          $resultpages = $envodb->query('SELECT id FROM ' . $envotable1 . ' WHERE catid = "' . smartsql($page2) . '" LIMIT 1');
           $rowpages    = $resultpages->fetch_assoc();
           if ($rowpages) {
-            $resultpages = $jakdb->query('UPDATE ' . $envotable1 . ' SET catid="0" WHERE id = "' . $rowpages['id'] . '"');
+            $resultpages = $envodb->query('UPDATE ' . $envotable1 . ' SET catid="0" WHERE id = "' . $rowpages['id'] . '"');
           }
 
           //
-          $result = $jakdb->query('SELECT catparent, pluginid FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
+          $result = $envodb->query('SELECT catparent, pluginid FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
           $row    = $result->fetch_assoc();
 
           if ($row['pluginid'] == 0) {
 
             // EN: Delete category from DB
             // CZ: Smažeme kategorii v DB
-            $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
+            $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
 
             if (!$result) {
               // EN: Redirect page
@@ -227,7 +227,7 @@ switch ($page1) {
                * CZ: Převod hodnot
                * smartsql - secure method to insert form data into a MySQL DB
               */
-              $result = $jakdb->query('UPDATE ' . $envotable . ' SET
+              $result = $envodb->query('UPDATE ' . $envotable . ' SET
                         name = "' . smartsql($defaults['jak_name']) . '",
                         varname = "' . smartsql($defaults['jak_varname']) . '",
                         exturl = "' . smartsql($defaults['jak_url']) . '",
@@ -287,7 +287,7 @@ switch ($page1) {
 
             if (!is_numeric($v)) $v = 0;
 
-            $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'categories SET catparent = "' . smartsql($v) . '", catorder = "' . smartsql($count) . '" WHERE id = "' . smartsql($k) . '"');
+            $result = $envodb->query('UPDATE ' . DB_PREFIX . 'categories SET catparent = "' . smartsql($v) . '", catorder = "' . smartsql($count) . '" WHERE id = "' . smartsql($k) . '"');
 
             $count++;
 
@@ -319,7 +319,7 @@ switch ($page1) {
         }
 
         // Get the menu
-        $result = $jakdb->query('SELECT * FROM ' . $envotable . ' WHERE showmenu = 1 OR (showmenu = 1 && showfooter = 1) ORDER BY catparent, catorder, name');
+        $result = $envodb->query('SELECT * FROM ' . $envotable . ' WHERE showmenu = 1 OR (showmenu = 1 && showfooter = 1) ORDER BY catparent, catorder, name');
         // Create a multidimensional array to conatin a list of items and parents
         $mheader = array(
           'items'   => array(),
@@ -340,7 +340,7 @@ switch ($page1) {
         }
 
         // Get the menu
-        $result = $jakdb->query('SELECT * FROM ' . $envotable . ' WHERE showfooter = 1 ORDER BY catparent, catorder, name');
+        $result = $envodb->query('SELECT * FROM ' . $envotable . ' WHERE showfooter = 1 ORDER BY catparent, catorder, name');
         // Create a multidimensional array to conatin a list of items and parents
         $mfooter = array(
           'items'   => array(),
@@ -362,7 +362,7 @@ switch ($page1) {
 
         // Get the menu
         $ucatblank = "";
-        $result    = $jakdb->query('SELECT * FROM ' . $envotable . ' WHERE showmenu = 0 && showfooter = 0 ORDER BY catparent, catorder, name');
+        $result    = $envodb->query('SELECT * FROM ' . $envotable . ' WHERE showmenu = 0 && showfooter = 0 ORDER BY catparent, catorder, name');
         while ($catblank = $result->fetch_assoc()) {
 
           // Creates entry into items array with current menu item id ie. $menu['items'][1]

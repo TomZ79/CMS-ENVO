@@ -134,8 +134,8 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
          * Kontrola zda je plugin instalován
          * Pokud není plugin instalován, zobrazit Notifikaci s chybovou hláškou
         */
-        $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "blank_plugin"');
-        if ($jakdb->affected_rows > 0) { ?>
+        $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "blank_plugin"');
+        if ($envodb->affected_rows > 0) { ?>
 
           <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít
           </button>
@@ -165,7 +165,7 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
 
         // EN: Insert data to table 'plugins' about this plugin
         // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
-        $jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Blank_plugin", "Blank Plugin.", 1, ' . JAK_USERID . ', 1, "blank_plugin", "require_once APP_PATH.\'plugins/blank_plugin/blankplugin.php\';", "if ($page == \'blank-plugin\') {
+        $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Blank_plugin", "Blank Plugin.", 1, ' . JAK_USERID . ', 1, "blank_plugin", "require_once APP_PATH.\'plugins/blank_plugin/blankplugin.php\';", "if ($page == \'blank-plugin\') {
         require_once APP_PATH.\'plugins/blank_plugin/admin/blankplugin.php\';
            $JAK_PROVED = 1;
            $checkp = 1;
@@ -173,7 +173,7 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
 
         // EN: Now get the plugin 'id' from table 'plugins' for futher use
         // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
-        $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blank_plugin"');
+        $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blank_plugin"');
         $rows    = $results->fetch_assoc();
 
         if ($rows['id']) {
@@ -202,7 +202,7 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
 
         // EN: Insert data to table 'pluginhooks'
         // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
-        $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+        $envodb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "Blank Plugin Admin Language", "' . $adminlang . '", "blankplugin", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Blank Plugin Site Language", "' . $sitelang . '", "blankplugin", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_head", "Blank Plugin Admin CSS", "plugins/blank_plugin/admin/template/css.blank_plugin.php", "blankplugin", 1, 1, "' . $rows['id'] . '", NOW()),
@@ -212,16 +212,16 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
 
         // EN: Insert data to table 'setting'
         // CZ: Vložení potřebných dat to tabulky 'setting'
-        $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+        $envodb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
 ("blankplugintitle", "blankplugin", "Blank Plugin", "Blank Plugin", "input", "free", "blankplugin")');
 
         // EN: Insert data to table 'usergroup'
         // CZ: Vložení potřebných dat to tabulky 'usergroup'
-        $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `blankplugin` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
+        $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `blankplugin` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
 
         // EN: Insert data to table 'categories' (create category)
         // CZ: Vložení potřebných dat to tabulky 'categories' (vytvoření kategorie)
-        $jakdb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES
+        $envodb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES
 (NULL, "Blank Plugin", "blank-plugin", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
 
         $succesfully = 1;
@@ -250,7 +250,7 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
         // EN: If plugin have 'id' (plugin is not installed), uninstall
         // CZ: Pokud nemá plugin 'id' (tzn. plugin není instalován - došlo k chybě při zápisu do tabulky 'plugins'), odinstalujeme plugin
 
-        $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Blank_plugin"');
+        $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Blank_plugin"');
 
         ?>
 

@@ -17,7 +17,7 @@ $envotable3 = DB_PREFIX . 'tvtowerexporthistory';
 
 // EN: Getting date of last update of programs
 // CZ: Získání data poslední aktualizace programů
-$resulttime = $jakdb->query('SELECT MAX(time) AS maxTime FROM ' . $envotable2);
+$resulttime = $envodb->query('SELECT MAX(time) AS maxTime FROM ' . $envotable2);
 $rowtime    = $resulttime->fetch_assoc();
 
 // EN: Set value
@@ -129,7 +129,7 @@ $html .= '<tr>
 
 // EN: Getting the data about the TV Tower
 // CZ: Získání dat o televizním vysílači
-$result = $jakdb->query('SELECT * FROM ' . $envotable1 . ' ORDER BY id ASC');
+$result = $envodb->query('SELECT * FROM ' . $envotable1 . ' ORDER BY id ASC');
 
 for ($i = 1; $row = $result->fetch_assoc(); ++$i) {
   $html .= '<tr>
@@ -149,9 +149,9 @@ $mpdf->WriteHTML($html);
 $mpdf->AddPage();
 
 // EN: If exist row in DB get Maxtime
-$num_results  = $jakdb->query('SELECT id FROM ' . $envotable2);
+$num_results  = $envodb->query('SELECT id FROM ' . $envotable2);
 if ($num_results->num_rows !== 0) {
-  $resulttime  = $jakdb->query('SELECT MAX(time) AS maxTime FROM ' . $envotable2);
+  $resulttime  = $envodb->query('SELECT MAX(time) AS maxTime FROM ' . $envotable2);
   $rowtime     = $resulttime->fetch_assoc();
   $maxtime = 'Stav ke dni ' . date('d.m.Y', strtotime($rowtime['maxTime']));
 } else {
@@ -164,7 +164,7 @@ $html .= '<div><h4>' . $maxtime . '</h4></div>';
 
 // EN: Getting the data about the TV Tower
 // CZ: Získání dat o televizním vysílači
-$result1 = $jakdb->query('SELECT * FROM ' . $envotable1 . ' ORDER BY id ASC');
+$result1 = $envodb->query('SELECT * FROM ' . $envotable1 . ' ORDER BY id ASC');
 while ($row1 = $result1->fetch_assoc()) {
 
   $html .= '<div>';
@@ -182,12 +182,12 @@ while ($row1 = $result1->fetch_assoc()) {
 
   // EN: Getting the data about the channel of TV Tower
   // CZ: Získání dat o kanálu televizního vysílače
-  $result2 = $jakdb->query('SELECT * FROM ' . $envotable . ' WHERE towerid = ' . $row1['id'] . ' ORDER BY number ASC');
+  $result2 = $envodb->query('SELECT * FROM ' . $envotable . ' WHERE towerid = ' . $row1['id'] . ' ORDER BY number ASC');
   while ($row2 = $result2->fetch_assoc()) {
 
     // EN: Getting the data about the programs of channel
     // CZ: Získání dat o programech z kanálu
-    $result3 = $jakdb->query('SELECT * FROM ' . $envotable2 . ' WHERE channelid = ' . $row2['id'] . ' ORDER BY id ASC');
+    $result3 = $envodb->query('SELECT * FROM ' . $envotable2 . ' WHERE channelid = ' . $row2['id'] . ' ORDER BY id ASC');
     while ($row3 = $result3->fetch_assoc()) {
 
       $html .= '<tr>
@@ -224,7 +224,7 @@ if (JAK_USERID) {
 $ipa = get_ip_address();
 
 // EN: Insert data to DB
-$jakdb->query('INSERT INTO ' . $envotable3 . ' VALUES (NULL, "' . smartsql($dluserid) . '", "' . smartsql($dlemail) . '", "Bluesat-programova-nabidka-' . $timetoday . '.pdf", "' . smartsql($ipa) . '", NOW())');
+$envodb->query('INSERT INTO ' . $envotable3 . ' VALUES (NULL, "' . smartsql($dluserid) . '", "' . smartsql($dlemail) . '", "Bluesat-programova-nabidka-' . $timetoday . '.pdf", "' . smartsql($ipa) . '", NOW())');
 
 // - - - - - - - - - - - - - - - - OUTPUT - - - - - - - - - - - - -
 

@@ -234,8 +234,8 @@ echo $Html->addDoctype('html5');
                         </div>
                       </div>
 
-                      <?php $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blog"');
-                      if ($jakdb->affected_rows > 0) { ?>
+                      <?php $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blog"');
+                      if ($envodb->affected_rows > 0) { ?>
                         <div class="row stacked">
                           <div class="col-md-12 pluginname">
                             Plugin Blog
@@ -267,8 +267,8 @@ echo $Html->addDoctype('html5');
                         </div>
                       <?php } ?>
 
-                      <?php $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
-                      if ($jakdb->affected_rows > 0) { ?>
+                      <?php $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
+                      if ($envodb->affected_rows > 0) { ?>
                         <div class="row stacked">
                           <div class="col-md-12 pluginname">
                             Plugin Download

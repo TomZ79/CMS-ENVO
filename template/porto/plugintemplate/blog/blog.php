@@ -14,7 +14,7 @@
 
             // Get the categories into a list
             unset($catids);
-            $resultc = $jakdb->query('SELECT id, name, varname FROM ' . DB_PREFIX . 'blogcategories WHERE id IN(' . $v['catid'] . ') ORDER BY id ASC');
+            $resultc = $envodb->query('SELECT id, name, varname FROM ' . DB_PREFIX . 'blogcategories WHERE id IN(' . $v['catid'] . ') ORDER BY id ASC');
             while ($rowc = $resultc->fetch_assoc()) {
 
               // EN: Create array with all categories

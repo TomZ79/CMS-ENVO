@@ -152,8 +152,8 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
 
         if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
 
-          $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Site_editor"');
-          $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "site_editor"');
+          $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Site_editor"');
+          $envodb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "site_editor"');
 
           $succesfully = 1;
 

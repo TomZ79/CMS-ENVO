@@ -230,7 +230,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
        * CZ: Převod hodnot
        * smartsql - secure method to insert form data into a MySQL DB
       */
-      $result = $jakdb->query('INSERT INTO ' . $envotable . ' SET
+      $result = $envodb->query('INSERT INTO ' . $envotable . ' SET
                 username = "' . smartsql($safeusername) . '",
                 name = "' . smartsql($safeusername) . '",
                 email = "' . smartsql($safeemail) . '",
@@ -240,7 +240,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
                 access = "' . smartsql($jkv["rf_confirm"]) . '",
                 time = NOW()');
 
-      $row['id'] = $jakdb->jak_last_id();
+      $row['id'] = $envodb->envo_last_id();
 
       if (!$result) {
         envo_redirect(JAK_PARSE_ERROR);

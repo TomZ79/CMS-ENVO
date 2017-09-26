@@ -82,7 +82,7 @@ switch ($page1) {
 
       $JAK_FAQ_ALL = envo_get_faq($faqc->limit, $jkv["faqorder"], $page2, 't1.catid', $jkv["faqurl"], $tl['global_text']['gtxt4']);
 
-      $result = $jakdb->query('SELECT name' . ', content' . ' FROM ' . $envotable1 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
+      $result = $envodb->query('SELECT name' . ', content' . ' FROM ' . $envotable1 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
       $row    = $result->fetch_assoc();
 
       $PAGE_TITLE              = JAK_PLUGIN_NAME_FAQ . ' - ' . $row['name'];
@@ -92,7 +92,7 @@ switch ($page1) {
 
       // Get the sort orders for the grid
       $JAK_HOOK_SIDE_GRID = FALSE;
-      $grid               = $jakdb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . JAK_PLUGIN_ID_FAQ . ' AND faqid = 0 ORDER BY orderid ASC');
+      $grid               = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . JAK_PLUGIN_ID_FAQ . ' AND faqid = 0 ORDER BY orderid ASC');
       while ($grow = $grid->fetch_assoc()) {
         // EN: Insert each record into array
         // CZ: Vložení získaných dat do pole
@@ -140,7 +140,7 @@ switch ($page1) {
 
     if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
-      $result = $jakdb->query('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
+      $result = $envodb->query('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
       $row    = $result->fetch_assoc();
 
       if ($row['active'] != 1) {
@@ -185,7 +185,7 @@ switch ($page1) {
         }
 
         // Get the sort orders for the grid
-        $grid = $jakdb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE faqid = "' . $row['id'] . '" ORDER BY orderid ASC');
+        $grid = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE faqid = "' . $row['id'] . '" ORDER BY orderid ASC');
         while ($grow = $grid->fetch_assoc()) {
 
           // the sidebar grid
@@ -198,7 +198,7 @@ switch ($page1) {
         $JAK_TAGLIST = JAK_tags::jakGettaglist($page2, JAK_PLUGIN_ID_FAQ, JAK_PLUGIN_VAR_TAGS);
 
         // Get the categories into a list
-        $resultc = $jakdb->query('SELECT id, name, varname FROM ' . $envotable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
+        $resultc = $envodb->query('SELECT id, name, varname FROM ' . $envotable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
         while ($rowc = $resultc->fetch_assoc()) {
 
           if ($jkv["faqurl"]) {
@@ -306,7 +306,7 @@ switch ($page1) {
     $_SESSION['jak_lastURL'] = $backtofaq;
 
     // Get the sort orders for the grid
-    $grid = $jakdb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . JAK_PLUGIN_ID_FAQ . ' AND faqid = 0 ORDER BY orderid ASC');
+    $grid = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . JAK_PLUGIN_ID_FAQ . ' AND faqid = 0 ORDER BY orderid ASC');
     while ($grow = $grid->fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole

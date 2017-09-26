@@ -134,14 +134,14 @@ if (file_exists(APP_PATH . 'plugins/belowheader/admin/lang/' . $site_language . 
 
           // Now get the plugin id for futher use
           $sqls    = 'SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "BelowHeader"';
-          $results = $jakdb->query($sqls);
+          $results = $envodb->query($sqls);
           $rows    = $results->fetch_assoc();
 
           if ($rows) {
 
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "BelowHeader"');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "belowheader"');
-            $jakdb->query('DROP TABLE ' . DB_PREFIX . 'belowheader');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "BelowHeader"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "belowheader"');
+            $envodb->query('DROP TABLE ' . DB_PREFIX . 'belowheader');
 
           }
 

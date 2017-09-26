@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    * CZ: Převod hodnot
    * smartsql - secure method to insert form data into a MySQL DB
   */
-  $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+  $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
               WHEN "facebookconnect" THEN "' . smartsql($defaults['jak_facebookconnect']) . '"
             END
               WHERE varname IN ("facebookconnect")');

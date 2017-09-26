@@ -152,8 +152,8 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
        * Kontrola zda je plugin instalován
        * Pokud není plugin instalován, zobrazit Notifikaci s chybovou hláškou
       */
-      $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Site_editor"');
-      if ($jakdb->affected_rows > 0) { ?>
+      $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Site_editor"');
+      if ($envodb->affected_rows > 0) { ?>
 
         <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
         <script>
@@ -182,7 +182,7 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
 
       // EN: Insert data to table 'plugins' about this plugin
       // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
-      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Site_editor", "SITE Editor for edit basic site files.", 1, ' . JAK_USERID . ', 4, "site_editor", "NULL", "if ($page == \'site-editor\') {
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Site_editor", "SITE Editor for edit basic site files.", 1, ' . JAK_USERID . ', 4, "site_editor", "NULL", "if ($page == \'site-editor\') {
         require_once APP_PATH.\'plugins/site_editor/admin/site_editor.php\';
            $JAK_PROVED = 1;
            $checkp = 1;
@@ -190,7 +190,7 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
 
       // EN: Now get the plugin 'id' from table 'plugins' for futher use
       // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
-      $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Site_editor"');
+      $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Site_editor"');
       $rows    = $results->fetch_assoc();
 
       if ($rows['id']) {
@@ -207,7 +207,7 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
 
       // EN: Insert data to table 'pluginhooks'
       // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
-      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "Site Editor Admin Language", "' . $adminlang . '", "site_editor", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_head", "Site Editor Admin CSS", "plugins/site_editor/admin/template/css.site_editor.php", "site_editor", 1, 4, "' . $rows['id'] . '", NOW())');
 
@@ -236,7 +236,7 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
       // EN: If plugin have 'id' (plugin is not installed), uninstall
       // CZ: Pokud nemá plugin 'id' (tzn. plugin není instalován - došlo k chybě při zápisu do tabulky 'plugins'), odinstalujeme plugin
 
-      $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Site_editor"');
+      $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Site_editor"');
 
       ?>
         <div class="alert bg-danger"><?php echo $tlsedi["siteedit_install"]["seinst5"]; ?></div>

@@ -7,9 +7,9 @@ function envo_get_faqs($limit, $jakvar1, $table)
   $sqlwhere = '';
   if (!empty($jakvar1)) $sqlwhere = 'WHERE catid = ' . smartsql($jakvar1) . ' ';
 
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result  = $jakdb->query('SELECT * FROM ' . $table . ' ' . $sqlwhere . 'ORDER BY id DESC ' . $limit);
+  $result  = $envodb->query('SELECT * FROM ' . $table . ' ' . $sqlwhere . 'ORDER BY id DESC ' . $limit);
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole

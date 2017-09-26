@@ -50,8 +50,8 @@ $nameofplugin  = 'Blog';
       <hr>
 
       <!-- Check if the plugin is already installed -->
-      <?php $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "' . $nameofplugin . '"');
-      if ($jakdb->affected_rows == 0) {
+      <?php $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "' . $nameofplugin . '"');
+      if ($envodb->affected_rows == 0) {
         $succesfully = 1; ?>
 
         <div class="alert bg-danger text-white">Plugin is not installed!!!</div>
@@ -59,11 +59,11 @@ $nameofplugin  = 'Blog';
         <!-- Plugin is not installed let's display the installation script -->
       <?php } else { ?>
 
-        <?php $result = $jakdb->query('SELECT id, pluginversion FROM ' . DB_PREFIX . 'plugins WHERE name = "' . $nameofplugin . '"');
+        <?php $result = $envodb->query('SELECT id, pluginversion FROM ' . DB_PREFIX . 'plugins WHERE name = "' . $nameofplugin . '"');
         $row          = $result->fetch_assoc();
         if ($row['pluginversion'] == $pluginversion) {
           $succesfully = 1;
-          $jakdb->query('UPDATE ' . DB_PREFIX . 'plugins SET time = NOW() WHERE name = "' . $nameofplugin . '"'); ?>
+          $envodb->query('UPDATE ' . DB_PREFIX . 'plugins SET time = NOW() WHERE name = "' . $nameofplugin . '"'); ?>
 
           <div class="alert bg-info text-white">Plugin is already up to date!</div>
 
@@ -85,7 +85,7 @@ $nameofplugin  = 'Blog';
             //  END PLUGIN UPDATE PROCESS
             // --------------------------------------------
 
-            $jakdb->query('UPDATE ' . DB_PREFIX . 'plugins SET pluginversion = "' . $pluginversion . '", time = NOW() WHERE name = "' . $nameofplugin . '"');
+            $envodb->query('UPDATE ' . DB_PREFIX . 'plugins SET pluginversion = "' . $pluginversion . '", time = NOW() WHERE name = "' . $nameofplugin . '"');
 
             $succesfully = 1;
 

@@ -22,8 +22,8 @@ class JAK_tags
   {
 
     // Pull in tag data
-    global $jakdb;
-    $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . $table . ' GROUP BY tag ORDER BY count DESC LIMIT ' . smartsql($limit));
+    global $envodb;
+    $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . $table . ' GROUP BY tag ORDER BY count DESC LIMIT ' . smartsql($limit));
     while ($row = $result->fetch_assoc()) {
       $cloud[$row['tag']] = $row['count'];
     }
@@ -37,7 +37,7 @@ class JAK_tags
 
       $minimum_count = min(array_values($tags));
       $maximum_count = max(array_values($tags));
-      $spread = $maximum_count - $minimum_count;
+      $spread        = $maximum_count - $minimum_count;
 
       if ($spread == 0) {
         $spread = 1;
@@ -48,7 +48,7 @@ class JAK_tags
       $cloud_tags = array(); // create an array to hold tag code
       foreach ($tags as $tag => $count) {
         shuffle($my_colours);
-        $size = $minsize + ($count - $minimum_count)
+        $size         = $minsize + ($count - $minimum_count)
           * ($maxsize - $minsize) / $spread;
         $cloud_tags[] = '<li class="tag-cloud tag-cloud-' . $my_colours[0] . '"><a style="font-size:' . floor($size) . 'px" href="' . JAK_rewrite::jakParseurl($varname, JAK_base::jakCleanurl($tag), '', '', '') . '" title="' . $title . ' ' . htmlspecialchars(stripslashes($tag)) . '">' . htmlspecialchars(stripslashes($tag)) . '</a></li>';
       }
@@ -62,8 +62,8 @@ class JAK_tags
   {
 
     // Pull in tag data
-    global $jakdb;
-    $result = $jakdb->query('SELECT tag FROM ' . DB_PREFIX . $table . ' WHERE itemid IN(' . join(",", $items) . ') AND pluginid = "' . smartsql($pluginid) . '" AND active = 1 GROUP BY tag ORDER BY tag DESC LIMIT ' . smartsql($limit));
+    global $envodb;
+    $result = $envodb->query('SELECT tag FROM ' . DB_PREFIX . $table . ' WHERE itemid IN(' . join(",", $items) . ') AND pluginid = "' . smartsql($pluginid) . '" AND active = 1 GROUP BY tag ORDER BY tag DESC LIMIT ' . smartsql($limit));
     while ($row = $result->fetch_assoc()) {
       $tags[] = '<a class="label label-default" href="' . JAK_rewrite::jakParseurl($url, $slug1, JAK_base::jakCleanurl($row['tag'])) . '">' . $row['tag'] . '</a>';
     }
@@ -73,15 +73,15 @@ class JAK_tags
 
       return $taglist;
     } else {
-      return false;
+      return FALSE;
     }
   }
 
   public static function jakGettaglist($jakvar, $jakvar1, $where)
   {
 
-    global $jakdb;
-    $result = $jakdb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql($jakvar) . '" AND pluginid = "' . smartsql($jakvar1) . '" AND active = 1 ORDER BY id DESC');
+    global $envodb;
+    $result = $envodb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql($jakvar) . '" AND pluginid = "' . smartsql($jakvar1) . '" AND active = 1 ORDER BY id DESC');
 
     while ($row = $result->fetch_assoc()) {
       $tags[] = '<a class="label label-default" href="' . JAK_rewrite::jakParseurl($where, JAK_base::jakCleanurl($row['tag']), '', '', '') . '">' . $row['tag'] . '</a>';
@@ -92,7 +92,7 @@ class JAK_tags
 
       return $taglist;
     } else {
-      return false;
+      return FALSE;
     }
   }
 
@@ -104,8 +104,8 @@ class JAK_tags
   public static function jakGettaglist_class($jakvar, $jakvar1, $where, $class, $title)
   {
 
-    global $jakdb;
-    $result = $jakdb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql($jakvar) . '" AND pluginid = "' . smartsql($jakvar1) . '" AND active = 1 ORDER BY id DESC');
+    global $envodb;
+    $result = $envodb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql($jakvar) . '" AND pluginid = "' . smartsql($jakvar1) . '" AND active = 1 ORDER BY id DESC');
 
     while ($row = $result->fetch_assoc()) {
       $tags[] = '<li><a class="' . $class . '" href="' . JAK_rewrite::jakParseurl($where, JAK_base::jakCleanurl($row['tag']), '', '', '') . '" title="' . $title . ' ' . $row['tag'] . '">' . $row['tag'] . '</a></li>';
@@ -116,7 +116,7 @@ class JAK_tags
 
       return $taglist;
     } else {
-      return false;
+      return FALSE;
     }
   }
 
@@ -125,7 +125,7 @@ class JAK_tags
 
     $striptags = strip_tags($tags);
     $smalltags = strtolower($striptags);
-    $tagarray = explode(',', $smalltags);
+    $tagarray  = explode(',', $smalltags);
 
     for ($i = 0; $i < count($tagarray); $i++) {
       $tag = $tagarray[$i];
@@ -134,13 +134,13 @@ class JAK_tags
       $urlTAG = trim($tag);
 
       // check if tag exist
-      global $jakdb;
-      $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'tags WHERE tag = "' . smartsql($urlTAG) . '" AND itemid = "' . smartsql($itemid) . '" AND pluginid = "' . smartsql($module) . '" LIMIT 1');
+      global $envodb;
+      $envodb->query('SELECT id FROM ' . DB_PREFIX . 'tags WHERE tag = "' . smartsql($urlTAG) . '" AND itemid = "' . smartsql($itemid) . '" AND pluginid = "' . smartsql($module) . '" LIMIT 1');
 
-      if ($jakdb->affected_rows != 1) {
+      if ($envodb->affected_rows != 1) {
 
         // insert data
-        $jakdb->query('INSERT INTO ' . DB_PREFIX . 'tags VALUES (NULL,"' . smartsql($urlTAG) . '","' . smartsql($itemid) . '","' . smartsql($module) . '", "' . $active . '")');
+        $envodb->query('INSERT INTO ' . DB_PREFIX . 'tags VALUES (NULL,"' . smartsql($urlTAG) . '","' . smartsql($itemid) . '","' . smartsql($module) . '", "' . $active . '")');
       }
     }
   }
@@ -150,7 +150,7 @@ class JAK_tags
 
     $striptags = strip_tags($tags);
     $smalltags = strtolower($striptags);
-    $tagarray = explode(',', $smalltags);
+    $tagarray  = explode(',', $smalltags);
 
     for ($i = 0; $i < count($tagarray); $i++) {
 
@@ -160,23 +160,23 @@ class JAK_tags
       $urlTAG = trim($tag);
 
       // check if tag exist
-      global $jakdb;
-      $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'tags WHERE tag = "' . smartsql($urlTAG) . '" AND itemid = "' . smartsql($itemid) . '" AND pluginid = "' . smartsql($module) . '" LIMIT 1');
+      global $envodb;
+      $envodb->query('SELECT id FROM ' . DB_PREFIX . 'tags WHERE tag = "' . smartsql($urlTAG) . '" AND itemid = "' . smartsql($itemid) . '" AND pluginid = "' . smartsql($module) . '" LIMIT 1');
 
       // If tag not exist
-      if ($jakdb->affected_rows != 1) {
+      if ($envodb->affected_rows != 1) {
 
-        $result = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($urlTAG) . '" LIMIT 1');
-        $tagID = $result->fetch_assoc();
+        $result = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($urlTAG) . '" LIMIT 1');
+        $tagID  = $result->fetch_assoc();
 
-        if ($jakdb->affected_rows > 0) {
+        if ($envodb->affected_rows > 0) {
           // update counter
-          $jakdb->query('UPDATE ' . DB_PREFIX . 'tagcloud SET count = count + 1 WHERE id = "' . $tagID['id'] . '"');
+          $envodb->query('UPDATE ' . DB_PREFIX . 'tagcloud SET count = count + 1 WHERE id = "' . $tagID['id'] . '"');
 
         } else {
 
           // insert complete tag
-          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'tagcloud SET tag = "' . smartsql($urlTAG) . '"');
+          $envodb->query('INSERT INTO ' . DB_PREFIX . 'tagcloud SET tag = "' . smartsql($urlTAG) . '"');
         }
       }
     }
@@ -186,16 +186,16 @@ class JAK_tags
   {
 
     $shorty = '';
-    global $jakdb;
+    global $envodb;
     global $jkv;
 
     if ($table == "gallerycategories") {
-      $result = $jakdb->query('SELECT ' . $select . ' FROM ' . DB_PREFIX . $table . ' WHERE id = "' . smartsql($itemid) . '" LIMIT 1');
+      $result = $envodb->query('SELECT ' . $select . ' FROM ' . DB_PREFIX . $table . ' WHERE id = "' . smartsql($itemid) . '" LIMIT 1');
     } else {
-      $result = $jakdb->query('SELECT ' . $select . ' FROM ' . DB_PREFIX . $table . ' WHERE id = "' . smartsql($itemid) . '" LIMIT 1');
+      $result = $envodb->query('SELECT ' . $select . ' FROM ' . DB_PREFIX . $table . ' WHERE id = "' . smartsql($itemid) . '" LIMIT 1');
     }
     $row = $result->fetch_assoc();
-    if ($jakdb->affected_rows > 0) {
+    if ($envodb->affected_rows > 0) {
 
       if ($cuttext) {
         $shorty = envo_cut_text($row[$cuttext], $jkv["shortmsg"], '...');
@@ -222,104 +222,104 @@ class JAK_tags
   public static function jakLocktag($id)
   {
 
-    global $jakdb;
-    $row = $jakdb->queryRow('SELECT tag, active FROM ' . DB_PREFIX . 'tags WHERE id = "' . smartsql($id) . '"');
+    global $envodb;
+    $row = $envodb->queryRow('SELECT tag, active FROM ' . DB_PREFIX . 'tags WHERE id = "' . smartsql($id) . '"');
 
     // Get the count number
-    $count = $jakdb->queryRow('SELECT count FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($row['tag']) . '" LIMIT 1');
+    $count = $envodb->queryRow('SELECT count FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($row['tag']) . '" LIMIT 1');
 
     if ($row['active'] == 1) {
 
       if ($count['count'] <= '1') {
-        $jakdb->query('DELETE FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($row['tag']) . '"');
+        $envodb->query('DELETE FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($row['tag']) . '"');
       } else {
-        $jakdb->query('UPDATE ' . DB_PREFIX . 'tagcloud SET count = count - 1 WHERE tag = "' . smartsql($row['tag']) . '"');
+        $envodb->query('UPDATE ' . DB_PREFIX . 'tagcloud SET count = count - 1 WHERE tag = "' . smartsql($row['tag']) . '"');
       }
     } else {
 
-      if ($jakdb->affected_rows == 0) {
-        $jakdb->query('INSERT INTO ' . DB_PREFIX . 'tagcloud SET tag = "' . smartsql($row['tag']) . '"');
+      if ($envodb->affected_rows == 0) {
+        $envodb->query('INSERT INTO ' . DB_PREFIX . 'tagcloud SET tag = "' . smartsql($row['tag']) . '"');
       } else {
-        $jakdb->query('UPDATE ' . DB_PREFIX . 'tagcloud SET count = count + 1 WHERE tag = "' . smartsql($row['tag']) . '"');
+        $envodb->query('UPDATE ' . DB_PREFIX . 'tagcloud SET count = count + 1 WHERE tag = "' . smartsql($row['tag']) . '"');
       }
     }
 
-    $jakdb->query('UPDATE ' . DB_PREFIX . 'tags SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($id) . '"');
+    $envodb->query('UPDATE ' . DB_PREFIX . 'tags SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($id) . '"');
 
   }
 
   public static function jakLocktags($jakvar, $jakvar1)
   {
 
-    global $jakdb;
-    $result = $jakdb->query('SELECT tag, active FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql($jakvar) . '" AND pluginid = "' . smartsql($jakvar1) . '"');
+    global $envodb;
+    $result = $envodb->query('SELECT tag, active FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql($jakvar) . '" AND pluginid = "' . smartsql($jakvar1) . '"');
     while ($row = $result->fetch_assoc()) {
 
       // Get the count number
-      $count = $jakdb->queryRow('SELECT count FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($row['tag']) . '" LIMIT 1');
+      $count = $envodb->queryRow('SELECT count FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($row['tag']) . '" LIMIT 1');
 
       if ($row['active'] == 1) {
 
         if ($count['count'] <= '1') {
-          $jakdb->query('DELETE FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($row['tag']) . '"');
+          $envodb->query('DELETE FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($row['tag']) . '"');
         } else {
-          $jakdb->query('UPDATE ' . DB_PREFIX . 'tagcloud SET count = count - 1 WHERE tag = "' . smartsql($row['tag']) . '"');
+          $envodb->query('UPDATE ' . DB_PREFIX . 'tagcloud SET count = count - 1 WHERE tag = "' . smartsql($row['tag']) . '"');
         }
       } else {
 
-        if ($jakdb->affected_rows == 0) {
-          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'tagcloud SET tag = "' . smartsql($row['tag']) . '"');
+        if ($envodb->affected_rows == 0) {
+          $envodb->query('INSERT INTO ' . DB_PREFIX . 'tagcloud SET tag = "' . smartsql($row['tag']) . '"');
         } else {
-          $jakdb->query('UPDATE ' . DB_PREFIX . 'tagcloud SET count = count + 1 WHERE tag = "' . smartsql($row['tag']) . '"');
+          $envodb->query('UPDATE ' . DB_PREFIX . 'tagcloud SET count = count + 1 WHERE tag = "' . smartsql($row['tag']) . '"');
         }
       }
     }
 
-    $jakdb->query('UPDATE ' . DB_PREFIX . 'tags SET active = IF (active = 1, 0, 1) WHERE itemid = "' . smartsql($jakvar) . '" AND pluginid = "' . smartsql($jakvar1) . '"');
+    $envodb->query('UPDATE ' . DB_PREFIX . 'tags SET active = IF (active = 1, 0, 1) WHERE itemid = "' . smartsql($jakvar) . '" AND pluginid = "' . smartsql($jakvar1) . '"');
 
   }
 
   public static function jakDeletetags($jakvar, $jakvar1)
   {
 
-    global $jakdb;
-    $result = $jakdb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql($jakvar) . '" AND pluginid = "' . smartsql($jakvar1) . '"');
+    global $envodb;
+    $result = $envodb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql($jakvar) . '" AND pluginid = "' . smartsql($jakvar1) . '"');
     while ($row = $result->fetch_assoc()) {
 
       // Get the count number
-      $count = $jakdb->queryRow('SELECT count FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($row['tag']) . '" LIMIT 1');
+      $count = $envodb->queryRow('SELECT count FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($row['tag']) . '" LIMIT 1');
 
       if ($count['count'] <= '1') {
-        $jakdb->query('DELETE FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($row['tag']) . '"');
+        $envodb->query('DELETE FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . smartsql($row['tag']) . '"');
       } else {
-        $jakdb->query('UPDATE ' . DB_PREFIX . 'tagcloud SET count = count - 1 WHERE tag = "' . smartsql($row['tag']) . '"');
+        $envodb->query('UPDATE ' . DB_PREFIX . 'tagcloud SET count = count - 1 WHERE tag = "' . smartsql($row['tag']) . '"');
       }
     }
 
-    $jakdb->query('DELETE FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql($jakvar) . '" AND pluginid = "' . smartsql($jakvar1) . '"');
+    $envodb->query('DELETE FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql($jakvar) . '" AND pluginid = "' . smartsql($jakvar1) . '"');
   }
 
   public static function jakDeleteonetag($tag)
   {
 
-    global $jakdb;
-    $result = $jakdb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE id = ' . smartsql($tag) . ' LIMIT 1');
+    global $envodb;
+    $result  = $envodb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE id = ' . smartsql($tag) . ' LIMIT 1');
     $tagname = $result->fetch_assoc();
 
-    $result1 = $jakdb->query('SELECT count FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . $tagname['tag'] . '" LIMIT 1');
-    $count = $result1->fetch_assoc();
+    $result1 = $envodb->query('SELECT count FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . $tagname['tag'] . '" LIMIT 1');
+    $count   = $result1->fetch_assoc();
 
     if ($count['count'] <= '1') {
 
-      $jakdb->query('DELETE FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . $tagname['tag'] . '"');
+      $envodb->query('DELETE FROM ' . DB_PREFIX . 'tagcloud WHERE tag = "' . $tagname['tag'] . '"');
 
     } else {
 
-      $jakdb->query('UPDATE ' . DB_PREFIX . 'tagcloud SET count = count - 1 WHERE tag = "' . $tagname['tag'] . '"');
+      $envodb->query('UPDATE ' . DB_PREFIX . 'tagcloud SET count = count - 1 WHERE tag = "' . $tagname['tag'] . '"');
 
     }
 
-    $jakdb->query('DELETE FROM ' . DB_PREFIX . 'tags WHERE id = ' . smartsql($tag) . '');
+    $envodb->query('DELETE FROM ' . DB_PREFIX . 'tags WHERE id = ' . smartsql($tag) . '');
   }
 
   public function jakPlugintag($allcat)

@@ -133,16 +133,16 @@ if (file_exists(APP_PATH . 'plugins/blank_plugin/admin/lang/' . $site_language .
         if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
 
           // Now get the plugin id for futher use
-          $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blank_plugin"');
+          $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blank_plugin"');
           $rows    = $results->fetch_assoc();
 
           if ($rows) {
 
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Blank_plugin"');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "blankplugin"');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "blankplugin"');
-            $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `blankplugin`');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Blank_plugin"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "blankplugin"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "blankplugin"');
+            $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `blankplugin`');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
 
           }
 

@@ -17,8 +17,8 @@ class JAK_hooks
 		if ($active == 1) $sqlwhere = ' WHERE active = 1 ';
 
 		$jakhooks = array ();
-		global $jakdb;
-		$result = $jakdb->query ('SELECT * FROM ' . DB_PREFIX . 'pluginhooks' . $sqlwhere . ' ORDER BY exorder ASC');
+		global $envodb;
+		$result = $envodb->query ('SELECT * FROM ' . DB_PREFIX . 'pluginhooks' . $sqlwhere . ' ORDER BY exorder ASC');
 		while ($row = $result->fetch_assoc ()) {
 			$jakhooks[] = $row;
 		}

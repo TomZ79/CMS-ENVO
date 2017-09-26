@@ -104,7 +104,7 @@ switch ($page1) {
                * CZ: Převod hodnot
                * smartsql - secure method to insert form data into a MySQL DB
               */
-              $result = $jakdb->query('INSERT INTO ' . $envotable2 . ' SET 
+              $result = $envodb->query('INSERT INTO ' . $envotable2 . ' SET 
                         towerid = "' . smartsql($towerid) . '",
                         channelid = "' . smartsql($channelid) . '",
                         channelnumber = "' . smartsql($channelnumber) . '",
@@ -121,7 +121,7 @@ switch ($page1) {
                         services = "' . $services . '",
                         time = NOW()');
 
-              $rowid = $jakdb->jak_last_id();
+              $rowid = $envodb->envo_last_id();
 
               if (!$result) {
                 // EN: Redirect page
@@ -237,7 +237,7 @@ switch ($page1) {
                  * CZ: Převod hodnot
                  * smartsql - secure method to insert form data into a MySQL DB
                 */
-                $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET
+                $result = $envodb->query('UPDATE ' . $envotable2 . ' SET
                           towerid = "' . smartsql($towerid) . '",
                           channelid = "' . smartsql($channelid) . '",
                           channelnumber = "' . smartsql($channelnumber) . '",
@@ -328,7 +328,7 @@ switch ($page1) {
             if (is_numeric($pageID) && envo_row_exist($pageID, $envotable2)) {
 
               // CZ: Odstranění programu z databáze
-              $result = $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($pageID) . '"');
+              $result = $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($pageID) . '"');
 
               if (!$result) {
                 // EN: Redirect page
@@ -434,7 +434,7 @@ switch ($page1) {
                * CZ: Převod hodnot
                * smartsql - secure method to insert form data into a MySQL DB
               */
-              $result = $jakdb->query('INSERT INTO ' . $envotable . ' SET 
+              $result = $envodb->query('INSERT INTO ' . $envotable . ' SET 
                         towerid = "' . smartsql($defaults['envo_tvtower']) . '",
                         number = "' . smartsql($defaults['envo_channelnumber']) . '",
                         frequency = "' . smartsql($defaults['envo_channelfrequency']) . '",
@@ -445,7 +445,7 @@ switch ($page1) {
                         erpdbw = "' . smartsql($defaults['envo_erpdbw']) . '",
                         type = "' . smartsql($defaults['envo_type']) . '"');
 
-              $rowid = $jakdb->jak_last_id();
+              $rowid = $envodb->envo_last_id();
 
               if (!$result) {
                 // EN: Redirect page
@@ -512,7 +512,7 @@ switch ($page1) {
                  * CZ: Převod hodnot
                  * smartsql - secure method to insert form data into a MySQL DB
                 */
-                $result = $jakdb->query('UPDATE ' . $envotable . ' SET
+                $result = $envodb->query('UPDATE ' . $envotable . ' SET
                           towerid = "' . smartsql($defaults['envo_tvtower']) . '",
                           number = "' . smartsql($defaults['envo_channelnumber']) . '",
                           frequency = "' . smartsql($defaults['envo_channelfrequency']) . '",
@@ -582,13 +582,13 @@ switch ($page1) {
             if (is_numeric($pageID) && envo_row_exist($pageID, $envotable)) {
 
               // CZ: Kontrola před odstraněním kanálu - ke kanálu je přiřazen program
-              $result1  = $jakdb->query('SELECT COUNT(id) AS total FROM ' . $envotable2 . ' WHERE channelid = "' . smartsql($pageID) . '"');
+              $result1  = $envodb->query('SELECT COUNT(id) AS total FROM ' . $envotable2 . ' WHERE channelid = "' . smartsql($pageID) . '"');
               $row1     = $result1->fetch_assoc();
               $envodata = $row1['total'];
 
               if ($envodata == 0) {
                 // CZ: Kanál NEOBSAHUJE žádný program - odstranění kanálu z databáze
-                $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '"');
+                $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '"');
               } else {
                 // CZ: Kanál OBSAHUJE  program - NELZE odstranit kanál z databáze
 
@@ -714,7 +714,7 @@ switch ($page1) {
                * url_slug  - friendly URL slug from a string
                * htmlspecialchars - converts some predefined characters to HTML entities
               */
-              $result = $jakdb->query('INSERT INTO ' . $envotable1 . ' SET 
+              $result = $envodb->query('INSERT INTO ' . $envotable1 . ' SET 
                         name = "' . smartsql($defaults['envo_tvtowername']) . '",
                         varname = "' . url_slug($defaults['envo_tvtowername'], array('lowercase' => TRUE, 'transliterate' => TRUE)) . '",
                         station = "' . smartsql($defaults['envo_tvtowerstation']) . '",
@@ -723,7 +723,7 @@ switch ($page1) {
                         eastlongitude = "' . htmlspecialchars($defaults['envo_tvtowerlongitude']) . '",
                         northlatitude = "' . htmlspecialchars($defaults['envo_tvtowerlatitude']) . '"');
 
-              $rowid = $jakdb->jak_last_id();
+              $rowid = $envodb->envo_last_id();
 
               if (!$result) {
                 // EN: Redirect page
@@ -803,7 +803,7 @@ switch ($page1) {
                  * url_slug  - friendly URL slug from a string
                  * htmlspecialchars - converts some predefined characters to HTML entities
                 */
-                $result = $jakdb->query('UPDATE ' . $envotable1 . ' SET
+                $result = $envodb->query('UPDATE ' . $envotable1 . ' SET
                           name = "' . smartsql($defaults['envo_tvtowername']) . '",
                           varname = "' . url_slug($defaults['envo_tvtowername'], array('lowercase' => TRUE, 'transliterate' => TRUE)) . '",
                           station = "' . smartsql($defaults['envo_tvtowerstation']) . '",
@@ -866,7 +866,7 @@ switch ($page1) {
 
             if (is_numeric($pageID) && envo_row_exist($pageID, $envotable1)) {
 
-              $result = $jakdb->query('UPDATE ' . $envotable1 . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($pageID) . '"');
+              $result = $envodb->query('UPDATE ' . $envotable1 . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($pageID) . '"');
 
               if (!$result) {
                 // EN: Redirect page
@@ -913,13 +913,13 @@ switch ($page1) {
             if (is_numeric($pageID) && envo_row_exist($pageID, $envotable1)) {
 
               // CZ: Kontrola před odstraněním vysílače - k vysílači je přiřazen kanál
-              $result1  = $jakdb->query('SELECT COUNT(id) AS total FROM ' . $envotable . ' WHERE towerid = "' . smartsql($pageID) . '"');
+              $result1  = $envodb->query('SELECT COUNT(id) AS total FROM ' . $envotable . ' WHERE towerid = "' . smartsql($pageID) . '"');
               $row1     = $result1->fetch_assoc();
               $envodata = $row1['total'];
 
               if ($envodata == 0) {
                 // CZ: Vysílač NEOBSAHUJE žádný kanál - odstranění vysílače z databáze
-                $result = $jakdb->query('DELETE FROM ' . $envotable1 . ' WHERE id = "' . smartsql($pageID) . '"');
+                $result = $envodb->query('DELETE FROM ' . $envotable1 . ' WHERE id = "' . smartsql($pageID) . '"');
               } else {
                 // CZ: Vysílač OBSAHUJE  kanál - NELZE odstranit vysílač z databáze
 
@@ -1041,12 +1041,12 @@ switch ($page1) {
                    * CZ: Převod hodnot
                    * smartsql - secure method to insert form data into a MySQL DB
                   */
-                  $result = $jakdb->query('INSERT INTO ' . $envotable3 . ' SET 
+                  $result = $envodb->query('INSERT INTO ' . $envotable3 . ' SET 
                             sid = "' . smartsql($defaults['envo_sidtv']) . '",
                             name = "' . smartsql($defaults['envo_sidtvname']) . '",
                             time = NOW()');
 
-                  $rowid = $jakdb->jak_last_id();
+                  $rowid = $envodb->envo_last_id();
 
                   if (!$result) {
                     // EN: Redirect page
@@ -1131,12 +1131,12 @@ switch ($page1) {
                    * CZ: Převod hodnot
                    * smartsql - secure method to insert form data into a MySQL DB
                   */
-                  $result = $jakdb->query('INSERT INTO ' . $envotable4 . ' SET 
+                  $result = $envodb->query('INSERT INTO ' . $envotable4 . ' SET 
                             sid = "' . smartsql($defaults['envo_sidr']) . '",
                             name = "' . smartsql($defaults['envo_sidrname']) . '",
                             time = NOW()');
 
-                  $rowid = $jakdb->jak_last_id();
+                  $rowid = $envodb->envo_last_id();
 
                   if (!$result) {
                     // EN: Redirect page
@@ -1220,12 +1220,12 @@ switch ($page1) {
                    * CZ: Převod hodnot
                    * smartsql - secure method to insert form data into a MySQL DB
                   */
-                  $result = $jakdb->query('INSERT INTO ' . $envotable5 . ' SET 
+                  $result = $envodb->query('INSERT INTO ' . $envotable5 . ' SET 
                             sid = "' . smartsql($defaults['envo_sids']) . '",
                             name = "' . smartsql($defaults['envo_sidsname']) . '",
                             time = NOW()');
 
-                  $rowid = $jakdb->jak_last_id();
+                  $rowid = $envodb->envo_last_id();
 
                   if (!$result) {
                     // EN: Redirect page
@@ -1310,12 +1310,12 @@ switch ($page1) {
                    * CZ: Převod hodnot
                    * smartsql - secure method to insert form data into a MySQL DB
                   */
-                  $result = $jakdb->query('INSERT INTO ' . $envotable6 . ' SET 
+                  $result = $envodb->query('INSERT INTO ' . $envotable6 . ' SET 
                             onid = "' . smartsql($defaults['envo_onid']) . '",
                             country = "' . smartsql($defaults['envo_onidcountry']) . '",
                             time = NOW()');
 
-                  $rowid = $jakdb->jak_last_id();
+                  $rowid = $envodb->envo_last_id();
 
                   if (!$result) {
                     // EN: Redirect page
@@ -1425,7 +1425,7 @@ switch ($page1) {
                      * CZ: Převod hodnot
                      * smartsql - secure method to insert form data into a MySQL DB
                     */
-                    $result = $jakdb->query('UPDATE ' . $envotable3 . ' SET
+                    $result = $envodb->query('UPDATE ' . $envotable3 . ' SET
                               sid = "' . smartsql($defaults['envo_sidtv']) . '",
                               name = "' . smartsql($defaults['envo_sidtvname']) . '",
                               time = NOW()
@@ -1522,7 +1522,7 @@ switch ($page1) {
                      * CZ: Převod hodnot
                      * smartsql - secure method to insert form data into a MySQL DB
                     */
-                    $result = $jakdb->query('UPDATE ' . $envotable4 . ' SET
+                    $result = $envodb->query('UPDATE ' . $envotable4 . ' SET
                               sid = "' . smartsql($defaults['envo_sidr']) . '",
                               name = "' . smartsql($defaults['envo_sidrname']) . '",
                               time = NOW()
@@ -1618,7 +1618,7 @@ switch ($page1) {
                      * CZ: Převod hodnot
                      * smartsql - secure method to insert form data into a MySQL DB
                     */
-                    $result = $jakdb->query('UPDATE ' . $envotable5 . ' SET
+                    $result = $envodb->query('UPDATE ' . $envotable5 . ' SET
                               sid = "' . smartsql($defaults['envo_sids']) . '",
                               name = "' . smartsql($defaults['envo_sidsname']) . '",
                               time = NOW()
@@ -1714,7 +1714,7 @@ switch ($page1) {
                      * CZ: Převod hodnot
                      * smartsql - secure method to insert form data into a MySQL DB
                     */
-                    $result = $jakdb->query('UPDATE ' . $envotable6 . ' SET
+                    $result = $envodb->query('UPDATE ' . $envotable6 . ' SET
                               onid = "' . smartsql($defaults['envo_onid']) . '",
                               country = "' . smartsql($defaults['envo_onidcountry']) . '",
                               time = NOW()
@@ -1790,7 +1790,7 @@ switch ($page1) {
 
             if (is_numeric($pageID) && envo_row_exist($pageID, $envotable3)) {
 
-              $result = $jakdb->query('DELETE FROM ' . $envotable3 . ' WHERE id = "' . smartsql($pageID) . '"');
+              $result = $envodb->query('DELETE FROM ' . $envotable3 . ' WHERE id = "' . smartsql($pageID) . '"');
 
               if (!$result) {
                 // EN: Redirect page
@@ -1823,7 +1823,7 @@ switch ($page1) {
 
             if (is_numeric($pageID) && envo_row_exist($pageID, $envotable4)) {
 
-              $result = $jakdb->query('DELETE FROM ' . $envotable4 . ' WHERE id = "' . smartsql($pageID) . '"');
+              $result = $envodb->query('DELETE FROM ' . $envotable4 . ' WHERE id = "' . smartsql($pageID) . '"');
 
               if (!$result) {
                 // EN: Redirect page
@@ -1856,7 +1856,7 @@ switch ($page1) {
 
             if (is_numeric($pageID) && envo_row_exist($pageID, $envotable5)) {
 
-              $result = $jakdb->query('DELETE FROM ' . $envotable5 . ' WHERE id = "' . smartsql($pageID) . '"');
+              $result = $envodb->query('DELETE FROM ' . $envotable5 . ' WHERE id = "' . smartsql($pageID) . '"');
 
               if (!$result) {
                 // EN: Redirect page
@@ -1884,19 +1884,19 @@ switch ($page1) {
 
             // EN: Getting count of identifiers
             // CZ: Získání počtu identifikátorů
-            $result = $jakdb->query('SELECT COUNT(*) as totalSidTv FROM ' . $envotable3);
+            $result = $envodb->query('SELECT COUNT(*) as totalSidTv FROM ' . $envotable3);
             $row    = $result->fetch_assoc();
 
-            $result1 = $jakdb->query('SELECT COUNT(*) as totalSidR FROM ' . $envotable4);
+            $result1 = $envodb->query('SELECT COUNT(*) as totalSidR FROM ' . $envotable4);
             $row1    = $result1->fetch_assoc();
 
-            $result2 = $jakdb->query('SELECT COUNT(*) as totalSidS FROM ' . $envotable5);
+            $result2 = $envodb->query('SELECT COUNT(*) as totalSidS FROM ' . $envotable5);
             $row2    = $result2->fetch_assoc();
 
-            $result3 = $jakdb->query('SELECT COUNT(*) as totalOnid FROM ' . $envotable6);
+            $result3 = $envodb->query('SELECT COUNT(*) as totalOnid FROM ' . $envotable6);
             $row3    = $result3->fetch_assoc();
 
-            $result4 = $jakdb->query('SELECT COUNT(*) as totalNid FROM ' . $envotable7);
+            $result4 = $envodb->query('SELECT COUNT(*) as totalNid FROM ' . $envotable7);
             $row4    = $result4->fetch_assoc();
 
             $JAK_IDENT_ALL['sidtv'] = $row['totalSidTv'];
@@ -1953,7 +1953,7 @@ switch ($page1) {
          * CZ: Převod hodnot
          * smartsql - secure method to insert form data into a MySQL DB
         */
-        $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+        $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
 		    	WHEN "tvtowertitle" THEN "' . smartsql($defaults['envo_title']) . '"
 		    	WHEN "tvtowerwizardtitle" THEN "' . smartsql($defaults['envo_title_wizard']) . '"
 		    	WHEN "tvtowerlisttitle" THEN "' . smartsql($defaults['envo_title_list']) . '"

@@ -25,10 +25,10 @@ $catImage = $_POST['catImage'];
 $data_array = array();
 
 // Update row in DB
-$jakdb->query('UPDATE ' . DB_PREFIX . 'intranethouseimg SET category = "' . $catImage . '", timeedit = NOW() WHERE id = "' . $imageID . '"');
+$envodb->query('UPDATE ' . DB_PREFIX . 'intranethouseimg SET category = "' . $catImage . '", timeedit = NOW() WHERE id = "' . $imageID . '"');
 
 // Getting info from DB
-$result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'intranethouseimg WHERE id = "' . $imageID . '"');
+$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethouseimg WHERE id = "' . $imageID . '"');
 $row    = $result->fetch_assoc();
 
 $data_array[] = array(

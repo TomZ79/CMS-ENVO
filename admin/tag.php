@@ -28,8 +28,8 @@ switch ($page1) {
 
         if (envo_field_not_exist($page3, $envotable1, 'tag')) {
 
-          $result  = $jakdb->query('DELETE FROM ' . $envotable1 . ' WHERE tag = "' . smartsql($page3) . '"');
-          $result1 = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE tag = "' . smartsql($page3) . '"');
+          $result  = $envodb->query('DELETE FROM ' . $envotable1 . ' WHERE tag = "' . smartsql($page3) . '"');
+          $result1 = $envodb->query('DELETE FROM ' . $envotable . ' WHERE tag = "' . smartsql($page3) . '"');
 
           if (!$result || !$result1) {
             // EN: Redirect page
@@ -103,7 +103,7 @@ switch ($page1) {
          * CZ: Převod hodnot
          * smartsql - secure method to insert form data into a MySQL DB
         */
-        $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+        $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                     WHEN "tagtitle" THEN "' . smartsql($defaults['jak_title']) . '"
                     WHEN "tagdesc" THEN "' . smartsql($defaults['jak_lcontent']) . '"
                     WHEN "taglimit" THEN "' . smartsql($defaults['jak_limit']) . '"
@@ -129,7 +129,7 @@ switch ($page1) {
               $whatid = 0;
               if (isset($defaults['whatid_' . $pdoith[$key]])) $whatid = $defaults['whatid_' . $pdoith[$key]];
 
-              $jakdb->query('INSERT INTO ' . $envotable2 . ' SET plugin = 3, hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '"');
+              $envodb->query('INSERT INTO ' . $envotable2 . ' SET plugin = 3, hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '"');
 
             }
 
@@ -141,11 +141,11 @@ switch ($page1) {
         if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
 
           // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
-          $row = $jakdb->queryRow('SELECT id FROM ' . $envotable2 . ' WHERE plugin = 3 AND hookid != 0');
+          $row = $envodb->queryRow('SELECT id FROM ' . $envotable2 . ' WHERE plugin = 3 AND hookid != 0');
 
           // We have something to delete
           if ($row["id"]) {
-            $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE plugin = 3 AND hookid != 0');
+            $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE plugin = 3 AND hookid != 0');
           }
 
         }
@@ -165,7 +165,7 @@ switch ($page1) {
           foreach ($doith as $key => $exorder) {
 
             // Get the real what id
-            $result = $jakdb->query('SELECT pluginid FROM ' . $envotable2 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
+            $result = $envodb->query('SELECT pluginid FROM ' . $envotable2 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
             $row    = $result->fetch_assoc();
 
             // Get the whatid
@@ -177,16 +177,16 @@ switch ($page1) {
               $updatesql1 .= sprintf("WHEN %d THEN %d ", $key, $whatid);
 
             } else {
-              $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($key) . '"');
+              $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($key) . '"');
             }
           }
 
-          $jakdb->query('UPDATE ' . $envotable2 . ' SET orderid = CASE id
+          $envodb->query('UPDATE ' . $envotable2 . ' SET orderid = CASE id
 					' . $updatesql . '
 					END
 					WHERE id IN (' . $hookrealid . ')');
 
-          $jakdb->query('UPDATE ' . $envotable2 . ' SET whatid = CASE id
+          $envodb->query('UPDATE ' . $envotable2 . ' SET whatid = CASE id
 					' . $updatesql1 . '
 					END
 					WHERE id IN (' . $hookrealid . ')');
@@ -210,7 +210,7 @@ switch ($page1) {
     }
 
     // Get the sort orders for the grid
-    $grid = $jakdb->query('SELECT id, hookid, whatid, orderid FROM ' . $envotable2 . ' WHERE plugin = 3 ORDER BY orderid ASC');
+    $grid = $envodb->query('SELECT id, hookid, whatid, orderid FROM ' . $envotable2 . ' WHERE plugin = 3 ORDER BY orderid ASC');
     while ($grow = $grid->fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
@@ -218,7 +218,7 @@ switch ($page1) {
     }
 
     // Get the sidebar templates
-    $result = $jakdb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable3 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
+    $result = $envodb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable3 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
     while ($row = $result->fetch_assoc()) {
       $JAK_HOOKS[] = $row;
     }

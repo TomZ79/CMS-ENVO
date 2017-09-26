@@ -2,26 +2,26 @@
 
 class JAK_usergroup
 {
-	private $data;
-	private $jakvar = 0;
+  private $data;
+  private $jakvar = 0;
 
-	public function __construct ($row)
-	{
-		/*
-		/	The constructor
-		*/
+  public function __construct($row)
+  {
+    /*
+    /	The constructor
+    */
 
-		$this->data = $row;
-	}
+    $this->data = $row;
+  }
 
-	function getVar ($jakvar)
-	{
-		// Setting up an alias, so we don't have to write $this->data every time:
-		$d = $this->data;
+  function getVar($jakvar)
+  {
+    // Setting up an alias, so we don't have to write $this->data every time:
+    $d = $this->data;
 
-		if (!empty($d[ $jakvar ])) return $d[ $jakvar ];
+    if (!empty($d[$jakvar])) return $d[$jakvar];
 
-	}
+  }
 
 }
 

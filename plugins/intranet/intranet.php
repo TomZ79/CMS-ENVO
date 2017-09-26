@@ -47,7 +47,7 @@ if (JAK_USERID) {
   // Get the user avatar
   $ENVO_USER_AVATAR = $jakuser->getVar('picture');
   // Get the user group name
-  $result          = $jakdb->query('SELECT name FROM ' . DB_PREFIX . 'usergroup WHERE id="' . $jakuser->getVar("usergroupid") . '"');
+  $result          = $envodb->query('SELECT name FROM ' . DB_PREFIX . 'usergroup WHERE id="' . $jakuser->getVar("usergroupid") . '"');
   $row             = $result->fetch_assoc();
   $ENVO_USER_GROUP = $row['name'];
 
@@ -95,7 +95,7 @@ switch ($page1) {
 
             // EN: Get the data of house
             // CZ: Získání dat o domu
-            $result = $jakdb->query('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1');
+            $result = $envodb->query('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($pageID) . '" LIMIT 1');
             while ($row = $result->fetch_assoc()) {
               // EN: Insert each record into array
               // CZ: Vložení získaných dat do pole
@@ -106,7 +106,7 @@ switch ($page1) {
 
             // EN: Get the data of main contacts
             // CZ: Získání dat o hlavních kontaktech
-            $result = $jakdb->query('SELECT * FROM ' . $envotable1 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY id ASC');
+            $result = $envodb->query('SELECT * FROM ' . $envotable1 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY id ASC');
             while ($row = $result->fetch_assoc()) {
               // EN: Insert each record into array
               // CZ: Vložení získaných dat do pole
@@ -115,7 +115,7 @@ switch ($page1) {
 
             // EN: Get the data of services
             // CZ: Získání dat o servisech
-            $result = $jakdb->query('SELECT * FROM ' . $envotable2 . ' WHERE houseid = "' . smartsql($pageID) . '" AND deleted = 0 ORDER BY id DESC');
+            $result = $envodb->query('SELECT * FROM ' . $envotable2 . ' WHERE houseid = "' . smartsql($pageID) . '" AND deleted = 0 ORDER BY id DESC');
             while ($row = $result->fetch_assoc()) {
               // EN: Insert each record into array
               // CZ: Vložení získaných dat do pole
@@ -124,7 +124,7 @@ switch ($page1) {
 
             // EN: Get the data of documentation
             // CZ: Získání dat o dokumentech
-            $result = $jakdb->query('SELECT * FROM ' . $envotable6 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY id ASC');
+            $result = $envodb->query('SELECT * FROM ' . $envotable6 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY id ASC');
             while ($row = $result->fetch_assoc()) {
               // EN: Insert each record into array
               // CZ: Vložení získaných dat do pole
@@ -133,7 +133,7 @@ switch ($page1) {
 
             // EN: Get the data of images
             // CZ: Získání dat o obrázcích
-            $result = $jakdb->query('SELECT * FROM ' . $envotable3 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY id DESC');
+            $result = $envodb->query('SELECT * FROM ' . $envotable3 . ' WHERE houseid = "' . smartsql($pageID) . '" ORDER BY id DESC');
             while ($row = $result->fetch_assoc()) {
               // EN: Insert each record into array
               // CZ: Vložení získaných dat do pole
@@ -226,7 +226,7 @@ switch ($page1) {
                    * smartsql - secure method to insert form data into a MySQL DB
                    * url_slug  - friendly URL slug from a string
                   */
-                $result = $jakdb->query('UPDATE ' . $envotable5 . ' SET
+                $result = $envodb->query('UPDATE ' . $envotable5 . ' SET
                           unread = "1"
                           WHERE notification_id = "' . smartsql($pageID) . '"
                           AND usergroup_id = "' . JAK_USERGROUPID . '"');
@@ -243,7 +243,7 @@ switch ($page1) {
 
             }
 
-            $result = $jakdb->query('
+            $result = $envodb->query('
                       SELECT ' . $envotable4 . '.*, ' . $envotable5 . '.unread 
                       FROM ' . $envotable4 . ', ' . $envotable5 . ' 
                       WHERE ' . $envotable4 . '.id = "' . smartsql($pageID) . '"
@@ -339,7 +339,7 @@ switch ($page1) {
 
       // EN: Getting count of all records in DB
       // CZ: Získání počtu všech záznamů v DB
-      $result    = $jakdb->query('SELECT COUNT(*) as houseCtotal FROM ' . $envotable);
+      $result    = $envodb->query('SELECT COUNT(*) as houseCtotal FROM ' . $envotable);
       $rowCtotal = $result->fetch_assoc();
 
       // Count of all records by usergroup
@@ -353,7 +353,7 @@ switch ($page1) {
 
       // EN: Getting count of all records in DB
       // CZ: Získání počtu všech záznamů v DB
-      $result    = $jakdb->query('SELECT COUNT(*) as houseCtotal FROM ' . $envotable);
+      $result    = $envodb->query('SELECT COUNT(*) as houseCtotal FROM ' . $envotable);
       $rowCtotal = $result->fetch_assoc();
 
       if ($rowCtotal['houseCtotal'] > 0) {
@@ -363,7 +363,7 @@ switch ($page1) {
         // EN: Getting count of records in DB by usergroup
         // CZ: Získání počtu záznamů v DB podle uživatelské skupiny
         // Find in permission column 'usergroupid' or '0'. 0 means availability for all user groups.
-        $result = $jakdb->query('SELECT * FROM ' . $envotable . ' WHERE FIND_IN_SET("' . JAK_USERGROUPID . '", permission) OR  FIND_IN_SET("0", permission)');
+        $result = $envodb->query('SELECT * FROM ' . $envotable . ' WHERE FIND_IN_SET("' . JAK_USERGROUPID . '", permission) OR  FIND_IN_SET("0", permission)');
         // Determine number of rows result set
         $row_cnt = $result->num_rows;
 

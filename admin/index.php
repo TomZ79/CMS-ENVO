@@ -131,7 +131,7 @@ $envotable  = DB_PREFIX . 'pages';
 $envotable1 = DB_PREFIX . 'user';
 $envotable2 = DB_PREFIX . 'usergroup';
 
-$JAK_COUNTS_NAVBAR = $jakdb->queryRow('SELECT
+$JAK_COUNTS_NAVBAR = $envodb->queryRow('SELECT
 																			(SELECT COUNT(*) FROM ' . $envotable . ') AS COUNT_PAGES,
 																			(SELECT COUNT(*) FROM ' . $envotable1 . ') AS COUNT_USER,
 																			(SELECT COUNT(*) FROM ' . $envotable2 . ') AS COUNT_USERGROUP');
@@ -164,7 +164,7 @@ if ($page == '') {
     // Get the to-do list
     require "../class/class.todo.php";
     // Select all the todos, ordered by position:
-    $todo = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'todo_list ORDER BY `position` ASC');
+    $todo = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'todo_list ORDER BY `position` ASC');
 
     // to-do is an array and get the while
     $todos = array();
@@ -173,7 +173,7 @@ if ($page == '') {
     }
 
     // Get the stats
-    $JAK_COUNTS = $jakdb->queryRow('SELECT
+    $JAK_COUNTS = $envodb->queryRow('SELECT
 																	(SELECT COUNT(*) FROM ' . DB_PREFIX . 'pages WHERE active = 1) AS pageCtotal,
 																	(SELECT COUNT(*) FROM ' . DB_PREFIX . 'user) AS userCtotal,
 																	(SELECT COUNT(*) FROM ' . DB_PREFIX . 'tags) AS tagsCtotal,
@@ -182,7 +182,7 @@ if ($page == '') {
 																	(SELECT COUNT(*) FROM ' . DB_PREFIX . 'searchlog) AS searchClog');
 
     // Get the page hits
-    $result = $jakdb->query('SELECT title, hits FROM ' . DB_PREFIX . 'pages ORDER BY hits DESC LIMIT 15');
+    $result = $envodb->query('SELECT title, hits FROM ' . DB_PREFIX . 'pages ORDER BY hits DESC LIMIT 15');
 
     // Iterate through the rows
     $totalhits = 0;
@@ -373,5 +373,5 @@ unset($_SESSION["loginmsg"]);
 
 // EN: Finally close all db connections
 // CZ: Uzavření spojení do databáze
-$jakdb->jak_close();
+$envodb->envo_close();
 ?>

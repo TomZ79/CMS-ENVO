@@ -20,7 +20,7 @@ $envotable6 = DB_PREFIX . 'tvtowerexporthistory';
 
 // EN: Getting date of last update of programs
 // CZ: Získání data poslední aktualizace programů
-$resulttime = $jakdb->query('SELECT  MAX(time) AS maxTime FROM ' . $envotable2);
+$resulttime = $envodb->query('SELECT  MAX(time) AS maxTime FROM ' . $envotable2);
 $rowtime    = $resulttime->fetch_assoc();
 
 // EN: Set value
@@ -133,7 +133,7 @@ $html .= '<tr>
 
 // EN: Getting the data about the TV Tower
 // CZ: Získání dat o televizním vysílači
-$result = $jakdb->query('SELECT * FROM ' . $envotable . ' ORDER BY id ASC');
+$result = $envodb->query('SELECT * FROM ' . $envotable . ' ORDER BY id ASC');
 
 for ($i = 1; $row = $result->fetch_assoc(); ++$i) {
   $html .= '<tr>
@@ -155,9 +155,9 @@ $mpdf->AddPage();
 // - - - - ONID
 
 // EN: If exist row in DB get Maxtime
-$num_results  = $jakdb->query('SELECT id FROM ' . $envotable4);
+$num_results  = $envodb->query('SELECT id FROM ' . $envotable4);
 if ($num_results->num_rows !== 0) {
-  $resulttime  = $jakdb->query('SELECT MAX(time) AS maxTime FROM ' . $envotable4);
+  $resulttime  = $envodb->query('SELECT MAX(time) AS maxTime FROM ' . $envotable4);
   $rowtime     = $resulttime->fetch_assoc();
   $maxtime = 'Stav ke dni ' . date('d.m.Y', strtotime($rowtime['maxTime']));
 } else {
@@ -179,7 +179,7 @@ $html .= '<tr>
 
 // EN: Getting all the data about ON_ID
 // CZ: Získání všech dat o ON_ID
-$result1 = $jakdb->query('SELECT * FROM ' . $envotable4 . ' ORDER BY onid ASC');
+$result1 = $envodb->query('SELECT * FROM ' . $envotable4 . ' ORDER BY onid ASC');
 
 for ($i = 1; $row1 = $result1->fetch_assoc(); ++$i) {
   $html .= '<tr>
@@ -194,9 +194,9 @@ $html .= '</table>';
 // - - - - NID
 
 // EN: If exist row in DB get Maxtime
-$num_results1  = $jakdb->query('SELECT id FROM ' . $envotable5);
+$num_results1  = $envodb->query('SELECT id FROM ' . $envotable5);
 if ($num_results1->num_rows !== 0) {
-  $resulttime1  = $jakdb->query('SELECT MAX(time) AS maxTime FROM ' . $envotable5);
+  $resulttime1  = $envodb->query('SELECT MAX(time) AS maxTime FROM ' . $envotable5);
   $rowtime1     = $resulttime1->fetch_assoc();
   $maxtime1 = 'Stav ke dni ' . date('d.m.Y', strtotime($rowtime1['maxTime']));
 } else {
@@ -219,7 +219,7 @@ $html .= '<tr>
 
 // EN: Getting all the data about N_ID
 // CZ: Získání všech dat o N_ID
-$result2 = $jakdb->query('SELECT * FROM ' . $envotable5 . ' ORDER BY nid ASC');
+$result2 = $envodb->query('SELECT * FROM ' . $envotable5 . ' ORDER BY nid ASC');
 
 for ($i = 1; $row2 = $result2->fetch_assoc(); ++$i) {
   $html .= '<tr>
@@ -243,9 +243,9 @@ $mpdf->AddPage();
 // - - - - SID TV
 
 // EN: If exist row in DB get Maxtime
-$num_results2  = $jakdb->query('SELECT id FROM ' . $envotable1);
+$num_results2  = $envodb->query('SELECT id FROM ' . $envotable1);
 if ($num_results2->num_rows !== 0) {
-  $resulttime2  = $jakdb->query('SELECT MAX(time) AS maxTime FROM ' . $envotable1);
+  $resulttime2  = $envodb->query('SELECT MAX(time) AS maxTime FROM ' . $envotable1);
   $rowtime2     = $resulttime2->fetch_assoc();
   $maxtime2 = 'Stav ke dni ' . date('d.m.Y', strtotime($rowtime2['maxTime']));
 } else {
@@ -272,7 +272,7 @@ $html .= '<tr>
 
 // EN: Getting all the data about S_ID TV
 // CZ: Získání všech dat o S_ID TV
-$result3 = $jakdb->query('SELECT * FROM ' . $envotable1 . ' ORDER BY sid ASC');
+$result3 = $envodb->query('SELECT * FROM ' . $envotable1 . ' ORDER BY sid ASC');
 
 for ($i = 1; $row3 = $result3->fetch_assoc(); ++$i) {
   $html .= '<tr>
@@ -295,9 +295,9 @@ $mpdf->AddPage();
 // - - - - SID R
 
 // EN: If exist row in DB get Maxtime
-$num_results3  = $jakdb->query('SELECT id FROM ' . $envotable2);
+$num_results3  = $envodb->query('SELECT id FROM ' . $envotable2);
 if ($num_results3->num_rows !== 0) {
-  $resulttime3  = $jakdb->query('SELECT MAX(time) AS maxTime FROM ' . $envotable2);
+  $resulttime3  = $envodb->query('SELECT MAX(time) AS maxTime FROM ' . $envotable2);
   $rowtime3     = $resulttime3->fetch_assoc();
   $maxtime3 = 'Stav ke dni ' . date('d.m.Y', strtotime($rowtime3['maxTime']));
 } else {
@@ -324,7 +324,7 @@ $html .= '<tr>
 
 // EN: Getting all the data about S_ID R
 // CZ: Získání všech dat o S_ID R
-$result4 = $jakdb->query('SELECT * FROM ' . $envotable2 . ' ORDER BY sid ASC');
+$result4 = $envodb->query('SELECT * FROM ' . $envotable2 . ' ORDER BY sid ASC');
 
 for ($i = 1; $row4 = $result4->fetch_assoc(); ++$i) {
   $html .= '<tr>
@@ -347,9 +347,9 @@ $mpdf->AddPage();
 // - - - - SID S
 
 // EN: If exist row in DB get Maxtime
-$num_results4  = $jakdb->query('SELECT id FROM ' . $envotable3);
+$num_results4  = $envodb->query('SELECT id FROM ' . $envotable3);
 if ($num_results4->num_rows !== 0) {
-  $resulttime4  = $jakdb->query('SELECT MAX(time) AS maxTime FROM ' . $envotable3);
+  $resulttime4  = $envodb->query('SELECT MAX(time) AS maxTime FROM ' . $envotable3);
   $rowtime4     = $resulttime4->fetch_assoc();
   $maxtime4 = 'Stav ke dni ' . date('d.m.Y', strtotime($rowtime4['maxTime']));
 } else {
@@ -376,7 +376,7 @@ $html .= '<tr>
 
 // EN: Getting all the data about S_ID S
 // CZ: Získání všech dat o S_ID S
-$result5 = $jakdb->query('SELECT * FROM ' . $envotable3 . ' ORDER BY sid ASC');
+$result5 = $envodb->query('SELECT * FROM ' . $envotable3 . ' ORDER BY sid ASC');
 
 for ($i = 1; $row5 = $result5->fetch_assoc(); ++$i) {
   $html .= '<tr>
@@ -425,7 +425,7 @@ if (JAK_USERID) {
 $ipa = get_ip_address();
 
 // EN: Insert data to DB
-$jakdb->query('INSERT INTO ' . $envotable6 . ' VALUES (NULL, "' . smartsql($dluserid) . '", "' . smartsql($dlemail) . '", "Bluesat-identifikatory-' . $timetoday . '.pdf", "' . smartsql($ipa) . '", NOW())');
+$envodb->query('INSERT INTO ' . $envotable6 . ' VALUES (NULL, "' . smartsql($dluserid) . '", "' . smartsql($dlemail) . '", "Bluesat-identifikatory-' . $timetoday . '.pdf", "' . smartsql($ipa) . '", NOW())');
 
 // - - - - - - - - - - - - - - - - OUTPUT - - - - - - - - - - - - -
 

@@ -36,7 +36,7 @@ if (is_ajax()) {
     // build your search query to the database
     $sqlpg = 'SELECT id,title FROM ' . DB_PREFIX . 'pages WHERE title LIKE "%' . $search . '%"';
     // get results
-    $resultpg = $jakdb->query($sqlpg);
+    $resultpg = $envodb->query($sqlpg);
 
     echo '<div class="col-md-4">';
     echo '<div class="">
@@ -64,7 +64,7 @@ if (is_ajax()) {
     // build your search query to the database
     $sqlbl = 'SELECT id,title FROM ' . DB_PREFIX . 'blog WHERE title LIKE "%' . $search . '%"';
     // get results
-    $resultbl = $jakdb->query($sqlbl);
+    $resultbl = $envodb->query($sqlbl);
 
     echo '<div class="col-md-4">';
     echo '<div class="">
@@ -92,7 +92,7 @@ if (is_ajax()) {
     // build your search query to the database
     $sqlns = 'SELECT id,title FROM ' . DB_PREFIX . 'news WHERE title LIKE "%' . $search . '%"';
     // get results
-    $resultns = $jakdb->query($sqlns);
+    $resultns = $envodb->query($sqlns);
 
     echo '<div class="col-md-4">';
     echo '<div class="">
@@ -132,7 +132,7 @@ if (is_ajax()) {
     // build your search query to the database
     $sqldl = 'SELECT id,title FROM ' . DB_PREFIX . 'download WHERE title LIKE "%' . $search . '%"';
     // get results
-    $resultdl = $jakdb->query($sqldl);
+    $resultdl = $envodb->query($sqldl);
 
     echo '<div class="col-md-4">';
     echo '<div class="">
@@ -160,7 +160,7 @@ if (is_ajax()) {
     // build your search query to the database
     $sqlfq = 'SELECT id,title FROM ' . DB_PREFIX . 'faq WHERE title LIKE "%' . $search . '%"';
     // get results
-    $resultfq = $jakdb->query($sqlfq);
+    $resultfq = $envodb->query($sqlfq);
 
     echo '<div class="col-md-4">';
     echo '<div class="">

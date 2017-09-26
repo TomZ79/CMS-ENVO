@@ -1,7 +1,7 @@
 <?php
 
 // Get the general settings out the database
-$resultbh = $jakdb->query('SELECT pageid, newsid, newsmain, tags, search, sitemap, content, content_below, permission FROM ' . DB_PREFIX . 'belowheader WHERE active = 1');
+$resultbh = $envodb->query('SELECT pageid, newsid, newsmain, tags, search, sitemap, content, content_below, permission FROM ' . DB_PREFIX . 'belowheader WHERE active = 1');
 while ($rowbh = $resultbh->fetch_assoc()) {
   $content       = base64_encode($rowbh["content"]);
   $content_below = base64_encode($rowbh["content_below"]);

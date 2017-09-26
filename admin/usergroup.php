@@ -78,13 +78,13 @@ switch ($page1) {
            * CZ: Převod hodnot
            * smartsql - secure method to insert form data into a MySQL DB
           */
-          $result = $jakdb->query('INSERT INTO ' . $envotable . ' SET
+          $result = $envodb->query('INSERT INTO ' . $envotable . ' SET
                     name = "' . smartsql($defaults['jak_name']) . '",
                     description = "' . smartsql($defaults['jak_lcontent']) . '",
                     advsearch = "' . smartsql($defaults['jak_advs']) . '",
                     ' . $insert );
 
-          $rowid = $jakdb->jak_last_id();
+          $rowid = $envodb->envo_last_id();
 
           if (!$result) {
             // EN: Redirect page
@@ -130,7 +130,7 @@ switch ($page1) {
           $locked = $lockuser[$i];
 
           if (!in_array($locked, $grouparray)) {
-            $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
+            $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
           }
         }
 
@@ -188,7 +188,7 @@ switch ($page1) {
       case 'delete':
         if ($page2 > 4) {
 
-          $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
+          $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
 
           if (!$result) {
             // EN: Redirect page
@@ -244,7 +244,7 @@ switch ($page1) {
                * CZ: Převod hodnot
                * smartsql - secure method to insert form data into a MySQL DB
               */
-              $result = $jakdb->query('UPDATE ' . $envotable . ' SET
+              $result = $envodb->query('UPDATE ' . $envotable . ' SET
                           name = "' . smartsql($defaults['jak_name']) . '",
                           description = "' . smartsql($defaults['jak_lcontent']) . '",
                           advsearch = "' . smartsql($defaults['jak_advs']) . '",

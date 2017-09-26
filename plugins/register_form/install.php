@@ -132,8 +132,8 @@ if (file_exists(APP_PATH . 'plugins/register_form/admin/lang/' . $site_language 
        * Kontrola zda je plugin instalován
        * Pokud není plugin instalován, zobrazit Notifikaci s chybovou hláškou
       */
-      $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Register_form"');
-      if ($jakdb->affected_rows > 0) { ?>
+      $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Register_form"');
+      if ($envodb->affected_rows > 0) { ?>
 
         <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
         <script>
@@ -162,7 +162,7 @@ if (file_exists(APP_PATH . 'plugins/register_form/admin/lang/' . $site_language 
 
       // EN: Insert data to table 'plugins' about this plugin
       // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
-      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Register_form", "Create a register form and connect it to any page you like", 1, ' . JAK_USERID . ', 4, "register_form", "require_once APP_PATH.\'plugins/register_form/register.php\';", "if ($page == \'register-form\') {
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Register_form", "Create a register form and connect it to any page you like", 1, ' . JAK_USERID . ', 4, "register_form", "require_once APP_PATH.\'plugins/register_form/register.php\';", "if ($page == \'register-form\') {
         require_once APP_PATH.\'plugins/register_form/admin/register.php\';
         $JAK_PROVED = 1;
         $checkp = 1;
@@ -170,7 +170,7 @@ if (file_exists(APP_PATH . 'plugins/register_form/admin/lang/' . $site_language 
 
       // EN: Now get the plugin 'id' from table 'plugins' for futher use
       // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
-      $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Register_form"');
+      $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Register_form"');
       $rows    = $results->fetch_assoc();
 
       if ($rows['id']) {
@@ -216,7 +216,7 @@ if (is_numeric($page1) && is_numeric($page2) && envo_row_exist($page1, DB_PREFIX
 		// Generate new idhash
 		$nidhash = JAK_userlogin::generateRandID();
 		
-		$result = $jakdb->query(\'UPDATE \'.DB_PREFIX.\'user SET session = \"\'.smartsql(session_id()).\'\", idhash = \"\'.smartsql($nidhash).\'\", lastactivity = NOW(), access = access - 1, activatenr = 0 WHERE id = \"\'.smartsql($page1).\'\" AND activatenr = \"\'.smartsql($page2).\'\"\');
+		$result = $envodb->query(\'UPDATE \'.DB_PREFIX.\'user SET session = \"\'.smartsql(session_id()).\'\", idhash = \"\'.smartsql($nidhash).\'\", lastactivity = NOW(), access = access - 1, activatenr = 0 WHERE id = \"\'.smartsql($page1).\'\" AND activatenr = \"\'.smartsql($page2).\'\"\');
 		
 		$_SESSION[\'username\'] = $page3;
 		$_SESSION[\'idhash\'] = $nidhash;
@@ -304,7 +304,7 @@ if (!$result) {
 
       // EN: Insert data to table 'pluginhooks'
       // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
-      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "Register Form Admin Language", "' . $adminlang . '", "registerf", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Register Form Site Language", "' . $sitelang . '", "registerf", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_head", "Register Form Admin CSS", "plugins/register_form/admin/template/css.register_form.php", "registerf", 1, 4, "' . $rows['id'] . '", NOW()),
@@ -321,7 +321,7 @@ if (!$result) {
 
       // EN: Insert data to table 'setting'
       // CZ: Vložení potřebných dat to tabulky 'setting'
-      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
 ("rf_title", "register_form", NULL, NULL, "input", "free", "registerf"),
 ("rf_active", "register_form", 1, 1, "yesno", "boolean", "registerf"),
 ("rf_simple", "register_form", 1, 1, "yesno", "boolean", "registerf"),
@@ -335,16 +335,16 @@ if (!$result) {
 
       // EN: Insert data to table 'categories' (create category)
       // CZ: Vložení potřebných dat to tabulky 'categories' (vytvoření kategorie)
-      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `permission`, `activeplugin`, `pluginid`) VALUES (NULL, "Edit Profile", "edit-profile", NULL, 1, 0, 5, 0, 0, "2,3,4", 1, "' . $rows['id'] . '")');
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `permission`, `activeplugin`, `pluginid`) VALUES (NULL, "Edit Profile", "edit-profile", NULL, 1, 0, 5, 0, 0, "2,3,4", 1, "' . $rows['id'] . '")');
 
       // Prepare the tables
-      $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showregister SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER showcontact');
-      $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'news ADD showregister SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER showcontact');
-      $jakdb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET active = 0 WHERE id = 3');
+      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showregister SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER showcontact');
+      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'news ADD showregister SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER showcontact');
+      $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET active = 0 WHERE id = 3');
 
       // EN: Create table for plugin
       // CZ: Vytvoření tabulky pro plugin
-      $jakdb->query('CREATE TABLE ' . DB_PREFIX . 'registeroptions (
+      $envodb->query('CREATE TABLE ' . DB_PREFIX . 'registeroptions (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `typeid` smallint(2) unsigned NOT NULL DEFAULT 1,
@@ -357,7 +357,7 @@ if (!$result) {
 
       // EN: Insert data to table 'registeroptions'
       // CZ: Vložení potřebných dat to tabulky 'registeroptions'
-      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'registeroptions (`id`, `name`, `typeid`, `options`, `showregister`, `mandatory`, `forder`) VALUES (NULL, \'Username\', 1, NULL, 1, 1, 1), (NULL, \'Email\', 1, NULL, 1, 3, 2), (NULL, \'Password\', 1, NULL, 1, 1, 3)');
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'registeroptions (`id`, `name`, `typeid`, `options`, `showregister`, `mandatory`, `forder`) VALUES (NULL, \'Username\', 1, NULL, 1, 1, 1), (NULL, \'Email\', 1, NULL, 1, 3, 2), (NULL, \'Password\', 1, NULL, 1, 1, 3)');
 
       $succesfully = 1;
 
@@ -384,7 +384,7 @@ if (!$result) {
       // EN: If plugin have 'id' (plugin is not installed), uninstall
       // CZ: Pokud nemá plugin 'id' (tzn. plugin není instalován - došlo k chybě při zápisu do tabulky 'plugins'), odinstalujeme plugin
 
-      $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Register_form"');
+      $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Register_form"');
 
       ?>
 

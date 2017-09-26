@@ -14,7 +14,7 @@ $ids     = implode(',', $transId);
 
 // EN: Get data of TV Tower
 // CZ: Získání dat o televizních vysílačích
-$result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'tvtowertvtower WHERE id IN (' . $ids . ')');
+$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'tvtowertvtower WHERE id IN (' . $ids . ')');
 
 $tower_array  = array();
 $channel_array = array();
@@ -25,7 +25,7 @@ while ($row = $result->fetch_assoc()) {
 
   // EN: Get data of TV Channel
   // CZ: Získání dat o televizních kanálech
-  $result1 = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'tvtowertvchannel WHERE towerid IN (' . $ids . ')');
+  $result1 = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'tvtowertvchannel WHERE towerid IN (' . $ids . ')');
 
   while ($row1 = $result1->fetch_assoc()) {
 

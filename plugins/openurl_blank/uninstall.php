@@ -133,13 +133,13 @@ if (file_exists(APP_PATH . 'plugins/openurl_blank/admin/lang/' . $site_language 
         if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
 
           // Now get the plugin id for futher use
-          $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Openurl_blank"');
+          $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Openurl_blank"');
           $rows    = $results->fetch_assoc();
 
           if ($rows) {
 
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Openurl_blank"');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "openurlb"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Openurl_blank"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "openurlb"');
 
           }
 

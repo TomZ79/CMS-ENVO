@@ -162,15 +162,15 @@ if (file_exists(APP_PATH . 'plugins/urlmapping/admin/lang/' . $site_language . '
         if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
 
           // Now get the plugin id for futher use
-          $rows = $jakdb->queryRow('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "UrlMapping"');
+          $rows = $envodb->queryRow('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "UrlMapping"');
 
           if ($rows) {
 
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "UrlMapping"');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "urlmapping"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "UrlMapping"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "urlmapping"');
 
             /* Remove tables with data */
-            // $jakdb->query('DROP TABLE ' . DB_PREFIX . 'urlmapping');
+            // $envodb->query('DROP TABLE ' . DB_PREFIX . 'urlmapping');
 
           }
 

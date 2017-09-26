@@ -134,8 +134,8 @@ if (file_exists(APP_PATH . 'plugins/blog/admin/lang/' . $site_language . '.ini')
        * Kontrola zda je plugin instalován
        * Pokud není plugin instalován, zobrazit Notifikaci s chybovou hláškou
       */
-      $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blog"');
-      if ($jakdb->affected_rows > 0) { ?>
+      $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blog"');
+      if ($envodb->affected_rows > 0) { ?>
 
         <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
         <script>
@@ -164,7 +164,7 @@ if (file_exists(APP_PATH . 'plugins/blog/admin/lang/' . $site_language . '.ini')
 
       // EN: Insert data to table 'plugins' about this plugin
       // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
-      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Blog", "Run your own blog.", 1, ' . JAK_USERID . ', 4, "blog", "require_once APP_PATH.\'plugins/blog/blog.php\';", "if ($page == \'blog\') {
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Blog", "Run your own blog.", 1, ' . JAK_USERID . ', 4, "blog", "require_once APP_PATH.\'plugins/blog/blog.php\';", "if ($page == \'blog\') {
         require_once APP_PATH.\'plugins/blog/admin/blog.php\';
            $JAK_PROVED = 1;
            $checkp = 1;
@@ -172,7 +172,7 @@ if (file_exists(APP_PATH . 'plugins/blog/admin/lang/' . $site_language . '.ini')
 
       // EN: Now get the plugin 'id' from table 'plugins' for futher use
       // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
-      $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blog"');
+      $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blog"');
       $rows    = $results->fetch_assoc();
 
       if ($rows['id']) {
@@ -249,8 +249,8 @@ $JAK_BLOG_ALL = envo_get_blog(\'\', $jkv[\"blogorder\"], \'\', \'\', $jkv[\"blog
 $PAGE_TITLE = JAK_PLUGIN_NAME_BLOG;';
 
       // Fulltext search query
-      $sqlfull       = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'blog ADD FULLTEXT(`title`, `content`)\');';
-      $sqlfullremove = '$jakdb->query(\'ALTER TABLE \'.DB_PREFIX.\'blog DROP INDEX `title`\');';
+      $sqlfull       = '$envodb->query(\'ALTER TABLE \'.DB_PREFIX.\'blog ADD FULLTEXT(`title`, `content`)\');';
+      $sqlfullremove = '$envodb->query(\'ALTER TABLE \'.DB_PREFIX.\'blog DROP INDEX `title`\');';
 
       // Connect to pages/news
       $pages = 'if ($pg[\'pluginid\'] == JAK_PLUGIN_BLOG) {
@@ -385,7 +385,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
 
       // EN: Insert data to table 'pluginhooks'
       // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
-      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "Blog Admin Language", "' . $adminlang . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Blog Site Language", "' . $sitelang . '", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_head", "Blog Admin CSS", "plugins/blog/admin/template/css.blog.php", "blog", 1, 4, "' . $rows['id'] . '", NOW()),
@@ -414,7 +414,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
 
       // EN: Insert data to table 'setting'
       // CZ: Vložení potřebných dat to tabulky 'setting'
-      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
 ("blogtitle", "blog", "Blog", "Blog", "input", "free", "blog"),
 ("blogdesc", "blog", "Write something about your Blog", "Write something about your Blog", "textarea", "free", "blog"),
 ("blogdateformat", "blog", "d.m.Y", "d.m.Y", "input", "free", "blog"),
@@ -430,24 +430,24 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
 
       // EN: Insert data to table 'usergroup'
       // CZ: Vložení potřebných dat to tabulky 'usergroup'
-      $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `blog` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
+      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `blog` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
 
       // Pages/News alter Table
-      $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showblog varchar(100) DEFAULT NULL AFTER showcontact');
-      $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'news ADD showblog varchar(100) DEFAULT NULL AFTER showcontact');
-      $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pagesgrid ADD blogid INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER newsid');
+      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pages ADD showblog varchar(100) DEFAULT NULL AFTER showcontact');
+      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'news ADD showblog varchar(100) DEFAULT NULL AFTER showcontact');
+      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pagesgrid ADD blogid INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER newsid');
 
       // Backup content from blog
-      $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'backup_content ADD blogid INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER pageid');
+      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'backup_content ADD blogid INT(11) UNSIGNED NOT NULL DEFAULT 0 AFTER pageid');
 
       // EN: Insert data to table 'categories' (create category)
       // CZ: Vložení potřebných dat to tabulky 'categories' (vytvoření kategorie)
-      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES
 (NULL, "Blog", "blog", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
 
       // EN: Create table for plugin (article)
       // CZ: Vytvoření tabulky pro plugin (články)
-      $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'blog (
+      $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'blog (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `catid` varchar(100) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
@@ -471,7 +471,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
 
       // EN: Create table for plugin (categories)
       // CZ: Vytvoření tabulky pro plugin (kategorie)
-      $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'blogcategories (
+      $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'blogcategories (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `varname` varchar(100) DEFAULT NULL,
@@ -488,7 +488,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
 
       // Full text search is activated we do so for the blog table as well
       if ($jkv["fulltextsearch"]) {
-        $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'blog ADD FULLTEXT(`title`, `content`)');
+        $envodb->query('ALTER TABLE ' . DB_PREFIX . 'blog ADD FULLTEXT(`title`, `content`)');
       }
 
       $succesfully = 1;
@@ -515,7 +515,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
       // EN: If plugin have 'id' (plugin is not installed), uninstall
       // CZ: Pokud nemá plugin 'id' (tzn. plugin není instalován - došlo k chybě při zápisu do tabulky 'plugins'), odinstalujeme plugin
 
-      $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Blog"');
+      $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Blog"');
 
       ?>
         <div class="alert bg-danger"><?php echo $tlblog["blog_install"]["bloginst5"]; ?></div>

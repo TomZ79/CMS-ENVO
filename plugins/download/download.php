@@ -87,7 +87,7 @@ switch ($page1) {
       }
 
       // Get the download categories
-      $row = $jakdb->queryRow('SELECT name, content FROM ' . $envotable1 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
+      $row = $envodb->queryRow('SELECT name, content FROM ' . $envotable1 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
 
       $PAGE_TITLE              = JAK_PLUGIN_NAME_DOWNLOAD . ' - ' . $row['name'];
       $PAGE_CONTENT            = $row['content'];
@@ -96,7 +96,7 @@ switch ($page1) {
 
       // Get the sort orders for the grid
       $JAK_HOOK_SIDE_GRID = FALSE;
-      $grid               = $jakdb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql(JAK_PLUGIN_ID_DOWNLOAD) . '" AND fileid = 0 ORDER BY orderid ASC');
+      $grid               = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql(JAK_PLUGIN_ID_DOWNLOAD) . '" AND fileid = 0 ORDER BY orderid ASC');
       while ($grow = $grid->fetch_assoc()) {
         // EN: Insert each record into array
         // CZ: Vložení získaných dat do pole
@@ -176,7 +176,7 @@ switch ($page1) {
         }
       }
 
-      $result = $jakdb->query('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
+      $result = $envodb->query('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
       $row    = $result->fetch_assoc();
 
       if ($row['active'] != 1) {
@@ -261,7 +261,7 @@ switch ($page1) {
         }
 
         // Get the sort orders for the grid
-        $grid = $jakdb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE fileid = "' . smartsql($row['id']) . '" ORDER BY orderid ASC');
+        $grid = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE fileid = "' . smartsql($row['id']) . '" ORDER BY orderid ASC');
         while ($grow = $grid->fetch_assoc()) {
 
           // the sidebar grid
@@ -296,7 +296,7 @@ switch ($page1) {
         }
 
         // Get the categories into a list
-        $resultc = $jakdb->query('SELECT id, name, varname FROM ' . $envotable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
+        $resultc = $envodb->query('SELECT id, name, varname FROM ' . $envotable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
         while ($rowc = $resultc->fetch_assoc()) {
 
           if ($jkv["downloadurl"]) {
@@ -333,7 +333,7 @@ switch ($page1) {
     $PAGE_DESCRIPTION = envo_cut_text($PAGE_CONTENT, 155, '');
 
     // Get Facebook SDK Connection
-    $row = $jakdb->queryRow('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "facebookconnect"  LIMIT 1');
+    $row = $envodb->queryRow('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "facebookconnect"  LIMIT 1');
 
     // Get script for Facebook SDK
     $JAK_FACEBOOK_SDK_CONNECTION = $row['value'];
@@ -361,7 +361,7 @@ switch ($page1) {
 
       // EN: Get the file from DB
       // CZ: Získání souboru z DB
-      $row = $jakdb->queryRow('SELECT candownload, catid, file, extfile, active FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
+      $row = $envodb->queryRow('SELECT candownload, catid, file, extfile, active FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
 
       // Not active back to download
       if ($row['active'] != 1) envo_redirect($backtodl);
@@ -399,7 +399,7 @@ switch ($page1) {
           $file = smartsql($row['extfile']);
         }
 
-        $jakdb->query('INSERT INTO ' . $envotable3 . ' VALUES (NULL, "' . $page2 . '", "' . smartsql($dluserid) . '", "' . smartsql($dlemail) . '", "' . $file . '", "' . smartsql($ipa) . '", NOW())');
+        $envodb->query('INSERT INTO ' . $envotable3 . ' VALUES (NULL, "' . $page2 . '", "' . smartsql($dluserid) . '", "' . smartsql($dlemail) . '", "' . $file . '", "' . smartsql($ipa) . '", NOW())');
 
         if (!empty($row['extfile'])) {
           /*
@@ -409,7 +409,7 @@ switch ($page1) {
 
           // EN: Update count download in DB
           // CZ: Update počet stažení v DB
-          $jakdb->query('UPDATE ' . $envotable . ' SET countdl = countdl + 1 WHERE id = "' . smartsql($page2) . '"');
+          $envodb->query('UPDATE ' . $envotable . ' SET countdl = countdl + 1 WHERE id = "' . smartsql($page2) . '"');
           // EN: Redirect page with download file
           // CZ: Přesměrování stránky
           envo_redirect($row['extfile']);
@@ -497,7 +497,7 @@ switch ($page1) {
 
           // EN: Update count download in DB
           // CZ: Update počet stažení v DB
-          $jakdb->query('UPDATE ' . $envotable . ' SET countdl = countdl + 1 WHERE id = "' . smartsql($page2) . '"');
+          $envodb->query('UPDATE ' . $envotable . ' SET countdl = countdl + 1 WHERE id = "' . smartsql($page2) . '"');
 
         }
 
@@ -544,7 +544,7 @@ switch ($page1) {
 
     // Get the sort orders for the grid
     $JAK_HOOK_SIDE_GRID = FALSE;
-    $grid               = $jakdb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql(JAK_PLUGIN_ID_DOWNLOAD) . '" AND fileid = 0 ORDER BY orderid ASC');
+    $grid               = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql(JAK_PLUGIN_ID_DOWNLOAD) . '" AND fileid = 0 ORDER BY orderid ASC');
     while ($grow = $grid->fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole

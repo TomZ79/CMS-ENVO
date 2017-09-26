@@ -157,13 +157,13 @@ if (file_exists(APP_PATH . 'plugins/xml_seo/admin/lang/' . $site_language . '.in
         if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
 
           // Now get the plugin id for futher use
-          $rows = $jakdb->queryRow('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "XML_SEO"');
+          $rows = $envodb->queryRow('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "XML_SEO"');
 
           if ($rows) {
 
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "XML_SEO"');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "xmlseo"');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "xmlseo"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "XML_SEO"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "xmlseo"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "xmlseo"');
 
           }
 

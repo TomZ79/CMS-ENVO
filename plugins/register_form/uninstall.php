@@ -133,30 +133,30 @@ if (file_exists(APP_PATH . 'plugins/register_form/admin/lang/' . $site_language 
         if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
 
           // Now get the plugin id for futher use
-          $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Register_form"');
+          $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Register_form"');
           $rows    = $results->fetch_assoc();
 
           if ($rows) {
 
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Register_form"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Register_form"');
 
-            $resultsp = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "registerf"');
+            $resultsp = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "registerf"');
             while ($rowsp = $resultsp->fetch_assoc()) {
 
-              $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE hookid = ' . $rowsp['id']);
+              $envodb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE hookid = ' . $rowsp['id']);
             }
 
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "registerf"');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "registerf"');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE pluginid = ' . $rows['id']);
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . $rows['id']);
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . $rows['id']);
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "registerf"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "registerf"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE pluginid = ' . $rows['id']);
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . $rows['id']);
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . $rows['id']);
 
             /* Remove tables */
-            $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'pages DROP showregister');
-            $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'news DROP showregister');
-            $jakdb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET active = 1 WHERE id = 3');
-            $jakdb->query('DROP TABLE ' . DB_PREFIX . 'registeroptions');
+            $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pages DROP showregister');
+            $envodb->query('ALTER TABLE ' . DB_PREFIX . 'news DROP showregister');
+            $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET active = 1 WHERE id = 3');
+            $envodb->query('DROP TABLE ' . DB_PREFIX . 'registeroptions');
 
           }
 

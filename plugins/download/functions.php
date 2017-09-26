@@ -3,7 +3,7 @@
 // Get blog(s) out the database
 function jak_get_download($limit, $order, $where, $table_row, $ext_seo, $timeago)
 {
-  global $jakdb;
+  global $envodb;
   global $jkv;
 
   if (is_numeric($where)) {
@@ -14,7 +14,7 @@ function jak_get_download($limit, $order, $where, $table_row, $ext_seo, $timeago
     $sqlin = 't1.catid != 0 AND t1.active = 1 AND';
   }
 
-  $result = $jakdb->query('SELECT t1.* FROM ' . DB_PREFIX . 'download AS t1 LEFT JOIN ' . DB_PREFIX . 'downloadcategories AS t2 ON (t1.catid = t2.id) WHERE ' . $sqlin . ' (FIND_IN_SET(' . JAK_USERGROUPID . ',t2.permission) OR t2.permission = 0) GROUP BY t1.id ORDER BY ' . $order . ' ' . $limit);
+  $result = $envodb->query('SELECT t1.* FROM ' . DB_PREFIX . 'download AS t1 LEFT JOIN ' . DB_PREFIX . 'downloadcategories AS t2 ON (t1.catid = t2.id) WHERE ' . $sqlin . ' (FIND_IN_SET(' . JAK_USERGROUPID . ',t2.permission) OR t2.permission = 0) GROUP BY t1.id ORDER BY ' . $order . ' ' . $limit);
   while ($row = $result->fetch_assoc()) {
 
     $getTime = JAK_Base::jakTimesince($row['time'], $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $timeago);
@@ -42,9 +42,9 @@ function jak_get_download($limit, $order, $where, $table_row, $ext_seo, $timeago
 // Get total from a table limited to permission
 function envo_get_total_permission_dl()
 {
-  global $jakdb;
+  global $envodb;
   $envototal = 0;
-  $result   = $jakdb->query('SELECT COUNT(t1.id) AS total FROM ' . DB_PREFIX . 'download as t1 LEFT JOIN ' . DB_PREFIX . 'downloadcategories as t2 ON (t1.catid = t2.id) WHERE (t1.active = 1 AND t2.active = 1) AND (FIND_IN_SET(' . JAK_USERGROUPID . ',t2.permission) OR t1.catid = t2.id AND t2.permission = 0)');
+  $result   = $envodb->query('SELECT COUNT(t1.id) AS total FROM ' . DB_PREFIX . 'download as t1 LEFT JOIN ' . DB_PREFIX . 'downloadcategories as t2 ON (t1.catid = t2.id) WHERE (t1.active = 1 AND t2.active = 1) AND (FIND_IN_SET(' . JAK_USERGROUPID . ',t2.permission) OR t1.catid = t2.id AND t2.permission = 0)');
   $row      = $result->fetch_assoc();
 
   if ($row['total']) {

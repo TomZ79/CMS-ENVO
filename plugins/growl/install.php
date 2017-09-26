@@ -133,8 +133,8 @@ if (file_exists(APP_PATH . 'plugins/growl/admin/lang/' . $site_language . '.ini'
        * Kontrola zda je plugin instalován
        * Pokud není plugin instalován, zobrazit Notifikaci s chybovou hláškou
       */
-      $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Growl"');
-      if ($jakdb->affected_rows > 0) { ?>
+      $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Growl"');
+      if ($envodb->affected_rows > 0) { ?>
 
         <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
         <script>
@@ -163,7 +163,7 @@ if (file_exists(APP_PATH . 'plugins/growl/admin/lang/' . $site_language . '.ini'
 
       // EN: Insert data to table 'plugins' about this plugin
       // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
-      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Growl", "Growl for your CMS.", 1, ' . JAK_USERID . ', 4, "growl", "", "if ($page == \'growl\') {
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Growl", "Growl for your CMS.", 1, ' . JAK_USERID . ', 4, "growl", "", "if ($page == \'growl\') {
         require_once APP_PATH.\'plugins/growl/admin/growl.php\';
         $JAK_PROVED = 1;
         $checkp = 1;
@@ -171,7 +171,7 @@ if (file_exists(APP_PATH . 'plugins/growl/admin/lang/' . $site_language . '.ini'
 
       // EN: Now get the plugin 'id' from table 'plugins' for futher use
       // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
-      $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Growl"');
+      $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Growl"');
       $rows    = $results->fetch_assoc();
 
       if ($rows['id']) {
@@ -193,7 +193,7 @@ if (file_exists(APP_PATH . 'plugins/growl/admin/lang/' . $site_language . '.ini'
 
       // EN: Insert data to table 'pluginhooks'
       // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
-      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "Growl Admin Language", "' . $adminlang . '", "growl", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_head", "Growl Admin CSS", "plugins/growl/admin/template/css.growl.php", "growl", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_between_head", "Growl CSS", "' . $growlheader . '", "growl", 1, 1, "' . $rows['id'] . '", NOW()),
@@ -201,7 +201,7 @@ if (file_exists(APP_PATH . 'plugins/growl/admin/lang/' . $site_language . '.ini'
 
       // EN: Create table for plugin (growl)
       // CZ: Vytvoření tabulky pro plugin (growl)
-      $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'growl (
+      $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'growl (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `everywhere` smallint(1) unsigned NOT NULL DEFAULT 0,
   `pageid` varchar(100) DEFAULT NULL,
@@ -252,7 +252,7 @@ if (file_exists(APP_PATH . 'plugins/growl/admin/lang/' . $site_language . '.ini'
       // EN: If plugin have 'id' (plugin is not installed), uninstall
       // CZ: Pokud nemá plugin 'id' (tzn. plugin není instalován - došlo k chybě při zápisu do tabulky 'plugins'), odinstalujeme plugin
 
-      $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Growl"');
+      $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Growl"');
 
       ?>
 

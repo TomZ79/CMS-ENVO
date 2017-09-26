@@ -282,7 +282,7 @@ foreach ($jakcategories as $ca) {
 // Get the PLUGIN categories available in the db
 // Plugin Register Form
 if (is_numeric(JAK_PLUGIN_ID_REGISTER_FORM) && JAK_PLUGIN_ID_REGISTER_FORM > 0) {
-  $result        = $jakdb->query('SELECT name, varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . JAK_PLUGIN_ID_REGISTER_FORM . '" LIMIT 1');
+  $result        = $envodb->query('SELECT name, varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . JAK_PLUGIN_ID_REGISTER_FORM . '" LIMIT 1');
   $PLUGIN_RF_CAT = $result->fetch_assoc();
 }
 
@@ -449,7 +449,7 @@ if ($page == 'forgot-password') {
   if (JAK_USERID || !is_numeric($page1) || !$jakuserlogin->jakForgotactive($page1)) envo_redirect(BASE_URL);
 
   // Check the forgot code
-  $row = $jakdb->queryRow('SELECT id, name, email FROM ' . DB_PREFIX . 'user WHERE forgot = "' . smartsql($page1) . '" LIMIT 1');
+  $row = $envodb->queryRow('SELECT id, name, email FROM ' . DB_PREFIX . 'user WHERE forgot = "' . smartsql($page1) . '" LIMIT 1');
 
   $password  = envo_password_creator();
   $passcrypt = hash_hmac('sha256', $password, DB_PASS_HASH);
@@ -460,7 +460,7 @@ if ($page == 'forgot-password') {
    * CZ: Převod hodnot
    * smartsql - secure method to insert form data into a MySQL DB
   */
-  $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'user SET
+  $result = $envodb->query('UPDATE ' . DB_PREFIX . 'user SET
    		password = "' . smartsql($passcrypt) . '"
    		WHERE id = "' . smartsql($row["id"]) . '"');
 
@@ -595,6 +595,6 @@ unset($_SESSION["rf_msg_sent"]);
 
 // EN: Finally close all db connections
 // CZ: Uzavření spojení do databáze
-$jakdb->jak_close();
+$envodb->envo_close();
 
 ?>

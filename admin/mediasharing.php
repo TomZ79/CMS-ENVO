@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
        * CZ: Převod hodnot
        * smartsql - secure method to insert form data into a MySQL DB
       */
-      $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+      $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                     WHEN "md_facebook" THEN "' . smartsql($defaults['jak_md_facebook']) . '"
                     WHEN "md_googleplus" THEN "' . smartsql($defaults['jak_md_googleplus']) . '"
                     WHEN "md_instagram" THEN "' . smartsql($defaults['jak_md_instagram']) . '"

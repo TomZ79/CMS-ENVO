@@ -5,9 +5,9 @@
 function envo_get_tvchannel($limit, $table)
 {
 
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result  = $jakdb->query('SELECT * FROM ' . $table . ' ORDER BY id DESC ' . $limit);
+  $result  = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY id DESC ' . $limit);
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -21,9 +21,9 @@ function envo_get_tvchannel($limit, $table)
 // CZ: Získání všech dat o televizním kanálu bez limitu
 function envo_get_tvchannel_info($table)
 {
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result = $jakdb->query('SELECT * FROM ' . $table . ' ORDER BY number ASC');
+  $result = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY number ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -38,9 +38,9 @@ function envo_get_tvchannel_info($table)
 function envo_get_tvtower($limit, $table)
 {
 
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result  = $jakdb->query('SELECT * FROM ' . $table . ' ORDER BY id DESC ' . $limit);
+  $result  = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY id DESC ' . $limit);
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -54,9 +54,9 @@ function envo_get_tvtower($limit, $table)
 // CZ: Získání dat o televizním vysílači bez limitu
 function envo_get_tvtower_info($table)
 {
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result = $jakdb->query('SELECT * FROM ' . $table . ' ORDER BY name ASC');
+  $result = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY name ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -71,9 +71,9 @@ function envo_get_tvtower_info($table)
 function envo_get_tvprogram($limit, $table)
 {
 
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result  = $jakdb->query('SELECT * FROM ' . $table . ' ORDER BY id DESC ' . $limit);
+  $result  = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY id DESC ' . $limit);
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -87,9 +87,9 @@ function envo_get_tvprogram($limit, $table)
 // CZ: Kontrola jestli kanál existuje
 function envo_channel_not_exist($tower, $channel, $table)
 {
-  global $jakdb;
-  $result = $jakdb->query('SELECT id FROM ' . $table . ' WHERE towerid = "' . smartsql($tower) . '" AND number = "' . smartsql($channel) . '" LIMIT 1');
-  if ($jakdb->affected_rows === 1) {
+  global $envodb;
+  $result = $envodb->query('SELECT id FROM ' . $table . ' WHERE towerid = "' . smartsql($tower) . '" AND number = "' . smartsql($channel) . '" LIMIT 1');
+  if ($envodb->affected_rows === 1) {
     return TRUE;
   } else {
     return FALSE;

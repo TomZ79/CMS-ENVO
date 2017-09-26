@@ -17,12 +17,12 @@ $BASE_PLUGIN_URL_TEMPLATE  = APP_PATH . 'plugins/xml_seo/admin/template/';
 $SHORT_PLUGIN_URL_TEMPLATE = '/plugins/xml_seo/admin/template/';
 
 // Get the xmlseo path and time from db
-$result = $jakdb->query('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "xmlseopath"');
+$result = $envodb->query('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "xmlseopath"');
 $row    = $result->fetch_assoc();
 
 $XMLSEOPATH = $row['value'];
 
-$result = $jakdb->query('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "xmlseodate"');
+$result = $envodb->query('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "xmlseodate"');
 $row    = $result->fetch_assoc();
 
 // Check if sitemap was creating by including time in db
@@ -58,7 +58,7 @@ switch ($page1) {
       //  - permission < 2 means that pages hasn't member or administrator access
       //  - id != 1 means that pages isn't 'Home'
       //  - pluginid != 1 means that page isn't 'News'
-      $result = $jakdb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE (pageid != 0 OR pluginid > 0) AND (permission < 2) AND (id != 1) AND (pluginid != 1)');
+      $result = $envodb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE (pageid != 0 OR pluginid > 0) AND (permission < 2) AND (id != 1) AND (pluginid != 1)');
       $row    = $result->fetch_assoc();
 
       // Basic URL
@@ -73,9 +73,9 @@ switch ($page1) {
         $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', $FREQUENCYPAGES);
       }
       // Basic URL for News
-      $result1      = $jakdb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = 1');
+      $result1      = $envodb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = 1');
       $row1         = $result1->fetch_assoc();
-      $result2      = $jakdb->query('SELECT id, title FROM ' . DB_PREFIX . 'news WHERE active = 1');
+      $result2      = $envodb->query('SELECT id, title FROM ' . DB_PREFIX . 'news WHERE active = 1');
       $row2         = $result2->fetch_assoc();
       $num_results1 = $result1->num_rows;
       $num_results2 = $result2->num_rows;
@@ -88,10 +88,10 @@ switch ($page1) {
       }
 
       // Create sitemap for News
-      $result = $jakdb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = 1');
+      $result = $envodb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = 1');
       $row    = $result->fetch_assoc();
 
-      $result1 = $jakdb->query('SELECT id, title FROM ' . DB_PREFIX . 'news WHERE active = 1');
+      $result1 = $envodb->query('SELECT id, title FROM ' . DB_PREFIX . 'news WHERE active = 1');
 
       while ($row1 = $result1->fetch_assoc()) {
         $parseurl = JAK_rewrite::jakParseurl($row['varname'], $row1['id'], JAK_base::jakCleanurl($row1['title']), '', '');
@@ -101,10 +101,10 @@ switch ($page1) {
       }
 
       // Create sitemap for tags
-      $result = $jakdb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = 3');
+      $result = $envodb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = 3');
       $row    = $result->fetch_assoc();
 
-      $result1 = $jakdb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE active = 1 GROUP BY tag');
+      $result1 = $envodb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE active = 1 GROUP BY tag');
 
       while ($row1 = $result1->fetch_assoc()) {
         $parseurl = JAK_rewrite::jakParseurl($row['varname'], $row1['tag'], '', '', '');
@@ -115,15 +115,15 @@ switch ($page1) {
 
       // Create sitemap for download
       // now get the plugin id for further use
-      $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
+      $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Download"');
       $rows    = $results->fetch_assoc();
 
       if ($rows) {
 
-        $result = $jakdb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . $rows['id']);
+        $result = $envodb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . $rows['id']);
         $row    = $result->fetch_assoc();
 
-        $result1 = $jakdb->query('SELECT id, title FROM ' . DB_PREFIX . 'download WHERE active = 1 && catid != 0');
+        $result1 = $envodb->query('SELECT id, title FROM ' . DB_PREFIX . 'download WHERE active = 1 && catid != 0');
 
         while ($row1 = $result1->fetch_assoc()) {
           if ($jkv["downloadurl"]) {
@@ -144,15 +144,15 @@ switch ($page1) {
 
       // Create sitemap for shop
       // now get the plugin id for further use
-      $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Ecommerce"');
+      $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Ecommerce"');
       $rows    = $results->fetch_assoc();
 
       if ($rows) {
 
-        $result = $jakdb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . $rows['id']);
+        $result = $envodb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . $rows['id']);
         $row    = $result->fetch_assoc();
 
-        $result1 = $jakdb->query('SELECT id, title FROM ' . DB_PREFIX . 'shop WHERE active = 1 && catid != 0');
+        $result1 = $envodb->query('SELECT id, title FROM ' . DB_PREFIX . 'shop WHERE active = 1 && catid != 0');
 
         while ($row1 = $result1->fetch_assoc()) {
           if ($jkv["shopurl"]) {
@@ -173,15 +173,15 @@ switch ($page1) {
 
       // Create sitemap for Ticketing
       // now get the plugin id for further use
-      $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Ticketing"');
+      $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Ticketing"');
       $rows    = $results->fetch_assoc();
 
       if ($rows) {
 
-        $result = $jakdb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . $rows['id']);
+        $result = $envodb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . $rows['id']);
         $row    = $result->fetch_assoc();
 
-        $result1 = $jakdb->query('SELECT id, title FROM ' . DB_PREFIX . 'tickets WHERE active = 1 && catid != 0');
+        $result1 = $envodb->query('SELECT id, title FROM ' . DB_PREFIX . 'tickets WHERE active = 1 && catid != 0');
 
         while ($row1 = $result1->fetch_assoc()) {
           if ($jkv["ticketurl"]) {
@@ -202,15 +202,15 @@ switch ($page1) {
 
       // Create sitemap for FAQ
       // now get the plugin id for further use
-      $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "FAQ"');
+      $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "FAQ"');
       $rows    = $results->fetch_assoc();
 
       if ($rows) {
 
-        $result = $jakdb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . $rows['id']);
+        $result = $envodb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . $rows['id']);
         $row    = $result->fetch_assoc();
 
-        $result1 = $jakdb->query('SELECT id, title FROM ' . DB_PREFIX . 'faq WHERE active = 1 && catid != 0');
+        $result1 = $envodb->query('SELECT id, title FROM ' . DB_PREFIX . 'faq WHERE active = 1 && catid != 0');
 
         while ($row1 = $result1->fetch_assoc()) {
           if ($jkv["faqurl"]) {
@@ -230,15 +230,15 @@ switch ($page1) {
 
       // Create sitemap for Blog
       // now get the plugin id for further use
-      $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blog"');
+      $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Blog"');
       $rows    = $results->fetch_assoc();
 
       if ($rows) {
 
-        $result = $jakdb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . $rows['id']);
+        $result = $envodb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . $rows['id']);
         $row    = $result->fetch_assoc();
 
-        $result1 = $jakdb->query('SELECT id, title FROM ' . DB_PREFIX . 'blog WHERE active = 1 && catid != 0');
+        $result1 = $envodb->query('SELECT id, title FROM ' . DB_PREFIX . 'blog WHERE active = 1 && catid != 0');
 
         while ($row1 = $result1->fetch_assoc()) {
           if ($jkv["blogurl"]) {
@@ -259,15 +259,15 @@ switch ($page1) {
 
       // Create sitemap for B2B Marketplace
       // now get the plugin id for further use
-      $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "MarketPlace"');
+      $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "MarketPlace"');
       $rows    = $results->fetch_assoc();
 
       if ($rows) {
 
-        $result = $jakdb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . $rows['id']);
+        $result = $envodb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . $rows['id']);
         $row    = $result->fetch_assoc();
 
-        $result1 = $jakdb->query('SELECT id, title FROM ' . DB_PREFIX . 'b2b_item WHERE active = 1 && catid != 0');
+        $result1 = $envodb->query('SELECT id, title FROM ' . DB_PREFIX . 'b2b_item WHERE active = 1 && catid != 0');
 
         while ($row1 = $result1->fetch_assoc()) {
           if ($jkv["b2b_url"]) {
@@ -303,7 +303,7 @@ switch ($page1) {
       $xml_result = $generator->write();
 
       // Do the dirty work in mysql
-      $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+      $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                   WHEN "xmlseodate" THEN NOW()
                 END
                 WHERE varname IN ("xmlseodate")');
@@ -395,7 +395,7 @@ switch ($page1) {
          * CZ: Převod hodnot
          * smartsql - secure method to insert form data into a MySQL DB
         */
-        $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+        $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                     WHEN "xmlseopath" THEN "' . smartsql($path) . '"
                     WHEN "frequency_pages" THEN "' . smartsql($defaults['jak_frepages']) . '"
                     WHEN "frequency_blog" THEN "' . smartsql($defaults['jak_freblog']) . '"
@@ -413,30 +413,30 @@ switch ($page1) {
     }
 
     // Get the data - Change Frequency Pages
-    $result = $jakdb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE (varname = "frequency_pages")');
+    $result = $envodb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE (varname = "frequency_pages")');
     $row    = $result->fetch_assoc();
 
     $FREQUENCYPAGES = $row['value'];
 
     // Get the data - Change Frequency Blog
-    $result = $jakdb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE (varname = "frequency_blog")');
+    $result = $envodb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE (varname = "frequency_blog")');
     $row    = $result->fetch_assoc();
 
     $FREQUENCYBLOG = $row['value'];
 
     // Get the data - Change Frequency Download
-    $result = $jakdb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE (varname = "frequency_download")');
+    $result = $envodb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE (varname = "frequency_download")');
     $row    = $result->fetch_assoc();
 
     $FREQUENCYDOWNLOAD = $row['value'];
 
     // Get the xmlseo path and time from db
-    $result = $jakdb->query('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "xmlseopath"');
+    $result = $envodb->query('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "xmlseopath"');
     $row    = $result->fetch_assoc();
 
     $XMLSEOPATH = $row['value'];
 
-    $result = $jakdb->query('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "xmlseodate"');
+    $result = $envodb->query('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "xmlseodate"');
     $row    = $result->fetch_assoc();
 
     // EN: Title and Description

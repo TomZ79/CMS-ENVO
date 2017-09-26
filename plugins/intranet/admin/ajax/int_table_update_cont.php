@@ -33,14 +33,14 @@ $data_array = array();
 if ($input['action'] === 'edit') {
   // ACTION - EDIT
 
-  $jakdb->query('UPDATE ' . DB_PREFIX . 'intranethousecontact SET name = "' . $input['name'] . '", address = "' . $input['address'] . '", phone = "' . $input['phone'] . '", email = "' . $input['email'] . '", commission = "' . $input['commission'] . '" WHERE id = "' . $input['id'] . '"');
+  $envodb->query('UPDATE ' . DB_PREFIX . 'intranethousecontact SET name = "' . $input['name'] . '", address = "' . $input['address'] . '", phone = "' . $input['phone'] . '", email = "' . $input['email'] . '", commission = "' . $input['commission'] . '" WHERE id = "' . $input['id'] . '"');
 
   $envodata = $input;
 
 } else if ($input['action'] === 'delete') {
   // ACTION - DELETE
 
-  $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'intranethousecontact WHERE id = "' . $input['id'] . '"');
+  $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'intranethousecontact WHERE id = "' . $input['id'] . '"');
 
   if ($result) {
     $data_array[] = array(

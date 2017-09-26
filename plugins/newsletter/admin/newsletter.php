@@ -66,14 +66,14 @@ switch ($page1) {
            * CZ: Převod hodnot
            * smartsql - secure method to insert form data into a MySQL DB
           */
-          $result = $jakdb->query('INSERT INTO ' . $envotable . ' SET
+          $result = $envodb->query('INSERT INTO ' . $envotable . ' SET
                     title = "' . smartsql($defaults['jak_title']) . '",
                     content = "' . smartsql($defaults['jak_content']) . '",
                     showdate = "' . smartsql($showdate) . '",
                     time = NOW(),
                     fullview = "' . smartsql($random) . '"');
 
-          $rowid = $jakdb->jak_last_id();
+          $rowid = $envodb->envo_last_id();
 
           if (!$result) {
             // EN: Redirect page
@@ -127,7 +127,7 @@ switch ($page1) {
 
     if (is_numeric($page2) && envo_row_exist($page2, $envotable3)) {
 
-      $result = $jakdb->query('SELECT senttotal, notsent, notsentcms, notsenttotal, nlgroup, cmsgroup, time FROM ' . $envotable3 . ' WHERE nlid = "' . smartsql($page2) . '" ORDER BY time DESC LIMIT 5');
+      $result = $envodb->query('SELECT senttotal, notsent, notsentcms, notsenttotal, nlgroup, cmsgroup, time FROM ' . $envotable3 . ' WHERE nlid = "' . smartsql($page2) . '" ORDER BY time DESC LIMIT 5');
       while ($row = $result->fetch_assoc()) {
 
         // Reset all
@@ -138,7 +138,7 @@ switch ($page1) {
 
         // Get the newsletter groups
         if ($row["nlgroup"]) {
-          $result1 = $jakdb->query('SELECT id, name FROM ' . $envotable1 . ' WHERE id IN(' . $row["nlgroup"] . ')');
+          $result1 = $envodb->query('SELECT id, name FROM ' . $envotable1 . ' WHERE id IN(' . $row["nlgroup"] . ')');
           while ($row1 = $result1->fetch_assoc()) {
 
             $nlgroup[] = '<a href="index.php?p=newsletter&amp;sp=usergroup&amp;ssp=edit&amp;sssp=' . $row1["id"] . '">' . $row1['name'] . '</a>';
@@ -150,7 +150,7 @@ switch ($page1) {
 
         // Get the newsletter user not sent
         if ($row["notsent"]) {
-          $result2 = $jakdb->query('SELECT id, email, name FROM ' . $envotable2 . ' WHERE id IN(' . $row["notsent"] . ')');
+          $result2 = $envodb->query('SELECT id, email, name FROM ' . $envotable2 . ' WHERE id IN(' . $row["notsent"] . ')');
           while ($row2 = $result2->fetch_assoc()) {
 
             $nluser[] = '<a href="index.php?p=newsletter&amp;sp=user&amp;ssp=edit&amp;sssp=' . $row2["id"] . '">' . $row2["name"] . ' (' . $row2["email"] . ')</a> <a href="index.php?p=newsletter&amp;sp=user&amp;ssp=delete&amp;sssp=' . $row2["id"] . '" onclick="if(!confirm(\'' . $tlnl;["newsletter_notification"]["delallu"] . '\'))return false;" class="btn btn-default btn-xs"><i class="fa fa-trash-o"></i></a>';
@@ -162,7 +162,7 @@ switch ($page1) {
 
         // Get the cms groups
         if ($row["cmsgroup"]) {
-          $result3 = $jakdb->query('SELECT id, name FROM ' . DB_PREFIX . 'usergroup WHERE id IN(' . $row["cmsgroup"] . ')');
+          $result3 = $envodb->query('SELECT id, name FROM ' . DB_PREFIX . 'usergroup WHERE id IN(' . $row["cmsgroup"] . ')');
           while ($row3 = $result3->fetch_assoc()) {
 
             $cmsgroup[] = '<a href="index.php?p=usergroup&amp;sp=edit&amp;ssp="' . $row3["id"] . '>' . $row3['name'] . '</a>';
@@ -174,7 +174,7 @@ switch ($page1) {
 
         // Get the cms user not sent
         if ($row["notsentcms"]) {
-          $result4 = $jakdb->query('SELECT id, username, email FROM ' . DB_PREFIX . 'user WHERE id IN(' . $row["notsentcms"] . ')');
+          $result4 = $envodb->query('SELECT id, username, email FROM ' . DB_PREFIX . 'user WHERE id IN(' . $row["notsentcms"] . ')');
           while ($row4 = $result4->fetch_assoc()) {
 
             $cmsuser[] = '<a href="index.php?p=users&amp;sp=edit&amp;ssp="' . $row4["id"] . '>' . $row4["name"] . '(' . $row4["email"] . ')</a>';
@@ -229,15 +229,15 @@ switch ($page1) {
         if (count($errors) == 0) {
 
           // Get the newsletter
-          $result = $jakdb->query('SELECT id, title, content, fullview FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
-          if ($jakdb->affected_rows > 0) {
+          $result = $envodb->query('SELECT id, title, content, fullview FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
+          if ($envodb->affected_rows > 0) {
             $row = $result->fetch_assoc();
 
             // Get the title/subject
             $subject = $row['title'];
 
             // Get the cat var name
-            $resultc = $jakdb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . JAK_PLUGIN_NEWSLETTER);
+            $resultc = $envodb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . JAK_PLUGIN_NEWSLETTER);
             $rowc    = $resultc->fetch_assoc();
 
             // Get the browserversion
@@ -285,7 +285,7 @@ switch ($page1) {
                 // Get the group into an array
                 $lgroup[] = $lettergroup;
 
-                $result1 = $jakdb->query('SELECT id, name, email, delcode FROM ' . $envotable2 . ' WHERE usergroupid = "' . $lettergroup . '"');
+                $result1 = $envodb->query('SELECT id, name, email, delcode FROM ' . $envotable2 . ' WHERE usergroupid = "' . $lettergroup . '"');
 
                 while ($row1 = $result1->fetch_assoc()) {
 
@@ -326,7 +326,7 @@ switch ($page1) {
                 // Get the groups into an array
                 $cmsgroup[] = $ugroup;
 
-                $result2 = $jakdb->query('SELECT id, username, name, email FROM ' . DB_PREFIX . 'user WHERE usergroupid = "' . smartsql($ugroup) . '" AND newsletter != 0');
+                $result2 = $envodb->query('SELECT id, username, name, email FROM ' . DB_PREFIX . 'user WHERE usergroupid = "' . smartsql($ugroup) . '" AND newsletter != 0');
 
                 while ($row2 = $result2->fetch_assoc()) {
 
@@ -363,7 +363,7 @@ switch ($page1) {
               $_SESSION['newsletter_sent_admin'] = 1;
 
               // Update newsletter to sent
-              $jakdb->query('UPDATE ' . $envotable . ' SET sent = 1, senttime = NOW() WHERE id = "' . smartsql($page2) . '"');
+              $envodb->query('UPDATE ' . $envotable . ' SET sent = 1, senttime = NOW() WHERE id = "' . smartsql($page2) . '"');
 
               // Write statistic file
               if (!empty($notsNL)) $notsNL = join(",", $notsNL);
@@ -372,7 +372,7 @@ switch ($page1) {
               if (!empty($cmsgroup)) $cmsgroup = join(",", $cmsgroup);
 
               // write into stat db
-              $jakdb->query('INSERT INTO ' . $envotable3 . ' SET
+              $envodb->query('INSERT INTO ' . $envotable3 . ' SET
 					nlid = "' . smartsql($row["id"]) . '",
 					senttotal = "' . smartsql($countNL) . '",
 					notsent = "' . smartsql($notsNL) . '",
@@ -451,14 +451,14 @@ switch ($page1) {
                * CZ: Převod hodnot
                * smartsql - secure method to insert form data into a MySQL DB
               */
-              $result = $jakdb->query('INSERT INTO ' . $envotable2 . ' SET
+              $result = $envodb->query('INSERT INTO ' . $envotable2 . ' SET
                         name = "' . smartsql($defaults['jak_name']) . '",
                         email = "' . smartsql($defaults['jak_email']) . '",
                         usergroupid = "' . smartsql($defaults['jak_usergroup']) . '",
                         delcode = ' . time() . ',
                         time = NOW()');
 
-              $rowid = $jakdb->jak_last_id();
+              $rowid = $envodb->envo_last_id();
 
               if (!$result) {
                 // EN: Redirect page
@@ -510,7 +510,7 @@ switch ($page1) {
 
               if (!empty($csvI)) $csvI = join(",", $csvI);
 
-              $result = $jakdb->query('INSERT INTO ' . $envotable2 . ' VALUES ' . $csvI);
+              $result = $envodb->query('INSERT INTO ' . $envotable2 . ' VALUES ' . $csvI);
 
               if (!$result) {
                 // EN: Redirect page
@@ -574,7 +574,7 @@ switch ($page1) {
                * CZ: Převod hodnot
                * smartsql - secure method to insert form data into a MySQL DB
               */
-              $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET
+              $result = $envodb->query('UPDATE ' . $envotable2 . ' SET
                         name = "' . smartsql($defaults['jak_name']) . '",
                         email = "' . smartsql($defaults['jak_email']) . '",
                         usergroupid = "' . smartsql($defaults['jak_usergroup']) . '",
@@ -626,7 +626,7 @@ switch ($page1) {
         if (envo_row_exist($page3, $envotable2)) {
 
           // Now check how many languages are installed and do the dirty work
-          $result = $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($page3) . '"');
+          $result = $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($page3) . '"');
 
           if (!$result) {
             // EN: Redirect page
@@ -662,7 +662,7 @@ switch ($page1) {
           $JAK_PAGINATE = $pages->display_pages();
         }
 
-        $result = $jakdb->query('SELECT * FROM ' . $envotable2 . ' WHERE usergroupid = "' . smartsql($page3) . '" ' . $pages->limit);
+        $result = $envodb->query('SELECT * FROM ' . $envotable2 . ' WHERE usergroupid = "' . smartsql($page3) . '" ' . $pages->limit);
         while ($row = $result->fetch_assoc()) {
           $user[] = array('id' => $row['id'], 'usergroupid' => $row['usergroupid'], 'username' => $row['username'], 'email' => $row['email'], 'name' => $row['name']);
         }
@@ -694,7 +694,7 @@ switch ($page1) {
 
             for ($i = 0; $i < count($jakmove); $i++) {
               $move   = $jakmove[$i];
-              $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET usergroupid = ' . $jakgrid . ' WHERE id = "' . smartsql($move) . '"');
+              $result = $envodb->query('UPDATE ' . $envotable2 . ' SET usergroupid = ' . $jakgrid . ' WHERE id = "' . smartsql($move) . '"');
             }
 
             if (!$result) {
@@ -715,7 +715,7 @@ switch ($page1) {
 
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
-              $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($locked) . '"');
+              $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($locked) . '"');
               $result = 1;
             }
 
@@ -748,7 +748,7 @@ switch ($page1) {
           $pages->paginate();
           $JAK_PAGINATE = $pages->display_pages();
 
-          $result = $jakdb->query('SELECT * FROM ' . $envotable2 . ' ' . $pages->limit);
+          $result = $envodb->query('SELECT * FROM ' . $envotable2 . ' ' . $pages->limit);
           while ($row = $result->fetch_assoc()) {
             $JAK_USER_ALL[] = array('id' => $row['id'], 'usergroupid' => $row['usergroupid'], 'email' => $row['email'], 'name' => $row['name']);
           }
@@ -792,12 +792,12 @@ switch ($page1) {
              * CZ: Převod hodnot
              * smartsql - secure method to insert form data into a MySQL DB
             */
-            $result = $jakdb->query('INSERT INTO ' . $envotable1 . ' SET
+            $result = $envodb->query('INSERT INTO ' . $envotable1 . ' SET
                       name = "' . smartsql($defaults['jak_name']) . '",
                       description = "' . smartsql($defaults['jak_desc']) . '",
                       time = NOW()');
 
-            $rowid = $jakdb->jak_last_id();
+            $rowid = $envodb->envo_last_id();
 
             if (!$result) {
               // EN: Redirect page
@@ -846,7 +846,7 @@ switch ($page1) {
                * CZ: Převod hodnot
                * smartsql - secure method to insert form data into a MySQL DB
               */
-              $result = $jakdb->query('UPDATE ' . $envotable1 . ' SET
+              $result = $envodb->query('UPDATE ' . $envotable1 . ' SET
                         name = "' . smartsql($defaults['jak_name']) . '",
                         description = "' . smartsql($defaults['jak_desc']) . '",
                         time = NOW()
@@ -894,7 +894,7 @@ switch ($page1) {
 
           if ($page3 != 1) {
             // Now check how many languages are installed and do the dirty work
-            $result = $jakdb->query('DELETE FROM ' . $envotable1 . ' WHERE id = "' . smartsql($page3) . '"');
+            $result = $envodb->query('DELETE FROM ' . $envotable1 . ' WHERE id = "' . smartsql($page3) . '"');
           } else {
             // EN: Redirect page
             // CZ: Přesměrování stránky
@@ -939,7 +939,7 @@ switch ($page1) {
                * CZ: Převod hodnot
                * smartsql - secure method to insert form data into a MySQL DB
               */
-              $result = $jakdb->query('UPDATE ' . $envotable1 . ' SET
+              $result = $envodb->query('UPDATE ' . $envotable1 . ' SET
                         name = "' . smartsql($defaults['jak_name']) . '",
                         description = "' . smartsql($defaults['jak_desc']) . '",
                         time = NOW()
@@ -969,7 +969,7 @@ switch ($page1) {
               $locked = $lockuser[$i];
 
               if ($locked != 1) {
-                $result = $jakdb->query('DELETE FROM ' . $envotable1 . ' WHERE id = "' . smartsql($locked) . '"');
+                $result = $envodb->query('DELETE FROM ' . $envotable1 . ' WHERE id = "' . smartsql($locked) . '"');
               }
             }
 
@@ -1036,7 +1036,7 @@ switch ($page1) {
            * CZ: Převod hodnot
            * smartsql - secure method to insert form data into a MySQL DB
           */
-          $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+          $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                       WHEN "nltitle" THEN "' . smartsql($defaults['jak_title']) . '"
                       WHEN "nlsignoff" THEN "' . smartsql($defaults['jak_description']) . '"
                       WHEN "nlthankyou" THEN "' . smartsql($defaults['jak_thankyou']) . '"
@@ -1150,7 +1150,7 @@ switch ($page1) {
 
         if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
-          $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
+          $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
 
           if (!$result) {
             // EN: Redirect page
@@ -1189,7 +1189,7 @@ switch ($page1) {
                * CZ: Převod hodnot
                * smartsql - secure method to insert form data into a MySQL DB
               */
-              $result = $jakdb->query('UPDATE ' . $envotable . ' SET
+              $result = $envodb->query('UPDATE ' . $envotable . ' SET
                         title = "' . smartsql($defaults['jak_title']) . '",
                         content = "' . smartsql($defaults['jak_content']) . '",
                         showdate = "' . smartsql($defaults['jak_showdate']) . '",
@@ -1216,7 +1216,7 @@ switch ($page1) {
           $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
 
           // Get the cat var name
-          $resultc = $jakdb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql(JAK_PLUGIN_NEWSLETTER) . '"');
+          $resultc = $envodb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql(JAK_PLUGIN_NEWSLETTER) . '"');
           $rowc    = $resultc->fetch_assoc();
 
           // EN: Title and Description
@@ -1248,7 +1248,7 @@ switch ($page1) {
 
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
-              $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
+              $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
             }
 
             if (!$result) {

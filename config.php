@@ -38,8 +38,8 @@ if (isset($_SERVER['SCRIPT_NAME'])) {
 require_once 'class/class.db.php';
 
 // MySQLi connection
-$jakdb = new jak_mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
-$jakdb->set_charset("utf8");
+$envodb = new ENVO_mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
+$envodb->set_charset("utf8");
 
 // EN: Important all Class - files
 // CZ: Import všech tříd
@@ -79,7 +79,7 @@ $tempp6 = $getURL->jakGetseg(6);
 $lang_files = envo_get_lang_files();
 
 // Get the general settings out the database
-$result = $jakdb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting');
+$result = $envodb->query('SELECT varname, value FROM ' . DB_PREFIX . 'setting');
 while ($row = $result->fetch_assoc()) {
   // Now check if sting contains html and do something about it!
   if (strlen($row['value']) != strlen(filter_var($row['value'], FILTER_SANITIZE_STRING))) {
@@ -100,7 +100,7 @@ if (defined(ENVO_TEMPLATE) && !empty(ENVO_TEMPLATE)) include_once APP_PATH . 'te
 
 // timezone from server
 date_default_timezone_set($jkv["timezoneserver"]);
-$jakdb->query('SET time_zone = "' . date("P") . '"');
+$envodb->query('SET time_zone = "' . date("P") . '"');
 
 // Set the last activity and session into cookies
 setcookie('lastactivity', time(), time() + 60 * 60 * 24 * 10, JAK_COOKIE_PATH);
@@ -148,7 +148,7 @@ if ($jakuserrow) {
 }
 
 // Let's call the usergroup class
-$resultusrg = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'usergroup WHERE id = "' . smartsql($usergroupid) . '" LIMIT 1');
+$resultusrg = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'usergroup WHERE id = "' . smartsql($usergroupid) . '" LIMIT 1');
 $rowusrg    = $resultusrg->fetch_assoc();
 
 // Get the usergroup class

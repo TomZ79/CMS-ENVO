@@ -7,9 +7,9 @@ function envo_get_downloads($limit, $jakvar1, $table)
   $sqlwhere = '';
   if (!empty($jakvar1)) $sqlwhere = 'WHERE catid = ' . smartsql($jakvar1) . ' ';
 
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result  = $jakdb->query('SELECT * FROM ' . $table . ' ' . $sqlwhere . 'ORDER BY id DESC ' . $limit);
+  $result  = $envodb->query('SELECT * FROM ' . $table . ' ' . $sqlwhere . 'ORDER BY id DESC ' . $limit);
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -23,10 +23,10 @@ function envo_get_downloads($limit, $jakvar1, $table)
 function envo_get_download_files($path)
 {
   // Extension Filter - allowed extension of file
-  global $jakdb;
+  global $envodb;
 
   $sql    = 'SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "downloadpathext" LIMIT 1';  // Select ONLY one, instead of all
-  $result = $jakdb->query($sql);
+  $result = $envodb->query($sql);
   $ext    = $result->fetch_assoc();
   $ext    = str_replace(",", "|", $ext['value']);
 

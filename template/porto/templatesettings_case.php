@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // CZ: Hlavní proměnné
   $defaults = $_POST;
 
-	$result1 = $jakdb->query ('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+	$result1 = $envodb->query ('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
 
       WHEN "header_metrics_tpl" THEN "' . smartsql ($defaults['headerMetrics']) . '"
       
@@ -96,7 +96,7 @@ if ($result1) {
 }
 
 // Reset the database settings so we have it unique
-$result = $jakdb->query ('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE product = "tpl_porto"');
+$result = $envodb->query ('SELECT varname, value FROM ' . DB_PREFIX . 'setting WHERE product = "tpl_porto"');
 while ($row1 = $result->fetch_assoc ()) {
 	// Now check if sting contains html and do something about it!
 	if (strlen ($row1['value']) != strlen (filter_var ($row1['value'], FILTER_SANITIZE_STRING))) {

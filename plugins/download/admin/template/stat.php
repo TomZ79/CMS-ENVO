@@ -2,22 +2,22 @@
 
 // EN: Count of all download file in DB
 // CZ: Celkový počet souborů v DB
-$resdlh   = $jakdb->query('SELECT COUNT(*) as totalM FROM ' . DB_PREFIX . 'download');
+$resdlh   = $envodb->query('SELECT COUNT(*) as totalM FROM ' . DB_PREFIX . 'download');
 $rwresdlh = $resdlh->fetch_assoc();
 
 // EN: Count of download file for last 1 week
 // CZ: Počet souborů za poslední týden
-$resdlh1   = $jakdb->query('SELECT COUNT(*) as totalMW FROM ' . DB_PREFIX . 'download WHERE time > DATE_SUB(CURDATE(), INTERVAL 1 WEEK)');
+$resdlh1   = $envodb->query('SELECT COUNT(*) as totalMW FROM ' . DB_PREFIX . 'download WHERE time > DATE_SUB(CURDATE(), INTERVAL 1 WEEK)');
 $rwresdlh1 = $resdlh1->fetch_assoc();
 
 // EN: Count of download file for last 1 month
 // CZ: Počet souborů za poslední měsíc
-$resdlh2   = $jakdb->query('SELECT COUNT(*) as totalMM FROM ' . DB_PREFIX . 'download WHERE time > DATE_SUB(CURDATE(), INTERVAL 4 WEEK)');
+$resdlh2   = $envodb->query('SELECT COUNT(*) as totalMM FROM ' . DB_PREFIX . 'download WHERE time > DATE_SUB(CURDATE(), INTERVAL 4 WEEK)');
 $rwresdlh2 = $resdlh2->fetch_assoc();
 
 // EN: Get data from 'downloadhistory'
 // CZ: Získání dat z 'downloadhistory'
-$resdlh3 = $jakdb->query('SELECT fileid, email, filename, time FROM ' . DB_PREFIX . 'downloadhistory WHERE time > DATE_SUB(CURDATE(), INTERVAL 4 WEEK)');
+$resdlh3 = $envodb->query('SELECT fileid, email, filename, time FROM ' . DB_PREFIX . 'downloadhistory WHERE time > DATE_SUB(CURDATE(), INTERVAL 4 WEEK)');
 while ($rwresdlh3 = $resdlh3->fetch_assoc()) {
   // EN: Insert each record into array
   // CZ: Vložení získaných dat do pole
@@ -69,7 +69,7 @@ while ($rwresdlh3 = $resdlh3->fetch_assoc()) {
 
         <?php
         if (isset($dl_envodata)) foreach ($dl_envodata as $dle) {
-          $resdl   = $jakdb->query('SELECT title FROM ' . DB_PREFIX . 'download WHERE id=' . $dle["fileid"]);
+          $resdl   = $envodb->query('SELECT title FROM ' . DB_PREFIX . 'download WHERE id=' . $dle["fileid"]);
           $rwresdl = $resdl->fetch_assoc();
         ?>
 

@@ -133,27 +133,27 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
         if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
 
           // Now get the plugin id for futher use
-          $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Intranet"');
+          $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Intranet"');
           $rows    = $results->fetch_assoc();
 
           if ($rows) {
 
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Intranet"');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "intranet"');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "intranet"');
-            $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `intranet`');
-            $jakdb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Intranet"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "intranet"');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "intranet"');
+            $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup DROP `intranet`');
+            $envodb->query('DELETE FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql($rows['id']) . '"');
 
             /* Remove tables with data */
-            $jakdb->query('DROP TABLE ' . DB_PREFIX . 'intranethouse');
-            $jakdb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseent');
-            $jakdb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseapt');
-            $jakdb->query('DROP TABLE ' . DB_PREFIX . 'intranethousecontact');
-            $jakdb->query('DROP TABLE ' . DB_PREFIX . 'intranethousedocu');
-            $jakdb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseimg');
-            $jakdb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseserv');
-            $jakdb->query('DROP TABLE ' . DB_PREFIX . 'intranethousenotifications');
-            $jakdb->query('DROP TABLE ' . DB_PREFIX . 'intranethousenotificationug');
+            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethouse');
+            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseent');
+            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseapt');
+            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousecontact');
+            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousedocu');
+            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseimg');
+            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethouseserv');
+            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousenotifications');
+            $envodb->query('DROP TABLE ' . DB_PREFIX . 'intranethousenotificationug');
           }
 
           $succesfully = 1;

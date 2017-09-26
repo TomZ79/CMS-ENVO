@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      * CZ: Převod hodnot
      * smartsql - secure method to insert form data into a MySQL DB
     */
-    $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+    $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                 WHEN "offline" THEN ' . $defaults['jak_online'] . '
                 WHEN "offline_page" THEN "' . smartsql($defaults['jak_offpage']) . '"
                 WHEN "notfound_page" THEN "' . smartsql($defaults['jak_pagenotfound']) . '"

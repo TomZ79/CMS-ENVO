@@ -28,7 +28,7 @@ $PAGE_SHOWTITLE = 1;
 
 // Get the sort orders for the grid
 $JAK_HOOK_SIDE_GRID = FALSE;
-$grid               = $jakdb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . JAK_PLUGIN_ID_SITEMAP . ' ORDER BY orderid ASC');
+$grid               = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . JAK_PLUGIN_ID_SITEMAP . ' ORDER BY orderid ASC');
 while ($grow = $grid->fetch_assoc()) {
   // EN: Insert each record into array
   // CZ: Vložení získaných dat do pole

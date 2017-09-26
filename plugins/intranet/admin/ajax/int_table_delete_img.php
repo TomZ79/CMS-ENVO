@@ -24,7 +24,7 @@ $imageID = $_POST['imageID'];
 $data_array = array();
 
 // Delete file from folder
-$result = $jakdb->query('SELECT filenameoriginal, filenamethumb, mainfolder FROM ' . DB_PREFIX . 'intranethouseimg WHERE id = "' . $imageID . '"');
+$result = $envodb->query('SELECT filenameoriginal, filenamethumb, mainfolder FROM ' . DB_PREFIX . 'intranethouseimg WHERE id = "' . $imageID . '"');
 $row    = $result->fetch_assoc();
 
 $deletefiles[] = APP_PATH . JAK_FILES_DIRECTORY . $row['mainfolder'] . $row['filenameoriginal'];
@@ -34,7 +34,7 @@ foreach ($deletefiles as $files) {
 }
 
 // Delete row in DB
-$result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'intranethouseimg WHERE id = "' . $imageID . '"');
+$result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'intranethouseimg WHERE id = "' . $imageID . '"');
 
 if ($result) {
   $data_array[] = array(

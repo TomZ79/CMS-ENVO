@@ -65,10 +65,10 @@ $succesfully = 0;
 				session_start ();
 				if (isset($_POST["captcha"]) && $_POST["captcha"] != "" && $_SESSION["code"] == $_POST["captcha"]) {
 				// Delete all settings
-				$jakdb->query ('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "tpl_porto"');
+				$envodb->query ('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "tpl_porto"');
 
 				// Delete php code for lang site from hooks
-				$jakdb->query ('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "tpl_porto"');
+				$envodb->query ('DELETE FROM ' . DB_PREFIX . 'pluginhooks WHERE product = "tpl_porto"');
 
 				$succesfully = 1;
 

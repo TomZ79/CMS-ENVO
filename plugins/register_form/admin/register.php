@@ -42,7 +42,7 @@ switch ($page1) {
        * CZ: Převod hodnot
        * smartsql - secure method to insert form data into a MySQL DB
       */
-      $result = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+      $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                   WHEN "rf_title" THEN "' . smartsql($defaults['jak_title']) . '"
                   WHEN "rf_active" THEN ' . $defaults['jak_register'] . '
                   WHEN "rf_simple" THEN ' . $defaults['jak_simple'] . '
@@ -71,7 +71,7 @@ switch ($page1) {
             $whatid = 0;
             if (isset($defaults['whatid_' . $pdoith[$key]])) $whatid = $defaults['whatid_' . $pdoith[$key]];
 
-            $jakdb->query('INSERT INTO ' . $envotable2 . ' SET plugin = ' . JAK_PLUGIN_REGISTER_FORM . ', hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '"');
+            $envodb->query('INSERT INTO ' . $envotable2 . ' SET plugin = ' . JAK_PLUGIN_REGISTER_FORM . ', hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '"');
 
           }
 
@@ -83,11 +83,11 @@ switch ($page1) {
       if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
 
         // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
-        $row = $jakdb->queryRow('SELECT id FROM ' . $envotable2 . ' WHERE plugin = ' . smartsql(JAK_PLUGIN_REGISTER_FORM) . ' AND hookid != 0');
+        $row = $envodb->queryRow('SELECT id FROM ' . $envotable2 . ' WHERE plugin = ' . smartsql(JAK_PLUGIN_REGISTER_FORM) . ' AND hookid != 0');
 
         // We have something to delete
         if ($row["id"]) {
-          $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE plugin = ' . smartsql(JAK_PLUGIN_REGISTER_FORM) . ' AND hookid != 0');
+          $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE plugin = ' . smartsql(JAK_PLUGIN_REGISTER_FORM) . ' AND hookid != 0');
         }
 
       }
@@ -103,7 +103,7 @@ switch ($page1) {
         foreach ($doith as $key => $exorder) {
 
           // Get the real what id
-          $result = $jakdb->query('SELECT pluginid FROM ' . $envotable2 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
+          $result = $envodb->query('SELECT pluginid FROM ' . $envotable2 . ' WHERE id = "' . smartsql($key) . '" AND hookid != 0');
           $row    = $result->fetch_assoc();
 
           $whatid = 0;
@@ -114,16 +114,16 @@ switch ($page1) {
             $updatesql1 .= sprintf("WHEN %d THEN %d ", $key, $whatid);
 
           } else {
-            $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = ' . $key);
+            $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE id = ' . $key);
           }
         }
 
-        $jakdb->query('UPDATE ' . $envotable2 . ' SET orderid = CASE id
+        $envodb->query('UPDATE ' . $envotable2 . ' SET orderid = CASE id
 				' . $updatesql . '
 				END
 				WHERE id IN (' . $hookrealid . ')');
 
-        $jakdb->query('UPDATE ' . $envotable2 . ' SET whatid = CASE id
+        $envodb->query('UPDATE ' . $envotable2 . ' SET whatid = CASE id
 				' . $updatesql1 . '
 				END
 				WHERE id IN (' . $hookrealid . ')');
@@ -143,7 +143,7 @@ switch ($page1) {
     }
 
     // Get the sort orders for the grid
-    $grid = $jakdb->query('SELECT id, hookid, whatid, orderid FROM ' . $envotable2 . ' WHERE plugin = ' . JAK_PLUGIN_REGISTER_FORM . ' ORDER BY orderid ASC');
+    $grid = $envodb->query('SELECT id, hookid, whatid, orderid FROM ' . $envotable2 . ' WHERE plugin = ' . JAK_PLUGIN_REGISTER_FORM . ' ORDER BY orderid ASC');
     while ($grow = $grid->fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
@@ -151,7 +151,7 @@ switch ($page1) {
     }
 
     // Get the sidebar templates
-    $result = $jakdb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable3 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
+    $result = $envodb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable3 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
     while ($row = $result->fetch_assoc()) {
       $JAK_HOOKS[] = $row;
     }
@@ -205,7 +205,7 @@ switch ($page1) {
             $sqlmand = $defaults['jak_optionmandatory'][$u];
           }
 
-          $jakdb->query('INSERT INTO ' . $envotable . ' SET
+          $envodb->query('INSERT INTO ' . $envotable . ' SET
 		   	       name = "' . smartsql($name) . '",
 		   	       typeid = "' . smartsql($defaults['jak_optiontype'][$u]) . '",
 		   	       options = "' . $sqloptions . '",
@@ -213,10 +213,10 @@ switch ($page1) {
 		   	       mandatory = "' . smartsql($sqlmand) . '",
 		   	       forder = "' . smartsql($defaults['jak_optionsort'][$u]) . '"');
 
-          $rowid = $jakdb->jak_last_id();
+          $rowid = $envodb->envo_last_id();
 
           // Insert a new field into user table, so the option will be available
-          $jakdb->query('ALTER TABLE ' . $envotable1 . ' ADD ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $name)) . '_' . $rowid . ' VARCHAR(100) NULL AFTER picture');
+          $envodb->query('ALTER TABLE ' . $envotable1 . ' ADD ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $name)) . '_' . $rowid . ' VARCHAR(100) NULL AFTER picture');
 
         }
       }
@@ -228,18 +228,18 @@ switch ($page1) {
         for ($i = 0; $i < count($odel); $i++) {
           $optiondel = $odel[$i];
 
-          $result = $jakdb->query('SELECT name FROM ' . $envotable . ' WHERE id = ' . $optiondel);
+          $result = $envodb->query('SELECT name FROM ' . $envotable . ' WHERE id = ' . $optiondel);
           while ($row = $result->fetch_assoc()) {
 
             // Delete the user table option
             if ($optiondel > 3) {
-              $jakdb->query('ALTER TABLE ' . $envotable1 . ' DROP ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $row['name'])) . '_' . $optiondel);
+              $envodb->query('ALTER TABLE ' . $envotable1 . ' DROP ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $row['name'])) . '_' . $optiondel);
             }
 
           }
 
           // Now finally delete the option
-          $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = ' . $optiondel);
+          $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = ' . $optiondel);
 
         }
       }
@@ -269,7 +269,7 @@ switch ($page1) {
          * CZ: Převod hodnot
          * smartsql - secure method to insert form data into a MySQL DB
         */
-        $result = $jakdb->query('UPDATE ' . $envotable . ' SET
+        $result = $envodb->query('UPDATE ' . $envotable . ' SET
                   name = "' . smartsql(trim($name_old)) . '",
                   typeid = "' . smartsql($defaults['jak_optiontype_old'][$i]) . '",
                   options = "' . smartsql(trim($defaults['jak_options_old'][$i])) . '",
@@ -280,14 +280,14 @@ switch ($page1) {
 
         if ($result && $defaults['jak_optionid'][$i] > 3 && $defaults['jak_option_name_old'][$i] != $name_old) {
 
-          $jakdb->query('ALTER TABLE ' . $envotable1 . ' DROP ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $defaults['jak_option_name_old'][$i])) . '_' . $defaults['jak_optionid'][$i]);
+          $envodb->query('ALTER TABLE ' . $envotable1 . ' DROP ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $defaults['jak_option_name_old'][$i])) . '_' . $defaults['jak_optionid'][$i]);
 
           if ($defaults['jak_optiontype_old'][$i] == 2) {
 
-            $jakdb->query('ALTER TABLE ' . $envotable1 . ' ADD ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $name_old)) . '_' . $defaults['jak_optionid'][$i] . ' VARCHAR(100) NULL AFTER picture');
+            $envodb->query('ALTER TABLE ' . $envotable1 . ' ADD ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $name_old)) . '_' . $defaults['jak_optionid'][$i] . ' VARCHAR(100) NULL AFTER picture');
 
           } else {
-            $jakdb->query('ALTER TABLE ' . $envotable1 . ' ADD ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $name_old)) . '_' . $defaults['jak_optionid'][$i] . ' VARCHAR(100) NULL AFTER picture');
+            $envodb->query('ALTER TABLE ' . $envotable1 . ' ADD ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $name_old)) . '_' . $defaults['jak_optionid'][$i] . ' VARCHAR(100) NULL AFTER picture');
           }
 
 
@@ -300,7 +300,7 @@ switch ($page1) {
     }
 
     // Get contact options
-    $result = $jakdb->query('SELECT * FROM ' . $envotable . ' ORDER BY forder ASC');
+    $result = $envodb->query('SELECT * FROM ' . $envotable . ' ORDER BY forder ASC');
     while ($row = $result->fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole

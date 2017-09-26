@@ -3,9 +3,9 @@
 // CZ: Získání dat o bytových domech bez limitu
 function envo_get_house_info($table)
 {
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result   = $jakdb->query('SELECT * FROM ' . $table . ' ORDER BY id ASC');
+  $result   = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY id ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -20,9 +20,9 @@ function envo_get_house_info($table)
 function envo_get_house_contact($id, $table)
 {
 
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result   = $jakdb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id ASC');
+  $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -37,9 +37,9 @@ function envo_get_house_contact($id, $table)
 function envo_get_house_entrance($id, $table)
 {
 
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result   = $jakdb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id ASC');
+  $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -54,9 +54,9 @@ function envo_get_house_entrance($id, $table)
 function envo_get_house_apartment($id, $table)
 {
 
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result   = $jakdb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id ASC');
+  $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -71,9 +71,9 @@ function envo_get_house_apartment($id, $table)
 function envo_get_house_services($id, $table)
 {
 
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result   = $jakdb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id DESC');
+  $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id DESC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -88,9 +88,9 @@ function envo_get_house_services($id, $table)
 function envo_get_house_documents($id, $table)
 {
 
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result   = $jakdb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id ASC');
+  $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -105,9 +105,9 @@ function envo_get_house_documents($id, $table)
 function envo_get_house_image($id, $table)
 {
 
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result   = $jakdb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id DESC');
+  $result   = $envodb->query('SELECT * FROM ' . $table . ' WHERE houseid = "' . smartsql($id) . '" ORDER BY id DESC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -121,9 +121,9 @@ function envo_get_house_image($id, $table)
 // CZ: Kontrola jestli dům existuje
 function envo_house_not_exist($ic, $table)
 {
-  global $jakdb;
-  $result = $jakdb->query('SELECT id FROM ' . $table . ' WHERE ic = "' . smartsql($ic) . '" LIMIT 1');
-  if ($jakdb->affected_rows === 1) {
+  global $envodb;
+  $result = $envodb->query('SELECT id FROM ' . $table . ' WHERE ic = "' . smartsql($ic) . '" LIMIT 1');
+  if ($envodb->affected_rows === 1) {
     return TRUE;
   } else {
     return FALSE;
@@ -134,9 +134,9 @@ function envo_house_not_exist($ic, $table)
 // CZ: Získání dat o Notifikacích bez limitu
 function envo_get_notification_info($table)
 {
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result   = $jakdb->query('SELECT * FROM ' . $table . ' ORDER BY id ASC');
+  $result   = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY id ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -162,13 +162,13 @@ function envo_get_notification_info($table)
  */
 function envo_plugin_usergroup_all($table, $column1, $column2 = NULL)
 {
-  global $jakdb;
+  global $envodb;
   $envodata = array();
 
   if (!empty($column1)) $sqlwhere = ' WHERE ' . $column1 . ' = 1';
   if (!empty($column1) && !empty($column2)) $sqlwhere = ' WHERE ' . $column1 . ' = 1 AND ' . $column2 . ' = 1';
 
-  $result = $jakdb->query('
+  $result = $envodb->query('
             SELECT id, name, description 
             FROM ' . DB_PREFIX . $table . '
             ' . $sqlwhere . '

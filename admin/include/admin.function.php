@@ -14,9 +14,9 @@ function envo_varname_blocked($jakvar)
 // Get the not used Categories out the database
 function envo_get_cat_notused()
 {
-  global $jakdb;
+  global $envodb;
   $categories = array();
-  $result = $jakdb->query('SELECT id, name FROM ' . DB_PREFIX . 'categories' . ' WHERE pageid = 0 AND pluginid = 0 AND (exturl = "" OR exturl IS NULL)');
+  $result = $envodb->query('SELECT id, name FROM ' . DB_PREFIX . 'categories' . ' WHERE pageid = 0 AND pluginid = 0 AND (exturl = "" OR exturl IS NULL)');
   while ($row = $result->fetch_assoc()) {
     $categories[] = array('id' => $row['id'], 'name' => $row['name']);
   }
@@ -26,13 +26,13 @@ function envo_get_cat_notused()
 // Get the categories per array with no limit
 function envo_get_cat_info($jakvar, $jakvar1)
 {
-  global $jakdb;
+  global $envodb;
 
   $sqlwhere = '';
   if (!empty($jakvar1)) $sqlwhere = ' WHERE activeplugin = 1';
 
   $envodata = array();
-  $result = $jakdb->query('SELECT * FROM ' . $jakvar . $sqlwhere . ' ORDER BY catorder ASC');
+  $result = $envodb->query('SELECT * FROM ' . $jakvar . $sqlwhere . ' ORDER BY catorder ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -44,9 +44,9 @@ function envo_get_cat_info($jakvar, $jakvar1)
 // Get the usergroup per array with no limit
 function envo_get_usergroup_all($jakvar)
 {
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result = $jakdb->query('SELECT id, name, description FROM ' . DB_PREFIX . $jakvar . ' ORDER BY id ASC');
+  $result = $envodb->query('SELECT id, name, description FROM ' . DB_PREFIX . $jakvar . ' ORDER BY id ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -68,8 +68,8 @@ function envo_get_usergroup_all($jakvar)
  */
 function envo_get_count_user_in_group($usertable, $usergroupID)
 {
-  global $jakdb;
-  $result=$jakdb->query('SELECT COUNT(usergroupid) AS total FROM ' . DB_PREFIX . $usertable . ' WHERE usergroupid = ' . $usergroupID . ' ');
+  global $envodb;
+  $result=$envodb->query('SELECT COUNT(usergroupid) AS total FROM ' . DB_PREFIX . $usertable . ' WHERE usergroupid = ' . $usergroupID . ' ');
   $data=$result->fetch_assoc();
 
   $envodata = $data['total'];
@@ -80,9 +80,9 @@ function envo_get_count_user_in_group($usertable, $usergroupID)
 // Get the data per array for page,newsletter with limit
 function envo_get_page_info($jakvar, $jakvar1)
 {
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result = $jakdb->query('SELECT * FROM ' . $jakvar . ' ORDER BY id DESC ' . $jakvar1);
+  $result = $envodb->query('SELECT * FROM ' . $jakvar . ' ORDER BY id DESC ' . $jakvar1);
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -95,9 +95,9 @@ function envo_get_page_info($jakvar, $jakvar1)
 // Get the data per array for news with limit
 function envo_get_news_info($jakvar)
 {
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'news' . ' ORDER BY id ASC ' . $jakvar);
+  $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'news' . ' ORDER BY id ASC ' . $jakvar);
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -118,9 +118,9 @@ function envo_get_tag($limit, $id, $plugin, $order)
   $ordersql = ' ORDER BY tag ASC ';
   if (!empty($order)) $ordersql = ' ORDER BY ' . $order . ' ';
 
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result = $jakdb->query('SELECT id, tag, pluginid, active FROM ' . DB_PREFIX . 'tags' . $sqlwhere . $ordersql . $limit);
+  $result = $envodb->query('SELECT id, tag, pluginid, active FROM ' . DB_PREFIX . 'tags' . $sqlwhere . $ordersql . $limit);
   while ($row = $result->fetch_assoc()) {
 
     foreach ($plugin as $p) {
@@ -170,9 +170,9 @@ function envo_get_user_all($jakvar, $jakvar1, $jakvar2)
   $sqlwhere = '';
   if (!empty($jakvar2)) $sqlwhere = 'AND usergroupid = ' . smartsql($jakvar2) . ' ';
 
-  global $jakdb;
+  global $envodb;
   $user = array();
-  $result = $jakdb->query('SELECT id, usergroupid, username, email, time, access FROM ' . DB_PREFIX . $jakvar . ' WHERE access <= 1 ' . $sqlwhere . $jakvar1);
+  $result = $envodb->query('SELECT id, usergroupid, username, email, time, access FROM ' . DB_PREFIX . $jakvar . ' WHERE access <= 1 ' . $sqlwhere . $jakvar1);
   while ($row = $result->fetch_assoc()) {
     $user[] = array('id' => $row['id'], 'usergroupid' => $row['usergroupid'], 'username' => $row['username'], 'email' => $row['email'], 'time' => $row['time'], 'access' => $row['access']);
   }
@@ -192,9 +192,9 @@ function envo_admin_search($jakvar, $jakvar1, $jakvar2)
   } elseif ($jakvar2 == 'pages') {
     $sqlwhere = ' WHERE title like "%' . $jakvar . '%"';
   }
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result = $jakdb->query('SELECT * FROM ' . $jakvar1 . $sqlwhere . ' ORDER BY id ASC LIMIT 5');
+  $result = $envodb->query('SELECT * FROM ' . $jakvar1 . $sqlwhere . ' ORDER BY id ASC LIMIT 5');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -207,23 +207,23 @@ function envo_admin_search($jakvar, $jakvar1, $jakvar2)
 // Check if user exist and it is possible to delete ## (config.php)
 function envo_user_exist_deletable($jakvar)
 {
-  global $jakdb;
+  global $envodb;
   $useridarray = explode(',', JAK_SUPERADMIN);
   // check if userid is protected in the config.php
   if (in_array($jakvar, $useridarray)) {
     return false;
   } else {
-    $result = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'user WHERE id = "' . smartsql($jakvar) . '" LIMIT 1');
-    if ($jakdb->affected_rows > 0) return true;
+    $result = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'user WHERE id = "' . smartsql($jakvar) . '" LIMIT 1');
+    if ($envodb->affected_rows > 0) return true;
   }
 }
 
 // Check if row exist with id
 function envo_field_not_exist_id($jakvar, $jakvar1, $jakvar2, $jakvar3)
 {
-  global $jakdb;
-  $result = $jakdb->query('SELECT id FROM ' . $jakvar2 . ' WHERE id != "' . smartsql($jakvar1) . '" AND ' . $jakvar3 . ' = "' . smartsql($jakvar) . '" LIMIT 1');
-  if ($jakdb->affected_rows > 0) {
+  global $envodb;
+  $result = $envodb->query('SELECT id FROM ' . $jakvar2 . ' WHERE id != "' . smartsql($jakvar1) . '" AND ' . $jakvar3 . ' = "' . smartsql($jakvar) . '" LIMIT 1');
+  if ($envodb->affected_rows > 0) {
     return true;
   }
 }
@@ -234,9 +234,9 @@ function envo_field_not_exist_id($jakvar, $jakvar1, $jakvar2, $jakvar3)
 function envo_get_tags($jakvar, $jakvar1)
 {
 
-  global $jakdb;
+  global $envodb;
   $tags = array();
-  $result = $jakdb->query('SELECT id, tag FROM ' . DB_PREFIX . 'tags' . ' WHERE itemid = ' . smartsql($jakvar) . ' AND pluginid = ' . $jakvar1 . ' ORDER BY `id` ASC');
+  $result = $envodb->query('SELECT id, tag FROM ' . DB_PREFIX . 'tags' . ' WHERE itemid = ' . smartsql($jakvar) . ' AND pluginid = ' . $jakvar1 . ' ORDER BY `id` ASC');
   while ($row = $result->fetch_assoc()) {
     $tags[] = '<span class="label label-default fancy-checkbox" style="line-height:2.2;margin:0 10px 10px 0px;"><label class="checkbox-inline"><input type="checkbox" name="jak_tagdelete[]" value="' . $row['id'] . '" /><i class="fa fa-square-o fa-sm unchecked"></i><i class="fa fa-check-square-o fa-sm checked"></i> ' . $row['tag'] . '</label></span>';
   }
@@ -254,9 +254,9 @@ function envo_get_tags($jakvar, $jakvar1)
 function envo_tag_data_admin()
 {
 
-  global $jakdb;
+  global $envodb;
   $cloud = array();
-  $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'tagcloud' . ' GROUP BY tag ORDER BY count DESC');
+  $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'tagcloud' . ' GROUP BY tag ORDER BY count DESC');
   while ($row = $result->fetch_assoc()) {
     $cloud[$row['tag']] = $row['count'];
   }
@@ -271,9 +271,9 @@ function envo_tag_data_admin()
 function envo_tag_name_admin()
 {
 
-  global $jakdb;
+  global $envodb;
   $cloud = array();
-  $result = $jakdb->query('SELECT tag FROM ' . DB_PREFIX . 'tagcloud' . ' ORDER BY tag ASC');
+  $result = $envodb->query('SELECT tag FROM ' . DB_PREFIX . 'tagcloud' . ' ORDER BY tag ASC');
   while ($row = $result->fetch_assoc()) {
     $cloud[] = $row;
   }
@@ -320,9 +320,9 @@ function envo_admin_tag_cloud()
 function envo_get_contact_options($jakvar, $jakvar1)
 {
 
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result = $jakdb->query('SELECT * FROM ' . $jakvar . ' WHERE formid = "' . smartsql($jakvar1) . '" ORDER BY forder ASC');
+  $result = $envodb->query('SELECT * FROM ' . $jakvar . ' WHERE formid = "' . smartsql($jakvar1) . '" ORDER BY forder ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -341,8 +341,8 @@ function envo_get_new_stuff($jakvar, $jakvar1)
     $sqlwhere = ' WHERE approve = 0 AND session != ""';
   }
 
-  global $jakdb;
-  $row = $jakdb->queryRow('SELECT COUNT(id) as totalAll FROM ' . DB_PREFIX . $jakvar . $sqlwhere . ' ORDER BY time DESC');
+  global $envodb;
+  $row = $envodb->queryRow('SELECT COUNT(id) as totalAll FROM ' . DB_PREFIX . $jakvar . $sqlwhere . ' ORDER BY time DESC');
 
   return $row['totalAll'];
 }

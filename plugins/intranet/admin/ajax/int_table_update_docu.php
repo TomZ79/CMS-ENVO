@@ -28,7 +28,7 @@ $data_array = array();
 if ($input['action'] === 'edit') {
   // ACTION - EDIT
 
-  $jakdb->query('UPDATE ' . DB_PREFIX . 'intranethousedocu SET description = "' . $input['description'] . '", timeedit = NOW() WHERE id = "' . $input['id'] . '"');
+  $envodb->query('UPDATE ' . DB_PREFIX . 'intranethousedocu SET description = "' . $input['description'] . '", timeedit = NOW() WHERE id = "' . $input['id'] . '"');
 
   $envodata = $input;
 
@@ -36,14 +36,14 @@ if ($input['action'] === 'edit') {
   // ACTION - DELETE
 
   // Delete file from folder
-  $result = $jakdb->query('SELECT fullpath FROM ' . DB_PREFIX . 'intranethousedocu WHERE id = "' . $input['id'] . '"');
+  $result = $envodb->query('SELECT fullpath FROM ' . DB_PREFIX . 'intranethousedocu WHERE id = "' . $input['id'] . '"');
   $row    = $result->fetch_assoc();
 
   $fullpath = APP_PATH . JAK_FILES_DIRECTORY . $row['fullpath'];
   unlink($fullpath);
 
   // Delete row in DB
-  $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'intranethousedocu WHERE id = "' . $input['id'] . '"');
+  $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'intranethousedocu WHERE id = "' . $input['id'] . '"');
 
   if ($result) {
     $data_array[] = array(

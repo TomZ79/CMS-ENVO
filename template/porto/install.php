@@ -62,8 +62,8 @@ $succesfully = 0;
       <!-- Check if the plugin is already installed -->
       <?php
 
-      $jakdb->query('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "sitestyle_widget_porto"');
-      if ($jakdb->affected_rows > 0) { ?>
+      $envodb->query('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "sitestyle_widget_porto"');
+      if ($envodb->affected_rows > 0) { ?>
 
         <div class="alert alert-info fade in">
           Template is already installed.
@@ -74,7 +74,7 @@ $succesfully = 0;
         if (isset($_POST['install'])) {
 
           // Delete old entries
-          $jakdb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "porto"');
+          $envodb->query('DELETE FROM ' . DB_PREFIX . 'setting WHERE product = "porto"');
 
           // EN: Set admin lang of plugin
           // CZ: Nastavení jazyka pro administrační rozhraní pluginu
@@ -142,7 +142,7 @@ $succesfully = 0;
 ';
 
           // Insert data into pluginhooks
-          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+          $envodb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_lang", "METRICS Template Site Language", "' . $sitelang . '", "tpl_porto", 1, 4, "0", NOW()),
 (NULL, "php_admin_lang", "METRICS Template Admin Language", "' . $adminlang . '", "tpl_porto", 1, 4, "0", NOW())');
 
@@ -153,7 +153,7 @@ $succesfully = 0;
            * cms_tpl => basic info about installed template
            * styleswitcher_tpl => show or hide styleswitcher in site
            */
-          $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+          $envodb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
 ("sidebar_location_tpl", "porto", "left", "left", "input", "free", "tpl_porto"),
 ("styleswitcher_tpl", "porto", "1", "1", "yesno", "boolean", "tpl_porto"),
 ("cms_tpl", "porto", "1", "1", "yesno", "boolean", "tpl_porto"),

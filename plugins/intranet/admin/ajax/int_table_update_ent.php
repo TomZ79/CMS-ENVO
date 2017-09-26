@@ -28,7 +28,7 @@ $data_array = array();
 if ($input['action'] === 'edit') {
   // ACTION - EDIT
 
-  $jakdb->query('UPDATE ' . DB_PREFIX . 'intranethouseent SET entrance = "' . $input['entrance'] . '", countapartment = "' . $input['countapartment'] . '", countetage = "' . $input['countetage'] . '", elevator = "' . $input['elevator'] . '" WHERE id = "' . $input['id'] . '"');
+  $envodb->query('UPDATE ' . DB_PREFIX . 'intranethouseent SET entrance = "' . $input['entrance'] . '", countapartment = "' . $input['countapartment'] . '", countetage = "' . $input['countetage'] . '", elevator = "' . $input['elevator'] . '" WHERE id = "' . $input['id'] . '"');
 
   $envodata = $input;
 
@@ -36,10 +36,10 @@ if ($input['action'] === 'edit') {
   // ACTION - DELETE
 
   //
-  $result = $jakdb->query('SELECT entrance FROM ' . DB_PREFIX . 'intranethouseent WHERE id = "' . $input['id'] . '"');
+  $result = $envodb->query('SELECT entrance FROM ' . DB_PREFIX . 'intranethouseent WHERE id = "' . $input['id'] . '"');
   $row    = $result->fetch_assoc();
 
-  $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'intranethouseapt WHERE entrance = "' . $row['entrance'] . '"');
+  $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethouseapt WHERE entrance = "' . $row['entrance'] . '"');
   // Determine number of rows result set
   $row_cnt = $result->num_rows;
 
@@ -55,7 +55,7 @@ if ($input['action'] === 'edit') {
       'data'       => $data_array
     );
   } else {
-    $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'intranethouseent WHERE id = "' . $input['id'] . '"');
+    $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'intranethouseent WHERE id = "' . $input['id'] . '"');
 
     if ($result) {
       $data_array[] = array(

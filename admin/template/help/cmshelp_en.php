@@ -2906,7 +2906,7 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
 if ($page == 'rf_ual') {
   if (is_numeric($page1) && is_numeric($page2) && envo_row_exist($page1, DB_PREFIX.'user') && envo_field_not_exist($page2, DB_PREFIX.'user', 'activatenr')) {
 
-    $result = $jakdb->query('UPDATE '.DB_PREFIX.'user SET access = access - 1, activatenr = 0 WHERE id = "'.smartsql($page1).'" AND activatenr = "'.smartsql($page2).'"');
+    $result = $envodb->query('UPDATE '.DB_PREFIX.'user SET access = access - 1, activatenr = 0 WHERE id = "'.smartsql($page1).'" AND activatenr = "'.smartsql($page2).'"');
 
    	if (!$result) {
    		envo_redirect(JAK_PARSE_ERROR);
@@ -2994,7 +2994,7 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
 
     <p class="all-caps fs-12 bold">For example :</p>
     <pre class="prettyprint linenums lang-php">
-$jakdb->query('UPDATE '.DB_PREFIX.'faqcomments SET username = "'.smartsql($defaults['jak_username']).'" WHERE userid = '.smartsql($page2).'');
+$envodb->query('UPDATE '.DB_PREFIX.'faqcomments SET username = "'.smartsql($defaults['jak_username']).'" WHERE userid = '.smartsql($page2).'');
 </pre>
 
     <p>If you like to include a file:</p>
@@ -3011,7 +3011,7 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
 
     <p class="all-caps fs-12 bold">For example :</p>
     <pre class="prettyprint linenums lang-php">
-$jakdb->query('UPDATE '.DB_PREFIX.'faqcomments SET userid = 0 WHERE userid = '.$page2.'');
+$envodb->query('UPDATE '.DB_PREFIX.'faqcomments SET userid = 0 WHERE userid = '.$page2.'');
 </pre>
 
     <p>If you like to include a file:</p>
@@ -3028,7 +3028,7 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
 
     <p class="all-caps fs-12 bold">For example :</p>
     <pre class="prettyprint linenums lang-php">
-$jakdb->query('UPDATE '.DB_PREFIX.'faqcomments SET userid = 0 WHERE userid = '.$page2.'');
+$envodb->query('UPDATE '.DB_PREFIX.'faqcomments SET userid = 0 WHERE userid = '.$page2.'');
 </pre>
 
     <p>If you like to include a file:</p>
@@ -3142,7 +3142,7 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
 
     <p class="all-caps fs-12 bold">For example :</p>
     <pre class="prettyprint linenums lang-php">
-$jakdb->query('ALTER TABLE '.DB_PREFIX.'pages ADD FULLTEXT(`title`, `content`)');
+$envodb->query('ALTER TABLE '.DB_PREFIX.'pages ADD FULLTEXT(`title`, `content`)');
 </pre>
   </section>
 
@@ -3154,7 +3154,7 @@ $jakdb->query('ALTER TABLE '.DB_PREFIX.'pages ADD FULLTEXT(`title`, `content`)')
 
     <p class="all-caps fs-12 bold">For example :</p>
     <pre class="prettyprint linenums lang-php">
-$jakdb->query('ALTER TABLE '.DB_PREFIX.'pages DROP INDEX `title`');
+$envodb->query('ALTER TABLE '.DB_PREFIX.'pages DROP INDEX `title`');
 </pre>
   </section>
 

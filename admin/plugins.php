@@ -37,7 +37,7 @@ switch ($page1) {
       case 'lock':
 
         if (envo_row_exist($page3, $envotable2)) {
-          $jakdb->query('UPDATE ' . $envotable2 . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page3) . '"');
+          $envodb->query('UPDATE ' . $envotable2 . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page3) . '"');
         }
 
         // EN: Redirect page
@@ -74,7 +74,7 @@ switch ($page1) {
                * CZ: Převod hodnot
                * smartsql - secure method to insert form data into a MySQL DB
               */
-              $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET
+              $result = $envodb->query('UPDATE ' . $envotable2 . ' SET
                         name = "' . smartsql($defaults['jak_name']) . '",
                         hook_name = "' . smartsql($defaults['jak_hook']) . '",
                         phpcode = "' . smartsql($defaults['jak_phpcode']) . '",
@@ -121,7 +121,7 @@ switch ($page1) {
 
           if ($page3 >= 5) {
 
-            $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($page3) . '" LIMIT 1');
+            $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($page3) . '" LIMIT 1');
 
 
             // EN: Redirect page
@@ -149,7 +149,7 @@ switch ($page1) {
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
 
-              $result = $jakdb->query('UPDATE ' . $envotable2 . ' SET active = IF (active = 1, 0, 1) WHERE id = ' . $locked . '');
+              $result = $envodb->query('UPDATE ' . $envotable2 . ' SET active = IF (active = 1, 0, 1) WHERE id = ' . $locked . '');
             }
 
 
@@ -174,7 +174,7 @@ switch ($page1) {
 
               if ($locked >= 5) {
 
-                $result = $jakdb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($locked) . '"');
+                $result = $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE id = "' . smartsql($locked) . '"');
               }
 
             }
@@ -208,7 +208,7 @@ switch ($page1) {
         }
 
         // SQL Query
-        $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'pluginhooks ORDER BY exorder ASC ' . $pages->limit);
+        $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'pluginhooks ORDER BY exorder ASC ' . $pages->limit);
         while ($row = $result->fetch_assoc()) {
           $plhooks[] = $row;
         }
@@ -239,7 +239,7 @@ switch ($page1) {
     }
 
     // SQL Query
-    $result = $jakdb->query('SELECT t1.id, t1.hook_name, t1.name, t1.pluginid, t1.active, t2.name AS pluginname FROM ' . DB_PREFIX . 'pluginhooks AS t1 LEFT JOIN ' . DB_PREFIX . 'plugins AS t2 ON(t1.pluginid = t2.id) WHERE ' . $sortwhere . ' = "' . smartsql($page2) . '" ORDER BY exorder ASC');
+    $result = $envodb->query('SELECT t1.id, t1.hook_name, t1.name, t1.pluginid, t1.active, t2.name AS pluginname FROM ' . DB_PREFIX . 'pluginhooks AS t1 LEFT JOIN ' . DB_PREFIX . 'plugins AS t2 ON(t1.pluginid = t2.id) WHERE ' . $sortwhere . ' = "' . smartsql($page2) . '" ORDER BY exorder ASC');
     while ($row = $result->fetch_assoc()) {
       $JAK_HOOKS[] = $row;
     }
@@ -286,7 +286,7 @@ switch ($page1) {
          * CZ: Převod hodnot
          * smartsql - secure method to insert form data into a MySQL DB
         */
-        $result = $jakdb->query('INSERT INTO ' . $envotable2 . ' SET
+        $result = $envodb->query('INSERT INTO ' . $envotable2 . ' SET
                   name = "' . smartsql($defaults['jak_name']) . '",
                   hook_name = "' . smartsql($defaults['jak_hook']) . '",
                   phpcode = "' . smartsql($defaults['jak_phpcode']) . '",
@@ -295,7 +295,7 @@ switch ($page1) {
                   time = NOW(),
                   active = 1');
 
-        $rowid = $jakdb->jak_last_id();
+        $rowid = $envodb->envo_last_id();
 
         if (!$result) {
           // EN: Redirect page
@@ -329,9 +329,9 @@ switch ($page1) {
       case 'lock':
 
         if (envo_row_exist($page2, $envotable1)) {
-          $jakdb->query('UPDATE ' . $envotable1 . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page2) . '"');
-          $jakdb->query('UPDATE ' . $envotable . ' SET activeplugin = IF (activeplugin = 1, 0, 1) WHERE pluginid = "' . smartsql($page2) . '"');
-          $jakdb->query('UPDATE ' . $envotable2 . ' SET active = IF (active = 1, 0, 1) WHERE pluginid = "' . smartsql($page2) . '"');
+          $envodb->query('UPDATE ' . $envotable1 . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page2) . '"');
+          $envodb->query('UPDATE ' . $envotable . ' SET activeplugin = IF (activeplugin = 1, 0, 1) WHERE pluginid = "' . smartsql($page2) . '"');
+          $envodb->query('UPDATE ' . $envotable2 . ' SET active = IF (active = 1, 0, 1) WHERE pluginid = "' . smartsql($page2) . '"');
         }
 
         // EN: Redirect page
@@ -361,7 +361,7 @@ switch ($page1) {
             }
 
             // Update in one query
-            $result1a = $jakdb->query('UPDATE ' . $envotable1 . ' SET access = CASE id
+            $result1a = $envodb->query('UPDATE ' . $envotable1 . ' SET access = CASE id
 		 			    	' . $updatesqla . '
 		 			    	END
 		 			    	WHERE id IN (' . $realid . ')');
@@ -369,7 +369,7 @@ switch ($page1) {
             if ($result1a) {
 
               // and finaly update the setting table
-              $result1 = $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
+              $result1 = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
 		 							WHEN "accessgeneral" THEN "' . smartsql($defaults['jak_generala']) . '"
 		 						    WHEN "accessmanage" THEN "' . smartsql($defaults['jak_managea']) . '"
 		 						END

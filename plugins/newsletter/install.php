@@ -134,8 +134,8 @@ if (file_exists(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '
        * Kontrola zda je plugin instalován
        * Pokud není plugin instalován, zobrazit Notifikaci s chybovou hláškou
       */
-      $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Newsletter"');
-      if ($jakdb->affected_rows > 0) { ?>
+      $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Newsletter"');
+      if ($envodb->affected_rows > 0) { ?>
 
         <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít</button>
         <script>
@@ -164,7 +164,7 @@ if (file_exists(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '
 
       // EN: Insert data to table 'plugins' about this plugin
       // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
-      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Newsletter", "Run your own newsletter database, let user newsletter direct from your server or link.", 1, ' . JAK_USERID . ', 4, "newsletter", "require_once APP_PATH.\'plugins/newsletter/newsletter.php\';", "if ($page == \'newsletter\') {
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Newsletter", "Run your own newsletter database, let user newsletter direct from your server or link.", 1, ' . JAK_USERID . ', 4, "newsletter", "require_once APP_PATH.\'plugins/newsletter/newsletter.php\';", "if ($page == \'newsletter\') {
         require_once APP_PATH.\'plugins/newsletter/admin/newsletter.php\';
            $JAK_PROVED = 1;
            $checkp = 1;
@@ -172,7 +172,7 @@ if (file_exists(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '
 
       // EN: Now get the plugin 'id' from table 'plugins' for futher use
       // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
-      $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Newsletter"');
+      $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Newsletter"');
       $rows    = $results->fetch_assoc();
 
       if ($rows['id']) {
@@ -228,7 +228,7 @@ if (file_exists(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '
 
       // EN: Insert data to table 'pluginhooks'
       // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
-      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_usergroup", "Newsletter Usergroup SQL", "' . $insertphpcode . '", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_admin_lang", "Newsletter Admin Language", "' . $adminlang . '", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "Newsletter Site Language", "' . $sitelang . '", "newsletter", 1, 4, "' . $rows['id'] . '", NOW()),
@@ -240,7 +240,7 @@ if (file_exists(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '
 
       // EN: Insert data to table 'setting'
       // CZ: Vložení potřebných dat to tabulky 'setting'
-      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
 ("nlsmtp_mail", "newsletter", 0, 0, "yesno", "boolean", "newsletter"),
 ("nlsmtpport", "newsletter", 25, 25, "input", "number", "newsletter"),
 ("nlsmtphost", "newsletter", "", "", "input", "free", "newsletter"),
@@ -255,18 +255,18 @@ if (file_exists(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '
 ("nltitle", "newsletter", "Newsletter", "title", "input", "free", "newsletter")');
 
       // Insert into usergroup
-      $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `newsletter` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
+      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `newsletter` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
 
       // Member Newsletter
-      $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'user ADD `newsletter` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 1 AFTER `lastactivity`');
+      $envodb->query('ALTER TABLE ' . DB_PREFIX . 'user ADD `newsletter` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 1 AFTER `lastactivity`');
 
       // EN: Insert data to table 'categories' (create category)
       // CZ: Vložení potřebných dat to tabulky 'categories' (vytvoření kategorie)
-      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES (NULL, "Newsletter", "newsletter", NULL, 0, 0, 8, 0, 0, 1, "' . $rows['id'] . '")');
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES (NULL, "Newsletter", "newsletter", NULL, 0, 0, 8, 0, 0, 1, "' . $rows['id'] . '")');
 
       // EN: Create table for plugin (newsletter)
       // CZ: Vytvoření tabulky pro plugin (newsletter)
-      $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'newsletter (
+      $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'newsletter (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) DEFAULT NULL,
   `content` text,
@@ -280,7 +280,7 @@ if (file_exists(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '
 
       // EN: Create table for plugin (newsletter group)
       // CZ: Vytvoření tabulky pro plugin (newsletter skupina)
-      $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'newslettergroup (
+      $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'newslettergroup (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `description` mediumtext,
@@ -290,11 +290,11 @@ if (file_exists(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '
 
       // EN: Insert data to table 'newslettergroup'
       // CZ: Vložení potřebných dat to tabulky 'newslettergroup'
-      $jakdb->query('INSERT INTO ' . DB_PREFIX . 'newslettergroup VALUES(1, "Standard", "Standard Usergroup for Newsletter", NOW())');
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'newslettergroup VALUES(1, "Standard", "Standard Usergroup for Newsletter", NOW())');
 
       // EN: Create table for plugin (newsletter user)
       // CZ: Vytvoření tabulky pro plugin (newsletter uživatel)
-      $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'newsletteruser (
+      $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'newsletteruser (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `usergroupid` int(11) unsigned NOT NULL DEFAULT 1,
   `email` varchar(255) DEFAULT NULL,
@@ -307,7 +307,7 @@ if (file_exists(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '
 
       // EN: Create table for plugin (newsletter stat)
       // CZ: Vytvoření tabulky pro plugin (newsletter statistika)
-      $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'newsletterstat (
+      $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'newsletterstat (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nlid` int(11) unsigned NOT NULL DEFAULT 0,
   `senttotal` int(10) unsigned NOT NULL,
@@ -345,7 +345,7 @@ if (file_exists(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '
       // EN: If plugin have 'id' (plugin is not installed), uninstall
       // CZ: Pokud nemá plugin 'id' (tzn. plugin není instalován - došlo k chybě při zápisu do tabulky 'plugins'), odinstalujeme plugin
 
-      $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Newsletter"');
+      $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Newsletter"');
 
       ?>
 

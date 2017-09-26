@@ -33,7 +33,7 @@ if (empty($page1)) {
   $cleanTag = filter_var($page1, FILTER_SANITIZE_STRING);
 
   // let's check if the tag exists
-  $result = $jakdb->query('SELECT SQL_CALC_FOUND_ROWS itemid, pluginid FROM ' . $envotable . ' WHERE tag = "' . smartsql($cleanTag) . '"');
+  $result = $envodb->query('SELECT SQL_CALC_FOUND_ROWS itemid, pluginid FROM ' . $envotable . ' WHERE tag = "' . smartsql($cleanTag) . '"');
   if ($result) {
     while ($row = $result->fetch_assoc()) {
 
@@ -50,10 +50,10 @@ if (empty($page1)) {
 
       } elseif ($row['pluginid'] == 0) {
 
-        $result2 = $jakdb->query('SELECT t1.varname, t2.title' . ', t2.content' . ' FROM ' . $envotable2 . ' AS t1 LEFT JOIN ' . $envotable1 . ' AS t2 ON t1.id = t2.catid WHERE t2.id = "' . smartsql($row['itemid']) . '" AND t2.active = 1 LIMIT 1');
+        $result2 = $envodb->query('SELECT t1.varname, t2.title' . ', t2.content' . ' FROM ' . $envotable2 . ' AS t1 LEFT JOIN ' . $envotable1 . ' AS t2 ON t1.id = t2.catid WHERE t2.id = "' . smartsql($row['itemid']) . '" AND t2.active = 1 LIMIT 1');
         $row2    = $result2->fetch_assoc();
 
-        if ($jakdb->affected_rows > 0) {
+        if ($envodb->affected_rows > 0) {
           $getStriped = envo_cut_text($row2['content'], $jkv["shortmsg"], '...');
 
           $parseurl = JAK_rewrite::jakParseurl($row2['varname'], '', '', '', '');
@@ -82,7 +82,7 @@ if (empty($page1)) {
 
 // Get the sort orders for the grid
 $JAK_HOOK_SIDE_GRID = FALSE;
-$grid               = $jakdb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . JAK_PLUGIN_ID_TAGS . ' ORDER BY orderid ASC');
+$grid               = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . JAK_PLUGIN_ID_TAGS . ' ORDER BY orderid ASC');
 while ($grow = $grid->fetch_assoc()) {
   // EN: Insert each record into array
   // CZ: Vložení získaných dat do pole

@@ -21,7 +21,7 @@ $houseID  = $_POST['houseID'];
 $entrance = $_POST['entrance'];
 
 // Check if Entrance not exist
-$result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'intranethouseent WHERE houseid = "' . $houseID . '" AND entrance = "' . $entrance . '" ORDER BY id ASC');
+$result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethouseent WHERE houseid = "' . $houseID . '" AND entrance = "' . $entrance . '" ORDER BY id ASC');
 $row = $result->fetch_assoc();
 // Determine number of rows result set
 $row_cnt = $result->num_rows;
@@ -42,10 +42,10 @@ if ($row_cnt > 0) {
   // Number of Entrance NOT exists
 
   // Insert new Entrance
-  $jakdb->query('INSERT ' . DB_PREFIX . 'intranethouseent SET id = NULL, houseid = "' . $houseID . '", entrance = "' . $entrance . '", countapartment = "", countetage = "", elevator = "0"');
+  $envodb->query('INSERT ' . DB_PREFIX . 'intranethouseent SET id = NULL, houseid = "' . $houseID . '", entrance = "' . $entrance . '", countapartment = "", countetage = "", elevator = "0"');
 
   // Get all Entrance for House
-  $result1 = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'intranethouseent WHERE houseid = "' . $houseID . '" ORDER BY id ASC');
+  $result1 = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'intranethouseent WHERE houseid = "' . $houseID . '" ORDER BY id ASC');
 
   $data_array = array();
 
@@ -82,7 +82,7 @@ if ($row_cnt > 0) {
 }
 
 
-// $jakdb->query('INSERT ' . DB_PREFIX . 'intranethouseapt SET id = NULL, houseid = "' . $houseID . '",  entrance = "' . $entrance . '", number = "", etage = "", name = "", phone = "", commission = ""');
+// $envodb->query('INSERT ' . DB_PREFIX . 'intranethouseapt SET id = NULL, houseid = "' . $houseID . '",  entrance = "' . $entrance . '", number = "", etage = "", name = "", phone = "", commission = ""');
 
 // RETURN JSON OUTPUT
 //-------------------------

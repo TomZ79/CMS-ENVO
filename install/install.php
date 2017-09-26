@@ -71,9 +71,9 @@ define('DIR_CMS', str_replace('\'', '/', realpath(DIR_APPLICATION . '../')) . '/
 
 function smartsql($value)
 {
-  global $jakdb;
+  global $envodb;
   if (!is_int($value)) {
-    $value = $jakdb->real_escape_string($value);
+    $value = $envodb->real_escape_string($value);
   }
   return $value;
 }
@@ -453,8 +453,8 @@ if (DB_USER && DB_PASS) {
             <?php
             // MySQL/i connection
             if (DB_USER && DB_PASS) {
-              $jakdb = new jak_mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
-              $jakdb->set_charset("utf8");
+              $envodb = new ENVO_mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
+              $envodb->set_charset("utf8");
             }
 
             // Now we choose the correct installation process, are we going mad
@@ -463,7 +463,7 @@ if (DB_USER && DB_PASS) {
             }
 
             // Finally close all db connections
-            $jakdb->jak_close();
+            $envodb->envo_close();
 
             ?>
             <div class="alert bg-success"><?php echo $lang["lang"]["form4"];?></div>
@@ -504,14 +504,14 @@ if (DB_USER && DB_PASS) {
 
 // MySQL/i connection
               if (DB_USER && DB_PASS) {
-                $jakdb = new jak_mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
-                $jakdb->set_charset("utf8");
+                $envodb = new ENVO_mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
+                $envodb->set_charset("utf8");
               }
 
 // The new password encrypt with hash_hmac
               $passcrypt = hash_hmac('sha256', $_POST['pass'], DB_PASS_HASH);
 
-              $jakdb->query('INSERT INTO ' . DB_PREFIX . 'user SET
+              $envodb->query('INSERT INTO ' . DB_PREFIX . 'user SET
                               
                               usergroupid = 3,
                               username = "' . smartsql($_POST['username']) . '",
@@ -521,21 +521,21 @@ if (DB_USER && DB_PASS) {
                               time = NOW(),
                               access = 1');
 
-              $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = "' . smartsql($_POST['email']) . '" WHERE varname = "email"');
+              $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = "' . smartsql($_POST['email']) . '" WHERE varname = "email"');
 
-              $jakdb->query('UPDATE ' . DB_PREFIX . 'setting SET value = "' . smartsql($_POST['onumber']) . '" WHERE varname = "o_number"');
+              $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = "' . smartsql($_POST['onumber']) . '" WHERE varname = "o_number"');
 
-              // @$jakdb->query('ALTER DATABASE ' . DB_NAME . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci');
+              // @$envodb->query('ALTER DATABASE ' . DB_NAME . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci');
 
-// Finally close all db connections
-              $jakdb->jak_close();
+              // Finally close all db connections
+              $envodb->envo_close();
 
-// Confirm
+              // Confirm
               include_once '../class/class.postmail.php';
 
               $email_body = 'URL: ' . FULL_SITE_DOMAIN . '<br />Email: ' . $_POST['email'] . '<br />License: ' . $_POST['onumber'];
 
-// Send the email to the customer
+              // Send the email to the customer
               $mail = new PHPMailer(); // defaults to using php "mail()"
               $body = str_ireplace("[\]", "", $email_body);
               $mail->SetFrom($_POST['email']);

@@ -149,8 +149,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['contactF'])) {
     if (isset($listForm)) {
 
       // Check if email address exist
-      global $jakdb;
-      $row = $jakdb->queryRow('SELECT content, email FROM ' . DB_PREFIX . 'contactform WHERE id = "' . smartsql($defaults['formid']) . '" LIMIT 1');
+      global $envodb;
+      $row = $envodb->queryRow('SELECT content, email FROM ' . DB_PREFIX . 'contactform WHERE id = "' . smartsql($defaults['formid']) . '" LIMIT 1');
 
       // Start the phpmailer
       $mail = new PHPMailer(); // defaults to using php "mail()"
@@ -208,8 +208,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['contactF'])) {
 function envo_contact_form_title($jakvar)
 {
   // Now get all the options from the choosen form and create the form in html include all the javascript options
-  global $jakdb;
-  $result = $jakdb->query('SELECT title' . ', showtitle FROM ' . DB_PREFIX . 'contactform WHERE id = "' . $jakvar . '" LIMIT 1');
+  global $envodb;
+  $result = $envodb->query('SELECT title' . ', showtitle FROM ' . DB_PREFIX . 'contactform WHERE id = "' . $jakvar . '" LIMIT 1');
   $row = $result->fetch_assoc();
 
   return array("title" => $row['title'], "showtitle" => $row['showtitle']);
@@ -226,8 +226,8 @@ function envo_create_contact_form($formid, $jakvar1)
   $optarray = $optarrayradio = $selectopt = $radioopt = $optionsel = $optioncheck = $checkopt = '';
 
   // Now get all the options from the choosen form and create the form in html include all the javascript options
-  global $jakdb;
-  $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'contactoptions WHERE formid = "' . smartsql($formid) . '" ORDER BY forder ASC');
+  global $envodb;
+  $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'contactoptions WHERE formid = "' . smartsql($formid) . '" ORDER BY forder ASC');
   while ($row = $result->fetch_assoc()) {
 
     // Start with the form

@@ -47,7 +47,7 @@ if (!is_numeric($id) && !is_array($positions)) {
 	} else {
 
 		// We are using the CASE SQL operator to update the plugin positions en masse:
-		$result = $jakdb->query('UPDATE '.DB_PREFIX.'plugins SET pluginorder = CASE id
+		$result = $envodb->query('UPDATE '.DB_PREFIX.'plugins SET pluginorder = CASE id
 				'.join($strVals).'
 				ELSE pluginorder
 				END');

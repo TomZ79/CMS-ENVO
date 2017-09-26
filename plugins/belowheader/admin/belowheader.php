@@ -71,7 +71,7 @@ switch ($page1) {
         }
 
         // Do the dirty work in mysql
-        $result = $jakdb->query('INSERT INTO ' . $envotable . ' SET
+        $result = $envodb->query('INSERT INTO ' . $envotable . ' SET
                   pageid = "' . smartsql($pageid) . '",
                   newsid = "' . smartsql($newsid) . '",
                   newsmain = "' . smartsql($defaults['jak_mainnews']) . '",
@@ -84,7 +84,7 @@ switch ($page1) {
                   permission = "' . smartsql($permission) . '",
                   time = NOW()');
 
-        $rowid = $jakdb->jak_last_id();
+        $rowid = $envodb->envo_last_id();
 
         if (!$result) {
           // EN: Redirect page
@@ -126,7 +126,7 @@ switch ($page1) {
         if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
           // Delete the Content
-          $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
+          $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
 
           if (!$result) {
             // EN: Redirect page
@@ -151,7 +151,7 @@ switch ($page1) {
         break;
       case 'lock':
 
-        $result = $jakdb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = ' . smartsql($page2));
+        $result = $envodb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = ' . smartsql($page2));
 
         if (!$result) {
           // EN: Redirect page
@@ -207,7 +207,7 @@ switch ($page1) {
              * CZ: Převod hodnot
              * smartsql - secure method to insert form data into a MySQL DB
             */
-            $result = $jakdb->query('UPDATE ' . $envotable . ' SET
+            $result = $envodb->query('UPDATE ' . $envotable . ' SET
                       pageid = "' . smartsql($pageid) . '",
                       newsid = "' . smartsql($newsid) . '",
                       newsmain = "' . smartsql($defaults['jak_mainnews']) . '",
@@ -270,7 +270,7 @@ switch ($page1) {
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
 
-              $result = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
+              $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
             }
 
             if (!$result) {
@@ -298,7 +298,7 @@ switch ($page1) {
               $locked = $lockuser[$i];
 
               // Delete the pics associated with the Nivo Slider
-              $result = $jakdb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($locked) . '"');
+              $result = $envodb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($locked) . '"');
             }
 
             if (!$result) {

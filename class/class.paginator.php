@@ -22,12 +22,12 @@ class JAK_Paginator
   public function __construct()
   {
     $this->current_page = 1;
-    $this->mid_range = 3;
+    $this->mid_range    = 3;
   }
 
   public function paginate()
   {
-    $this->num_pages = ceil($this->items_total / $this->items_per_page);
+    $this->num_pages    = ceil($this->items_total / $this->items_per_page);
     $this->current_page = (int)$this->jak_get_page; // must be numeric > 0
     if ($this->current_page < 1 Or !is_numeric($this->current_page)) $this->current_page = 1;
     if ($this->current_page > $this->num_pages) $this->current_page = $this->num_pages;
@@ -39,15 +39,15 @@ class JAK_Paginator
       $this->return = ($this->current_page != 1 And $this->items_total >= 2) ? ' <div class="col-md-12"><ul class="pagination"><li><a class="' . $this->jak_prevstyle . '" href="' . $this->jak_where . JAK_rewrite::jakParseurlpaginate($prev_page) . '">' . $this->jak_prevtext . '</a></li>' : '<div class="col-md-12"><ul class="pagination">';
 
       $this->start_range = $this->current_page - floor($this->mid_range / 2);
-      $this->end_range = $this->current_page + floor($this->mid_range / 2);
+      $this->end_range   = $this->current_page + floor($this->mid_range / 2);
 
       if ($this->start_range <= 0) {
-        $this->end_range += abs($this->start_range) + 1;
+        $this->end_range   += abs($this->start_range) + 1;
         $this->start_range = 1;
       }
       if ($this->end_range > $this->num_pages) {
         $this->start_range -= $this->end_range - $this->num_pages;
-        $this->end_range = $this->num_pages;
+        $this->end_range   = $this->num_pages;
       }
       $this->range = range($this->start_range, $this->end_range);
 
@@ -59,8 +59,8 @@ class JAK_Paginator
       }
       $this->return .= ($this->current_page != $this->num_pages And $this->items_total >= 2) ? '<li><a class="' . $this->jak_nextstyle . '" href="' . $this->jak_where . JAK_rewrite::jakParseurlpaginate($next_page) . '">' . $this->jak_nexttext . '</a></li></ul></div>' : '</ul></div>';
     }
-    $this->low = ($this->current_page - 1) * $this->items_per_page;
-    $this->high = ($this->current_page * $this->items_per_page) - 1;
+    $this->low   = ($this->current_page - 1) * $this->items_per_page;
+    $this->high  = ($this->current_page * $this->items_per_page) - 1;
     $this->limit = 'LIMIT ' . $this->low . ',' . $this->items_per_page;
   }
 

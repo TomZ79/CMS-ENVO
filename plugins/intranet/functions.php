@@ -10,9 +10,9 @@
  */
 function envo_get_house_info($table, $ext_seo, $usergroupid)
 {
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result   = $jakdb->query('SELECT * FROM ' . $table . ' ORDER BY id ASC');
+  $result   = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY id ASC');
 
   while ($row = $result->fetch_assoc()) {
 
@@ -80,10 +80,10 @@ function envo_get_house_info($table, $ext_seo, $usergroupid)
  */
 function envo_get_notification_unread($usergroupid, $ext_seo, $dateformat, $timeformat)
 {
-  global $jakdb;
+  global $envodb;
   $envodata = array();
 
-  $result = $jakdb->query('
+  $result = $envodb->query('
             SELECT 
             
             ' . DB_PREFIX . 'intranethousenotifications.*
@@ -145,10 +145,10 @@ function envo_get_notification_unread($usergroupid, $ext_seo, $dateformat, $time
 
 function envo_get_notification_all($usergroupid, $ext_seo, $dateformat, $timeformat)
 {
-  global $jakdb;
+  global $envodb;
   $envodata = array();
 
-  $result = $jakdb->query('
+  $result = $envodb->query('
             SELECT 
             
             ' . DB_PREFIX . 'intranethousenotifications.*

@@ -4,9 +4,9 @@
 // CZ: Získání všech dat o televizním kanálu
 function envo_get_tvchannel_info($table)
 {
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result = $jakdb->query('SELECT * FROM ' . $table . ' ORDER BY number ASC');
+  $result = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY number ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -20,9 +20,9 @@ function envo_get_tvchannel_info($table)
 // CZ: Získání dat o televizním vysílači
 function envo_get_tvtower_info($table)
 {
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result = $jakdb->query('SELECT * FROM ' . $table . ' ORDER BY name ASC');
+  $result = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY name ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -36,9 +36,9 @@ function envo_get_tvtower_info($table)
 // CZ: Získání všech dat o televizních programech
 function envo_get_tvprogram_info($table)
 {
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result = $jakdb->query('SELECT * FROM ' . $table . ' ORDER BY channelid DESC');
+  $result = $envodb->query('SELECT * FROM ' . $table . ' ORDER BY channelid DESC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole

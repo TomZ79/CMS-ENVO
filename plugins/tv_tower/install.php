@@ -134,8 +134,8 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
          * Kontrola zda je plugin instalován
          * Pokud není plugin instalován, zobrazit Notifikaci s chybovou hláškou
         */
-        $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Tv_tower"');
-        if ($jakdb->affected_rows > 0) { ?>
+        $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Tv_tower"');
+        if ($envodb->affected_rows > 0) { ?>
 
           <button id="closeModal" class="btn btn-default btn-block" onclick="window.parent.closeModal();">Zavřít
           </button>
@@ -165,7 +165,7 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
 
         // EN: Insert data to table 'plugins' about this plugin
         // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
-        $jakdb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Tv_tower", "TV Tower", 1, ' . JAK_USERID . ', 1, "tv_tower", "require_once APP_PATH.\'plugins/tv_tower/tvtower.php\';", "if ($page == \'tv-tower\') {
+        $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Tv_tower", "TV Tower", 1, ' . JAK_USERID . ', 1, "tv_tower", "require_once APP_PATH.\'plugins/tv_tower/tvtower.php\';", "if ($page == \'tv-tower\') {
         require_once APP_PATH.\'plugins/tv_tower/admin/tvtower.php\';
            $JAK_PROVED = 1;
            $checkp = 1;
@@ -173,7 +173,7 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
 
         // EN: Now get the plugin 'id' from table 'plugins' for futher use
         // CZ: Nyní zpět získáme 'id' pluginu z tabulky 'plugins' pro další použití
-        $results = $jakdb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Tv_tower"');
+        $results = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'plugins WHERE name = "Tv_tower"');
         $rows    = $results->fetch_assoc();
 
         if ($rows['id']) {
@@ -207,7 +207,7 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
 
         // EN: Insert data to table 'pluginhooks'
         // CZ: Vložení potřebných dat to tabulky 'pluginhooks'
-        $jakdb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
+        $envodb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
 (NULL, "php_admin_lang", "TV Tower Admin Language", "' . $adminlang . '", "tvtower", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "php_lang", "TV Tower Site Language", "' . $sitelang . '", "tvtower", 1, 1, "' . $rows['id'] . '", NOW()),
 (NULL, "tpl_admin_head", "TV Tower Admin CSS", "plugins/tv_tower/admin/template/css.tv_tower.php", "tvtower", 1, 1, "' . $rows['id'] . '", NOW()),
@@ -220,7 +220,7 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
 
         // EN: Insert data to table 'setting'
         // CZ: Vložení potřebných dat to tabulky 'setting'
-        $jakdb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
+        $envodb->query('INSERT INTO ' . DB_PREFIX . 'setting (`varname`, `groupname`, `value`, `defaultvalue`, `optioncode`, `datatype`, `product`) VALUES
 ("tvtowertitle", "tvtower", "TV Tower", "TV Tower", "input", "free", "tvtower"),
 ("tvtowerwizardtitle", "tvtower", "TV Tower - Wizard", "TV Tower - Wizard", "input", "free", "tvtower"),
 ("tvtowerlisttitle", "tvtower", "TV Tower - List", "TV Tower - List", "input", "free", "tvtower"),
@@ -228,16 +228,16 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
 
         // EN: Insert data to table 'usergroup'
         // CZ: Vložení potřebných dat to tabulky 'usergroup'
-        $jakdb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `tvtower` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
+        $envodb->query('ALTER TABLE ' . DB_PREFIX . 'usergroup ADD `tvtower` SMALLINT(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `advsearch`');
 
         // EN: Insert data to table 'categories' (create category)
         // CZ: Vložení potřebných dat to tabulky 'categories' (vytvoření kategorie)
-        $jakdb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES
+        $envodb->query('INSERT INTO ' . DB_PREFIX . 'categories (`id`, `name`, `varname`, `catimg`, `showmenu`, `showfooter`, `catorder`, `catparent`, `pageid`, `activeplugin`, `pluginid`) VALUES
 (NULL, "TV Tower", "tv-tower", NULL, 1, 0, 5, 0, 0, 1, "' . $rows['id'] . '")');
 
         // EN: Create table for plugin (TV Tower)
         // CZ: Vytvoření tabulky pro plugin (TV Vysílače)
-        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowertvtower (
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowertvtower (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NULL DEFAULT NULL,
   `varname` varchar(255) NULL DEFAULT NULL,
@@ -251,7 +251,7 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (TV Channel)
         // CZ: Vytvoření tabulky pro plugin (TV Kanál)
-        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowertvchannel (
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowertvchannel (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `towerid` int(11) unsigned NOT NULL DEFAULT 0,
   `number` varchar(255) NULL DEFAULT NULL,
@@ -268,7 +268,7 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (TV Program)
         // CZ: Vytvoření tabulky pro plugin (TV Program)
-        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowertvprogram (
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowertvprogram (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `active` smallint(1) unsigned NOT NULL DEFAULT 1,
   `towerid` int(10) unsigned NOT NULL DEFAULT 0,
@@ -291,7 +291,7 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (S_ID TV)
         // CZ: Vytvoření tabulky pro plugin (S_ID TV)
-        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowersidtv (
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowersidtv (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sid` varchar(100) NULL DEFAULT NULL,
   `name` varchar(255) NULL DEFAULT NULL,
@@ -301,7 +301,7 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (S_ID R)
         // CZ: Vytvoření tabulky pro plugin (S_ID R)
-        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowersidr (
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowersidr (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sid` varchar(100) NULL DEFAULT NULL,
   `name` varchar(255) NULL DEFAULT NULL,
@@ -311,7 +311,7 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (S_ID R)
         // CZ: Vytvoření tabulky pro plugin (S_ID R)
-        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowersids (
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowersids (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sid` varchar(100) NULL DEFAULT NULL,
   `name` varchar(255) NULL DEFAULT NULL,
@@ -321,7 +321,7 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (S_ID R)
         // CZ: Vytvoření tabulky pro plugin (S_ID R)
-        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtoweronid (
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtoweronid (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `onid` varchar(100) NULL DEFAULT NULL,
   `country` varchar(255) NULL DEFAULT NULL,
@@ -331,7 +331,7 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (S_ID R)
         // CZ: Vytvoření tabulky pro plugin (S_ID R)
-        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowernid (
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowernid (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nid` varchar(100) NULL DEFAULT NULL,
   `site` varchar(255) NULL DEFAULT NULL,
@@ -342,7 +342,7 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
 
         // EN: Create table for plugin (export history)
         // CZ: Vytvoření tabulky pro plugin (historie exportu)
-        $jakdb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowerexporthistory (
+        $envodb->query('CREATE TABLE IF NOT EXISTS ' . DB_PREFIX . 'tvtowerexporthistory (
 	`id` int(11) NOT NULL AUTO_INCREMENT,
 	`userid` INT(11) UNSIGNED NOT NULL DEFAULT 0,
 	`email` VARCHAR(255) NOT NULL,
@@ -378,7 +378,7 @@ if (file_exists(APP_PATH . 'plugins/tv_tower/admin/lang/' . $site_language . '.i
         // EN: If plugin have 'id' (plugin is not installed), uninstall
         // CZ: Pokud nemá plugin 'id' (tzn. plugin není instalován - došlo k chybě při zápisu do tabulky 'plugins'), odinstalujeme plugin
 
-        $result = $jakdb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Digital_house"');
+        $result = $envodb->query('DELETE FROM ' . DB_PREFIX . 'plugins WHERE name = "Digital_house"');
 
         ?>
 

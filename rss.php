@@ -35,7 +35,7 @@ if ($hookrss) {
 
 if (!empty($sql)) {
 
-  $result = $jakdb->query($sql);
+  $result = $envodb->query($sql);
   while ($row = $result->fetch_assoc()) {
 
     $PAGE_TITLE   = $row['title'];

@@ -67,7 +67,7 @@ class dbimpexp
         
         $dom = new DOMDocument('1.0');
         $database_name = DB_NAME;
-   		global $jakdb;
+   		global $envodb;
 
         // Create Database node
         $database = $dom->createElement('database');
@@ -80,14 +80,14 @@ class dbimpexp
         
         /* ---- CREATE SCHEMA ---- */
         // Fetch table informaton 
-        $tableQuery = $jakdb->query("SHOW TABLES");        
+        $tableQuery = $envodb->query("SHOW TABLES");
 
         while ($tableRow = $tableQuery->fetch_row())
         {
         	
-        	$rowsc = $jakdb->query("SELECT * FROM {$tableRow[0]}");
+        	$rowsc = $envodb->query("SELECT * FROM {$tableRow[0]}");
         	
-        	if ($jakdb->affected_rows > 0) {
+        	if ($envodb->affected_rows > 0) {
         	
             //Table Node
             $table = $dom->createElement('table');
@@ -95,7 +95,7 @@ class dbimpexp
             $table->setAttribute('name', $tableRow[0]);
             
             //Fetch table description
-            $fieldQuery = $jakdb->query("DESCRIBE $tableRow[0]");
+            $fieldQuery = $envodb->query("DESCRIBE $tableRow[0]");
             
             while ($fieldRow = $fieldQuery->fetch_assoc())
             {
@@ -140,7 +140,7 @@ class dbimpexp
     
         
         /* ------- Populate Data ------ */
-        $tableQuery = $jakdb->query("SHOW TABLES");
+        $tableQuery = $envodb->query("SHOW TABLES");
         
         // Create Data node
         $data = $dom->createElement ('data');
@@ -150,12 +150,12 @@ class dbimpexp
         while ($tableRow = $tableQuery->fetch_row())
         {
         
-        	$rowsc = $jakdb->query("SELECT * FROM {$tableRow[0]}");
+        	$rowsc = $envodb->query("SELECT * FROM {$tableRow[0]}");
         	
-        	if ($jakdb->affected_rows > 0) {
+        	if ($envodb->affected_rows > 0) {
         	
             // Read Table Schema again
-            $descQuery = $jakdb->query("DESCRIBE {$tableRow[0]}");
+            $descQuery = $envodb->query("DESCRIBE {$tableRow[0]}");
             $schema = Array();
             while ($row = $descQuery->fetch_assoc())
             {
@@ -169,7 +169,7 @@ class dbimpexp
                                         );
             }
 
-            $rows = $jakdb->query("SELECT * FROM {$tableRow[0]}");            
+            $rows = $envodb->query("SELECT * FROM {$tableRow[0]}");
             $table = $dom->createElement ($tableRow[0]);
             $table = $dom->appendChild ($table);
 
@@ -240,7 +240,7 @@ class dbimpexp
     public function import()
         {
         
-        	global $jakdb;
+        	global $envodb;
           
             if ($this->import_path == "" || !file_exists($this->import_path))
             {
@@ -287,8 +287,8 @@ class dbimpexp
                 
                 if ($sqlbody) {
                 
-	                $jakdb->query("TRUNCATE TABLE `{$name}` ");
-	                $jakdb->query("INSERT INTO `{$name}` ({$tmp_head}) VALUES {$sqlbody}");
+	                $envodb->query("TRUNCATE TABLE `{$name}` ");
+	                $envodb->query("INSERT INTO `{$name}` ({$tmp_head}) VALUES {$sqlbody}");
 	                
 	            }
 	            
@@ -298,21 +298,21 @@ class dbimpexp
     
     public function optimize()
     {
-    	global $jakdb;
-    	$result = $jakdb->query('SHOW TABLES');
+    	global $envodb;
+    	$result = $envodb->query('SHOW TABLES');
      	while($table = $result->fetch_assoc())
     	{
     	
     		foreach ($table as $db => $tablename) 
     		   { 
-    		       $jakdb->query('OPTIMIZE TABLE '.$tablename); 
+    		       $envodb->query('OPTIMIZE TABLE '.$tablename);
     		   }
     	}
     }
 
     public function quote_smart($value)
 	{
-		global $jakdb;
+		global $envodb;
 		
 		$value = smartsql($value);
 		

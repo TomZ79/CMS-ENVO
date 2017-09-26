@@ -1,13 +1,13 @@
 <?php
 
-$jakdb->query("CREATE TABLE " . DB_PREFIX . "backup_content (
+$envodb->query("CREATE TABLE " . DB_PREFIX . "backup_content (
 `id` INT( 11 ) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 `pageid` INT( 11 ) NOT NULL DEFAULT  '0',
 `content` mediumtext NULL,
 `time` DATETIME NOT NULL DEFAULT  '0000-00-00 00:00:00'
 ) ENGINE = MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci COLLATE utf8_czech_ci AUTO_INCREMENT=1");
 
-$jakdb->query("CREATE TABLE " . DB_PREFIX . "categories (
+$envodb->query("CREATE TABLE " . DB_PREFIX . "categories (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `varname` varchar(255) DEFAULT NULL,
@@ -28,14 +28,14 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "categories (
   KEY `showmenu` (`showmenu`, `showfooter`, `catorder`, `catparent`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci COLLATE utf8_czech_ci AUTO_INCREMENT=5");
 
-$jakdb->query("INSERT INTO " . DB_PREFIX . "categories VALUES
+$envodb->query("INSERT INTO " . DB_PREFIX . "categories VALUES
 (1, 'Home', 'home', NULL, NULL, NULL, NULL, NULL, 1, 0, 1, 0, 1, 0, 1, 0),
 (2, 'Sitemap', 'sitemap', NULL, NULL, NULL, NULL, NULL, 0, 1, 3, 0, 0, 0, 1, 2),
 (3, 'Tags', 'tag', NULL, NULL, NULL, NULL, NULL, 0, 0, 4, 0, 0, 0, 1, 3),
 (4, 'News', 'news', NULL, NULL, NULL, NULL, NULL,1, 0, 2, 0, 0, 0, 1, 1),
 (5, 'EU-cookies', 'eu-cookies', NULL, NULL, NULL, NULL, NULL,0, 0, 2, 0, 2, 0, 1, 0)");
 
-$jakdb->query("CREATE TABLE " . DB_PREFIX . "contactform (
+$envodb->query("CREATE TABLE " . DB_PREFIX . "contactform (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
   `content` text,
@@ -46,10 +46,10 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "contactform (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=2");
 
-$jakdb->query("INSERT INTO " . DB_PREFIX . "contactform VALUES
+$envodb->query("INSERT INTO " . DB_PREFIX . "contactform VALUES
 (1, 'Standard Contact Form', '<p>Thank you very much, you enquiry has been sent. We will return to you as soon as possible.</p>', NULL, 1, 1, NOW())");
 
-$jakdb->query("CREATE TABLE " . DB_PREFIX . "contactoptions (
+$envodb->query("CREATE TABLE " . DB_PREFIX . "contactoptions (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `formid` int(11) unsigned NOT NULL DEFAULT 0,
   `name` varchar(255) DEFAULT NULL,
@@ -60,13 +60,13 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "contactoptions (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=5");
 
-$jakdb->query("INSERT INTO " . DB_PREFIX . "contactoptions VALUES
+$envodb->query("INSERT INTO " . DB_PREFIX . "contactoptions VALUES
 (1, 1, 'Name', 1, '', 1, 1),
 (2, 1, 'Email', 1, '', 3, 2),
 (3, 1, 'Phone', 1, '', 2, 3),
 (4, 1, 'Message', 2, '', 1, 4)");
 
-$jakdb->query("CREATE TABLE " . DB_PREFIX . "galleryfacebook (
+$envodb->query("CREATE TABLE " . DB_PREFIX . "galleryfacebook (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
   `paththumb` varchar(255) DEFAULT NULL,
@@ -78,7 +78,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "galleryfacebook (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=1");
 
-$jakdb->query("CREATE TABLE " . DB_PREFIX . "loginlog (
+$envodb->query("CREATE TABLE " . DB_PREFIX . "loginlog (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `fromwhere` varchar(255) DEFAULT NULL,
@@ -89,7 +89,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "loginlog (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=1");
 
-$jakdb->query("CREATE TABLE " . DB_PREFIX . "news (
+$envodb->query("CREATE TABLE " . DB_PREFIX . "news (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
   `content` mediumtext,
@@ -114,7 +114,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "news (
   KEY `newsorder` (`newsorder`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=1");
 
-$jakdb->query("CREATE TABLE " . DB_PREFIX . "pages (
+$envodb->query("CREATE TABLE " . DB_PREFIX . "pages (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `catid` int(11) unsigned NOT NULL DEFAULT 0,
   `title` varchar(255) DEFAULT NULL,
@@ -139,11 +139,11 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "pages (
   KEY `catid` (`catid`,`active`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=2");
 
-$jakdb->query("INSERT INTO " . DB_PREFIX . "pages VALUES
+$envodb->query("INSERT INTO " . DB_PREFIX . "pages VALUES
 (1, 1, 'CMS - ENVO', '<div class=\"jumbotron\">\r\n<p>CMS - ENVO</p>\r\n</div>', '', '', 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, NULL, 1, NOW()),
 (2, 5, 'EU Cookies', '<div class=\"jumbotron\">\r\n<p>EU Cookies</p>\r\n</div>', '', '', 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, NULL, 1, NOW())");
 
-$jakdb->query("CREATE TABLE " . DB_PREFIX . "pagesgrid (
+$envodb->query("CREATE TABLE " . DB_PREFIX . "pagesgrid (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `pageid` int(11) unsigned NOT NULL DEFAULT 0,
   `newsid` int(11) unsigned NOT NULL DEFAULT 0,
@@ -156,7 +156,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "pagesgrid (
   KEY `pageid` (`pageid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=5");
 
-$jakdb->query("INSERT INTO " . DB_PREFIX . "pagesgrid VALUES
+$envodb->query("INSERT INTO " . DB_PREFIX . "pagesgrid VALUES
 (1, 1, 1, 9999, 0, 0, 0, 1),
 (2, 1, 0, 9998, 0, 0, 0, 2),
 (3, 1, 0, 9997, 0, 0, 0, 3),
@@ -165,7 +165,7 @@ $jakdb->query("INSERT INTO " . DB_PREFIX . "pagesgrid VALUES
 (6, 2, 0, 9998, 0, 0, 0, 2),
 (7, 2, 0, 9997, 0, 0, 0, 3)");
 
-$jakdb->query("CREATE TABLE " . DB_PREFIX . "pluginhooks (
+$envodb->query("CREATE TABLE " . DB_PREFIX . "pluginhooks (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `hook_name` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -180,7 +180,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "pluginhooks (
   KEY `hook_name` (`hook_name`,`active`,`pluginid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=5");
 
-$jakdb->query("INSERT INTO " . DB_PREFIX . "pluginhooks VALUES
+$envodb->query("INSERT INTO " . DB_PREFIX . "pluginhooks VALUES
 (1, 'tpl_sidebar', 'Tags', 'include_once \"tagsidebar.php\";', '', 'cms', 1, 3, 3, NOW()),
 (2, 'tpl_sidebar', 'News', 'include_once \"newssidebar.php\";', '', 'cms', 1, 2, 1, NOW()),
 (3, 'tpl_sidebar', 'Login Form', 'include_once \"loginsidebar.php\";', '', 'cms', 1, 4, 0, NOW()),
@@ -189,7 +189,7 @@ $jakdb->query("INSERT INTO " . DB_PREFIX . "pluginhooks VALUES
 (6, 'tpl_footer_widgets', 'Tags - Footer Widget', 'tagsfooter.php', '', 'cms', 1, 1, 3, NOW()),
 (7, 'tpl_footer_widgets', 'Footer - Search Form', 'searchfooter.php', '', 'cms', 1, 1, 0, NOW())");
 
-$jakdb->query("CREATE TABLE " . DB_PREFIX . "plugins (
+$envodb->query("CREATE TABLE " . DB_PREFIX . "plugins (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `description` longtext,
@@ -209,12 +209,12 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "plugins (
   UNIQUE KEY `name` (`name`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=4");
 
-$jakdb->query("INSERT INTO " . DB_PREFIX . "plugins VALUES
+$envodb->query("INSERT INTO " . DB_PREFIX . "plugins VALUES
 (1, 'News', 'Create and publish news', 1, '1', 1, NULL, 'require_once \"news.php\";', 'if (\$page == \"news\") {\r\nrequire_once ''news.php'';\r\n\$JAK_PROVED = true;\r\n\$checkp = 1;\r\n}', 'newsnav.php', NULL, '1', NULL, NULL, NOW()),
 (2, 'Sitemap', 'Run a sitemap on your website for better SEO.', 1, '1', 2, NULL, 'require_once ''sitemap.php'';', NULL, NULL, NULL, '1', NULL, NULL, NOW()),
 (3, 'Tags', 'Have tags on your website, very good for search engine optimization.', 1, '1', 3, NULL, 'require_once \"tags.php\";', 'if (\$page == \"tags\") {\r\nrequire_once ''tag.php'';\r\n\$JAK_PROVED = true;\r\n\$checkp = 1;\r\n}', 'tagnav.php', NULL, 'tags', NULL, NULL, NOW())");
 
-$jakdb->query("CREATE TABLE " . DB_PREFIX . "searchlog (
+$envodb->query("CREATE TABLE " . DB_PREFIX . "searchlog (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tag` varchar(100) DEFAULT NULL,
   `count` int(11) unsigned NOT NULL DEFAULT 1,
@@ -222,7 +222,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "searchlog (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=1");
 
-$jakdb->query("CREATE TABLE " . DB_PREFIX . "setting (
+$envodb->query("CREATE TABLE " . DB_PREFIX . "setting (
   `varname` varchar(100) NOT NULL DEFAULT '',
   `groupname` varchar(50) DEFAULT NULL,
   `value` mediumtext,
@@ -233,7 +233,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "setting (
   PRIMARY KEY (`varname`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci COLLATE utf8_czech_ci");
 
-$jakdb->query("INSERT INTO " . DB_PREFIX . "setting VALUES
+$envodb->query("INSERT INTO " . DB_PREFIX . "setting VALUES
 ('version', 'version', '1.2', '1.2', NULL, 'free', 'cms'),
 ('updatetime', 'updatetime', '" . time() . "', '" . time() . "', 'timestamp', 'integer', 'cms'),
 ('o_number', 'setting', '0', '0', 'input', 'free', 'cms'),
@@ -340,7 +340,7 @@ $jakdb->query("INSERT INTO " . DB_PREFIX . "setting VALUES
 ");
 
 
-$jakdb->query("CREATE TABLE " . DB_PREFIX . "tagcloud (
+$envodb->query("CREATE TABLE " . DB_PREFIX . "tagcloud (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tag` varchar(100) DEFAULT NULL,
   `count` int(11) NOT NULL DEFAULT 1,
@@ -348,7 +348,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "tagcloud (
   KEY `tag` (`tag`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=1");
 
-$jakdb->query("CREATE TABLE " . DB_PREFIX . "tags (
+$envodb->query("CREATE TABLE " . DB_PREFIX . "tags (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tag` varchar(100) DEFAULT NULL,
   `itemid` int(11) unsigned NOT NULL DEFAULT 0,
@@ -358,7 +358,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "tags (
   KEY `module` (`pluginid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=1");
 
-$jakdb->query("CREATE TABLE " . DB_PREFIX . "todo_list (
+$envodb->query("CREATE TABLE " . DB_PREFIX . "todo_list (
  `id` INT(8) UNSIGNED NOT NULL AUTO_INCREMENT ,
  `position` INT(8) UNSIGNED NOT NULL DEFAULT 0,
  `adminid` INT(8) UNSIGNED NOT NULL DEFAULT 0,
@@ -369,7 +369,7 @@ PRIMARY KEY (`id`),
 KEY  `position` (`position`)
 ) ENGINE=MYISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=1;");
 
-$jakdb->query("CREATE TABLE " . DB_PREFIX . "user (
+$envodb->query("CREATE TABLE " . DB_PREFIX . "user (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `usergroupid` int(11) unsigned NOT NULL DEFAULT '2',
   `username` varchar(100) DEFAULT NULL,
@@ -394,7 +394,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "user (
   KEY `usergroupid` (`usergroupid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=1");
 
-$jakdb->query("CREATE TABLE " . DB_PREFIX . "usergroup (
+$envodb->query("CREATE TABLE " . DB_PREFIX . "usergroup (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
   `description` mediumtext,
@@ -403,7 +403,7 @@ $jakdb->query("CREATE TABLE " . DB_PREFIX . "usergroup (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=6");
 
-$jakdb->query("INSERT INTO " . DB_PREFIX . "usergroup VALUES
+$envodb->query("INSERT INTO " . DB_PREFIX . "usergroup VALUES
 (1, 'Guest', 'Usergroup for all the guests.', 1, 1, 1),
 (2, 'Member (Standard)', 'Standard user group after register on your site.', 0, 1, 1),
 (3, 'Administrator', 'Administrator user group, usually full access and no approval for posts.', 1, 1, 1),

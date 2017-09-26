@@ -7,9 +7,9 @@ function envo_get_blogs($limit, $cid, $table)
   $sqlwhere = '';
   if (!empty($cid)) $sqlwhere = 'WHERE FIND_IN_SET(' . $cid . ', catid) ';
 
-  global $jakdb;
+  global $envodb;
   $envodata = array();
-  $result  = $jakdb->query('SELECT * FROM ' . $table . ' ' . $sqlwhere . 'ORDER BY id DESC ' . $limit);
+  $result  = $envodb->query('SELECT * FROM ' . $table . ' ' . $sqlwhere . 'ORDER BY id DESC ' . $limit);
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole

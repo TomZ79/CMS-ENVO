@@ -48,10 +48,10 @@ switch ($page1) {
 
         if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
-          $result = $jakdb->query('SELECT title,pathoriginal,paththumb FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
+          $result = $envodb->query('SELECT title,pathoriginal,paththumb FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
           $row    = $result->fetch_assoc();
 
-          $result1 = $jakdb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
+          $result1 = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($page2) . '"');
 
           if (!$result1) {
             // EN: Redirect page

@@ -1,12 +1,12 @@
 <?php
 
-$resrf   = $jakdb->query('SELECT COUNT(*) as totalM FROM ' . DB_PREFIX . 'user');
+$resrf   = $envodb->query('SELECT COUNT(*) as totalM FROM ' . DB_PREFIX . 'user');
 $rwresrf = $resrf->fetch_assoc();
 
-$resrf1   = $jakdb->query('SELECT COUNT(*) as totalMW FROM ' . DB_PREFIX . 'user WHERE time > DATE_SUB(CURDATE(), INTERVAL 1 WEEK)');
+$resrf1   = $envodb->query('SELECT COUNT(*) as totalMW FROM ' . DB_PREFIX . 'user WHERE time > DATE_SUB(CURDATE(), INTERVAL 1 WEEK)');
 $rwresrf1 = $resrf1->fetch_assoc();
 
-$resrf2   = $jakdb->query('SELECT COUNT(*) as totalMM FROM ' . DB_PREFIX . 'user WHERE time > DATE_SUB(CURDATE(), INTERVAL 4 WEEK)');
+$resrf2   = $envodb->query('SELECT COUNT(*) as totalMM FROM ' . DB_PREFIX . 'user WHERE time > DATE_SUB(CURDATE(), INTERVAL 4 WEEK)');
 $rwresrf2 = $resrf2->fetch_assoc();
 
 ?>

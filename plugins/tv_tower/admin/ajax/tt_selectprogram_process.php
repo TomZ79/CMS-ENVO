@@ -19,7 +19,7 @@ switch ($type) {
 
     // EN: Get data of TV Tower
     // CZ: Získání dat o televizních vysílačích
-    $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'tvtowersidtv WHERE id IN (' . $id . ')');
+    $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'tvtowersidtv WHERE id IN (' . $id . ')');
 
     while ($row = $result->fetch_assoc()) {
 
@@ -33,7 +33,7 @@ switch ($type) {
 
     // EN: Get data of TV Tower
     // CZ: Získání dat o televizních vysílačích
-    $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'tvtowersidr WHERE id IN (' . $id . ')');
+    $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'tvtowersidr WHERE id IN (' . $id . ')');
 
     while ($row = $result->fetch_assoc()) {
 
@@ -47,7 +47,7 @@ switch ($type) {
 
     // EN: Get data of TV Tower
     // CZ: Získání dat o televizních vysílačích
-    $result = $jakdb->query('SELECT * FROM ' . DB_PREFIX . 'tvtowersids WHERE id IN (' . $id . ')');
+    $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'tvtowersids WHERE id IN (' . $id . ')');
 
     while ($row = $result->fetch_assoc()) {
 
