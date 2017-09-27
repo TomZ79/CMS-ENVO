@@ -2,7 +2,7 @@
 
 include_once 'class.rewrite.php';
 
-class JAK_base
+class ENVO_base
 {
   protected $table = '', $itemid = '', $select = '', $where = '', $dseo = '';
   private $data = array();
@@ -166,13 +166,13 @@ class JAK_base
       }
 
       if ($v = $diff->d >= 1) {
-        $timeago = JAK_base::pluralize($diff->d, $lang[0], $lang[4]);
+        $timeago = ENVO_base::pluralize($diff->d, $lang[0], $lang[4]);
       } elseif ($v = $diff->h >= 1) {
-        $timeago = JAK_base::pluralize($diff->h, $lang[1], $lang[5]);
+        $timeago = ENVO_base::pluralize($diff->h, $lang[1], $lang[5]);
       } elseif ($v = $diff->i >= 1) {
-        $timeago = JAK_base::pluralize($diff->i, $lang[2], $lang[6]);
+        $timeago = ENVO_base::pluralize($diff->i, $lang[2], $lang[6]);
       } else {
-        $timeago = JAK_base::pluralize($diff->s, $lang[3], $lang[7]);
+        $timeago = ENVO_base::pluralize($diff->s, $lang[3], $lang[7]);
       }
 
       return sprintf($lang[8], $timeago);
@@ -201,13 +201,13 @@ class JAK_base
       if (in_array(JAK_USERGROUPID, $permission) || $row['permission'] == 0) {
 
         if ($row['catorder'] == 1 && $row['showmenu'] == 1 && $row['catparent'] == 0) {
-          $parseurl = JAK_rewrite::jakParseurl('', '', '', '', '');
+          $parseurl = ENVO_rewrite::envoParseurl('', '', '', '', '');
         } else if ($row['varname'] && !$row['exturl']) {
-          $parseurl = JAK_rewrite::jakParseurl($row['varname'], '', '', '', '');
+          $parseurl = ENVO_rewrite::envoParseurl($row['varname'], '', '', '', '');
         } else if ($row['exturl']) {
           $parseurl = $row['exturl'];
         } else {
-          $parseurl = JAK_rewrite::jakParseurl('', '', '', '', '');
+          $parseurl = ENVO_rewrite::envoParseurl('', '', '', '', '');
         }
 
         $envodata[] = array('id' => $row['id'], 'name' => $row['name'], 'varname' => $parseurl, 'pagename' => $row['varname'], 'content' => $row['content'], 'metadesc' => $row['metadesc'], 'metakey' => $row['metakey'], 'showmenu' => $row['showmenu'], 'showfooter' => $row['showfooter'], 'catorder' => $row['catorder'], 'catimg' => $row['catimg'], 'catparent' => $row['catparent'], 'activeplugin' => $row['activeplugin'], 'pluginid' => $row['pluginid'], 'pageid' => $row['pageid']);
@@ -235,10 +235,10 @@ class JAK_base
           $seo = $row['varname'];
         }
 
-        $row['parseurl'] = JAK_rewrite::jakParseurl($where, 'c', $row['id'], $seo, '');
+        $row['parseurl'] = ENVO_rewrite::envoParseurl($where, 'c', $row['id'], $seo, '');
 
         if ($where1) {
-          $row['parseurl1'] = JAK_rewrite::jakParseurl($where1, $where, $row['id'], '', '');
+          $row['parseurl1'] = ENVO_rewrite::envoParseurl($where1, $where, $row['id'], '', '');
         }
 
         // EN: Insert each record into array

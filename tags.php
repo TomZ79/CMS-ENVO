@@ -13,7 +13,7 @@ $envotable3 = 'news';
 
 // EN: Get all the php Hook by name of Hook
 // CZ: Načtení všech php dat z Hook podle jména Hook
-$JAK_HOOK_TAGS  = $jakhooks->jakGethook("tpl_tags");
+$JAK_HOOK_TAGS  = $envohooks->EnvoGethook("tpl_tags");
 $PAGE_SHOWTITLE = 1;
 
 // AJAX Search
@@ -41,7 +41,7 @@ if (empty($page1)) {
 
         /// EN: Get all the php Hook by name of Hook for tags
         // CZ: Načtení všech php dat z Hook podle jména Hook pro tagy
-        $hooktags = $jakhooks->jakGethook("php_tags");
+        $hooktags = $envohooks->EnvoGethook("php_tags");
         if ($hooktags) {
           foreach ($hooktags as $th) {
             eval($th["phpcode"]);
@@ -56,14 +56,14 @@ if (empty($page1)) {
         if ($envodb->affected_rows > 0) {
           $getStriped = envo_cut_text($row2['content'], $jkv["shortmsg"], '...');
 
-          $parseurl = JAK_rewrite::jakParseurl($row2['varname'], '', '', '', '');
+          $parseurl = ENVO_rewrite::envoParseurl($row2['varname'], '', '', '', '');
 
           $pageData[]        = array('parseurl' => $parseurl, 'title' => $row2['title'], 'content' => $getStriped);
           $JAK_TAG_PAGE_DATA = $pageData;
         }
         // Get the news data
       } elseif ($row['pluginid'] == 1) {
-        $newstagData[]     = JAK_tags::jakTagsql($envotable3, $row['itemid'], "id, title" . ", content", "content", JAK_PLUGIN_VAR_NEWS, 'a', 1);
+        $newstagData[]     = ENVO_tags::jakTagsql($envotable3, $row['itemid'], "id, title" . ", content", "content", JAK_PLUGIN_VAR_NEWS, 'a', 1);
         $JAK_TAG_NEWS_DATA = $newstagData;
       } else {
         // No Tag Data in the while

@@ -6,7 +6,7 @@ if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Get all the php Hook by name of Hook
 // CZ: Načtení všech php dat z Hook podle jména Hook
-$JAK_HOOK_SEARCH = $jakhooks->jakGethook("tpl_search");
+$JAK_HOOK_SEARCH = $envohooks->EnvoGethook("tpl_search");
 
 // Reset vars
 $JAK_SEARCH_WORD_RESULT = $JAK_SEARCH_CLOUD = $SearchInput = FALSE;
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jakSH']) || !empty($pa
 
     // EN: Get all the php Hook by name of Hook for search
     // CZ: Načtení všech php dat z Hook podle jména Hook pro vyhledávání
-    $hooktags = $jakhooks->jakGethook("php_search");
+    $hooktags = $envohooks->EnvoGethook("php_search");
     if ($hooktags) foreach ($hooktags as $th) {
       eval($th["phpcode"]);
     }
@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jakSH']) || !empty($pa
 
 // Always tell the searchword
 $JAK_SEARCH_WORD_RESULT = $SearchInput;
-$JAK_SEARCH_CLOUD       = JAK_tags::jakGettagcloud('search', 'searchlog', $jkv["taglimit"], $jkv["tagmaxfont"], $jkv["tagminfont"], $tl["title_element"]["tel"]);
+$JAK_SEARCH_CLOUD       = ENVO_tags::jakGettagcloud('search', 'searchlog', $jkv["taglimit"], $jkv["tagmaxfont"], $jkv["tagminfont"], $tl["title_element"]["tel"]);
 
 // EN: Set data for the frontend page - Title, Description, Keywords and other ...
 // CZ: Nastavení dat pro frontend stránku - Titulek, Popis, Klíčová slova a další ...

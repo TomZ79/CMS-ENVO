@@ -56,22 +56,22 @@ if (JAK_USERID) {
   $jakplugins = new JAK_plugins(2, '');
 
   // Get all the Hooks
-  $jakhooks = new JAK_hooks(1, '');
+  $envohooks = new ENVO_hooks(1, '');
 
   // EN: Get all the php Hook by name of Hook
   // CZ: Načtení všech php dat z Hook podle jména Hook
-  $hookadminlang = $jakhooks->jakGethook("php_admin_lang");
+  $hookadminlang = $envohooks->EnvoGethook("php_admin_lang");
   if ($hookadminlang) foreach ($hookadminlang as $halang) {
     eval($halang['phpcode']);
   }
 
   // EN: Get all the php Hook by name of Hook for implementing css or javascript into the head and footer section
   // CZ: Načtení všech php dat z Hook podle jména Hook pro implentaci css a javascript do záhlaví a zápatí
-  $JAK_HOOK_HEAD_ADMIN   = $jakhooks->jakGethook("tpl_admin_head");
-  $JAK_HOOK_FOOTER_ADMIN = $jakhooks->jakGethook("tpl_admin_footer");
+  $JAK_HOOK_HEAD_ADMIN   = $envohooks->EnvoGethook("tpl_admin_head");
+  $JAK_HOOK_FOOTER_ADMIN = $envohooks->EnvoGethook("tpl_admin_footer");
 
   // Get all plugins out the databse
-  $JAK_PLUGINS           = $jakplugins->jakGetarray();
+  $JAK_PLUGINS           = $jakplugins->EnvoGetarray();
   $JAK_PLUGINS_TOPNAV    = $jakplugins->jakAdmintopnav();
   $JAK_PLUGINS_MANAGENAV = $jakplugins->jakAdminmanagenav();
   // We need the tags if active right in the beginning
@@ -105,7 +105,7 @@ if (JAK_USERID) {
 
   // EN: Get all the php Hook by name of Hook for admin 'index top'
   // CZ: Načtení všech php dat z Hook podle jména Hook pro admin 'index top'
-  $hookadminit = $jakhooks->jakGethook("php_admin_index_top");
+  $hookadminit = $envohooks->EnvoGethook("php_admin_index_top");
   if ($hookadminit) foreach ($hookadminit as $hait) {
     eval($hait['phpcode']);
   }
@@ -151,7 +151,7 @@ if ($page == '') {
 
     // EN: Get all the php Hook by name of Hook
     // CZ: Načtení všech php dat z Hook podle jména Hook
-    $hookadmini = $jakhooks->jakGethook("php_admin_index");
+    $hookadmini = $envohooks->EnvoGethook("php_admin_index");
     if ($hookadmini)
       foreach ($hookadmini as $hai) {
         eval($hai['phpcode']);
@@ -159,7 +159,7 @@ if ($page == '') {
 
     // EN: Get all the php Hook by name of Hook
     // CZ: Načtení všech php dat z Hook podle jména Hook
-    $JAK_HOOK_ADMIN_INDEX = $jakhooks->jakGethook("tpl_admin_index");
+    $JAK_HOOK_ADMIN_INDEX = $envohooks->EnvoGethook("tpl_admin_index");
 
     // Get the to-do list
     require "../class/class.todo.php";

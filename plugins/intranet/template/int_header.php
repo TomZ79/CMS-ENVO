@@ -85,13 +85,13 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
         </li>
       </ul>
       <!-- BEGIN LOGO -->
-      <a href="<?php echo JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_INTRANET, '', '', '', '') ?>">
+      <a href="<?php echo ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_INTRANET, '', '', '', '') ?>">
         <img src="/plugins/intranet/template/img/logo.png" class="logo" alt="" width="106" height="21"/>
       </a>
       <!-- END LOGO -->
       <ul class="nav pull-right notifcation-center">
         <li class="dropdown hidden-xs hidden-sm">
-          <a href="<?php echo JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_INTRANET, '', '', '', '') ?>" class="dropdown-toggle">
+          <a href="<?php echo ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_INTRANET, '', '', '', '') ?>" class="dropdown-toggle">
             <i class="material-icons">dashboard</i>
           </a>
         </li>
@@ -193,7 +193,7 @@ if (isset($ENVO_NOTIFICATION) && is_array($ENVO_NOTIFICATION)) {
             </a>
             <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
               <li>
-                <a href="<?php echo JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_INTRANET, 'notification', '', '', ''); ?>"> Notifikace
+                <a href="<?php echo ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_INTRANET, 'notification', '', '', ''); ?>"> Notifikace
 
                   <?php
                   if ($notifCount > 0) {

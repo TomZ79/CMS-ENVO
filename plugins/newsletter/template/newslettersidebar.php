@@ -1,7 +1,7 @@
 <?php if (JAK_PLUGIN_ACCESS_NEWSLETTER) {
 
   // get the right url
-  $NL_SUBMIT_LINK = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_NEWSLETTER, 'signup', '', '', '');
+  $NL_SUBMIT_LINK = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_NEWSLETTER, 'signup', '', '', '');
 
   // Show newsletter login form only once
   $shownewsletter_form = TRUE;

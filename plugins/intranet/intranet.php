@@ -36,7 +36,7 @@ $envotable5 = DB_PREFIX . 'intranethousenotificationug';
 $envotable6 = DB_PREFIX . 'intranethousedocu';
 
 // Parse links once if needed a lot of time
-$backtoblog = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_INTRANET, '', '', '', '');
+$backtoblog = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_INTRANET, '', '', '', '');
 
 // EN: If the user is logged in, get username and usergroup name
 // CZ: Pokud je uživatel přihlášen, získej uživatelské jméno a jméno uživatelské skupiny
@@ -152,7 +152,7 @@ switch ($page1) {
           } else {
             // USER HAVE NOT PERMISSION
 
-            envo_redirect(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_INTRANET, '404', '', '', ''));
+            envo_redirect(ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_INTRANET, '404', '', '', ''));
 
           }
 
@@ -170,7 +170,7 @@ switch ($page1) {
         // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
         if (!empty($page2)) {
           if ($page2 != 'h') {
-            envo_redirect(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_INTRANET, '404', '', '', ''));
+            envo_redirect(ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_INTRANET, '404', '', '', ''));
           }
         }
 
@@ -275,7 +275,7 @@ switch ($page1) {
           } else {
             // USER HAVE NOT PERMISSION
 
-            envo_redirect(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_INTRANET, '404', '', '', ''));
+            envo_redirect(ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_INTRANET, '404', '', '', ''));
 
           }
 
@@ -293,7 +293,7 @@ switch ($page1) {
         // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
         if (!empty($page2)) {
           if ($page2 != 'n') {
-            envo_redirect(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_INTRANET, '404', '', '', ''));
+            envo_redirect(ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_INTRANET, '404', '', '', ''));
           }
         }
 
@@ -325,7 +325,7 @@ switch ($page1) {
     // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
     if (!empty($page1)) {
       if ($page1 != 'house') {
-        envo_redirect(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_INTRANET, '404', '', '', ''));
+        envo_redirect(ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_INTRANET, '404', '', '', ''));
       }
     }
 

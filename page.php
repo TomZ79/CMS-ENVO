@@ -12,7 +12,7 @@ $envotable = DB_PREFIX . 'pages';
 $row = $envodb->queryRow('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($pageid) . '"');
 
 // Check if the page is not active and we are not an admin then we redirect
-if ($row['active'] != 1 && !JAK_ASACCESS) envo_redirect(JAK_rewrite::jakParseurl($tl['link']['l3'], $tl['link']['l1'], '', '', ''));
+if ($row['active'] != 1 && !JAK_ASACCESS) envo_redirect(ENVO_rewrite::envoParseurl($tl['link']['l3'], $tl['link']['l1'], '', '', ''));
 
 // Now let's check the hits cookie
 if (!envo_cookie_voted_hits($envotable, $row['id'], 'hits')) {
@@ -20,7 +20,7 @@ if (!envo_cookie_voted_hits($envotable, $row['id'], 'hits')) {
   envo_write_vote_hits_cookie($envotable, $row['id'], 'hits');
 
   // Update hits each time
-  JAK_base::jakUpdatehits($row['id'], $envotable);
+  ENVO_base::jakUpdatehits($row['id'], $envotable);
 }
 
 // EN: Set data for the frontend page - Title, Description, Keywords and other ...
@@ -41,7 +41,7 @@ $JAK_FOOTER_JAVASCRIPT       = $row['page_javascript'];
 $jkv["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
 
 $PAGE_LOGIN_FORM = $row['showlogin'];
-$PAGE_TIME       = JAK_base::jakTimesince($row['time'], $jkv["dateformat"], $jkv["timeformat"], $tl['global_text']['gtxt4']);
+$PAGE_TIME       = ENVO_base::jakTimesince($row['time'], $jkv["dateformat"], $jkv["timeformat"], $tl['global_text']['gtxt4']);
 $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
 if (JAK_USERID) {
@@ -85,7 +85,7 @@ if (!empty($row['shownews'])) {
 
 // EN: Get all the php Hook by name of Hook
 // CZ: Načtení všech php dat z Hook podle jména Hook
-$hookpages = $jakhooks->jakGethook("php_pages_news");
+$hookpages = $envohooks->EnvoGethook("php_pages_news");
 if ($hookpages) foreach ($hookpages as $hpag) {
   eval($hpag["phpcode"]);
 }
@@ -101,14 +101,14 @@ while ($grow = $grid->fetch_assoc()) {
 }
 
 // Get the tags for this page
-$JAK_TAGLIST = JAK_tags::jakGettaglist($row['id'], 0, JAK_PLUGIN_VAR_TAGS);
+$JAK_TAGLIST = ENVO_tags::jakGettaglist($row['id'], 0, JAK_PLUGIN_VAR_TAGS);
 
 // EN: Get all the php Hook by name of Hook from page and news grid
 // CZ: Načtení všech php dat z Hook podle jména Hook z rozložení stránky a zpráv (news)
-$JAK_HOOK_PAGE_GRID = $jakhooks->jakGethook("tpl_page_news_grid");
+$JAK_HOOK_PAGE_GRID = $envohooks->EnvoGethook("tpl_page_news_grid");
 
 // Get the url session
-$_SESSION['jak_lastURL'] = JAK_rewrite::jakParseurl($page, $page1, $page2, '', '');
+$_SESSION['jak_lastURL'] = ENVO_rewrite::envoParseurl($page, $page1, $page2, '', '');
 
 // AJAX Search
 $AJAX_SEARCH_PLUGIN_WHERE = $envotable;

@@ -160,7 +160,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                    echo $Html->addAnchor((JAK_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(JAK_rewrite::jakParseurl($rowc['varname'], 'fv', $ENVO_FORM_DATA['id'], $ENVO_FORM_DATA['fullview'], '')), $tlnl["newsletter_box_content"]["nlbc24"]);
+                    echo $Html->addAnchor((JAK_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(ENVO_rewrite::envoParseurl($rowc['varname'], 'fv', $ENVO_FORM_DATA['id'], $ENVO_FORM_DATA['fullview'], '')), $tlnl["newsletter_box_content"]["nlbc24"]);
                     ?>
 
                   </div>

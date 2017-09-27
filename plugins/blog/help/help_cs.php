@@ -451,7 +451,7 @@ $blog = new JAK_search($SearchInput);
 
         <pre class="prettyprint linenums lang-php">
 if ($row['pluginid'] == JAK_PLUGIN_ID_BLOG) {
-	$blogtagData[] = JAK_tags::jakTagsql("blog", $row['itemid'], "id, title, content", "content", JAK_PLUGIN_VAR_BLOG, "a", $jkv["blogurl"]);
+	$blogtagData[] = ENVO_tags::jakTagsql("blog", $row['itemid'], "id, title, content", "content", JAK_PLUGIN_VAR_BLOG, "a", $jkv["blogurl"]);
 	$JAK_TAG_BLOG_DATA = $blogtagData;
 }
         </pre>

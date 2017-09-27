@@ -23,12 +23,12 @@ include_once 'include/admin.function.php';
 
 // Overwrite url for admin
 // We are not using apache so take the ugly urls
-$temppa  = $getURL->jakGetsegAdmin(0);
-$temppa1 = $getURL->jakGetsegAdmin(1);
-$temppa2 = $getURL->jakGetsegAdmin(2);
-$temppa3 = $getURL->jakGetsegAdmin(3);
-$temppa4 = $getURL->jakGetsegAdmin(4);
-$temppa5 = $getURL->jakGetsegAdmin(5);
-$temppa6 = $getURL->jakGetsegAdmin(6);
+$temppa  = $getURL->envoGetsegAdmin(0);
+$temppa1 = $getURL->envoGetsegAdmin(1);
+$temppa2 = $getURL->envoGetsegAdmin(2);
+$temppa3 = $getURL->envoGetsegAdmin(3);
+$temppa4 = $getURL->envoGetsegAdmin(4);
+$temppa5 = $getURL->envoGetsegAdmin(5);
+$temppa6 = $getURL->envoGetsegAdmin(6);
 
 ?>

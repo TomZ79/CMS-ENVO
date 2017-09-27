@@ -241,7 +241,7 @@ switch ($page1) {
             $rowc    = $resultc->fetch_assoc();
 
             // Get the browserversion
-            $fullversion = (JAK_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(JAK_rewrite::jakParseurl($rowc['varname'], 'fv', $row['id'], $row['fullview'], ''));
+            $fullversion = (JAK_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(ENVO_rewrite::envoParseurl($rowc['varname'], 'fv', $row['id'], $row['fullview'], ''));
 
             // Set vars to zero
             $countNL   = 0;
@@ -290,7 +290,7 @@ switch ($page1) {
                 while ($row1 = $result1->fetch_assoc()) {
 
                   // Get the delete code for each user
-                  $unsubscribe = (JAK_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(JAK_rewrite::jakParseurl($rowc['varname'], 'nlo', $row1['delcode'], '', ''));
+                  $unsubscribe = (JAK_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(ENVO_rewrite::envoParseurl($rowc['varname'], 'nlo', $row1['delcode'], '', ''));
 
                   // Change fake vars into real ones.
                   $cssAtt    = array('{myweburl}', '{mywebname}', '{browserversion}', '{unsubscribe}', '{username}', '{fullname}', '{useremail}');
@@ -331,7 +331,7 @@ switch ($page1) {
                 while ($row2 = $result2->fetch_assoc()) {
 
                   // Get the delete code for each user
-                  $unsubscribe = (JAK_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(JAK_rewrite::jakParseurl($rowc['varname'], 'nlom', $row2['id'], '', ''));
+                  $unsubscribe = (JAK_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(ENVO_rewrite::envoParseurl($rowc['varname'], 'nlom', $row2['id'], '', ''));
 
                   // Change fake vars into real ones.
                   $cssAtt    = array('{myweburl}', '{mywebname}', '{browserversion}', '{unsubscribe}', '{username}', '{fullname}', '{useremail}');

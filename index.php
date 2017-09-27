@@ -45,32 +45,32 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 define('JAK_PAGINATE_ADMIN', 0);
 
 // Parse stuff we use more then once
-define('JAK_PARSE_ERROR', html_entity_decode(JAK_rewrite::jakParseurl('error', 'mysql')));
-define('JAK_PARSE_SUCCESS', html_entity_decode(JAK_rewrite::jakParseurl('success')));
+define('JAK_PARSE_ERROR', html_entity_decode(ENVO_rewrite::envoParseurl('error', 'mysql')));
+define('JAK_PARSE_SUCCESS', html_entity_decode(ENVO_rewrite::envoParseurl('success')));
 
 // EN: Get the language file from the Hook by  name of Hook
 // CZ: Načtení jazykového souboru z Hook podle jména Hook
-$hooklang = $jakhooks->jakGethook("php_lang");
+$hooklang = $envohooks->EnvoGethook("php_lang");
 if ($hooklang) foreach ($hooklang as $hlang) {
   eval($hlang['phpcode']);
 }
 
 // EN: Get all data from the Hook by name of Hook
 // CZ: Načtení všech dat z Hook podle jména Hook
-$JAK_HOOK_HEAD_TOP      = $jakhooks->jakGethook("tpl_between_head");
-$JAK_HOOK_BODY_TOP      = $jakhooks->jakGethook("tpl_body_top");
-$JAK_HOOK_HEADER        = $jakhooks->jakGethook("tpl_header");
-$JAK_HOOK_BELOW_HEADER  = $jakhooks->jakGethook("tpl_below_header");
-$JAK_HOOK_PAGE          = $jakhooks->jakGethook("tpl_page");
-$JAK_HOOK_SIDEBAR       = $jakhooks->jakGethook("tpl_sidebar");
-$JAK_HOOK_BELOW_CONTENT = $jakhooks->jakGethook("tpl_below_content");
-$JAK_HOOK_FOOTER        = $jakhooks->jakGethook("tpl_footer");
-$JAK_HOOK_FOOTER_WIDGET = $jakhooks->jakGethook("tpl_footer_widgets");
-$JAK_HOOK_FOOTER_END    = $jakhooks->jakGethook("tpl_footer_end");
+$JAK_HOOK_HEAD_TOP      = $envohooks->EnvoGethook("tpl_between_head");
+$JAK_HOOK_BODY_TOP      = $envohooks->EnvoGethook("tpl_body_top");
+$JAK_HOOK_HEADER        = $envohooks->EnvoGethook("tpl_header");
+$JAK_HOOK_BELOW_HEADER  = $envohooks->EnvoGethook("tpl_below_header");
+$JAK_HOOK_PAGE          = $envohooks->EnvoGethook("tpl_page");
+$JAK_HOOK_SIDEBAR       = $envohooks->EnvoGethook("tpl_sidebar");
+$JAK_HOOK_BELOW_CONTENT = $envohooks->EnvoGethook("tpl_below_content");
+$JAK_HOOK_FOOTER        = $envohooks->EnvoGethook("tpl_footer");
+$JAK_HOOK_FOOTER_WIDGET = $envohooks->EnvoGethook("tpl_footer_widgets");
+$JAK_HOOK_FOOTER_END    = $envohooks->EnvoGethook("tpl_footer_end");
 
 // EN: Get all the php Hook by name of Hook for 'index top'
 // CZ: Načtení všech php dat z Hook podle jména Hook pro 'index top'
-$indexhook = $jakhooks->jakGethook("php_index_top");
+$indexhook = $envohooks->EnvoGethook("php_index_top");
 if ($indexhook) {
   foreach ($indexhook as $it) {
     eval($it['phpcode']);
@@ -85,7 +85,7 @@ if (JAK_USERID) {
   define('JAK_USERGROUPID', $jakuser->getVar("usergroupid"));
   $JAK_USERNAME_LINK = strtolower($jakuser->getVar("username"));
   $JAK_USERNAME      = $jakuser->getVar("username");
-  $P_USR_LOGOUT      = JAK_rewrite::jakParseurl('logout', '', '', '', '');
+  $P_USR_LOGOUT      = ENVO_rewrite::envoParseurl('logout', '', '', '', '');
 
   // does the user have admin access
   if ($jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) {
@@ -137,7 +137,7 @@ define('JAK_SEARCH', $jkv["searchform"]);
 define('JAK_CONTACT_FORM', $jkv["contactform"]);
 
 // Get all the active categories available in the db
-$jakcategories = JAK_base::jakGetallcategories();
+$jakcategories = ENVO_base::jakGetallcategories();
 
 // Let's check if News are active
 define('JAK_NEWS_ACTIVE', $jakplugins->getPHPcodeid(1, "active"));
@@ -302,7 +302,7 @@ foreach ($jakcategories as $ca) {
       } elseif ($ca['pageid'] > 0) {
         $pageid = $ca['pageid'];
       } else {
-        envo_redirect(JAK_rewrite::jakParseurl('404', '', '', '', ''));
+        envo_redirect(ENVO_rewrite::envoParseurl('404', '', '', '', ''));
       }
 
       // Include the page php file
@@ -312,7 +312,7 @@ foreach ($jakcategories as $ca) {
       // Get the rss if active
       if ($jkv["rss"]) {
         $JAK_RSS_DISPLAY = 1;
-        $P_RSS_LINK      = JAK_rewrite::jakParseurl('rss.xml', '', '', '', '');
+        $P_RSS_LINK      = ENVO_rewrite::envoParseurl('rss.xml', '', '', '', '');
       }
       break;
     }
@@ -381,7 +381,7 @@ if ($page == 'search') {
   */
 
   // Get the url session
-  $_SESSION['jak_lastURL'] = JAK_rewrite::jakParseurl('search');
+  $_SESSION['jak_lastURL'] = ENVO_rewrite::envoParseurl('search');
   require_once 'search.php';
   $PAGE_SHOWTITLE = 1;
   $JAK_CHECK_PAGE = 1;
@@ -496,7 +496,7 @@ if ($page == 'forgot-password') {
  *  PHP HOOKs for INDEX PAGE - PHP HOOK pro INDEX PAGE
  * ===================================================== */
 // Get the php hook for index page
-$hookip = $jakhooks->jakGethook("php_index_page");
+$hookip = $envohooks->EnvoGethook("php_index_page");
 if ($hookip) foreach ($hookip as $hip) {
   eval($hip['phpcode']);
 }
@@ -504,11 +504,11 @@ if ($hookip) foreach ($hookip as $hip) {
 // EN: If page not found
 // CZ: Pokud stránka není nalezena
 if ($JAK_CHECK_PAGE == 0) {
-  envo_redirect(JAK_rewrite::jakParseurl('404', '', '', '', ''));
+  envo_redirect(ENVO_rewrite::envoParseurl('404', '', '', '', ''));
 }
 
 // Get the categories with usergroup rights
-$JAK_CAT_SITE = JAK_base::jakCatdisplay(JAK_USERGROUPID, $usraccesspl, $jakcategories);
+$JAK_CAT_SITE = ENVO_base::jakCatdisplay(JAK_USERGROUPID, $usraccesspl, $jakcategories);
 
 // Get the header navigation
 $mheader = array(
@@ -549,14 +549,14 @@ if (JAK_NEWS_ACTIVE && $newsloadonce && $jkv["shownews"]) {
 }
 
 // We have tags
-if (JAK_TAGS) $JAK_GET_TAG_CLOUD = JAK_tags::jakGettagcloud(JAK_PLUGIN_VAR_TAGS, 'tagcloud', $jkv["taglimit"], $jkv["tagmaxfont"], $jkv["tagminfont"], $tl["title_element"]["tel"]);
+if (JAK_TAGS) $JAK_GET_TAG_CLOUD = ENVO_tags::jakGettagcloud(JAK_PLUGIN_VAR_TAGS, 'tagcloud', $jkv["taglimit"], $jkv["tagmaxfont"], $jkv["tagminfont"], $tl["title_element"]["tel"]);
 
 // SEARCH, NEWS and Mobile/Web LINK
-$P_SEAERCH_LINK = JAK_rewrite::jakParseurl('search', '', '', '', '');
-if (JAK_NEWS_ACTIVE) $P_NEWS_LINK = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_NEWS, '', '', '', '');
+$P_SEAERCH_LINK = ENVO_rewrite::envoParseurl('search', '', '', '', '');
+if (JAK_NEWS_ACTIVE) $P_NEWS_LINK = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_NEWS, '', '', '', '');
 
 // Get the php hook for index bottom
-$hookib = $jakhooks->jakGethook("php_index_bottom");
+$hookib = $envohooks->EnvoGethook("php_index_bottom");
 if ($hookib) foreach ($hookib as $hib) {
   eval($hib['phpcode']);
 }

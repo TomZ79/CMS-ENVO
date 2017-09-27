@@ -1,7 +1,7 @@
 <ul>
   <!-- dashboard -->
   <li>
-    <a href="<?php echo JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_INTRANET, '', '', '', '')?>">
+    <a href="<?php echo ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_INTRANET, '', '', '', '')?>">
       <i class="material-icons">dashboard</i>
       <span class="title">Dashboard</span>
     </a>
@@ -16,7 +16,7 @@
     </a>
     <ul class="sub-menu">
       <li>
-        <a href="<?php echo JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_INTRANET, 'house', '', '', '')?>">
+        <a href="<?php echo ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_INTRANET, 'house', '', '', '')?>">
           <span>Seznam domů</span>
         </a>
       </li>

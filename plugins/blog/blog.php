@@ -34,11 +34,11 @@ $AJAX_SEARCH_PLUGIN_SEO   = $jkv["blogurl"];
 // Get the rss if active
 if ($jkv["blogrss"]) {
   $JAK_RSS_DISPLAY = 1;
-  $P_RSS_LINK      = JAK_rewrite::jakParseurl('rss.xml', JAK_PLUGIN_VAR_BLOG, '', '', '');
+  $P_RSS_LINK      = ENVO_rewrite::envoParseurl('rss.xml', JAK_PLUGIN_VAR_BLOG, '', '', '');
 }
 
 // Parse links once if needed a lot of time
-$backtoblog = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_BLOG, '', '', '', '');
+$backtoblog = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_BLOG, '', '', '', '');
 
 // Template Call
 $JAK_TPL_PLUG_T   = JAK_PLUGIN_NAME_BLOG;
@@ -55,10 +55,10 @@ switch ($page1) {
     if (is_numeric($page2) && envo_row_permission($page2, $envotable1, JAK_USERGROUPID)) {
 
       if ($jkv["blogurl"]) {
-        $getWhere = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_BLOG, $page1, $page2, $page3, '');
+        $getWhere = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_BLOG, $page1, $page2, $page3, '');
         $getPage  = $page4;
       } else {
-        $getWhere = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_BLOG, $page1, $page2, '', '');
+        $getWhere = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_BLOG, $page1, $page2, '', '');
         $getPage  = $page3;
       }
 
@@ -146,7 +146,7 @@ switch ($page1) {
 
       if ($row['active'] != 1) {
 
-        envo_redirect(JAK_rewrite::jakParseurl('offline'));
+        envo_redirect(ENVO_rewrite::envoParseurl('offline'));
 
       } else {
 
@@ -161,7 +161,7 @@ switch ($page1) {
             envo_write_vote_hits_cookie($envotable, $row['id'], 'hits');
 
             // Update hits each time
-            JAK_base::jakUpdatehits($row['id'], $envotable);
+            ENVO_base::jakUpdatehits($row['id'], $envotable);
           }
 
           // Now output the data
@@ -188,7 +188,7 @@ switch ($page1) {
           }
 
           // Get the url session
-          $_SESSION['jak_lastURL'] = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_BLOG, $page1, $page2, $page3, '');
+          $_SESSION['jak_lastURL'] = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_BLOG, $page1, $page2, $page3, '');
 
         }
 
@@ -203,17 +203,17 @@ switch ($page1) {
         }
 
         // Show Tags
-        $JAK_TAGLIST = JAK_tags::jakGettaglist_class($page2, JAK_PLUGIN_ID_BLOG, JAK_PLUGIN_VAR_TAGS, 'tips', $tl["title_element"]["tel"]);
+        $JAK_TAGLIST = ENVO_tags::jakGettaglist_class($page2, JAK_PLUGIN_ID_BLOG, JAK_PLUGIN_VAR_TAGS, 'tips', $tl["title_element"]["tel"]);
 
         // Page Nav
         $nextp = envo_next_page($page2, 'title', $envotable, 'id', ' AND catid != 0', '', 'active');
         if ($nextp) {
 
           if ($jkv["blogurl"]) {
-            $seo = JAK_base::jakCleanurl($nextp['title']);
+            $seo = ENVO_base::jakCleanurl($nextp['title']);
           }
 
-          $JAK_NAV_NEXT       = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_BLOG, 'a', $nextp['id'], $seo, '');
+          $JAK_NAV_NEXT       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_BLOG, 'a', $nextp['id'], $seo, '');
           $JAK_NAV_NEXT_TITLE = $nextp['title'];
         }
 
@@ -221,10 +221,10 @@ switch ($page1) {
         if ($prevp) {
 
           if ($jkv["blogurl"]) {
-            $seop = JAK_base::jakCleanurl($prevp['title']);
+            $seop = ENVO_base::jakCleanurl($prevp['title']);
           }
 
-          $JAK_NAV_PREV       = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_BLOG, 'a', $prevp['id'], $seop, '');
+          $JAK_NAV_PREV       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_BLOG, 'a', $prevp['id'], $seop, '');
           $JAK_NAV_PREV_TITLE = $prevp['title'];
         }
 
@@ -233,12 +233,12 @@ switch ($page1) {
         while ($rowc = $resultc->fetch_assoc()) {
 
           if ($jkv["blogurl"]) {
-            $seoc = JAK_base::jakCleanurl($rowc['varname']);
+            $seoc = ENVO_base::jakCleanurl($rowc['varname']);
           }
 
           // EN: Create array with all categories ( Plugin Blog have one or more categories for one article, in array will be it one or more categories )
           // CZ: Vytvoření pole se všemi kategoriemi ( Plugin Blog má jednu nebo více kategorií pro jeden článek, v poli bude jedna nebo více kategorií )
-          $catids[] = '<span class="blog-cat-list"><a href="' . JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_BLOG, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tlblog["blog_frontend"]["blog1"] . '">' . $rowc['name'] . '</a></span>';
+          $catids[] = '<span class="blog-cat-list"><a href="' . ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_BLOG, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tlblog["blog_frontend"]["blog1"] . '">' . $rowc['name'] . '</a></span>';
 
           // EN: Get 'varname' for category
           // CZ: Získaní 'varname' kategorie

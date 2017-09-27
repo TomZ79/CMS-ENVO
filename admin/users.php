@@ -17,8 +17,8 @@ $JAK_SEARCH = $JAK_LIST_USER = $SEARCH_WORD = $updatepass = $insert = FALSE;
 
 // EN: Get all the php Hook by name of Hook
 // CZ: Načtení všech php dat z Hook podle jména Hook
-$JAK_HOOK_ADMIN_USER      = $jakhooks->jakGethook("tpl_admin_user");
-$JAK_HOOK_ADMIN_USER_EDIT = $jakhooks->jakGethook("tpl_admin_user_edit");
+$JAK_HOOK_ADMIN_USER      = $envohooks->EnvoGethook("tpl_admin_user");
+$JAK_HOOK_ADMIN_USER_EDIT = $envohooks->EnvoGethook("tpl_admin_user_edit");
 
 // EN: Switching access all pages by page name
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
@@ -52,7 +52,7 @@ switch ($page1) {
 
       // EN: Get all the php Hook by name of Hook for display in user - pass it with $insert .= to the query
       // CZ: Načtení všech php dat z Hook podle jména Hook
-      $hookuser = $jakhooks->jakGethook("php_admin_user");
+      $hookuser = $envohooks->EnvoGethook("php_admin_user");
       if ($hookuser) foreach ($hookuser as $husr) {
         eval($husr['phpcode']);
       }
@@ -269,7 +269,7 @@ switch ($page1) {
 
                 // EN: Get all the php Hook by name of Hook for search
                 // CZ: Načtení všech php dat z Hook podle jména Hook pro vyhledávání
-                $hookusrmassdel = $jakhooks->jakGethook("php_admin_user_delete_mass");
+                $hookusrmassdel = $envohooks->EnvoGethook("php_admin_user_delete_mass");
                 if ($hookusrmassdel)
                   foreach ($hookusrmassdel as $humd) {
                     eval($humd['phpcode']);
@@ -372,7 +372,7 @@ switch ($page1) {
 
         if ($row['access'] == 3) {
 
-          $confirmlink = '<a href="' . (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . JAK_rewrite::jakParseurl('rf_ual', $row['id'], $row['activatenr'], $row['username'], '') . '">' . (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . JAK_rewrite::jakParseurl('rf_ual', $row['id'], $row['activatenr'], $row['username'], '') . '</a>';
+          $confirmlink = '<a href="' . (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . ENVO_rewrite::envoParseurl('rf_ual', $row['id'], $row['activatenr'], $row['username'], '') . '">' . (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . ENVO_rewrite::envoParseurl('rf_ual', $row['id'], $row['activatenr'], $row['username'], '') . '</a>';
 
           // Send email to member with verification code
           $mail = new PHPMailer(); // defaults to using php "mail()"
@@ -476,7 +476,7 @@ switch ($page1) {
 
           // EN: Get all the php Hook by name of Hook for single delete
           // CZ: Načtení všech php dat z Hook podle jména Hook
-          $hookusrdel = $jakhooks->jakGethook("php_admin_user_delete");
+          $hookusrdel = $envohooks->EnvoGethook("php_admin_user_delete");
           if ($hookusrdel) foreach ($hookusrdel as $hud) {
             eval($hud['phpcode']);
           }
@@ -554,7 +554,7 @@ switch ($page1) {
 
             // EN: Get all the php Hook by name of Hook for display in user - pass it with $insert .= to the query
             // CZ: Načtení všech php dat z Hook podle jména Hook
-            $hookuser = $jakhooks->jakGethook("php_admin_user_edit");
+            $hookuser = $envohooks->EnvoGethook("php_admin_user_edit");
             if ($hookuser) foreach ($hookusere as $husre) {
               eval($husre['phpcode']);
             }
@@ -711,7 +711,7 @@ switch ($page1) {
 
                   // EN: Get all the php Hook by name of Hook for search
                   // CZ: Načtení všech php dat z Hook podle jména Hook pro vyhledávání
-                  $hookusrrename = $jakhooks->jakGethook("php_admin_user_rename");
+                  $hookusrrename = $envohooks->EnvoGethook("php_admin_user_rename");
                   if ($hookusrrename)
                     foreach ($hookusrrename as $hur) {
                       eval($hur['phpcode']);
@@ -888,7 +888,7 @@ switch ($page1) {
 
                 // EN: Get all the php Hook by name of Hook for search
                 // CZ: Načtení všech php dat z Hook podle jména Hook pro vyhledávání
-                $hookusrmassdel = $jakhooks->jakGethook("php_admin_user_delete_mass");
+                $hookusrmassdel = $envohooks->EnvoGethook("php_admin_user_delete_mass");
                 if ($hookusrmassdel)
                   foreach ($hookusrmassdel as $humd) {
                     eval($humd['phpcode']);

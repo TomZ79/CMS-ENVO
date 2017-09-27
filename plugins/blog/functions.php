@@ -23,8 +23,8 @@ function envo_get_blog($limit, $order, $where, $table_row, $ext_seo, $timeago)
 
     // There should be always a varname in categories and check if seo is valid
     $seo = '';
-    if ($ext_seo) $seo = JAK_base::jakCleanurl($row['title']);
-    $parseurl = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_BLOG, 'a', $row['id'], $seo);
+    if ($ext_seo) $seo = ENVO_base::jakCleanurl($row['title']);
+    $parseurl = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_BLOG, 'a', $row['id'], $seo);
 
     // finally get the time
     $getTime = JAK_Base::jakTimesince($row['time'], $jkv["blogdateformat"], $jkv["blogtimeformat"], $timeago);

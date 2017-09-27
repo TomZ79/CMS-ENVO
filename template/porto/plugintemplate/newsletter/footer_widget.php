@@ -1,7 +1,7 @@
 <?php if (JAK_PLUGIN_ACCESS_NEWSLETTER && $shownewsletter_form == FALSE) {
 
   // get the right url
-  $NL_SUBMIT_LINK = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_NEWSLETTER, 'signup', '', '', '');
+  $NL_SUBMIT_LINK = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_NEWSLETTER, 'signup', '', '', '');
 
   ?>
 

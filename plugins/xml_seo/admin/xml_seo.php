@@ -66,7 +66,7 @@ switch ($page1) {
       // Other pages
       while ($row = $result->fetch_assoc()) {
 
-        $parseurl = JAK_rewrite::jakParseurl($row['varname'], '', '', '', '');
+        $parseurl = ENVO_rewrite::envoParseurl($row['varname'], '', '', '', '');
 
         // EN: Insert each record into array
         // CZ: Vložení získaných dat do pole
@@ -81,7 +81,7 @@ switch ($page1) {
       $num_results2 = $result2->num_rows;
 
       if ($num_results1 !== 0 && $num_results2 !== 0) {
-        $parseurl = JAK_rewrite::jakParseurl($row1['varname'], '', '', '', '');
+        $parseurl = ENVO_rewrite::envoParseurl($row1['varname'], '', '', '', '');
         // EN: Insert each record into array
         // CZ: Vložení získaných dat do pole
         $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
@@ -94,7 +94,7 @@ switch ($page1) {
       $result1 = $envodb->query('SELECT id, title FROM ' . DB_PREFIX . 'news WHERE active = 1');
 
       while ($row1 = $result1->fetch_assoc()) {
-        $parseurl = JAK_rewrite::jakParseurl($row['varname'], $row1['id'], JAK_base::jakCleanurl($row1['title']), '', '');
+        $parseurl = ENVO_rewrite::envoParseurl($row['varname'], $row1['id'], ENVO_base::jakCleanurl($row1['title']), '', '');
         // EN: Insert each record into array
         // CZ: Vložení získaných dat do pole
         $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
@@ -107,7 +107,7 @@ switch ($page1) {
       $result1 = $envodb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE active = 1 GROUP BY tag');
 
       while ($row1 = $result1->fetch_assoc()) {
-        $parseurl = JAK_rewrite::jakParseurl($row['varname'], $row1['tag'], '', '', '');
+        $parseurl = ENVO_rewrite::envoParseurl($row['varname'], $row1['tag'], '', '', '');
         // EN: Insert each record into array
         // CZ: Vložení získaných dat do pole
         $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
@@ -127,9 +127,9 @@ switch ($page1) {
 
         while ($row1 = $result1->fetch_assoc()) {
           if ($jkv["downloadurl"]) {
-            $seo = JAK_base::jakCleanurl($row1['title']);
+            $seo = ENVO_base::jakCleanurl($row1['title']);
           }
-          $parseurl = JAK_rewrite::jakParseurl($row['varname'], 'f', $row1['id'], $seo, '', '');
+          $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 'f', $row1['id'], $seo, '', '');
           // EN: Insert each record into array
           // CZ: Vložení získaných dat do pole
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', $FREQUENCYDOWNLOAD);
@@ -156,9 +156,9 @@ switch ($page1) {
 
         while ($row1 = $result1->fetch_assoc()) {
           if ($jkv["shopurl"]) {
-            $seo = JAK_base::jakCleanurl($row1['title']);
+            $seo = ENVO_base::jakCleanurl($row1['title']);
           }
-          $parseurl = JAK_rewrite::jakParseurl($row['varname'], 'i', $row1['id'], $seo, '', '');
+          $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 'i', $row1['id'], $seo, '', '');
           // EN: Insert each record into array
           // CZ: Vložení získaných dat do pole
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
@@ -185,9 +185,9 @@ switch ($page1) {
 
         while ($row1 = $result1->fetch_assoc()) {
           if ($jkv["ticketurl"]) {
-            $seo = JAK_base::jakCleanurl($row1['title']);
+            $seo = ENVO_base::jakCleanurl($row1['title']);
           }
-          $parseurl = JAK_rewrite::jakParseurl($row['varname'], 't', $row1['id'], $seo, '', '');
+          $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 't', $row1['id'], $seo, '', '');
           // EN: Insert each record into array
           // CZ: Vložení získaných dat do pole
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
@@ -214,9 +214,9 @@ switch ($page1) {
 
         while ($row1 = $result1->fetch_assoc()) {
           if ($jkv["faqurl"]) {
-            $seo = JAK_base::jakCleanurl($row1['title']);
+            $seo = ENVO_base::jakCleanurl($row1['title']);
           }
-          $parseurl = JAK_rewrite::jakParseurl($row['varname'], 'a', $row1['id'], $seo, '', '');
+          $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 'a', $row1['id'], $seo, '', '');
           // EN: Insert each record into array
           // CZ: Vložení získaných dat do pole
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
@@ -242,9 +242,9 @@ switch ($page1) {
 
         while ($row1 = $result1->fetch_assoc()) {
           if ($jkv["blogurl"]) {
-            $seo = JAK_base::jakCleanurl($row1['title']);
+            $seo = ENVO_base::jakCleanurl($row1['title']);
           }
-          $parseurl = JAK_rewrite::jakParseurl($row['varname'], 'a', $row1['id'], $seo, '', '');
+          $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 'a', $row1['id'], $seo, '', '');
 
           // EN: Insert each record into array
           // CZ: Vložení získaných dat do pole
@@ -271,9 +271,9 @@ switch ($page1) {
 
         while ($row1 = $result1->fetch_assoc()) {
           if ($jkv["b2b_url"]) {
-            $seo = JAK_base::jakCleanurl($row1['title']);
+            $seo = ENVO_base::jakCleanurl($row1['title']);
           }
-          $parseurl = JAK_rewrite::jakParseurl($row['varname'], 'i', $row1['id'], $seo, '', '');
+          $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 'i', $row1['id'], $seo, '', '');
           // EN: Insert each record into array
           // CZ: Vložení získaných dat do pole
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');

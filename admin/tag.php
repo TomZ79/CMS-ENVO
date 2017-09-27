@@ -226,7 +226,7 @@ switch ($page1) {
     // EN: Get all the php Hook by name of Hook
     // CZ: Načtení všech php dat z Hook podle jména Hook
     $ENVO_FORM_DATA = array();
-    $hookpagei     = $jakhooks->jakGethook("php_admin_pages_news_info");
+    $hookpagei     = $envohooks->EnvoGethook("php_admin_pages_news_info");
     if ($hookpagei) {
       foreach ($hookpagei as $hpagi) {
         eval($hpagi['phpcode']);
@@ -257,7 +257,7 @@ switch ($page1) {
 
         for ($i = 0; $i < count($tags); $i++) {
           $tag = $tags[$i];
-          JAK_tags::jakDeleteonetag($tag);
+          ENVO_tags::jakDeleteonetag($tag);
         }
 
         // EN: Redirect page
@@ -339,7 +339,7 @@ switch ($page1) {
 
         if (is_numeric($page2)) {
 
-          JAK_tags::jakLocktag($page2);
+          ENVO_tags::jakLocktag($page2);
 
           // EN: Redirect page
           // CZ: Přesměrování stránky
@@ -355,7 +355,7 @@ switch ($page1) {
       case 'delete':
         if (envo_row_exist($page2, $envotable)) {
 
-          JAK_tags::jakDeleteonetag($page2);
+          ENVO_tags::jakDeleteonetag($page2);
 
           // EN: Redirect page
           // CZ: Přesměrování stránky s notifikací - úspěšné

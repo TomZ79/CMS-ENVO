@@ -35,11 +35,11 @@ $AJAX_SEARCH_PLUGIN_SEO   = $jkv["faqurl"];
 // Get the rss if active
 if ($jkv["faqrss"]) {
   $JAK_RSS_DISPLAY = 1;
-  $P_RSS_LINK      = JAK_rewrite::jakParseurl('rss.xml', JAK_PLUGIN_VAR_FAQ, '', '', '');
+  $P_RSS_LINK      = ENVO_rewrite::envoParseurl('rss.xml', JAK_PLUGIN_VAR_FAQ, '', '', '');
 }
 
 // Parse links once if needed a lot of time
-$backtofaq = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_FAQ, '', '', '', '');
+$backtofaq = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_FAQ, '', '', '', '');
 
 // Template Call
 $JAK_TPL_PLUG_T   = JAK_PLUGIN_NAME_FAQ;
@@ -58,10 +58,10 @@ switch ($page1) {
       $getTotal = envo_get_total($envotable, $page2, 'catid', 'active');
 
       if ($jkv["faqurl"]) {
-        $getWhere = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_FAQ, $page1, $page2, $page3, '');
+        $getWhere = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_FAQ, $page1, $page2, $page3, '');
         $getPage  = $page4;
       } else {
-        $getWhere = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_FAQ, $page1, $page2, '', '');
+        $getWhere = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_FAQ, $page1, $page2, '', '');
         $getPage  = $page3;
       }
 
@@ -144,7 +144,7 @@ switch ($page1) {
       $row    = $result->fetch_assoc();
 
       if ($row['active'] != 1) {
-        envo_redirect(JAK_rewrite::jakParseurl('offline'));
+        envo_redirect(ENVO_rewrite::envoParseurl('offline'));
       } else {
 
         if (!envo_row_permission($row['catid'], $envotable1, JAK_USERGROUPID)) {
@@ -157,7 +157,7 @@ switch ($page1) {
             envo_write_vote_hits_cookie($envotable, $row['id'], 'hits');
 
             // Update hits each time
-            JAK_base::jakUpdatehits($row['id'], $envotable);
+            ENVO_base::jakUpdatehits($row['id'], $envotable);
           }
 
           // Now output the data
@@ -180,7 +180,7 @@ switch ($page1) {
           }
 
           // Get the url session
-          $_SESSION['jak_lastURL'] = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_FAQ, $page1, $page2, $page3, '');
+          $_SESSION['jak_lastURL'] = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_FAQ, $page1, $page2, $page3, '');
 
         }
 
@@ -195,19 +195,19 @@ switch ($page1) {
         }
 
         // Show Tags
-        $JAK_TAGLIST = JAK_tags::jakGettaglist($page2, JAK_PLUGIN_ID_FAQ, JAK_PLUGIN_VAR_TAGS);
+        $JAK_TAGLIST = ENVO_tags::jakGettaglist($page2, JAK_PLUGIN_ID_FAQ, JAK_PLUGIN_VAR_TAGS);
 
         // Get the categories into a list
         $resultc = $envodb->query('SELECT id, name, varname FROM ' . $envotable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
         while ($rowc = $resultc->fetch_assoc()) {
 
           if ($jkv["faqurl"]) {
-            $seoc = JAK_base::jakCleanurl($rowc['varname']);
+            $seoc = ENVO_base::jakCleanurl($rowc['varname']);
           }
 
           // EN: Create array with all categories ( Plugin Download have only one category for one download file, in array will be it only one category )
           // CZ: Vytvoření pole se všemi kategoriemi ( Plugin Download má pouze jednu kategorie pro jeden stahovaný soubor, v poli bude jen jedna kategorie )
-          $catids[] = '<a class="category-label"  href="' . JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_FAQ, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tlf["faq_frontend"]["faq2"] . '">' . $rowc['name'] . '</a>';
+          $catids[] = '<a class="category-label"  href="' . ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_FAQ, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tlf["faq_frontend"]["faq2"] . '">' . $rowc['name'] . '</a>';
 
           // EN: Get 'varname' for category
           // CZ: Získaní 'varname' kategorie
@@ -225,10 +225,10 @@ switch ($page1) {
         if ($nextp) {
 
           if ($jkv["faqurl"]) {
-            $seo = JAK_base::jakCleanurl($nextp['title']);
+            $seo = ENVO_base::jakCleanurl($nextp['title']);
           }
 
-          $JAK_NAV_NEXT       = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_FAQ, 'a', $nextp['id'], $seo, '');
+          $JAK_NAV_NEXT       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_FAQ, 'a', $nextp['id'], $seo, '');
           $JAK_NAV_NEXT_TITLE = addslashes($nextp['title']);
         }
 
@@ -236,10 +236,10 @@ switch ($page1) {
         if ($prevp) {
 
           if ($jkv["faqurl"]) {
-            $seop = JAK_base::jakCleanurl($prevp['title']);
+            $seop = ENVO_base::jakCleanurl($prevp['title']);
           }
 
-          $JAK_NAV_PREV       = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_FAQ, 'a', $prevp['id'], $seop, '');
+          $JAK_NAV_PREV       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_FAQ, 'a', $prevp['id'], $seop, '');
           $JAK_NAV_PREV_TITLE = addslashes($prevp['title']);
         }
 

@@ -163,15 +163,15 @@ class JAK_search
       if (isset($row["title"])) $title = $row["title"];
 
       // get the title for better seo, if there is a title
-      if ($dseo && $this->title) $wseo = JAK_base::jakCleanurl($title);
+      if ($dseo && $this->title) $wseo = ENVO_base::jakCleanurl($title);
 
       // Get the url
       if (isset($row['catorder']) && $row['catorder'] == 1 && isset($row['catparent']) && $row['catparent'] == 0) {
         $parseurl = BASE_URL;
       } elseif (isset($row['varname']) && !$plugin && isset($row['id'])) {
-        $parseurl = JAK_rewrite::jakParseurl($row['varname'], $link, $row['id'], $wseo, '');
+        $parseurl = ENVO_rewrite::envoParseurl($row['varname'], $link, $row['id'], $wseo, '');
       } elseif (isset($row['id']) && isset($plugin)) {
-        $parseurl = JAK_rewrite::jakParseurl($plugin, $link, $row['id'], $wseo, '');
+        $parseurl = ENVO_rewrite::envoParseurl($plugin, $link, $row['id'], $wseo, '');
       } else {
         $parseurl = '';
       }

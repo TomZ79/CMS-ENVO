@@ -34,7 +34,7 @@ class JAK_plugins
     $this->data = $jakplugins;
   }
 
-  public function jakGetarray()
+  public function EnvoGetarray()
   {
     // Setting up an alias, so we don't have to write $this->data every time:
     $d = $this->data;

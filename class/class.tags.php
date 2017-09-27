@@ -1,6 +1,6 @@
 <?php
 
-class JAK_tags
+class ENVO_tags
 {
   protected $table = '', $varname = '', $seo = '', $plugin = '';
   private $jakvar;
@@ -50,7 +50,7 @@ class JAK_tags
         shuffle($my_colours);
         $size         = $minsize + ($count - $minimum_count)
           * ($maxsize - $minsize) / $spread;
-        $cloud_tags[] = '<li class="tag-cloud tag-cloud-' . $my_colours[0] . '"><a style="font-size:' . floor($size) . 'px" href="' . JAK_rewrite::jakParseurl($varname, JAK_base::jakCleanurl($tag), '', '', '') . '" title="' . $title . ' ' . htmlspecialchars(stripslashes($tag)) . '">' . htmlspecialchars(stripslashes($tag)) . '</a></li>';
+        $cloud_tags[] = '<li class="tag-cloud tag-cloud-' . $my_colours[0] . '"><a style="font-size:' . floor($size) . 'px" href="' . ENVO_rewrite::envoParseurl($varname, ENVO_base::jakCleanurl($tag), '', '', '') . '" title="' . $title . ' ' . htmlspecialchars(stripslashes($tag)) . '">' . htmlspecialchars(stripslashes($tag)) . '</a></li>';
       }
       $cloud_html = join("\n", $cloud_tags) . "\n";
 
@@ -65,7 +65,7 @@ class JAK_tags
     global $envodb;
     $result = $envodb->query('SELECT tag FROM ' . DB_PREFIX . $table . ' WHERE itemid IN(' . join(",", $items) . ') AND pluginid = "' . smartsql($pluginid) . '" AND active = 1 GROUP BY tag ORDER BY tag DESC LIMIT ' . smartsql($limit));
     while ($row = $result->fetch_assoc()) {
-      $tags[] = '<a class="label label-default" href="' . JAK_rewrite::jakParseurl($url, $slug1, JAK_base::jakCleanurl($row['tag'])) . '">' . $row['tag'] . '</a>';
+      $tags[] = '<a class="label label-default" href="' . ENVO_rewrite::envoParseurl($url, $slug1, ENVO_base::jakCleanurl($row['tag'])) . '">' . $row['tag'] . '</a>';
     }
 
     if (!empty($tags)) {
@@ -84,7 +84,7 @@ class JAK_tags
     $result = $envodb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql($jakvar) . '" AND pluginid = "' . smartsql($jakvar1) . '" AND active = 1 ORDER BY id DESC');
 
     while ($row = $result->fetch_assoc()) {
-      $tags[] = '<a class="label label-default" href="' . JAK_rewrite::jakParseurl($where, JAK_base::jakCleanurl($row['tag']), '', '', '') . '">' . $row['tag'] . '</a>';
+      $tags[] = '<a class="label label-default" href="' . ENVO_rewrite::envoParseurl($where, ENVO_base::jakCleanurl($row['tag']), '', '', '') . '">' . $row['tag'] . '</a>';
     }
 
     if (!empty($tags)) {
@@ -99,7 +99,7 @@ class JAK_tags
   /* jakGettaglist_class - Get all tags for article, ... with custom definition class for anchor <a class=" CUSTOM CLASS"> </a>
    * Call class
    * ----------------
-   * JAK_tags::jakGettaglist_class('', '', '', 'label', '');
+   * ENVO_tags::jakGettaglist_class('', '', '', 'label', '');
    */
   public static function jakGettaglist_class($jakvar, $jakvar1, $where, $class, $title)
   {
@@ -108,7 +108,7 @@ class JAK_tags
     $result = $envodb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql($jakvar) . '" AND pluginid = "' . smartsql($jakvar1) . '" AND active = 1 ORDER BY id DESC');
 
     while ($row = $result->fetch_assoc()) {
-      $tags[] = '<li><a class="' . $class . '" href="' . JAK_rewrite::jakParseurl($where, JAK_base::jakCleanurl($row['tag']), '', '', '') . '" title="' . $title . ' ' . $row['tag'] . '">' . $row['tag'] . '</a></li>';
+      $tags[] = '<li><a class="' . $class . '" href="' . ENVO_rewrite::envoParseurl($where, ENVO_base::jakCleanurl($row['tag']), '', '', '') . '" title="' . $title . ' ' . $row['tag'] . '">' . $row['tag'] . '</a></li>';
     }
 
     if (!empty($tags)) {
@@ -130,7 +130,7 @@ class JAK_tags
     for ($i = 0; $i < count($tagarray); $i++) {
       $tag = $tagarray[$i];
       // $tag = trim($tag);
-      // $urlTAG = JAK_base::jakCleanurl($tag);
+      // $urlTAG = ENVO_base::jakCleanurl($tag);
       $urlTAG = trim($tag);
 
       // check if tag exist
@@ -156,7 +156,7 @@ class JAK_tags
 
       $tag = $tagarray[$i];
       // $tag = trim($tag);
-      // $urlTAG = JAK_base::jakCleanurl($tag);
+      // $urlTAG = ENVO_base::jakCleanurl($tag);
       $urlTAG = trim($tag);
 
       // check if tag exist
@@ -209,9 +209,9 @@ class JAK_tags
 
       // There should be always a varname in categories and check if seo is valid
       if ($seo && $row['title']) {
-        $seo = JAK_base::jakCleanurl($row['title']);
+        $seo = ENVO_base::jakCleanurl($row['title']);
       }
-      $parseurl = JAK_rewrite::jakParseurl($plugin, $link, $row['id'], $seo, '');
+      $parseurl = ENVO_rewrite::envoParseurl($plugin, $link, $row['id'], $seo, '');
       $envodata = array('parseurl' => $parseurl, 'title' => $title, 'content' => $shorty);
     }
 

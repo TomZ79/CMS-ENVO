@@ -26,7 +26,7 @@ if (empty($page1)) {
 
 // EN: Get all the php Hook by name of Hook
 // CZ: Načtení všech php dat z Hook podle jména Hook
-$hookrss = $jakhooks->jakGethook("php_rss");
+$hookrss = $envohooks->EnvoGethook("php_rss");
 if ($hookrss) {
   foreach ($hookrss as $hrss) {
     eval($hrss["phpcode"]);
@@ -61,11 +61,11 @@ if (!empty($sql)) {
 
     // get the new seo title in here, where it works!
     if ($seowhat) {
-      $seo = JAK_base::jakCleanurl($PAGE_TITLE);
+      $seo = ENVO_base::jakCleanurl($PAGE_TITLE);
     }
 
     if (isset($sURL) && !empty($sURL) && !is_array($urlsep)) {
-      $parseurl = JAK_rewrite::jakParseurl($sURL, $sURL1, $whatweask, $seo, '');
+      $parseurl = ENVO_rewrite::envoParseurl($sURL, $sURL1, $whatweask, $seo, '');
     } elseif (is_array($urlsep)) {
       $slurl      = FALSE;
       $specialurl = FALSE;
@@ -73,15 +73,15 @@ if (!empty($sql)) {
         if (is_numeric($r)) {
           $specialurl[] = $row[$r];
         } else {
-          $specialurl[] = JAK_base::jakCleanurl($row[$r]);
+          $specialurl[] = ENVO_base::jakCleanurl($row[$r]);
         }
       }
 
       if ($specialurl) $slurl = join("-", $specialurl);
 
-      $parseurl = JAK_rewrite::jakParseurl($sURL, $slurl, '', '', '');
+      $parseurl = ENVO_rewrite::envoParseurl($sURL, $slurl, '', '', '');
     } else {
-      $parseurl = JAK_rewrite::jakParseurl($whatweask, '', '', '', '');
+      $parseurl = ENVO_rewrite::envoParseurl($whatweask, '', '', '', '');
     }
 
     $parseurl = str_replace("//", "/", BASE_URL . $parseurl);

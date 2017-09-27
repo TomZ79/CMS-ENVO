@@ -18,14 +18,14 @@ $success = array();
 
 // EN: Get all the php Hook by name of Hook for setting top
 // CZ: Načtení všech php dat z Hook podle jména Hook
-$getsettinghook = $jakhooks->jakGethook("php_admin_setting");
+$getsettinghook = $envohooks->EnvoGethook("php_admin_setting");
 if ($getsettinghook) foreach ($getsettinghook as $sh) {
   eval($sh['phpcode']);
 }
 
 // EN: Get all the php Hook by name of Hook for setting template
 // CZ: Načtení všech php dat z Hook podle jména Hook pro nastavení šablony
-$JAK_HOOK_ADMIN_SETTING_EDIT = $jakhooks->jakGethook("tpl_admin_setting");
+$JAK_HOOK_ADMIN_SETTING_EDIT = $envohooks->EnvoGethook("tpl_admin_setting");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (isset($_POST["btnSave"])) {
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // EN: Get all the php Hook by name of Hook for setting top
     // CZ: Načtení všech php dat z Hook podle jména Hook
-    $getsettingpost = $jakhooks->jakGethook("php_admin_setting_post");
+    $getsettingpost = $envohooks->EnvoGethook("php_admin_setting_post");
     if ($getsettingpost) foreach ($getsettingpost as $shp) {
       eval($shp['phpcode']);
     }

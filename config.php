@@ -44,7 +44,7 @@ $envodb->set_charset("utf8");
 // EN: Important all Class - files
 // CZ: Import všech tříd
 include_once 'include/functions.php';
-include_once 'class/class.jakbase.php';
+include_once 'class/class.envobase.php';
 include_once 'class/PHPMailerAutoload.php';
 include_once 'class/class.userlogin.php';
 include_once 'class/class.users.php';
@@ -64,16 +64,16 @@ include_once 'assets/plugins/captcha/simple-php-captcha/simple-php-captcha.php';
 $Html = new HTML_Element();
 
 // Now launch the rewrite class, depending on the settings in db.
-$getURL = New JAK_rewrite($_SERVER['REQUEST_URI']);
+$getURL = New ENVO_rewrite($_SERVER['REQUEST_URI']);
 
 // We are not using apache so take the ugly urls
-$tempp  = $getURL->jakGetseg(0);
-$tempp1 = $getURL->jakGetseg(1);
-$tempp2 = $getURL->jakGetseg(2);
-$tempp3 = $getURL->jakGetseg(3);
-$tempp4 = $getURL->jakGetseg(4);
-$tempp5 = $getURL->jakGetseg(5);
-$tempp6 = $getURL->jakGetseg(6);
+$tempp  = $getURL->envoGetseg(0);
+$tempp1 = $getURL->envoGetseg(1);
+$tempp2 = $getURL->envoGetseg(2);
+$tempp3 = $getURL->envoGetseg(3);
+$tempp4 = $getURL->envoGetseg(4);
+$tempp5 = $getURL->envoGetseg(5);
+$tempp6 = $getURL->envoGetseg(6);
 
 // Call the languages
 $lang_files = envo_get_lang_files();
@@ -92,7 +92,7 @@ while ($row = $result->fetch_assoc()) {
 }
 
 // Get hooks and plugins
-$jakhooks   = new JAK_hooks(1);
+$envohooks   = new ENVO_hooks(1);
 $jakplugins = new JAK_plugins(1);
 
 // Get the template config file
@@ -162,6 +162,6 @@ if ($jkv["sitehttps"]) {
 }
 
 // Define for template the real request
-$realrequest = substr($getURL->jakRealrequest(), 1);
+$realrequest = substr($getURL->envoRealrequest(), 1);
 define('JAK_PARSE_REQUEST', $realrequest);
 ?>

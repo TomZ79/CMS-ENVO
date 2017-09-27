@@ -25,7 +25,7 @@ $envotable3 = DB_PREFIX . 'user';
 define('JAK_NEWSLETTER', $jakusergroup->getVar("newsletter"));
 
 // Parse links once if needed a lot of time
-$backtonl = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_NEWSLETTER, '', '', '', '');
+$backtonl = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_NEWSLETTER, '', '', '', '');
 
 // -------- DATA FOR SELECTED FRONTEND PAGES --------
 // -------- DATA PRO VYBRANÉ FRONTEND STRÁNKY --------

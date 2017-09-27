@@ -9,7 +9,7 @@ if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 $envotable = DB_PREFIX . 'news';
 
 // parse url
-$backtonews = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_NEWS, '', '', '', '');
+$backtonews = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_NEWS, '', '', '', '');
 
 // AJAX Search
 $AJAX_SEARCH_PLUGIN_WHERE = $envotable;
@@ -58,7 +58,7 @@ switch ($page1) {
           envo_write_vote_hits_cookie($envotable, $row['id'], 'hits');
 
           // Update hits each time
-          JAK_base::jakUpdatehits($row['id'], $envotable);
+          ENVO_base::jakUpdatehits($row['id'], $envotable);
         }
 
         // EN: Set variable for page
@@ -78,7 +78,7 @@ switch ($page1) {
         $SHOWSOCIALBUTTON            = $row['socialbutton'];
         $PAGE_ACTIVE                 = $row['active'];
         $PAGE_HITS                   = $row['hits'];
-        $PAGE_TIME                   = JAK_base::jakTimesince($row['time'], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
+        $PAGE_TIME                   = ENVO_base::jakTimesince($row['time'], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
         $DATE_TIME                   = $row['time'];
         $PAGE_TIME_HTML5             = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
@@ -92,7 +92,7 @@ switch ($page1) {
 
         // EN: Get all the php Hook by name of Hook for 'news'
         // CZ: Načtení všech php dat z Hook podle jména Hook pro 'news'
-        $hna = $jakhooks->jakGethook("php_pages_news");
+        $hna = $envohooks->EnvoGethook("php_pages_news");
         if ($hna) {
           foreach ($hna as $c) {
             eval($c["phpcode"]);
@@ -115,27 +115,27 @@ switch ($page1) {
         }
 
         // Show Tags
-        $JAK_TAGLIST = JAK_tags::jakGettaglist_class($page2, JAK_PLUGIN_ID_NEWS, JAK_PLUGIN_VAR_TAGS, '', $tl["title_element"]["tel"]);
+        $JAK_TAGLIST = ENVO_tags::jakGettaglist_class($page2, JAK_PLUGIN_ID_NEWS, JAK_PLUGIN_VAR_TAGS, '', $tl["title_element"]["tel"]);
 
         // Page Nav
         $nextp = envo_next_page($page2, 'title', $envotable, 'id', '', '', 'active');
         if ($nextp) {
-          $JAK_NAV_NEXT       = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_NEWS, 'a', $nextp['id'], JAK_base::jakCleanurl($nextp['title']), '');
+          $JAK_NAV_NEXT       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_NEWS, 'a', $nextp['id'], ENVO_base::jakCleanurl($nextp['title']), '');
           $JAK_NAV_NEXT_TITLE = $nextp['title'];
         }
 
         $prevp = envo_previous_page($page2, 'title', $envotable, 'id', '', '', 'active');
         if ($prevp) {
-          $JAK_NAV_PREV       = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_NEWS, 'a', $prevp['id'], JAK_base::jakCleanurl($prevp['title']), '');
+          $JAK_NAV_PREV       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_NEWS, 'a', $prevp['id'], ENVO_base::jakCleanurl($prevp['title']), '');
           $JAK_NAV_PREV_TITLE = $prevp['title'];
         }
 
         // EN: Get all the php Hook by name of Hook
         // CZ: Načtení všech php dat z Hook podle jména Hook
-        $JAK_HOOK_NEWS_GRID = $jakhooks->jakGethook("tpl_page_news_grid");
+        $JAK_HOOK_NEWS_GRID = $envohooks->EnvoGethook("tpl_page_news_grid");
 
         // Get the url session
-        $_SESSION['jak_lastURL'] = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_NEWS, $page1, $page2, $page3, '');
+        $_SESSION['jak_lastURL'] = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_NEWS, $page1, $page2, $page3, '');
 
       }
 
@@ -190,7 +190,7 @@ switch ($page1) {
 
     // EN: Get all the php Hook by name of Hook
     // CZ: Načtení všech php dat z Hook podle jména Hook
-    $JAK_HOOK_NEWS = $jakhooks->jakGethook("tpl_news");
+    $JAK_HOOK_NEWS = $envohooks->EnvoGethook("tpl_news");
 
     $PAGE_SHOWTITLE = 1;
 

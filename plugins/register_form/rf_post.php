@@ -255,7 +255,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
 
         if ($jkv["rf_confirm"] == 2 || $jkv["rf_confirm"] == 3) {
 
-          $confirmlink = '<br><strong>' . $tl['login']['l11'] . ':</strong> <a href="' . (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . JAK_rewrite::jakParseurl('rf_ual', $row['id'], $getuniquecode, $safeusername, '') . '">' . (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . JAK_rewrite::jakParseurl('rf_ual', $row['id'], $getuniquecode, $safeusername, '') . '</a>';
+          $confirmlink = '<br><strong>' . $tl['login']['l11'] . ':</strong> <a href="' . (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . ENVO_rewrite::envoParseurl('rf_ual', $row['id'], $getuniquecode, $safeusername, '') . '">' . (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . ENVO_rewrite::envoParseurl('rf_ual', $row['id'], $getuniquecode, $safeusername, '') . '</a>';
 
           if ($jkv["rf_simple"]) $confirmlink .= '<br /><strong>' . $tl['login']['l2'] . ':</strong> ' . $password;
 

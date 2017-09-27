@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
 
   if (count($errors) == 0) {
 
-    $body = sprintf($tl['log_in']['login12'], $user_check, '<a href="' . (JAK_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(JAK_rewrite::jakParseurl('forgot-password', $fwhen, '', '', '')) . '">' . (JAK_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(JAK_rewrite::jakParseurl('forgot-password', $fwhen, '', '', '')) . '</a>', $jkv["title"]);
+    $body = sprintf($tl['log_in']['login12'], $user_check, '<a href="' . (JAK_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(ENVO_rewrite::envoParseurl('forgot-password', $fwhen, '', '', '')) . '">' . (JAK_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(ENVO_rewrite::envoParseurl('forgot-password', $fwhen, '', '', '')) . '</a>', $jkv["title"]);
 
     $mail = new PHPMailer(); // defaults to using php "mail()"
     $mail->SetFrom($jkv["email"], $jkv["title"]);

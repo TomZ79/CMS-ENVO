@@ -1,6 +1,6 @@
 <?php
 
-class JAK_rewrite
+class ENVO_rewrite
 {
 
   private
@@ -20,7 +20,7 @@ class JAK_rewrite
   }
 
   public
-  static function jakParseurl(
+  static function envoParseurl(
     $var, $var1 = '', $var2 = '', $var3 = '', $var4 = '', $var5 = ''
   )
   {
@@ -90,7 +90,7 @@ class JAK_rewrite
   }
 
   public
-  static function jakParseurlpaginate(
+  static function envoParseurlpaginate(
     $var
   )
   {
@@ -116,7 +116,7 @@ class JAK_rewrite
   }
 
   public
-  static function jakVideourlparser(
+  static function envoVideourlparser(
     $url, $where
   )
   {
@@ -187,7 +187,7 @@ class JAK_rewrite
 
   }
 
-  function jakGetseg($var)
+  function envoGetseg($var)
   {
 
     if (JAK_USE_APACHE) {
@@ -227,9 +227,7 @@ class JAK_rewrite
   }
 
   public
-  function jakGetsegAdmin(
-    $var
-  )
+  function envoGetsegAdmin($var)
   {
 
     // get the url and parse it
@@ -251,7 +249,7 @@ class JAK_rewrite
   }
 
   public
-  function jakRealrequest()
+  function envoRealrequest()
   {
     $r = str_replace(_APP_MAIN_DIR, '', $this->url);
 

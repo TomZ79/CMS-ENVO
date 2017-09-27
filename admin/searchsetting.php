@@ -126,7 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       // EN: Get all the php Hook by name of Hook for full text queries
       // CZ: Načtení všech php dat z Hook podle jména Hook pro textové dotazy
-      $mft = $jakhooks->jakGethook("php_admin_fulltext_add");
+      $mft = $envohooks->EnvoGethook("php_admin_fulltext_add");
       if ($mft) foreach ($mft as $m) {
         eval($m['phpcode']);
       }
@@ -139,7 +139,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       // EN: Get all the php Hook by name of Hook for full text queries
       // CZ: Načtení všech php dat z Hook podle jména Hook pro textové dotazy
-      $mftr = $jakhooks->jakGethook("php_admin_fulltext_remove");
+      $mftr = $envohooks->EnvoGethook("php_admin_fulltext_remove");
       if ($mftr) foreach ($mftr as $mr) {
         eval($mr['phpcode']);
       }
@@ -175,7 +175,7 @@ while ($row = $result->fetch_assoc()) {
 // EN: Get all the php Hook by name of Hook
 // CZ: Načtení všech php dat z Hook podle jména Hook
 $ENVO_FORM_DATA = array();
-$hookpagei     = $jakhooks->jakGethook("php_admin_pages_news_info");
+$hookpagei     = $envohooks->EnvoGethook("php_admin_pages_news_info");
 if ($hookpagei) {
   foreach ($hookpagei as $hpagi) {
     eval($hpagi['phpcode']);

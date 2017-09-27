@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
 
   if (count($errors) == 0) {
 
-    $body = sprintf($tl['login']['l18'], $user_check, '<a href="' . (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . html_entity_decode(JAK_rewrite::jakParseurl('forgot-password', $fwhen, '', '', '')) . '">' . (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . html_entity_decode(JAK_rewrite::jakParseurl('forgot-password', $fwhen, '', '', '')) . '</a>', $jkv["title"]);
+    $body = sprintf($tl['login']['l18'], $user_check, '<a href="' . (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . html_entity_decode(ENVO_rewrite::envoParseurl('forgot-password', $fwhen, '', '', '')) . '">' . (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . html_entity_decode(ENVO_rewrite::envoParseurl('forgot-password', $fwhen, '', '', '')) . '</a>', $jkv["title"]);
 
     $mail = new PHPMailer(); // defaults to using php "mail()"
 
@@ -129,7 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['pageprotect'])) {
   $passcrypt = hash_hmac('sha256', $defaults['pagepass'], DB_PASS_HASH);
 
   // Check if the password is correct
-  $page_check = JAK_base::jakCheckprotectedArea($passcrypt, 'pages', $defaults['pagesec']);
+  $page_check = ENVO_base::jakCheckprotectedArea($passcrypt, 'pages', $defaults['pagesec']);
 
   if (!$page_check) {
     $errors['e'] = $tl['general_error']['generror8'];

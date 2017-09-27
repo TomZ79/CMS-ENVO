@@ -20,8 +20,8 @@ $envotable6 = DB_PREFIX . 'backup_content';
 
 // EN: Get all the php Hook by name of Hook
 // CZ: Načtení všech php dat z Hook podle jména Hook
-$JAK_HOOK_ADMIN_PAGE     = $jakhooks->jakGethook("tpl_admin_page_news");
-$JAK_HOOK_ADMIN_PAGE_NEW = $jakhooks->jakGethook("tpl_admin_page_news_new");
+$JAK_HOOK_ADMIN_PAGE     = $envohooks->EnvoGethook("tpl_admin_page_news");
+$JAK_HOOK_ADMIN_PAGE_NEW = $envohooks->EnvoGethook("tpl_admin_page_news_new");
 
 $insert = $updatesql = "";
 
@@ -70,7 +70,7 @@ switch ($page1) {
 
           // EN: Get all the php Hook by name of Hook
           // CZ: Načtení všech php dat z Hook podle jména Hook
-          $hookpage = $jakhooks->jakGethook("php_admin_pages_sql");
+          $hookpage = $envohooks->EnvoGethook("php_admin_pages_sql");
           if ($hookpage) {
             foreach ($hookpage as $hpag) {
               eval($hpag['phpcode']);
@@ -158,9 +158,9 @@ switch ($page1) {
             // Create Tags if the module is active
             if (!empty($defaults['jak_tags'])) {
               // check if tag does not exist and insert in cloud
-              JAK_tags::jakBuildcloud($defaults['jak_tags'], $rowid, 0);
+              ENVO_tags::jakBuildcloud($defaults['jak_tags'], $rowid, 0);
               // insert tag for normal use
-              JAK_tags::jakInsertags($defaults['jak_tags'], $rowid, 0, $tagactive);
+              ENVO_tags::jakInsertags($defaults['jak_tags'], $rowid, 0, $tagactive);
             }
             // EN: Redirect page
             // CZ: Přesměrování stránky
@@ -188,7 +188,7 @@ switch ($page1) {
     // EN: Get all the php Hook by name of Hook
     // CZ: Načtení všech php dat z Hook podle jména Hook
     $ENVO_FORM_DATA = array();
-    $hookpagei     = $jakhooks->jakGethook("php_admin_pages_news_info");
+    $hookpagei     = $envohooks->EnvoGethook("php_admin_pages_news_info");
     if ($hookpagei) {
       foreach ($hookpagei as $hpagi) {
         eval($hpagi['phpcode']);
@@ -257,7 +257,7 @@ switch ($page1) {
 
         $result = $envodb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page2) . '"');
 
-        JAK_tags::jakLocktags($page2, 0);
+        ENVO_tags::jakLocktags($page2, 0);
 
         if (!$result) {
           // EN: Redirect page
@@ -317,7 +317,7 @@ switch ($page1) {
             // CZ: Přesměrování stránky s notifikací - chybné
             envo_redirect(BASE_URL . 'index.php?p=page&status=e');
           } else {
-            JAK_tags::jakDeletetags($page2, 0);
+            ENVO_tags::jakDeletetags($page2, 0);
 
             // EN: Redirect page
             // CZ: Přesměrování stránky s notifikací - úspěšné
@@ -351,7 +351,7 @@ switch ($page1) {
               for ($i = 0; $i < count($tags); $i++) {
                 $tag = $tags[$i];
 
-                JAK_tags::jakDeleteonetag($tag);
+                ENVO_tags::jakDeleteonetag($tag);
               }
             }
 
@@ -397,7 +397,7 @@ switch ($page1) {
 
               // EN: Get all the php Hook by name of Hook
               // CZ: Načtení všech php dat z Hook podle jména Hook
-              $hookpage = $jakhooks->jakGethook("php_admin_pages_sql");
+              $hookpage = $envohooks->EnvoGethook("php_admin_pages_sql");
               if ($hookpage) {
                 foreach ($hookpage as $hpag) {
                   eval($hpag['phpcode']);
@@ -573,9 +573,9 @@ switch ($page1) {
                 // Create Tags if the module is active
                 if (!empty($defaults['jak_tags'])) {
                   // check if tag does not exist and insert in cloud
-                  JAK_tags::jakBuildcloud($defaults['jak_tags'], smartsql($page2), 0);
+                  ENVO_tags::jakBuildcloud($defaults['jak_tags'], smartsql($page2), 0);
                   // insert tag for normal use
-                  JAK_tags::jakInsertags($defaults['jak_tags'], smartsql($page2), 0, $tagactive);
+                  ENVO_tags::jakInsertags($defaults['jak_tags'], smartsql($page2), 0, $tagactive);
                 }
 
                 // EN: Redirect page
@@ -625,7 +625,7 @@ switch ($page1) {
 
           // EN: Get all the php Hook by name of Hook
           // CZ: Načtení všech php dat z Hook podle jména Hook
-          $hookpagei = $jakhooks->jakGethook("php_admin_pages_news_info");
+          $hookpagei = $envohooks->EnvoGethook("php_admin_pages_news_info");
           if ($hookpagei) {
             foreach ($hookpagei as $hpagi) {
               eval($hpagi['phpcode']);
@@ -750,7 +750,7 @@ switch ($page1) {
               $locked  = $lockuser[$i];
               $result  = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
               $result1 = $envodb->query('UPDATE ' . $envotable1 . ' SET pageid = 0 WHERE pageid = "' . smartsql($locked) . '"');
-              JAK_tags::jakDeletetags($locked, 0);
+              ENVO_tags::jakDeletetags($locked, 0);
             }
 
             if (!$result) {

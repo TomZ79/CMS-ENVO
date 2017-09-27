@@ -25,10 +25,10 @@ function jak_get_download($limit, $order, $where, $table_row, $ext_seo, $timeago
     // There should be always a varname in categories and check if seo is valid
     $seo = '';
     if ($ext_seo) {
-      $seo = JAK_base::jakCleanurl($row['title']);
+      $seo = ENVO_base::jakCleanurl($row['title']);
     }
 
-    $parseurl = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'f', $row['id'], $seo, '');
+    $parseurl = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'f', $row['id'], $seo, '');
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole

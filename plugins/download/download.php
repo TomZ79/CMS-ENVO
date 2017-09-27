@@ -39,11 +39,11 @@ $AJAX_SEARCH_PLUGIN_SEO   = $jkv["downloadurl"];
 // Get the rss if active
 if ($jkv["downloadrss"]) {
   $JAK_RSS_DISPLAY = 1;
-  $P_RSS_LINK      = JAK_rewrite::jakParseurl('rss.xml', JAK_PLUGIN_VAR_DOWNLOAD, '', '', '');
+  $P_RSS_LINK      = ENVO_rewrite::envoParseurl('rss.xml', JAK_PLUGIN_VAR_DOWNLOAD, '', '', '');
 }
 
 // Parse links once if needed a lot of time
-$backtodl = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, '', '', '', '');
+$backtodl = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_DOWNLOAD, '', '', '', '');
 
 // Template Call
 $JAK_TPL_PLUG_T   = JAK_PLUGIN_NAME_DOWNLOAD;
@@ -62,10 +62,10 @@ switch ($page1) {
       $getTotal = envo_get_total($envotable, $page2, 'catid', 'active');
 
       if ($jkv["downloadurl"]) {
-        $getWhere = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, $page1, $page2, $page3, '');
+        $getWhere = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_DOWNLOAD, $page1, $page2, $page3, '');
         $getPage  = $page4;
       } else {
-        $getWhere = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, $page1, $page2, '', '');
+        $getWhere = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_DOWNLOAD, $page1, $page2, '', '');
         $getPage  = $page3;
       }
 
@@ -160,7 +160,7 @@ switch ($page1) {
         $passcrypt = hash_hmac('sha256', $defaults['dlpass'], DB_PASS_HASH);
 
         // Check if the password is correct
-        $dl_check = JAK_base::jakCheckprotectedArea($passcrypt, 'download', $defaults['dlsec']);
+        $dl_check = ENVO_base::jakCheckprotectedArea($passcrypt, 'download', $defaults['dlsec']);
 
         if (!$dl_check) {
           $errors['e'] = $tl['general_error']['generror8'];
@@ -180,7 +180,7 @@ switch ($page1) {
       $row    = $result->fetch_assoc();
 
       if ($row['active'] != 1) {
-        envo_redirect(JAK_rewrite::jakParseurl('offline'));
+        envo_redirect(ENVO_rewrite::envoParseurl('offline'));
       } else {
 
         if (!envo_row_permission($row['catid'], $envotable1, JAK_USERGROUPID)) {
@@ -193,7 +193,7 @@ switch ($page1) {
             envo_write_vote_hits_cookie($envotable, $row['id'], 'hits');
 
             // Update hits each time
-            JAK_base::jakUpdatehits($row['id'], $envotable);
+            ENVO_base::jakUpdatehits($row['id'], $envotable);
           }
 
           // Output the data
@@ -233,7 +233,7 @@ switch ($page1) {
           $JAK_HEADER_CSS              = $row['dl_css'];
           $JAK_FOOTER_JAVASCRIPT       = $row['dl_javascript'];
           $jkv["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
-          $DL_LINK                     = html_entity_decode(JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'dl', $row['id'], '', ''));
+          $DL_LINK                     = html_entity_decode(ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'dl', $row['id'], '', ''));
 
           $PAGE_TIME       = JAK_Base::jakTimesince($row['time'], $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['global_text']['gtxt4']);
           $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
@@ -255,7 +255,7 @@ switch ($page1) {
           }
 
           // Get the url session
-          $_SESSION['jak_lastURL']    = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, $page1, $page2, $page3, '');
+          $_SESSION['jak_lastURL']    = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_DOWNLOAD, $page1, $page2, $page3, '');
           $_SESSION['jak_thisFileID'] = $row['id'];
 
         }
@@ -270,17 +270,17 @@ switch ($page1) {
         }
 
         // Show Tags
-        $JAK_TAGLIST = JAK_tags::jakGettaglist($page2, JAK_PLUGIN_ID_DOWNLOAD, JAK_PLUGIN_VAR_TAGS);
+        $JAK_TAGLIST = ENVO_tags::jakGettaglist($page2, JAK_PLUGIN_ID_DOWNLOAD, JAK_PLUGIN_VAR_TAGS);
 
         // Page Nav
         $nextp = envo_next_page($page2, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
         if ($nextp) {
 
           if ($jkv["downloadurl"]) {
-            $seo = JAK_base::jakCleanurl($nextp['title']);
+            $seo = ENVO_base::jakCleanurl($nextp['title']);
           }
 
-          $JAK_NAV_NEXT       = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'f', $nextp['id'], $seo, '');
+          $JAK_NAV_NEXT       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'f', $nextp['id'], $seo, '');
           $JAK_NAV_NEXT_TITLE = addslashes($nextp['title']);
         }
 
@@ -288,10 +288,10 @@ switch ($page1) {
         if ($prevp) {
 
           if ($jkv["downloadurl"]) {
-            $seop = JAK_base::jakCleanurl($prevp['title']);
+            $seop = ENVO_base::jakCleanurl($prevp['title']);
           }
 
-          $JAK_NAV_PREV       = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'f', $prevp['id'], $seop, '');
+          $JAK_NAV_PREV       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'f', $prevp['id'], $seop, '');
           $JAK_NAV_PREV_TITLE = addslashes($prevp['title']);
         }
 
@@ -300,12 +300,12 @@ switch ($page1) {
         while ($rowc = $resultc->fetch_assoc()) {
 
           if ($jkv["downloadurl"]) {
-            $seoc = JAK_base::jakCleanurl($rowc['varname']);
+            $seoc = ENVO_base::jakCleanurl($rowc['varname']);
           }
 
           // EN: Create array with all categories ( Plugin Download have only one category for one download file, in array will be it only one category )
           // CZ: Vytvoření pole se všemi kategoriemi ( Plugin Download má pouze jednu kategorie pro jeden stahovaný soubor, v poli bude jen jedna kategorie )
-          $catids[] = '<a class="category-label"  href="' . JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tld["downl_frontend"]["downl11"] . '">' . $rowc['name'] . '</a>';
+          $catids[] = '<a class="category-label"  href="' . ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tld["downl_frontend"]["downl11"] . '">' . $rowc['name'] . '</a>';
 
           // EN: Get 'varname' for category
           // CZ: Získaní 'varname' kategorie

@@ -22,11 +22,11 @@ $JAK_USERGROUP_ALL = envo_get_usergroup_all('usergroup');
 
 // EN: Get all the php Hook by name of Hook for the template
 // CZ: Načtení všech php dat z Hook podle jména Hook pro šablonu
-$JAK_HOOK_ADMIN_USERGROUP_EDIT = $jakhooks->jakGethook("tpl_admin_usergroup_edit");
+$JAK_HOOK_ADMIN_USERGROUP_EDIT = $envohooks->EnvoGethook("tpl_admin_usergroup_edit");
 
 // EN: Get all the php Hook by name of Hook for the new template
 // CZ: Načtení všech php dat z Hook podle jména Hook pro novou šablonu
-$JAK_HOOK_ADMIN_USERGROUP = $jakhooks->jakGethook("tpl_admin_usergroup");
+$JAK_HOOK_ADMIN_USERGROUP = $envohooks->EnvoGethook("tpl_admin_usergroup");
 
 // EN: Switching access all pages by page name
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
@@ -63,7 +63,7 @@ switch ($page1) {
 
           // EN: Get all the php Hook by name of Hook for 'index top'
           // CZ: Načtení všech php dat z Hook podle jména Hook pro 'index top'
-          $getinserthook = $jakhooks->jakGethook("php_admin_usergroup");
+          $getinserthook = $envohooks->EnvoGethook("php_admin_usergroup");
           if ($getinserthook)
             foreach ($getinserthook as $it) {
               eval($it['phpcode']);
@@ -229,7 +229,7 @@ switch ($page1) {
 
               // EN: Get all the php Hook by name of Hook for 'index top'
               // CZ: Načtení všech php dat z Hook podle jména Hook pro 'index top'
-              $getinserthook = $jakhooks->jakGethook("php_admin_usergroup");
+              $getinserthook = $envohooks->EnvoGethook("php_admin_usergroup");
               if ($getinserthook)
                 foreach ($getinserthook as $it) {
                   eval($it['phpcode']);

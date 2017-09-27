@@ -199,9 +199,9 @@ switch ($page1) {
             // Create Tags if the module is active
             if (!empty($defaults['jak_tags'])) {
               // check if tag does not exist and insert in cloud
-              JAK_tags::jakBuildcloud($defaults['jak_tags'], $rowid, JAK_PLUGIN_DOWNLOAD);
+              ENVO_tags::jakBuildcloud($defaults['jak_tags'], $rowid, JAK_PLUGIN_DOWNLOAD);
               // insert tag for normal use
-              JAK_tags::jakInsertags($defaults['jak_tags'], $rowid, JAK_PLUGIN_DOWNLOAD, $tagactive);
+              ENVO_tags::jakInsertags($defaults['jak_tags'], $rowid, JAK_PLUGIN_DOWNLOAD, $tagactive);
 
             }
 
@@ -794,7 +794,7 @@ switch ($page1) {
 
         $result = $envodb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page2) . '"');
 
-        JAK_tags::jaklocktags($page2, JAK_PLUGIN_DOWNLOAD);
+        ENVO_tags::jaklocktags($page2, JAK_PLUGIN_DOWNLOAD);
 
         if (!$result) {
           // EN: Redirect page
@@ -822,7 +822,7 @@ switch ($page1) {
             // CZ: Přesměrování stránky s notifikací - chybné
             envo_redirect(BASE_URL . 'index.php?p=download&status=e');
           } else {
-            JAK_tags::jakDeletetags($page2, JAK_PLUGIN_DOWNLOAD);
+            ENVO_tags::jakDeletetags($page2, JAK_PLUGIN_DOWNLOAD);
 
             // EN: Redirect page
             // CZ: Přesměrování stránky s notifikací - úspěšné
@@ -858,7 +858,7 @@ switch ($page1) {
               for ($i = 0; $i < count($tags); $i++) {
                 $tag = $tags[$i];
 
-                JAK_tags::jakDeleteonetag($tag);
+                ENVO_tags::jakDeleteonetag($tag);
 
               }
             }
@@ -1063,9 +1063,9 @@ switch ($page1) {
                 // Create Tags if the module is active
                 if (!empty($defaults['jak_tags'])) {
                   // check if tag does not exist and insert in cloud
-                  JAK_tags::jakBuildcloud($defaults['jak_tags'], smartsql($page2), JAK_PLUGIN_DOWNLOAD);
+                  ENVO_tags::jakBuildcloud($defaults['jak_tags'], smartsql($page2), JAK_PLUGIN_DOWNLOAD);
                   // insert tag for normal use
-                  JAK_tags::jakInsertags($defaults['jak_tags'], smartsql($page2), JAK_PLUGIN_DOWNLOAD, $tagactive);
+                  ENVO_tags::jakInsertags($defaults['jak_tags'], smartsql($page2), JAK_PLUGIN_DOWNLOAD, $tagactive);
 
                 }
 
@@ -1234,7 +1234,7 @@ switch ($page1) {
 
               $result = $envodb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($locked) . '"');
 
-              JAK_tags::jaklocktags($locked, JAK_PLUGIN_DOWNLOAD);
+              ENVO_tags::jaklocktags($locked, JAK_PLUGIN_DOWNLOAD);
             }
 
             if (!$result) {
@@ -1262,7 +1262,7 @@ switch ($page1) {
               $envodb->query('UPDATE ' . $envotable1 . ' SET count = count - 1 WHERE id = "' . smartsql($row2['catid']) . '"');
               $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
 
-              JAK_tags::jakDeletetags($locked, JAK_PLUGIN_DOWNLOAD);
+              ENVO_tags::jakDeletetags($locked, JAK_PLUGIN_DOWNLOAD);
             }
 
             if (!$result) {

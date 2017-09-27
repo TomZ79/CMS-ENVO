@@ -23,11 +23,11 @@ function envo_get_faq($limit, $order, $where, $table_row, $ext_seo, $timeago)
     // There should be always a varname in categories and check if seo is valid
     $seo = '';
     if ($ext_seo) {
-      $seo = JAK_base::jakCleanurl($row['title']);
+      $seo = ENVO_base::jakCleanurl($row['title']);
     }
 
     // Parse url for user link
-    $parseurl = JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_FAQ, 'a', $row['id'], $seo, '');
+    $parseurl = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_FAQ, 'a', $row['id'], $seo, '');
 
 
     $getTime = JAK_Base::jakTimesince($row['time'], $jkv["faqdateformat"], $jkv["faqtimeformat"], $timeago);

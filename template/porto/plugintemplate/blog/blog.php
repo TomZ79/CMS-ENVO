@@ -19,7 +19,7 @@
 
               // EN: Create array with all categories
               // CZ: Vytvoření pole se všemi kategoriemi
-              $catids[] = '<span class="blog-cat-list"><a href="' . JAK_rewrite::jakParseurl(JAK_PLUGIN_VAR_BLOG, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tlblog["blog_frontend"]["blog1"] . '">' . $rowc['name'] . '</a></span>';
+              $catids[] = '<span class="blog-cat-list"><a href="' . ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_BLOG, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tlblog["blog_frontend"]["blog1"] . '">' . $rowc['name'] . '</a></span>';
             }
 
 

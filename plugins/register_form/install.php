@@ -229,7 +229,7 @@ if (!$result) {
 	foreach ($jakcategories as $sap) {
 			
 			if ($jkv[\"rf_redirect\"] == $sap[\'id\']) {
-				$register_redirect = JAK_rewrite::jakParseurl($sap[\'pagename\'], \'\', \'\', \'\', \'\');
+				$register_redirect = ENVO_rewrite::envoParseurl($sap[\'pagename\'], \'\', \'\', \'\', \'\');
 			}
 		
 	}

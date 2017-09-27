@@ -15,7 +15,7 @@ $envotable1 = DB_PREFIX . 'plugins';
 $envotable2 = DB_PREFIX . 'pluginhooks';
 
 // Get all the Hooks
-$jakhooks = new JAK_hooks('', '');
+$envohooks = new ENVO_hooks('', '');
 
 // EN: Import important settings for the template from the DB
 // CZ: Importuj důležité nastavení pro šablonu z DB
@@ -26,7 +26,7 @@ $JAK_SETTING = envo_get_setting('module');
 $JAK_SETTING_VAL = envo_get_setting_val('module');
 
 // Get all the hooks out the class file
-$JAK_HOOK_LOCATIONS = JAK_hooks::jakAllhooks();
+$JAK_HOOK_LOCATIONS = ENVO_hooks::EnvoAllhooks();
 
 // EN: Switching access all pages by page name
 // CZ: Přepínání přístupu všech stránek podle názvu stránky

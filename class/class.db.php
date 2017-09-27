@@ -34,14 +34,14 @@ class ENVO_mysql extends mysqli
     /* Throw an error if the connection fails */
     if (mysqli_connect_error()) {
       //throw new ConnectException(mysqli_connect_error(), mysqli_connect_errno());
-      $this->jak_throw_error(mysqli_connect_error(), mysqli_connect_errno());
+      $this->envo_throw_error(mysqli_connect_error(), mysqli_connect_errno());
     }
   }
 
   /**
    * @param string $msg
    */
-  public function jak_throw_error($msg = '')
+  public function envo_throw_error($msg = '')
   {
     ?>
     <table align="center" border="1" cellspacing="0" style="background:white;color:black;width:80%;">
@@ -88,7 +88,7 @@ class ENVO_mysql extends mysqli
     $result = parent::query($query);
     if (mysqli_error($this)) {
       // throw new QueryException(mysqli_error($this), mysqli_errno($this));
-      $this->jak_throw_error("<b>MySQL Query fail:</b> $query");
+      $this->envo_throw_error("<b>MySQL Query fail:</b> $query");
     }
 
     return $result;
@@ -108,7 +108,7 @@ class ENVO_mysql extends mysqli
   public function envo_close()
   {
     if (!@mysqli_close($this)) {
-      $this->jak_throw_error("<b>MySQL Close failed</b>");
+      $this->envo_throw_error("<b>MySQL Close failed</b>");
     }
   }
 }

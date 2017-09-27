@@ -27,7 +27,7 @@ function envo_secure_site($input)
 
     if (isset($url[0])) {
 
-      $flurl = JAK_rewrite::jakVideourlparser($url[0], 'site');
+      $flurl = ENVO_rewrite::envoVideourlparser($url[0], 'site');
 
       // make the urls hyper links
       $input = preg_replace($reg_exUrl, '<figure><iframe class="v_player" src="' . $flurl . '" frameborder="0"></iframe></figure><p class="clearfix"></p>', $input);
@@ -38,7 +38,7 @@ function envo_secure_site($input)
 
     if (isset($url2[0])) {
 
-      $flurl2 = JAK_rewrite::jakVideourlparser($url2[0], 'site');
+      $flurl2 = ENVO_rewrite::envoVideourlparser($url2[0], 'site');
 
       // make the urls hyper links
       $input = preg_replace($reg_exUrl2, '<figure><iframe class="v_player" src="' . $flurl2 . '" frameborder="0"></iframe></figure><p class="clearfix"></p>', $input);
@@ -49,7 +49,7 @@ function envo_secure_site($input)
 
     if (isset($vurl[0])) {
 
-      $flurlv = JAK_rewrite::jakVideourlparser($vurl[0], 'site');
+      $flurlv = ENVO_rewrite::envoVideourlparser($vurl[0], 'site');
 
       // make the urls hyper links
       $input = preg_replace($reg_exUrlv, '<figure><iframe class="v_player" src="' . $flurlv . '" frameborder="0"></iframe></figure><p class="clearfix"></p>', $input);
@@ -379,11 +379,11 @@ function envo_get_news($jakvar, $where, $plname, $order, $datef, $timef, $timeag
     $shortmsg = envo_cut_text($PAGE_CONTENT, $jkv["shortmsg"], '...');
 
     // Parse url for user link
-    $parseurl = JAK_rewrite::jakParseurl($plname, 'a', $row['id'], JAK_base::jakCleanurl($PAGE_TITLE), '');
+    $parseurl = ENVO_rewrite::envoParseurl($plname, 'a', $row['id'], ENVO_base::jakCleanurl($PAGE_TITLE), '');
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $envodata[] = array('id' => $row['id'], 'title' => envo_secure_site($PAGE_TITLE), 'content' => envo_secure_site($PAGE_CONTENT), 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'showhits' => $row['showhits'], 'created' => JAK_base::jakTimesince($row['time'], $datef, $timef, $timeago), 'titleurl' => JAK_base::jakCleanurl($row['title']), 'hits' => $row['hits'], 'previmg' => $row['previmg'], 'contentshort' => $shortmsg, 'parseurl' => $parseurl, 'date-time' => $row['time']);
+    $envodata[] = array('id' => $row['id'], 'title' => envo_secure_site($PAGE_TITLE), 'content' => envo_secure_site($PAGE_CONTENT), 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'showhits' => $row['showhits'], 'created' => ENVO_base::jakTimesince($row['time'], $datef, $timef, $timeago), 'titleurl' => ENVO_base::jakCleanurl($row['title']), 'hits' => $row['hits'], 'previmg' => $row['previmg'], 'contentshort' => $shortmsg, 'parseurl' => $parseurl, 'date-time' => $row['time']);
 
   }
 
