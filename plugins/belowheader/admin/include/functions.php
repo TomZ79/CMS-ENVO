@@ -1,6 +1,16 @@
 <?php
-// EN:
-// CZ:
+
+/**
+ * EN: Get all the data from 'belowheader' table
+ * CZ: Získání všech dat z tabulky 'belowheader'
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @return array
+ */
+
 function envo_get_belowheader()
 {
 
