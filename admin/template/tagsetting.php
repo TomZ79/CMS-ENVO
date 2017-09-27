@@ -113,7 +113,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_title', $JAK_SETTING_VAL["tagtitle"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_title', $ENVO_SETTING_VAL["tagtitle"], '', 'form-control');
                           ?>
 
                         </div>
@@ -132,7 +132,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTextArea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('jak_lcontent', envo_edit_safe_userpost($JAK_SETTING_VAL["tagdesc"]), '4', '', array('class' => 'form-control'));
+                        echo $Html->addTextarea('envo_lcontent', envo_edit_safe_userpost($ENVO_SETTING_VAL["tagdesc"]), '4', '', array('class' => 'form-control'));
                         ?>
 
                       </div>
@@ -177,7 +177,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_limit', $JAK_SETTING_VAL["taglimit"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_limit', $ENVO_SETTING_VAL["taglimit"], '', 'form-control');
                           ?>
 
                         </div>
@@ -197,7 +197,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_min', $JAK_SETTING_VAL["tagminfont"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_min', $ENVO_SETTING_VAL["tagminfont"], '', 'form-control');
                           ?>
 
                         </div>
@@ -216,7 +216,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'jak_max', $JAK_SETTING_VAL["tagmaxfont"], '', 'form-control');
+                        echo $Html->addInput('text', 'envo_max', $ENVO_SETTING_VAL["tagmaxfont"], '', 'form-control');
                         ?>
 
                       </div>

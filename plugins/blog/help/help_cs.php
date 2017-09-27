@@ -219,16 +219,16 @@
         <p>Use this hook to execute PHP code in the rss.php file.</p>
 
         <pre class="prettyprint linenums lang-php">
-if ($page1 == JAK_PLUGIN_VAR_BLOG) {
+if ($page1 == ENVO_PLUGIN_VAR_BLOG) {
 
 	if ($jkv["blogrss"]) {
 		$sql = 'SELECT id, title, content, time FROM '.DB_PREFIX.'blog WHERE active = 1 ORDER BY time DESC LIMIT '.$jkv["blogrss"];
-		$sURL = JAK_PLUGIN_VAR_BLOG;
+		$sURL = ENVO_PLUGIN_VAR_BLOG;
 		$sURL1 = 'a';
 		$what = 1;
 		$seowhat = $jkv["blogurl"];
 
-		$JAK_RSS_DESCRIPTION = envo_cut_text($jkv["blogdesc"], $jkv["shortmsg"], '…');
+		$ENVO_RSS_DESCRIPTION = envo_cut_text($jkv["blogdesc"], $jkv["shortmsg"], '…');
 
 	} else {
 		envo_redirect(BASE_URL);
@@ -267,16 +267,16 @@ $envodb->query('ALTER TABLE '.DB_PREFIX.'blog DROP INDEX `title`');
         <p>Use this hook to execute PHP code in the admin/page.php file on two locations. This hook is located when edit or create a new page.</p>
 
         <pre class="prettyprint linenums lang-php">
-if (!isset($defaults['jak_showblog'])) {
+if (!isset($defaults['envo_showblog'])) {
 	$bl = 0;
-} else if (in_array(0, $defaults['jak_showblog'])) {
+} else if (in_array(0, $defaults['envo_showblog'])) {
 	$bl = 0;
 } else {
-	$bl = join(',', $defaults['jak_showblog']);
+	$bl = join(',', $defaults['envo_showblog']);
 }
 
-if (empty($bl) && !empty($defaults['jak_showblogmany'])) {
-	$insert .= 'showblog = "'.$defaults['jak_showblogorder'].':'.$defaults['jak_showblogmany'].'",';
+if (empty($bl) && !empty($defaults['envo_showblogmany'])) {
+	$insert .= 'showblog = "'.$defaults['envo_showblogorder'].':'.$defaults['envo_showblogmany'].'",';
 } else if (!empty($bl)) {
 	$insert .= 'showblog = "'.$bl.'",';
 } else {
@@ -292,16 +292,16 @@ if (empty($bl) && !empty($defaults['jak_showblogmany'])) {
         <p>Use this hook to execute PHP code in the admin/news.php file on two locations. This hook is located when edit or create a new news.</p>
 
         <pre class="prettyprint linenums lang-php">
-if (!isset($defaults['jak_showblog'])) {
+if (!isset($defaults['envo_showblog'])) {
 	$bl = 0;
-} else if (in_array(0, $defaults['jak_showblog'])) {
+} else if (in_array(0, $defaults['envo_showblog'])) {
 	$bl = 0;
 } else {
-	$bl = join(',', $defaults['jak_showblog']);
+	$bl = join(',', $defaults['envo_showblog']);
 }
 
-if (empty($bl) && !empty($defaults['jak_showblogmany'])) {
-	$insert .= 'showblog = "'.$defaults['jak_showblogorder'].':'.$defaults['jak_showblogmany'].'",';
+if (empty($bl) && !empty($defaults['envo_showblogmany'])) {
+	$insert .= 'showblog = "'.$defaults['envo_showblogorder'].':'.$defaults['envo_showblogmany'].'",';
 } else if (!empty($bl)) {
 	$insert .= 'showblog = "'.$bl.'",';
 } else {
@@ -317,7 +317,7 @@ if (empty($bl) && !empty($defaults['jak_showblogmany'])) {
         <p>Use this hook to execute PHP code in the admin/page.php and admin/news.php file.</p>
 
         <pre class="prettyprint linenums lang-php">
-$JAK_GET_BLOG = envo_get_page_info(DB_PREFIX.'blog', '');
+$ENVO_GET_BLOG = envo_get_page_info(DB_PREFIX.'blog', '');
 
 if ($ENVO_FORM_DATA) {
 
@@ -350,7 +350,7 @@ $envodb->query('UPDATE '.DB_PREFIX.'blogcomments SET userid = 0 WHERE userid = '
         <p>Use this hook to execute PHP code in the admin/users.php file.</p>
 
         <pre class="prettyprint linenums lang-php">
-$envodb->query('UPDATE '.DB_PREFIX.'blogcomments SET username = "'.smartsql($defaults['jak_username']).'" WHERE userid = '.smartsql($page2).'');
+$envodb->query('UPDATE '.DB_PREFIX.'blogcomments SET username = "'.smartsql($defaults['envo_username']).'" WHERE userid = '.smartsql($page2).'');
         </pre>
 
       </article>
@@ -373,8 +373,8 @@ $envodb->query('UPDATE '.DB_PREFIX.'blogcomments SET userid = 0 WHERE userid = '
 
         <p>For example:</p>
         <pre class="prettyprint linenums lang-php">
-if (isset($defaults['jak_blog'])) {
-	$insert .= 'blog = "'.$defaults['jak_blog'].'",'; }
+if (isset($defaults['envo_blog'])) {
+	$insert .= 'blog = "'.$defaults['envo_blog'].'",'; }
         </pre>
 
       </article>
@@ -417,8 +417,8 @@ if (file_exists(APP_PATH.'plugins/blog/lang/'.$site_language.'.ini')) {
         <pre class="prettyprint linenums lang-php">
 include_once APP_PATH.'plugins/blog/functions.php';
 
-$JAK_BLOG_ALL = envo_get_blog('', $jkv["blogorder"], '', '', $jkv["blogurl"], $tl['global_text']['gtxt4']);
-$PAGE_TITLE = JAK_PLUGIN_NAME_BLOG;
+$ENVO_BLOG_ALL = envo_get_blog('', $jkv["blogorder"], '', '', $jkv["blogurl"], $tl['global_text']['gtxt4']);
+$PAGE_TITLE = ENVO_PLUGIN_NAME_BLOG;
         </pre>
 
       </article>
@@ -439,7 +439,7 @@ $blog = new ENVO_search($SearchInput);
         	$blog->envoFieldstoSelect("id, title, content");
 
         	// Load the array into template
-        	$JAK_SEARCH_RESULT_BLOG = $blog->set_result(JAK_PLUGIN_VAR_BLOG, 'a', $jkv["blogurl"]);
+        	$ENVO_SEARCH_RESULT_BLOG = $blog->set_result(ENVO_PLUGIN_VAR_BLOG, 'a', $jkv["blogurl"]);
         </pre>
 
       </article>
@@ -450,9 +450,9 @@ $blog = new ENVO_search($SearchInput);
         <p>Use this hook to execute PHP code in the tags.php file.</p>
 
         <pre class="prettyprint linenums lang-php">
-if ($row['pluginid'] == JAK_PLUGIN_ID_BLOG) {
-	$blogtagData[] = ENVO_tags::envoTagSql("blog", $row['itemid'], "id, title, content", "content", JAK_PLUGIN_VAR_BLOG, "a", $jkv["blogurl"]);
-	$JAK_TAG_BLOG_DATA = $blogtagData;
+if ($row['pluginid'] == ENVO_PLUGIN_ID_BLOG) {
+	$blogtagData[] = ENVO_tags::envoTagSql("blog", $row['itemid'], "id, title, content", "content", ENVO_PLUGIN_VAR_BLOG, "a", $jkv["blogurl"]);
+	$ENVO_TAG_BLOG_DATA = $blogtagData;
 }
         </pre>
 
@@ -465,7 +465,7 @@ if ($row['pluginid'] == JAK_PLUGIN_ID_BLOG) {
         <p>This hook is located in admin/template/footer.php and will work together with the grid system, you can use PHP and HTML code.</p>
 
         <pre class="prettyprint linenums lang-php">
-if ($pg['pluginid'] == JAK_PLUGIN_BLOG) {
+if ($pg['pluginid'] == ENVO_PLUGIN_BLOG) {
 	include_once APP_PATH.'plugins/blog/admin/template/blog_connect.php';
 }
         </pre>
@@ -491,7 +491,7 @@ plugins/blog/admin/template/blog_connect_new.php
         <p>This hook is located in template/yourtemplate/page.php / template/yourtemplate/newsart.php and will be executed to display your plugin grid result.</p>
 
         <pre class="prettyprint linenums lang-php">
-if (JAK_PLUGIN_ACCESS_BLOG && $pg['pluginid'] == JAK_PLUGIN_ID_BLOG && !empty($row['showblog'])) {
+if (ENVO_PLUGIN_ACCESS_BLOG && $pg['pluginid'] == ENVO_PLUGIN_ID_BLOG && !empty($row['showblog'])) {
 	include_once APP_PATH.'template/'.ENVO_TEMPLATE.'/plugintemplate/blog/pages_news.php';
 }
         </pre>

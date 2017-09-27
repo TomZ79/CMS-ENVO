@@ -63,7 +63,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
   if ($page == "success" or $page == "logout") { ?>
     <meta http-equiv="refresh" content="1;URL=<?php echo $_SERVER['HTTP_REFERER']; ?>">
   <?php } ?>
-  <link rel="canonical" href="<?php echo (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . ENVO_rewrite::envoParseurl($page, $page1, $page2, $page3, $page4, $page5, $page6); ?>">
+  <link rel="canonical" href="<?php echo (ENVO_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . ENVO_rewrite::envoParseurl($page, $page1, $page2, $page3, $page4, $page5, $page6); ?>">
 
   <!-- Mobile Specific Metas
   ================================================== -->
@@ -111,7 +111,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 
   <!-- CUSTOM CSS
   ================================================== -->
-  <?php if (!$JAK_SHOW_NAVBAR) { ?>
+  <?php if (!$ENVO_SHOW_NAVBAR) { ?>
     <style type="text/css">
       /* Fix 'body padding' if navbar is hidden */
       body {
@@ -130,13 +130,13 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 
   <!-- Import templates for in between head
   ============================================= -->
-  <?php if (isset($JAK_HOOK_HEAD_TOP) && is_array($JAK_HOOK_HEAD_TOP)) foreach ($JAK_HOOK_HEAD_TOP as $headt) {
+  <?php if (isset($ENVO_HOOK_HEAD_TOP) && is_array($ENVO_HOOK_HEAD_TOP)) foreach ($ENVO_HOOK_HEAD_TOP as $headt) {
     include_once APP_PATH . $headt['phpcode'];
   } ?>
 
   <!-- Import CSS for Current page in between head
   ============================================= -->
-  <?php if (isset($JAK_HEADER_CSS)) echo $JAK_HEADER_CSS; ?>
+  <?php if (isset($ENVO_HEADER_CSS)) echo $ENVO_HEADER_CSS; ?>
 
   <!-- Head Libs -->
   <script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/modernizr/modernizr.min.js"></script>
@@ -152,7 +152,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
 </div>
 
 <div class="body"><!-- START BODY -->
-  <?php if ($JAK_SHOW_NAVBAR) { ?>
+  <?php if ($ENVO_SHOW_NAVBAR) { ?>
 
     <!-- =========================
       START HEADER SECTION
@@ -169,7 +169,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
                 <?php
                 // Show links for Register Form Plugin
                 // Check if plugin exist throught PluginID
-                if (is_numeric(JAK_PLUGIN_ID_REGISTER_FORM) && JAK_PLUGIN_ID_REGISTER_FORM > 0) {
+                if (is_numeric(ENVO_PLUGIN_ID_REGISTER_FORM) && ENVO_PLUGIN_ID_REGISTER_FORM > 0) {
                   echo '<li><a href="/' . $PLUGIN_RF_CAT["varname"] . '">' . $PLUGIN_RF_CAT["name"] . '</a></li>';
                 }
                 ?>
@@ -181,7 +181,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
                   </li>
                 <?php }
                 if ($jkv["loginShow_porto_tpl"] == 1) {
-                  if (!JAK_USERID) { ?>
+                  if (!ENVO_USERID) { ?>
                     <li>
                       <a href="/login" id="login">
                         <?php
@@ -198,11 +198,11 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
                     <li>
                       <a href="<?php echo $P_USR_LOGOUT; ?>" id="logout">
                         <?php
-                        echo sprintf($tlporto["header_text"]["ht2"], $jakuser->getVar("username"));
+                        echo sprintf($tlporto["header_text"]["ht2"], $envouser->getVar("username"));
                         ?>
                       </a>
                     </li>
-                    <?php if (JAK_ASACCESS) { ?>
+                    <?php if (ENVO_ASACCESS) { ?>
                       <li><a href="<?php echo BASE_URL; ?>admin/"><?php echo $tlporto["header_text"]["ht3"]; ?></a></li>
                     <?php }
                   }
@@ -272,7 +272,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
                       <!-- Main navigation -->
                       <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/navbar.php'; ?>
                       <!-- Hook -->
-                      <?php if (isset($JAK_HOOK_HEADER) && is_array($JAK_HOOK_HEADER)) foreach ($JAK_HOOK_HEADER as $hheader) {
+                      <?php if (isset($ENVO_HOOK_HEADER) && is_array($ENVO_HOOK_HEADER)) foreach ($ENVO_HOOK_HEADER as $hheader) {
                         include_once APP_PATH . $hheader['phpcode'];
                       } ?>
 
@@ -296,10 +296,10 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
     <!-- =========================
     START PAGE TITLE SECTION
     ============================== -->
-    <?php if ($JAK_SHOW_NAVBAR) {
+    <?php if ($ENVO_SHOW_NAVBAR) {
 
       /* GRID SYSTEM FOR DIFFERENT PAGE - hide page title */
-      if (!$page || empty($page) || ($page == 'offline') || (!$jkv["searchform"] || !JAK_USER_SEARCH)) {
+      if (!$page || empty($page) || ($page == 'offline') || (!$jkv["searchform"] || !ENVO_USER_SEARCH)) {
         // Code for homepage and other blank page
 
       }
@@ -318,13 +318,13 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
                   <?php
                   echo '<li>';
                   echo '<a href=' . BASE_URL . '>';
-                  foreach ($jakcategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) {
+                  foreach ($envocategories as $ca) if ($ca['catorder'] == 1 && $ca['showmenu'] == 1 && $ca['showfooter'] == 0) {
                     echo $ca["name"];
                   }
                   echo '</a>';
                   echo '</li>';
-                  if ($JAK_TPL_PLUG_T && !empty($page1) && !is_numeric($page1)) {
-                    echo '<li><a href="' . $JAK_TPL_PLUG_URL . '">' . $JAK_TPL_PLUG_T . '</a></li>';
+                  if ($ENVO_TPL_PLUG_T && !empty($page1) && !is_numeric($page1)) {
+                    echo '<li><a href="' . $ENVO_TPL_PLUG_URL . '">' . $ENVO_TPL_PLUG_T . '</a></li>';
                   }
                   echo '<li class="active">';
                   echo envo_cut_text($PAGE_TITLE, 35, "...");
@@ -344,7 +344,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
     ============================== -->
 
     <?php
-    if (isset($JAK_HOOK_BELOW_HEADER) && is_array($JAK_HOOK_BELOW_HEADER)) foreach ($JAK_HOOK_BELOW_HEADER as $bheader) {
+    if (isset($ENVO_HOOK_BELOW_HEADER) && is_array($ENVO_HOOK_BELOW_HEADER)) foreach ($ENVO_HOOK_BELOW_HEADER as $bheader) {
       // Import templates below header
       include_once APP_PATH . $bheader['phpcode'];
     }
@@ -357,7 +357,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
       // Jedná se o titulní stránku - $page neobsahuje žádnou hodnotu
 
       // Titulní stránka má Grid systém nebo heslo
-      if ($JAK_HOOK_SIDE_GRID || $PAGE_PASSWORD) {
+      if ($ENVO_HOOK_SIDE_GRID || $PAGE_PASSWORD) {
 
       } else {
 
@@ -393,11 +393,11 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
           // STRÁNKA MÁ HESLO
 
           // Přihlášení administrátora
-          if (JAK_ASACCESS) {
+          if (ENVO_ASACCESS) {
             // ADMINISTRÁTOR JE PŘIHLÁŠEN
 
             // Stránka má Grid systém
-            if ($JAK_HOOK_SIDE_GRID) {
+            if ($ENVO_HOOK_SIDE_GRID) {
 
               $section = 'B';
 
@@ -411,7 +411,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
             // ADMINISTRÁTOR NENÍ PŘIHLÁŠEN
 
             // Stránka má Grid systém
-            if ($JAK_HOOK_SIDE_GRID) {
+            if ($ENVO_HOOK_SIDE_GRID) {
 
               $section = 'DEFAULT';
 
@@ -427,11 +427,11 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
           // STRÁNKA MÁ HESLO A HESLO BYLO SPRÁVNĚ ZADANÉ VE STRÁNCE
 
           // Přihlášení administrátora
-          if (JAK_ASACCESS) {
+          if (ENVO_ASACCESS) {
             // ADMINISTRÁTOR JE PŘIHLÁŠEN
 
             // Stránka má Grid systém
-            if ($JAK_HOOK_SIDE_GRID) {
+            if ($ENVO_HOOK_SIDE_GRID) {
 
               $section = 'B';
 
@@ -445,7 +445,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
             // ADMINISTRÁTOR NENÍ PŘIHLÁŠEN
 
             // Stránka má Grid systém
-            if ($JAK_HOOK_SIDE_GRID) {
+            if ($ENVO_HOOK_SIDE_GRID) {
 
               $section = 'B';
 
@@ -461,11 +461,11 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
           // STRÁNKA NEMÁ HESLO
 
           // Přihlášení administrátora
-          if (JAK_ASACCESS) {
+          if (ENVO_ASACCESS) {
             // ADMINISTRÁTOR JE PŘIHLÁŠEN
 
             // Stránka má Grid systém
-            if ($JAK_HOOK_SIDE_GRID) {
+            if ($ENVO_HOOK_SIDE_GRID) {
 
               $section = 'B';
 
@@ -479,7 +479,7 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
             // ADMINISTRÁTOR NENÍ PŘIHLÁŠEN
 
             // Stránka má Grid systém
-            if ($JAK_HOOK_SIDE_GRID) {
+            if ($ENVO_HOOK_SIDE_GRID) {
 
               $section = 'B';
 
@@ -513,11 +513,11 @@ require_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
         echo '<div class="row">';
 
         // Sidebar if left
-        if (!empty($JAK_HOOK_SIDE_GRID) && $jkv["sidebar_location_tpl"] == "left") {
+        if (!empty($ENVO_HOOK_SIDE_GRID) && $jkv["sidebar_location_tpl"] == "left") {
           include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/sidebar.php';
         }
 
-        echo '<div class="' . ($JAK_HOOK_SIDE_GRID ? 'col-md-9' : 'col-md-12') . '">';
+        echo '<div class="' . ($ENVO_HOOK_SIDE_GRID ? 'col-md-9' : 'col-md-12') . '">';
 
         break;
       default:

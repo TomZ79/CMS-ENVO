@@ -29,7 +29,7 @@ class ENVO_rewrite
     $v = $v1 = $v2 = $v3 = $v4 = $v5 = '';
 
     // Check if is/not apache and create url
-    if (!JAK_USE_APACHE) {
+    if (!ENVO_USE_APACHE) {
 
       if ($var1) {
         $v = '&amp;sp=' . htmlspecialchars($var1);
@@ -99,10 +99,10 @@ class ENVO_rewrite
 
     if ($var != 1) {
       // Check if is/not apache and create url
-      if (!JAK_USE_APACHE && $var) {
+      if (!ENVO_USE_APACHE && $var) {
         // Now se the var for none apache
         $varname = '&amp;page=' . $var;
-      } elseif (JAK_PAGINATE_ADMIN) {
+      } elseif (ENVO_PAGINATE_ADMIN) {
         // Now se the var for admin
         $varname = '&amp;page=' . $var;
       } else {
@@ -190,7 +190,7 @@ class ENVO_rewrite
   function envoGetseg($var)
   {
 
-    if (JAK_USE_APACHE) {
+    if (ENVO_USE_APACHE) {
 
       $url  = str_replace(_APP_MAIN_DIR, '', $this->url);
       $_tmp = explode('?', $url);

@@ -25,7 +25,7 @@
           <span class="input-group-btn">
               <button class="btn btn-info" name="search" type="submit"><?php echo $tl["button"]["btn21"]; ?></button>
           </span>
-          <input type="text" name="jakSH" class="form-control" placeholder="<?php echo $tl["placeholder"]["p2"]; ?>">
+          <input type="text" name="envoSH" class="form-control" placeholder="<?php echo $tl["placeholder"]["p2"]; ?>">
         </div>
       </form>
     </div>
@@ -33,13 +33,13 @@
     <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
       <div class="col-md-6">
         <div class="input-group">
-          <select name="jak_group" class="form-control selectpicker">
+          <select name="envo_group" class="form-control selectpicker">
 
             <?php
             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-            if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $z) {
+            if (isset($ENVO_USERGROUP_ALL) && is_array($ENVO_USERGROUP_ALL)) foreach ($ENVO_USERGROUP_ALL as $z) {
               if ($z["id"] != "1") {
-                echo $Html->addOption($z["id"], $z["name"], ($z["id"] == $_REQUEST["jak_group"]) ? TRUE : FALSE);
+                echo $Html->addOption($z["id"], $z["name"], ($z["id"] == $_REQUEST["envo_group"]) ? TRUE : FALSE);
               }
             }
             ?>
@@ -54,7 +54,7 @@
 
   <hr>
 
-<?php if ($JAK_SEARCH || $JAK_LIST_USER) { ?>
+<?php if ($ENVO_SEARCH || $ENVO_LIST_USER) { ?>
 
   <div class="box box-success">
     <div class="box-body no-padding">
@@ -69,8 +69,8 @@
                 <?php
                 // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                 // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                echo $Html->addCheckbox('', '', false, 'jak_delete_all');
-                echo $Html->addLabel('jak_delete_all', '');
+                echo $Html->addCheckbox('', '', false, 'envo_delete_all');
+                echo $Html->addLabel('envo_delete_all', '');
                 ?>
 
               </div>
@@ -97,13 +97,13 @@
             </th>
           </tr>
           </thead>
-          <?php if ($JAK_SEARCH) { ?><?php if (isset($JAK_SEARCH) && is_array($JAK_SEARCH)) foreach ($JAK_SEARCH as $v) { ?>
+          <?php if ($ENVO_SEARCH) { ?><?php if (isset($ENVO_SEARCH) && is_array($ENVO_SEARCH)) foreach ($ENVO_SEARCH as $v) { ?>
             <tr>
               <td><?php echo $v["id"]; ?></td>
               <td>
                 <div class="checkbox-singel check-success">
-                  <input type="checkbox" id="jak_delete_user<?php echo $v["id"]; ?>" name="jak_delete_user[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
-                  <label for="jak_delete_user<?php echo $v["id"]; ?>"></label>
+                  <input type="checkbox" id="envo_delete_user<?php echo $v["id"]; ?>" name="envo_delete_user[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
+                  <label for="envo_delete_user<?php echo $v["id"]; ?>"></label>
                 </div>
               </td>
               <td><a href="index.php?p=users&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
@@ -111,7 +111,7 @@
               <td><?php echo $v["email"]; ?></td>
               <td><?php echo $v["username"]; ?></td>
               <td>
-                <?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $y) {
+                <?php if (isset($ENVO_USERGROUP_ALL) && is_array($ENVO_USERGROUP_ALL)) foreach ($ENVO_USERGROUP_ALL as $y) {
                   if ($v["usergroupid"] == $y["id"]) { ?>
                     <a href="index.php?p=usergroup&amp;sp=user&amp;ssp=<?php echo $y["id"]; ?>"><?php echo $y["name"]; ?></a>
                   <?php }
@@ -144,20 +144,20 @@
             </tr>
           <?php }
           } ?>
-          <?php if ($JAK_LIST_USER) { ?><?php if (isset($JAK_LIST_USER) && is_array($JAK_LIST_USER)) foreach ($JAK_LIST_USER as $v) { ?>
+          <?php if ($ENVO_LIST_USER) { ?><?php if (isset($ENVO_LIST_USER) && is_array($ENVO_LIST_USER)) foreach ($ENVO_LIST_USER as $v) { ?>
             <tr>
               <td><?php echo $v["id"]; ?></td>
               <td>
                 <div class="checkbox-singel check-success">
-                  <input type="checkbox" id="jak_delete_user<?php echo $v["id"]; ?>" name="jak_delete_user[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
-                  <label for="jak_delete_user<?php echo $v["id"]; ?>"></label>
+                  <input type="checkbox" id="envo_delete_user<?php echo $v["id"]; ?>" name="envo_delete_user[]" class="highlight" value="<?php echo $v["id"]; ?>"/>
+                  <label for="envo_delete_user<?php echo $v["id"]; ?>"></label>
                 </div>
               </td>
               <td><a href="index.php?p=users&amp;sp=edit&amp;ssp=<?php echo $v["id"]; ?>"><?php echo $v["name"]; ?></a>
               </td>
               <td><?php echo $v["email"]; ?></td>
               <td><?php echo $v["username"]; ?></td>
-              <td><?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $y) {
+              <td><?php if (isset($ENVO_USERGROUP_ALL) && is_array($ENVO_USERGROUP_ALL)) foreach ($ENVO_USERGROUP_ALL as $y) {
                   if ($v["usergroupid"] == $y["id"]) { ?>
                     <ahref="index.php?p=usergroup&amp;sp=user&amp;ssp=<?php echo $y["id"]; ?>"><?php echo $y["name"]; ?></a><?php }
                 } ?></td>

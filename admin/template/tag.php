@@ -50,7 +50,7 @@
   </script>
 <?php } ?>
 
-<?php if (isset($JAK_TAG_ALL) && is_array($JAK_TAG_ALL)) { ?>
+<?php if (isset($ENVO_TAG_ALL) && is_array($ENVO_TAG_ALL)) { ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="box box-success">
@@ -66,8 +66,8 @@
                   <?php
                   // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                   // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                  echo $Html->addCheckbox('', '', false, 'jak_delete_all');
-                  echo $Html->addLabel('jak_delete_all', '');
+                  echo $Html->addCheckbox('', '', false, 'envo_delete_all');
+                  echo $Html->addLabel('envo_delete_all', '');
                   ?>
 
                 </div>
@@ -101,7 +101,7 @@
               </th>
             </tr>
             </thead>
-            <?php foreach ($JAK_TAG_ALL as $v) { ?>
+            <?php foreach ($ENVO_TAG_ALL as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
                 <td>
@@ -110,8 +110,8 @@
                     <?php
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                    echo $Html->addCheckbox('jak_delete_tag[]', $v["id"], false, 'jak_delete_tag' . $v["id"], 'highlight');
-                    echo $Html->addLabel('jak_delete_tag' . $v["id"], '');
+                    echo $Html->addCheckbox('envo_delete_tag[]', $v["id"], false, 'envo_delete_tag' . $v["id"], 'highlight');
+                    echo $Html->addLabel('envo_delete_tag' . $v["id"], '');
                     ?>
 
                   </div>
@@ -163,8 +163,8 @@
     </div>
   </div>
 
-  <?php if ($JAK_PAGINATE) {
-    echo $JAK_PAGINATE;
+  <?php if ($ENVO_PAGINATE) {
+    echo $ENVO_PAGINATE;
   }
 } else { ?>
 

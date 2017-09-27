@@ -3,7 +3,7 @@
  * JS for Plugin TV Tower - ADMIN
  * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
- * Author: Thomas
+ * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
  * INDEX:
@@ -64,7 +64,7 @@ if ($('#htmleditor').length) {
   // set editor.$blockScrolling = Infinity to disable this message
   htmlACE.$blockScrolling = Infinity;
 
-  texthtml = $('#jak_filecontent').val();
+  texthtml = $('#envo_filecontent').val();
   htmlACE.session.setValue(texthtml);
 }
 
@@ -72,8 +72,8 @@ $(function () {
   /* Submit Form
    ========================================= */
   $('form').submit(function () {
-    if ($('#jak_filecontent').length) {
-      $("#jak_filecontent").val(txtACE.getValue());
+    if ($('#envo_filecontent').length) {
+      $("#envo_filecontent").val(txtACE.getValue());
     }
   });
 

@@ -18,7 +18,7 @@
     <?php } ?>
 
     <?php if ($NL_MEMBER) {
-    if (!JAK_USERID) {
+    if (!ENVO_USERID) {
       if (isset($_SESSION['password_recover'])) {
 
         echo '<div class="alert bg-success">' . $tl['login']['l7'] . '</div>';
@@ -30,11 +30,11 @@
           <div class="status-failure"><?php echo $errorlo["e"]; ?></div><?php } ?>
         <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
           <div class="form-group<?php if ($errorlo) echo " has-error"; ?>">
-            <input type="text" name="jakU" id="username" maxlength="20" class="form-control" value=""
+            <input type="text" name="envoU" id="username" maxlength="20" class="form-control" value=""
               placeholder="<?php echo $tl["login"]["l1"]; ?>"/>
           </div>
           <div class="form-group<?php if ($errorlo) echo " has-error"; ?>">
-            <input type="password" name="jakP" id="password" maxlength="18" class="form-control" value=""
+            <input type="password" name="envoP" id="password" maxlength="18" class="form-control" value=""
               placeholder="<?php echo $tl["login"]["l2"]; ?>"/>
           </div>
           <div class="form-group<?php if ($errornl) echo " has-error"; ?>">
@@ -49,7 +49,7 @@
           <button type="submit" name="login" class="btn btn-default"><?php echo $tl["general"]["g83"]; ?></button>
         </form>
         <?php if ($errorlo) { ?>
-          <a class="lost-pwd" href="<?php echo $JAK_FORGOT_PASS_LINK; ?>"><?php echo $tl["error"]["f"]; ?></a>
+          <a class="lost-pwd" href="<?php echo $ENVO_FORGOT_PASS_LINK; ?>"><?php echo $tl["error"]["f"]; ?></a>
         <?php } ?>
       </div>
       <div class="forgotP">
@@ -58,7 +58,7 @@
           <div class="status-failure"><?php echo $errorfp["e"]; ?></div><?php } ?>
         <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
           <div class="form-group<?php if ($errorfp) echo " has-error"; ?>">
-            <input type="text" name="jakE" id="email" class="form-control" value=""
+            <input type="text" name="envoE" id="email" class="form-control" value=""
               placeholder="<?php echo $tl["login"]["l5"]; ?>"/>
           </div>
           <button type="submit" name="forgotP" class="btn btn-default"><?php echo $tl["general"]["g83"]; ?></button>

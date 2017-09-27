@@ -295,7 +295,7 @@ function create_thumbnail_watermark($targetPath, $targetFile, $sourceFile, $widt
 }
 
 // Calculate gps data
-function jak_create_gps($coordinate, $hemisphere) {
+function envo_create_gps($coordinate, $hemisphere) {
   for ($i = 0; $i < 3; $i++) {
     $part = explode('/', $coordinate[$i]);
     if (count($part) == 1) {

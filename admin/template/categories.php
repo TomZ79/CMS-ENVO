@@ -69,7 +69,7 @@
   </div>
 
 
-<?php if (isset($JAK_CAT1_EXIST) || isset($JAK_CAT2_EXIST) || isset($JAK_CAT3_EXIST)) { ?>
+<?php if (isset($ENVO_CAT1_EXIST) || isset($ENVO_CAT2_EXIST) || isset($ENVO_CAT3_EXIST)) { ?>
 
   <div class="row">
     <div class="col-md-6">
@@ -86,7 +86,7 @@
         </div>
         <div class="box-body">
 
-          <?php if ($JAK_CAT1_EXIST) {
+          <?php if ($ENVO_CAT1_EXIST) {
 
             // Build menu for categories header and header/footer
             $lang = $tl["cat_notification"]["del"]; // Notification
@@ -130,7 +130,7 @@
         </div>
         <div class="box-body">
 
-          <?php if ($JAK_CAT2_EXIST) {
+          <?php if ($ENVO_CAT2_EXIST) {
 
             // Build menu for categories
             $lang = $tl["cat_notification"]["del"]; // Notification
@@ -177,7 +177,7 @@
         </div>
         <div class="box-body">
 
-          <?php if ($JAK_CAT3_EXIST) {
+          <?php if ($ENVO_CAT3_EXIST) {
 
             echo '<ul class="list-group">' . $ucatblank . '</ul>';
 

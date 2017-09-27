@@ -1,4 +1,4 @@
-<?php if ($JAK_PROVED) { ?>
+<?php if ($ENVO_PROVED) { ?>
   <!-- END PLACE PAGE CONTENT HERE -->
   <?php if ($page != 'cmshelp') { ?></div><?php } ?><!-- END CONTAINER FLUID -->
   </div><!-- END PAGE CONTENT -->
@@ -180,7 +180,7 @@ if (!empty($page)) {
     // $debug->debug("JS Script path for this plugin or page1: " . $jscodeFile, NULL, INFO);
   }
 
-} elseif (empty($page) && !JAK_USERID) {
+} elseif (empty($page) && !ENVO_USERID) {
   // EN: Insert javascript files for login page
   // CZ: Vložení javascript souborů pro stránku 'login' -> přihlášení do administračního rozhraní
   include_once 'assets/js/script.login.php';
@@ -208,14 +208,14 @@ if ($page == 'template' && $page1 == 'settings') {
   <script>
     $.notify({
       // Options
-      title: '<?php echo $tl["hf_text"]["hftxt6"] . ' , ' . $JAK_WELCOME_NAME; ?>!',
+      title: '<?php echo $tl["hf_text"]["hftxt6"] . ' , ' . $ENVO_WELCOME_NAME; ?>!',
       message: '<?php echo $_SESSION["loginmsg"];?>'
     }, {
       // Settings
       timer: 8000,
       template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert" role="alert" style="background-color: #263238;color: #FFF">' +
       '<button type="button" aria-hidden="true" class="close" data-notify="dismiss" style="color: #FFF;opacity: 0.8;">×</button>' +
-      '<div style="float: left;margin-right: 20px;"><img src="<?php echo BASE_URL_ORIG . basename(JAK_FILES_DIRECTORY) . "/userfiles/" . $jakuser->getVar("picture"); ?>" alt="" style="width: 40px;"></div>' +
+      '<div style="float: left;margin-right: 20px;"><img src="<?php echo BASE_URL_ORIG . basename(ENVO_FILES_DIRECTORY) . "/userfiles/" . $envouser->getVar("picture"); ?>" alt="" style="width: 40px;"></div>' +
       '<span data-notify="title" style="display: block;font-weight: bold;">{1}</span> ' +
       '<span data-notify="message">{2}</span>' +
       '</div>' +
@@ -251,7 +251,7 @@ if (isset($_SESSION["warningmsg"])) { ?>
     }, {type: 'warning'});
   </script>
 <?php }
-if ($JAK_PROVED && !isset($jkv["cms_tpl"])) { ?>
+if ($ENVO_PROVED && !isset($jkv["cms_tpl"])) { ?>
   <script>
     // Notification
     $.notify({
@@ -272,14 +272,14 @@ if ($JAK_PROVED && !isset($jkv["cms_tpl"])) { ?>
 <?php } ?>
 
 <!-- BEGIN TINYMCE EDITOR -->
-<?php if ($JAK_PROVED && (!$jkv["adv_editor"])) {
+<?php if ($ENVO_PROVED && (!$jkv["adv_editor"])) {
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   echo $Html->addScript('../assets/plugins/tinymce/tinymce.min.js?=v4.5.2');
   include_once('assets/js/tiny.editor.php');
 } ?>
 
 <!-- BEGIN HOOKS - FOOTER -->
-<?php if (isset($JAK_HOOK_FOOTER_ADMIN) && is_array($JAK_HOOK_FOOTER_ADMIN)) foreach ($JAK_HOOK_FOOTER_ADMIN as $foota) {
+<?php if (isset($ENVO_HOOK_FOOTER_ADMIN) && is_array($ENVO_HOOK_FOOTER_ADMIN)) foreach ($ENVO_HOOK_FOOTER_ADMIN as $foota) {
   // Import all hooks for footer just before /body
   include_once APP_PATH . $foota["phpcode"];
 } ?>

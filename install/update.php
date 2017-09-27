@@ -102,7 +102,7 @@ $succesfully = 0;
 	}';
 
               // Eval code for display connect
-              $get_dlconnect = 'if (JAK_PLUGIN_ACCESS_DOWNLOAD && $pg[\'pluginid\'] == JAK_PLUGIN_ID_DOWNLOAD && !empty($row[\'showdownload\'])) {
+              $get_dlconnect = 'if (ENVO_PLUGIN_ACCESS_DOWNLOAD && $pg[\'pluginid\'] == ENVO_PLUGIN_ID_DOWNLOAD && !empty($row[\'showdownload\'])) {
 	include_once APP_PATH.\'plugins/download/template/\'.$jkv[\"sitestyle\"].\'/page_news.php\';}';
 
               $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET phpcode = "' . $dla . '" WHERE hook_name = "php_admin_lang" AND product = "download"');
@@ -137,7 +137,7 @@ $succesfully = 0;
 	    $tlblog = parse_ini_file(APP_PATH.\'plugins/blog/lang/en.ini\', true);
 	}';
 
-              $get_blconnect = 'if (JAK_PLUGIN_ACCESS_BLOG && $pg[\'pluginid\'] == JAK_PLUGIN_ID_BLOG && !empty($row[\'showblog\'])) {
+              $get_blconnect = 'if (ENVO_PLUGIN_ACCESS_BLOG && $pg[\'pluginid\'] == ENVO_PLUGIN_ID_BLOG && !empty($row[\'showblog\'])) {
 	include_once APP_PATH.\'plugins/blog/template/\'.$jkv[\"sitestyle\"].\'/pages_news.php\';}';
 
               $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET phpcode = "' . $bla . '" WHERE hook_name = "php_admin_lang" AND product = "blog"');
@@ -181,7 +181,7 @@ $succesfully = 0;
 	}';
 
               // Eval code for display connect
-              $get_fqconnect = 'if ($pg[\'pluginid\'] == JAK_PLUGIN_ID_FAQ && JAK_PLUGIN_ID_FAQ && !empty($row[\'showfaq\'])) {
+              $get_fqconnect = 'if ($pg[\'pluginid\'] == ENVO_PLUGIN_ID_FAQ && ENVO_PLUGIN_ID_FAQ && !empty($row[\'showfaq\'])) {
 	include_once APP_PATH.\'plugins/faq/template/\'.$jkv[\"sitestyle\"].\'/page_news.php\';}';
 
               $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET phpcode = "' . $faqa . '" WHERE hook_name = "php_admin_lang" AND product = "faq"');
@@ -205,7 +205,7 @@ $succesfully = 0;
 	}';
 
               // Eval code for display connect
-              $get_gqconnect = 'if (JAK_PLUGIN_ACCESS_GALLERY && $pg[\'pluginid\'] == JAK_PLUGIN_ID_GALLERY && !empty($row[\'showgallery\'])) {
+              $get_gqconnect = 'if (ENVO_PLUGIN_ACCESS_GALLERY && $pg[\'pluginid\'] == ENVO_PLUGIN_ID_GALLERY && !empty($row[\'showgallery\'])) {
 	include_once APP_PATH.\'plugins/gallery/template/\'.$jkv[\"sitestyle\"].\'/pages_news.php\';}';
 
               $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET phpcode = "' . $gala . '" WHERE hook_name = "php_admin_lang" AND product = "gallery"');
@@ -272,7 +272,7 @@ $succesfully = 0;
 	}';
 
               // Eval code for display connect
-              $get_rqconnect = 'if (JAK_PLUGIN_ACCESS_RETAILER && $pg[\'pluginid\'] == JAK_PLUGIN_ID_RETAILER && !empty($row[\'showretailer\'])) {
+              $get_rqconnect = 'if (ENVO_PLUGIN_ACCESS_RETAILER && $pg[\'pluginid\'] == ENVO_PLUGIN_ID_RETAILER && !empty($row[\'showretailer\'])) {
 	include_once APP_PATH.\'plugins/retailer/template/\'.$jkv[\"sitestyle\"].\'/pages_news.php\';}';
 
               $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET phpcode = "' . $reta . '" WHERE hook_name = "php_admin_lang" AND product = "retailer"');
@@ -308,7 +308,7 @@ $succesfully = 0;
 	}';
 
               // Eval because of the foreach
-              $tpl_connect = 'if (JAK_PLUGIN_ACCESS_TICKETING && $pg[\'pluginid\'] == JAK_PLUGIN_ID_TICKETING && !empty($row[\'showticketing\'])) {
+              $tpl_connect = 'if (ENVO_PLUGIN_ACCESS_TICKETING && $pg[\'pluginid\'] == ENVO_PLUGIN_ID_TICKETING && !empty($row[\'showticketing\'])) {
 	include_once APP_PATH.\'plugins/ticketing/template/\'.$jkv[\"sitestyle\"].\'/page_news.php\';}';
 
               $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET phpcode = "' . $tica . '" WHERE hook_name = "php_admin_lang" AND product = "ticketing"');
@@ -320,16 +320,16 @@ $succesfully = 0;
 
           if ($row["value"] <= "1.5") {
 
-            $sitephprss = 'if ($page1 == JAK_PLUGIN_VAR_ECOMMERCE) {
+            $sitephprss = 'if ($page1 == ENVO_PLUGIN_VAR_ECOMMERCE) {
 		
 		if ($jkv[\"shoprss\"]) {
 			$sql = \'SELECT id, title, content, time FROM \'.DB_PREFIX.\'shop WHERE active = 1 ORDER BY time DESC LIMIT \'.$jkv[\"shoprss\"];
-			$sURL = JAK_PLUGIN_VAR_ECOMMERCE;
+			$sURL = ENVO_PLUGIN_VAR_ECOMMERCE;
 			$sURL1 = \'\';
 			$what = 1;
 			$seowhat = $jkv[\"shopurl\"];
 			
-			$JAK_RSS_DESCRIPTION = envo_cut_text($jkv[\"e_desc\"], $jkv[\"shortmsg\"], \'…\');
+			$ENVO_RSS_DESCRIPTION = envo_cut_text($jkv[\"e_desc\"], $jkv[\"shortmsg\"], \'…\');
 			
 		} else {
 			envo_redirect(BASE_URL);
@@ -339,16 +339,16 @@ $succesfully = 0;
 
             $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET phpcode = "' . $sitephprss . '" WHERE hook_name = "php_rss" AND product = "shop"');
 
-            $sitephprss1 = 'if ($page1 == JAK_PLUGIN_VAR_DOWNLOAD) {
+            $sitephprss1 = 'if ($page1 == ENVO_PLUGIN_VAR_DOWNLOAD) {
 		
 		if ($jkv[\"downloadrss\"]) {
 			$sql = \'SELECT id, title, content, time FROM \'.DB_PREFIX.\'download WHERE active = 1 ORDER BY time DESC LIMIT \'.$jkv[\"downloadrss\"];
-			$sURL = JAK_PLUGIN_VAR_DOWNLOAD;
+			$sURL = ENVO_PLUGIN_VAR_DOWNLOAD;
 			$sURL1 = \'a\';
 			$what = 1;
 			$seowhat = $jkv[\"downloadurl\"];
 			
-			$JAK_RSS_DESCRIPTION = envo_cut_text($jkv[\"downloaddesc\"], $jkv[\"shortmsg\"], \'…\');
+			$ENVO_RSS_DESCRIPTION = envo_cut_text($jkv[\"downloaddesc\"], $jkv[\"shortmsg\"], \'…\');
 			
 		} else {
 			envo_redirect(BASE_URL);
@@ -364,10 +364,10 @@ $succesfully = 0;
 
             $sitephpsitemap = 'include_once APP_PATH.\'plugins/ticketing/functions.php\';
 	
-	define(\'JAK_TICKETMODERATE\', $jakusergroup->getVar(\"ticketmoderate\"));
+	define(\'ENVO_TICKETMODERATE\', $envousergroup->getVar(\"ticketmoderate\"));
 	
-	$JAK_TICKET_ALL = jak_get_ticket(\'\', $jkv[\"ticketorder\"], \'\', \'\', $jkv[\"ticketurl\"], $tl[\'general\'][\'g56\']);
-	$PAGE_TITLE = JAK_PLUGIN_NAME_TICKETING;';
+	$ENVO_TICKET_ALL = envo_get_ticket(\'\', $jkv[\"ticketorder\"], \'\', \'\', $jkv[\"ticketurl\"], $tl[\'general\'][\'g56\']);
+	$PAGE_TITLE = ENVO_PLUGIN_NAME_TICKETING;';
 
             $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET phpcode = "' . $sitephpsitemap . '" WHERE hook_name = "php_sitemap" AND product = "ticketing"');
 
@@ -393,7 +393,7 @@ $succesfully = 0;
 
             $pn_include = 'if ($row[\'showregister\'] == 1) {
 	include_once APP_PATH.\'plugins/register_form/rf_createform.php\';
-	$JAK_SHOW_R_FORM = jak_create_register_form($tl[\'cmsg\'][\'c12\'], \'\', true);
+	$ENVO_SHOW_R_FORM = envo_create_register_form($tl[\'cmsg\'][\'c12\'], \'\', true);
 }';
 
             @$envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET phpcode = "' . $pn_include . '" WHERE hook_name = "php_pages_news" AND product = "registerf"');

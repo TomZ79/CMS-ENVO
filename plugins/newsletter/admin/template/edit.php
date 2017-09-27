@@ -114,7 +114,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_title', $ENVO_FORM_DATA["title"], '', 'form-control');
+                      echo $Html->addInput('text', 'envo_title', $ENVO_FORM_DATA["title"], '', 'form-control');
                       ?>
 
                     </div>
@@ -134,14 +134,14 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('jak_showdate', '1', ($ENVO_FORM_DATA["showdate"] == '1') ? TRUE : FALSE, 'jak_showdate1');
+                      echo $Html->addRadio('envo_showdate', '1', ($ENVO_FORM_DATA["showdate"] == '1') ? TRUE : FALSE, 'envo_showdate1');
                       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                      echo $Html->addLabel('jak_showdate1', $tl["checkbox"]["chk"]);
+                      echo $Html->addLabel('envo_showdate1', $tl["checkbox"]["chk"]);
 
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('jak_showdate', '0', ($ENVO_FORM_DATA["showdate"] == '0') ? TRUE : FALSE, 'jak_showdate2');
+                      echo $Html->addRadio('envo_showdate', '0', ($ENVO_FORM_DATA["showdate"] == '0') ? TRUE : FALSE, 'envo_showdate2');
                       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                      echo $Html->addLabel('jak_showdate2', $tl["checkbox"]["chk1"]);
+                      echo $Html->addLabel('envo_showdate2', $tl["checkbox"]["chk1"]);
                       ?>
 
                     </div>
@@ -160,7 +160,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                    echo $Html->addAnchor((JAK_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(ENVO_rewrite::envoParseurl($rowc['varname'], 'fv', $ENVO_FORM_DATA['id'], $ENVO_FORM_DATA['fullview'], '')), $tlnl["newsletter_box_content"]["nlbc24"]);
+                    echo $Html->addAnchor((ENVO_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(ENVO_rewrite::envoParseurl($rowc['varname'], 'fv', $ENVO_FORM_DATA['id'], $ENVO_FORM_DATA['fullview'], '')), $tlnl["newsletter_box_content"]["nlbc24"]);
                     ?>
 
                   </div>
@@ -219,7 +219,7 @@ if ($errors) { ?>
 
                   <?php
                   // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                  echo $Html->addTextarea('jak_content', $ENVO_FORM_DATA["content"], '40', '', array('id' => 'nlpost', 'class' => 'form-control jakEditorF'));
+                  echo $Html->addTextarea('envo_content', $ENVO_FORM_DATA["content"], '40', '', array('id' => 'nlpost', 'class' => 'form-control envoEditorF'));
                   ?>
 
                 </td>

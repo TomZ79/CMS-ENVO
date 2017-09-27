@@ -1,4 +1,4 @@
-<?php if (isset($JAK_SEARCH_RESULT_FAQ) && is_array($JAK_SEARCH_RESULT_FAQ)) foreach ($JAK_SEARCH_RESULT_FAQ as $fq) {
+<?php if (isset($ENVO_SEARCH_RESULT_FAQ) && is_array($ENVO_SEARCH_RESULT_FAQ)) foreach ($ENVO_SEARCH_RESULT_FAQ as $fq) {
   $count++; ?>
 
   <div class="col-md-3 col-sm-6">

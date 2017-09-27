@@ -39,7 +39,7 @@ if (strlen($SearchInput) >= 3) {
       // Now display the countries
       $text .= '
 	<div class="ajaxsResult">
-		<h4><a href="' . (JAK_USE_APACHE ? substr($url, 0, -1) : $url) . str_replace(BASE_URL, '', $row['parseurl']) . '">' . $row['title'] . '</a></h4>
+		<h4><a href="' . (ENVO_USE_APACHE ? substr($url, 0, -1) : $url) . str_replace(BASE_URL, '', $row['parseurl']) . '">' . $row['title'] . '</a></h4>
 		<p>' . $row['content'] . '</p>
 	</div>
 	';

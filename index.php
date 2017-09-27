@@ -1,7 +1,7 @@
 <?php
 
 // prevent direct php access
-define('JAK_PREVENT_ACCESS', 1);
+define('ENVO_PREVENT_ACCESS', 1);
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
@@ -18,10 +18,10 @@ $page5 = ($tempp5 ? envo_url_input_filter($tempp5) : '');
 $page6 = ($tempp6 ? envo_url_input_filter($tempp6) : '');
 
 // Only the SuperAdmin in the config file see everything
-if (JAK_USERID && $jakuser->envoSuperAdminAccess(JAK_USERID)) {
-  define('JAK_SUPERADMINACCESS', TRUE);
+if (ENVO_USERID && $envouser->envoSuperAdminAccess(ENVO_USERID)) {
+  define('ENVO_SUPERADMINACCESS', TRUE);
 } else {
-  define('JAK_SUPERADMINACCESS', FALSE);
+  define('ENVO_SUPERADMINACCESS', FALSE);
 }
 
 // EN: Import the language file
@@ -34,19 +34,19 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'lang/' . $site_lan
 
 // If Referer Zero go to the session url
 if (!isset($_SERVER['HTTP_REFERER'])) {
-  if (isset($_SESSION['jak_lastURL'])) {
-    $_SERVER['HTTP_REFERER'] = $_SESSION['jak_lastURL'];
+  if (isset($_SESSION['envo_lastURL'])) {
+    $_SERVER['HTTP_REFERER'] = $_SESSION['envo_lastURL'];
   } else {
     $_SERVER['HTTP_REFERER'] = BASE_URL;
   }
 }
 
 // Assign Pages to template
-define('JAK_PAGINATE_ADMIN', 0);
+define('ENVO_PAGINATE_ADMIN', 0);
 
 // Parse stuff we use more then once
-define('JAK_PARSE_ERROR', html_entity_decode(ENVO_rewrite::envoParseurl('error', 'mysql')));
-define('JAK_PARSE_SUCCESS', html_entity_decode(ENVO_rewrite::envoParseurl('success')));
+define('ENVO_PARSE_ERROR', html_entity_decode(ENVO_rewrite::envoParseurl('error', 'mysql')));
+define('ENVO_PARSE_SUCCESS', html_entity_decode(ENVO_rewrite::envoParseurl('success')));
 
 // EN: Get the language file from the Hook by  name of Hook
 // CZ: Načtení jazykového souboru z Hook podle jména Hook
@@ -57,16 +57,16 @@ if ($hooklang) foreach ($hooklang as $hlang) {
 
 // EN: Get all data from the Hook by name of Hook
 // CZ: Načtení všech dat z Hook podle jména Hook
-$JAK_HOOK_HEAD_TOP      = $envohooks->EnvoGethook("tpl_between_head");
-$JAK_HOOK_BODY_TOP      = $envohooks->EnvoGethook("tpl_body_top");
-$JAK_HOOK_HEADER        = $envohooks->EnvoGethook("tpl_header");
-$JAK_HOOK_BELOW_HEADER  = $envohooks->EnvoGethook("tpl_below_header");
-$JAK_HOOK_PAGE          = $envohooks->EnvoGethook("tpl_page");
-$JAK_HOOK_SIDEBAR       = $envohooks->EnvoGethook("tpl_sidebar");
-$JAK_HOOK_BELOW_CONTENT = $envohooks->EnvoGethook("tpl_below_content");
-$JAK_HOOK_FOOTER        = $envohooks->EnvoGethook("tpl_footer");
-$JAK_HOOK_FOOTER_WIDGET = $envohooks->EnvoGethook("tpl_footer_widgets");
-$JAK_HOOK_FOOTER_END    = $envohooks->EnvoGethook("tpl_footer_end");
+$ENVO_HOOK_HEAD_TOP      = $envohooks->EnvoGethook("tpl_between_head");
+$ENVO_HOOK_BODY_TOP      = $envohooks->EnvoGethook("tpl_body_top");
+$ENVO_HOOK_HEADER        = $envohooks->EnvoGethook("tpl_header");
+$ENVO_HOOK_BELOW_HEADER  = $envohooks->EnvoGethook("tpl_below_header");
+$ENVO_HOOK_PAGE          = $envohooks->EnvoGethook("tpl_page");
+$ENVO_HOOK_SIDEBAR       = $envohooks->EnvoGethook("tpl_sidebar");
+$ENVO_HOOK_BELOW_CONTENT = $envohooks->EnvoGethook("tpl_below_content");
+$ENVO_HOOK_FOOTER        = $envohooks->EnvoGethook("tpl_footer");
+$ENVO_HOOK_FOOTER_WIDGET = $envohooks->EnvoGethook("tpl_footer_widgets");
+$ENVO_HOOK_FOOTER_END    = $envohooks->EnvoGethook("tpl_footer_end");
 
 // EN: Get all the php Hook by name of Hook for 'index top'
 // CZ: Načtení všech php dat z Hook podle jména Hook pro 'index top'
@@ -78,43 +78,43 @@ if ($indexhook) {
 }
 
 // Define the avatarpath in the settings
-define('JAK_USERRPATH_BASE', BASE_URL . JAK_FILES_DIRECTORY . '/userfiles');
+define('ENVO_USERRPATH_BASE', BASE_URL . ENVO_FILES_DIRECTORY . '/userfiles');
 
 // User is logged in #else not
-if (JAK_USERID) {
-  define('JAK_USERGROUPID', $jakuser->getVar("usergroupid"));
-  $JAK_USERNAME_LINK = strtolower($jakuser->getVar("username"));
-  $JAK_USERNAME      = $jakuser->getVar("username");
+if (ENVO_USERID) {
+  define('ENVO_USERGROUPID', $envouser->getVar("usergroupid"));
+  $ENVO_USERNAME_LINK = strtolower($envouser->getVar("username"));
+  $ENVO_USERNAME      = $envouser->getVar("username");
   $P_USR_LOGOUT      = ENVO_rewrite::envoParseurl('logout', '', '', '', '');
 
   // does the user have admin access
-  if ($jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) {
-    define('JAK_ASACCESS', TRUE);
+  if ($envouser->envoAdminAccess($envouser->getVar("usergroupid"))) {
+    define('ENVO_ASACCESS', TRUE);
   } else {
-    define('JAK_ASACCESS', FALSE);
+    define('ENVO_ASACCESS', FALSE);
   }
 
 } else {
-  define('JAK_USERGROUPID', 1);
-  $JAK_USERNAME = FALSE;
-  define('JAK_ASACCESS', FALSE);
+  define('ENVO_USERGROUPID', 1);
+  $ENVO_USERNAME = FALSE;
+  define('ENVO_ASACCESS', FALSE);
 
 }
 
 // Pagination/Date/template/plugin reset
-$JAK_PAGINATE = $SHOWDATE = $apedit = $qapedit = $printme = $keylist = $seop = $seo = $seoc = $JAK_HEADER_CSS = $JAK_SEARCH_LINK = $JAK_ADD_MENU_SB = $JAK_HOOK_SIDE_GRID = $JAK_UFORM_EXTRA = $PAGE_TITLE = $PAGE_CONTENT = $PAGE_KEYWORDS = $PAGE_DESCRIPTION = $P_RSS_LINK = $JAK_TPL_PLUG_T = $JAK_TPL_PLUG_URL = FALSE;
+$ENVO_PAGINATE = $SHOWDATE = $apedit = $qapedit = $printme = $keylist = $seop = $seo = $seoc = $ENVO_HEADER_CSS = $ENVO_SEARCH_LINK = $ENVO_ADD_MENU_SB = $ENVO_HOOK_SIDE_GRID = $ENVO_UFORM_EXTRA = $PAGE_TITLE = $PAGE_CONTENT = $PAGE_KEYWORDS = $PAGE_DESCRIPTION = $P_RSS_LINK = $ENVO_TPL_PLUG_T = $ENVO_TPL_PLUG_URL = FALSE;
 
 // Errors, Seo
 $errors = $seokeywords = $usraccesspl = array();
 
 // RSS
-$JAK_RSS_DISPLAY = 0;
+$ENVO_RSS_DISPLAY = 0;
 
 // Reset Prev/Next
-$JAK_NAV_NEXT = $JAK_NAV_NEXT_TITLE = $JAK_NAV_PREV = $JAK_NAV_PREV_TITLE = $JAK_PAGE_OFFLINE = FALSE;
+$ENVO_NAV_NEXT = $ENVO_NAV_NEXT_TITLE = $ENVO_NAV_PREV = $ENVO_NAV_PREV_TITLE = $ENVO_PAGE_OFFLINE = FALSE;
 
 // Something that needs to be true by standard
-$JAK_SHOW_NAVBAR = $JAK_SHOW_FOOTER = $newsloadonce = TRUE;
+$ENVO_SHOW_NAVBAR = $ENVO_SHOW_FOOTER = $newsloadonce = TRUE;
 
 // Include post functionality
 include_once 'include/loginpass.php';
@@ -133,28 +133,28 @@ if ($jkv["robots"] == 0) {
 
 // Define other constant
 define('ENVO_TEMPLATE', $jkv["sitestyle"]);
-define('JAK_SEARCH', $jkv["searchform"]);
-define('JAK_CONTACT_FORM', $jkv["contactform"]);
+define('ENVO_SEARCH', $jkv["searchform"]);
+define('ENVO_CONTACT_FORM', $jkv["contactform"]);
 
 // Get all the active categories available in the db
-$jakcategories = ENVO_base::envoGetallcategories();
+$envocategories = ENVO_base::envoGetallcategories();
 
 // Let's check if News are active
-define('JAK_NEWS_ACTIVE', $jakplugins->getPHPcodeid(1, "active"));
+define('ENVO_NEWS_ACTIVE', $envoplugins->getPHPcodeid(1, "active"));
 
 // Now check if tags/ads are active, this is global, if you don't use tags, you will safe a lot of queries
-define('JAK_TAGS', $jakplugins->getPHPcodeid(3, "active"));
+define('ENVO_TAGS', $envoplugins->getPHPcodeid(3, "active"));
 // if Tags are active
-if (JAK_TAGS) {
+if (ENVO_TAGS) {
   // Get the tag before all others, because of the url
-  define('JAK_USER_TAGS', $jakusergroup->getVar("tags"));
+  define('ENVO_USER_TAGS', $envousergroup->getVar("tags"));
 } else {
   // Get the tag before all others, because of the url
-  define('JAK_USER_TAGS', 0);
+  define('ENVO_USER_TAGS', 0);
 }
 
 // User can use search and use tags
-define('JAK_USER_SEARCH', $jakusergroup->getVar("advsearch"));
+define('ENVO_USER_SEARCH', $envousergroup->getVar("advsearch"));
 
 
 /* =====================================================
@@ -211,9 +211,9 @@ if ($jkv["ip_block"]) {
 // Finally get the captcha if wish so
 if ($jkv["hvm"]) {
 
-  if (isset($_SESSION['jak_captcha'])) {
+  if (isset($_SESSION['envo_captcha'])) {
 
-    $human_captcha = explode(':#:', $_SESSION['jak_captcha']);
+    $human_captcha = explode(':#:', $_SESSION['envo_captcha']);
 
     $random_name  = $human_captcha[0];
     $random_value = $human_captcha[1];
@@ -223,7 +223,7 @@ if ($jkv["hvm"]) {
     $random_name  = rand();
     $random_value = rand();
 
-    $_SESSION['jak_captcha'] = $random_name . ':#:' . $random_value;
+    $_SESSION['envo_captcha'] = $random_name . ':#:' . $random_value;
 
   }
 
@@ -234,10 +234,10 @@ if ($jkv["hvm"]) {
  * ===================================================== */
 // EN: If the site is set to offline (offline or user's IP is blocked)
 // CZ: Pokud je webová síť offline (síť je nastavena do offline režimu nebo IP uživatele je blokováno)
-if ($jkv["offline"] == 1 && !JAK_ASACCESS || $USR_IP_BLOCKED) {
-  $JAK_PAGE_OFFLINE = TRUE;
+if ($jkv["offline"] == 1 && !ENVO_ASACCESS || $USR_IP_BLOCKED) {
+  $ENVO_PAGE_OFFLINE = TRUE;
   if ($jkv["offline_page"]) {
-    foreach ($jakcategories as $ca) {
+    foreach ($envocategories as $ca) {
       if ($ca['id'] == $jkv["offline_page"] && !empty($ca['pageid'])) {
         $offlinepage = $ca['pageid'];
         break;
@@ -249,31 +249,31 @@ if ($jkv["offline"] == 1 && !JAK_ASACCESS || $USR_IP_BLOCKED) {
 }
 
 // Now get all defines out from the plugins before we start with pages
-foreach ($jakcategories as $ca) {
+foreach ($envocategories as $ca) {
 
   if (!empty($ca['pluginid'])) {
 
     // Get the array first so we can use it in the plugins
-    if ($jakusergroup->getVar($jakplugins->getPHPcodeid($ca['pluginid'], "usergroup")) == 1 || $jakplugins->getPHPcodeid($ca['pluginid'], "usergroup") == 1) {
-      $usraccesspl[] = $jakplugins->getPHPcodeid($ca['pluginid'], "id");
+    if ($envousergroup->getVar($envoplugins->getPHPcodeid($ca['pluginid'], "usergroup")) == 1 || $envoplugins->getPHPcodeid($ca['pluginid'], "usergroup") == 1) {
+      $usraccesspl[] = $envoplugins->getPHPcodeid($ca['pluginid'], "id");
     }
 
-    $plugName = strtoupper($jakplugins->getPHPcodeid($ca['pluginid'], "name"));
+    $plugName = strtoupper($envoplugins->getPHPcodeid($ca['pluginid'], "name"));
 
     // Define the varname for further use
-    define('JAK_PLUGIN_VAR_' . $plugName, $ca['pagename']);
+    define('ENVO_PLUGIN_VAR_' . $plugName, $ca['pagename']);
 
     // Define the id for further use
-    define('JAK_PLUGIN_ID_' . $plugName, $jakplugins->getPHPcodeid($ca['pluginid'], "id"));
+    define('ENVO_PLUGIN_ID_' . $plugName, $envoplugins->getPHPcodeid($ca['pluginid'], "id"));
 
     // Define the name for further use
-    define('JAK_PLUGIN_NAME_' . $plugName, $ca['name']);
+    define('ENVO_PLUGIN_NAME_' . $plugName, $ca['name']);
 
     // Define the access for further use
-    if ($jakplugins->getPHPcodeid($ca['pluginid'], "usergroup") == 1) {
-      define('JAK_PLUGIN_ACCESS_' . $plugName, $jakplugins->getPHPcodeid($ca['pluginid'], "usergroup"));
+    if ($envoplugins->getPHPcodeid($ca['pluginid'], "usergroup") == 1) {
+      define('ENVO_PLUGIN_ACCESS_' . $plugName, $envoplugins->getPHPcodeid($ca['pluginid'], "usergroup"));
     } else {
-      define('JAK_PLUGIN_ACCESS_' . $plugName, $jakusergroup->getVar($jakplugins->getPHPcodeid($ca['pluginid'], "usergroup")));
+      define('ENVO_PLUGIN_ACCESS_' . $plugName, $envousergroup->getVar($envoplugins->getPHPcodeid($ca['pluginid'], "usergroup")));
     }
 
   }
@@ -281,23 +281,23 @@ foreach ($jakcategories as $ca) {
 
 // Get the PLUGIN categories available in the db
 // Plugin Register Form
-if (is_numeric(JAK_PLUGIN_ID_REGISTER_FORM) && JAK_PLUGIN_ID_REGISTER_FORM > 0) {
-  $result        = $envodb->query('SELECT name, varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . JAK_PLUGIN_ID_REGISTER_FORM . '" LIMIT 1');
+if (is_numeric(ENVO_PLUGIN_ID_REGISTER_FORM) && ENVO_PLUGIN_ID_REGISTER_FORM > 0) {
+  $result        = $envodb->query('SELECT name, varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . ENVO_PLUGIN_ID_REGISTER_FORM . '" LIMIT 1');
   $PLUGIN_RF_CAT = $result->fetch_assoc();
 }
 
 // Set the check page to 0
-$JAK_CHECK_PAGE = 0;
+$ENVO_CHECK_PAGE = 0;
 
 // Include all the pages
-foreach ($jakcategories as $ca) {
+foreach ($envocategories as $ca) {
 
-  if ($ca['pluginid'] == 0 || $JAK_PAGE_OFFLINE && isset($offlinepage)) {
+  if ($ca['pluginid'] == 0 || $ENVO_PAGE_OFFLINE && isset($offlinepage)) {
 
     if ((empty($page) && $ca['catorder'] == 1 && $ca['catparent'] == 0 && $ca['showmenu'] == 1) || ($page == $ca['pagename'])) {
 
       // What information should we load
-      if ($JAK_PAGE_OFFLINE && isset($offlinepage)) {
+      if ($ENVO_PAGE_OFFLINE && isset($offlinepage)) {
         $pageid = $offlinepage;
       } elseif ($ca['pageid'] > 0) {
         $pageid = $ca['pageid'];
@@ -307,11 +307,11 @@ foreach ($jakcategories as $ca) {
 
       // Include the page php file
       require_once 'page.php';
-      $JAK_CHECK_PAGE = 1;
+      $ENVO_CHECK_PAGE = 1;
 
       // Get the rss if active
       if ($jkv["rss"]) {
-        $JAK_RSS_DISPLAY = 1;
+        $ENVO_RSS_DISPLAY = 1;
         $P_RSS_LINK      = ENVO_rewrite::envoParseurl('rss.xml', '', '', '', '');
       }
       break;
@@ -319,15 +319,15 @@ foreach ($jakcategories as $ca) {
   }
 
   // Call the plugins if page is not the one
-  if ($ca['pluginid'] > 0 && ($jakusergroup->getVar($jakplugins->getPHPcodeid($ca['pluginid'], "usergroup")) == 1 || $jakplugins->getPHPcodeid($ca['pluginid'], "usergroup") == 1)) {
+  if ($ca['pluginid'] > 0 && ($envousergroup->getVar($envoplugins->getPHPcodeid($ca['pluginid'], "usergroup")) == 1 || $envoplugins->getPHPcodeid($ca['pluginid'], "usergroup") == 1)) {
 
     if ((!$page && $ca['catorder'] == 1 && $ca['showmenu'] == 1) || ($page == $ca['pagename'])) {
 
       // include the php site
-      eval($jakplugins->getPHPcodeid($ca['pluginid'], "phpcode"));
+      eval($envoplugins->getPHPcodeid($ca['pluginid'], "phpcode"));
 
       // Page exist please go on
-      $JAK_CHECK_PAGE = 1;
+      $ENVO_CHECK_PAGE = 1;
 
       // Load standard if nothing has been found
       if (!$page && $ca['catorder'] == 1) $page = $ca['pagename'];
@@ -345,14 +345,14 @@ foreach ($jakcategories as $ca) {
 if ($page == 'login') {
   $PAGE_TITLE     = $tl['global_text']['gtxt9'];
   $template       = 'login.php';
-  $JAK_CHECK_PAGE = 1;
+  $ENVO_CHECK_PAGE = 1;
   $PAGE_SHOWTITLE = 1;
 }
 
 // EN: Logout from site
 // CZ: Odhlášení z webové sítě
 if ($page == 'logout') {
-  if (!JAK_USERID) {
+  if (!ENVO_USERID) {
     // EN: Add error message to session
     // CZ: Přidání chybové zprávy do session
     $_SESSION["errormsg"] = $tl["general_error"]["generror1"];
@@ -360,9 +360,9 @@ if ($page == 'logout') {
     // CZ: Přesměrování stránky
     envo_redirect(BASE_URL);
   }
-  if (JAK_USERID) {
-    $jakuserlogin->envoLogout(JAK_USERID);
-    $usergroupid = $jakuser->getVar("usergroupid");
+  if (ENVO_USERID) {
+    $envouserlogin->envoLogout(ENVO_USERID);
+    $usergroupid = $envouser->getVar("usergroupid");
     // EN: Add error message to session
     // CZ: Přidání chybové zprávy do session
     $_SESSION["infomsg"] = $tl["notification"]["n4"];
@@ -377,14 +377,14 @@ if ($page == 'logout') {
 // CZ: Vyhledávání
 if ($page == 'search') {
   /* Redirect to base url if search isn't
-   * if (!$jkv["searchform"] || !JAK_USER_SEARCH) { envo_redirect (BASE_URL); }
+   * if (!$jkv["searchform"] || !ENVO_USER_SEARCH) { envo_redirect (BASE_URL); }
   */
 
   // Get the url session
-  $_SESSION['jak_lastURL'] = ENVO_rewrite::envoParseurl('search');
+  $_SESSION['envo_lastURL'] = ENVO_rewrite::envoParseurl('search');
   require_once 'search.php';
   $PAGE_SHOWTITLE = 1;
-  $JAK_CHECK_PAGE = 1;
+  $ENVO_CHECK_PAGE = 1;
 }
 
 // EN: 'Success' page
@@ -392,7 +392,7 @@ if ($page == 'search') {
 if ($page == 'success') {
   $PAGE_TITLE     = $tl['global_text']['gtxt3'];
   $template       = 'success.php';
-  $JAK_CHECK_PAGE = 1;
+  $ENVO_CHECK_PAGE = 1;
   $PAGE_SHOWTITLE = 1;
 }
 
@@ -402,7 +402,7 @@ if ($page == 'error') {
   $PAGE_TITLE     = $tl['title_page']['tpl'];
   $PAGE_CONTENT   = $tl['general_error']['generror10'];
   $template       = 'standard.php';
-  $JAK_CHECK_PAGE = 1;
+  $ENVO_CHECK_PAGE = 1;
   $PAGE_SHOWTITLE = 1;
 }
 
@@ -410,14 +410,14 @@ if ($page == 'error') {
 // CZ: 'Rss' funkce
 if ($page == 'rss.xml') {
   require_once 'rss.php';
-  $JAK_CHECK_PAGE = 1;
+  $ENVO_CHECK_PAGE = 1;
 }
 
 // EN: '404' page
 // CZ: '404' stránka
 if ($page == '404') {
   if ($jkv["notfound_page"] != 0) {
-    foreach ($jakcategories as $ca) {
+    foreach ($envocategories as $ca) {
       if ($ca['id'] == $jkv["notfound_page"] && !empty($ca['pageid'])) {
         $pageid = $ca['pageid'];
         break;
@@ -429,7 +429,7 @@ if ($page == '404') {
     $PAGE_TITLE = '404 ' . $tl['title_page']['tpl1'];
     $template   = '404.php';
   }
-  $JAK_CHECK_PAGE = 1;
+  $ENVO_CHECK_PAGE = 1;
   $PAGE_SHOWTITLE = 1;
 }
 
@@ -438,7 +438,7 @@ if ($page == '404') {
 if ($page == 'offline') {
   $PAGE_TITLE     = $tl['title_page']['tpl2'] . ' ';
   $template       = 'offline.php';
-  $JAK_CHECK_PAGE = 1;
+  $ENVO_CHECK_PAGE = 1;
   $PAGE_SHOWTITLE = 1;
 }
 
@@ -446,7 +446,7 @@ if ($page == 'offline') {
 // CZ: 'Forgot-password' stránka
 if ($page == 'forgot-password') {
 
-  if (JAK_USERID || !is_numeric($page1) || !$jakuserlogin->envoForgotActive($page1)) envo_redirect(BASE_URL);
+  if (ENVO_USERID || !is_numeric($page1) || !$envouserlogin->envoForgotActive($page1)) envo_redirect(BASE_URL);
 
   // Check the forgot code
   $row = $envodb->queryRow('SELECT id, name, email FROM ' . DB_PREFIX . 'user WHERE forgot = "' . smartsql($page1) . '" LIMIT 1');
@@ -503,12 +503,12 @@ if ($hookip) foreach ($hookip as $hip) {
 
 // EN: If page not found
 // CZ: Pokud stránka není nalezena
-if ($JAK_CHECK_PAGE == 0) {
+if ($ENVO_CHECK_PAGE == 0) {
   envo_redirect(ENVO_rewrite::envoParseurl('404', '', '', '', ''));
 }
 
 // Get the categories with usergroup rights
-$JAK_CAT_SITE = ENVO_base::envoCatdisplay(JAK_USERGROUPID, $usraccesspl, $jakcategories);
+$ENVO_CAT_SITE = ENVO_base::envoCatdisplay(ENVO_USERGROUPID, $usraccesspl, $envocategories);
 
 // Get the header navigation
 $mheader = array(
@@ -516,7 +516,7 @@ $mheader = array(
   'parents' => array()
 );
 // Builds the array lists with data from the menu table
-foreach ($JAK_CAT_SITE as $items) {
+foreach ($ENVO_CAT_SITE as $items) {
 
   if ($items["showmenu"] == 1 OR ($items["showmenu"] == 1 && $items["showfooter"] == 1)) {
     // Creates entry into items array with current menu item id ie. $menu['items'][1]
@@ -533,7 +533,7 @@ $mfooter = array(
 );
 
 // Builds the array lists with data from the menu table
-foreach ($JAK_CAT_SITE as $itemf) {
+foreach ($ENVO_CAT_SITE as $itemf) {
 
   if ($itemf["showfooter"] == 1) {
     // Creates entry into items array with current menu item id ie. $menu['items'][1]
@@ -544,16 +544,16 @@ foreach ($JAK_CAT_SITE as $itemf) {
 }
 
 // Get News out the database, if not already in the page
-if (JAK_NEWS_ACTIVE && $newsloadonce && $jkv["shownews"]) {
-  $JAK_GET_NEWS_SORTED = envo_get_news('LIMIT ' . $jkv["shownews"], '', JAK_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
+if (ENVO_NEWS_ACTIVE && $newsloadonce && $jkv["shownews"]) {
+  $ENVO_GET_NEWS_SORTED = envo_get_news('LIMIT ' . $jkv["shownews"], '', ENVO_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
 }
 
 // We have tags
-if (JAK_TAGS) $JAK_GET_TAG_CLOUD = ENVO_tags::envoGettagcloud(JAK_PLUGIN_VAR_TAGS, 'tagcloud', $jkv["taglimit"], $jkv["tagmaxfont"], $jkv["tagminfont"], $tl["title_element"]["tel"]);
+if (ENVO_TAGS) $ENVO_GET_TAG_CLOUD = ENVO_tags::envoGettagcloud(ENVO_PLUGIN_VAR_TAGS, 'tagcloud', $jkv["taglimit"], $jkv["tagmaxfont"], $jkv["tagminfont"], $tl["title_element"]["tel"]);
 
 // SEARCH, NEWS and Mobile/Web LINK
 $P_SEAERCH_LINK = ENVO_rewrite::envoParseurl('search', '', '', '', '');
-if (JAK_NEWS_ACTIVE) $P_NEWS_LINK = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_NEWS, '', '', '', '');
+if (ENVO_NEWS_ACTIVE) $P_NEWS_LINK = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_NEWS, '', '', '', '');
 
 // Get the php hook for index bottom
 $hookib = $envohooks->EnvoGethook("php_index_bottom");
@@ -565,7 +565,7 @@ if ($hookib) foreach ($hookib as $hib) {
 if ($SHOWDATE == '1') define('SHOWDATE', 1);
 
 // Check if there is tag and the user can see it
-if (!JAK_TAGS && !JAK_USER_TAGS) $JAK_TAGLIST = FALSE;
+if (!ENVO_TAGS && !ENVO_USER_TAGS) $ENVO_TAGLIST = FALSE;
 
 // Get the normal or plugin template
 if (isset($jkv["sitestyle"]) && !empty(ENVO_TEMPLATE) && isset($jkv["cms_tpl"]) && isset($template) && $template != '') {

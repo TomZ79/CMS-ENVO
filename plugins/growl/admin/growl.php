@@ -2,11 +2,11 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$jakuser->envoModuleAccess(JAK_USERID, JAK_ACCESSGROWL)) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$envouser->envoModuleAccess(ENVO_USERID, ENVO_ACCESSGROWL)) envo_redirect(BASE_URL);
 
 // -------- DATA FOR ALL ADMIN PAGES --------
 // -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
@@ -39,16 +39,16 @@ switch ($page1) {
       // CZ: Hlavní proměnné
       $defaults = $_POST;
 
-      if (empty($defaults['jak_title'])) {
+      if (empty($defaults['envo_title'])) {
         $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
       }
 
-      if (!empty($defaults['jak_datefrom'])) {
-        $finalfrom = strtotime($defaults['jak_datefrom']);
+      if (!empty($defaults['envo_datefrom'])) {
+        $finalfrom = strtotime($defaults['envo_datefrom']);
       }
 
-      if (!empty($defaults['jak_dateto'])) {
-        $finalto = strtotime($defaults['jak_dateto']);
+      if (!empty($defaults['envo_dateto'])) {
+        $finalto = strtotime($defaults['envo_dateto']);
       }
 
       if (isset($finalto) && isset($finalfrom) && $finalto < $finalfrom) {
@@ -57,28 +57,28 @@ switch ($page1) {
 
       if (count($errors) == 0) {
 
-        if (!isset($defaults['jak_permission'])) {
+        if (!isset($defaults['envo_permission'])) {
           $permission = 0;
-        } elseif (in_array(0, $defaults['jak_permission'])) {
+        } elseif (in_array(0, $defaults['envo_permission'])) {
           $permission = 0;
         } else {
-          $permission = join(',', $defaults['jak_permission']);
+          $permission = join(',', $defaults['envo_permission']);
         }
 
-        if (!isset($defaults['jak_pageid'])) {
+        if (!isset($defaults['envo_pageid'])) {
           $pageid = 0;
-        } elseif (in_array(0, $defaults['jak_pageid'])) {
+        } elseif (in_array(0, $defaults['envo_pageid'])) {
           $pageid = 0;
         } else {
-          $pageid = join(',', $defaults['jak_pageid']);
+          $pageid = join(',', $defaults['envo_pageid']);
         }
 
-        if (!isset($defaults['jak_newsid'])) {
+        if (!isset($defaults['envo_newsid'])) {
           $newsid = 0;
-        } elseif (in_array(0, $defaults['jak_newsid'])) {
+        } elseif (in_array(0, $defaults['envo_newsid'])) {
           $newsid = 0;
         } else {
-          $newsid = join(',', $defaults['jak_newsid']);
+          $newsid = join(',', $defaults['envo_newsid']);
         }
 
         // save the time if available
@@ -97,22 +97,22 @@ switch ($page1) {
          * smartsql - secure method to insert form data into a MySQL DB
         */
         $result = $envodb->query('INSERT INTO ' . $envotable . ' SET
-                  everywhere = "' . smartsql($defaults['jak_all']) . '",
-                  remember = "' . smartsql($defaults['jak_cookies']) . '",
-                  remembertime = "' . smartsql($defaults['jak_cookiestime']) . '",
-                  duration = "' . smartsql($defaults['jak_dur']) . '",
-                  sticky = "' . smartsql($defaults['jak_sticky']) . '",
-                  position = "' . smartsql($defaults['jak_class']) . '",
-                  color = "' . smartsql($defaults['jak_color']) . '",
+                  everywhere = "' . smartsql($defaults['envo_all']) . '",
+                  remember = "' . smartsql($defaults['envo_cookies']) . '",
+                  remembertime = "' . smartsql($defaults['envo_cookiestime']) . '",
+                  duration = "' . smartsql($defaults['envo_dur']) . '",
+                  sticky = "' . smartsql($defaults['envo_sticky']) . '",
+                  position = "' . smartsql($defaults['envo_class']) . '",
+                  color = "' . smartsql($defaults['envo_color']) . '",
                   pageid = "' . smartsql($pageid) . '",
                   newsid = "' . smartsql($newsid) . '",
-                  newsmain = "' . smartsql($defaults['jak_mainnews']) . '",
-                  tags = "' . smartsql($defaults['jak_tags']) . '",
-                  search = "' . smartsql($defaults['jak_search']) . '",
-                  sitemap = "' . smartsql($defaults['jak_sitemap']) . '",
-                  title = "' . smartsql($defaults['jak_title']) . '",
-                  previmg = "' . smartsql($defaults['jak_img']) . '",
-                  content = "' . smartsql($defaults['jak_content']) . '",
+                  newsmain = "' . smartsql($defaults['envo_mainnews']) . '",
+                  tags = "' . smartsql($defaults['envo_tags']) . '",
+                  search = "' . smartsql($defaults['envo_search']) . '",
+                  sitemap = "' . smartsql($defaults['envo_sitemap']) . '",
+                  title = "' . smartsql($defaults['envo_title']) . '",
+                  previmg = "' . smartsql($defaults['envo_img']) . '",
+                  content = "' . smartsql($defaults['envo_content']) . '",
                   permission = "' . smartsql($permission) . '",
                   ' . $insert . '
                   time = NOW()');
@@ -136,11 +136,11 @@ switch ($page1) {
     }
 
     // Get all usergroup's
-    $JAK_USERGROUP = envo_get_usergroup_all('usergroup');
+    $ENVO_USERGROUP = envo_get_usergroup_all('usergroup');
 
     // Pages and News
-    $JAK_PAGES = envo_get_page_info($envotable1, '');
-    $JAK_NEWS  = envo_get_page_info($envotable2, '');
+    $ENVO_PAGES = envo_get_page_info($envotable1, '');
+    $ENVO_NEWS  = envo_get_page_info($envotable2, '');
 
     // EN: Title and Description
     // CZ: Titulek a Popis
@@ -205,18 +205,18 @@ switch ($page1) {
           // CZ: Hlavní proměnné
           $defaults = $_POST;
 
-          if (empty($defaults['jak_title'])) {
+          if (empty($defaults['envo_title'])) {
             $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
           }
 
-          if (!empty($defaults['jak_datefrom'])) {
-            $finalfrom = strtotime($defaults['jak_datefrom']);
+          if (!empty($defaults['envo_datefrom'])) {
+            $finalfrom = strtotime($defaults['envo_datefrom']);
           } else {
             $finalfrom = '0';
           }
 
-          if (!empty($defaults['jak_dateto'])) {
-            $finalto = strtotime($defaults['jak_dateto']);
+          if (!empty($defaults['envo_dateto'])) {
+            $finalto = strtotime($defaults['envo_dateto']);
           } else {
             $finalto = '0';
           }
@@ -227,28 +227,28 @@ switch ($page1) {
 
           if (count($errors) == 0) {
 
-            if (!isset($defaults['jak_permission'])) {
+            if (!isset($defaults['envo_permission'])) {
               $permission = 0;
-            } elseif (in_array(0, $defaults['jak_permission'])) {
+            } elseif (in_array(0, $defaults['envo_permission'])) {
               $permission = 0;
             } else {
-              $permission = join(',', $defaults['jak_permission']);
+              $permission = join(',', $defaults['envo_permission']);
             }
 
-            if (!isset($defaults['jak_pageid'])) {
+            if (!isset($defaults['envo_pageid'])) {
               $pageid = 0;
-            } elseif (in_array(0, $defaults['jak_pageid'])) {
+            } elseif (in_array(0, $defaults['envo_pageid'])) {
               $pageid = 0;
             } else {
-              $pageid = join(',', $defaults['jak_pageid']);
+              $pageid = join(',', $defaults['envo_pageid']);
             }
 
-            if (!isset($defaults['jak_newsid'])) {
+            if (!isset($defaults['envo_newsid'])) {
               $newsid = 0;
-            } elseif (in_array(0, $defaults['jak_newsid'])) {
+            } elseif (in_array(0, $defaults['envo_newsid'])) {
               $newsid = 0;
             } else {
-              $newsid = join(',', $defaults['jak_newsid']);
+              $newsid = join(',', $defaults['envo_newsid']);
             }
 
             // Save the time if available
@@ -267,22 +267,22 @@ switch ($page1) {
              * smartsql - secure method to insert form data into a MySQL DB
             */
             $result = $envodb->query('UPDATE ' . $envotable . ' SET
-                      everywhere = "' . smartsql($defaults['jak_all']) . '",
-                      remember = "' . smartsql($defaults['jak_cookies']) . '",
-                      remembertime = "' . smartsql($defaults['jak_cookiestime']) . '",
-                      duration = "' . smartsql($defaults['jak_dur']) . '",
-                      sticky = "' . smartsql($defaults['jak_sticky']) . '",
-                      position = "' . smartsql($defaults['jak_class']) . '",
-                      color = "' . smartsql($defaults['jak_color']) . '",
+                      everywhere = "' . smartsql($defaults['envo_all']) . '",
+                      remember = "' . smartsql($defaults['envo_cookies']) . '",
+                      remembertime = "' . smartsql($defaults['envo_cookiestime']) . '",
+                      duration = "' . smartsql($defaults['envo_dur']) . '",
+                      sticky = "' . smartsql($defaults['envo_sticky']) . '",
+                      position = "' . smartsql($defaults['envo_class']) . '",
+                      color = "' . smartsql($defaults['envo_color']) . '",
                       pageid = "' . smartsql($pageid) . '",
                       newsid = "' . smartsql($newsid) . '",
-                      newsmain = "' . smartsql($defaults['jak_mainnews']) . '",
-                      tags = "' . smartsql($defaults['jak_tags']) . '",
-                      search = "' . smartsql($defaults['jak_search']) . '",
-                      sitemap = "' . smartsql($defaults['jak_sitemap']) . '",
-                      title = "' . smartsql($defaults['jak_title']) . '",
-                      previmg = "' . smartsql($defaults['jak_img']) . '",
-                      content = "' . smartsql($defaults['jak_content']) . '",
+                      newsmain = "' . smartsql($defaults['envo_mainnews']) . '",
+                      tags = "' . smartsql($defaults['envo_tags']) . '",
+                      search = "' . smartsql($defaults['envo_search']) . '",
+                      sitemap = "' . smartsql($defaults['envo_sitemap']) . '",
+                      title = "' . smartsql($defaults['envo_title']) . '",
+                      previmg = "' . smartsql($defaults['envo_img']) . '",
+                      content = "' . smartsql($defaults['envo_content']) . '",
                       permission = "' . smartsql($permission) . '",
                       ' . $insert . '
                       time = NOW() WHERE id = "' . smartsql($page2) . '"');
@@ -304,11 +304,11 @@ switch ($page1) {
         }
 
         // Get all usergroup's
-        $JAK_USERGROUP = envo_get_usergroup_all('usergroup');
+        $ENVO_USERGROUP = envo_get_usergroup_all('usergroup');
 
         // Pages and News
-        $JAK_PAGES = envo_get_page_info($envotable1, '');
-        $JAK_NEWS  = envo_get_page_info($envotable2, '');
+        $ENVO_PAGES = envo_get_page_info($envotable1, '');
+        $ENVO_NEWS  = envo_get_page_info($envotable2, '');
 
         // Get the data
         $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
@@ -326,14 +326,14 @@ switch ($page1) {
       default:
 
         // Hello we have a post request
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jak_delete_growl'])) {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_growl'])) {
           // EN: Default Variable
           // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (isset($defaults['delete'])) {
 
-            $lockuser = $defaults['jak_delete_growl'];
+            $lockuser = $defaults['envo_delete_growl'];
 
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
@@ -360,7 +360,7 @@ switch ($page1) {
 
           if (isset($defaults['lock'])) {
 
-            $lockuser = $defaults['jak_delete_growl'];
+            $lockuser = $defaults['envo_delete_growl'];
 
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
@@ -383,7 +383,7 @@ switch ($page1) {
 
         }
 
-        $JAK_GROWL_ALL = jak_get_growl();
+        $ENVO_GROWL_ALL = envo_get_growl();
 
         // EN: Title and Description
         // CZ: Titulek a Popis

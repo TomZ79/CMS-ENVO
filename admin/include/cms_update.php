@@ -2,7 +2,7 @@
 
 // Found on http://maxmorgandesign.com/simple_php_auto_update_system/ modified for CMS
 // If not super admin...
-if (!JAK_SUPERADMINACCESS) die();
+if (!ENVO_SUPERADMINACCESS) die();
 
 if (isset($_GET['check']) && $_GET['check'] == true) {
 
@@ -55,8 +55,8 @@ if ($getVersions != '') {
 
 			echo '<p><strong>CONTROL of PATHS</strong></p>';
 			echo '<p>Basic path: '.APP_PATH.'</p>';
-			echo '<p>Updated folder + file : '.JAK_FILES_DIRECTORY.'/updates/part_cms_'.$dlpackage.'.zip</p>';
-			$foundfilename = APP_PATH.JAK_FILES_DIRECTORY.'/updates/part_cms_'.$dlpackage.'.zip';
+			echo '<p>Updated folder + file : '.ENVO_FILES_DIRECTORY.'/updates/part_cms_'.$dlpackage.'.zip</p>';
+			$foundfilename = APP_PATH.ENVO_FILES_DIRECTORY.'/updates/part_cms_'.$dlpackage.'.zip';
 			echo '<p>Full path: '.$foundfilename.'</p>';
 
 			// Download the file if we have to
@@ -72,8 +72,8 @@ if ($getVersions != '') {
 					echo '<p><strong>DOWNLOADING FILES</strong></p>';
 					echo '<p>Downloading New Update ......</p>';
 					$newUpdate = Request_Curl('http://www.bluesat.cz/download/part_cms_'.$dlpackage.'.zip');
-					if (!is_dir(APP_PATH.JAK_FILES_DIRECTORY.'/updates/')) mkdir(APP_PATH.JAK_FILES_DIRECTORY.'/updates/');
-					$dlHandler = fopen(APP_PATH.JAK_FILES_DIRECTORY.'/updates/part_cms_'.$dlpackage.'.zip', 'w');
+					if (!is_dir(APP_PATH.ENVO_FILES_DIRECTORY.'/updates/')) mkdir(APP_PATH.ENVO_FILES_DIRECTORY.'/updates/');
+					$dlHandler = fopen(APP_PATH.ENVO_FILES_DIRECTORY.'/updates/part_cms_'.$dlpackage.'.zip', 'w');
 					if (!fwrite($dlHandler, $newUpdate)) { echo '<p>Could not save new update. Operation aborted.</p>'; exit(); }
 					fclose($dlHandler);
 					echo '<p>Update downloaded and saved</p>';
@@ -89,7 +89,7 @@ if ($getVersions != '') {
 			if ($_GET['run'] == true) {
 				echo '<p><strong>UPDATING of CMS</strong></p>';
 				// Open The File And Do Stuff
-				$zipHandle = zip_open(APP_PATH.JAK_FILES_DIRECTORY.'/updates/part_cms_'.$dlpackage.'.zip');
+				$zipHandle = zip_open(APP_PATH.ENVO_FILES_DIRECTORY.'/updates/part_cms_'.$dlpackage.'.zip');
 				echo '<ul>';
 				while ($aF = zip_read($zipHandle)) {
 
@@ -131,7 +131,7 @@ if ($getVersions != '') {
 				}
 				echo '</ul>';
 				$updated = true;
-				unlink(APP_PATH.JAK_FILES_DIRECTORY.'/updates/part_cms_'.$dlpackage.'.zip');
+				unlink(APP_PATH.ENVO_FILES_DIRECTORY.'/updates/part_cms_'.$dlpackage.'.zip');
 			} else {
 				echo '<p>Update ready. <a href="index.php?p=maintenance&amp;check=true&amp;run=true">&raquo; Install Now?</a></p>';
 			}

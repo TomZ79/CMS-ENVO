@@ -6,7 +6,7 @@
 	</div>
 <?php } else {
   // Set link value for page editing
-	if (JAK_ASACCESS) {
+	if (ENVO_ASACCESS) {
 		if ($jkv["printme"]) $printme = 1;
 		$apedit  = BASE_URL . 'admin/index.php?p=page&amp;sp=edit&amp;id=' . $PAGE_ID;
 		$qapedit = BASE_URL . 'admin/index.php?p=page&amp;sp=quickedit&amp;id=' . $PAGE_ID;
@@ -16,14 +16,14 @@
 		<div id="printdiv">
 
 	<?php }
-	if ($PAGE_SHOWTITLE && $JAK_SHOW_NAVBAR) { ?>
+	if ($PAGE_SHOWTITLE && $ENVO_SHOW_NAVBAR) { ?>
 
 		<!-- Heading / Title -->
 		<h2><?php echo $PAGE_TITLE; ?></h2>
 
 	<?php } ?>
 
-	<?php if ($PAGE_PASSWORD && !JAK_ASACCESS && $PAGE_PASSWORD != $_SESSION[ 'pagesecurehash' . $PAGE_ID ]) {?>
+	<?php if ($PAGE_PASSWORD && !ENVO_ASACCESS && $PAGE_PASSWORD != $_SESSION[ 'pagesecurehash' . $PAGE_ID ]) {?>
 
 		<!-- Protected page -->
 		<section class="protected-page-area">
@@ -52,12 +52,12 @@
 		</section>
 
 	<?php } else {
-		if (isset($JAK_HOOK_PAGE) && is_array ($JAK_HOOK_PAGE)) foreach ($JAK_HOOK_PAGE as $hpage) {
+		if (isset($ENVO_HOOK_PAGE) && is_array ($ENVO_HOOK_PAGE)) foreach ($ENVO_HOOK_PAGE as $hpage) {
 			include_once APP_PATH . $hpage["phpcode"];
 		}
 
 		// Load Grid
-		if (isset($JAK_PAGE_GRID) && is_array ($JAK_PAGE_GRID)) foreach ($JAK_PAGE_GRID as $pg) {
+		if (isset($ENVO_PAGE_GRID) && is_array ($ENVO_PAGE_GRID)) foreach ($ENVO_PAGE_GRID as $pg) {
 
 			// Show Content
 			if ($pg["pluginid"] == '9999') {
@@ -65,13 +65,13 @@
 			}
 
 			// Show Contact form
-			if ($pg["pluginid"] == '9997' && $JAK_SHOW_C_FORM) {
+			if ($pg["pluginid"] == '9997' && $ENVO_SHOW_C_FORM) {
 				include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/contact.php';
 			}
 
 			// Load News
-			if ($pg["pluginid"] == '9998' && $JAK_NEWS_IN_CONTENT) {
-				if (isset($JAK_NEWS_IN_CONTENT) && is_array ($JAK_NEWS_IN_CONTENT)) { ?>
+			if ($pg["pluginid"] == '9998' && $ENVO_NEWS_IN_CONTENT) {
+				if (isset($ENVO_NEWS_IN_CONTENT) && is_array ($ENVO_NEWS_IN_CONTENT)) { ?>
 
           <!-- =========================
             START NEWS SECTION
@@ -84,7 +84,7 @@
 									<div class="owl-carousel all-carousel owl-theme">
 
 										<!-- Show news -->
-										<?php foreach ($JAK_NEWS_IN_CONTENT as $n) { ?>
+										<?php foreach ($ENVO_NEWS_IN_CONTENT as $n) { ?>
 
 											<div class="item">
 												<div class="full-intro-head">
@@ -106,7 +106,7 @@
 
 													<div class="clearfix"></div>
 
-														<?php if (JAK_ASACCESS) { ?>
+														<?php if (ENVO_ASACCESS) { ?>
 
                               <div class="system-icons">
                                 <hr class="mt-small mb-small">
@@ -136,7 +136,7 @@
 
 				<?php }
 			}
-			if (isset($JAK_HOOK_PAGE_GRID) && is_array ($JAK_HOOK_PAGE_GRID)) foreach ($JAK_HOOK_PAGE_GRID as $hpagegrid) {
+			if (isset($ENVO_HOOK_PAGE_GRID) && is_array ($ENVO_HOOK_PAGE_GRID)) foreach ($ENVO_HOOK_PAGE_GRID as $hpagegrid) {
 				eval($hpagegrid["phpcode"]);
 			}
 		} ?>
@@ -147,7 +147,7 @@
 		} ?>
 
 		<!-- Show date, social buttons and tag list -->
-		<?php if ($SHOWDATE || $SHOWSOCIALBUTTON || ($JAK_TAGLIST && $SHOWTAGS)) { ?>
+		<?php if ($SHOWDATE || $SHOWSOCIALBUTTON || ($ENVO_TAGLIST && $SHOWTAGS)) { ?>
 			<section class="pt-small pb-small">
 				<div class="container">
 					<div class="row">
@@ -159,9 +159,9 @@
 									<time datetime="<?php echo $PAGE_TIME_HTML5; ?>"><?php echo $PAGE_TIME; ?></time>
 								</div>
 							<?php }
-							if ($JAK_TAGLIST && $SHOWTAGS) { ?>
+							if ($ENVO_TAGLIST && $SHOWTAGS) { ?>
 								<div class="col-md-5">
-									<i class="icon-tags"></i> <?php echo $JAK_TAGLIST; ?>
+									<i class="icon-tags"></i> <?php echo $ENVO_TAGLIST; ?>
 								</div>
 							<?php }
 							if ($SHOWSOCIALBUTTON) { ?>

@@ -77,7 +77,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_name', $_REQUEST["jak_name"], '', 'form-control');
+                      echo $Html->addInput('text', 'envo_name', $_REQUEST["envo_name"], '', 'form-control');
                       ?>
 
                     </div>
@@ -95,17 +95,17 @@ if ($errors) { ?>
                   </div>
                   <div class="col-md-7">
                     <div class="form-group no-margin<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-                      <select name="jak_hook" class="form-control selectpicker" data-search-select2="true">
+                      <select name="envo_hook" class="form-control selectpicker" data-search-select2="true">
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                        $selected = ((isset($_REQUEST["jak_hook"]) && ($_REQUEST["jak_hook"] == '0')) || !isset($_REQUEST["jak_hook"])) ? TRUE : FALSE;
+                        $selected = ((isset($_REQUEST["envo_hook"]) && ($_REQUEST["envo_hook"] == '0')) || !isset($_REQUEST["envo_hook"])) ? TRUE : FALSE;
 
                         echo $Html->addOption('0', $tl["selection"]["sel7"], $selected);
-                        if (isset($JAK_HOOK_LOCATIONS) && is_array($JAK_HOOK_LOCATIONS)) foreach ($JAK_HOOK_LOCATIONS as $h) {
+                        if (isset($ENVO_HOOK_LOCATIONS) && is_array($ENVO_HOOK_LOCATIONS)) foreach ($ENVO_HOOK_LOCATIONS as $h) {
 
-                          if (isset($_REQUEST["jak_hook"]) && ($_REQUEST["jak_hook"] != '0')) {
-                            if (isset($_REQUEST["jak_hook"]) && ($h == $_REQUEST["jak_hook"])) {
+                          if (isset($_REQUEST["envo_hook"]) && ($_REQUEST["envo_hook"] != '0')) {
+                            if (isset($_REQUEST["envo_hook"]) && ($h == $_REQUEST["envo_hook"])) {
                               $selected = TRUE;
                             } else {
                               $selected = FALSE;
@@ -133,17 +133,17 @@ if ($errors) { ?>
 
                   </div>
                   <div class="col-md-7">
-                    <select name="jak_plugin" class="form-control selectpicker">
+                    <select name="envo_plugin" class="form-control selectpicker">
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                      $selected = ((isset($_REQUEST["jak_plugin"]) && ($_REQUEST["jak_plugin"] == '0')) || !isset($_REQUEST["jak_plugin"])) ? TRUE : FALSE;
+                      $selected = ((isset($_REQUEST["envo_plugin"]) && ($_REQUEST["envo_plugin"] == '0')) || !isset($_REQUEST["envo_plugin"])) ? TRUE : FALSE;
 
                       echo $Html->addOption('0', $tl["global_text"]["globaltxt13"], $selected);
-                      if (isset($JAK_PLUGINS) && is_array($JAK_PLUGINS)) foreach ($JAK_PLUGINS as $p) {
+                      if (isset($ENVO_PLUGINS) && is_array($ENVO_PLUGINS)) foreach ($ENVO_PLUGINS as $p) {
 
-                        if (isset($_REQUEST["jak_plugin"]) && ($_REQUEST["jak_plugin"] != '0')) {
-                          if (isset($_REQUEST["jak_plugin"]) && ($p["id"] == $_REQUEST["jak_plugin"])) {
+                        if (isset($_REQUEST["envo_plugin"]) && ($_REQUEST["envo_plugin"] != '0')) {
+                          if (isset($_REQUEST["envo_plugin"]) && ($p["id"] == $_REQUEST["envo_plugin"])) {
                             $selected = TRUE;
                           } else {
                             $selected = FALSE;
@@ -174,9 +174,9 @@ if ($errors) { ?>
                     <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
 
                       <?php
-                      (isset($_REQUEST["jak_exorder"]) && (!empty($_REQUEST["jak_exorder"]))) ? $value = $_REQUEST["jak_exorder"] : $value = '4';
+                      (isset($_REQUEST["envo_exorder"]) && (!empty($_REQUEST["envo_exorder"]))) ? $value = $_REQUEST["envo_exorder"] : $value = '4';
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_exorder', $value, '', 'form-control', array('maxlength' => '5'));
+                      echo $Html->addInput('text', 'envo_exorder', $value, '', 'form-control', array('maxlength' => '5'));
                       ?>
 
                     </div>
@@ -209,7 +209,7 @@ if ($errors) { ?>
             // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
             echo $Html->addDiv('', 'htmleditor');
             // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-            echo $Html->addTextarea('jak_phpcode', $_REQUEST["jak_phpcode"], '', '', array('id' => 'jak_phpcode', 'class' => 'form-control hidden'));
+            echo $Html->addTextarea('envo_phpcode', $_REQUEST["envo_phpcode"], '', '', array('id' => 'envo_phpcode', 'class' => 'form-control hidden'));
             ?>
 
           </div>

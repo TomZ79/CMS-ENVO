@@ -2,31 +2,31 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$JAK_MODULES) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$ENVO_MODULES) envo_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable  = DB_PREFIX . 'usergroup';
 $envotable1 = DB_PREFIX . 'user';
-$jakfield  = 'username';
+$envofield  = 'username';
 
 // Reset vars
 $insert = "";
 
 // Important template stuff
-$JAK_USERGROUP_ALL = envo_get_usergroup_all('usergroup');
+$ENVO_USERGROUP_ALL = envo_get_usergroup_all('usergroup');
 
 // EN: Get all the php Hook by name of Hook for the template
 // CZ: Načtení všech php dat z Hook podle jména Hook pro šablonu
-$JAK_HOOK_ADMIN_USERGROUP_EDIT = $envohooks->EnvoGethook("tpl_admin_usergroup_edit");
+$ENVO_HOOK_ADMIN_USERGROUP_EDIT = $envohooks->EnvoGethook("tpl_admin_usergroup_edit");
 
 // EN: Get all the php Hook by name of Hook for the new template
 // CZ: Načtení všech php dat z Hook podle jména Hook pro novou šablonu
-$JAK_HOOK_ADMIN_USERGROUP = $envohooks->EnvoGethook("tpl_admin_usergroup");
+$ENVO_HOOK_ADMIN_USERGROUP = $envohooks->EnvoGethook("tpl_admin_usergroup");
 
 // EN: Switching access all pages by page name
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
@@ -40,10 +40,10 @@ switch ($page1) {
 
       if (isset($defaults['create'])) {
 
-        $ENVO_FORM_DATA = envo_get_data($defaults['jak_groupbase'], $envotable);
+        $ENVO_FORM_DATA = envo_get_data($defaults['envo_groupbase'], $envotable);
 
         // Get the data for the editor light
-        $_REQUEST["jak_lcontent"] = $ENVO_FORM_DATA["description"];
+        $_REQUEST["envo_lcontent"] = $ENVO_FORM_DATA["description"];
 
       }
 
@@ -51,12 +51,12 @@ switch ($page1) {
         // EN: If button "Save Changes" clicked
         // CZ: Pokud bylo stisknuto tlačítko "Uložit"
 
-        if (empty($defaults['jak_name'])) {
+        if (empty($defaults['envo_name'])) {
           $errors['e1'] = $tl['general_error']['generror4'] . '<br>';
         }
 
-        if (envo_field_not_exist($defaults['jak_name'], $envotable, "name")) {
-          $errors['e2'] = str_replace("%s", $defaults['jak_name'], $tl['general_error']['generror5']) . '<br>';
+        if (envo_field_not_exist($defaults['envo_name'], $envotable, "name")) {
+          $errors['e2'] = str_replace("%s", $defaults['envo_name'], $tl['general_error']['generror5']) . '<br>';
         }
 
         if (count($errors) == 0) {
@@ -70,7 +70,7 @@ switch ($page1) {
             }
 
           // Tag Settings
-          if (isset($defaults['jak_tags'])) $insert .= 'tags = "' . smartsql($defaults['jak_tags']) . '"';
+          if (isset($defaults['envo_tags'])) $insert .= 'tags = "' . smartsql($defaults['envo_tags']) . '"';
 
           /* EN: Convert value
            * smartsql - secure method to insert form data into a MySQL DB
@@ -79,9 +79,9 @@ switch ($page1) {
            * smartsql - secure method to insert form data into a MySQL DB
           */
           $result = $envodb->query('INSERT INTO ' . $envotable . ' SET
-                    name = "' . smartsql($defaults['jak_name']) . '",
-                    description = "' . smartsql($defaults['jak_lcontent']) . '",
-                    advsearch = "' . smartsql($defaults['jak_advs']) . '",
+                    name = "' . smartsql($defaults['envo_name']) . '",
+                    description = "' . smartsql($defaults['envo_lcontent']) . '",
+                    advsearch = "' . smartsql($defaults['envo_advs']) . '",
                     ' . $insert );
 
           $rowid = $envodb->envo_last_id();
@@ -116,14 +116,14 @@ switch ($page1) {
     break;
   default:
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jak_delete_usergroup'])) {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_usergroup'])) {
       // EN: Default Variable
       // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       if (isset($defaults['delete'])) {
 
-        $lockuser   = $defaults['jak_delete_usergroup'];
+        $lockuser   = $defaults['envo_delete_usergroup'];
         $grouparray = explode(',', '1,2,3,4');
 
         for ($i = 0; $i < count($lockuser); $i++) {
@@ -163,12 +163,12 @@ switch ($page1) {
             $pages->items_total    = $getTotal;
             $pages->mid_range      = $jkv["adminpagemid"];
             $pages->items_per_page = $jkv["adminpageitem"];
-            $pages->jak_get_page   = $page3;
-            $pages->jak_where      = 'index.php?p=usergroup&sp=user&ssp=' . $page2;
+            $pages->envo_get_page   = $page3;
+            $pages->envo_where      = 'index.php?p=usergroup&sp=user&ssp=' . $page2;
             $pages->paginate();
-            $JAK_PAGINATE = $pages->display_pages();
+            $ENVO_PAGINATE = $pages->display_pages();
           }
-          $JAK_USER_ALL = envo_get_user_all('user', $pages->limit, $page2);
+          $ENVO_USER_ALL = envo_get_user_all('user', $pages->limit, $page2);
 
           // EN: Title and Description
           // CZ: Titulek a Popis
@@ -221,7 +221,7 @@ switch ($page1) {
             // CZ: Hlavní proměnné
             $defaults = $_POST;
 
-            if (empty($defaults['jak_name'])) {
+            if (empty($defaults['envo_name'])) {
               $errors['e1'] = $tl['general_error']['generror4'] . '<br>';
             }
 
@@ -236,7 +236,7 @@ switch ($page1) {
                 }
 
               // Tag Settings
-              if (isset($defaults['jak_tags'])) $insert .= 'tags = "' . $defaults['jak_tags'] . '"';
+              if (isset($defaults['envo_tags'])) $insert .= 'tags = "' . $defaults['envo_tags'] . '"';
 
               /* EN: Convert value
                * smartsql - secure method to insert form data into a MySQL DB
@@ -245,9 +245,9 @@ switch ($page1) {
                * smartsql - secure method to insert form data into a MySQL DB
               */
               $result = $envodb->query('UPDATE ' . $envotable . ' SET
-                          name = "' . smartsql($defaults['jak_name']) . '",
-                          description = "' . smartsql($defaults['jak_lcontent']) . '",
-                          advsearch = "' . smartsql($defaults['jak_advs']) . '",
+                          name = "' . smartsql($defaults['envo_name']) . '",
+                          description = "' . smartsql($defaults['envo_lcontent']) . '",
+                          advsearch = "' . smartsql($defaults['envo_advs']) . '",
                           ' . $insert . '
                         WHERE id = "' . smartsql($page2) . '"');
 

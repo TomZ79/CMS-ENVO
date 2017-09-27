@@ -2,14 +2,14 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Get all the php Hook by name of Hook
 // CZ: Načtení všech php dat z Hook podle jména Hook
-$JAK_HOOK_SITEMAP = $envohooks->EnvoGethook("tpl_sitemap");
+$ENVO_HOOK_SITEMAP = $envohooks->EnvoGethook("tpl_sitemap");
 
 // Get the url session
-$_SESSION['jak_lastURL'] = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_SITEMAP, '', '', '', '');
+$_SESSION['envo_lastURL'] = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_SITEMAP, '', '', '', '');
 
 // EN: Get all the php Hook by name of Hook for sitemap
 // CZ: Načtení všech php dat z Hook podle jména Hook pro mapu stránek
@@ -27,16 +27,16 @@ $PAGE_CONTENT = $jkv["sitemapdesc"];
 $PAGE_SHOWTITLE = 1;
 
 // Get the sort orders for the grid
-$JAK_HOOK_SIDE_GRID = FALSE;
-$grid               = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . JAK_PLUGIN_ID_SITEMAP . ' ORDER BY orderid ASC');
+$ENVO_HOOK_SIDE_GRID = FALSE;
+$grid               = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . ENVO_PLUGIN_ID_SITEMAP . ' ORDER BY orderid ASC');
 while ($grow = $grid->fetch_assoc()) {
   // EN: Insert each record into array
   // CZ: Vložení získaných dat do pole
-  $JAK_HOOK_SIDE_GRID[] = $grow;
+  $ENVO_HOOK_SIDE_GRID[] = $grow;
 }
 
 // Now get the new meta keywords and description maker
-$PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl(JAK_PLUGIN_NAME_SITEMAP) . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+$PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl(ENVO_PLUGIN_NAME_SITEMAP) . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
 $PAGE_DESCRIPTION = $jkv["metadesc"];
 
 // EN: Load the php template

@@ -274,9 +274,9 @@
                             <td>
 
                               <?php
-                              echo '<a href="/' . JAK_FILES_DIRECTORY . $hdocu["fullpath"] . '" target="_blank">Zobrazit</a>';
+                              echo '<a href="/' . ENVO_FILES_DIRECTORY . $hdocu["fullpath"] . '" target="_blank">Zobrazit</a>';
                               echo ' | ';
-                              echo '<a href="/' . JAK_FILES_DIRECTORY . $hdocu["fullpath"] . '" download>Stáhnout</a>';
+                              echo '<a href="/' . ENVO_FILES_DIRECTORY . $hdocu["fullpath"] . '" download>Stáhnout</a>';
                               ?>
 
                             </td>
@@ -357,8 +357,8 @@
                         <?php foreach ($ENVO_HOUSE_IMG as $himg) { ?>
                           <div class="gallery-item-<?php echo $himg["id"] . ' ' . $himg["category"]; ?>" data-width="1" data-height="1">
                             <div class="img_container">
-                              <a data-fancybox="gallery" href="<?php echo '/' . JAK_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>">
-                                <img src="<?php echo '/' . JAK_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>" class="img-responsive" alt="">
+                              <a data-fancybox="gallery" href="<?php echo '/' . ENVO_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>">
+                                <img src="<?php echo '/' . ENVO_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>" class="img-responsive" alt="">
                               </a>
                             </div>
                             <div class="overlays">
@@ -368,7 +368,7 @@
                                 </div>
                                 <div class="col-xs-7 full-height">
                                   <div class="text">
-                                    <a data-fancybox="gallery" href="<?php echo '/' . JAK_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>" alt="">
+                                    <a data-fancybox="gallery" href="<?php echo '/' . ENVO_FILES_DIRECTORY . $himg["mainfolder"] . $himg["filenamethumb"]; ?>" alt="">
                                       <button class="btn btn-success btn-xs btn-mini" type="button">
                                         <i class="fa fa-image"></i>
                                       </button>

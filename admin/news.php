@@ -2,11 +2,11 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$jakuser->envoModuleAccess(JAK_USERID, JAK_ACCESSNEWS)) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$envouser->envoModuleAccess(ENVO_USERID, ENVO_ACCESSNEWS)) envo_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
@@ -19,8 +19,8 @@ $insert = FALSE;
 
 // EN: Get all the php Hook by name of Hook for the template
 // CZ: Načtení všech php dat z Hook podle jména Hook pro šablonu
-$JAK_HOOK_ADMIN_PAGE     = $envohooks->EnvoGethook("tpl_admin_page_news");
-$JAK_HOOK_ADMIN_PAGE_NEW = $envohooks->EnvoGethook("tpl_admin_page_news_new");
+$ENVO_HOOK_ADMIN_PAGE     = $envohooks->EnvoGethook("tpl_admin_page_news");
+$ENVO_HOOK_ADMIN_PAGE_NEW = $envohooks->EnvoGethook("tpl_admin_page_news_new");
 
 // EN: Switching access all pages by page name
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
@@ -28,7 +28,7 @@ switch ($page1) {
   case 'new':
 
     // Important template Stuff
-    $JAK_CONTACT_FORMS = envo_get_page_info($envotable1, '');
+    $ENVO_CONTACT_FORMS = envo_get_page_info($envotable1, '');
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable
@@ -193,7 +193,7 @@ switch ($page1) {
     // Get the sidebar templates
     $result = $envodb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable3 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
     while ($row = $result->fetch_assoc()) {
-      $JAK_HOOKS[] = $row;
+      $ENVO_HOOKS[] = $row;
     }
 
     // Get active sidebar widgets
@@ -201,7 +201,7 @@ switch ($page1) {
     while ($grow = $grid->fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
-      $JAK_ACTIVE_GRID[] = $grow;
+      $ENVO_ACTIVE_GRID[] = $grow;
     }
 
     // EN: Get all the php Hook by name of Hook
@@ -215,7 +215,7 @@ switch ($page1) {
     }
 
     // Get all usergroup's
-    $JAK_USERGROUP = envo_get_usergroup_all('usergroup');
+    $ENVO_USERGROUP = envo_get_usergroup_all('usergroup');
 
     // EN: Title and Description
     // CZ: Titulek a Popis
@@ -231,11 +231,11 @@ switch ($page1) {
 
     // EN: Import important settings for the template from the DB
     // CZ: Importuj důležité nastavení pro šablonu z DB
-    $JAK_SETTING = envo_get_setting('news');
+    $ENVO_SETTING = envo_get_setting('news');
 
     // EN: Import important settings for the template from the DB (only VALUE)
     // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
-    $JAK_SETTING_VAL = envo_get_setting_val('news');
+    $ENVO_SETTING_VAL = envo_get_setting_val('news');
 
     // Let's go on with the script
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -376,13 +376,13 @@ switch ($page1) {
     while ($grow = $grid->fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
-      $JAK_PAGE_GRID[] = $grow;
+      $ENVO_PAGE_GRID[] = $grow;
     }
 
     // Get the sidebar templates
     $result = $envodb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable3 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
     while ($row = $result->fetch_assoc()) {
-      $JAK_HOOKS[] = $row;
+      $ENVO_HOOKS[] = $row;
     }
 
     // EN: Get all the php Hook by name of Hook
@@ -400,8 +400,8 @@ switch ($page1) {
 
     if (is_array($shownewsarray) && in_array("ASC", $shownewsarray) || in_array("DESC", $shownewsarray)) {
 
-      $JAK_SETTING['shownewswhat']  = $shownewsarray[0];
-      $JAK_SETTING['shownewsorder'] = $shownewsarray[1];
+      $ENVO_SETTING['shownewswhat']  = $shownewsarray[0];
+      $ENVO_SETTING['shownewsorder'] = $shownewsarray[1];
 
     }
 
@@ -418,7 +418,7 @@ switch ($page1) {
   default:
 
     // Important template Stuff
-    $JAK_CONTACT_FORMS = envo_get_page_info($envotable1, '');
+    $ENVO_CONTACT_FORMS = envo_get_page_info($envotable1, '');
 
     switch ($page1) {
       case 'lock':
@@ -729,20 +729,20 @@ switch ($page1) {
           }
 
           $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
-          if (JAK_TAGS) $JAK_TAGLIST = envo_get_tags($page2, 1);
+          if (ENVO_TAGS) $ENVO_TAGLIST = envo_get_tags($page2, 1);
 
           // Get the sort orders for the grid
           $grid = $envodb->query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . $envotable2 . ' WHERE newsid = "' . smartsql($page2) . '" ORDER BY orderid ASC');
           while ($grow = $grid->fetch_assoc()) {
             // EN: Insert each record into array
             // CZ: Vložení získaných dat do pole
-            $JAK_PAGE_GRID[] = $grow;
+            $ENVO_PAGE_GRID[] = $grow;
           }
 
           // Get the sidebar templates
           $result = $envodb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable3 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
           while ($row = $result->fetch_assoc()) {
-            $JAK_HOOKS[] = $row;
+            $ENVO_HOOKS[] = $row;
           }
 
           // EN: Get all the php Hook by name of Hook
@@ -755,7 +755,7 @@ switch ($page1) {
           }
 
           // Get all usergroup's
-          $JAK_USERGROUP = envo_get_usergroup_all('usergroup');
+          $ENVO_USERGROUP = envo_get_usergroup_all('usergroup');
 
           // EN: Title and Description
           // CZ: Titulek a Popis
@@ -841,10 +841,10 @@ switch ($page1) {
           $pages->envo_get_page   = $page1;
           $pages->envo_where      = 'index.php?p=news';
           $pages->paginate();
-          $JAK_PAGINATE = $pages->display_pages();
+          $ENVO_PAGINATE = $pages->display_pages();
 
           // Call the news with paginate
-          $JAK_NEWS = envo_get_news_info($pages->limit);
+          $ENVO_NEWS = envo_get_news_info($pages->limit);
         }
 
         // EN: Title and Description

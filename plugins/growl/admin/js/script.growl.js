@@ -3,7 +3,7 @@
  * JS for Plugin Growl - ADMIN
  * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
- * Author: Thomas
+ * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
  * INDEX:
@@ -59,7 +59,7 @@ if ($('#htmleditor').length) {
   // set editor.$blockScrolling = Infinity to disable this message
   htmlACE.$blockScrolling = Infinity;
 
-  texthtml = $('#jak_editor').val();
+  texthtml = $('#envo_editor').val();
   htmlACE.session.setValue(texthtml);
 }
 
@@ -78,14 +78,14 @@ $(function () {
   /* Submit Form
    ========================================= */
   $('form').submit(function () {
-    if ($('#jak_editor').length) {
-      $("#jak_editor").val(htmlACE.getValue());
+    if ($('#envo_editor').length) {
+      $("#envo_editor").val(htmlACE.getValue());
     }
   });
 
   /* Check all checkbox
    ========================================= */
-  $("#jak_delete_all").click(function () {
+  $("#envo_delete_all").click(function () {
     var checkedStatus = this.checked;
     $(".highlight").each(function () {
       $(this).prop('checked', checkedStatus);

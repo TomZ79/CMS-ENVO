@@ -1,4 +1,4 @@
-<?php if ($JAK_GROWL_SHOW) { ?>
+<?php if ($ENVO_GROWL_SHOW) { ?>
   <script src="<?php echo BASE_URL; ?>plugins/growl/asstes/js/gritter.js" type="text/javascript"></script>
   <script type="text/javascript">
 
@@ -9,8 +9,8 @@
   </script>
   <?php
 
-  if (is_array($JAK_ALL_GROWL)) foreach ($JAK_ALL_GROWL as $suball) {
-    if (($suball['startdate'] == 0 || $suball['startdate'] <= time()) && ($suball['enddate'] == 0 || $suball['enddate'] >= time()) && (envo_get_access(JAK_USERGROUPID, $suball['permission']) || $suball['permission'] == 0)) { ?>
+  if (is_array($ENVO_ALL_GROWL)) foreach ($ENVO_ALL_GROWL as $suball) {
+    if (($suball['startdate'] == 0 || $suball['startdate'] <= time()) && ($suball['enddate'] == 0 || $suball['enddate'] >= time()) && (envo_get_access(ENVO_USERGROUPID, $suball['permission']) || $suball['permission'] == 0)) { ?>
 
       <script type="text/javascript">
         $(document).ready(function () {
@@ -62,8 +62,8 @@
   }
 
   // Let's check if there is a valid Page array
-  if (!$page1 && is_array($JAK_PAGE_GROWL) && array_key_exists($PAGE_ID, $JAK_PAGE_GROWL)) foreach ($JAK_PAGE_GROWL as $subp) {
-    if (($subp['startdate'] == 0 || $subp['startdate'] <= time()) && ($subp['enddate'] == 0 || $subp['enddate'] >= time()) && $subp['pageid'] == $PAGE_ID && (envo_get_access(JAK_USERGROUPID, $subp['permission']) || $subp['permission'] == 0)) { ?>
+  if (!$page1 && is_array($ENVO_PAGE_GROWL) && array_key_exists($PAGE_ID, $ENVO_PAGE_GROWL)) foreach ($ENVO_PAGE_GROWL as $subp) {
+    if (($subp['startdate'] == 0 || $subp['startdate'] <= time()) && ($subp['enddate'] == 0 || $subp['enddate'] >= time()) && $subp['pageid'] == $PAGE_ID && (envo_get_access(ENVO_USERGROUPID, $subp['permission']) || $subp['permission'] == 0)) { ?>
 
       <script type="text/javascript">
         $(document).ready(function () {
@@ -110,8 +110,8 @@
   }
 
   // Let's check if there is a valid News array
-  if ($backtonews && is_array($JAK_NEWS_GROWL) && array_key_exists($PAGE_ID, $JAK_NEWS_GROWL)) foreach ($JAK_NEWS_GROWL as $subn) {
-    if (($subn['startdate'] == 0 || $subn['startdate'] <= time()) && ($subn['enddate'] == 0 || $subn['enddate'] >= time()) && $subn['newsid'] == $PAGE_ID && (envo_get_access(JAK_USERGROUPID, $subn['permission']) || $subn['permission'] == 0)) { ?>
+  if ($backtonews && is_array($ENVO_NEWS_GROWL) && array_key_exists($PAGE_ID, $ENVO_NEWS_GROWL)) foreach ($ENVO_NEWS_GROWL as $subn) {
+    if (($subn['startdate'] == 0 || $subn['startdate'] <= time()) && ($subn['enddate'] == 0 || $subn['enddate'] >= time()) && $subn['newsid'] == $PAGE_ID && (envo_get_access(ENVO_USERGROUPID, $subn['permission']) || $subn['permission'] == 0)) { ?>
 
       <script type="text/javascript">
         $(document).ready(function () {
@@ -158,8 +158,8 @@
   }
 
   // Let's check if there is a valid News Main array
-  if ($backtonews && !$page1 && is_array($JAK_NEWSMAIN_GROWL)) foreach ($JAK_NEWSMAIN_GROWL as $submn) {
-    if (($submn['startdate'] == 0 || $submn['startdate'] <= time()) && ($submn['enddate'] == 0 || $submn['enddate'] >= time()) && $submn['newsmain'] == 1 && (envo_get_access(JAK_USERGROUPID, $submn['permission']) || $submn['permission'] == 0)) { ?>
+  if ($backtonews && !$page1 && is_array($ENVO_NEWSMAIN_GROWL)) foreach ($ENVO_NEWSMAIN_GROWL as $submn) {
+    if (($submn['startdate'] == 0 || $submn['startdate'] <= time()) && ($submn['enddate'] == 0 || $submn['enddate'] >= time()) && $submn['newsmain'] == 1 && (envo_get_access(ENVO_USERGROUPID, $submn['permission']) || $submn['permission'] == 0)) { ?>
 
       <script type="text/javascript">
         $(document).ready(function () {
@@ -206,8 +206,8 @@
   }
 
   // Let's check if there is a valid Tags array and if the user has access to tags
-  if ($page == JAK_PLUGIN_VAR_TAGS && is_array($JAK_TAGS_GROWL) && JAK_USER_TAGS) foreach ($JAK_TAGS_GROWL as $subt) {
-    if (($subt['startdate'] == 0 || $subt['startdate'] <= time()) && ($subt['enddate'] == 0 || $subt['enddate'] >= time()) && $subt['tags'] == 1 && (envo_get_access(JAK_USERGROUPID, $subt['permission']) || $subt['permission'] == 0)) { ?>
+  if ($page == ENVO_PLUGIN_VAR_TAGS && is_array($ENVO_TAGS_GROWL) && ENVO_USER_TAGS) foreach ($ENVO_TAGS_GROWL as $subt) {
+    if (($subt['startdate'] == 0 || $subt['startdate'] <= time()) && ($subt['enddate'] == 0 || $subt['enddate'] >= time()) && $subt['tags'] == 1 && (envo_get_access(ENVO_USERGROUPID, $subt['permission']) || $subt['permission'] == 0)) { ?>
 
       <script type="text/javascript">
         $(document).ready(function () {
@@ -254,8 +254,8 @@
   }
 
   // Let's check if there is a valid Search array
-  if ($page == $tl['link']['l2'] && is_array($JAK_SEARCH_GROWL)) foreach ($JAK_SEARCH_GROWL as $subs) {
-    if (($subs['startdate'] == 0 || $subs['startdate'] <= time()) && ($subs['enddate'] == 0 || $subs['enddate'] >= time()) && $subs['search'] == 1 && (envo_get_access(JAK_USERGROUPID, $subs['permission']) || $subs['permission'] == 0)) { ?>
+  if ($page == $tl['link']['l2'] && is_array($ENVO_SEARCH_GROWL)) foreach ($ENVO_SEARCH_GROWL as $subs) {
+    if (($subs['startdate'] == 0 || $subs['startdate'] <= time()) && ($subs['enddate'] == 0 || $subs['enddate'] >= time()) && $subs['search'] == 1 && (envo_get_access(ENVO_USERGROUPID, $subs['permission']) || $subs['permission'] == 0)) { ?>
 
       <script type="text/javascript">
         $(document).ready(function () {
@@ -302,8 +302,8 @@
   }
 
   // Let's check if there is a valid Sitemap array
-  if ($page == JAK_PLUGIN_VAR_SITEMAP && is_array($JAK_SITEMAP_GROWL)) foreach ($JAK_SITEMAP_GROWL as $subsit) {
-    if (($subsit['startdate'] == 0 || $subsit['startdate'] <= time()) && ($subsit['enddate'] == 0 || $subsit['enddate'] >= time()) && $subsit['sitemap'] == 1 && (envo_get_access(JAK_USERGROUPID, $subsit['permission']) || $subsit['permission'] == 0)) { ?>
+  if ($page == ENVO_PLUGIN_VAR_SITEMAP && is_array($ENVO_SITEMAP_GROWL)) foreach ($ENVO_SITEMAP_GROWL as $subsit) {
+    if (($subsit['startdate'] == 0 || $subsit['startdate'] <= time()) && ($subsit['enddate'] == 0 || $subsit['enddate'] >= time()) && $subsit['sitemap'] == 1 && (envo_get_access(ENVO_USERGROUPID, $subsit['permission']) || $subsit['permission'] == 0)) { ?>
 
       <script type="text/javascript">
         $(document).ready(function () {

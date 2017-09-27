@@ -2,11 +2,11 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$jakuser->envoModuleAccess(JAK_USERID, JAK_ACCESSNEWSLETTER)) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$envouser->envoModuleAccess(ENVO_USERID, ENVO_ACCESSNEWSLETTER)) envo_redirect(BASE_URL);
 
 // -------- DATA FOR ALL ADMIN PAGES --------
 // -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
@@ -46,12 +46,12 @@ switch ($page1) {
 
       if (isset($defaults['btnSave'])) {
 
-        if (empty($defaults['jak_title'])) {
+        if (empty($defaults['envo_title'])) {
           $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
         }
 
-        if (isset($defaults['jak_showdate'])) {
-          $showdate = $defaults['jak_showdate'];
+        if (isset($defaults['envo_showdate'])) {
+          $showdate = $defaults['envo_showdate'];
         } else {
           $showdate = '0';
         }
@@ -67,8 +67,8 @@ switch ($page1) {
            * smartsql - secure method to insert form data into a MySQL DB
           */
           $result = $envodb->query('INSERT INTO ' . $envotable . ' SET
-                    title = "' . smartsql($defaults['jak_title']) . '",
-                    content = "' . smartsql($defaults['jak_content']) . '",
+                    title = "' . smartsql($defaults['envo_title']) . '",
+                    content = "' . smartsql($defaults['envo_content']) . '",
                     showdate = "' . smartsql($showdate) . '",
                     time = NOW(),
                     fullview = "' . smartsql($random) . '"');
@@ -93,7 +93,7 @@ switch ($page1) {
     }
 
     // Get all styles in the directory
-    $theme_files = jak_get_themes('../plugins/newsletter/skins/');
+    $theme_files = envo_get_themes('../plugins/newsletter/skins/');
 
     // EN: Title and Description
     // CZ: Titulek a Popis
@@ -188,7 +188,7 @@ switch ($page1) {
       }
 
       // Get the newsletter
-      $JAK_STAT_DATA = $envodata;
+      $ENVO_STAT_DATA = $envodata;
 
       // Get the newsletter
       $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
@@ -218,11 +218,11 @@ switch ($page1) {
         // CZ: Hlavní proměnné
         $defaults = $_POST;
 
-        if (empty($defaults['jak_nlgroup']) && empty($defaults['jak_cmsgroup'])) {
+        if (empty($defaults['envo_nlgroup']) && empty($defaults['envo_cmsgroup'])) {
           $errors['e1'] = $tlnl['newsletter_error']['nlerror3'];
         }
 
-        if (empty($defaults['jak_send'])) {
+        if (empty($defaults['envo_send'])) {
           $errors['e2'] = $tlnl['newsletter_error']['nlerror4'];
         }
 
@@ -237,11 +237,11 @@ switch ($page1) {
             $subject = $row['title'];
 
             // Get the cat var name
-            $resultc = $envodb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . JAK_PLUGIN_NEWSLETTER);
+            $resultc = $envodb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = ' . ENVO_PLUGIN_NEWSLETTER);
             $rowc    = $resultc->fetch_assoc();
 
             // Get the browserversion
-            $fullversion = (JAK_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(ENVO_rewrite::envoParseurl($rowc['varname'], 'fv', $row['id'], $row['fullview'], ''));
+            $fullversion = (ENVO_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(ENVO_rewrite::envoParseurl($rowc['varname'], 'fv', $row['id'], $row['fullview'], ''));
 
             // Set vars to zero
             $countNL   = 0;
@@ -276,8 +276,8 @@ switch ($page1) {
 
             }
 
-            if (!empty($defaults['jak_nlgroup'])) {
-              $nlgroup = $defaults['jak_nlgroup'];
+            if (!empty($defaults['envo_nlgroup'])) {
+              $nlgroup = $defaults['envo_nlgroup'];
 
               for ($i = 0; $i < count($nlgroup); $i++) {
                 $lettergroup = $nlgroup[$i];
@@ -290,7 +290,7 @@ switch ($page1) {
                 while ($row1 = $result1->fetch_assoc()) {
 
                   // Get the delete code for each user
-                  $unsubscribe = (JAK_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(ENVO_rewrite::envoParseurl($rowc['varname'], 'nlo', $row1['delcode'], '', ''));
+                  $unsubscribe = (ENVO_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(ENVO_rewrite::envoParseurl($rowc['varname'], 'nlo', $row1['delcode'], '', ''));
 
                   // Change fake vars into real ones.
                   $cssAtt    = array('{myweburl}', '{mywebname}', '{browserversion}', '{unsubscribe}', '{username}', '{fullname}', '{useremail}');
@@ -317,8 +317,8 @@ switch ($page1) {
               }
             }
 
-            if (!empty($defaults['jak_cmsgroup'])) {
-              $usergroup = $defaults['jak_cmsgroup'];
+            if (!empty($defaults['envo_cmsgroup'])) {
+              $usergroup = $defaults['envo_cmsgroup'];
 
               for ($i = 0; $i < count($usergroup); $i++) {
                 $ugroup = $usergroup[$i];
@@ -331,7 +331,7 @@ switch ($page1) {
                 while ($row2 = $result2->fetch_assoc()) {
 
                   // Get the delete code for each user
-                  $unsubscribe = (JAK_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(ENVO_rewrite::envoParseurl($rowc['varname'], 'nlom', $row2['id'], '', ''));
+                  $unsubscribe = (ENVO_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(ENVO_rewrite::envoParseurl($rowc['varname'], 'nlom', $row2['id'], '', ''));
 
                   // Change fake vars into real ones.
                   $cssAtt    = array('{myweburl}', '{mywebname}', '{browserversion}', '{unsubscribe}', '{username}', '{fullname}', '{useremail}');
@@ -397,10 +397,10 @@ switch ($page1) {
       }
 
       // Get usergroups newsletter
-      $JAK_USERGROUP_ALL = envo_get_usergroup_all('newslettergroup');
+      $ENVO_USERGROUP_ALL = envo_get_usergroup_all('newslettergroup');
 
       // Get usergroups cms
-      $JAK_USERGROUP_CMS = envo_get_usergroup_all('usergroup');
+      $ENVO_USERGROUP_CMS = envo_get_usergroup_all('usergroup');
 
       // EN: Title and Description
       // CZ: Titulek a Popis
@@ -429,17 +429,17 @@ switch ($page1) {
           // CZ: Hlavní proměnné
           $defaults = $_POST;
 
-          if ($defaults['jak_name']) {
+          if ($defaults['envo_name']) {
 
-            if (empty($defaults['jak_name'])) {
+            if (empty($defaults['envo_name'])) {
               $errors['e1'] = $tl['general_error']['generror4'] . '<br>';
             }
 
-            if ($defaults['jak_email'] == '' || !filter_var($defaults['jak_email'], FILTER_VALIDATE_EMAIL)) {
+            if ($defaults['envo_email'] == '' || !filter_var($defaults['envo_email'], FILTER_VALIDATE_EMAIL)) {
               $errors['e2'] = $tl['general_error']['generror7'] . '<br>';
             }
 
-            if (envo_field_not_exist(strtolower($defaults['jak_email']), $envotable2, 'email')) {
+            if (envo_field_not_exist(strtolower($defaults['envo_email']), $envotable2, 'email')) {
               $errors['e2'] = $tlnl['newsletter_error']['nlerror5'] . '<br>';
             }
 
@@ -452,9 +452,9 @@ switch ($page1) {
                * smartsql - secure method to insert form data into a MySQL DB
               */
               $result = $envodb->query('INSERT INTO ' . $envotable2 . ' SET
-                        name = "' . smartsql($defaults['jak_name']) . '",
-                        email = "' . smartsql($defaults['jak_email']) . '",
-                        usergroupid = "' . smartsql($defaults['jak_usergroup']) . '",
+                        name = "' . smartsql($defaults['envo_name']) . '",
+                        email = "' . smartsql($defaults['envo_email']) . '",
+                        usergroupid = "' . smartsql($defaults['envo_usergroup']) . '",
                         delcode = ' . time() . ',
                         time = NOW()');
 
@@ -474,10 +474,10 @@ switch ($page1) {
 
           }
 
-          if (!empty($_FILES['jak_file']['name'])) {
+          if (!empty($_FILES['envo_file']['name'])) {
 
-            $filename     = $_FILES['jak_file']['name']; // original filename
-            $tempFile     = $_FILES['jak_file']['tmp_name'];
+            $filename     = $_FILES['envo_file']['name']; // original filename
+            $tempFile     = $_FILES['envo_file']['tmp_name'];
             $tmpf         = explode(".", $filename);
             $envo_xtension = end($tmpf);
 
@@ -485,7 +485,7 @@ switch ($page1) {
               $errors['e3'] = $tlnl['newsletter_error']['nlerror1'];
             }
 
-            if (empty($defaults['jak_delimiter'])) {
+            if (empty($defaults['envo_delimiter'])) {
               $errors['e4'] = $tlnl['newsletter_error']['nlerror2'];
             }
 
@@ -495,12 +495,12 @@ switch ($page1) {
               $row = 1;
               // Now we open the uploaded file and start with the process
               if (($handle = fopen($targetFile, "r")) !== FALSE) {
-                while (($data = fgetcsv($handle, 1000, $defaults['jak_delimiter'])) !== FALSE) {
+                while (($data = fgetcsv($handle, 1000, $defaults['envo_delimiter'])) !== FALSE) {
 
-                  if ($defaults['jak_start'] < $row) {
+                  if ($defaults['envo_start'] < $row) {
 
                     $random = substr(number_format(time() * rand(), 0, '', ''), 0, 10);
-                    $csvI[] = '(NULL, ' . $defaults['jak_usergroupcsv'] . ', "' . $data[1] . '", "' . $data[0] . '", NOW(), ' . $random . ')';
+                    $csvI[] = '(NULL, ' . $defaults['envo_usergroupcsv'] . ', "' . $data[1] . '", "' . $data[0] . '", NOW(), ' . $random . ')';
 
                   }
                   $row++;
@@ -537,7 +537,7 @@ switch ($page1) {
         }
 
         // Get the usergroups
-        $JAK_USERGROUP_ALL = envo_get_usergroup_all('newslettergroup');
+        $ENVO_USERGROUP_ALL = envo_get_usergroup_all('newslettergroup');
 
         // EN: Title and Description
         // CZ: Titulek a Popis
@@ -558,11 +558,11 @@ switch ($page1) {
             // CZ: Hlavní proměnné
             $defaults = $_POST;
 
-            if (empty($defaults['jak_name'])) {
+            if (empty($defaults['envo_name'])) {
               $errors['e1'] = $tl['general_error']['generror4'] . '<br>';
             }
 
-            if ($defaults['jak_email'] == '' || !filter_var($defaults['jak_email'], FILTER_VALIDATE_EMAIL)) {
+            if ($defaults['envo_email'] == '' || !filter_var($defaults['envo_email'], FILTER_VALIDATE_EMAIL)) {
               $errors['e2'] = $tl['general_error']['generror7'] . '<br>';
             }
 
@@ -575,9 +575,9 @@ switch ($page1) {
                * smartsql - secure method to insert form data into a MySQL DB
               */
               $result = $envodb->query('UPDATE ' . $envotable2 . ' SET
-                        name = "' . smartsql($defaults['jak_name']) . '",
-                        email = "' . smartsql($defaults['jak_email']) . '",
-                        usergroupid = "' . smartsql($defaults['jak_usergroup']) . '",
+                        name = "' . smartsql($defaults['envo_name']) . '",
+                        email = "' . smartsql($defaults['envo_email']) . '",
+                        usergroupid = "' . smartsql($defaults['envo_usergroup']) . '",
                         delcode = ' . time() . ',
                         time = NOW()
                         WHERE id = ' . $page3);
@@ -608,7 +608,7 @@ switch ($page1) {
         }
 
         // Get the usergroups
-        $JAK_USERGROUP_ALL = envo_get_usergroup_all('newslettergroup');
+        $ENVO_USERGROUP_ALL = envo_get_usergroup_all('newslettergroup');
 
         // EN: Title and Description
         // CZ: Titulek a Popis
@@ -656,10 +656,10 @@ switch ($page1) {
           $pages->items_total    = $getTotal;
           $pages->mid_range      = $jkv["adminpagemid"];
           $pages->items_per_page = $jkv["adminpageitem"];
-          $pages->jak_get_page   = $page1;
-          $pages->jak_where      = 'index.php?p=newsletter&amp;sp=user&amp;ssp=group';
+          $pages->envo_get_page   = $page1;
+          $pages->envo_where      = 'index.php?p=newsletter&amp;sp=user&amp;ssp=group';
           $pages->paginate();
-          $JAK_PAGINATE = $pages->display_pages();
+          $ENVO_PAGINATE = $pages->display_pages();
         }
 
         $result = $envodb->query('SELECT * FROM ' . $envotable2 . ' WHERE usergroupid = "' . smartsql($page3) . '" ' . $pages->limit);
@@ -667,8 +667,8 @@ switch ($page1) {
           $user[] = array('id' => $row['id'], 'usergroupid' => $row['usergroupid'], 'username' => $row['username'], 'email' => $row['email'], 'name' => $row['name']);
         }
 
-        $JAK_USER_ALL      = $user;
-        $JAK_USERGROUP_ALL = envo_get_usergroup_all('newslettergroup');
+        $ENVO_USER_ALL      = $user;
+        $ENVO_USERGROUP_ALL = envo_get_usergroup_all('newslettergroup');
 
         // EN: Title and Description
         // CZ: Titulek a Popis
@@ -682,19 +682,19 @@ switch ($page1) {
         break;
       default:
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jak_delete_user'])) {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_user'])) {
           // EN: Default Variable
           // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (isset($defaults['move'])) {
 
-            $jakmove = $defaults['jak_delete_user'];
-            $jakgrid = $defaults['jak_group'];
+            $envomove = $defaults['envo_delete_user'];
+            $envogrid = $defaults['envo_group'];
 
-            for ($i = 0; $i < count($jakmove); $i++) {
-              $move   = $jakmove[$i];
-              $result = $envodb->query('UPDATE ' . $envotable2 . ' SET usergroupid = ' . $jakgrid . ' WHERE id = "' . smartsql($move) . '"');
+            for ($i = 0; $i < count($envomove); $i++) {
+              $move   = $envomove[$i];
+              $result = $envodb->query('UPDATE ' . $envotable2 . ' SET usergroupid = ' . $envogrid . ' WHERE id = "' . smartsql($move) . '"');
             }
 
             if (!$result) {
@@ -711,7 +711,7 @@ switch ($page1) {
 
           if (isset($defaults['delete'])) {
 
-            $lockuser = $defaults['jak_delete_user'];
+            $lockuser = $defaults['envo_delete_user'];
 
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
@@ -743,19 +743,19 @@ switch ($page1) {
           $pages->items_total    = $getTotal;
           $pages->mid_range      = $jkv["adminpagemid"];
           $pages->items_per_page = $jkv["adminpageitem"];
-          $pages->jak_get_page   = $page2;
-          $pages->jak_where      = 'index.php?p=newsletter&amp;sp=user';
+          $pages->envo_get_page   = $page2;
+          $pages->envo_where      = 'index.php?p=newsletter&amp;sp=user';
           $pages->paginate();
-          $JAK_PAGINATE = $pages->display_pages();
+          $ENVO_PAGINATE = $pages->display_pages();
 
           $result = $envodb->query('SELECT * FROM ' . $envotable2 . ' ' . $pages->limit);
           while ($row = $result->fetch_assoc()) {
-            $JAK_USER_ALL[] = array('id' => $row['id'], 'usergroupid' => $row['usergroupid'], 'email' => $row['email'], 'name' => $row['name']);
+            $ENVO_USER_ALL[] = array('id' => $row['id'], 'usergroupid' => $row['usergroupid'], 'email' => $row['email'], 'name' => $row['name']);
           }
 
         }
 
-        $JAK_USERGROUP_ALL = envo_get_usergroup_all('newslettergroup');
+        $ENVO_USERGROUP_ALL = envo_get_usergroup_all('newslettergroup');
 
         // EN: Title and Description
         // CZ: Titulek a Popis
@@ -780,7 +780,7 @@ switch ($page1) {
           // CZ: Hlavní proměnné
           $defaults = $_POST;
 
-          if (empty($defaults['jak_name'])) {
+          if (empty($defaults['envo_name'])) {
             $errors['e1'] = $tl['general_error']['generror4'] . '<br>';
           }
 
@@ -793,8 +793,8 @@ switch ($page1) {
              * smartsql - secure method to insert form data into a MySQL DB
             */
             $result = $envodb->query('INSERT INTO ' . $envotable1 . ' SET
-                      name = "' . smartsql($defaults['jak_name']) . '",
-                      description = "' . smartsql($defaults['jak_desc']) . '",
+                      name = "' . smartsql($defaults['envo_name']) . '",
+                      description = "' . smartsql($defaults['envo_desc']) . '",
                       time = NOW()');
 
             $rowid = $envodb->envo_last_id();
@@ -834,7 +834,7 @@ switch ($page1) {
             // CZ: Hlavní proměnné
             $defaults = $_POST;
 
-            if (empty($defaults['jak_name'])) {
+            if (empty($defaults['envo_name'])) {
               $errors['e1'] = $tl['general_error']['generror4'] . '<br>';
             }
 
@@ -847,8 +847,8 @@ switch ($page1) {
                * smartsql - secure method to insert form data into a MySQL DB
               */
               $result = $envodb->query('UPDATE ' . $envotable1 . ' SET
-                        name = "' . smartsql($defaults['jak_name']) . '",
-                        description = "' . smartsql($defaults['jak_desc']) . '",
+                        name = "' . smartsql($defaults['envo_name']) . '",
+                        description = "' . smartsql($defaults['envo_desc']) . '",
                         time = NOW()
                         WHERE id = "' . smartsql($page3) . '"');
 
@@ -927,7 +927,7 @@ switch ($page1) {
 
           if (isset($defaults['delete'])) {
 
-            if (empty($defaults['jak_name'])) {
+            if (empty($defaults['envo_name'])) {
               $errors['e1'] = $tl['general_error']['generror4'] . '<br>';
             }
 
@@ -940,8 +940,8 @@ switch ($page1) {
                * smartsql - secure method to insert form data into a MySQL DB
               */
               $result = $envodb->query('UPDATE ' . $envotable1 . ' SET
-                        name = "' . smartsql($defaults['jak_name']) . '",
-                        description = "' . smartsql($defaults['jak_desc']) . '",
+                        name = "' . smartsql($defaults['envo_name']) . '",
+                        description = "' . smartsql($defaults['envo_desc']) . '",
                         time = NOW()
                         WHERE id = ' . $page3);
 
@@ -963,7 +963,7 @@ switch ($page1) {
 
           if (isset($defaults['delete'])) {
 
-            $lockuser = $defaults['jak_delete_usergroup'];
+            $lockuser = $defaults['envo_delete_usergroup'];
 
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
@@ -988,7 +988,7 @@ switch ($page1) {
 
         }
 
-        $JAK_USERGROUP_ALL = envo_get_usergroup_all('newslettergroup');
+        $ENVO_USERGROUP_ALL = envo_get_usergroup_all('newslettergroup');
 
         // EN: Title and Description
         // CZ: Titulek a Popis
@@ -1012,19 +1012,19 @@ switch ($page1) {
         // EN: If button "Save Changes" clicked
         // CZ: Pokud bylo stisknuto tlačítko "Uložit"
 
-        if (empty($defaults['jak_title'])) {
+        if (empty($defaults['envo_title'])) {
           $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
         }
 
-        if (empty($defaults['jak_thankyou'])) {
+        if (empty($defaults['envo_thankyou'])) {
           $errors['e2'] = $tl['general_error']['generror19'] . '<br>';
         }
 
-        if (!empty($defaults['jak_port']) && !is_numeric($defaults['jak_port'])) {
+        if (!empty($defaults['envo_port']) && !is_numeric($defaults['envo_port'])) {
           $errors['e3'] = $tl['general_error']['generror20'] . '<br>';
         }
 
-        if (!filter_var($defaults['jak_email'], FILTER_VALIDATE_EMAIL)) {
+        if (!filter_var($defaults['envo_email'], FILTER_VALIDATE_EMAIL)) {
           $errors['e4'] = $tl['general_error']['generror7'] . '<br>';
         }
 
@@ -1037,18 +1037,18 @@ switch ($page1) {
            * smartsql - secure method to insert form data into a MySQL DB
           */
           $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-                      WHEN "nltitle" THEN "' . smartsql($defaults['jak_title']) . '"
-                      WHEN "nlsignoff" THEN "' . smartsql($defaults['jak_description']) . '"
-                      WHEN "nlthankyou" THEN "' . smartsql($defaults['jak_thankyou']) . '"
-                      WHEN "nlemail" THEN "' . smartsql($defaults['jak_email']) . '"
-                      WHEN "nlsmtp_mail" THEN "' . smartsql($defaults['jak_smpt']) . '"
-                      WHEN "nlsmtphost" THEN "' . smartsql($defaults['jak_host']) . '"
-                      WHEN "nlsmtpport" THEN "' . smartsql($defaults['jak_port']) . '"
-                      WHEN "nlsmtp_alive" THEN "' . smartsql($defaults['jak_alive']) . '"
-                      WHEN "nlsmtp_auth" THEN "' . smartsql($defaults['jak_auth']) . '"
-                      WHEN "nlsmtp_prefix" THEN "' . smartsql($defaults['jak_prefix']) . '"
-                      WHEN "nlsmtpusername" THEN "' . base64_encode($defaults['jak_username']) . '"
-                      WHEN "nlsmtppassword" THEN "' . base64_encode($defaults['jak_password']) . '"
+                      WHEN "nltitle" THEN "' . smartsql($defaults['envo_title']) . '"
+                      WHEN "nlsignoff" THEN "' . smartsql($defaults['envo_description']) . '"
+                      WHEN "nlthankyou" THEN "' . smartsql($defaults['envo_thankyou']) . '"
+                      WHEN "nlemail" THEN "' . smartsql($defaults['envo_email']) . '"
+                      WHEN "nlsmtp_mail" THEN "' . smartsql($defaults['envo_smpt']) . '"
+                      WHEN "nlsmtphost" THEN "' . smartsql($defaults['envo_host']) . '"
+                      WHEN "nlsmtpport" THEN "' . smartsql($defaults['envo_port']) . '"
+                      WHEN "nlsmtp_alive" THEN "' . smartsql($defaults['envo_alive']) . '"
+                      WHEN "nlsmtp_auth" THEN "' . smartsql($defaults['envo_auth']) . '"
+                      WHEN "nlsmtp_prefix" THEN "' . smartsql($defaults['envo_prefix']) . '"
+                      WHEN "nlsmtpusername" THEN "' . base64_encode($defaults['envo_username']) . '"
+                      WHEN "nlsmtppassword" THEN "' . base64_encode($defaults['envo_password']) . '"
                     END
                     WHERE varname IN ("nltitle","nlsignoff","nlthankyou","nlemail","nlsmtp_mail","nlsmtphost","nlsmtpport","nlsmtp_alive","nlsmtp_auth","nlsmtp_prefix","nlsmtpusername","nlsmtppassword")');
 
@@ -1073,7 +1073,7 @@ switch ($page1) {
         $mail = new PHPMailer(TRUE); // the true param means it will throw exceptions on errors, which we need to catch
 
         // Send email the smpt way or else the mail way
-        if (!empty($defaults['jak_smpt'])) {
+        if (!empty($defaults['envo_smpt'])) {
 
           try {
             $mail->IsSMTP(); // telling the class to use SMTP
@@ -1127,11 +1127,11 @@ switch ($page1) {
 
     // EN: Import important settings for the template from the DB
     // CZ: Importuj důležité nastavení pro šablonu z DB
-    $JAK_SETTING = envo_get_setting('newsletter');
+    $ENVO_SETTING = envo_get_setting('newsletter');
 
     // EN: Import important settings for the template from the DB (only VALUE)
     // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
-    $JAK_SETTING_VAL = envo_get_setting_val('newsletter');
+    $ENVO_SETTING_VAL = envo_get_setting_val('newsletter');
 
     // EN: Title and Description
     // CZ: Titulek a Popis
@@ -1177,7 +1177,7 @@ switch ($page1) {
             // CZ: Hlavní proměnné
             $defaults = $_POST;
 
-            if (empty($defaults['jak_title'])) {
+            if (empty($defaults['envo_title'])) {
               $errors['e1'] = $tl['general_error']['generror18'] . '<br>';
             }
 
@@ -1190,9 +1190,9 @@ switch ($page1) {
                * smartsql - secure method to insert form data into a MySQL DB
               */
               $result = $envodb->query('UPDATE ' . $envotable . ' SET
-                        title = "' . smartsql($defaults['jak_title']) . '",
-                        content = "' . smartsql($defaults['jak_content']) . '",
-                        showdate = "' . smartsql($defaults['jak_showdate']) . '",
+                        title = "' . smartsql($defaults['envo_title']) . '",
+                        content = "' . smartsql($defaults['envo_content']) . '",
+                        showdate = "' . smartsql($defaults['envo_showdate']) . '",
                         time = NOW()
                         WHERE id = "' . smartsql($page2) . '"');
 
@@ -1216,7 +1216,7 @@ switch ($page1) {
           $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
 
           // Get the cat var name
-          $resultc = $envodb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql(JAK_PLUGIN_NEWSLETTER) . '"');
+          $resultc = $envodb->query('SELECT varname FROM ' . DB_PREFIX . 'categories WHERE pluginid = "' . smartsql(ENVO_PLUGIN_NEWSLETTER) . '"');
           $rowc    = $resultc->fetch_assoc();
 
           // EN: Title and Description
@@ -1237,14 +1237,14 @@ switch ($page1) {
       default:
 
         // Hello we have a post request
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jak_delete_newsletter'])) {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_newsletter'])) {
           // EN: Default Variable
           // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (isset($defaults['delete'])) {
 
-            $lockuser = $defaults['jak_delete_newsletter'];
+            $lockuser = $defaults['envo_delete_newsletter'];
 
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
@@ -1274,14 +1274,14 @@ switch ($page1) {
           $nletter->items_total    = $getTotal;
           $nletter->mid_range      = $jkv["adminpagemid"];
           $nletter->items_per_page = $jkv["adminpageitem"];
-          $nletter->jak_get_page   = $page1;
-          $nletter->jak_where      = 'index.php?p=newsletter';
+          $nletter->envo_get_page   = $page1;
+          $nletter->envo_where      = 'index.php?p=newsletter';
           $nletter->paginate();
-          $JAK_PAGINATE = $nletter->display_pages();
+          $ENVO_PAGINATE = $nletter->display_pages();
         }
 
         // Newsletter
-        $JAK_NEWSLETTER_ALL = envo_get_page_info($envotable, $nletter->limit);
+        $ENVO_NEWSLETTER_ALL = envo_get_page_info($envotable, $nletter->limit);
 
         // EN: Title and Description
         // CZ: Titulek a Popis

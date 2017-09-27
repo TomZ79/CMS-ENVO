@@ -1,6 +1,6 @@
 <?php include "header.php"; ?>
 
-<?php if ($JAK_FILE_SUCCESS) { ?>
+<?php if ($ENVO_FILE_SUCCESS) { ?>
   <script type="text/javascript">
     // Notification
     setTimeout(function () {
@@ -15,7 +15,7 @@
     }, 1000);
   </script>
 <?php }
-if ($JAK_FILE_ERROR) { ?>
+if ($ENVO_FILE_ERROR) { ?>
   <script type="text/javascript">
     // Notification
     setTimeout(function () {
@@ -66,7 +66,7 @@ if ($JAK_FILE_ERROR) { ?>
         </div>
         <div class="box-body">
           <table class="table">
-            <tr <?php if ($JAK_FILECONTENT) { ?> class="hidden"<?php } ?>>
+            <tr <?php if ($ENVO_FILECONTENT) { ?> class="hidden"<?php } ?>>
               <td>
 
                 <?php
@@ -84,7 +84,7 @@ if ($JAK_FILE_ERROR) { ?>
 
               </td>
             </tr>
-            <tr <?php if (!$JAK_FILECONTENT) { ?> class="hidden"<?php } ?>>
+            <tr <?php if (!$ENVO_FILECONTENT) { ?> class="hidden"<?php } ?>>
               <td>
 
                 <?php
@@ -92,14 +92,14 @@ if ($JAK_FILE_ERROR) { ?>
                 echo $Html->startTag('h4');
                 echo $tl["tpl_box_content"]["tplbc2"];
                 // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                echo $Html->addTag('small', $Html->addTag('strong', $JAK_FILEURL));
+                echo $Html->addTag('small', $Html->addTag('strong', $ENVO_FILEURL));
                 // Add Html Element -> endTag (Arguments: tag)
                 echo $Html->endTag('h4');
                 ?>
 
               </td>
             </tr>
-            <?php if ($JAK_FILECONTENT) { ?>
+            <?php if ($ENVO_FILECONTENT) { ?>
               <tr>
                 <td>
 
@@ -109,7 +109,7 @@ if ($JAK_FILE_ERROR) { ?>
                   // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                   echo $Html->addDiv('', 'htmleditor');
                   // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                  echo $Html->addTextarea('envo_filecontent', $JAK_FILECONTENT, '', '', array('id' => 'envo_filecontent', 'class' => 'form-control hidden'));
+                  echo $Html->addTextarea('envo_filecontent', $ENVO_FILECONTENT, '', '', array('id' => 'envo_filecontent', 'class' => 'form-control hidden'));
                   ?>
 
                 </td>
@@ -120,13 +120,13 @@ if ($JAK_FILE_ERROR) { ?>
       </div>
 
       <div class="form-actions">
-        <?php if ($JAK_GET_TEMPLATE_FILES) { ?><?php if ($JAK_FILEURL) {
+        <?php if ($ENVO_GET_TEMPLATE_FILES) { ?><?php if ($ENVO_FILEURL) {
 
           // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
           echo $Html->addButtonSubmit('reset', $tl["button"]["btn11"], '', 'btn btn-success');
 
         }
-          if (!$JAK_FILECONTENT) {
+          if (!$ENVO_FILECONTENT) {
 
             // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
             echo $Html->addButtonSubmit('edit', $tl["button"]["btn12"], '', 'btn btn-primary pull-right');
@@ -141,7 +141,7 @@ if ($JAK_FILE_ERROR) { ?>
 
       <?php
       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-      echo $Html->addInput('hidden', 'envo_file', $JAK_FILEURL);
+      echo $Html->addInput('hidden', 'envo_file', $ENVO_FILEURL);
       ?>
 
     </form>

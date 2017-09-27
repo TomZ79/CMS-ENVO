@@ -27,7 +27,7 @@ echo $Html->addDoctype('html5');
   ?>
 
   <!-- Import all hooks for in between head -->
-  <?php if (isset($JAK_HOOK_HEAD_ADMIN) && is_array($JAK_HOOK_HEAD_ADMIN)) foreach ($JAK_HOOK_HEAD_ADMIN as $headt) {
+  <?php if (isset($ENVO_HOOK_HEAD_ADMIN) && is_array($ENVO_HOOK_HEAD_ADMIN)) foreach ($ENVO_HOOK_HEAD_ADMIN as $headt) {
     include_once APP_PATH . $headt['phpcode'];
   } ?>
 

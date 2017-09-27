@@ -4,22 +4,22 @@ $showblogarray = explode(":", $row['showblog']);
 
 if (is_array($showblogarray) && in_array("ASC", $showblogarray) || in_array("DESC", $showblogarray)) {
 
-  $JAK_BLOG = envo_get_blog('LIMIT ' . $showblogarray[1], 't1.id ' . $showblogarray[0], '', 't1.id', $jkv["blogurl"], $tl['global_text']['gtxt4']);
+  $ENVO_BLOG = envo_get_blog('LIMIT ' . $showblogarray[1], 't1.id ' . $showblogarray[0], '', 't1.id', $jkv["blogurl"], $tl['global_text']['gtxt4']);
 
 } else {
 
-  $JAK_BLOG = envo_get_blog('', 't1.id ASC', $row['showblog'], 't1.id', $jkv["blogurl"], $tl['global_text']['gtxt4']);
+  $ENVO_BLOG = envo_get_blog('', 't1.id ASC', $row['showblog'], 't1.id', $jkv["blogurl"], $tl['global_text']['gtxt4']);
 }
 
 ?>
 
 <h3 class="text-color"><?php echo $tlblog["blog"]["d3"]; ?></h3>
 <div class="row">
-  <?php if (isset($JAK_BLOG) && is_array($JAK_BLOG)) foreach ($JAK_BLOG as $bl) { ?>
+  <?php if (isset($ENVO_BLOG) && is_array($ENVO_BLOG)) foreach ($ENVO_BLOG as $bl) { ?>
 
     <!-- Post -->
     <div class="col-md-3 col-sm-6">
-      <div class="jak-post">
+      <div class="envo-post">
         <!-- Post Info -->
         <div class="post-info">
           <div class="info-details">
@@ -41,11 +41,11 @@ if (is_array($showblogarray) && in_array("ASC", $showblogarray) || in_array("DES
         <!-- End Post Title & Summary -->
         <div class="post-more">
           <a href="<?php echo $bl["parseurl"]; ?>" class="btn btn-color btn-sm"><?php echo $tl["general"]["g3"]; ?></a>
-          <?php if (JAK_ASACCESS) { ?>
+          <?php if (ENVO_ASACCESS) { ?>
 
-            <a href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=edit&amp;id=<?php echo $bl["id"]; ?>" title="<?php echo $tl["general"]["g"]; ?>" class="btn btn-default btn-sm jaktip"><i class="fa fa-pencil"></i></a>
+            <a href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=edit&amp;id=<?php echo $bl["id"]; ?>" title="<?php echo $tl["general"]["g"]; ?>" class="btn btn-default btn-sm envotooltip"><i class="fa fa-pencil"></i></a>
 
-            <a class="btn btn-default btn-sm jaktip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=quickedit&amp;id=<?php echo $bl["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>"><i class="fa fa-edit"></i></a>
+            <a class="btn btn-default btn-sm envotooltip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=blog&amp;sp=quickedit&amp;id=<?php echo $bl["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>"><i class="fa fa-edit"></i></a>
 
           <?php } ?>
         </div>

@@ -87,11 +87,11 @@ if ($errors) { ?>
                       echo $Html->addOption('0', 'Archiv', $selected);
 
 
-                      if (isset($JAK_TVTOWER_ALL) && is_array($JAK_TVTOWER_ALL)) foreach ($JAK_TVTOWER_ALL as $tt) {
+                      if (isset($ENVO_TVTOWER_ALL) && is_array($ENVO_TVTOWER_ALL)) foreach ($ENVO_TVTOWER_ALL as $tt) {
 
                         echo '<optgroup label="' . $tt["name"] . '">';
 
-                        if (isset($JAK_TVCHANNEL_ALL) && is_array($JAK_TVCHANNEL_ALL)) foreach ($JAK_TVCHANNEL_ALL as $tc) {
+                        if (isset($ENVO_TVCHANNEL_ALL) && is_array($ENVO_TVCHANNEL_ALL)) foreach ($ENVO_TVCHANNEL_ALL as $tc) {
 
                           if ($tt["id"] == $tc["towerid"]) {
                             $optvalue = $tt["id"] . '-' . $tc["id"] . '-' . $tc["number"];

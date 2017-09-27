@@ -2,7 +2,7 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
@@ -13,7 +13,7 @@ $envotable3 = 'news';
 
 // EN: Get all the php Hook by name of Hook
 // CZ: Načtení všech php dat z Hook podle jména Hook
-$JAK_HOOK_TAGS  = $envohooks->EnvoGethook("tpl_tags");
+$ENVO_HOOK_TAGS  = $envohooks->EnvoGethook("tpl_tags");
 $PAGE_SHOWTITLE = 1;
 
 // AJAX Search
@@ -21,12 +21,12 @@ $AJAX_SEARCH_PLUGIN_WHERE = $envotable1;
 $AJAX_SEARCH_PLUGIN_URL   = 'include/ajax/page.php';
 $AJAX_SEARCH_PLUGIN_SEO   = 0;
 
-$swaplang = JAK_PLUGIN_ID_TAGS;
+$swaplang = ENVO_PLUGIN_ID_TAGS;
 
 if (empty($page1)) {
-  $PAGE_TITLE      = JAK_PLUGIN_NAME_TAGS;
+  $PAGE_TITLE      = ENVO_PLUGIN_NAME_TAGS;
   $PAGE_CONTENT    = $jkv["tagdesc"];
-  $JAK_NO_TAG_DATA = $tl['general_error']['generror11'];
+  $ENVO_NO_TAG_DATA = $tl['general_error']['generror11'];
 } else {
 
   // Clean the tag if someone is funny and tries to type something weird
@@ -59,15 +59,15 @@ if (empty($page1)) {
           $parseurl = ENVO_rewrite::envoParseurl($row2['varname'], '', '', '', '');
 
           $pageData[]        = array('parseurl' => $parseurl, 'title' => $row2['title'], 'content' => $getStriped);
-          $JAK_TAG_PAGE_DATA = $pageData;
+          $ENVO_TAG_PAGE_DATA = $pageData;
         }
         // Get the news data
       } elseif ($row['pluginid'] == 1) {
-        $newstagData[]     = ENVO_tags::envoTagSql($envotable3, $row['itemid'], "id, title" . ", content", "content", JAK_PLUGIN_VAR_NEWS, 'a', 1);
-        $JAK_TAG_NEWS_DATA = $newstagData;
+        $newstagData[]     = ENVO_tags::envoTagSql($envotable3, $row['itemid'], "id, title" . ", content", "content", ENVO_PLUGIN_VAR_NEWS, 'a', 1);
+        $ENVO_TAG_NEWS_DATA = $newstagData;
       } else {
         // No Tag Data in the while
-        $JAK_NO_TAG_DATA = $tl['general_error']['generror12'];
+        $ENVO_NO_TAG_DATA = $tl['general_error']['generror12'];
       }
 
     }
@@ -76,21 +76,21 @@ if (empty($page1)) {
     $PAGE_CONTENT = $jkv["tagdesc"];
   } else {
     // No tag data at all
-    $JAK_NO_TAG_DATA = $tl['general_error']['generror12'];
+    $ENVO_NO_TAG_DATA = $tl['general_error']['generror12'];
   }
 }
 
 // Get the sort orders for the grid
-$JAK_HOOK_SIDE_GRID = FALSE;
-$grid               = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . JAK_PLUGIN_ID_TAGS . ' ORDER BY orderid ASC');
+$ENVO_HOOK_SIDE_GRID = FALSE;
+$grid               = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . ENVO_PLUGIN_ID_TAGS . ' ORDER BY orderid ASC');
 while ($grow = $grid->fetch_assoc()) {
   // EN: Insert each record into array
   // CZ: Vložení získaných dat do pole
-  $JAK_HOOK_SIDE_GRID[] = $grow;
+  $ENVO_HOOK_SIDE_GRID[] = $grow;
 }
 
 // Now get the new meta keywords and description maker
-$PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl(JAK_PLUGIN_NAME_TAGS) . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+$PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl(ENVO_PLUGIN_NAME_TAGS) . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
 $PAGE_DESCRIPTION = $jkv["metadesc"];
 
 // EN: Load the php template

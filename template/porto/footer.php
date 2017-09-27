@@ -14,7 +14,7 @@ switch ($section) {
     echo '</div>';
 
     // Sidebar if right
-    if (!empty($JAK_HOOK_SIDE_GRID) && $jkv["sidebar_location_tpl"] == "right") {
+    if (!empty($ENVO_HOOK_SIDE_GRID) && $jkv["sidebar_location_tpl"] == "right") {
       include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/sidebar.php';
     }
 
@@ -29,14 +29,14 @@ switch ($section) {
 
 </div><!-- END MAIN CONTENT -->
 
-<?php if ($JAK_SHOW_FOOTER) {
+<?php if ($ENVO_SHOW_FOOTER) {
   // Import templates below header
-  if (isset($JAK_HOOK_BELOW_CONTENT) && is_array($JAK_HOOK_BELOW_CONTENT)) foreach ($JAK_HOOK_BELOW_CONTENT as $bcontent) {
+  if (isset($ENVO_HOOK_BELOW_CONTENT) && is_array($ENVO_HOOK_BELOW_CONTENT)) foreach ($ENVO_HOOK_BELOW_CONTENT as $bcontent) {
     include_once APP_PATH . $bcontent['phpcode'];
   }
 } ?>
 
-<?php if ($JAK_SHOW_FOOTER && JAK_ASACCESS) { ?>
+<?php if ($ENVO_SHOW_FOOTER && ENVO_ASACCESS) { ?>
   <!-- =========================
   START FOOTER SECTION
   ============================== -->
@@ -72,7 +72,7 @@ switch ($section) {
                 <a href="<?php echo $jkv["instagramfooterLinks_porto_tpl"]; ?>" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
               </li>
             <?php }
-            if ($JAK_RSS_DISPLAY) { ?>
+            if ($ENVO_RSS_DISPLAY) { ?>
               <li class="social-icons-rss">
                 <a href="<?php echo $P_RSS_LINK; ?>" target="_blank" title="RSS"><i class="fa fa-rss"></i></a>
               </li>
@@ -95,7 +95,7 @@ switch ($section) {
               <?php }
             }
             if ($jkv["printme"] && $printme) { ?>
-              <a class="btn btn-filled btn-primary btn-sm" id="jakprint" href="#" title="<?php echo $tl["button"]["btn6"]; ?>">
+              <a class="btn btn-filled btn-primary btn-sm" id="envoprint" href="#" title="<?php echo $tl["button"]["btn6"]; ?>">
                 <?php echo $tl["button"]["btn6"]; ?>
               </a>
             <?php } ?>
@@ -116,7 +116,7 @@ switch ($section) {
           </div>
           <div class="col-md-4">
             <nav id="sub-menu">
-              <?php echo build_menu_porto(0, $mfooter, TRUE, $page, '', '', '', '', '', JAK_ASACCESS); ?>
+              <?php echo build_menu_porto(0, $mfooter, TRUE, $page, '', '', '', '', '', ENVO_ASACCESS); ?>
             </nav>
           </div>
         </div>
@@ -127,7 +127,7 @@ switch ($section) {
   END FOOTER SECTION
   ============================== -->
 <?php } else {
-  if ($JAK_SHOW_FOOTER) { ?>
+  if ($ENVO_SHOW_FOOTER) { ?>
     <!-- =========================
     START FOOTER SECTION
     ============================== -->
@@ -163,7 +163,7 @@ switch ($section) {
                   <a href="<?php echo $jkv["instagramfooterLinks_porto_tpl"]; ?>" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
                 </li>
               <?php }
-              if ($JAK_RSS_DISPLAY) { ?>
+              if ($ENVO_RSS_DISPLAY) { ?>
                 <li class="social-icons-rss">
                   <a href="<?php echo $P_RSS_LINK; ?>" target="_blank" title="RSS"><i class="fa fa-rss"></i></a>
                 </li>
@@ -186,7 +186,7 @@ switch ($section) {
                 <?php }
               }
               if ($jkv["printme"] && $printme) { ?>
-                <a class="btn btn-filled btn-primary btn-sm" id="jakprint" href="#" title="<?php echo $tl["button"]["btn6"]; ?>">
+                <a class="btn btn-filled btn-primary btn-sm" id="envoprint" href="#" title="<?php echo $tl["button"]["btn6"]; ?>">
                   <?php echo $tl["button"]["btn6"]; ?>
                 </a>
               <?php } ?>
@@ -207,7 +207,7 @@ switch ($section) {
             </div>
             <div class="col-md-4">
               <nav id="sub-menu">
-                <?php echo build_menu_porto(0, $mfooter, TRUE, $page, '', '', '', '', '', JAK_ASACCESS); ?>
+                <?php echo build_menu_porto(0, $mfooter, TRUE, $page, '', '', '', '', '', ENVO_ASACCESS); ?>
               </nav>
             </div>
           </div>
@@ -219,7 +219,7 @@ switch ($section) {
     ============================== -->
   <?php }
 }
-if (!$JAK_SHOW_FOOTER) { ?>
+if (!$ENVO_SHOW_FOOTER) { ?>
 
 <?php } ?>
 
@@ -258,8 +258,8 @@ if (!$JAK_SHOW_FOOTER) { ?>
   envoWeb.envo_jslang = '<?php echo $jslangdata_output;?>';
   envoWeb.envo_url = '<?php echo BASE_URL;?>';
   envoWeb.envo_url_orig = '<?php echo BASE_URL;?>';
-  envoWeb.envo_search_link = '<?php echo $JAK_SEARCH_LINK;?>';
-  envoWeb.request_uri = '<?php echo JAK_PARSE_REQUEST;?>';
+  envoWeb.envo_search_link = '<?php echo $ENVO_SEARCH_LINK;?>';
+  envoWeb.request_uri = '<?php echo ENVO_PARSE_REQUEST;?>';
   envoWeb.envo_quickedit = '<?php echo $tl["global_text"]["gtxt6"];?>'
 </script>
 
@@ -269,7 +269,7 @@ include_once APP_PATH . '/template/' . ENVO_TEMPLATE . '/js/porto-revolutionSlid
 ?>
 
 <?php
-if (isset($JAK_HOOK_FOOTER_END) && is_array($JAK_HOOK_FOOTER_END)) foreach ($JAK_HOOK_FOOTER_END as $hfootere) {
+if (isset($ENVO_HOOK_FOOTER_END) && is_array($ENVO_HOOK_FOOTER_END)) foreach ($ENVO_HOOK_FOOTER_END as $hfootere) {
   include_once APP_PATH . $hfootere['phpcode'];
 }
 
@@ -277,7 +277,7 @@ if (isset($JAK_HOOK_FOOTER_END) && is_array($JAK_HOOK_FOOTER_END)) foreach ($JAK
 if (isset($jkv["analytics"])) echo $jkv["analytics"];
 
 // Javascript for page - FOOTER
-if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT;
+if (isset($ENVO_FOOTER_JAVASCRIPT)) echo $ENVO_FOOTER_JAVASCRIPT;
 ?>
 
 <!-- Social Buttons Script -->
@@ -285,7 +285,7 @@ if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT;
   include APP_PATH . 'template/' . ENVO_TEMPLATE . '/socialbutton.php';
 } ?>
 
-<?php if (isset($JAK_NEWS_IN_CONTENT) && is_array($JAK_NEWS_IN_CONTENT)) { ?>
+<?php if (isset($ENVO_NEWS_IN_CONTENT) && is_array($ENVO_NEWS_IN_CONTENT)) { ?>
   <!-- News in OWL Carousel -->
   <script>
     $('.owl-carousel').owlCarousel({
@@ -332,10 +332,10 @@ if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT;
     if ($errorpp) { ?>
     $.notify({icon: 'icon-attention', message: '<?php echo $errorpp["e"];?>'}, {type: 'danger'});
     <?php }
-    if ($PAGE_PASSWORD && JAK_ASACCESS) { ?>
+    if ($PAGE_PASSWORD && ENVO_ASACCESS) { ?>
     $.notify({icon: 'icon-info', message: '<?php echo $tl["notification"]["n5"];?>'}, {type: 'info', delay: 0});
     <?php }
-    if ($jkv["offline"] == 1 && JAK_ASACCESS) { ?>
+    if ($jkv["offline"] == 1 && ENVO_ASACCESS) { ?>
     $.notify({
       // Options
       icon: 'icon-flash',
@@ -359,12 +359,12 @@ if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT;
 
 <!-- Porto Print script -->
 <?php if ($jkv["printme"]) { ?>
-  <script src="/assets/js/jakprint.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+  <script src="/assets/js/envoprint.js?=<?php echo $jkv["updatetime"]; ?>"></script>
 
   <script>
     $(function () {
 
-      $('#jakprint').on('click', function (e) {
+      $('#envoprint').on('click', function (e) {
         e.preventDefault();
         $('#printdiv').printThis({
           title: '<?php echo sprintf($tl["printpage"]["pp"], $jkv["title"]); ?>',
@@ -416,10 +416,10 @@ if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT;
 } ?>
 
 <!-- Facebook SDK connection -->
-<?php if (isset($JAK_FACEBOOK_SDK_CONNECTION)) echo $JAK_FACEBOOK_SDK_CONNECTION; ?>
+<?php if (isset($ENVO_FACEBOOK_SDK_CONNECTION)) echo $ENVO_FACEBOOK_SDK_CONNECTION; ?>
 
 <!-- Download plugins -->
-<?php if (JAK_PLUGIN_DOWNLOAD && JAK_DOWNLOADCAN) {
+<?php if (ENVO_PLUGIN_DOWNLOAD && ENVO_DOWNLOADCAN) {
   $pluginsite_template = 'template/' . ENVO_TEMPLATE . '/plugintemplate/download/downloadfile.php';
 
   if (file_exists($pluginsite_template)) {
@@ -431,7 +431,7 @@ if (isset($JAK_FOOTER_JAVASCRIPT)) echo $JAK_FOOTER_JAVASCRIPT;
 } ?>
 
 <!-- RegisterForm plugins -->
-<?php if (JAK_PLUGIN_REGISTER_FORM && $page == $PLUGIN_RF_CAT["varname"]) {
+<?php if (ENVO_PLUGIN_REGISTER_FORM && $page == $PLUGIN_RF_CAT["varname"]) {
   $pluginsite_template = 'template/' . ENVO_TEMPLATE . '/plugintemplate/register_form/js/script.registerform.php';
 
   if (file_exists($pluginsite_template)) {

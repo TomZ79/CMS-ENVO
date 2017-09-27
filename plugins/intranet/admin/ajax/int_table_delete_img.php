@@ -27,8 +27,8 @@ $data_array = array();
 $result = $envodb->query('SELECT filenameoriginal, filenamethumb, mainfolder FROM ' . DB_PREFIX . 'intranethouseimg WHERE id = "' . $imageID . '"');
 $row    = $result->fetch_assoc();
 
-$deletefiles[] = APP_PATH . JAK_FILES_DIRECTORY . $row['mainfolder'] . $row['filenameoriginal'];
-$deletefiles[] = APP_PATH . JAK_FILES_DIRECTORY . $row['mainfolder'] . $row['filenamethumb'];
+$deletefiles[] = APP_PATH . ENVO_FILES_DIRECTORY . $row['mainfolder'] . $row['filenameoriginal'];
+$deletefiles[] = APP_PATH . ENVO_FILES_DIRECTORY . $row['mainfolder'] . $row['filenamethumb'];
 foreach ($deletefiles as $files) {
   unlink(realpath($files));
 }

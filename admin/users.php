@@ -2,23 +2,23 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$JAK_MODULES) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$ENVO_MODULES) envo_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable = DB_PREFIX . 'user';
-$jakfield = 'username';
+$envofield = 'username';
 
-$JAK_SEARCH = $JAK_LIST_USER = $SEARCH_WORD = $updatepass = $insert = FALSE;
+$ENVO_SEARCH = $ENVO_LIST_USER = $SEARCH_WORD = $updatepass = $insert = FALSE;
 
 // EN: Get all the php Hook by name of Hook
 // CZ: Načtení všech php dat z Hook podle jména Hook
-$JAK_HOOK_ADMIN_USER      = $envohooks->EnvoGethook("tpl_admin_user");
-$JAK_HOOK_ADMIN_USER_EDIT = $envohooks->EnvoGethook("tpl_admin_user_edit");
+$ENVO_HOOK_ADMIN_USER      = $envohooks->EnvoGethook("tpl_admin_user");
+$ENVO_HOOK_ADMIN_USER_EDIT = $envohooks->EnvoGethook("tpl_admin_user_edit");
 
 // EN: Switching access all pages by page name
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
@@ -30,21 +30,21 @@ switch ($page1) {
       // CZ: Hlavní proměnné
       $defaults = $_POST;
 
-      if ($defaults['jak_email'] == '' || !filter_var($defaults['jak_email'], FILTER_VALIDATE_EMAIL)) {
+      if ($defaults['envo_email'] == '' || !filter_var($defaults['envo_email'], FILTER_VALIDATE_EMAIL)) {
         $errors['e2'] = $tl['general_error']['generror7'] . '<br>';
       }
 
-      if (!preg_match('/^([a-zA-Z0-9\-_])+$/', $defaults['jak_username'])) {
+      if (!preg_match('/^([a-zA-Z0-9\-_])+$/', $defaults['envo_username'])) {
         $errors['e1'] = $tl['general_error']['generror12'] . '<br>';
       }
 
-      if (envo_field_not_exist(strtolower($defaults['jak_username']), $envotable, $jakfield)) {
+      if (envo_field_not_exist(strtolower($defaults['envo_username']), $envotable, $envofield)) {
         $errors['e1'] = $tl['general_error']['generror13'] . '<br>';
       }
 
-      if ($defaults['jak_password'] != $defaults['jak_confirm_password']) {
+      if ($defaults['envo_password'] != $defaults['envo_confirm_password']) {
         $errors['e3'] = $tl['general_error']['generror14'] . '<br>';
-      } elseif (strlen($defaults['jak_password']) <= '5') {
+      } elseif (strlen($defaults['envo_password']) <= '5') {
         $errors['e3'] = $tl['general_error']['generror15'] . '<br>';
       } else {
         $updatepass = 1;
@@ -60,15 +60,15 @@ switch ($page1) {
       if (count($errors) == 0) {
 
         if ($updatepass) {
-          $insert .= 'password = "' . hash_hmac('sha256', $defaults['jak_password'], DB_PASS_HASH) . '",';
+          $insert .= 'password = "' . hash_hmac('sha256', $defaults['envo_password'], DB_PASS_HASH) . '",';
         }
 
         $result = $envodb->query('INSERT INTO ' . $envotable . ' SET
-			username = "' . smartsql($defaults['jak_username']) . '",
-			name = "' . smartsql($defaults['jak_name']) . '",
-			email = "' . smartsql($defaults['jak_email']) . '",
-			usergroupid= "' . smartsql($defaults['jak_usergroup']) . '",
-			access = "' . smartsql($defaults['jak_access']) . '",
+			username = "' . smartsql($defaults['envo_username']) . '",
+			name = "' . smartsql($defaults['envo_name']) . '",
+			email = "' . smartsql($defaults['envo_email']) . '",
+			usergroupid= "' . smartsql($defaults['envo_usergroup']) . '",
+			access = "' . smartsql($defaults['envo_access']) . '",
 			' . $insert . '
 			time = NOW()');
 
@@ -80,11 +80,11 @@ switch ($page1) {
           envo_redirect(BASE_URL . 'index.php?p=users&sp=newuser&status=e');
         } else {
 
-          $newuserpath = '../' . JAK_FILES_DIRECTORY . '/userfiles/' . $rowid;
+          $newuserpath = '../' . ENVO_FILES_DIRECTORY . '/userfiles/' . $rowid;
 
           if (!is_dir($newuserpath)) {
             mkdir($newuserpath, 0777);
-            copy("../" . JAK_FILES_DIRECTORY . "/index.html", $newuserpath . "/index.html");
+            copy("../" . ENVO_FILES_DIRECTORY . "/index.html", $newuserpath . "/index.html");
           }
           // EN: Redirect page
           // CZ: Přesměrování stránky
@@ -98,7 +98,7 @@ switch ($page1) {
     }
 
     // Get the usergroups
-    $JAK_USERGROUP_ALL = envo_get_usergroup_all('usergroup');
+    $ENVO_USERGROUP_ALL = envo_get_usergroup_all('usergroup');
 
     // EN: Title and Description
     // CZ: Titulek a Popis
@@ -122,11 +122,11 @@ switch ($page1) {
 
           if (isset($defaults['search'])) {
 
-            if ($defaults['jakSH'] == '') {
+            if ($defaults['envoSH'] == '') {
               $errors['e'] = $tl['search']['s1'] . '<br>';
             }
 
-            if (strlen($defaults['jakSH']) < '1') {
+            if (strlen($defaults['envoSH']) < '1') {
               $errors['e1'] = $tl['search']['s2'] . '<br>';
             }
 
@@ -136,27 +136,27 @@ switch ($page1) {
               $errors       = $errors;
 
             } else {
-              $secureIn    = smartsql(strip_tags($defaults['jakSH']));
+              $secureIn    = smartsql(strip_tags($defaults['envoSH']));
               $SEARCH_WORD = $secureIn;
-              $JAK_SEARCH  = envo_admin_search($secureIn, $envotable, 'user');
+              $ENVO_SEARCH  = envo_admin_search($secureIn, $envotable, 'user');
             }
           }
 
         }
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jak_delete_user'])) {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_user'])) {
           // EN: Default Variable
           // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (isset($defaults['move'])) {
 
-            $jakmove = $defaults['jak_delete_user'];
-            $jakgrid = $defaults['jak_group'];
+            $envomove = $defaults['envo_delete_user'];
+            $envogrid = $defaults['envo_group'];
 
-            for ($i = 0; $i < count($jakmove); $i++) {
-              $move   = $jakmove[$i];
-              $result = $envodb->query('UPDATE ' . $envotable . ' SET usergroupid = ' . $jakgrid . ' WHERE id = "' . smartsql($move) . '"');
+            for ($i = 0; $i < count($envomove); $i++) {
+              $move   = $envomove[$i];
+              $result = $envodb->query('UPDATE ' . $envotable . ' SET usergroupid = ' . $envogrid . ' WHERE id = "' . smartsql($move) . '"');
             }
 
             if (!$result) {
@@ -173,8 +173,8 @@ switch ($page1) {
 
           if (isset($defaults['lock'])) {
 
-            $lockuser    = $defaults['jak_delete_user'];
-            $useridarray = explode(',', JAK_SUPERADMIN);
+            $lockuser    = $defaults['envo_delete_user'];
+            $useridarray = explode(',', ENVO_SUPERADMIN);
 
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
@@ -198,8 +198,8 @@ switch ($page1) {
 
           if (isset($defaults['password'])) {
 
-            $lockuser    = $defaults['jak_delete_user'];
-            $useridarray = explode(',', JAK_SUPERADMIN);
+            $lockuser    = $defaults['envo_delete_user'];
+            $useridarray = explode(',', ENVO_SUPERADMIN);
 
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
@@ -244,8 +244,8 @@ switch ($page1) {
 
           if (isset($defaults['delete'])) {
 
-            $lockuser    = $defaults['jak_delete_user'];
-            $useridarray = explode(',', JAK_SUPERADMIN);
+            $lockuser    = $defaults['envo_delete_user'];
+            $useridarray = explode(',', ENVO_SUPERADMIN);
 
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
@@ -256,8 +256,8 @@ switch ($page1) {
                 $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = ' . $locked . '');
 
                 // Delete Avatar if yes
-                if (!empty($defaults['jak_delete_avatar'])) {
-                  $targetPath   = '../' . JAK_FILES_DIRECTORY . '/' . $locked . '/';
+                if (!empty($defaults['envo_delete_avatar'])) {
+                  $targetPath   = '../' . ENVO_FILES_DIRECTORY . '/' . $locked . '/';
                   $removedouble = str_replace("//", "/", $targetPath);
                   foreach (glob($removedouble . '*.*') as $envo_unlink) {
                     @unlink($envo_unlink);
@@ -295,7 +295,7 @@ switch ($page1) {
         }
 
         // Get all usergroup's
-        $JAK_USERGROUP_ALL = envo_get_usergroup_all('usergroup');
+        $ENVO_USERGROUP_ALL = envo_get_usergroup_all('usergroup');
 
         // EN: Title and Description
         // CZ: Titulek a Popis
@@ -319,10 +319,10 @@ switch ($page1) {
           $pages->items_total    = $getTotal;
           $pages->mid_range      = $jkv["adminpagemid"];
           $pages->items_per_page = $jkv["adminpageitem"];
-          $pages->jak_get_page   = $page4;
-          $pages->jak_where      = 'index.php?p=users&sp=sort&ssp=' . $page2 . '&sssp=' . $page3;
+          $pages->envo_get_page   = $page4;
+          $pages->envo_where      = 'index.php?p=users&sp=sort&ssp=' . $page2 . '&sssp=' . $page3;
           $pages->paginate();
-          $JAK_PAGINATE = $pages->display_pages();
+          $ENVO_PAGINATE = $pages->display_pages();
         }
 
         $result = $envodb->query('SELECT id, usergroupid, username, email, name, access FROM ' . $envotable . ' ORDER BY ' . $page2 . ' ' . $page3 . ' ' . $pages->limit);
@@ -330,8 +330,8 @@ switch ($page1) {
           $user[] = array('id' => $row['id'], 'usergroupid' => $row['usergroupid'], 'username' => $row['username'], 'email' => $row['email'], 'name' => $row['name'], 'access' => $row['access']);
         }
 
-        $JAK_USER_ALL      = $user;
-        $JAK_USERGROUP_ALL = envo_get_usergroup_all('usergroup');
+        $ENVO_USER_ALL      = $user;
+        $ENVO_USERGROUP_ALL = envo_get_usergroup_all('usergroup');
 
         // EN: Title and Description
         // CZ: Titulek a Popis
@@ -372,7 +372,7 @@ switch ($page1) {
 
         if ($row['access'] == 3) {
 
-          $confirmlink = '<a href="' . (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . ENVO_rewrite::envoParseurl('rf_ual', $row['id'], $row['activatenr'], $row['username'], '') . '">' . (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . ENVO_rewrite::envoParseurl('rf_ual', $row['id'], $row['activatenr'], $row['username'], '') . '</a>';
+          $confirmlink = '<a href="' . (ENVO_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . ENVO_rewrite::envoParseurl('rf_ual', $row['id'], $row['activatenr'], $row['username'], '') . '">' . (ENVO_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . ENVO_rewrite::envoParseurl('rf_ual', $row['id'], $row['activatenr'], $row['username'], '') . '</a>';
 
           // Send email to member with verification code
           $mail = new PHPMailer(); // defaults to using php "mail()"
@@ -466,7 +466,7 @@ switch ($page1) {
           $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = ' . smartsql($page2));
 
           // Delete Avatar
-          $targetPath   = '../' . JAK_FILES_DIRECTORY . '/' . $page2 . '/';
+          $targetPath   = '../' . ENVO_FILES_DIRECTORY . '/' . $page2 . '/';
           $removedouble = str_replace("//", "/", $targetPath);
           foreach (glob($removedouble . '*.*') as $envo_unlink) {
             @unlink($envo_unlink);
@@ -524,30 +524,30 @@ switch ($page1) {
             // CZ: Hlavní proměnné
             $defaults = $_POST;
 
-            if ($defaults['jak_email'] == '' || !filter_var($defaults['jak_email'], FILTER_VALIDATE_EMAIL)) {
+            if ($defaults['envo_email'] == '' || !filter_var($defaults['envo_email'], FILTER_VALIDATE_EMAIL)) {
               $errors['e2'] = $tl['general_error']['generror7'] . '<br>';
             }
 
-            if (!preg_match('/^([a-zA-Z0-9\-_])+$/', $defaults['jak_username'])) {
+            if (!preg_match('/^([a-zA-Z0-9\-_])+$/', $defaults['envo_username'])) {
               $errors['e1'] = $tl['general_error']['generror12'] . '<br>';
             }
 
-            if (envo_field_not_exist_id($defaults['jak_username'], $page2, $envotable, $jakfield)) {
+            if (envo_field_not_exist_id($defaults['envo_username'], $page2, $envotable, $envofield)) {
               $errors['e1'] = $tl['general_error']['generror13'] . '<br>';
             }
 
-            if (!empty($defaults['jak_password']) || !empty($defaults['jak_confirm_password'])) {
-              if ($defaults['jak_password'] != $defaults['jak_confirm_password']) {
+            if (!empty($defaults['envo_password']) || !empty($defaults['envo_confirm_password'])) {
+              if ($defaults['envo_password'] != $defaults['envo_confirm_password']) {
                 $errors['e3'] = $tl['general_error']['generror14'] . '<br>';
-              } elseif (strlen($defaults['jak_password']) <= '5') {
+              } elseif (strlen($defaults['envo_password']) <= '5') {
                 $errors['e3'] = $tl['general_error']['generror15'] . '<br>';
               } else {
                 $updatepass = 1;
               }
             }
 
-            if (!empty($defaults['jak_phone'])) {
-              if (!preg_match('/^([0-9\-_])+$/', $defaults['jak_phone'])) {
+            if (!empty($defaults['envo_phone'])) {
+              if (!preg_match('/^([0-9\-_])+$/', $defaults['envo_phone'])) {
                 $errors['e5'] = $tl['general_error']['generror17'] . '<br>';
               }
             }
@@ -560,10 +560,10 @@ switch ($page1) {
             }
 
             // Delete Avatar if yes
-            if (!empty($defaults['jak_delete_avatar'])) {
-              $avatarpi     = '../' . JAK_FILES_DIRECTORY . '/index.html';
+            if (!empty($defaults['envo_delete_avatar'])) {
+              $avatarpi     = '../' . ENVO_FILES_DIRECTORY . '/index.html';
               $avatarpid    = str_replace("//", "/", $avatarpi);
-              $targetPath   = '../' . JAK_FILES_DIRECTORY . '/userfiles/' . $page2 . '/';
+              $targetPath   = '../' . ENVO_FILES_DIRECTORY . '/userfiles/' . $page2 . '/';
               $removedouble = str_replace("//", "/", $targetPath);
               foreach (glob($removedouble . '*.*') as $envo_unlink) {
                 unlink($envo_unlink);
@@ -592,19 +592,19 @@ switch ($page1) {
                     if (($mime == "image/jpeg") || ($mime == "image/pjpeg") || ($mime == "image/png") || ($mime == "image/gif")) {
 
                       // first get the target path
-                      $targetPathd = '../' . JAK_FILES_DIRECTORY . '/userfiles/' . $page2 . '/';
+                      $targetPathd = '../' . ENVO_FILES_DIRECTORY . '/userfiles/' . $page2 . '/';
                       $targetPath  = str_replace("//", "/", $targetPathd);
                       // Create the target path
                       if (!is_dir($targetPath)) {
 
                         mkdir($targetPath, 0777);
-                        copy('../' . JAK_FILES_DIRECTORY . "/index.html", $targetPath . "/index.html");
+                        copy('../' . ENVO_FILES_DIRECTORY . "/index.html", $targetPath . "/index.html");
 
                       }
                       // if old avatars exist delete it
                       foreach (glob($targetPath . '*.*') as $envo_unlink) {
                         unlink($envo_unlink);
-                        copy("../" . JAK_FILES_DIRECTORY . "/index.html", $targetPath . "/index.html");
+                        copy("../" . ENVO_FILES_DIRECTORY . "/index.html", $targetPath . "/index.html");
                       }
 
                       $tempFile    = $_FILES['uploadpp']['tmp_name'];
@@ -655,16 +655,16 @@ switch ($page1) {
 
             if (count($errors) == 0) {
 
-              if (!isset($defaults['jak_access'])) $defaults['jak_access'] = '1';
+              if (!isset($defaults['envo_access'])) $defaults['envo_access'] = '1';
 
-              if ($updatepass) $insert .= 'password = "' . hash_hmac('sha256', $defaults['jak_password'], DB_PASS_HASH) . '",';
+              if ($updatepass) $insert .= 'password = "' . hash_hmac('sha256', $defaults['envo_password'], DB_PASS_HASH) . '",';
 
               // We cant deny access for superadmin
-              $useridarray = explode(',', JAK_SUPERADMIN);
+              $useridarray = explode(',', ENVO_SUPERADMIN);
 
               if (!in_array($page2, $useridarray)) {
 
-                $insert .= 'access = "' . smartsql($defaults['jak_access']) . '",';
+                $insert .= 'access = "' . smartsql($defaults['envo_access']) . '",';
               }
 
               // Insert the extra vield value
@@ -678,8 +678,8 @@ switch ($page1) {
               }
 
               // Update the user-group move back time
-              if (!in_array($page2, $useridarray) && !empty($defaults['jak_usergroupback']) && (time() <= strtotime($defaults['jak_backtime']))) {
-                $insert .= 'backtogroup = "' . smartsql($defaults['jak_usergroupback']) . '", backtime = "' . smartsql($defaults['jak_backtime']) . '",';
+              if (!in_array($page2, $useridarray) && !empty($defaults['envo_usergroupback']) && (time() <= strtotime($defaults['envo_backtime']))) {
+                $insert .= 'backtogroup = "' . smartsql($defaults['envo_usergroupback']) . '", backtime = "' . smartsql($defaults['envo_backtime']) . '",';
               } else {
                 $insert .= 'backtogroup = 0, backtime = "0000-00-00",';
               }
@@ -691,14 +691,14 @@ switch ($page1) {
                * smartsql - secure method to insert form data into a MySQL DB
               */
               $result = $envodb->query('UPDATE ' . $envotable . ' SET
-                        username = "' . smartsql($defaults['jak_username']) . '",
-                        name = "' . smartsql($defaults['jak_name']) . '",
-                        email = "' . filter_var($defaults['jak_email'], FILTER_SANITIZE_EMAIL) . '",
+                        username = "' . smartsql($defaults['envo_username']) . '",
+                        name = "' . smartsql($defaults['envo_name']) . '",
+                        email = "' . filter_var($defaults['envo_email'], FILTER_SANITIZE_EMAIL) . '",
                         ' . $insert . '
-                        usergroupid = "' . smartsql($defaults['jak_usergroup']) . '",
+                        usergroupid = "' . smartsql($defaults['envo_usergroup']) . '",
                         activatenr = 0,
-                        phone = "' . smartsql($defaults['jak_phone']) . '",
-                        description = "' . smartsql($defaults['jak_description']) . '"
+                        phone = "' . smartsql($defaults['envo_phone']) . '",
+                        description = "' . smartsql($defaults['envo_description']) . '"
                         WHERE id = ' . smartsql($page2));
 
               if (!$result) {
@@ -707,7 +707,7 @@ switch ($page1) {
                 envo_redirect(BASE_URL . 'index.php?p=users&sp=edit&ssp=' . $page2 . '&status=e');
               } else {
                 // Now do all the dirty work if we changed the username, also check if we have more then one language installed
-                if ($defaults['jak_username'] != $defaults['jak_username_old']) {
+                if ($defaults['envo_username'] != $defaults['envo_username_old']) {
 
                   // EN: Get all the php Hook by name of Hook for search
                   // CZ: Načtení všech php dat z Hook podle jména Hook pro vyhledávání
@@ -734,7 +734,7 @@ switch ($page1) {
 
           $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
           // Get the usergroups
-          $JAK_USERGROUP_ALL = envo_get_usergroup_all('usergroup');
+          $ENVO_USERGROUP_ALL = envo_get_usergroup_all('usergroup');
 
           $extrafields = "";
           foreach ($schema as $f) {
@@ -766,19 +766,19 @@ switch ($page1) {
         break;
       default:
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jak_delete_user'])) {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_user'])) {
           // EN: Default Variable
           // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (isset($defaults['move'])) {
 
-            $jakmove = $defaults['jak_delete_user'];
-            $jakgrid = $defaults['jak_group'];
+            $envomove = $defaults['envo_delete_user'];
+            $envogrid = $defaults['envo_group'];
 
-            for ($i = 0; $i < count($jakmove); $i++) {
-              $move   = $jakmove[$i];
-              $result = $envodb->query('UPDATE ' . $envotable . ' SET usergroupid = ' . $jakgrid . ' WHERE id = "' . smartsql($move) . '"');
+            for ($i = 0; $i < count($envomove); $i++) {
+              $move   = $envomove[$i];
+              $result = $envodb->query('UPDATE ' . $envotable . ' SET usergroupid = ' . $envogrid . ' WHERE id = "' . smartsql($move) . '"');
             }
 
             if (!$result) {
@@ -795,8 +795,8 @@ switch ($page1) {
 
           if (isset($defaults['lock'])) {
 
-            $lockuser    = $defaults['jak_delete_user'];
-            $useridarray = explode(',', JAK_SUPERADMIN);
+            $lockuser    = $defaults['envo_delete_user'];
+            $useridarray = explode(',', ENVO_SUPERADMIN);
 
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
@@ -820,8 +820,8 @@ switch ($page1) {
 
           if (isset($defaults['password'])) {
 
-            $lockuser    = $defaults['jak_delete_user'];
-            $useridarray = explode(',', JAK_SUPERADMIN);
+            $lockuser    = $defaults['envo_delete_user'];
+            $useridarray = explode(',', ENVO_SUPERADMIN);
 
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
@@ -866,8 +866,8 @@ switch ($page1) {
 
           if (isset($defaults['delete'])) {
 
-            $lockuser    = $defaults['jak_delete_user'];
-            $useridarray = explode(',', JAK_SUPERADMIN);
+            $lockuser    = $defaults['envo_delete_user'];
+            $useridarray = explode(',', ENVO_SUPERADMIN);
 
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
@@ -878,7 +878,7 @@ switch ($page1) {
                 $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = ' . $locked . '');
 
                 // Delete Avatar
-                $targetPath   = '../' . JAK_FILES_DIRECTORY . '/' . $locked . '/';
+                $targetPath   = '../' . ENVO_FILES_DIRECTORY . '/' . $locked . '/';
                 $removedouble = str_replace("//", "/", $targetPath);
                 foreach (glob($removedouble . '*.*') as $envo_unlink) {
                   @unlink($envo_unlink);
@@ -927,17 +927,17 @@ switch ($page1) {
           $pages->items_total    = $getTotal;
           $pages->mid_range      = $jkv["adminpagemid"];
           $pages->items_per_page = $jkv["adminpageitem"];
-          $pages->jak_get_page   = $page1;
-          $pages->jak_where      = 'index.php?p=users';
+          $pages->envo_get_page   = $page1;
+          $pages->envo_where      = 'index.php?p=users';
           $pages->paginate();
-          $JAK_PAGINATE = $pages->display_pages();
+          $ENVO_PAGINATE = $pages->display_pages();
         }
-        $JAK_USER_ALL      = envo_get_user_all('user', $pages->limit, '');
-        $JAK_USERGROUP_ALL = envo_get_usergroup_all('usergroup');
+        $ENVO_USER_ALL      = envo_get_user_all('user', $pages->limit, '');
+        $ENVO_USERGROUP_ALL = envo_get_usergroup_all('usergroup');
 
         $resulta = $envodb->query('SELECT id, usergroupid, username, email, access FROM ' . $envotable . ' WHERE access >= 2');
         while ($rowa = $resulta->fetch_assoc()) {
-          $JAK_USER_ALL_APPROVE[] = array('id' => $rowa['id'], 'usergroupid' => $rowa['usergroupid'], 'username' => $rowa['username'], 'email' => $rowa['email'], 'access' => $rowa['access']);
+          $ENVO_USER_ALL_APPROVE[] = array('id' => $rowa['id'], 'usergroupid' => $rowa['usergroupid'], 'username' => $rowa['username'], 'email' => $rowa['email'], 'access' => $rowa['access']);
         }
 
         // EN: Title and Description

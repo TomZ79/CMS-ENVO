@@ -1,13 +1,13 @@
-<?php if (defined ("JAK_PLUGIN_NAME_NEWS") && $JAK_GET_NEWS_SORTED) { ?>
+<?php if (defined ("ENVO_PLUGIN_NAME_NEWS") && $ENVO_GET_NEWS_SORTED) { ?>
 
 	<aside class="nav-side-menu nav-sidebar hidden-xs">
 
 		<div class="right-sidebar">
 
 			<div class="sidebar-inner">
-				<h2 class="brand"><?php echo JAK_PLUGIN_NAME_NEWS; ?></h2>
+				<h2 class="brand"><?php echo ENVO_PLUGIN_NAME_NEWS; ?></h2>
 
-				<?php if (isset($JAK_GET_NEWS_SORTED) && is_array ($JAK_GET_NEWS_SORTED)) foreach ($JAK_GET_NEWS_SORTED as $n) { ?>
+				<?php if (isset($ENVO_GET_NEWS_SORTED) && is_array ($ENVO_GET_NEWS_SORTED)) foreach ($ENVO_GET_NEWS_SORTED as $n) { ?>
 					<div class="recent-post">
 						<p><span><?php echo $n["created"]; ?></span></p>
 						<h3>

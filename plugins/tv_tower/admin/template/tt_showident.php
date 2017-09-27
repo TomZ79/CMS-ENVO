@@ -59,7 +59,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
   </script>
 <?php } ?>
 
-<?php if (array_filter($JAK_IDENT_ALL) && is_array($JAK_IDENT_ALL)) { ?>
+<?php if (array_filter($ENVO_IDENT_ALL) && is_array($ENVO_IDENT_ALL)) { ?>
 
   <ul class="nav nav-tabs nav-tabs-responsive nav-tabs-fillup" role="tablist">
     <li role="presentation" class="active">
@@ -99,8 +99,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                 </tr>
                 </thead>
 
-                <?php if (!empty($JAK_SIDTV_ALL) && is_array($JAK_SIDTV_ALL)) {
-                  foreach ($JAK_SIDTV_ALL as $sidtv) { ?>
+                <?php if (!empty($ENVO_SIDTV_ALL) && is_array($ENVO_SIDTV_ALL)) {
+                  foreach ($ENVO_SIDTV_ALL as $sidtv) { ?>
 
                     <tr>
                       <td><?php echo $sidtv["id"]; ?></td>
@@ -162,8 +162,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                 </tr>
                 </thead>
 
-                <?php if (!empty($JAK_SIDR_ALL) && is_array($JAK_SIDR_ALL)) {
-                  foreach ($JAK_SIDR_ALL as $sidr) { ?>
+                <?php if (!empty($ENVO_SIDR_ALL) && is_array($ENVO_SIDR_ALL)) {
+                  foreach ($ENVO_SIDR_ALL as $sidr) { ?>
 
                     <tr>
                       <td><?php echo $sidr["id"]; ?></td>
@@ -222,8 +222,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                 </tr>
                 </thead>
 
-                <?php if (!empty($JAK_SIDS_ALL) && is_array($JAK_SIDS_ALL)) {
-                  foreach ($JAK_SIDS_ALL as $sids) { ?>
+                <?php if (!empty($ENVO_SIDS_ALL) && is_array($ENVO_SIDS_ALL)) {
+                  foreach ($ENVO_SIDS_ALL as $sids) { ?>
 
                     <tr>
                       <td><?php echo $sids["id"]; ?></td>
@@ -288,8 +288,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                 </tr>
                 </thead>
 
-                <?php if (!empty($JAK_ONID_ALL) && is_array($JAK_ONID_ALL)) {
-                  foreach ($JAK_ONID_ALL as $onid) { ?>
+                <?php if (!empty($ENVO_ONID_ALL) && is_array($ENVO_ONID_ALL)) {
+                  foreach ($ENVO_ONID_ALL as $onid) { ?>
 
                     <tr>
                       <td><?php echo $onid["id"]; ?></td>
@@ -346,8 +346,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                 </tr>
                 </thead>
 
-                <?php if (!empty($JAK_NID_ALL) && is_array($JAK_NID_ALL)) {
-                  foreach ($JAK_NID_ALL as $nid) { ?>
+                <?php if (!empty($ENVO_NID_ALL) && is_array($ENVO_NID_ALL)) {
+                  foreach ($ENVO_NID_ALL as $nid) { ?>
 
                     <tr>
                       <td><?php echo $nid["id"]; ?></td>

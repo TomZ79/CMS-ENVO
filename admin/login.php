@@ -2,7 +2,7 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 $ErrLogin = $errorfp = FALSE;
 
@@ -19,26 +19,26 @@ if (!empty($_POST['action']) && $_POST['action'] == 'login') {
   $valid_ip    = filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP);
 
   // Write the log file each time someone tries to login before
-  $jakuserlogin->envoWriteLoginLog($username, $_SERVER['REQUEST_URI'], $valid_ip, $valid_agent, 0);
+  $envouserlogin->envoWriteLoginLog($username, $_SERVER['REQUEST_URI'], $valid_ip, $valid_agent, 0);
 
-  $user_check = $jakuserlogin->envoCheckUserData($username, $userpass);
+  $user_check = $envouserlogin->envoCheckUserData($username, $userpass);
 
   if (!empty($username) && !empty($userpass)) {
 
     if ($user_check == TRUE) {
 
       // Now login in the user
-      $jakuserlogin->envoLogin($user_check, $userpass, $cookies);
+      $envouserlogin->envoLogin($user_check, $userpass, $cookies);
 
       // Write the log file each time someone login after to show success
-      $jakuserlogin->envoWriteLoginLog($username, '', $valid_ip, '', 1);
+      $envouserlogin->envoWriteLoginLog($username, '', $valid_ip, '', 1);
 
       $_SESSION["loginmsg"] = $tl["log_in"]["login14"];
 
-      if (isset($_SESSION['JAKRedirect'])) {
+      if (isset($_SESSION['ENVORedirect'])) {
         // EN: Redirect page
         // CZ: Přesměrování stránky
-        envo_redirect($_SESSION['JAKRedirect']);
+        envo_redirect($_SESSION['ENVORedirect']);
       } else {
         // EN: Redirect page
         // CZ: Přesměrování stránky
@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
   $fwhen  = time();
 
   // Check if this user exist
-  $user_check = $jakuserlogin->envoForgotPassword($femail, $fwhen);
+  $user_check = $envouserlogin->envoForgotPassword($femail, $fwhen);
 
   if (!$user_check) {
     $errors['e'] = $tl['general_error']['generror24'];
@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
 
   if (count($errors) == 0) {
 
-    $body = sprintf($tl['log_in']['login12'], $user_check, '<a href="' . (JAK_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(ENVO_rewrite::envoParseurl('forgot-password', $fwhen, '', '', '')) . '">' . (JAK_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(ENVO_rewrite::envoParseurl('forgot-password', $fwhen, '', '', '')) . '</a>', $jkv["title"]);
+    $body = sprintf($tl['log_in']['login12'], $user_check, '<a href="' . (ENVO_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(ENVO_rewrite::envoParseurl('forgot-password', $fwhen, '', '', '')) . '">' . (ENVO_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG) . html_entity_decode(ENVO_rewrite::envoParseurl('forgot-password', $fwhen, '', '', '')) . '</a>', $jkv["title"]);
 
     $mail = new PHPMailer(); // defaults to using php "mail()"
     $mail->SetFrom($jkv["email"], $jkv["title"]);

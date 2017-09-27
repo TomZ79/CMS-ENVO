@@ -215,9 +215,9 @@ $mpdf->writeHTML($html);
 // EN: Get email
 $dluserid = 0;
 $dlemail  = "guest";
-if (JAK_USERID) {
-  $dluserid = JAK_USERID;
-  $dlemail  = $jakuser->getVar("email");
+if (ENVO_USERID) {
+  $dluserid = ENVO_USERID;
+  $dlemail  = $envouser->getVar("email");
 }
 
 // EN: Get the users ip address

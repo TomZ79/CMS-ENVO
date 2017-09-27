@@ -2,11 +2,11 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_SUPERADMINACCESS) envo_redirect(BASE_URL_ORIG);
+if (!ENVO_SUPERADMINACCESS) envo_redirect(BASE_URL_ORIG);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
@@ -19,14 +19,14 @@ $envohooks = new ENVO_hooks('', '');
 
 // EN: Import important settings for the template from the DB
 // CZ: Importuj důležité nastavení pro šablonu z DB
-$JAK_SETTING = envo_get_setting('module');
+$ENVO_SETTING = envo_get_setting('module');
 
 // EN: Import important settings for the template from the DB (only VALUE)
 // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
-$JAK_SETTING_VAL = envo_get_setting_val('module');
+$ENVO_SETTING_VAL = envo_get_setting_val('module');
 
 // Get all the hooks out the class file
-$JAK_HOOK_LOCATIONS = ENVO_hooks::EnvoAllhooks();
+$ENVO_HOOK_LOCATIONS = ENVO_hooks::EnvoAllhooks();
 
 // EN: Switching access all pages by page name
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
@@ -204,7 +204,7 @@ switch ($page1) {
           $pages->envo_get_page   = $page2;
           $pages->envo_where      = 'index.php?p=plugins&sp=hooks';
           $pages->paginate();
-          $JAK_PAGINATE = $pages->display_pages();
+          $ENVO_PAGINATE = $pages->display_pages();
         }
 
         // SQL Query
@@ -214,7 +214,7 @@ switch ($page1) {
         }
 
         // Get all plugins out the databse
-        $JAK_HOOKS = $plhooks;
+        $ENVO_HOOKS = $plhooks;
 
         // EN: Title and Description
         // CZ: Titulek a Popis
@@ -241,18 +241,18 @@ switch ($page1) {
     // SQL Query
     $result = $envodb->query('SELECT t1.id, t1.hook_name, t1.name, t1.pluginid, t1.active, t2.name AS pluginname FROM ' . DB_PREFIX . 'pluginhooks AS t1 LEFT JOIN ' . DB_PREFIX . 'plugins AS t2 ON(t1.pluginid = t2.id) WHERE ' . $sortwhere . ' = "' . smartsql($page2) . '" ORDER BY exorder ASC');
     while ($row = $result->fetch_assoc()) {
-      $JAK_HOOKS[] = $row;
+      $ENVO_HOOKS[] = $row;
     }
 
     // Get the plugin name
-    if (isset($JAK_HOOKS) && is_array($JAK_HOOKS)) foreach ($JAK_HOOKS as $vpn) {
-      if ($vpn['pluginid'] == $page2) $JAK_PLUGIN_NAME = $vpn['pluginname'];
+    if (isset($ENVO_HOOKS) && is_array($ENVO_HOOKS)) foreach ($ENVO_HOOKS as $vpn) {
+      if ($vpn['pluginid'] == $page2) $ENVO_PLUGIN_NAME = $vpn['pluginname'];
     }
 
     // EN: Title and Description
     // CZ: Titulek a Popis
     $SECTION_TITLE = $tl["hook_sec_title"]["hookt2"];
-    $SECTION_DESC  = (is_numeric($page2) ? $tl["hook_sec_desc"]["hookd2"] . ': ' . $JAK_PLUGIN_NAME : $tl["hook_sec_desc"]["hookd3"] . ': ' . $page2);
+    $SECTION_DESC  = (is_numeric($page2) ? $tl["hook_sec_desc"]["hookd2"] . ': ' . $ENVO_PLUGIN_NAME : $tl["hook_sec_desc"]["hookd3"] . ': ' . $page2);
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)

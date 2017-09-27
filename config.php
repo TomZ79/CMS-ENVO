@@ -10,7 +10,7 @@ require_once 'include/db.php';
 if (is_dir('install')) die('Please delete or rename install folder.');
 
 // Files directory does not exist? abort.
-if (!JAK_FILES_DIRECTORY) die('Please define a files directory in the db.php.');
+if (!ENVO_FILES_DIRECTORY) die('Please define a files directory in the db.php.');
 
 // EN: Start a PHP Session
 // CZ: Start PHP Session
@@ -93,7 +93,7 @@ while ($row = $result->fetch_assoc()) {
 
 // Get hooks and plugins
 $envohooks   = new ENVO_hooks(1);
-$jakplugins = new JAK_plugins(1);
+$envoplugins = new ENVO_plugins(1);
 
 // Get the template config file
 if (defined(ENVO_TEMPLATE) && !empty(ENVO_TEMPLATE)) include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/config.php';
@@ -103,8 +103,8 @@ date_default_timezone_set($jkv["timezoneserver"]);
 $envodb->query('SET time_zone = "' . date("P") . '"');
 
 // Set the last activity and session into cookies
-setcookie('lastactivity', time(), time() + 60 * 60 * 24 * 10, JAK_COOKIE_PATH);
-setcookie('usrsession', session_id(), time() + 60 * 60 * 24 * 10, JAK_COOKIE_PATH);
+setcookie('lastactivity', time(), time() + 60 * 60 * 24 * 10, ENVO_COOKIE_PATH);
+setcookie('usrsession', session_id(), time() + 60 * 60 * 24 * 10, ENVO_COOKIE_PATH);
 
 // Standard Language
 $site_language = $jkv["lang"];
@@ -120,29 +120,29 @@ if ($site_language == 'en') {
 }
 
 // Check if user is logged in
-$jakuserlogin = new ENVO_userlogin();
-$jakuserrow   = $jakuserlogin->jakCheckLogged();
-if ($jakuserrow) {
-  $jakuser = new ENVO_user($jakuserrow);
-  define('JAK_USERID', $jakuser->getVar("id"));
+$envouserlogin = new ENVO_userlogin();
+$envouserrow   = $envouserlogin->envoCheckLogged();
+if ($envouserrow) {
+  $envouser = new ENVO_user($envouserrow);
+  define('ENVO_USERID', $envouser->getVar("id"));
   // Get the usergroupid out from this user
-  $usergroupid = $jakuser->getVar("usergroupid");
+  $usergroupid = $envouser->getVar("usergroupid");
   // Get user language
-  if ($jakuser->getVar("ulang")) $site_language = strtolower($jakuser->getVar("ulang"));
+  if ($envouser->getVar("ulang")) $site_language = strtolower($envouser->getVar("ulang"));
   // Update last activity from this user
-  $jakuserlogin->envoUpdateLastActivity(JAK_USERID);
+  $envouserlogin->envoUpdateLastActivity(ENVO_USERID);
 
   // Only the Admin's in the config can have access
-  if (JAK_USERID && $jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) {
-    define('JAK_ADMINACCESS', TRUE);
+  if (ENVO_USERID && $envouser->envoAdminAccess($envouser->getVar("usergroupid"))) {
+    define('ENVO_ADMINACCESS', TRUE);
     $_SESSION['JAKLoggedInAdmin'] = TRUE;
   } else {
-    define('JAK_ADMINACCESS', FALSE);
+    define('ENVO_ADMINACCESS', FALSE);
   }
 
 } else {
-  define('JAK_USERID', FALSE);
-  define('JAK_ADMINACCESS', FALSE);
+  define('ENVO_USERID', FALSE);
+  define('ENVO_ADMINACCESS', FALSE);
   // Standard usergroup id for guests
   $usergroupid = 1;
 }
@@ -152,7 +152,7 @@ $resultusrg = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'usergroup WHERE id 
 $rowusrg    = $resultusrg->fetch_assoc();
 
 // Get the usergroup class
-$jakusergroup = new ENVO_usergroup($rowusrg);
+$envousergroup = new ENVO_usergroup($rowusrg);
 
 // Check if https is activated
 if ($jkv["sitehttps"]) {
@@ -163,5 +163,5 @@ if ($jkv["sitehttps"]) {
 
 // Define for template the real request
 $realrequest = substr($getURL->envoRealrequest(), 1);
-define('JAK_PARSE_REQUEST', $realrequest);
+define('ENVO_PARSE_REQUEST', $realrequest);
 ?>

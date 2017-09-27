@@ -2,11 +2,11 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$JAK_MODULES) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$ENVO_MODULES) envo_redirect(BASE_URL);
 
 // EN: Reset Array (output the error in a array)
 // CZ: Reset Pole (výstupní chyby se ukládají do pole)
@@ -14,7 +14,7 @@ $success = array();
 
 // EN: Import important settings for the template from the DB
 // CZ: Importuj důležité nastavení pro šablonu z DB
-$JAK_SETTING = envo_get_setting_val('mediasharing');
+$ENVO_SETTING = envo_get_setting_val('mediasharing');
 
 // Let's go on with the script
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

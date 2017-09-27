@@ -2,11 +2,11 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$jakuser->envoModuleAccess(JAK_USERID, JAK_ACCESSTAGS)) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$envouser->envoModuleAccess(ENVO_USERID, ENVO_ACCESSTAGS)) envo_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
@@ -21,7 +21,7 @@ switch ($page1) {
   case 'cloud':
 
     // Important template Stuff
-    $JAK_TAGCLOUD = envo_admin_tag_cloud();
+    $ENVO_TAGCLOUD = envo_admin_tag_cloud();
 
     switch ($page2) {
       case 'delete':
@@ -71,11 +71,11 @@ switch ($page1) {
 
     // EN: Import important settings for the template from the DB
     // CZ: Importuj důležité nastavení pro šablonu z DB
-    $JAK_SETTING = envo_get_setting('tags');
+    $ENVO_SETTING = envo_get_setting('tags');
 
     // EN: Import important settings for the template from the DB (only VALUE)
     // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
-    $JAK_SETTING_VAL = envo_get_setting_val('tags');
+    $ENVO_SETTING_VAL = envo_get_setting_val('tags');
 
     // Let's go on with the script
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -214,13 +214,13 @@ switch ($page1) {
     while ($grow = $grid->fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
-      $JAK_PAGE_GRID[] = $grow;
+      $ENVO_PAGE_GRID[] = $grow;
     }
 
     // Get the sidebar templates
     $result = $envodb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable3 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
     while ($row = $result->fetch_assoc()) {
-      $JAK_HOOKS[] = $row;
+      $ENVO_HOOKS[] = $row;
     }
 
     // EN: Get all the php Hook by name of Hook
@@ -290,9 +290,9 @@ switch ($page1) {
             $tags->envo_get_page   = $page4;
             $tags->envo_where      = 'index.php?p=tags&sp=sort&ssp=' . $page2 . '&sssp=' . $page3;
             $tags->paginate();
-            $JAK_PAGINATE = $tags->display_pages();
+            $ENVO_PAGINATE = $tags->display_pages();
 
-            $JAK_TAG_ALL = envo_get_tag($tags->limit, $page3, $jakplugins->jakAdmintag(), FALSE);
+            $ENVO_TAG_ALL = envo_get_tag($tags->limit, $page3, $envoplugins->envoAdminTag(), FALSE);
 
           }
 
@@ -313,9 +313,9 @@ switch ($page1) {
             $tags->envo_get_page   = $page4;
             $tags->envo_where      = 'index.php?p=tags&sp=sort&ssp=' . $page2 . '&sssp=' . $page3;
             $tags->paginate();
-            $JAK_PAGINATE = $tags->display_pages();
+            $ENVO_PAGINATE = $tags->display_pages();
 
-            $JAK_TAG_ALL = envo_get_tag($tags->limit, FALSE, $jakplugins->jakAdmintag(), $sortoder);
+            $ENVO_TAG_ALL = envo_get_tag($tags->limit, FALSE, $envoplugins->envoAdminTag(), $sortoder);
 
           }
 
@@ -385,9 +385,9 @@ switch ($page1) {
           $tags->envo_get_page   = $page1;
           $tags->envo_where      = 'index.php?p=tags';
           $tags->paginate();
-          $JAK_PAGINATE = $tags->display_pages();
+          $ENVO_PAGINATE = $tags->display_pages();
 
-          $JAK_TAG_ALL = envo_get_tag($tags->limit, FALSE, $jakplugins->jakAdmintag(), FALSE);
+          $ENVO_TAG_ALL = envo_get_tag($tags->limit, FALSE, $envoplugins->envoAdminTag(), FALSE);
         }
 
         // EN: Title and Description

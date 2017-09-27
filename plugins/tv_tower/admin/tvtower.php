@@ -2,11 +2,11 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$jakuser->envoModuleAccess(JAK_USERID, JAK_ACCESSTV_TOWER)) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$envouser->envoModuleAccess(ENVO_USERID, ENVO_ACCESSTV_TOWER)) envo_redirect(BASE_URL);
 
 // -------- DATA FOR ALL ADMIN PAGES --------
 // -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
@@ -144,23 +144,23 @@ switch ($page1) {
 
         // EN: Getting the data about the TV Tower
         // CZ: Získání dat o televizním vysílači
-        $JAK_TVTOWER_ALL = envo_get_tvtower_info($envotable1);
+        $ENVO_TVTOWER_ALL = envo_get_tvtower_info($envotable1);
 
         // EN: Getting the data about the channel of TV Tower
         // CZ: Získání dat o kanálu televizního vysílače
-        $JAK_TVCHANNEL_ALL = envo_get_tvchannel_info($envotable);
+        $ENVO_TVCHANNEL_ALL = envo_get_tvchannel_info($envotable);
 
         // EN: Getting all the data about S_ID TV
         // CZ: Získání všech dat o S_ID TV
-        $JAK_SIDTV_ALL = envo_get_tvtower('', $envotable3);
+        $ENVO_SIDTV_ALL = envo_get_tvtower('', $envotable3);
 
         // EN: Getting all the data about S_ID R
         // CZ: Získání všech dat o S_ID R
-        $JAK_SIDR_ALL = envo_get_tvtower('', $envotable4);
+        $ENVO_SIDR_ALL = envo_get_tvtower('', $envotable4);
 
         // EN: Getting all the data about S_ID S
         // CZ: Získání všech dat o S_ID S
-        $JAK_SIDS_ALL = envo_get_tvtower('', $envotable5);
+        $ENVO_SIDS_ALL = envo_get_tvtower('', $envotable5);
 
         // EN: Title and Description
         // CZ: Titulek a Popis
@@ -280,23 +280,23 @@ switch ($page1) {
 
           // EN: Getting the data about the TV Tower
           // CZ: Získání dat o televizním vysílači
-          $JAK_TVTOWER_ALL = envo_get_tvtower_info($envotable1);
+          $ENVO_TVTOWER_ALL = envo_get_tvtower_info($envotable1);
 
           // EN: Getting the data about the channel of TV Tower
           // CZ: Získání dat o kanálu televizního vysílače
-          $JAK_TVCHANNEL_ALL = envo_get_tvchannel_info($envotable);
+          $ENVO_TVCHANNEL_ALL = envo_get_tvchannel_info($envotable);
 
           // EN: Getting all the data about S_ID TV
           // CZ: Získání všech dat o S_ID TV
-          $JAK_SIDTV_ALL = envo_get_tvtower('', $envotable3);
+          $ENVO_SIDTV_ALL = envo_get_tvtower('', $envotable3);
 
           // EN: Getting all the data about S_ID R
           // CZ: Získání všech dat o S_ID R
-          $JAK_SIDR_ALL = envo_get_tvtower('', $envotable4);
+          $ENVO_SIDR_ALL = envo_get_tvtower('', $envotable4);
 
           // EN: Getting all the data about S_ID S
           // CZ: Získání všech dat o S_ID S
-          $JAK_SIDS_ALL = envo_get_tvtower('', $envotable5);
+          $ENVO_SIDS_ALL = envo_get_tvtower('', $envotable5);
 
           // EN: Title and Description
           // CZ: Titulek a Popis
@@ -353,15 +353,15 @@ switch ($page1) {
 
             // EN: Getting all the data about programs of the TV Channel
             // CZ: Získání všech dat o programech televizního kanálu vysílače
-            $JAK_TVPROGRAM_ALL = envo_get_tvprogram('', $envotable2);
+            $ENVO_TVPROGRAM_ALL = envo_get_tvprogram('', $envotable2);
 
             // EN: Getting the data about the TV Tower
             // CZ: Získání dat o televizním vysílači
-            $JAK_TVTOWER_ALL = envo_get_tvtower_info($envotable1);
+            $ENVO_TVTOWER_ALL = envo_get_tvtower_info($envotable1);
 
             // EN: Getting the data about the channels of TV Tower
             // CZ: Získání dat o kanálech televizního vysílače
-            $JAK_TVCHANNEL_ALL = envo_get_tvchannel_info($envotable);
+            $ENVO_TVCHANNEL_ALL = envo_get_tvchannel_info($envotable);
 
             // EN: Title and Description
             // CZ: Titulek a Popis
@@ -377,15 +377,15 @@ switch ($page1) {
 
             // EN: Getting all the data about programs of the TV Channel
             // CZ: Získání všech dat o programech televizního kanálu vysílače
-            $JAK_TVPROGRAM_ALL = envo_get_tvprogram('', $envotable2);
+            $ENVO_TVPROGRAM_ALL = envo_get_tvprogram('', $envotable2);
 
             // EN: Getting the data about the TV Tower
             // CZ: Získání dat o televizním vysílači
-            $JAK_TVTOWER_ALL = envo_get_tvtower_info($envotable1);
+            $ENVO_TVTOWER_ALL = envo_get_tvtower_info($envotable1);
 
             // EN: Getting the data about the channels of TV Tower
             // CZ: Získání dat o kanálech televizního vysílače
-            $JAK_TVCHANNEL_ALL = envo_get_tvchannel_info($envotable);
+            $ENVO_TVCHANNEL_ALL = envo_get_tvchannel_info($envotable);
 
             // EN: Title and Description
             // CZ: Titulek a Popis
@@ -468,7 +468,7 @@ switch ($page1) {
 
         // EN: Getting the data about the TV Tower
         // CZ: Získání dat o televizním vysílači
-        $JAK_TVTOWER_ALL = envo_get_tvtower_info($envotable1);
+        $ENVO_TVTOWER_ALL = envo_get_tvtower_info($envotable1);
 
         // EN: Title and Description
         // CZ: Titulek a Popis
@@ -550,7 +550,7 @@ switch ($page1) {
 
           // EN: Getting the data about the TV Tower
           // CZ: Získání dat o televizním vysílači
-          $JAK_TVTOWER_ALL = envo_get_tvtower_info($envotable1);
+          $ENVO_TVTOWER_ALL = envo_get_tvtower_info($envotable1);
 
           // EN: Title and Description
           // CZ: Titulek a Popis
@@ -620,11 +620,11 @@ switch ($page1) {
 
             // EN: Getting all the data about channels of the TV Tower
             // CZ: Získání všech dat o kanálech televizního vysílače
-            $JAK_TVCHANNEL_ALL = envo_get_tvchannel('', $envotable);
+            $ENVO_TVCHANNEL_ALL = envo_get_tvchannel('', $envotable);
 
             // EN: Getting the data about the TV Tower
             // CZ: Získání dat o televizním vysílači
-            $JAK_TVTOWER_ALL = envo_get_tvtower_info($envotable1);
+            $ENVO_TVTOWER_ALL = envo_get_tvtower_info($envotable1);
 
             // EN: Title and Description
             // CZ: Titulek a Popis
@@ -640,11 +640,11 @@ switch ($page1) {
 
             // EN: Getting all the data about channels of the TV Tower
             // CZ: Získání všech dat o kanálech televizního vysílače
-            $JAK_TVCHANNEL_ALL = envo_get_tvchannel('', $envotable);
+            $ENVO_TVCHANNEL_ALL = envo_get_tvchannel('', $envotable);
 
             // EN: Getting the data about the TV Tower
             // CZ: Získání dat o televizním vysílači
-            $JAK_TVTOWER_ALL = envo_get_tvtower_info($envotable1);
+            $ENVO_TVTOWER_ALL = envo_get_tvtower_info($envotable1);
 
             // EN: Title and Description
             // CZ: Titulek a Popis
@@ -666,7 +666,7 @@ switch ($page1) {
 
         // EN: Default Variable
         // CZ: Hlavní proměnné
-        $jakfield = 'name';
+        $envofield = 'name';
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           // EN: Default Variable
@@ -683,7 +683,7 @@ switch ($page1) {
 
             // EN: Check if the name not exists
             // CZ: Kontrola jestli název neexistuje
-            if (envo_field_not_exist($defaults['envo_tvtowername'], $envotable1, $jakfield)) {
+            if (envo_field_not_exist($defaults['envo_tvtowername'], $envotable1, $envofield)) {
               $errors['e2'] = $tl['general_error']['generror61'] . '<br>';
             }
 
@@ -891,7 +891,7 @@ switch ($page1) {
 
             // EN: Getting all the data about the TV Tower
             // CZ: Získání všech dat o televizním vysílači
-            $JAK_TVTOWER_ALL = envo_get_tvtower('', $envotable1);
+            $ENVO_TVTOWER_ALL = envo_get_tvtower('', $envotable1);
 
             // EN: Title and Description
             // CZ: Titulek a Popis
@@ -951,7 +951,7 @@ switch ($page1) {
 
             // EN: Getting all the data about the TV Tower
             // CZ: Získání všech dat o televizním vysílači
-            $JAK_TVTOWER_ALL = envo_get_tvtower('', $envotable1);
+            $ENVO_TVTOWER_ALL = envo_get_tvtower('', $envotable1);
 
             // EN: Title and Description
             // CZ: Titulek a Popis
@@ -967,7 +967,7 @@ switch ($page1) {
 
             // EN: Getting all the data about the TV Tower
             // CZ: Získání všech dat o televizním vysílači
-            $JAK_TVTOWER_ALL = envo_get_tvtower('', $envotable1);
+            $ENVO_TVTOWER_ALL = envo_get_tvtower('', $envotable1);
 
             // EN: Title and Description
             // CZ: Titulek a Popis
@@ -1899,31 +1899,31 @@ switch ($page1) {
             $result4 = $envodb->query('SELECT COUNT(*) as totalNid FROM ' . $envotable7);
             $row4    = $result4->fetch_assoc();
 
-            $JAK_IDENT_ALL['sidtv'] = $row['totalSidTv'];
-            $JAK_IDENT_ALL['sidr']  = $row1['totalSidR'];
-            $JAK_IDENT_ALL['sids']  = $row2['totalSidS'];
-            $JAK_IDENT_ALL['onid']  = $row3['totalOnid'];
-            $JAK_IDENT_ALL['nid']   = $row4['totalNid'];
+            $ENVO_IDENT_ALL['sidtv'] = $row['totalSidTv'];
+            $ENVO_IDENT_ALL['sidr']  = $row1['totalSidR'];
+            $ENVO_IDENT_ALL['sids']  = $row2['totalSidS'];
+            $ENVO_IDENT_ALL['onid']  = $row3['totalOnid'];
+            $ENVO_IDENT_ALL['nid']   = $row4['totalNid'];
 
             // EN: Getting all the data about S_ID TV
             // CZ: Získání všech dat o S_ID TV
-            $JAK_SIDTV_ALL = envo_get_tvtower('', $envotable3);
+            $ENVO_SIDTV_ALL = envo_get_tvtower('', $envotable3);
 
             // EN: Getting all the data about S_ID R
             // CZ: Získání všech dat o S_ID R
-            $JAK_SIDR_ALL = envo_get_tvtower('', $envotable4);
+            $ENVO_SIDR_ALL = envo_get_tvtower('', $envotable4);
 
             // EN: Getting all the data about S_ID S
             // CZ: Získání všech dat o S_ID S
-            $JAK_SIDS_ALL = envo_get_tvtower('', $envotable5);
+            $ENVO_SIDS_ALL = envo_get_tvtower('', $envotable5);
 
             // EN: Getting all the data about ON_ID
             // CZ: Získání všech dat o ON_ID
-            $JAK_ONID_ALL = envo_get_tvtower('', $envotable6);
+            $ENVO_ONID_ALL = envo_get_tvtower('', $envotable6);
 
             // EN: Getting all the data about N_ID
             // CZ: Získání všech dat o N_ID
-            $JAK_NID_ALL = envo_get_tvtower('', $envotable7);
+            $ENVO_NID_ALL = envo_get_tvtower('', $envotable7);
 
             // EN: Title and Description
             // CZ: Titulek a Popis
@@ -1962,12 +1962,12 @@ switch ($page1) {
 
         // EN: Save language file
         // CZ: Uložení jazykového souboru
-        $openfedit = fopen($defaults['jak_file'], "w+");
-        $datasave  = $defaults['jak_filecontent'];
+        $openfedit = fopen($defaults['envo_file'], "w+");
+        $datasave  = $defaults['envo_filecontent'];
         $datasave  = preg_replace('<JAK-DO-NOT-EDIT-TEXTAREA>', '/textarea', $datasave);
         $datasave  = stripslashes($datasave);
         if (fwrite($openfedit, $datasave)) {
-          $JAK_FILE_SUCCESS = 1;
+          $ENVO_FILE_SUCCESS = 1;
         }
 
         fclose($openfedit);
@@ -1993,19 +1993,19 @@ switch ($page1) {
       $openfile        = fopen($langfile, 'r');
       $filecontent     = @fread($openfile, filesize($langfile));
       $displaycontent  = preg_replace('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
-      $JAK_FILECONTENT = $displaycontent;
-      $JAK_FILEURL     = $langfile;
+      $ENVO_FILECONTENT = $displaycontent;
+      $ENVO_FILEURL     = $langfile;
 
       fclose($openfile);
     }
 
     // EN: Import important settings for the template from the DB
     // CZ: Importuj důležité nastavení pro šablonu z DB
-    $JAK_SETTING = envo_get_setting('tvtower');
+    $ENVO_SETTING = envo_get_setting('tvtower');
 
     // EN: Import important settings for the template from the DB (only VALUE)
     // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
-    $JAK_SETTING_VAL = envo_get_setting_val('tvtower');
+    $ENVO_SETTING_VAL = envo_get_setting_val('tvtower');
 
     // EN: Title and Description
     // CZ: Titulek a Popis

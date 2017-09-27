@@ -13,10 +13,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['contactF'])) {
   $listForm = '';
 
   // Check for spam first if wish so
-  if (!JAK_USERID) {
+  if (!ENVO_USERID) {
 
     if ($jkv["hvm"]) {
-      $human_captcha = explode(':#:', $_SESSION['jak_captcha']);
+      $human_captcha = explode(':#:', $_SESSION['envo_captcha']);
       if (isset($defaults[$human_captcha[0]]) && ($defaults[$human_captcha[0]] == '' || $defaults[$human_captcha[0]] != $human_captcha[1])) {
         $errorsA['human'] = $tl['error']['e10'] . '<br />';
       }
@@ -117,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['contactF'])) {
           $middle_name = str_replace(" ", "_", $name_space);
           $glnrrand = rand(10, 99);
           $file = str_replace(".", "_" . $glnrrand . ".", $middle_name);
-          $targetPath = JAK_FILES_DIRECTORY . '/formattachment/';
+          $targetPath = ENVO_FILES_DIRECTORY . '/formattachment/';
           $targetFile = str_replace('//', '/', $targetPath) . $file;
           move_uploaded_file($tempFile, $targetFile);
           // Now get all in a list and send it!
@@ -131,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['contactF'])) {
   if (count($errorsA) > 0) {
 
     /* Outputtng the error messages */
-    if (isset($defaults['jakajax']) && $defaults['jakajax'] == "yes") {
+    if (isset($defaults['envoajax']) && $defaults['envoajax'] == "yes") {
       header('Cache-Control: no-cache');
       die('{"status":0, "errors":' . json_encode($errorsA) . '}');
     } else {
@@ -187,16 +187,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['contactF'])) {
       if ($mail->Send()) {
 
         // Ajax Request
-        if (isset($defaults['jakajax']) && $defaults['jakajax'] == "yes") {
+        if (isset($defaults['envoajax']) && $defaults['envoajax'] == "yes") {
 
-          $_SESSION['jak_thankyou_msg'] = $row['content'];
+          $_SESSION['envo_thankyou_msg'] = $row['content'];
 
           header('Cache-Control: no-cache');
-          die(json_encode(array('status' => 1, 'html' => $_SESSION['jak_thankyou_msg'])));
+          die(json_encode(array('status' => 1, 'html' => $_SESSION['envo_thankyou_msg'])));
 
         } else {
 
-          $_SESSION['jak_thankyou_msg'] = $row['content'];
+          $_SESSION['envo_thankyou_msg'] = $row['content'];
           envo_redirect($_SERVER['HTTP_REFERER']);
 
         }

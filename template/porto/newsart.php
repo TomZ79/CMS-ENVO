@@ -28,7 +28,7 @@
     <?php echo $tl["general_error"]["generror2"]; ?>
   </div>
 <?php }
-if (JAK_ASACCESS) {
+if (ENVO_ASACCESS) {
   $apedit  = BASE_URL . 'admin/index.php?p=news&amp;sp=edit&amp;id=' . $PAGE_ID;
   $qapedit = BASE_URL . 'admin/index.php?p=news&amp;sp=quickedit&amp;id=' . $PAGE_ID;
 } ?>
@@ -38,11 +38,11 @@ if (JAK_ASACCESS) {
       <div class="row">
         <article>
 
-          <?php if (isset($JAK_HOOK_PAGE) && is_array($JAK_HOOK_PAGE)) foreach ($JAK_HOOK_PAGE as $hpage) {
+          <?php if (isset($ENVO_HOOK_PAGE) && is_array($ENVO_HOOK_PAGE)) foreach ($ENVO_HOOK_PAGE as $hpage) {
             include_once APP_PATH . $hpage["phpcode"];
           }
 
-          if (isset($JAK_PAGE_GRID) && is_array($JAK_PAGE_GRID)) foreach ($JAK_PAGE_GRID as $pg) {
+          if (isset($ENVO_PAGE_GRID) && is_array($ENVO_PAGE_GRID)) foreach ($ENVO_PAGE_GRID as $pg) {
 
             // Show Content
             if ($pg["pluginid"] == '9999') {
@@ -65,9 +65,9 @@ if (JAK_ASACCESS) {
                 <?php } ?>
               </div>
               <div class="full-intro-content">
-                <?php if ($JAK_TAGLIST) { ?>
+                <?php if ($ENVO_TAGLIST) { ?>
                   <ul class="entry-meta">
-                    <?php echo ENVO_tags::envoGetTagList_class($page2, JAK_PLUGIN_ID_NEWS, JAK_PLUGIN_VAR_TAGS, 'tips', $tl["title_element"]["tel"]); ?>
+                    <?php echo ENVO_tags::envoGetTagList_class($page2, ENVO_PLUGIN_ID_NEWS, ENVO_PLUGIN_VAR_TAGS, 'tips', $tl["title_element"]["tel"]); ?>
                   </ul>
                 <?php } ?>
 
@@ -90,12 +90,12 @@ if (JAK_ASACCESS) {
             }
 
             // Load contact form
-            if ($pg["pluginid"] == '9997' && $JAK_SHOW_C_FORM) {
+            if ($pg["pluginid"] == '9997' && $ENVO_SHOW_C_FORM) {
               include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/contact.php';
             }
 
             // Load News Grid
-            if (isset($JAK_HOOK_NEWS_GRID) && is_array($JAK_HOOK_NEWS_GRID)) foreach ($JAK_HOOK_NEWS_GRID as $hpagegrid) {
+            if (isset($ENVO_HOOK_NEWS_GRID) && is_array($ENVO_HOOK_NEWS_GRID)) foreach ($ENVO_HOOK_NEWS_GRID as $hpagegrid) {
               eval($hpagegrid["phpcode"]);
             }
           } ?>
@@ -109,18 +109,18 @@ if (JAK_ASACCESS) {
     <div class="container-fluid">
       <div class="row">
         <ul class="pager">
-          <?php if ($JAK_NAV_PREV) { ?>
+          <?php if ($ENVO_NAV_PREV) { ?>
             <li class="previous">
-              <a href="<?php echo $JAK_NAV_PREV; ?>">
+              <a href="<?php echo $ENVO_NAV_PREV; ?>">
                 <i class="fa fa-caret-left"></i>
-                <span class="nav_text_left"><?php echo $JAK_NAV_PREV_TITLE; ?></span>
+                <span class="nav_text_left"><?php echo $ENVO_NAV_PREV_TITLE; ?></span>
               </a>
             </li>
           <?php }
-          if ($JAK_NAV_NEXT) { ?>
+          if ($ENVO_NAV_NEXT) { ?>
             <li class="next">
-              <a href="<?php echo $JAK_NAV_NEXT; ?>">
-                <span class="nav_text_right"><?php echo $JAK_NAV_NEXT_TITLE; ?></span>
+              <a href="<?php echo $ENVO_NAV_NEXT; ?>">
+                <span class="nav_text_right"><?php echo $ENVO_NAV_NEXT_TITLE; ?></span>
                 <i class="fa fa-caret-right"></i>
               </a>
             </li>

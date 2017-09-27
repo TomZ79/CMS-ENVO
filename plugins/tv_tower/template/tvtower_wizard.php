@@ -1,6 +1,6 @@
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
-<?php if (JAK_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=tv-tower&amp;sp=setting'; ?>
+<?php if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=tv-tower&amp;sp=setting'; ?>
 
   <div class="col-md-12" style="margin: 10px 0 50px 0;">
 
@@ -14,7 +14,7 @@
   </div>
   <hr>
 
-<?php if (isset($JAK_TVTOWER) && is_array($JAK_TVTOWER)) { ?>
+<?php if (isset($ENVO_TVTOWER) && is_array($ENVO_TVTOWER)) { ?>
 
   <div class="row" style="margin-bottom: 20px">
     <div class="col-md-12">
@@ -26,9 +26,9 @@
             <?php
             // EN: Sort array by 'name' keys
             // CZ: Setřídění pole podle 'name'
-            $JAK_TVTOWER = sort_array_mutlidim($JAK_TVTOWER, 'station ASC');
+            $ENVO_TVTOWER = sort_array_mutlidim($ENVO_TVTOWER, 'station ASC');
 
-            foreach ($JAK_TVTOWER as $tt) {
+            foreach ($ENVO_TVTOWER as $tt) {
               if ($tt['active']) {
                 echo '<option value="' . $tt['id'] . '">' . $tt['station'] . ' - ' . $tt['name'] . '</option>';
               }

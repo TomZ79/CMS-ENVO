@@ -1,12 +1,12 @@
-<?php if ($pg["pluginid"] == JAK_PLUGIN_BLOG) { ?>
+<?php if ($pg["pluginid"] == ENVO_PLUGIN_BLOG) { ?>
 
-  <li class="jakcontent">
-    <div class="jakcontent_header"><?php echo $tlblog["blog_connect"]["blogc10"]; ?></div>
+  <li class="envocontent">
+    <div class="envocontent_header"><?php echo $tlblog["blog_connect"]["blogc10"]; ?></div>
     <div class="form-group">
       <label class="control-label"><?php echo $tlblog["blog_connect"]["blogc"]; ?></label>
       <div class="row">
         <div class="col-md-6">
-          <select name="jak_showblogorder" class="form-control selectpicker">
+          <select name="envo_showblogorder" class="form-control selectpicker">
 
             <?php
             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -17,7 +17,7 @@
           </select>
         </div>
         <div class="col-md-6">
-          <select name="jak_showblogmany" class="form-control selectpicker">
+          <select name="envo_showblogmany" class="form-control selectpicker">
 
             <?php for ($i = 0; $i <= 10; $i++) {
 
@@ -33,14 +33,14 @@
 
     <div class="form-group">
       <label class="control-label"><?php echo $tlblog["blog_connect"]["blogc1"]; ?></label>
-      <select name="jak_showblog[]" multiple="multiple" class="form-control">
+      <select name="envo_showblog[]" multiple="multiple" class="form-control">
 
         <?php
         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
         $selected = (isset($ENVO_FORM_DATA["showblog"]) && $ENVO_FORM_DATA["showblog"] == 0) ? TRUE : FALSE;
 
         echo $Html->addOption('0', $tlblog["blog_connect"]["blogc2"], $selected);
-        if (isset($JAK_GET_BLOG) && is_array($JAK_GET_BLOG)) foreach ($JAK_GET_BLOG as $fq) {
+        if (isset($ENVO_GET_BLOG) && is_array($ENVO_GET_BLOG)) foreach ($ENVO_GET_BLOG as $fq) {
 
           echo $Html->addOption($fq["id"], $fq["title"], (isset($ENVO_FORM_DATA["showblog"]) && (in_array($fq["id"], explode(',', $ENVO_FORM_DATA["showblog"])))) ? TRUE : FALSE);
 

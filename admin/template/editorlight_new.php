@@ -10,7 +10,7 @@ if ($jkv["adv_editor"]) {
 } else {
 
   // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-  echo $Html->addTextarea('envo_lcontent', '', '40', '', array('id' => 'jakEditor', 'class' => 'jakEditorLight'));
+  echo $Html->addTextarea('envo_lcontent', '', '40', '', array('id' => 'envoEditor', 'class' => 'envoEditorLight'));
 
 }
 

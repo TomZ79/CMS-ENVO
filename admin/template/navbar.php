@@ -1,5 +1,5 @@
 <ul class="menu-items">
-  <?php if ($JAK_MODULES) { ?>
+  <?php if ($ENVO_MODULES) { ?>
     <!-- START DASHBOARD SECTION-->
     <li class="m-t-30">
 
@@ -113,7 +113,7 @@
 
       <ul class="sub-menu">
 
-        <?php if (JAK_SUPERADMINACCESS) { ?>
+        <?php if (ENVO_SUPERADMINACCESS) { ?>
           <li class="<?php echo ($page == 'plugins') ? 'submenu-active' : ''; ?>">
 
             <?php
@@ -416,7 +416,7 @@
         <?php } ?>
         <li class="list-divider"></li>
         <!-- CATEGORIES -->
-        <?php if ($JAK_MODULEM) { ?>
+        <?php if ($ENVO_MODULEM) { ?>
           <li class="<?php echo ($page == 'categories') ? 'submenu-active' : ''; ?>">
 
             <?php
@@ -541,7 +541,7 @@
 
           </li>
         <?php }
-        if (isset($JAK_PLUGINS_MANAGENAV) && is_array($JAK_PLUGINS_MANAGENAV)) foreach ($JAK_PLUGINS_MANAGENAV as $pmn) {
+        if (isset($ENVO_PLUGINS_MANAGENAV) && is_array($ENVO_PLUGINS_MANAGENAV)) foreach ($ENVO_PLUGINS_MANAGENAV as $pmn) {
           include_once $pmn;
         } ?>
 
@@ -550,7 +550,7 @@
     </li>
     <!-- END MANAGE SECTION -->
 
-    <?php if (isset($JAK_PLUGINS_TOPNAV) && is_array($JAK_PLUGINS_TOPNAV)) foreach ($JAK_PLUGINS_TOPNAV as $ptn) {
+    <?php if (isset($ENVO_PLUGINS_TOPNAV) && is_array($ENVO_PLUGINS_TOPNAV)) foreach ($ENVO_PLUGINS_TOPNAV as $ptn) {
       include_once $ptn;
     } ?>
 

@@ -48,7 +48,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
         </div>
         <div class="list-to-filter">
           <ul class="list-unstyled overflow">
-            <?php if (isset($JAK_HOOK_LOCATIONS) && is_array($JAK_HOOK_LOCATIONS)) foreach ($JAK_HOOK_LOCATIONS as $h) { ?>
+            <?php if (isset($ENVO_HOOK_LOCATIONS) && is_array($ENVO_HOOK_LOCATIONS)) foreach ($ENVO_HOOK_LOCATIONS as $h) { ?>
               <li class="filter-item" data-filter="<?php echo $h; ?>">
                 <a href="index.php?p=plugins&sp=sorthooks&ssp=<?php echo $h; ?>"><?php echo $h; ?></a>
               </li>
@@ -63,14 +63,14 @@ if ($page2 == "e" || $page2 == "edn") { ?>
     </div>
   </div>
 
-<?php if (isset($JAK_HOOKS) && is_array($JAK_HOOKS)) { ?>
+<?php if (isset($ENVO_HOOKS) && is_array($ENVO_HOOKS)) { ?>
 
   <div class="box box-success">
     <div class="box-body">
-      <ul class="jak_hooks_move">
-        <?php foreach ($JAK_HOOKS as $v) { ?>
+      <ul class="envo_hooks_move">
+        <?php foreach ($ENVO_HOOKS as $v) { ?>
 
-          <li id="hook-<?php echo $v["id"]; ?>" class="jakhooks">
+          <li id="hook-<?php echo $v["id"]; ?>" class="envohooks">
 
             <div>
 							<span class="text">

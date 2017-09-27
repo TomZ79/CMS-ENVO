@@ -2,7 +2,7 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 $CHECK_USR_SESSION = session_id();
 
@@ -24,8 +24,8 @@ $envotable1 = DB_PREFIX . 'faqcategories';
 include_once 'functions.php';
 
 // Get the important template stuff
-$JAK_SEARCH_WHERE = JAK_PLUGIN_VAR_FAQ;
-$JAK_SEARCH_LINK  = JAK_PLUGIN_VAR_FAQ;
+$ENVO_SEARCH_WHERE = ENVO_PLUGIN_VAR_FAQ;
+$ENVO_SEARCH_LINK  = ENVO_PLUGIN_VAR_FAQ;
 
 // AJAX Search
 $AJAX_SEARCH_PLUGIN_WHERE = $envotable;
@@ -34,16 +34,16 @@ $AJAX_SEARCH_PLUGIN_SEO   = $jkv["faqurl"];
 
 // Get the rss if active
 if ($jkv["faqrss"]) {
-  $JAK_RSS_DISPLAY = 1;
-  $P_RSS_LINK      = ENVO_rewrite::envoParseurl('rss.xml', JAK_PLUGIN_VAR_FAQ, '', '', '');
+  $ENVO_RSS_DISPLAY = 1;
+  $P_RSS_LINK      = ENVO_rewrite::envoParseurl('rss.xml', ENVO_PLUGIN_VAR_FAQ, '', '', '');
 }
 
 // Parse links once if needed a lot of time
-$backtofaq = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_FAQ, '', '', '', '');
+$backtofaq = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_FAQ, '', '', '', '');
 
 // Template Call
-$JAK_TPL_PLUG_T   = JAK_PLUGIN_NAME_FAQ;
-$JAK_TPL_PLUG_URL = $backtofaq;
+$ENVO_TPL_PLUG_T   = ENVO_PLUGIN_NAME_FAQ;
+$ENVO_TPL_PLUG_URL = $backtofaq;
 
 // -------- DATA FOR SELECTED FRONTEND PAGES --------
 // -------- DATA PRO VYBRANÉ FRONTEND STRÁNKY --------
@@ -53,15 +53,15 @@ $JAK_TPL_PLUG_URL = $backtofaq;
 switch ($page1) {
   case 'c':
 
-    if (is_numeric($page2) && envo_row_permission($page2, $envotable1, JAK_USERGROUPID)) {
+    if (is_numeric($page2) && envo_row_permission($page2, $envotable1, ENVO_USERGROUPID)) {
 
       $getTotal = envo_get_total($envotable, $page2, 'catid', 'active');
 
       if ($jkv["faqurl"]) {
-        $getWhere = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_FAQ, $page1, $page2, $page3, '');
+        $getWhere = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_FAQ, $page1, $page2, $page3, '');
         $getPage  = $page4;
       } else {
-        $getWhere = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_FAQ, $page1, $page2, '', '');
+        $getWhere = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_FAQ, $page1, $page2, '', '');
         $getPage  = $page3;
       }
 
@@ -72,38 +72,38 @@ switch ($page1) {
         $faqc->items_total    = $getTotal;
         $faqc->mid_range      = $jkv["faqpagemid"];
         $faqc->items_per_page = $jkv["faqpageitem"];
-        $faqc->jak_get_page   = $getPage;
-        $faqc->jak_where      = $getWhere;
-        $faqc->jak_prevtext   = $tl["pagination"]["pagin"];
-        $faqc->jak_nexttext   = $tl["pagination"]["pagin1"];
+        $faqc->envo_get_page   = $getPage;
+        $faqc->envo_where      = $getWhere;
+        $faqc->envo_prevtext   = $tl["pagination"]["pagin"];
+        $faqc->envo_nexttext   = $tl["pagination"]["pagin1"];
         $faqc->paginate();
-        $JAK_PAGINATE = $faqc->display_pages();
+        $ENVO_PAGINATE = $faqc->display_pages();
       }
 
-      $JAK_FAQ_ALL = envo_get_faq($faqc->limit, $jkv["faqorder"], $page2, 't1.catid', $jkv["faqurl"], $tl['global_text']['gtxt4']);
+      $ENVO_FAQ_ALL = envo_get_faq($faqc->limit, $jkv["faqorder"], $page2, 't1.catid', $jkv["faqurl"], $tl['global_text']['gtxt4']);
 
       $result = $envodb->query('SELECT name' . ', content' . ' FROM ' . $envotable1 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
       $row    = $result->fetch_assoc();
 
-      $PAGE_TITLE              = JAK_PLUGIN_NAME_FAQ . ' - ' . $row['name'];
+      $PAGE_TITLE              = ENVO_PLUGIN_NAME_FAQ . ' - ' . $row['name'];
       $PAGE_CONTENT            = $row['content'];
       $MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
       $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];
 
       // Get the sort orders for the grid
-      $JAK_HOOK_SIDE_GRID = FALSE;
-      $grid               = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . JAK_PLUGIN_ID_FAQ . ' AND faqid = 0 ORDER BY orderid ASC');
+      $ENVO_HOOK_SIDE_GRID = FALSE;
+      $grid               = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . ENVO_PLUGIN_ID_FAQ . ' AND faqid = 0 ORDER BY orderid ASC');
       while ($grow = $grid->fetch_assoc()) {
         // EN: Insert each record into array
         // CZ: Vložení získaných dat do pole
-        $JAK_HOOK_SIDE_GRID[] = $grow;
+        $ENVO_HOOK_SIDE_GRID[] = $grow;
       }
 
       // Get the url session
-      $_SESSION['jak_lastURL'] = $getWhere;
+      $_SESSION['envo_lastURL'] = $getWhere;
 
       // Now get the new meta keywords and description maker
-      if (isset($JAK_FAQ_ALL) && is_array($JAK_FAQ_ALL)) foreach ($JAK_FAQ_ALL as $kv) $seokeywords[] = ENVO_base::envoCleanurl($kv['title']);
+      if (isset($ENVO_FAQ_ALL) && is_array($ENVO_FAQ_ALL)) foreach ($ENVO_FAQ_ALL as $kv) $seokeywords[] = ENVO_base::envoCleanurl($kv['title']);
 
       if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
@@ -117,8 +117,8 @@ switch ($page1) {
       }
 
       // Get the CSS and Javascript into the page
-      $JAK_HEADER_CSS        = $jkv["faq_css"];
-      $JAK_FOOTER_JAVASCRIPT = $jkv["faq_javascript"];
+      $ENVO_HEADER_CSS        = $jkv["faq_css"];
+      $ENVO_FOOTER_JAVASCRIPT = $jkv["faq_javascript"];
 
       // EN: Load the php template
       // CZ: Načtení php template (šablony)
@@ -147,7 +147,7 @@ switch ($page1) {
         envo_redirect(ENVO_rewrite::envoParseurl('offline'));
       } else {
 
-        if (!envo_row_permission($row['catid'], $envotable1, JAK_USERGROUPID)) {
+        if (!envo_row_permission($row['catid'], $envotable1, ENVO_USERGROUPID)) {
           envo_redirect($backtofaq);
         } else {
 
@@ -173,14 +173,14 @@ switch ($page1) {
           $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
           // Display contact form if whish so and do the caching
-          $JAK_SHOW_C_FORM = FALSE;
+          $ENVO_SHOW_C_FORM = FALSE;
           if ($row['showcontact'] != 0) {
-            $JAK_SHOW_C_FORM      = envo_create_contact_form($row['showcontact'], $tl['form_text']['formt']);
-            $JAK_SHOW_C_FORM_NAME = envo_contact_form_title($row['showcontact']);
+            $ENVO_SHOW_C_FORM      = envo_create_contact_form($row['showcontact'], $tl['form_text']['formt']);
+            $ENVO_SHOW_C_FORM_NAME = envo_contact_form_title($row['showcontact']);
           }
 
           // Get the url session
-          $_SESSION['jak_lastURL'] = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_FAQ, $page1, $page2, $page3, '');
+          $_SESSION['envo_lastURL'] = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_FAQ, $page1, $page2, $page3, '');
 
         }
 
@@ -190,12 +190,12 @@ switch ($page1) {
 
           // the sidebar grid
           if ($grow["hookid"]) {
-            $JAK_HOOK_SIDE_GRID[] = $grow;
+            $ENVO_HOOK_SIDE_GRID[] = $grow;
           }
         }
 
         // Show Tags
-        $JAK_TAGLIST = ENVO_tags::envoGetTagList($page2, JAK_PLUGIN_ID_FAQ, JAK_PLUGIN_VAR_TAGS);
+        $ENVO_TAGLIST = ENVO_tags::envoGetTagList($page2, ENVO_PLUGIN_ID_FAQ, ENVO_PLUGIN_VAR_TAGS);
 
         // Get the categories into a list
         $resultc = $envodb->query('SELECT id, name, varname FROM ' . $envotable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
@@ -207,7 +207,7 @@ switch ($page1) {
 
           // EN: Create array with all categories ( Plugin Download have only one category for one download file, in array will be it only one category )
           // CZ: Vytvoření pole se všemi kategoriemi ( Plugin Download má pouze jednu kategorie pro jeden stahovaný soubor, v poli bude jen jedna kategorie )
-          $catids[] = '<a class="category-label"  href="' . ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_FAQ, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tlf["faq_frontend"]["faq2"] . '">' . $rowc['name'] . '</a>';
+          $catids[] = '<a class="category-label"  href="' . ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_FAQ, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tlf["faq_frontend"]["faq2"] . '">' . $rowc['name'] . '</a>';
 
           // EN: Get 'varname' for category
           // CZ: Získaní 'varname' kategorie
@@ -228,8 +228,8 @@ switch ($page1) {
             $seo = ENVO_base::envoCleanurl($nextp['title']);
           }
 
-          $JAK_NAV_NEXT       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_FAQ, 'a', $nextp['id'], $seo, '');
-          $JAK_NAV_NEXT_TITLE = addslashes($nextp['title']);
+          $ENVO_NAV_NEXT       = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_FAQ, 'a', $nextp['id'], $seo, '');
+          $ENVO_NAV_NEXT_TITLE = addslashes($nextp['title']);
         }
 
         $prevp = envo_previous_page($page2, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
@@ -239,8 +239,8 @@ switch ($page1) {
             $seop = ENVO_base::envoCleanurl($prevp['title']);
           }
 
-          $JAK_NAV_PREV       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_FAQ, 'a', $prevp['id'], $seop, '');
-          $JAK_NAV_PREV_TITLE = addslashes($prevp['title']);
+          $ENVO_NAV_PREV       = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_FAQ, 'a', $prevp['id'], $seop, '');
+          $ENVO_NAV_PREV_TITLE = addslashes($prevp['title']);
         }
 
       }
@@ -250,8 +250,8 @@ switch ($page1) {
 
     // Now get the new meta keywords and description maker
     $keytags = '';
-    if ($JAK_TAGLIST) {
-      $keytags = preg_split('/\s+/', strip_tags($JAK_TAGLIST));
+    if ($ENVO_TAGLIST) {
+      $keytags = preg_split('/\s+/', strip_tags($ENVO_TAGLIST));
       $keytags = ',' . implode(',', $keytags);
     }
     $PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
@@ -281,17 +281,17 @@ switch ($page1) {
       $faq->items_total    = $getTotal;
       $faq->mid_range      = $jkv["faqpagemid"];
       $faq->items_per_page = $jkv["faqpageitem"];
-      $faq->jak_get_page   = $page1;
-      $faq->jak_where      = $backtofaq;
-      $faq->jak_prevtext   = $tl["pagination"]["pagin"];
-      $faq->jak_nexttext   = $tl["pagination"]["pagin1"];
+      $faq->envo_get_page   = $page1;
+      $faq->envo_where      = $backtofaq;
+      $faq->envo_prevtext   = $tl["pagination"]["pagin"];
+      $faq->envo_nexttext   = $tl["pagination"]["pagin1"];
       $faq->paginate();
 
       // Pagination
-      $JAK_PAGINATE = $faq->display_pages();
+      $ENVO_PAGINATE = $faq->display_pages();
 
       // Get all FAQ articles
-      $JAK_FAQ_ALL = envo_get_faq($faq->limit, $jkv["faqorder"], '', '', $jkv["faqurl"], $tl['global_text']['gtxt4']);
+      $ENVO_FAQ_ALL = envo_get_faq($faq->limit, $jkv["faqorder"], '', '', $jkv["faqurl"], $tl['global_text']['gtxt4']);
 
     }
 
@@ -303,18 +303,18 @@ switch ($page1) {
     $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];
 
     // Get the url session
-    $_SESSION['jak_lastURL'] = $backtofaq;
+    $_SESSION['envo_lastURL'] = $backtofaq;
 
     // Get the sort orders for the grid
-    $grid = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . JAK_PLUGIN_ID_FAQ . ' AND faqid = 0 ORDER BY orderid ASC');
+    $grid = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . ENVO_PLUGIN_ID_FAQ . ' AND faqid = 0 ORDER BY orderid ASC');
     while ($grow = $grid->fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
-      $JAK_HOOK_SIDE_GRID[] = $grow;
+      $ENVO_HOOK_SIDE_GRID[] = $grow;
     }
 
     // Now get the new meta keywords and description maker
-    if (isset($JAK_FAQ_ALL) && is_array($JAK_FAQ_ALL)) foreach ($JAK_FAQ_ALL as $kv) $seokeywords[] = ENVO_base::envoCleanurl($kv['title']);
+    if (isset($ENVO_FAQ_ALL) && is_array($ENVO_FAQ_ALL)) foreach ($ENVO_FAQ_ALL as $kv) $seokeywords[] = ENVO_base::envoCleanurl($kv['title']);
 
     if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
@@ -328,8 +328,8 @@ switch ($page1) {
     }
 
     // Get the CSS and Javascript into the page
-    $JAK_HEADER_CSS        = $jkv["faq_css"];
-    $JAK_FOOTER_JAVASCRIPT = $jkv["faq_javascript"];
+    $ENVO_HEADER_CSS        = $jkv["faq_css"];
+    $ENVO_FOOTER_JAVASCRIPT = $jkv["faq_javascript"];
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)

@@ -41,7 +41,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
   </div>
 
-<?php if (isset($JAK_CONTACT_ALL) && is_array($JAK_CONTACT_ALL)) { ?>
+<?php if (isset($ENVO_CONTACT_ALL) && is_array($ENVO_CONTACT_ALL)) { ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="box box-success">
@@ -84,7 +84,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
               </th>
             </tr>
             </thead>
-            <?php foreach ($JAK_CONTACT_ALL as $v) { ?>
+            <?php foreach ($ENVO_CONTACT_ALL as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
                 <td>
@@ -155,8 +155,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
     </div>
   </div>
 
-  <?php if ($JAK_PAGINATE) {
-    echo $JAK_PAGINATE;
+  <?php if ($ENVO_PAGINATE) {
+    echo $ENVO_PAGINATE;
   }
 } else { ?>
 

@@ -14,7 +14,7 @@ function envo_get_faq($limit, $order, $where, $table_row, $ext_seo, $timeago)
     $sqlin = 't1.catid != 0 AND t1.active = 1 AND';
   }
 
-  $result = $envodb->query('SELECT t1.* FROM ' . DB_PREFIX . 'faq AS t1 LEFT JOIN ' . DB_PREFIX . 'faqcategories AS t2 ON (t1.catid = t2.id) WHERE ' . $sqlin . ' (FIND_IN_SET(' . JAK_USERGROUPID . ',t2.permission) OR t2.permission = 0) GROUP BY t1.id ORDER BY ' . $order . ' ' . $limit);
+  $result = $envodb->query('SELECT t1.* FROM ' . DB_PREFIX . 'faq AS t1 LEFT JOIN ' . DB_PREFIX . 'faqcategories AS t2 ON (t1.catid = t2.id) WHERE ' . $sqlin . ' (FIND_IN_SET(' . ENVO_USERGROUPID . ',t2.permission) OR t2.permission = 0) GROUP BY t1.id ORDER BY ' . $order . ' ' . $limit);
   while ($row = $result->fetch_assoc()) {
 
     // Write content in short format with full words
@@ -27,7 +27,7 @@ function envo_get_faq($limit, $order, $where, $table_row, $ext_seo, $timeago)
     }
 
     // Parse url for user link
-    $parseurl = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_FAQ, 'a', $row['id'], $seo, '');
+    $parseurl = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_FAQ, 'a', $row['id'], $seo, '');
 
 
     $getTime = ENVO_base::envoTimesince($row['time'], $jkv["faqdateformat"], $jkv["faqtimeformat"], $timeago);
@@ -44,7 +44,7 @@ function envo_get_faq($limit, $order, $where, $table_row, $ext_seo, $timeago)
 function envo_get_total_permission_faq()
 {
   global $envodb;
-  $result = $envodb->query('SELECT COUNT(t1.id) AS total FROM ' . DB_PREFIX . 'faq as t1 LEFT JOIN ' . DB_PREFIX . 'faqcategories as t2 ON (t1.catid = t2.id) WHERE (t1.active = 1 AND t2.active = 1) AND (FIND_IN_SET(' . JAK_USERGROUPID . ',t2.permission) OR t1.catid = t2.id AND t2.permission = 0)');
+  $result = $envodb->query('SELECT COUNT(t1.id) AS total FROM ' . DB_PREFIX . 'faq as t1 LEFT JOIN ' . DB_PREFIX . 'faqcategories as t2 ON (t1.catid = t2.id) WHERE (t1.active = 1 AND t2.active = 1) AND (FIND_IN_SET(' . ENVO_USERGROUPID . ',t2.permission) OR t1.catid = t2.id AND t2.permission = 0)');
   $row    = $result->fetch_assoc();
 
   if ($row['total']) {

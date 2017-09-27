@@ -22,7 +22,7 @@
     // set editor.$blockScrolling = Infinity to disable this message
     htmlefACE2.$blockScrolling = Infinity;
 
-    texthtmlef = $("#jak_filecontent2").val();
+    texthtmlef = $("#envo_filecontent2").val();
     htmlefACE2.session.setValue(texthtmlef);
   }
 
@@ -53,7 +53,7 @@
   /* Submit Form
    ========================================= */
   $('form').submit(function () {
-    $("#jak_filecontent2").val(htmlefACE2.getValue());
+    $("#envo_filecontent2").val(htmlefACE2.getValue());
     $("#footerblocktext1").val(htmlefACE3.getValue());
   });
 </script>

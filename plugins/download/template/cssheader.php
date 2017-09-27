@@ -8,7 +8,7 @@
  */
 ?>
 
-<?php if ($page == JAK_PLUGIN_VAR_DOWNLOAD) { ?>
+<?php if ($page == ENVO_PLUGIN_VAR_DOWNLOAD) { ?>
 
   <link rel="stylesheet" href="/plugins/download/assets/css/style.css" type="text/css"/>
 

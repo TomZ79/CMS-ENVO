@@ -3,7 +3,7 @@
  * JS for Plugin Newsletter - ADMIN
  * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
- * Author: Thomas
+ * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
  * INDEX:
@@ -23,7 +23,7 @@
 $(function () {
 
   /* Check all checkbox */
-  $("#jak_delete_all").click(function () {
+  $("#envo_delete_all").click(function () {
     var checkedStatus = this.checked;
     $(".highlight").each(function () {
       $(this).prop('checked', checkedStatus);
@@ -49,11 +49,11 @@ $(function () {
 
 $(function () {
 
-  $("input[name=jak_smpt]:radio").change(function () {
-    if ($('input[name=jak_smpt]:checked').val() == "1") {
+  $("input[name=envo_smpt]:radio").change(function () {
+    if ($('input[name=envo_smpt]:checked').val() == "1") {
       $('#smtpsettings').show();
 
-    } else if ($('input[name=jak_smpt]:checked').val() == "0") {
+    } else if ($('input[name=envo_smpt]:checked').val() == "0") {
       $('#smtpsettings').hide();
 
     }
@@ -89,7 +89,7 @@ $(function () {
 $(function () {
 
   tinymce.init({
-    selector: "textarea.jakEditorF, textarea.jakEditorF2, textarea.jakEditorF3",
+    selector: "textarea.envoEditorF, textarea.envoEditorF2, textarea.envoEditorF3",
     theme: "modern",
     width: "100%",
     height: 500,

@@ -80,8 +80,8 @@
                   <?php
                   // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                   // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                  echo $Html->addCheckbox('', '', false, 'jak_delete_all');
-                  echo $Html->addLabel('jak_delete_all', '');
+                  echo $Html->addCheckbox('', '', false, 'envo_delete_all');
+                  echo $Html->addLabel('envo_delete_all', '');
                   ?>
 
                 </div>
@@ -100,7 +100,7 @@
               </th>
             </tr>
             </thead>
-            <?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) { ?>
+            <?php if (isset($ENVO_USERGROUP_ALL) && is_array($ENVO_USERGROUP_ALL)) foreach ($ENVO_USERGROUP_ALL as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
                 <td>
@@ -109,8 +109,8 @@
                     <?php
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                    echo $Html->addCheckbox('jak_delete_usergroup[]', $v["id"], false, 'jak_delete_usergroup' . $v["id"], 'highlight');
-                    echo $Html->addLabel('jak_delete_usergroup' . $v["id"], '');
+                    echo $Html->addCheckbox('envo_delete_usergroup[]', $v["id"], false, 'envo_delete_usergroup' . $v["id"], 'highlight');
+                    echo $Html->addLabel('envo_delete_usergroup' . $v["id"], '');
                     ?>
 
                   </div>

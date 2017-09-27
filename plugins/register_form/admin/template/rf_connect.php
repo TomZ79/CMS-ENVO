@@ -1,19 +1,19 @@
-<li class="jakcontent">
+<li class="envocontent">
   <div class="form-group">
-    <div class="jakcontent_header"><?php echo $tlrf["reg_connect"]["regc"]; ?></div>
+    <div class="envocontent_header"><?php echo $tlrf["reg_connect"]["regc"]; ?></div>
     <label class="control-label"><?php echo $tlrf["reg_box_content"]["regbc"]; ?></label>
     <div class="radio radio-success">
 
       <?php
       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-      echo $Html->addRadio('jak_rfconnect', '1', (isset($_REQUEST["jak_rfconnect"]) && $_REQUEST["jak_rfconnect"] == '1' || $ENVO_FORM_DATA["showregister"] == '1') ? TRUE : FALSE, 'jak_rfconnect1');
+      echo $Html->addRadio('envo_rfconnect', '1', (isset($_REQUEST["envo_rfconnect"]) && $_REQUEST["envo_rfconnect"] == '1' || $ENVO_FORM_DATA["showregister"] == '1') ? TRUE : FALSE, 'envo_rfconnect1');
       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-      echo $Html->addLabel('jak_rfconnect1', $tl["checkbox"]["chk"]);
+      echo $Html->addLabel('envo_rfconnect1', $tl["checkbox"]["chk"]);
 
       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-      echo $Html->addRadio('jak_rfconnect', '0', (isset($_REQUEST["jak_rfconnect"]) && $_REQUEST["jak_rfconnect"] == '0' || $ENVO_FORM_DATA["showregister"] == '0') ? TRUE : FALSE, 'jak_rfconnect2');
+      echo $Html->addRadio('envo_rfconnect', '0', (isset($_REQUEST["envo_rfconnect"]) && $_REQUEST["envo_rfconnect"] == '0' || $ENVO_FORM_DATA["showregister"] == '0') ? TRUE : FALSE, 'envo_rfconnect2');
       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-      echo $Html->addLabel('jak_rfconnect2', $tl["checkbox"]["chk1"]);
+      echo $Html->addLabel('envo_rfconnect2', $tl["checkbox"]["chk1"]);
       ?>
 
     </div>

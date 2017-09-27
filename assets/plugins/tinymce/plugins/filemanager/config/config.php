@@ -79,7 +79,7 @@ $config = array(
 	| with start and final /
 	|
 	*/
-	'upload_dir' => '/'.JAK_FILES_DIRECTORY.'/',
+	'upload_dir' => '/'.ENVO_FILES_DIRECTORY.'/',
 	/*
 	|--------------------------------------------------------------------------
 	| relative path from filemanager folder to upload folder
@@ -88,7 +88,7 @@ $config = array(
 	| with final /
 	|
 	*/
-	'current_path' => '../../../../../'.JAK_FILES_DIRECTORY.'/',
+	'current_path' => '../../../../../'.ENVO_FILES_DIRECTORY.'/',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -99,7 +99,7 @@ $config = array(
 	| DO NOT put inside upload folder
 	|
 	*/
-	'thumbs_base_path' => '../../../../../'.JAK_FILES_DIRECTORY.'/thumbs/',
+	'thumbs_base_path' => '../../../../../'.ENVO_FILES_DIRECTORY.'/thumbs/',
 
 
 	/*

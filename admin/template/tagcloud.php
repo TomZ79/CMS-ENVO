@@ -52,8 +52,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 
     <?php
-    if ($JAK_TAGCLOUD) {
-      echo $JAK_TAGCLOUD;
+    if ($ENVO_TAGCLOUD) {
+      echo $ENVO_TAGCLOUD;
     } else {
 
       // Add Html Element -> startTag (Arguments: tag, optional assoc. array)

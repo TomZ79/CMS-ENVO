@@ -67,7 +67,7 @@
           } else {
 
             // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-            echo $Html->addTextarea('envo_content', (isset($_REQUEST["envo_content"])) ? envo_edit_safe_userpost($_REQUEST["envo_content"]) : '', '40', '', array('id' => 'jakEditor', 'class' => 'form-control jakEditor'));
+            echo $Html->addTextarea('envo_content', (isset($_REQUEST["envo_content"])) ? envo_edit_safe_userpost($_REQUEST["envo_content"]) : '', '40', '', array('id' => 'envoEditor', 'class' => 'form-control envoEditor'));
 
           } ?>
 

@@ -82,7 +82,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_name', (isset($_REQUEST["jak_name"])) ? $_REQUEST["jak_name"] : '', 'jak_name', 'form-control');
+                      echo $Html->addInput('text', 'envo_name', (isset($_REQUEST["envo_name"])) ? $_REQUEST["envo_name"] : '', 'envo_name', 'form-control');
                       ?>
 
                     </div>
@@ -101,7 +101,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                    echo $Html->addTextarea('jak_desc', (isset($_REQUEST["jak_desc"])) ? $_REQUEST["jak_desc"] : '', '4', '', array('id' => 'jakEditor', 'class' => 'form-control jakEditorLight'));
+                    echo $Html->addTextarea('envo_desc', (isset($_REQUEST["envo_desc"])) ? $_REQUEST["envo_desc"] : '', '4', '', array('id' => 'envoEditor', 'class' => 'form-control envoEditorLight'));
                     ?>
 
                   </div>

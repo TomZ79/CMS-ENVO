@@ -7,7 +7,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
 // EN: Detecting AJAX Requests
 // CZ: Detekce AJAX Požadavku
-if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || !$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die("Nothing to see here");
+if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || !$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die("Nothing to see here");
 
 // EN: Set the JSON header content-type
 // CZ: Nastavení záhlaví JSON

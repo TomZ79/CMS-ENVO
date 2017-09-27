@@ -76,7 +76,7 @@ echo $Html->addDoctype('html5');
   </script>
 
   <!-- BEGIN HOOKS - HEADER -->
-  <?php if (isset($JAK_HOOK_HEAD_ADMIN) && is_array($JAK_HOOK_HEAD_ADMIN)) foreach ($JAK_HOOK_HEAD_ADMIN as $headt) {
+  <?php if (isset($ENVO_HOOK_HEAD_ADMIN) && is_array($ENVO_HOOK_HEAD_ADMIN)) foreach ($ENVO_HOOK_HEAD_ADMIN as $headt) {
     include_once APP_PATH . $headt['phpcode'];
   } ?>
 
@@ -84,7 +84,7 @@ echo $Html->addDoctype('html5');
 <body class="fixed-header has-detached-right overlay-disabled">
   <!-- PACE PRELOADER -->
   <div id="pace" class="active"></div>
-<?php if ($JAK_PROVED) { ?>
+<?php if ($ENVO_PROVED) { ?>
   <!-- BEGIN SIDEBAR -->
   <div class="page-sidebar" data-pages="sidebar">
     <div id="appMenu" class="sidebar-overlay-slide from-top">
@@ -403,17 +403,17 @@ echo $Html->addDoctype('html5');
       <!-- START User Info-->
       <div class="visible-lg visible-md m-t-10">
         <div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
-          <span class="bold"><?php echo $JAK_WELCOME_NAME; ?></span>
+          <span class="bold"><?php echo $ENVO_WELCOME_NAME; ?></span>
         </div>
         <div class="dropdown pull-right">
           <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="thumbnail-wrapper d32 circular inline m-t-5">
-              <img src="<?php echo BASE_URL_ORIG . basename(JAK_FILES_DIRECTORY) . '/userfiles/' . $jakuser->getVar("picture"); ?>" alt="" data-src="<?php echo BASE_URL_ORIG . basename(JAK_FILES_DIRECTORY) . '/userfiles/' . $jakuser->getVar("picture"); ?>" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="32" height="32">
+              <img src="<?php echo BASE_URL_ORIG . basename(ENVO_FILES_DIRECTORY) . '/userfiles/' . $envouser->getVar("picture"); ?>" alt="" data-src="<?php echo BASE_URL_ORIG . basename(ENVO_FILES_DIRECTORY) . '/userfiles/' . $envouser->getVar("picture"); ?>" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="32" height="32">
             </span>
           </button>
           <ul class="dropdown-menu profile-dropdown" role="menu">
             <li>
-              <a href="index.php?p=users&amp;sp=edit&amp;ssp=<?php echo JAK_USERID; ?>">
+              <a href="index.php?p=users&amp;sp=edit&amp;ssp=<?php echo ENVO_USERID; ?>">
                 <i class="pg-settings_small"></i> <?php echo $tl["hf_text"]["hftxt4"]; ?>
               </a>
             </li>

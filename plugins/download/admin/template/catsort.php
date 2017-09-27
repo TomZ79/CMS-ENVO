@@ -52,8 +52,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   <?php
                   // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                   // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                  echo $Html->addCheckbox('', '', FALSE, 'jak_delete_all');
-                  echo $Html->addLabel('jak_delete_all', '');
+                  echo $Html->addCheckbox('', '', FALSE, 'envo_delete_all');
+                  echo $Html->addLabel('envo_delete_all', '');
                   ?>
 
                 </div>
@@ -82,7 +82,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
               </th>
             </tr>
             </thead>
-            <?php if (isset($JAK_DOWNLOAD_SORT) && is_array($JAK_DOWNLOAD_SORT)) foreach ($JAK_DOWNLOAD_SORT as $v) { ?>
+            <?php if (isset($ENVO_DOWNLOAD_SORT) && is_array($ENVO_DOWNLOAD_SORT)) foreach ($ENVO_DOWNLOAD_SORT as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
                 <td>
@@ -91,8 +91,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                     <?php
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                    echo $Html->addCheckbox('jak_delete_download[]', $v["id"], FALSE, 'jak_delete_download' . $v["id"], 'highlight');
-                    echo $Html->addLabel('jak_delete_download' . $v["id"], '');
+                    echo $Html->addCheckbox('envo_delete_download[]', $v["id"], FALSE, 'envo_delete_download' . $v["id"], 'highlight');
+                    echo $Html->addLabel('envo_delete_download' . $v["id"], '');
                     ?>
 
                   </div>
@@ -114,7 +114,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
                   <?php
                   if ($v["catid"] != '0') {
-                    if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $z) {
+                    if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $z) {
                       if ($v["catid"] == $z["id"]) {
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                         echo $Html->addAnchor('index.php?p=download&amp;sp=showcat&amp;ssp=' . $z["id"], $z["name"]);
@@ -177,6 +177,6 @@ if ($page1 == "e" || $page1 == "ene") { ?>
     </div>
   </div>
 
-<?php if ($JAK_PAGINATE) echo $JAK_PAGINATE; ?>
+<?php if ($ENVO_PAGINATE) echo $ENVO_PAGINATE; ?>
 
 <?php include_once APP_PATH . 'admin/template/footer.php'; ?>

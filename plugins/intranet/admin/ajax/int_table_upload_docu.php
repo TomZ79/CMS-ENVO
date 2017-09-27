@@ -35,7 +35,7 @@ $valid_extensions = array(
 );
 
 // Upload directory
-$pathfull = APP_PATH . '/' . JAK_FILES_DIRECTORY . $_REQUEST['folderpath'] . '/documents/';
+$pathfull = APP_PATH . '/' . ENVO_FILES_DIRECTORY . $_REQUEST['folderpath'] . '/documents/';
 
 if (isset($_FILES['file'])) {
   $filename = $_FILES['file']['name'];
@@ -67,7 +67,7 @@ if (isset($_FILES['file'])) {
           'id'          => $row["id"],
           'description' => $row["description"],
           'fileicon'    => envo_extension_icon($row["filename"]),
-          'fullpath'    => '/' . JAK_FILES_DIRECTORY . $row["fullpath"]
+          'fullpath'    => '/' . ENVO_FILES_DIRECTORY . $row["fullpath"]
         );
       }
 

@@ -8,9 +8,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 // Check if the file is accessed only from a admin if not stop the script from running
 $php_errormsg = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
 $php_errormsg1 = 'Only ADMINISTRATOR privileges allow you to edit the file !!! You cannot access this file directly.';
-if (!JAK_USERID) die($php_errormsg);
+if (!ENVO_USERID) die($php_errormsg);
 
-if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die($php_errormsg1);
+if (!$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die($php_errormsg1);
 
 // Set successfully to zero
 $succesfully = 0;
@@ -164,9 +164,9 @@ if (file_exists(APP_PATH . 'plugins/blog/admin/lang/' . $site_language . '.ini')
 
       // EN: Insert data to table 'plugins' about this plugin
       // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
-      $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Blog", "Run your own blog.", 1, ' . JAK_USERID . ', 4, "blog", "require_once APP_PATH.\'plugins/blog/blog.php\';", "if ($page == \'blog\') {
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Blog", "Run your own blog.", 1, ' . ENVO_USERID . ', 4, "blog", "require_once APP_PATH.\'plugins/blog/blog.php\';", "if ($page == \'blog\') {
         require_once APP_PATH.\'plugins/blog/admin/blog.php\';
-           $JAK_PROVED = 1;
+           $ENVO_PROVED = 1;
            $checkp = 1;
         }", "../plugins/blog/admin/template/blognav.php", "blog", "uninstall.php", "1.1", NOW())');
 
@@ -181,8 +181,8 @@ if (file_exists(APP_PATH . 'plugins/blog/admin/lang/' . $site_language . '.ini')
 
       // EN: Usergroup - Insert php code (get data from plugin setting in usergroup)
       // CZ: Usergroup - Vložení php kódu (získání dat z nastavení pluginu v uživatelské skupině)
-      $insertphpcode = 'if (isset($defaults[\'jak_blog\'])) {
-	$insert .= \'blog = \"\'.$defaults[\'jak_blog\'].\'\",\'; }';
+      $insertphpcode = 'if (isset($defaults[\'envo_blog\'])) {
+	$insert .= \'blog = \"\'.$defaults[\'envo_blog\'].\'\",\'; }';
 
 
       // EN: Set admin lang of plugin
@@ -213,20 +213,20 @@ if (file_exists(APP_PATH . 'plugins/blog/admin/lang/' . $site_language . '.ini')
         	$blog->envoFieldstoSelect(\"id, title, content\");
         	
         	// Load the array into template
-        	$JAK_SEARCH_RESULT_BLOG = $blog->set_result(JAK_PLUGIN_VAR_BLOG, \'a\', $jkv[\"blogurl\"]);';
+        	$ENVO_SEARCH_RESULT_BLOG = $blog->set_result(ENVO_PLUGIN_VAR_BLOG, \'a\', $jkv[\"blogurl\"]);';
 
       // EN: Php code for rss
       // CZ: Php kód pro rss
-      $sitephprss = 'if ($page1 == JAK_PLUGIN_VAR_BLOG) {
+      $sitephprss = 'if ($page1 == ENVO_PLUGIN_VAR_BLOG) {
 	
 	if ($jkv[\"blogrss\"]) {
 		$sql = \'SELECT id, title, content, time FROM \'.DB_PREFIX.\'blog WHERE active = 1 ORDER BY time DESC LIMIT \'.$jkv[\"blogrss\"];
-		$sURL = JAK_PLUGIN_VAR_BLOG;
+		$sURL = ENVO_PLUGIN_VAR_BLOG;
 		$sURL1 = \'a\';
 		$what = 1;
 		$seowhat = $jkv[\"blogurl\"];
 		
-		$JAK_RSS_DESCRIPTION = envo_cut_text($jkv[\"blogdesc\"], $jkv[\"shortmsg\"], \'…\');
+		$ENVO_RSS_DESCRIPTION = envo_cut_text($jkv[\"blogdesc\"], $jkv[\"shortmsg\"], \'…\');
 		
 	} else {
 		envo_redirect(BASE_URL);
@@ -236,24 +236,24 @@ if (file_exists(APP_PATH . 'plugins/blog/admin/lang/' . $site_language . '.ini')
 
       // EN: Php code for tags
       // CZ: Php kód pro tagy
-      $sitephptag = 'if ($row[\'pluginid\'] == JAK_PLUGIN_ID_BLOG) {
-$blogtagData[] = ENVO_tags::envoTagSql(\"blog\", $row[\'itemid\'], \"id, title, content\", \"content\", JAK_PLUGIN_VAR_BLOG, \"a\", $jkv[\"blogurl\"]);
-$JAK_TAG_BLOG_DATA = $blogtagData;
+      $sitephptag = 'if ($row[\'pluginid\'] == ENVO_PLUGIN_ID_BLOG) {
+$blogtagData[] = ENVO_tags::envoTagSql(\"blog\", $row[\'itemid\'], \"id, title, content\", \"content\", ENVO_PLUGIN_VAR_BLOG, \"a\", $jkv[\"blogurl\"]);
+$ENVO_TAG_BLOG_DATA = $blogtagData;
 }';
 
       // EN: Php code for sitemap
       // CZ: Php kód pro mapu sítě
       $sitephpsitemap = 'include_once APP_PATH.\'plugins/blog/functions.php\';
 
-$JAK_BLOG_ALL = envo_get_blog(\'\', $jkv[\"blogorder\"], \'\', \'\', $jkv[\"blogurl\"], $tl[\'general\'][\'g56\']);
-$PAGE_TITLE = JAK_PLUGIN_NAME_BLOG;';
+$ENVO_BLOG_ALL = envo_get_blog(\'\', $jkv[\"blogorder\"], \'\', \'\', $jkv[\"blogurl\"], $tl[\'general\'][\'g56\']);
+$PAGE_TITLE = ENVO_PLUGIN_NAME_BLOG;';
 
       // Fulltext search query
       $sqlfull       = '$envodb->query(\'ALTER TABLE \'.DB_PREFIX.\'blog ADD FULLTEXT(`title`, `content`)\');';
       $sqlfullremove = '$envodb->query(\'ALTER TABLE \'.DB_PREFIX.\'blog DROP INDEX `title`\');';
 
       // Connect to pages/news
-      $pages = 'if ($pg[\'pluginid\'] == JAK_PLUGIN_BLOG) {
+      $pages = 'if ($pg[\'pluginid\'] == ENVO_PLUGIN_BLOG) {
 
 include_once APP_PATH.\'plugins/blog/admin/template/blog_connect.php\';
 
@@ -261,16 +261,16 @@ include_once APP_PATH.\'plugins/blog/admin/template/blog_connect.php\';
 
       // EN: Php code for insert data to DB
       // CZ: Php kód pro vložení dat do DB
-      $sqlinsert = 'if (!isset($defaults[\'jak_showblog\'])) {
+      $sqlinsert = 'if (!isset($defaults[\'envo_showblog\'])) {
 	$bl = 0;
-} else if (in_array(0, $defaults[\'jak_showblog\'])) {
+} else if (in_array(0, $defaults[\'envo_showblog\'])) {
 	$bl = 0;
 } else {
-	$bl = join(\',\', $defaults[\'jak_showblog\']);
+	$bl = join(\',\', $defaults[\'envo_showblog\']);
 }
 
-if (empty($bl) && !empty($defaults[\'jak_showblogmany\'])) {
-	$insert .= \'showblog = \"\'.$defaults[\'jak_showblogorder\'].\':\'.$defaults[\'jak_showblogmany\'].\'\",\';
+if (empty($bl) && !empty($defaults[\'envo_showblogmany\'])) {
+	$insert .= \'showblog = \"\'.$defaults[\'envo_showblogorder\'].\':\'.$defaults[\'envo_showblogmany\'].\'\",\';
 } else if (!empty($bl)) {
 	$insert .= \'showblog = \"\'.$bl.\'\",\';
 } else {
@@ -278,7 +278,7 @@ if (empty($bl) && !empty($defaults[\'jak_showblogmany\'])) {
 }';
 
       //
-      $getblog = '$JAK_GET_BLOG = envo_get_page_info(DB_PREFIX.\'blog\', \'\');
+      $getblog = '$ENVO_GET_BLOG = envo_get_page_info(DB_PREFIX.\'blog\', \'\');
 
 if ($ENVO_FORM_DATA) {
 
@@ -296,7 +296,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
 	$pluginbasic_connect = \'plugins/blog/template/pages_news.php\';
 	$pluginsite_connect = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/pages_news.php\';
 	
-	if (JAK_PLUGIN_ACCESS_BLOG && $pg[\'pluginid\'] == JAK_PLUGIN_ID_BLOG && !empty($row[\'showblog\'])) {
+	if (ENVO_PLUGIN_ACCESS_BLOG && $pg[\'pluginid\'] == ENVO_PLUGIN_ID_BLOG && !empty($row[\'showblog\'])) {
 		if (file_exists($pluginsite_connect)) {
 			include_once APP_PATH.$pluginsite_connect;
 		} else {

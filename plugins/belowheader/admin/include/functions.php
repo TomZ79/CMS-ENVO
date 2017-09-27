@@ -1,7 +1,7 @@
 <?php
 // EN:
 // CZ:
-function jak_get_belowheader()
+function envo_get_belowheader()
 {
 
   global $envodb;

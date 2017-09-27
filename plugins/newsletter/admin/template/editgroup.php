@@ -103,7 +103,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_name', $ENVO_FORM_DATA["name"], 'jak_name', 'form-control');
+                      echo $Html->addInput('text', 'envo_name', $ENVO_FORM_DATA["name"], 'envo_name', 'form-control');
                       ?>
 
                     </div>
@@ -122,7 +122,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                    echo $Html->addTextarea('jak_desc', $ENVO_FORM_DATA["description"], '4', '', array('id' => 'jakEditor', 'class' => 'form-control jakEditorLight'));
+                    echo $Html->addTextarea('envo_desc', $ENVO_FORM_DATA["description"], '4', '', array('id' => 'envoEditor', 'class' => 'form-control envoEditorLight'));
                     ?>
 
                   </div>

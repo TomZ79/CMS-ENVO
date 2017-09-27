@@ -1,6 +1,6 @@
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
-<?php if (JAK_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=tv-tower&amp;sp=setting'; ?>
+<?php if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=tv-tower&amp;sp=setting'; ?>
 
   <div class="col-md-12" style="margin: 10px 0 50px 0;">
 
@@ -22,20 +22,20 @@
     <?php
 
     // Procházení pole se seznamem vysílačů
-    if (isset($JAK_TVTOWER) && is_array($JAK_TVTOWER)) {
+    if (isset($ENVO_TVTOWER) && is_array($ENVO_TVTOWER)) {
 
       // EN: Sort array by 'name' keys
       // CZ: Setřídění pole podle 'name'
-      $JAK_TVTOWER = sort_array_mutlidim($JAK_TVTOWER, 'name ASC');
+      $ENVO_TVTOWER = sort_array_mutlidim($ENVO_TVTOWER, 'name ASC');
 
-      foreach ($JAK_TVTOWER as $tt) {
+      foreach ($ENVO_TVTOWER as $tt) {
         // Pokud je vysílač aktivní, není uzamčen -> vypis dat o vysílači, kanálech a programech
         if ($tt['active']) {
 
           // Počet programů pro daný vysílač
-          if (isset($JAK_TVPROGRAM_ALL) && is_array($JAK_TVPROGRAM_ALL)) {
+          if (isset($ENVO_TVPROGRAM_ALL) && is_array($ENVO_TVPROGRAM_ALL)) {
             $programcounter = 0;
-            foreach ($JAK_TVPROGRAM_ALL as $tp) {
+            foreach ($ENVO_TVPROGRAM_ALL as $tp) {
               if ($tp["towerid"] == $tt['id']) {
                 $programcounter++;
               }
@@ -62,12 +62,12 @@
                             <option value=""><?php echo $tltt["tt_frontend_list"]["ttl3"]; ?></option>
                             <?php
                             // Zobrazení názvů sítí pro danný vysílač
-                            if (isset($JAK_TVCHANNEL_ALL) && is_array($JAK_TVCHANNEL_ALL)) {
+                            if (isset($ENVO_TVCHANNEL_ALL) && is_array($ENVO_TVCHANNEL_ALL)) {
                               // Definice pole pro uložení kanálů dle podmínky
                               $foundChannel = array();
 
                               // Procházení pole s daty všech kanálů
-                              foreach ($JAK_TVCHANNEL_ALL as $tc) {
+                              foreach ($ENVO_TVCHANNEL_ALL as $tc) {
                                 if ($tc["towerid"] == $tt['id']) {
                                   // Přídání kanálů vyhovujícím podmínce do pole
                                   $foundChannel[] = $tc;
@@ -125,12 +125,12 @@
                       <?php
 
                       // Procházení pole se seznamem programů
-                      if (isset($JAK_TVPROGRAM_ALL) && is_array($JAK_TVPROGRAM_ALL)) {
+                      if (isset($ENVO_TVPROGRAM_ALL) && is_array($ENVO_TVPROGRAM_ALL)) {
                         // Definice pole pro uložení programů dle podmínky
                         $foundProgram = array();
 
                         // Procházení pole s daty všech programů
-                        foreach ($JAK_TVPROGRAM_ALL as $tp) {
+                        foreach ($ENVO_TVPROGRAM_ALL as $tp) {
                           // Pokud program má stejné 'towerid' jako je 'id' procházeného vysílače, potom přidej programy do pole (přidej programy do pole pro danný vysílač)
                           if ($tp["towerid"] == $tt['id']) {
                             // Přídání programů vyhovujícím podmínce do pole
@@ -154,8 +154,8 @@
                             echo '<td>' . (($foundProgram['tvr'] == '1') ? $tltt["tt_frontend_list"]["ttl13"] : (($foundProgram['tvr'] == '2') ? $tltt["tt_frontend_list"]["ttl14"] : $tltt["tt_frontend_list"]["ttl15"])) . '</td>';
 
                             // Zobrazení čísla kanálu a informací o kanálu ve kterém je vysílán danný program
-                            if (isset($JAK_TVCHANNEL_ALL) && is_array($JAK_TVCHANNEL_ALL)) {
-                              foreach ($JAK_TVCHANNEL_ALL as $tc) {
+                            if (isset($ENVO_TVCHANNEL_ALL) && is_array($ENVO_TVCHANNEL_ALL)) {
+                              foreach ($ENVO_TVCHANNEL_ALL as $tc) {
                                 if ($foundProgram["channelid"] == $tc['id']) {
                                   echo '<td>' . $tc['number'] . ' K</td>';  // Číslo kanálu
                                   echo '<td>' . $tc['frequency'] . ' MHz</td>';  // Kmitočet kanálu
@@ -195,10 +195,10 @@
                             echo '<div class="rTableCell col-md-8 text-left">' . (!empty($foundProgram['services']) ? $foundProgram['services'] : '-') . '</div>';
                             echo '</div>';
 
-                            if (JAK_ASACCESS) {
+                            if (ENVO_ASACCESS) {
 
                               echo '<div class="rTableRow">';
-                              echo '<div class="rTableCell col-md-12 text-right" style="height: auto;"><a href="' . BASE_URL . 'admin/index.php?p=tv-tower&sp=tvprogram&ssp=editprogram&id=' . $foundProgram["id"] . '" title="' . $tl["button"]["btn1"] . '" class="btn btn-info btn-sm jaktip"><span class="visible-xs"><i class="fa fa-edit"></i></span><span class="hidden-xs">' . $tl["button"]["btn1"] . '</span></a></div>';
+                              echo '<div class="rTableCell col-md-12 text-right" style="height: auto;"><a href="' . BASE_URL . 'admin/index.php?p=tv-tower&sp=tvprogram&ssp=editprogram&id=' . $foundProgram["id"] . '" title="' . $tl["button"]["btn1"] . '" class="btn btn-info btn-sm envotooltip"><span class="visible-xs"><i class="fa fa-edit"></i></span><span class="hidden-xs">' . $tl["button"]["btn1"] . '</span></a></div>';
                               echo '</div>';
                             }
 

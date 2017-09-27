@@ -3,7 +3,7 @@
  * JS - Pluginorder - ADMIN
  * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
- * Author: Thomas
+ * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
  * INDEX:
@@ -71,13 +71,13 @@ $(function () {
 				if (data.status == 'success') {
 					// IF DATA SUCCESS
 
-					$('.jakplugins').animate({backgroundColor: '#C9FFC9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
+					$('.envoplugins').animate({backgroundColor: '#C9FFC9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
 					$.notify({icon: 'fa fa-check-square-o', message: data.status_msg}, {type: 'success'});
 
 				} else {
 					// IF DATA ERROR
 
-					$('.jakplugins').animate({backgroundColor: '#FFC9C9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
+					$('.envoplugins').animate({backgroundColor: '#FFC9C9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
 					$.notify({icon: 'fa fa-exclamation-triangle', message: data.status_msg}, {type: 'danger'});
 
 				}

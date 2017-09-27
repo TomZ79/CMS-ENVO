@@ -8,9 +8,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 // Check if the file is accessed only from a admin if not stop the script from running
 $php_errormsg = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
 $php_errormsg1 = 'Only ADMINISTRATOR privileges allow you to edit the file !!! You cannot access this file directly.';
-if (!JAK_USERID) die($php_errormsg);
+if (!ENVO_USERID) die($php_errormsg);
 
-if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die($php_errormsg1);
+if (!$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die($php_errormsg1);
 
 // Set successfully to zero
 $succesfully = 0;
@@ -186,9 +186,9 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
 
       // EN: Insert data to table 'plugins' about this plugin
       // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
-      $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Download", "Run your own download database, let user download direct from your server or link.", 1, ' . JAK_USERID . ', 4, "download", "require_once APP_PATH.\'plugins/download/download.php\';", "if ($page == \'download\') {
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Download", "Run your own download database, let user download direct from your server or link.", 1, ' . ENVO_USERID . ', 4, "download", "require_once APP_PATH.\'plugins/download/download.php\';", "if ($page == \'download\') {
         require_once APP_PATH.\'plugins/download/admin/download.php\';
-           $JAK_PROVED = 1;
+           $ENVO_PROVED = 1;
            $checkp = 1;
         }", "../plugins/download/admin/template/downloadnav.php", "download", "uninstall.php", "1.2.1", NOW())');
 
@@ -203,8 +203,8 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
 
       // EN: Usergroup - Insert php code (get data from plugin setting in usergroup)
       // CZ: Usergroup - Vložení php kódu (získání dat z nastavení pluginu v uživatelské skupině)
-      $insertphpcode = 'if (isset($defaults[\'jak_download\'])) {
-	$insert .= \'download = \"\'.$defaults[\'jak_download\'].\'\", downloadcan = \"\'.$defaults[\'jak_candownload\'].\'\",\'; }';
+      $insertphpcode = 'if (isset($defaults[\'envo_download\'])) {
+	$insert .= \'download = \"\'.$defaults[\'envo_download\'].\'\", downloadcan = \"\'.$defaults[\'envo_candownload\'].\'\",\'; }';
 
       // EN: Set admin lang of plugin
       // CZ: Nastavení jazyka pro administrační rozhraní pluginu
@@ -234,20 +234,20 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
         	$download->envoFieldstoSelect(\"id, title, content\");
         	
         	// Load the array into template
-        	$JAK_SEARCH_RESULT_DOWNLOAD = $download->set_result(JAK_PLUGIN_VAR_DOWNLOAD, \'f\', $jkv[\"downloadurl\"]);';
+        	$ENVO_SEARCH_RESULT_DOWNLOAD = $download->set_result(ENVO_PLUGIN_VAR_DOWNLOAD, \'f\', $jkv[\"downloadurl\"]);';
 
       // EN: Php code for rss
       // CZ: Php kód pro rss
-      $sitephprss = 'if ($page1 == JAK_PLUGIN_VAR_DOWNLOAD) {
+      $sitephprss = 'if ($page1 == ENVO_PLUGIN_VAR_DOWNLOAD) {
 	
 	if ($jkv[\"downloadrss\"]) {
 		$sql = \'SELECT id, title, content, time FROM \'.DB_PREFIX.\'download WHERE active = 1 ORDER BY time DESC LIMIT \'.$jkv[\"downloadrss\"];
-		$sURL = JAK_PLUGIN_VAR_DOWNLOAD;
+		$sURL = ENVO_PLUGIN_VAR_DOWNLOAD;
 		$sURL1 = \'a\';
 		$what = 1;
 		$seowhat = $jkv[\"downloadurl\"];
 		
-		$JAK_RSS_DESCRIPTION = envo_cut_text($jkv[\"downloaddesc\"], $jkv[\"shortmsg\"], \'…\');
+		$ENVO_RSS_DESCRIPTION = envo_cut_text($jkv[\"downloaddesc\"], $jkv[\"shortmsg\"], \'…\');
 		
 	} else {
 		envo_redirect(BASE_URL);
@@ -257,39 +257,39 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
 
       // EN: Php code for tags
       // CZ: Php kód pro tagy
-      $sitephptag = 'if ($row[\'pluginid\'] == JAK_PLUGIN_ID_DOWNLOAD) {
-$downloadtagData[] = ENVO_tags::envoTagSql(\"download\", $row[\'itemid\'], \"id, title, content\", \"content\", JAK_PLUGIN_VAR_DOWNLOAD, \"f\", $jkv[\"downloadurl\"]);
-$JAK_TAG_DOWNLOAD_DATA = $downloadtagData;
+      $sitephptag = 'if ($row[\'pluginid\'] == ENVO_PLUGIN_ID_DOWNLOAD) {
+$downloadtagData[] = ENVO_tags::envoTagSql(\"download\", $row[\'itemid\'], \"id, title, content\", \"content\", ENVO_PLUGIN_VAR_DOWNLOAD, \"f\", $jkv[\"downloadurl\"]);
+$ENVO_TAG_DOWNLOAD_DATA = $downloadtagData;
 }';
 
       // EN: Php code for sitemap
       // CZ: Php kód pro mapu sítě
       $sitephpsitemap = 'include_once APP_PATH.\'plugins/download/functions.php\';
 
-$JAK_DOWNLOAD_ALL = jak_get_download(\'\', $jkv[\"downloadorder\"], \'\', \'\', $jkv[\"downloadrss\"], $jkv[\"downloadurl\"], $tl[\'general\'][\'g56\']);
-$PAGE_TITLE = JAK_PLUGIN_NAME_DOWNLOAD;';
+$ENVO_DOWNLOAD_ALL = envo_get_download(\'\', $jkv[\"downloadorder\"], \'\', \'\', $jkv[\"downloadrss\"], $jkv[\"downloadurl\"], $tl[\'general\'][\'g56\']);
+$PAGE_TITLE = ENVO_PLUGIN_NAME_DOWNLOAD;';
 
       // Fulltext search query
       $sqlfull       = '$envodb->query(\'ALTER TABLE \'.DB_PREFIX.\'download ADD FULLTEXT(`title`, `content`)\');';
       $sqlfullremove = '$envodb->query(\'ALTER TABLE \'.DB_PREFIX.\'download DROP INDEX `title`\');';
 
       // Connect to pages/news
-      $pages = 'if ($pg[\'pluginid\'] == JAK_PLUGIN_DOWNLOAD) {
+      $pages = 'if ($pg[\'pluginid\'] == ENVO_PLUGIN_DOWNLOAD) {
 include_once APP_PATH.\'plugins/download/admin/template/dl_connect.php\';
 }';
 
       // EN: Php code for insert data to DB
       // CZ: Php kód pro vložení dat do DB
-      $sqlinsert = 'if (!isset($defaults[\'jak_showdl\'])) {
+      $sqlinsert = 'if (!isset($defaults[\'envo_showdl\'])) {
 	$dl = 0;
-} else if (in_array(0, $defaults[\'jak_showdl\'])) {
+} else if (in_array(0, $defaults[\'envo_showdl\'])) {
 	$dl = 0;
 } else {
-	$dl = join(\',\', $defaults[\'jak_showdl\']);
+	$dl = join(\',\', $defaults[\'envo_showdl\']);
 }
 
-if (empty($dl) && !empty($defaults[\'jak_showdlmany\'])) {
-	$insert .= \'showdownload = \"\'.$defaults[\'jak_showdlorder\'].\':\'.$defaults[\'jak_showdlmany\'].\'\",\';
+if (empty($dl) && !empty($defaults[\'envo_showdlmany\'])) {
+	$insert .= \'showdownload = \"\'.$defaults[\'envo_showdlorder\'].\':\'.$defaults[\'envo_showdlmany\'].\'\",\';
 } else if (!empty($dl)) {
 	$insert .= \'showdownload = \"\'.$dl.\'\",\';
 } else {
@@ -297,7 +297,7 @@ if (empty($dl) && !empty($defaults[\'jak_showdlmany\'])) {
 }';
 
       //
-      $getdl = '$JAK_GET_DOWNLOAD = envo_get_page_info(DB_PREFIX.\'download\', \'\');
+      $getdl = '$ENVO_GET_DOWNLOAD = envo_get_page_info(DB_PREFIX.\'download\', \'\');
 
 if ($ENVO_FORM_DATA) {
 
@@ -320,7 +320,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 	$pluginbasic_connect = \'plugins/download/template/pages_news.php\';
 	$pluginsite_connect = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/download/pages_news.php\';
 	
-	if (JAK_PLUGIN_ACCESS_DOWNLOAD && $pg[\'pluginid\'] == JAK_PLUGIN_ID_DOWNLOAD && !empty($row[\'showdownload\'])) {
+	if (ENVO_PLUGIN_ACCESS_DOWNLOAD && $pg[\'pluginid\'] == ENVO_PLUGIN_ID_DOWNLOAD && !empty($row[\'showdownload\'])) {
 		if (file_exists($pluginsite_connect)) {
 			include_once APP_PATH.$pluginsite_connect;
 		} else {

@@ -40,7 +40,7 @@
       showGutter: <?php echo $jkv["acegutter"]; ?>,
     });
 
-    texthtmlel = $("#jak_editor_light").val();
+    texthtmlel = $("#envo_editor_light").val();
     htmlelACE.session.setValue(texthtmlel);
 
     /* Responsive Filemanager
@@ -58,7 +58,7 @@
     /* Submit Form
      ========================================= */
     $('form').submit(function () {
-      $("#jak_editor_light").val(htmlelACE.getValue());
+      $("#envo_editor_light").val(htmlelACE.getValue());
     });
   </script>
 <?php }
@@ -67,7 +67,7 @@ if (!$jkv["adv_editor"]) { ?>
   <?php include_once('assets/js/tiny.editor.php');
 } ?>
 
-<?php if (isset($JAK_HOOK_FOOTER_ADMIN) && is_array($JAK_HOOK_FOOTER_ADMIN)) foreach ($JAK_HOOK_FOOTER_ADMIN as $foota) {
+<?php if (isset($ENVO_HOOK_FOOTER_ADMIN) && is_array($ENVO_HOOK_FOOTER_ADMIN)) foreach ($ENVO_HOOK_FOOTER_ADMIN as $foota) {
   // Import all hooks for footer just before /body
   include_once APP_PATH . $foota["phpcode"];
 } ?>

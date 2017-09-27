@@ -15,7 +15,7 @@
  * @param object opt
  * @return string
  */
-function jakSlug(s, opt) {
+function envoSlug(s, opt) {
 	s = String(s);
 	opt = Object(opt);
 	

@@ -74,7 +74,7 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
 
 </div>
 
-<?php if (isset($JAK_BLOG_CAT_EXIST)) { ?>
+<?php if (isset($ENVO_BLOG_CAT_EXIST)) { ?>
 
   <div class="box box-success">
     <div class="box-header with-border">
@@ -98,7 +98,7 @@ if ($page2 == "e" || $page2 == "epc" || $page2 == "ech" || $page2 == "ene") { ?>
       $title4 = $tl["icons"]["i2"];
       $title5 = $tl["icons"]["i1"];
 
-      echo envo_build_menu_blog(0, $mheader, $lang, $title1, $title2, $title3, $title4, $title5, ' class="sortable jak_cat_move"', ' id="mheader"');
+      echo envo_build_menu_blog(0, $mheader, $lang, $title1, $title2, $title3, $title4, $title5, ' class="sortable envo_cat_move"', ' id="mheader"');
 
       ?>
 

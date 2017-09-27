@@ -2,7 +2,7 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 $CHECK_USR_SESSION = session_id();
 
@@ -10,7 +10,7 @@ $CHECK_USR_SESSION = session_id();
 // -------- DATA PRO VŠECHNY FRONTEND STRÁNKY --------
 
 // Show content in template only the user have access
-$ENVO_MODULES = $jakuser->envoModuleAccess(JAK_USERID, "1,23");
+$ENVO_MODULES = $envouser->envoModuleAccess(ENVO_USERID, "1,23");
 
 // EN: Set base plugin folder - template
 // CZ: Nastavení základní složky pluginu - šablony
@@ -36,18 +36,18 @@ $envotable5 = DB_PREFIX . 'intranethousenotificationug';
 $envotable6 = DB_PREFIX . 'intranethousedocu';
 
 // Parse links once if needed a lot of time
-$backtoblog = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_INTRANET, '', '', '', '');
+$backtoblog = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '', '', '', '');
 
 // EN: If the user is logged in, get username and usergroup name
 // CZ: Pokud je uživatel přihlášen, získej uživatelské jméno a jméno uživatelské skupiny
-if (JAK_USERID) {
+if (ENVO_USERID) {
 
   // Get the user name
-  $ENVO_USER_NAME = $jakuser->getVar('name');
+  $ENVO_USER_NAME = $envouser->getVar('name');
   // Get the user avatar
-  $ENVO_USER_AVATAR = $jakuser->getVar('picture');
+  $ENVO_USER_AVATAR = $envouser->getVar('picture');
   // Get the user group name
-  $result          = $envodb->query('SELECT name FROM ' . DB_PREFIX . 'usergroup WHERE id="' . $jakuser->getVar("usergroupid") . '"');
+  $result          = $envodb->query('SELECT name FROM ' . DB_PREFIX . 'usergroup WHERE id="' . $envouser->getVar("usergroupid") . '"');
   $row             = $result->fetch_assoc();
   $ENVO_USER_GROUP = $row['name'];
 
@@ -59,7 +59,7 @@ include_once("functions.php");
 
 // EN: Info about notifications
 // CZ: Info o notifikacích
-$ENVO_NOTIFICATION = envo_get_notification_unread(JAK_USERGROUPID, FALSE, $ENVO_SETTING_VAL['intranetdateformat'], $ENVO_SETTING_VAL['intranettimeformat']);
+$ENVO_NOTIFICATION = envo_get_notification_unread(ENVO_USERGROUPID, FALSE, $ENVO_SETTING_VAL['intranetdateformat'], $ENVO_SETTING_VAL['intranettimeformat']);
 
 // -------- DATA FOR SELECTED FRONTEND PAGES --------
 // -------- DATA PRO VYBRANÉ FRONTEND STRÁNKY --------
@@ -90,7 +90,7 @@ switch ($page1) {
 
           // EN: Check if user has permission to see it - usergroup 'Administrator' have permission to all data automatically
           // Cz: Kontrola jestli má uživatel přístup k datům - Uživatelská skupina 'Administrátor' má přístup ke všem datům automaticky
-          if (envo_row_permission($pageID, $envotable, JAK_USERGROUPID)) {
+          if (envo_row_permission($pageID, $envotable, ENVO_USERGROUPID)) {
             // USER HAVE PERMISSION
 
             // EN: Get the data of house
@@ -152,7 +152,7 @@ switch ($page1) {
           } else {
             // USER HAVE NOT PERMISSION
 
-            envo_redirect(ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_INTRANET, '404', '', '', ''));
+            envo_redirect(ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '404', '', '', ''));
 
           }
 
@@ -170,7 +170,7 @@ switch ($page1) {
         // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
         if (!empty($page2)) {
           if ($page2 != 'h') {
-            envo_redirect(ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_INTRANET, '404', '', '', ''));
+            envo_redirect(ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '404', '', '', ''));
           }
         }
 
@@ -179,7 +179,7 @@ switch ($page1) {
 
         // EN: Getting the data about the Houses by usergroupid
         // CZ: Získání dat o bytových domech podle 'id' uživatelské skupiny
-        $ENVO_HOUSE_ALL = envo_get_house_info($envotable, FALSE, JAK_USERGROUPID);
+        $ENVO_HOUSE_ALL = envo_get_house_info($envotable, FALSE, ENVO_USERGROUPID);
 
         // EN: Title and Description
         // CZ: Titulek a Popis
@@ -208,7 +208,7 @@ switch ($page1) {
 
           // EN: Check if user has permission to see it - usergroup 'Administrator' have permission to all data automatically
           // Cz: Kontrola jestli má uživatel přístup k datům - Uživatelská skupina 'Administrátor' má přístup ke všem datům automaticky
-          if (envo_row_permission($pageID, $envotable4, JAK_USERGROUPID)) {
+          if (envo_row_permission($pageID, $envotable4, ENVO_USERGROUPID)) {
             // USER HAVE PERMISSION
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -229,14 +229,14 @@ switch ($page1) {
                 $result = $envodb->query('UPDATE ' . $envotable5 . ' SET
                           unread = "1"
                           WHERE notification_id = "' . smartsql($pageID) . '"
-                          AND usergroup_id = "' . JAK_USERGROUPID . '"');
+                          AND usergroup_id = "' . ENVO_USERGROUPID . '"');
 
                 if (!$result) {
 
                 } else {
                   // EN: Info about notifications - refresh data
                   // CZ: Info o notifikacích - refresh data
-                  $ENVO_NOTIFICATION = envo_get_notification_unread(JAK_USERGROUPID, FALSE, $ENVO_SETTING_VAL['intranetdateformat'], $ENVO_SETTING_VAL['intranettimeformat']);
+                  $ENVO_NOTIFICATION = envo_get_notification_unread(ENVO_USERGROUPID, FALSE, $ENVO_SETTING_VAL['intranetdateformat'], $ENVO_SETTING_VAL['intranettimeformat']);
                 }
 
               }
@@ -248,7 +248,7 @@ switch ($page1) {
                       FROM ' . $envotable4 . ', ' . $envotable5 . ' 
                       WHERE ' . $envotable4 . '.id = "' . smartsql($pageID) . '"
                       AND ' . $envotable5 . '.notification_id="' . smartsql($pageID) . '"
-                      AND ' . $envotable5 . '.usergroup_id="' . JAK_USERGROUPID . '"
+                      AND ' . $envotable5 . '.usergroup_id="' . ENVO_USERGROUPID . '"
                       LIMIT 1
                       ');
 
@@ -275,7 +275,7 @@ switch ($page1) {
           } else {
             // USER HAVE NOT PERMISSION
 
-            envo_redirect(ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_INTRANET, '404', '', '', ''));
+            envo_redirect(ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '404', '', '', ''));
 
           }
 
@@ -293,7 +293,7 @@ switch ($page1) {
         // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
         if (!empty($page2)) {
           if ($page2 != 'n') {
-            envo_redirect(ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_INTRANET, '404', '', '', ''));
+            envo_redirect(ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '404', '', '', ''));
           }
         }
 
@@ -302,7 +302,7 @@ switch ($page1) {
 
         // EN: Getting the data about the Notifications by usergroupid
         // CZ: Získání dat o Notifikacích podle 'id' uživatelské skupiny
-        $ENVO_NOTIFICATION_ALL = envo_get_notification_all(JAK_USERGROUPID, FALSE, $ENVO_SETTING_VAL['intranetdateformat'], $ENVO_SETTING_VAL['intranettimeformat']);
+        $ENVO_NOTIFICATION_ALL = envo_get_notification_all(ENVO_USERGROUPID, FALSE, $ENVO_SETTING_VAL['intranetdateformat'], $ENVO_SETTING_VAL['intranettimeformat']);
 
         // EN: Title and Description
         // CZ: Titulek a Popis
@@ -325,7 +325,7 @@ switch ($page1) {
     // CZ: Pokud neexistuje 'case', dochází k přesměrování stránek na 404
     if (!empty($page1)) {
       if ($page1 != 'house') {
-        envo_redirect(ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_INTRANET, '404', '', '', ''));
+        envo_redirect(ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_INTRANET, '404', '', '', ''));
       }
     }
 
@@ -333,7 +333,7 @@ switch ($page1) {
     // -------- VŠE V POŘÁDKU: KÓD PRO HLAVNÍ STRÁNKU --------
 
     // Get the stats
-    if (JAK_USERGROUPID == 3) {
+    if (ENVO_USERGROUPID == 3) {
       // EN: If usergroup is 'Administrator'
       // CZ: Pokud je uživatelská skupiny přihlášeného uživatele 'Administrator'
 
@@ -363,7 +363,7 @@ switch ($page1) {
         // EN: Getting count of records in DB by usergroup
         // CZ: Získání počtu záznamů v DB podle uživatelské skupiny
         // Find in permission column 'usergroupid' or '0'. 0 means availability for all user groups.
-        $result = $envodb->query('SELECT * FROM ' . $envotable . ' WHERE FIND_IN_SET("' . JAK_USERGROUPID . '", permission) OR  FIND_IN_SET("0", permission)');
+        $result = $envodb->query('SELECT * FROM ' . $envotable . ' WHERE FIND_IN_SET("' . ENVO_USERGROUPID . '", permission) OR  FIND_IN_SET("0", permission)');
         // Determine number of rows result set
         $row_cnt = $result->num_rows;
 

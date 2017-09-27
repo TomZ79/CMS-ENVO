@@ -67,7 +67,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
   </div>
 
-<?php if (isset($JAK_BELOWHEADER_ALL) && is_array($JAK_BELOWHEADER_ALL)) { ?>
+<?php if (isset($ENVO_BELOWHEADER_ALL) && is_array($ENVO_BELOWHEADER_ALL)) { ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="box box-success">
@@ -83,8 +83,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   <?php
                   // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                   // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                  echo $Html->addCheckbox('', '', FALSE, 'jak_delete_all');
-                  echo $Html->addLabel('jak_delete_all', '');
+                  echo $Html->addCheckbox('', '', FALSE, 'envo_delete_all');
+                  echo $Html->addLabel('envo_delete_all', '');
                   ?>
 
                 </div>
@@ -112,7 +112,7 @@ if ($page1 == "e" || $page1 == "ene") { ?>
               </th>
             </tr>
             </thead>
-            <?php foreach ($JAK_BELOWHEADER_ALL as $v) { ?>
+            <?php foreach ($ENVO_BELOWHEADER_ALL as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
                 <td>
@@ -121,8 +121,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                     <?php
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                    echo $Html->addCheckbox('jak_delete_belowheader[]', $v["id"], FALSE, 'jak_delete_belowheader' . $v["id"], 'highlight');
-                    echo $Html->addLabel('jak_delete_belowheader' . $v["id"], '');
+                    echo $Html->addCheckbox('envo_delete_belowheader[]', $v["id"], FALSE, 'envo_delete_belowheader' . $v["id"], 'highlight');
+                    echo $Html->addLabel('envo_delete_belowheader' . $v["id"], '');
                     ?>
 
                   </div>

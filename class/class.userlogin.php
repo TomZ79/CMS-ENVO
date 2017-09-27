@@ -77,14 +77,14 @@ class ENVO_userlogin
 
     // Check if cookies are set previous (wrongly) and delete
     if (isset($_COOKIE['cmsName']) || isset($_COOKIE['cmsId'])) {
-      setcookie("cmsName", "", time() - JAK_COOKIE_TIME, JAK_COOKIE_PATH);
-      setcookie("cmsId", "", time() - JAK_COOKIE_TIME, JAK_COOKIE_PATH);
+      setcookie("cmsName", "", time() - ENVO_COOKIE_TIME, ENVO_COOKIE_PATH);
+      setcookie("cmsId", "", time() - ENVO_COOKIE_TIME, ENVO_COOKIE_PATH);
     }
 
     // Now check if remember is selected and set cookies new...
     if ($remember) {
-      setcookie("cmsName", $name, time() + JAK_COOKIE_TIME, JAK_COOKIE_PATH, "", FALSE, TRUE);
-      setcookie("cmsId", $nidhash, time() + JAK_COOKIE_TIME, JAK_COOKIE_PATH, "", FALSE, TRUE);
+      setcookie("cmsName", $name, time() + ENVO_COOKIE_TIME, ENVO_COOKIE_PATH, "", FALSE, TRUE);
+      setcookie("cmsId", $nidhash, time() + ENVO_COOKIE_TIME, ENVO_COOKIE_PATH, "", FALSE, TRUE);
     }
 
   }
@@ -171,8 +171,8 @@ class ENVO_userlogin
 
     // Delete cookies from this page
     if (isset($_COOKIE['cmsName']) || isset($_COOKIE['cmsId'])) {
-      setcookie('cmsName', "", time() - JAK_COOKIE_TIME, JAK_COOKIE_PATH);
-      setcookie('cmsId', "", time() - JAK_COOKIE_TIME, JAK_COOKIE_PATH);
+      setcookie('cmsName', "", time() - ENVO_COOKIE_TIME, ENVO_COOKIE_PATH);
+      setcookie('cmsId', "", time() - ENVO_COOKIE_TIME, ENVO_COOKIE_PATH);
     }
 
     // Update Database to session NULL

@@ -8,9 +8,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 // Check if the file is accessed only from a admin if not stop the script from running
 $php_errormsg = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
 $php_errormsg1 = 'Only ADMINISTRATOR privileges allow you to edit the file !!! You cannot access this file directly.';
-if (!JAK_USERID) die($php_errormsg);
+if (!ENVO_USERID) die($php_errormsg);
 
-if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die($php_errormsg1);
+if (!$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die($php_errormsg1);
 
 // Set successfully to zero
 $succesfully = 0;
@@ -163,9 +163,9 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
 
       // EN: Insert data to table 'plugins' about this plugin
       // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
-      $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "FAQ", "Run your own faq database.", 1, ' . JAK_USERID . ', 4, "faq", "require_once APP_PATH.\'plugins/faq/faq.php\';", "if ($page == \'faq\') {
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "FAQ", "Run your own faq database.", 1, ' . ENVO_USERID . ', 4, "faq", "require_once APP_PATH.\'plugins/faq/faq.php\';", "if ($page == \'faq\') {
         require_once APP_PATH.\'plugins/faq/admin/faq.php\';
-           $JAK_PROVED = 1;
+           $ENVO_PROVED = 1;
            $checkp = 1;
         }", "../plugins/faq/admin/template/faqnav.php", "faq", "uninstall.php", "1.1", NOW())');
 
@@ -180,8 +180,8 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
 
       // EN: Usergroup - Insert php code (get data from plugin setting in usergroup)
       // CZ: Usergroup - Vložení php kódu (získání dat z nastavení pluginu v uživatelské skupině)
-      $insertphpcode = 'if (isset($defaults[\'jak_faq\'])) {
-	$insert .= \'faq = \"\'.$defaults[\'jak_faq\'].\'\", faqpost = \"\'.$defaults[\'jak_faqpost\'].\'\", faqpostapprove = \"\'.$defaults[\'jak_faqpostapprove\'].\'\", faqpostdelete = \"\'.$defaults[\'jak_faqpostdelete\'].\'\", faqrate = \"\'.$defaults[\'jak_faqrate\'].\'\", faqmoderate = \"\'.$defaults[\'jak_faqmoderate\'].\'\",\'; }';
+      $insertphpcode = 'if (isset($defaults[\'envo_faq\'])) {
+	$insert .= \'faq = \"\'.$defaults[\'envo_faq\'].\'\", faqpost = \"\'.$defaults[\'envo_faqpost\'].\'\", faqpostapprove = \"\'.$defaults[\'envo_faqpostapprove\'].\'\", faqpostdelete = \"\'.$defaults[\'envo_faqpostdelete\'].\'\", faqrate = \"\'.$defaults[\'envo_faqrate\'].\'\", faqmoderate = \"\'.$defaults[\'envo_faqmoderate\'].\'\",\'; }';
 
       // EN: Set admin lang of plugin
       // CZ: Nastavení jazyka pro administrační rozhraní pluginu
@@ -211,20 +211,20 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
         	$faq->envoFieldstoSelect(\"id, title, content\");
         	
         	// Load the array into template
-        	$JAK_SEARCH_RESULT_FAQ = $faq->set_result(JAK_PLUGIN_VAR_FAQ, \'a\', $jkv[\"faqurl\"]);';
+        	$ENVO_SEARCH_RESULT_FAQ = $faq->set_result(ENVO_PLUGIN_VAR_FAQ, \'a\', $jkv[\"faqurl\"]);';
 
       // EN: Php code for rss
       // CZ: Php kód pro rss
-      $sitephprss = 'if ($page1 == JAK_PLUGIN_VAR_FAQ) {
+      $sitephprss = 'if ($page1 == ENVO_PLUGIN_VAR_FAQ) {
 	
 	if ($jkv[\"faqrss\"]) {
 		$sql = \'SELECT id, title, content, time FROM \'.DB_PREFIX.\'faq WHERE active = 1 ORDER BY time DESC LIMIT \'.$jkv[\"faqrss\"];
-		$sURL = JAK_PLUGIN_VAR_FAQ;
+		$sURL = ENVO_PLUGIN_VAR_FAQ;
 		$sURL1 = \'a\';
 		$what = 1;
 		$seowhat = $jkv[\"faqurl\"];
 		
-		$JAK_RSS_DESCRIPTION = envo_cut_text($jkv[\"faqdesc\"], $jkv[\"shortmsg\"], \'…\');
+		$ENVO_RSS_DESCRIPTION = envo_cut_text($jkv[\"faqdesc\"], $jkv[\"shortmsg\"], \'…\');
 		
 	} else {
 		envo_redirect(BASE_URL);
@@ -234,24 +234,24 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
 
       // EN: Php code for tags
       // CZ: Php kód pro tagy
-      $sitephptag = 'if ($row[\'pluginid\'] == JAK_PLUGIN_ID_FAQ) {
-$faqtagData[] = ENVO_tags::envoTagSql(\"faq\", $row[\'itemid\'], \"id, title, content\", \"content\", JAK_PLUGIN_VAR_FAQ, \"a\", $jkv[\"faqurl\"]);
-$JAK_TAG_FAQ_DATA = $faqtagData;
+      $sitephptag = 'if ($row[\'pluginid\'] == ENVO_PLUGIN_ID_FAQ) {
+$faqtagData[] = ENVO_tags::envoTagSql(\"faq\", $row[\'itemid\'], \"id, title, content\", \"content\", ENVO_PLUGIN_VAR_FAQ, \"a\", $jkv[\"faqurl\"]);
+$ENVO_TAG_FAQ_DATA = $faqtagData;
 }';
 
       // EN: Php code for sitemap
       // CZ: Php kód pro mapu sítě
       $sitephpsitemap = 'include_once APP_PATH.\'plugins/faq/functions.php\';
 
-$JAK_FAQ_ALL = envo_get_faq(\'\', $jkv[\"faqorder\"], \'\', \'\', $jkv[\"faqurl\"], $tl[\'general\'][\'g56\']);
-$PAGE_TITLE = JAK_PLUGIN_NAME_FAQ;';
+$ENVO_FAQ_ALL = envo_get_faq(\'\', $jkv[\"faqorder\"], \'\', \'\', $jkv[\"faqurl\"], $tl[\'general\'][\'g56\']);
+$PAGE_TITLE = ENVO_PLUGIN_NAME_FAQ;';
 
       // Fulltext search query
       $sqlfull       = '$envodb->query(\'ALTER TABLE \'.DB_PREFIX.\'faq ADD FULLTEXT(`title`, `content`)\');';
       $sqlfullremove = '$envodb->query(\'ALTER TABLE \'.DB_PREFIX.\'faq DROP INDEX `title`\');';
 
       // Connect to pages/news
-      $pages = 'if ($pg[\'pluginid\'] == JAK_PLUGIN_FAQ) {
+      $pages = 'if ($pg[\'pluginid\'] == ENVO_PLUGIN_FAQ) {
 
 include_once APP_PATH.\'plugins/faq/admin/template/faq_connect.php\';
 
@@ -259,16 +259,16 @@ include_once APP_PATH.\'plugins/faq/admin/template/faq_connect.php\';
 
       // EN: Php code for insert data to DB
       // CZ: Php kód pro vložení dat do DB
-      $sqlinsert = 'if (!isset($defaults[\'jak_showfaq\'])) {
+      $sqlinsert = 'if (!isset($defaults[\'envo_showfaq\'])) {
 	$fq = 0;
-} else if (in_array(0, $defaults[\'jak_showfaq\'])) {
+} else if (in_array(0, $defaults[\'envo_showfaq\'])) {
 	$fq = 0;
 } else {
-	$fq = join(\',\', $defaults[\'jak_showfaq\']);
+	$fq = join(\',\', $defaults[\'envo_showfaq\']);
 }
 
-if (empty($fq) && !empty($defaults[\'jak_showfaqmany\'])) {
-	$insert .= \'showfaq = \"\'.$defaults[\'jak_showfaqorder\'].\':\'.$defaults[\'jak_showfaqmany\'].\'\",\';
+if (empty($fq) && !empty($defaults[\'envo_showfaqmany\'])) {
+	$insert .= \'showfaq = \"\'.$defaults[\'envo_showfaqorder\'].\':\'.$defaults[\'envo_showfaqmany\'].\'\",\';
 } else if (!empty($fq)) {
 	$insert .= \'showfaq = \"\'.$fq.\'\",\';
 } else {
@@ -276,7 +276,7 @@ if (empty($fq) && !empty($defaults[\'jak_showfaqmany\'])) {
 }';
 
       //
-      $getfaq = '$JAK_GET_FAQ = envo_get_page_info(DB_PREFIX.\'faq\', \'\');
+      $getfaq = '$ENVO_GET_FAQ = envo_get_page_info(DB_PREFIX.\'faq\', \'\');
 
 if ($ENVO_FORM_DATA) {
 
@@ -295,7 +295,7 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
 	$pluginbasic_connect = \'plugins/faq/template/pages_news.php\';
 	$pluginsite_connect = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/faq/pages_news.php\';
 	
-	if (JAK_PLUGIN_ID_FAQ && $pg[\'pluginid\'] == JAK_PLUGIN_ID_FAQ && !empty($row[\'showfaq\'])) {
+	if (ENVO_PLUGIN_ID_FAQ && $pg[\'pluginid\'] == ENVO_PLUGIN_ID_FAQ && !empty($row[\'showfaq\'])) {
 		if (file_exists($pluginsite_connect)) {
 			include_once APP_PATH.$pluginsite_connect;
 		} else {

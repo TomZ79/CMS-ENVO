@@ -8,9 +8,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 // Check if the file is accessed only from a admin if not stop the script from running
 $php_errormsg  = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
 $php_errormsg1 = 'Only ADMINISTRATOR privileges allow you to edit the file !!! You cannot access this file directly.';
-if (!JAK_USERID) die($php_errormsg);
+if (!ENVO_USERID) die($php_errormsg);
 
-if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die($php_errormsg1);
+if (!$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die($php_errormsg1);
 
 // Set successfully to zero
 $succesfully = 0;

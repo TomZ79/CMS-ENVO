@@ -60,7 +60,7 @@
 
   </div>
 
-<?php if (isset($JAK_NEWS) && is_array($JAK_NEWS)) { ?>
+<?php if (isset($ENVO_NEWS) && is_array($ENVO_NEWS)) { ?>
   <div class="box box-success">
     <div class="box-body no-padding">
       <div class="table-responsive">
@@ -92,7 +92,7 @@
           </tr>
           </thead>
           <tbody>
-          <?php foreach ($JAK_NEWS as $v) { ?>
+          <?php foreach ($ENVO_NEWS as $v) { ?>
             <tr>
               <td><?php echo $v["id"]; ?></td>
               <td>
@@ -181,8 +181,8 @@
     </div>
   </div>
 
-  <?php if ($JAK_PAGINATE) {
-    echo $JAK_PAGINATE;
+  <?php if ($ENVO_PAGINATE) {
+    echo $ENVO_PAGINATE;
   }
 } else { ?>
 

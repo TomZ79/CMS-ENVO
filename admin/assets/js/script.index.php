@@ -100,23 +100,23 @@ Pace.on('done', function() {
     series: [{
       type: 'column',
       name: 'Stránky',
-      data: [{$JAK_COUNTS["pageCtotal"]}]
+      data: [{$ENVO_COUNTS["pageCtotal"]}]
     }, {
       type: 'column',
       name: 'Tagy (Štítky)',
-      data: [{$JAK_COUNTS["tagsCtotal"]}]
+      data: [{$ENVO_COUNTS["tagsCtotal"]}]
     }, {
       type: 'column',
       name: 'Uživatelé',
-      data: [{$JAK_COUNTS["userCtotal"]}]
+      data: [{$ENVO_COUNTS["userCtotal"]}]
     }, {
       type: 'column',
       name: 'Pluginy',
-      data: [{$JAK_COUNTS["pluginCtotal"]}]
+      data: [{$ENVO_COUNTS["pluginCtotal"]}]
     }, {
       type: 'column',
       name: 'Hooky',
-      data: [{$JAK_COUNTS["hookCtotal"]}]
+      data: [{$ENVO_COUNTS["hookCtotal"]}]
     }]
   });
   

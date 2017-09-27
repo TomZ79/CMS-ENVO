@@ -1,10 +1,10 @@
-<?php if (JAK_SEARCH && JAK_USER_SEARCH && $page != 'search') { ?>
+<?php if (ENVO_SEARCH && ENVO_USER_SEARCH && $page != 'search') { ?>
 	<aside class="nav-sidebar hidden-xs">
 		<h4 class="brand"><?php echo $tl["title_sidebar"]["tsid"]; ?></h4>
 
 		<form id="ajaxsearchForm" action="<?php echo $P_SEAERCH_LINK; ?>" method="post">
 			<div class="input-group">
-				<input type="text" name="jakSH" id="Jajaxs" class="form-control" placeholder="<?php echo $tl["placeholder"]["plc"];
+				<input type="text" name="envoSH" id="Jajaxs" class="form-control" placeholder="<?php echo $tl["placeholder"]["plc"];
 				if ($jkv["fulltextsearch"]) echo $tl["placeholder"]["plc1"]; ?>">
 			      <span class="input-group-btn">
 			        <button type="submit" class="btn btn-color" name="search" id="JajaxSubmitSearch"><?php echo $tl["button"]["btn4"]; ?></button>
@@ -30,7 +30,7 @@
 				</div>
 			</div>
 		<?php }
-		if (isset($JAK_HOOK_SEARCH_SIDEBAR) && is_array ($JAK_HOOK_SEARCH_SIDEBAR)) foreach ($JAK_HOOK_SEARCH_SIDEBAR as $hss) {
+		if (isset($ENVO_HOOK_SEARCH_SIDEBAR) && is_array ($ENVO_HOOK_SEARCH_SIDEBAR)) foreach ($ENVO_HOOK_SEARCH_SIDEBAR as $hss) {
 			include_once $hss;
 		} ?>
 

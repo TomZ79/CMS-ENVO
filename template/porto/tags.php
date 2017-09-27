@@ -1,12 +1,12 @@
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
-<?php if (isset($JAK_GET_TAG_CLOUD)) {
-	echo '<div class="well well-sm">' . $JAK_GET_TAG_CLOUD . '</div>'; ?>
+<?php if (isset($ENVO_GET_TAG_CLOUD)) {
+	echo '<div class="well well-sm">' . $ENVO_GET_TAG_CLOUD . '</div>'; ?>
 
-	<?php if (isset($JAK_NO_TAG_DATA)) { ?>
+	<?php if (isset($ENVO_NO_TAG_DATA)) { ?>
 
 		<div class="alert bg-info">
-			<?php echo $JAK_NO_TAG_DATA; ?>
+			<?php echo $ENVO_NO_TAG_DATA; ?>
 		</div>
 
 	<?php }
@@ -15,7 +15,7 @@
 	<div class="row">
 
 		<?php $count = 0;
-		if (isset($JAK_TAG_PAGE_DATA) && is_array ($JAK_TAG_PAGE_DATA)) foreach ($JAK_TAG_PAGE_DATA as $p) {
+		if (isset($ENVO_TAG_PAGE_DATA) && is_array ($ENVO_TAG_PAGE_DATA)) foreach ($ENVO_TAG_PAGE_DATA as $p) {
 			$count ++; ?>
 
 			<div class="col-md-3 col-sm-6">
@@ -28,7 +28,7 @@
 			</div>
 
 		<?php }
-		if (isset($JAK_TAG_NEWS_DATA) && is_array ($JAK_TAG_NEWS_DATA)) foreach ($JAK_TAG_NEWS_DATA as $n) {
+		if (isset($ENVO_TAG_NEWS_DATA) && is_array ($ENVO_TAG_NEWS_DATA)) foreach ($ENVO_TAG_NEWS_DATA as $n) {
 			$count ++; ?>
 
 			<div class="col-md-3 col-sm-6">
@@ -41,7 +41,7 @@
 			</div>
 
 		<?php }
-		if (isset($JAK_HOOK_TAGS) && is_array ($JAK_HOOK_TAGS)) foreach ($JAK_HOOK_TAGS as $ht) {
+		if (isset($ENVO_HOOK_TAGS) && is_array ($ENVO_HOOK_TAGS)) foreach ($ENVO_HOOK_TAGS as $ht) {
 			include_once APP_PATH . $ht['phpcode'];
 		} ?>
 

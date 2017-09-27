@@ -129,7 +129,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_title', $JAK_SETTING_VAL["faqtitle"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_title', $ENVO_SETTING_VAL["faqtitle"], '', 'form-control');
                           ?>
 
                         </div>
@@ -148,7 +148,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('jak_lcontent', envo_edit_safe_userpost($JAK_SETTING_VAL["faqdesc"]), '4', '', array('class' => 'form-control'));
+                        echo $Html->addTextarea('envo_lcontent', envo_edit_safe_userpost($ENVO_SETTING_VAL["faqdesc"]), '4', '', array('class' => 'form-control'));
                         ?>
 
                       </div>
@@ -165,25 +165,25 @@ if ($errors) { ?>
                       <div class="col-md-7">
                         <div class="row">
                           <div class="col-md-6">
-                            <select name="jak_showfaqordern" class="form-control selectpicker">
+                            <select name="envo_showfaqordern" class="form-control selectpicker">
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                              echo $Html->addOption('id', $tl["selection"]["sel9"], ($JAK_SETTING['showfaqwhat'] == "id") ? TRUE : FALSE);
-                              echo $Html->addOption('title', $tl["selection"]["sel10"], ($JAK_SETTING['showfaqwhat'] == "title") ? TRUE : FALSE);
-                              echo $Html->addOption('time', $tl["selection"]["sel11"], ($JAK_SETTING['showfaqwhat'] == "time") ? TRUE : FALSE);
-                              echo $Html->addOption('hits', $tl["selection"]["sel12"], ($JAK_SETTING['showfaqwhat'] == "hits") ? TRUE : FALSE);
+                              echo $Html->addOption('id', $tl["selection"]["sel9"], ($ENVO_SETTING['showfaqwhat'] == "id") ? TRUE : FALSE);
+                              echo $Html->addOption('title', $tl["selection"]["sel10"], ($ENVO_SETTING['showfaqwhat'] == "title") ? TRUE : FALSE);
+                              echo $Html->addOption('time', $tl["selection"]["sel11"], ($ENVO_SETTING['showfaqwhat'] == "time") ? TRUE : FALSE);
+                              echo $Html->addOption('hits', $tl["selection"]["sel12"], ($ENVO_SETTING['showfaqwhat'] == "hits") ? TRUE : FALSE);
                               ?>
 
                             </select>
                           </div>
                           <div class="col-md-6">
-                            <select name="jak_showfaqorder" class="form-control selectpicker">
+                            <select name="envo_showfaqorder" class="form-control selectpicker">
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                              echo $Html->addOption('ASC', $tl["selection"]["sel13"], ($JAK_SETTING['showfaqorder'] == "ASC") ? TRUE : FALSE);
-                              echo $Html->addOption('DESC', $tl["selection"]["sel14"], ($JAK_SETTING['showfaqorder'] == "DESC") ? TRUE : FALSE);
+                              echo $Html->addOption('ASC', $tl["selection"]["sel13"], ($ENVO_SETTING['showfaqorder'] == "ASC") ? TRUE : FALSE);
+                              echo $Html->addOption('DESC', $tl["selection"]["sel14"], ($ENVO_SETTING['showfaqorder'] == "DESC") ? TRUE : FALSE);
                               ?>
 
                             </select>
@@ -203,7 +203,7 @@ if ($errors) { ?>
                       </div>
                       <div class="col-md-7">
                         <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
-                          <select name="jak_date" class="form-control selectpicker">
+                          <select name="envo_date" class="form-control selectpicker">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -230,7 +230,7 @@ if ($errors) { ?>
                       </div>
                       <div class="col-md-7">
                         <div class="form-group no-margin">
-                          <select name="jak_time" class="form-control selectpicker">
+                          <select name="envo_time" class="form-control selectpicker">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -277,14 +277,14 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_faqurl', '1', ($jkv["faqurl"] == '1') ? TRUE : FALSE, 'jak_faqurl1');
+                          echo $Html->addRadio('envo_faqurl', '1', ($jkv["faqurl"] == '1') ? TRUE : FALSE, 'envo_faqurl1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_faqurl1', $tl["checkbox"]["chk"]);
+                          echo $Html->addLabel('envo_faqurl1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_faqurl', '0', ($jkv["faqurl"] == '0') ? TRUE : FALSE, 'jak_faqurl2');
+                          echo $Html->addRadio('envo_faqurl', '0', ($jkv["faqurl"] == '0') ? TRUE : FALSE, 'envo_faqurl2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_faqurl2', $tl["checkbox"]["chk1"]);
+                          echo $Html->addLabel('envo_faqurl2', $tl["checkbox"]["chk1"]);
                           ?>
 
                         </div>
@@ -304,7 +304,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_rssitem', $jkv["faqrss"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_rssitem', $jkv["faqrss"], '', 'form-control');
                           ?>
 
                         </div>
@@ -349,7 +349,7 @@ if ($errors) { ?>
                       </div>
                       <div class="col-md-6">
                         <div class="<?php if (isset($errors["e6"])) echo " has-error"; ?>">
-                          <select name="jak_mid" class="form-control selectpicker">
+                          <select name="envo_mid" class="form-control selectpicker">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -375,7 +375,7 @@ if ($errors) { ?>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group<?php if (isset($errors["e5"])) echo " has-error"; ?> no-margin">
-                          <input type="text" name="jak_item" class="form-control" value="<?php echo $jkv["faqpageitem"]; ?>"/>
+                          <input type="text" name="envo_item" class="form-control" value="<?php echo $jkv["faqpageitem"]; ?>"/>
                         </div>
                       </div>
                     </div>
@@ -410,7 +410,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_shortmsg', $jkv["faqshortmsg"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_shortmsg', $jkv["faqshortmsg"], '', 'form-control');
                           ?>
 
                         </div>
@@ -453,7 +453,7 @@ if ($errors) { ?>
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                 echo $Html->addDiv('', 'csseditor');
                 // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                echo $Html->addTextarea('jak_css', $jkv["faq_css"], '20', '', array('id' => 'jak_css', 'class' => 'hidden'));
+                echo $Html->addTextarea('envo_css', $jkv["faq_css"], '20', '', array('id' => 'envo_css', 'class' => 'hidden'));
                 ?>
 
               </div>
@@ -491,7 +491,7 @@ if ($errors) { ?>
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                 echo $Html->addDiv('', 'javaeditor');
                 // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                echo $Html->addTextarea('jak_javascript', $jkv["faq_javascript"], '20', '', array('id' => 'jak_javascript', 'class' => 'hidden'));
+                echo $Html->addTextarea('envo_javascript', $jkv["faq_javascript"], '20', '', array('id' => 'envo_javascript', 'class' => 'hidden'));
                 ?>
 
               </div>

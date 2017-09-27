@@ -2,7 +2,7 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
@@ -21,7 +21,7 @@ if (empty($page1)) {
   $what    = 0;
   $seowhat = 0;
 
-  $JAK_RSS_DESCRIPTION = $jkv["metadesc"];
+  $ENVO_RSS_DESCRIPTION = $jkv["metadesc"];
 }
 
 // EN: Get all the php Hook by name of Hook
@@ -86,11 +86,11 @@ if (!empty($sql)) {
 
     $parseurl = str_replace("//", "/", BASE_URL . $parseurl);
 
-    $JAK_GET_RSS_ITEM[] = array('link' => $parseurl, 'title' => $Name, 'description' => trim($getStripedT), 'created' => date("r", strtotime($row['time'])));
+    $ENVO_GET_RSS_ITEM[] = array('link' => $parseurl, 'title' => $Name, 'description' => trim($getStripedT), 'created' => date("r", strtotime($row['time'])));
   }
 
-  $JAK_RSS_TITLE = $jkv["title"] . ' - RSS';
-  $JAK_RSS_DATE  = date(DATE_RFC2822);
+  $ENVO_RSS_TITLE = $jkv["title"] . ' - RSS';
+  $ENVO_RSS_DATE  = date(DATE_RFC2822);
 
   // EN: Load the php template
   // CZ: Načtení php template (šablony)

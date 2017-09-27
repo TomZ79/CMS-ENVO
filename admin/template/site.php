@@ -88,14 +88,14 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('jak_online', '1', ($jkv["offline"] == '1') ? TRUE : FALSE, 'jak_online1');
+                      echo $Html->addRadio('envo_online', '1', ($jkv["offline"] == '1') ? TRUE : FALSE, 'envo_online1');
                       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                      echo $Html->addLabel('jak_online1', $tl["checkbox"]["chk"]);
+                      echo $Html->addLabel('envo_online1', $tl["checkbox"]["chk"]);
 
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('jak_online', '0', ($jkv["offline"] == '0') ? TRUE : FALSE, 'jak_online2');
+                      echo $Html->addRadio('envo_online', '0', ($jkv["offline"] == '0') ? TRUE : FALSE, 'envo_online2');
                       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                      echo $Html->addLabel('jak_online2', $tl["checkbox"]["chk1"]);
+                      echo $Html->addLabel('envo_online2', $tl["checkbox"]["chk1"]);
                       ?>
 
                     </div>
@@ -114,14 +114,14 @@ if ($errors) { ?>
 
                   </div>
                   <div class="col-md-7">
-                    <select name="jak_offpage" class="form-control selectpicker">
+                    <select name="envo_offpage" class="form-control selectpicker">
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
                       $selected = ($jkv["offline_page"] == 0) ? TRUE : FALSE;
 
                       echo $Html->addOption('0', $tl["selection"]["sel"], $selected);
-                      if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $c) {
+                      if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $c) {
                         if ($c["pluginid"] == '0' && $c["pageid"] > '0') {
                           echo $Html->addOption($c["id"], $c["name"], ($jkv["offline_page"] == $c["id"]) ? TRUE : FALSE);
                         }
@@ -143,14 +143,14 @@ if ($errors) { ?>
 
                   </div>
                   <div class="col-md-7">
-                    <select name="jak_pagenotfound" class="form-control selectpicker">
+                    <select name="envo_pagenotfound" class="form-control selectpicker">
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
                       $selected = ($jkv["notfound_page"] == 0) ? TRUE : FALSE;
 
                       echo $Html->addOption('0', $tl["selection"]["sel"], $selected);
-                      if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $nf) {
+                      if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $nf) {
                         if ($nf["pluginid"] == '0' && $nf["pageid"] > '0') {
                           echo $Html->addOption($nf["id"], $nf["name"], ($jkv["notfound_page"] == $nf["id"]) ? TRUE : FALSE);
                         }
@@ -201,7 +201,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_title', $jkv["title"], 'sitetitle', 'form-control');
+                      echo $Html->addInput('text', 'envo_title', $jkv["title"], 'sitetitle', 'form-control');
                       ?>
 
                     </div>
@@ -214,7 +214,7 @@ if ($errors) { ?>
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                     echo $Html->addLabel('', '<strong>' . $tl["site_box_content"]["sitebc4"] . '</strong>');
                     // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                    echo $Html->addTextarea('jak_description', $jkv["metadesc"], '3', '', array('id' => 'metadesc', 'class' => 'form-control'));
+                    echo $Html->addTextarea('envo_description', $jkv["metadesc"], '3', '', array('id' => 'metadesc', 'class' => 'form-control'));
                     ?>
 
                   </div>
@@ -226,7 +226,7 @@ if ($errors) { ?>
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                     echo $Html->addLabel('', '<strong>' . $tl["site_box_content"]["sitebc5"] . '</strong>');
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'jak_keywords', $jkv["metakey"], 'metakey', 'form-control');
+                    echo $Html->addInput('text', 'envo_keywords', $jkv["metakey"], 'metakey', 'form-control');
                     ?>
 
                   </div>
@@ -244,7 +244,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'jak_author', $jkv["metaauthor"], 'metaauthor', 'form-control');
+                    echo $Html->addInput('text', 'envo_author', $jkv["metaauthor"], 'metaauthor', 'form-control');
                     ?>
 
                   </div>
@@ -263,14 +263,14 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('jak_robots', '1', ($jkv["robots"] == '1') ? TRUE : FALSE, 'jak_robots1');
+                      echo $Html->addRadio('envo_robots', '1', ($jkv["robots"] == '1') ? TRUE : FALSE, 'envo_robots1');
                       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                      echo $Html->addLabel('jak_robots1', $tl["checkbox"]["chk"]);
+                      echo $Html->addLabel('envo_robots1', $tl["checkbox"]["chk"]);
 
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('jak_robots', '0', ($jkv["robots"] == '0') ? TRUE : FALSE, 'jak_robots2');
+                      echo $Html->addRadio('envo_robots', '0', ($jkv["robots"] == '0') ? TRUE : FALSE, 'envo_robots2');
                       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                      echo $Html->addLabel('jak_robots2', $tl["checkbox"]["chk1"]);
+                      echo $Html->addLabel('envo_robots2', $tl["checkbox"]["chk1"]);
                       ?>
 
                     </div>
@@ -289,7 +289,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                    echo $Html->addTextarea('jak_copy', envo_edit_safe_userpost($jkv["copyright"]), '4', '', array('id' => 'copyright', 'class' => 'form-control'));
+                    echo $Html->addTextarea('envo_copy', envo_edit_safe_userpost($jkv["copyright"]), '4', '', array('id' => 'copyright', 'class' => 'form-control'));
                     ?>
 
                   </div>

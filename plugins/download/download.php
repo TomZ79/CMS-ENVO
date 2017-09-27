@@ -2,7 +2,7 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 $CHECK_USR_SESSION = session_id();
 
@@ -25,11 +25,11 @@ $envotable3 = DB_PREFIX . 'downloadhistory';
 include_once 'functions.php';
 
 // Get the important template stuff
-$JAK_SEARCH_WHERE = JAK_PLUGIN_VAR_DOWNLOAD;
-$JAK_SEARCH_LINK  = JAK_PLUGIN_VAR_DOWNLOAD;
+$ENVO_SEARCH_WHERE = ENVO_PLUGIN_VAR_DOWNLOAD;
+$ENVO_SEARCH_LINK  = ENVO_PLUGIN_VAR_DOWNLOAD;
 
 // Wright the Usergroup permission into define and for template
-define('JAK_DOWNLOADCAN', $jakusergroup->getVar("downloadcan"));
+define('ENVO_DOWNLOADCAN', $envousergroup->getVar("downloadcan"));
 
 // AJAX Search
 $AJAX_SEARCH_PLUGIN_WHERE = $envotable;
@@ -38,16 +38,16 @@ $AJAX_SEARCH_PLUGIN_SEO   = $jkv["downloadurl"];
 
 // Get the rss if active
 if ($jkv["downloadrss"]) {
-  $JAK_RSS_DISPLAY = 1;
-  $P_RSS_LINK      = ENVO_rewrite::envoParseurl('rss.xml', JAK_PLUGIN_VAR_DOWNLOAD, '', '', '');
+  $ENVO_RSS_DISPLAY = 1;
+  $P_RSS_LINK      = ENVO_rewrite::envoParseurl('rss.xml', ENVO_PLUGIN_VAR_DOWNLOAD, '', '', '');
 }
 
 // Parse links once if needed a lot of time
-$backtodl = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_DOWNLOAD, '', '', '', '');
+$backtodl = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, '', '', '', '');
 
 // Template Call
-$JAK_TPL_PLUG_T   = JAK_PLUGIN_NAME_DOWNLOAD;
-$JAK_TPL_PLUG_URL = $backtodl;
+$ENVO_TPL_PLUG_T   = ENVO_PLUGIN_NAME_DOWNLOAD;
+$ENVO_TPL_PLUG_URL = $backtodl;
 
 // -------- DATA FOR SELECTED FRONTEND PAGES --------
 // -------- DATA PRO VYBRANÉ FRONTEND STRÁNKY --------
@@ -57,15 +57,15 @@ $JAK_TPL_PLUG_URL = $backtodl;
 switch ($page1) {
   case 'c':
 
-    if (is_numeric($page2) && envo_row_permission($page2, $envotable1, JAK_USERGROUPID)) {
+    if (is_numeric($page2) && envo_row_permission($page2, $envotable1, ENVO_USERGROUPID)) {
 
       $getTotal = envo_get_total($envotable, $page2, 'catid', 'active');
 
       if ($jkv["downloadurl"]) {
-        $getWhere = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_DOWNLOAD, $page1, $page2, $page3, '');
+        $getWhere = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, $page1, $page2, $page3, '');
         $getPage  = $page4;
       } else {
-        $getWhere = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_DOWNLOAD, $page1, $page2, '', '');
+        $getWhere = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, $page1, $page2, '', '');
         $getPage  = $page3;
       }
 
@@ -76,38 +76,38 @@ switch ($page1) {
         $dlc->items_total    = $getTotal;
         $dlc->mid_range      = $jkv["downloadpagemid"];
         $dlc->items_per_page = $jkv["downloadpageitem"];
-        $dlc->jak_get_page   = $getPage;
-        $dlc->jak_where      = $getWhere;
-        $dlc->jak_prevtext   = $tl["pagination"]["pagin"];
-        $dlc->jak_nexttext   = $tl["pagination"]["pagin1"];
+        $dlc->envo_get_page   = $getPage;
+        $dlc->envo_where      = $getWhere;
+        $dlc->envo_prevtext   = $tl["pagination"]["pagin"];
+        $dlc->envo_nexttext   = $tl["pagination"]["pagin1"];
         $dlc->paginate();
-        $JAK_PAGINATE = $dlc->display_pages();
+        $ENVO_PAGINATE = $dlc->display_pages();
 
-        $JAK_DOWNLOAD_ALL = jak_get_download($dlc->limit, $jkv["downloadorder"], $page2, 't1.catid', $jkv["downloadurl"], $tl['global_text']['gtxt4']);
+        $ENVO_DOWNLOAD_ALL = envo_get_download($dlc->limit, $jkv["downloadorder"], $page2, 't1.catid', $jkv["downloadurl"], $tl['global_text']['gtxt4']);
       }
 
       // Get the download categories
       $row = $envodb->queryRow('SELECT name, content FROM ' . $envotable1 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
 
-      $PAGE_TITLE              = JAK_PLUGIN_NAME_DOWNLOAD . ' - ' . $row['name'];
+      $PAGE_TITLE              = ENVO_PLUGIN_NAME_DOWNLOAD . ' - ' . $row['name'];
       $PAGE_CONTENT            = $row['content'];
       $MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
       $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];
 
       // Get the sort orders for the grid
-      $JAK_HOOK_SIDE_GRID = FALSE;
-      $grid               = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql(JAK_PLUGIN_ID_DOWNLOAD) . '" AND fileid = 0 ORDER BY orderid ASC');
+      $ENVO_HOOK_SIDE_GRID = FALSE;
+      $grid               = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql(ENVO_PLUGIN_ID_DOWNLOAD) . '" AND fileid = 0 ORDER BY orderid ASC');
       while ($grow = $grid->fetch_assoc()) {
         // EN: Insert each record into array
         // CZ: Vložení získaných dat do pole
-        $JAK_HOOK_SIDE_GRID[] = $grow;
+        $ENVO_HOOK_SIDE_GRID[] = $grow;
       }
 
       // Get the url session
-      $_SESSION['jak_lastURL'] = $getWhere;
+      $_SESSION['envo_lastURL'] = $getWhere;
 
       // Now get the new meta keywords and description maker
-      if (isset($JAK_DOWNLOAD_ALL) && is_array($JAK_DOWNLOAD_ALL)) foreach ($JAK_DOWNLOAD_ALL as $kv) $seokeywords[] = ENVO_base::envoCleanurl($kv['title']);
+      if (isset($ENVO_DOWNLOAD_ALL) && is_array($ENVO_DOWNLOAD_ALL)) foreach ($ENVO_DOWNLOAD_ALL as $kv) $seokeywords[] = ENVO_base::envoCleanurl($kv['title']);
 
       if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
@@ -121,8 +121,8 @@ switch ($page1) {
       }
 
       // Get the CSS and Javascript into the page
-      $JAK_HEADER_CSS        = $jkv["download_css"];
-      $JAK_FOOTER_JAVASCRIPT = $jkv["download_javascript"];
+      $ENVO_HEADER_CSS        = $jkv["download_css"];
+      $ENVO_FOOTER_JAVASCRIPT = $jkv["download_javascript"];
 
       // EN: Load the php template
       // CZ: Načtení php template (šablony)
@@ -183,7 +183,7 @@ switch ($page1) {
         envo_redirect(ENVO_rewrite::envoParseurl('offline'));
       } else {
 
-        if (!envo_row_permission($row['catid'], $envotable1, JAK_USERGROUPID)) {
+        if (!envo_row_permission($row['catid'], $envotable1, ENVO_USERGROUPID)) {
           envo_redirect($backtodl);
         } else {
 
@@ -230,10 +230,10 @@ switch ($page1) {
           // EN: $PAGE_PASSWORD - main variable if page have password, use in template
           // CZ: $PAGE_PASSWORD - hlavní proměnná pro zaheslovanou stránku, používá se pro template
           $PAGE_PASSWORD               = $DL_PASSWORD;
-          $JAK_HEADER_CSS              = $row['dl_css'];
-          $JAK_FOOTER_JAVASCRIPT       = $row['dl_javascript'];
+          $ENVO_HEADER_CSS              = $row['dl_css'];
+          $ENVO_FOOTER_JAVASCRIPT       = $row['dl_javascript'];
           $jkv["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
-          $DL_LINK                     = html_entity_decode(ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'dl', $row['id'], '', ''));
+          $DL_LINK                     = html_entity_decode(ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, 'dl', $row['id'], '', ''));
 
           $PAGE_TIME       = ENVO_base::envoTimesince($row['time'], $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['global_text']['gtxt4']);
           $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
@@ -242,21 +242,21 @@ switch ($page1) {
           $DL_FILE_BUTTON = FALSE;
 
           // fix the download if allowed to
-          if (JAK_DOWNLOADCAN && $row['candownload'] == 0 || envo_get_access(JAK_USERGROUPID, $row['candownload'])) {
+          if (ENVO_DOWNLOADCAN && $row['candownload'] == 0 || envo_get_access(ENVO_USERGROUPID, $row['candownload'])) {
 
             $DL_FILE_BUTTON = TRUE;
           }
 
           // Display contact form if whish so and do the caching
-          $JAK_SHOW_C_FORM = FALSE;
+          $ENVO_SHOW_C_FORM = FALSE;
           if ($row['showcontact'] != 0) {
-            $JAK_SHOW_C_FORM      = envo_create_contact_form($row['showcontact'], $tl['form_text']['formt']);
-            $JAK_SHOW_C_FORM_NAME = envo_contact_form_title($row['showcontact']);
+            $ENVO_SHOW_C_FORM      = envo_create_contact_form($row['showcontact'], $tl['form_text']['formt']);
+            $ENVO_SHOW_C_FORM_NAME = envo_contact_form_title($row['showcontact']);
           }
 
           // Get the url session
-          $_SESSION['jak_lastURL']    = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_DOWNLOAD, $page1, $page2, $page3, '');
-          $_SESSION['jak_thisFileID'] = $row['id'];
+          $_SESSION['envo_lastURL']    = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, $page1, $page2, $page3, '');
+          $_SESSION['envo_thisFileID'] = $row['id'];
 
         }
 
@@ -265,12 +265,12 @@ switch ($page1) {
         while ($grow = $grid->fetch_assoc()) {
 
           // the sidebar grid
-          $JAK_HOOK_SIDE_GRID[] = $grow;
+          $ENVO_HOOK_SIDE_GRID[] = $grow;
 
         }
 
         // Show Tags
-        $JAK_TAGLIST = ENVO_tags::envoGetTagList($page2, JAK_PLUGIN_ID_DOWNLOAD, JAK_PLUGIN_VAR_TAGS);
+        $ENVO_TAGLIST = ENVO_tags::envoGetTagList($page2, ENVO_PLUGIN_ID_DOWNLOAD, ENVO_PLUGIN_VAR_TAGS);
 
         // Page Nav
         $nextp = envo_next_page($page2, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
@@ -280,8 +280,8 @@ switch ($page1) {
             $seo = ENVO_base::envoCleanurl($nextp['title']);
           }
 
-          $JAK_NAV_NEXT       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'f', $nextp['id'], $seo, '');
-          $JAK_NAV_NEXT_TITLE = addslashes($nextp['title']);
+          $ENVO_NAV_NEXT       = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, 'f', $nextp['id'], $seo, '');
+          $ENVO_NAV_NEXT_TITLE = addslashes($nextp['title']);
         }
 
         $prevp = envo_previous_page($page2, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
@@ -291,8 +291,8 @@ switch ($page1) {
             $seop = ENVO_base::envoCleanurl($prevp['title']);
           }
 
-          $JAK_NAV_PREV       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'f', $prevp['id'], $seop, '');
-          $JAK_NAV_PREV_TITLE = addslashes($prevp['title']);
+          $ENVO_NAV_PREV       = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, 'f', $prevp['id'], $seop, '');
+          $ENVO_NAV_PREV_TITLE = addslashes($prevp['title']);
         }
 
         // Get the categories into a list
@@ -305,7 +305,7 @@ switch ($page1) {
 
           // EN: Create array with all categories ( Plugin Download have only one category for one download file, in array will be it only one category )
           // CZ: Vytvoření pole se všemi kategoriemi ( Plugin Download má pouze jednu kategorie pro jeden stahovaný soubor, v poli bude jen jedna kategorie )
-          $catids[] = '<a class="category-label"  href="' . ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tld["downl_frontend"]["downl11"] . '">' . $rowc['name'] . '</a>';
+          $catids[] = '<a class="category-label"  href="' . ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tld["downl_frontend"]["downl11"] . '">' . $rowc['name'] . '</a>';
 
           // EN: Get 'varname' for category
           // CZ: Získaní 'varname' kategorie
@@ -325,8 +325,8 @@ switch ($page1) {
 
     // Now get the new meta keywords and description maker
     $keytags = '';
-    if ($JAK_TAGLIST) {
-      $keytags = preg_split('/\s+/', strip_tags($JAK_TAGLIST));
+    if ($ENVO_TAGLIST) {
+      $keytags = preg_split('/\s+/', strip_tags($ENVO_TAGLIST));
       $keytags = ',' . implode(',', $keytags);
     }
     $PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
@@ -336,11 +336,11 @@ switch ($page1) {
     $row = $envodb->queryRow('SELECT value FROM ' . DB_PREFIX . 'setting WHERE varname = "facebookconnect"  LIMIT 1');
 
     // Get script for Facebook SDK
-    $JAK_FACEBOOK_SDK_CONNECTION = $row['value'];
+    $ENVO_FACEBOOK_SDK_CONNECTION = $row['value'];
 
     // EN: Get random image from folder for Facebook
     // CZ: Získání náhodného obrázku z adresáře pro Facebook
-    // $fbarray  = envo_get_random_image(JAK_FILES_DIRECTORY . '/facebook/');
+    // $fbarray  = envo_get_random_image(ENVO_FILES_DIRECTORY . '/facebook/');
     // $FB_IMAGE = BASE_URL . ltrim (envo_get_random_from_array($fbarray), '/');
 
     // EN: Load the php template
@@ -357,7 +357,7 @@ switch ($page1) {
     break;
   case 'dl':
 
-    if ($_SESSION['jak_thisFileID'] == $page2 && is_numeric($page2) && envo_row_exist($page2, $envotable)) {
+    if ($_SESSION['envo_thisFileID'] == $page2 && is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
       // EN: Get the file from DB
       // CZ: Získání souboru z DB
@@ -366,7 +366,7 @@ switch ($page1) {
       // Not active back to download
       if ($row['active'] != 1) envo_redirect($backtodl);
 
-      if (!JAK_DOWNLOADCAN) {
+      if (!ENVO_DOWNLOADCAN) {
         /*
          * EN: CHECK ACCESS to DOWNLOADS
          * CZ: KONTROLA PŘÍSTUPU ke STAŽENÍ SOUBORU
@@ -382,13 +382,13 @@ switch ($page1) {
       } else {
 
         // No access to the file
-        if ($row['candownload'] != 0 && !envo_get_access(JAK_USERGROUPID, $row['candownload'])) envo_redirect($backtodl);
+        if ($row['candownload'] != 0 && !envo_get_access(ENVO_USERGROUPID, $row['candownload'])) envo_redirect($backtodl);
 
         $dluserid = 0;
         $dlemail  = "guest";
-        if (JAK_USERID) {
-          $dluserid = JAK_USERID;
-          $dlemail  = $jakuser->getVar("email");
+        if (ENVO_USERID) {
+          $dluserid = ENVO_USERID;
+          $dlemail  = $envouser->getVar("email");
         }
 
         // EN: Write data to download history ( table 'DBPrefix_downloadhistory' in DB )
@@ -519,17 +519,17 @@ switch ($page1) {
       $dl->items_total    = $getTotal;
       $dl->mid_range      = $jkv["downloadpagemid"];
       $dl->items_per_page = $jkv["downloadpageitem"];
-      $dl->jak_get_page   = $page1;
-      $dl->jak_where      = $backtodl;
-      $dl->jak_prevtext   = $tl["pagination"]["pagin"];
-      $dl->jak_nexttext   = $tl["pagination"]["pagin1"];
+      $dl->envo_get_page   = $page1;
+      $dl->envo_where      = $backtodl;
+      $dl->envo_prevtext   = $tl["pagination"]["pagin"];
+      $dl->envo_nexttext   = $tl["pagination"]["pagin1"];
       $dl->paginate();
 
       // Pagination
-      $JAK_PAGINATE = $dl->display_pages();
+      $ENVO_PAGINATE = $dl->display_pages();
 
       // Get all files
-      $JAK_DOWNLOAD_ALL = jak_get_download($dl->limit, $jkv["downloadorder"], '', '', $jkv["downloadurl"], $tl['global_text']['gtxt4']);
+      $ENVO_DOWNLOAD_ALL = envo_get_download($dl->limit, $jkv["downloadorder"], '', '', $jkv["downloadurl"], $tl['global_text']['gtxt4']);
 
     }
 
@@ -540,19 +540,19 @@ switch ($page1) {
     $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];
 
     // Get the url session
-    $_SESSION['jak_lastURL'] = $backtodl;
+    $_SESSION['envo_lastURL'] = $backtodl;
 
     // Get the sort orders for the grid
-    $JAK_HOOK_SIDE_GRID = FALSE;
-    $grid               = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql(JAK_PLUGIN_ID_DOWNLOAD) . '" AND fileid = 0 ORDER BY orderid ASC');
+    $ENVO_HOOK_SIDE_GRID = FALSE;
+    $grid               = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = "' . smartsql(ENVO_PLUGIN_ID_DOWNLOAD) . '" AND fileid = 0 ORDER BY orderid ASC');
     while ($grow = $grid->fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
-      $JAK_HOOK_SIDE_GRID[] = $grow;
+      $ENVO_HOOK_SIDE_GRID[] = $grow;
     }
 
     // Now get the new meta keywords and description maker
-    if (isset($JAK_DOWNLOAD_ALL) && is_array($JAK_DOWNLOAD_ALL)) foreach ($JAK_DOWNLOAD_ALL as $kv) $seokeywords[] = ENVO_base::envoCleanurl($kv['title']);
+    if (isset($ENVO_DOWNLOAD_ALL) && is_array($ENVO_DOWNLOAD_ALL)) foreach ($ENVO_DOWNLOAD_ALL as $kv) $seokeywords[] = ENVO_base::envoCleanurl($kv['title']);
 
     if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
@@ -566,8 +566,8 @@ switch ($page1) {
     }
 
     // Get the CSS and Javascript into the page
-    $JAK_HEADER_CSS        = $jkv["download_css"];
-    $JAK_FOOTER_JAVASCRIPT = $jkv["download_javascript"];
+    $ENVO_HEADER_CSS        = $jkv["download_css"];
+    $ENVO_FOOTER_JAVASCRIPT = $jkv["download_javascript"];
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)

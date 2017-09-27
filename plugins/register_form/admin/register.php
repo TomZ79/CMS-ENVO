@@ -2,11 +2,11 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$jakuser->envoModuleAccess(JAK_USERID, JAK_ACCESSREGISTER_FORM)) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$envouser->envoModuleAccess(ENVO_USERID, ENVO_ACCESSREGISTER_FORM)) envo_redirect(BASE_URL);
 
 // -------- DATA FOR ALL ADMIN PAGES --------
 // -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
@@ -43,19 +43,19 @@ switch ($page1) {
        * smartsql - secure method to insert form data into a MySQL DB
       */
       $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-                  WHEN "rf_title" THEN "' . smartsql($defaults['jak_title']) . '"
-                  WHEN "rf_active" THEN ' . $defaults['jak_register'] . '
-                  WHEN "rf_simple" THEN ' . $defaults['jak_simple'] . '
-                  WHEN "rf_confirm" THEN "' . smartsql($defaults['jak_usrapprove']) . '"
+                  WHEN "rf_title" THEN "' . smartsql($defaults['envo_title']) . '"
+                  WHEN "rf_active" THEN ' . $defaults['envo_register'] . '
+                  WHEN "rf_simple" THEN ' . $defaults['envo_simple'] . '
+                  WHEN "rf_confirm" THEN "' . smartsql($defaults['envo_usrapprove']) . '"
                   WHEN "rf_redirect" THEN ' . $defaults['envo_redirect'] . '
-                  WHEN "rf_usergroup" THEN ' . $defaults['jak_usergroup'] . '
-                  WHEN "rf_welcome" THEN "' . smartsql($defaults['jak_lcontent']) . '"
-                  WHEN "rf_welcome_email" THEN "' . smartsql($defaults['jak_lcontent1']) . '"
+                  WHEN "rf_usergroup" THEN ' . $defaults['envo_usergroup'] . '
+                  WHEN "rf_welcome" THEN "' . smartsql($defaults['envo_lcontent']) . '"
+                  WHEN "rf_welcome_email" THEN "' . smartsql($defaults['envo_lcontent1']) . '"
                 END
                   WHERE varname IN ("rf_title", "rf_active", "rf_simple", "rf_confirm", "rf_redirect", "rf_usergroup", "rf_welcome", "rf_welcome_email")');
 
       // Save order for sidebar widget
-      if (isset($defaults['jak_hookshow_new']) && is_array($defaults['jak_hookshow_new'])) {
+      if (isset($defaults['envo_hookshow_new']) && is_array($defaults['envo_hookshow_new'])) {
 
         $exorder = $defaults['horder_new'];
         $hookid  = $defaults['real_hook_id_new'];
@@ -65,13 +65,13 @@ switch ($page1) {
 
         foreach ($doith as $key => $exorder) {
 
-          if (in_array($key, $defaults['jak_hookshow_new'])) {
+          if (in_array($key, $defaults['envo_hookshow_new'])) {
 
             // Get the real what id
             $whatid = 0;
             if (isset($defaults['whatid_' . $pdoith[$key]])) $whatid = $defaults['whatid_' . $pdoith[$key]];
 
-            $envodb->query('INSERT INTO ' . $envotable2 . ' SET plugin = ' . JAK_PLUGIN_REGISTER_FORM . ', hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '"');
+            $envodb->query('INSERT INTO ' . $envotable2 . ' SET plugin = ' . ENVO_PLUGIN_REGISTER_FORM . ', hookid = "' . smartsql($key) . '", pluginid = "' . smartsql($pdoith[$key]) . '", whatid = "' . smartsql($whatid) . '", orderid = "' . smartsql($exorder) . '"');
 
           }
 
@@ -80,20 +80,20 @@ switch ($page1) {
       }
 
       // Now check if all the sidebar a deselct and hooks exist, if so delete all associated to this page
-      if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
+      if (!isset($defaults['envo_hookshow_new']) && !isset($defaults['envo_hookshow'])) {
 
         // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
-        $row = $envodb->queryRow('SELECT id FROM ' . $envotable2 . ' WHERE plugin = ' . smartsql(JAK_PLUGIN_REGISTER_FORM) . ' AND hookid != 0');
+        $row = $envodb->queryRow('SELECT id FROM ' . $envotable2 . ' WHERE plugin = ' . smartsql(ENVO_PLUGIN_REGISTER_FORM) . ' AND hookid != 0');
 
         // We have something to delete
         if ($row["id"]) {
-          $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE plugin = ' . smartsql(JAK_PLUGIN_REGISTER_FORM) . ' AND hookid != 0');
+          $envodb->query('DELETE FROM ' . $envotable2 . ' WHERE plugin = ' . smartsql(ENVO_PLUGIN_REGISTER_FORM) . ' AND hookid != 0');
         }
 
       }
 
       // Save order or delete for extra sidebar widget
-      if (isset($defaults['jak_hookshow']) && is_array($defaults['jak_hookshow'])) {
+      if (isset($defaults['envo_hookshow']) && is_array($defaults['envo_hookshow'])) {
 
         $exorder    = $defaults['horder'];
         $hookid     = $defaults['real_hook_id'];
@@ -109,7 +109,7 @@ switch ($page1) {
           $whatid = 0;
           if (isset($defaults['whatid_' . $row["pluginid"]])) $whatid = $defaults['whatid_' . $row["pluginid"]];
 
-          if (in_array($key, $defaults['jak_hookshow'])) {
+          if (in_array($key, $defaults['envo_hookshow'])) {
             $updatesql .= sprintf("WHEN %d THEN %d ", $key, $exorder);
             $updatesql1 .= sprintf("WHEN %d THEN %d ", $key, $whatid);
 
@@ -143,31 +143,31 @@ switch ($page1) {
     }
 
     // Get the sort orders for the grid
-    $grid = $envodb->query('SELECT id, hookid, whatid, orderid FROM ' . $envotable2 . ' WHERE plugin = ' . JAK_PLUGIN_REGISTER_FORM . ' ORDER BY orderid ASC');
+    $grid = $envodb->query('SELECT id, hookid, whatid, orderid FROM ' . $envotable2 . ' WHERE plugin = ' . ENVO_PLUGIN_REGISTER_FORM . ' ORDER BY orderid ASC');
     while ($grow = $grid->fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
-      $JAK_PAGE_GRID[] = $grow;
+      $ENVO_PAGE_GRID[] = $grow;
     }
 
     // Get the sidebar templates
     $result = $envodb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable3 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
     while ($row = $result->fetch_assoc()) {
-      $JAK_HOOKS[] = $row;
+      $ENVO_HOOKS[] = $row;
     }
 
-    $JAK_USERGROUP_ALL = envo_get_usergroup_all('usergroup');
+    $ENVO_USERGROUP_ALL = envo_get_usergroup_all('usergroup');
 
     // EN: Import important settings for the template from the DB
     // CZ: Importuj důležité nastavení pro šablonu z DB
-    $JAK_SETTING = envo_get_setting('register_form');
+    $ENVO_SETTING = envo_get_setting('register_form');
 
     // EN: Import important settings for the template from the DB (only VALUE)
     // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
-    $JAK_SETTING_VAL = envo_get_setting_val('register_form');
+    $ENVO_SETTING_VAL = envo_get_setting_val('register_form');
 
 
-    $JAK_CAT = envo_get_cat_info(DB_PREFIX . 'categories', 0);
+    $ENVO_CAT = envo_get_cat_info(DB_PREFIX . 'categories', 0);
 
     // EN: Title and Description
     // CZ: Titulek a Popis
@@ -187,7 +187,7 @@ switch ($page1) {
       $defaults = $_POST;
 
       // Write new options
-      $countoption = $defaults['jak_option'];
+      $countoption = $defaults['envo_option'];
 
       for ($u = 0; $u < count($countoption); $u++) {
         $name = $countoption[$u];
@@ -195,23 +195,23 @@ switch ($page1) {
         if (!empty($name)) {
 
           $sqloptions = '';
-          if (!empty($defaults['jak_options'][$u]) && $defaults['jak_optiontype'][$u] >= 3) {
-            $sqloptions = smartsql(trim($defaults['jak_options'][$u]));
+          if (!empty($defaults['envo_options'][$u]) && $defaults['envo_optiontype'][$u] >= 3) {
+            $sqloptions = smartsql(trim($defaults['envo_options'][$u]));
           }
 
-          if ($defaults['jak_optiontype'][$u] >= 3 && $defaults['jak_optionmandatory'][$u] > 0) {
+          if ($defaults['envo_optiontype'][$u] >= 3 && $defaults['envo_optionmandatory'][$u] > 0) {
             $sqlmand = 1;
           } else {
-            $sqlmand = $defaults['jak_optionmandatory'][$u];
+            $sqlmand = $defaults['envo_optionmandatory'][$u];
           }
 
           $envodb->query('INSERT INTO ' . $envotable . ' SET
 		   	       name = "' . smartsql($name) . '",
-		   	       typeid = "' . smartsql($defaults['jak_optiontype'][$u]) . '",
+		   	       typeid = "' . smartsql($defaults['envo_optiontype'][$u]) . '",
 		   	       options = "' . $sqloptions . '",
 		   	       showregister = 1,
 		   	       mandatory = "' . smartsql($sqlmand) . '",
-		   	       forder = "' . smartsql($defaults['jak_optionsort'][$u]) . '"');
+		   	       forder = "' . smartsql($defaults['envo_optionsort'][$u]) . '"');
 
           $rowid = $envodb->envo_last_id();
 
@@ -222,8 +222,8 @@ switch ($page1) {
       }
 
       // Delete the options
-      if (!empty($defaults['jak_sod'])) {
-        $odel = $defaults['jak_sod'];
+      if (!empty($defaults['envo_sod'])) {
+        $odel = $defaults['envo_sod'];
 
         for ($i = 0; $i < count($odel); $i++) {
           $optiondel = $odel[$i];
@@ -245,23 +245,23 @@ switch ($page1) {
       }
 
       // Edit options
-      $countoption_old = $defaults['jak_option_old'];
+      $countoption_old = $defaults['envo_option_old'];
 
       for ($i = 0; $i < count($countoption_old); $i++) {
         $name_old = $countoption_old[$i];
 
-        if ($defaults['jak_optiontype_old'][$i] >= 3 && $defaults['jak_optionmandatory_old'][$i] > 0) {
+        if ($defaults['envo_optiontype_old'][$i] >= 3 && $defaults['envo_optionmandatory_old'][$i] > 0) {
           $sqlmand = 1;
         } else {
-          $sqlmand = $defaults['jak_optionmandatory_old'][$i];
+          $sqlmand = $defaults['envo_optionmandatory_old'][$i];
         }
 
         // Do we show the fields in the register form
         $showregister = 0;
-        if ($defaults['jak_showregister'][$i] == 1) $showregister = 1;
+        if ($defaults['envo_showregister'][$i] == 1) $showregister = 1;
 
         // Username, email and password we show always
-        if ($defaults['jak_optionid'][$i] <= 3) $showregister = 1;
+        if ($defaults['envo_optionid'][$i] <= 3) $showregister = 1;
 
         /* EN: Convert value
          * smartsql - secure method to insert form data into a MySQL DB
@@ -271,23 +271,23 @@ switch ($page1) {
         */
         $result = $envodb->query('UPDATE ' . $envotable . ' SET
                   name = "' . smartsql(trim($name_old)) . '",
-                  typeid = "' . smartsql($defaults['jak_optiontype_old'][$i]) . '",
-                  options = "' . smartsql(trim($defaults['jak_options_old'][$i])) . '",
+                  typeid = "' . smartsql($defaults['envo_optiontype_old'][$i]) . '",
+                  options = "' . smartsql(trim($defaults['envo_options_old'][$i])) . '",
                   showregister = "' . smartsql($showregister) . '",
                   mandatory = "' . smartsql($sqlmand) . '",
-                  forder = "' . smartsql($defaults['jak_optionsort_old'][$i]) . '"
-                  WHERE id = "' . smartsql($defaults['jak_optionid'][$i]) . '"');
+                  forder = "' . smartsql($defaults['envo_optionsort_old'][$i]) . '"
+                  WHERE id = "' . smartsql($defaults['envo_optionid'][$i]) . '"');
 
-        if ($result && $defaults['jak_optionid'][$i] > 3 && $defaults['jak_option_name_old'][$i] != $name_old) {
+        if ($result && $defaults['envo_optionid'][$i] > 3 && $defaults['envo_option_name_old'][$i] != $name_old) {
 
-          $envodb->query('ALTER TABLE ' . $envotable1 . ' DROP ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $defaults['jak_option_name_old'][$i])) . '_' . $defaults['jak_optionid'][$i]);
+          $envodb->query('ALTER TABLE ' . $envotable1 . ' DROP ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $defaults['envo_option_name_old'][$i])) . '_' . $defaults['envo_optionid'][$i]);
 
-          if ($defaults['jak_optiontype_old'][$i] == 2) {
+          if ($defaults['envo_optiontype_old'][$i] == 2) {
 
-            $envodb->query('ALTER TABLE ' . $envotable1 . ' ADD ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $name_old)) . '_' . $defaults['jak_optionid'][$i] . ' VARCHAR(100) NULL AFTER picture');
+            $envodb->query('ALTER TABLE ' . $envotable1 . ' ADD ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $name_old)) . '_' . $defaults['envo_optionid'][$i] . ' VARCHAR(100) NULL AFTER picture');
 
           } else {
-            $envodb->query('ALTER TABLE ' . $envotable1 . ' ADD ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $name_old)) . '_' . $defaults['jak_optionid'][$i] . ' VARCHAR(100) NULL AFTER picture');
+            $envodb->query('ALTER TABLE ' . $envotable1 . ' ADD ' . strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $name_old)) . '_' . $defaults['envo_optionid'][$i] . ' VARCHAR(100) NULL AFTER picture');
           }
 
 
@@ -304,7 +304,7 @@ switch ($page1) {
     while ($row = $result->fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
-      $JAK_REGISTEROPTION_ALL[] = $row;
+      $ENVO_REGISTEROPTION_ALL[] = $row;
     }
 
     // EN: Title and Description

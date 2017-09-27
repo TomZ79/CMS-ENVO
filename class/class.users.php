@@ -17,7 +17,7 @@ class ENVO_user
     $this->data = $row;
   }
 
-  function jakAdminaccess($envovar)
+  function envoAdminAccess($envovar)
   {
     // check if user is in group 3
     if ($envovar == 3) {
@@ -30,7 +30,7 @@ class ENVO_user
 
   function envoSuperAdminAccess($envovar)
   {
-    $useridarray = explode(',', JAK_SUPERADMIN);
+    $useridarray = explode(',', ENVO_SUPERADMIN);
     // check if userid exist in db.php
     if (in_array($envovar, $useridarray)) {
       return TRUE;
@@ -42,12 +42,12 @@ class ENVO_user
 
   function envoLangAccess($adminid)
   {
-    $useridarray = explode(',', JAK_ADMIN);
+    $useridarray = explode(',', ENVO_ADMIN);
     // check if userid exist in db.php
-    if (JAK_MULTILANG) {
+    if (ENVO_MULTILANG) {
       return TRUE;
 
-    } elseif (!JAK_MULTILANG && in_array($adminid, $useridarray)) {
+    } elseif (!ENVO_MULTILANG && in_array($adminid, $useridarray)) {
 
       return TRUE;
     } else {
@@ -60,7 +60,7 @@ class ENVO_user
   {
     $useridarray = explode(',', $accessids);
     // check if user is superadmin
-    if (JAK_SUPERADMINACCESS) {
+    if (ENVO_SUPERADMINACCESS) {
       return TRUE;
     } else if (in_array($userid, $useridarray)) {
       return TRUE;

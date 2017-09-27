@@ -31,11 +31,11 @@
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
 <?php
-if (JAK_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=download&amp;sp=edit&amp;id=' . $PAGE_ID;
+if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=download&amp;sp=edit&amp;id=' . $PAGE_ID;
 if ($jkv["printme"]) $printme = 1;
 $qapedit = BASE_URL . 'admin/index.php?p=download&amp;sp=quickedit&amp;id=' . $PAGE_ID;
 
-if ($DL_PASSWORD && !JAK_ASACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash' . $PAGE_ID]) { ?>
+if ($DL_PASSWORD && !ENVO_ASACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash' . $PAGE_ID]) { ?>
 
   <div class="row" style="margin-top: 30px;">
     <div class="container">
@@ -122,7 +122,7 @@ if ($DL_PASSWORD && !JAK_ASACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash' 
     <div class="well">
       <div class="row-height">
 
-        <?php if ($FT_SHARE && $JAK_FACEBOOK_SDK_CONNECTION) { // With Share on Social Sites, with Facebook SDK Connection ?>
+        <?php if ($FT_SHARE && $ENVO_FACEBOOK_SDK_CONNECTION) { // With Share on Social Sites, with Facebook SDK Connection ?>
 
           <div class="col-sm-8 col-height">
             <p>
@@ -137,7 +137,7 @@ if ($DL_PASSWORD && !JAK_ASACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash' 
             <a href="#" class="dclick btn btn-warning btn-lg" disabled="disabled"><?php echo $tld["downl_frontend"]["downl6"]; ?></a>
           </div>
 
-        <?php } elseif ($FT_SHARE && !$JAK_FACEBOOK_SDK_CONNECTION) { // With Share on Social Sites, without Facebook SDK Connection ?>
+        <?php } elseif ($FT_SHARE && !$ENVO_FACEBOOK_SDK_CONNECTION) { // With Share on Social Sites, without Facebook SDK Connection ?>
 
           <div class="col-sm-8 col-height">
             <p>
@@ -175,7 +175,7 @@ if ($DL_PASSWORD && !JAK_ASACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash' 
     </div>
   <?php } ?>
 
-  <?php if ($JAK_SHOW_C_FORM) {
+  <?php if ($ENVO_SHOW_C_FORM) {
     include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/contact.php';
   } ?>
 
@@ -193,18 +193,18 @@ if ($DL_PASSWORD && !JAK_ASACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash' 
 
   <div class="col-md-12">
     <ul class="pager">
-      <?php if ($JAK_NAV_PREV) { ?>
+      <?php if ($ENVO_NAV_PREV) { ?>
         <li class="previous">
-          <a href="<?php echo $JAK_NAV_PREV; ?>">
+          <a href="<?php echo $ENVO_NAV_PREV; ?>">
             <i class="fa fa-caret-left"></i>
-            <span class="nav_text_left"><?php echo $JAK_NAV_PREV_TITLE; ?></span>
+            <span class="nav_text_left"><?php echo $ENVO_NAV_PREV_TITLE; ?></span>
           </a>
         </li>
       <?php }
-      if ($JAK_NAV_NEXT) { ?>
+      if ($ENVO_NAV_NEXT) { ?>
         <li class="next">
-          <a href="<?php echo $JAK_NAV_NEXT; ?>">
-            <span class="nav_text_right"><?php echo $JAK_NAV_NEXT_TITLE; ?></span>
+          <a href="<?php echo $ENVO_NAV_NEXT; ?>">
+            <span class="nav_text_right"><?php echo $ENVO_NAV_NEXT_TITLE; ?></span>
             <i class="fa fa-caret-right"></i>
           </a>
         </li>

@@ -2,11 +2,11 @@
 
 // EN: /Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$JAK_MODULEM) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$ENVO_MODULEM) envo_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
@@ -19,7 +19,7 @@ switch ($page1) {
   case 'newcat':
 
     // Additional DB Information
-    $jakfield = 'varname';
+    $envofield = 'varname';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable
@@ -30,7 +30,7 @@ switch ($page1) {
         $errors['e1'] = $tl['general_error']['generror4'] . '<br>';
       }
 
-      if (envo_field_not_exist($defaults['envo_varname'], $envotable, $jakfield) || envo_varname_blocked($defaults['envo_varname'])) {
+      if (envo_field_not_exist($defaults['envo_varname'], $envotable, $envofield) || envo_varname_blocked($defaults['envo_varname'])) {
         $errors['e2'] = $tl['general_error']['generror21'] . '<br>';
       }
 
@@ -106,7 +106,7 @@ switch ($page1) {
     }
 
     // Get all usergroup's
-    $JAK_USERGROUP = envo_get_usergroup_all('usergroup');
+    $ENVO_USERGROUP = envo_get_usergroup_all('usergroup');
 
     // EN: Title and Description
     // CZ: Titulek a Popis
@@ -121,9 +121,9 @@ switch ($page1) {
   default:
 
     // Additional DB Information
-    $jakfield  = 'catparent';
-    $jakfield1 = 'varname';
-    $jakfield2 = 'catparent2';
+    $envofield  = 'catparent';
+    $envofield1 = 'varname';
+    $envofield2 = 'catparent2';
 
     switch ($page1) {
       case 'delete':
@@ -193,7 +193,7 @@ switch ($page1) {
               $errors['e1'] = $tl['general_error']['generror4'] . '<br>';
             }
 
-            if (envo_field_not_exist_id($defaults['envo_varname'], $page2, $envotable, $jakfield1) || envo_varname_blocked($defaults['envo_varname'])) {
+            if (envo_field_not_exist_id($defaults['envo_varname'], $page2, $envotable, $envofield1) || envo_varname_blocked($defaults['envo_varname'])) {
               $errors['e2'] = $tl['general_error']['generror21'] . '<br>';
             }
 
@@ -259,7 +259,7 @@ switch ($page1) {
           $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
 
           // Get all usergroup's
-          $JAK_USERGROUP = envo_get_usergroup_all('usergroup');
+          $ENVO_USERGROUP = envo_get_usergroup_all('usergroup');
 
           // EN: Title and Description
           // CZ: Titulek a Popis
@@ -336,7 +336,7 @@ switch ($page1) {
         // EN: Check if some categories exist
         // CZ: Kontrola jestli existuje nějaká kategorie
         if (!empty($mheader['items'])) {
-          $JAK_CAT1_EXIST = '1';
+          $ENVO_CAT1_EXIST = '1';
         }
 
         // Get the menu
@@ -357,7 +357,7 @@ switch ($page1) {
         // EN: Check if some categories exist
         // CZ: Kontrola jestli existuje nějaká kategorie
         if (!empty($mfooter['items'])) {
-          $JAK_CAT2_EXIST = '1';
+          $ENVO_CAT2_EXIST = '1';
         }
 
         // Get the menu
@@ -370,7 +370,7 @@ switch ($page1) {
           // Creates entry into parents array. Parents array contains a list of all items with children
           $catnotvisible['parents'][$catblank['catparent']][] = $catblank['id'];
 
-          $ucatblank .= '<li class="list-group-item jakcat">
+          $ucatblank .= '<li class="list-group-item envocat">
 					<div>
 					<div class="text"><span class="textid">#' . $catblank["id"] . '</span><a href="index.php?p=categories&amp;sp=edit&amp;ssp=' . $catblank["id"] . '">' . $catblank["name"] . '</a></div>
 					<div class="actions">
@@ -388,7 +388,7 @@ switch ($page1) {
         // EN: Check if some categories exist
         // CZ: Kontrola jestli existuje nějaká kategorie
         if (!empty($catnotvisible['items'])) {
-          $JAK_CAT3_EXIST = '1';
+          $ENVO_CAT3_EXIST = '1';
         }
 
         // EN: Title and Description

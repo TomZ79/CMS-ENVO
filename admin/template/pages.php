@@ -67,7 +67,7 @@
           <span class="input-group-btn">
             <button class="btn btn-info" name="search" type="submit"><?php echo $tl["button"]["btn21"]; ?></button>
           </span>
-          <input type="text" name="jakSH" class="form-control" placeholder="<?php echo $tl["placeholder"]["p1"]; ?>">
+          <input type="text" name="envoSH" class="form-control" placeholder="<?php echo $tl["placeholder"]["p1"]; ?>">
         </div><!-- /input-group -->
       </form>
     </div>
@@ -75,7 +75,7 @@
 
   <hr>
 
-<?php if (isset($JAK_PAGE_ALL) && is_array($JAK_PAGE_ALL)) { ?>
+<?php if (isset($ENVO_PAGE_ALL) && is_array($ENVO_PAGE_ALL)) { ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="box box-success">
@@ -91,8 +91,8 @@
                   <?php
                   // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                   // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                  echo $Html->addCheckbox('', '', false, 'jak_delete_all');
-                  echo $Html->addLabel('jak_delete_all', '');
+                  echo $Html->addCheckbox('', '', false, 'envo_delete_all');
+                  echo $Html->addLabel('envo_delete_all', '');
                   ?>
 
                 </div>
@@ -140,7 +140,7 @@
               </th>
             </tr>
             </thead>
-            <?php foreach ($JAK_PAGE_ALL as $v) { ?>
+            <?php foreach ($ENVO_PAGE_ALL as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
                 <td>
@@ -149,8 +149,8 @@
                     <?php
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                    echo $Html->addCheckbox('jak_delete_page[]', $v["id"], false, 'jak_delete_page' . $v["id"], 'highlight');
-                    echo $Html->addLabel('jak_delete_page' . $v["id"], '');
+                    echo $Html->addCheckbox('envo_delete_page[]', $v["id"], false, 'envo_delete_page' . $v["id"], 'highlight');
+                    echo $Html->addLabel('envo_delete_page' . $v["id"], '');
                     ?>
 
                   </div>
@@ -176,7 +176,7 @@
 
                   <?php
                   if ($v["catid"] != '0') {
-                    if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $z) {
+                    if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $z) {
                       if ($v["catid"] == $z["id"]) {
                         // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                         echo $Html->addAnchor('index.php?p=categories&amp;sp=edit&amp;ssp=' . $z["id"], $z["name"]);
@@ -250,8 +250,8 @@
     </div>
   </div>
 
-  <?php if ($JAK_PAGINATE) {
-    echo $JAK_PAGINATE;
+  <?php if ($ENVO_PAGINATE) {
+    echo $ENVO_PAGINATE;
   }
 } else { ?>
 

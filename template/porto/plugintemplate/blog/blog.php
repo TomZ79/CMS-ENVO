@@ -1,6 +1,6 @@
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
-<?php if (JAK_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=setting'; ?>
+<?php if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=setting'; ?>
 
   <!-- =========================
     START BLOG SECTION
@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-md-12">
 
-          <?php if (isset($JAK_BLOG_ALL) && is_array($JAK_BLOG_ALL)) foreach ($JAK_BLOG_ALL as $v) {
+          <?php if (isset($ENVO_BLOG_ALL) && is_array($ENVO_BLOG_ALL)) foreach ($ENVO_BLOG_ALL as $v) {
 
             // Get the categories into a list
             unset($catids);
@@ -19,7 +19,7 @@
 
               // EN: Create array with all categories
               // CZ: Vytvoření pole se všemi kategoriemi
-              $catids[] = '<span class="blog-cat-list"><a href="' . ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_BLOG, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tlblog["blog_frontend"]["blog1"] . '">' . $rowc['name'] . '</a></span>';
+              $catids[] = '<span class="blog-cat-list"><a href="' . ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_BLOG, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tlblog["blog_frontend"]["blog1"] . '">' . $rowc['name'] . '</a></span>';
             }
 
 
@@ -98,7 +98,7 @@
               <!-- Post Info -->
 
               <!-- Post System Button - Admin -->
-              <?php if (JAK_ASACCESS) { ?>
+              <?php if (ENVO_ASACCESS) { ?>
 
               <div class="col-md-12 mt-sm">
                 <div class="pull-right">
@@ -130,6 +130,6 @@
     END BLOG SECTION
   ============================== -->
 
-<?php if ($JAK_PAGINATE) echo $JAK_PAGINATE; ?>
+<?php if ($ENVO_PAGINATE) echo $ENVO_PAGINATE; ?>
 
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

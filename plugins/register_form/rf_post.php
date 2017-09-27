@@ -18,9 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
   // spam check
   $spamcheck = TRUE;
 
-  if (!JAK_USERID && $jkv["hvm"] && isset($_SESSION['jak_captcha'])) {
+  if (!ENVO_USERID && $jkv["hvm"] && isset($_SESSION['envo_captcha'])) {
 
-    $human_captcha = explode(':#:', $_SESSION['jak_captcha']);
+    $human_captcha = explode(':#:', $_SESSION['envo_captcha']);
 
     if (isset($defaults[$human_captcha[0]]) && ($defaults[$human_captcha[0]] == '' || $defaults[$human_captcha[0]] != $human_captcha[1])) {
       $errorsA['human0'] = $tl['general_error']['generror26'] . '<br />';
@@ -243,19 +243,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['registerF'])) {
       $row['id'] = $envodb->envo_last_id();
 
       if (!$result) {
-        envo_redirect(JAK_PARSE_ERROR);
+        envo_redirect(ENVO_PARSE_ERROR);
       } else {
 
-        $newuserpath = JAK_FILES_DIRECTORY . '/userfiles' . '/' . $row['id'];
+        $newuserpath = ENVO_FILES_DIRECTORY . '/userfiles' . '/' . $row['id'];
 
         if (!is_dir($newuserpath)) {
           @mkdir($newuserpath, 0777);
-          @copy(JAK_FILES_DIRECTORY . '/userfiles' . "/index.html", $newuserpath . "/index.html");
+          @copy(ENVO_FILES_DIRECTORY . '/userfiles' . "/index.html", $newuserpath . "/index.html");
         }
 
         if ($jkv["rf_confirm"] == 2 || $jkv["rf_confirm"] == 3) {
 
-          $confirmlink = '<br><strong>' . $tl['login']['l11'] . ':</strong> <a href="' . (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . ENVO_rewrite::envoParseurl('rf_ual', $row['id'], $getuniquecode, $safeusername, '') . '">' . (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . ENVO_rewrite::envoParseurl('rf_ual', $row['id'], $getuniquecode, $safeusername, '') . '</a>';
+          $confirmlink = '<br><strong>' . $tl['login']['l11'] . ':</strong> <a href="' . (ENVO_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . ENVO_rewrite::envoParseurl('rf_ual', $row['id'], $getuniquecode, $safeusername, '') . '">' . (ENVO_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . ENVO_rewrite::envoParseurl('rf_ual', $row['id'], $getuniquecode, $safeusername, '') . '</a>';
 
           if ($jkv["rf_simple"]) $confirmlink .= '<br /><strong>' . $tl['login']['l2'] . ':</strong> ' . $password;
 

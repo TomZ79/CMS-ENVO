@@ -14,7 +14,7 @@ function envo_get_blog($limit, $order, $where, $table_row, $ext_seo, $timeago)
     $sqlin = 't1.catid != 0 AND t1.active = 1 AND';
   }
 
-  $result = $envodb->query('SELECT t1.id, t1.catid, t1.title, t1.content, t1.showtitle, t1.showcontact, t1.showdate, t1.time, t1.hits, t1.previmg FROM ' . DB_PREFIX . 'blog AS t1 LEFT JOIN ' . DB_PREFIX . 'blogcategories AS t2 ON (t2.id IN(t1.catid)) WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 OR enddate >= ' . time() . ')) AND ' . $sqlin . ' (FIND_IN_SET(' . JAK_USERGROUPID . ',t2.permission) OR t2.permission = 0) GROUP BY t1.id ORDER BY ' . $order . ' ' . $limit);
+  $result = $envodb->query('SELECT t1.id, t1.catid, t1.title, t1.content, t1.showtitle, t1.showcontact, t1.showdate, t1.time, t1.hits, t1.previmg FROM ' . DB_PREFIX . 'blog AS t1 LEFT JOIN ' . DB_PREFIX . 'blogcategories AS t2 ON (t2.id IN(t1.catid)) WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 OR enddate >= ' . time() . ')) AND ' . $sqlin . ' (FIND_IN_SET(' . ENVO_USERGROUPID . ',t2.permission) OR t2.permission = 0) GROUP BY t1.id ORDER BY ' . $order . ' ' . $limit);
 
   while ($row = $result->fetch_assoc()) {
 
@@ -24,7 +24,7 @@ function envo_get_blog($limit, $order, $where, $table_row, $ext_seo, $timeago)
     // There should be always a varname in categories and check if seo is valid
     $seo = '';
     if ($ext_seo) $seo = ENVO_base::envoCleanurl($row['title']);
-    $parseurl = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_BLOG, 'a', $row['id'], $seo);
+    $parseurl = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_BLOG, 'a', $row['id'], $seo);
 
     // finally get the time
     $getTime = ENVO_base::envoTimesince($row['time'], $jkv["blogdateformat"], $jkv["blogtimeformat"], $timeago);
@@ -58,7 +58,7 @@ function envo_get_total_permission_blog()
 
   global $envodb;
   $envototal = 0;
-  $row       = $envodb->queryRow('SELECT COUNT(t1.id) AS total FROM ' . DB_PREFIX . 'blog as t1 LEFT JOIN ' . DB_PREFIX . 'blogcategories as t2 ON (t1.catid = t2.id) WHERE (t1.active = 1 AND t2.active = 1) AND (FIND_IN_SET(' . JAK_USERGROUPID . ',t2.permission) OR t1.catid = t2.id AND t2.permission = 0)');
+  $row       = $envodb->queryRow('SELECT COUNT(t1.id) AS total FROM ' . DB_PREFIX . 'blog as t1 LEFT JOIN ' . DB_PREFIX . 'blogcategories as t2 ON (t1.catid = t2.id) WHERE (t1.active = 1 AND t2.active = 1) AND (FIND_IN_SET(' . ENVO_USERGROUPID . ',t2.permission) OR t1.catid = t2.id AND t2.permission = 0)');
 
   if ($row['total']) $envototal = $row['total'];
 

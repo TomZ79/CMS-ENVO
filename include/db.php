@@ -20,16 +20,16 @@ define('DB_PASS_HASH', 'your_key_goes_here');
 define('FULL_SITE_DOMAIN', $config[ 'fullsitedomain' ]);
 
 // Define cookie path and lifetime
-define('JAK_COOKIE_PATH', '/');  // Available in the whole domain
-define('JAK_COOKIE_TIME', 60*60*24*30); // 30 days by default
+define('ENVO_COOKIE_PATH', '/');  // Available in the whole domain
+define('ENVO_COOKIE_TIME', 60*60*24*30); // 30 days by default
 
 // Apache or Not
-define('JAK_USE_APACHE', 1); // Use 1 for Apache (SEO URL's) or 0 for all others
+define('ENVO_USE_APACHE', 1); // Use 1 for Apache (SEO URL's) or 0 for all others
 
 // Choose the files directory, rename it if you like different location but make sure the content is the same
-define('JAK_FILES_DIRECTORY', $config[ 'filefolder' ]);
+define('ENVO_FILES_DIRECTORY', $config[ 'filefolder' ]);
 
 // Important Stuff
-define('JAK_SUPERADMIN', '1'); // Not deletable and SuperADMIN User, more user separate with comma. e.g. '1,4,5,6' (userid's)
+define('ENVO_SUPERADMIN', '1'); // Not deletable and SuperADMIN User, more user separate with comma. e.g. '1,4,5,6' (userid's)
 
 ?>

@@ -13,11 +13,11 @@
 
 <?php } ?>
 
-<form role="form" class="jak-ajaxform cFrom" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+<form role="form" class="envo-ajaxform cFrom" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 
-	<div class="jak-thankyou"></div>
+	<div class="envo-thankyou"></div>
 
-	<?php if (!JAK_USERID) { ?>
+	<?php if (!ENVO_USERID) { ?>
 
 		<div class="form-group">
 			<label class="control-label" for="co_name"><?php echo $tl["contact"]["c1"]; ?> <i class="fa fa-star"></i></label>
@@ -34,7 +34,7 @@
 
 	<?php } else { ?>
 
-		<input type="hidden" name="co_name" value="<?php echo $JAK_USERNAME; ?>"/>
+		<input type="hidden" name="co_name" value="<?php echo $ENVO_USERNAME; ?>"/>
 
 	<?php } ?>
 
@@ -44,8 +44,8 @@
 	</div>
 
 	<input type="hidden" name="comanswerid" id="comanswerid" value=""/>
-	<input type="hidden" name="uformextraid" id="uformextraid" value="<?php echo $JAK_UFORM_EXTRA; ?>"/>
+	<input type="hidden" name="uformextraid" id="uformextraid" value="<?php echo $ENVO_UFORM_EXTRA; ?>"/>
 	<input type="hidden" name="userPost" value="1"/>
-	<button type="submit" class="btn btn-color btn-block jak-submit"><?php echo $tl["button"]["btn3"]; ?></button>
+	<button type="submit" class="btn btn-color btn-block envo-submit"><?php echo $tl["button"]["btn3"]; ?></button>
 	<div class="clearfix"></div>
 </form>

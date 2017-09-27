@@ -1,5 +1,5 @@
 <?php if ($jkv["showloginside"]) {
-  if (!JAK_USERID) { ?>
+  if (!ENVO_USERID) { ?>
     <?php if (isset($_SESSION['password_recover'])) {
 
       echo '<div class="alert bg-success"><h4>' . $tl['login']['l7'] . '</h4></div>';
@@ -9,7 +9,7 @@
       <h3><?php echo $tl["general"]["g146"]; ?></h3>
       <?php if ($errorlo) { ?>
         <div class="alert bg-info">
-          <a class="lost-pwd" href="<?php echo $JAK_FORGOT_PASS_LINK; ?>"><i
+          <a class="lost-pwd" href="<?php echo $ENVO_FORGOT_PASS_LINK; ?>"><i
               class="fa fa-share-alt"></i> <?php echo $tl["error"]["f"]; ?></a>
         </div>
       <?php }
@@ -21,12 +21,12 @@
       <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
         <div class="form-group<?php if ($errorlo) echo " has-error"; ?>">
           <label class="control-label" for="username"><?php echo $tl["login"]["l1"]; ?></label>
-          <input type="text" name="jakU" id="username" class="form-control" value="<?php echo $_REQUEST["jakU"]; ?>"
+          <input type="text" name="envoU" id="username" class="form-control" value="<?php echo $_REQUEST["envoU"]; ?>"
             placeholder="<?php echo $tl["login"]["l1"]; ?>"/>
         </div>
         <div class="form-group<?php if ($errorlo) echo " has-error"; ?>">
           <label class="control-label" for="password"><?php echo $tl["login"]["l2"]; ?></label>
-          <input type="password" name="jakP" id="password" class="form-control" value=""
+          <input type="password" name="envoP" id="password" class="form-control" value=""
             placeholder="<?php echo $tl["login"]["l2"]; ?>"/>
         </div>
         <div class="checkbox">
@@ -46,7 +46,7 @@
       <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
         <div class="form-group<?php if ($errorfp) echo " has-error"; ?>">
           <label class="control-label" for="email"><?php echo $tl["login"]["l5"]; ?></label>
-          <input type="text" name="jakE" id="email" class="form-control" value=""
+          <input type="text" name="envoE" id="email" class="form-control" value=""
             placeholder="<?php echo $tl["login"]["l5"]; ?>"/>
         </div>
         <button type="submit" name="forgotP"
@@ -75,7 +75,7 @@
     </script>
 
   <?php } else { ?>
-    <h3><?php echo str_replace("%s", $JAK_USERNAME, $tl["general"]["g8"]); ?></h3>
+    <h3><?php echo str_replace("%s", $ENVO_USERNAME, $tl["general"]["g8"]); ?></h3>
     <p><a href="<?php echo $P_USR_LOGOUT; ?>" class="btn btn-danger btn-block"><?php echo $tl["title"]["t6"]; ?></a></p>
   <?php }
 } ?>

@@ -19,14 +19,14 @@
 
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
-<?php if (JAK_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=faq&amp;sp=setting'; ?>
+<?php if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=faq&amp;sp=setting'; ?>
 
   <div class="row">
     <div class="col-sm-12">
       <div class="accordion">
         <div class="panel-group" id="accordionFaq">
 
-        <?php if (isset($JAK_FAQ_ALL) && is_array($JAK_FAQ_ALL)) foreach ($JAK_FAQ_ALL as $v) { ?>
+        <?php if (isset($ENVO_FAQ_ALL) && is_array($ENVO_FAQ_ALL)) foreach ($ENVO_FAQ_ALL as $v) { ?>
 
           <div class="panel panel-default">
             <div class="panel-heading">
@@ -50,13 +50,13 @@
 
                   <a href="<?php echo $v["parseurl"]; ?>" class="btn btn-default btn-sm"><?php echo $tlf["faq_frontend"]["faq1"]; ?></a>
 
-                  <?php if (JAK_ASACCESS) { ?>
+                  <?php if (ENVO_ASACCESS) { ?>
 
-                    <a href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-info btn-sm jaktip">
+                    <a href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-info btn-sm envotooltip">
                       <span class="visible-xs"><i class="fa fa-edit"></i></span>
                       <span class="hidden-xs"><?php echo $tl["button"]["btn1"]; ?></span>
                     </a>
-                    <a class="btn btn-info btn-sm jaktip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>">
+                    <a class="btn btn-info btn-sm envotooltip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=quickedit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>">
                       <span class="visible-xs"><i class="fa fa-pencil"></i></span>
                       <span class="hidden-xs"><?php echo $tl["button"]["btn2"]; ?></span>
                     </a>
@@ -76,6 +76,6 @@
     </div>
   </div>
 
-<?php if ($JAK_PAGINATE) echo $JAK_PAGINATE; ?>
+<?php if ($ENVO_PAGINATE) echo $ENVO_PAGINATE; ?>
 
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

@@ -24,14 +24,14 @@
 
               <?php
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('jak_faq', '1', ((isset($_REQUEST["jak_faq"]) && $_REQUEST["jak_faq"] == '1')) ? TRUE : FALSE, 'jak_faq1');
+              echo $Html->addRadio('envo_faq', '1', ((isset($_REQUEST["envo_faq"]) && $_REQUEST["envo_faq"] == '1')) ? TRUE : FALSE, 'envo_faq1');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-              echo $Html->addLabel('jak_faq1', $tl["checkbox"]["chk"]);
+              echo $Html->addLabel('envo_faq1', $tl["checkbox"]["chk"]);
 
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('jak_faq', '0', ((isset($_REQUEST["jak_faq"]) && $_REQUEST["jak_faq"] == '0') || !isset($_REQUEST["jak_faq"])) ? TRUE : FALSE, 'jak_faq2');
+              echo $Html->addRadio('envo_faq', '0', ((isset($_REQUEST["envo_faq"]) && $_REQUEST["envo_faq"] == '0') || !isset($_REQUEST["envo_faq"])) ? TRUE : FALSE, 'envo_faq2');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-              echo $Html->addLabel('jak_faq2', $tl["checkbox"]["chk1"]);
+              echo $Html->addLabel('envo_faq2', $tl["checkbox"]["chk1"]);
               ?>
 
             </div>

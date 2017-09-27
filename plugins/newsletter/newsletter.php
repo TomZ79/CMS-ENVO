@@ -2,7 +2,7 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 $CHECK_USR_SESSION = session_id();
 
@@ -22,10 +22,10 @@ $envotable2 = DB_PREFIX . 'newsletteruser';
 $envotable3 = DB_PREFIX . 'user';
 
 // Wright the Usergroup permission into define and for template
-define('JAK_NEWSLETTER', $jakusergroup->getVar("newsletter"));
+define('ENVO_NEWSLETTER', $envousergroup->getVar("newsletter"));
 
 // Parse links once if needed a lot of time
-$backtonl = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_NEWSLETTER, '', '', '', '');
+$backtonl = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_NEWSLETTER, '', '', '', '');
 
 // -------- DATA FOR SELECTED FRONTEND PAGES --------
 // -------- DATA PRO VYBRANÉ FRONTEND STRÁNKY --------
@@ -41,7 +41,7 @@ switch ($page1) {
       // CZ: Hlavní proměnné
       $defaults = $_POST;
       // Create Session, so contact form can only used once
-      $_SESSION['jak_nl_sent'] = -1;
+      $_SESSION['envo_nl_sent'] = -1;
       // Errors in Array
       $errorsnl = array();
 
@@ -67,14 +67,14 @@ switch ($page1) {
 
         } else {
 
-          $_SESSION['jak_nl_errors'] = $errorsnl;
+          $_SESSION['envo_nl_errors'] = $errorsnl;
           envo_redirect($_SERVER['HTTP_REFERER']);
         }
 
       } else {
 
         // Destroy error session
-        unset($_SESSION['jak_nl_errors']);
+        unset($_SESSION['envo_nl_errors']);
 
         // Create random number
         $random = substr(number_format(time() * rand(), 0, '', ''), 0, 10);
@@ -87,16 +87,16 @@ switch ($page1) {
           // Ajax Request
           if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])) {
 
-            $_SESSION['jak_nl_sent']     = 1;
-            $_SESSION['jak_thankyou_nl'] = JAK_NLTHANKYOU;
+            $_SESSION['envo_nl_sent']     = 1;
+            $_SESSION['envo_thankyou_nl'] = ENVO_NLTHANKYOU;
 
             header('Cache-Control: no-cache');
-            die(json_encode(array('status' => 1, 'html' => JAK_NLTHANKYOU)));
+            die(json_encode(array('status' => 1, 'html' => ENVO_NLTHANKYOU)));
 
           } else {
 
-            $_SESSION['jak_nl_sent']     = 1;
-            $_SESSION['jak_thankyou_nl'] = JAK_NLTHANKYOU;
+            $_SESSION['envo_nl_sent']     = 1;
+            $_SESSION['envo_thankyou_nl'] = ENVO_NLTHANKYOU;
             envo_redirect($_SERVER['HTTP_REFERER']);
 
           }
@@ -122,8 +122,8 @@ switch ($page1) {
       $PAGE_CONTENT = str_replace($cssAtt, $cssUrl, $row['content']);
 
       // Get the CSS and Javascript into the page
-      $JAK_HEADER_CSS        = $jkv["blog_css"];
-      $JAK_FOOTER_JAVASCRIPT = $jkv["blog_javascript"];
+      $ENVO_HEADER_CSS        = $jkv["blog_css"];
+      $ENVO_FOOTER_JAVASCRIPT = $jkv["blog_javascript"];
 
       // EN: Load the php template
       // CZ: Načtení php template (šablony)
@@ -169,11 +169,11 @@ switch ($page1) {
           if (!$result) {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            envo_redirect(JAK_PARSE_ERROR);
+            envo_redirect(ENVO_PARSE_ERROR);
           } else {
             // EN: Redirect page
             // CZ: Přesměrování stránky
-            envo_redirect(JAK_PARSE_SUCCESS);
+            envo_redirect(ENVO_PARSE_SUCCESS);
           }
 
         } else {
@@ -183,8 +183,8 @@ switch ($page1) {
       }
 
       // Content and title
-      $PAGE_TITLE   = JAK_NLTITLE;
-      $PAGE_CONTENT = JAK_NLSIGNOFF;
+      $PAGE_TITLE   = ENVO_NLTITLE;
+      $PAGE_CONTENT = ENVO_NLSIGNOFF;
       $NL_MEMBER    = FALSE;
 
       // EN: Load the php template
@@ -216,22 +216,22 @@ switch ($page1) {
           // CZ: Hlavní proměnné
           $defaults = $_POST;
 
-          if ($page2 != JAK_USERID) {
+          if ($page2 != ENVO_USERID) {
             $errors['e'] = $tlnl['nletter']['e2'];
           }
 
-          if (count($errors) == 0 && JAK_USERID) {
+          if (count($errors) == 0 && ENVO_USERID) {
 
-            $result = $envodb->query('UPDATE ' . $envotable3 . ' SET newsletter = 0 WHERE id = ' . smartsql(JAK_USERID));
+            $result = $envodb->query('UPDATE ' . $envotable3 . ' SET newsletter = 0 WHERE id = ' . smartsql(ENVO_USERID));
 
             if (!$result) {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              envo_redirect(JAK_PARSE_ERROR);
+              envo_redirect(ENVO_PARSE_ERROR);
             } else {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              envo_redirect(JAK_PARSE_SUCCESS);
+              envo_redirect(ENVO_PARSE_SUCCESS);
             }
 
           } else {
@@ -245,22 +245,22 @@ switch ($page1) {
           // CZ: Hlavní proměnné
           $defaults = $_POST;
 
-          if ($page2 != JAK_USERID) {
+          if ($page2 != ENVO_USERID) {
             $errors['e'] = $tlnl['nletter']['e2'];
           }
 
-          if (count($errors) == 0 && JAK_USERID) {
+          if (count($errors) == 0 && ENVO_USERID) {
 
-            $result = $envodb->query('UPDATE ' . $envotable3 . ' SET newsletter = 1 WHERE id = ' . smartsql(JAK_USERID));
+            $result = $envodb->query('UPDATE ' . $envotable3 . ' SET newsletter = 1 WHERE id = ' . smartsql(ENVO_USERID));
 
             if (!$result) {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              envo_redirect(JAK_PARSE_ERROR);
+              envo_redirect(ENVO_PARSE_ERROR);
             } else {
               // EN: Redirect page
               // CZ: Přesměrování stránky
-              envo_redirect(JAK_PARSE_SUCCESS);
+              envo_redirect(ENVO_PARSE_SUCCESS);
             }
 
           } else {
@@ -272,15 +272,15 @@ switch ($page1) {
       }
 
       // content and title
-      $PAGE_TITLE        = JAK_NLTITLE;
+      $PAGE_TITLE        = ENVO_NLTITLE;
       $PAGE_CONTENT      = $tlnl['nletter']['d2'];
       $NL_MEMBER         = TRUE;
       $row['newsletter'] = 1;
 
-      if (JAK_USERID) {
+      if (ENVO_USERID) {
 
         // Get the newsletter status from the newsletter
-        $result = $envodb->query('SELECT newsletter FROM ' . $envotable3 . ' WHERE id = ' . smartsql(JAK_USERID));
+        $result = $envodb->query('SELECT newsletter FROM ' . $envotable3 . ' WHERE id = ' . smartsql(ENVO_USERID));
         $row    = $result->fetch_assoc();
 
       }

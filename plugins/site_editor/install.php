@@ -8,9 +8,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 // Check if the file is accessed only from a admin if not stop the script from running
 $php_errormsg = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
 $php_errormsg1 = 'Only ADMINISTRATOR privileges allow you to edit the file !!! You cannot access this file directly.';
-if (!JAK_USERID) die($php_errormsg);
+if (!ENVO_USERID) die($php_errormsg);
 
-if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die($php_errormsg1);
+if (!$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die($php_errormsg1);
 
 // Set successfully to zero
 $succesfully = 0;
@@ -182,9 +182,9 @@ if (file_exists(APP_PATH . 'plugins/site_editor/admin/lang/' . $site_language . 
 
       // EN: Insert data to table 'plugins' about this plugin
       // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
-      $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Site_editor", "SITE Editor for edit basic site files.", 1, ' . JAK_USERID . ', 4, "site_editor", "NULL", "if ($page == \'site-editor\') {
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Site_editor", "SITE Editor for edit basic site files.", 1, ' . ENVO_USERID . ', 4, "site_editor", "NULL", "if ($page == \'site-editor\') {
         require_once APP_PATH.\'plugins/site_editor/admin/site_editor.php\';
-           $JAK_PROVED = 1;
+           $ENVO_PROVED = 1;
            $checkp = 1;
         }", "../plugins/site_editor/admin/template/site_editornav.php", "NULL", "uninstall.php", "1.1", NOW())');
 

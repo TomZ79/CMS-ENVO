@@ -2,17 +2,17 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$JAK_MODULES) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$ENVO_MODULES) envo_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable = DB_PREFIX . 'loginlog';
 
-$JAK_LOGINLOG_ALL = "";
+$ENVO_LOGINLOG_ALL = "";
 
 // Important template Stuff
 $getTotal = envo_get_total($envotable, '', '', '');
@@ -25,9 +25,9 @@ if ($getTotal != 0) {
   $pages->envo_get_page   = $page1;
   $pages->envo_where      = 'index.php?p=logs';
   $pages->paginate();
-  $JAK_PAGINATE = $pages->display_pages();
+  $ENVO_PAGINATE = $pages->display_pages();
 
-  $JAK_LOGINLOG_ALL = envo_get_page_info($envotable, $pages->limit, '');
+  $ENVO_LOGINLOG_ALL = envo_get_page_info($envotable, $pages->limit, '');
 }
 
 // Let's go on with the script

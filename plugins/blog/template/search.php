@@ -1,4 +1,4 @@
-<?php if (isset($JAK_SEARCH_RESULT_BLOG) && is_array($JAK_SEARCH_RESULT_BLOG)) foreach ($JAK_SEARCH_RESULT_BLOG as $bl) {
+<?php if (isset($ENVO_SEARCH_RESULT_BLOG) && is_array($ENVO_SEARCH_RESULT_BLOG)) foreach ($ENVO_SEARCH_RESULT_BLOG as $bl) {
   $count++; ?>
 
   <div class="col-md-3 col-sm-6">

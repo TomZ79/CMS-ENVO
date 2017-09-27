@@ -10,7 +10,7 @@
   <div class="box-body">
     <table class="table">
       <thead>
-      <?php if (isset($JAK_PAGE_BACKUP) && is_array($JAK_PAGE_BACKUP)) { ?>
+      <?php if (isset($ENVO_PAGE_BACKUP) && is_array($ENVO_PAGE_BACKUP)) { ?>
         <tr>
           <th>
             <div class="form-group selectpickerwidth">
@@ -34,7 +34,7 @@
                 // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
                 echo $Html->addOption('0', $tl["global_text"]["globaltxt3"]);
 
-                foreach ($JAK_PAGE_BACKUP as $pb) {
+                foreach ($ENVO_PAGE_BACKUP as $pb) {
 
                   // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
                   echo $Html->addOption($pb["id"], $pb["time"]);
@@ -112,7 +112,7 @@
           } else {
 
             // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-            echo $Html->addTextarea('envo_content', envo_edit_safe_userpost($ENVO_FORM_DATA["content"]), '40', '', array('id' => 'jakEditor', 'class' => 'form-control jakEditor'));
+            echo $Html->addTextarea('envo_content', envo_edit_safe_userpost($ENVO_FORM_DATA["content"]), '40', '', array('id' => 'envoEditor', 'class' => 'form-control envoEditor'));
 
           } ?>
 

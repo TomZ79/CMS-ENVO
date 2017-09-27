@@ -3,7 +3,7 @@
  * CSS for Admin Control Panel with custom modification
  * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
- * Author: Thomas
+ * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
  * INDEX:
@@ -1581,26 +1581,26 @@ pre[class*="language-"] {
 }
 
 /*  */
-.jakplugins .text,
-.jakplugins .actions {
+.envoplugins .text,
+.envoplugins .actions {
   margin-top: 8px;
   font-size: 13px !important;
 }
 
-.jakplugins .show {
+.envoplugins .show {
   margin-top: 5px;
   font-size: 13px !important;
 }
 
-.jakplugins .form-group {
+.envoplugins .form-group {
   margin-bottom: 5px;
 }
 
-.jakplugins .plugins-name {
+.envoplugins .plugins-name {
   text-transform: uppercase;
 }
 
-.jakplugins .plugins-version {
+.envoplugins .plugins-version {
   text-transform: uppercase;
 }
 
@@ -1644,7 +1644,7 @@ ul#cform_sort li:hover {
   box-shadow: 0 0 5px #DBF0EE;
 }
 
-.jakcontent .jakcontent_header {
+.envocontent .envocontent_header {
   border-bottom: 1px solid #EEE;
   margin-bottom: 10px;
   font-weight: 700;
@@ -1652,37 +1652,37 @@ ul#cform_sort li:hover {
   color: #0DAD9E;
 }
 
-.jakcat .text,
-.jakhooks .text {
+.envocat .text,
+.envohooks .text {
   display: inline-block;
   color: #777;
   font-size: 14px;
   vertical-align: middle;
 }
 
-.jakcat .actions {
+.envocat .actions {
   position: absolute;
   right: 7px;
   top: 6px;
 }
 
-.jakhooks .actions {
+.envohooks .actions {
   position: absolute;
   right: 7px;
   top: 16px;
 }
 
 /* Sidebar Widget */
-.jakwidget .sidebar-widget .checkbox {
+.envowidget .sidebar-widget .checkbox {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.jakwidget .actions .form-control {
+.envowidget .actions .form-control {
   height: 28px;
 }
 
-.jakwidget .actions .btn {
+.envowidget .actions .btn {
   padding: 3px 35px;
 }
 
@@ -2039,7 +2039,6 @@ a.discardChanges {
     text-overflow: ellipsis;
     white-space: nowrap;
     word-wrap: normal;
-    width: 100%;
     width: 100%;
     text-align: center;
     vertical-align: top;

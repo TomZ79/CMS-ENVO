@@ -11,7 +11,7 @@
  * @param   $dropdownclass    - class for 'li a' which have submenu   | value: text           | e.g.: has-sub-menu
  * @param   $dropclass        - class for 'ul' as submenu             | value: text           | e.g.: sub-menu
  * @param   $subclass         - class for 'ul li' as submenu          | value: text           | e.g.: sub-menu-li
- * @param   $admin            - admin acces                           | value: string         | e.g.: TRUE - FALSE - JAK_ASACCESS
+ * @param   $admin            - admin acces                           | value: string         | e.g.: TRUE - FALSE - ENVO_ASACCESS
  *
  * @return  UL list
  *

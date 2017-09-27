@@ -51,7 +51,7 @@
   </script>
 <?php } ?>
 
-<?php if (isset($JAK_SEARCHLOG_ALL) && is_array($JAK_SEARCHLOG_ALL)) { ?>
+<?php if (isset($ENVO_SEARCHLOG_ALL) && is_array($ENVO_SEARCHLOG_ALL)) { ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="box box-success">
@@ -67,8 +67,8 @@
                   <?php
                   // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                   // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                  echo $Html->addCheckbox('', '', false, 'jak_delete_all');
-                  echo $Html->addLabel('jak_delete_all', '');
+                  echo $Html->addCheckbox('', '', false, 'envo_delete_all');
+                  echo $Html->addLabel('envo_delete_all', '');
                   ?>
 
                 </div>
@@ -94,7 +94,7 @@
               </th>
             </tr>
             </thead>
-            <?php foreach ($JAK_SEARCHLOG_ALL as $v) { ?>
+            <?php foreach ($ENVO_SEARCHLOG_ALL as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
                 <td>
@@ -103,8 +103,8 @@
                     <?php
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                    echo $Html->addCheckbox('jak_delete_search[]', $v["id"], false, 'jak_delete_search' . $v["id"], 'highlight');
-                    echo $Html->addLabel('jak_delete_search' . $v["id"], '');
+                    echo $Html->addCheckbox('envo_delete_search[]', $v["id"], false, 'envo_delete_search' . $v["id"], 'highlight');
+                    echo $Html->addLabel('envo_delete_search' . $v["id"], '');
                     ?>
 
                   </div>
@@ -143,8 +143,8 @@
   </div>
 
   <?php
-  if ($JAK_PAGINATE) {
-    echo $JAK_PAGINATE;
+  if ($ENVO_PAGINATE) {
+    echo $ENVO_PAGINATE;
   }
 } else { ?>
 

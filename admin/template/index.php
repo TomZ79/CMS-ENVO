@@ -23,7 +23,7 @@
       <div class="dashboard-box bg-complete-dark">
         <div class="inner">
           <h3>
-            <span class="counter" data-counterend="<?php echo $JAK_COUNTS["searchClog"]; ?>"><?php echo $JAK_COUNTS["searchClog"]; ?></span>
+            <span class="counter" data-counterend="<?php echo $ENVO_COUNTS["searchClog"]; ?>"><?php echo $ENVO_COUNTS["searchClog"]; ?></span>
           </h3>
           <p><?php echo $tl["dashb_box_stats"]["dbbs2"]; ?></p>
         </div>
@@ -39,7 +39,7 @@
       <div class="dashboard-box bg-warning">
         <div class="inner">
           <h3>
-            <span class="counter" data-counterend="<?php echo $JAK_COUNTS["pluginCtotal"]; ?>"><?php echo $JAK_COUNTS["pluginCtotal"]; ?></span>
+            <span class="counter" data-counterend="<?php echo $ENVO_COUNTS["pluginCtotal"]; ?>"><?php echo $ENVO_COUNTS["pluginCtotal"]; ?></span>
           </h3>
           <p><?php echo $tl["dashb_box_stats"]["dbbs3"]; ?></p>
         </div>
@@ -52,11 +52,11 @@
     </div>
     <div class="col-lg-3 col-xs-12">
       <!-- small box -->
-      <?php if (JAK_TAGS) { ?>
+      <?php if (ENVO_TAGS) { ?>
         <div class="dashboard-box bg-danger">
           <div class="inner">
             <h3>
-              <span class="counter" data-counterend="<?php echo $JAK_COUNTS["tagsCtotal"]; ?>"><?php echo $JAK_COUNTS["tagsCtotal"]; ?></span>
+              <span class="counter" data-counterend="<?php echo $ENVO_COUNTS["tagsCtotal"]; ?>"><?php echo $ENVO_COUNTS["tagsCtotal"]; ?></span>
             </h3>
             <p><?php echo $tl["dashb_box_stats"]["dbbs4"]; ?></p>
           </div>
@@ -70,7 +70,7 @@
         <div class="dashboard-box bg-info">
           <div class="inner">
             <h3>
-              <span class="counter" data-counterend="<?php echo $JAK_COUNTS["hookCtotal"]; ?>"><?php echo $JAK_COUNTS["hookCtotal"]; ?></span>
+              <span class="counter" data-counterend="<?php echo $ENVO_COUNTS["hookCtotal"]; ?>"><?php echo $ENVO_COUNTS["hookCtotal"]; ?></span>
             </h3>
             <p><?php echo $tl["dashb_box_stats"]["dbbs5"]; ?></p>
           </div>
@@ -101,7 +101,7 @@
         <span class="text"><?php echo $tl["dashb_section_tab"]["dashbtab2"]; ?></span>
       </a>
     </li>
-    <?php if (isset($JAK_HOOK_ADMIN_INDEX)) { ?>
+    <?php if (isset($ENVO_HOOK_ADMIN_INDEX)) { ?>
       <li role="presentation">
         <a href="#cmsPage4" role="tab" id="cmsPage4-tab" data-toggle="tab" aria-controls="cmsPage4">
           <span class="text"><?php echo $tl["dashb_section_tab"]["dashbtab3"]; ?></span>
@@ -213,12 +213,12 @@
         </div>
       </div>
     </div>
-    <?php if (isset($JAK_HOOK_ADMIN_INDEX)) { ?>
+    <?php if (isset($ENVO_HOOK_ADMIN_INDEX)) { ?>
       <div role="tabpanel" class="tab-pane fade" id="cmsPage4" aria-labelledby="cmsPage4-tab">
         <div class="row">
           <div class="col-md-12">
             <?php
-            if (isset($JAK_HOOK_ADMIN_INDEX) && is_array($JAK_HOOK_ADMIN_INDEX)) foreach ($JAK_HOOK_ADMIN_INDEX as $hspi) {
+            if (isset($ENVO_HOOK_ADMIN_INDEX) && is_array($ENVO_HOOK_ADMIN_INDEX)) foreach ($ENVO_HOOK_ADMIN_INDEX as $hspi) {
               include_once APP_PATH . $hspi['phpcode'];
             }
             ?>

@@ -8,8 +8,8 @@
  * Použitelné hodnoty s daty pro FRONTEND - download.php
  * ------------------------------------------------------
  *
- * $JAK_DOWNLOAD_ALL = pole s daty
- * foreach ($JAK_DOWNLOAD_ALL as $v) = získání jednotlivých dat z pole
+ * $ENVO_DOWNLOAD_ALL = pole s daty
+ * foreach ($ENVO_DOWNLOAD_ALL as $v) = získání jednotlivých dat z pole
  *
  * $v["id"]             číslo		|	- id souboru
  * $v["title"]					text			- Titulek souboru
@@ -32,7 +32,7 @@
 
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
-<?php if (JAK_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=download&amp;sp=setting'; ?>
+<?php if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=download&amp;sp=setting'; ?>
 
   <div class="col-md-12" style="margin: 10px 0 50px 0;">
     <table id="table">
@@ -45,7 +45,7 @@
       </thead>
       <tbody>
 
-      <?php if (isset($JAK_DOWNLOAD_ALL) && is_array($JAK_DOWNLOAD_ALL)) foreach ($JAK_DOWNLOAD_ALL as $v) { ?>
+      <?php if (isset($ENVO_DOWNLOAD_ALL) && is_array($ENVO_DOWNLOAD_ALL)) foreach ($ENVO_DOWNLOAD_ALL as $v) { ?>
         <tr>
           <td><a href="<?php echo $v["parseurl"]; ?>"><?php echo envo_cut_text($v["title"], 40, ""); ?></a></td>
           <td>

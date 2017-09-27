@@ -6,22 +6,22 @@ $showfaqarray = explode(":", $row['showfaq']);
 
 if (is_array($showfaqarray) && in_array("ASC", $showfaqarray) || in_array("DESC", $showfaqarray)) {
 
-  $JAK_FAQ = envo_get_faq('LIMIT ' . $showfaqarray[1], 't1.id ' . $showfaqarray[0], '', 't1.id', $jkv["faqurl"], $tl['global_text']['gtxt4']);
+  $ENVO_FAQ = envo_get_faq('LIMIT ' . $showfaqarray[1], 't1.id ' . $showfaqarray[0], '', 't1.id', $jkv["faqurl"], $tl['global_text']['gtxt4']);
 
 } else {
 
-  $JAK_FAQ = envo_get_faq('', 't1.id ASC', $row['showfaq'], 't1.id', $jkv["faqurl"], $tl['global_text']['gtxt4']);
+  $ENVO_FAQ = envo_get_faq('', 't1.id ASC', $row['showfaq'], 't1.id', $jkv["faqurl"], $tl['global_text']['gtxt4']);
 }
 
 ?>
 
 <hr>
-<h3 class="text-color"><?php echo JAK_PLUGIN_NAME_FAQ; ?></h3>
+<h3 class="text-color"><?php echo ENVO_PLUGIN_NAME_FAQ; ?></h3>
 
 <div class="row">
   <div class="col-md-12 faq-wrapper">
     <div class="panel-group" id="accordion2">
-      <?php if (isset($JAK_FAQ) && is_array($JAK_FAQ)) foreach ($JAK_FAQ as $f) { ?>
+      <?php if (isset($ENVO_FAQ) && is_array($ENVO_FAQ)) foreach ($ENVO_FAQ as $f) { ?>
         <div class="panel panel-default">
           <div class="panel-heading">
             <a href="<?php echo $f["parseurl"]; ?>"><i class="fa fa-eye"></i></a> <a class="accordion-toggle"
@@ -36,11 +36,11 @@ if (is_array($showfaqarray) && in_array("ASC", $showfaqarray) || in_array("DESC"
               <div class="answer"><?php echo $tlf["faq"]["d3"]; ?></div>
               <p><?php echo $f["contentshort"]; ?></p>
               <div class="pull-right">
-                <?php if (JAK_ASACCESS) { ?>
+                <?php if (ENVO_ASACCESS) { ?>
 
-                  <a href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=edit&amp;id=<?php echo $f["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-default btn-xs jaktip"><i class="fa fa-pencil"></i></a>
+                  <a href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=edit&amp;id=<?php echo $f["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-default btn-xs envotooltip"><i class="fa fa-pencil"></i></a>
 
-                  <a class="btn btn-default btn-xs jaktip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=quickedit&amp;id=<?php echo $f["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>"><i class="fa fa-edit"></i></a>
+                  <a class="btn btn-default btn-xs envotooltip quickedit" href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=quickedit&amp;id=<?php echo $f["id"]; ?>" title="<?php echo $tl["button"]["btn2"]; ?>"><i class="fa fa-edit"></i></a>
 
                 <?php } ?>
 

@@ -72,7 +72,7 @@ if ($success) { ?>
   </script>
 <?php } ?>
 
-  <form method="post" class="jak_form" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" class="envo_form" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <!-- Fixed Button for save form -->
     <div class="savebutton-small hidden-xs">
 
@@ -116,7 +116,7 @@ if ($success) { ?>
           <span class="text"><?php echo $tl["gs_section_tab"]["gstab6"]; ?></span>
         </a>
       </li>
-      <?php if (isset($JAK_HOOK_ADMIN_SETTING_EDIT)) { ?>
+      <?php if (isset($ENVO_HOOK_ADMIN_SETTING_EDIT)) { ?>
         <li role="presentation">
           <a href="#cmsPage7" role="tab" id="cmsPage7-tab" data-toggle="tab" aria-controls="cmsPage7">
             <span class="text"><?php echo $tl["gs_section_tab"]["gstab5"]; ?></span>
@@ -153,7 +153,7 @@ if ($success) { ?>
                       </div>
                       <div class="col-md-7">
                         <div class="form-group no-margin<?php if (isset($errors["e1"])) echo " has-error"; ?>">
-                          <input type="text" name="jak_email" class="form-control" value="<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
+                          <input type="text" name="envo_email" class="form-control" value="<?php if (isset($ENVO_SETTING) && is_array($ENVO_SETTING)) foreach ($ENVO_SETTING as $v) {
                             if ($v["varname"] == 'email') {
                               echo $v["value"];
                             }
@@ -173,15 +173,15 @@ if ($success) { ?>
                       <div class="col-md-7">
                         <div class="radio radio-success">
 
-                          <input type="radio" id="jak_shttp1" name="jak_shttp" value="0"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
+                          <input type="radio" id="envo_shttp1" name="envo_shttp" value="0"<?php if (isset($ENVO_SETTING) && is_array($ENVO_SETTING)) foreach ($ENVO_SETTING as $v) {
                             if ($v["varname"] == 'sitehttps' && $v["value"] == '0') { ?> checked="checked"<?php }
                           } ?> />
-                          <label for="jak_shttp1"><?php echo $tl["gs_box_content"]["gsbc3"]; ?></label>
+                          <label for="envo_shttp1"><?php echo $tl["gs_box_content"]["gsbc3"]; ?></label>
 
-                          <input type="radio" id="jak_shttp2" name="jak_shttp" value="1"<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
+                          <input type="radio" id="envo_shttp2" name="envo_shttp" value="1"<?php if (isset($ENVO_SETTING) && is_array($ENVO_SETTING)) foreach ($ENVO_SETTING as $v) {
                             if ($v["varname"] == 'sitehttps' && $v["value"] == '1') { ?> checked="checked"<?php }
                           } ?> />
-                          <label for="jak_shttp2"><?php echo $tl["gs_box_content"]["gsbc4"]; ?></label>
+                          <label for="envo_shttp2"><?php echo $tl["gs_box_content"]["gsbc4"]; ?></label>
 
                         </div>
                       </div>
@@ -198,12 +198,12 @@ if ($success) { ?>
                       </div>
                       <div class="col-md-7">
                         <div class="<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-                          <select name="jak_lang" class="form-control selectpicker">
+                          <select name="envo_lang" class="form-control selectpicker">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
                             if (isset($acp_lang_files) && is_array($lang_files)) foreach ($lang_files as $lf) {
-                              echo $Html->addOption($lf, ucwords($lf), ($JAK_SETTING_VAL["lang"] == $lf) ? TRUE : FALSE);
+                              echo $Html->addOption($lf, ucwords($lf), ($ENVO_SETTING_VAL["lang"] == $lf) ? TRUE : FALSE);
                             }
                             ?>
 
@@ -223,12 +223,12 @@ if ($success) { ?>
                       </div>
                       <div class="col-md-7">
                         <div class="<?php if (isset($errors["e2"])) echo " has-error"; ?>">
-                          <select name="jak_locale" class="form-control selectpicker">
+                          <select name="envo_locale" class="form-control selectpicker">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('cs_CZ', 'cs_CZ', ($JAK_SETTING_VAL["locale"] == 'cs_CZ') ? TRUE : FALSE);
-                            echo $Html->addOption('en_GB', 'en_GB', ($JAK_SETTING_VAL["locale"] == 'en_GB') ? TRUE : FALSE);
+                            echo $Html->addOption('cs_CZ', 'cs_CZ', ($ENVO_SETTING_VAL["locale"] == 'cs_CZ') ? TRUE : FALSE);
+                            echo $Html->addOption('en_GB', 'en_GB', ($ENVO_SETTING_VAL["locale"] == 'en_GB') ? TRUE : FALSE);
                             ?>
 
                           </select>
@@ -247,16 +247,16 @@ if ($success) { ?>
                       </div>
                       <div class="col-md-7">
                         <div class="form-group no-margin<?php if (isset($errors["e3"])) echo " has-error"; ?>">
-                          <select name="jak_date" class="form-control selectpicker">
+                          <select name="envo_date" class="form-control selectpicker">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('', $tl["selection"]["sel110"], ($JAK_SETTING_VAL['dateformat'] == '') ? TRUE : FALSE);
+                            echo $Html->addOption('', $tl["selection"]["sel110"], ($ENVO_SETTING_VAL['dateformat'] == '') ? TRUE : FALSE);
 
-                            echo $Html->addOption('d.m.Y', 'd.m.Y (01.01.2017)', ($JAK_SETTING_VAL['dateformat'] == 'd.m.Y') ? TRUE : FALSE);
-                            echo $Html->addOption('d F Y', 'd F Y (01 January 2017)', ($JAK_SETTING_VAL['dateformat'] == 'd F Y') ? TRUE : FALSE);
-                            echo $Html->addOption('l m.Y', 'l m.Y (Monday 01.2017)', ($JAK_SETTING_VAL['dateformat'] == 'l m.Y') ? TRUE : FALSE);
-                            echo $Html->addOption('l F Y', 'l F Y (Monday January 2017)', ($JAK_SETTING_VAL['dateformat'] == 'l F Y') ? TRUE : FALSE);
+                            echo $Html->addOption('d.m.Y', 'd.m.Y (01.01.2017)', ($ENVO_SETTING_VAL['dateformat'] == 'd.m.Y') ? TRUE : FALSE);
+                            echo $Html->addOption('d F Y', 'd F Y (01 January 2017)', ($ENVO_SETTING_VAL['dateformat'] == 'd F Y') ? TRUE : FALSE);
+                            echo $Html->addOption('l m.Y', 'l m.Y (Monday 01.2017)', ($ENVO_SETTING_VAL['dateformat'] == 'l m.Y') ? TRUE : FALSE);
+                            echo $Html->addOption('l F Y', 'l F Y (Monday January 2017)', ($ENVO_SETTING_VAL['dateformat'] == 'l F Y') ? TRUE : FALSE);
                             ?>
 
                           </select>
@@ -274,21 +274,21 @@ if ($success) { ?>
                       </div>
                       <div class="col-md-7">
                         <div class="form-group no-margin">
-                          <select name="jak_time" class="form-control selectpicker">
+                          <select name="envo_time" class="form-control selectpicker">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('', $tl["selection"]["sel110"], ($JAK_SETTING_VAL['timeformat'] == '') ? TRUE : FALSE);
+                            echo $Html->addOption('', $tl["selection"]["sel110"], ($ENVO_SETTING_VAL['timeformat'] == '') ? TRUE : FALSE);
                             ?>
 
                             <optgroup label="<?php echo $tl["selection"]["sel111"]; ?>">
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                              echo $Html->addOption(' - h:i A', ' - h:i A ( - 01:00 PM)', ($JAK_SETTING_VAL['timeformat'] == ' - h:i A') ? TRUE : FALSE);
-                              echo $Html->addOption(' - h:i:s A', ' - h:i:s A ( - 01:00:00 PM)', ($JAK_SETTING_VAL['timeformat'] == ' - h:i:s A') ? TRUE : FALSE);
-                              echo $Html->addOption(' - g:i A', ' - g:i A ( - 1:00 PM)', ($JAK_SETTING_VAL['timeformat'] == ' - g:i A') ? TRUE : FALSE);
-                              echo $Html->addOption(' - g:i:s A', ' - g:i:s A ( - 1:00:00 PM)', ($JAK_SETTING_VAL['timeformat'] == ' - g:i:s A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - h:i A', ' - h:i A ( - 01:00 PM)', ($ENVO_SETTING_VAL['timeformat'] == ' - h:i A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - h:i:s A', ' - h:i:s A ( - 01:00:00 PM)', ($ENVO_SETTING_VAL['timeformat'] == ' - h:i:s A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - g:i A', ' - g:i A ( - 1:00 PM)', ($ENVO_SETTING_VAL['timeformat'] == ' - g:i A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - g:i:s A', ' - g:i:s A ( - 1:00:00 PM)', ($ENVO_SETTING_VAL['timeformat'] == ' - g:i:s A') ? TRUE : FALSE);
                               ?>
 
                             </optgroup>
@@ -296,9 +296,9 @@ if ($success) { ?>
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                              echo $Html->addOption(' - H:i', ' - H:i ( - 13:00)', ($JAK_SETTING_VAL['timeformat'] == ' - H:i') ? TRUE : FALSE);
-                              echo $Html->addOption(' - H:i:s', ' - H:i:s ( - 13:00:00)', ($JAK_SETTING_VAL['timeformat'] == ' - H:i:s') ? TRUE : FALSE);
-                              echo $Html->addOption(' - H:i:s T O', ' - H:i:s T O ( - 13:00:00 CEST +0200)', ($JAK_SETTING_VAL['timeformat'] == ' - H:i:s T O') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i', ' - H:i ( - 13:00)', ($ENVO_SETTING_VAL['timeformat'] == ' - H:i') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i:s', ' - H:i:s ( - 13:00:00)', ($ENVO_SETTING_VAL['timeformat'] == ' - H:i:s') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i:s T O', ' - H:i:s T O ( - 13:00:00 CEST +0200)', ($ENVO_SETTING_VAL['timeformat'] == ' - H:i:s T O') ? TRUE : FALSE);
                               ?>
 
                             </optgroup>
@@ -318,7 +318,7 @@ if ($success) { ?>
 
                       </div>
                       <div class="col-md-7">
-                        <select name="jak_timezone_server" class="form-control selectpicker">
+                        <select name="envo_timezone_server" class="form-control selectpicker">
                           <?php include_once "timezoneserver.php"; ?>
                         </select>
                       </div>
@@ -337,14 +337,14 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_time_ago', '1', ($JAK_SETTING_VAL["time_ago_show"] == '1') ? TRUE : FALSE, 'jak_time_ago1');
+                          echo $Html->addRadio('envo_time_ago', '1', ($ENVO_SETTING_VAL["time_ago_show"] == '1') ? TRUE : FALSE, 'envo_time_ago1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_time_ago1', $tl["checkbox"]["chk"]);
+                          echo $Html->addLabel('envo_time_ago1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_time_ago', '0', ($JAK_SETTING_VAL["time_ago_show"] == '0') ? TRUE : FALSE, 'jak_time_ago2');
+                          echo $Html->addRadio('envo_time_ago', '0', ($ENVO_SETTING_VAL["time_ago_show"] == '0') ? TRUE : FALSE, 'envo_time_ago2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_time_ago2', $tl["checkbox"]["chk1"]);
+                          echo $Html->addLabel('envo_time_ago2', $tl["checkbox"]["chk1"]);
                           ?>
 
                         </div>
@@ -364,14 +364,14 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_hvm', '1', ($JAK_SETTING_VAL["hvm"] == '1') ? TRUE : FALSE, 'jak_hvm1');
+                          echo $Html->addRadio('envo_hvm', '1', ($ENVO_SETTING_VAL["hvm"] == '1') ? TRUE : FALSE, 'envo_hvm1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_hvm1', $tl["checkbox"]["chk"]);
+                          echo $Html->addLabel('envo_hvm1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_hvm', '0', ($JAK_SETTING_VAL["hvm"] == '0') ? TRUE : FALSE, 'jak_hvm2');
+                          echo $Html->addRadio('envo_hvm', '0', ($ENVO_SETTING_VAL["hvm"] == '0') ? TRUE : FALSE, 'envo_hvm2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_hvm2', $tl["checkbox"]["chk1"]);
+                          echo $Html->addLabel('envo_hvm2', $tl["checkbox"]["chk1"]);
                           ?>
 
                         </div>
@@ -414,15 +414,15 @@ if ($success) { ?>
                       </div>
                       <div class="col-md-6">
                         <div class="<?php if (isset($errors["e6"])) echo " has-error"; ?>">
-                          <select name="jak_mid" class="form-control selectpicker">
+                          <select name="envo_mid" class="form-control selectpicker">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('2', $tl["selection"]["sel1"], ($JAK_SETTING_VAL['adminpagemid'] == 2) ? TRUE : FALSE);
-                            echo $Html->addOption('4', $tl["selection"]["sel2"], ($JAK_SETTING_VAL['adminpagemid'] == 4) ? TRUE : FALSE);
-                            echo $Html->addOption('6', $tl["selection"]["sel3"], ($JAK_SETTING_VAL['adminpagemid'] == 6) ? TRUE : FALSE);
-                            echo $Html->addOption('8', $tl["selection"]["sel4"], ($JAK_SETTING_VAL['adminpagemid'] == 8) ? TRUE : FALSE);
-                            echo $Html->addOption('10', $tl["selection"]["sel5"], ($JAK_SETTING_VAL['adminpagemid'] == 10) ? TRUE : FALSE);
+                            echo $Html->addOption('2', $tl["selection"]["sel1"], ($ENVO_SETTING_VAL['adminpagemid'] == 2) ? TRUE : FALSE);
+                            echo $Html->addOption('4', $tl["selection"]["sel2"], ($ENVO_SETTING_VAL['adminpagemid'] == 4) ? TRUE : FALSE);
+                            echo $Html->addOption('6', $tl["selection"]["sel3"], ($ENVO_SETTING_VAL['adminpagemid'] == 6) ? TRUE : FALSE);
+                            echo $Html->addOption('8', $tl["selection"]["sel4"], ($ENVO_SETTING_VAL['adminpagemid'] == 8) ? TRUE : FALSE);
+                            echo $Html->addOption('10', $tl["selection"]["sel5"], ($ENVO_SETTING_VAL['adminpagemid'] == 10) ? TRUE : FALSE);
                             ?>
 
                           </select>
@@ -443,7 +443,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_item', $JAK_SETTING_VAL["adminpageitem"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_item', $ENVO_SETTING_VAL["adminpageitem"], '', 'form-control');
                           ?>
 
                         </div>
@@ -489,14 +489,14 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_contact', '1', ($JAK_SETTING_VAL["contactform"] == '1') ? TRUE : FALSE, 'jak_contact1');
+                          echo $Html->addRadio('envo_contact', '1', ($ENVO_SETTING_VAL["contactform"] == '1') ? TRUE : FALSE, 'envo_contact1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_contact1', $tl["checkbox"]["chk"]);
+                          echo $Html->addLabel('envo_contact1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_contact', '0', ($JAK_SETTING_VAL["contactform"] == '0') ? TRUE : FALSE, 'jak_contact2');
+                          echo $Html->addRadio('envo_contact', '0', ($ENVO_SETTING_VAL["contactform"] == '0') ? TRUE : FALSE, 'envo_contact2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_contact2', $tl["checkbox"]["chk1"]);
+                          echo $Html->addLabel('envo_contact2', $tl["checkbox"]["chk1"]);
                           ?>
 
                         </div>
@@ -536,12 +536,12 @@ if ($success) { ?>
 
                       </div>
                       <div class="col-md-6">
-                        <select name="jak_shownews" class="form-control selectpicker">
+                        <select name="envo_shownews" class="form-control selectpicker">
 
                           <?php for ($i = 0; $i <= 10; $i++) {
 
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption($i, $i, ($JAK_SETTING_VAL["shownews"] == $i) ? TRUE : FALSE);
+                            echo $Html->addOption($i, $i, ($ENVO_SETTING_VAL["shownews"] == $i) ? TRUE : FALSE);
 
                           } ?>
 
@@ -578,7 +578,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_shortmsg', $JAK_SETTING_VAL["shortmsg"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_shortmsg', $ENVO_SETTING_VAL["shortmsg"], '', 'form-control');
                           ?>
 
                         </div>
@@ -622,14 +622,14 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_rss', '1', ($JAK_SETTING_VAL["rss"] == '1') ? TRUE : FALSE, 'jak_rss1');
+                          echo $Html->addRadio('envo_rss', '1', ($ENVO_SETTING_VAL["rss"] == '1') ? TRUE : FALSE, 'envo_rss1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_rss1', $tl["checkbox"]["chk"]);
+                          echo $Html->addLabel('envo_rss1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_rss', '0', ($JAK_SETTING_VAL["rss"] == '0') ? TRUE : FALSE, 'jak_rss2');
+                          echo $Html->addRadio('envo_rss', '0', ($ENVO_SETTING_VAL["rss"] == '0') ? TRUE : FALSE, 'envo_rss2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_rss2', $tl["checkbox"]["chk1"]);
+                          echo $Html->addLabel('envo_rss2', $tl["checkbox"]["chk1"]);
                           ?>
 
                         </div>
@@ -649,7 +649,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_rssitem', $JAK_SETTING_VAL["rssitem"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_rssitem', $ENVO_SETTING_VAL["rssitem"], '', 'form-control');
                           ?>
 
                         </div>
@@ -699,14 +699,14 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_editor', '1', ($JAK_SETTING_VAL["adv_editor"] == '1') ? TRUE : FALSE, 'jak_editor1');
+                          echo $Html->addRadio('envo_editor', '1', ($ENVO_SETTING_VAL["adv_editor"] == '1') ? TRUE : FALSE, 'envo_editor1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_editor1', $tl["checkbox"]["chk"]);
+                          echo $Html->addLabel('envo_editor1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_editor', '0', ($JAK_SETTING_VAL["adv_editor"] == '0') ? TRUE : FALSE, 'jak_editor2');
+                          echo $Html->addRadio('envo_editor', '0', ($ENVO_SETTING_VAL["adv_editor"] == '0') ? TRUE : FALSE, 'envo_editor2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_editor2', $tl["checkbox"]["chk1"]);
+                          echo $Html->addLabel('envo_editor2', $tl["checkbox"]["chk1"]);
                           ?>
 
                         </div>
@@ -722,12 +722,12 @@ if ($success) { ?>
 
                       </div>
                       <div class="col-md-7">
-                        <select name="jak_acetheme" class="form-control selectpicker">
+                        <select name="envo_acetheme" class="form-control selectpicker">
                           <optgroup label="<?php echo $tl["gs_box_content"]["gsbc22"]; ?>">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('chrome', 'Chrome', ($JAK_SETTING_VAL["acetheme"] == 'chrome') ? TRUE : FALSE);
+                            echo $Html->addOption('chrome', 'Chrome', ($ENVO_SETTING_VAL["acetheme"] == 'chrome') ? TRUE : FALSE);
                             ?>
 
                           </optgroup>
@@ -735,9 +735,9 @@ if ($success) { ?>
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('cobalt', 'Cobalt', ($JAK_SETTING_VAL["acetheme"] == 'cobalt') ? TRUE : FALSE);
-                            echo $Html->addOption('monokai', 'Monokai', ($JAK_SETTING_VAL["acetheme"] == 'monokai') ? TRUE : FALSE);
-                            echo $Html->addOption('vibrant_ink', 'Vibrant Ink', ($JAK_SETTING_VAL["acetheme"] == 'vibrant_ink') ? TRUE : FALSE);
+                            echo $Html->addOption('cobalt', 'Cobalt', ($ENVO_SETTING_VAL["acetheme"] == 'cobalt') ? TRUE : FALSE);
+                            echo $Html->addOption('monokai', 'Monokai', ($ENVO_SETTING_VAL["acetheme"] == 'monokai') ? TRUE : FALSE);
+                            echo $Html->addOption('vibrant_ink', 'Vibrant Ink', ($ENVO_SETTING_VAL["acetheme"] == 'vibrant_ink') ? TRUE : FALSE);
                             ?>
 
                           </optgroup>
@@ -758,7 +758,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_acetabSize', $JAK_SETTING_VAL["acetabSize"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_acetabSize', $ENVO_SETTING_VAL["acetabSize"], '', 'form-control');
                           ?>
 
                         </div>
@@ -778,7 +778,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_acewraplimit', $JAK_SETTING_VAL["acewraplimit"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_acewraplimit', $ENVO_SETTING_VAL["acewraplimit"], '', 'form-control');
                           ?>
 
                         </div>
@@ -798,7 +798,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_acefontsize', $JAK_SETTING_VAL["acefontsize"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_acefontsize', $ENVO_SETTING_VAL["acefontsize"], '', 'form-control');
                           ?>
 
                         </div>
@@ -818,14 +818,14 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_acegutter', '1', ($JAK_SETTING_VAL["acegutter"] == '1') ? TRUE : FALSE, 'jak_acegutter1');
+                          echo $Html->addRadio('envo_acegutter', '1', ($ENVO_SETTING_VAL["acegutter"] == '1') ? TRUE : FALSE, 'envo_acegutter1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_acegutter1', $tl["checkbox"]["chk"]);
+                          echo $Html->addLabel('envo_acegutter1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_acegutter', '0', ($JAK_SETTING_VAL["acegutter"] == '0') ? TRUE : FALSE, 'jak_acegutter2');
+                          echo $Html->addRadio('envo_acegutter', '0', ($ENVO_SETTING_VAL["acegutter"] == '0') ? TRUE : FALSE, 'envo_acegutter2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_acegutter2', $tl["checkbox"]["chk1"]);
+                          echo $Html->addLabel('envo_acegutter2', $tl["checkbox"]["chk1"]);
                           ?>
 
                         </div>
@@ -845,14 +845,14 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_aceactiveline', '1', ($JAK_SETTING_VAL["aceactiveline"] == '1') ? TRUE : FALSE, 'jak_aceactiveline1');
+                          echo $Html->addRadio('envo_aceactiveline', '1', ($ENVO_SETTING_VAL["aceactiveline"] == '1') ? TRUE : FALSE, 'envo_aceactiveline1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_aceactiveline1', $tl["checkbox"]["chk"]);
+                          echo $Html->addLabel('envo_aceactiveline1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_aceactiveline', '0', ($JAK_SETTING_VAL["aceactiveline"] == '0') ? TRUE : FALSE, 'jak_aceactiveline2');
+                          echo $Html->addRadio('envo_aceactiveline', '0', ($ENVO_SETTING_VAL["aceactiveline"] == '0') ? TRUE : FALSE, 'envo_aceactiveline2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_aceactiveline2', $tl["checkbox"]["chk1"]);
+                          echo $Html->addLabel('envo_aceactiveline2', $tl["checkbox"]["chk1"]);
                           ?>
 
                         </div>
@@ -872,14 +872,14 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_aceinvisible', '1', ($JAK_SETTING_VAL["aceinvisible"] == '1') ? TRUE : FALSE, 'jak_aceinvisible1');
+                          echo $Html->addRadio('envo_aceinvisible', '1', ($ENVO_SETTING_VAL["aceinvisible"] == '1') ? TRUE : FALSE, 'envo_aceinvisible1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_aceinvisible1', $tl["checkbox"]["chk"]);
+                          echo $Html->addLabel('envo_aceinvisible1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_aceinvisible', '0', ($JAK_SETTING_VAL["aceinvisible"] == '0') ? TRUE : FALSE, 'jak_aceinvisible2');
+                          echo $Html->addRadio('envo_aceinvisible', '0', ($ENVO_SETTING_VAL["aceinvisible"] == '0') ? TRUE : FALSE, 'envo_aceinvisible2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_aceinvisible2', $tl["checkbox"]["chk1"]);
+                          echo $Html->addLabel('envo_aceinvisible2', $tl["checkbox"]["chk1"]);
                           ?>
 
                         </div>
@@ -929,20 +929,20 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_smpt', '0', ($JAK_SETTING_VAL["smtp_or_mail"] == '0') ? TRUE : FALSE, 'jak_smpt1');
+                          echo $Html->addRadio('envo_smpt', '0', ($ENVO_SETTING_VAL["smtp_or_mail"] == '0') ? TRUE : FALSE, 'envo_smpt1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_smpt1', $tl["gs_box_content"]["gsbc39"]);
+                          echo $Html->addLabel('envo_smpt1', $tl["gs_box_content"]["gsbc39"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_smpt', '1', ($JAK_SETTING_VAL["smtp_or_mail"] == '1') ? TRUE : FALSE, 'jak_smpt2');
+                          echo $Html->addRadio('envo_smpt', '1', ($ENVO_SETTING_VAL["smtp_or_mail"] == '1') ? TRUE : FALSE, 'envo_smpt2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_smpt2', $tl["gs_box_content"]["gsbc40"]);
+                          echo $Html->addLabel('envo_smpt2', $tl["gs_box_content"]["gsbc40"]);
                           ?>
 
                         </div>
                       </div>
                     </div>
-                    <div id="smtpsettings" <?php echo (empty($JAK_SETTING_VAL["smtp_or_mail"])) ? 'style="display: none;"' : '' ?>>
+                    <div id="smtpsettings" <?php echo (empty($ENVO_SETTING_VAL["smtp_or_mail"])) ? 'style="display: none;"' : '' ?>>
                       <div class="row-form">
                         <div class="col-md-5">
 
@@ -956,7 +956,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_host', $JAK_SETTING_VAL["smtp_host"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_host', $ENVO_SETTING_VAL["smtp_host"], '', 'form-control');
                           ?>
 
                         </div>
@@ -974,7 +974,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_port', $JAK_SETTING_VAL["smtp_port"], '', 'form-control', array('placeholder' => '25'));
+                          echo $Html->addInput('text', 'envo_port', $ENVO_SETTING_VAL["smtp_port"], '', 'form-control', array('placeholder' => '25'));
                           ?>
 
                         </div>
@@ -993,14 +993,14 @@ if ($success) { ?>
 
                             <?php
                             // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                            echo $Html->addRadio('jak_alive', '1', ($JAK_SETTING_VAL["smtp_alive"] == '1') ? TRUE : FALSE, 'jak_alive1');
+                            echo $Html->addRadio('envo_alive', '1', ($ENVO_SETTING_VAL["smtp_alive"] == '1') ? TRUE : FALSE, 'envo_alive1');
                             // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                            echo $Html->addLabel('jak_alive1', $tl["checkbox"]["chk"]);
+                            echo $Html->addLabel('envo_alive1', $tl["checkbox"]["chk"]);
 
                             // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                            echo $Html->addRadio('jak_alive', '0', ($JAK_SETTING_VAL["smtp_alive"] == '0') ? TRUE : FALSE, 'jak_alive2');
+                            echo $Html->addRadio('envo_alive', '0', ($ENVO_SETTING_VAL["smtp_alive"] == '0') ? TRUE : FALSE, 'envo_alive2');
                             // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                            echo $Html->addLabel('jak_alive2', $tl["checkbox"]["chk1"]);
+                            echo $Html->addLabel('envo_alive2', $tl["checkbox"]["chk1"]);
                             ?>
 
                           </div>
@@ -1020,14 +1020,14 @@ if ($success) { ?>
 
                             <?php
                             // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                            echo $Html->addRadio('jak_auth', '1', ($JAK_SETTING_VAL["smtp_auth"] == '1') ? TRUE : FALSE, 'jak_auth1');
+                            echo $Html->addRadio('envo_auth', '1', ($ENVO_SETTING_VAL["smtp_auth"] == '1') ? TRUE : FALSE, 'envo_auth1');
                             // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                            echo $Html->addLabel('jak_auth1', $tl["checkbox"]["chk"]);
+                            echo $Html->addLabel('envo_auth1', $tl["checkbox"]["chk"]);
 
                             // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                            echo $Html->addRadio('jak_auth', '0', ($JAK_SETTING_VAL["smtp_auth"] == '0') ? TRUE : FALSE, 'jak_auth2');
+                            echo $Html->addRadio('envo_auth', '0', ($ENVO_SETTING_VAL["smtp_auth"] == '0') ? TRUE : FALSE, 'envo_auth2');
                             // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                            echo $Html->addLabel('jak_auth2', $tl["checkbox"]["chk1"]);
+                            echo $Html->addLabel('envo_auth2', $tl["checkbox"]["chk1"]);
                             ?>
 
                           </div>
@@ -1046,7 +1046,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_prefix', $JAK_SETTING_VAL["smtp_prefix"], '', 'form-control', array('placeholder' => 'ssl/tls/true/false'));
+                          echo $Html->addInput('text', 'envo_prefix', $ENVO_SETTING_VAL["smtp_prefix"], '', 'form-control', array('placeholder' => 'ssl/tls/true/false'));
                           ?>
 
                         </div>
@@ -1064,7 +1064,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_smtpusername', $JAK_SETTING_VAL["smtp_user"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_smtpusername', $ENVO_SETTING_VAL["smtp_user"], '', 'form-control');
                           ?>
 
                         </div>
@@ -1082,7 +1082,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('password', 'jak_smtppassword', $JAK_SETTING_VAL["smtp_password"], '', 'form-control');
+                          echo $Html->addInput('password', 'envo_smtppassword', $ENVO_SETTING_VAL["smtp_password"], '', 'form-control');
                           ?>
 
                         </div>
@@ -1150,14 +1150,14 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_loginside', '1', ($JAK_SETTING_VAL["showloginside"] == '1') ? TRUE : FALSE, 'jak_loginside1');
+                          echo $Html->addRadio('envo_loginside', '1', ($ENVO_SETTING_VAL["showloginside"] == '1') ? TRUE : FALSE, 'envo_loginside1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_loginside1', $tl["checkbox"]["chk"]);
+                          echo $Html->addLabel('envo_loginside1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_loginside', '0', ($JAK_SETTING_VAL["showloginside"] == '0') ? TRUE : FALSE, 'jak_loginside2');
+                          echo $Html->addRadio('envo_loginside', '0', ($ENVO_SETTING_VAL["showloginside"] == '0') ? TRUE : FALSE, 'envo_loginside2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_loginside2', $tl["checkbox"]["chk1"]);
+                          echo $Html->addLabel('envo_loginside2', $tl["checkbox"]["chk1"]);
                           ?>
 
                         </div>
@@ -1177,14 +1177,14 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_sprint', '1', ($JAK_SETTING_VAL["printme"] == '1') ? TRUE : FALSE, 'jak_sprint1');
+                          echo $Html->addRadio('envo_sprint', '1', ($ENVO_SETTING_VAL["printme"] == '1') ? TRUE : FALSE, 'envo_sprint1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_sprint1', $tl["checkbox"]["chk"]);
+                          echo $Html->addLabel('envo_sprint1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_sprint', '0', ($JAK_SETTING_VAL["printme"] == '0') ? TRUE : FALSE, 'jak_sprint2');
+                          echo $Html->addRadio('envo_sprint', '0', ($ENVO_SETTING_VAL["printme"] == '0') ? TRUE : FALSE, 'envo_sprint2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_sprint2', $tl["checkbox"]["chk1"]);
+                          echo $Html->addLabel('envo_sprint2', $tl["checkbox"]["chk1"]);
                           ?>
 
                         </div>
@@ -1203,14 +1203,14 @@ if ($success) { ?>
                         <div class="form-group no-margin<?php if (isset($errors["e8"])) echo " has-error"; ?>">
                           <div class="row">
                             <div class="col-md-6">
-                              <input type="text" name="jak_avatwidth" class="form-control" value="<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
+                              <input type="text" name="envo_avatwidth" class="form-control" value="<?php if (isset($ENVO_SETTING) && is_array($ENVO_SETTING)) foreach ($ENVO_SETTING as $v) {
                                 if ($v["varname"] == 'useravatwidth') {
                                   echo $v["value"];
                                 }
                               } ?>" placeholder="<?php echo $tl["placeholder"]["p5"]; ?>"/>
                             </div>
                             <div class="col-md-6">
-                              <input type="text" name="jak_avatheight" class="form-control" value="<?php if (isset($JAK_SETTING) && is_array($JAK_SETTING)) foreach ($JAK_SETTING as $v) {
+                              <input type="text" name="envo_avatheight" class="form-control" value="<?php if (isset($ENVO_SETTING) && is_array($ENVO_SETTING)) foreach ($ENVO_SETTING as $v) {
                                 if ($v["varname"] == 'useravatheight') {
                                   echo $v["value"];
                                 }
@@ -1253,7 +1253,7 @@ if ($success) { ?>
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                         echo $Html->addLabel('', $tl["gs_box_content"]["gsbc54"]);
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('ip_block', $JAK_SETTING_VAL["ip_block"], '5', '50', array('class' => 'form-control txtautogrow', 'placeholder' => $tl["placeholder"]["p7"]));
+                        echo $Html->addTextarea('ip_block', $ENVO_SETTING_VAL["ip_block"], '5', '50', array('class' => 'form-control txtautogrow', 'placeholder' => $tl["placeholder"]["p7"]));
                         ?>
 
                       </div>
@@ -1265,7 +1265,7 @@ if ($success) { ?>
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                         echo $Html->addLabel('', $tl["gs_box_content"]["gsbc55"]);
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('email_block', $JAK_SETTING_VAL["email_block"], '4', '50', array('class' => 'form-control txtautogrow', 'placeholder' => $tl["placeholder"]["p8"]));
+                        echo $Html->addTextarea('email_block', $ENVO_SETTING_VAL["email_block"], '4', '50', array('class' => 'form-control txtautogrow', 'placeholder' => $tl["placeholder"]["p8"]));
                         ?>
 
                       </div>
@@ -1277,7 +1277,7 @@ if ($success) { ?>
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                         echo $Html->addLabel('', $tl["gs_box_content"]["gsbc56"]);
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('username_block', $JAK_SETTING_VAL["username_block"], '3', '50', array('class' => 'form-control txtautogrow', 'placeholder' => $tl["placeholder"]["p9"]));
+                        echo $Html->addTextarea('username_block', $ENVO_SETTING_VAL["username_block"], '3', '50', array('class' => 'form-control txtautogrow', 'placeholder' => $tl["placeholder"]["p9"]));
                         ?>
 
                       </div>
@@ -1317,7 +1317,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('jak_analytics', $JAK_SETTING_VAL["analytics"], '10', '60', array('class' => 'form-control txtautogrow'));
+                        echo $Html->addTextarea('envo_analytics', $ENVO_SETTING_VAL["analytics"], '10', '60', array('class' => 'form-control txtautogrow'));
                         ?>
 
                       </div>
@@ -1367,14 +1367,14 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_eucookie_enabled', '1', ($JAK_SETTING_VAL["eucookie_enabled"] == '1') ? TRUE : FALSE, 'jak_eucookie_enabled1');
+                          echo $Html->addRadio('envo_eucookie_enabled', '1', ($ENVO_SETTING_VAL["eucookie_enabled"] == '1') ? TRUE : FALSE, 'envo_eucookie_enabled1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_eucookie_enabled1', $tl["checkbox"]["chk"]);
+                          echo $Html->addLabel('envo_eucookie_enabled1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_eucookie_enabled', '0', ($JAK_SETTING_VAL["eucookie_enabled"] == '0') ? TRUE : FALSE, 'jak_eucookie_enabled2');
+                          echo $Html->addRadio('envo_eucookie_enabled', '0', ($ENVO_SETTING_VAL["eucookie_enabled"] == '0') ? TRUE : FALSE, 'envo_eucookie_enabled2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_eucookie_enabled2', $tl["checkbox"]["chk1"]);
+                          echo $Html->addLabel('envo_eucookie_enabled2', $tl["checkbox"]["chk1"]);
                           ?>
 
                         </div>
@@ -1394,7 +1394,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_eucookie_name', $JAK_SETTING_VAL["eucookie_name"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_eucookie_name', $ENVO_SETTING_VAL["eucookie_name"], '', 'form-control');
                           ?>
 
                         </div>
@@ -1417,7 +1417,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_eucookie_expiryDays', $JAK_SETTING_VAL["eucookie_expiryDays"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_eucookie_expiryDays', $ENVO_SETTING_VAL["eucookie_expiryDays"], '', 'form-control');
                           ?>
 
                         </div>
@@ -1459,16 +1459,16 @@ if ($success) { ?>
 
                       </div>
                       <div class="col-md-7">
-                        <select name="jak_eucookie_position" class="form-control selectpicker">
+                        <select name="envo_eucookie_position" class="form-control selectpicker">
 
                           <?php
                           // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                          echo $Html->addOption('bottom', 'Banner Bottom', ($JAK_SETTING_VAL["eucookie_position"] == 'bottom') ? TRUE : FALSE);
-                          echo $Html->addOption('top', 'Banner Top', ($JAK_SETTING_VAL["eucookie_position"] == 'top') ? TRUE : FALSE);
-                          echo $Html->addOption('bottom-left', 'Floating Bottom Left', ($JAK_SETTING_VAL["eucookie_position"] == 'bottom-left') ? TRUE : FALSE);
-                          echo $Html->addOption('bottom-right', 'Floating Bottom Right', ($JAK_SETTING_VAL["eucookie_position"] == 'bottom-right') ? TRUE : FALSE);
-                          echo $Html->addOption('top-left', 'Floating Top Left', ($JAK_SETTING_VAL["eucookie_position"] == 'top-left') ? TRUE : FALSE);
-                          echo $Html->addOption('top-right', 'Floating Top Right', ($JAK_SETTING_VAL["eucookie_position"] == 'top-right') ? TRUE : FALSE);
+                          echo $Html->addOption('bottom', 'Banner Bottom', ($ENVO_SETTING_VAL["eucookie_position"] == 'bottom') ? TRUE : FALSE);
+                          echo $Html->addOption('top', 'Banner Top', ($ENVO_SETTING_VAL["eucookie_position"] == 'top') ? TRUE : FALSE);
+                          echo $Html->addOption('bottom-left', 'Floating Bottom Left', ($ENVO_SETTING_VAL["eucookie_position"] == 'bottom-left') ? TRUE : FALSE);
+                          echo $Html->addOption('bottom-right', 'Floating Bottom Right', ($ENVO_SETTING_VAL["eucookie_position"] == 'bottom-right') ? TRUE : FALSE);
+                          echo $Html->addOption('top-left', 'Floating Top Left', ($ENVO_SETTING_VAL["eucookie_position"] == 'top-left') ? TRUE : FALSE);
+                          echo $Html->addOption('top-right', 'Floating Top Right', ($ENVO_SETTING_VAL["eucookie_position"] == 'top-right') ? TRUE : FALSE);
                           ?>
 
                         </select>
@@ -1484,14 +1484,14 @@ if ($success) { ?>
 
                       </div>
                       <div class="col-md-7">
-                        <select name="jak_eucookie_style" class="form-control selectpicker">
+                        <select name="envo_eucookie_style" class="form-control selectpicker">
 
                           <?php
                           // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                          echo $Html->addOption('block', 'Block', ($JAK_SETTING_VAL["eucookie_style"] == 'block') ? TRUE : FALSE);
-                          echo $Html->addOption('edgeless', 'Edgeless', ($JAK_SETTING_VAL["eucookie_style"] == 'edgeless') ? TRUE : FALSE);
-                          echo $Html->addOption('classic', 'Classic', ($JAK_SETTING_VAL["eucookie_style"] == 'classic') ? TRUE : FALSE);
-                          echo $Html->addOption('wire', 'Wire', ($JAK_SETTING_VAL["eucookie_style"] == 'wire') ? TRUE : FALSE);
+                          echo $Html->addOption('block', 'Block', ($ENVO_SETTING_VAL["eucookie_style"] == 'block') ? TRUE : FALSE);
+                          echo $Html->addOption('edgeless', 'Edgeless', ($ENVO_SETTING_VAL["eucookie_style"] == 'edgeless') ? TRUE : FALSE);
+                          echo $Html->addOption('classic', 'Classic', ($ENVO_SETTING_VAL["eucookie_style"] == 'classic') ? TRUE : FALSE);
+                          echo $Html->addOption('wire', 'Wire', ($ENVO_SETTING_VAL["eucookie_style"] == 'wire') ? TRUE : FALSE);
                           ?>
 
                         </select>
@@ -1530,49 +1530,49 @@ if ($success) { ?>
 
                         <div class="cookie-consent-configurator">
 
-                          <input name="jak_eucookie_theme" id="theme7-colour" class="input-hidden" value="eucookie_theme7" <?php echo ($JAK_SETTING_VAL["eucookie_theme"] == 'eucookie_theme7') ? 'checked="checked"' : ''; ?> type="radio">
+                          <input name="envo_eucookie_theme" id="theme7-colour" class="input-hidden" value="eucookie_theme7" <?php echo ($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme7') ? 'checked="checked"' : ''; ?> type="radio">
                           <label for="theme7-colour">
                             <div class="theme-preview-container" style="background:#000;">
                               <div class="theme-preview-button" style="background:#80AA1D;"></div>
                             </div>
                           </label>
 
-                          <input name="jak_eucookie_theme" id="theme1-colour" class="input-hidden" value="eucookie_theme1" <?php echo ($JAK_SETTING_VAL["eucookie_theme"] == 'eucookie_theme1') ? 'checked="checked"' : ''; ?> type="radio">
+                          <input name="envo_eucookie_theme" id="theme1-colour" class="input-hidden" value="eucookie_theme1" <?php echo ($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme1') ? 'checked="checked"' : ''; ?> type="radio">
                           <label for="theme1-colour">
                             <div class="theme-preview-container" style="background:#000;">
                               <div class="theme-preview-button" style="background:#F1D600;"></div>
                             </div>
                           </label>
 
-                          <input name="jak_eucookie_theme" id="theme2-colour" class="input-hidden" value="eucookie_theme2" <?php echo ($JAK_SETTING_VAL["eucookie_theme"] == 'eucookie_theme2') ? 'checked="checked"' : ''; ?> type="radio">
+                          <input name="envo_eucookie_theme" id="theme2-colour" class="input-hidden" value="eucookie_theme2" <?php echo ($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme2') ? 'checked="checked"' : ''; ?> type="radio">
                           <label for="theme2-colour">
                             <div class="theme-preview-container" style="background:#000;">
                               <div class="theme-preview-button" style="background:#FFF;"></div>
                             </div>
                           </label>
 
-                          <input name="jak_eucookie_theme" id="theme3-colour" class="input-hidden" value="eucookie_theme3" <?php echo ($JAK_SETTING_VAL["eucookie_theme"] == 'eucookie_theme3') ? 'checked="checked"' : ''; ?> type="radio">
+                          <input name="envo_eucookie_theme" id="theme3-colour" class="input-hidden" value="eucookie_theme3" <?php echo ($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme3') ? 'checked="checked"' : ''; ?> type="radio">
                           <label for="theme3-colour">
                             <div class="theme-preview-container" style="background:#EAF7F7;">
                               <div class="theme-preview-button" style="background:#56CBDB;"></div>
                             </div>
                           </label>
 
-                          <input name="jak_eucookie_theme" id="theme4-colour" class="input-hidden" value="eucookie_theme4" <?php echo ($JAK_SETTING_VAL["eucookie_theme"] == 'eucookie_theme4') ? 'checked="checked"' : ''; ?> type="radio">
+                          <input name="envo_eucookie_theme" id="theme4-colour" class="input-hidden" value="eucookie_theme4" <?php echo ($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme4') ? 'checked="checked"' : ''; ?> type="radio">
                           <label for="theme4-colour">
                             <div class="theme-preview-container" style="background:#252E39;">
                               <div class="theme-preview-button" style="background:#14A7D0;"></div>
                             </div>
                           </label>
 
-                          <input name="jak_eucookie_theme" id="theme5-colour" class="input-hidden" value="eucookie_theme5" <?php echo ($JAK_SETTING_VAL["eucookie_theme"] == 'eucookie_theme5') ? 'checked="checked"' : ''; ?> type="radio">
+                          <input name="envo_eucookie_theme" id="theme5-colour" class="input-hidden" value="eucookie_theme5" <?php echo ($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme5') ? 'checked="checked"' : ''; ?> type="radio">
                           <label for="theme5-colour">
                             <div class="theme-preview-container" style="background:#237AFC;">
                               <div class="theme-preview-button" style="background:#FFF;"></div>
                             </div>
                           </label>
 
-                          <input name="jak_eucookie_theme" id="theme6-colour" class="input-hidden" value="eucookie_theme6" <?php echo ($JAK_SETTING_VAL["eucookie_theme"] == 'eucookie_theme6') ? 'checked="checked"' : ''; ?> type="radio">
+                          <input name="envo_eucookie_theme" id="theme6-colour" class="input-hidden" value="eucookie_theme6" <?php echo ($ENVO_SETTING_VAL["eucookie_theme"] == 'eucookie_theme6') ? 'checked="checked"' : ''; ?> type="radio">
                           <label for="theme6-colour">
                             <div class="theme-preview-container" style="background:#EDEFF5;">
                               <div class="theme-preview-button" style="background:#4B81E8;"></div>
@@ -1597,7 +1597,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_eucookie_alpha', $JAK_SETTING_VAL["eucookie_alpha"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_eucookie_alpha', $ENVO_SETTING_VAL["eucookie_alpha"], '', 'form-control');
                           ?>
 
                         </div>
@@ -1645,7 +1645,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                          echo $Html->addTextarea('jak_eucookie_message', envo_edit_safe_userpost($JAK_SETTING_VAL["eucookie_message"]), '2', '', array('class' => 'form-control'));
+                          echo $Html->addTextarea('envo_eucookie_message', envo_edit_safe_userpost($ENVO_SETTING_VAL["eucookie_message"]), '2', '', array('class' => 'form-control'));
                           ?>
 
                         </div>
@@ -1665,7 +1665,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_eucookie_dismiss', $JAK_SETTING_VAL["eucookie_dismiss"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_eucookie_dismiss', $ENVO_SETTING_VAL["eucookie_dismiss"], '', 'form-control');
                           ?>
 
                         </div>
@@ -1685,7 +1685,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_eucookie_link', $JAK_SETTING_VAL["eucookie_link"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_eucookie_link', $ENVO_SETTING_VAL["eucookie_link"], '', 'form-control');
                           ?>
 
                         </div>
@@ -1705,7 +1705,7 @@ if ($success) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_eucookie_href', $JAK_SETTING_VAL["eucookie_href"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_eucookie_href', $ENVO_SETTING_VAL["eucookie_href"], '', 'form-control');
                           ?>
 
                         </div>
@@ -1727,7 +1727,7 @@ if ($success) { ?>
         </div>
       </div>
 
-      <?php if (isset($JAK_HOOK_ADMIN_SETTING_EDIT) && is_array($JAK_HOOK_ADMIN_SETTING_EDIT)) foreach ($JAK_HOOK_ADMIN_SETTING_EDIT as $hs) { ?>
+      <?php if (isset($ENVO_HOOK_ADMIN_SETTING_EDIT) && is_array($ENVO_HOOK_ADMIN_SETTING_EDIT)) foreach ($ENVO_HOOK_ADMIN_SETTING_EDIT as $hs) { ?>
         <div role="tabpanel" class="tab-pane fade" id="cmsPage7" aria-labelledby="cmsPage7-tab">
           <?php include_once APP_PATH . $hs['phpcode']; ?>
         </div>

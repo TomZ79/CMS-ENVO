@@ -1,6 +1,6 @@
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
-<?php if (JAK_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=edit&amp;id=' . $PAGE_ID;
+<?php if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=edit&amp;id=' . $PAGE_ID;
 $qapedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=quickedit&amp;id=' . $PAGE_ID;
 if ($jkv["printme"]) $printme = 1; ?>
 
@@ -17,16 +17,16 @@ if ($jkv["printme"]) $printme = 1; ?>
         <div class="col-sm-6">
           <!-- Show date, social buttons and tag list -->
           <?php if ($SHOWSOCIALBUTTON) include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/socialbutton.php'; ?>
-          <?php if ($JAK_TAGLIST) { ?>
-            <i class="fa fa-tags"></i> <?php echo $JAK_TAGLIST; ?>
+          <?php if ($ENVO_TAGLIST) { ?>
+            <i class="fa fa-tags"></i> <?php echo $ENVO_TAGLIST; ?>
           <?php } ?>
         </div>
       </div>
       <hr>
       <?php echo $PAGE_CONTENT; ?>
-      <!-- <img src="<?php echo BASE_URL . $SHOWIMG; ?>" alt="jak-preview" class="post-image img-responsive"> -->
+      <!-- <img src="<?php echo BASE_URL . $SHOWIMG; ?>" alt="envo-preview" class="post-image img-responsive"> -->
     </div>
-    <?php if ($JAK_SHOW_C_FORM) {
+    <?php if ($ENVO_SHOW_C_FORM) {
       include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/contact.php';
     } ?>
 
@@ -35,18 +35,18 @@ if ($jkv["printme"]) $printme = 1; ?>
 
   <div class="col-md-12">
     <ul class="pager">
-      <?php if ($JAK_NAV_PREV) { ?>
+      <?php if ($ENVO_NAV_PREV) { ?>
         <li class="previous">
-          <a href="<?php echo $JAK_NAV_PREV; ?>">
+          <a href="<?php echo $ENVO_NAV_PREV; ?>">
             <i class="fa fa-caret-left"></i>
-            <span class="nav_text_left"><?php echo $JAK_NAV_PREV_TITLE; ?></span>
+            <span class="nav_text_left"><?php echo $ENVO_NAV_PREV_TITLE; ?></span>
           </a>
         </li>
       <?php }
-      if ($JAK_NAV_NEXT) { ?>
+      if ($ENVO_NAV_NEXT) { ?>
         <li class="next">
-          <a href="<?php echo $JAK_NAV_NEXT; ?>">
-            <span class="nav_text_right"><?php echo $JAK_NAV_NEXT_TITLE; ?></span>
+          <a href="<?php echo $ENVO_NAV_NEXT; ?>">
+            <span class="nav_text_right"><?php echo $ENVO_NAV_NEXT_TITLE; ?></span>
             <i class="fa fa-caret-right"></i>
           </a>
         </li>

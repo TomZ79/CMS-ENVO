@@ -2,7 +2,7 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 $CHECK_USR_SESSION = session_id();
 
@@ -23,8 +23,8 @@ $envotable1 = DB_PREFIX . 'blogcategories';
 include_once 'functions.php';
 
 // Get the important template stuff
-$JAK_SEARCH_WHERE = JAK_PLUGIN_VAR_BLOG;
-$JAK_SEARCH_LINK  = JAK_PLUGIN_VAR_BLOG;
+$ENVO_SEARCH_WHERE = ENVO_PLUGIN_VAR_BLOG;
+$ENVO_SEARCH_LINK  = ENVO_PLUGIN_VAR_BLOG;
 
 // AJAX Search
 $AJAX_SEARCH_PLUGIN_WHERE = $envotable;
@@ -33,16 +33,16 @@ $AJAX_SEARCH_PLUGIN_SEO   = $jkv["blogurl"];
 
 // Get the rss if active
 if ($jkv["blogrss"]) {
-  $JAK_RSS_DISPLAY = 1;
-  $P_RSS_LINK      = ENVO_rewrite::envoParseurl('rss.xml', JAK_PLUGIN_VAR_BLOG, '', '', '');
+  $ENVO_RSS_DISPLAY = 1;
+  $P_RSS_LINK      = ENVO_rewrite::envoParseurl('rss.xml', ENVO_PLUGIN_VAR_BLOG, '', '', '');
 }
 
 // Parse links once if needed a lot of time
-$backtoblog = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_BLOG, '', '', '', '');
+$backtoblog = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_BLOG, '', '', '', '');
 
 // Template Call
-$JAK_TPL_PLUG_T   = JAK_PLUGIN_NAME_BLOG;
-$JAK_TPL_PLUG_URL = $backtoblog;
+$ENVO_TPL_PLUG_T   = ENVO_PLUGIN_NAME_BLOG;
+$ENVO_TPL_PLUG_URL = $backtoblog;
 
 // -------- DATA FOR SELECTED FRONTEND PAGES --------
 // -------- DATA PRO VYBRANÉ FRONTEND STRÁNKY --------
@@ -52,13 +52,13 @@ $JAK_TPL_PLUG_URL = $backtoblog;
 switch ($page1) {
   case 'c':
 
-    if (is_numeric($page2) && envo_row_permission($page2, $envotable1, JAK_USERGROUPID)) {
+    if (is_numeric($page2) && envo_row_permission($page2, $envotable1, ENVO_USERGROUPID)) {
 
       if ($jkv["blogurl"]) {
-        $getWhere = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_BLOG, $page1, $page2, $page3, '');
+        $getWhere = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_BLOG, $page1, $page2, $page3, '');
         $getPage  = $page4;
       } else {
-        $getWhere = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_BLOG, $page1, $page2, '', '');
+        $getWhere = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_BLOG, $page1, $page2, '', '');
         $getPage  = $page3;
       }
 
@@ -72,38 +72,38 @@ switch ($page1) {
         $blogc->items_total    = $getTotal["totalAll"];
         $blogc->mid_range      = $jkv["blogpagemid"];
         $blogc->items_per_page = $jkv["blogpageitem"];
-        $blogc->jak_get_page   = $getPage;
-        $blogc->jak_where      = $getWhere;
-        $blogc->jak_prevtext   = $tl["pagination"]["pagin"];
-        $blogc->jak_nexttext   = $tl["pagination"]["pagin1"];
+        $blogc->envo_get_page   = $getPage;
+        $blogc->envo_where      = $getWhere;
+        $blogc->envo_prevtext   = $tl["pagination"]["pagin"];
+        $blogc->envo_nexttext   = $tl["pagination"]["pagin1"];
         $blogc->paginate();
-        $JAK_PAGINATE = $blogc->display_pages();
+        $ENVO_PAGINATE = $blogc->display_pages();
 
       }
 
-      $JAK_BLOG_ALL = envo_get_blog($blogc->limit, $jkv["blogorder"], $page2, 't1.catid', $jkv["blogurl"], $tl['global_text']['gtxt4']);
+      $ENVO_BLOG_ALL = envo_get_blog($blogc->limit, $jkv["blogorder"], $page2, 't1.catid', $jkv["blogurl"], $tl['global_text']['gtxt4']);
 
       $row = $envodb->queryRow('SELECT name, content FROM ' . $envotable1 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
 
-      $PAGE_TITLE              = JAK_PLUGIN_NAME_BLOG . ' - ' . $row['name'];
+      $PAGE_TITLE              = ENVO_PLUGIN_NAME_BLOG . ' - ' . $row['name'];
       $PAGE_CONTENT            = $row['content'];
       $MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
       $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];
 
       // Get the sort orders for the grid
-      $JAK_HOOK_SIDE_GRID = FALSE;
-      $grid               = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . JAK_PLUGIN_ID_BLOG . ' AND blogid = 0 ORDER BY orderid ASC');
+      $ENVO_HOOK_SIDE_GRID = FALSE;
+      $grid               = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . ENVO_PLUGIN_ID_BLOG . ' AND blogid = 0 ORDER BY orderid ASC');
       while ($grow = $grid->fetch_assoc()) {
         // EN: Insert each record into array
         // CZ: Vložení získaných dat do pole
-        $JAK_HOOK_SIDE_GRID[] = $grow;
+        $ENVO_HOOK_SIDE_GRID[] = $grow;
       }
 
       // Get the url session
-      $_SESSION['jak_lastURL'] = $getWhere;
+      $_SESSION['envo_lastURL'] = $getWhere;
 
       // Now get the new meta keywords and description maker
-      if (isset($JAK_BLOG_ALL) && is_array($JAK_BLOG_ALL)) foreach ($JAK_BLOG_ALL as $kv) $seokeywords[] = ENVO_base::envoCleanurl($kv['title']);
+      if (isset($ENVO_BLOG_ALL) && is_array($ENVO_BLOG_ALL)) foreach ($ENVO_BLOG_ALL as $kv) $seokeywords[] = ENVO_base::envoCleanurl($kv['title']);
 
       if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
@@ -116,8 +116,8 @@ switch ($page1) {
         $PAGE_DESCRIPTION = envo_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
       }
 
-      $JAK_HEADER_CSS        = $jkv["blog_css"];
-      $JAK_FOOTER_JAVASCRIPT = $jkv["blog_javascript"];
+      $ENVO_HEADER_CSS        = $jkv["blog_css"];
+      $ENVO_FOOTER_JAVASCRIPT = $jkv["blog_javascript"];
 
       // EN: Load the php template
       // CZ: Načtení php template (šablony)
@@ -150,7 +150,7 @@ switch ($page1) {
 
       } else {
 
-        if (!envo_row_permission($row['catid'], $envotable1, JAK_USERGROUPID)) {
+        if (!envo_row_permission($row['catid'], $envotable1, ENVO_USERGROUPID)) {
           envo_redirect($backtoblog);
 
         } else {
@@ -173,22 +173,22 @@ switch ($page1) {
           $SHOWDATE                    = $row['showdate'];
           $SHOWSOCIALBUTTON            = $row['socialbutton'];
           $BLOG_HITS                   = $row['hits'];
-          $JAK_HEADER_CSS              = $row['blog_css'];
-          $JAK_FOOTER_JAVASCRIPT       = $row['blog_javascript'];
+          $ENVO_HEADER_CSS              = $row['blog_css'];
+          $ENVO_FOOTER_JAVASCRIPT       = $row['blog_javascript'];
           $jkv["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
 
           $PAGE_TIME       = ENVO_base::envoTimesince($row['time'], $jkv["blogdateformat"], $jkv["blogtimeformat"], $tl['global_text']['gtxt4']);
           $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
           // Display contact form if whish so and do the caching
-          $JAK_SHOW_C_FORM = FALSE;
+          $ENVO_SHOW_C_FORM = FALSE;
           if ($row['showcontact'] != 0) {
-            $JAK_SHOW_C_FORM      = envo_create_contact_form($row['showcontact'], $tl['form_text']['formt']);
-            $JAK_SHOW_C_FORM_NAME = envo_contact_form_title($row['showcontact']);
+            $ENVO_SHOW_C_FORM      = envo_create_contact_form($row['showcontact'], $tl['form_text']['formt']);
+            $ENVO_SHOW_C_FORM_NAME = envo_contact_form_title($row['showcontact']);
           }
 
           // Get the url session
-          $_SESSION['jak_lastURL'] = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_BLOG, $page1, $page2, $page3, '');
+          $_SESSION['envo_lastURL'] = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_BLOG, $page1, $page2, $page3, '');
 
         }
 
@@ -198,12 +198,12 @@ switch ($page1) {
 
           // the sidebar grid
           if ($grow["hookid"]) {
-            $JAK_HOOK_SIDE_GRID[] = $grow;
+            $ENVO_HOOK_SIDE_GRID[] = $grow;
           }
         }
 
         // Show Tags
-        $JAK_TAGLIST = ENVO_tags::envoGetTagList_class($page2, JAK_PLUGIN_ID_BLOG, JAK_PLUGIN_VAR_TAGS, 'tips', $tl["title_element"]["tel"]);
+        $ENVO_TAGLIST = ENVO_tags::envoGetTagList_class($page2, ENVO_PLUGIN_ID_BLOG, ENVO_PLUGIN_VAR_TAGS, 'tips', $tl["title_element"]["tel"]);
 
         // Page Nav
         $nextp = envo_next_page($page2, 'title', $envotable, 'id', ' AND catid != 0', '', 'active');
@@ -213,8 +213,8 @@ switch ($page1) {
             $seo = ENVO_base::envoCleanurl($nextp['title']);
           }
 
-          $JAK_NAV_NEXT       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_BLOG, 'a', $nextp['id'], $seo, '');
-          $JAK_NAV_NEXT_TITLE = $nextp['title'];
+          $ENVO_NAV_NEXT       = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_BLOG, 'a', $nextp['id'], $seo, '');
+          $ENVO_NAV_NEXT_TITLE = $nextp['title'];
         }
 
         $prevp = envo_previous_page($page2, 'title', $envotable, 'id', ' AND catid != 0', '', 'active');
@@ -224,8 +224,8 @@ switch ($page1) {
             $seop = ENVO_base::envoCleanurl($prevp['title']);
           }
 
-          $JAK_NAV_PREV       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_BLOG, 'a', $prevp['id'], $seop, '');
-          $JAK_NAV_PREV_TITLE = $prevp['title'];
+          $ENVO_NAV_PREV       = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_BLOG, 'a', $prevp['id'], $seop, '');
+          $ENVO_NAV_PREV_TITLE = $prevp['title'];
         }
 
         // Get the categories into a list
@@ -238,7 +238,7 @@ switch ($page1) {
 
           // EN: Create array with all categories ( Plugin Blog have one or more categories for one article, in array will be it one or more categories )
           // CZ: Vytvoření pole se všemi kategoriemi ( Plugin Blog má jednu nebo více kategorií pro jeden článek, v poli bude jedna nebo více kategorií )
-          $catids[] = '<span class="blog-cat-list"><a href="' . ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_BLOG, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tlblog["blog_frontend"]["blog1"] . '">' . $rowc['name'] . '</a></span>';
+          $catids[] = '<span class="blog-cat-list"><a href="' . ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_BLOG, 'c', $rowc['id'], $seoc, '', '') . '" title="' . $tlblog["blog_frontend"]["blog1"] . '">' . $rowc['name'] . '</a></span>';
 
           // EN: Get 'varname' for category
           // CZ: Získaní 'varname' kategorie
@@ -258,8 +258,8 @@ switch ($page1) {
 
     // Now get the new meta keywords and description maker
     $keytags = '';
-    if ($JAK_TAGLIST) {
-      $keytags = preg_split('/\s+/', strip_tags($JAK_TAGLIST));
+    if ($ENVO_TAGLIST) {
+      $keytags = preg_split('/\s+/', strip_tags($ENVO_TAGLIST));
       $keytags = ',' . implode(',', $keytags);
     }
     $PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
@@ -288,21 +288,21 @@ switch ($page1) {
       $blog->items_total    = $getTotal;
       $blog->mid_range      = $jkv["blogpagemid"];
       $blog->items_per_page = $jkv["blogpageitem"];
-      $blog->jak_get_page   = $page1;
-      $blog->jak_where      = $backtoblog;
-      $blog->jak_prevtext   = $tl["pagination"]["pagin"];
-      $blog->jak_nexttext   = $tl["pagination"]["pagin1"];
+      $blog->envo_get_page   = $page1;
+      $blog->envo_where      = $backtoblog;
+      $blog->envo_prevtext   = $tl["pagination"]["pagin"];
+      $blog->envo_nexttext   = $tl["pagination"]["pagin1"];
       $blog->paginate();
 
       // Pagination
-      $JAK_PAGINATE = $blog->display_pages();
+      $ENVO_PAGINATE = $blog->display_pages();
       // Get all blogs
-      $JAK_BLOG_ALL = envo_get_blog($blog->limit, $jkv["blogorder"], '', '', $jkv["blogurl"], $tl['global_text']['gtxt4']);
+      $ENVO_BLOG_ALL = envo_get_blog($blog->limit, $jkv["blogorder"], '', '', $jkv["blogurl"], $tl['global_text']['gtxt4']);
 
     }
 
     // Get the categories
-    $JAK_BLOG_CAT = ENVO_base::envoGetcatmix(JAK_PLUGIN_VAR_BLOG, '', $envotable1, JAK_USERGROUPID, $jkv["blogurl"]);
+    $ENVO_BLOG_CAT = ENVO_base::envoGetcatmix(ENVO_PLUGIN_VAR_BLOG, '', $envotable1, ENVO_USERGROUPID, $jkv["blogurl"]);
 
     // EN: Set data for the frontend page - Title, Description, Keywords and other ...
     // CZ: Nastavení dat pro frontend stránku - Titulek, Popis, Klíčová slova a další ...
@@ -311,19 +311,19 @@ switch ($page1) {
     $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];
 
     // Get the url session
-    $_SESSION['jak_lastURL'] = $backtoblog;
+    $_SESSION['envo_lastURL'] = $backtoblog;
 
     // Get the sort orders for the grid
-    $JAK_HOOK_SIDE_GRID = FALSE;
-    $grid               = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . JAK_PLUGIN_ID_BLOG . ' AND blogid = 0 ORDER BY orderid ASC');
+    $ENVO_HOOK_SIDE_GRID = FALSE;
+    $grid               = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . ENVO_PLUGIN_ID_BLOG . ' AND blogid = 0 ORDER BY orderid ASC');
     while ($grow = $grid->fetch_assoc()) {
       // EN: Insert each record into array
       // CZ: Vložení získaných dat do pole
-      $JAK_HOOK_SIDE_GRID[] = $grow;
+      $ENVO_HOOK_SIDE_GRID[] = $grow;
     }
 
     // Now get the new meta keywords and description maker
-    if (isset($JAK_BLOG_ALL) && is_array($JAK_BLOG_ALL)) foreach ($JAK_BLOG_ALL as $kv) $seokeywords[] = ENVO_base::envoCleanurl($kv['title']);
+    if (isset($ENVO_BLOG_ALL) && is_array($ENVO_BLOG_ALL)) foreach ($ENVO_BLOG_ALL as $kv) $seokeywords[] = ENVO_base::envoCleanurl($kv['title']);
 
     if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
@@ -337,8 +337,8 @@ switch ($page1) {
     }
 
     // Get the CSS and Javascript into the page
-    $JAK_HEADER_CSS        = $jkv["blog_css"];
-    $JAK_FOOTER_JAVASCRIPT = $jkv["blog_javascript"];
+    $ENVO_HEADER_CSS        = $jkv["blog_css"];
+    $ENVO_FOOTER_JAVASCRIPT = $jkv["blog_javascript"];
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)

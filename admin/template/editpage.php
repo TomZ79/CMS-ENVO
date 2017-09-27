@@ -465,11 +465,11 @@ if ($errors) { ?>
                           // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
                           echo $Html->addOption('0', $tl["page_box_content"]["pagebc"], ($ENVO_FORM_DATA["catid"] == '0') ? TRUE : FALSE);
 
-                          if (isset($JAK_CAT_NOTUSED) && is_array($JAK_CAT_NOTUSED)) foreach ($JAK_CAT_NOTUSED as $v) {
+                          if (isset($ENVO_CAT_NOTUSED) && is_array($ENVO_CAT_NOTUSED)) foreach ($ENVO_CAT_NOTUSED as $v) {
                             echo $Html->addOption($v["id"], $v["name"], ($v["id"] == $ENVO_FORM_DATA["catid"]) ? TRUE : FALSE);
                           }
 
-                          if (isset($JAK_CAT) && is_array($JAK_CAT)) foreach ($JAK_CAT as $z) {
+                          if (isset($ENVO_CAT) && is_array($ENVO_CAT)) foreach ($ENVO_CAT as $z) {
                             if ($z["id"] == $ENVO_FORM_DATA["catid"]) {
                               echo $Html->addOption($z["id"], $z["name"], TRUE);
                             }
@@ -491,7 +491,7 @@ if ($errors) { ?>
 
               </div>
             </div>
-            <?php if (JAK_TAGS) { ?>
+            <?php if (ENVO_TAGS) { ?>
               <div class="box box-success">
                 <div class="box-header with-border">
 
@@ -549,11 +549,11 @@ if ($errors) { ?>
 
                         </div>
                         <div class="col-md-7">
-                          <?php $JAK_TAG_ALL = envo_tag_name_admin();
-                          if ($JAK_TAG_ALL) { ?>
+                          <?php $ENVO_TAG_ALL = envo_tag_name_admin();
+                          if ($ENVO_TAG_ALL) { ?>
                             <select name="" id="selecttags2" class="form-control selectpicker">
                               <?php
-                              foreach ($JAK_TAG_ALL as $v) {
+                              foreach ($ENVO_TAG_ALL as $v) {
 
                                 // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
                                 echo $Html->addOption($v["tag"], $v["tag"]);
@@ -577,14 +577,14 @@ if ($errors) { ?>
 
                         </div>
                       </div>
-                      <?php if ($JAK_TAGLIST) { ?>
+                      <?php if ($ENVO_TAGLIST) { ?>
                         <div class="row-form">
                           <div class="col-md-12">
                             <div class="form-group">
                               <label><?php echo $tl["page_box_content"]["pagebc20"]; ?></label>
                               <span>Zaškrté tagy budou při uložení smazány</span>
                               <div class="controls">
-                                <?php echo $JAK_TAGLIST; ?>
+                                <?php echo $ENVO_TAGLIST; ?>
                               </div>
                             </div>
                           </div>
@@ -707,13 +707,13 @@ if ($errors) { ?>
                 <!-- Moving stuff -->
                 <ul class="envo_content_move">
 
-                  <?php if (isset($JAK_PAGE_GRID) && is_array($JAK_PAGE_GRID)) foreach ($JAK_PAGE_GRID as $pg) {
+                  <?php if (isset($ENVO_PAGE_GRID) && is_array($ENVO_PAGE_GRID)) foreach ($ENVO_PAGE_GRID as $pg) {
 
                     if ($pg["pluginid"] != 0) {
 
                       if ($pg["pluginid"] == '9999') { ?>
 
-                        <li class="jakcontent">
+                        <li class="envocontent">
                           <div class="text"><?php echo $tl["page_box_content"]["pagebc21"]; ?></div>
                           <div class="actions">
 
@@ -727,10 +727,10 @@ if ($errors) { ?>
                         </li>
 
                       <?php }
-                      if ($pg["pluginid"] == '9997' && $JAK_CONTACT_FORM) { ?>
+                      if ($pg["pluginid"] == '9997' && $ENVO_CONTACT_FORM) { ?>
 
-                        <li class="jakcontent">
-                          <div class="jakcontent_header"><?php echo $tl["global_text"]["globaltxt20"]; ?></div>
+                        <li class="envocontent">
+                          <div class="envocontent_header"><?php echo $tl["global_text"]["globaltxt20"]; ?></div>
                           <div class="form-group">
                             <?php
                             // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
@@ -744,7 +744,7 @@ if ($errors) { ?>
                               $selected = (isset($ENVO_FORM_DATA["showcontact"]) && $ENVO_FORM_DATA["showcontact"] == '0') ? TRUE : FALSE;
 
                               echo $Html->addOption('0', $tl["news_box_content"]["newsbc25"], $selected);
-                              if (isset($JAK_CONTACT_FORMS) && is_array($JAK_CONTACT_FORMS)) foreach ($JAK_CONTACT_FORMS as $cf) {
+                              if (isset($ENVO_CONTACT_FORMS) && is_array($ENVO_CONTACT_FORMS)) foreach ($ENVO_CONTACT_FORMS as $cf) {
 
                                 echo $Html->addOption($cf["id"], $cf["title"], (isset($ENVO_FORM_DATA["showcontact"]) && $cf["id"] == $ENVO_FORM_DATA["showcontact"]) ? TRUE : FALSE);
 
@@ -767,8 +767,8 @@ if ($errors) { ?>
                       <?php }
                       if ($pg["pluginid"] == '9998') { ?>
 
-                        <li class="jakcontent">
-                          <div class="jakcontent_header"><?php echo $tl["global_text"]["globaltxt19"]; ?></div>
+                        <li class="envocontent">
+                          <div class="envocontent_header"><?php echo $tl["global_text"]["globaltxt19"]; ?></div>
                           <div class="form-group">
                             <label><?php echo $tl["global_text"]["globaltxt9"]; ?></label>
                             <div class="row">
@@ -820,7 +820,7 @@ if ($errors) { ?>
                               $selected = (isset($ENVO_FORM_DATA["shownews"]) && $ENVO_FORM_DATA["shownews"] == 0) ? TRUE : FALSE;
 
                               echo $Html->addOption('0', $tl["global_text"]["globaltxt13"], $selected);
-                              if (isset($JAK_GET_NEWS) && is_array($JAK_GET_NEWS)) foreach ($JAK_GET_NEWS as $gn) {
+                              if (isset($ENVO_GET_NEWS) && is_array($ENVO_GET_NEWS)) foreach ($ENVO_GET_NEWS as $gn) {
 
                                 echo $Html->addOption($gn["id"], $gn["title"], (isset($ENVO_FORM_DATA["shownews"]) && (in_array($gn["id"], explode(',', $ENVO_FORM_DATA["shownews"])))) ? TRUE : FALSE);
 
@@ -843,7 +843,7 @@ if ($errors) { ?>
 
                       <?php }
 
-                      if (isset($JAK_HOOK_ADMIN_PAGE) && is_array($JAK_HOOK_ADMIN_PAGE)) foreach ($JAK_HOOK_ADMIN_PAGE as $hsp) {
+                      if (isset($ENVO_HOOK_ADMIN_PAGE) && is_array($ENVO_HOOK_ADMIN_PAGE)) foreach ($ENVO_HOOK_ADMIN_PAGE as $hsp) {
 
                         eval($hsp["phpcode"]);
 
@@ -852,7 +852,7 @@ if ($errors) { ?>
                     }
                   }
 
-                  if (isset($JAK_HOOK_ADMIN_PAGE_NEW) && is_array($JAK_HOOK_ADMIN_PAGE_NEW)) foreach ($JAK_HOOK_ADMIN_PAGE_NEW as $hspn) {
+                  if (isset($ENVO_HOOK_ADMIN_PAGE_NEW) && is_array($ENVO_HOOK_ADMIN_PAGE_NEW)) foreach ($ENVO_HOOK_ADMIN_PAGE_NEW as $hspn) {
 
                     include_once APP_PATH . $hspn["phpcode"];
 

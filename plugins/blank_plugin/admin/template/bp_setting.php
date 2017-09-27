@@ -103,7 +103,7 @@ if ($page2 == "e") { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_title', $JAK_SETTING_VAL["blankplugintitle"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_title', $ENVO_SETTING_VAL["blankplugintitle"], '', 'form-control');
                           ?>
 
                         </div>

@@ -3,10 +3,10 @@
 // Now we have a cache file let's display the content if the user has permission.
 
 // Let's check if there is a valid Page array
-if (!$page1 && isset($PAGE_ID) && isset($JAK_PAGE_BELOW_HEADER) && is_array($JAK_PAGE_BELOW_HEADER) && array_key_exists($PAGE_ID, $JAK_PAGE_BELOW_HEADER)) {
+if (!$page1 && isset($PAGE_ID) && isset($ENVO_PAGE_BELOW_HEADER) && is_array($ENVO_PAGE_BELOW_HEADER) && array_key_exists($PAGE_ID, $ENVO_PAGE_BELOW_HEADER)) {
 
-  foreach ($JAK_PAGE_BELOW_HEADER as $subp) {
-    if ($subp['pageid'] == $PAGE_ID && (envo_get_access(JAK_USERGROUPID, $subp['permission']) || $subp['permission'] == 0)) {
+  foreach ($ENVO_PAGE_BELOW_HEADER as $subp) {
+    if ($subp['pageid'] == $PAGE_ID && (envo_get_access(ENVO_USERGROUPID, $subp['permission']) || $subp['permission'] == 0)) {
 
       $bh_top = envo_secure_site($subp['content_below']);
 
@@ -20,10 +20,10 @@ if (!$page1 && isset($PAGE_ID) && isset($JAK_PAGE_BELOW_HEADER) && is_array($JAK
 }
 
 // Let's check if there is a valid News array
-if (isset($backtonews) && isset($PAGE_ID) && isset($JAK_NEWS_BELOW_HEADER) && is_array($JAK_NEWS_BELOW_HEADER) && array_key_exists($PAGE_ID, $JAK_NEWS_BELOW_HEADER)) {
+if (isset($backtonews) && isset($PAGE_ID) && isset($ENVO_NEWS_BELOW_HEADER) && is_array($ENVO_NEWS_BELOW_HEADER) && array_key_exists($PAGE_ID, $ENVO_NEWS_BELOW_HEADER)) {
 
-  foreach ($JAK_NEWS_BELOW_HEADER as $subn) {
-    if ($subn['newsid'] == $PAGE_ID && (envo_get_access(JAK_USERGROUPID, $subn['permission']) || $subn['permission'] == 0)) {
+  foreach ($ENVO_NEWS_BELOW_HEADER as $subn) {
+    if ($subn['newsid'] == $PAGE_ID && (envo_get_access(ENVO_USERGROUPID, $subn['permission']) || $subn['permission'] == 0)) {
 
       $bh_top = envo_secure_site($subn['content_below']);
 
@@ -37,11 +37,11 @@ if (isset($backtonews) && isset($PAGE_ID) && isset($JAK_NEWS_BELOW_HEADER) && is
 }
 
 // Let's check if there is a valid News Main array
-if (isset($backtonews) && !$page1 && isset($JAK_NEWSMAIN_BELOW_HEADER) && is_array($JAK_NEWSMAIN_BELOW_HEADER)) {
+if (isset($backtonews) && !$page1 && isset($ENVO_NEWSMAIN_BELOW_HEADER) && is_array($ENVO_NEWSMAIN_BELOW_HEADER)) {
 
-  foreach ($JAK_NEWSMAIN_BELOW_HEADER as $submn) {
+  foreach ($ENVO_NEWSMAIN_BELOW_HEADER as $submn) {
 
-    if ($submn['newsmain'] == 1 && (envo_get_access(JAK_USERGROUPID, $submn['permission']) || $submn['permission'] == 0)) {
+    if ($submn['newsmain'] == 1 && (envo_get_access(ENVO_USERGROUPID, $submn['permission']) || $submn['permission'] == 0)) {
 
       $bh_top = envo_secure_site($submn['content_below']);
 
@@ -55,11 +55,11 @@ if (isset($backtonews) && !$page1 && isset($JAK_NEWSMAIN_BELOW_HEADER) && is_arr
 }
 
 // Let's check if there is a valid Tags array and if the user has access to tags
-if ($page == JAK_PLUGIN_VAR_TAGS && isset($JAK_TAGS_BELOW_HEADER) && is_array($JAK_TAGS_BELOW_HEADER) && JAK_USER_TAGS) {
+if ($page == ENVO_PLUGIN_VAR_TAGS && isset($ENVO_TAGS_BELOW_HEADER) && is_array($ENVO_TAGS_BELOW_HEADER) && ENVO_USER_TAGS) {
 
-  foreach ($JAK_TAGS_BELOW_HEADER as $subt) {
+  foreach ($ENVO_TAGS_BELOW_HEADER as $subt) {
 
-    if ($subt['tags'] == 1 && (envo_get_access(JAK_USERGROUPID, $subt['permission']) || $subt['permission'] == 0)) {
+    if ($subt['tags'] == 1 && (envo_get_access(ENVO_USERGROUPID, $subt['permission']) || $subt['permission'] == 0)) {
 
       $bh_top = envo_secure_site($subt['content_below']);
 
@@ -73,11 +73,11 @@ if ($page == JAK_PLUGIN_VAR_TAGS && isset($JAK_TAGS_BELOW_HEADER) && is_array($J
 }
 
 // Let's check if there is a valid Search array
-if ($page == 'search' && isset($JAK_SEARCH_BELOW_HEADER) && is_array($JAK_SEARCH_BELOW_HEADER)) {
+if ($page == 'search' && isset($ENVO_SEARCH_BELOW_HEADER) && is_array($ENVO_SEARCH_BELOW_HEADER)) {
 
-  foreach ($JAK_SEARCH_BELOW_HEADER as $subs) {
+  foreach ($ENVO_SEARCH_BELOW_HEADER as $subs) {
 
-    if ($subs['search'] == 1 && (envo_get_access(JAK_USERGROUPID, $subs['permission']) || $subs['permission'] == 0)) {
+    if ($subs['search'] == 1 && (envo_get_access(ENVO_USERGROUPID, $subs['permission']) || $subs['permission'] == 0)) {
 
       $bh_top = envo_secure_site($subs['content_below']);
 
@@ -91,11 +91,11 @@ if ($page == 'search' && isset($JAK_SEARCH_BELOW_HEADER) && is_array($JAK_SEARCH
 }
 
 // Let's check if there is a valid Sitemap array
-if ($page == JAK_PLUGIN_VAR_SITEMAP && isset($JAK_SITEMAP_BELOW_HEADER) && is_array($JAK_SITEMAP_BELOW_HEADER)) {
+if ($page == ENVO_PLUGIN_VAR_SITEMAP && isset($ENVO_SITEMAP_BELOW_HEADER) && is_array($ENVO_SITEMAP_BELOW_HEADER)) {
 
-  foreach ($JAK_SITEMAP_BELOW_HEADER as $subsit) {
+  foreach ($ENVO_SITEMAP_BELOW_HEADER as $subsit) {
 
-    if ($subsit['sitemap'] == 1 && (envo_get_access(JAK_USERGROUPID, $subsit['permission']) || $subsit['permission'] == 0)) {
+    if ($subsit['sitemap'] == 1 && (envo_get_access(ENVO_USERGROUPID, $subsit['permission']) || $subsit['permission'] == 0)) {
 
       $bh_top = envo_secure_site($subsit['content_below']);
 

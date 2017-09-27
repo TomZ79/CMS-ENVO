@@ -1,8 +1,8 @@
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
-<?php if (JAK_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=news&sp=setting'; ?>
+<?php if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=news&sp=setting'; ?>
 
-<?php if (isset($JAK_HOOK_NEWS) && is_array ($JAK_HOOK_NEWS)) foreach ($JAK_HOOK_NEWS as $n) {
+<?php if (isset($ENVO_HOOK_NEWS) && is_array ($ENVO_HOOK_NEWS)) foreach ($ENVO_HOOK_NEWS as $n) {
 	include_once APP_PATH . $n['phpcode'];
 } ?>
 
@@ -10,8 +10,8 @@
 		<div class="container-fluid">
 			<div class="row">
 
-				<?php if (isset($JAK_NEWS_ALL) && is_array ($JAK_NEWS_ALL)) foreach ($JAK_NEWS_ALL as $v) { ?>
-				<div class="<?php echo ($JAK_HOOK_SIDE_GRID ? "col-md-6" : "col-md-4"); ?> col-sm-12">
+				<?php if (isset($ENVO_NEWS_ALL) && is_array ($ENVO_NEWS_ALL)) foreach ($ENVO_NEWS_ALL as $v) { ?>
+				<div class="<?php echo ($ENVO_HOOK_SIDE_GRID ? "col-md-6" : "col-md-4"); ?> col-sm-12">
 					<article class="news-article-preview mb-xs">
 						<div class="full-intro-img">
 							<a href="<?php echo $v["parseurl"]; ?>">
@@ -55,7 +55,7 @@
 								<div class="clearfix"></div>
 								<div class="system-icons">
 									<hr class="mt-small mb-small">
-									<?php if (JAK_ASACCESS) { ?>
+									<?php if (ENVO_ASACCESS) { ?>
 
 										<!-- Post Edit - Admin -->
 										<div class="pull-right hidden-xs">
@@ -85,7 +85,7 @@
 			<div class="row">
 				<div class="col-md-12">
 
-					<?php if ($JAK_PAGINATE) echo $JAK_PAGINATE; ?>
+					<?php if ($ENVO_PAGINATE) echo $ENVO_PAGINATE; ?>
 
 				</div>
 			</div>

@@ -1,11 +1,11 @@
 <?php
 
-function jak_create_register_form($envovar1, $limit, $register = FALSE)
+function envo_create_register_form($envovar1, $limit, $register = FALSE)
 {
 
   // Now get all the options from the choosen form and create the form in html include all the javascript options
   global $envodb;
-  global $jakuser;
+  global $envouser;
 
   $sqlwhere = $envodata = '';
   if ($limit) $sqlwhere = 'WHERE id > ' . $limit . ' ';
@@ -33,11 +33,11 @@ function jak_create_register_form($envovar1, $limit, $register = FALSE)
       if ($row['mandatory'] == 4) {
         $cmeter    = ' class="check_password"';
         $cmeterdiv = '<div class="form-group"><label class="control-label">' . $tl["login"]["l4"] . ' <i class="fa fa-star"></i></label><div class="progress progress-striped active">
-				  <div id="jak_pstrength" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+				  <div id="envo_pstrength" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
 				</div></div>';
       }
 
-      $envodata .= '<div class="form-group"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . '</label><div class="controls"><input type="text" class="form-control" name="' . $row['id'] . '"' . $cmeter . ' value="' . (JAK_USERID ? $jakuser->getVar(strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $row['name']) . '_' . $row['id'])) : "") . '" placeholder="' . $row['name'] . '" /></div></div>' . $cmeterdiv;
+      $envodata .= '<div class="form-group"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . '</label><div class="controls"><input type="text" class="form-control" name="' . $row['id'] . '"' . $cmeter . ' value="' . (ENVO_USERID ? $envouser->getVar(strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $row['name']) . '_' . $row['id'])) : "") . '" placeholder="' . $row['name'] . '" /></div></div>' . $cmeterdiv;
     }
 
     if ($row['typeid'] == 2) {
@@ -45,7 +45,7 @@ function jak_create_register_form($envovar1, $limit, $register = FALSE)
       $mandatory = '';
       if ($row['mandatory']) $mandatory = ' <i class="fa fa-star"></i>';
 
-      $envodata .= '<div class="form-group"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . '</label><div class="controls"><textarea name="' . $row['id'] . '" class="form-control' . $cmeter . '">' . (JAK_USERID ? $jakuser->getVar(strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $row['name']) . '_' . $row['id'])) : "") . '</textarea></div></div>';
+      $envodata .= '<div class="form-group"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . '</label><div class="controls"><textarea name="' . $row['id'] . '" class="form-control' . $cmeter . '">' . (ENVO_USERID ? $envouser->getVar(strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $row['name']) . '_' . $row['id'])) : "") . '</textarea></div></div>';
     }
 
     if ($row['typeid'] == 3) {
@@ -57,7 +57,7 @@ function jak_create_register_form($envovar1, $limit, $register = FALSE)
 
       for ($i = 0; $i < count($optarray); $i++) {
 
-        $selectopt .= '<option value="' . $optarray[$i] . '"' . (JAK_USERID && strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $row['name'])) . '_' . $row['id'] == $optarray[$i] ? ' selected="selected"' : "") . '>' . $optarray[$i] . '</option>';
+        $selectopt .= '<option value="' . $optarray[$i] . '"' . (ENVO_USERID && strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $row['name'])) . '_' . $row['id'] == $optarray[$i] ? ' selected="selected"' : "") . '>' . $optarray[$i] . '</option>';
       }
 
       $envodata .= '<div class="form-group"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . '</label><select name="' . $row['id'] . '" class="form-control"><option value="">' . $envovar1 . '</option>' . $selectopt . '</select></div>';
@@ -72,7 +72,7 @@ function jak_create_register_form($envovar1, $limit, $register = FALSE)
 
       for ($i = 0; $i < count($optarrayradio); $i++) {
 
-        $radioopt .= '<div class="radio"><label><input type="radio" name="' . $row['name'] . '" value="' . $optarrayradio[$i] . '"' . (JAK_USERID && $jakuser->getVar(strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $row['name'])) . '_' . $row['id']) == $optarrayradio[$i] ? ' checked="checked"' : "") . '> ' . $optarrayradio[$i] . '</label></div>';
+        $radioopt .= '<div class="radio"><label><input type="radio" name="' . $row['name'] . '" value="' . $optarrayradio[$i] . '"' . (ENVO_USERID && $envouser->getVar(strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $row['name'])) . '_' . $row['id']) == $optarrayradio[$i] ? ' checked="checked"' : "") . '> ' . $optarrayradio[$i] . '</label></div>';
       }
 
       $envodata .= '<div class="form-group"><label class="control-label" for="' . $row['name'] . '">' . $row['name'] . $mandatory . '</label>' . $radioopt . '</div>';

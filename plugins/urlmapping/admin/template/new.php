@@ -90,7 +90,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-              echo $Html->addInput('text', 'jak_oldurl', $_REQUEST["jak_oldurl"], '', 'form-control');
+              echo $Html->addInput('text', 'envo_oldurl', $_REQUEST["envo_oldurl"], '', 'form-control');
               ?>
 
             </div>
@@ -120,7 +120,7 @@ if ($errors) { ?>
 
               <?php
               // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-              echo $Html->addInput('text', 'jak_newurl', $_REQUEST["jak_newurl"], '', 'form-control');
+              echo $Html->addInput('text', 'envo_newurl', $_REQUEST["envo_newurl"], '', 'form-control');
               ?>
 
             </div>
@@ -139,14 +139,14 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                    echo $Html->addRadio('jak_baseurl', '1', ((isset($_REQUEST["jak_baseurl"]) && $_REQUEST["jak_baseurl"] == '1')) ? TRUE : FALSE, 'jak_baseurl1');
+                    echo $Html->addRadio('envo_baseurl', '1', ((isset($_REQUEST["envo_baseurl"]) && $_REQUEST["envo_baseurl"] == '1')) ? TRUE : FALSE, 'envo_baseurl1');
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                    echo $Html->addLabel('jak_baseurl1', $tl["checkbox"]["chk"]);
+                    echo $Html->addLabel('envo_baseurl1', $tl["checkbox"]["chk"]);
 
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                    echo $Html->addRadio('jak_baseurl', '0', ((isset($_REQUEST["jak_baseurl"]) && $_REQUEST["jak_baseurl"] == '0') || !isset($_REQUEST["jak_baseurl"])) ? TRUE : FALSE, 'jak_baseurl2');
+                    echo $Html->addRadio('envo_baseurl', '0', ((isset($_REQUEST["envo_baseurl"]) && $_REQUEST["envo_baseurl"] == '0') || !isset($_REQUEST["envo_baseurl"])) ? TRUE : FALSE, 'envo_baseurl2');
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                    echo $Html->addLabel('jak_baseurl2', $tl["checkbox"]["chk1"]);
+                    echo $Html->addLabel('envo_baseurl2', $tl["checkbox"]["chk1"]);
                     ?>
 
                   </div>
@@ -176,12 +176,12 @@ if ($errors) { ?>
           </div>
           <div class="box-body">
             <div class="form-group no-margin">
-              <select name="jak_redirect" class="form-control selectpicker">
+              <select name="envo_redirect" class="form-control selectpicker">
 
                 <?php
                 // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                echo $Html->addOption('301', $tlum["url_box_content"]["urlbc1"], (isset($_REQUEST["jak_redirect"]) && $_REQUEST["jak_redirect"] == '301') ? TRUE : FALSE);
-                echo $Html->addOption('302', $tlum["url_box_content"]["urlbc2"], (isset($_REQUEST["jak_redirect"]) && $_REQUEST["jak_redirect"] == '302') ? TRUE : FALSE);
+                echo $Html->addOption('301', $tlum["url_box_content"]["urlbc1"], (isset($_REQUEST["envo_redirect"]) && $_REQUEST["envo_redirect"] == '301') ? TRUE : FALSE);
+                echo $Html->addOption('302', $tlum["url_box_content"]["urlbc2"], (isset($_REQUEST["envo_redirect"]) && $_REQUEST["envo_redirect"] == '302') ? TRUE : FALSE);
                 ?>
 
               </select>

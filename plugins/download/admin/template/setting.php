@@ -128,7 +128,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_title', $JAK_SETTING_VAL["downloadtitle"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_title', $ENVO_SETTING_VAL["downloadtitle"], '', 'form-control');
                           ?>
 
                         </div>
@@ -147,7 +147,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('jak_lcontent', envo_edit_safe_userpost($JAK_SETTING_VAL["downloaddesc"]), '4', '', array('class' => 'form-control'));
+                        echo $Html->addTextarea('envo_lcontent', envo_edit_safe_userpost($ENVO_SETTING_VAL["downloaddesc"]), '4', '', array('class' => 'form-control'));
                         ?>
 
                       </div>
@@ -164,26 +164,26 @@ if ($errors) { ?>
                       <div class="col-md-7">
                         <div class="row">
                           <div class="col-md-6">
-                            <select name="jak_showdlordern" class="form-control selectpicker">
+                            <select name="envo_showdlordern" class="form-control selectpicker">
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                              echo $Html->addOption('id', $tl["selection"]["sel9"], ($JAK_SETTING['showdlwhat'] == "id") ? TRUE : FALSE);
-                              echo $Html->addOption('name', $tl["selection"]["sel15"], ($JAK_SETTING['showdlwhat'] == "name") ? TRUE : FALSE);
-                              echo $Html->addOption('time', $tl["selection"]["sel11"], ($JAK_SETTING['showdlwhat'] == "time") ? TRUE : FALSE);
-                              echo $Html->addOption('hits', $tl["selection"]["sel12"], ($JAK_SETTING['showdlwhat'] == "hits") ? TRUE : FALSE);
-                              echo $Html->addOption('countdl', $tl["selection"]["sel16"], ($JAK_SETTING['showdlwhat'] == "countdl") ? TRUE : FALSE);
+                              echo $Html->addOption('id', $tl["selection"]["sel9"], ($ENVO_SETTING['showdlwhat'] == "id") ? TRUE : FALSE);
+                              echo $Html->addOption('name', $tl["selection"]["sel15"], ($ENVO_SETTING['showdlwhat'] == "name") ? TRUE : FALSE);
+                              echo $Html->addOption('time', $tl["selection"]["sel11"], ($ENVO_SETTING['showdlwhat'] == "time") ? TRUE : FALSE);
+                              echo $Html->addOption('hits', $tl["selection"]["sel12"], ($ENVO_SETTING['showdlwhat'] == "hits") ? TRUE : FALSE);
+                              echo $Html->addOption('countdl', $tl["selection"]["sel16"], ($ENVO_SETTING['showdlwhat'] == "countdl") ? TRUE : FALSE);
                               ?>
 
                             </select>
                           </div>
                           <div class="col-md-6">
-                            <select name="jak_showdlorder" class="form-control selectpicker">
+                            <select name="envo_showdlorder" class="form-control selectpicker">
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                              echo $Html->addOption('ASC', $tl["selection"]["sel13"], ($JAK_SETTING['showdlorder'] == "ASC") ? TRUE : FALSE);
-                              echo $Html->addOption('DESC', $tl["selection"]["sel14"], ($JAK_SETTING['showdlorder'] == "DESC") ? TRUE : FALSE);
+                              echo $Html->addOption('ASC', $tl["selection"]["sel13"], ($ENVO_SETTING['showdlorder'] == "ASC") ? TRUE : FALSE);
+                              echo $Html->addOption('DESC', $tl["selection"]["sel14"], ($ENVO_SETTING['showdlorder'] == "DESC") ? TRUE : FALSE);
                               ?>
 
                             </select>
@@ -203,7 +203,7 @@ if ($errors) { ?>
                       </div>
                       <div class="col-md-7">
                         <div class="form-group<?php if (isset($errors["e3"])) echo " has-error"; ?> no-margin">
-                          <select name="jak_date" class="form-control selectpicker">
+                          <select name="envo_date" class="form-control selectpicker">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -230,7 +230,7 @@ if ($errors) { ?>
                       </div>
                       <div class="col-md-7">
                         <div class="form-group no-margin">
-                          <select name="jak_time" class="form-control selectpicker">
+                          <select name="envo_time" class="form-control selectpicker">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -277,14 +277,14 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_downloadurl', '1', ($jkv["downloadurl"] == '1') ? TRUE : FALSE, 'jak_downloadurl1');
+                          echo $Html->addRadio('envo_downloadurl', '1', ($jkv["downloadurl"] == '1') ? TRUE : FALSE, 'envo_downloadurl1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_downloadurl1', $tl["checkbox"]["chk"]);
+                          echo $Html->addLabel('envo_downloadurl1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_downloadurl', '0', ($jkv["downloadurl"] == '0') ? TRUE : FALSE, 'jak_downloadurl2');
+                          echo $Html->addRadio('envo_downloadurl', '0', ($jkv["downloadurl"] == '0') ? TRUE : FALSE, 'envo_downloadurl2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_downloadurl2', $tl["checkbox"]["chk1"]);
+                          echo $Html->addLabel('envo_downloadurl2', $tl["checkbox"]["chk1"]);
                           ?>
 
                         </div>
@@ -304,7 +304,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_rssitem', $jkv["downloadrss"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_rssitem', $jkv["downloadrss"], '', 'form-control');
                           ?>
 
                         </div>
@@ -362,7 +362,7 @@ if ($errors) { ?>
 
                           ?>
 
-                          <select name="jak_path" class="form-control selectpicker">
+                          <select name="envo_path" class="form-control selectpicker">
 
                             <?php
                             showDownloadPath('_files');
@@ -386,7 +386,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'jak_extension', $jkv["downloadpathext"], 'fileextension', 'form-control');
+                        echo $Html->addInput('text', 'envo_extension', $jkv["downloadpathext"], 'fileextension', 'form-control');
                         ?>
 
                       </div>
@@ -404,7 +404,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'jak_twitter', $jkv["downloadtwitter"], '', 'form-control');
+                        echo $Html->addInput('text', 'envo_twitter', $jkv["downloadtwitter"], '', 'form-control');
                         ?>
 
                       </div>
@@ -448,7 +448,7 @@ if ($errors) { ?>
                       </div>
                       <div class="col-md-6">
                         <div class="<?php if (isset($errors["e5"])) echo " has-error"; ?>">
-                          <select name="jak_mid" class="form-control selectpicker">
+                          <select name="envo_mid" class="form-control selectpicker">
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -477,7 +477,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_item', $jkv["downloadpageitem"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_item', $jkv["downloadpageitem"], '', 'form-control');
                           ?>
 
                         </div>
@@ -520,7 +520,7 @@ if ($errors) { ?>
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                 echo $Html->addDiv('', 'csseditor');
                 // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                echo $Html->addTextarea('jak_css', $jkv["download_css"], '20', '', array('id' => 'jak_css', 'class' => 'hidden'));
+                echo $Html->addTextarea('envo_css', $jkv["download_css"], '20', '', array('id' => 'envo_css', 'class' => 'hidden'));
                 ?>
 
               </div>
@@ -558,7 +558,7 @@ if ($errors) { ?>
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                 echo $Html->addDiv('', 'javaeditor');
                 // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                echo $Html->addTextarea('jak_javascript', $jkv["download_javascript"], '20', '', array('id' => 'jak_javascript', 'class' => 'hidden'));
+                echo $Html->addTextarea('envo_javascript', $jkv["download_javascript"], '20', '', array('id' => 'envo_javascript', 'class' => 'hidden'));
                 ?>
 
               </div>

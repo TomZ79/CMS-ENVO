@@ -189,9 +189,9 @@ $mpdf->WriteHTML($html);
 // EN: Get email
 $dluserid = 0;
 $dlemail  = "guest";
-if (JAK_USERID) {
-  $dluserid = JAK_USERID;
-  $dlemail  = $jakuser->getVar("email");
+if (ENVO_USERID) {
+  $dluserid = ENVO_USERID;
+  $dlemail  = $envouser->getVar("email");
 }
 
 // EN: Get the users ip address
@@ -203,7 +203,7 @@ $envodb->query('INSERT INTO ' . DB_PREFIX . 'tvtowerexporthistory VALUES (NULL, 
 // - - - - - - - - - - - - - - - - OUTPUT - - - - - - - - - - - - -
 
 $filename = 'Bluesat-programova-nabidka-' . $timetoday . '.pdf';
-$path     = '/' . JAK_FILES_DIRECTORY . '/export/';
+$path     = '/' . ENVO_FILES_DIRECTORY . '/export/';
 
 if(is_dir(APP_PATH . $path)){
 

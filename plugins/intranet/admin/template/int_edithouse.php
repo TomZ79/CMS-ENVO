@@ -466,7 +466,7 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', '', '/' . JAK_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/documents', '', 'form-control', array ('readonly' => 'readonly'));
+                            echo $Html->addInput('text', '', '/' . ENVO_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/documents', '', 'form-control', array ('readonly' => 'readonly'));
                             ?>
 
                             <span class="input-group-btn">
@@ -494,7 +494,7 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                            echo $Html->addInput('text', '', '/' . JAK_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/images', '', 'form-control', array ('readonly' => 'readonly'));
+                            echo $Html->addInput('text', '', '/' . ENVO_FILES_DIRECTORY . $ENVO_FORM_DATA["folder"] . '/images', '', 'form-control', array ('readonly' => 'readonly'));
                             ?>
 
                             <span class="input-group-btn">
@@ -967,12 +967,12 @@ if ($errors) { ?>
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                 echo $Html->addDiv('', 'htmleditor');
                 // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                echo $Html->addTextarea('envo_housedesctech', envo_edit_safe_userpost(htmlspecialchars($ENVO_FORM_DATA["housedesctech"])), '', '', array('id' => 'jak_editor', 'class' => 'form-control hidden'));
+                echo $Html->addTextarea('envo_housedesctech', envo_edit_safe_userpost(htmlspecialchars($ENVO_FORM_DATA["housedesctech"])), '', '', array('id' => 'envo_editor', 'class' => 'form-control hidden'));
 
               } else {
 
                 // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                echo $Html->addTextarea('envo_housedesctech', envo_edit_safe_userpost($ENVO_FORM_DATA["housedesctech"]), '40', '', array('id' => 'jakEditor', 'class' => 'form-control jakEditor'));
+                echo $Html->addTextarea('envo_housedesctech', envo_edit_safe_userpost($ENVO_FORM_DATA["housedesctech"]), '40', '', array('id' => 'envoEditor', 'class' => 'form-control envoEditor'));
 
               } ?>
 
@@ -1125,9 +1125,9 @@ if ($errors) { ?>
                           <td>
 
                             <?php
-                            echo '<a href="/' . JAK_FILES_DIRECTORY . $d["fullpath"] . '" target="_blank">Zobrazit</a>';
+                            echo '<a href="/' . ENVO_FILES_DIRECTORY . $d["fullpath"] . '" target="_blank">Zobrazit</a>';
                             echo ' | ';
-                            echo '<a href="/' . JAK_FILES_DIRECTORY . $d["fullpath"] . '" download>Stáhnout</a>';
+                            echo '<a href="/' . ENVO_FILES_DIRECTORY . $d["fullpath"] . '" download>Stáhnout</a>';
                             ?>
 
                           </td>
@@ -1268,7 +1268,7 @@ if ($errors) { ?>
 
                         echo '<div id="' . $img["id"] . '" class="gallery-item-' . $img["id"] . ' ' . $img["category"] . '" data-width="1" data-height="1">';
 
-                        echo '<div class="img_container"><img src="/' . JAK_FILES_DIRECTORY . $img["mainfolder"] . $img["filenamethumb"] . '" alt=""></div>';
+                        echo '<div class="img_container"><img src="/' . ENVO_FILES_DIRECTORY . $img["mainfolder"] . $img["filenamethumb"] . '" alt=""></div>';
 
 
                         echo '<div class="overlays">
@@ -1278,7 +1278,7 @@ if ($errors) { ?>
                                   </div>
                                   <div class="col-xs-7 full-height">
                                     <div class="text">
-                                      <a data-fancybox="gallery" href="/' . JAK_FILES_DIRECTORY . $img["mainfolder"] . $img["filenamethumb"] . '" alt="">
+                                      <a data-fancybox="gallery" href="/' . ENVO_FILES_DIRECTORY . $img["mainfolder"] . $img["filenamethumb"] . '" alt="">
                                         <button class="btn btn-info btn-xs btn-mini fs-14" type="button">
                                          <i class="pg-image"></i>
                                         </button>

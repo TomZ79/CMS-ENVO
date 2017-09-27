@@ -57,13 +57,13 @@
     </button>
   </div>
 
-<?php if (isset($JAK_GALLERY_ALL) && is_array($JAK_GALLERY_ALL) && !empty($JAK_GALLERY_ALL)) { ?>
+<?php if (isset($ENVO_GALLERY_ALL) && is_array($ENVO_GALLERY_ALL) && !empty($ENVO_GALLERY_ALL)) { ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <!-- Form Content - Grid view -->
     <div id="gridview" class="row toggle visible">
       <div class="col-md-12">
-        <?php foreach ($JAK_GALLERY_ALL as $v) { ?>
+        <?php foreach ($ENVO_GALLERY_ALL as $v) { ?>
           <div class="col-md-3">
             <div class="hovereffect gridview">
               <div class="center-cropped">
@@ -110,7 +110,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($JAK_GALLERY_ALL as $v) { ?>
+                <?php foreach ($ENVO_GALLERY_ALL as $v) { ?>
                   <tr>
                     <td>
                       <img src="<?php echo $v["paththumb"] . 'thumb_' . $v["title"]; ?>" alt="">

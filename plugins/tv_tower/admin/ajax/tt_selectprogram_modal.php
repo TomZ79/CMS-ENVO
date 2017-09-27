@@ -18,8 +18,8 @@
 
             <?php
 
-            if (!empty($JAK_SIDTV_ALL) && is_array($JAK_SIDTV_ALL)) {
-              foreach ($JAK_SIDTV_ALL as $sidtv) {
+            if (!empty($ENVO_SIDTV_ALL) && is_array($ENVO_SIDTV_ALL)) {
+              foreach ($ENVO_SIDTV_ALL as $sidtv) {
 
                 echo '<tr>';
                 echo '<td>' . $sidtv["sid"] . '</td>';
@@ -29,8 +29,8 @@
               }
             }
 
-            if (!empty($JAK_SIDR_ALL) && is_array($JAK_SIDR_ALL)) {
-              foreach ($JAK_SIDR_ALL as $sidr) {
+            if (!empty($ENVO_SIDR_ALL) && is_array($ENVO_SIDR_ALL)) {
+              foreach ($ENVO_SIDR_ALL as $sidr) {
 
                 echo '<tr>';
                 echo '<td>' . $sidr["sid"] . '</td>';
@@ -40,8 +40,8 @@
               }
             }
 
-            if (!empty($JAK_SIDS_ALL) && is_array($JAK_SIDS_ALL)) {
-              foreach ($JAK_SIDS_ALL as $sids) {
+            if (!empty($ENVO_SIDS_ALL) && is_array($ENVO_SIDS_ALL)) {
+              foreach ($ENVO_SIDS_ALL as $sids) {
 
                 echo '<tr>';
                 echo '<td>' . $sids["sid"] . '</td>';

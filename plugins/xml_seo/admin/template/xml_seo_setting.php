@@ -63,7 +63,7 @@ if (isset($error2)) { ?>
                 <tr>
                   <td class="form-inline">
                     <label for="folder"><?php echo BASE_URL_ORIG; ?></label>
-                    <input type="text" name="jak_xmlseopath" id="folder" value="<?php echo $XMLSEOPATH; ?>" class="form-control"/>
+                    <input type="text" name="envo_xmlseopath" id="folder" value="<?php echo $XMLSEOPATH; ?>" class="form-control"/>
                     sitemap.xml
                   </td>
                 </tr>
@@ -97,7 +97,7 @@ if (isset($error2)) { ?>
 
               <div class="form-group">
                 <label><?php echo $tlxml["xml_box_content"]["xmlbc5"]; ?></label>
-                <textarea id="jak_filetxt" name="jak_filetxt" rows="8" placeholder="<?php echo $tlxml["xml_box_content"]["xmlbc6"]; ?>" class="form-control"><?php echo htmlspecialchars($content); ?></textarea>
+                <textarea id="envo_filetxt" name="envo_filetxt" rows="8" placeholder="<?php echo $tlxml["xml_box_content"]["xmlbc6"]; ?>" class="form-control"><?php echo htmlspecialchars($content); ?></textarea>
               </div>
               <div>
                 <p><?php echo $tlxml["xml_box_content"]["xmlbc7"]; ?></p>
@@ -126,7 +126,7 @@ if (isset($error2)) { ?>
                 <tr>
                   <td style="vertical-align: middle;"><?php echo $tlxml["xml_box_content"]["xmlbc9"]; ?></td>
                   <td>
-                    <select name="jak_frepages" class="form-control selectpicker">
+                    <select name="envo_frepages" class="form-control selectpicker">
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -145,7 +145,7 @@ if (isset($error2)) { ?>
                 <tr>
                   <td style="vertical-align: middle;"><?php echo $tlxml["xml_box_content"]["xmlbc10"]; ?></td>
                   <td>
-                    <select name="jak_freblog" class="form-control selectpicker">
+                    <select name="envo_freblog" class="form-control selectpicker">
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -164,7 +164,7 @@ if (isset($error2)) { ?>
                 <tr>
                   <td style="vertical-align: middle;"><?php echo $tlxml["xml_box_content"]["xmlbc11"]; ?></td>
                   <td>
-                    <select name="jak_fredownload" class="form-control selectpicker">
+                    <select name="envo_fredownload" class="form-control selectpicker">
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)

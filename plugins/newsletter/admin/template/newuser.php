@@ -85,7 +85,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_name', (isset($_REQUEST["jak_name"])) ? $_REQUEST["jak_name"] : '', 'jak_name', 'form-control');
+                      echo $Html->addInput('text', 'envo_name', (isset($_REQUEST["envo_name"])) ? $_REQUEST["envo_name"] : '', 'envo_name', 'form-control');
                       ?>
 
                     </div>
@@ -106,7 +106,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_email', (isset($_REQUEST["jak_email"])) ? $_REQUEST["jak_email"] : '', '', 'form-control');
+                      echo $Html->addInput('text', 'envo_email', (isset($_REQUEST["envo_email"])) ? $_REQUEST["envo_email"] : '', '', 'form-control');
                       ?>
 
                     </div>
@@ -122,12 +122,12 @@ if ($errors) { ?>
 
                   </div>
                   <div class="col-md-7">
-                    <select name="jak_usergroup" class="form-control selectpicker">
+                    <select name="envo_usergroup" class="form-control selectpicker">
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                      if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
-                        echo $Html->addOption($v["id"], $v["name"], (isset($_REQUEST["jak_usergroup"]) && $v["id"] == $_REQUEST["jak_usergroup"]) ? TRUE : FALSE);
+                      if (isset($ENVO_USERGROUP_ALL) && is_array($ENVO_USERGROUP_ALL)) foreach ($ENVO_USERGROUP_ALL as $v) {
+                        echo $Html->addOption($v["id"], $v["name"], (isset($_REQUEST["envo_usergroup"]) && $v["id"] == $_REQUEST["envo_usergroup"]) ? TRUE : FALSE);
                       }
                       ?>
 
@@ -167,7 +167,7 @@ if ($errors) { ?>
                       <span class="btn btn-default btn-file">
                         <span class="fileinput-new"><?php echo $tlnl["newsletter_box_content"]["nlbc28"]; ?></span>
                         <span class="fileinput-exists"><?php echo $tlnl["newsletter_box_content"]["nlbc29"]; ?></span>
-                        <input type="file" name="jak_file" accept=".csv">
+                        <input type="file" name="envo_file" accept=".csv">
                       </span>
                       <span class="fileinput-filename"></span>
                       <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
@@ -177,21 +177,21 @@ if ($errors) { ?>
                 <div class="row-form">
                   <div class="col-md-5"><strong><?php echo $tlnl["nletter"]["d22"]; ?></strong></div>
                   <div class="col-md-7">
-                    <input type="text" class="form-control" name="jak_delimiter" value="<?php if (isset($_REQUEST["jak_delimiter"])) echo $_REQUEST["jak_delimiter"]; ?>" placeholder=","/>
+                    <input type="text" class="form-control" name="envo_delimiter" value="<?php if (isset($_REQUEST["envo_delimiter"])) echo $_REQUEST["envo_delimiter"]; ?>" placeholder=","/>
                   </div>
                 </div>
                 <div class="row-form">
                   <div class="col-md-5"><strong><?php echo $tlnl["nletter"]["d23"]; ?></strong></div>
                   <div class="col-md-7">
-                    <input type="text" class="form-control" name="jak_start" value="<?php if (isset($_REQUEST["jak_start"])) echo $_REQUEST["jak_start"]; ?>" placeholder="1"/>
+                    <input type="text" class="form-control" name="envo_start" value="<?php if (isset($_REQUEST["envo_start"])) echo $_REQUEST["envo_start"]; ?>" placeholder="1"/>
                   </div>
                 </div>
                 <div class="row-form">
                   <div class="col-md-5"><strong><?php echo $tl["submenu"]["sm100"]; ?></strong></div>
                   <div class="col-md-7">
-                    <select name="jak_usergroupcsv" class="form-control selectpicker">
-                      <?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) { ?>
-                        <option value="<?php echo $v["id"]; ?>"<?php if (isset($_REQUEST["jak_usergroupcsv"]) && $v["id"] == $_REQUEST["jak_usergroupcsv"]) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php } ?>
+                    <select name="envo_usergroupcsv" class="form-control selectpicker">
+                      <?php if (isset($ENVO_USERGROUP_ALL) && is_array($ENVO_USERGROUP_ALL)) foreach ($ENVO_USERGROUP_ALL as $v) { ?>
+                        <option value="<?php echo $v["id"]; ?>"<?php if (isset($_REQUEST["envo_usergroupcsv"]) && $v["id"] == $_REQUEST["envo_usergroupcsv"]) { ?> selected="selected"<?php } ?>><?php echo $v["name"]; ?></option><?php } ?>
                     </select>
                   </div>
                 </div>

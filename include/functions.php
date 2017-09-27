@@ -369,7 +369,7 @@ function envo_get_news($envovar, $where, $plname, $order, $datef, $timef, $timea
   global $envodb;
   global $jkv;
   $envodata = array();
-  $result   = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'news WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 OR enddate >= ' . time() . ')) AND (FIND_IN_SET(' . JAK_USERGROUPID . ',permission) OR permission = 0) AND ' . $sqlin . $envovar);
+  $result   = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'news WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 OR enddate >= ' . time() . ')) AND (FIND_IN_SET(' . ENVO_USERGROUPID . ',permission) OR permission = 0) AND ' . $sqlin . $envovar);
   while ($row = $result->fetch_assoc()) {
 
     $PAGE_TITLE   = $row['title'];
@@ -530,7 +530,7 @@ function envo_write_vote_hits_cookie($table, $id, $cookie)
     $getCORE = $table . '-' . $id;
   }
 
-  return setcookie($cookie, $getCORE, time() + 60 * 60 * 24, JAK_COOKIE_PATH);
+  return setcookie($cookie, $getCORE, time() + 60 * 60 * 24, ENVO_COOKIE_PATH);
 }
 
 function envo_cookie_voted_hits($table, $id, $cookie)
@@ -564,7 +564,7 @@ function envo_clean_safe_userpost($input)
   if (get_magic_quotes_gpc()) $input = stripslashes($input);
 
   // now we convert the code stuff into code blocks
-  $input = preg_replace_callback('/<pre><code>(.*?)<\/code><\/pre>/imsu', 'jak_precode', $input);
+  $input = preg_replace_callback('/<pre><code>(.*?)<\/code><\/pre>/imsu', 'envo_precode', $input);
 
   $allowedhtml = array('safe' => 1, 'elements' => 'em, p, br, img, ul, li, ol, a, strong, pre, code', 'deny_attribute' => 'class, title, id, style, on*', 'comment' => 1, 'cdata' => 1, 'valid_xhtml' => 1, 'make_tag_strict' => 1);
   $allowedatr  = '';

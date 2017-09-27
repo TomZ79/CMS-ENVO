@@ -2,7 +2,7 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
@@ -16,7 +16,7 @@ $AJAX_SEARCH_PLUGIN_SEO   = 0;
 $errors_rfp = $errors_rf = $errorsA = array();
 $insert     = '';
 
-if (JAK_USERID) {
+if (ENVO_USERID) {
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['avatarR'])) {
     // EN: Default Variable
@@ -41,19 +41,19 @@ if (JAK_USERID) {
             if (($mime == "image/jpeg") || ($mime == "image/pjpeg") || ($mime == "image/png") || ($mime == "image/gif")) {
 
               // first get the target path
-              $targetPathd = JAK_FILES_DIRECTORY . '/userfiles' . '/' . JAK_USERID . '/';
+              $targetPathd = ENVO_FILES_DIRECTORY . '/userfiles' . '/' . ENVO_USERID . '/';
               $targetPath  = str_replace("//", "/", $targetPathd);
 
               // Create the target path
               if (!is_dir($targetPath)) {
                 mkdir($targetPath, 0775);
-                copy(JAK_FILES_DIRECTORY . "/index.html", $targetPath . "/index.html");
+                copy(ENVO_FILES_DIRECTORY . "/index.html", $targetPath . "/index.html");
               }
 
               // if old avatars exist delete it
               foreach (glob($targetPath . '*.*') as $envo_unlink) {
                 unlink($envo_unlink);
-                copy(JAK_FILES_DIRECTORY . "/index.html", $targetPath . "/index.html");
+                copy(ENVO_FILES_DIRECTORY . "/index.html", $targetPath . "/index.html");
               }
 
               $tempFile    = $_FILES['uploadpp']['tmp_name'];
@@ -66,7 +66,7 @@ if (JAK_USERID) {
               $smallPhoto  = str_replace(".", "_t.", $bigPhoto);
 
               $targetFile = str_replace('//', '/', $targetPath) . $bigPhoto;
-              $origPath   = '/' . JAK_USERID . '/';
+              $origPath   = '/' . ENVO_USERID . '/';
               $dbSmall    = $origPath . $smallPhoto;
               $dbBig      = $origPath . $bigPhoto;
 
@@ -79,13 +79,13 @@ if (JAK_USERID) {
               create_thumbnail($targetPath, $targetFile, $smallPhoto, $jkv["useravatwidth"], $jkv["useravatheight"], 80);
 
               // SQL insert
-              $result = $envodb->query('UPDATE ' . $envotable . ' SET picture = "' . $dbSmall . '" WHERE id = "' . JAK_USERID . '" LIMIT 1');
+              $result = $envodb->query('UPDATE ' . $envotable . ' SET picture = "' . $dbSmall . '" WHERE id = "' . ENVO_USERID . '" LIMIT 1');
 
 
               if (!$result) {
-                envo_redirect(JAK_PARSE_ERROR);
+                envo_redirect(ENVO_PARSE_ERROR);
               } else {
-                envo_redirect(JAK_PARSE_SUCCESS);
+                envo_redirect(ENVO_PARSE_SUCCESS);
               }
 
             } else {
@@ -120,22 +120,22 @@ if (JAK_USERID) {
     if (!empty($defaults['avatar'])) {
 
       // first get the target path
-      $targetPathd = JAK_FILES_DIRECTORY . '/userfiles' . '/' . JAK_USERID . '/';
+      $targetPathd = ENVO_FILES_DIRECTORY . '/userfiles' . '/' . ENVO_USERID . '/';
       $targetPath  = str_replace("//", "/", $targetPathd);
 
       // if old avatars exist delete it
       foreach (glob($targetPath . '*.*') as $envo_unlink) {
         unlink($envo_unlink);
-        copy(JAK_FILES_DIRECTORY . "/index.html", $targetPath . "/index.html");
+        copy(ENVO_FILES_DIRECTORY . "/index.html", $targetPath . "/index.html");
       }
 
-      $result = $envodb->query('UPDATE ' . $envotable . ' SET picture = "' . smartsql($defaults['avatar']) . '" WHERE id = "' . smartsql(JAK_USERID) . '"');
+      $result = $envodb->query('UPDATE ' . $envotable . ' SET picture = "' . smartsql($defaults['avatar']) . '" WHERE id = "' . smartsql(ENVO_USERID) . '"');
     }
 
     if (!$result) {
-      envo_redirect(JAK_PARSE_ERROR);
+      envo_redirect(ENVO_PARSE_ERROR);
     } else {
-      envo_redirect(JAK_PARSE_SUCCESS);
+      envo_redirect(ENVO_PARSE_SUCCESS);
     }
 
   }
@@ -145,7 +145,7 @@ if (JAK_USERID) {
     $defaults   = $_POST;
     $errors_rfs = array();
 
-    if ($defaults['email'] != $jakuser->getVar("email")) {
+    if ($defaults['email'] != $envouser->getVar("email")) {
 
       if (!filter_var($defaults['email'], FILTER_VALIDATE_EMAIL)) {
         $errors_rfs['e1'] = $tl['general_error']['generror14'] . '<br />';
@@ -228,7 +228,7 @@ if (JAK_USERID) {
     if (count($errorsA) == 0 && count($errors_rfs) == 0) {
 
       $safeemail = '';
-      if ($defaults['email'] != $jakuser->getVar("email")) {
+      if ($defaults['email'] != $envouser->getVar("email")) {
         $safeemail = ', email = "' . smartsql(filter_var($defaults['email'], FILTER_SANITIZE_EMAIL)) . '"';
       }
 
@@ -242,12 +242,12 @@ if (JAK_USERID) {
                 name = "' . smartsql($defaults['name']) . '",
                 phone = "' . smartsql($defaults['phone']) . '"
                 ' . $safeemail . $insert . '
-                WHERE id = "' . smartsql(JAK_USERID) . '"');
+                WHERE id = "' . smartsql(ENVO_USERID) . '"');
 
       if (!$result) {
-        envo_redirect(JAK_PARSE_ERROR);
+        envo_redirect(ENVO_PARSE_ERROR);
       } else {
-        envo_redirect(JAK_PARSE_SUCCESS);
+        envo_redirect(ENVO_PARSE_SUCCESS);
       }
 
     } else {
@@ -275,7 +275,7 @@ if (JAK_USERID) {
 
     $fwhen = 0;
 
-    $user_check = $jakuserlogin->envoCheckUserData($JAK_USERNAME_LINK, $passold);
+    $user_check = $envouserlogin->envoCheckUserData($ENVO_USERNAME_LINK, $passold);
 
     if (!$user_check) {
       $errors_rfp['e5'] = $tl['general_error']['generror21'] . '<br />';
@@ -286,12 +286,12 @@ if (JAK_USERID) {
       // The new password encrypt with hash_hmac
       $passcrypt = hash_hmac('sha256', $pass, DB_PASS_HASH);
 
-      $result = $envodb->query('UPDATE ' . $envotable . ' SET password = "' . $passcrypt . '" WHERE id = ' . JAK_USERID);
+      $result = $envodb->query('UPDATE ' . $envotable . ' SET password = "' . $passcrypt . '" WHERE id = ' . ENVO_USERID);
 
       if (!$result) {
-        envo_redirect(JAK_PARSE_ERROR);
+        envo_redirect(ENVO_PARSE_ERROR);
       } else {
-        envo_redirect(JAK_PARSE_SUCCESS);
+        envo_redirect(ENVO_PARSE_SUCCESS);
       }
 
     } else {
@@ -301,21 +301,21 @@ if (JAK_USERID) {
   }
 
   // Get the sort orders for the grid
-  $grid = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . JAK_PLUGIN_ID_REGISTER_FORM . ' ORDER BY orderid ASC');
+  $grid = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = ' . ENVO_PLUGIN_ID_REGISTER_FORM . ' ORDER BY orderid ASC');
   while ($grow = $grid->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $JAK_HOOK_SIDE_GRID[] = $grow;
+    $ENVO_HOOK_SIDE_GRID[] = $grow;
   }
 
   include_once APP_PATH . 'plugins/register_form/rf_createform.php';
-  $regform = jak_create_register_form($tl['form_text']['formt'], 3);
+  $regform = envo_create_register_form($tl['form_text']['formt'], 3);
 
-  $PAGE_TITLE = sprintf($tlrf["rf_frontend"]["rf"], $jakuser->getVar("username"));
+  $PAGE_TITLE = sprintf($tlrf["rf_frontend"]["rf"], $envouser->getVar("username"));
 
   // Template Call
-  $JAK_TPL_PLUG_T   = $PAGE_TITLE;
-  $JAK_TPL_PLUG_URL = 1;
+  $ENVO_TPL_PLUG_T   = $PAGE_TITLE;
+  $ENVO_TPL_PLUG_URL = 1;
 
   // EN: Load the php template
   // CZ: Načtení php template (šablony)

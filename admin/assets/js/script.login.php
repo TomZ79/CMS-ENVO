@@ -16,7 +16,7 @@
  *
  */
 
-if (empty($page) && !JAK_USERID) {
+if (empty($page) && !ENVO_USERID) {
 
   echo PHP_EOL . '<!-- Start JS AKP Login Page -->';
 

@@ -2,11 +2,11 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$JAK_MODULEM) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$ENVO_MODULEM) envo_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
@@ -20,8 +20,8 @@ $envotable6 = DB_PREFIX . 'backup_content';
 
 // EN: Get all the php Hook by name of Hook
 // CZ: Načtení všech php dat z Hook podle jména Hook
-$JAK_HOOK_ADMIN_PAGE     = $envohooks->EnvoGethook("tpl_admin_page_news");
-$JAK_HOOK_ADMIN_PAGE_NEW = $envohooks->EnvoGethook("tpl_admin_page_news_new");
+$ENVO_HOOK_ADMIN_PAGE     = $envohooks->EnvoGethook("tpl_admin_page_news");
+$ENVO_HOOK_ADMIN_PAGE_NEW = $envohooks->EnvoGethook("tpl_admin_page_news_new");
 
 $insert = $updatesql = "";
 
@@ -31,8 +31,8 @@ switch ($page1) {
   case 'newpage':
 
     // Important template stuff
-    $JAK_CONTACT_FORMS = envo_get_page_info($envotable2, '');
-    $JAK_GET_NEWS      = envo_get_page_info($envotable4, '');
+    $ENVO_CONTACT_FORMS = envo_get_page_info($envotable2, '');
+    $ENVO_GET_NEWS      = envo_get_page_info($envotable4, '');
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable
@@ -177,12 +177,12 @@ switch ($page1) {
       }
     }
 
-    $JAK_CAT_NOTUSED = envo_get_cat_notused();
+    $ENVO_CAT_NOTUSED = envo_get_cat_notused();
 
     // Get the sidebar templates
     $result = $envodb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable5 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
     while ($row = $result->fetch_assoc()) {
-      $JAK_HOOKS[] = $row;
+      $ENVO_HOOKS[] = $row;
     }
 
     // EN: Get all the php Hook by name of Hook
@@ -208,8 +208,8 @@ switch ($page1) {
   default:
 
     // Important template stuff
-    $JAK_CAT           = envo_get_cat_info($envotable1, 1);
-    $JAK_CONTACT_FORMS = envo_get_page_info($envotable2, '');
+    $ENVO_CAT           = envo_get_cat_info($envotable1, 1);
+    $ENVO_CONTACT_FORMS = envo_get_page_info($envotable2, '');
 
     switch ($page1) {
       case 'search':
@@ -221,11 +221,11 @@ switch ($page1) {
 
           if (isset($defaults['search'])) {
 
-            if ($defaults['jakSH'] == '' or $defaults['jakSH'] == $tl['search']['s']) {
+            if ($defaults['envoSH'] == '' or $defaults['envoSH'] == $tl['search']['s']) {
               $errors['e'] = $tl['search']['s1'] . '<br>';
             }
 
-            if (strlen($defaults['jakSH']) < '1') {
+            if (strlen($defaults['envoSH']) < '1') {
               $errors['e1'] = $tl['search']['s2'] . '<br>';
             }
 
@@ -235,9 +235,9 @@ switch ($page1) {
               $errors       = $errors;
 
             } else {
-              $secureIn    = smartsql(strip_tags($defaults['jakSH']));
+              $secureIn    = smartsql(strip_tags($defaults['envoSH']));
               $SEARCH_WORD = $secureIn;
-              $JAK_SEARCH  = envo_admin_search($secureIn, $envotable, 'pages');
+              $ENVO_SEARCH  = envo_admin_search($secureIn, $envotable, 'pages');
             }
           }
 
@@ -285,7 +285,7 @@ switch ($page1) {
           $pages->envo_get_page   = $page4;
           $pages->envo_where      = 'index.php?p=page&sp=sort&ssp=' . $page2 . '&sssp=' . $page3;
           $pages->paginate();
-          $JAK_PAGINATE = $pages->display_pages();
+          $ENVO_PAGINATE = $pages->display_pages();
         }
 
         $result = $envodb->query('SELECT * FROM ' . $envotable . ' ORDER BY ' . $page2 . ' ' . $page3 . ' ' . $pages->limit);
@@ -293,7 +293,7 @@ switch ($page1) {
           $pagearray[] = $row;
         }
 
-        $JAK_PAGE_ALL = $pagearray;
+        $ENVO_PAGE_ALL = $pagearray;
 
         // EN: Title and Description
         // CZ: Titulek a Popis
@@ -592,8 +592,8 @@ switch ($page1) {
 
           // Get the data
           $ENVO_FORM_DATA   = envo_get_data($page2, $envotable);
-          $JAK_GET_NEWS    = envo_get_page_info($envotable4, '');
-          $JAK_CAT_NOTUSED = envo_get_cat_notused();
+          $ENVO_GET_NEWS    = envo_get_page_info($envotable4, '');
+          $ENVO_CAT_NOTUSED = envo_get_cat_notused();
 
           // Now let's check if we display news with second option
           $shownewsarray = explode(":", $ENVO_FORM_DATA['shownews']);
@@ -607,20 +607,20 @@ switch ($page1) {
           }
 
           // Get the tags
-          if (JAK_TAGS) $JAK_TAGLIST = envo_get_tags($page2, 0);
+          if (ENVO_TAGS) $ENVO_TAGLIST = envo_get_tags($page2, 0);
 
           // Get the sort orders for the grid
           $grid = $envodb->query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . $envotable3 . ' WHERE pageid = "' . smartsql($page2) . '" ORDER BY orderid ASC');
           while ($grow = $grid->fetch_assoc()) {
             // EN: Insert each record into array
             // CZ: Vložení získaných dat do pole
-            $JAK_PAGE_GRID[] = $grow;
+            $ENVO_PAGE_GRID[] = $grow;
           }
 
           // Get the sidebar templates
           $result = $envodb->query('SELECT id, name, widgetcode, exorder, pluginid FROM ' . $envotable5 . ' WHERE hook_name = "tpl_sidebar" AND active = 1 ORDER BY exorder ASC');
           while ($row = $result->fetch_assoc()) {
-            $JAK_HOOKS[] = $row;
+            $ENVO_HOOKS[] = $row;
           }
 
           // EN: Get all the php Hook by name of Hook
@@ -640,7 +640,7 @@ switch ($page1) {
           while ($rowbp = $resultbp->fetch_assoc()) {
             // EN: Insert each record into array
             // CZ: Vložení získaných dat do pole
-            $JAK_PAGE_BACKUP[] = $rowbp;
+            $ENVO_PAGE_BACKUP[] = $rowbp;
           }
 
           // EN: Title and Description
@@ -783,10 +783,10 @@ switch ($page1) {
           $pages->envo_get_page   = $page1;
           $pages->envo_where      = 'index.php?p=page';
           $pages->paginate();
-          $JAK_PAGINATE = $pages->display_pages();
+          $ENVO_PAGINATE = $pages->display_pages();
 
           // Ouput all pages, well with paginate of course
-          $JAK_PAGE_ALL = envo_get_page_info($envotable, $pages->limit);
+          $ENVO_PAGE_ALL = envo_get_page_info($envotable, $pages->limit);
 
         }
 

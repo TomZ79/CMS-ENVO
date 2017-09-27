@@ -45,10 +45,10 @@ if ($page1 == "e") { ?>
 
           </div>
           <div class="box-body">
-            <ul class="jak_plugins_move">
-              <?php if (isset($JAK_PLUGINS) && is_array($JAK_PLUGINS)) foreach ($JAK_PLUGINS as $v) { ?>
+            <ul class="envo_plugins_move">
+              <?php if (isset($ENVO_PLUGINS) && is_array($ENVO_PLUGINS)) foreach ($ENVO_PLUGINS as $v) { ?>
 
-                <li id="plugin-<?php echo $v["id"]; ?>" class="jakplugins">
+                <li id="plugin-<?php echo $v["id"]; ?>" class="envoplugins">
                   <div class="row sm-no-margin">
                     <div class="col-md-1 col-xs-3 text">
                       <span># </span>
@@ -215,7 +215,7 @@ if ($page1 == "e") { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'jak_generala', $jkv["accessgeneral"], '', 'form-control');
+                    echo $Html->addInput('text', 'envo_generala', $jkv["accessgeneral"], '', 'form-control');
                     ?>
 
                   </div>
@@ -233,7 +233,7 @@ if ($page1 == "e") { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'jak_managea', $jkv["accessmanage"], '', 'form-control');
+                    echo $Html->addInput('text', 'envo_managea', $jkv["accessmanage"], '', 'form-control');
                     ?>
 
                   </div>

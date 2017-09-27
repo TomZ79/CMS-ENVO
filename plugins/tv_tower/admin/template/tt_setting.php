@@ -118,7 +118,7 @@ if ($page2 == "e") { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'envo_title', $JAK_SETTING_VAL["tvtowertitle"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_title', $ENVO_SETTING_VAL["tvtowertitle"], '', 'form-control');
                           ?>
 
                         </div>
@@ -168,7 +168,7 @@ if ($page2 == "e") { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'envo_title_wizard', $JAK_SETTING_VAL["tvtowerwizardtitle"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_title_wizard', $ENVO_SETTING_VAL["tvtowerwizardtitle"], '', 'form-control');
                           ?>
 
                         </div>
@@ -218,7 +218,7 @@ if ($page2 == "e") { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'envo_title_list', $JAK_SETTING_VAL["tvtowerlisttitle"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_title_list', $ENVO_SETTING_VAL["tvtowerlisttitle"], '', 'form-control');
                           ?>
 
                         </div>
@@ -268,7 +268,7 @@ if ($page2 == "e") { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'envo_title_export', $JAK_SETTING_VAL["tvtowerexporttitle"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_title_export', $ENVO_SETTING_VAL["tvtowerexporttitle"], '', 'form-control');
                           ?>
 
                         </div>
@@ -304,7 +304,7 @@ if ($page2 == "e") { ?>
               <div class="box-body">
                 <div class="block">
                   <div class="block-content">
-                    <div class="row-form <?php if (!$JAK_FILECONTENT) {
+                    <div class="row-form <?php if (!$ENVO_FILECONTENT) {
                       echo "hidden";
                     } ?>">
                       <div class="col-md-12">
@@ -314,24 +314,24 @@ if ($page2 == "e") { ?>
                         echo $Html->startTag('h4');
                         echo $tltt["tt_box_content"]["ttbc1"];
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                        echo $Html->addTag('small', $Html->addTag('strong', $JAK_FILEURL));
+                        echo $Html->addTag('small', $Html->addTag('strong', $ENVO_FILEURL));
                         // Add Html Element -> endTag (Arguments: tag)
                         echo $Html->endTag('h4');
                         ?>
 
                       </div>
                     </div>
-                    <?php if ($JAK_FILECONTENT) { ?>
+                    <?php if ($ENVO_FILECONTENT) { ?>
                       <div class="row-form">
                         <div class="col-md-12">
 
                           <?php
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_filecontent', $tltt["tt_box_content"]["ttbc2"]);
+                          echo $Html->addLabel('envo_filecontent', $tltt["tt_box_content"]["ttbc2"]);
                           // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                           echo $Html->addDiv('', 'htmleditor');
                           // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                          echo $Html->addTextarea('jak_filecontent', $JAK_FILECONTENT, '', '', array('id' => 'jak_filecontent', 'class' => 'form-control hidden'));
+                          echo $Html->addTextarea('envo_filecontent', $ENVO_FILECONTENT, '', '', array('id' => 'envo_filecontent', 'class' => 'form-control hidden'));
                           ?>
 
                         </div>
@@ -352,7 +352,7 @@ if ($page2 == "e") { ?>
 
             <?php
             // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-            echo $Html->addInput('hidden', 'jak_file', $JAK_FILEURL);
+            echo $Html->addInput('hidden', 'envo_file', $ENVO_FILEURL);
             ?>
 
           </div>

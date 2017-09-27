@@ -24,14 +24,14 @@
 
               <?php
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('jak_download', '1', ((isset($_REQUEST["jak_download"]) && $_REQUEST["jak_download"] == '1')) ? TRUE : FALSE, 'jak_download1');
+              echo $Html->addRadio('envo_download', '1', ((isset($_REQUEST["envo_download"]) && $_REQUEST["envo_download"] == '1')) ? TRUE : FALSE, 'envo_download1');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-              echo $Html->addLabel('jak_download1', $tl["checkbox"]["chk"]);
+              echo $Html->addLabel('envo_download1', $tl["checkbox"]["chk"]);
 
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('jak_download', '0', ((isset($_REQUEST["jak_download"]) && $_REQUEST["jak_download"] == '0') || !isset($_REQUEST["jak_download"])) ? TRUE : FALSE, 'jak_download2');
+              echo $Html->addRadio('envo_download', '0', ((isset($_REQUEST["envo_download"]) && $_REQUEST["envo_download"] == '0') || !isset($_REQUEST["envo_download"])) ? TRUE : FALSE, 'envo_download2');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-              echo $Html->addLabel('jak_download2', $tl["checkbox"]["chk1"]);
+              echo $Html->addLabel('envo_download2', $tl["checkbox"]["chk1"]);
               ?>
 
             </div>
@@ -51,14 +51,14 @@
 
               <?php
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('jak_candownload', '1', ((isset($_REQUEST["jak_candownload"]) && $_REQUEST["jak_candownload"] == '1')) ? TRUE : FALSE, 'jak_candownload1');
+              echo $Html->addRadio('envo_candownload', '1', ((isset($_REQUEST["envo_candownload"]) && $_REQUEST["envo_candownload"] == '1')) ? TRUE : FALSE, 'envo_candownload1');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-              echo $Html->addLabel('jak_candownload1', $tl["checkbox"]["chk"]);
+              echo $Html->addLabel('envo_candownload1', $tl["checkbox"]["chk"]);
 
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('jak_candownload', '0', ((isset($_REQUEST["jak_candownload"]) && $_REQUEST["jak_candownload"] == '0') || !isset($_REQUEST["jak_candownload"])) ? TRUE : FALSE, 'jak_candownload2');
+              echo $Html->addRadio('envo_candownload', '0', ((isset($_REQUEST["envo_candownload"]) && $_REQUEST["envo_candownload"] == '0') || !isset($_REQUEST["envo_candownload"])) ? TRUE : FALSE, 'envo_candownload2');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-              echo $Html->addLabel('jak_candownload2', $tl["checkbox"]["chk1"]);
+              echo $Html->addLabel('envo_candownload2', $tl["checkbox"]["chk1"]);
               ?>
 
             </div>

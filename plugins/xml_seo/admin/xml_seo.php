@@ -2,11 +2,11 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$jakuser->envoModuleAccess(JAK_USERID, $jkv["accessmanage"])) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$envouser->envoModuleAccess(ENVO_USERID, $jkv["accessmanage"])) envo_redirect(BASE_URL);
 
 // -------- DATA FOR ALL ADMIN PAGES --------
 // -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
@@ -135,9 +135,9 @@ switch ($page1) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', $FREQUENCYDOWNLOAD);
         }
 
-        $JAK_DOWNLOAD_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'downloadcategories', 0, $jkv["downloadurl"]);
+        $ENVO_DOWNLOAD_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'downloadcategories', 0, $jkv["downloadurl"]);
 
-        if (isset($JAK_DOWNLOAD_CAT) && is_array($JAK_DOWNLOAD_CAT)) foreach ($JAK_DOWNLOAD_CAT as $c) {
+        if (isset($ENVO_DOWNLOAD_CAT) && is_array($ENVO_DOWNLOAD_CAT)) foreach ($ENVO_DOWNLOAD_CAT as $c) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($c["parseurl"])), '1.0', 'monthly');
         }
       }
@@ -164,9 +164,9 @@ switch ($page1) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
         }
 
-        $JAK_DOWNLOAD_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'shopcategories', 0, $jkv["shopurl"]);
+        $ENVO_DOWNLOAD_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'shopcategories', 0, $jkv["shopurl"]);
 
-        if (isset($JAK_DOWNLOAD_CAT) && is_array($JAK_DOWNLOAD_CAT)) foreach ($JAK_DOWNLOAD_CAT as $c) {
+        if (isset($ENVO_DOWNLOAD_CAT) && is_array($ENVO_DOWNLOAD_CAT)) foreach ($ENVO_DOWNLOAD_CAT as $c) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($c["parseurl"])), '1.0', 'monthly');
         }
       }
@@ -193,9 +193,9 @@ switch ($page1) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
         }
 
-        $JAK_TICKET_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'ticketcategories', 0, $jkv["ticketurl"]);
+        $ENVO_TICKET_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'ticketcategories', 0, $jkv["ticketurl"]);
 
-        if (isset($JAK_TICKET_CAT) && is_array($JAK_TICKET_CAT)) foreach ($JAK_TICKET_CAT as $c) {
+        if (isset($ENVO_TICKET_CAT) && is_array($ENVO_TICKET_CAT)) foreach ($ENVO_TICKET_CAT as $c) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($c["parseurl"])), '1.0', 'monthly');
         }
       }
@@ -221,9 +221,9 @@ switch ($page1) {
           // CZ: Vložení získaných dat do pole
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
         }
-        $JAK_FAQ_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'faqcategories', 0, $jkv["faqurl"]);
+        $ENVO_FAQ_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'faqcategories', 0, $jkv["faqurl"]);
 
-        if (isset($JAK_FAQ_CAT) && is_array($JAK_FAQ_CAT)) foreach ($JAK_FAQ_CAT as $c) {
+        if (isset($ENVO_FAQ_CAT) && is_array($ENVO_FAQ_CAT)) foreach ($ENVO_FAQ_CAT as $c) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($c["parseurl"])), '1.0', 'monthly');
         }
       }
@@ -251,8 +251,8 @@ switch ($page1) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', $FREQUENCYBLOG);
         }
 
-        $JAK_BLOG_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'blogcategories', 0, $jkv["blogurl"]);
-        if (isset($JAK_BLOG_CAT) && is_array($JAK_BLOG_CAT)) foreach ($JAK_BLOG_CAT as $c) {
+        $ENVO_BLOG_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'blogcategories', 0, $jkv["blogurl"]);
+        if (isset($ENVO_BLOG_CAT) && is_array($ENVO_BLOG_CAT)) foreach ($ENVO_BLOG_CAT as $c) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($c["parseurl"])), '1.0', 'monthly');
         }
       }
@@ -279,17 +279,17 @@ switch ($page1) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
         }
 
-        $JAK_B2B_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'b2b_categories', 0, $jkv["b2b_url"]);
+        $ENVO_B2B_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'b2b_categories', 0, $jkv["b2b_url"]);
 
-        if (isset($JAK_B2B_CAT) && is_array($JAK_B2B_CAT)) foreach ($JAK_B2B_CAT as $c) {
+        if (isset($ENVO_B2B_CAT) && is_array($ENVO_B2B_CAT)) foreach ($ENVO_B2B_CAT as $c) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($c["parseurl"])), '1.0', 'monthly');
         }
       }
 
       if ($jkv["sitehttps"]) {
-        $newURL = str_replace("https://", "", (JAK_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG));
+        $newURL = str_replace("https://", "", (ENVO_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG));
       } else {
-        $newURL = str_replace("http://", "", (JAK_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG));
+        $newURL = str_replace("http://", "", (ENVO_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG));
       }
 
       $conf = new xml_sitemap_generator_config;
@@ -366,11 +366,11 @@ switch ($page1) {
       $defaults = $_POST;
 
       // Get value from From
-      $path    = $defaults['jak_xmlseopath'];
-      $txtfile = $defaults['jak_filetxt'];
+      $path    = $defaults['envo_xmlseopath'];
+      $txtfile = $defaults['envo_filetxt'];
 
       // Folder settings - Check if last character is '/'
-      if (!empty($defaults['jak_xmlseopath'])) {
+      if (!empty($defaults['envo_xmlseopath'])) {
         $path = rtrim($path, '/') . '/';
       }
 
@@ -397,17 +397,17 @@ switch ($page1) {
         */
         $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
                     WHEN "xmlseopath" THEN "' . smartsql($path) . '"
-                    WHEN "frequency_pages" THEN "' . smartsql($defaults['jak_frepages']) . '"
-                    WHEN "frequency_blog" THEN "' . smartsql($defaults['jak_freblog']) . '"
-                    WHEN "frequency_download" THEN "' . smartsql($defaults['jak_fredownload']) . '"
+                    WHEN "frequency_pages" THEN "' . smartsql($defaults['envo_frepages']) . '"
+                    WHEN "frequency_blog" THEN "' . smartsql($defaults['envo_freblog']) . '"
+                    WHEN "frequency_download" THEN "' . smartsql($defaults['envo_fredownload']) . '"
                   END
                   WHERE varname IN ("xmlseopath","frequency_pages","frequency_blog","frequency_download")');
 
         // Set new path and frequency change
         $XMLSEOPATH        = $path;
-        $FREQUENCYPAGES    = $defaults['jak_frepages'];
-        $FREQUENCYBLOG     = $defaults['jak_freblog'];
-        $FREQUENCYDOWNLOAD = $defaults['jak_fredownload'];
+        $FREQUENCYPAGES    = $defaults['envo_frepages'];
+        $FREQUENCYBLOG     = $defaults['envo_freblog'];
+        $FREQUENCYDOWNLOAD = $defaults['envo_fredownload'];
 
       }
     }

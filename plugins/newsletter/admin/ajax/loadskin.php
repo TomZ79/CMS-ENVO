@@ -6,7 +6,7 @@ if (!file_exists($_SERVER['DOCUMENT_ROOT'] . '/admin/config.php')) die('[' . __D
 require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/config.php';
 
 // if not ajax and not an admin, die.
-if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || !$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die("Nothing to see here");
+if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || !$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die("Nothing to see here");
 
 // empty array
 $content_array = array("status" => 0, "rcontent" => "");

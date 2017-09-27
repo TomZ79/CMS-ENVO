@@ -5,14 +5,14 @@ $(document).ready(function () {
 	var working = false;
 
 	/* Listening for the submit event of the form: */
-	$('.jak-ajaxform').submit(function (e) {
+	$('.envo-ajaxform').submit(function (e) {
 
 		e.preventDefault();
 		if (working) return false;
 
 		working = true;
-		var jakform = $(this);
-		var button = $(this).find('.jak-submit');
+		var envoform = $(this);
+		var button = $(this).find('.envo-submit');
 		$(this).find('.form-group').removeClass("has-error");
 		$(this).find('.form-group').removeClass("has-success");
 
@@ -20,7 +20,7 @@ $(document).ready(function () {
 
 		// Now this is ajax
 		var data = $(this).serializeArray(); // convert form to array
-		data.push({name: "jakajax", value: "yes"});
+		data.push({name: "envoajax", value: "yes"});
 
 		/* Sending the form fields to any post request: */
 		$.post(envoWeb.envo_url + envoWeb.request_uri, $.param(data), function (msg) {
@@ -30,8 +30,8 @@ $(document).ready(function () {
 
 			if (msg.status) {
 
-				$(jakform).find('.jak-thankyou').fadeIn(1000).html('<div class="alert bg-success">' + msg.html + '</div>');
-				$(jakform)[0].reset();
+				$(envoform).find('.envo-thankyou').fadeIn(1000).html('<div class="alert bg-success">' + msg.html + '</div>');
+				$(envoform)[0].reset();
 
 				// Fade out the form
 				$(button).fadeOut().delay('500');
@@ -48,7 +48,7 @@ $(document).ready(function () {
 				 /*/
 
 				$.each(msg.errors, function (k, v) {
-					$(jakform).find('label[for=' + k + ']').closest(".form-group").addClass("has-error");
+					$(envoform).find('label[for=' + k + ']').closest(".form-group").addClass("has-error");
 				});
 			}
 		}, 'json');

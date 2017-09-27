@@ -1,10 +1,10 @@
 <?php
 
 // Prevent direct php access
-define('JAK_ADMIN_PREVENT_ACCESS', 1);
+define('ENVO_ADMIN_PREVENT_ACCESS', 1);
 
 // Access not allowed
-$JAK_PROVED = FALSE;
+$ENVO_PROVED = FALSE;
 
 // EN: Include the config file ...
 // CZ: Vložení konfiguračního souboru ...
@@ -21,17 +21,17 @@ $page5 = ($temppa5 ? envo_url_input_filter($temppa5) : '');
 $page6 = ($temppa6 ? envo_url_input_filter($temppa6) : '');
 
 // Only the SuperAdmin in the config file see everything
-if (JAK_USERID && $jakuser->envoSuperAdminAccess(JAK_USERID)) {
-  define('JAK_SUPERADMINACCESS', TRUE);
+if (ENVO_USERID && $envouser->envoSuperAdminAccess(ENVO_USERID)) {
+  define('ENVO_SUPERADMINACCESS', TRUE);
 } else {
-  define('JAK_SUPERADMINACCESS', FALSE);
+  define('ENVO_SUPERADMINACCESS', FALSE);
 }
 
 // Get the redirect into a sessions for better login handler
-if ($page && $page != '404') $_SESSION['JAKRedirect'] = $_SERVER['REQUEST_URI'];
+if ($page && $page != '404') $_SESSION['ENVORedirect'] = $_SERVER['REQUEST_URI'];
 
 // All other user will be redirect to the homepage, nothing else to do for this people
-if (JAK_USERID && !JAK_ADMINACCESS) envo_redirect(BASE_URL_ORIG);
+if (ENVO_USERID && !ENVO_ADMINACCESS) envo_redirect(BASE_URL_ORIG);
 
 // EN: Import the language file
 // CZ: Import jazykových souborů
@@ -43,17 +43,17 @@ if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $si
 }
 
 // We need the template folder, title, author and lang as template variable
-$JAK_CONTACT_FORM = $jkv["contactform"];
-define('JAK_PAGINATE_ADMIN', 1);
+$ENVO_CONTACT_FORM = $jkv["contactform"];
+define('ENVO_PAGINATE_ADMIN', 1);
 
 // Define other constant
 define('ENVO_TEMPLATE', $jkv["sitestyle"]);
 
 // First check if the user is logged in
-if (JAK_USERID) {
+if (ENVO_USERID) {
 
   // Get all the Plugins
-  $jakplugins = new JAK_plugins(2, '');
+  $envoplugins = new ENVO_plugins(2, '');
 
   // Get all the Hooks
   $envohooks = new ENVO_hooks(1, '');
@@ -67,26 +67,26 @@ if (JAK_USERID) {
 
   // EN: Get all the php Hook by name of Hook for implementing css or javascript into the head and footer section
   // CZ: Načtení všech php dat z Hook podle jména Hook pro implentaci css a javascript do záhlaví a zápatí
-  $JAK_HOOK_HEAD_ADMIN   = $envohooks->EnvoGethook("tpl_admin_head");
-  $JAK_HOOK_FOOTER_ADMIN = $envohooks->EnvoGethook("tpl_admin_footer");
+  $ENVO_HOOK_HEAD_ADMIN   = $envohooks->EnvoGethook("tpl_admin_head");
+  $ENVO_HOOK_FOOTER_ADMIN = $envohooks->EnvoGethook("tpl_admin_footer");
 
   // Get all plugins out the databse
-  $JAK_PLUGINS           = $jakplugins->EnvoGetarray();
-  $JAK_PLUGINS_TOPNAV    = $jakplugins->jakAdmintopnav();
-  $JAK_PLUGINS_MANAGENAV = $jakplugins->jakAdminmanagenav();
+  $ENVO_PLUGINS           = $envoplugins->EnvoGetarray();
+  $ENVO_PLUGINS_TOPNAV    = $envoplugins->envoAdminTopNav();
+  $ENVO_PLUGINS_MANAGENAV = $envoplugins->envoAdminManageNav();
   // We need the tags if active right in the beginning
-  define('JAK_TAGS', $jakplugins->getPHPcodeid(3, "active"));
+  define('ENVO_TAGS', $envoplugins->getPHPcodeid(3, "active"));
 
   // Show links in template only the user have access
-  $JAK_MODULES = $jakuser->envoModuleAccess(JAK_USERID, $jkv["accessgeneral"]);
-  $JAK_MODULEM = $jakuser->envoModuleAccess(JAK_USERID, $jkv["accessmanage"]);
+  $ENVO_MODULES = $envouser->envoModuleAccess(ENVO_USERID, $jkv["accessgeneral"]);
+  $ENVO_MODULEM = $envouser->envoModuleAccess(ENVO_USERID, $jkv["accessmanage"]);
 
   // Get the name from the user for the welcome message
-  $JAK_WELCOME_NAME = $jakuser->getVar("name");
+  $ENVO_WELCOME_NAME = $envouser->getVar("name");
 }
 
 // We do not need code highlighting
-$CODE_HIGHLIGHT = $JAK_PAGINATE = FALSE;
+$CODE_HIGHLIGHT = $ENVO_PAGINATE = FALSE;
 
 // Errors
 $errors = $exorder = $pluginid = array();
@@ -101,7 +101,7 @@ $checkp = 0;
 if (!isset($_SERVER['HTTP_REFERER'])) $_SERVER['HTTP_REFERER'] = '';
 
 // Now run the php code from the plugin section only when we logged in
-if (JAK_USERID) {
+if (ENVO_USERID) {
 
   // EN: Get all the php Hook by name of Hook for admin 'index top'
   // CZ: Načtení všech php dat z Hook podle jména Hook pro admin 'index top'
@@ -110,16 +110,16 @@ if (JAK_USERID) {
     eval($hait['phpcode']);
   }
 
-  $pluginadminphp = $jakplugins->jakAdminindex();
+  $pluginadminphp = $envoplugins->envoAdminIndex();
   if ($pluginadminphp) foreach ($pluginadminphp as $pl) {
     // Page name upper case
     $plname = strtoupper($pl['name']);
 
     // define the plugin id first
-    define('JAK_PLUGIN_' . $plname, $pl['id']);
+    define('ENVO_PLUGIN_' . $plname, $pl['id']);
 
     // Get the access out into define
-    define('JAK_ACCESS' . $plname, $pl['access']);
+    define('ENVO_ACCESS' . $plname, $pl['access']);
 
     // then load the php code
     eval($pl['phpcode']);
@@ -131,7 +131,7 @@ $envotable  = DB_PREFIX . 'pages';
 $envotable1 = DB_PREFIX . 'user';
 $envotable2 = DB_PREFIX . 'usergroup';
 
-$JAK_COUNTS_NAVBAR = $envodb->queryRow('SELECT
+$ENVO_COUNTS_NAVBAR = $envodb->queryRow('SELECT
 																			(SELECT COUNT(*) FROM ' . $envotable . ') AS COUNT_PAGES,
 																			(SELECT COUNT(*) FROM ' . $envotable1 . ') AS COUNT_USER,
 																			(SELECT COUNT(*) FROM ' . $envotable2 . ') AS COUNT_USERGROUP');
@@ -141,13 +141,13 @@ $JAK_COUNTS_NAVBAR = $envodb->queryRow('SELECT
 if ($page == '') {
   // EN: Show login page only if the admin is not logged in else show homepage
   // CZ: Zobrazit stránku 'přihlášení' ...
-  if (!JAK_USERID) {
+  if (!ENVO_USERID) {
     require_once 'login.php';
   } else {
     require_once 'include/serverconfig.php';
-    $JAK_SETTING     = envo_get_setting('version');
-    $JAK_PROVED      = 1;
-    $JAK_PAGE_ACTIVE = 1;
+    $ENVO_SETTING     = envo_get_setting('version');
+    $ENVO_PROVED      = 1;
+    $ENVO_PAGE_ACTIVE = 1;
 
     // EN: Get all the php Hook by name of Hook
     // CZ: Načtení všech php dat z Hook podle jména Hook
@@ -159,7 +159,7 @@ if ($page == '') {
 
     // EN: Get all the php Hook by name of Hook
     // CZ: Načtení všech php dat z Hook podle jména Hook
-    $JAK_HOOK_ADMIN_INDEX = $envohooks->EnvoGethook("tpl_admin_index");
+    $ENVO_HOOK_ADMIN_INDEX = $envohooks->EnvoGethook("tpl_admin_index");
 
     // Get the to-do list
     require "../class/class.todo.php";
@@ -169,11 +169,11 @@ if ($page == '') {
     // to-do is an array and get the while
     $todos = array();
     while ($rowtd = $todo->fetch_assoc()) {
-      $todos[] = new JAK_ToDo($rowtd);
+      $todos[] = new ENVO_ToDo($rowtd);
     }
 
     // Get the stats
-    $JAK_COUNTS = $envodb->queryRow('SELECT
+    $ENVO_COUNTS = $envodb->queryRow('SELECT
 																	(SELECT COUNT(*) FROM ' . DB_PREFIX . 'pages WHERE active = 1) AS pageCtotal,
 																	(SELECT COUNT(*) FROM ' . DB_PREFIX . 'user) AS userCtotal,
 																	(SELECT COUNT(*) FROM ' . DB_PREFIX . 'tags) AS tagsCtotal,
@@ -210,20 +210,20 @@ if ($page == '') {
 }
 if ($page == 'logout') {
   $checkp = 1;
-  if (!JAK_USERID) {
+  if (!ENVO_USERID) {
     envo_redirect(BASE_URL);
   }
-  if (JAK_USERID) {
-    $jakuserlogin->envoLogout(JAK_USERID);
+  if (ENVO_USERID) {
+    $envouserlogin->envoLogout(ENVO_USERID);
     envo_redirect(BASE_URL);
   }
 }
 if ($page == '404') {
-  if (!JAK_USERID) {
+  if (!ENVO_USERID) {
     envo_redirect(BASE_URL);
   }
   // Go to the 404 Page
-  $JAK_PROVED = 1;
+  $ENVO_PROVED = 1;
 
   // EN: Title and Description
   // CZ: Titulek a Popis
@@ -237,116 +237,116 @@ if ($page == '404') {
 }
 if ($page == 'site') {
   require_once 'site.php';
-  $JAK_PROVED      = 1;
-  $JAK_PAGE_ACTIVE = 1;
+  $ENVO_PROVED      = 1;
+  $ENVO_PAGE_ACTIVE = 1;
   $checkp          = 1;
 }
 if ($page == 'logs') {
   require_once 'logs.php';
-  $JAK_PROVED      = 1;
-  $JAK_PAGE_ACTIVE = 1;
+  $ENVO_PROVED      = 1;
+  $ENVO_PAGE_ACTIVE = 1;
   $checkp          = 1;
 }
 if ($page == 'searchlog') {
   require_once 'searchlog.php';
-  $JAK_PROVED      = 1;
-  $JAK_PAGE_ACTIVE = 1;
+  $ENVO_PROVED      = 1;
+  $ENVO_PAGE_ACTIVE = 1;
   $checkp          = 1;
 }
 if ($page == 'changelog') {
   require_once 'changelog.php';
-  $JAK_PROVED      = 1;
-  $JAK_PAGE_ACTIVE = 1;
+  $ENVO_PROVED      = 1;
+  $ENVO_PAGE_ACTIVE = 1;
   $checkp          = 1;
 }
 if ($page == 'setting') {
   require_once 'setting.php';
-  $JAK_PROVED      = 1;
-  $JAK_PAGE_ACTIVE = 1;
+  $ENVO_PROVED      = 1;
+  $ENVO_PAGE_ACTIVE = 1;
   $checkp          = 1;
 }
 if ($page == 'settingfacebook') {
   require_once 'settingfacebook.php';
-  $JAK_PROVED      = 1;
-  $JAK_PAGE_ACTIVE = 1;
+  $ENVO_PROVED      = 1;
+  $ENVO_PAGE_ACTIVE = 1;
   $checkp          = 1;
 }
 if ($page == 'facebookgallery') {
   require_once 'facebookgallery.php';
-  $JAK_PROVED      = 1;
-  $JAK_PAGE_ACTIVE = 1;
+  $ENVO_PROVED      = 1;
+  $ENVO_PAGE_ACTIVE = 1;
   $checkp          = 1;
 }
 if ($page == 'mediasharing') {
   require_once 'mediasharing.php';
-  $JAK_PROVED      = 1;
-  $JAK_PAGE_ACTIVE = 1;
+  $ENVO_PROVED      = 1;
+  $ENVO_PAGE_ACTIVE = 1;
   $checkp          = 1;
 }
 if ($page == 'users') {
   require_once 'users.php';
-  $JAK_PROVED      = 1;
-  $JAK_PAGE_ACTIVE = 1;
+  $ENVO_PROVED      = 1;
+  $ENVO_PAGE_ACTIVE = 1;
   $checkp          = 1;
 }
 if ($page == 'categories') {
   require_once 'categories.php';
-  $JAK_PROVED       = 1;
-  $JAK_PAGE_ACTIVE1 = 1;
+  $ENVO_PROVED       = 1;
+  $ENVO_PAGE_ACTIVE1 = 1;
   $checkp           = 1;
 }
 if ($page == 'page') {
   require_once 'page.php';
-  $JAK_PROVED       = 1;
-  $JAK_PAGE_ACTIVE1 = 1;
+  $ENVO_PROVED       = 1;
+  $ENVO_PAGE_ACTIVE1 = 1;
   $checkp           = 1;
 }
 if ($page == 'contactform') {
   require_once 'contactform.php';
-  $JAK_PROVED       = 1;
-  $JAK_PAGE_ACTIVE1 = 1;
+  $ENVO_PROVED       = 1;
+  $ENVO_PAGE_ACTIVE1 = 1;
   $checkp           = 1;
 }
 if ($page == 'sitemap') {
   require_once 'sitemap.php';
-  $JAK_PROVED       = 1;
-  $JAK_PAGE_ACTIVE1 = 1;
+  $ENVO_PROVED       = 1;
+  $ENVO_PAGE_ACTIVE1 = 1;
   $checkp           = 1;
 }
 if ($page == 'searchsetting') {
   require_once 'searchsetting.php';
-  $JAK_PROVED       = 1;
-  $JAK_PAGE_ACTIVE1 = 1;
+  $ENVO_PROVED       = 1;
+  $ENVO_PAGE_ACTIVE1 = 1;
   $checkp           = 1;
 }
 if ($page == 'plugins') {
   require_once 'plugins.php';
-  $JAK_PROVED      = 1;
-  $JAK_PAGE_ACTIVE = 1;
+  $ENVO_PROVED      = 1;
+  $ENVO_PAGE_ACTIVE = 1;
   $checkp          = 1;
 }
 if ($page == 'template') {
   require_once 'template.php';
-  $JAK_PROVED      = 1;
-  $JAK_PAGE_ACTIVE = 1;
+  $ENVO_PROVED      = 1;
+  $ENVO_PAGE_ACTIVE = 1;
   $checkp          = 1;
 }
 if ($page == 'usergroup') {
   require_once 'usergroup.php';
-  $JAK_PROVED      = 1;
-  $JAK_PAGE_ACTIVE = 1;
+  $ENVO_PROVED      = 1;
+  $ENVO_PAGE_ACTIVE = 1;
   $checkp          = 1;
 }
 if ($page == 'maintenance') {
   require_once 'maintenance.php';
-  $JAK_PROVED      = 1;
-  $JAK_PAGE_ACTIVE = 1;
+  $ENVO_PROVED      = 1;
+  $ENVO_PAGE_ACTIVE = 1;
   $checkp          = 1;
 }
 if ($page == 'cmshelp') {
   require_once 'cmshelp.php';
-  $JAK_PROVED      = 1;
-  $JAK_PAGE_ACTIVE = 1;
+  $ENVO_PROVED      = 1;
+  $ENVO_PAGE_ACTIVE = 1;
   $checkp          = 1;
 }
 

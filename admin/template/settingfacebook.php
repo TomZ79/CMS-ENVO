@@ -1,6 +1,6 @@
 <?php include "header.php"; ?>
 
-<?php if ($JAK_FILE_SUCCESS) { ?>
+<?php if ($ENVO_FILE_SUCCESS) { ?>
   <script type="text/javascript">
     // Notification
     setTimeout(function () {
@@ -15,7 +15,7 @@
     }, 1000);
   </script>
 <?php }
-if ($JAK_FILE_ERROR) { ?>
+if ($ENVO_FILE_ERROR) { ?>
   <script type="text/javascript">
     // Notification
     setTimeout(function () {
@@ -93,7 +93,7 @@ if ($JAK_FILE_ERROR) { ?>
 
                       <?php
                       // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                      echo $Html->addTextarea('jak_facebookconnect', $JAK_SETTING_VAL["facebookconnect"], '10', '60', array('class' => 'form-control txtautogrow'));
+                      echo $Html->addTextarea('envo_facebookconnect', $ENVO_SETTING_VAL["facebookconnect"], '10', '60', array('class' => 'form-control txtautogrow'));
                       ?>
 
                     </div>
@@ -128,7 +128,7 @@ if ($JAK_FILE_ERROR) { ?>
             <div class="box-body">
               <div class="block">
                 <div class="block-content">
-                  <div class="row-form <?php if (!$JAK_FILECONTENT) {
+                  <div class="row-form <?php if (!$ENVO_FILECONTENT) {
                     echo "hidden";
                   } ?>">
                     <div class="col-md-12">
@@ -138,24 +138,24 @@ if ($JAK_FILE_ERROR) { ?>
                       echo $Html->startTag('h4');
                       echo $tl["fb_box_content"]["fbbc9"];
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('small', $Html->addTag('strong', $JAK_FILEURL));
+                      echo $Html->addTag('small', $Html->addTag('strong', $ENVO_FILEURL));
                       // Add Html Element -> endTag (Arguments: tag)
                       echo $Html->endTag('h4');
                       ?>
 
                     </div>
                   </div>
-                  <?php if ($JAK_FILECONTENT) { ?>
+                  <?php if ($ENVO_FILECONTENT) { ?>
                     <div class="row-form">
                       <div class="col-md-12">
 
                         <?php
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                        echo $Html->addLabel('jak_filecontent', $tl["fb_box_content"]["fbbc10"]);
+                        echo $Html->addLabel('envo_filecontent', $tl["fb_box_content"]["fbbc10"]);
                         // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                         echo $Html->addDiv('', 'txteditor');
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('jak_filecontent', $JAK_FILECONTENT, '', '', array('id' => 'jak_filecontent', 'class' => 'form-control hidden'));
+                        echo $Html->addTextarea('envo_filecontent', $ENVO_FILECONTENT, '', '', array('id' => 'envo_filecontent', 'class' => 'form-control hidden'));
                         ?>
 
                       </div>
@@ -176,7 +176,7 @@ if ($JAK_FILE_ERROR) { ?>
 
           <?php
           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-          echo $Html->addInput('hidden', 'jak_file', $JAK_FILEURL);
+          echo $Html->addInput('hidden', 'envo_file', $ENVO_FILEURL);
           ?>
 
         </div>
@@ -197,7 +197,7 @@ if ($JAK_FILE_ERROR) { ?>
             <div class="box-body">
               <div class="block">
                 <div class="block-content">
-                  <div class="row-form <?php if (!$JAK_FILECONTENT1) {
+                  <div class="row-form <?php if (!$ENVO_FILECONTENT1) {
                     echo "hidden";
                   } ?>">
                     <div class="col-md-12">
@@ -207,24 +207,24 @@ if ($JAK_FILE_ERROR) { ?>
                       echo $Html->startTag('h4');
                       echo $tl["fb_box_content"]["fbbc9"];
                       // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
-                      echo $Html->addTag('small', $Html->addTag('strong', $JAK_FILEURL1));
+                      echo $Html->addTag('small', $Html->addTag('strong', $ENVO_FILEURL1));
                       // Add Html Element -> endTag (Arguments: tag)
                       echo $Html->endTag('h4');
                       ?>
 
                     </div>
                   </div>
-                  <?php if ($JAK_FILECONTENT1) { ?>
+                  <?php if ($ENVO_FILECONTENT1) { ?>
                     <div class="row-form">
                       <div class="col-md-12">
 
                         <?php
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                        echo $Html->addLabel('jak_filecontent1', $tl["fb_box_content"]["fbbc10"]);
+                        echo $Html->addLabel('envo_filecontent1', $tl["fb_box_content"]["fbbc10"]);
                         // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                         echo $Html->addDiv('', 'txteditor1');
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('jak_filecontent1', $JAK_FILECONTENT1, '', '', array('id' => 'jak_filecontent1', 'class' => 'form-control hidden'));
+                        echo $Html->addTextarea('envo_filecontent1', $ENVO_FILECONTENT1, '', '', array('id' => 'envo_filecontent1', 'class' => 'form-control hidden'));
                         ?>
 
                       </div>
@@ -245,7 +245,7 @@ if ($JAK_FILE_ERROR) { ?>
 
           <?php
           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-          echo $Html->addInput('hidden', 'jak_file1', $JAK_FILEURL);
+          echo $Html->addInput('hidden', 'envo_file1', $ENVO_FILEURL);
           ?>
 
         </div>

@@ -557,7 +557,7 @@ define('DB_PASS_HASH', '');
     <p>If you server is running on Apache you can use the build in optimisation for short url's. This gives you the possibilities to have shorter and cleaner URL's and a better search engine performance.</p>
     <p>To use the build in SEO in CMS you need to do two things, first open the db.php file and set following definition:</p>
     <pre class="prettyprint linenums lang-php">
-define('JAK_USE_APACHE', 1);
+define('ENVO_USE_APACHE', 1);
 </pre>
     <p>Then upload the .htaccess file provided in the download package or create your own with following content:</p>
     <pre class="prettyprint linenums lang-php">
@@ -2909,7 +2909,7 @@ if ($page == 'rf_ual') {
     $result = $envodb->query('UPDATE '.DB_PREFIX.'user SET access = access - 1, activatenr = 0 WHERE id = "'.smartsql($page1).'" AND activatenr = "'.smartsql($page2).'"');
 
    	if (!$result) {
-   		envo_redirect(JAK_PARSE_ERROR);
+   		envo_redirect(ENVO_PARSE_ERROR);
    		exit;
    	} else {
 
@@ -2918,13 +2918,13 @@ if ($page == 'rf_ual') {
    		$admail = new PHPMailer();
    		$adlinkmessage = $tl['xxxxx']['yyyyy'].$userlink;
    		$adbody = str_ireplace("[]",'',$adlinkmessage);
-   		$admail->SetFrom(JAK_EMAIL, JAK_TITLE);
-   		$admail->AddAddress(JAK_EMAIL, JAK_TITLE);
-   		$admail->Subject = JAK_TITLE.' - '.$tl['xxxxx']['yyyyy'];
+   		$admail->SetFrom(ENVO_EMAIL, ENVO_TITLE);
+   		$admail->AddAddress(ENVO_EMAIL, ENVO_TITLE);
+   		$admail->Subject = ENVO_TITLE.' - '.$tl['xxxxx']['yyyyy'];
    		$admail->MsgHTML($adbody);
    		$admail->Send(); // Send email without any warnings
 
-   		envo_redirect(JAK_PARSE_SUCCESS);
+   		envo_redirect(ENVO_PARSE_SUCCESS);
    		exit;
    	}
   } else {
@@ -3124,8 +3124,8 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
 
     <p class="all-caps fs-12 bold">For example :</p>
     <pre class="prettyprint linenums lang-php">
-$JAK_CMS_VERSION = $jaknewversion;
-$JAK_CMS_NEWS = $jaknewnews;
+$ENVO_CMS_VERSION = $envonewversion;
+$ENVO_CMS_NEWS = $envonewnews;
 </pre>
 
     <p>If you like to include a file:</p>
@@ -3194,7 +3194,7 @@ if (empty($news) && !empty($defaults['envo_shownewsmany'])) {
 
     <p class="all-caps fs-12 bold">For example :</p>
     <pre class="prettyprint linenums lang-php">
-$JAK_GET_TICKETING = envo_get_page_info(DB_PREFIX.'tickets', '');
+$ENVO_GET_TICKETING = envo_get_page_info(DB_PREFIX.'tickets', '');
 </pre>
 
     <p>If you like to include a file:</p>
@@ -3211,7 +3211,7 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
 
     <p class="all-caps fs-12 bold">For example :</p>
     <pre class="prettyprint linenums lang-php">
-$getpoll = $JAK_GET_POLL = envo_get_page_info(DB_PREFIX.'polls', '');
+$getpoll = $ENVO_GET_POLL = envo_get_page_info(DB_PREFIX.'polls', '');
  </pre>
 
     <p>If you like to include a file:</p>
@@ -3360,16 +3360,16 @@ plugins/yourplugin/template/mysearchresult.php
 
     <p>You can include a file, for example:</p>
     <pre class="prettyprint linenums lang-php">
-if ($pg['pluginid'] == JAK_PLUGIN_ID_FAQ && JAK_PLUGIN_ID_FAQ && !empty($row['showfaq'])) {
+if ($pg['pluginid'] == ENVO_PLUGIN_ID_FAQ && ENVO_PLUGIN_ID_FAQ && !empty($row['showfaq'])) {
 
   include_once APP_PATH.'plugins/faq/functions.php';
 
   $showfaqarray = explode(":", $row['showfaq']);
 
   if (is_array($showfaqarray) && in_array("ASC", $showfaqarray) || in_array("DESC", $showfaqarray)) {
-    $JAK_FAQ = envo_get_faq('LIMIT '.$showfaqarray[1], 't1.id '.$showfaqarray[0], '', 't1.id');
+    $ENVO_FAQ = envo_get_faq('LIMIT '.$showfaqarray[1], 't1.id '.$showfaqarray[0], '', 't1.id');
   } else {
-    $JAK_FAQ = envo_get_faq('', 't1.id ASC', $row['showfaq'], 't1.id');
+    $ENVO_FAQ = envo_get_faq('', 't1.id ASC', $row['showfaq'], 't1.id');
   }
 
 }
@@ -3444,7 +3444,7 @@ plugins/yourplugin/template/my_copyright.php
 
     <p>You can include a file, for example:</p>
     <pre class="prettyprint linenums lang-php">
-if ($pg['pluginid'] == JAK_PLUGIN_FAQ) {
+if ($pg['pluginid'] == ENVO_PLUGIN_FAQ) {
   include_once APP_PATH.'plugins/faq../assets/template/faq_connect.php';
 }
 </pre>
@@ -3506,14 +3506,14 @@ plugins/yourplugin/template/news_on_index.php
 
     <p class="all-caps fs-12 bold">For example :</p>
     <pre class="prettyprint linenums lang-php">
-if (is_numeric(JAK_BCONTENT1_IGRID_TPL)) {
-  if (isset($JAK_HOOK_FOOTER_WIDGET) && is_array($JAK_HOOK_FOOTER_WIDGET)) foreach($JAK_HOOK_FOOTER_WIDGET as $hfw) {
-    if ($hfw["id"] == JAK_BCONTENT1_IGRID_TPL) {
+if (is_numeric(ENVO_BCONTENT1_IGRID_TPL)) {
+  if (isset($ENVO_HOOK_FOOTER_WIDGET) && is_array($ENVO_HOOK_FOOTER_WIDGET)) foreach($ENVO_HOOK_FOOTER_WIDGET as $hfw) {
+    if ($hfw["id"] == ENVO_BCONTENT1_IGRID_TPL) {
       include_once $hfw["phpcode"];
     }
   }
 } else {
-  echo JAK_BCONTENT1_IGRID_TPL;
+  echo ENVO_BCONTENT1_IGRID_TPL;
 }
 </pre>
   </section>

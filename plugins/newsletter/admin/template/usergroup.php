@@ -54,7 +54,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
   </div>
 
-<?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) { ?>
+<?php if (isset($ENVO_USERGROUP_ALL) && is_array($ENVO_USERGROUP_ALL)) { ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="box box-success">
@@ -70,8 +70,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                   <?php
                   // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                   // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                  echo $Html->addCheckbox('', '', FALSE, 'jak_delete_all');
-                  echo $Html->addLabel('jak_delete_all', '');
+                  echo $Html->addCheckbox('', '', FALSE, 'envo_delete_all');
+                  echo $Html->addLabel('envo_delete_all', '');
                   ?>
 
                 </div>
@@ -90,7 +90,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
               </th>
             </tr>
             </thead>
-            <?php foreach ($JAK_USERGROUP_ALL as $v) { ?>
+            <?php foreach ($ENVO_USERGROUP_ALL as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
                 <td>
@@ -99,8 +99,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                     <?php
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                    echo $Html->addCheckbox('jak_delete_usergroup[]', $v["id"], FALSE, 'jak_delete_usergroup' . $v["id"], 'highlight');
-                    echo $Html->addLabel('jak_delete_usergroup' . $v["id"], '');
+                    echo $Html->addCheckbox('envo_delete_usergroup[]', $v["id"], FALSE, 'envo_delete_usergroup' . $v["id"], 'highlight');
+                    echo $Html->addLabel('envo_delete_usergroup' . $v["id"], '');
                     ?>
 
                   </div>
@@ -164,7 +164,7 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
   <?php
 
-  if ($JAK_PAGINATE) echo $JAK_PAGINATE;
+  if ($ENVO_PAGINATE) echo $ENVO_PAGINATE;
 
 } else { ?>
 

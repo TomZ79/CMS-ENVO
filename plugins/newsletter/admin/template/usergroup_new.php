@@ -24,14 +24,14 @@
 
               <?php
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('jak_newsletter', '1', ((isset($_REQUEST["jak_newsletter"]) && $_REQUEST["jak_newsletter"] == '1')) ? TRUE : FALSE, 'jak_newsletter1');
+              echo $Html->addRadio('envo_newsletter', '1', ((isset($_REQUEST["envo_newsletter"]) && $_REQUEST["envo_newsletter"] == '1')) ? TRUE : FALSE, 'envo_newsletter1');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-              echo $Html->addLabel('jak_newsletter1', $tl["checkbox"]["chk"]);
+              echo $Html->addLabel('envo_newsletter1', $tl["checkbox"]["chk"]);
 
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('jak_newsletter', '0', ((isset($_REQUEST["jak_newsletter"]) && $_REQUEST["jak_newsletter"] == '0') || !isset($_REQUEST["jak_newsletter"])) ? TRUE : FALSE, 'jak_blog2');
+              echo $Html->addRadio('envo_newsletter', '0', ((isset($_REQUEST["envo_newsletter"]) && $_REQUEST["envo_newsletter"] == '0') || !isset($_REQUEST["envo_newsletter"])) ? TRUE : FALSE, 'envo_blog2');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-              echo $Html->addLabel('jak_newsletter2', $tl["checkbox"]["chk1"]);
+              echo $Html->addLabel('envo_newsletter2', $tl["checkbox"]["chk1"]);
               ?>
 
             </div>

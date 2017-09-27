@@ -1,4 +1,4 @@
-<?php if ($FT_SHARE && $JAK_FACEBOOK_SDK_CONNECTION) { // With Share on Social Sites, with Facebook SDK Connection ?>
+<?php if ($FT_SHARE && $ENVO_FACEBOOK_SDK_CONNECTION) { // With Share on Social Sites, with Facebook SDK Connection ?>
 
 <script type="text/javascript">
   function shareOnFB() {
@@ -18,7 +18,7 @@
   }
 </script>
 
-<?php } elseif ($FT_SHARE && !$JAK_FACEBOOK_SDK_CONNECTION) { ?>
+<?php } elseif ($FT_SHARE && !$ENVO_FACEBOOK_SDK_CONNECTION) { ?>
 
 <script type="text/javascript" src="<?php echo BASE_URL; ?>plugins/download/js/jquery.tweetfaceAction.js"></script>
 <script type="text/javascript">
@@ -30,7 +30,7 @@
 
     $('#tweetLink').tweetAction({
       text: "<?php echo $PAGE_TITLE . ' - ' . $jkv["title"];?>",
-      url: '<?php echo BASE_URL . JAK_PARSE_REQUEST;?>',
+      url: '<?php echo BASE_URL . ENVO_PARSE_REQUEST;?>',
       via: '<?php echo $jkv["downloadtwitter"];?>',
       related: '<?php echo $jkv["downloadtwitter"];?>'
     }, function () {
@@ -54,7 +54,7 @@
 
     // FACEBOOK SHARING
     $('#faceLink').faceAction({
-      url: '<?php echo BASE_URL . JAK_PARSE_REQUEST;?>'
+      url: '<?php echo BASE_URL . ENVO_PARSE_REQUEST;?>'
     }, function () {
 
       // Callback function. Triggered when the user closes the pop-up window

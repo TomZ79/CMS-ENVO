@@ -36,7 +36,7 @@
 
               <?php
               // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-              echo $Html->addTextarea('jak_file1', htmlspecialchars($content), '8', '', array('id' => 'jak_file1', 'class' => 'form-control', 'placeholder' => $tlsedi["siteedit_placeholder"]["sep"], 'disabled' => 'disabled'));
+              echo $Html->addTextarea('envo_file1', htmlspecialchars($content), '8', '', array('id' => 'envo_file1', 'class' => 'form-control', 'placeholder' => $tlsedi["siteedit_placeholder"]["sep"], 'disabled' => 'disabled'));
               ?>
 
             </div>

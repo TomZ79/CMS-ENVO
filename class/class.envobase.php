@@ -198,7 +198,7 @@ class ENVO_base
 
       $permission = explode(',', $row['permission']);
 
-      if (in_array(JAK_USERGROUPID, $permission) || $row['permission'] == 0) {
+      if (in_array(ENVO_USERGROUPID, $permission) || $row['permission'] == 0) {
 
         if ($row['catorder'] == 1 && $row['showmenu'] == 1 && $row['catparent'] == 0) {
           $parseurl = ENVO_rewrite::envoParseurl('', '', '', '', '');

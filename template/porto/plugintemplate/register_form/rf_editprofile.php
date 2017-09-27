@@ -45,7 +45,7 @@
                     <div class="form-group">
                       <div class="col-md-12">
                         <label><?php echo $tlrf["rf_frontend"]["rf2"]; ?></label>
-                        <input type="text" class="form-control input-lg" value="<?php echo $jakuser->getVar("name"); ?>" name="name" id="name" placeholder="<?php echo $tlrf["rf_frontend_plc"]["rfplc"]; ?>">
+                        <input type="text" class="form-control input-lg" value="<?php echo $envouser->getVar("name"); ?>" name="name" id="name" placeholder="<?php echo $tlrf["rf_frontend_plc"]["rfplc"]; ?>">
                       </div>
                     </div>
                   </div>
@@ -56,7 +56,7 @@
                           <?php echo $tlrf["rf_frontend"]["rf4"]; ?>
                           <span class="text-color-secondary ml-sm">*</span>
                         </label>
-                        <input type="email" class="form-control input-lg" value="<?php echo $jakuser->getVar("email"); ?>" name="email" id="email" placeholder="<?php echo $tlrf["rf_frontend_plc"]["rfplc2"]; ?>">
+                        <input type="email" class="form-control input-lg" value="<?php echo $envouser->getVar("email"); ?>" name="email" id="email" placeholder="<?php echo $tlrf["rf_frontend_plc"]["rfplc2"]; ?>">
                       </div>
                     </div>
                   </div>
@@ -66,7 +66,7 @@
                         <label>
                           <?php echo $tlrf["rf_frontend"]["rf15"]; ?>
                         </label>
-                        <input type="text" class="form-control input-lg" value="<?php echo $jakuser->getVar("phone"); ?>" name="phone" id="phone" placeholder="<?php echo $tlrf["rf_frontend_plc"]["rfplc6"]; ?>">
+                        <input type="text" class="form-control input-lg" value="<?php echo $envouser->getVar("phone"); ?>" name="phone" id="phone" placeholder="<?php echo $tlrf["rf_frontend_plc"]["rfplc6"]; ?>">
                       </div>
                     </div>
                   </div>
@@ -148,7 +148,7 @@
                   <div class="row">
                     <div class="fileinput fileinput-new" data-provides="fileinput">
                       <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">
-                        <img src="<?php echo BASE_URL . JAK_FILES_DIRECTORY . '/userfiles' . $jakuser->getVar("picture"); ?>"
+                        <img src="<?php echo BASE_URL . ENVO_FILES_DIRECTORY . '/userfiles' . $envouser->getVar("picture"); ?>"
                           alt="avatar">
                       </div>
                       <div>
@@ -168,42 +168,42 @@
                     </h4>
                     <div class="row text-center">
                       <div class="col-xs-2">
-                        <img src="../<?php echo JAK_FILES_DIRECTORY; ?>/userfiles/standard.png" class="img-responsive" alt="standard avatar"/>
+                        <img src="../<?php echo ENVO_FILES_DIRECTORY; ?>/userfiles/standard.png" class="img-responsive" alt="standard avatar"/>
                         <div class="radio">
                           <label>
-                            <input type="radio" name="avatar" value="/standard.png"<?php if ($jakuser->getVar("picture") == "/standard.png") { ?> checked="checked"<?php } ?> />
+                            <input type="radio" name="avatar" value="/standard.png"<?php if ($envouser->getVar("picture") == "/standard.png") { ?> checked="checked"<?php } ?> />
                           </label>
                         </div>
                       </div>
                       <div class="col-xs-2">
-                        <img src="../<?php echo JAK_FILES_DIRECTORY; ?>/userfiles/avatar.png" class="img-responsive" alt="avatar"/>
+                        <img src="../<?php echo ENVO_FILES_DIRECTORY; ?>/userfiles/avatar.png" class="img-responsive" alt="avatar"/>
                         <div class="radio">
                           <label>
-                            <input type="radio" name="avatar" value="/avatar.png"<?php if ($jakuser->getVar("picture") == "/avatar.png") { ?> checked="checked"<?php } ?> />
+                            <input type="radio" name="avatar" value="/avatar.png"<?php if ($envouser->getVar("picture") == "/avatar.png") { ?> checked="checked"<?php } ?> />
                           </label>
                         </div>
                       </div>
                       <div class="col-xs-2">
-                        <img src="../<?php echo JAK_FILES_DIRECTORY; ?>/userfiles/avatar2.png" class="img-responsive" alt="avatar2"/>
+                        <img src="../<?php echo ENVO_FILES_DIRECTORY; ?>/userfiles/avatar2.png" class="img-responsive" alt="avatar2"/>
                         <div class="radio">
                           <label>
-                            <input type="radio" name="avatar" value="/avatar2.png"<?php if ($jakuser->getVar("picture") == "/avatar2.png") { ?> checked="checked"<?php } ?> />
+                            <input type="radio" name="avatar" value="/avatar2.png"<?php if ($envouser->getVar("picture") == "/avatar2.png") { ?> checked="checked"<?php } ?> />
                           </label>
                         </div>
                       </div>
                       <div class="col-xs-2">
-                        <img src="../<?php echo JAK_FILES_DIRECTORY; ?>/userfiles/avatar3.png" class="img-responsive" alt="avatar3"/>
+                        <img src="../<?php echo ENVO_FILES_DIRECTORY; ?>/userfiles/avatar3.png" class="img-responsive" alt="avatar3"/>
                         <div class="radio">
                           <label>
-                            <input type="radio" name="avatar" value="/avatar3.png"<?php if ($jakuser->getVar("picture") == "/avatar3.png") { ?> checked="checked"<?php } ?> />
+                            <input type="radio" name="avatar" value="/avatar3.png"<?php if ($envouser->getVar("picture") == "/avatar3.png") { ?> checked="checked"<?php } ?> />
                           </label>
                         </div>
                       </div>
                       <div class="col-xs-2">
-                        <img src="../<?php echo JAK_FILES_DIRECTORY; ?>/userfiles/avatar4.png" class="img-responsive" alt="avatar4"/>
+                        <img src="../<?php echo ENVO_FILES_DIRECTORY; ?>/userfiles/avatar4.png" class="img-responsive" alt="avatar4"/>
                         <div class="radio">
                           <label>
-                            <input type="radio" name="avatar" value="/avatar4.png"<?php if ($jakuser->getVar("picture") == "/avatar4.png") { ?> checked="checked"<?php } ?> />
+                            <input type="radio" name="avatar" value="/avatar4.png"<?php if ($envouser->getVar("picture") == "/avatar4.png") { ?> checked="checked"<?php } ?> />
                           </label>
                         </div>
                       </div>

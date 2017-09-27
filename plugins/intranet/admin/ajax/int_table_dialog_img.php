@@ -49,7 +49,7 @@ switch ($row["exiforientation"]) {
 $envodata .= '
 <div class="col-sm-4 no-padding full-height hidden-xs"> 
   <div class="full-height bg-master-lighter" style="overflow: hidden;">
-    <img src="/' . JAK_FILES_DIRECTORY . $row["mainfolder"] . $row["filenamethumb"] . '" alt="" class="img-responsive" style="object-fit: cover;width: 100%;height: 100%;">
+    <img src="/' . ENVO_FILES_DIRECTORY . $row["mainfolder"] . $row["filenamethumb"] . '" alt="" class="img-responsive" style="object-fit: cover;width: 100%;height: 100%;">
   </div>
 </div>
 <div class="col-sm-8 p-r-35 p-t-35 p-l-35 full-height item-description">
@@ -112,7 +112,7 @@ $envodata .= '
     </div>
     <div id="info2" class="tab-pane fade" style="height:350px;overflow-y:auto;width:100%;padding-right: 20px;">
       <p><strong>Main Folder</strong></p>
-      <p>/' . JAK_FILES_DIRECTORY . $row["mainfolder"] . '</p>
+      <p>/' . ENVO_FILES_DIRECTORY . $row["mainfolder"] . '</p>
       <p><strong>Thumb Name</strong></p>
       <p>' . $row["filenamethumb"] . '</p>
       <p><strong>Thumb Type</strong></p>
@@ -126,7 +126,7 @@ $envodata .= '
       <h6><strong>BASIC INFO</strong></h6>
       <hr>
       <p><strong>Main Folder</strong></p>
-      <p>/' . JAK_FILES_DIRECTORY . $row["mainfolder"] . '</p>
+      <p>/' . ENVO_FILES_DIRECTORY . $row["mainfolder"] . '</p>
       <p><strong>Name of original image</strong></p>
       <p>' . $row["filenameoriginal"] . '</p>
       <p><strong>Type of original image</strong></p>

@@ -2,11 +2,11 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$JAK_MODULES) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$ENVO_MODULES) envo_redirect(BASE_URL);
 
 // Let's go on with the script
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // Offline page categories
-$JAK_CAT = envo_get_cat_info(DB_PREFIX . 'categories', 0);
+$ENVO_CAT = envo_get_cat_info(DB_PREFIX . 'categories', 0);
 
 // EN: Title and Description
 // CZ: Titulek a Popis

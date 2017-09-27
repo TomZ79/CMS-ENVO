@@ -1,4 +1,4 @@
-<?php if (JAK_PLUGIN_ACCESS_TAGS && isset($JAK_TAG_BLOG_DATA) && is_array($JAK_TAG_BLOG_DATA)) foreach ($JAK_TAG_BLOG_DATA as $bl) {
+<?php if (ENVO_PLUGIN_ACCESS_TAGS && isset($ENVO_TAG_BLOG_DATA) && is_array($ENVO_TAG_BLOG_DATA)) foreach ($ENVO_TAG_BLOG_DATA as $bl) {
   $count++; ?>
 
   <div class="col-md-3 col-sm-6">

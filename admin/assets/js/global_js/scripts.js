@@ -3,7 +3,7 @@
  * Extra Custom JS for Admin Control Panel with custom modification
  * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
- * Author: Thomas
+ * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
  * INDEX:
@@ -416,12 +416,12 @@ function restoreContent(fieldname, backupid, id) {
 
         $("#restorcontent").val(0);
 
-        $("#jakEditor").text(data.rcontent);
+        $("#envoEditor").text(data.rcontent);
 
         if (globalSettings.advEditor > 0) {
           htmlACE.session.setValue(data.rcontent);
         } else {
-          tinyMCE.get('jakEditor').setContent(data.rcontent);
+          tinyMCE.get('envoEditor').setContent(data.rcontent);
         }
       }
 
@@ -1088,7 +1088,7 @@ $(".envo_widget_move").sortable({
       position += 1;
     });
 
-    $(".jakwidget").animate({backgroundColor: '#C9FFC9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
+    $(".envowidget").animate({backgroundColor: '#C9FFC9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
 
   },
   stop: function (e, ui) {
@@ -1121,7 +1121,7 @@ $(".envo_content_move").sortable({
       position += 1;
     });
 
-    $(".jakcontent").animate({backgroundColor: '#C9FFC9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
+    $(".envocontent").animate({backgroundColor: '#C9FFC9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
 
   },
   stop: function (e, ui) {
@@ -1147,10 +1147,10 @@ $("#cform_sort").sortable({
   },
   update: function (event, ui) {
 
-    ui.item.removeClass('ui-state-highlight').addClass('jakcform');
-    ui.item.find(".jakread").removeAttr("readonly").val("");
+    ui.item.removeClass('ui-state-highlight').addClass('envocform');
+    ui.item.find(".envoread").removeAttr("readonly").val("");
     ui.item.find(".cforder-orig").removeClass('cforder-orig').addClass('cforder');
-    $(".jakcform").animate({backgroundColor: '#C9FFC9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
+    $(".envocform").animate({backgroundColor: '#C9FFC9'}, 100).animate({backgroundColor: '#F9F9F9'}, 1000);
 
     // Get the new order into the hidden input
     var position = 1;

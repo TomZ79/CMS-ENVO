@@ -60,8 +60,8 @@ if (isset($_FILES['file'])) {
   $pathimg_original = $mainfolder . $name_original;
   $pathimg_thumbs   = $mainfolder . $name_thumbs;
   // Set Upload directory - original and thumbs
-  $pathimgfull_original = APP_PATH . JAK_FILES_DIRECTORY . $pathimg_original;
-  $pathimgfull_thumbs   = APP_PATH . JAK_FILES_DIRECTORY . $pathimg_thumbs;
+  $pathimgfull_original = APP_PATH . ENVO_FILES_DIRECTORY . $pathimg_original;
+  $pathimgfull_thumbs   = APP_PATH . ENVO_FILES_DIRECTORY . $pathimg_thumbs;
   //  The dimensions with the file type and a height/width - thumbs
   list($width_o, $height_o, $type, $attr) = getimagesize($tmp_name);
 
@@ -266,7 +266,7 @@ if (isset($_FILES['file'])) {
           'shortdescription'     => $row1["shortdescription"],
           'description'     => $row1["description"],
           'filenamethumb'   => $row1["filenamethumb"],
-          'filethumbpath'   => '/' . JAK_FILES_DIRECTORY . $row1["mainfolder"] . $row1["filenamethumb"],
+          'filethumbpath'   => '/' . ENVO_FILES_DIRECTORY . $row1["mainfolder"] . $row1["filenamethumb"],
           'category'        => $row1["category"],
           'exifmake'        => $row1["exifmake"],
           'exifmodel'       => $row1["exifmodel"],

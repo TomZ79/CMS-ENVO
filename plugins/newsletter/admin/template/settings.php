@@ -120,7 +120,7 @@ if ($success) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_title', $JAK_SETTING_VAL["nltitle"], '', 'form-control');
+                      echo $Html->addInput('text', 'envo_title', $ENVO_SETTING_VAL["nltitle"], '', 'form-control');
                       ?>
 
                     </div>
@@ -139,7 +139,7 @@ if ($success) { ?>
 
                     <?php
                     // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                    echo $Html->addTextarea('jak_description', $JAK_SETTING_VAL["nlsignoff"], '4', '', array('class' => 'form-control jakEditorLight', 'id' => 'jakEditor'));
+                    echo $Html->addTextarea('envo_description', $ENVO_SETTING_VAL["nlsignoff"], '4', '', array('class' => 'form-control envoEditorLight', 'id' => 'envoEditor'));
                     ?>
 
                   </div>
@@ -159,7 +159,7 @@ if ($success) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_thankyou', $JAK_SETTING_VAL["nlthankyou"], '', 'form-control');
+                      echo $Html->addInput('text', 'envo_thankyou', $ENVO_SETTING_VAL["nlthankyou"], '', 'form-control');
                       ?>
 
                     </div>
@@ -180,7 +180,7 @@ if ($success) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_email', $JAK_SETTING_VAL["nlemail"], '', 'form-control', array('placeholder' => $tl["placeholder"]["p13"]));
+                      echo $Html->addInput('text', 'envo_email', $ENVO_SETTING_VAL["nlemail"], '', 'form-control', array('placeholder' => $tl["placeholder"]["p13"]));
                       ?>
 
                     </div>
@@ -201,14 +201,14 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                        echo $Html->addRadio('jak_smpt', '0', ($JAK_SETTING_VAL["nlsmtp_mail"] == '0') ? TRUE : FALSE, 'jak_smpt1');
+                        echo $Html->addRadio('envo_smpt', '0', ($ENVO_SETTING_VAL["nlsmtp_mail"] == '0') ? TRUE : FALSE, 'envo_smpt1');
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                        echo $Html->addLabel('jak_smpt1', $tl["checkbox"]["chk6"]);
+                        echo $Html->addLabel('envo_smpt1', $tl["checkbox"]["chk6"]);
 
                         // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                        echo $Html->addRadio('jak_smpt', '1', ($JAK_SETTING_VAL["nlsmtp_mail"] == '1') ? TRUE : FALSE, 'jak_smpt2');
+                        echo $Html->addRadio('envo_smpt', '1', ($ENVO_SETTING_VAL["nlsmtp_mail"] == '1') ? TRUE : FALSE, 'envo_smpt2');
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                        echo $Html->addLabel('jak_smpt2', $tl["checkbox"]["chk7"]);
+                        echo $Html->addLabel('envo_smpt2', $tl["checkbox"]["chk7"]);
                         ?>
 
                       </div>
@@ -216,7 +216,7 @@ if ($success) { ?>
                   </div>
                 </div>
 
-                <div id="smtpsettings" <?php echo (empty($JAK_SETTING_VAL["smtp_or_mail"])) ? 'style="display: none;"' : '' ?>>
+                <div id="smtpsettings" <?php echo (empty($ENVO_SETTING_VAL["smtp_or_mail"])) ? 'style="display: none;"' : '' ?>>
                   <div class="row-form">
                     <div class="col-md-5">
 
@@ -230,7 +230,7 @@ if ($success) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_host', $JAK_SETTING_VAL["nlsmtphost"], '', 'form-control');
+                      echo $Html->addInput('text', 'envo_host', $ENVO_SETTING_VAL["nlsmtphost"], '', 'form-control');
                       ?>
 
                     </div>
@@ -249,7 +249,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'jak_port', $JAK_SETTING_VAL["nlsmtpport"], '', 'form-control', array('placeholder' => '25'));
+                        echo $Html->addInput('text', 'envo_port', $ENVO_SETTING_VAL["nlsmtpport"], '', 'form-control', array('placeholder' => '25'));
                         ?>
 
                       </div>
@@ -269,14 +269,14 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                        echo $Html->addRadio('jak_alive', '1', ($JAK_SETTING_VAL["nlsmtp_alive"] == '1') ? TRUE : FALSE, 'jak_alive1');
+                        echo $Html->addRadio('envo_alive', '1', ($ENVO_SETTING_VAL["nlsmtp_alive"] == '1') ? TRUE : FALSE, 'envo_alive1');
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                        echo $Html->addLabel('jak_alive1', $tl["checkbox"]["chk"]);
+                        echo $Html->addLabel('envo_alive1', $tl["checkbox"]["chk"]);
 
                         // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                        echo $Html->addRadio('jak_alive', '0', ($JAK_SETTING_VAL["nlsmtp_alive"] == '0') ? TRUE : FALSE, 'jak_alive2');
+                        echo $Html->addRadio('envo_alive', '0', ($ENVO_SETTING_VAL["nlsmtp_alive"] == '0') ? TRUE : FALSE, 'envo_alive2');
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                        echo $Html->addLabel('jak_alive2', $tl["checkbox"]["chk1"]);
+                        echo $Html->addLabel('envo_alive2', $tl["checkbox"]["chk1"]);
                         ?>
 
                       </div>
@@ -296,14 +296,14 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                        echo $Html->addRadio('jak_auth', '1', ($JAK_SETTING_VAL["nlsmtp_auth"] == '1') ? TRUE : FALSE, 'jak_auth1');
+                        echo $Html->addRadio('envo_auth', '1', ($ENVO_SETTING_VAL["nlsmtp_auth"] == '1') ? TRUE : FALSE, 'envo_auth1');
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                        echo $Html->addLabel('jak_auth1', $tl["checkbox"]["chk"]);
+                        echo $Html->addLabel('envo_auth1', $tl["checkbox"]["chk"]);
 
                         // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                        echo $Html->addRadio('jak_auth', '0', ($JAK_SETTING_VAL["nlsmtp_auth"] == '0') ? TRUE : FALSE, 'jak_auth2');
+                        echo $Html->addRadio('envo_auth', '0', ($ENVO_SETTING_VAL["nlsmtp_auth"] == '0') ? TRUE : FALSE, 'envo_auth2');
                         // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                        echo $Html->addLabel('jak_auth2', $tl["checkbox"]["chk1"]);
+                        echo $Html->addLabel('envo_auth2', $tl["checkbox"]["chk1"]);
                         ?>
 
                       </div>
@@ -323,7 +323,7 @@ if ($success) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'jak_prefix', $JAK_SETTING_VAL["nlsmtp_prefix"], '', 'form-control', array('placeholder' => 'ssl/true/false'));
+                        echo $Html->addInput('text', 'envo_prefix', $ENVO_SETTING_VAL["nlsmtp_prefix"], '', 'form-control', array('placeholder' => 'ssl/true/false'));
                         ?>
 
                       </div>
@@ -342,7 +342,7 @@ if ($success) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_username', base64_decode($JAK_SETTING_VAL["nlsmtpusername"]), '', 'form-control');
+                      echo $Html->addInput('text', 'envo_username', base64_decode($ENVO_SETTING_VAL["nlsmtpusername"]), '', 'form-control');
                       ?>
 
                     </div>
@@ -360,7 +360,7 @@ if ($success) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_password', base64_decode($JAK_SETTING_VAL["nlsmtppassword"]), '', 'form-control');
+                      echo $Html->addInput('text', 'envo_password', base64_decode($ENVO_SETTING_VAL["nlsmtppassword"]), '', 'form-control');
                       ?>
 
                     </div>

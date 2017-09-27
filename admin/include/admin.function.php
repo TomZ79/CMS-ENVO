@@ -3,7 +3,7 @@
 // Protected url names
 function envo_varname_blocked($envovar)
 {
-  $blocked = 'user,usergroup,admin,cmsfiles,css,class,img,include,js,lang,pics_gallery,ftp,plugin,profilepicture,template,userfiles,videofiles,search,suche,' . JAK_FILES_DIRECTORY;
+  $blocked = 'user,usergroup,admin,cmsfiles,css,class,img,include,js,lang,pics_gallery,ftp,plugin,profilepicture,template,userfiles,videofiles,search,suche,' . ENVO_FILES_DIRECTORY;
   $blockarray = explode(',', $blocked);
   // check if userid is protected in the config.php
   if (in_array($envovar, $blockarray)) {
@@ -208,7 +208,7 @@ function envo_admin_search($envovar, $envovar1, $envovar2)
 function envo_user_exist_deletable($envovar)
 {
   global $envodb;
-  $useridarray = explode(',', JAK_SUPERADMIN);
+  $useridarray = explode(',', ENVO_SUPERADMIN);
   // check if userid is protected in the config.php
   if (in_array($envovar, $useridarray)) {
     return false;
@@ -400,7 +400,7 @@ function envo_build_menu_admin($parent, $menu, $lang, $title1, $title2, $title3,
     foreach ($menu['parents'][$parent] as $itemId) {
       // Build menu for categories header and header/footer
       if (!isset($menu['parents'][$itemId])) {
-        $html .= '<li id="menuItem_' . $menu["items"][$itemId]["id"] . '" class="jakcat">
+        $html .= '<li id="menuItem_' . $menu["items"][$itemId]["id"] . '" class="envocat">
           		<div>
           		<span class="text"><span class="textid">#' . $menu["items"][$itemId]["id"] . '</span><a href="index.php?p=categories&amp;sp=edit&amp;ssp=' . $menu["items"][$itemId]["id"] . '">' . $menu["items"][$itemId]["name"] . '</a></span>
           		<span class="actions">
@@ -416,7 +416,7 @@ function envo_build_menu_admin($parent, $menu, $lang, $title1, $title2, $title3,
 
       // Build menu for ...
       if (isset($menu['parents'][$itemId])) {
-        $html .= '<li id="menuItem_' . $menu["items"][$itemId]["id"] . '" class="jakcat">
+        $html .= '<li id="menuItem_' . $menu["items"][$itemId]["id"] . '" class="envocat">
           		<div>
           		<span class="text"><span class="textid">#' . $menu["items"][$itemId]["id"] . '</span><a href="index.php?p=categories&amp;sp=edit&amp;ssp=' . $menu["items"][$itemId]["id"] . '">' . $menu["items"][$itemId]["name"] . '</a></span>
           		<span class="actions">

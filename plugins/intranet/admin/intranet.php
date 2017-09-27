@@ -2,11 +2,11 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$jakuser->envoModuleAccess(JAK_USERID, JAK_ACCESSINTRANET)) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$envouser->envoModuleAccess(ENVO_USERID, ENVO_ACCESSINTRANET)) envo_redirect(BASE_URL);
 
 // -------- DATA FOR ALL ADMIN PAGES --------
 // -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
@@ -118,11 +118,11 @@ switch ($page1) {
                 //Directory does not exist, so lets create it.
 
                 // Main folder
-                mkdir(APP_PATH . JAK_FILES_DIRECTORY . $pathfolder, 0755, TRUE);
+                mkdir(APP_PATH . ENVO_FILES_DIRECTORY . $pathfolder, 0755, TRUE);
                 // Document folder
-                mkdir(APP_PATH . JAK_FILES_DIRECTORY . $pathfolder . '/documents/', 0755, TRUE);
+                mkdir(APP_PATH . ENVO_FILES_DIRECTORY . $pathfolder . '/documents/', 0755, TRUE);
                 // Image folder
-                mkdir(APP_PATH . JAK_FILES_DIRECTORY . $pathfolder . '/images/', 0755, TRUE);
+                mkdir(APP_PATH . ENVO_FILES_DIRECTORY . $pathfolder . '/images/', 0755, TRUE);
 
               }
 
@@ -403,7 +403,7 @@ switch ($page1) {
                         varname = "' . url_slug($defaults['envo_title'], array('transliterate' => TRUE)) . '",
                         type = "' . smartsql($defaults['envo_type']) . '",
                         shortdescription = "' . smartsql($defaults['envo_shortdescription']) . '",
-                        content = "' . smartsql($defaults['jak_content']) . '",
+                        content = "' . smartsql($defaults['envo_content']) . '",
                         permission = "' . smartsql($permission) . '",
                         created = NOW()');
 
@@ -523,7 +523,7 @@ switch ($page1) {
                         varname = "' . url_slug($defaults['envo_title'], array('transliterate' => TRUE)) . '",
                         type = "' . smartsql($defaults['envo_type']) . '",
                         shortdescription = "' . smartsql($defaults['envo_shortdescription']) . '",
-                        content = "' . smartsql($defaults['jak_content']) . '",
+                        content = "' . smartsql($defaults['envo_content']) . '",
                         permission = "' . smartsql($permission) . '"
                         WHERE id = "' . smartsql($pageID) . '"');
 

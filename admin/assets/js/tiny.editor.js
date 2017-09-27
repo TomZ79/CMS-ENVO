@@ -3,7 +3,7 @@
  * JS for Tiny Editor - ADMIN
  * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
- * Author: Thomas
+ * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
  * INDEX:
@@ -16,7 +16,7 @@
 $(function () {
 
   tinymce.init({
-    selector: "textarea.jakEditorLight, textarea.jakEditorLight2, textarea.jakEditorLight3",
+    selector: "textarea.envoEditorLight, textarea.envoEditorLight2, textarea.envoEditorLight3",
     theme: "modern",
     width: "100%",
     height: 200,
@@ -47,7 +47,7 @@ $(function () {
 $(function () {
 
   tinymce.init({
-    selector: "textarea.jakEditor, textarea.jakEditor2, textarea.jakEditor3",
+    selector: "textarea.envoEditor, textarea.envoEditor2, textarea.envoEditor3",
     theme: "modern",
     width: "100%",
     height: 500,
@@ -78,7 +78,7 @@ $(function () {
 $(function () {
 
   tinymce.init({
-    selector: "textarea.jakEditorF, textarea.jakEditorF2, textarea.jakEditorF3",
+    selector: "textarea.envoEditorF, textarea.envoEditorF2, textarea.envoEditorF3",
     theme: "modern",
     width: "100%",
     height: 500,

@@ -2,11 +2,11 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$JAK_MODULEM) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$ENVO_MODULEM) envo_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
@@ -303,7 +303,7 @@ switch ($page1) {
           }
 
           $ENVO_FORM_DATA         = envo_get_data($page2, $envotable);
-          $JAK_CONTACTOPTION_ALL = envo_get_contact_options($envotable1, $page2);
+          $ENVO_CONTACTOPTION_ALL = envo_get_contact_options($envotable1, $page2);
 
           // EN: Title and Description
           // CZ: Titulek a Popis
@@ -332,11 +332,11 @@ switch ($page1) {
           $pages->envo_get_page   = $pajs - live - chat - boardge1;
           $pages->envo_where      = 'index.php?p=page';
           $pages->paginate();
-          $JAK_PAGINATE = $pages->display_pages();
+          $ENVO_PAGINATE = $pages->display_pages();
         }
 
         // Get all contact forms
-        $JAK_CONTACT_ALL = envo_get_page_info($envotable, $pages->limit);
+        $ENVO_CONTACT_ALL = envo_get_page_info($envotable, $pages->limit);
 
         // EN: Title and Description
         // CZ: Titulek a Popis

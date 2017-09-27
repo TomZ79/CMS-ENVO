@@ -103,7 +103,7 @@ if ($errors) { ?>
                     $selected = ($ENVO_FORM_DATA["towerid"] == '0') ? TRUE : FALSE;
 
                     echo $Html->addOption('0', 'Archiv', $selected);
-                    if (isset($JAK_TVTOWER_ALL) && is_array($JAK_TVTOWER_ALL)) foreach ($JAK_TVTOWER_ALL as $tt) {
+                    if (isset($ENVO_TVTOWER_ALL) && is_array($ENVO_TVTOWER_ALL)) foreach ($ENVO_TVTOWER_ALL as $tt) {
 
                       $selected = (in_array($tt["id"], explode(',', $ENVO_FORM_DATA["towerid"]))) ? TRUE : FALSE;
                       echo $Html->addOption($tt["id"], $tt["name"], $selected);

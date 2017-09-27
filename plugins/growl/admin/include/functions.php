@@ -1,7 +1,7 @@
 <?php
 // EN:
 // CZ:
-function jak_get_growl()
+function envo_get_growl()
 {
 
   global $envodb;

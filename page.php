@@ -2,7 +2,7 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
@@ -12,7 +12,7 @@ $envotable = DB_PREFIX . 'pages';
 $row = $envodb->queryRow('SELECT * FROM ' . $envotable . ' WHERE id = "' . smartsql($pageid) . '"');
 
 // Check if the page is not active and we are not an admin then we redirect
-if ($row['active'] != 1 && !JAK_ASACCESS) envo_redirect(ENVO_rewrite::envoParseurl($tl['link']['l3'], $tl['link']['l1'], '', '', ''));
+if ($row['active'] != 1 && !ENVO_ASACCESS) envo_redirect(ENVO_rewrite::envoParseurl($tl['link']['l3'], $tl['link']['l1'], '', '', ''));
 
 // Now let's check the hits cookie
 if (!envo_cookie_voted_hits($envotable, $row['id'], 'hits')) {
@@ -36,35 +36,35 @@ $SHOWTAGS              = $row['showtags'];
 $SHOWSOCIALBUTTON      = $row['socialbutton'];
 $PAGE_ACTIVE           = $row['active'];
 $PAGE_PASSWORD               = $row['password'];
-$JAK_HEADER_CSS              = $row['page_css'];
-$JAK_FOOTER_JAVASCRIPT       = $row['page_javascript'];
+$ENVO_HEADER_CSS              = $row['page_css'];
+$ENVO_FOOTER_JAVASCRIPT       = $row['page_javascript'];
 $jkv["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
 
 $PAGE_LOGIN_FORM = $row['showlogin'];
 $PAGE_TIME       = ENVO_base::envoTimesince($row['time'], $jkv["dateformat"], $jkv["timeformat"], $tl['global_text']['gtxt4']);
 $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
-if (JAK_USERID) {
-  $PAGE_CONTENT = envo_render_string($PAGE_CONTENT, array('members' => JAK_USERID));
+if (ENVO_USERID) {
+  $PAGE_CONTENT = envo_render_string($PAGE_CONTENT, array('members' => ENVO_USERID));
 } else {
   $PAGE_CONTENT = envo_render_string($PAGE_CONTENT, array('notmembers' => 0));
 }
 
 // We do not show the navbar
-if ($row['shownav'] == 0) $JAK_SHOW_NAVBAR = FALSE;
+if ($row['shownav'] == 0) $ENVO_SHOW_NAVBAR = FALSE;
 
 // We do not show the footer
-if ($row['showfooter'] == 0) $JAK_SHOW_FOOTER = FALSE;
+if ($row['showfooter'] == 0) $ENVO_SHOW_FOOTER = FALSE;
 
 // Display contact form if whish so and do the caching
-$JAK_SHOW_C_FORM = FALSE;
+$ENVO_SHOW_C_FORM = FALSE;
 if ($row['showcontact'] != 0) {
-  $JAK_SHOW_C_FORM      = envo_create_contact_form($row['showcontact'], $tl['form_text']['formt']);
-  $JAK_SHOW_C_FORM_NAME = envo_contact_form_title($row['showcontact']);
+  $ENVO_SHOW_C_FORM      = envo_create_contact_form($row['showcontact'], $tl['form_text']['formt']);
+  $ENVO_SHOW_C_FORM_NAME = envo_contact_form_title($row['showcontact']);
 }
 
 // Get news if news id is > 0
-$JAK_NEWS_IN_CONTENT = FALSE;
+$ENVO_NEWS_IN_CONTENT = FALSE;
 if (!empty($row['shownews'])) {
 
   // Now let's check if we display news with second option
@@ -72,11 +72,11 @@ if (!empty($row['shownews'])) {
 
   if (is_array($shownewsarray) && in_array("ASC", $shownewsarray) || in_array("DESC", $shownewsarray)) {
 
-    $JAK_NEWS_IN_CONTENT = envo_get_news('LIMIT ' . $shownewsarray[2], '', JAK_PLUGIN_VAR_NEWS, $shownewsarray[0] . ' ' . $shownewsarray[1], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
+    $ENVO_NEWS_IN_CONTENT = envo_get_news('LIMIT ' . $shownewsarray[2], '', ENVO_PLUGIN_VAR_NEWS, $shownewsarray[0] . ' ' . $shownewsarray[1], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
 
   } else {
 
-    $JAK_NEWS_IN_CONTENT = envo_get_news('', $row['shownews'], JAK_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
+    $ENVO_NEWS_IN_CONTENT = envo_get_news('', $row['shownews'], ENVO_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
   }
 
   // Set news load to false
@@ -91,24 +91,24 @@ if ($hookpages) foreach ($hookpages as $hpag) {
 }
 
 // Get the sort orders for the grid
-$JAK_PAGE_GRID = $JAK_HOOK_SIDE_GRID = array();
+$ENVO_PAGE_GRID = $ENVO_HOOK_SIDE_GRID = array();
 $grid          = $envodb->query('SELECT id, pluginid, hookid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE pageid = "' . $row['id'] . '" ORDER BY orderid ASC');
 while ($grow = $grid->fetch_assoc()) {
   // Load the main grid
-  if ($grow["pluginid"] && !$grow["hookid"]) $JAK_PAGE_GRID[] = $grow;
+  if ($grow["pluginid"] && !$grow["hookid"]) $ENVO_PAGE_GRID[] = $grow;
   // Load the side grid
-  if ($grow["hookid"]) $JAK_HOOK_SIDE_GRID[] = $grow;
+  if ($grow["hookid"]) $ENVO_HOOK_SIDE_GRID[] = $grow;
 }
 
 // Get the tags for this page
-$JAK_TAGLIST = ENVO_tags::envoGetTagList($row['id'], 0, JAK_PLUGIN_VAR_TAGS);
+$ENVO_TAGLIST = ENVO_tags::envoGetTagList($row['id'], 0, ENVO_PLUGIN_VAR_TAGS);
 
 // EN: Get all the php Hook by name of Hook from page and news grid
 // CZ: Načtení všech php dat z Hook podle jména Hook z rozložení stránky a zpráv (news)
-$JAK_HOOK_PAGE_GRID = $envohooks->EnvoGethook("tpl_page_news_grid");
+$ENVO_HOOK_PAGE_GRID = $envohooks->EnvoGethook("tpl_page_news_grid");
 
 // Get the url session
-$_SESSION['jak_lastURL'] = ENVO_rewrite::envoParseurl($page, $page1, $page2, '', '');
+$_SESSION['envo_lastURL'] = ENVO_rewrite::envoParseurl($page, $page1, $page2, '', '');
 
 // AJAX Search
 $AJAX_SEARCH_PLUGIN_WHERE = $envotable;
@@ -117,8 +117,8 @@ $AJAX_SEARCH_PLUGIN_SEO   = 0;
 
 // Now get the new meta keywords and description maker
 $keytags = '';
-if ($JAK_TAGLIST) {
-  $keytags = preg_split('/\s+/', strip_tags($JAK_TAGLIST));
+if ($ENVO_TAGLIST) {
+  $keytags = preg_split('/\s+/', strip_tags($ENVO_TAGLIST));
   $keytags = ',' . implode(',', $keytags);
 }
 $PAGE_KEYWORDS = str_replace(" ", " ", ($jkv["metakey"] ? $jkv["metakey"] : ENVO_base::envoCleanurl($row['title']) . $keytags) . ($ca['metakey'] ? "," . $ca['metakey'] : ""));

@@ -1,6 +1,6 @@
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
-<?php if (JAK_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=edit&amp;id=' . $PAGE_ID;
+<?php if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=edit&amp;id=' . $PAGE_ID;
 $qapedit = BASE_URL . 'admin/index.php?p=blog&amp;sp=quickedit&amp;id=' . $PAGE_ID;
 if ($jkv["printme"]) $printme = 1; ?>
 
@@ -28,9 +28,9 @@ if ($jkv["printme"]) $printme = 1; ?>
         </div>
 
         <!-- Show Tag list -->
-        <?php if ($JAK_TAGLIST) { ?>
+        <?php if ($ENVO_TAGLIST) { ?>
           <div class="col-md-12">
-            <?php echo $JAK_TAGLIST; ?>
+            <?php echo $ENVO_TAGLIST; ?>
           </div>
         <?php } ?>
 
@@ -67,7 +67,7 @@ if ($jkv["printme"]) $printme = 1; ?>
     <?php } ?>
 
     <!-- Show Contact form -->
-    <?php if ($JAK_SHOW_C_FORM) {?>
+    <?php if ($ENVO_SHOW_C_FORM) {?>
       <div class="row">
         <div class="col-md-12">
           <hr class="dashed tall mt-lg mb-lg">
@@ -83,18 +83,18 @@ if ($jkv["printme"]) $printme = 1; ?>
     <div class="col-md-12">
       <hr class="dashed tall mt-lg mb-lg">
       <ul class="pager">
-        <?php if ($JAK_NAV_PREV) { ?>
+        <?php if ($ENVO_NAV_PREV) { ?>
           <li class="previous">
-            <a href="<?php echo $JAK_NAV_PREV; ?>">
+            <a href="<?php echo $ENVO_NAV_PREV; ?>">
               <i class="fa fa-caret-left"></i>
-              <span class="nav_text_left"><?php echo envo_cut_text($JAK_NAV_PREV_TITLE, 30, '...'); ?></span>
+              <span class="nav_text_left"><?php echo envo_cut_text($ENVO_NAV_PREV_TITLE, 30, '...'); ?></span>
             </a>
           </li>
         <?php }
-        if ($JAK_NAV_NEXT) { ?>
+        if ($ENVO_NAV_NEXT) { ?>
           <li class="next">
-            <a href="<?php echo $JAK_NAV_NEXT; ?>">
-              <span class="nav_text_right"><?php echo envo_cut_text($JAK_NAV_NEXT_TITLE, 30, '...'); ?></span>
+            <a href="<?php echo $ENVO_NAV_NEXT; ?>">
+              <span class="nav_text_right"><?php echo envo_cut_text($ENVO_NAV_NEXT_TITLE, 30, '...'); ?></span>
               <i class="fa fa-caret-right"></i>
             </a>
           </li>

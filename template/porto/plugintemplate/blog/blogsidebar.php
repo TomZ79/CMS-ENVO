@@ -1,19 +1,19 @@
-<?php if (JAK_PLUGIN_ACCESS_BLOG) {
+<?php if (ENVO_PLUGIN_ACCESS_BLOG) {
 // Get URL
   $url_array = explode('/', $_SERVER['REQUEST_URI']);
   $url       = end($url_array);
   // Get Download Categories
-  $JAK_BLOG_CAT = ENVO_base::envoGetcatmix(JAK_PLUGIN_VAR_BLOG, '', DB_PREFIX . 'blogcategories', JAK_USERGROUPID, $jkv["blogurl"]);
+  $ENVO_BLOG_CAT = ENVO_base::envoGetcatmix(ENVO_PLUGIN_VAR_BLOG, '', DB_PREFIX . 'blogcategories', ENVO_USERGROUPID, $jkv["blogurl"]);
 
-  if ($JAK_BLOG_CAT) { ?>
+  if ($ENVO_BLOG_CAT) { ?>
     <aside class="nav-side-menu">
 
-      <h4 class="brand"><?php echo JAK_PLUGIN_NAME_BLOG . ' ' . $tlblog["blog_frontend"]["blog2"]; ?></h4>
+      <h4 class="brand"><?php echo ENVO_PLUGIN_NAME_BLOG . ' ' . $tlblog["blog_frontend"]["blog2"]; ?></h4>
       <span class="toggle-btn c-icons" data-toggle="collapse" data-target="#blogsidebar"></span>
 
       <div class="menu-list">
         <ul class="menu-content collapse" id="blogsidebar">
-          <?php if (isset($JAK_BLOG_CAT) && is_array($JAK_BLOG_CAT)) foreach ($JAK_BLOG_CAT as $c) { ?>
+          <?php if (isset($ENVO_BLOG_CAT) && is_array($ENVO_BLOG_CAT)) foreach ($ENVO_BLOG_CAT as $c) { ?>
             <?php if ($c["catparent"] == 0) { ?>
 
               <li <?php
@@ -34,7 +34,7 @@
                 </a>
 
                 <ul>
-                  <?php if (isset($JAK_BLOG_CAT) && is_array($JAK_BLOG_CAT)) foreach ($JAK_BLOG_CAT as $c1) { ?>
+                  <?php if (isset($ENVO_BLOG_CAT) && is_array($ENVO_BLOG_CAT)) foreach ($ENVO_BLOG_CAT as $c1) { ?>
                     <?php if ($c1["catparent"] != '0' && $c1["catparent"] == $c["id"]) { ?>
                       <li>
                         <a href="<?php echo $c1["parseurl"]; ?>" title="<?php echo strip_tags($c1["content"]); ?>">

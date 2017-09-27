@@ -154,7 +154,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                      if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
+                      if (isset($ENVO_USERGROUP_ALL) && is_array($ENVO_USERGROUP_ALL)) foreach ($ENVO_USERGROUP_ALL as $v) {
                         if ($v["id"] != "1") {
                           echo $Html->addOption($v["id"], $v["name"], ($v["id"] == $ENVO_FORM_DATA["usergroupid"]) ? TRUE : FALSE);
                         }
@@ -198,7 +198,7 @@ if ($errors) { ?>
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
                       echo $Html->addOption('0', $tl["selection"]["sel8"]);
 
-                      if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
+                      if (isset($ENVO_USERGROUP_ALL) && is_array($ENVO_USERGROUP_ALL)) foreach ($ENVO_USERGROUP_ALL as $v) {
                         if ($v["id"] != "1") {
                           echo $Html->addOption($v["id"], $v["name"], ($v["id"] == $ENVO_FORM_DATA["backtogroup"]) ? TRUE : FALSE);
                         }
@@ -247,7 +247,7 @@ if ($errors) { ?>
                   <div class="col-md-7">
                     <div class="fileinput fileinput-new" data-provides="fileinput">
                       <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">
-                        <img src="<?php echo BASE_URL_ORIG . basename(JAK_FILES_DIRECTORY) . '/userfiles/' . $ENVO_FORM_DATA["picture"]; ?>" alt="avatar" class=""/>
+                        <img src="<?php echo BASE_URL_ORIG . basename(ENVO_FILES_DIRECTORY) . '/userfiles/' . $ENVO_FORM_DATA["picture"]; ?>" alt="avatar" class=""/>
                       </div>
                       <div>
                         <span class="btn btn-default btn-file">
@@ -443,7 +443,7 @@ if ($errors) { ?>
 
           </div>
         </div>
-        <?php if (isset($JAK_HOOK_ADMIN_USER_EDIT) && is_array($JAK_HOOK_ADMIN_USER_EDIT)) foreach ($JAK_HOOK_ADMIN_USER_EDIT as $hsue) {
+        <?php if (isset($ENVO_HOOK_ADMIN_USER_EDIT) && is_array($ENVO_HOOK_ADMIN_USER_EDIT)) foreach ($ENVO_HOOK_ADMIN_USER_EDIT as $hsue) {
           include_once APP_PATH . $hsue['phpcode'];
         }
         if ($extrafields) { ?>

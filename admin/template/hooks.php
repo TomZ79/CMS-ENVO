@@ -59,7 +59,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
         </div>
         <div class="list-to-filter">
           <ul class="list-unstyled overflow">
-            <?php if (isset($JAK_HOOK_LOCATIONS) && is_array($JAK_HOOK_LOCATIONS)) foreach ($JAK_HOOK_LOCATIONS as $h) { ?>
+            <?php if (isset($ENVO_HOOK_LOCATIONS) && is_array($ENVO_HOOK_LOCATIONS)) foreach ($ENVO_HOOK_LOCATIONS as $h) { ?>
               <li class="filter-item" data-filter="<?php echo $h; ?>">
                 <a href="index.php?p=plugins&sp=sorthooks&ssp=<?php echo $h; ?>"><?php echo $h; ?></a></li>
             <?php } ?>
@@ -120,7 +120,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
               </th>
             </tr>
             </thead>
-            <?php if (isset($JAK_HOOKS) && is_array($JAK_HOOKS)) foreach ($JAK_HOOKS as $v) { ?>
+            <?php if (isset($ENVO_HOOKS) && is_array($ENVO_HOOKS)) foreach ($ENVO_HOOKS as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
                 <td>
@@ -130,7 +130,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                     echo $Html->addCheckbox('envo_delete_hook[]', $v["id"], FALSE, 'envo_delete_hook' . $v["id"], 'highlight');
-                    echo $Html->addLabel('jak_delete_hook' . $v["id"], '');
+                    echo $Html->addLabel('envo_delete_hook' . $v["id"], '');
                     ?>
 
                   </div>
@@ -212,8 +212,8 @@ if ($page2 == "e" || $page2 == "edn") { ?>
     </div>
   </div>
 
-<?php if ($JAK_PAGINATE) {
-  echo $JAK_PAGINATE;
+<?php if ($ENVO_PAGINATE) {
+  echo $ENVO_PAGINATE;
 } ?>
 
 <?php include "footer.php"; ?>

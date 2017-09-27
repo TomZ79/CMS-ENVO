@@ -24,14 +24,14 @@
 
               <?php
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('jak_blog', '1', ($ENVO_FORM_DATA["blog"] == '1') ? TRUE : FALSE, 'jak_blog1');
+              echo $Html->addRadio('envo_blog', '1', ($ENVO_FORM_DATA["blog"] == '1') ? TRUE : FALSE, 'envo_blog1');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-              echo $Html->addLabel('jak_blog1', $tl["checkbox"]["chk"]);
+              echo $Html->addLabel('envo_blog1', $tl["checkbox"]["chk"]);
 
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('jak_blog', '0', ($ENVO_FORM_DATA["blog"] == '0') ? TRUE : FALSE, 'jak_blog2');
+              echo $Html->addRadio('envo_blog', '0', ($ENVO_FORM_DATA["blog"] == '0') ? TRUE : FALSE, 'envo_blog2');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-              echo $Html->addLabel('jak_blog2', $tl["checkbox"]["chk1"]);
+              echo $Html->addLabel('envo_blog2', $tl["checkbox"]["chk1"]);
               ?>
 
             </div>

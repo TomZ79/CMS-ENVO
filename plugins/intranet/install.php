@@ -8,9 +8,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 // Check if the file is accessed only from a admin if not stop the script from running
 $php_errormsg = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
 $php_errormsg1 = 'Only ADMINISTRATOR privileges allow you to edit the file !!! You cannot access this file directly.';
-if (!JAK_USERID) die($php_errormsg);
+if (!ENVO_USERID) die($php_errormsg);
 
-if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die($php_errormsg1);
+if (!$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die($php_errormsg1);
 
 // Set successfully to zero
 $succesfully = 0;
@@ -165,9 +165,9 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 
         // EN: Insert data to table 'plugins' about this plugin
         // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
-        $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Intranet", "Intranet.", 1, ' . JAK_USERID . ', 1, "intranet", "require_once APP_PATH.\'plugins/intranet/intranet.php\';", "if ($page == \'intranet\') {
+        $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Intranet", "Intranet.", 1, ' . ENVO_USERID . ', 1, "intranet", "require_once APP_PATH.\'plugins/intranet/intranet.php\';", "if ($page == \'intranet\') {
         require_once APP_PATH.\'plugins/intranet/admin/intranet.php\';
-           $JAK_PROVED = 1;
+           $ENVO_PROVED = 1;
            $checkp = 1;
         }", "../plugins/intranet/admin/template/int_nav.php", "intranet", "uninstall.php", "1.0", NOW())');
 
@@ -197,8 +197,8 @@ if (file_exists(APP_PATH . 'plugins/intranet/admin/lang/' . $site_language . '.i
 }';
         // EN: Usergroup - Insert php code (get data from plugin setting in usergroup)
         // CZ: Usergroup - Vložení php kódu (získání dat z nastavení pluginu v uživatelské skupině)
-        $insertphpcode = 'if (isset($defaults[\'jak_intranet\'])) {
-	$insert .= \'intranet = \"\'.$defaults[\'jak_intranet\'].\'\",\'; }';
+        $insertphpcode = 'if (isset($defaults[\'envo_intranet\'])) {
+	$insert .= \'intranet = \"\'.$defaults[\'envo_intranet\'].\'\",\'; }';
 
         // EN: Insert data to table 'pluginhooks'
         // CZ: Vložení potřebných dat to tabulky 'pluginhooks'

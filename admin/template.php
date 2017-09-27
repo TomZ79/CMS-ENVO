@@ -2,11 +2,11 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !JAK_SUPERADMINACCESS) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !ENVO_SUPERADMINACCESS) envo_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
@@ -19,7 +19,7 @@ $templateurl = envo_get_setting('setting');
 $result = $envodb->query('SELECT value FROM ' . $envotable . ' WHERE groupname = "setting" && varname = "sitestyle" LIMIT 1');
 $row    = $result->fetch_assoc();
 
-$JAK_FILE_SUCCESS = $JAK_FILE_ERROR = $JAK_FILEURL = $JAK_FILECONTENT = "";
+$ENVO_FILE_SUCCESS = $ENVO_FILE_ERROR = $ENVO_FILEURL = $ENVO_FILECONTENT = "";
 $defaults         = $_POST;
 
 // Show file in dir - original solution from Jakweb( show file only in main dir)
@@ -128,8 +128,8 @@ switch ($page1) {
       $openfile        = fopen($defaults['envo_file_edit'], 'r');
       $filecontent     = @fread($openfile, filesize($defaults['envo_file_edit']));
       $displaycontent  = preg_replace('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
-      $JAK_FILECONTENT = $displaycontent;
-      $JAK_FILEURL     = $defaults['envo_file_edit'];
+      $ENVO_FILECONTENT = $displaycontent;
+      $ENVO_FILEURL     = $defaults['envo_file_edit'];
 
       fclose($openfile);
 
@@ -153,10 +153,10 @@ switch ($page1) {
         $datasave  = preg_replace('<JAK-DO-NOT-EDIT-TEXTAREA>', '/textarea', $datasave);
         $datasave  = stripslashes($datasave);
         if (fwrite($openfedit, $datasave)) {
-          $JAK_FILE_SUCCESS = 1;
+          $ENVO_FILE_SUCCESS = 1;
         }
       } else {
-        $JAK_FILE_ERROR = 1;
+        $ENVO_FILE_ERROR = 1;
       }
 
       fclose($openfedit);
@@ -175,11 +175,11 @@ switch ($page1) {
     if (isset($jkv["cms_tpl"])) {
       // Check if folder is writable
       if (!is_writable($cssdir)) {
-        $JAK_FILE_ERROR = 1;
+        $ENVO_FILE_ERROR = 1;
       }
 
       // Get the important files into template
-      $JAK_GET_TEMPLATE_FILES = envo_get_template_files($cssdir);
+      $ENVO_GET_TEMPLATE_FILES = envo_get_template_files($cssdir);
     }
 
     // EN: Title and Description
@@ -202,8 +202,8 @@ switch ($page1) {
       $openfile        = fopen($defaults['envo_file_edit'], 'r');
       $filecontent     = @fread($openfile, filesize($defaults['envo_file_edit']));
       $displaycontent  = preg_replace('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
-      $JAK_FILECONTENT = $displaycontent;
-      $JAK_FILEURL     = $defaults['envo_file_edit'];
+      $ENVO_FILECONTENT = $displaycontent;
+      $ENVO_FILEURL     = $defaults['envo_file_edit'];
 
       fclose($openfile);
 
@@ -227,10 +227,10 @@ switch ($page1) {
         $datasave  = preg_replace('<JAK-DO-NOT-EDIT-TEXTAREA>', '/textarea', $datasave);
         $datasave  = stripslashes($datasave);
         if (fwrite($openfedit, $datasave)) {
-          $JAK_FILE_SUCCESS = 1;
+          $ENVO_FILE_SUCCESS = 1;
         }
       } else {
-        $JAK_FILE_ERROR = 1;
+        $ENVO_FILE_ERROR = 1;
       }
 
       fclose($openfedit);
@@ -245,11 +245,11 @@ switch ($page1) {
     if (isset($jkv["cms_tpl"])) {
       // Check if folder is writable
       if (!is_writable($langdir)) {
-        $JAK_FILE_ERROR = 1;
+        $ENVO_FILE_ERROR = 1;
       }
 
       // Get the important files into template
-      $JAK_GET_TEMPLATE_FILES = envo_get_template_files($langdir);
+      $ENVO_GET_TEMPLATE_FILES = envo_get_template_files($langdir);
     }
 
     // EN: Title and Description
@@ -272,8 +272,8 @@ switch ($page1) {
       $openfile        = fopen($defaults['envo_file_edit'], 'r');
       $filecontent     = @fread($openfile, filesize($defaults['envo_file_edit']));
       $displaycontent  = preg_replace('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
-      $JAK_FILECONTENT = $displaycontent;
-      $JAK_FILEURL     = $defaults['envo_file_edit'];
+      $ENVO_FILECONTENT = $displaycontent;
+      $ENVO_FILEURL     = $defaults['envo_file_edit'];
 
       fclose($openfile);
 
@@ -297,10 +297,10 @@ switch ($page1) {
         $datasave  = preg_replace('<JAK-DO-NOT-EDIT-TEXTAREA>', '/textarea', $datasave);
         $datasave  = stripslashes($datasave);
         if (fwrite($openfedit, $datasave)) {
-          $JAK_FILE_SUCCESS = 1;
+          $ENVO_FILE_SUCCESS = 1;
         }
       } else {
-        $JAK_FILE_ERROR = 1;
+        $ENVO_FILE_ERROR = 1;
       }
 
       fclose($openfedit);
@@ -315,11 +315,11 @@ switch ($page1) {
     if (isset($jkv["cms_tpl"])) {
       // Check if folder is writable
       if (!is_writable($filedir)) {
-        $JAK_FILE_ERROR = 1;
+        $ENVO_FILE_ERROR = 1;
       }
 
       // Get the important files into template
-      $JAK_GET_TEMPLATE_FILES = envo_get_template_files($filedir);
+      $ENVO_GET_TEMPLATE_FILES = envo_get_template_files($filedir);
     }
 
     // EN: Title and Description
@@ -354,7 +354,7 @@ switch ($page1) {
 
     // EN: Import important settings for the template from the DB
     // CZ: Importuj důležité nastavení pro šablonu z DB
-    $JAK_SETTING = envo_get_setting('setting');
+    $ENVO_SETTING = envo_get_setting('setting');
 
     // Let's go on with the script
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {

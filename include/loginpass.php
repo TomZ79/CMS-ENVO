@@ -16,16 +16,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['loginusername'])) {
   $valid_ip    = filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP);
 
   // Write the log file each time someone tries to login before
-  $jakuserlogin->envoWriteLoginLog(filter_var($username, FILTER_SANITIZE_STRING), $_SERVER['REQUEST_URI'], $valid_ip, $valid_agent, 0);
+  $envouserlogin->envoWriteLoginLog(filter_var($username, FILTER_SANITIZE_STRING), $_SERVER['REQUEST_URI'], $valid_ip, $valid_agent, 0);
 
-  $user_check = $jakuserlogin->envoCheckUserData($username, $userpass);
+  $user_check = $envouserlogin->envoCheckUserData($username, $userpass);
   if ($user_check == TRUE) {
 
     // Now login in the user
-    $jakuserlogin->envoLogin($user_check, $userpass, $cookies);
+    $envouserlogin->envoLogin($user_check, $userpass, $cookies);
 
     // Write the log file each time someone login after to show success
-    $jakuserlogin->envoWriteLoginLog($user_check, '', $valid_ip, '', 1);
+    $envouserlogin->envoWriteLoginLog($user_check, '', $valid_ip, '', 1);
 
     // Success
     $_SESSION["infomsg"] = $tl["notification"]["n3"];
@@ -62,16 +62,16 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
   // CZ: Hlavní proměnné
   $defaults = $_POST;
 
-  if (!filter_var($defaults['jakE'], FILTER_VALIDATE_EMAIL)) {
+  if (!filter_var($defaults['envoE'], FILTER_VALIDATE_EMAIL)) {
     $errors['e'] = $tl['general_error']['generror14'];
   }
 
   // transform user email
-  $femail = filter_var($defaults['jakE'], FILTER_SANITIZE_EMAIL);
+  $femail = filter_var($defaults['envoE'], FILTER_SANITIZE_EMAIL);
   $fwhen  = time();
 
   // Check if this user exist
-  $user_check = $jakuserlogin->envoForgotPassword($femail, $fwhen);
+  $user_check = $envouserlogin->envoForgotPassword($femail, $fwhen);
 
   if (!isset($errors['e']) && !$user_check) {
     $errors['e'] = $tl['general_error']['generror25'];
@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
 
   if (count($errors) == 0) {
 
-    $body = sprintf($tl['login']['l18'], $user_check, '<a href="' . (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . html_entity_decode(ENVO_rewrite::envoParseurl('forgot-password', $fwhen, '', '', '')) . '">' . (JAK_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . html_entity_decode(ENVO_rewrite::envoParseurl('forgot-password', $fwhen, '', '', '')) . '</a>', $jkv["title"]);
+    $body = sprintf($tl['login']['l18'], $user_check, '<a href="' . (ENVO_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . html_entity_decode(ENVO_rewrite::envoParseurl('forgot-password', $fwhen, '', '', '')) . '">' . (ENVO_USE_APACHE ? substr(BASE_URL, 0, -1) : BASE_URL) . html_entity_decode(ENVO_rewrite::envoParseurl('forgot-password', $fwhen, '', '', '')) . '</a>', $jkv["title"]);
 
     $mail = new PHPMailer(); // defaults to using php "mail()"
 

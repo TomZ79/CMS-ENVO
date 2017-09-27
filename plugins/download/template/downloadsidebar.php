@@ -8,8 +8,8 @@
  * Použitelné hodnoty s daty pro FRONTEND - downloadsidebar.php
  * -------------------------------------------------------------
  *
- * $JAK_DOWNLOAD_CAT = pole s daty
- * foreach ($JAK_DOWNLOAD_CAT as $c) = získání jednotlivých dat z pole
+ * $ENVO_DOWNLOAD_CAT = pole s daty
+ * foreach ($ENVO_DOWNLOAD_CAT as $c) = získání jednotlivých dat z pole
  *
  * $c["id"]             číslo		|	- id souboru
  * $c["title"]					text			- Titulek souboru
@@ -27,22 +27,22 @@
  */
 ?>
 
-<?php if (JAK_PLUGIN_ACCESS_DOWNLOAD) {
+<?php if (ENVO_PLUGIN_ACCESS_DOWNLOAD) {
   // Get URL
   $url_array = explode('/', $_SERVER['REQUEST_URI']);
   $url       = end($url_array);
   // Get Download Categories
-  $JAK_DOWNLOAD_CAT = ENVO_base::envoGetcatmix(JAK_PLUGIN_VAR_DOWNLOAD, '', DB_PREFIX . 'downloadcategories', JAK_USERGROUPID, $jkv["downloadurl"]);
+  $ENVO_DOWNLOAD_CAT = ENVO_base::envoGetcatmix(ENVO_PLUGIN_VAR_DOWNLOAD, '', DB_PREFIX . 'downloadcategories', ENVO_USERGROUPID, $jkv["downloadurl"]);
 
-  if ($JAK_DOWNLOAD_CAT) { ?>
+  if ($ENVO_DOWNLOAD_CAT) { ?>
     <aside class="nav-side-menu">
 
-      <h4 class="brand"><?php echo JAK_PLUGIN_NAME_DOWNLOAD . ' ' . $tld["downl_frontend"]["downl8"]; ?></h4>
+      <h4 class="brand"><?php echo ENVO_PLUGIN_NAME_DOWNLOAD . ' ' . $tld["downl_frontend"]["downl8"]; ?></h4>
       <span class="toggle-btn c-icons" data-toggle="collapse" data-target="#downloadsidebar"></span>
 
       <div class="menu-list">
         <ul class="menu-content collapse" id="downloadsidebar">
-          <?php if (isset($JAK_DOWNLOAD_CAT) && is_array($JAK_DOWNLOAD_CAT)) foreach ($JAK_DOWNLOAD_CAT as $c) { ?>
+          <?php if (isset($ENVO_DOWNLOAD_CAT) && is_array($ENVO_DOWNLOAD_CAT)) foreach ($ENVO_DOWNLOAD_CAT as $c) { ?>
             <?php if ($c["catparent"] == 0) { ?>
 
               <li <?php
@@ -63,7 +63,7 @@
                 </a>
 
                 <ul>
-                  <?php if (isset($JAK_DOWNLOAD_CAT) && is_array($JAK_DOWNLOAD_CAT)) foreach ($JAK_DOWNLOAD_CAT as $c1) { ?>
+                  <?php if (isset($ENVO_DOWNLOAD_CAT) && is_array($ENVO_DOWNLOAD_CAT)) foreach ($ENVO_DOWNLOAD_CAT as $c1) { ?>
                     <?php if ($c1["catparent"] != '0' && $c1["catparent"] == $c["id"]) { ?>
                       <li>
                         <a href="<?php echo $c1["parseurl"]; ?>" title="<?php echo strip_tags($c1["content"]); ?>">

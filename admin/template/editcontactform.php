@@ -160,7 +160,7 @@ if ($page3 == "e") { ?>
 
                     <?php
                     // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                    echo $Html->addTextarea('envo_lcontent', envo_edit_safe_userpost($ENVO_FORM_DATA["content"]), '4', '', array('id' => 'jakEditor', 'class' => 'jakEditorLight form-control', 'style' => 'width:100%;'));
+                    echo $Html->addTextarea('envo_lcontent', envo_edit_safe_userpost($ENVO_FORM_DATA["content"]), '4', '', array('id' => 'envoEditor', 'class' => 'envoEditorLight form-control', 'style' => 'width:100%;'));
                     ?>
 
                   </div>
@@ -199,7 +199,7 @@ if ($page3 == "e") { ?>
                       <?php
                       echo $tl["cf_box_content"]["cfbc4"];
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'envo_option[]', '', '', 'form-control jakread', array('readonly' => 'readonly'));
+                      echo $Html->addInput('text', 'envo_option[]', '', '', 'form-control envoread', array('readonly' => 'readonly'));
                       ?>
 
                     </div>
@@ -244,7 +244,7 @@ if ($page3 == "e") { ?>
                     <?php
                     echo $tl["cf_box_content"]["cfbc7"];
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'envo_options[]', 'female,male', '', 'form-control jakread', array('readonly' => 'readonly'));
+                    echo $Html->addInput('text', 'envo_options[]', 'female,male', '', 'form-control envoread', array('readonly' => 'readonly'));
                     ?>
 
                   </div>
@@ -271,9 +271,9 @@ if ($page3 == "e") { ?>
 
             <ul id="cform_sort">
 
-              <?php if (isset($JAK_CONTACTOPTION_ALL) && is_array($JAK_CONTACTOPTION_ALL)) foreach ($JAK_CONTACTOPTION_ALL as $o) { ?>
+              <?php if (isset($ENVO_CONTACTOPTION_ALL) && is_array($ENVO_CONTACTOPTION_ALL)) foreach ($ENVO_CONTACTOPTION_ALL as $o) { ?>
 
-                <li class="jakcform">
+                <li class="envocform">
                   <div class="row">
                     <div class="col-md-3">
                       <div class="form-group">

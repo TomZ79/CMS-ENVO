@@ -1,8 +1,8 @@
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
-<?php if (!JAK_USERID) { ?>
+<?php if (!ENVO_USERID) { ?>
 
-  <?php if ($jkv["rf_active"] && !JAK_USERID) { ?>
+  <?php if ($jkv["rf_active"] && !ENVO_USERID) { ?>
     <div class="col-md-6">
       <div class="featured-boxes register">
         <div class="col-xs-12 col-sm-12">
@@ -60,7 +60,7 @@
                   </div>
                   <?php
 
-                  if (!JAK_USERID && $jkv["hvm"] && isset($_SESSION['jak_captcha'])) {
+                  if (!ENVO_USERID && $jkv["hvm"] && isset($_SESSION['envo_captcha'])) {
                     if (!isset($_SESSION["rf_msg_sent"]) || isset($_SESSION["rf_msg_sent"]) && $_SESSION["rf_msg_sent"] != 1) {
 
                       // Create Captcha verification code
@@ -142,7 +142,7 @@
                 <div class="form-group <?php if ($errorlo) echo " has-error"; ?>">
                   <div class="col-md-12">
                     <label><?php echo $tl["lform_text"]["lformt1"]; ?></label>
-                    <input type="text" class="form-control input-lg" value="<?php if (isset($_REQUEST["jakU"])) echo $_REQUEST["jakU"]; ?>" name="loginusername" id="loginusername" placeholder="<?php echo $tl["placeholder"]["plc3"]; ?>" data-msg-required="Zadejte uživatelské jméno" required>
+                    <input type="text" class="form-control input-lg" value="<?php if (isset($_REQUEST["envoU"])) echo $_REQUEST["envoU"]; ?>" name="loginusername" id="loginusername" placeholder="<?php echo $tl["placeholder"]["plc3"]; ?>" data-msg-required="Zadejte uživatelské jméno" required>
                   </div>
                 </div>
               </div>
@@ -195,7 +195,7 @@
                 <div class="form-group <?php if ($errorfp) echo " has-error"; ?>">
                   <div class="col-md-12">
                     <label><?php echo $tl["lform_text"]["lformt7"]; ?></label>
-                    <input type="text" class="form-control input-lg" value="" name="jakE" id="email" placeholder="<?php echo $tl["placeholder"]["plc5"]; ?>" data-msg-required="Zadejte Vaši emailovou adresu" data-msg-email="Zadejte validní emailovou adresu" required>
+                    <input type="text" class="form-control input-lg" value="" name="envoE" id="email" placeholder="<?php echo $tl["placeholder"]["plc5"]; ?>" data-msg-required="Zadejte Vaši emailovou adresu" data-msg-email="Zadejte validní emailovou adresu" required>
                   </div>
                 </div>
               </div>
@@ -217,7 +217,7 @@
 <?php } else { ?>
 
   <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-    <h3 class="text-center"><?php echo str_replace("%s", $JAK_USERNAME, $tl["lpage_text"]["lpaget"]); ?></h3>
+    <h3 class="text-center"><?php echo str_replace("%s", $ENVO_USERNAME, $tl["lpage_text"]["lpaget"]); ?></h3>
     <p class="text-center"><?php echo $tl["lpage_text"]["lpaget1"] ?></p>
     <div class="col-md-6 col-centered">
       <ul class="list list-icons list-icons-style-3 list-quaternary mb-xlg">

@@ -104,7 +104,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_title', $JAK_SETTING_VAL["searchtitle"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_title', $ENVO_SETTING_VAL["searchtitle"], '', 'form-control');
                           ?>
 
                         </div>
@@ -123,7 +123,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('jak_lcontent', envo_edit_safe_userpost($JAK_SETTING_VAL["searchdesc"]), '4', '', array('id' => 'jakEditor', 'class' => 'jakEditorLight form-control'));
+                        echo $Html->addTextarea('envo_lcontent', envo_edit_safe_userpost($ENVO_SETTING_VAL["searchdesc"]), '4', '', array('id' => 'envoEditor', 'class' => 'envoEditorLight form-control'));
                         ?>
 
                       </div>
@@ -168,14 +168,14 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_search', '1', ($jkv["searchform"] == '1') ? TRUE : FALSE, 'jak_search1');
+                          echo $Html->addRadio('envo_search', '1', ($jkv["searchform"] == '1') ? TRUE : FALSE, 'envo_search1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_search1', $tl["checkbox"]["chk"]);
+                          echo $Html->addLabel('envo_search1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_search', '0', ($jkv["searchform"] == '0') ? TRUE : FALSE, 'jak_search2');
+                          echo $Html->addRadio('envo_search', '0', ($jkv["searchform"] == '0') ? TRUE : FALSE, 'envo_search2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_search2', $tl["checkbox"]["chk1"]);
+                          echo $Html->addLabel('envo_search2', $tl["checkbox"]["chk1"]);
                           ?>
 
                         </div>
@@ -195,14 +195,14 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_ajaxsearch', '1', ($jkv["ajaxsearch"] == '1') ? TRUE : FALSE, 'jak_ajaxsearch1');
+                          echo $Html->addRadio('envo_ajaxsearch', '1', ($jkv["ajaxsearch"] == '1') ? TRUE : FALSE, 'envo_ajaxsearch1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_ajaxsearch1', $tl["checkbox"]["chk"]);
+                          echo $Html->addLabel('envo_ajaxsearch1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_ajaxsearch', '0', ($jkv["ajaxsearch"] == '0') ? TRUE : FALSE, 'jak_ajaxsearch2');
+                          echo $Html->addRadio('envo_ajaxsearch', '0', ($jkv["ajaxsearch"] == '0') ? TRUE : FALSE, 'envo_ajaxsearch2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_ajaxsearch2', $tl["checkbox"]["chk1"]);
+                          echo $Html->addLabel('envo_ajaxsearch2', $tl["checkbox"]["chk1"]);
                           ?>
 
                         </div>
@@ -222,21 +222,21 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_fullsearch', '1', ($jkv["fulltextsearch"] == '1') ? TRUE : FALSE, 'jak_fullsearch1');
+                          echo $Html->addRadio('envo_fullsearch', '1', ($jkv["fulltextsearch"] == '1') ? TRUE : FALSE, 'envo_fullsearch1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_fullsearch1', $tl["checkbox"]["chk"]);
+                          echo $Html->addLabel('envo_fullsearch1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('jak_fullsearch', '0', ($jkv["fulltextsearch"] == '0') ? TRUE : FALSE, 'jak_fullsearch2');
+                          echo $Html->addRadio('envo_fullsearch', '0', ($jkv["fulltextsearch"] == '0') ? TRUE : FALSE, 'envo_fullsearch2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addLabel('jak_fullsearch2', $tl["checkbox"]["chk1"]);
+                          echo $Html->addLabel('envo_fullsearch2', $tl["checkbox"]["chk1"]);
                           ?>
 
                         </div>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('hidden', 'jak_fullsearchold', $jkv["fulltextsearch"], '', '');
+                        echo $Html->addInput('hidden', 'envo_fullsearchold', $jkv["fulltextsearch"], '', '');
                         ?>
 
                       </div>

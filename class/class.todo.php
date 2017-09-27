@@ -112,7 +112,7 @@ class ENVO_todo
 
     if (!$position) $position = 1;
 
-    $envodb->query('INSERT INTO ' . DB_PREFIX . 'todo_list SET text = "' . $text . '", position = ' . $position . ', adminid = ' . JAK_USERID);
+    $envodb->query('INSERT INTO ' . DB_PREFIX . 'todo_list SET text = "' . $text . '", position = ' . $position . ', adminid = ' . ENVO_USERID);
 
     if ($envodb->affected_rows != 1)
       throw new Exception("Error inserting ToDo!");
@@ -120,7 +120,7 @@ class ENVO_todo
     // Creating a new ToDo and outputting it directly:
     echo(new ENVO_todo(array(
       'id'      => $envodb->envo_last_id(),
-      'adminid' => JAK_USERID,
+      'adminid' => ENVO_USERID,
       'text'    => $text
     )));
 
@@ -140,7 +140,7 @@ class ENVO_todo
 
     $actionB = '<div class="pull-right actions">';
 
-    if ($this->data['adminid'] == JAK_USERID) {
+    if ($this->data['adminid'] == ENVO_USERID) {
 
       $actionB .= '<a href="#" class="btn btn-default btn-xs edit"><i class="fa fa-pencil"></i></a><a href="#" class="btn btn-danger btn-xs delete"><i class="fa fa-trash-o"></i></a>';
 

@@ -1,18 +1,18 @@
-<?php if (JAK_PLUGIN_ACCESS_NEWSLETTER && $shownewsletter_form == FALSE) {
+<?php if (ENVO_PLUGIN_ACCESS_NEWSLETTER && $shownewsletter_form == FALSE) {
 
   // get the right url
-  $NL_SUBMIT_LINK = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_NEWSLETTER, 'signup', '', '', '');
+  $NL_SUBMIT_LINK = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_NEWSLETTER, 'signup', '', '', '');
 
   ?>
 
   <h3><?php echo $jkv["nltitle"]; ?></h3>
   <div id="nl_msg" class="alert bg-success" style="display: none;"></div>
-  <?php if ($_SESSION['jak_nl_errors']) { ?>
+  <?php if ($_SESSION['envo_nl_errors']) { ?>
     <div
-      class="alert bg-danger"><?php echo $_SESSION['jak_nl_errors']["nlUser"] . $_SESSION['jak_nl_errors']["nlEmail"]; ?></div>
+      class="alert bg-danger"><?php echo $_SESSION['envo_nl_errors']["nlUser"] . $_SESSION['envo_nl_errors']["nlEmail"]; ?></div>
   <?php }
-  if ($_SESSION["jak_nl_sent"] == 1) { ?>
-    <div class="alert bg-success"><?php echo $_SESSION['jak_thankyou_nl']; ?></div>
+  if ($_SESSION["envo_nl_sent"] == 1) { ?>
+    <div class="alert bg-success"><?php echo $_SESSION['envo_thankyou_nl']; ?></div>
   <?php } else { ?>
     <form id="nlSubmit" action="<?php echo $NL_SUBMIT_LINK; ?>" method="post">
       <div class="form-group<?php if ($errornl) echo " has-error"; ?>">
@@ -42,7 +42,7 @@
 
     envoWeb.envo_submit = "<?php echo $tl["general"]["g10"];?>";
     envoWeb.envo_submitwait = "<?php echo $tl['general']['g99'];?>";
-    nlCMS.nlcms_url = "<?php echo(JAK_USE_APACHE ? substr($NL_SUBMIT_LINK, 1) : $NL_SUBMIT_LINK);?>";
+    nlCMS.nlcms_url = "<?php echo(ENVO_USE_APACHE ? substr($NL_SUBMIT_LINK, 1) : $NL_SUBMIT_LINK);?>";
 
   </script>
 

@@ -1,7 +1,7 @@
-<?php if ($jkv["rf_active"] && isset($JAK_SHOW_R_FORM)) { ?>
+<?php if ($jkv["rf_active"] && isset($ENVO_SHOW_R_FORM)) { ?>
   <div class="row">
     <div class="col-md-6">
-      <?php if (!JAK_USERID) { ?>
+      <?php if (!ENVO_USERID) { ?>
         <div class="basic-login">
         <?php if ($errorsC || $errorsA) { ?>
           <div class="alert bg-danger fade in">
@@ -43,7 +43,7 @@
                   placeholder="<?php echo $tl["contact"]["c2"]; ?>">
               </div>
             <?php } else {
-              echo $JAK_SHOW_R_FORM;
+              echo $ENVO_SHOW_R_FORM;
             } ?>
 
             <div class="well well-sm">
@@ -56,20 +56,20 @@
           </form>
         <?php } ?></div><?php } ?>
 
-      <?php if (JAK_USERID) { ?>
-        <h3><?php echo sprintf($tl["general"]["g8"], $JAK_USERNAME); ?></h3>
+      <?php if (ENVO_USERID) { ?>
+        <h3><?php echo sprintf($tl["general"]["g8"], $ENVO_USERNAME); ?></h3>
         <div class="about">
           <!-- Author Photo -->
           <div class="author-photo">
-            <img src="<?php echo BASE_URL . JAK_FILES_DIRECTORY . '/userfiles' . $jakuser->getVar("picture"); ?>"
+            <img src="<?php echo BASE_URL . ENVO_FILES_DIRECTORY . '/userfiles' . $envouser->getVar("picture"); ?>"
               alt="avatar">
           </div>
           <div class="about-bubble">
             <blockquote>
               <!-- Author Info -->
               <cite class="author-info">
-                - <?php echo $tl["contact"]["c1"]; ?>: <?php echo $jakuser->getVar("name"); ?><br>
-                - <?php echo $tl["contact"]["c2"]; ?>: <?php echo $jakuser->getVar("email"); ?>
+                - <?php echo $tl["contact"]["c1"]; ?>: <?php echo $envouser->getVar("name"); ?><br>
+                - <?php echo $tl["contact"]["c2"]; ?>: <?php echo $envouser->getVar("email"); ?>
               </cite>
             </blockquote>
             <div class="sprite arrow-speech-bubble"></div>
@@ -80,7 +80,7 @@
     </div>
     <div class="col-md-6">
       <div class="basic-login">
-        <?php if (!JAK_USERID) { ?>
+        <?php if (!ENVO_USERID) { ?>
 
           <h3><?php echo $tl["general"]["g146"]; ?></h3>
           <?php if ($errorlo) { ?>
@@ -91,13 +91,13 @@
           <form role="form" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
             <div class="form-group<?php if (isset($errorlo)) echo " error"; ?>">
               <label class="control-label" for="username"><?php echo $tl["login"]["l22"]; ?></label>
-              <input type="text" class="form-control" name="jakU" id="username"
-                value="<?php if (isset($_REQUEST["jakU"])) echo $_REQUEST["jakU"]; ?>"
+              <input type="text" class="form-control" name="envoU" id="username"
+                value="<?php if (isset($_REQUEST["envoU"])) echo $_REQUEST["envoU"]; ?>"
                 placeholder="<?php echo $tl["login"]["l22"]; ?>">
             </div>
             <div class="form-group<?php if (isset($errorlo)) echo " error"; ?>">
               <label class="control-label" for="password"><?php echo $tl["login"]["l2"]; ?></label>
-              <input type="password" class="form-control" name="jakP" id="password"
+              <input type="password" class="form-control" name="envoP" id="password"
                 placeholder="<?php echo $tl["login"]["l2"]; ?>">
             </div>
             <div class="checkbox">
@@ -116,7 +116,7 @@
               <div class="alert bg-danger"><?php if (isset($errorfp["e"])) echo $errorfp["e"]; ?></div><?php } ?>
             <div class="form-group<?php if (isset($errorfp)) echo " error"; ?>">
               <label class="control-label" for="email"><?php echo $tl["login"]["l5"]; ?></label>
-              <input type="email" class="form-control" name="jakE" id="email" class="form-control"
+              <input type="email" class="form-control" name="envoE" id="email" class="form-control"
                 placeholder="<?php echo $tl["login"]["l5"]; ?>">
             </div>
             <button type="submit" name="forgotP"
@@ -131,7 +131,7 @@
     </div>
   </div>
 
-  <?php if (!JAK_USERID) { ?>
+  <?php if (!ENVO_USERID) { ?>
     <script type="text/javascript">
       $(document).ready(function () {
 

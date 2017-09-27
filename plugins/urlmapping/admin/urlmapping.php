@@ -2,11 +2,11 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$jakuser->envoModuleAccess(JAK_USERID, JAK_ACCESSURLMAPPING)) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$envouser->envoModuleAccess(ENVO_USERID, ENVO_ACCESSURLMAPPING)) envo_redirect(BASE_URL);
 
 // -------- DATA FOR ALL ADMIN PAGES --------
 // -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
@@ -33,15 +33,15 @@ switch ($page1) {
       // CZ: Hlavní proměnné
       $defaults = $_POST;
 
-      if (empty($defaults['jak_oldurl']) && empty($defaults['jak_newurl']) && (($defaults['jak_baseurl'] == 0) || ($defaults['jak_baseurl'] == 1))) {
+      if (empty($defaults['envo_oldurl']) && empty($defaults['envo_newurl']) && (($defaults['envo_baseurl'] == 0) || ($defaults['envo_baseurl'] == 1))) {
         $errors['e1'] = $tlum['urlmap_error']['urler'];
       }
 
-      if (empty($defaults['jak_oldurl']) && !empty($defaults['jak_newurl']) && ($defaults['jak_baseurl'] == 0)) {
+      if (empty($defaults['envo_oldurl']) && !empty($defaults['envo_newurl']) && ($defaults['envo_baseurl'] == 0)) {
         $errors['e2'] = $tlum['urlmap_error']['urler1'];
       }
 
-      if (empty($defaults['jak_newurl']) && !empty($defaults['jak_oldurl']) && ($defaults['jak_baseurl'] == 0)) {
+      if (empty($defaults['envo_newurl']) && !empty($defaults['envo_oldurl']) && ($defaults['envo_baseurl'] == 0)) {
         $errors['e3'] = $tlum['urlmap_error']['urler2'];
       }
 
@@ -54,9 +54,9 @@ switch ($page1) {
          * smartsql - secure method to insert form data into a MySQL DB
         */
         $result = $envodb->query('INSERT INTO ' . $envotable . ' SET
-                  urlold = "' . smartsql($defaults['jak_oldurl']) . '",
-                  urlnew = "' . smartsql($defaults['jak_newurl']) . '",
-                  baseurl = "' . smartsql($defaults['jak_baseurl']) . '",
+                  urlold = "' . smartsql($defaults['envo_oldurl']) . '",
+                  urlnew = "' . smartsql($defaults['envo_newurl']) . '",
+                  baseurl = "' . smartsql($defaults['envo_baseurl']) . '",
                   redirect = "' . smartsql($defaults['envo_redirect']) . '",
                   time = NOW()');
 
@@ -139,24 +139,24 @@ switch ($page1) {
           // CZ: Hlavní proměnné
           $defaults = $_POST;
 
-          if (empty($defaults['jak_oldurl']) && empty($defaults['jak_newurl']) && (($defaults['jak_baseurl'] == 0) || ($defaults['jak_baseurl'] == 1))) {
+          if (empty($defaults['envo_oldurl']) && empty($defaults['envo_newurl']) && (($defaults['envo_baseurl'] == 0) || ($defaults['envo_baseurl'] == 1))) {
             $errors['e1'] = $tlum['urlmap_error']['urler'];
           }
 
-          if (empty($defaults['jak_oldurl']) && !empty($defaults['jak_newurl']) && ($defaults['jak_baseurl'] == 0)) {
+          if (empty($defaults['envo_oldurl']) && !empty($defaults['envo_newurl']) && ($defaults['envo_baseurl'] == 0)) {
             $errors['e2'] = $tlum['urlmap_error']['urler1'];
           }
 
-          if (empty($defaults['jak_newurl']) && !empty($defaults['jak_oldurl']) && ($defaults['jak_baseurl'] == 0)) {
+          if (empty($defaults['envo_newurl']) && !empty($defaults['envo_oldurl']) && ($defaults['envo_baseurl'] == 0)) {
             $errors['e3'] = $tlum['urlmap_error']['urler1'];
           }
 
           if (count($errors) == 0) {
 
-            if ($defaults['jak_baseurl'] == 1) {
+            if ($defaults['envo_baseurl'] == 1) {
               $urlnew = '';
             } else {
-              $urlnew = smartsql($defaults['jak_newurl']);
+              $urlnew = smartsql($defaults['envo_newurl']);
             }
 
             /* EN: Convert value
@@ -166,9 +166,9 @@ switch ($page1) {
              * smartsql - secure method to insert form data into a MySQL DB
             */
             $result = $envodb->query('UPDATE ' . $envotable . ' SET
-                      urlold = "' . smartsql($defaults['jak_oldurl']) . '",
+                      urlold = "' . smartsql($defaults['envo_oldurl']) . '",
                       urlnew = "' . $urlnew . '",
-                      baseurl = "' . smartsql($defaults['jak_baseurl']) . '",
+                      baseurl = "' . smartsql($defaults['envo_baseurl']) . '",
                       redirect = "' . smartsql($defaults['envo_redirect']) . '",
                       time = NOW()
                       WHERE id = "' . smartsql($page2) . '"');
@@ -205,14 +205,14 @@ switch ($page1) {
       default:
 
         // Hello we have a post request
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jak_delete_urlmapping'])) {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_urlmapping'])) {
           // EN: Default Variable
           // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (isset($defaults['delete'])) {
 
-            $lockuser = $defaults['jak_delete_urlmapping'];
+            $lockuser = $defaults['envo_delete_urlmapping'];
 
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
@@ -238,7 +238,7 @@ switch ($page1) {
 
           if (isset($defaults['lock'])) {
 
-            $lockuser = $defaults['jak_delete_urlmapping'];
+            $lockuser = $defaults['envo_delete_urlmapping'];
 
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
@@ -266,7 +266,7 @@ switch ($page1) {
         while ($row = $result->fetch_assoc()) {
           // EN: Insert each record into array
           // CZ: Vložení získaných dat do pole
-          $JAK_UM_ALL[] = $row;
+          $ENVO_UM_ALL[] = $row;
         }
 
         // EN: Title and Description

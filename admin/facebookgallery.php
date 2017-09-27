@@ -2,11 +2,11 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$JAK_MODULES) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$ENVO_MODULES) envo_redirect(BASE_URL);
 
 // EN: Reset Array (output the error in a array)
 // CZ: Reset Pole (výstupní chyby se ukládají do pole)
@@ -14,18 +14,18 @@ $success = array();
 
 // EN: Import important settings for the template from the DB
 // CZ: Importuj důležité nastavení pro šablonu z DB
-$JAK_SETTING = envo_get_setting('setting');
+$ENVO_SETTING = envo_get_setting('setting');
 
 // EN: Import important settings for the template from the DB (only VALUE)
 // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
-$JAK_SETTING_VAL = envo_get_setting_val('setting');
+$ENVO_SETTING_VAL = envo_get_setting_val('setting');
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
 $envotable = DB_PREFIX . 'galleryfacebook';
 
 // Get the all data
-$JAK_GALLERY_ALL = envo_get_galleryfacebook('', $envotable, 'DESC');
+$ENVO_GALLERY_ALL = envo_get_galleryfacebook('', $envotable, 'DESC');
 
 // EN: Switching access all pages by page name
 // CZ: Přepínání přístupu všech stránek podle názvu stránky

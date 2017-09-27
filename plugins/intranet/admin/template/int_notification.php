@@ -83,8 +83,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                 <?php
                 // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                 // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                echo $Html->addCheckbox('', '', FALSE, 'jak_delete_all');
-                echo $Html->addLabel('jak_delete_all', '');
+                echo $Html->addCheckbox('', '', FALSE, 'envo_delete_all');
+                echo $Html->addLabel('envo_delete_all', '');
                 ?>
 
               </div>

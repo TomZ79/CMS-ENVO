@@ -1,16 +1,5 @@
 <?php
 
-/*======================================================================*\
-|| #################################################################### ||
-|| # Drag'nDrop Shop 1.0                                              # ||
-|| # ---------------------------------------------------------------- # ||
-|| # Copyright 2014 JAKWEB All Rights Reserved.                       # ||
-|| # This file may not be redistributed in whole or significant part. # ||
-|| #   ----------- Drag'nDrop Shop IS NOT FREE SOFTWARE -----------   # ||
-|| #                      http://www.jakweb.ch                        # ||
-|| #################################################################### ||
-\*======================================================================*/
-
 /**
  *  Developed by: Reazaul Karim - Rubel
  *  URI: http://reazulk.wordpress.com
@@ -222,12 +211,12 @@ class dbimpexp
             $filename =  time().$this->file_ext;
             
             // We sabotage the cache directory for temporaring saving the file! :)
-            $xml = $dom->save(APP_PATH.JAK_FILES_DIRECTORY.'/'.$filename);
+            $xml = $dom->save(APP_PATH.ENVO_FILES_DIRECTORY.'/'.$filename);
 
             header('Content-type: text/appdb');
             header('Content-Disposition: attachment; filename='.$database_name);
-            readfile(APP_PATH.JAK_FILES_DIRECTORY.'/'.$filename);
-            @unlink(APP_PATH.JAK_FILES_DIRECTORY.'/'.$filename);
+            readfile(APP_PATH.ENVO_FILES_DIRECTORY.'/'.$filename);
+            @unlink(APP_PATH.ENVO_FILES_DIRECTORY.'/'.$filename);
             exit;
         }
     }

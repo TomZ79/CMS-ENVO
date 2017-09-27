@@ -3,7 +3,7 @@
  * JS for Categories - ADMIN
  * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
- * Author: Thomas
+ * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
  * INDEX:
@@ -65,7 +65,7 @@ $(function () {
 
   $('#envo_name').keyup(function () {
     // Checked, copy values
-    $('#envo_varname').val(jakSlug($('#envo_name').val()));
+    $('#envo_varname').val(envoSlug($('#envo_name').val()));
   });
 
 });

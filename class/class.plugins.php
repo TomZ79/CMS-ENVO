@@ -1,6 +1,6 @@
 <?php
 
-class JAK_plugins
+class ENVO_plugins
 {
   private $data = array();
   private $case = array();
@@ -18,20 +18,20 @@ class JAK_plugins
       $sqlfrom  = 'id, name, active, phpcode, sidenavhtml, usergroup';
     }
     if ($active == 2) {
-      $sqlwhere = ' WHERE FIND_IN_SET(' . JAK_USERID . ', access)';
+      $sqlwhere = ' WHERE FIND_IN_SET(' . ENVO_USERID . ', access)';
       $sqlfrom  = 'id, name, description, active, access, pluginorder, pluginpath, phpcode, phpcodeadmin, sidenavhtml, managenavhtml, usergroup, uninstallfile, pluginversion, time';
     }
 
-    $jakplugins = array();
+    $envoplugins = array();
     global $envodb;
     $result = $envodb->query('SELECT ' . $sqlfrom . ' FROM ' . DB_PREFIX . 'plugins' . $sqlwhere . ' ORDER BY pluginorder ASC');
     while ($row = $result->fetch_assoc()) {
 
       // Check if user has access to one of them
-      $jakplugins[] = $row;
+      $envoplugins[] = $row;
     }
 
-    $this->data = $jakplugins;
+    $this->data = $envoplugins;
   }
 
   public function EnvoGetarray()
@@ -43,7 +43,7 @@ class JAK_plugins
 
   }
 
-  public function jakAdmintopnav()
+  public function envoAdminTopNav()
   {
     // Setting up an alias, so we don't have to write $this->data every time:
     $d = $this->data;
@@ -57,7 +57,7 @@ class JAK_plugins
 
   }
 
-  public function jakAdminmanagenav()
+  public function envoAdminManageNav()
   {
     // Setting up an alias, so we don't have to write $this->data every time:
     $d = $this->data;
@@ -71,7 +71,7 @@ class JAK_plugins
 
   }
 
-  public function jakAdminindex()
+  public function envoAdminIndex()
   {
     // Setting up an alias, so we don't have to write $this->data every time:
     $d = $this->data;
@@ -85,7 +85,7 @@ class JAK_plugins
     return $case;
   }
 
-  public function jakSiteindex()
+  public function envoSiteIndex()
   {
     // Setting up an alias, so we don't have to write $this->data every time:
     $d = $this->data;
@@ -98,7 +98,7 @@ class JAK_plugins
     return $case;
   }
 
-  public function jakAdmintag()
+  public function envoAdminTag()
   {
     // Setting up an alias, so we don't have to write $this->data every time:
     $d = $this->data;

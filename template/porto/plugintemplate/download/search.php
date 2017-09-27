@@ -8,8 +8,8 @@
  * Použitelné hodnoty s daty pro FRONTEND - search.php
  * -------------------------------------------------------------
  *
- * $JAK_SEARCH_RESULT_DOWNLOAD = pole s daty
- * foreach ($JAK_SEARCH_RESULT_DOWNLOAD as $dl) = získání jednotlivých dat z pole
+ * $ENVO_SEARCH_RESULT_DOWNLOAD = pole s daty
+ * foreach ($ENVO_SEARCH_RESULT_DOWNLOAD as $dl) = získání jednotlivých dat z pole
  * $count++ = počet hledaných záznamů
  *
  * $dl["title"]					text		|	- Titulek souboru
@@ -19,7 +19,7 @@
  */
 ?>
 
-<?php if (isset($JAK_SEARCH_RESULT_DOWNLOAD) && is_array($JAK_SEARCH_RESULT_DOWNLOAD)) foreach ($JAK_SEARCH_RESULT_DOWNLOAD as $dl) {
+<?php if (isset($ENVO_SEARCH_RESULT_DOWNLOAD) && is_array($ENVO_SEARCH_RESULT_DOWNLOAD)) foreach ($ENVO_SEARCH_RESULT_DOWNLOAD as $dl) {
   $count++; ?>
 
   <div class="col-md-3 col-sm-6" style="margin-bottom: 20px">

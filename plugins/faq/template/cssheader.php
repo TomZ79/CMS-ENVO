@@ -8,7 +8,7 @@
  */
 ?>
 
-<?php if ($page == JAK_PLUGIN_VAR_FAQ) { ?>
+<?php if ($page == ENVO_PLUGIN_VAR_FAQ) { ?>
 
   <link rel="stylesheet" href="/plugins/faq/assets/css/style.css" type="text/css"/>
 

@@ -2,11 +2,11 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$JAK_MODULES) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$ENVO_MODULES) envo_redirect(BASE_URL);
 
 // EN: Reset Array (output the error in a array)
 // CZ: Reset Pole (výstupní chyby se ukládají do pole)
@@ -14,14 +14,14 @@ $success = array();
 
 // EN: Import important settings for the template from the DB
 // CZ: Importuj důležité nastavení pro šablonu z DB
-$JAK_SETTING = envo_get_setting('setting');
+$ENVO_SETTING = envo_get_setting('setting');
 
 // EN: Import important settings for the template from the DB (only VALUE)
 // CZ: Importuj důležité nastavení pro šablonu z DB (HODNOTY)
-$JAK_SETTING_VAL = envo_get_setting_val('setting');
+$ENVO_SETTING_VAL = envo_get_setting_val('setting');
 
 // Basic settings Facebook
-$facebookDir      = JAK_FILES_DIRECTORY . '/facebook/';
+$facebookDir      = ENVO_FILES_DIRECTORY . '/facebook/';
 $facebookNameFile = $facebookDir . 'facebook_name.txt';
 $facebookDescFile = $facebookDir . 'facebook_description.txt';
 
@@ -40,10 +40,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $datasave  = preg_replace('<JAK-DO-NOT-EDIT-TEXTAREA>', '/textarea', $datasave);
     $datasave  = stripslashes($datasave);
     if (fwrite($openfedit, $datasave)) {
-      $JAK_FILE_SUCCESS = 1;
+      $ENVO_FILE_SUCCESS = 1;
     }
   } else {
-    $JAK_FILE_ERROR = 1;
+    $ENVO_FILE_ERROR = 1;
   }
 
   fclose($openfedit);
@@ -55,10 +55,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $datasave  = preg_replace('<JAK-DO-NOT-EDIT-TEXTAREA>', '/textarea', $datasave);
     $datasave  = stripslashes($datasave);
     if (fwrite($openfedit, $datasave)) {
-      $JAK_FILE_SUCCESS1 = 1;
+      $ENVO_FILE_SUCCESS1 = 1;
     }
   } else {
-    $JAK_FILE_ERROR1 = 1;
+    $ENVO_FILE_ERROR1 = 1;
   }
 
   fclose($openfedit);
@@ -91,12 +91,12 @@ if (file_exists(APP_PATH . $facebookNameFile)) {
   $openfile        = fopen(APP_PATH . $facebookNameFile, 'r');
   $filecontent     = @fread($openfile, filesize(APP_PATH . $facebookNameFile));
   $displaycontent  = preg_replace('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
-  $JAK_FILECONTENT = $displaycontent;
-  $JAK_FILEURL     = '/' . $facebookNameFile;
+  $ENVO_FILECONTENT = $displaycontent;
+  $ENVO_FILEURL     = '/' . $facebookNameFile;
 
   fclose($openfile);
 } else {
-  $JAK_FILEURL = $JAK_FILECONTENT = " ";
+  $ENVO_FILEURL = $ENVO_FILECONTENT = " ";
 }
 
 // Open Facebook description file
@@ -104,12 +104,12 @@ if (file_exists(APP_PATH . $facebookDescFile)) {
   $openfile         = fopen(APP_PATH . $facebookDescFile, 'r');
   $filecontent      = @fread($openfile, filesize(APP_PATH . $facebookDescFile));
   $displaycontent   = preg_replace('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
-  $JAK_FILECONTENT1 = $displaycontent;
-  $JAK_FILEURL1     = '/' . $facebookDescFile;
+  $ENVO_FILECONTENT1 = $displaycontent;
+  $ENVO_FILEURL1     = '/' . $facebookDescFile;
 
   fclose($openfile);
 } else {
-  $JAK_FILEURL1 = $JAK_FILECONTENT1 = " ";
+  $ENVO_FILEURL1 = $ENVO_FILECONTENT1 = " ";
 }
 
 // EN: Title and Description

@@ -3,7 +3,7 @@
  * JS for Plugin URL Mapping - ADMIN
  * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
- * Author: Thomas
+ * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
  * INDEX:
@@ -16,7 +16,7 @@
 $(function () {
 
   /* Check all checkbox */
-  $("#jak_delete_all").click(function () {
+  $("#envo_delete_all").click(function () {
     var checkedStatus = this.checked;
     $(".highlight").each(function () {
       $(this).prop('checked', checkedStatus);
@@ -42,11 +42,11 @@ $(function () {
 
 $(function () {
 
-  $('#jak_newurl').keyup(function () {
+  $('#envo_newurl').keyup(function () {
     this.value = this.value.replace(/[^a-zA-Z0-9\-_.]/g, '');
   });
 
-  $('#jak_newurl').bind("keypress click", function () {
+  $('#envo_newurl').bind("keypress click", function () {
     $("#0").prop("checked", true);
   });
 

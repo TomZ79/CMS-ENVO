@@ -1,7 +1,7 @@
 <?php
 // EN:
 // CZ:
-function jak_get_themes($styledir)
+function envo_get_themes($styledir)
 {
 
   if ($handle = opendir($styledir)) {

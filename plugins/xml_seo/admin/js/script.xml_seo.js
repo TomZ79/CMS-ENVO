@@ -3,7 +3,7 @@
  * JS for Plugin XML Seo - ADMIN
  * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
- * Author: Thomas
+ * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
  * INDEX:
@@ -29,8 +29,8 @@ $(function () {
         // Get folder path
         var baseurl = envoWeb.envo_url_orig;
 
-        if($("input[name='jak_xmlseopath']").val()) {
-          var inputval = $("input[name='jak_xmlseopath']").val() + '/';
+        if($("input[name='envo_xmlseopath']").val()) {
+          var inputval = $("input[name='envo_xmlseopath']").val() + '/';
         } else {
           var inputval = '';
         }
@@ -39,14 +39,14 @@ $(function () {
         $('#sitemapcode').text( sitemap );
 
         // Change date in file
-        var txt = $("#jak_filetxt");
+        var txt = $("#envo_filetxt");
         var time = new Date();
 
         if (txt.val().indexOf('CMS Robots File' && 'Last change') != -1) { // Value in txt = true
 
-          var lines = $('#jak_filetxt').val().split(/\n/);
+          var lines = $('#envo_filetxt').val().split(/\n/);
           lines[1] = "#Last change - " + time;
-          $("#jak_filetxt").html(lines.join("\n"));
+          $("#envo_filetxt").html(lines.join("\n"));
 
         } else {
 

@@ -210,9 +210,9 @@ $envodb->query("CREATE TABLE " . DB_PREFIX . "plugins (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=4");
 
 $envodb->query("INSERT INTO " . DB_PREFIX . "plugins VALUES
-(1, 'News', 'Create and publish news', 1, '1', 1, NULL, 'require_once \"news.php\";', 'if (\$page == \"news\") {\r\nrequire_once ''news.php'';\r\n\$JAK_PROVED = true;\r\n\$checkp = 1;\r\n}', 'newsnav.php', NULL, '1', NULL, NULL, NOW()),
+(1, 'News', 'Create and publish news', 1, '1', 1, NULL, 'require_once \"news.php\";', 'if (\$page == \"news\") {\r\nrequire_once ''news.php'';\r\n\$ENVO_PROVED = true;\r\n\$checkp = 1;\r\n}', 'newsnav.php', NULL, '1', NULL, NULL, NOW()),
 (2, 'Sitemap', 'Run a sitemap on your website for better SEO.', 1, '1', 2, NULL, 'require_once ''sitemap.php'';', NULL, NULL, NULL, '1', NULL, NULL, NOW()),
-(3, 'Tags', 'Have tags on your website, very good for search engine optimization.', 1, '1', 3, NULL, 'require_once \"tags.php\";', 'if (\$page == \"tags\") {\r\nrequire_once ''tag.php'';\r\n\$JAK_PROVED = true;\r\n\$checkp = 1;\r\n}', 'tagnav.php', NULL, 'tags', NULL, NULL, NOW())");
+(3, 'Tags', 'Have tags on your website, very good for search engine optimization.', 1, '1', 3, NULL, 'require_once \"tags.php\";', 'if (\$page == \"tags\") {\r\nrequire_once ''tag.php'';\r\n\$ENVO_PROVED = true;\r\n\$checkp = 1;\r\n}', 'tagnav.php', NULL, 'tags', NULL, NULL, NOW())");
 
 $envodb->query("CREATE TABLE " . DB_PREFIX . "searchlog (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -255,7 +255,7 @@ $envodb->query("INSERT INTO " . DB_PREFIX . "setting VALUES
 ('time_ago_show', 'setting', '1', '1', 'yesno', 'boolean', 'cms'),
 ('searchform', 'setting', '1', '1', 'yesno', 'boolean', 'cms'),
 ('contactform', 'setting', '1', '1', 'yesno', 'boolean', 'cms'),
-('sitestyle', 'setting', '', 'jakweb', 'select', 'free', 'cms'),
+('sitestyle', 'setting', '', 'envoweb', 'select', 'free', 'cms'),
 ('adminpagemid', 'setting', '5', '5', 'input', 'number', 'cms'),
 ('adminpageitem', 'setting', '15', '10', 'input', 'number', 'cms'),
 ('timezoneserver', 'setting', 'Europe/Zurich', 'Europe/Zurich', 'select', 'free', 'cms'),
@@ -404,10 +404,10 @@ $envodb->query("CREATE TABLE " . DB_PREFIX . "usergroup (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci AUTO_INCREMENT=6");
 
 $envodb->query("INSERT INTO " . DB_PREFIX . "usergroup VALUES
-(1, 'Guest', 'Usergroup for all the guests.', 1, 1, 1),
-(2, 'Member (Standard)', 'Standard user group after register on your site.', 0, 1, 1),
-(3, 'Administrator', 'Administrator user group, usually full access and no approval for posts.', 1, 1, 1),
-(4, 'Moderator', 'Moderator user group, they can delete other post from blog, forum, gallery or shop.', 0, 1, 1),
-(5, 'Banned', 'Banned user can only browse thru the page.', 0, 0, 0)");
+(1, 'Guest', 'Usergroup for all the guests.', 1, 1),
+(2, 'Member (Standard)', 'Standard user group after register on your site.', 0, 1),
+(3, 'Administrator', 'Administrator user group, usually full access and no approval for posts.', 1, 1),
+(4, 'Moderator', 'Moderator user group, they can delete other post from blog, forum, gallery or shop.', 0, 1),
+(5, 'Banned', 'Banned user can only browse thru the page.', 0, 0)");
 
 ?>

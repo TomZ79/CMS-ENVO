@@ -86,7 +86,7 @@ if ($page1 == "e") { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'jak_title', $JAK_SETTING_VAL["sitemaptitle"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_title', $ENVO_SETTING_VAL["sitemaptitle"], '', 'form-control');
                           ?>
 
                         </div>
@@ -105,7 +105,7 @@ if ($page1 == "e") { ?>
 
                         <?php
                         // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                        echo $Html->addTextarea('jak_lcontent', envo_edit_safe_userpost($JAK_SETTING_VAL["sitemapdesc"]), '5', '', array('id' => 'jakEditor', 'class' => 'jakEditorLight form-control', 'style' => 'width:100%;'));
+                        echo $Html->addTextarea('envo_lcontent', envo_edit_safe_userpost($ENVO_SETTING_VAL["sitemapdesc"]), '5', '', array('id' => 'envoEditor', 'class' => 'envoEditorLight form-control', 'style' => 'width:100%;'));
                         ?>
 
                       </div>

@@ -20,7 +20,7 @@
 
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/header.php'; ?>
 
-<?php if (JAK_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=faq&amp;sp=setting'; ?>
+<?php if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=faq&amp;sp=setting'; ?>
 
   <!-- =========================
     START FAQ SECTION
@@ -32,7 +32,7 @@
           <div class="help-accordion">
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-              <?php if (isset($JAK_FAQ_ALL) && is_array($JAK_FAQ_ALL)) foreach ($JAK_FAQ_ALL as $v) { ?>
+              <?php if (isset($ENVO_FAQ_ALL) && is_array($ENVO_FAQ_ALL)) foreach ($ENVO_FAQ_ALL as $v) { ?>
 
                 <div class="panel panel-default">
                   <div class="panel-heading" role="tab" id="heading<?php echo $v["id"]; ?>">
@@ -57,7 +57,7 @@
                         <a href="<?php echo $v["parseurl"]; ?>" class="btn btn-default btn-sm"><?php echo $tlf["faq_frontend"]["faq1"]; ?></a>
 
                         <!-- Post System Button - Admin -->
-                        <?php if (JAK_ASACCESS) { ?>
+                        <?php if (ENVO_ASACCESS) { ?>
 
                           <a href="<?php echo BASE_URL; ?>admin/index.php?p=faq&amp;sp=edit&amp;id=<?php echo $v["id"]; ?>" title="<?php echo $tl["button"]["btn1"]; ?>" class="btn btn-primary btn-sm">
                             <span class="visible-xs"><i class="fa fa-edit"></i></span>
@@ -88,6 +88,6 @@
     END FAQ SECTION
   ============================== -->
 
-<?php if ($JAK_PAGINATE) echo $JAK_PAGINATE; ?>
+<?php if ($ENVO_PAGINATE) echo $ENVO_PAGINATE; ?>
 
 <?php include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/footer.php'; ?>

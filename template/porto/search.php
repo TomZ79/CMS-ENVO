@@ -17,12 +17,12 @@
 
   <form role="form" action="<?php echo $P_SEAERCH_LINK; ?>" method="post">
     <div class="input-group">
-      <input type="text" name="jakSH" id="Jajaxs" class="form-control" placeholder="<?php echo $tl["placeholder"]["plc"]; if ($jkv["fulltextsearch"]) echo $tl["placeholder"]["plc1"]; ?>">
+      <input type="text" name="envoSH" id="Jajaxs" class="form-control" placeholder="<?php echo $tl["placeholder"]["plc"]; if ($jkv["fulltextsearch"]) echo $tl["placeholder"]["plc1"]; ?>">
       <span class="input-group-btn">
         <button type="submit" class="btn btn-default" name="search" id="JajaxSubmitSearch"><?php echo $tl["searching"]["stxt"]; ?></button>
       </span>
     </div>
-    <?php if (isset($JAK_HOOK_SEARCH_SIDEBAR) && is_array($JAK_HOOK_SEARCH_SIDEBAR)) foreach ($JAK_HOOK_SEARCH_SIDEBAR as $hss) {
+    <?php if (isset($ENVO_HOOK_SEARCH_SIDEBAR) && is_array($ENVO_HOOK_SEARCH_SIDEBAR)) foreach ($ENVO_HOOK_SEARCH_SIDEBAR as $hss) {
       include_once APP_PATH . $hss['phpcode'];
     } ?>
   </form>
@@ -37,17 +37,17 @@
     if (isset($errors["e"])) echo $errors["e"]; ?>
   </div>
 <?php }
-if (isset($JAK_SEARCH_USED)) { ?>
+if (isset($ENVO_SEARCH_USED)) { ?>
 
   <div class="col-md-12">
     <div class="col-md-6">
-      <h3><?php echo $tl["searching"]["stxt1"]; ?> <strong><?php echo $JAK_SEARCH_WORD_RESULT; ?></strong></h3>
+      <h3><?php echo $tl["searching"]["stxt1"]; ?> <strong><?php echo $ENVO_SEARCH_WORD_RESULT; ?></strong></h3>
     </div>
     <div class="col-md-6">
       <?php
       $count = 0;
-      if (isset($JAK_SEARCH_RESULT) && is_array($JAK_SEARCH_RESULT)) foreach ($JAK_SEARCH_RESULT as $v) $count++;
-      if (isset($JAK_SEARCH_RESULT_NEWS) && is_array($JAK_SEARCH_RESULT_NEWS)) foreach ($JAK_SEARCH_RESULT_NEWS as $n) $count++;
+      if (isset($ENVO_SEARCH_RESULT) && is_array($ENVO_SEARCH_RESULT)) foreach ($ENVO_SEARCH_RESULT as $v) $count++;
+      if (isset($ENVO_SEARCH_RESULT_NEWS) && is_array($ENVO_SEARCH_RESULT_NEWS)) foreach ($ENVO_SEARCH_RESULT_NEWS as $n) $count++;
       if (isset($count)) { ?>
         <p class="pull-right"><?php echo str_replace("%s", $count, $tl["searching"]["stxt2"]); ?></p>
       <?php } else { ?>
@@ -62,7 +62,7 @@ if (isset($JAK_SEARCH_USED)) { ?>
 
   <div class="col-md-12 mb-medium">
     <?php
-    if (isset($JAK_SEARCH_RESULT) && is_array($JAK_SEARCH_RESULT)) foreach ($JAK_SEARCH_RESULT as $v) {
+    if (isset($ENVO_SEARCH_RESULT) && is_array($ENVO_SEARCH_RESULT)) foreach ($ENVO_SEARCH_RESULT as $v) {
       $count++; ?>
 
       <div class="col-md-12">
@@ -77,7 +77,7 @@ if (isset($JAK_SEARCH_USED)) { ?>
       </div>
 
     <?php }
-    if (isset($JAK_SEARCH_RESULT_NEWS) && is_array($JAK_SEARCH_RESULT_NEWS)) foreach ($JAK_SEARCH_RESULT_NEWS as $n) {
+    if (isset($ENVO_SEARCH_RESULT_NEWS) && is_array($ENVO_SEARCH_RESULT_NEWS)) foreach ($ENVO_SEARCH_RESULT_NEWS as $n) {
       $count++; ?>
 
       <div class="col-md-12">
@@ -93,7 +93,7 @@ if (isset($JAK_SEARCH_USED)) { ?>
 
 
     <?php }
-    if (isset($JAK_HOOK_SEARCH) && is_array($JAK_HOOK_SEARCH)) foreach ($JAK_HOOK_SEARCH as $hs) {
+    if (isset($ENVO_HOOK_SEARCH) && is_array($ENVO_HOOK_SEARCH)) foreach ($ENVO_HOOK_SEARCH as $hs) {
       // include_once APP_PATH . $hs["phpcode"];
       eval($hs["phpcode"]);
     } ?>

@@ -24,14 +24,14 @@
 
               <?php
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('jak_intranet', '1', ((isset($_REQUEST["jak_intranet"]) && $_REQUEST["jak_intranet"] == '1')) ? TRUE : FALSE, 'jak_intranet1');
+              echo $Html->addRadio('envo_intranet', '1', ((isset($_REQUEST["envo_intranet"]) && $_REQUEST["envo_intranet"] == '1')) ? TRUE : FALSE, 'envo_intranet1');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-              echo $Html->addLabel('jak_intranet1', $tl["checkbox"]["chk"]);
+              echo $Html->addLabel('envo_intranet1', $tl["checkbox"]["chk"]);
 
               // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-              echo $Html->addRadio('jak_intranet', '0', ((isset($_REQUEST["jak_intranet"]) && $_REQUEST["jak_intranet"] == '0') || !isset($_REQUEST["jak_intranet"])) ? TRUE : FALSE, 'jak_intranet2');
+              echo $Html->addRadio('envo_intranet', '0', ((isset($_REQUEST["envo_intranet"]) && $_REQUEST["envo_intranet"] == '0') || !isset($_REQUEST["envo_intranet"])) ? TRUE : FALSE, 'envo_intranet2');
               // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-              echo $Html->addLabel('jak_intranet2', $tl["checkbox"]["chk1"]);
+              echo $Html->addLabel('envo_intranet2', $tl["checkbox"]["chk1"]);
               ?>
 
             </div>

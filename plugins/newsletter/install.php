@@ -8,9 +8,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 // Check if the file is accessed only from a admin if not stop the script from running
 $php_errormsg = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
 $php_errormsg1 = 'Only ADMINISTRATOR privileges allow you to edit the file !!! You cannot access this file directly.';
-if (!JAK_USERID) die($php_errormsg);
+if (!ENVO_USERID) die($php_errormsg);
 
-if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die($php_errormsg1);
+if (!$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die($php_errormsg1);
 
 // Set successfully to zero
 $succesfully = 0;
@@ -164,9 +164,9 @@ if (file_exists(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '
 
       // EN: Insert data to table 'plugins' about this plugin
       // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
-      $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Newsletter", "Run your own newsletter database, let user newsletter direct from your server or link.", 1, ' . JAK_USERID . ', 4, "newsletter", "require_once APP_PATH.\'plugins/newsletter/newsletter.php\';", "if ($page == \'newsletter\') {
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Newsletter", "Run your own newsletter database, let user newsletter direct from your server or link.", 1, ' . ENVO_USERID . ', 4, "newsletter", "require_once APP_PATH.\'plugins/newsletter/newsletter.php\';", "if ($page == \'newsletter\') {
         require_once APP_PATH.\'plugins/newsletter/admin/newsletter.php\';
-           $JAK_PROVED = 1;
+           $ENVO_PROVED = 1;
            $checkp = 1;
         }", "../plugins/newsletter/admin/template/newsletternav.php", "newsletter", "uninstall.php", "1.1", NOW())');
 
@@ -181,8 +181,8 @@ if (file_exists(APP_PATH . 'plugins/newsletter/admin/lang/' . $site_language . '
 
       // EN: Usergroup - Insert php code (get data from plugin setting in usergroup)
       // CZ: Usergroup - Vložení php kódu (získání dat z nastavení pluginu v uživatelské skupině)
-      $insertphpcode = 'if (isset($defaults[\'jak_newsletter\'])) {
-	$insert .= \'newsletter = \"\'.$defaults[\'jak_newsletter\'].\'\",\'; }';
+      $insertphpcode = 'if (isset($defaults[\'envo_newsletter\'])) {
+	$insert .= \'newsletter = \"\'.$defaults[\'envo_newsletter\'].\'\",\'; }';
 
       // EN: Set admin lang of plugin
       // CZ: Nastavení jazyka pro administrační rozhraní pluginu

@@ -76,7 +76,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_name', $_REQUEST["jak_name"], 'jak_name', 'form-control');
+                      echo $Html->addInput('text', 'envo_name', $_REQUEST["envo_name"], 'envo_name', 'form-control');
                       ?>
 
                     </div>
@@ -97,7 +97,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_email', $_REQUEST["jak_email"], '', 'form-control');
+                      echo $Html->addInput('text', 'envo_email', $_REQUEST["envo_email"], '', 'form-control');
                       ?>
 
                     </div>
@@ -118,7 +118,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_username', $_REQUEST["jak_username"], '', 'form-control');
+                      echo $Html->addInput('text', 'envo_username', $_REQUEST["envo_username"], '', 'form-control');
                       ?>
 
                     </div>
@@ -134,13 +134,13 @@ if ($errors) { ?>
 
                   </div>
                   <div class="col-md-7">
-                    <select name="jak_usergroup" class="form-control selectpicker">
+                    <select name="envo_usergroup" class="form-control selectpicker">
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                      if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
+                      if (isset($ENVO_USERGROUP_ALL) && is_array($ENVO_USERGROUP_ALL)) foreach ($ENVO_USERGROUP_ALL as $v) {
                         if ($v["id"] != "1") {
-                          echo $Html->addOption($v["id"], $v["name"], ($v["id"] == $_REQUEST["jak_usergroup"]) ? TRUE : FALSE);
+                          echo $Html->addOption($v["id"], $v["name"], ($v["id"] == $_REQUEST["envo_usergroup"]) ? TRUE : FALSE);
                         }
                       }
                       ?>
@@ -162,14 +162,14 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('jak_access', '1', ((isset($_REQUEST["jak_access"]) && $_REQUEST["jak_access"] == '1') || !isset($_REQUEST["jak_access"])) ? TRUE : FALSE, 'jak_access1');
+                      echo $Html->addRadio('envo_access', '1', ((isset($_REQUEST["envo_access"]) && $_REQUEST["envo_access"] == '1') || !isset($_REQUEST["envo_access"])) ? TRUE : FALSE, 'envo_access1');
                       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                      echo $Html->addLabel('jak_access1', $tl["checkbox"]["chk"]);
+                      echo $Html->addLabel('envo_access1', $tl["checkbox"]["chk"]);
 
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('jak_access', '0', ((isset($_REQUEST["jak_access"]) && $_REQUEST["jak_access"] == '0')) ? TRUE : FALSE, 'jak_access2');
+                      echo $Html->addRadio('envo_access', '0', ((isset($_REQUEST["envo_access"]) && $_REQUEST["envo_access"] == '0')) ? TRUE : FALSE, 'envo_access2');
                       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                      echo $Html->addLabel('jak_access2', $tl["checkbox"]["chk1"]);
+                      echo $Html->addLabel('envo_access2', $tl["checkbox"]["chk1"]);
                       ?>
 
 
@@ -218,7 +218,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'jak_password', $_REQUEST["jak_password"], '', 'form-control');
+                        echo $Html->addInput('text', 'envo_password', $_REQUEST["envo_password"], '', 'form-control');
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                         echo $Html->addTag('span', '', 'label password-indicator-label-absolute');
                         ?>
@@ -243,7 +243,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'jak_confirm_password', $_REQUEST["jak_confirm_password"], '', 'form-control');
+                        echo $Html->addInput('text', 'envo_confirm_password', $_REQUEST["envo_confirm_password"], '', 'form-control');
                         ?>
 
                       </div>
@@ -266,7 +266,7 @@ if ($errors) { ?>
         </div>
       </div>
     </div>
-    <?php if (isset($JAK_HOOK_ADMIN_USER) && is_array($JAK_HOOK_ADMIN_USER)) foreach ($JAK_HOOK_ADMIN_USER as $hsu) {
+    <?php if (isset($ENVO_HOOK_ADMIN_USER) && is_array($ENVO_HOOK_ADMIN_USER)) foreach ($ENVO_HOOK_ADMIN_USER as $hsu) {
       include_once APP_PATH . $hsu['phpcode'];
     } ?>
   </form>

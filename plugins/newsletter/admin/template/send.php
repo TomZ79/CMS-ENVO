@@ -76,17 +76,17 @@ if ($errors) { ?>
               <table class="table table-striped">
                 <tr>
                   <td>
-                    <select name="jak_nlgroup[]" multiple="multiple" class="form-control">
+                    <select name="envo_nlgroup[]" multiple="multiple" class="form-control">
 
                       <?php
                       // Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
-                      $selected = ((isset($_REQUEST["jak_nlgroup"]) && ($_REQUEST["jak_nlgroup"] == '0' || (in_array('0', $_REQUEST["jak_nlgroup"]))) || !isset($_REQUEST["jak_nlgroup"]))) ? TRUE : FALSE;
+                      $selected = ((isset($_REQUEST["envo_nlgroup"]) && ($_REQUEST["envo_nlgroup"] == '0' || (in_array('0', $_REQUEST["envo_nlgroup"]))) || !isset($_REQUEST["envo_nlgroup"]))) ? TRUE : FALSE;
 
                       echo $Html->addOption('0', $tlnl["newsletter_box_content"]["nlbc25"], $selected);
-                      if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $v) {
+                      if (isset($ENVO_USERGROUP_ALL) && is_array($ENVO_USERGROUP_ALL)) foreach ($ENVO_USERGROUP_ALL as $v) {
 
-                        if (isset($_REQUEST["jak_nlgroup"]) && (in_array($v["id"], $_REQUEST["jak_nlgroup"]))) {
-                          if (isset($_REQUEST["jak_nlgroup"]) && (in_array('0', $_REQUEST["jak_nlgroup"]))) {
+                        if (isset($_REQUEST["envo_nlgroup"]) && (in_array($v["id"], $_REQUEST["envo_nlgroup"]))) {
+                          if (isset($_REQUEST["envo_nlgroup"]) && (in_array('0', $_REQUEST["envo_nlgroup"]))) {
                             $selected = FALSE;
                           } else {
                             $selected = TRUE;
@@ -96,9 +96,9 @@ if ($errors) { ?>
                         }
 
                         // Get count of user in usegroups newsletter
-                        $JAK_COUNTUSER_ALL = envo_get_count_user_in_group('newsletteruser', $v["id"]);
+                        $ENVO_COUNTUSER_ALL = envo_get_count_user_in_group('newsletteruser', $v["id"]);
 
-                        echo $Html->addOption($v["id"], $v["name"] . ' ( ' . $JAK_COUNTUSER_ALL . ' ) ', $selected);
+                        echo $Html->addOption($v["id"], $v["name"] . ' ( ' . $ENVO_COUNTUSER_ALL . ' ) ', $selected);
 
                       }
                       ?>
@@ -129,17 +129,17 @@ if ($errors) { ?>
               <table class="table table-striped">
                 <tr>
                   <td>
-                    <select name="jak_cmsgroup[]" multiple="multiple" class="form-control">
+                    <select name="envo_cmsgroup[]" multiple="multiple" class="form-control">
 
                       <?php
                       // Add Html Element -> addInput (Arguments: value, text, selected, id, class, optional assoc. array)
-                      $selected = ((isset($_REQUEST["jak_cmsgroup"]) && ($_REQUEST["jak_cmsgroup"] == '0' || (in_array('0', $_REQUEST["jak_cmsgroup"]))) || !isset($_REQUEST["jak_cmsgroup"]))) ? TRUE : FALSE;
+                      $selected = ((isset($_REQUEST["envo_cmsgroup"]) && ($_REQUEST["envo_cmsgroup"] == '0' || (in_array('0', $_REQUEST["envo_cmsgroup"]))) || !isset($_REQUEST["envo_cmsgroup"]))) ? TRUE : FALSE;
 
                       echo $Html->addOption('0', $tlnl["newsletter_box_content"]["nlbc25"], $selected);
-                      if (isset($JAK_USERGROUP_CMS) && is_array($JAK_USERGROUP_CMS)) foreach ($JAK_USERGROUP_CMS as $c) {
+                      if (isset($ENVO_USERGROUP_CMS) && is_array($ENVO_USERGROUP_CMS)) foreach ($ENVO_USERGROUP_CMS as $c) {
 
-                        if (isset($_REQUEST["jak_cmsgroup"]) && (in_array($c["id"], $_REQUEST["jak_cmsgroup"]))) {
-                          if (isset($_REQUEST["jak_cmsgroup"]) && (in_array('0', $_REQUEST["jak_cmsgroup"]))) {
+                        if (isset($_REQUEST["envo_cmsgroup"]) && (in_array($c["id"], $_REQUEST["envo_cmsgroup"]))) {
+                          if (isset($_REQUEST["envo_cmsgroup"]) && (in_array('0', $_REQUEST["envo_cmsgroup"]))) {
                             $selected = FALSE;
                           } else {
                             $selected = TRUE;
@@ -149,9 +149,9 @@ if ($errors) { ?>
                         }
 
                         // Get count of user in usegroups main cms
-                        $JAK_COUNTUSER_CMS = envo_get_count_user_in_group('user', $c["id"]);
+                        $ENVO_COUNTUSER_CMS = envo_get_count_user_in_group('user', $c["id"]);
 
-                        echo $Html->addOption($c["id"], $c["name"] . ' ( ' . $JAK_COUNTUSER_CMS . ' ) ' . $JAK_COUNTUSER_CMS1, $selected);
+                        echo $Html->addOption($c["id"], $c["name"] . ' ( ' . $ENVO_COUNTUSER_CMS . ' ) ' . $ENVO_COUNTUSER_CMS1, $selected);
 
                       }
                       ?>
@@ -185,8 +185,8 @@ if ($errors) { ?>
                       <?php
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                      echo $Html->addCheckbox('jak_send', '1', FALSE, 'jak_send');
-                      echo $Html->addLabel('jak_send', '');
+                      echo $Html->addCheckbox('envo_send', '1', FALSE, 'envo_send');
+                      echo $Html->addLabel('envo_send', '');
                       ?>
 
                     </div>

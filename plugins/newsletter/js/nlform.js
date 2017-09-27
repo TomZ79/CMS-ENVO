@@ -11,14 +11,14 @@ $(document).ready(function () {
 	var working = false;
 
 	/* Listening for the submit event of the form: */
-	$('.jak-ajaxform').submit(function (e) {
+	$('.envo-ajaxform').submit(function (e) {
 
 		e.preventDefault();
 		if (working) return false;
 
 		working = true;
-		var jakform = $(this);
-		var button = $(this).find('.jak-submit');
+		var envoform = $(this);
+		var button = $(this).find('.envo-submit');
 		$(this).find('.form-group').removeClass("has-error");
 		$(this).find('.form-group').removeClass("has-success");
 
@@ -32,8 +32,8 @@ $(document).ready(function () {
 
 			if (msg.status) {
 
-				$(jakform).find('.jak-thankyou').addClass("alert bg-success").fadeIn(1000).html(msg.html);
-				$(jakform)[0].reset();
+				$(envoform).find('.envo-thankyou').addClass("alert bg-success").fadeIn(1000).html(msg.html);
+				$(envoform)[0].reset();
 
 				// Fade out the form
 				$(button).fadeOut().delay('500');
@@ -50,7 +50,7 @@ $(document).ready(function () {
 				 /*/
 
 				$.each(msg.errors, function (k, v) {
-					$(jakform).find('label[for=' + k + ']').closest(".form-group").addClass("has-error");
+					$(envoform).find('label[for=' + k + ']').closest(".form-group").addClass("has-error");
 				});
 			}
 		}, 'json');

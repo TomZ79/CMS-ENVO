@@ -1,5 +1,5 @@
-<?php if (JAK_CONTACT_FORM) { ?>
-	<?php if ($JAK_SHOW_C_FORM_NAME['showtitle'] == 1) echo '<h3>' . $JAK_SHOW_C_FORM_NAME['title'] . '</h3>'; ?>
+<?php if (ENVO_CONTACT_FORM) { ?>
+	<?php if ($ENVO_SHOW_C_FORM_NAME['showtitle'] == 1) echo '<h3>' . $ENVO_SHOW_C_FORM_NAME['title'] . '</h3>'; ?>
 	<?php if (isset($errorsA) && !empty($errorsA)) { ?>
 
 		<div class="alert bg-danger fade in">
@@ -10,16 +10,16 @@
 		</div>
 
 	<?php }
-	if (!empty($_SESSION["jak_thankyou_msg"])) { ?>
+	if (!empty($_SESSION["envo_thankyou_msg"])) { ?>
 		<div class="alert bg-success">
-			<?php echo $_SESSION['jak_thankyou_msg']; ?>
+			<?php echo $_SESSION['envo_thankyou_msg']; ?>
 		</div>
 	<?php } ?>
 
-	<form class="jak-ajaxform cFrom" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>"
+	<form class="envo-ajaxform cFrom" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>"
 		enctype="multipart/form-data">
-		<div class="jak-thankyou"></div>
-		<?php echo $JAK_SHOW_C_FORM; ?>
+		<div class="envo-thankyou"></div>
+		<?php echo $ENVO_SHOW_C_FORM; ?>
 
 		<input type="hidden" name="contactF" value="1"/>
 
@@ -28,7 +28,7 @@
 				class="fa fa-star"></i> <?php echo $tl["contact"]["n2"]; ?>
 		</div>
 
-		<button type="submit" class="btn btn-color btn-block jak-submit"><?php echo $tl["contact"]["s"]; ?></button>
+		<button type="submit" class="btn btn-color btn-block envo-submit"><?php echo $tl["contact"]["s"]; ?></button>
 
 	</form>
 	<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/contact.js"></script>
@@ -41,7 +41,7 @@
 		<?php } ?>
 
 		if ($("input:file").length > 0) {
-			$("form").removeClass("jak-ajaxform");
+			$("form").removeClass("envo-ajaxform");
 		}
 
 		envoWeb.envo_submit = "<?php echo $tl['general']['g10'];?>";

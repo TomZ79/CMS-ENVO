@@ -3,7 +3,7 @@
  * JS for Plugin Site Editor - ADMIN
  * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
- * Author: Thomas
+ * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
  * INDEX:
@@ -18,18 +18,18 @@ $(function () {
 
   $("#editfile1").click(function (event) {
     event.preventDefault();
-    $('#jak_file1, button[name="save1"]').removeAttr("disabled");
+    $('#envo_file1, button[name="save1"]').removeAttr("disabled");
     $('button[name="reset1"]').removeClass("hidden");
     $(this).addClass("hidden");
 
-    var txt = $("#jak_file1");
+    var txt = $("#envo_file1");
     var time = new Date();
 
     if (txt.val().indexOf('CMS Robots File' && 'Last change') != -1) { // Value in txt = true
 
-      var lines = $('#jak_file1').val().split(/\n/);
+      var lines = $('#envo_file1').val().split(/\n/);
       lines[1] = "#Last change - " + time;
-      $("#jak_file1").html(lines.join("\n"));
+      $("#envo_file1").html(lines.join("\n"));
 
     } else {
 

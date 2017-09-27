@@ -117,7 +117,7 @@ if ($errors) { ?>
                         $selected = ($ENVO_FORM_DATA["hook_name"] == '0') ? TRUE : FALSE;
 
                         echo $Html->addOption('0', $tl["selection"]["sel7"], $selected);
-                        if (isset($JAK_HOOK_LOCATIONS) && is_array($JAK_HOOK_LOCATIONS)) foreach ($JAK_HOOK_LOCATIONS as $h) {
+                        if (isset($ENVO_HOOK_LOCATIONS) && is_array($ENVO_HOOK_LOCATIONS)) foreach ($ENVO_HOOK_LOCATIONS as $h) {
 
                           echo $Html->addOption($h, $h, ($h == $ENVO_FORM_DATA["hook_name"]) ? TRUE : FALSE);
 
@@ -145,7 +145,7 @@ if ($errors) { ?>
                       $selected = ($ENVO_FORM_DATA["pluginid"] == '0') ? TRUE : FALSE;
 
                       echo $Html->addOption('0', $tl["global_text"]["globaltxt13"], $selected);
-                      if (isset($JAK_PLUGINS) && is_array($JAK_PLUGINS)) foreach ($JAK_PLUGINS as $p) {
+                      if (isset($ENVO_PLUGINS) && is_array($ENVO_PLUGINS)) foreach ($ENVO_PLUGINS as $p) {
 
                         echo $Html->addOption($p["id"], $p["name"], ($p["id"] == $ENVO_FORM_DATA["pluginid"]) ? TRUE : FALSE);
 

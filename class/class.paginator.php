@@ -28,7 +28,7 @@ class ENVO_paginator
   public function paginate()
   {
     $this->num_pages    = ceil($this->items_total / $this->items_per_page);
-    $this->current_page = (int)$this->jak_get_page; // must be numeric > 0
+    $this->current_page = (int)$this->envo_get_page; // must be numeric > 0
     if ($this->current_page < 1 Or !is_numeric($this->current_page)) $this->current_page = 1;
     if ($this->current_page > $this->num_pages) $this->current_page = $this->num_pages;
     $prev_page = $this->current_page - 1;
@@ -36,7 +36,7 @@ class ENVO_paginator
 
     if ($this->num_pages > 1) {
 
-      $this->return = ($this->current_page != 1 And $this->items_total >= 2) ? ' <div class="col-md-12"><ul class="pagination"><li><a class="' . $this->jak_prevstyle . '" href="' . $this->jak_where . ENVO_rewrite::envoParseurlpaginate($prev_page) . '">' . $this->jak_prevtext . '</a></li>' : '<div class="col-md-12"><ul class="pagination">';
+      $this->return = ($this->current_page != 1 And $this->items_total >= 2) ? ' <div class="col-md-12"><ul class="pagination"><li><a class="' . $this->envo_prevstyle . '" href="' . $this->envo_where . ENVO_rewrite::envoParseurlpaginate($prev_page) . '">' . $this->envo_prevtext . '</a></li>' : '<div class="col-md-12"><ul class="pagination">';
 
       $this->start_range = $this->current_page - floor($this->mid_range / 2);
       $this->end_range   = $this->current_page + floor($this->mid_range / 2);
@@ -54,10 +54,10 @@ class ENVO_paginator
       for ($i = 1; $i <= $this->num_pages; $i++) {
         // loop through all pages. if first, last, or in range, display
         if ($i == 1 Or $i == $this->num_pages Or in_array($i, $this->range)) {
-          $this->return .= ($i == $this->current_page) ? '<li class="active"><a title="Go to page ' . $i . ' of ' . $this->num_pages . '" href="' . $this->jak_where . ENVO_rewrite::envoParseurlpaginate($i) . '">' . $i . '</a></li>' : '<li><a title="Go to page ' . $i . ' of ' . $this->num_pages . '" href="' . $this->jak_where . ENVO_rewrite::envoParseurlpaginate($i) . '">' . $i . '</a></li>';
+          $this->return .= ($i == $this->current_page) ? '<li class="active"><a title="Go to page ' . $i . ' of ' . $this->num_pages . '" href="' . $this->envo_where . ENVO_rewrite::envoParseurlpaginate($i) . '">' . $i . '</a></li>' : '<li><a title="Go to page ' . $i . ' of ' . $this->num_pages . '" href="' . $this->envo_where . ENVO_rewrite::envoParseurlpaginate($i) . '">' . $i . '</a></li>';
         }
       }
-      $this->return .= ($this->current_page != $this->num_pages And $this->items_total >= 2) ? '<li><a class="' . $this->jak_nextstyle . '" href="' . $this->jak_where . ENVO_rewrite::envoParseurlpaginate($next_page) . '">' . $this->jak_nexttext . '</a></li></ul></div>' : '</ul></div>';
+      $this->return .= ($this->current_page != $this->num_pages And $this->items_total >= 2) ? '<li><a class="' . $this->envo_nextstyle . '" href="' . $this->envo_where . ENVO_rewrite::envoParseurlpaginate($next_page) . '">' . $this->envo_nexttext . '</a></li></ul></div>' : '</ul></div>';
     }
     $this->low   = ($this->current_page - 1) * $this->items_per_page;
     $this->high  = ($this->current_page * $this->items_per_page) - 1;

@@ -94,7 +94,7 @@ if ($errors) { ?>
                       <?php
                       echo $tlrf["reg_box_content"]["regbc17"];
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_option[]', '', '', 'form-control jakread', array('readonly' => 'readonly'));
+                      echo $Html->addInput('text', 'envo_option[]', '', '', 'form-control envoread', array('readonly' => 'readonly'));
                       ?>
 
                     </div>
@@ -102,7 +102,7 @@ if ($errors) { ?>
                   <div class="col-md-2">
                     <div class="form-group">
                       <?php echo $tlrf["reg_box_content"]["regbc18"]; ?>
-                      <select name="jak_optiontype[]" class="form-control selectpicker">
+                      <select name="envo_optiontype[]" class="form-control selectpicker">
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -121,7 +121,7 @@ if ($errors) { ?>
                       <?php
                       echo $tlrf["reg_box_content"]["regbc23"];
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_options[]', 'female,male', '', 'form-control jakread', array('readonly' => 'readonly'));
+                      echo $Html->addInput('text', 'envo_options[]', 'female,male', '', 'form-control envoread', array('readonly' => 'readonly'));
                       ?>
 
                     </div>
@@ -130,7 +130,7 @@ if ($errors) { ?>
                   <div class="col-md-2">
                     <div class="form-group">
                       <?php echo $tlrf["reg_box_content"]["regbc24"]; ?>
-                      <select name="jak_optionmandatory[]" class="form-control selectpicker">
+                      <select name="envo_optionmandatory[]" class="form-control selectpicker">
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -144,7 +144,7 @@ if ($errors) { ?>
 
                       </select>
                     </div>
-                    <input type="hidden" name="jak_optionsort[]" class="cforder-orig" value=""/>
+                    <input type="hidden" name="envo_optionsort[]" class="cforder-orig" value=""/>
                   </div>
                 </div>
               </li>
@@ -163,9 +163,9 @@ if ($errors) { ?>
 
             <ul id="cform_sort">
 
-              <?php if (isset($JAK_REGISTEROPTION_ALL) && is_array($JAK_REGISTEROPTION_ALL)) foreach ($JAK_REGISTEROPTION_ALL as $o) { ?>
+              <?php if (isset($ENVO_REGISTEROPTION_ALL) && is_array($ENVO_REGISTEROPTION_ALL)) foreach ($ENVO_REGISTEROPTION_ALL as $o) { ?>
 
-                <li class="jakcform">
+                <li class="envocform">
                   <div class="row">
                     <div class="col-md-3">
 
@@ -174,7 +174,7 @@ if ($errors) { ?>
                         <?php
                         echo $tlrf["reg_box_content"]["regbc17"];
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'jak_option_old[]', $o["name"], '', 'form-control');
+                        echo $Html->addInput('text', 'envo_option_old[]', $o["name"], '', 'form-control');
                         ?>
 
                       </div>
@@ -182,7 +182,7 @@ if ($errors) { ?>
                     <div class="col-md-2">
                       <div class="form-group">
                         <?php echo $tlrf["reg_box_content"]["regbc18"]; ?>
-                        <select name="jak_optiontype_old[]" class="form-control selectpicker">
+                        <select name="envo_optiontype_old[]" class="form-control selectpicker">
 
                           <?php
                           // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -200,13 +200,13 @@ if ($errors) { ?>
                       <?php
                       echo $tlrf["reg_box_content"]["regbc23"];
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_options_old[]', $o["options"], '', 'form-control', array('placeholder' => $tlrf["reg_box_content"]["regbc15"]));
+                      echo $Html->addInput('text', 'envo_options_old[]', $o["options"], '', 'form-control', array('placeholder' => $tlrf["reg_box_content"]["regbc15"]));
                       ?>
 
                     </div>
                     <div class="col-md-2">
                       <?php echo $tlrf["reg_box_content"]["regbc24"]; ?>
-                      <select name="jak_optionmandatory_old[]" class="form-control selectpicker">
+                      <select name="envo_optionmandatory_old[]" class="form-control selectpicker">
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -227,7 +227,7 @@ if ($errors) { ?>
                       echo $Html->addTag('i', '', 'fa fa-user-plus');
                       ?>
 
-                      <select name="jak_showregister[]" class="form-control selectpicker">
+                      <select name="envo_showregister[]" class="form-control selectpicker">
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -247,17 +247,17 @@ if ($errors) { ?>
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                          echo $Html->addCheckbox('jak_sod[]', $o["id"], FALSE, 'jak_sod' . $o["id"]);
-                          echo $Html->addLabel('jak_sod' . $o["id"], '');
+                          echo $Html->addCheckbox('envo_sod[]', $o["id"], FALSE, 'envo_sod' . $o["id"]);
+                          echo $Html->addLabel('envo_sod' . $o["id"], '');
                           ?>
 
                         </div>
                       <?php }
 
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('hidden', 'jak_option_name_old[]', $o["name"]);
-                      echo $Html->addInput('hidden', 'jak_optionsort_old[]', $o["forder"], '', 'cforder');
-                      echo $Html->addInput('hidden', 'jak_optionid[]', $o["id"]);
+                      echo $Html->addInput('hidden', 'envo_option_name_old[]', $o["name"]);
+                      echo $Html->addInput('hidden', 'envo_optionsort_old[]', $o["forder"], '', 'cforder');
+                      echo $Html->addInput('hidden', 'envo_optionid[]', $o["id"]);
                       ?>
 
                     </div>

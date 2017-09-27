@@ -3,7 +3,7 @@
  * JS for Plugin Blog - ADMIN
  * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
- * Author: Thomas
+ * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
  * INDEX:
@@ -65,7 +65,7 @@ if ($('#htmleditor').length) {
   // set editor.$blockScrolling = Infinity to disable this message
   htmlACE.$blockScrolling = Infinity;
 
-  texthtml = $('#jak_editor').val();
+  texthtml = $('#envo_editor').val();
   htmlACE.session.setValue(texthtml);
 
 }
@@ -74,7 +74,7 @@ if ($('#csseditor').length) {
   var cssACE = ace.edit("csseditor");
   cssACE.setTheme("ace/theme/chrome");
   cssACE.session.setMode("ace/mode/html");
-  textcss = $("#jak_css").val();
+  textcss = $("#envo_css").val();
   cssACE.session.setValue(textcss);
   cssACE.$blockScrolling = Infinity;
 }
@@ -83,7 +83,7 @@ if ($('#javaeditor').length) {
   var jsACE = ace.edit("javaeditor");
   jsACE.setTheme("ace/theme/chrome");
   jsACE.session.setMode("ace/mode/html");
-  textjs = $("#jak_javascript").val();
+  textjs = $("#envo_javascript").val();
   jsACE.session.setValue(textjs);
   jsACE.$blockScrolling = Infinity;
 }
@@ -121,14 +121,14 @@ $(function () {
   /* Submit Form
    ========================================= */
   $('form').submit(function () {
-    if ($('#jak_editor').length > 0) {
-      $("#jak_editor").val(htmlACE.getValue());
+    if ($('#envo_editor').length > 0) {
+      $("#envo_editor").val(htmlACE.getValue());
     }
     if ($('#csseditor').length > 0) {
-      $("#jak_css").val(cssACE.getValue());
+      $("#envo_css").val(cssACE.getValue());
     }
     if ($('#javaeditor').length > 0) {
-      $("#jak_javascript").val(jsACE.getValue());
+      $("#envo_javascript").val(jsACE.getValue());
     }
   });
 
@@ -152,7 +152,7 @@ $(function () {
 
   /* Check all checkbox
    ========================================= */
-  $("#jak_delete_all").click(function () {
+  $("#envo_delete_all").click(function () {
     var checkedStatus = this.checked;
     $(".highlight").each(function () {
       $(this).prop('checked', checkedStatus);
@@ -179,9 +179,9 @@ $(function () {
 
 $(function () {
 
-  $("#jak_name").keyup(function () {
+  $("#envo_name").keyup(function () {
     // Checked, copy values
-    $("#jak_varname").val(jakSlug($("#jak_name").val()));
+    $("#envo_varname").val(envoSlug($("#envo_name").val()));
   });
 
 });
@@ -207,7 +207,7 @@ $(function () {
   });
 
   $('.iconpicker').on('change', function (e) {
-    $("#jak_img").val('fa ' + e.icon);
+    $("#envo_img").val('fa ' + e.icon);
   });
 
   $('.iconpicker1').iconpicker({
@@ -225,7 +225,7 @@ $(function () {
   });
 
   $('.iconpicker1').on('change', function (e) {
-    $("#jak_img").val('glyphicons ' + e.icon);
+    $("#envo_img").val('glyphicons ' + e.icon);
   });
 
 });

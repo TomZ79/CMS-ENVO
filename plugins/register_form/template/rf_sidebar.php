@@ -1,6 +1,6 @@
 <?php if ($jkv["showloginside"]) { ?>
   <aside class="sidebar">
-    <?php if (!JAK_USERID) {
+    <?php if (!ENVO_USERID) {
       if (isset($_SESSION['password_recover'])) {
 
         echo '<div class="alert bg-success"><h4>' . $tl['login']['l7'] . '</h4></div>';
@@ -16,13 +16,13 @@
       <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
         <div class="form-group<?php if (isset($errorlo["e"])) echo " has-error"; ?>">
           <label class="control-label" for="username"><?php echo $tl["login"]["l1"]; ?></label>
-          <input type="text" name="jakU" id="username" class="form-control"
-            value="<?php if (isset($_REQUEST["jakU"])) echo $_REQUEST["jakU"]; ?>"
+          <input type="text" name="envoU" id="username" class="form-control"
+            value="<?php if (isset($_REQUEST["envoU"])) echo $_REQUEST["envoU"]; ?>"
             placeholder="<?php echo $tl["login"]["l1"]; ?>"/>
         </div>
         <div class="form-group<?php if (isset($errorlo["e"])) echo " has-error"; ?>">
           <label class="control-label" for="password"><?php echo $tl["login"]["l2"]; ?></label>
-          <input type="password" name="jakP" id="password" class="form-control" value=""
+          <input type="password" name="envoP" id="password" class="form-control" value=""
             placeholder="<?php echo $tl["login"]["l2"]; ?>"/>
         </div>
         <div class="form-group">
@@ -42,7 +42,7 @@
       <form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
         <div class="form-group<?php if (isset($errorfp["e"])) echo " has-error"; ?>">
           <label class="control-label" for="email"><?php echo $tl["login"]["l5"]; ?></label>
-          <input type="email" name="jakE" id="email" class="form-control" value=""
+          <input type="email" name="envoE" id="email" class="form-control" value=""
             placeholder="<?php echo $tl["login"]["l5"]; ?>"/>
         </div>
         <button type="submit" name="forgotP"
@@ -51,19 +51,19 @@
       </form>
 
     <?php } else { ?>
-      <h4><?php echo str_replace("%s", $JAK_USERNAME, $tl["general"]["g8"]); ?></h4>
+      <h4><?php echo str_replace("%s", $ENVO_USERNAME, $tl["general"]["g8"]); ?></h4>
       <div class="about">
         <!-- Author Photo -->
         <div class="author-photo">
-          <img src="<?php echo BASE_URL . JAK_FILES_DIRECTORY . '/userfiles' . $jakuser->getVar("picture"); ?>"
+          <img src="<?php echo BASE_URL . ENVO_FILES_DIRECTORY . '/userfiles' . $envouser->getVar("picture"); ?>"
             alt="avatar">
         </div>
         <div class="about-bubble">
           <blockquote>
             <!-- Author Info -->
             <cite class="author-info">
-              - <?php echo $tl["contact"]["c1"]; ?>: <?php echo $jakuser->getVar("name"); ?><br>
-              - <?php echo $tl["contact"]["c2"]; ?>: <?php echo $jakuser->getVar("email"); ?>
+              - <?php echo $tl["contact"]["c1"]; ?>: <?php echo $envouser->getVar("name"); ?><br>
+              - <?php echo $tl["contact"]["c2"]; ?>: <?php echo $envouser->getVar("email"); ?>
             </cite>
           </blockquote>
           <div class="sprite arrow-speech-bubble"></div>

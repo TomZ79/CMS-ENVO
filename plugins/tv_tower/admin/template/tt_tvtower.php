@@ -109,7 +109,7 @@ if ($page2 == "n") { ?>
 
 </div>
 
-<?php if (!empty($JAK_TVTOWER_ALL) && is_array($JAK_TVTOWER_ALL)) { ?>
+<?php if (!empty($ENVO_TVTOWER_ALL) && is_array($ENVO_TVTOWER_ALL)) { ?>
 
   <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="box box-success">
@@ -124,8 +124,8 @@ if ($page2 == "n") { ?>
                 <?php
                 // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                 // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                echo $Html->addCheckbox('', '', FALSE, 'jak_delete_all');
-                echo $Html->addLabel('jak_delete_all', '');
+                echo $Html->addCheckbox('', '', FALSE, 'envo_delete_all');
+                echo $Html->addLabel('envo_delete_all', '');
                 ?>
 
               </div>
@@ -136,7 +136,7 @@ if ($page2 == "n") { ?>
             <th class="col-md-2 no-sort"></th>
           </tr>
           </thead>
-          <?php foreach ($JAK_TVTOWER_ALL as $tt) { ?>
+          <?php foreach ($ENVO_TVTOWER_ALL as $tt) { ?>
             <tr>
               <td><?php echo $tt["id"]; ?></td>
               <td>
@@ -145,8 +145,8 @@ if ($page2 == "n") { ?>
                   <?php
                   // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                   // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                  echo $Html->addCheckbox('jak_delete_tvtower[]', $tt["id"], FALSE, 'jak_delete_tvtower' . $tt["id"], 'highlight');
-                  echo $Html->addLabel('jak_delete_tvtower' . $tt["id"], '');
+                  echo $Html->addCheckbox('envo_delete_tvtower[]', $tt["id"], FALSE, 'envo_delete_tvtower' . $tt["id"], 'highlight');
+                  echo $Html->addLabel('envo_delete_tvtower' . $tt["id"], '');
                   ?>
 
                 </div>

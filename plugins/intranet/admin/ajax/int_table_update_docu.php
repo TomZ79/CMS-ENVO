@@ -39,7 +39,7 @@ if ($input['action'] === 'edit') {
   $result = $envodb->query('SELECT fullpath FROM ' . DB_PREFIX . 'intranethousedocu WHERE id = "' . $input['id'] . '"');
   $row    = $result->fetch_assoc();
 
-  $fullpath = APP_PATH . JAK_FILES_DIRECTORY . $row['fullpath'];
+  $fullpath = APP_PATH . ENVO_FILES_DIRECTORY . $row['fullpath'];
   unlink($fullpath);
 
   // Delete row in DB

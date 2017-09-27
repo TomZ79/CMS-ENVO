@@ -352,24 +352,24 @@
 						<div class="box-body">
 							<div class="block">
 								<div class="block-content">
-									<div class="row-form <?php if (!$JAK_FILECONTENT1) {
+									<div class="row-form <?php if (!$ENVO_FILECONTENT1) {
 										echo "hidden";
 									} ?>">
 										<div class="col-md-12">
 											<h4>
 												<?php echo $tlporto["sl_box_title"]["slbt1"]; ?>
-												<small><strong><?php echo $JAK_FILEURL1; ?></strong></small>
+												<small><strong><?php echo $ENVO_FILEURL1; ?></strong></small>
 											</h4>
 											<hr>
 											<p><?php echo $tlporto["sl_box_title"]["slbt3"]; ?></p>
 										</div>
 									</div>
-									<?php if ($JAK_FILECONTENT1) { ?>
+									<?php if ($ENVO_FILECONTENT1) { ?>
 										<div class="row-form">
 											<div class="col-md-12">
-												<label for="jak_filecontent2"><?php echo $tlporto["sl_box_title"]["slbt2"]; ?></label>
+												<label for="envo_filecontent2"><?php echo $tlporto["sl_box_title"]["slbt2"]; ?></label>
 												<div id="htmleditor2"></div>
-												<textarea name="jak_filecontent2" id="jak_filecontent2" class="form-control hidden"><?php echo $JAK_FILECONTENT1; ?></textarea>
+												<textarea name="envo_filecontent2" id="envo_filecontent2" class="form-control hidden"><?php echo $ENVO_FILECONTENT1; ?></textarea>
 											</div>
 										</div>
 									<?php } ?>
@@ -386,7 +386,7 @@
 						</div>
 					</div>
 
-					<input type="hidden" name="jak_file2" value="<?php echo $JAK_FILEURL1; ?>"/>
+					<input type="hidden" name="envo_file2" value="<?php echo $ENVO_FILEURL1; ?>"/>
 
 				</div>
 			</div>
@@ -569,22 +569,22 @@
 						<div class="box-body">
 							<div class="block">
 								<div class="block-content">
-									<div class="row-form <?php if (!$JAK_FILECONTENT) {
+									<div class="row-form <?php if (!$ENVO_FILECONTENT) {
 										echo "hidden";
 									} ?>">
 										<div class="col-md-12">
 											<h4>
 												<?php echo $tlporto["sl_box_title"]["slbt1"]; ?>
-												<small><strong><?php echo $JAK_FILEURL; ?></strong></small>
+												<small><strong><?php echo $ENVO_FILEURL; ?></strong></small>
 											</h4>
 										</div>
 									</div>
-									<?php if ($JAK_FILECONTENT) { ?>
+									<?php if ($ENVO_FILECONTENT) { ?>
 										<div class="row-form">
 											<div class="col-md-12">
-												<label for="jak_filecontent"><?php echo $tlporto["sl_box_title"]["slbt2"]; ?></label>
+												<label for="envo_filecontent"><?php echo $tlporto["sl_box_title"]["slbt2"]; ?></label>
 												<div id="htmleditor"></div>
-												<textarea name="jak_filecontent" id="jak_filecontent" class="form-control hidden"><?php echo $JAK_FILECONTENT; ?></textarea>
+												<textarea name="envo_filecontent" id="envo_filecontent" class="form-control hidden"><?php echo $ENVO_FILECONTENT; ?></textarea>
 											</div>
 										</div>
 									<?php } ?>
@@ -601,7 +601,7 @@
 						</div>
 					</div>
 
-					<input type="hidden" name="jak_file" value="<?php echo $JAK_FILEURL; ?>"/>
+					<input type="hidden" name="envo_file" value="<?php echo $ENVO_FILEURL; ?>"/>
 
 				</div>
 			</div>

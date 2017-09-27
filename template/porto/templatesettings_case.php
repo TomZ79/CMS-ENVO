@@ -17,7 +17,7 @@ $langfile    = $langdir . $site_language . '.ini';
 // EN: Check if folder is writable
 // CZ: Kontrola zda je lze zapisovat do složky
 if (!is_writable ($phpdir) || !is_writable ($langdir)) {
-  $JAK_FILE_ERROR = 1;
+  $ENVO_FILE_ERROR = 1;
 }
 
 // EN: Save data from Form to DB (method POST)
@@ -66,24 +66,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   // EN: Save language file
   // CZ: Uložení jazykového souboru
-  $openfedit = fopen ($defaults['jak_file'], "w+");
-  $datasave  = $defaults['jak_filecontent'];
+  $openfedit = fopen ($defaults['envo_file'], "w+");
+  $datasave  = $defaults['envo_filecontent'];
   $datasave  = preg_replace ('<JAK-DO-NOT-EDIT-TEXTAREA>', '/textarea', $datasave);
   $datasave  = stripslashes ($datasave);
   if (fwrite ($openfedit, $datasave)) {
-    $JAK_FILE_SUCCESS = 1;
+    $ENVO_FILE_SUCCESS = 1;
   }
 
   fclose ($openfedit);
 
   // EN: Save php file
   // CZ: Uložení php souboru
-  $openfedit = fopen ($defaults['jak_file2'], "w+");
-  $datasave  = $defaults['jak_filecontent2'];
+  $openfedit = fopen ($defaults['envo_file2'], "w+");
+  $datasave  = $defaults['envo_filecontent2'];
   $datasave  = preg_replace ('<JAK-DO-NOT-EDIT-TEXTAREA>', '/textarea', $datasave);
   $datasave  = stripslashes ($datasave);
   if (fwrite ($openfedit, $datasave)) {
-    $JAK_FILE_SUCCESS = 1;
+    $ENVO_FILE_SUCCESS = 1;
   }
 
   fclose ($openfedit);
@@ -113,8 +113,8 @@ if (file_exists ($langfile)) {
   $openfile        = fopen ($langfile, 'r');
   $filecontent     = @fread ($openfile, filesize ($langfile));
   $displaycontent  = preg_replace ('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
-  $JAK_FILECONTENT = $displaycontent;
-  $JAK_FILEURL     = $langfile;
+  $ENVO_FILECONTENT = $displaycontent;
+  $ENVO_FILEURL     = $langfile;
 
   fclose ($openfile);
 }
@@ -124,8 +124,8 @@ if (file_exists ($phpfile)) {
   $openfile1        = fopen ($phpfile, 'r');
   $filecontent1     = @fread ($openfile1, filesize ($phpfile));
   $displaycontent1  = preg_replace ('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent1);
-  $JAK_FILECONTENT1 = $displaycontent1;
-  $JAK_FILEURL1     = $phpfile;
+  $ENVO_FILECONTENT1 = $displaycontent1;
+  $ENVO_FILEURL1     = $phpfile;
 
   fclose ($openfile1);
 }

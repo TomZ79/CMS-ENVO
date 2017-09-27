@@ -8,9 +8,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 // Check if the file is accessed only from a admin if not stop the script from running
 $php_errormsg = 'To edit the file, you must be logged in as an ADMINISTRATOR !!! You cannot access this file directly.';
 $php_errormsg1 = 'Only ADMINISTRATOR privileges allow you to edit the file !!! You cannot access this file directly.';
-if (!JAK_USERID) die($php_errormsg);
+if (!ENVO_USERID) die($php_errormsg);
 
-if (!$jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) die($php_errormsg1);
+if (!$envouser->envoAdminAccess($envouser->getVar("usergroupid"))) die($php_errormsg1);
 
 // Set successfully to zero
 $succesfully = 0;
@@ -162,9 +162,9 @@ if (file_exists(APP_PATH . 'plugins/register_form/admin/lang/' . $site_language 
 
       // EN: Insert data to table 'plugins' about this plugin
       // CZ: Zápis dat do tabulky 'plugins' o tomto pluginu
-      $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Register_form", "Create a register form and connect it to any page you like", 1, ' . JAK_USERID . ', 4, "register_form", "require_once APP_PATH.\'plugins/register_form/register.php\';", "if ($page == \'register-form\') {
+      $envodb->query('INSERT INTO ' . DB_PREFIX . 'plugins (`id`, `name`, `description`, `active`, `access`, `pluginorder`, `pluginpath`, `phpcode`, `phpcodeadmin`, `sidenavhtml`, `managenavhtml`, `usergroup`, `uninstallfile`, `pluginversion`, `time`) VALUES (NULL, "Register_form", "Create a register form and connect it to any page you like", 1, ' . ENVO_USERID . ', 4, "register_form", "require_once APP_PATH.\'plugins/register_form/register.php\';", "if ($page == \'register-form\') {
         require_once APP_PATH.\'plugins/register_form/admin/register.php\';
-        $JAK_PROVED = 1;
+        $ENVO_PROVED = 1;
         $checkp = 1;
      }", "", "../plugins/register_form/admin/template/registerfnav.php", 1, "uninstall.php", "1.2", NOW())');
 
@@ -195,11 +195,11 @@ if (file_exists(APP_PATH . 'plugins/register_form/admin/lang/' . $site_language 
       //
       $pn_include = 'if ($row[\'showregister\'] == 1) {
 	include_once APP_PATH.\'plugins/register_form/rf_createform.php\';
-	$JAK_SHOW_R_FORM = jak_create_register_form($tl[\'form_text\'][\'formt\'], \'\', true);
+	$ENVO_SHOW_R_FORM = envo_create_register_form($tl[\'form_text\'][\'formt\'], \'\', true);
 }';
 
       //
-      $pages = 'if ($pg[\'pluginid\'] == JAK_PLUGIN_REGISTER_FORM) {
+      $pages = 'if ($pg[\'pluginid\'] == ENVO_PLUGIN_REGISTER_FORM) {
 
 include_once APP_PATH.\'plugins/register_form/admin/template/rf_connect.php\';
 
@@ -207,7 +207,7 @@ include_once APP_PATH.\'plugins/register_form/admin/template/rf_connect.php\';
 
       // EN: Php code for insert data to DB
       // CZ: Php kód pro vložení dat do DB
-      $sqlinsert = '$insert .= \'showregister = \"\'.smartsql($defaults[\'jak_rfconnect\']).\'\",\';';
+      $sqlinsert = '$insert .= \'showregister = \"\'.smartsql($defaults[\'envo_rfconnect\']).\'\",\';';
 
       //
       $index_page = 'include_once APP_PATH.\'plugins/register_form/rf_post.php\';if ($page == \'rf_ual\') {
@@ -222,11 +222,11 @@ if (is_numeric($page1) && is_numeric($page2) && envo_row_exist($page1, DB_PREFIX
 		$_SESSION[\'idhash\'] = $nidhash;
 	
 if (!$result) {
-	envo_redirect(JAK_PARSE_ERROR);
+	envo_redirect(ENVO_PARSE_ERROR);
 } else {
 
 	// Get the agreement page details!
-	foreach ($jakcategories as $sap) {
+	foreach ($envocategories as $sap) {
 			
 			if ($jkv[\"rf_redirect\"] == $sap[\'id\']) {
 				$register_redirect = ENVO_rewrite::envoParseurl($sap[\'pagename\'], \'\', \'\', \'\', \'\');

@@ -2,7 +2,7 @@
 
   <div class="box">
     <div class="box-body no-padding">
-      <?php if (isset($JAK_STAT_DATA) && is_array($JAK_STAT_DATA)) foreach ($JAK_STAT_DATA as $v) { ?>
+      <?php if (isset($ENVO_STAT_DATA) && is_array($ENVO_STAT_DATA)) foreach ($ENVO_STAT_DATA as $v) { ?>
         <div style="float: left;border-bottom: 1px solid #e8e8e8;margin-bottom: 5px;">
 
           <div style="float: left;background: #f4f4f4;border: 2px solid #cecdcd;border-radius: 5px;padding: 10px;text-align: center;margin: 5px;width: 155px;">

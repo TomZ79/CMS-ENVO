@@ -1,12 +1,12 @@
-<?php if ($pg["pluginid"] == JAK_PLUGIN_FAQ) { ?>
+<?php if ($pg["pluginid"] == ENVO_PLUGIN_FAQ) { ?>
 
-  <li class="jakcontent">
-    <div class="jakcontent_header"><?php echo $tlf["faq_connect"]["faqc10"]; ?></div>
+  <li class="envocontent">
+    <div class="envocontent_header"><?php echo $tlf["faq_connect"]["faqc10"]; ?></div>
     <div class="form-group">
       <label class="control-label"><?php echo $tlf["faq_connect"]["faqc7"]; ?></label>
       <div class="row">
         <div class="col-md-6">
-          <select name="jak_showfaqorder" class="form-control selectpicker">
+          <select name="envo_showfaqorder" class="form-control selectpicker">
 
             <?php
             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -17,7 +17,7 @@
           </select>
         </div>
         <div class="col-md-6">
-          <select name="jak_showfaqmany" class="form-control selectpicker">
+          <select name="envo_showfaqmany" class="form-control selectpicker">
 
             <?php for ($i = 0; $i <= 10; $i++) {
 
@@ -33,14 +33,14 @@
 
     <div class="form-group">
       <label class="control-label"><?php echo $tlf["faq_connect"]["faqc8"]; ?></label>
-      <select name="jak_showfaq[]" multiple="multiple" class="form-control">
+      <select name="envo_showfaq[]" multiple="multiple" class="form-control">
 
         <?php
         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
         $selected = (isset($ENVO_FORM_DATA["showfaq"]) && $ENVO_FORM_DATA["showfaq"] == 0) ? TRUE : FALSE;
 
         echo $Html->addOption('0', $tlf["faq_connect"]["faqc9"], $selected);
-        if (isset($JAK_GET_FAQ) && is_array($JAK_GET_FAQ)) foreach ($JAK_GET_FAQ as $fq) {
+        if (isset($ENVO_GET_FAQ) && is_array($ENVO_GET_FAQ)) foreach ($ENVO_GET_FAQ as $fq) {
 
           echo $Html->addOption($fq["id"], $fq["title"], (isset($ENVO_FORM_DATA["showfaq"]) && (in_array($fq["id"], explode(',', $ENVO_FORM_DATA["showfaq"])))) ? TRUE : FALSE);
 

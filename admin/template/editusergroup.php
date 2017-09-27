@@ -67,7 +67,7 @@ if ($errors) { ?>
           <span class="text"><?php echo $tl["userg_section_tab"]["usergtab"]; ?></span>
         </a>
       </li>
-      <?php if (isset($JAK_HOOK_ADMIN_USERGROUP_EDIT)) { ?>
+      <?php if (isset($ENVO_HOOK_ADMIN_USERGROUP_EDIT)) { ?>
         <li role="presentation" class="next">
           <a href="#cmsPage2" role="tab" id="cmsPage2-tab" data-toggle="tab" aria-controls="cmsPage2">
             <span class="text"><?php echo $tl["userg_section_tab"]["usergtab1"]; ?></span>
@@ -172,7 +172,7 @@ if ($errors) { ?>
             </div>
           </div>
           <div class="col-md-4">
-            <?php if (JAK_TAGS) { ?>
+            <?php if (ENVO_TAGS) { ?>
               <div class="box box-success">
                 <div class="box-header with-border">
 
@@ -220,11 +220,11 @@ if ($errors) { ?>
           </div>
         </div>
       </div>
-      <?php if (isset($JAK_HOOK_ADMIN_USERGROUP_EDIT)) { ?>
+      <?php if (isset($ENVO_HOOK_ADMIN_USERGROUP_EDIT)) { ?>
         <div role="tabpanel" class="tab-pane fade" id="cmsPage2" aria-labelledby="cmsPage2-tab">
           <div class="row">
             <div class="col-md-12">
-              <?php if (isset($JAK_HOOK_ADMIN_USERGROUP_EDIT) && is_array($JAK_HOOK_ADMIN_USERGROUP_EDIT)) foreach ($JAK_HOOK_ADMIN_USERGROUP_EDIT as $hs) {
+              <?php if (isset($ENVO_HOOK_ADMIN_USERGROUP_EDIT) && is_array($ENVO_HOOK_ADMIN_USERGROUP_EDIT)) foreach ($ENVO_HOOK_ADMIN_USERGROUP_EDIT as $hs) {
                 include_once APP_PATH . $hs['phpcode'];
               } ?>
             </div>

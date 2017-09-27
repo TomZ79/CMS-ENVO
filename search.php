@@ -2,32 +2,32 @@
 
 // EN: Check if the file is accessed only via index.php if not stop the script from running
 // CZ: Kontrola, zdali je soubor přístupný pouze přes index.php - pokud ne ukončí se script
-if (!defined('JAK_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
+if (!defined('ENVO_PREVENT_ACCESS')) die($tl['general_error']['generror40']);
 
 // EN: Get all the php Hook by name of Hook
 // CZ: Načtení všech php dat z Hook podle jména Hook
-$JAK_HOOK_SEARCH = $envohooks->EnvoGethook("tpl_search");
+$ENVO_HOOK_SEARCH = $envohooks->EnvoGethook("tpl_search");
 
 // Reset vars
-$JAK_SEARCH_WORD_RESULT = $JAK_SEARCH_CLOUD = $SearchInput = FALSE;
+$ENVO_SEARCH_WORD_RESULT = $ENVO_SEARCH_CLOUD = $SearchInput = FALSE;
 
 // Include the class
 include_once 'class/class.search.php';
 
 // Now do the dirty work with the post vars
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jakSH']) || !empty($page1)) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envoSH']) || !empty($page1)) {
 
   // EN: Default Variable
   // CZ: Hlavní proměnné
   $defaults = $_POST;
 
-  if (isset($_POST['jakSH'])) {
+  if (isset($_POST['envoSH'])) {
 
-    if (empty($page1) && $defaults['jakSH'] == '') {
+    if (empty($page1) && $defaults['envoSH'] == '') {
       $errors['e1'] = $tl['searching']['stxt3'] . '<br>';
     }
 
-    if (empty($page1) && strlen($defaults['jakSH']) < '3') {
+    if (empty($page1) && strlen($defaults['envoSH']) < '3') {
       $errors['e2'] = $tl['searching']['stxt4'] . '<br>';
     }
 
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jakSH']) || !empty($pa
     if (!empty($page1)) {
       $SearchInput = filter_var($page1, FILTER_SANITIZE_STRING);
     } else {
-      $SearchInput = filter_var($defaults['jakSH'], FILTER_SANITIZE_STRING);
+      $SearchInput = filter_var($defaults['envoSH'], FILTER_SANITIZE_STRING);
     }
     $SearchInput = strtolower(smartsql($SearchInput));
 
@@ -62,9 +62,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jakSH']) || !empty($pa
     $pages->envoFieldstoSelect("t2.varname, t1.title" . ", t1.content" . ", t2.catorder, t2.catparent"); // This will be the output for the template, packed in a array
 
     // Load the page array into template
-    $JAK_SEARCH_RESULT = $pages->set_result('', '', ''); // Now result the search and pack it into the array
+    $ENVO_SEARCH_RESULT = $pages->set_result('', '', ''); // Now result the search and pack it into the array
 
-    if (JAK_NEWS_ACTIVE) {
+    if (ENVO_NEWS_ACTIVE) {
       // Standard search for all news
       $news = new ENVO_search($SearchInput);
       $news->envoSetTable("news", ''); // array for pages and cat
@@ -75,13 +75,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jakSH']) || !empty($pa
       $news->envoFieldstoSearch(array('title', 'content')); // This fields will be searched
       $news->envoFieldstoSelect("id, title" . ", content"); // This will be the output for the template, packed in a array
 
-      $JAK_SEARCH_RESULT_NEWS = $news->set_result(JAK_PLUGIN_VAR_NEWS, 'a', 1);
+      $ENVO_SEARCH_RESULT_NEWS = $news->set_result(ENVO_PLUGIN_VAR_NEWS, 'a', 1);
     }
 
     // Fire the search for the template
-    $JAK_SEARCH_USED = TRUE;
+    $ENVO_SEARCH_USED = TRUE;
 
-    if ((is_array($JAK_SEARCH_RESULT) || is_array($JAK_SEARCH_RESULT_NEWS)) && !$page1) {
+    if ((is_array($ENVO_SEARCH_RESULT) || is_array($ENVO_SEARCH_RESULT_NEWS)) && !$page1) {
       ENVO_search::search_cloud($SearchInput);
     }
 
@@ -89,8 +89,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jakSH']) || !empty($pa
 }
 
 // Always tell the searchword
-$JAK_SEARCH_WORD_RESULT = $SearchInput;
-$JAK_SEARCH_CLOUD       = ENVO_tags::envoGettagcloud('search', 'searchlog', $jkv["taglimit"], $jkv["tagmaxfont"], $jkv["tagminfont"], $tl["title_element"]["tel"]);
+$ENVO_SEARCH_WORD_RESULT = $SearchInput;
+$ENVO_SEARCH_CLOUD       = ENVO_tags::envoGettagcloud('search', 'searchlog', $jkv["taglimit"], $jkv["tagmaxfont"], $jkv["tagminfont"], $tl["title_element"]["tel"]);
 
 // EN: Set data for the frontend page - Title, Description, Keywords and other ...
 // CZ: Nastavení dat pro frontend stránku - Titulek, Popis, Klíčová slova a další ...
@@ -99,16 +99,16 @@ $PAGE_CONTENT = $jkv["searchdesc"];
 $PAGE_SHOWTITLE = 1;
 
 // Get the sort orders for the grid
-$JAK_HOOK_SIDE_GRID = FALSE;
+$ENVO_HOOK_SIDE_GRID = FALSE;
 $grid               = $envodb->query('SELECT id, hookid, pluginid, whatid, orderid FROM ' . DB_PREFIX . 'pagesgrid WHERE plugin = 999999 ORDER BY orderid ASC');
 while ($grow = $grid->fetch_assoc()) {
   // EN: Insert each record into array
   // CZ: Vložení získaných dat do pole
-  $JAK_HOOK_SIDE_GRID[] = $grow;
+  $ENVO_HOOK_SIDE_GRID[] = $grow;
 }
 
 // Now get the new meta keywords and description maker
-$PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl($tl["placeholder"]["plc"]) . ($JAK_SEARCH_CLOUD ? "," . strip_tags($JAK_SEARCH_CLOUD) : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+$PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl($tl["placeholder"]["plc"]) . ($ENVO_SEARCH_CLOUD ? "," . strip_tags($ENVO_SEARCH_CLOUD) : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
 $PAGE_DESCRIPTION = $jkv["metadesc"];
 
 // EN: Load the php template

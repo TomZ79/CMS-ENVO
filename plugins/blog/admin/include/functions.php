@@ -29,7 +29,7 @@ function envo_build_menu_blog($parent, $menu, $lang, $title1, $title2, $title3, 
     foreach ($menu['parents'][$parent] as $itemId) {
       // Build menu for Blog categories
       if (!isset($menu['parents'][$itemId])) {
-        $html .= '<li id="menuItem_' . $menu["items"][$itemId]["id"] . '" class="jakcat">
+        $html .= '<li id="menuItem_' . $menu["items"][$itemId]["id"] . '" class="envocat">
           		<div>
           		<span class="text"><span class="textid">#' . $menu["items"][$itemId]["id"] . '</span><a href="index.php?p=blog&amp;sp=categories&amp;ssp=edit&amp;sssp=' . $menu["items"][$itemId]["id"] . '">' . $menu["items"][$itemId]["name"] . '</a></span>
           		<span class="actions">
@@ -41,7 +41,7 @@ function envo_build_menu_blog($parent, $menu, $lang, $title1, $title2, $title3, 
       }
       // Build menu for ...
       if (isset($menu['parents'][$itemId])) {
-        $html .= '<li id="menuItem_' . $menu["items"][$itemId]["id"] . '" class="jakcat">
+        $html .= '<li id="menuItem_' . $menu["items"][$itemId]["id"] . '" class="envocat">
           		<div>
           		<span class="text"><span class="textid">#' . $menu["items"][$itemId]["id"] . '</span><a href="index.php?p=blog&amp;sp=categories&amp;ssp=edit&amp;sssp=' . $menu["items"][$itemId]["id"] . '">' . $menu["items"][$itemId]["name"] . '</a></span>
           		<span class="actions">

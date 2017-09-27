@@ -33,7 +33,7 @@ for($i=0; $i < count($filenames); $i++){
   $ext = explode('.', basename($filenames[$i]));
   $filename = md5(uniqid());
   $filenameext = $filename . "." . array_pop($ext);
-  $target = $_SERVER['DOCUMENT_ROOT'] . '/' . JAK_FILES_DIRECTORY . '/facebook' . DIRECTORY_SEPARATOR . $filenameext ;
+  $target = $_SERVER['DOCUMENT_ROOT'] . '/' . ENVO_FILES_DIRECTORY . '/facebook' . DIRECTORY_SEPARATOR . $filenameext ;
 
   if(move_uploaded_file($images['tmp_name'][$i], $target)) {
     $success = true;
@@ -47,8 +47,8 @@ for($i=0; $i < count($filenames); $i++){
 
   // EN: Base variable
   // CZ: Nastavení základních proměných
-  $fileDir = '/' . JAK_FILES_DIRECTORY . '/facebook/';
-  $fileDirThumb = '/' . JAK_FILES_DIRECTORY . '/facebook/thumb/';
+  $fileDir = '/' . ENVO_FILES_DIRECTORY . '/facebook/';
+  $fileDirThumb = '/' . ENVO_FILES_DIRECTORY . '/facebook/thumb/';
 
   // EN: Settings all the tables we need for our work
   // CZ: Nastavení všech tabulek, které potřebujeme pro práci
@@ -70,14 +70,14 @@ for($i=0; $i < count($filenames); $i++){
   $envodb->query('INSERT INTO ' . $envotable . ' SET id = NULL,  title = "' . $filenameext . '", paththumb = "' . $fileDirThumb . '", pathoriginal = "' . $fileDir . '", width = "' . $imagesize[0] . '", height = "' . $imagesize[1] . '",  size = "' . filesize($target) . '", time = NOW()');
 
   // *** 1) Initialise / load image
-  $file = $_SERVER['DOCUMENT_ROOT'] . '/' . JAK_FILES_DIRECTORY . '/facebook/' . $filenameext;
+  $file = $_SERVER['DOCUMENT_ROOT'] . '/' . ENVO_FILES_DIRECTORY . '/facebook/' . $filenameext;
   $resizeObj = new resize($file);
 
   // *** 2) Resize image (options: exact, portrait, landscape, auto, crop)
   $resizeObj->resizeImage(200, 200, 'crop');
 
   // *** 3) Save image ('image-name', 'quality [int]')
-  $resizeObj->saveImage($_SERVER['DOCUMENT_ROOT'] . '/' . JAK_FILES_DIRECTORY . '/facebook/thumb/thumb_' . $filenameext, 100);
+  $resizeObj->saveImage($_SERVER['DOCUMENT_ROOT'] . '/' . ENVO_FILES_DIRECTORY . '/facebook/thumb/thumb_' . $filenameext, 100);
 
 }
 

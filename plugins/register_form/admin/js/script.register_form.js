@@ -3,7 +3,7 @@
  * JS for Plugin Register Form - ADMIN
  * Copyright (c) 2016 - 2017 Bluesat.cz
  * -----------------------------------------------------------------------
- * Author: Thomas
+ * Author: BluesatKV
  * Email: bluesatkv@gmail.com
  * =======================================================================
  * INDEX:
@@ -62,7 +62,7 @@ if ($('#htmleditorlight').length > 0) {
   // set editor.$blockScrolling = Infinity to disable this message
   htmlACE.$blockScrolling = Infinity;
 
-  texthtml = $("#jak_editor_light").val();
+  texthtml = $("#envo_editor_light").val();
   htmlACE.session.setValue(texthtml);
 }
 
@@ -86,7 +86,7 @@ if ($('#htmleditorlight1').length > 0) {
   // set editor.$blockScrolling = Infinity to disable this message
   htmlACE1.$blockScrolling = Infinity;
 
-  texthtml = $("#jak_editor_light1").val();
+  texthtml = $("#envo_editor_light1").val();
   htmlACE1.session.setValue(texthtml);
 }
 
@@ -94,9 +94,9 @@ $(function () {
   /* Submit Form
    ========================================= */
   $('form').submit(function () {
-    if ($('#jak_editor_light').length > 0) {
-      $("#jak_editor_light").val(htmlACE.getValue());
-      $("#jak_editor_light1").val(htmlACE1.getValue());
+    if ($('#envo_editor_light').length > 0) {
+      $("#envo_editor_light").val(htmlACE.getValue());
+      $("#envo_editor_light1").val(htmlACE1.getValue());
     }
   });
 

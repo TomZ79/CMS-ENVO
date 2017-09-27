@@ -302,7 +302,7 @@ if ($errors) { ?>
                           $selected = ($ENVO_FORM_DATA["permission"] == '0') ? TRUE : FALSE;
 
                           echo $Html->addOption('0', $tl["cat_box_content"]["catbc7"], $selected);
-                          if (isset($JAK_USERGROUP) && is_array($JAK_USERGROUP)) foreach ($JAK_USERGROUP as $v) {
+                          if (isset($ENVO_USERGROUP) && is_array($ENVO_USERGROUP)) foreach ($ENVO_USERGROUP as $v) {
 
                             $selected = (in_array($v["id"], explode(',', $ENVO_FORM_DATA["permission"]))) ? TRUE : FALSE;
                             echo $Html->addOption($v["id"], $v["name"], $selected);

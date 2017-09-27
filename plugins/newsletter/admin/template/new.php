@@ -95,7 +95,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_title', $_REQUEST["jak_title"], '', 'form-control');
+                      echo $Html->addInput('text', 'envo_title', $_REQUEST["envo_title"], '', 'form-control');
                       ?>
 
                     </div>
@@ -115,14 +115,14 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('jak_showdate', '1', ((isset($_REQUEST["jak_showdate"]) && $_REQUEST["jak_showdate"] == '1') || !isset($_REQUEST["jak_showdate"])) ? TRUE : FALSE, 'jak_showdate1');
+                      echo $Html->addRadio('envo_showdate', '1', ((isset($_REQUEST["envo_showdate"]) && $_REQUEST["envo_showdate"] == '1') || !isset($_REQUEST["envo_showdate"])) ? TRUE : FALSE, 'envo_showdate1');
                       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                      echo $Html->addLabel('jak_showdate1', $tl["checkbox"]["chk"]);
+                      echo $Html->addLabel('envo_showdate1', $tl["checkbox"]["chk"]);
 
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('jak_showdate', '0', ((isset($_REQUEST["jak_showdate"]) && $_REQUEST["jak_showdate"] == '0')) ? TRUE : FALSE, 'jak_showdate2');
+                      echo $Html->addRadio('envo_showdate', '0', ((isset($_REQUEST["envo_showdate"]) && $_REQUEST["envo_showdate"] == '0')) ? TRUE : FALSE, 'envo_showdate2');
                       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                      echo $Html->addLabel('jak_showdate2', $tl["checkbox"]["chk1"]);
+                      echo $Html->addLabel('envo_showdate2', $tl["checkbox"]["chk1"]);
                       ?>
 
                     </div>
@@ -239,7 +239,7 @@ if ($errors) { ?>
 
                   <?php
                   // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                  echo $Html->addTextarea('jak_content', $_REQUEST["jak_content"], '40', '', array('id' => 'nlpost', 'class' => 'form-control jakEditorF'));
+                  echo $Html->addTextarea('envo_content', $_REQUEST["envo_content"], '40', '', array('id' => 'nlpost', 'class' => 'form-control envoEditorF'));
                   ?>
 
                 </td>

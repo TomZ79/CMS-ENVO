@@ -48,15 +48,15 @@ if ($page2 == "e") { ?>
 
   </div>
 
-<?php if (isset($JAK_USER_ALL) && is_array($JAK_USER_ALL)) { ?>
+<?php if (isset($ENVO_USER_ALL) && is_array($ENVO_USER_ALL)) { ?>
 
   <form role="form" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
     <div class="input-group">
-      <select name="jak_group" class="form-control selectpicker">
+      <select name="envo_group" class="form-control selectpicker">
 
         <?php
         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-        if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $z) {
+        if (isset($ENVO_USERGROUP_ALL) && is_array($ENVO_USERGROUP_ALL)) foreach ($ENVO_USERGROUP_ALL as $z) {
           if ($z["id"] != "1") {
             echo $Html->addOption($z["id"], $z["name"]);
           }
@@ -83,8 +83,8 @@ if ($page2 == "e") { ?>
                   <?php
                   // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                   // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                  echo $Html->addCheckbox('', '', FALSE, 'jak_delete_all');
-                  echo $Html->addLabel('jak_delete_all', '');
+                  echo $Html->addCheckbox('', '', FALSE, 'envo_delete_all');
+                  echo $Html->addLabel('envo_delete_all', '');
                   ?>
 
                 </div>
@@ -103,7 +103,7 @@ if ($page2 == "e") { ?>
               </th>
             </tr>
             </thead>
-            <?php foreach ($JAK_USER_ALL as $v) { ?>
+            <?php foreach ($ENVO_USER_ALL as $v) { ?>
               <tr>
                 <td><?php echo $v["id"]; ?></td>
                 <td>
@@ -112,8 +112,8 @@ if ($page2 == "e") { ?>
                     <?php
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                    echo $Html->addCheckbox('jak_delete_user[]', $v["id"], FALSE, 'jak_delete_user' . $v["id"], 'highlight');
-                    echo $Html->addLabel('jak_delete_user' . $v["id"], '');
+                    echo $Html->addCheckbox('envo_delete_user[]', $v["id"], FALSE, 'envo_delete_user' . $v["id"], 'highlight');
+                    echo $Html->addLabel('envo_delete_user' . $v["id"], '');
                     ?>
 
                   </div>
@@ -129,7 +129,7 @@ if ($page2 == "e") { ?>
                 <td><?php echo $v["email"]; ?></td>
                 <td>
 
-                  <?php if (isset($JAK_USERGROUP_ALL) && is_array($JAK_USERGROUP_ALL)) foreach ($JAK_USERGROUP_ALL as $z) {
+                  <?php if (isset($ENVO_USERGROUP_ALL) && is_array($ENVO_USERGROUP_ALL)) foreach ($ENVO_USERGROUP_ALL as $z) {
                     if ($v["usergroupid"] == $z["id"]) {
                       // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
                       echo $Html->addAnchor('index.php?p=newsletter&amp;sp=user&amp;ssp=group&amp;sssp=' . $z["id"], $z["name"]);
@@ -177,7 +177,7 @@ if ($page2 == "e") { ?>
 
   <?php
 
-  if ($JAK_PAGINATE) echo $JAK_PAGINATE;
+  if ($ENVO_PAGINATE) echo $ENVO_PAGINATE;
 
 } else { ?>
 
