@@ -61,7 +61,7 @@ if ($('#htmleditor').length) {
   // set editor.$blockScrolling = Infinity to disable this message
   htmlACE.$blockScrolling = Infinity;
 
-  texthtmlef = $('#jak_phpcode').val();
+  texthtmlef = $('#envo_phpcode').val();
   htmlACE.session.setValue(texthtmlef);
 }
 
@@ -70,11 +70,11 @@ $(function () {
   /* Submit Form
    ========================================= */
   $('form').submit(function () {
-    $('#jak_phpcode').val(htmlACE.getValue());
+    $('#envo_phpcode').val(htmlACE.getValue());
   });
 
   /* Check all checkbox */
-  $('#jak_delete_all').click(function () {
+  $('#envo_delete_all').click(function () {
     var checkedStatus = this.checked;
     $('.highlight').each(function () {
       $(this).prop('checked', checkedStatus);

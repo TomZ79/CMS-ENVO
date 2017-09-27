@@ -61,7 +61,7 @@ if ($('#htmleditor').length) {
   // set editor.$blockScrolling = Infinity to disable this message
   htmlACE.$blockScrolling = Infinity;
 
-  var texthtml = $('#jak_editor').val();
+  var texthtml = $('#envo_editor').val();
   htmlACE.session.setValue(texthtml);
 }
 
@@ -69,7 +69,7 @@ if ($('#csseditor').length) {
   var cssACE = ace.edit("csseditor");
   cssACE.setTheme("ace/theme/chrome");
   cssACE.session.setMode("ace/mode/html");
-  textcss = $('#jak_css').val();
+  textcss = $('#envo_css').val();
   cssACE.session.setValue(textcss);
   cssACE.$blockScrolling = Infinity;
 }
@@ -78,7 +78,7 @@ if ($('#javaeditor').length) {
   var jsACE = ace.edit("javaeditor");
   jsACE.setTheme("ace/theme/chrome");
   jsACE.session.setMode("ace/mode/html");
-  textjs = $('#jak_javascript').val();
+  textjs = $('#envo_javascript').val();
   jsACE.session.setValue(textjs);
   jsACE.$blockScrolling = Infinity;
 }
@@ -116,14 +116,14 @@ $(function () {
   /* Submit Form
    ========================================= */
   $('form').submit(function () {
-    if ($('#jak_editor').length) {
-      $('#jak_editor').val(htmlACE.getValue());
+    if ($('#envo_editor').length) {
+      $('#envo_editor').val(htmlACE.getValue());
     }
     if ($('#csseditor').length) {
-      $('#jak_css').val(cssACE.getValue());
+      $('#envo_css').val(cssACE.getValue());
     }
     if ($('#javaeditor').length) {
-      $('#jak_javascript').val(jsACE.getValue());
+      $('#envo_javascript').val(jsACE.getValue());
     }
   });
 

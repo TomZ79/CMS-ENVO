@@ -62,7 +62,7 @@ if ($('#htmleditor').length) {
   // set editor.$blockScrolling = Infinity to disable this message
   htmlefACE.$blockScrolling = Infinity;
 
-  var texthtmlef = $('#jak_filecontent').val();
+  var texthtmlef = $('#envo_filecontent').val();
   htmlefACE.session.setValue(texthtmlef);
 }
 
@@ -71,7 +71,7 @@ $(function () {
   /* Submit Form
    ========================================= */
   $('form').submit(function () {
-    $('#jak_filecontent').val(htmlefACE.getValue());
+    $('#envo_filecontent').val(htmlefACE.getValue());
   });
 
 });

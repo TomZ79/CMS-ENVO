@@ -18,11 +18,11 @@
 
 $(function () {
 
-  $('input[name=jak_smpt]:radio').change(function () {
-    if ($('input[name=jak_smpt]:checked').val() == "1") {
+  $('input[name=envo_smpt]:radio').change(function () {
+    if ($('input[name=envo_smpt]:checked').val() == "1") {
       $('#smtpsettings').show();
 
-    } else if ($('input[name=jak_smpt]:checked').val() == "0") {
+    } else if ($('input[name=envo_smpt]:checked').val() == "0") {
       $('#smtpsettings').hide();
 
     }

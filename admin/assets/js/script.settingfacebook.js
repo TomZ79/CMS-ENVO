@@ -62,7 +62,7 @@ if ($('#txteditor').length) {
   // set editor.$blockScrolling = Infinity to disable this message
   txtACE.$blockScrolling = Infinity;
 
-  textcontent = $('#jak_filecontent').val();
+  textcontent = $('#envo_filecontent').val();
   txtACE.session.setValue(textcontent);
 }
 
@@ -83,7 +83,7 @@ if ($('#txteditor1').length) {
   });
   txtACE1.$blockScrolling = Infinity;
 
-  textcontent1 = $('#jak_filecontent1').val();
+  textcontent1 = $('#envo_filecontent1').val();
   txtACE1.session.setValue(textcontent1);
 }
 
@@ -92,8 +92,8 @@ $(function () {
   /* Submit Form
    ========================================= */
   $('form').submit(function () {
-    $('#jak_filecontent').val(txtACE.getValue());
-    $('#jak_filecontent1').val(txtACE1.getValue());
+    $('#envo_filecontent').val(txtACE.getValue());
+    $('#envo_filecontent1').val(txtACE1.getValue());
   });
 
 });
