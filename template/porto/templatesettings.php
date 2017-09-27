@@ -58,11 +58,11 @@
 									<div class="row-form">
 										<div class="col-md-5"><strong><?php echo $tlporto["sb_box_content"]["sbbc"]; ?></strong></div>
 										<div class="col-md-7">
-											<select name="headerMetrics" class="form-control selectpicker">
-												<option value="header-area navbar-fixed-top"<?php if ($jktpl["header_metrics_tpl"] == 'header-area navbar-fixed-top') { ?> selected="selected"<?php } ?>>Header 1</option>
-												<option value="header-area navbar-fixed-top header-type-bg"<?php if ($jktpl["header_metrics_tpl"] == 'header-area navbar-fixed-top header-type-bg') { ?> selected="selected"<?php } ?>>Header 2</option>
-												<option value="header-area header-11 navbar-fixed-top"<?php if ($jktpl["header_metrics_tpl"] == 'header-area header-11 navbar-fixed-top') { ?> selected="selected"<?php } ?>>Header 11</option>
-												<option value="header-area header-11 header-12 navbar-fixed-top"<?php if ($jktpl["header_metrics_tpl"] == 'header-area header-11 header-12 navbar-fixed-top') { ?> selected="selected"<?php } ?>>Header 12</option>
+											<select name="headerporto" class="form-control selectpicker">
+												<option value="header-area navbar-fixed-top"<?php if ($jktpl["header_porto_tpl"] == 'header-area navbar-fixed-top') { ?> selected="selected"<?php } ?>>Header 1</option>
+												<option value="header-area navbar-fixed-top header-type-bg"<?php if ($jktpl["header_porto_tpl"] == 'header-area navbar-fixed-top header-type-bg') { ?> selected="selected"<?php } ?>>Header 2</option>
+												<option value="header-area header-11 navbar-fixed-top"<?php if ($jktpl["header_porto_tpl"] == 'header-area header-11 navbar-fixed-top') { ?> selected="selected"<?php } ?>>Header 11</option>
+												<option value="header-area header-11 header-12 navbar-fixed-top"<?php if ($jktpl["header_porto_tpl"] == 'header-area header-11 header-12 navbar-fixed-top') { ?> selected="selected"<?php } ?>>Header 12</option>
 											</select>
 										</div>
 									</div>

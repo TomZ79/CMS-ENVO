@@ -143,8 +143,8 @@ $succesfully = 0;
 
           // Insert data into pluginhooks
           $envodb->query('INSERT INTO ' . DB_PREFIX . 'pluginhooks (`id`, `hook_name`, `name`, `phpcode`, `product`, `active`, `exorder`, `pluginid`, `time`) VALUES
-(NULL, "php_lang", "METRICS Template Site Language", "' . $sitelang . '", "tpl_porto", 1, 4, "0", NOW()),
-(NULL, "php_admin_lang", "METRICS Template Admin Language", "' . $adminlang . '", "tpl_porto", 1, 4, "0", NOW())');
+(NULL, "php_lang", "PORTO Template Site Language", "' . $sitelang . '", "tpl_porto", 1, 4, "0", NOW()),
+(NULL, "php_admin_lang", "PORTO Template Admin Language", "' . $adminlang . '", "tpl_porto", 1, 4, "0", NOW())');
 
           // Insert tables into settings
           /* Table of BASIC varname - NOT REMOVE
@@ -159,6 +159,7 @@ $succesfully = 0;
 ("cms_tpl", "porto", "1", "1", "yesno", "boolean", "tpl_porto"),
 
 
+("header_porto_tpl", "porto", "header-area navbar-fixed-top", "header-area navbar-fixed-top", "input", "free", "tpl_porto"),
 ("sitemapShow_porto_tpl", "porto", "1", "1", "yesno", "boolean", "tpl_porto"),
 ("sitemapLinks_porto_tpl", "porto", "sitemap", "sitemap", "input", "free", "tpl_porto"),
 ("loginShow_porto_tpl", "porto", "1", "1", "yesno", "boolean", "tpl_porto"),

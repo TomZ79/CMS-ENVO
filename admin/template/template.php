@@ -132,7 +132,7 @@ if ($page1 == "e") { ?>
                 if (ENVO_TEMPLATE != $l && !$template_addon) {
 
                   // Add Html Element -> addButton (Arguments: type, value, text, name, id, class, optional assoc. array)
-                  echo $Html->addButton('submit', $l, $tl["button"]["btn5"], 'save', '', 'btn btn-primary btn-sm m-r-5');
+                  echo $Html->addButton('submit', $l, $tl["button"]["btn5"], 'btnSave', '', 'btn btn-primary btn-sm m-r-5');
 
                   if (file_exists('../template/' . $l . '/help.php')) {
 
