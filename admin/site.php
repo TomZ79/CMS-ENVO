@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // CZ: Hlavní proměnné
   $defaults = $_POST;
 
-  if (empty($defaults['jak_title'])) {
+  if (empty($defaults['envo_title'])) {
     $errors['e2'] = $tl['general_error']['generror11'] . '<br>';
   }
 
@@ -27,15 +27,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      * smartsql - secure method to insert form data into a MySQL DB
     */
     $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-                WHEN "offline" THEN ' . $defaults['jak_online'] . '
-                WHEN "offline_page" THEN "' . smartsql($defaults['jak_offpage']) . '"
-                WHEN "notfound_page" THEN "' . smartsql($defaults['jak_pagenotfound']) . '"
-                WHEN "title" THEN "' . smartsql($defaults['jak_title']) . '"
-                WHEN "metadesc" THEN "' . smartsql($defaults['jak_description']) . '"
-                WHEN "metakey" THEN "' . smartsql($defaults['jak_keywords']) . '"
-                WHEN "metaauthor" THEN "' . smartsql($defaults['jak_author']) . '"
-                WHEN "robots" THEN ' . $defaults['jak_robots'] . '
-                WHEN "copyright" THEN "' . smartsql($defaults['jak_copy']) . '"
+                WHEN "offline" THEN ' . $defaults['envo_online'] . '
+                WHEN "offline_page" THEN "' . smartsql($defaults['envo_offpage']) . '"
+                WHEN "notfound_page" THEN "' . smartsql($defaults['envo_pagenotfound']) . '"
+                WHEN "title" THEN "' . smartsql($defaults['envo_title']) . '"
+                WHEN "metadesc" THEN "' . smartsql($defaults['envo_description']) . '"
+                WHEN "metakey" THEN "' . smartsql($defaults['envo_keywords']) . '"
+                WHEN "metaauthor" THEN "' . smartsql($defaults['envo_author']) . '"
+                WHEN "robots" THEN ' . $defaults['envo_robots'] . '
+                WHEN "copyright" THEN "' . smartsql($defaults['envo_copy']) . '"
               END
               WHERE varname IN ("offline","offline_page","notfound_page","title","metadesc","metakey","metaauthor","robots","copyright")');
 

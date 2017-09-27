@@ -30,12 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // CZ: Hlavní proměnné
   $defaults = $_POST;
 
-  $txtfile  = $defaults['jak_filecontent'];
-  $txtfile1 = $defaults['jak_filecontent1'];
+  $txtfile  = $defaults['envo_filecontent'];
+  $txtfile1 = $defaults['envo_filecontent1'];
 
   // Write Facebook name file
-  if (is_writable(APP_PATH . $defaults['jak_file'])) {
-    $openfedit = fopen(APP_PATH . $defaults['jak_file'], "w+");
+  if (is_writable(APP_PATH . $defaults['envo_file'])) {
+    $openfedit = fopen(APP_PATH . $defaults['envo_file'], "w+");
     $datasave  = $txtfile;
     $datasave  = preg_replace('<JAK-DO-NOT-EDIT-TEXTAREA>', '/textarea', $datasave);
     $datasave  = stripslashes($datasave);
@@ -49,8 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   fclose($openfedit);
 
   // Write Facebook description file
-  if (is_writable(APP_PATH . $defaults['jak_file1'])) {
-    $openfedit = fopen(APP_PATH . $defaults['jak_file1'], "w+");
+  if (is_writable(APP_PATH . $defaults['envo_file1'])) {
+    $openfedit = fopen(APP_PATH . $defaults['envo_file1'], "w+");
     $datasave  = $txtfile1;
     $datasave  = preg_replace('<JAK-DO-NOT-EDIT-TEXTAREA>', '/textarea', $datasave);
     $datasave  = stripslashes($datasave);
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    * smartsql - secure method to insert form data into a MySQL DB
   */
   $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-              WHEN "facebookconnect" THEN "' . smartsql($defaults['jak_facebookconnect']) . '"
+              WHEN "facebookconnect" THEN "' . smartsql($defaults['envo_facebookconnect']) . '"
             END
               WHERE varname IN ("facebookconnect")');
 

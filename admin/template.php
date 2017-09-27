@@ -23,13 +23,13 @@ $JAK_FILE_SUCCESS = $JAK_FILE_ERROR = $JAK_FILEURL = $JAK_FILECONTENT = "";
 $defaults         = $_POST;
 
 // Show file in dir - original solution from Jakweb( show file only in main dir)
-function jak_get_template_files($directory, $exempt = array('.', '..', '.ds_store', '.svn', 'preview.jpg', 'index.html', 'js', 'css', 'img', '_cache'), &$files = array())
+function envo_get_template_files($directory, $exempt = array('.', '..', '.ds_store', '.svn', 'preview.jpg', 'index.html', 'js', 'css', 'img', '_cache'), &$files = array())
 {
   $handle = opendir($directory);
   while (FALSE !== ($resource = readdir($handle))) {
     if (!in_array(strtolower($resource), $exempt)) {
       if (is_dir($directory . $resource . '/')) {
-        array_merge($files, jak_get_template_files($directory . $resource . '/', $exempt, $files));
+        array_merge($files, envo_get_template_files($directory . $resource . '/', $exempt, $files));
       } else {
         if (is_writable($directory . '/' . $resource)) {
           $files[] = array('path' => $directory . '/' . $resource, 'name' => $resource);
@@ -125,11 +125,11 @@ switch ($page1) {
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($defaults['edit'])) {
 
-      $openfile        = fopen($defaults['jak_file_edit'], 'r');
-      $filecontent     = @fread($openfile, filesize($defaults['jak_file_edit']));
+      $openfile        = fopen($defaults['envo_file_edit'], 'r');
+      $filecontent     = @fread($openfile, filesize($defaults['envo_file_edit']));
       $displaycontent  = preg_replace('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
       $JAK_FILECONTENT = $displaycontent;
-      $JAK_FILEURL     = $defaults['jak_file_edit'];
+      $JAK_FILEURL     = $defaults['envo_file_edit'];
 
       fclose($openfile);
 
@@ -147,9 +147,9 @@ switch ($page1) {
       // EN: If button "Save Changes" clicked
       // CZ: Pokud bylo stisknuto tlačítko "Uložit"
 
-      if (is_writable($defaults['jak_file'])) {
-        $openfedit = fopen($defaults['jak_file'], "w+");
-        $datasave  = $defaults['jak_filecontent'];
+      if (is_writable($defaults['envo_file'])) {
+        $openfedit = fopen($defaults['envo_file'], "w+");
+        $datasave  = $defaults['envo_filecontent'];
         $datasave  = preg_replace('<JAK-DO-NOT-EDIT-TEXTAREA>', '/textarea', $datasave);
         $datasave  = stripslashes($datasave);
         if (fwrite($openfedit, $datasave)) {
@@ -179,7 +179,7 @@ switch ($page1) {
       }
 
       // Get the important files into template
-      $JAK_GET_TEMPLATE_FILES = jak_get_template_files($cssdir);
+      $JAK_GET_TEMPLATE_FILES = envo_get_template_files($cssdir);
     }
 
     // EN: Title and Description
@@ -199,11 +199,11 @@ switch ($page1) {
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($defaults['edit'])) {
 
-      $openfile        = fopen($defaults['jak_file_edit'], 'r');
-      $filecontent     = @fread($openfile, filesize($defaults['jak_file_edit']));
+      $openfile        = fopen($defaults['envo_file_edit'], 'r');
+      $filecontent     = @fread($openfile, filesize($defaults['envo_file_edit']));
       $displaycontent  = preg_replace('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
       $JAK_FILECONTENT = $displaycontent;
-      $JAK_FILEURL     = $defaults['jak_file_edit'];
+      $JAK_FILEURL     = $defaults['envo_file_edit'];
 
       fclose($openfile);
 
@@ -221,9 +221,9 @@ switch ($page1) {
       // EN: If button "Save Changes" clicked
       // CZ: Pokud bylo stisknuto tlačítko "Uložit"
 
-      if (is_writable($defaults['jak_file'])) {
-        $openfedit = fopen($defaults['jak_file'], "w+");
-        $datasave  = $defaults['jak_filecontent'];
+      if (is_writable($defaults['envo_file'])) {
+        $openfedit = fopen($defaults['envo_file'], "w+");
+        $datasave  = $defaults['envo_filecontent'];
         $datasave  = preg_replace('<JAK-DO-NOT-EDIT-TEXTAREA>', '/textarea', $datasave);
         $datasave  = stripslashes($datasave);
         if (fwrite($openfedit, $datasave)) {
@@ -249,7 +249,7 @@ switch ($page1) {
       }
 
       // Get the important files into template
-      $JAK_GET_TEMPLATE_FILES = jak_get_template_files($langdir);
+      $JAK_GET_TEMPLATE_FILES = envo_get_template_files($langdir);
     }
 
     // EN: Title and Description
@@ -269,11 +269,11 @@ switch ($page1) {
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($defaults['edit'])) {
 
-      $openfile        = fopen($defaults['jak_file_edit'], 'r');
-      $filecontent     = @fread($openfile, filesize($defaults['jak_file_edit']));
+      $openfile        = fopen($defaults['envo_file_edit'], 'r');
+      $filecontent     = @fread($openfile, filesize($defaults['envo_file_edit']));
       $displaycontent  = preg_replace('</textarea>', 'JAK-DO-NOT-EDIT-TEXTAREA', $filecontent);
       $JAK_FILECONTENT = $displaycontent;
-      $JAK_FILEURL     = $defaults['jak_file_edit'];
+      $JAK_FILEURL     = $defaults['envo_file_edit'];
 
       fclose($openfile);
 
@@ -291,9 +291,9 @@ switch ($page1) {
       // EN: If button "Save Changes" clicked
       // CZ: Pokud bylo stisknuto tlačítko "Uložit"
 
-      if (is_writable($defaults['jak_file'])) {
-        $openfedit = fopen($defaults['jak_file'], "w+");
-        $datasave  = $defaults['jak_filecontent'];
+      if (is_writable($defaults['envo_file'])) {
+        $openfedit = fopen($defaults['envo_file'], "w+");
+        $datasave  = $defaults['envo_filecontent'];
         $datasave  = preg_replace('<JAK-DO-NOT-EDIT-TEXTAREA>', '/textarea', $datasave);
         $datasave  = stripslashes($datasave);
         if (fwrite($openfedit, $datasave)) {
@@ -319,7 +319,7 @@ switch ($page1) {
       }
 
       // Get the important files into template
-      $JAK_GET_TEMPLATE_FILES = jak_get_template_files($filedir);
+      $JAK_GET_TEMPLATE_FILES = envo_get_template_files($filedir);
     }
 
     // EN: Title and Description

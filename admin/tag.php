@@ -6,7 +6,7 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSTAGS)) envo_redirect(BASE_URL);
+if (!JAK_USERID || !$jakuser->envoModuleAccess(JAK_USERID, JAK_ACCESSTAGS)) envo_redirect(BASE_URL);
 
 // EN: Settings all the tables we need for our work
 // CZ: Nastavení všech tabulek, které potřebujeme pro práci
@@ -83,15 +83,15 @@ switch ($page1) {
       // CZ: Hlavní proměnné
       $defaults = $_POST;
 
-      if (!is_numeric($defaults['jak_limit'])) {
+      if (!is_numeric($defaults['envo_limit'])) {
         $errors['e1'] = $tl['general_error']['generror27'] . '<br>';
       }
 
-      if (!is_numeric($defaults['jak_min'])) {
+      if (!is_numeric($defaults['envo_min'])) {
         $errors['e2'] = $tl['general_error']['generror27'] . '<br>';
       }
 
-      if (!is_numeric($defaults['jak_max'])) {
+      if (!is_numeric($defaults['envo_max'])) {
         $errors['e3'] = $tl['general_error']['generror27'] . '<br>';
       }
 
@@ -104,16 +104,16 @@ switch ($page1) {
          * smartsql - secure method to insert form data into a MySQL DB
         */
         $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-                    WHEN "tagtitle" THEN "' . smartsql($defaults['jak_title']) . '"
-                    WHEN "tagdesc" THEN "' . smartsql($defaults['jak_lcontent']) . '"
-                    WHEN "taglimit" THEN "' . smartsql($defaults['jak_limit']) . '"
-                    WHEN "tagminfont" THEN "' . smartsql($defaults['jak_min']) . '"
-                    WHEN "tagmaxfont" THEN "' . smartsql($defaults['jak_max']) . '"
+                    WHEN "tagtitle" THEN "' . smartsql($defaults['envo_title']) . '"
+                    WHEN "tagdesc" THEN "' . smartsql($defaults['envo_lcontent']) . '"
+                    WHEN "taglimit" THEN "' . smartsql($defaults['envo_limit']) . '"
+                    WHEN "tagminfont" THEN "' . smartsql($defaults['envo_min']) . '"
+                    WHEN "tagmaxfont" THEN "' . smartsql($defaults['envo_max']) . '"
                   END
                   WHERE varname IN ("tagtitle", "tagdesc", "taglimit", "tagminfont", "tagmaxfont")');
 
         // Save order for sidebar widget
-        if (isset($defaults['jak_hookshow_new']) && is_array($defaults['jak_hookshow_new'])) {
+        if (isset($defaults['envo_hookshow_new']) && is_array($defaults['envo_hookshow_new'])) {
 
           $exorder = $defaults['horder_new'];
           $hookid  = $defaults['real_hook_id_new'];
@@ -123,7 +123,7 @@ switch ($page1) {
 
           foreach ($doith as $key => $exorder) {
 
-            if (in_array($key, $defaults['jak_hookshow_new'])) {
+            if (in_array($key, $defaults['envo_hookshow_new'])) {
 
               // Get the real what id
               $whatid = 0;
@@ -138,7 +138,7 @@ switch ($page1) {
         }
 
         // Now check if all the sidebar a deselct and hooks exist, if so delete all associated to this page
-        if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
+        if (!isset($defaults['envo_hookshow_new']) && !isset($defaults['envo_hookshow'])) {
 
           // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
           $row = $envodb->queryRow('SELECT id FROM ' . $envotable2 . ' WHERE plugin = 3 AND hookid != 0');
@@ -151,7 +151,7 @@ switch ($page1) {
         }
 
         // Save order or delete for extra sidebar widget
-        if (isset($defaults['jak_hookshow']) && is_array($defaults['jak_hookshow'])) {
+        if (isset($defaults['envo_hookshow']) && is_array($defaults['envo_hookshow'])) {
 
           $exorder    = $defaults['horder'];
           $hookid     = $defaults['real_hook_id'];
@@ -172,7 +172,7 @@ switch ($page1) {
             $whatid = 0;
             if (isset($defaults['whatid_' . $row["pluginid"]])) $whatid = $defaults['whatid_' . $row["pluginid"]];
 
-            if (in_array($key, $defaults['jak_hookshow'])) {
+            if (in_array($key, $defaults['envo_hookshow'])) {
               $updatesql .= sprintf("WHEN %d THEN %d ", $key, $exorder);
               $updatesql1 .= sprintf("WHEN %d THEN %d ", $key, $whatid);
 
@@ -246,18 +246,18 @@ switch ($page1) {
   default:
 
     // Let's go on with the script
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jak_delete_tag'])) {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_tag'])) {
       // EN: Default Variable
       // CZ: Hlavní proměnné
       $defaults = $_POST;
 
       if (isset($defaults['delete'])) {
 
-        $tags = $defaults['jak_delete_tag'];
+        $tags = $defaults['envo_delete_tag'];
 
         for ($i = 0; $i < count($tags); $i++) {
           $tag = $tags[$i];
-          ENVO_tags::jakDeleteonetag($tag);
+          ENVO_tags::envoDeleteOneTag($tag);
         }
 
         // EN: Redirect page
@@ -283,12 +283,12 @@ switch ($page1) {
           // Paginator
           if ($getTotal != 0) {
 
-            $tags                 = new JAK_Paginator;
+            $tags                 = new ENVO_paginator;
             $tags->items_total    = $getTotal;
             $tags->mid_range      = $jkv["adminpagemid"];
             $tags->items_per_page = $jkv["adminpageitem"];
-            $tags->jak_get_page   = $page4;
-            $tags->jak_where      = 'index.php?p=tags&sp=sort&ssp=' . $page2 . '&sssp=' . $page3;
+            $tags->envo_get_page   = $page4;
+            $tags->envo_where      = 'index.php?p=tags&sp=sort&ssp=' . $page2 . '&sssp=' . $page3;
             $tags->paginate();
             $JAK_PAGINATE = $tags->display_pages();
 
@@ -306,12 +306,12 @@ switch ($page1) {
           // Paginator
           if ($getTotal != 0) {
 
-            $tags                 = new JAK_Paginator;
+            $tags                 = new ENVO_paginator;
             $tags->items_total    = $getTotal;
             $tags->mid_range      = $jkv["adminpagemid"];
             $tags->items_per_page = $jkv["adminpageitem"];
-            $tags->jak_get_page   = $page4;
-            $tags->jak_where      = 'index.php?p=tags&sp=sort&ssp=' . $page2 . '&sssp=' . $page3;
+            $tags->envo_get_page   = $page4;
+            $tags->envo_where      = 'index.php?p=tags&sp=sort&ssp=' . $page2 . '&sssp=' . $page3;
             $tags->paginate();
             $JAK_PAGINATE = $tags->display_pages();
 
@@ -339,7 +339,7 @@ switch ($page1) {
 
         if (is_numeric($page2)) {
 
-          ENVO_tags::jakLocktag($page2);
+          ENVO_tags::envoLockTag($page2);
 
           // EN: Redirect page
           // CZ: Přesměrování stránky
@@ -355,7 +355,7 @@ switch ($page1) {
       case 'delete':
         if (envo_row_exist($page2, $envotable)) {
 
-          ENVO_tags::jakDeleteonetag($page2);
+          ENVO_tags::envoDeleteOneTag($page2);
 
           // EN: Redirect page
           // CZ: Přesměrování stránky s notifikací - úspěšné
@@ -378,12 +378,12 @@ switch ($page1) {
         $getTotal = envo_get_total($envotable, '', '', '');
         // Paginator
         if ($getTotal != 0) {
-          $tags                 = new JAK_Paginator;
+          $tags                 = new ENVO_paginator;
           $tags->items_total    = $getTotal;
           $tags->mid_range      = $jkv["adminpagemid"];
           $tags->items_per_page = $jkv["adminpageitem"];
-          $tags->jak_get_page   = $page1;
-          $tags->jak_where      = 'index.php?p=tags';
+          $tags->envo_get_page   = $page1;
+          $tags->envo_where      = 'index.php?p=tags';
           $tags->paginate();
           $JAK_PAGINATE = $tags->display_pages();
 

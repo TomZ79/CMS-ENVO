@@ -57,8 +57,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                   <?php
                   // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                   // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                  echo $Html->addCheckbox('', '', false, 'jak_delete_all');
-                  echo $Html->addLabel('jak_delete_all', '');
+                  echo $Html->addCheckbox('', '', false, 'envo_delete_all');
+                  echo $Html->addLabel('envo_delete_all', '');
                   ?>
 
                 </div>
@@ -93,8 +93,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
                     <?php
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                    echo $Html->addCheckbox('jak_delete_contact[]', $v["id"], false, 'jak_delete_contact' . $v["id"], 'highlight');
-                    echo $Html->addLabel('jak_delete_contact' . $v["id"], '');
+                    echo $Html->addCheckbox('envo_delete_contact[]', $v["id"], false, 'envo_delete_contact' . $v["id"], 'highlight');
+                    echo $Html->addLabel('envo_delete_contact' . $v["id"], '');
                     ?>
 
                   </div>

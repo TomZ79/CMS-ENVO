@@ -34,13 +34,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    * smartsql - secure method to insert form data into a MySQL DB
   */
   $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-              WHEN "sitemaptitle" THEN "' . smartsql($defaults['jak_title']) . '"
-              WHEN "sitemapdesc" THEN "' . smartsql($defaults['jak_lcontent']) . '"
+              WHEN "sitemaptitle" THEN "' . smartsql($defaults['envo_title']) . '"
+              WHEN "sitemapdesc" THEN "' . smartsql($defaults['envo_lcontent']) . '"
             END
             WHERE varname IN ("sitemaptitle", "sitemapdesc")');
 
   // Save order for sidebar widget
-  if (isset($defaults['jak_hookshow_new']) && is_array($defaults['jak_hookshow_new'])) {
+  if (isset($defaults['envo_hookshow_new']) && is_array($defaults['envo_hookshow_new'])) {
 
     $exorder = $defaults['horder_new'];
     $hookid  = $defaults['real_hook_id_new'];
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     foreach ($doith as $key => $exorder) {
 
-      if (in_array($key, $defaults['jak_hookshow_new'])) {
+      if (in_array($key, $defaults['envo_hookshow_new'])) {
 
         // Get the real what id
         $whatid = 0;
@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 
   // Now check if all the sidebar a deselct and hooks exist, if so delete all associated to this page
-  if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
+  if (!isset($defaults['envo_hookshow_new']) && !isset($defaults['envo_hookshow'])) {
 
     // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
     $row = $envodb->queryRow('SELECT id FROM ' . $envotable . ' WHERE plugin = 2 AND hookid != 0');
@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 
   // Save order or delete for extra sidebar widget
-  if (isset($defaults['jak_hookshow']) && is_array($defaults['jak_hookshow'])) {
+  if (isset($defaults['envo_hookshow']) && is_array($defaults['envo_hookshow'])) {
 
     $exorder    = $defaults['horder'];
     $hookid     = $defaults['real_hook_id'];
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $whatid = 0;
       if (isset($defaults['whatid_' . $row["pluginid"]])) $whatid = $defaults['whatid_' . $row["pluginid"]];
 
-      if (in_array($key, $defaults['jak_hookshow'])) {
+      if (in_array($key, $defaults['envo_hookshow'])) {
         $updatesql .= sprintf("WHEN %d THEN %d ", $key, $exorder);
         $updatesql1 .= sprintf("WHEN %d THEN %d ", $key, $whatid);
 
