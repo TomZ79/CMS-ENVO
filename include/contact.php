@@ -205,6 +205,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['contactF'])) {
   }
 }
 
+/**
+ * EN:
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $envovar
+ * @return array
+ *
+ */
 function envo_contact_form_title($envovar)
 {
   // Now get all the options from the choosen form and create the form in html include all the javascript options
@@ -215,7 +227,19 @@ function envo_contact_form_title($envovar)
   return array("title" => $row['title'], "showtitle" => $row['showtitle']);
 }
 
-
+/**
+ * EN:
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $formid
+ * @param $envovar1
+ * @return string
+ *
+ */
 function envo_create_contact_form($formid, $envovar1)
 {
 

@@ -11,9 +11,20 @@
 // Global variable - array
 $arr1 = array();
 
-/*
- * Search in array
+/**
+ * EN: Search in array
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $id
+ * @param $array
+ * @return null
+ *
  * Example: print_r(search($arr, 'name', 'cat 1'));
+ *
  */
 function searchForId($id, $array)
 {
@@ -26,8 +37,26 @@ function searchForId($id, $array)
   return NULL;
 }
 
-/*
- * Build menu
+/**
+ * EN: Build menu
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $parent
+ * @param $menu
+ * @param $maincategory
+ * @param $active
+ * @param $mainclass
+ * @param $dropdown
+ * @param $dropdownclass
+ * @param $dropclass
+ * @param $subclass
+ * @param $admin
+ * @return string
+ *
  */
 function build_menu_porto($parent, $menu, $maincategory, $active, $mainclass, $dropdown, $dropdownclass, $dropclass, $subclass, $admin)
 {

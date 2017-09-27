@@ -69,6 +69,18 @@ require_once '../class/class.db.php';
 define('DIR_APPLICATION', str_replace('\'', '/', realpath(dirname(__FILE__))) . '/');
 define('DIR_CMS', str_replace('\'', '/', realpath(DIR_APPLICATION . '../')) . '/');
 
+/**
+ * EN:
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $value
+ * @return string
+ *
+ */
 function smartsql($value)
 {
   global $envodb;
