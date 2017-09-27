@@ -92,7 +92,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_name', $ENVO_FORM_DATA["name"], 'jak_name', 'form-control');
+                      echo $Html->addInput('text', 'envo_name', $ENVO_FORM_DATA["name"], 'envo_name', 'form-control');
                       ?>
 
                     </div>
@@ -110,7 +110,7 @@ if ($errors) { ?>
                   </div>
                   <div class="col-md-7">
                     <div class="form-group<?php if (isset($errors["e2"])) echo " has-error"; ?> no-margin">
-                      <select name="jak_hook" class="form-control selectpicker" data-search-select2="true">
+                      <select name="envo_hook" class="form-control selectpicker" data-search-select2="true">
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -138,7 +138,7 @@ if ($errors) { ?>
 
                   </div>
                   <div class="col-md-7">
-                    <select name="jak_plugin" class="form-control selectpicker" data-search-select2="true">
+                    <select name="envo_plugin" class="form-control selectpicker" data-search-select2="true">
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -170,7 +170,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_exorder', $ENVO_FORM_DATA["exorder"], '', 'form-control', array('maxlength' => '5'));
+                      echo $Html->addInput('text', 'envo_exorder', $ENVO_FORM_DATA["exorder"], '', 'form-control', array('maxlength' => '5'));
                       ?>
 
                     </div>
@@ -203,7 +203,7 @@ if ($errors) { ?>
             // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
             echo $Html->addDiv('', 'htmleditor');
             // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-            echo $Html->addTextarea('jak_phpcode', $ENVO_FORM_DATA["phpcode"], '', '', array('id' => 'jak_phpcode', 'class' => 'form-control hidden'));
+            echo $Html->addTextarea('envo_phpcode', $ENVO_FORM_DATA["phpcode"], '', '', array('id' => 'envo_phpcode', 'class' => 'form-control hidden'));
             ?>
 
           </div>

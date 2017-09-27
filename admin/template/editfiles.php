@@ -71,9 +71,9 @@ if ($JAK_FILE_ERROR) { ?>
 
                 <?php
                 // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                echo $Html->addLabel('jak_file_edit', $tl["tpl_box_content"]["tplbc4"]);
+                echo $Html->addLabel('envo_file_edit', $tl["tpl_box_content"]["tplbc4"]);
                 // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
-                echo $Html->startTag('select', array('id' => 'jak_file_edit', 'class' => 'form-control selectpicker', 'name' => 'jak_file_edit', 'data-search-select2' => 'true'));
+                echo $Html->startTag('select', array('id' => 'envo_file_edit', 'class' => 'form-control selectpicker', 'name' => 'envo_file_edit', 'data-search-select2' => 'true'));
 
                 $pathLen = strlen($ROOT_DIR);
                 getTemplateFiles($ROOT_DIR, 0, strlen($ROOT_DIR));
@@ -105,11 +105,11 @@ if ($JAK_FILE_ERROR) { ?>
 
                   <?php
                   // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                  echo $Html->addLabel('jak_filecontent', $tl["tpl_box_content"]["tplbc3"]);
+                  echo $Html->addLabel('envo_filecontent', $tl["tpl_box_content"]["tplbc3"]);
                   // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                   echo $Html->addDiv('', 'htmleditor');
                   // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                  echo $Html->addTextarea('jak_filecontent', $JAK_FILECONTENT, '', '', array('id' => 'jak_filecontent', 'class' => 'form-control hidden'));
+                  echo $Html->addTextarea('envo_filecontent', $JAK_FILECONTENT, '', '', array('id' => 'envo_filecontent', 'class' => 'form-control hidden'));
                   ?>
 
                 </td>
@@ -141,7 +141,7 @@ if ($JAK_FILE_ERROR) { ?>
 
       <?php
       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-      echo $Html->addInput('hidden', 'jak_file', $JAK_FILEURL);
+      echo $Html->addInput('hidden', 'envo_file', $JAK_FILEURL);
       ?>
 
     </form>

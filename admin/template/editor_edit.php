@@ -103,7 +103,7 @@
             <?php
 
             // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-            echo $Html->addTextarea('jak_content', envo_edit_safe_userpost(htmlspecialchars($ENVO_FORM_DATA["content"])), '', '', array('id' => 'jak_editor', 'class' => 'form-control hidden'));
+            echo $Html->addTextarea('envo_content', envo_edit_safe_userpost(htmlspecialchars($ENVO_FORM_DATA["content"])), '', '', array('id' => 'envo_editor', 'class' => 'form-control hidden'));
 
             ?>
 
@@ -112,7 +112,7 @@
           } else {
 
             // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-            echo $Html->addTextarea('jak_content', envo_edit_safe_userpost($ENVO_FORM_DATA["content"]), '40', '', array('id' => 'jakEditor', 'class' => 'form-control jakEditor'));
+            echo $Html->addTextarea('envo_content', envo_edit_safe_userpost($ENVO_FORM_DATA["content"]), '40', '', array('id' => 'jakEditor', 'class' => 'form-control jakEditor'));
 
           } ?>
 

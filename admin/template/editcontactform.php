@@ -93,7 +93,7 @@ if ($page3 == "e") { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_title', $ENVO_FORM_DATA["title"], '', 'form-control');
+                      echo $Html->addInput('text', 'envo_title', $ENVO_FORM_DATA["title"], '', 'form-control');
                       ?>
 
                     </div>
@@ -113,14 +113,14 @@ if ($page3 == "e") { ?>
 
                       <?php
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('jak_showtitle', '1', ($ENVO_FORM_DATA["showtitle"] == '1') ? TRUE : FALSE, 'jak_showtitle1');
+                      echo $Html->addRadio('envo_showtitle', '1', ($ENVO_FORM_DATA["showtitle"] == '1') ? TRUE : FALSE, 'envo_showtitle1');
                       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                      echo $Html->addLabel('jak_showtitle1', $tl["checkbox"]["chk"]);
+                      echo $Html->addLabel('envo_showtitle1', $tl["checkbox"]["chk"]);
 
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('jak_showtitle', '0', ($ENVO_FORM_DATA["showtitle"] == '0') ? TRUE : FALSE, 'jak_showtitle2');
+                      echo $Html->addRadio('envo_showtitle', '0', ($ENVO_FORM_DATA["showtitle"] == '0') ? TRUE : FALSE, 'envo_showtitle2');
                       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                      echo $Html->addLabel('jak_showtitle2', $tl["checkbox"]["chk1"]);
+                      echo $Html->addLabel('envo_showtitle2', $tl["checkbox"]["chk1"]);
                       ?>
 
                     </div>
@@ -140,7 +140,7 @@ if ($page3 == "e") { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_email', $ENVO_FORM_DATA["email"], '', 'form-control', array('placeholder' => $tl["placeholder"]["p14"]));
+                      echo $Html->addInput('text', 'envo_email', $ENVO_FORM_DATA["email"], '', 'form-control', array('placeholder' => $tl["placeholder"]["p14"]));
                       ?>
 
                     </div>
@@ -160,7 +160,7 @@ if ($page3 == "e") { ?>
 
                     <?php
                     // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                    echo $Html->addTextarea('jak_lcontent', envo_edit_safe_userpost($ENVO_FORM_DATA["content"]), '4', '', array('id' => 'jakEditor', 'class' => 'jakEditorLight form-control', 'style' => 'width:100%;'));
+                    echo $Html->addTextarea('envo_lcontent', envo_edit_safe_userpost($ENVO_FORM_DATA["content"]), '4', '', array('id' => 'jakEditor', 'class' => 'jakEditorLight form-control', 'style' => 'width:100%;'));
                     ?>
 
                   </div>
@@ -199,7 +199,7 @@ if ($page3 == "e") { ?>
                       <?php
                       echo $tl["cf_box_content"]["cfbc4"];
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_option[]', '', '', 'form-control jakread', array('readonly' => 'readonly'));
+                      echo $Html->addInput('text', 'envo_option[]', '', '', 'form-control jakread', array('readonly' => 'readonly'));
                       ?>
 
                     </div>
@@ -207,7 +207,7 @@ if ($page3 == "e") { ?>
                   <div class="col-md-2">
                     <div class="form-group">
                       <?php echo $tl["cf_box_content"]["cfbc5"]; ?>
-                      <select name="jak_optionmandatory[]" class="form-control">
+                      <select name="envo_optionmandatory[]" class="form-control">
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -223,7 +223,7 @@ if ($page3 == "e") { ?>
                   <div class="col-md-2">
                     <div class="form-group">
                       <?php echo $tl["cf_box_content"]["cfbc6"]; ?>
-                      <select name="jak_optiontype[]" class="form-control">
+                      <select name="envo_optiontype[]" class="form-control">
 
                         <?php
                         // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -244,14 +244,14 @@ if ($page3 == "e") { ?>
                     <?php
                     echo $tl["cf_box_content"]["cfbc7"];
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'jak_options[]', 'female,male', '', 'form-control jakread', array('readonly' => 'readonly'));
+                    echo $Html->addInput('text', 'envo_options[]', 'female,male', '', 'form-control jakread', array('readonly' => 'readonly'));
                     ?>
 
                   </div>
 
                   <?php
                   // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                  echo $Html->addInput('hidden', 'jak_optionsort[]', '', '', 'cforder-orig');
+                  echo $Html->addInput('hidden', 'envo_optionsort[]', '', '', 'cforder-orig');
                   ?>
 
                 </div>
@@ -281,7 +281,7 @@ if ($page3 == "e") { ?>
                         <?php
                         echo $tl["cf_box_content"]["cfbc4"];
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'jak_option_old[]', $o["name"], '', 'form-control');
+                        echo $Html->addInput('text', 'envo_option_old[]', $o["name"], '', 'form-control');
                         ?>
 
                       </div>
@@ -289,7 +289,7 @@ if ($page3 == "e") { ?>
                     <div class="col-md-2">
                       <div class="form-group">
                         <?php echo $tl["cf_box_content"]["cfbc5"]; ?>
-                        <select name="jak_optionmandatory_old[]" class="form-control">
+                        <select name="envo_optionmandatory_old[]" class="form-control">
 
                           <?php
                           // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -305,7 +305,7 @@ if ($page3 == "e") { ?>
                     <div class="col-md-2">
                       <div class="form-group">
                         <?php echo $tl["cf_box_content"]["cfbc6"]; ?>
-                        <select name="jak_optiontype_old[]" class="form-control">
+                        <select name="envo_optiontype_old[]" class="form-control">
 
                           <?php
                           // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -326,21 +326,21 @@ if ($page3 == "e") { ?>
                       <?php
                       echo $tl["cf_box_content"]["cfbc7"];
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_options_old[]', $o["options"], '', 'form-control');
+                      echo $Html->addInput('text', 'envo_options_old[]', $o["options"], '', 'form-control');
                       ?>
 
                     </div>
                     <div class="col-md-1">
                       <div class="checkbox check-success">
-                        <input type="checkbox" id="jak_sod<?php echo $o["id"]; ?>" name="jak_sod[]" value="<?php echo $o["id"]; ?>"/>
-                        <label for="jak_sod<?php echo $o["id"]; ?>"><i class="fa fa-trash-o"></i></label>
+                        <input type="checkbox" id="envo_sod<?php echo $o["id"]; ?>" name="envo_sod[]" value="<?php echo $o["id"]; ?>"/>
+                        <label for="envo_sod<?php echo $o["id"]; ?>"><i class="fa fa-trash-o"></i></label>
                       </div>
                     </div>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('hidden', 'jak_optionsort_old[]', $o["forder"], '', 'cforder');
-                    echo $Html->addInput('hidden', 'jak_optionid[]', $o["id"]);
+                    echo $Html->addInput('hidden', 'envo_optionsort_old[]', $o["forder"], '', 'cforder');
+                    echo $Html->addInput('hidden', 'envo_optionid[]', $o["id"]);
                     ?>
 
                   </div>

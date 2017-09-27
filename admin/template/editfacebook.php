@@ -1,6 +1,6 @@
 <?php include "header.php"; ?>
 
-  <form method="post" class="jak_form" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+  <form method="post" class="envo_form" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
 
     <!-- Form Content -->
     <div class="row tab-content-singel">
