@@ -18,12 +18,12 @@ $JAK_LOGINLOG_ALL = "";
 $getTotal = envo_get_total($envotable, '', '', '');
 if ($getTotal != 0) {
   // Paginator
-  $pages                 = new JAK_Paginator;
+  $pages                 = new ENVO_paginator;
   $pages->items_total    = $getTotal;
   $pages->mid_range      = $jkv["adminpagemid"];
   $pages->items_per_page = $jkv["adminpageitem"];
-  $pages->jak_get_page   = $page1;
-  $pages->jak_where      = 'index.php?p=logs';
+  $pages->envo_get_page   = $page1;
+  $pages->envo_where      = 'index.php?p=logs';
   $pages->paginate();
   $JAK_PAGINATE = $pages->display_pages();
 
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if (isset($defaults['delete'])) {
 
-    $lockuser = $defaults['jak_delete_log'];
+    $lockuser = $defaults['envo_delete_log'];
 
     for ($i = 0; $i < count($lockuser); $i++) {
       $locked = $lockuser[$i];

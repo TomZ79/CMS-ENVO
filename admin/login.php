@@ -19,19 +19,19 @@ if (!empty($_POST['action']) && $_POST['action'] == 'login') {
   $valid_ip    = filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP);
 
   // Write the log file each time someone tries to login before
-  $jakuserlogin->jakWriteloginlog($username, $_SERVER['REQUEST_URI'], $valid_ip, $valid_agent, 0);
+  $jakuserlogin->envoWriteLoginLog($username, $_SERVER['REQUEST_URI'], $valid_ip, $valid_agent, 0);
 
-  $user_check = $jakuserlogin->jakCheckuserdata($username, $userpass);
+  $user_check = $jakuserlogin->envoCheckUserData($username, $userpass);
 
   if (!empty($username) && !empty($userpass)) {
 
     if ($user_check == TRUE) {
 
       // Now login in the user
-      $jakuserlogin->jakLogin($user_check, $userpass, $cookies);
+      $jakuserlogin->envoLogin($user_check, $userpass, $cookies);
 
       // Write the log file each time someone login after to show success
-      $jakuserlogin->jakWriteloginlog($username, '', $valid_ip, '', 1);
+      $jakuserlogin->envoWriteLoginLog($username, '', $valid_ip, '', 1);
 
       $_SESSION["loginmsg"] = $tl["log_in"]["login14"];
 
@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST' && isset($_POST['forgotP'])) {
   $fwhen  = time();
 
   // Check if this user exist
-  $user_check = $jakuserlogin->jakForgotpassword($femail, $fwhen);
+  $user_check = $jakuserlogin->envoForgotPassword($femail, $fwhen);
 
   if (!$user_check) {
     $errors['e'] = $tl['general_error']['generror24'];

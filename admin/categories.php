@@ -26,46 +26,46 @@ switch ($page1) {
       // CZ: Hlavní proměnné
       $defaults = $_POST;
 
-      if (empty($defaults['jak_name'])) {
+      if (empty($defaults['envo_name'])) {
         $errors['e1'] = $tl['general_error']['generror4'] . '<br>';
       }
 
-      if (envo_field_not_exist($defaults['jak_varname'], $envotable, $jakfield) || envo_varname_blocked($defaults['jak_varname'])) {
+      if (envo_field_not_exist($defaults['envo_varname'], $envotable, $jakfield) || envo_varname_blocked($defaults['envo_varname'])) {
         $errors['e2'] = $tl['general_error']['generror21'] . '<br>';
       }
 
-      if (empty($defaults['jak_varname'])) {
+      if (empty($defaults['envo_varname'])) {
         $errors['e3'] = $tl['general_error']['generror22'] . '<br>';
       }
 
-      if (!empty($defaults['jak_varname']) && !preg_match('/^([a-z-_0-9]||[-_])+$/', $defaults['jak_varname'])) {
+      if (!empty($defaults['envo_varname']) && !preg_match('/^([a-z-_0-9]||[-_])+$/', $defaults['envo_varname'])) {
         $errors['e4'] = $tl['general_error']['generror23'] . '<br>';
       }
 
       if (count($errors) == 0) {
 
-        if (!isset($defaults['jak_menu'])) {
+        if (!isset($defaults['envo_menu'])) {
           $menu = 0;
         } else {
-          $menu = $defaults['jak_menu'];
+          $menu = $defaults['envo_menu'];
         }
-        if (!isset($defaults['jak_footer'])) {
+        if (!isset($defaults['envo_footer'])) {
           $footer = 0;
         } else {
-          $footer = $defaults['jak_footer'];
+          $footer = $defaults['envo_footer'];
         }
 
-        if (!isset($defaults['jak_permission'])) {
+        if (!isset($defaults['envo_permission'])) {
           $permission = 0;
-        } elseif (in_array(0, $defaults['jak_permission'])) {
+        } elseif (in_array(0, $defaults['envo_permission'])) {
           $permission = 0;
         } else {
-          $permission = join(',', $defaults['jak_permission']);
+          $permission = join(',', $defaults['envo_permission']);
         }
 
         $catimg = '';
-        if (!empty($defaults['jak_img'])) {
-          $catimg = 'catimg = "' . smartsql($defaults['jak_img']) . '",';
+        if (!empty($defaults['envo_img'])) {
+          $catimg = 'catimg = "' . smartsql($defaults['envo_img']) . '",';
         }
 
         /* EN: Convert value
@@ -75,12 +75,12 @@ switch ($page1) {
          * smartsql - secure method to insert form data into a MySQL DB
         */
         $result = $envodb->query('INSERT INTO ' . $envotable . ' SET
-                  name = "' . smartsql($defaults['jak_name']) . '",
-                  varname = "' . smartsql($defaults['jak_varname']) . '",
-                  exturl = "' . smartsql($defaults['jak_url']) . '",
-                  content = "' . smartsql($defaults['jak_lcontent']) . '",
-                  metadesc = "' . smartsql($defaults['jak_lcontent_meta_desc']) . '",
-                  metakey = "' . smartsql($defaults['jak_lcontent_meta_key']) . '",
+                  name = "' . smartsql($defaults['envo_name']) . '",
+                  varname = "' . smartsql($defaults['envo_varname']) . '",
+                  exturl = "' . smartsql($defaults['envo_url']) . '",
+                  content = "' . smartsql($defaults['envo_lcontent']) . '",
+                  metadesc = "' . smartsql($defaults['envo_lcontent_meta_desc']) . '",
+                  metakey = "' . smartsql($defaults['envo_lcontent_meta_key']) . '",
                   showmenu = "' . smartsql($menu) . '",
                   showfooter = "' . smartsql($footer) . '",
                   ' . $catimg . '
@@ -189,34 +189,34 @@ switch ($page1) {
             // CZ: Hlavní proměnné
             $defaults = $_POST;
 
-            if (empty($defaults['jak_name'])) {
+            if (empty($defaults['envo_name'])) {
               $errors['e1'] = $tl['general_error']['generror4'] . '<br>';
             }
 
-            if (envo_field_not_exist_id($defaults['jak_varname'], $page2, $envotable, $jakfield1) || envo_varname_blocked($defaults['jak_varname'])) {
+            if (envo_field_not_exist_id($defaults['envo_varname'], $page2, $envotable, $jakfield1) || envo_varname_blocked($defaults['envo_varname'])) {
               $errors['e2'] = $tl['general_error']['generror21'] . '<br>';
             }
 
-            if (empty($defaults['jak_varname'])) {
+            if (empty($defaults['envo_varname'])) {
               $errors['e3'] = $tl['general_error']['generror22'] . '<br>';
             }
 
-            if (!empty($defaults['jak_varname']) && !preg_match('/^([a-z-_0-9]||[-_])+$/', $defaults['jak_varname'])) {
+            if (!empty($defaults['envo_varname']) && !preg_match('/^([a-z-_0-9]||[-_])+$/', $defaults['envo_varname'])) {
               $errors['e4'] = $tl['general_error']['generror23'] . '<br>';
             }
 
             if (count($errors) == 0) {
 
-              if (!isset($defaults['jak_permission'])) {
+              if (!isset($defaults['envo_permission'])) {
                 $permission = 0;
-              } elseif (in_array(0, $defaults['jak_permission'])) {
+              } elseif (in_array(0, $defaults['envo_permission'])) {
                 $permission = 0;
               } else {
-                $permission = join(',', $defaults['jak_permission']);
+                $permission = join(',', $defaults['envo_permission']);
               }
 
-              if (!empty($defaults['jak_img'])) {
-                $insert .= 'catimg = "' . smartsql($defaults['jak_img']) . '",';
+              if (!empty($defaults['envo_img'])) {
+                $insert .= 'catimg = "' . smartsql($defaults['envo_img']) . '",';
               } else {
                 $insert .= 'catimg = NULL,';
               }
@@ -228,14 +228,14 @@ switch ($page1) {
                * smartsql - secure method to insert form data into a MySQL DB
               */
               $result = $envodb->query('UPDATE ' . $envotable . ' SET
-                        name = "' . smartsql($defaults['jak_name']) . '",
-                        varname = "' . smartsql($defaults['jak_varname']) . '",
-                        exturl = "' . smartsql($defaults['jak_url']) . '",
-                        content = "' . smartsql($defaults['jak_lcontent']) . '",
-                        metadesc = "' . smartsql($defaults['jak_lcontent_meta_desc']) . '",
-                        metakey = "' . smartsql($defaults['jak_lcontent_meta_key']) . '",
-                        showmenu = "' . smartsql($defaults['jak_menu']) . '",
-                        showfooter = "' . smartsql($defaults['jak_footer']) . '",
+                        name = "' . smartsql($defaults['envo_name']) . '",
+                        varname = "' . smartsql($defaults['envo_varname']) . '",
+                        exturl = "' . smartsql($defaults['envo_url']) . '",
+                        content = "' . smartsql($defaults['envo_lcontent']) . '",
+                        metadesc = "' . smartsql($defaults['envo_lcontent_meta_desc']) . '",
+                        metakey = "' . smartsql($defaults['envo_lcontent_meta_key']) . '",
+                        showmenu = "' . smartsql($defaults['envo_menu']) . '",
+                        showfooter = "' . smartsql($defaults['envo_footer']) . '",
                         ' . $insert . '
                         permission = "' . smartsql($permission) . '"
                         WHERE id = "' . smartsql($page2) . '"');

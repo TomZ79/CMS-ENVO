@@ -19,7 +19,7 @@
 $(function () {
 
   /* Check all checkbox */
-  $('#jak_delete_all').click(function () {
+  $('#envo_delete_all').click(function () {
     var checkedStatus = this.checked;
     $('.highlight').each(function () {
       $(this).prop('checked', checkedStatus);
@@ -30,7 +30,7 @@ $(function () {
   });
 
   /* Check all checkbox */
-  $('#jak_delete_all_approve').click(function () {
+  $('#envo_delete_all_approve').click(function () {
     var checkedStatus = this.checked;
     $('.highlight_approve').each(function () {
       $(this).prop('checked', checkedStatus);

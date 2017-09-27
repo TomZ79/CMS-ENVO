@@ -23,11 +23,11 @@ switch ($page1) {
       // CZ: Hlavní proměnné
       $defaults = $_POST;
 
-      if (empty($defaults['jak_title'])) {
+      if (empty($defaults['envo_title'])) {
         $errors['e1'] = $tl['cf_error']['cferror'] . '<br>';
       }
 
-      if (empty($defaults['jak_lcontent'])) {
+      if (empty($defaults['envo_lcontent'])) {
         $errors['e2'] = $tl['cf_error']['cferror1'] . '<br>';
       }
 
@@ -40,34 +40,34 @@ switch ($page1) {
          * smartsql - secure method to insert form data into a MySQL DB
         */
         $result = $envodb->query('INSERT INTO ' . $envotable . ' SET
-                  title = "' . smartsql($defaults['jak_title']) . '",
-                  content = "' . smartsql($defaults['jak_lcontent']) . '",
-                  email = "' . smartsql($defaults['jak_email']) . '",
-                  showtitle = "' . smartsql($defaults['jak_showtitle']) . '",
+                  title = "' . smartsql($defaults['envo_title']) . '",
+                  content = "' . smartsql($defaults['envo_lcontent']) . '",
+                  email = "' . smartsql($defaults['envo_email']) . '",
+                  showtitle = "' . smartsql($defaults['envo_showtitle']) . '",
                   time = NOW()');
 
         $rowid = $envodb->envo_last_id();
 
-        $countoption = $defaults['jak_option'];
+        $countoption = $defaults['envo_option'];
 
         for ($i = 0; $i < count($countoption); $i++) {
           $name = $countoption[$i];
 
           if (!empty($name)) {
 
-            if ($defaults['jak_optiontype'][$i] >= 3 && $defaults['jak_optionmandatory'][$i] > 0) {
+            if ($defaults['envo_optiontype'][$i] >= 3 && $defaults['envo_optionmandatory'][$i] > 0) {
               $sqlmand = 1;
             } else {
-              $sqlmand = $defaults['jak_optionmandatory'][$i];
+              $sqlmand = $defaults['envo_optionmandatory'][$i];
             }
 
             $envodb->query('INSERT INTO ' . $envotable1 . ' SET
 														formid = "' . smartsql($rowid) . '",
 														name = "' . smartsql($name) . '",
-														typeid = "' . smartsql($defaults['jak_optiontype'][$i]) . '",
-														options = "' . smartsql(trim($defaults['jak_options'][$i])) . '",
+														typeid = "' . smartsql($defaults['envo_optiontype'][$i]) . '",
+														options = "' . smartsql(trim($defaults['envo_options'][$i])) . '",
 														mandatory = "' . smartsql($sqlmand) . '",
-														forder = "' . smartsql($defaults['jak_optionsort'][$i]) . '"');
+														forder = "' . smartsql($defaults['envo_optionsort'][$i]) . '"');
 
           }
         }
@@ -107,7 +107,7 @@ switch ($page1) {
 
       if (isset($defaults['lock'])) {
 
-        $lockuser = $defaults['jak_delete_contact'];
+        $lockuser = $defaults['envo_delete_contact'];
 
         for ($i = 0; $i < count($lockuser); $i++) {
           $locked = $lockuser[$i];
@@ -128,7 +128,7 @@ switch ($page1) {
 
       if (isset($defaults['delete'])) {
 
-        $lockuser = $defaults['jak_delete_contact'];
+        $lockuser = $defaults['envo_delete_contact'];
 
         for ($i = 0; $i < count($lockuser); $i++) {
           $locked = $lockuser[$i];
@@ -200,8 +200,8 @@ switch ($page1) {
             $defaults = $_POST;
 
             // Delete the options
-            if (!empty($defaults['jak_sod'])) {
-              $odel = $defaults['jak_sod'];
+            if (!empty($defaults['envo_sod'])) {
+              $odel = $defaults['envo_sod'];
 
               for ($i = 0; $i < count($odel); $i++) {
                 $optiondel = $odel[$i];
@@ -211,11 +211,11 @@ switch ($page1) {
             }
 
             // Check the form
-            if (empty($defaults['jak_title'])) {
+            if (empty($defaults['envo_title'])) {
               $errors['e1'] = $tl['cf_error']['cferror'] . '<br>';
             }
 
-            if (empty($defaults['jak_lcontent'])) {
+            if (empty($defaults['envo_lcontent'])) {
               $errors['e2'] = $tl['cf_error']['cferror1'] . '<br>';
             }
 
@@ -229,60 +229,60 @@ switch ($page1) {
                * smartsql - secure method to insert form data into a MySQL DB
               */
               $result = $envodb->query('UPDATE ' . $envotable . ' SET
-                        title = "' . smartsql($defaults['jak_title']) . '",
-                        content = "' . smartsql($defaults['jak_lcontent']) . '",
-                        email = "' . smartsql($defaults['jak_email']) . '",
-                        showtitle = "' . smartsql($defaults['jak_showtitle']) . '",
+                        title = "' . smartsql($defaults['envo_title']) . '",
+                        content = "' . smartsql($defaults['envo_lcontent']) . '",
+                        email = "' . smartsql($defaults['envo_email']) . '",
+                        showtitle = "' . smartsql($defaults['envo_showtitle']) . '",
                         time = "' . time() . '" WHERE id = "' . smartsql($page2) . '"');
 
               // Edit options
-              $countoption_old = $defaults['jak_option_old'];
+              $countoption_old = $defaults['envo_option_old'];
 
               for ($i = 0; $i < count($countoption_old); $i++) {
                 $name_old = $countoption_old[$i];
 
-                if ($defaults['jak_optiontype_old'][$i] >= 3 && $defaults['jak_optionmandatory_old'][$i] > 0) {
+                if ($defaults['envo_optiontype_old'][$i] >= 3 && $defaults['envo_optionmandatory_old'][$i] > 0) {
                   $sqlmand = 1;
                 } else {
-                  $sqlmand = $defaults['jak_optionmandatory_old'][$i];
+                  $sqlmand = $defaults['envo_optionmandatory_old'][$i];
                 }
 
                 $envodb->query('UPDATE ' . $envotable1 . ' SET
 																name = "' . smartsql($name_old) . '",
-																typeid = "' . smartsql($defaults['jak_optiontype_old'][$i]) . '",
-																options = "' . smartsql(trim($defaults['jak_options_old'][$i])) . '",
+																typeid = "' . smartsql($defaults['envo_optiontype_old'][$i]) . '",
+																options = "' . smartsql(trim($defaults['envo_options_old'][$i])) . '",
 																mandatory = "' . smartsql($sqlmand) . '",
-																forder = "' . smartsql($defaults['jak_optionsort_old'][$i]) . '"
-																WHERE formid = "' . smartsql($page2) . '" AND id = "' . $defaults['jak_optionid'][$i] . '"');
+																forder = "' . smartsql($defaults['envo_optionsort_old'][$i]) . '"
+																WHERE formid = "' . smartsql($page2) . '" AND id = "' . $defaults['envo_optionid'][$i] . '"');
               }
 
               /* Write new options */
-              $countoption = $defaults['jak_option'];
+              $countoption = $defaults['envo_option'];
 
               for ($i = 0; $i < count($countoption); $i++) {
                 $name = $countoption[$i];
 
                 if (!empty($name)) {
 
-                  if (!empty($defaults['jak_options'][$i]) && $defaults['jak_optiontype'][$i] >= 3) {
-                    $sqloptions = smartsql(trim($defaults['jak_options'][$i]));
+                  if (!empty($defaults['envo_options'][$i]) && $defaults['envo_optiontype'][$i] >= 3) {
+                    $sqloptions = smartsql(trim($defaults['envo_options'][$i]));
                   } else {
                     $sqloptions = '';
                   }
 
-                  if ($defaults['jak_optiontype'][$i] >= 3 && $defaults['jak_optionmandatory'][$i] > 0) {
+                  if ($defaults['envo_optiontype'][$i] >= 3 && $defaults['envo_optionmandatory'][$i] > 0) {
                     $sqlmand = 1;
                   } else {
-                    $sqlmand = $defaults['jak_optionmandatory'][$i];
+                    $sqlmand = $defaults['envo_optionmandatory'][$i];
                   }
 
                   $envodb->query('INSERT INTO ' . $envotable1 . ' SET
 																	formid = ' . smartsql($page2) . ',
 																	name = "' . smartsql($name) . '",
-																	typeid = "' . smartsql($defaults['jak_optiontype'][$i]) . '",
+																	typeid = "' . smartsql($defaults['envo_optiontype'][$i]) . '",
 																	options = "' . smartsql($sqloptions) . '",
 																	mandatory = "' . smartsql($sqlmand) . '",
-																	forder = "' . smartsql($defaults['jak_optionsort'][$i]) . '"');
+																	forder = "' . smartsql($defaults['envo_optionsort'][$i]) . '"');
                 }
               }
 
@@ -325,12 +325,12 @@ switch ($page1) {
         $getTotal = envo_get_total($envotable, '', '', '');
         if ($getTotal != 0) {
           // Paginator
-          $pages                 = new JAK_Paginator;
+          $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
           $pages->mid_range      = $jkv["adminpagemid"];
           $pages->items_per_page = $jkv["adminpageitem"];
-          $pages->jak_get_page   = $pajs - live - chat - boardge1;
-          $pages->jak_where      = 'index.php?p=page';
+          $pages->envo_get_page   = $pajs - live - chat - boardge1;
+          $pages->envo_where      = 'index.php?p=page';
           $pages->paginate();
           $JAK_PAGINATE = $pages->display_pages();
         }

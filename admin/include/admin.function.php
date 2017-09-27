@@ -1,12 +1,12 @@
 <?php
 
 // Protected url names
-function envo_varname_blocked($jakvar)
+function envo_varname_blocked($envovar)
 {
   $blocked = 'user,usergroup,admin,cmsfiles,css,class,img,include,js,lang,pics_gallery,ftp,plugin,profilepicture,template,userfiles,videofiles,search,suche,' . JAK_FILES_DIRECTORY;
   $blockarray = explode(',', $blocked);
   // check if userid is protected in the config.php
-  if (in_array($jakvar, $blockarray)) {
+  if (in_array($envovar, $blockarray)) {
     return true;
   }
 }
@@ -24,15 +24,15 @@ function envo_get_cat_notused()
 }
 
 // Get the categories per array with no limit
-function envo_get_cat_info($jakvar, $jakvar1)
+function envo_get_cat_info($envovar, $envovar1)
 {
   global $envodb;
 
   $sqlwhere = '';
-  if (!empty($jakvar1)) $sqlwhere = ' WHERE activeplugin = 1';
+  if (!empty($envovar1)) $sqlwhere = ' WHERE activeplugin = 1';
 
   $envodata = array();
-  $result = $envodb->query('SELECT * FROM ' . $jakvar . $sqlwhere . ' ORDER BY catorder ASC');
+  $result = $envodb->query('SELECT * FROM ' . $envovar . $sqlwhere . ' ORDER BY catorder ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -42,11 +42,11 @@ function envo_get_cat_info($jakvar, $jakvar1)
 }
 
 // Get the usergroup per array with no limit
-function envo_get_usergroup_all($jakvar)
+function envo_get_usergroup_all($envovar)
 {
   global $envodb;
   $envodata = array();
-  $result = $envodb->query('SELECT id, name, description FROM ' . DB_PREFIX . $jakvar . ' ORDER BY id ASC');
+  $result = $envodb->query('SELECT id, name, description FROM ' . DB_PREFIX . $envovar . ' ORDER BY id ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -78,11 +78,11 @@ function envo_get_count_user_in_group($usertable, $usergroupID)
 }
 
 // Get the data per array for page,newsletter with limit
-function envo_get_page_info($jakvar, $jakvar1)
+function envo_get_page_info($envovar, $envovar1)
 {
   global $envodb;
   $envodata = array();
-  $result = $envodb->query('SELECT * FROM ' . $jakvar . ' ORDER BY id DESC ' . $jakvar1);
+  $result = $envodb->query('SELECT * FROM ' . $envovar . ' ORDER BY id DESC ' . $envovar1);
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -93,11 +93,11 @@ function envo_get_page_info($jakvar, $jakvar1)
 }
 
 // Get the data per array for news with limit
-function envo_get_news_info($jakvar)
+function envo_get_news_info($envovar)
 {
   global $envodb;
   $envodata = array();
-  $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'news' . ' ORDER BY id ASC ' . $jakvar);
+  $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'news' . ' ORDER BY id ASC ' . $envovar);
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -164,15 +164,15 @@ function envo_get_site_style($styledir)
 }
 
 // Get all user out the database limited with the paginator
-function envo_get_user_all($jakvar, $jakvar1, $jakvar2)
+function envo_get_user_all($envovar, $envovar1, $envovar2)
 {
 
   $sqlwhere = '';
-  if (!empty($jakvar2)) $sqlwhere = 'AND usergroupid = ' . smartsql($jakvar2) . ' ';
+  if (!empty($envovar2)) $sqlwhere = 'AND usergroupid = ' . smartsql($envovar2) . ' ';
 
   global $envodb;
   $user = array();
-  $result = $envodb->query('SELECT id, usergroupid, username, email, time, access FROM ' . DB_PREFIX . $jakvar . ' WHERE access <= 1 ' . $sqlwhere . $jakvar1);
+  $result = $envodb->query('SELECT id, usergroupid, username, email, time, access FROM ' . DB_PREFIX . $envovar . ' WHERE access <= 1 ' . $sqlwhere . $envovar1);
   while ($row = $result->fetch_assoc()) {
     $user[] = array('id' => $row['id'], 'usergroupid' => $row['usergroupid'], 'username' => $row['username'], 'email' => $row['email'], 'time' => $row['time'], 'access' => $row['access']);
   }
@@ -181,20 +181,20 @@ function envo_get_user_all($jakvar, $jakvar1, $jakvar2)
 }
 
 // Get all user or pages out the database limited with the paginator
-function envo_admin_search($jakvar, $jakvar1, $jakvar2)
+function envo_admin_search($envovar, $envovar1, $envovar2)
 {
 
   $sqlwhere = '';
-  if ($jakvar2 == 'user') {
-    $sqlwhere = ' WHERE id like "%' . $jakvar . '%" OR username like "%' . $jakvar . '%" OR name like "%' . $jakvar . '%" OR email like "%' . $jakvar . '%"';
-  } elseif ($jakvar2 == 'newsletter') {
-    $sqlwhere = ' WHERE id like "%' . $jakvar . '%" or email like "%' . $jakvar . '%"';
-  } elseif ($jakvar2 == 'pages') {
-    $sqlwhere = ' WHERE title like "%' . $jakvar . '%"';
+  if ($envovar2 == 'user') {
+    $sqlwhere = ' WHERE id like "%' . $envovar . '%" OR username like "%' . $envovar . '%" OR name like "%' . $envovar . '%" OR email like "%' . $envovar . '%"';
+  } elseif ($envovar2 == 'newsletter') {
+    $sqlwhere = ' WHERE id like "%' . $envovar . '%" or email like "%' . $envovar . '%"';
+  } elseif ($envovar2 == 'pages') {
+    $sqlwhere = ' WHERE title like "%' . $envovar . '%"';
   }
   global $envodb;
   $envodata = array();
-  $result = $envodb->query('SELECT * FROM ' . $jakvar1 . $sqlwhere . ' ORDER BY id ASC LIMIT 5');
+  $result = $envodb->query('SELECT * FROM ' . $envovar1 . $sqlwhere . ' ORDER BY id ASC LIMIT 5');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -205,24 +205,24 @@ function envo_admin_search($jakvar, $jakvar1, $jakvar2)
 }
 
 // Check if user exist and it is possible to delete ## (config.php)
-function envo_user_exist_deletable($jakvar)
+function envo_user_exist_deletable($envovar)
 {
   global $envodb;
   $useridarray = explode(',', JAK_SUPERADMIN);
   // check if userid is protected in the config.php
-  if (in_array($jakvar, $useridarray)) {
+  if (in_array($envovar, $useridarray)) {
     return false;
   } else {
-    $result = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'user WHERE id = "' . smartsql($jakvar) . '" LIMIT 1');
+    $result = $envodb->query('SELECT id FROM ' . DB_PREFIX . 'user WHERE id = "' . smartsql($envovar) . '" LIMIT 1');
     if ($envodb->affected_rows > 0) return true;
   }
 }
 
 // Check if row exist with id
-function envo_field_not_exist_id($jakvar, $jakvar1, $jakvar2, $jakvar3)
+function envo_field_not_exist_id($envovar, $envovar1, $envovar2, $envovar3)
 {
   global $envodb;
-  $result = $envodb->query('SELECT id FROM ' . $jakvar2 . ' WHERE id != "' . smartsql($jakvar1) . '" AND ' . $jakvar3 . ' = "' . smartsql($jakvar) . '" LIMIT 1');
+  $result = $envodb->query('SELECT id FROM ' . $envovar2 . ' WHERE id != "' . smartsql($envovar1) . '" AND ' . $envovar3 . ' = "' . smartsql($envovar) . '" LIMIT 1');
   if ($envodb->affected_rows > 0) {
     return true;
   }
@@ -231,14 +231,14 @@ function envo_field_not_exist_id($jakvar, $jakvar1, $jakvar2, $jakvar3)
 // Get started with the tag system
 
 // Get tags per id
-function envo_get_tags($jakvar, $jakvar1)
+function envo_get_tags($envovar, $envovar1)
 {
 
   global $envodb;
   $tags = array();
-  $result = $envodb->query('SELECT id, tag FROM ' . DB_PREFIX . 'tags' . ' WHERE itemid = ' . smartsql($jakvar) . ' AND pluginid = ' . $jakvar1 . ' ORDER BY `id` ASC');
+  $result = $envodb->query('SELECT id, tag FROM ' . DB_PREFIX . 'tags' . ' WHERE itemid = ' . smartsql($envovar) . ' AND pluginid = ' . $envovar1 . ' ORDER BY `id` ASC');
   while ($row = $result->fetch_assoc()) {
-    $tags[] = '<span class="label label-default fancy-checkbox" style="line-height:2.2;margin:0 10px 10px 0px;"><label class="checkbox-inline"><input type="checkbox" name="jak_tagdelete[]" value="' . $row['id'] . '" /><i class="fa fa-square-o fa-sm unchecked"></i><i class="fa fa-check-square-o fa-sm checked"></i> ' . $row['tag'] . '</label></span>';
+    $tags[] = '<span class="label label-default fancy-checkbox" style="line-height:2.2;margin:0 10px 10px 0px;"><label class="checkbox-inline"><input type="checkbox" name="envo_tagdelete[]" value="' . $row['id'] . '" /><i class="fa fa-square-o fa-sm unchecked"></i><i class="fa fa-check-square-o fa-sm checked"></i> ' . $row['tag'] . '</label></span>';
   }
 
   if (!empty($tags)) {
@@ -317,12 +317,12 @@ function envo_admin_tag_cloud()
 }
 
 // Get contact options
-function envo_get_contact_options($jakvar, $jakvar1)
+function envo_get_contact_options($envovar, $envovar1)
 {
 
   global $envodb;
   $envodata = array();
-  $result = $envodb->query('SELECT * FROM ' . $jakvar . ' WHERE formid = "' . smartsql($jakvar1) . '" ORDER BY forder ASC');
+  $result = $envodb->query('SELECT * FROM ' . $envovar . ' WHERE formid = "' . smartsql($envovar1) . '" ORDER BY forder ASC');
   while ($row = $result->fetch_assoc()) {
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
@@ -333,30 +333,30 @@ function envo_get_contact_options($jakvar, $jakvar1)
 }
 
 // Get contact options
-function envo_get_new_stuff($jakvar, $jakvar1)
+function envo_get_new_stuff($envovar, $envovar1)
 {
-  if ($jakvar1 == 1) {
+  if ($envovar1 == 1) {
     $sqlwhere = ' WHERE session = "" AND access = 0';
   } else {
     $sqlwhere = ' WHERE approve = 0 AND session != ""';
   }
 
   global $envodb;
-  $row = $envodb->queryRow('SELECT COUNT(id) as totalAll FROM ' . DB_PREFIX . $jakvar . $sqlwhere . ' ORDER BY time DESC');
+  $row = $envodb->queryRow('SELECT COUNT(id) as totalAll FROM ' . DB_PREFIX . $envovar . $sqlwhere . ' ORDER BY time DESC');
 
   return $row['totalAll'];
 }
 
 // Load the version from CMS
-function envo_load_xml_from_url($jakvar)
+function envo_load_xml_from_url($envovar)
 {
-  return simplexml_load_string(envo_load_file_from_url($jakvar));
+  return simplexml_load_string(envo_load_file_from_url($envovar));
 }
 
-function envo_load_file_from_url($jakvar)
+function envo_load_file_from_url($envovar)
 {
   $curl = curl_init();
-  curl_setopt($curl, CURLOPT_URL, $jakvar);
+  curl_setopt($curl, CURLOPT_URL, $envovar);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($curl, CURLOPT_REFERER, BASE_URL);
   $str = curl_exec($curl);

@@ -21,7 +21,7 @@ $page5 = ($temppa5 ? envo_url_input_filter($temppa5) : '');
 $page6 = ($temppa6 ? envo_url_input_filter($temppa6) : '');
 
 // Only the SuperAdmin in the config file see everything
-if (JAK_USERID && $jakuser->jakSuperadminaccess(JAK_USERID)) {
+if (JAK_USERID && $jakuser->envoSuperAdminAccess(JAK_USERID)) {
   define('JAK_SUPERADMINACCESS', TRUE);
 } else {
   define('JAK_SUPERADMINACCESS', FALSE);
@@ -78,8 +78,8 @@ if (JAK_USERID) {
   define('JAK_TAGS', $jakplugins->getPHPcodeid(3, "active"));
 
   // Show links in template only the user have access
-  $JAK_MODULES = $jakuser->jakModuleaccess(JAK_USERID, $jkv["accessgeneral"]);
-  $JAK_MODULEM = $jakuser->jakModuleaccess(JAK_USERID, $jkv["accessmanage"]);
+  $JAK_MODULES = $jakuser->envoModuleAccess(JAK_USERID, $jkv["accessgeneral"]);
+  $JAK_MODULEM = $jakuser->envoModuleAccess(JAK_USERID, $jkv["accessmanage"]);
 
   // Get the name from the user for the welcome message
   $JAK_WELCOME_NAME = $jakuser->getVar("name");
@@ -214,7 +214,7 @@ if ($page == 'logout') {
     envo_redirect(BASE_URL);
   }
   if (JAK_USERID) {
-    $jakuserlogin->jakLogout(JAK_USERID);
+    $jakuserlogin->envoLogout(JAK_USERID);
     envo_redirect(BASE_URL);
   }
 }
