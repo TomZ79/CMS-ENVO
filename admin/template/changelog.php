@@ -5,6 +5,58 @@
     <!-- Detached content -->
     <div class="container-detached">
       <div class="content-detached">
+        <!-- Version 1.2.1 -->
+        <div id="v_1_2_1" class="scrollspyoffset">
+          <div class="panel panel-flat">
+            <div class="panel-heading">
+              <h5 class="panel-title">Version 1.2.1</h5>
+              <div class="heading-elements">
+                <span class="text-muted heading-text">XX, 2017</span>
+                <span class="label heading-text">v1.2.1</span>
+              </div>
+            </div>
+
+            <div class="panel-body">
+              <p class="content-group">Version 1.2.1 includes bug fixing for reported issues, new components and updated plugins/libraries to the latest stable versions. </p>
+
+              <pre class="prettyprint">
+// # List of new components
+// ------------------------------
+
+[new]
+
+[new] ... and other more ...
+
+// # List of updated components
+// ------------------------------
+
+[updated]
+
+// # List of fixed bugs
+// ------------------------------
+
+[fixed]
+
+// # List of enhancements
+// ------------------------------
+
+[enhanced]
+
+// # List of new pages
+// ------------------------------
+
+[new page]
+
+// # List of removed components
+// ------------------------------
+
+[removed]
+									</pre>
+            </div>
+          </div>
+        </div>
+        <!-- /Version 1.2.1 -->
+
         <!-- Version 1.2 -->
         <div id="v_1_2" class="scrollspyoffset">
           <div class="panel panel-flat">
@@ -12,7 +64,7 @@
               <h5 class="panel-title">Version 1.2</h5>
               <div class="heading-elements">
                 <span class="text-muted heading-text">September 27, 2017</span>
-                <span class="label heading-text">v. 1.2</span>
+                <span class="label heading-text">v1.2</span>
               </div>
             </div>
 
@@ -113,7 +165,7 @@ http://99webtools.com/blog/php-simple-captcha-script/
             </div>
           </div>
         </div>
-        <!-- /version 1.2 -->
+        <!-- /Version 1.2 -->
 
         <!-- Version 1.1 -->
         <div id="v_1_1" class="scrollspyoffset">
@@ -122,7 +174,7 @@ http://99webtools.com/blog/php-simple-captcha-script/
               <h5 class="panel-title">Version 1.1</h5>
               <div class="heading-elements">
                 <span class="text-muted heading-text">August 6, 2016</span>
-                <span class="label heading-text">v. 1.1</span>
+                <span class="label heading-text">v1.1</span>
               </div>
             </div>
 
@@ -158,7 +210,7 @@ http://99webtools.com/blog/php-simple-captcha-script/
             </div>
           </div>
         </div>
-        <!-- /version 1.1 -->
+        <!-- /Version 1.1 -->
 
         <!-- Initial release -->
         <div id="release" class="scrollspyoffset">
@@ -167,7 +219,7 @@ http://99webtools.com/blog/php-simple-captcha-script/
               <h5 class="panel-title">Initial release</h5>
               <div class="heading-elements">
                 <span class="text-muted heading-text">August 5, 2016</span>
-                <span class="label heading-text">v. 1.0</span>
+                <span class="label heading-text">v1.0</span>
               </div>
             </div>
 
@@ -178,7 +230,7 @@ http://99webtools.com/blog/php-simple-captcha-script/
 
           </div>
         </div>
-        <!-- /initial release -->
+        <!-- /Initial release -->
 
         <!-- Properties -->
         <div id="properties" class="scrollspyoffset">
@@ -296,10 +348,9 @@ http://99webtools.com/blog/php-simple-captcha-script/
           </div>
         </div>
         <!-- /Properties -->
-
       </div>
     </div>
-    <!-- /detached content -->
+    <!-- /Detached content -->
 
     <!-- Detached sidebar -->
     <div class="sidebar-detached sidebar-scroll">
@@ -311,6 +362,10 @@ http://99webtools.com/blog/php-simple-captcha-script/
               <ul class="nav navigation">
                 <li class="navigation-header">
                   <i class="icon-history pull-right"></i> Version history
+                </li>
+                <li>
+                  <a href="#v_1_2_1">Version 1.2.1
+                    <span class="text-muted text-regular pull-right">XX.XX.2017</span></a>
                 </li>
                 <li>
                   <a href="#v_1_2">Version 1.2
@@ -333,7 +388,7 @@ http://99webtools.com/blog/php-simple-captcha-script/
         </div>
       </div>
     </div>
-    <!-- /detached sidebar -->
+    <!-- /Detached sidebar -->
   </div>
 </div>
 
