@@ -11,7 +11,7 @@
             <div class="panel-heading">
               <h5 class="panel-title">Version 1.2</h5>
               <div class="heading-elements">
-                <span class="text-muted heading-text">XX XX, 2016</span>
+                <span class="text-muted heading-text">September 27, 2017</span>
                 <span class="label heading-text">v. 1.2</span>
               </div>
             </div>
@@ -314,9 +314,9 @@ http://99webtools.com/blog/php-simple-captcha-script/
                 </li>
                 <li>
                   <a href="#v_1_2">Version 1.2
-                    <span class="text-muted text-regular pull-right">XX.XX.2016</span></a>
+                    <span class="text-muted text-regular pull-right">09.27.2016</span></a>
                 </li>
-                <li><a href="#v_1_1">Version 1.1 <span class="text-muted text-regular pull-right">6.8.2015</span></a>
+                <li><a href="#v_1_1">Version 1.1 <span class="text-muted text-regular pull-right">06.8.2015</span></a>
                 </li>
                 <li>
                   <a href="#release">Initial release
