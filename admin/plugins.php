@@ -54,15 +54,15 @@ switch ($page1) {
             // CZ: Hlavní proměnné
             $defaults = $_POST;
 
-            if (empty($defaults['jak_name'])) {
+            if (empty($defaults['envo_name'])) {
               $errors['e1'] = $tl['hook_error']['hookerror1'] . '<br>';
             }
 
-            if (empty($defaults['jak_hook'])) {
+            if (empty($defaults['envo_hook'])) {
               $errors['e2'] = $tl['hook_error']['hookerror2'] . '<br>';
             }
 
-            if (!is_numeric($defaults['jak_exorder'])) {
+            if (!is_numeric($defaults['envo_exorder'])) {
               $errors['e3'] = $tl['hook_error']['hookerror3'] . '<br>';
             }
 
@@ -75,11 +75,11 @@ switch ($page1) {
                * smartsql - secure method to insert form data into a MySQL DB
               */
               $result = $envodb->query('UPDATE ' . $envotable2 . ' SET
-                        name = "' . smartsql($defaults['jak_name']) . '",
-                        hook_name = "' . smartsql($defaults['jak_hook']) . '",
-                        phpcode = "' . smartsql($defaults['jak_phpcode']) . '",
-                        exorder = "' . smartsql($defaults['jak_exorder']) . '",
-                        pluginid = "' . smartsql($defaults['jak_plugin']) . '",
+                        name = "' . smartsql($defaults['envo_name']) . '",
+                        hook_name = "' . smartsql($defaults['envo_hook']) . '",
+                        phpcode = "' . smartsql($defaults['envo_phpcode']) . '",
+                        exorder = "' . smartsql($defaults['envo_exorder']) . '",
+                        pluginid = "' . smartsql($defaults['envo_plugin']) . '",
                         time = NOW() ,
                         active = 1
                         WHERE id = "' . smartsql($page3) . '"');
@@ -137,14 +137,14 @@ switch ($page1) {
         break;
       default:
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jak_delete_hook'])) {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_hook'])) {
           // EN: Default Variable
           // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (isset($defaults['lock'])) {
 
-            $lockuser = $defaults['jak_delete_hook'];
+            $lockuser = $defaults['envo_delete_hook'];
 
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
@@ -167,7 +167,7 @@ switch ($page1) {
 
           if (isset($defaults['delete'])) {
 
-            $lockuser = $defaults['jak_delete_hook'];
+            $lockuser = $defaults['envo_delete_hook'];
 
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
@@ -197,12 +197,12 @@ switch ($page1) {
         $getTotal = envo_get_total($envotable2, '', '', '');
         if ($getTotal != 0) {
           // Paginator
-          $pages                 = new JAK_Paginator;
+          $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
           $pages->mid_range      = $jkv["adminpagemid"];
           $pages->items_per_page = $jkv["adminpageitem"];
-          $pages->jak_get_page   = $page2;
-          $pages->jak_where      = 'index.php?p=plugins&sp=hooks';
+          $pages->envo_get_page   = $page2;
+          $pages->envo_where      = 'index.php?p=plugins&sp=hooks';
           $pages->paginate();
           $JAK_PAGINATE = $pages->display_pages();
         }
@@ -266,15 +266,15 @@ switch ($page1) {
       // CZ: Hlavní proměnné
       $defaults = $_POST;
 
-      if (empty($defaults['jak_name'])) {
+      if (empty($defaults['envo_name'])) {
         $errors['e1'] = $tl['hook_error']['hookerror1'] . '<br>';
       }
 
-      if (empty($defaults['jak_hook'])) {
+      if (empty($defaults['envo_hook'])) {
         $errors['e2'] = $tl['hook_error']['hookerror2'] . '<br>';
       }
 
-      if (!is_numeric($defaults['jak_exorder'])) {
+      if (!is_numeric($defaults['envo_exorder'])) {
         $errors['e3'] = $tl['hook_error']['hookerror3'] . '<br>';
       }
 
@@ -287,11 +287,11 @@ switch ($page1) {
          * smartsql - secure method to insert form data into a MySQL DB
         */
         $result = $envodb->query('INSERT INTO ' . $envotable2 . ' SET
-                  name = "' . smartsql($defaults['jak_name']) . '",
-                  hook_name = "' . smartsql($defaults['jak_hook']) . '",
-                  phpcode = "' . smartsql($defaults['jak_phpcode']) . '",
-                  exorder = "' . smartsql($defaults['jak_exorder']) . '",
-                  pluginid = "' . smartsql($defaults['jak_plugin']) . '",
+                  name = "' . smartsql($defaults['envo_name']) . '",
+                  hook_name = "' . smartsql($defaults['envo_hook']) . '",
+                  phpcode = "' . smartsql($defaults['envo_phpcode']) . '",
+                  exorder = "' . smartsql($defaults['envo_exorder']) . '",
+                  pluginid = "' . smartsql($defaults['envo_plugin']) . '",
                   time = NOW(),
                   active = 1');
 
@@ -370,8 +370,8 @@ switch ($page1) {
 
               // and finaly update the setting table
               $result1 = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-		 							WHEN "accessgeneral" THEN "' . smartsql($defaults['jak_generala']) . '"
-		 						    WHEN "accessmanage" THEN "' . smartsql($defaults['jak_managea']) . '"
+		 							WHEN "accessgeneral" THEN "' . smartsql($defaults['envo_generala']) . '"
+		 						    WHEN "accessmanage" THEN "' . smartsql($defaults['envo_managea']) . '"
 		 						END
 		 							WHERE varname IN ("accessgeneral","accessmanage")');
 

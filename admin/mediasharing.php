@@ -35,17 +35,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
        * smartsql - secure method to insert form data into a MySQL DB
       */
       $result = $envodb->query('UPDATE ' . DB_PREFIX . 'setting SET value = CASE varname
-                    WHEN "md_facebook" THEN "' . smartsql($defaults['jak_md_facebook']) . '"
-                    WHEN "md_googleplus" THEN "' . smartsql($defaults['jak_md_googleplus']) . '"
-                    WHEN "md_instagram" THEN "' . smartsql($defaults['jak_md_instagram']) . '"
-                    WHEN "md_twitter" THEN "' . smartsql($defaults['jak_md_twitter']) . '"
-                    WHEN "md_youtube" THEN "' . smartsql($defaults['jak_md_youtube']) . '"
-                    WHEN "md_vimeo" THEN "' . smartsql($defaults['jak_md_vimeo']) . '"
-                    WHEN "md_email" THEN "' . smartsql($defaults['jak_md_email']) . '"
-                    WHEN "md_mediaSize" THEN "' . smartsql($defaults['jak_mediaSize']) . '"
-                    WHEN "md_iconSize" THEN "' . smartsql($defaults['jak_iconSize']) . '"
-                    WHEN "md_mediatheme" THEN "' . smartsql($defaults['jak_mediatheme']) . '"
-                    WHEN "md_mediahover" THEN "' . smartsql($defaults['jak_mediahover']) . '"
+                    WHEN "md_facebook" THEN "' . smartsql($defaults['envo_md_facebook']) . '"
+                    WHEN "md_googleplus" THEN "' . smartsql($defaults['envo_md_googleplus']) . '"
+                    WHEN "md_instagram" THEN "' . smartsql($defaults['envo_md_instagram']) . '"
+                    WHEN "md_twitter" THEN "' . smartsql($defaults['envo_md_twitter']) . '"
+                    WHEN "md_youtube" THEN "' . smartsql($defaults['envo_md_youtube']) . '"
+                    WHEN "md_vimeo" THEN "' . smartsql($defaults['envo_md_vimeo']) . '"
+                    WHEN "md_email" THEN "' . smartsql($defaults['envo_md_email']) . '"
+                    WHEN "md_mediaSize" THEN "' . smartsql($defaults['envo_mediaSize']) . '"
+                    WHEN "md_iconSize" THEN "' . smartsql($defaults['envo_iconSize']) . '"
+                    WHEN "md_mediatheme" THEN "' . smartsql($defaults['envo_mediatheme']) . '"
+                    WHEN "md_mediahover" THEN "' . smartsql($defaults['envo_mediahover']) . '"
                 END
                   WHERE varname IN ("md_facebook","md_googleplus","md_instagram","md_twitter","md_youtube","md_vimeo","md_email","md_mediaSize","md_iconSize","md_mediatheme","md_mediahover")');
 

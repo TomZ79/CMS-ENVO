@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // Execute Optinos
   if (isset($defaults['download'])) {
 
-    $dbimpexp->addValue('download_path', '')->addValue('download', TRUE)->addValue('file_name', ENVO_base::jakCleanurl($jkv["title"]) . '-' . date("y_m_d", time()) . '.xml')->export();
+    $dbimpexp->addValue('download_path', '')->addValue('download', TRUE)->addValue('file_name', ENVO_base::envoCleanurl($jkv["title"]) . '-' . date("y_m_d", time()) . '.xml')->export();
   }
 
   if (isset($defaults['import'])) {
@@ -35,9 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $filename     = $_FILES['uploaddb']['name']; // original filename
     $tmpf         = explode(".", $filename);
-    $jak_xtension = end($tmpf);
+    $envo_xtension = end($tmpf);
 
-    if ($xmlfiledb && $jak_xtension == "xml") {
+    if ($xmlfiledb && $envo_xtension == "xml") {
 
       $dbimpexp->addValue('import_path', $xmlfiledb)->import();
 

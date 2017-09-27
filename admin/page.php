@@ -43,28 +43,28 @@ switch ($page1) {
         // EN: If button "Save Changes" clicked
         // CZ: Pokud bylo stisknuto tlačítko "Uložit"
 
-        if (empty($defaults['jak_title'])) {
+        if (empty($defaults['envo_title'])) {
           $errors['e1'] = $tl['page_error']['pageerror'] . '<br>';
         }
 
         // Now do the dirty stuff in mysql
         if (count($errors) == 0) {
 
-          if (empty($defaults['jak_shownews'])) {
+          if (empty($defaults['envo_shownews'])) {
             $news = 0;
-          } elseif (is_array($defaults['jak_shownews']) && in_array(0, $defaults['jak_shownews'])) {
+          } elseif (is_array($defaults['envo_shownews']) && in_array(0, $defaults['envo_shownews'])) {
             $news = 0;
           } else {
-            $news = join(',', $defaults['jak_shownews']);
+            $news = join(',', $defaults['envo_shownews']);
           }
 
-          if (empty($news) && !empty($defaults['jak_shownewsordern']) && !empty($defaults['jak_shownewsmany'])) {
-            $news = $defaults['jak_shownewsordern'] . ':' . $defaults['jak_shownewsorder'] . ':' . $defaults['jak_shownewsmany'];
+          if (empty($news) && !empty($defaults['envo_shownewsordern']) && !empty($defaults['envo_shownewsmany'])) {
+            $news = $defaults['envo_shownewsordern'] . ':' . $defaults['envo_shownewsorder'] . ':' . $defaults['envo_shownewsmany'];
           }
 
           // The new password encrypt with hash_hmac
-          if ($defaults['jak_password']) {
-            $passcrypt = hash_hmac('sha256', $defaults['jak_password'], DB_PASS_HASH);
+          if ($defaults['envo_password']) {
+            $passcrypt = hash_hmac('sha256', $defaults['envo_password'], DB_PASS_HASH);
             $insert .= 'password = "' . $passcrypt . '",';
           }
 
@@ -84,21 +84,21 @@ switch ($page1) {
            * smartsql - secure method to insert form data into a MySQL DB
           */
           $result = $envodb->query('INSERT INTO ' . $envotable . ' SET
-                    catid = ' . smartsql($defaults['jak_catid']) . ',
-                    title = "' . smartsql($defaults['jak_title']) . '",
-                    content = "' . smartsql($defaults['jak_content']) . '",
-                    page_css = "' . smartsql($defaults['jak_css']) . '",
-                    page_javascript = "' . smartsql($defaults['jak_javascript']) . '",
-                    sidebar = "' . smartsql($defaults['jak_sidebar']) . '",
-                    shownav = "' . smartsql($defaults['jak_shownav']) . '",
-                    showfooter = "' . smartsql($defaults['jak_showfooter']) . '",
-                    showtitle = "' . smartsql($defaults['jak_showtitle']) . '",
-                    showcontact = "' . smartsql($defaults['jak_showcontact']) . '",
+                    catid = ' . smartsql($defaults['envo_catid']) . ',
+                    title = "' . smartsql($defaults['envo_title']) . '",
+                    content = "' . smartsql($defaults['envo_content']) . '",
+                    page_css = "' . smartsql($defaults['envo_css']) . '",
+                    page_javascript = "' . smartsql($defaults['envo_javascript']) . '",
+                    sidebar = "' . smartsql($defaults['envo_sidebar']) . '",
+                    shownav = "' . smartsql($defaults['envo_shownav']) . '",
+                    showfooter = "' . smartsql($defaults['envo_showfooter']) . '",
+                    showtitle = "' . smartsql($defaults['envo_showtitle']) . '",
+                    showcontact = "' . smartsql($defaults['envo_showcontact']) . '",
                     shownews = "' . smartsql($news) . '",
-                    showdate = "' . smartsql($defaults['jak_showdate']) . '",
-                    showtags = "' . smartsql($defaults['jak_showtags']) . '",
-                    showlogin = "' . smartsql($defaults['jak_showlogin']) . '",
-                    socialbutton = "' . smartsql($defaults['jak_social']) . '",
+                    showdate = "' . smartsql($defaults['envo_showdate']) . '",
+                    showtags = "' . smartsql($defaults['envo_showtags']) . '",
+                    showlogin = "' . smartsql($defaults['envo_showlogin']) . '",
+                    socialbutton = "' . smartsql($defaults['envo_social']) . '",
                     ' . $insert . '
                     time = NOW()');
 
@@ -116,7 +116,7 @@ switch ($page1) {
           }
 
           // Save order for sidebar widget
-          if (isset($defaults['jak_hookshow']) && is_array($defaults['jak_hookshow'])) {
+          if (isset($defaults['envo_hookshow']) && is_array($defaults['envo_hookshow'])) {
             $exorder = $defaults['horder'];
             $hookid  = $defaults['real_hook_id'];
             $plugind = $defaults['sreal_plugin_id'];
@@ -125,7 +125,7 @@ switch ($page1) {
 
             foreach ($doith as $key => $exorder) {
 
-              if (in_array($key, $defaults['jak_hookshow'])) {
+              if (in_array($key, $defaults['envo_hookshow'])) {
 
                 // Get the real what id
                 $whatid = 0;
@@ -142,8 +142,8 @@ switch ($page1) {
           // Set tag active to zero
           $tagactive = 0;
 
-          if ($defaults['jak_catid'] != '0') {
-            $envodb->query('UPDATE ' . $envotable1 . ' SET pageid = "' . smartsql($rowid) . '" WHERE id = "' . smartsql($defaults['jak_catid']) . '"');
+          if ($defaults['envo_catid'] != '0') {
+            $envodb->query('UPDATE ' . $envotable1 . ' SET pageid = "' . smartsql($rowid) . '" WHERE id = "' . smartsql($defaults['envo_catid']) . '"');
 
             // Set tag active, well to active
             $tagactive = 1;
@@ -156,11 +156,11 @@ switch ($page1) {
           } else {
 
             // Create Tags if the module is active
-            if (!empty($defaults['jak_tags'])) {
+            if (!empty($defaults['envo_tags'])) {
               // check if tag does not exist and insert in cloud
-              ENVO_tags::jakBuildcloud($defaults['jak_tags'], $rowid, 0);
+              ENVO_tags::envoBuildCloud($defaults['envo_tags'], $rowid, 0);
               // insert tag for normal use
-              ENVO_tags::jakInsertags($defaults['jak_tags'], $rowid, 0, $tagactive);
+              ENVO_tags::envoInserTags($defaults['envo_tags'], $rowid, 0, $tagactive);
             }
             // EN: Redirect page
             // CZ: Přesměrování stránky
@@ -257,7 +257,7 @@ switch ($page1) {
 
         $result = $envodb->query('UPDATE ' . $envotable . ' SET active = IF (active = 1, 0, 1) WHERE id = "' . smartsql($page2) . '"');
 
-        ENVO_tags::jakLocktags($page2, 0);
+        ENVO_tags::envoLockTags($page2, 0);
 
         if (!$result) {
           // EN: Redirect page
@@ -278,12 +278,12 @@ switch ($page1) {
         // Now if total run paginator
         if ($getTotal != 0) {
           // Paginator
-          $pages                 = new JAK_Paginator;
+          $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
           $pages->mid_range      = $jkv["adminpagemid"];
           $pages->items_per_page = $jkv["adminpageitem"];
-          $pages->jak_get_page   = $page4;
-          $pages->jak_where      = 'index.php?p=page&sp=sort&ssp=' . $page2 . '&sssp=' . $page3;
+          $pages->envo_get_page   = $page4;
+          $pages->envo_where      = 'index.php?p=page&sp=sort&ssp=' . $page2 . '&sssp=' . $page3;
           $pages->paginate();
           $JAK_PAGINATE = $pages->display_pages();
         }
@@ -317,7 +317,7 @@ switch ($page1) {
             // CZ: Přesměrování stránky s notifikací - chybné
             envo_redirect(BASE_URL . 'index.php?p=page&status=e');
           } else {
-            ENVO_tags::jakDeletetags($page2, 0);
+            ENVO_tags::envoDeleteTags($page2, 0);
 
             // EN: Redirect page
             // CZ: Přesměrování stránky s notifikací - úspěšné
@@ -345,28 +345,28 @@ switch ($page1) {
             $defaults = $_POST;
 
             // Delete the tags
-            if (!empty($defaults['jak_tagdelete'])) {
-              $tags = $defaults['jak_tagdelete'];
+            if (!empty($defaults['envo_tagdelete'])) {
+              $tags = $defaults['envo_tagdelete'];
 
               for ($i = 0; $i < count($tags); $i++) {
                 $tag = $tags[$i];
 
-                ENVO_tags::jakDeleteonetag($tag);
+                ENVO_tags::envoDeleteOneTag($tag);
               }
             }
 
             // Delete the password
-            if (!empty($defaults['jak_delete_password'])) {
-              $defaults['jak_password'] = '';
+            if (!empty($defaults['envo_delete_password'])) {
+              $defaults['envo_password'] = '';
               $envodb->query('UPDATE ' . $envotable . ' SET password = NULL WHERE id = "' . smartsql($page2) . '"');
             }
 
             // Delete the hits
-            if (!empty($defaults['jak_delete_hits'])) {
+            if (!empty($defaults['envo_delete_hits'])) {
               $envodb->query('UPDATE ' . $envotable . ' SET hits = 1 WHERE id = "' . smartsql($page2) . '"');
             }
 
-            if (empty($defaults['jak_title'])) {
+            if (empty($defaults['envo_title'])) {
               $errors['e1'] = $tl['page_error']['pageerror'] . '<br>';
             }
 
@@ -374,25 +374,25 @@ switch ($page1) {
             if (count($errors) == 0) {
 
               // Update time
-              if (!empty($defaults['jak_update_time'])) {
+              if (!empty($defaults['envo_update_time'])) {
                 $insert .= 'time = NOW(),';
               }
 
-              if (empty($defaults['jak_shownews'])) {
+              if (empty($defaults['envo_shownews'])) {
                 $news = 0;
-              } elseif (is_array($defaults['jak_shownews']) && in_array(0, $defaults['jak_shownews'])) {
+              } elseif (is_array($defaults['envo_shownews']) && in_array(0, $defaults['envo_shownews'])) {
                 $news = 0;
               } else {
-                $news = join(',', $defaults['jak_shownews']);
+                $news = join(',', $defaults['envo_shownews']);
               }
 
-              if (empty($news) && !empty($defaults['jak_shownewsordern']) && !empty($defaults['jak_shownewsmany'])) {
-                $news = $defaults['jak_shownewsordern'] . ':' . $defaults['jak_shownewsorder'] . ':' . $defaults['jak_shownewsmany'];
+              if (empty($news) && !empty($defaults['envo_shownewsordern']) && !empty($defaults['envo_shownewsmany'])) {
+                $news = $defaults['envo_shownewsordern'] . ':' . $defaults['envo_shownewsorder'] . ':' . $defaults['envo_shownewsmany'];
               }
 
               // The new password encrypt with hash_hmac
-              if ($defaults['jak_password']) {
-                $insert .= 'password = "' . hash_hmac('sha256', $defaults['jak_password'], DB_PASS_HASH) . '",';
+              if ($defaults['envo_password']) {
+                $insert .= 'password = "' . hash_hmac('sha256', $defaults['envo_password'], DB_PASS_HASH) . '",';
               }
 
               // EN: Get all the php Hook by name of Hook
@@ -420,22 +420,22 @@ switch ($page1) {
                * smartsql - secure method to insert form data into a MySQL DB
               */
               $result = $envodb->query('UPDATE ' . $envotable . ' SET
-                        catid = "' . smartsql($defaults['jak_catid']) . '",
-                        title = "' . smartsql($defaults['jak_title']) . '",
-                        content = "' . smartsql($defaults['jak_content']) . '",
-                        page_css = "' . smartsql($defaults['jak_css']) . '",
-                        page_javascript = "' . smartsql($defaults['jak_javascript']) . '",
-                        sidebar = "' . smartsql($defaults['jak_sidebar']) . '",
-                        shownav = "' . smartsql($defaults['jak_shownav']) . '",
-                        showfooter = "' . smartsql($defaults['jak_showfooter']) . '",
-                        showtitle = "' . smartsql($defaults['jak_showtitle']) . '",
-                        showcontact = "' . smartsql($defaults['jak_showcontact']) . '",
+                        catid = "' . smartsql($defaults['envo_catid']) . '",
+                        title = "' . smartsql($defaults['envo_title']) . '",
+                        content = "' . smartsql($defaults['envo_content']) . '",
+                        page_css = "' . smartsql($defaults['envo_css']) . '",
+                        page_javascript = "' . smartsql($defaults['envo_javascript']) . '",
+                        sidebar = "' . smartsql($defaults['envo_sidebar']) . '",
+                        shownav = "' . smartsql($defaults['envo_shownav']) . '",
+                        showfooter = "' . smartsql($defaults['envo_showfooter']) . '",
+                        showtitle = "' . smartsql($defaults['envo_showtitle']) . '",
+                        showcontact = "' . smartsql($defaults['envo_showcontact']) . '",
                         shownews = "' . smartsql($news) . '",
-                        showdate = "' . smartsql($defaults['jak_showdate']) . '",
-                        showtags = "' . smartsql($defaults['jak_showtags']) . '",
-                        showlogin = "' . smartsql($defaults['jak_showlogin']) . '",
+                        showdate = "' . smartsql($defaults['envo_showdate']) . '",
+                        showtags = "' . smartsql($defaults['envo_showtags']) . '",
+                        showlogin = "' . smartsql($defaults['envo_showlogin']) . '",
                         ' . $insert . '
-                        socialbutton = "' . smartsql($defaults['jak_social']) . '"
+                        socialbutton = "' . smartsql($defaults['envo_social']) . '"
                         WHERE id = "' . smartsql($page2) . '"');
 
               // Insert new stuff first if exist order for extra stuff
@@ -453,7 +453,7 @@ switch ($page1) {
               }
 
               // Save order for sidebar widget
-              if (isset($defaults['jak_hookshow_new']) && is_array($defaults['jak_hookshow_new'])) {
+              if (isset($defaults['envo_hookshow_new']) && is_array($defaults['envo_hookshow_new'])) {
 
                 $exorder = $defaults['horder_new'];
                 $hookid  = $defaults['real_hook_id_new'];
@@ -463,7 +463,7 @@ switch ($page1) {
 
                 foreach ($doith as $key => $exorder) {
 
-                  if (in_array($key, $defaults['jak_hookshow_new'])) {
+                  if (in_array($key, $defaults['envo_hookshow_new'])) {
 
                     // Get the real what id
                     $whatid = 0;
@@ -492,7 +492,7 @@ switch ($page1) {
               END
               WHERE id IN (' . $realid . ')');
 
-              if (!isset($defaults['jak_hookshow_new']) && !isset($defaults['jak_hookshow'])) {
+              if (!isset($defaults['envo_hookshow_new']) && !isset($defaults['envo_hookshow'])) {
 
                 // Now check if all the sidebar a deselected and hooks exist, if so delete all associated to this page
                 $row = $envodb->queryRow('SELECT id FROM ' . $envotable3 . ' WHERE pageid = "' . smartsql($page2) . '" AND hookid != 0');
@@ -505,7 +505,7 @@ switch ($page1) {
               }
 
               // Save order or delete for extra sidebar widget
-              if (isset($defaults['jak_hookshow']) && is_array($defaults['jak_hookshow'])) {
+              if (isset($defaults['envo_hookshow']) && is_array($defaults['envo_hookshow'])) {
 
                 $exorder    = $defaults['horder'];
                 $hookid     = $defaults['real_hook_id'];
@@ -521,7 +521,7 @@ switch ($page1) {
                   $whatid = 0;
                   if (isset($defaults['whatid_' . $row["pluginid"]])) $whatid = $defaults['whatid_' . $row["pluginid"]];
 
-                  if (in_array($key, $defaults['jak_hookshow'])) {
+                  if (in_array($key, $defaults['envo_hookshow'])) {
                     $updatesql .= sprintf("WHEN %d THEN %d ", $key, $exorder);
                     $updatesql1 .= sprintf("WHEN %d THEN %d ", $key, $whatid);
 
@@ -545,18 +545,18 @@ switch ($page1) {
               // Set tag active to zero
               $tagactive = 0;
 
-              if ($defaults['jak_oldcatid'] != 0) $tagactive = 1;
+              if ($defaults['envo_oldcatid'] != 0) $tagactive = 1;
 
-              if ($defaults['jak_catid'] != $defaults['jak_oldcatid']) {
+              if ($defaults['envo_catid'] != $defaults['envo_oldcatid']) {
 
-                if ($defaults['jak_catid'] == 0) {
+                if ($defaults['envo_catid'] == 0) {
 
-                  $envodb->query('UPDATE ' . $envotable1 . ' SET pageid = 0 WHERE id = "' . smartsql($defaults['jak_oldcatid']) . '"');
+                  $envodb->query('UPDATE ' . $envotable1 . ' SET pageid = 0 WHERE id = "' . smartsql($defaults['envo_oldcatid']) . '"');
 
                 } else {
 
-                  $envodb->query('UPDATE ' . $envotable1 . ' SET pageid = 0 WHERE id = "' . smartsql($defaults['jak_oldcatid']) . '"');
-                  $envodb->query('UPDATE ' . $envotable1 . ' SET pageid = "' . smartsql($page2) . '" WHERE id = "' . smartsql($defaults['jak_catid']) . '"');
+                  $envodb->query('UPDATE ' . $envotable1 . ' SET pageid = 0 WHERE id = "' . smartsql($defaults['envo_oldcatid']) . '"');
+                  $envodb->query('UPDATE ' . $envotable1 . ' SET pageid = "' . smartsql($page2) . '" WHERE id = "' . smartsql($defaults['envo_catid']) . '"');
 
                 }
 
@@ -571,11 +571,11 @@ switch ($page1) {
               } else {
 
                 // Create Tags if the module is active
-                if (!empty($defaults['jak_tags'])) {
+                if (!empty($defaults['envo_tags'])) {
                   // check if tag does not exist and insert in cloud
-                  ENVO_tags::jakBuildcloud($defaults['jak_tags'], smartsql($page2), 0);
+                  ENVO_tags::envoBuildCloud($defaults['envo_tags'], smartsql($page2), 0);
                   // insert tag for normal use
-                  ENVO_tags::jakInsertags($defaults['jak_tags'], smartsql($page2), 0, $tagactive);
+                  ENVO_tags::envoInserTags($defaults['envo_tags'], smartsql($page2), 0, $tagactive);
                 }
 
                 // EN: Redirect page
@@ -666,7 +666,7 @@ switch ($page1) {
             // CZ: Hlavní proměnné
             $defaults = $_POST;
 
-            if (empty($defaults['jak_title'])) {
+            if (empty($defaults['envo_title'])) {
               $errors['e1'] = $tl['page_error']['pageerror'] . '<br>';
             }
 
@@ -680,8 +680,8 @@ switch ($page1) {
                * smartsql - secure method to insert form data into a MySQL DB
               */
               $result = $envodb->query('UPDATE ' . $envotable . ' SET
-                        title = "' . smartsql($defaults['jak_title']) . '",
-                        content = "' . smartsql($defaults['jak_lcontent']) . '"
+                        title = "' . smartsql($defaults['envo_title']) . '",
+                        content = "' . smartsql($defaults['envo_lcontent']) . '"
                         WHERE id = "' . smartsql($page2) . '"');
 
               if (!$result) {
@@ -716,14 +716,14 @@ switch ($page1) {
       default:
 
         // Do we have a post access
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['jak_delete_page'])) {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_page'])) {
           // EN: Default Variable
           // CZ: Hlavní proměnné
           $defaults = $_POST;
 
           if (isset($defaults['lock'])) {
 
-            $lockuser = $defaults['jak_delete_page'];
+            $lockuser = $defaults['envo_delete_page'];
 
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked = $lockuser[$i];
@@ -744,13 +744,13 @@ switch ($page1) {
 
           if (isset($defaults['delete'])) {
 
-            $lockuser = $defaults['jak_delete_page'];
+            $lockuser = $defaults['envo_delete_page'];
 
             for ($i = 0; $i < count($lockuser); $i++) {
               $locked  = $lockuser[$i];
               $result  = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
               $result1 = $envodb->query('UPDATE ' . $envotable1 . ' SET pageid = 0 WHERE pageid = "' . smartsql($locked) . '"');
-              ENVO_tags::jakDeletetags($locked, 0);
+              ENVO_tags::envoDeleteTags($locked, 0);
             }
 
             if (!$result) {
@@ -776,12 +776,12 @@ switch ($page1) {
         if ($getTotal != 0) {
 
           // Paginator
-          $pages                 = new JAK_Paginator;
+          $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
           $pages->mid_range      = $jkv["adminpagemid"];
           $pages->items_per_page = $jkv["adminpageitem"];
-          $pages->jak_get_page   = $page1;
-          $pages->jak_where      = 'index.php?p=page';
+          $pages->envo_get_page   = $page1;
+          $pages->envo_where      = 'index.php?p=page';
           $pages->paginate();
           $JAK_PAGINATE = $pages->display_pages();
 
