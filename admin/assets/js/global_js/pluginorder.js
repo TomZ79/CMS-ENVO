@@ -18,7 +18,7 @@
 
 $(function () {
 
-	$('.jak_plugins_move').sortable({
+	$('.envo_plugins_move').sortable({
 		// Jquery UI Sortable config
 		// --------------------------
 
@@ -46,7 +46,7 @@ $(function () {
 		update: function () {
 
 			// The toArray method returns an array with the ids of the todos
-			var arr = $(".jak_plugins_move").sortable('toArray');
+			var arr = $(".envo_plugins_move").sortable('toArray');
 
 			// Striping the todo- prefix of the ids:
 			arr = $.map(arr, function (val, key) {

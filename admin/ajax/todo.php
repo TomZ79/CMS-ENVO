@@ -18,27 +18,27 @@ try {
 
 	switch($_GET['action']) {
 		case 'delete':
-			Jak_ToDo::delete($id);
+			ENVO_todo::delete($id);
 			break;
 			
 		case 'rearrange':
-			Jak_ToDo::rearrange($_GET['positions']);
+			ENVO_todo::rearrange($_GET['positions']);
 			break;
 			
 		case 'edit':
-			Jak_ToDo::edit($id,$_GET['text']);
+			ENVO_todo::edit($id,$_GET['text']);
 			break;
 			
 		case 'done':
-			Jak_ToDo::done($id);
+			ENVO_todo::done($id);
 			break;
 			
 		case 'admin':
-			Jak_ToDo::done($id);
+			ENVO_todo::done($id);
 			break;
 			
 		case 'new':
-			Jak_ToDo::createNew($_GET['text']);
+			ENVO_todo::createNew($_GET['text']);
 			break;
 	}
 

@@ -487,14 +487,14 @@ $(function () {
 $(function () {
   // Add value from Bootstrap Select to Bootstrap TagsInput
   $('#selecttags1').on('changed.bs.select', function (e) {
-    $("input[name='jak_tags']").tagsinput('add', $(this).val());
+    $("input[name='envo_tags']").tagsinput('add', $(this).val());
   });
   $('#selecttags2').on('changed.bs.select', function (e) {
-    $("input[name='jak_tags']").tagsinput('add', $(this).val());
+    $("input[name='envo_tags']").tagsinput('add', $(this).val());
   });
 
   // Init Booststrap TagsInput for all Tags
-  $("input[name='jak_tags'].tags").tagsinput('items');
+  $("input[name='envo_tags'].tags").tagsinput('items');
 
   /* Init Booststrap TagsInput for metakey in ACP
    * confirm key code
@@ -503,11 +503,11 @@ $(function () {
    * 32 - space bar
    *
    */
-  $("input[name='jak_keywords']#metakey").tagsinput({
+  $("input[name='envo_keywords']#metakey").tagsinput({
     confirmKeys: [13, 44]
   });
 
-  $("input[name='jak_lcontent_meta_key']#jak_editor_light_meta_key").tagsinput({
+  $("input[name='envo_lcontent_meta_key']#envo_editor_light_meta_key").tagsinput({
     confirmKeys: [13, 44]
   });
 
@@ -518,7 +518,7 @@ $(function () {
    * 32 - space bar
    *
    */
-  $("input[name='jak_extension']#fileextension").tagsinput({
+  $("input[name='envo_extension']#fileextension").tagsinput({
     tagClass: 'label label-default ext',
     confirmKeys: [13, 44, 32]
   });
@@ -1065,7 +1065,7 @@ $('.dropdown-menu.livefilter .search-box').on("click.bs.dropdown", function (e) 
 
 /* Jak Move - Sortable and Draggable
  ========================================================================*/
-$(".jak_widget_move").sortable({
+$(".envo_widget_move").sortable({
   placeholder: "ui-state-highlight",
   axis: 'y',
   revert: 250,
@@ -1098,7 +1098,7 @@ $(".jak_widget_move").sortable({
   }
 });
 
-$(".jak_content_move").sortable({
+$(".envo_content_move").sortable({
   placeholder: "ui-state-highlight",
   axis: 'y',
   revert: 250,

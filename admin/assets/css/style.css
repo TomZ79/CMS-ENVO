@@ -1575,7 +1575,7 @@ pre[class*="language-"] {
 ========================================================================*/
 /* --------- SORTABLE --------- */
 /* Label in Plugins */
-.jak_plugins_move label {
+.envo_plugins_move label {
   font-weight: 300;
   margin-right: 10px;
 }
@@ -1604,11 +1604,11 @@ pre[class*="language-"] {
   text-transform: uppercase;
 }
 
-ul.jak_plugins_move,
-ul.jak_cat_move,
-ul.jak_content_move,
-ul.jak_widget_move,
-ul.jak_hooks_move,
+ul.envo_plugins_move,
+ul.envo_cat_move,
+ul.envo_content_move,
+ul.envo_widget_move,
+ul.envo_hooks_move,
 ul#cform_sort {
   padding: 0;
   margin: 0 auto;
@@ -1616,11 +1616,11 @@ ul#cform_sort {
   position: relative;
 }
 
-ul.jak_plugins_move li,
-ul.jak_cat_move li,
-ul.jak_content_move li,
-ul.jak_widget_move li,
-ul.jak_hooks_move li,
+ul.envo_plugins_move li,
+ul.envo_cat_move li,
+ul.envo_content_move li,
+ul.envo_widget_move li,
+ul.envo_hooks_move li,
 ul#cform_sort li {
   background-color: #F9F9F9;
   border: 1px solid #EEE;
@@ -1631,11 +1631,11 @@ ul#cform_sort li {
   cursor: move;
 }
 
-ul.jak_plugins_move li:hover,
-ul.jak_cat_move li:hover,
-ul.jak_content_move li:hover,
-ul.jak_widget_move li:hover,
-ul.jak_hooks_move li:hover,
+ul.envo_plugins_move li:hover,
+ul.envo_cat_move li:hover,
+ul.envo_content_move li:hover,
+ul.envo_widget_move li:hover,
+ul.envo_hooks_move li:hover,
 ul#cform_sort li:hover {
   border-color: #10D5C2;
   /* CSS3 glow effect: */

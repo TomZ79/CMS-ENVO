@@ -17,7 +17,7 @@
 
 $(function () {
 
-  $('.jak_hooks_move').sortable({
+  $('.envo_hooks_move').sortable({
     // Jquery UI Sortable config
     // --------------------------
 
@@ -44,7 +44,7 @@ $(function () {
     // This event is triggered when the user stopped sorting and the DOM position has changed
     update: function () {
 
-      var arr = $(".jak_hooks_move").sortable('toArray');
+      var arr = $(".envo_hooks_move").sortable('toArray');
 
       arr = $.map(arr, function (val, key) {
         return val.replace('hook-', '');

@@ -35,7 +35,7 @@ $(function () {
   });
 
   $('.iconpicker').on('change', function (e) {
-    $("#jak_img").val('fa ' + e.icon);
+    $("#envo_img").val('fa ' + e.icon);
   });
 
   $('.iconpicker1').iconpicker({
@@ -53,7 +53,7 @@ $(function () {
   });
 
   $('.iconpicker1').on('change', function (e) {
-    $("#jak_img").val('glyphicons ' + e.icon);
+    $("#envo_img").val('glyphicons ' + e.icon);
   });
 
 });
@@ -63,9 +63,9 @@ $(function () {
 
 $(function () {
 
-  $('#jak_name').keyup(function () {
+  $('#envo_name').keyup(function () {
     // Checked, copy values
-    $('#jak_varname').val(jakSlug($('#jak_name').val()));
+    $('#envo_varname').val(jakSlug($('#envo_name').val()));
   });
 
 });
@@ -76,7 +76,7 @@ $(function () {
 $(function () {
 
   $('#copy1').click(function () {
-    $('#jak_editor_light_meta_desc').val($('#content').val());
+    $('#envo_editor_light_meta_desc').val($('#content').val());
   });
 
 });
