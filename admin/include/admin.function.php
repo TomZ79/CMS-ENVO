@@ -377,8 +377,9 @@ function envo_field_not_exist_id($envovar, $envovar1, $envovar2, $envovar3)
   }
 }
 
-/* TAG SYSTEM
-============================================================*/
+// ---------------------------------------------------------------------------------------------------------------------
+//			FUNCTION FOR TAG SYSTEM
+// ---------------------------------------------------------------------------------------------------------------------
 
 /**
  * EN: Get tags per id
@@ -859,7 +860,7 @@ function text_clipping_lower($str)
  * @author  BluesatKV
  * @version 1.0.0
  * @date    09/2017
- *          
+ *
  * @param $str
  * @return string
  *

@@ -1,13 +1,35 @@
 <?php
 
-// Redirect to something...
+/**
+ * EN: Redirect function
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $url
+ * @param int $code
+ *
+ */
 function envo_redirect($url, $code = 302)
 {
   header('Location: ' . $url, TRUE, $code);
   exit();
 }
 
-// Secure the site and display videos
+/**
+ * EN: Secure the site and display videos
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $input
+ * @return mixed|string
+ *
+ */
 function envo_secure_site($input)
 {
   $input    = stripslashes($input);
@@ -61,7 +83,18 @@ function envo_secure_site($input)
   return $input;
 }
 
-// Filter inputs
+/**
+ * EN: Filter inputs
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $value
+ * @return mixed
+ *
+ */
 function envo_input_filter($value)
 {
   $value = filter_var($value, FILTER_SANITIZE_STRING);
@@ -69,7 +102,18 @@ function envo_input_filter($value)
   return preg_replace("/[^0-9 _,.@\-\p{L}]/u", '', $value);
 }
 
-// Filter url inputs
+/**
+ * EN: Filter url inputs
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $value
+ * @return string
+ *
+ */
 function envo_url_input_filter($value)
 {
   $value = html_entity_decode($value);
@@ -78,7 +122,18 @@ function envo_url_input_filter($value)
   return trim(filter_var($value, FILTER_SANITIZE_STRING));
 }
 
-// Get a secure mysql input
+/**
+ * EN: Get a secure mysql input
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $value
+ * @return string
+ *
+ */
 function smartsql($value)
 {
   global $envodb;
@@ -92,7 +147,17 @@ function smartsql($value)
   return $value;
 }
 
-// Search for lang files in the admin folder, only choose .ini files.
+/**
+ * EN: Search for lang files in the admin folder, only choose .ini files.
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @return array
+ *
+ */
 function envo_get_lang_files()
 {
 
@@ -115,7 +180,18 @@ function envo_get_lang_files()
   }
 }
 
-// Check if folder is empty
+/**
+ * EN: Check if folder is empty
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $dir
+ * @return bool|null
+ *
+ */
 function is_dir_empty($dir)
 {
   if (!is_readable($dir)) return NULL;
@@ -129,8 +205,19 @@ function is_dir_empty($dir)
   return TRUE;
 }
 
-// Get random image from folder
-// http://www.dyn-web.com/code/random-image-php/
+/**
+ * EN: Get random image from folder
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ * @link    http://www.dyn-web.com/code/random-image-php/
+ *
+ * @param $path
+ * @return array
+ *
+ */
 function envo_get_random_image($path)
 {
   $images = array();
@@ -147,6 +234,18 @@ function envo_get_random_image($path)
   return $images;
 }
 
+/**
+ * EN:
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $ar
+ * @return mixed
+ *
+ */
 function envo_get_random_from_array($ar)
 {
   $num = array_rand($ar);
@@ -154,7 +253,19 @@ function envo_get_random_from_array($ar)
   return $ar[$num];
 }
 
-// Get random line from text file
+/**
+ * EN: Get random line from text file
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $fileName
+ * @param int $maxLineLength
+ * @return bool|mixed|null|string
+ *
+ */
 function envo_get_random__line($fileName, $maxLineLength = 4096)
 {
   $handle = @fopen($fileName, "r");
@@ -183,7 +294,19 @@ function envo_get_random__line($fileName, $maxLineLength = 4096)
   }
 }
 
-// Detect Mobile Browser in a simple way to display videos in html5 or video/template not available message
+/**
+ * EN: Detect Mobile Browser in a simple way to display videos in html5 or video/template not available message
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $useragent
+ * @param $wap
+ * @return bool
+ *
+ */
 function envo_find_browser($useragent, $wap)
 {
 
@@ -198,7 +321,19 @@ function envo_find_browser($useragent, $wap)
   }
 }
 
-// Check if userid can have access to the forum, blog, gallery etc.
+/**
+ * EN: Check if userid can have access to the forum, blog, gallery etc.
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $envovar
+ * @param $envovar1
+ * @return bool
+ *
+ */
 function envo_get_access($envovar, $envovar1)
 {
   $usergrouparray = explode(',', $envovar1);
@@ -209,7 +344,18 @@ function envo_get_access($envovar, $envovar1)
   }
 }
 
-// Get the setting variable as well the default variable as array
+/**
+ * EN: Get the setting variable as well the default variable as array
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $group
+ * @return array
+ *
+ */
 function envo_get_setting($group)
 {
   global $envodb;
@@ -222,7 +368,18 @@ function envo_get_setting($group)
   return $setting;
 }
 
-// Get the setting variable as well the default variable as array
+/**
+ * EN: Get the setting variable as well the default variable as array
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $group
+ * @return array
+ *
+ */
 function envo_get_setting_val($group)
 {
   global $envodb;
@@ -242,7 +399,21 @@ function envo_get_setting_val($group)
   return $setting;
 }
 
-// Get total from a table
+/**
+ * EN: Get total from a table
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $envovar
+ * @param $envovar1
+ * @param $envovar2
+ * @param $envovar3
+ * @return mixed
+ *
+ */
 function envo_get_total($envovar, $envovar1, $envovar2, $envovar3)
 {
   if (empty($envovar1) && !empty($envovar3)) {
@@ -261,7 +432,19 @@ function envo_get_total($envovar, $envovar1, $envovar2, $envovar3)
   return $row['totalAll'];
 }
 
-// Get the data only per ID (e.g. edit single user, edit category)
+/**
+ * EN: Get the data only per ID (e.g. edit single user, edit category)
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $id
+ * @param $table
+ * @return array
+ *
+ */
 function envo_get_data($id, $table)
 {
 
@@ -277,7 +460,20 @@ function envo_get_data($id, $table)
   return $envodata;
 }
 
-// Get the data per array for galleries
+/**
+ * EN: Get the data per array for galleries
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $limit
+ * @param $table
+ * @param $order
+ * @return array
+ *
+ */
 function envo_get_galleryfacebook($limit, $table, $order)
 {
 
@@ -293,7 +489,22 @@ function envo_get_galleryfacebook($limit, $table, $order)
   return $envodata;
 }
 
-// Check if row exist with custom field
+/**
+ * EN: Check if row exist with custom field
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $check1
+ * @param $table
+ * @param $field1
+ * @param string $check2
+ * @param string $field2
+ * @return bool
+ *
+ */
 function envo_field_not_exist($check1, $table, $field1, $check2 = '', $field2 = '')
 {
   global $envodb;
@@ -310,7 +521,19 @@ function envo_field_not_exist($check1, $table, $field1, $check2 = '', $field2 = 
   }
 }
 
-// Check if row exist
+/**
+ * EN: Check if row exist
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $id
+ * @param $table
+ * @return bool
+ *
+ */
 function envo_row_exist($id, $table)
 {
   global $envodb;
@@ -322,7 +545,20 @@ function envo_row_exist($id, $table)
   }
 }
 
-// Check if row exist and user has permission to see it!
+/**
+ * EN: Check if row exist and user has permission to see it!
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $envovar
+ * @param $envovar1
+ * @param $envovar2
+ * @return bool
+ *
+ */
 function envo_row_permission($envovar, $envovar1, $envovar2)
 {
   global $envodb;
@@ -337,8 +573,21 @@ function envo_row_permission($envovar, $envovar1, $envovar2)
   }
 }
 
-// Check if catid exist
-function envo_get_id_name($envovar, $envovar1, $envovar2, $envovar3)
+/**
+ * EN: Check if catid exist
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $envovar
+ * @param $envovar1
+ * @param $envovar2
+ * @return bool
+ *
+ */
+function envo_get_id_name($envovar, $envovar1, $envovar2)
 {
   $sqlwhere = '';
   global $envodb;
@@ -352,7 +601,24 @@ function envo_get_id_name($envovar, $envovar1, $envovar2, $envovar3)
   }
 }
 
-// Get News out the database
+/**
+ * EN: Get News out the database
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $envovar
+ * @param $where
+ * @param $plname
+ * @param $order
+ * @param $datef
+ * @param $timef
+ * @param $timeago
+ * @return array
+ *
+ */
 function envo_get_news($envovar, $where, $plname, $order, $datef, $timef, $timeago)
 {
 
@@ -390,6 +656,24 @@ function envo_get_news($envovar, $where, $plname, $order, $datef, $timef, $timea
   if (!empty($envodata)) return $envodata;
 }
 
+/**
+ * EN:
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $page
+ * @param $title
+ * @param $table
+ * @param $id
+ * @param $where
+ * @param $where2
+ * @param $approve
+ * @return array|bool
+ *
+ */
 function envo_next_page($page, $title, $table, $id, $where, $where2, $approve)
 {
 
@@ -417,6 +701,24 @@ function envo_next_page($page, $title, $table, $id, $where, $where2, $approve)
     return FALSE;
 }
 
+/**
+ * EN:
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $page
+ * @param $title
+ * @param $table
+ * @param $id
+ * @param $where
+ * @param $where2
+ * @param $approve
+ * @return array|bool
+ *
+ */
 function envo_previous_page($page, $title, $table, $id, $where, $where2, $approve)
 {
 
@@ -445,7 +747,29 @@ function envo_previous_page($page, $title, $table, $id, $where, $where2, $approv
 
 }
 
-// Menu builder function, parentId 0 is the root
+/**
+ * EN: Menu builder function, parentId 0 is the root
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $parent
+ * @param $menu
+ * @param $active
+ * @param $mainclass
+ * @param $dropdown
+ * @param $dropclass
+ * @param $subclass
+ * @param $admin
+ * @param string $firstli
+ * @param string $firsta
+ * @param int $from
+ * @param int $to
+ * @return string
+ *
+ */
 function envo_build_menu($parent, $menu, $active, $mainclass, $dropdown, $dropclass, $subclass, $admin, $firstli = "", $firsta = "", $from = 0, $to = 0)
 {
   $html = '';
@@ -476,7 +800,20 @@ function envo_build_menu($parent, $menu, $active, $mainclass, $dropdown, $dropcl
   return $html;
 }
 
-// only full words
+/**
+ * EN:
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $text
+ * @param $limit
+ * @param $envovar2
+ * @return mixed|string
+ *
+ */
 function envo_cut_text($text, $limit, $envovar2)
 {
 
@@ -500,7 +837,19 @@ function envo_cut_text($text, $limit, $envovar2)
   return $envodata;
 }
 
-// Render strings from content
+/**
+ * EN: Render strings from content
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $str
+ * @param $parms
+ * @return mixed
+ *
+ */
 function envo_render_string($str, $parms)
 {
   // if
@@ -514,6 +863,20 @@ function envo_render_string($str, $parms)
   return $str;
 }
 
+/**
+ * EN:
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $table
+ * @param $id
+ * @param $cookie
+ * @return bool
+ *
+ */
 function envo_write_vote_hits_cookie($table, $id, $cookie)
 {
   if (isset($_COOKIE[$cookie])) {
@@ -533,6 +896,20 @@ function envo_write_vote_hits_cookie($table, $id, $cookie)
   return setcookie($cookie, $getCORE, time() + 60 * 60 * 24, ENVO_COOKIE_PATH);
 }
 
+/**
+ * EN:
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $table
+ * @param $id
+ * @param $cookie
+ * @return bool
+ *
+ */
 function envo_cookie_voted_hits($table, $id, $cookie)
 {
 
@@ -551,7 +928,18 @@ function envo_cookie_voted_hits($table, $id, $cookie)
 
 }
 
-// Get a clean and secure post from user
+/**
+ * EN: Get a clean and secure post from user
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $input
+ * @return bool|mixed|string
+ *
+ */
 function envo_clean_safe_userpost($input)
 {
 
@@ -578,6 +966,18 @@ function envo_clean_safe_userpost($input)
   }
 }
 
+/**
+ * EN:
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $input
+ * @return mixed|string
+ *
+ */
 function envo_edit_safe_userpost($input)
 {
 
@@ -590,7 +990,17 @@ function envo_edit_safe_userpost($input)
 
 }
 
-// Get the real IP Address
+/**
+ * EN: Get the real IP Address
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @return int
+ *
+ */
 function get_ip_address()
 {
   foreach (array('HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'REMOTE_ADDR') as $key) {
@@ -606,7 +1016,18 @@ function get_ip_address()
   return 0;
 }
 
-// Password generator
+/**
+ * EN: Password generator
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param int $length
+ * @return bool|string
+ *
+ */
 function envo_password_creator($length = 8)
 {
   return substr(md5(rand() . rand()), 0, $length);
@@ -633,7 +1054,17 @@ function envo_encode_email($email)
   return $output;
 }
 
-// Get the referrer
+/**
+ * EN: Get the referrer
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @return mixed
+ *
+ */
 function selfURL()
 {
 
@@ -644,17 +1075,52 @@ function selfURL()
   return $referrer;
 }
 
+/**
+ * EN:
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $matches
+ * @return mixed
+ *
+ */
 function envo_precode($matches)
 {
   return str_replace($matches[1], htmlentities($matches[1]), $matches[0]);
 }
 
+/**
+ * EN:
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $matches
+ * @return mixed
+ *
+ */
 function envo_editcode($matches)
 {
   return str_replace($matches[1], htmlspecialchars($matches[1]), $matches[0]);
 }
 
-// Convert size units
+/**
+ * EN: Convert size units
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $bytes
+ * @return string
+ *
+ */
 function formatSizeUnits($bytes)
 {
   if ($bytes >= 1073741824) {
@@ -728,7 +1194,17 @@ function hex2rgba($color, $opacity = FALSE)
 }
 
 
-//Function to check if the request is an AJAX request
+/**
+ * EN: Function to check if the request is an AJAX request
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @return bool
+ *
+ */
 function is_ajax()
 {
   return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
@@ -742,9 +1218,10 @@ function is_ajax()
  *
  * This function can be used for resort a multidimensional array by like order by clause
  *
- * @param mixed $array
- * @param mixed $order_by
+ * @param array $array
+ * @param $order_by
  * @return array
+ * @throws Exception
  *
  * -------------------------------------------
  *
