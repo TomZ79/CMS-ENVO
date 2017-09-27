@@ -6,7 +6,7 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSNEWSLETTER)) envo_redirect(BASE_URL);
+if (!JAK_USERID || !$jakuser->envoModuleAccess(JAK_USERID, JAK_ACCESSNEWSLETTER)) envo_redirect(BASE_URL);
 
 // -------- DATA FOR ALL ADMIN PAGES --------
 // -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
@@ -479,9 +479,9 @@ switch ($page1) {
             $filename     = $_FILES['jak_file']['name']; // original filename
             $tempFile     = $_FILES['jak_file']['tmp_name'];
             $tmpf         = explode(".", $filename);
-            $jak_xtension = end($tmpf);
+            $envo_xtension = end($tmpf);
 
-            if ($jak_xtension != "csv") {
+            if ($envo_xtension != "csv") {
               $errors['e3'] = $tlnl['newsletter_error']['nlerror1'];
             }
 
@@ -652,7 +652,7 @@ switch ($page1) {
         if ($getTotal != 0) {
 
           // Paginator
-          $pages                 = new JAK_Paginator;
+          $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
           $pages->mid_range      = $jkv["adminpagemid"];
           $pages->items_per_page = $jkv["adminpageitem"];
@@ -739,7 +739,7 @@ switch ($page1) {
         if ($getTotal != 0) {
 
           // Paginator
-          $pages                 = new JAK_Paginator;
+          $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
           $pages->mid_range      = $jkv["adminpagemid"];
           $pages->items_per_page = $jkv["adminpageitem"];
@@ -1270,7 +1270,7 @@ switch ($page1) {
 
         if ($getTotal != 0) {
           // Paginator
-          $nletter                 = new JAK_Paginator;
+          $nletter                 = new ENVO_paginator;
           $nletter->items_total    = $getTotal;
           $nletter->mid_range      = $jkv["adminpagemid"];
           $nletter->items_per_page = $jkv["adminpageitem"];

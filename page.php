@@ -20,7 +20,7 @@ if (!envo_cookie_voted_hits($envotable, $row['id'], 'hits')) {
   envo_write_vote_hits_cookie($envotable, $row['id'], 'hits');
 
   // Update hits each time
-  ENVO_base::jakUpdatehits($row['id'], $envotable);
+  ENVO_base::envoUpdatehits($row['id'], $envotable);
 }
 
 // EN: Set data for the frontend page - Title, Description, Keywords and other ...
@@ -41,7 +41,7 @@ $JAK_FOOTER_JAVASCRIPT       = $row['page_javascript'];
 $jkv["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
 
 $PAGE_LOGIN_FORM = $row['showlogin'];
-$PAGE_TIME       = ENVO_base::jakTimesince($row['time'], $jkv["dateformat"], $jkv["timeformat"], $tl['global_text']['gtxt4']);
+$PAGE_TIME       = ENVO_base::envoTimesince($row['time'], $jkv["dateformat"], $jkv["timeformat"], $tl['global_text']['gtxt4']);
 $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
 if (JAK_USERID) {
@@ -101,7 +101,7 @@ while ($grow = $grid->fetch_assoc()) {
 }
 
 // Get the tags for this page
-$JAK_TAGLIST = ENVO_tags::jakGettaglist($row['id'], 0, JAK_PLUGIN_VAR_TAGS);
+$JAK_TAGLIST = ENVO_tags::envoGetTagList($row['id'], 0, JAK_PLUGIN_VAR_TAGS);
 
 // EN: Get all the php Hook by name of Hook from page and news grid
 // CZ: Načtení všech php dat z Hook podle jména Hook z rozložení stránky a zpráv (news)
@@ -121,7 +121,7 @@ if ($JAK_TAGLIST) {
   $keytags = preg_split('/\s+/', strip_tags($JAK_TAGLIST));
   $keytags = ',' . implode(',', $keytags);
 }
-$PAGE_KEYWORDS = str_replace(" ", " ", ($jkv["metakey"] ? $jkv["metakey"] : JAK_Base::jakCleanurl($row['title']) . $keytags) . ($ca['metakey'] ? "," . $ca['metakey'] : ""));
+$PAGE_KEYWORDS = str_replace(" ", " ", ($jkv["metakey"] ? $jkv["metakey"] : ENVO_base::envoCleanurl($row['title']) . $keytags) . ($ca['metakey'] ? "," . $ca['metakey'] : ""));
 
 
 // SEO from the category content if available

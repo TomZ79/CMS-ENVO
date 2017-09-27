@@ -68,7 +68,7 @@ switch ($page1) {
       if ($getTotal["totalAll"] != 0) {
 
         // Paginator
-        $blogc                 = new JAK_Paginator;
+        $blogc                 = new ENVO_paginator;
         $blogc->items_total    = $getTotal["totalAll"];
         $blogc->mid_range      = $jkv["blogpagemid"];
         $blogc->items_per_page = $jkv["blogpageitem"];
@@ -103,11 +103,11 @@ switch ($page1) {
       $_SESSION['jak_lastURL'] = $getWhere;
 
       // Now get the new meta keywords and description maker
-      if (isset($JAK_BLOG_ALL) && is_array($JAK_BLOG_ALL)) foreach ($JAK_BLOG_ALL as $kv) $seokeywords[] = JAK_Base::jakCleanurl($kv['title']);
+      if (isset($JAK_BLOG_ALL) && is_array($JAK_BLOG_ALL)) foreach ($JAK_BLOG_ALL as $kv) $seokeywords[] = ENVO_base::envoCleanurl($kv['title']);
 
       if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-      $PAGE_KEYWORDS = str_replace(" ", " ", JAK_Base::jakCleanurl($row['name']) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+      $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($row['name']) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
 
       // SEO from the category content if available
       if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
@@ -161,7 +161,7 @@ switch ($page1) {
             envo_write_vote_hits_cookie($envotable, $row['id'], 'hits');
 
             // Update hits each time
-            ENVO_base::jakUpdatehits($row['id'], $envotable);
+            ENVO_base::envoUpdatehits($row['id'], $envotable);
           }
 
           // Now output the data
@@ -177,7 +177,7 @@ switch ($page1) {
           $JAK_FOOTER_JAVASCRIPT       = $row['blog_javascript'];
           $jkv["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
 
-          $PAGE_TIME       = JAK_Base::jakTimesince($row['time'], $jkv["blogdateformat"], $jkv["blogtimeformat"], $tl['global_text']['gtxt4']);
+          $PAGE_TIME       = ENVO_base::envoTimesince($row['time'], $jkv["blogdateformat"], $jkv["blogtimeformat"], $tl['global_text']['gtxt4']);
           $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
           // Display contact form if whish so and do the caching
@@ -203,14 +203,14 @@ switch ($page1) {
         }
 
         // Show Tags
-        $JAK_TAGLIST = ENVO_tags::jakGettaglist_class($page2, JAK_PLUGIN_ID_BLOG, JAK_PLUGIN_VAR_TAGS, 'tips', $tl["title_element"]["tel"]);
+        $JAK_TAGLIST = ENVO_tags::envoGetTagList_class($page2, JAK_PLUGIN_ID_BLOG, JAK_PLUGIN_VAR_TAGS, 'tips', $tl["title_element"]["tel"]);
 
         // Page Nav
         $nextp = envo_next_page($page2, 'title', $envotable, 'id', ' AND catid != 0', '', 'active');
         if ($nextp) {
 
           if ($jkv["blogurl"]) {
-            $seo = ENVO_base::jakCleanurl($nextp['title']);
+            $seo = ENVO_base::envoCleanurl($nextp['title']);
           }
 
           $JAK_NAV_NEXT       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_BLOG, 'a', $nextp['id'], $seo, '');
@@ -221,7 +221,7 @@ switch ($page1) {
         if ($prevp) {
 
           if ($jkv["blogurl"]) {
-            $seop = ENVO_base::jakCleanurl($prevp['title']);
+            $seop = ENVO_base::envoCleanurl($prevp['title']);
           }
 
           $JAK_NAV_PREV       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_BLOG, 'a', $prevp['id'], $seop, '');
@@ -233,7 +233,7 @@ switch ($page1) {
         while ($rowc = $resultc->fetch_assoc()) {
 
           if ($jkv["blogurl"]) {
-            $seoc = ENVO_base::jakCleanurl($rowc['varname']);
+            $seoc = ENVO_base::envoCleanurl($rowc['varname']);
           }
 
           // EN: Create array with all categories ( Plugin Blog have one or more categories for one article, in array will be it one or more categories )
@@ -262,7 +262,7 @@ switch ($page1) {
       $keytags = preg_split('/\s+/', strip_tags($JAK_TAGLIST));
       $keytags = ',' . implode(',', $keytags);
     }
-    $PAGE_KEYWORDS    = str_replace(" ", " ", JAK_Base::jakCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+    $PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
     $PAGE_DESCRIPTION = envo_cut_text($PAGE_CONTENT, 155, '');
 
     // EN: Load the php template
@@ -284,7 +284,7 @@ switch ($page1) {
 
     if ($getTotal != 0) {
       // Paginator
-      $blog                 = new JAK_Paginator;
+      $blog                 = new ENVO_paginator;
       $blog->items_total    = $getTotal;
       $blog->mid_range      = $jkv["blogpagemid"];
       $blog->items_per_page = $jkv["blogpageitem"];
@@ -302,7 +302,7 @@ switch ($page1) {
     }
 
     // Get the categories
-    $JAK_BLOG_CAT = JAK_Base::jakGetcatmix(JAK_PLUGIN_VAR_BLOG, '', $envotable1, JAK_USERGROUPID, $jkv["blogurl"]);
+    $JAK_BLOG_CAT = ENVO_base::envoGetcatmix(JAK_PLUGIN_VAR_BLOG, '', $envotable1, JAK_USERGROUPID, $jkv["blogurl"]);
 
     // EN: Set data for the frontend page - Title, Description, Keywords and other ...
     // CZ: Nastavení dat pro frontend stránku - Titulek, Popis, Klíčová slova a další ...
@@ -323,11 +323,11 @@ switch ($page1) {
     }
 
     // Now get the new meta keywords and description maker
-    if (isset($JAK_BLOG_ALL) && is_array($JAK_BLOG_ALL)) foreach ($JAK_BLOG_ALL as $kv) $seokeywords[] = JAK_Base::jakCleanurl($kv['title']);
+    if (isset($JAK_BLOG_ALL) && is_array($JAK_BLOG_ALL)) foreach ($JAK_BLOG_ALL as $kv) $seokeywords[] = ENVO_base::envoCleanurl($kv['title']);
 
     if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-    $PAGE_KEYWORDS = str_replace(" ", " ", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+    $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
 
     // SEO from the category content if available
     if (!empty($MAIN_PLUGIN_DESCRIPTION)) {

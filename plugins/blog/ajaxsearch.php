@@ -21,19 +21,19 @@ if (strlen($SearchInput) >= 3) {
   $url       = $_GET['url'];
   $urldetail = $_GET['url_detail'];
 
-  $blog = new JAK_search($SearchInput);
-  $blog->jakSettable('blog', "");
-  $blog->jakAndor("OR");
-  $blog->jakFieldactive("active");
-  $blog->jakFieldtitle("title");
-  $blog->jakFieldcut("content");
-  $blog->jakFieldstosearch(array('title', 'content'));
-  $blog->jakFieldstoselect("id, title, content");
+  $blog = new ENVO_search($SearchInput);
+  $blog->envoSetTable('blog', "");
+  $blog->envoAndor("OR");
+  $blog->envoFieldActive("active");
+  $blog->envoFieldTitle("title");
+  $blog->envoFieldCut("content");
+  $blog->envoFieldstoSearch(array('title', 'content'));
+  $blog->envoFieldstoSelect("id, title, content");
 
   $blogarray = $blog->set_result($urldetail, 'a', $_GET['seo']);
 
   if (isset($blogarray) && is_array($blogarray)) {
-    JAK_search::search_cloud($SearchInput);
+    ENVO_search::search_cloud($SearchInput);
     $text = '';
     foreach ($blogarray as $row) {
 

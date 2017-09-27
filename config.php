@@ -120,17 +120,17 @@ if ($site_language == 'en') {
 }
 
 // Check if user is logged in
-$jakuserlogin = new JAK_userlogin();
+$jakuserlogin = new ENVO_userlogin();
 $jakuserrow   = $jakuserlogin->jakCheckLogged();
 if ($jakuserrow) {
-  $jakuser = new JAK_user($jakuserrow);
+  $jakuser = new ENVO_user($jakuserrow);
   define('JAK_USERID', $jakuser->getVar("id"));
   // Get the usergroupid out from this user
   $usergroupid = $jakuser->getVar("usergroupid");
   // Get user language
   if ($jakuser->getVar("ulang")) $site_language = strtolower($jakuser->getVar("ulang"));
   // Update last activity from this user
-  $jakuserlogin->jakUpdatelastactivity(JAK_USERID);
+  $jakuserlogin->envoUpdateLastActivity(JAK_USERID);
 
   // Only the Admin's in the config can have access
   if (JAK_USERID && $jakuser->jakAdminaccess($jakuser->getVar("usergroupid"))) {
@@ -152,7 +152,7 @@ $resultusrg = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'usergroup WHERE id 
 $rowusrg    = $resultusrg->fetch_assoc();
 
 // Get the usergroup class
-$jakusergroup = new JAK_usergroup($rowusrg);
+$jakusergroup = new ENVO_usergroup($rowusrg);
 
 // Check if https is activated
 if ($jkv["sitehttps"]) {

@@ -21,19 +21,19 @@ if (strlen($SearchInput) >= 3) {
   $urldetail = $_GET['url_detail'];
 
 // Standard search for all pages
-  $news = new JAK_search($SearchInput);
-  $news->jakSettable("news", ''); // array for pages and cat
-  $news->jakAndor("OR"); // We do an OR so it will search thru title and content and display one of them
-  $news->jakFieldactive("active"); // Only if the page is active
-  $news->jakFieldtitle("title");
-  $news->jakFieldcut("content"); // The content will be cuted to fit nicely
-  $news->jakFieldstosearch(array('title', 'content')); // This fields will be searched
-  $news->jakFieldstoselect("id, title" . ", content"); // This will be the output for the template, packed in a array
+  $news = new ENVO_search($SearchInput);
+  $news->envoSetTable("news", ''); // array for pages and cat
+  $news->envoAndor("OR"); // We do an OR so it will search thru title and content and display one of them
+  $news->envoFieldActive("active"); // Only if the page is active
+  $news->envoFieldTitle("title");
+  $news->envoFieldCut("content"); // The content will be cuted to fit nicely
+  $news->envoFieldstoSearch(array('title', 'content')); // This fields will be searched
+  $news->envoFieldstoSelect("id, title" . ", content"); // This will be the output for the template, packed in a array
 
   $newsarray = $news->set_result($urldetail, 'a', $_GET['seo']);
 
   if (isset($newsarray) && is_array($newsarray)) {
-    JAK_search::search_cloud($SearchInput);
+    ENVO_search::search_cloud($SearchInput);
     foreach ($newsarray as $row) {
 
       // Now display the countries

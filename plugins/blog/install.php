@@ -203,14 +203,14 @@ if (file_exists(APP_PATH . 'plugins/blog/admin/lang/' . $site_language . '.ini')
 
       // EN: Php code for search
       // CZ: Php kód pro vyhledávání
-      $sitephpsearch = '$blog = new JAK_search($SearchInput);
-        	$blog->jakSettable(\'blog\',\"\");
-        	$blog->jakAndor(\"OR\");
-        	$blog->jakFieldactive(\"active\");
-        	$blog->jakFieldtitle(\"title\");
-        	$blog->jakFieldcut(\"content\");
-        	$blog->jakFieldstosearch(array(\"title\",\"content\"));
-        	$blog->jakFieldstoselect(\"id, title, content\");
+      $sitephpsearch = '$blog = new ENVO_search($SearchInput);
+        	$blog->envoSetTable(\'blog\',\"\");
+        	$blog->envoAndor(\"OR\");
+        	$blog->envoFieldActive(\"active\");
+        	$blog->envoFieldTitle(\"title\");
+        	$blog->envoFieldCut(\"content\");
+        	$blog->envoFieldstoSearch(array(\"title\",\"content\"));
+        	$blog->envoFieldstoSelect(\"id, title, content\");
         	
         	// Load the array into template
         	$JAK_SEARCH_RESULT_BLOG = $blog->set_result(JAK_PLUGIN_VAR_BLOG, \'a\', $jkv[\"blogurl\"]);';
@@ -237,7 +237,7 @@ if (file_exists(APP_PATH . 'plugins/blog/admin/lang/' . $site_language . '.ini')
       // EN: Php code for tags
       // CZ: Php kód pro tagy
       $sitephptag = 'if ($row[\'pluginid\'] == JAK_PLUGIN_ID_BLOG) {
-$blogtagData[] = ENVO_tags::jakTagsql(\"blog\", $row[\'itemid\'], \"id, title, content\", \"content\", JAK_PLUGIN_VAR_BLOG, \"a\", $jkv[\"blogurl\"]);
+$blogtagData[] = ENVO_tags::envoTagSql(\"blog\", $row[\'itemid\'], \"id, title, content\", \"content\", JAK_PLUGIN_VAR_BLOG, \"a\", $jkv[\"blogurl\"]);
 $JAK_TAG_BLOG_DATA = $blogtagData;
 }';
 

@@ -22,19 +22,19 @@ if (strlen($SearchInput) >= 3) {
   $url       = $_GET['url'];
   $urldetail = $_GET['url_detail'];
 
-  $download = new JAK_search($SearchInput);
-  $download->jakSettable('download', "");
-  $download->jakAndor("OR");
-  $download->jakFieldactive("active");
-  $download->jakFieldtitle("title");
-  $download->jakFieldcut("content");
-  $download->jakFieldstosearch(array('title', 'content'));
-  $download->jakFieldstoselect("id, title, content");
+  $download = new ENVO_search($SearchInput);
+  $download->envoSetTable('download', "");
+  $download->envoAndor("OR");
+  $download->envoFieldActive("active");
+  $download->envoFieldTitle("title");
+  $download->envoFieldCut("content");
+  $download->envoFieldstoSearch(array('title', 'content'));
+  $download->envoFieldstoSelect("id, title, content");
 
   $downloadarray = $download->set_result($urldetail, 'f', $_GET['seo']);
 
   if (isset($downloadarray) && is_array($downloadarray)) {
-    JAK_search::search_cloud($SearchInput);
+    ENVO_search::search_cloud($SearchInput);
     $text = '';
     foreach ($downloadarray as $row) {
 

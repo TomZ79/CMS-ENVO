@@ -1,9 +1,9 @@
 <?php
 
-class JAK_usergroup
+class ENVO_usergroup
 {
   private $data;
-  private $jakvar = 0;
+  private $envovar = 0;
 
   public function __construct($row)
   {
@@ -14,12 +14,12 @@ class JAK_usergroup
     $this->data = $row;
   }
 
-  function getVar($jakvar)
+  function getVar($envovar)
   {
     // Setting up an alias, so we don't have to write $this->data every time:
     $d = $this->data;
 
-    if (!empty($d[$jakvar])) return $d[$jakvar];
+    if (!empty($d[$envovar])) return $d[$envovar];
 
   }
 

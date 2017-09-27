@@ -394,12 +394,12 @@ APP_PATH.'plugins/yourplugin/file_to_include.php';
         <pre name="code" class="brush: php;">
 // Confirm user
    	if ($page == 'rf_ual') {
-   	if (is_numeric($page1) && is_numeric($page2) && jak_row_exist($page1, DB_PREFIX.'user') && jak_field_not_exist($page2, DB_PREFIX.'user', 'activatenr')) {
+   	if (is_numeric($page1) && is_numeric($page2) && envo_row_exist($page1, DB_PREFIX.'user') && envo_field_not_exist($page2, DB_PREFIX.'user', 'activatenr')) {
 
    			$result = $envodb->query('UPDATE '.DB_PREFIX.'user SET access = access - 1, activatenr = 0 WHERE id = "'.smartsql($page1).'" AND activatenr = "'.smartsql($page2).'"');
 
    	if (!$result) {
-   		jak_redirect(JAK_PARSE_ERROR);
+   		envo_redirect(JAK_PARSE_ERROR);
    		exit;
    	} else {
 
@@ -414,12 +414,12 @@ APP_PATH.'plugins/yourplugin/file_to_include.php';
    		$admail->MsgHTML($adbody);
    		$admail->Send(); // Send email without any warnings
 
-   		jak_redirect(JAK_PARSE_SUCCESS);
+   		envo_redirect(JAK_PARSE_SUCCESS);
    		exit;
    	}
 
    	} else {
-   		jak_redirect(BASE_URL);
+   		envo_redirect(BASE_URL);
    		exit;
    	}
    	}
@@ -467,8 +467,8 @@ APP_PATH.'plugins/yourplugin/file_to_include.php';
 
         <p>For example:</p>
         <pre name="code" class="brush: php;">
-if (isset($defaults['jak_download'])) {
-	$insert .= 'download = "'.$defaults['jak_download'].'", downloadpost = "'.$defaults['jak_downloadpost'].'", downloadpostapprove = "'.$defaults['jak_downloadpostapprove'].'", downloadpostdelete = "'.$defaults['jak_downloadpostdelete'].'", downloadrate = "'.$defaults['jak_downloadrate'].'", downloadmoderate = "'.$defaults['jak_downloadmoderate'].'",'; }
+if (isset($defaults['envo_download'])) {
+	$insert .= 'download = "'.$defaults['envo_download'].'", downloadpost = "'.$defaults['envo_downloadpost'].'", downloadpostapprove = "'.$defaults['envo_downloadpostapprove'].'", downloadpostdelete = "'.$defaults['envo_downloadpostdelete'].'", downloadrate = "'.$defaults['envo_downloadrate'].'", downloadmoderate = "'.$defaults['envo_downloadmoderate'].'",'; }
         </pre>
 
         <p>If you like to include a file:</p>
@@ -485,7 +485,7 @@ APP_PATH.'plugins/yourplugin/file_to_include.php';
 
         <p>For example:</p>
         <pre name="code" class="brush: php;">
-$envodb->query('UPDATE '.DB_PREFIX.'faqcomments SET username = "'.smartsql($defaults['jak_username']).'" WHERE userid = '.smartsql($page2).'');
+$envodb->query('UPDATE '.DB_PREFIX.'faqcomments SET username = "'.smartsql($defaults['envo_username']).'" WHERE userid = '.smartsql($page2).'');
         </pre>
 
         <p>If you like to include a file:</p>
@@ -657,8 +657,8 @@ $envodb->query('ALTER TABLE '.DB_PREFIX.'pages DROP INDEX `title`');
 
         <p>For example:</p>
         <pre name="code" class="brush: php;">
-if (empty($news) && !empty($defaults['jak_shownewsmany'])) {
-  $insert .= $defaults['jak_showorder'];
+if (empty($news) && !empty($defaults['envo_shownewsmany'])) {
+  $insert .= $defaults['envo_showorder'];
 }
         </pre>
 
@@ -671,8 +671,8 @@ if (empty($news) && !empty($defaults['jak_shownewsmany'])) {
 
         <p>For example:</p>
         <pre name="code" class="brush: php;">
-if (empty($news) && !empty($defaults['jak_shownewsmany'])) {
-  $insert .= $defaults['jak_showorder'];
+if (empty($news) && !empty($defaults['envo_shownewsmany'])) {
+  $insert .= $defaults['envo_showorder'];
 }
         </pre>
 

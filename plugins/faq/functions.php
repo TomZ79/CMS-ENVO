@@ -23,14 +23,14 @@ function envo_get_faq($limit, $order, $where, $table_row, $ext_seo, $timeago)
     // There should be always a varname in categories and check if seo is valid
     $seo = '';
     if ($ext_seo) {
-      $seo = ENVO_base::jakCleanurl($row['title']);
+      $seo = ENVO_base::envoCleanurl($row['title']);
     }
 
     // Parse url for user link
     $parseurl = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_FAQ, 'a', $row['id'], $seo, '');
 
 
-    $getTime = JAK_Base::jakTimesince($row['time'], $jkv["faqdateformat"], $jkv["faqtimeformat"], $timeago);
+    $getTime = ENVO_base::envoTimesince($row['time'], $jkv["faqdateformat"], $jkv["faqtimeformat"], $timeago);
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole

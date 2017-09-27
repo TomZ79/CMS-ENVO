@@ -6,7 +6,7 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSFAQ)) envo_redirect(BASE_URL);
+if (!JAK_USERID || !$jakuser->envoModuleAccess(JAK_USERID, JAK_ACCESSFAQ)) envo_redirect(BASE_URL);
 
 // -------- DATA FOR ALL ADMIN PAGES --------
 // -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
@@ -143,9 +143,9 @@ switch ($page1) {
             // Create Tags if the module is active
             if (!empty($defaults['jak_tags'])) {
               // check if tag does not exist and insert in cloud
-              ENVO_tags::jakBuildcloud($defaults['jak_tags'], $rowid, JAK_PLUGIN_FAQ);
+              ENVO_tags::envoBuildCloud($defaults['jak_tags'], $rowid, JAK_PLUGIN_FAQ);
               // insert tag for normal use
-              ENVO_tags::jakInsertags($defaults['jak_tags'], $rowid, JAK_PLUGIN_FAQ, $tagactive);
+              ENVO_tags::envoInserTags($defaults['jak_tags'], $rowid, JAK_PLUGIN_FAQ, $tagactive);
 
             }
 
@@ -318,7 +318,7 @@ switch ($page1) {
           }
 
           $ENVO_FORM_DATA = envo_get_data($page3, $envotable1);
-          $JAK_USERGROUP = envo_get_usergroup_all('usergroup');
+          $JAK_USERGROUP  = envo_get_usergroup_all('usergroup');
 
           // EN: Title and Description
           // CZ: Titulek a Popis
@@ -611,7 +611,7 @@ switch ($page1) {
             if (isset($defaults['whatid_' . $row["pluginid"]])) $whatid = $defaults['whatid_' . $row["pluginid"]];
 
             if (in_array($key, $defaults['jak_hookshow'])) {
-              $updatesql .= sprintf("WHEN %d THEN %d ", $key, $exorder);
+              $updatesql  .= sprintf("WHEN %d THEN %d ", $key, $exorder);
               $updatesql1 .= sprintf("WHEN %d THEN %d ", $key, $whatid);
 
             } else {
@@ -757,7 +757,7 @@ switch ($page1) {
         $getTotal = envo_get_total($envotable, $page2, 'catid', '');
         if ($getTotal != 0) {
           // Paginator
-          $pages                 = new JAK_Paginator;
+          $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
           $pages->mid_range      = $jkv["adminpagemid"];
           $pages->items_per_page = $jkv["adminpageitem"];
@@ -823,7 +823,7 @@ switch ($page1) {
             // CZ: Přesměrování stránky s notifikací - chybné
             envo_redirect(BASE_URL . 'index.php?p=faq&status=e');
           } else {
-            ENVO_tags::jakDeletetags($page2, JAK_PLUGIN_FAQ);
+            ENVO_tags::envoDeleteTags($page2, JAK_PLUGIN_FAQ);
 
             // EN: Redirect page
             // CZ: Přesměrování stránky s notifikací - úspěšné
@@ -857,7 +857,7 @@ switch ($page1) {
               for ($i = 0; $i < count($tags); $i++) {
                 $tag = $tags[$i];
 
-                ENVO_tags::jakDeleteonetag($tag);
+                ENVO_tags::envoDeleteOneTag($tag);
 
               }
 
@@ -973,7 +973,7 @@ switch ($page1) {
                   if (isset($defaults['whatid_' . $row["pluginid"]])) $whatid = $defaults['whatid_' . $row["pluginid"]];
 
                   if (in_array($key, $defaults['jak_hookshow'])) {
-                    $updatesql .= sprintf("WHEN %d THEN %d ", $key, $exorder);
+                    $updatesql  .= sprintf("WHEN %d THEN %d ", $key, $exorder);
                     $updatesql1 .= sprintf("WHEN %d THEN %d ", $key, $whatid);
 
                   } else {
@@ -1002,9 +1002,9 @@ switch ($page1) {
                 // Create Tags if the module is active
                 if (!empty($defaults['jak_tags'])) {
                   // check if tag does not exist and insert in cloud
-                  ENVO_tags::jakBuildcloud($defaults['jak_tags'], smartsql($page2), JAK_PLUGIN_FAQ);
+                  ENVO_tags::envoBuildCloud($defaults['jak_tags'], smartsql($page2), JAK_PLUGIN_FAQ);
                   // insert tag for normal use
-                  ENVO_tags::jakInsertags($defaults['jak_tags'], smartsql($page2), JAK_PLUGIN_FAQ, $tagactive);
+                  ENVO_tags::envoInserTags($defaults['jak_tags'], smartsql($page2), JAK_PLUGIN_FAQ, $tagactive);
 
                 }
 
@@ -1062,7 +1062,7 @@ switch ($page1) {
         // Now if total run paginator
         if ($getTotal != 0) {
           // Paginator
-          $pages                 = new JAK_Paginator;
+          $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
           $pages->mid_range      = $jkv["adminpagemid"];
           $pages->items_per_page = $jkv["adminpageitem"];
@@ -1138,7 +1138,7 @@ switch ($page1) {
               $result1 = $envodb->query('UPDATE ' . $envotable1 . ' SET count = count - 1 WHERE id = "' . smartsql($row2['catid']) . '"');
               $result  = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
 
-              ENVO_tags::jakDeletetags($locked, JAK_PLUGIN_FAQ);
+              ENVO_tags::envoDeleteTags($locked, JAK_PLUGIN_FAQ);
             }
 
             if (!$result) {
@@ -1165,7 +1165,7 @@ switch ($page1) {
 
         if ($getTotal != 0) {
           // Paginator
-          $pages                 = new JAK_Paginator;
+          $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
           $pages->mid_range      = $jkv["adminpagemid"];
           $pages->items_per_page = $jkv["adminpageitem"];

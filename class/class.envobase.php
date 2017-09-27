@@ -8,8 +8,8 @@ class ENVO_base
   private $data = array();
   private $usraccesspl = array();
   private $case;
-  private $jakvar;
-  private $jakvar1;
+  private $envovar;
+  private $envovar1;
 
   // This constructor can be used for all classes:
 
@@ -23,7 +23,7 @@ class ENVO_base
     }
   }
 
-  public static function jakCleanurl($str, $options = array())
+  public static function envoCleanurl($str, $options = array())
   {
 
     $defaults = array(
@@ -130,20 +130,20 @@ class ENVO_base
 
   }
 
-  public static function jakunCleanurl($jakvar)
+  public static function envoUnCleanurl($envovar)
   {
 
-    $jakvar = strip_tags($jakvar);
-    $jakvar = strtolower($jakvar);
+    $envovar = strip_tags($envovar);
+    $envovar = strtolower($envovar);
     $crepl  = array("ä", "ö", "ü", "Ä", "Ü", "Ö", "é", "à", "è", "ô");
     $cfin   = array('au', 'oe', 'ue', 'au', 'oe', 'ue', 'e', 'a', 'e', 'o');
-    $jakvar = str_replace($cfin, $crepl, $jakvar);
+    $envovar = str_replace($cfin, $crepl, $envovar);
 
-    return $jakvar;
+    return $envovar;
 
   }
 
-  public static function jakTimesince($mysqlstamp, $date, $time, $lang)
+  public static function envoTimesince($mysqlstamp, $date, $time, $lang)
   {
 
     global $jkv;
@@ -188,7 +188,7 @@ class ENVO_base
     return $count . (($count == 1) ? (" $text") : (" ${plural}"));
   }
 
-  public static function jakGetallcategories()
+  public static function envoGetallcategories()
   {
 
     global $envodb;
@@ -219,7 +219,7 @@ class ENVO_base
 
   }
 
-  public static function jakGetcatmix($where, $where1, $table, $usergroup, $dseo)
+  public static function envoGetcatmix($where, $where1, $table, $usergroup, $dseo)
   {
 
     $envodata = array();
@@ -251,7 +251,7 @@ class ENVO_base
     return $envodata;
   }
 
-  public static function jakCatdisplay($jakvar, $usraccesspl, $catarray)
+  public static function envoCatdisplay($envovar, $usraccesspl, $catarray)
   {
 
     $case = array();
@@ -264,7 +264,7 @@ class ENVO_base
 
   }
 
-  public static function jakCatpluginvar($id, $catarray)
+  public static function envoCatpluginvar($id, $catarray)
   {
 
     $getc = $catarray;
@@ -279,15 +279,15 @@ class ENVO_base
 
   }
 
-  public static function jakUpdatehits($jakvar, $jakvar1)
+  public static function envoUpdatehits($envovar, $envovar1)
   {
 
     global $envodb;
-    $result = $envodb->query('UPDATE ' . $jakvar1 . ' SET hits = hits + 1 WHERE id = "' . smartsql($jakvar) . '"');
+    $result = $envodb->query('UPDATE ' . $envovar1 . ' SET hits = hits + 1 WHERE id = "' . smartsql($envovar) . '"');
 
   }
 
-  public static function jakSessiontimelimit()
+  public static function envoSessionTimeLimit()
   {
 
     // Start the session
@@ -320,7 +320,7 @@ class ENVO_base
     return $loadnew;
   }
 
-  public static function jakCheckprotectedArea($pass, $table, $id)
+  public static function envoCheckProtectedArea($pass, $table, $id)
   {
 
     global $envodb;

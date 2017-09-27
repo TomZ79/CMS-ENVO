@@ -3,7 +3,7 @@
   $url_array = explode('/', $_SERVER['REQUEST_URI']);
   $url = end($url_array);
   // Get FAQ Categories
-  $JAK_FAQ_CAT = JAK_Base::jakGetcatmix(JAK_PLUGIN_VAR_FAQ, '', DB_PREFIX . 'faqcategories', JAK_USERGROUPID, $jkv["faqurl"]);
+  $JAK_FAQ_CAT = ENVO_base::envoGetcatmix(JAK_PLUGIN_VAR_FAQ, '', DB_PREFIX . 'faqcategories', JAK_USERGROUPID, $jkv["faqurl"]);
 
   if ($JAK_FAQ_CAT) { ?>
     <aside class="nav-side-menu">

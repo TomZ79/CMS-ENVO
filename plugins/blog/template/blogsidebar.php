@@ -3,7 +3,7 @@
   $url_array = explode('/', $_SERVER['REQUEST_URI']);
   $url       = end($url_array);
   // Get Download Categories
-  $JAK_BLOG_CAT = JAK_Base::jakGetcatmix(JAK_PLUGIN_VAR_BLOG, '', DB_PREFIX . 'blogcategories', JAK_USERGROUPID, $jkv["blogurl"]);
+  $JAK_BLOG_CAT = ENVO_base::envoGetcatmix(JAK_PLUGIN_VAR_BLOG, '', DB_PREFIX . 'blogcategories', JAK_USERGROUPID, $jkv["blogurl"]);
 
   if ($JAK_BLOG_CAT) { ?>
     <aside class="nav-side-menu">

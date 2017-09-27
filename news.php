@@ -58,7 +58,7 @@ switch ($page1) {
           envo_write_vote_hits_cookie($envotable, $row['id'], 'hits');
 
           // Update hits each time
-          ENVO_base::jakUpdatehits($row['id'], $envotable);
+          ENVO_base::envoUpdatehits($row['id'], $envotable);
         }
 
         // EN: Set variable for page
@@ -78,7 +78,7 @@ switch ($page1) {
         $SHOWSOCIALBUTTON            = $row['socialbutton'];
         $PAGE_ACTIVE                 = $row['active'];
         $PAGE_HITS                   = $row['hits'];
-        $PAGE_TIME                   = ENVO_base::jakTimesince($row['time'], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
+        $PAGE_TIME                   = ENVO_base::envoTimesince($row['time'], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
         $DATE_TIME                   = $row['time'];
         $PAGE_TIME_HTML5             = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
@@ -115,18 +115,18 @@ switch ($page1) {
         }
 
         // Show Tags
-        $JAK_TAGLIST = ENVO_tags::jakGettaglist_class($page2, JAK_PLUGIN_ID_NEWS, JAK_PLUGIN_VAR_TAGS, '', $tl["title_element"]["tel"]);
+        $JAK_TAGLIST = ENVO_tags::envoGetTagList_class($page2, JAK_PLUGIN_ID_NEWS, JAK_PLUGIN_VAR_TAGS, '', $tl["title_element"]["tel"]);
 
         // Page Nav
         $nextp = envo_next_page($page2, 'title', $envotable, 'id', '', '', 'active');
         if ($nextp) {
-          $JAK_NAV_NEXT       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_NEWS, 'a', $nextp['id'], ENVO_base::jakCleanurl($nextp['title']), '');
+          $JAK_NAV_NEXT       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_NEWS, 'a', $nextp['id'], ENVO_base::envoCleanurl($nextp['title']), '');
           $JAK_NAV_NEXT_TITLE = $nextp['title'];
         }
 
         $prevp = envo_previous_page($page2, 'title', $envotable, 'id', '', '', 'active');
         if ($prevp) {
-          $JAK_NAV_PREV       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_NEWS, 'a', $prevp['id'], ENVO_base::jakCleanurl($prevp['title']), '');
+          $JAK_NAV_PREV       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_NEWS, 'a', $prevp['id'], ENVO_base::envoCleanurl($prevp['title']), '');
           $JAK_NAV_PREV_TITLE = $prevp['title'];
         }
 
@@ -145,7 +145,7 @@ switch ($page1) {
         $keytags = preg_split('/\s+/', strip_tags($JAK_TAGLIST));
         $keytags = ',' . implode(',', $keytags);
       }
-      $PAGE_KEYWORDS    = str_replace(" ", " ", JAK_Base::jakCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+      $PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
       $PAGE_DESCRIPTION = envo_cut_text($PAGE_CONTENT, 155, '');
 
       // EN: Load the php template
@@ -165,7 +165,7 @@ switch ($page1) {
 
     if ($getTotal != 0) {
       // Paginator
-      $news                 = new JAK_Paginator;
+      $news                 = new ENVO_paginator;
       $news->items_total    = $getTotal;
       $news->mid_range      = $jkv["newspagemid"];
       $news->items_per_page = $jkv["newspageitem"];
@@ -206,12 +206,12 @@ switch ($page1) {
     }
 
     // Now get the new meta keywords and description maker
-    if (isset($JAK_NEWS_ALL) && is_array($JAK_NEWS_ALL)) foreach ($JAK_NEWS_ALL as $v) $seokeywords[] = JAK_Base::jakCleanurl($v['title']);
+    if (isset($JAK_NEWS_ALL) && is_array($JAK_NEWS_ALL)) foreach ($JAK_NEWS_ALL as $v) $seokeywords[] = ENVO_base::envoCleanurl($v['title']);
 
     $keylist = "";
     if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-    $PAGE_KEYWORDS = str_replace(" ", " ", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+    $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
 
     // SEO from the category content if available
     if (!empty($MAIN_PLUGIN_DESCRIPTION)) {

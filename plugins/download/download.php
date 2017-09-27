@@ -72,7 +72,7 @@ switch ($page1) {
       if ($getTotal != 0) {
 
         // Paginator
-        $dlc                 = new JAK_Paginator;
+        $dlc                 = new ENVO_paginator;
         $dlc->items_total    = $getTotal;
         $dlc->mid_range      = $jkv["downloadpagemid"];
         $dlc->items_per_page = $jkv["downloadpageitem"];
@@ -107,11 +107,11 @@ switch ($page1) {
       $_SESSION['jak_lastURL'] = $getWhere;
 
       // Now get the new meta keywords and description maker
-      if (isset($JAK_DOWNLOAD_ALL) && is_array($JAK_DOWNLOAD_ALL)) foreach ($JAK_DOWNLOAD_ALL as $kv) $seokeywords[] = JAK_Base::jakCleanurl($kv['title']);
+      if (isset($JAK_DOWNLOAD_ALL) && is_array($JAK_DOWNLOAD_ALL)) foreach ($JAK_DOWNLOAD_ALL as $kv) $seokeywords[] = ENVO_base::envoCleanurl($kv['title']);
 
       if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-      $PAGE_KEYWORDS = str_replace(" ", " ", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+      $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
 
       // SEO from the category content if available
       if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
@@ -160,7 +160,7 @@ switch ($page1) {
         $passcrypt = hash_hmac('sha256', $defaults['dlpass'], DB_PASS_HASH);
 
         // Check if the password is correct
-        $dl_check = ENVO_base::jakCheckprotectedArea($passcrypt, 'download', $defaults['dlsec']);
+        $dl_check = ENVO_base::envoCheckProtectedArea($passcrypt, 'download', $defaults['dlsec']);
 
         if (!$dl_check) {
           $errors['e'] = $tl['general_error']['generror8'];
@@ -193,7 +193,7 @@ switch ($page1) {
             envo_write_vote_hits_cookie($envotable, $row['id'], 'hits');
 
             // Update hits each time
-            ENVO_base::jakUpdatehits($row['id'], $envotable);
+            ENVO_base::envoUpdatehits($row['id'], $envotable);
           }
 
           // Output the data
@@ -235,7 +235,7 @@ switch ($page1) {
           $jkv["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
           $DL_LINK                     = html_entity_decode(ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'dl', $row['id'], '', ''));
 
-          $PAGE_TIME       = JAK_Base::jakTimesince($row['time'], $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['global_text']['gtxt4']);
+          $PAGE_TIME       = ENVO_base::envoTimesince($row['time'], $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['global_text']['gtxt4']);
           $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
           // Set download to false
@@ -270,14 +270,14 @@ switch ($page1) {
         }
 
         // Show Tags
-        $JAK_TAGLIST = ENVO_tags::jakGettaglist($page2, JAK_PLUGIN_ID_DOWNLOAD, JAK_PLUGIN_VAR_TAGS);
+        $JAK_TAGLIST = ENVO_tags::envoGetTagList($page2, JAK_PLUGIN_ID_DOWNLOAD, JAK_PLUGIN_VAR_TAGS);
 
         // Page Nav
         $nextp = envo_next_page($page2, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
         if ($nextp) {
 
           if ($jkv["downloadurl"]) {
-            $seo = ENVO_base::jakCleanurl($nextp['title']);
+            $seo = ENVO_base::envoCleanurl($nextp['title']);
           }
 
           $JAK_NAV_NEXT       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'f', $nextp['id'], $seo, '');
@@ -288,7 +288,7 @@ switch ($page1) {
         if ($prevp) {
 
           if ($jkv["downloadurl"]) {
-            $seop = ENVO_base::jakCleanurl($prevp['title']);
+            $seop = ENVO_base::envoCleanurl($prevp['title']);
           }
 
           $JAK_NAV_PREV       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'f', $prevp['id'], $seop, '');
@@ -300,7 +300,7 @@ switch ($page1) {
         while ($rowc = $resultc->fetch_assoc()) {
 
           if ($jkv["downloadurl"]) {
-            $seoc = ENVO_base::jakCleanurl($rowc['varname']);
+            $seoc = ENVO_base::envoCleanurl($rowc['varname']);
           }
 
           // EN: Create array with all categories ( Plugin Download have only one category for one download file, in array will be it only one category )
@@ -329,7 +329,7 @@ switch ($page1) {
       $keytags = preg_split('/\s+/', strip_tags($JAK_TAGLIST));
       $keytags = ',' . implode(',', $keytags);
     }
-    $PAGE_KEYWORDS    = str_replace(" ", " ", JAK_Base::jakCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+    $PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
     $PAGE_DESCRIPTION = envo_cut_text($PAGE_CONTENT, 155, '');
 
     // Get Facebook SDK Connection
@@ -515,7 +515,7 @@ switch ($page1) {
 
     if ($getTotal != 0) {
       // Paginator
-      $dl                 = new JAK_Paginator;
+      $dl                 = new ENVO_paginator;
       $dl->items_total    = $getTotal;
       $dl->mid_range      = $jkv["downloadpagemid"];
       $dl->items_per_page = $jkv["downloadpageitem"];
@@ -552,11 +552,11 @@ switch ($page1) {
     }
 
     // Now get the new meta keywords and description maker
-    if (isset($JAK_DOWNLOAD_ALL) && is_array($JAK_DOWNLOAD_ALL)) foreach ($JAK_DOWNLOAD_ALL as $kv) $seokeywords[] = JAK_Base::jakCleanurl($kv['title']);
+    if (isset($JAK_DOWNLOAD_ALL) && is_array($JAK_DOWNLOAD_ALL)) foreach ($JAK_DOWNLOAD_ALL as $kv) $seokeywords[] = ENVO_base::envoCleanurl($kv['title']);
 
     if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-    $PAGE_KEYWORDS = str_replace(" ", " ", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+    $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
 
     // SEO from the category content if available
     if (!empty($MAIN_PLUGIN_DESCRIPTION)) {

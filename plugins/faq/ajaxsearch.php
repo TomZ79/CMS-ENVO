@@ -20,19 +20,19 @@ if (strlen($SearchInput) >= 3) {
   $url       = $_GET['url'];
   $urldetail = $_GET['url_detail'];
 
-  $faq = new JAK_search($SearchInput);
-  $faq->jakSettable('faq', "");
-  $faq->jakAndor("OR");
-  $faq->jakFieldactive("active");
-  $faq->jakFieldtitle("title");
-  $faq->jakFieldcut("content");
-  $faq->jakFieldstosearch(array('title', 'content'));
-  $faq->jakFieldstoselect("id, title, content");
+  $faq = new ENVO_search($SearchInput);
+  $faq->envoSetTable('faq', "");
+  $faq->envoAndor("OR");
+  $faq->envoFieldActive("active");
+  $faq->envoFieldTitle("title");
+  $faq->envoFieldCut("content");
+  $faq->envoFieldstoSearch(array('title', 'content'));
+  $faq->envoFieldstoSelect("id, title, content");
 
   $faqarray = $faq->set_result($urldetail, 'a', $_GET['seo']);
 
   if (isset($faqarray) && is_array($faqarray)) {
-    JAK_search::search_cloud($SearchInput);
+    ENVO_search::search_cloud($SearchInput);
     $text = '';
     foreach ($faqarray as $row) {
 

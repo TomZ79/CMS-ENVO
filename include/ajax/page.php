@@ -21,18 +21,18 @@ if (strlen($SearchInput) >= 3) {
   $urldetail = $_GET['url_detail'];
 
 // Standard search for all pages
-  $pages = new JAK_search($SearchInput);
-  $pages->jakSettable(array('1' => 'pages', '2' => 'categories'), "t1.catid = t2.id"); // array for pages and cat
-  $pages->jakAndor("OR"); // We do an OR so it will search thru title and content and display one of them
-  $pages->jakFieldactive("active"); // Only if the page is active
-  $pages->jakFieldcut("t1.content"); // The content will be cuted to fit nicely
-  $pages->jakFieldstosearch(array('t1.title', 't1.content')); // This fields will be searched
-  $pages->jakFieldstoselect("t2.varname, t1.title" . ", t1.content" . ", catorder, catparent"); // This will be the output for the template, packed in a array
+  $pages = new ENVO_search($SearchInput);
+  $pages->envoSetTable(array('1' => 'pages', '2' => 'categories'), "t1.catid = t2.id"); // array for pages and cat
+  $pages->envoAndor("OR"); // We do an OR so it will search thru title and content and display one of them
+  $pages->envoFieldActive("active"); // Only if the page is active
+  $pages->envoFieldCut("t1.content"); // The content will be cuted to fit nicely
+  $pages->envoFieldstoSearch(array('t1.title', 't1.content')); // This fields will be searched
+  $pages->envoFieldstoSelect("t2.varname, t1.title" . ", t1.content" . ", catorder, catparent"); // This will be the output for the template, packed in a array
 
   $pagearray = $pages->set_result('', '', '');
 
   if (isset($pagearray) && is_array($pagearray)) {
-    JAK_search::search_cloud($SearchInput);
+    ENVO_search::search_cloud($SearchInput);
     foreach ($pagearray as $row) {
 
       // Now display the countries

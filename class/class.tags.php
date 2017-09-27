@@ -3,8 +3,8 @@
 class ENVO_tags
 {
   protected $table = '', $varname = '', $seo = '', $plugin = '';
-  private $jakvar;
-  private $jakvar1;
+  private $envovar;
+  private $envovar1;
 
   // This constructor can be used for all classes:
 
@@ -18,7 +18,7 @@ class ENVO_tags
     }
   }
 
-  public static function jakGettagcloud($varname, $table, $limit, $maxsize, $minsize, $title)
+  public static function envoGettagcloud($varname, $table, $limit, $maxsize, $minsize, $title)
   {
 
     // Pull in tag data
@@ -50,7 +50,7 @@ class ENVO_tags
         shuffle($my_colours);
         $size         = $minsize + ($count - $minimum_count)
           * ($maxsize - $minsize) / $spread;
-        $cloud_tags[] = '<li class="tag-cloud tag-cloud-' . $my_colours[0] . '"><a style="font-size:' . floor($size) . 'px" href="' . ENVO_rewrite::envoParseurl($varname, ENVO_base::jakCleanurl($tag), '', '', '') . '" title="' . $title . ' ' . htmlspecialchars(stripslashes($tag)) . '">' . htmlspecialchars(stripslashes($tag)) . '</a></li>';
+        $cloud_tags[] = '<li class="tag-cloud tag-cloud-' . $my_colours[0] . '"><a style="font-size:' . floor($size) . 'px" href="' . ENVO_rewrite::envoParseurl($varname, ENVO_base::envoCleanurl($tag), '', '', '') . '" title="' . $title . ' ' . htmlspecialchars(stripslashes($tag)) . '">' . htmlspecialchars(stripslashes($tag)) . '</a></li>';
       }
       $cloud_html = join("\n", $cloud_tags) . "\n";
 
@@ -58,14 +58,14 @@ class ENVO_tags
     }
   }
 
-  public static function jakGettagcloudlimited($url, $slug1, $items, $pluginid, $table, $limit, $maxsize, $minsize)
+  public static function envoGettagcloudlimited($url, $slug1, $items, $pluginid, $table, $limit, $maxsize, $minsize)
   {
 
     // Pull in tag data
     global $envodb;
     $result = $envodb->query('SELECT tag FROM ' . DB_PREFIX . $table . ' WHERE itemid IN(' . join(",", $items) . ') AND pluginid = "' . smartsql($pluginid) . '" AND active = 1 GROUP BY tag ORDER BY tag DESC LIMIT ' . smartsql($limit));
     while ($row = $result->fetch_assoc()) {
-      $tags[] = '<a class="label label-default" href="' . ENVO_rewrite::envoParseurl($url, $slug1, ENVO_base::jakCleanurl($row['tag'])) . '">' . $row['tag'] . '</a>';
+      $tags[] = '<a class="label label-default" href="' . ENVO_rewrite::envoParseurl($url, $slug1, ENVO_base::envoCleanurl($row['tag'])) . '">' . $row['tag'] . '</a>';
     }
 
     if (!empty($tags)) {
@@ -77,14 +77,14 @@ class ENVO_tags
     }
   }
 
-  public static function jakGettaglist($jakvar, $jakvar1, $where)
+  public static function envoGetTagList($envovar, $envovar1, $where)
   {
 
     global $envodb;
-    $result = $envodb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql($jakvar) . '" AND pluginid = "' . smartsql($jakvar1) . '" AND active = 1 ORDER BY id DESC');
+    $result = $envodb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql($envovar) . '" AND pluginid = "' . smartsql($envovar1) . '" AND active = 1 ORDER BY id DESC');
 
     while ($row = $result->fetch_assoc()) {
-      $tags[] = '<a class="label label-default" href="' . ENVO_rewrite::envoParseurl($where, ENVO_base::jakCleanurl($row['tag']), '', '', '') . '">' . $row['tag'] . '</a>';
+      $tags[] = '<a class="label label-default" href="' . ENVO_rewrite::envoParseurl($where, ENVO_base::envoCleanurl($row['tag']), '', '', '') . '">' . $row['tag'] . '</a>';
     }
 
     if (!empty($tags)) {
@@ -96,19 +96,19 @@ class ENVO_tags
     }
   }
 
-  /* jakGettaglist_class - Get all tags for article, ... with custom definition class for anchor <a class=" CUSTOM CLASS"> </a>
+  /* envoGetTagList_class - Get all tags for article, ... with custom definition class for anchor <a class=" CUSTOM CLASS"> </a>
    * Call class
    * ----------------
-   * ENVO_tags::jakGettaglist_class('', '', '', 'label', '');
+   * ENVO_tags::envoGetTagList_class('', '', '', 'label', '');
    */
-  public static function jakGettaglist_class($jakvar, $jakvar1, $where, $class, $title)
+  public static function envoGetTagList_class($envovar, $envovar1, $where, $class, $title)
   {
 
     global $envodb;
-    $result = $envodb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql($jakvar) . '" AND pluginid = "' . smartsql($jakvar1) . '" AND active = 1 ORDER BY id DESC');
+    $result = $envodb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql($envovar) . '" AND pluginid = "' . smartsql($envovar1) . '" AND active = 1 ORDER BY id DESC');
 
     while ($row = $result->fetch_assoc()) {
-      $tags[] = '<li><a class="' . $class . '" href="' . ENVO_rewrite::envoParseurl($where, ENVO_base::jakCleanurl($row['tag']), '', '', '') . '" title="' . $title . ' ' . $row['tag'] . '">' . $row['tag'] . '</a></li>';
+      $tags[] = '<li><a class="' . $class . '" href="' . ENVO_rewrite::envoParseurl($where, ENVO_base::envoCleanurl($row['tag']), '', '', '') . '" title="' . $title . ' ' . $row['tag'] . '">' . $row['tag'] . '</a></li>';
     }
 
     if (!empty($tags)) {
@@ -120,7 +120,7 @@ class ENVO_tags
     }
   }
 
-  public static function jakInsertags($tags, $itemid, $module, $active)
+  public static function envoInserTags($tags, $itemid, $module, $active)
   {
 
     $striptags = strip_tags($tags);
@@ -130,7 +130,7 @@ class ENVO_tags
     for ($i = 0; $i < count($tagarray); $i++) {
       $tag = $tagarray[$i];
       // $tag = trim($tag);
-      // $urlTAG = ENVO_base::jakCleanurl($tag);
+      // $urlTAG = ENVO_base::envoCleanurl($tag);
       $urlTAG = trim($tag);
 
       // check if tag exist
@@ -145,7 +145,7 @@ class ENVO_tags
     }
   }
 
-  public static function jakBuildcloud($tags, $itemid, $module)
+  public static function envoBuildCloud($tags, $itemid, $module)
   {
 
     $striptags = strip_tags($tags);
@@ -156,7 +156,7 @@ class ENVO_tags
 
       $tag = $tagarray[$i];
       // $tag = trim($tag);
-      // $urlTAG = ENVO_base::jakCleanurl($tag);
+      // $urlTAG = ENVO_base::envoCleanurl($tag);
       $urlTAG = trim($tag);
 
       // check if tag exist
@@ -182,7 +182,7 @@ class ENVO_tags
     }
   }
 
-  public static function jakTagsql($table, $itemid, $select, $cuttext, $plugin, $link, $seo)
+  public static function envoTagSql($table, $itemid, $select, $cuttext, $plugin, $link, $seo)
   {
 
     $shorty = '';
@@ -209,7 +209,7 @@ class ENVO_tags
 
       // There should be always a varname in categories and check if seo is valid
       if ($seo && $row['title']) {
-        $seo = ENVO_base::jakCleanurl($row['title']);
+        $seo = ENVO_base::envoCleanurl($row['title']);
       }
       $parseurl = ENVO_rewrite::envoParseurl($plugin, $link, $row['id'], $seo, '');
       $envodata = array('parseurl' => $parseurl, 'title' => $title, 'content' => $shorty);
@@ -219,7 +219,7 @@ class ENVO_tags
 
   }
 
-  public static function jakLocktag($id)
+  public static function envoLockTag($id)
   {
 
     global $envodb;
@@ -248,11 +248,11 @@ class ENVO_tags
 
   }
 
-  public static function jakLocktags($jakvar, $jakvar1)
+  public static function envoLockTags($envovar, $envovar1)
   {
 
     global $envodb;
-    $result = $envodb->query('SELECT tag, active FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql($jakvar) . '" AND pluginid = "' . smartsql($jakvar1) . '"');
+    $result = $envodb->query('SELECT tag, active FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql($envovar) . '" AND pluginid = "' . smartsql($envovar1) . '"');
     while ($row = $result->fetch_assoc()) {
 
       // Get the count number
@@ -275,15 +275,15 @@ class ENVO_tags
       }
     }
 
-    $envodb->query('UPDATE ' . DB_PREFIX . 'tags SET active = IF (active = 1, 0, 1) WHERE itemid = "' . smartsql($jakvar) . '" AND pluginid = "' . smartsql($jakvar1) . '"');
+    $envodb->query('UPDATE ' . DB_PREFIX . 'tags SET active = IF (active = 1, 0, 1) WHERE itemid = "' . smartsql($envovar) . '" AND pluginid = "' . smartsql($envovar1) . '"');
 
   }
 
-  public static function jakDeletetags($jakvar, $jakvar1)
+  public static function envoDeleteTags($envovar, $envovar1)
   {
 
     global $envodb;
-    $result = $envodb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql($jakvar) . '" AND pluginid = "' . smartsql($jakvar1) . '"');
+    $result = $envodb->query('SELECT tag FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql($envovar) . '" AND pluginid = "' . smartsql($envovar1) . '"');
     while ($row = $result->fetch_assoc()) {
 
       // Get the count number
@@ -296,10 +296,10 @@ class ENVO_tags
       }
     }
 
-    $envodb->query('DELETE FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql($jakvar) . '" AND pluginid = "' . smartsql($jakvar1) . '"');
+    $envodb->query('DELETE FROM ' . DB_PREFIX . 'tags WHERE itemid = "' . smartsql($envovar) . '" AND pluginid = "' . smartsql($envovar1) . '"');
   }
 
-  public static function jakDeleteonetag($tag)
+  public static function envoDeleteOneTag($tag)
   {
 
     global $envodb;
@@ -322,7 +322,7 @@ class ENVO_tags
     $envodb->query('DELETE FROM ' . DB_PREFIX . 'tags WHERE id = ' . smartsql($tag) . '');
   }
 
-  public function jakPlugintag($allcat)
+  public function envoPluginTag($allcat)
   {
 
     foreach ($allcat as $c) {

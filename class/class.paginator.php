@@ -1,6 +1,6 @@
 <?php
 
-class JAK_Paginator
+class ENVO_paginator
 {
 
   var $items_total;
@@ -12,12 +12,12 @@ class JAK_Paginator
   var $limit;
   var $return;
   var $items_per_page;
-  var $jak_get_page;
-  var $jak_where;
-  var $jak_prevstyle = 'prev-button';
-  var $jak_nextstyle = 'next-button';
-  var $jak_prevtext = '<i class="pg-arrow_left"></i>';
-  var $jak_nexttext = '<i class="pg-arrow_right"></i>';
+  var $envo_get_page;
+  var $envo_where;
+  var $envo_prevstyle = 'prev-button';
+  var $envo_nextstyle = 'next-button';
+  var $envo_prevtext = '<i class="pg-arrow_left"></i>';
+  var $envo_nexttext = '<i class="pg-arrow_right"></i>';
 
   public function __construct()
   {

@@ -159,7 +159,7 @@ switch ($page1) {
           $getTotal = envo_get_total($envotable1, $page2, 'usergroupid', '');
           if ($getTotal != 0) {
             // Paginator
-            $pages                 = new JAK_Paginator;
+            $pages                 = new ENVO_paginator;
             $pages->items_total    = $getTotal;
             $pages->mid_range      = $jkv["adminpagemid"];
             $pages->items_per_page = $jkv["adminpageitem"];

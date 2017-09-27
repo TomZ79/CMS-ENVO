@@ -61,7 +61,7 @@ if (!empty($sql)) {
 
     // get the new seo title in here, where it works!
     if ($seowhat) {
-      $seo = ENVO_base::jakCleanurl($PAGE_TITLE);
+      $seo = ENVO_base::envoCleanurl($PAGE_TITLE);
     }
 
     if (isset($sURL) && !empty($sURL) && !is_array($urlsep)) {
@@ -73,7 +73,7 @@ if (!empty($sql)) {
         if (is_numeric($r)) {
           $specialurl[] = $row[$r];
         } else {
-          $specialurl[] = ENVO_base::jakCleanurl($row[$r]);
+          $specialurl[] = ENVO_base::envoCleanurl($row[$r]);
         }
       }
 

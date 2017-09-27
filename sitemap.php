@@ -36,7 +36,7 @@ while ($grow = $grid->fetch_assoc()) {
 }
 
 // Now get the new meta keywords and description maker
-$PAGE_KEYWORDS    = str_replace(" ", " ", JAK_Base::jakCleanurl(JAK_PLUGIN_NAME_SITEMAP) . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+$PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl(JAK_PLUGIN_NAME_SITEMAP) . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
 $PAGE_DESCRIPTION = $jkv["metadesc"];
 
 // EN: Load the php template

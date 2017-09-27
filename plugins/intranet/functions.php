@@ -24,7 +24,7 @@ function envo_get_house_info($table, $ext_seo, $usergroupid)
 
       // There should be always a varname in categories and check if seo is valid
       $seo = '';
-      if ($ext_seo) $seo = ENVO_base::jakCleanurl($row['varname']);
+      if ($ext_seo) $seo = ENVO_base::envoCleanurl($row['varname']);
       $parseurl = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_INTRANET . '/house', 'h', $row['id'], $seo);
 
       // EN: Insert each record into array
@@ -120,7 +120,7 @@ function envo_get_notification_unread($usergroupid, $ext_seo, $dateformat, $time
     while ($row = $result->fetch_assoc()) {
       // There should be always a varname in notification and check if seo is valid
       $seo = '';
-      if ($ext_seo) $seo = ENVO_base::jakCleanurl($row['varname']);
+      if ($ext_seo) $seo = ENVO_base::envoCleanurl($row['varname']);
       $parseurl = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_INTRANET . '/notification', 'n', $row['id'], $seo);
 
       // EN: Insert each record into array
@@ -176,7 +176,7 @@ function envo_get_notification_all($usergroupid, $ext_seo, $dateformat, $timefor
     while ($row = $result->fetch_assoc()) {
       // There should be always a varname in notification and check if seo is valid
       $seo = '';
-      if ($ext_seo) $seo = ENVO_base::jakCleanurl($row['varname']);
+      if ($ext_seo) $seo = ENVO_base::envoCleanurl($row['varname']);
       $parseurl = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_INTRANET . '/notification', 'n', $row['id'], $seo);
 
       // EN: Insert each record into array

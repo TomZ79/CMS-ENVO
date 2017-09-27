@@ -18,7 +18,7 @@ $page5 = ($tempp5 ? envo_url_input_filter($tempp5) : '');
 $page6 = ($tempp6 ? envo_url_input_filter($tempp6) : '');
 
 // Only the SuperAdmin in the config file see everything
-if (JAK_USERID && $jakuser->jakSuperadminaccess(JAK_USERID)) {
+if (JAK_USERID && $jakuser->envoSuperAdminAccess(JAK_USERID)) {
   define('JAK_SUPERADMINACCESS', TRUE);
 } else {
   define('JAK_SUPERADMINACCESS', FALSE);
@@ -137,7 +137,7 @@ define('JAK_SEARCH', $jkv["searchform"]);
 define('JAK_CONTACT_FORM', $jkv["contactform"]);
 
 // Get all the active categories available in the db
-$jakcategories = ENVO_base::jakGetallcategories();
+$jakcategories = ENVO_base::envoGetallcategories();
 
 // Let's check if News are active
 define('JAK_NEWS_ACTIVE', $jakplugins->getPHPcodeid(1, "active"));
@@ -361,7 +361,7 @@ if ($page == 'logout') {
     envo_redirect(BASE_URL);
   }
   if (JAK_USERID) {
-    $jakuserlogin->jakLogout(JAK_USERID);
+    $jakuserlogin->envoLogout(JAK_USERID);
     $usergroupid = $jakuser->getVar("usergroupid");
     // EN: Add error message to session
     // CZ: Přidání chybové zprávy do session
@@ -446,7 +446,7 @@ if ($page == 'offline') {
 // CZ: 'Forgot-password' stránka
 if ($page == 'forgot-password') {
 
-  if (JAK_USERID || !is_numeric($page1) || !$jakuserlogin->jakForgotactive($page1)) envo_redirect(BASE_URL);
+  if (JAK_USERID || !is_numeric($page1) || !$jakuserlogin->envoForgotActive($page1)) envo_redirect(BASE_URL);
 
   // Check the forgot code
   $row = $envodb->queryRow('SELECT id, name, email FROM ' . DB_PREFIX . 'user WHERE forgot = "' . smartsql($page1) . '" LIMIT 1');
@@ -508,7 +508,7 @@ if ($JAK_CHECK_PAGE == 0) {
 }
 
 // Get the categories with usergroup rights
-$JAK_CAT_SITE = ENVO_base::jakCatdisplay(JAK_USERGROUPID, $usraccesspl, $jakcategories);
+$JAK_CAT_SITE = ENVO_base::envoCatdisplay(JAK_USERGROUPID, $usraccesspl, $jakcategories);
 
 // Get the header navigation
 $mheader = array(
@@ -549,7 +549,7 @@ if (JAK_NEWS_ACTIVE && $newsloadonce && $jkv["shownews"]) {
 }
 
 // We have tags
-if (JAK_TAGS) $JAK_GET_TAG_CLOUD = ENVO_tags::jakGettagcloud(JAK_PLUGIN_VAR_TAGS, 'tagcloud', $jkv["taglimit"], $jkv["tagmaxfont"], $jkv["tagminfont"], $tl["title_element"]["tel"]);
+if (JAK_TAGS) $JAK_GET_TAG_CLOUD = ENVO_tags::envoGettagcloud(JAK_PLUGIN_VAR_TAGS, 'tagcloud', $jkv["taglimit"], $jkv["tagmaxfont"], $jkv["tagminfont"], $tl["title_element"]["tel"]);
 
 // SEARCH, NEWS and Mobile/Web LINK
 $P_SEAERCH_LINK = ENVO_rewrite::envoParseurl('search', '', '', '', '');

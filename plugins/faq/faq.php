@@ -68,7 +68,7 @@ switch ($page1) {
       if ($getTotal != 0) {
 
         // Paginator
-        $faqc                 = new JAK_Paginator;
+        $faqc                 = new ENVO_paginator;
         $faqc->items_total    = $getTotal;
         $faqc->mid_range      = $jkv["faqpagemid"];
         $faqc->items_per_page = $jkv["faqpageitem"];
@@ -103,11 +103,11 @@ switch ($page1) {
       $_SESSION['jak_lastURL'] = $getWhere;
 
       // Now get the new meta keywords and description maker
-      if (isset($JAK_FAQ_ALL) && is_array($JAK_FAQ_ALL)) foreach ($JAK_FAQ_ALL as $kv) $seokeywords[] = JAK_Base::jakCleanurl($kv['title']);
+      if (isset($JAK_FAQ_ALL) && is_array($JAK_FAQ_ALL)) foreach ($JAK_FAQ_ALL as $kv) $seokeywords[] = ENVO_base::envoCleanurl($kv['title']);
 
       if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-      $PAGE_KEYWORDS = str_replace(" ", " ", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+      $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
 
       // SEO from the category content if available
       if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
@@ -157,7 +157,7 @@ switch ($page1) {
             envo_write_vote_hits_cookie($envotable, $row['id'], 'hits');
 
             // Update hits each time
-            ENVO_base::jakUpdatehits($row['id'], $envotable);
+            ENVO_base::envoUpdatehits($row['id'], $envotable);
           }
 
           // Now output the data
@@ -169,7 +169,7 @@ switch ($page1) {
           $SHOWSOCIALBUTTON = $row['socialbutton'];
           $FAQ_HITS         = $row['hits'];
 
-          $PAGE_TIME       = JAK_Base::jakTimesince($row['time'], $jkv["faqdateformat"], $jkv["faqtimeformat"], $tl['global_text']['gtxt4']);
+          $PAGE_TIME       = ENVO_base::envoTimesince($row['time'], $jkv["faqdateformat"], $jkv["faqtimeformat"], $tl['global_text']['gtxt4']);
           $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
           // Display contact form if whish so and do the caching
@@ -195,14 +195,14 @@ switch ($page1) {
         }
 
         // Show Tags
-        $JAK_TAGLIST = ENVO_tags::jakGettaglist($page2, JAK_PLUGIN_ID_FAQ, JAK_PLUGIN_VAR_TAGS);
+        $JAK_TAGLIST = ENVO_tags::envoGetTagList($page2, JAK_PLUGIN_ID_FAQ, JAK_PLUGIN_VAR_TAGS);
 
         // Get the categories into a list
         $resultc = $envodb->query('SELECT id, name, varname FROM ' . $envotable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
         while ($rowc = $resultc->fetch_assoc()) {
 
           if ($jkv["faqurl"]) {
-            $seoc = ENVO_base::jakCleanurl($rowc['varname']);
+            $seoc = ENVO_base::envoCleanurl($rowc['varname']);
           }
 
           // EN: Create array with all categories ( Plugin Download have only one category for one download file, in array will be it only one category )
@@ -225,7 +225,7 @@ switch ($page1) {
         if ($nextp) {
 
           if ($jkv["faqurl"]) {
-            $seo = ENVO_base::jakCleanurl($nextp['title']);
+            $seo = ENVO_base::envoCleanurl($nextp['title']);
           }
 
           $JAK_NAV_NEXT       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_FAQ, 'a', $nextp['id'], $seo, '');
@@ -236,7 +236,7 @@ switch ($page1) {
         if ($prevp) {
 
           if ($jkv["faqurl"]) {
-            $seop = ENVO_base::jakCleanurl($prevp['title']);
+            $seop = ENVO_base::envoCleanurl($prevp['title']);
           }
 
           $JAK_NAV_PREV       = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_FAQ, 'a', $prevp['id'], $seop, '');
@@ -254,7 +254,7 @@ switch ($page1) {
       $keytags = preg_split('/\s+/', strip_tags($JAK_TAGLIST));
       $keytags = ',' . implode(',', $keytags);
     }
-    $PAGE_KEYWORDS    = str_replace(" ", " ", JAK_Base::jakCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+    $PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
     $PAGE_DESCRIPTION = envo_cut_text($PAGE_CONTENT, 155, '');
 
 
@@ -277,7 +277,7 @@ switch ($page1) {
 
     if ($getTotal != 0) {
       // Paginator
-      $faq                 = new JAK_Paginator;
+      $faq                 = new ENVO_paginator;
       $faq->items_total    = $getTotal;
       $faq->mid_range      = $jkv["faqpagemid"];
       $faq->items_per_page = $jkv["faqpageitem"];
@@ -314,11 +314,11 @@ switch ($page1) {
     }
 
     // Now get the new meta keywords and description maker
-    if (isset($JAK_FAQ_ALL) && is_array($JAK_FAQ_ALL)) foreach ($JAK_FAQ_ALL as $kv) $seokeywords[] = JAK_Base::jakCleanurl($kv['title']);
+    if (isset($JAK_FAQ_ALL) && is_array($JAK_FAQ_ALL)) foreach ($JAK_FAQ_ALL as $kv) $seokeywords[] = ENVO_base::envoCleanurl($kv['title']);
 
     if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-    $PAGE_KEYWORDS = str_replace(" ", " ", JAK_Base::jakCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+    $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
 
     // SEO from the category content if available
     if (!empty($MAIN_PLUGIN_DESCRIPTION)) {

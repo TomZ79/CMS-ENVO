@@ -1,6 +1,6 @@
 <?php
 
-function jak_create_register_form($jakvar1, $limit, $register = FALSE)
+function jak_create_register_form($envovar1, $limit, $register = FALSE)
 {
 
   // Now get all the options from the choosen form and create the form in html include all the javascript options
@@ -60,7 +60,7 @@ function jak_create_register_form($jakvar1, $limit, $register = FALSE)
         $selectopt .= '<option value="' . $optarray[$i] . '"' . (JAK_USERID && strtolower(preg_replace("/[^a-zA-Z0-9]+/", "", $row['name'])) . '_' . $row['id'] == $optarray[$i] ? ' selected="selected"' : "") . '>' . $optarray[$i] . '</option>';
       }
 
-      $envodata .= '<div class="form-group"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . '</label><select name="' . $row['id'] . '" class="form-control"><option value="">' . $jakvar1 . '</option>' . $selectopt . '</select></div>';
+      $envodata .= '<div class="form-group"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . '</label><select name="' . $row['id'] . '" class="form-control"><option value="">' . $envovar1 . '</option>' . $selectopt . '</select></div>';
     }
 
     if ($row['typeid'] == 4) {

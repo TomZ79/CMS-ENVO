@@ -29,9 +29,9 @@ if (JAK_USERID) {
 
         $filename     = $_FILES['uploadpp']['name']; // original filename
         $tmpf         = explode(".", $filename);
-        $jak_xtension = end($tmpf);
+        $envo_xtension = end($tmpf);
 
-        if ($jak_xtension == "jpg" || $jak_xtension == "jpeg" || $jak_xtension == "png" || $jak_xtension == "gif") {
+        if ($envo_xtension == "jpg" || $envo_xtension == "jpeg" || $envo_xtension == "png" || $envo_xtension == "gif") {
 
           if ($_FILES['uploadpp']['size'] <= 500000) {
 
@@ -51,8 +51,8 @@ if (JAK_USERID) {
               }
 
               // if old avatars exist delete it
-              foreach (glob($targetPath . '*.*') as $jak_unlink) {
-                unlink($jak_unlink);
+              foreach (glob($targetPath . '*.*') as $envo_unlink) {
+                unlink($envo_unlink);
                 copy(JAK_FILES_DIRECTORY . "/index.html", $targetPath . "/index.html");
               }
 
@@ -124,8 +124,8 @@ if (JAK_USERID) {
       $targetPath  = str_replace("//", "/", $targetPathd);
 
       // if old avatars exist delete it
-      foreach (glob($targetPath . '*.*') as $jak_unlink) {
-        unlink($jak_unlink);
+      foreach (glob($targetPath . '*.*') as $envo_unlink) {
+        unlink($envo_unlink);
         copy(JAK_FILES_DIRECTORY . "/index.html", $targetPath . "/index.html");
       }
 
@@ -275,7 +275,7 @@ if (JAK_USERID) {
 
     $fwhen = 0;
 
-    $user_check = $jakuserlogin->jakCheckuserdata($JAK_USERNAME_LINK, $passold);
+    $user_check = $jakuserlogin->envoCheckUserData($JAK_USERNAME_LINK, $passold);
 
     if (!$user_check) {
       $errors_rfp['e5'] = $tl['general_error']['generror21'] . '<br />';

@@ -6,7 +6,7 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, $jkv["accessmanage"])) envo_redirect(BASE_URL);
+if (!JAK_USERID || !$jakuser->envoModuleAccess(JAK_USERID, $jkv["accessmanage"])) envo_redirect(BASE_URL);
 
 // -------- DATA FOR ALL ADMIN PAGES --------
 // -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
@@ -94,7 +94,7 @@ switch ($page1) {
       $result1 = $envodb->query('SELECT id, title FROM ' . DB_PREFIX . 'news WHERE active = 1');
 
       while ($row1 = $result1->fetch_assoc()) {
-        $parseurl = ENVO_rewrite::envoParseurl($row['varname'], $row1['id'], ENVO_base::jakCleanurl($row1['title']), '', '');
+        $parseurl = ENVO_rewrite::envoParseurl($row['varname'], $row1['id'], ENVO_base::envoCleanurl($row1['title']), '', '');
         // EN: Insert each record into array
         // CZ: Vložení získaných dat do pole
         $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
@@ -127,7 +127,7 @@ switch ($page1) {
 
         while ($row1 = $result1->fetch_assoc()) {
           if ($jkv["downloadurl"]) {
-            $seo = ENVO_base::jakCleanurl($row1['title']);
+            $seo = ENVO_base::envoCleanurl($row1['title']);
           }
           $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 'f', $row1['id'], $seo, '', '');
           // EN: Insert each record into array
@@ -135,7 +135,7 @@ switch ($page1) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', $FREQUENCYDOWNLOAD);
         }
 
-        $JAK_DOWNLOAD_CAT = JAK_Base::jakGetcatmix($row['varname'], '', DB_PREFIX . 'downloadcategories', 0, $jkv["downloadurl"]);
+        $JAK_DOWNLOAD_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'downloadcategories', 0, $jkv["downloadurl"]);
 
         if (isset($JAK_DOWNLOAD_CAT) && is_array($JAK_DOWNLOAD_CAT)) foreach ($JAK_DOWNLOAD_CAT as $c) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($c["parseurl"])), '1.0', 'monthly');
@@ -156,7 +156,7 @@ switch ($page1) {
 
         while ($row1 = $result1->fetch_assoc()) {
           if ($jkv["shopurl"]) {
-            $seo = ENVO_base::jakCleanurl($row1['title']);
+            $seo = ENVO_base::envoCleanurl($row1['title']);
           }
           $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 'i', $row1['id'], $seo, '', '');
           // EN: Insert each record into array
@@ -164,7 +164,7 @@ switch ($page1) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
         }
 
-        $JAK_DOWNLOAD_CAT = JAK_Base::jakGetcatmix($row['varname'], '', DB_PREFIX . 'shopcategories', 0, $jkv["shopurl"]);
+        $JAK_DOWNLOAD_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'shopcategories', 0, $jkv["shopurl"]);
 
         if (isset($JAK_DOWNLOAD_CAT) && is_array($JAK_DOWNLOAD_CAT)) foreach ($JAK_DOWNLOAD_CAT as $c) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($c["parseurl"])), '1.0', 'monthly');
@@ -185,7 +185,7 @@ switch ($page1) {
 
         while ($row1 = $result1->fetch_assoc()) {
           if ($jkv["ticketurl"]) {
-            $seo = ENVO_base::jakCleanurl($row1['title']);
+            $seo = ENVO_base::envoCleanurl($row1['title']);
           }
           $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 't', $row1['id'], $seo, '', '');
           // EN: Insert each record into array
@@ -193,7 +193,7 @@ switch ($page1) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
         }
 
-        $JAK_TICKET_CAT = JAK_Base::jakGetcatmix($row['varname'], '', DB_PREFIX . 'ticketcategories', 0, $jkv["ticketurl"]);
+        $JAK_TICKET_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'ticketcategories', 0, $jkv["ticketurl"]);
 
         if (isset($JAK_TICKET_CAT) && is_array($JAK_TICKET_CAT)) foreach ($JAK_TICKET_CAT as $c) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($c["parseurl"])), '1.0', 'monthly');
@@ -214,14 +214,14 @@ switch ($page1) {
 
         while ($row1 = $result1->fetch_assoc()) {
           if ($jkv["faqurl"]) {
-            $seo = ENVO_base::jakCleanurl($row1['title']);
+            $seo = ENVO_base::envoCleanurl($row1['title']);
           }
           $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 'a', $row1['id'], $seo, '', '');
           // EN: Insert each record into array
           // CZ: Vložení získaných dat do pole
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
         }
-        $JAK_FAQ_CAT = JAK_Base::jakGetcatmix($row['varname'], '', DB_PREFIX . 'faqcategories', 0, $jkv["faqurl"]);
+        $JAK_FAQ_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'faqcategories', 0, $jkv["faqurl"]);
 
         if (isset($JAK_FAQ_CAT) && is_array($JAK_FAQ_CAT)) foreach ($JAK_FAQ_CAT as $c) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($c["parseurl"])), '1.0', 'monthly');
@@ -242,7 +242,7 @@ switch ($page1) {
 
         while ($row1 = $result1->fetch_assoc()) {
           if ($jkv["blogurl"]) {
-            $seo = ENVO_base::jakCleanurl($row1['title']);
+            $seo = ENVO_base::envoCleanurl($row1['title']);
           }
           $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 'a', $row1['id'], $seo, '', '');
 
@@ -251,7 +251,7 @@ switch ($page1) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', $FREQUENCYBLOG);
         }
 
-        $JAK_BLOG_CAT = JAK_Base::jakGetcatmix($row['varname'], '', DB_PREFIX . 'blogcategories', 0, $jkv["blogurl"]);
+        $JAK_BLOG_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'blogcategories', 0, $jkv["blogurl"]);
         if (isset($JAK_BLOG_CAT) && is_array($JAK_BLOG_CAT)) foreach ($JAK_BLOG_CAT as $c) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($c["parseurl"])), '1.0', 'monthly');
         }
@@ -271,7 +271,7 @@ switch ($page1) {
 
         while ($row1 = $result1->fetch_assoc()) {
           if ($jkv["b2b_url"]) {
-            $seo = ENVO_base::jakCleanurl($row1['title']);
+            $seo = ENVO_base::envoCleanurl($row1['title']);
           }
           $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 'i', $row1['id'], $seo, '', '');
           // EN: Insert each record into array
@@ -279,7 +279,7 @@ switch ($page1) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
         }
 
-        $JAK_B2B_CAT = JAK_Base::jakGetcatmix($row['varname'], '', DB_PREFIX . 'b2b_categories', 0, $jkv["b2b_url"]);
+        $JAK_B2B_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'b2b_categories', 0, $jkv["b2b_url"]);
 
         if (isset($JAK_B2B_CAT) && is_array($JAK_B2B_CAT)) foreach ($JAK_B2B_CAT as $c) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($c["parseurl"])), '1.0', 'monthly');

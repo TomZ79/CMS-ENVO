@@ -67,7 +67,7 @@ if (JAK_ASACCESS) {
               <div class="full-intro-content">
                 <?php if ($JAK_TAGLIST) { ?>
                   <ul class="entry-meta">
-                    <?php echo ENVO_tags::jakGettaglist_class($page2, JAK_PLUGIN_ID_NEWS, JAK_PLUGIN_VAR_TAGS, 'tips', $tl["title_element"]["tel"]); ?>
+                    <?php echo ENVO_tags::envoGetTagList_class($page2, JAK_PLUGIN_ID_NEWS, JAK_PLUGIN_VAR_TAGS, 'tips', $tl["title_element"]["tel"]); ?>
                   </ul>
                 <?php } ?>
 

@@ -1,6 +1,6 @@
 <?php
 
-class JAK_userlogin
+class ENVO_userlogin
 {
 
   var $username;
@@ -11,7 +11,7 @@ class JAK_userlogin
     $this->username = '';
   }
 
-  public static function jakCheckuserdata($username, $pass)
+  public static function envoCheckUserData($username, $pass)
   {
 
     // The new password encrypt with hash_hmac
@@ -37,7 +37,7 @@ class JAK_userlogin
 
   }
 
-  public static function jakLogin($name, $pass, $remember)
+  public static function envoLogin($name, $pass, $remember)
   {
 
     // The new password encrypt with hash_hmac
@@ -51,7 +51,7 @@ class JAK_userlogin
     if ($row['logins'] % 10 == 0) {
 
       // Generate new idhash
-      $nidhash = JAK_userlogin::generateRandID();
+      $nidhash = ENVO_userlogin::generateRandID();
 
     } else {
 
@@ -63,7 +63,7 @@ class JAK_userlogin
       } else {
 
         // Generate new idhash
-        $nidhash = JAK_userlogin::generateRandID();
+        $nidhash = ENVO_userlogin::generateRandID();
 
       }
 
@@ -91,7 +91,7 @@ class JAK_userlogin
 
   public static function generateRandID()
   {
-    return md5(JAK_userlogin::generateRandStr(16));
+    return md5(ENVO_userlogin::generateRandStr(16));
   }
 
   public static function generateRandStr($length)
@@ -111,7 +111,7 @@ class JAK_userlogin
     return $randstr;
   }
 
-  public static function jakUpdatelastactivity($userid)
+  public static function envoUpdateLastActivity($userid)
   {
 
     global $envodb;
@@ -119,7 +119,7 @@ class JAK_userlogin
 
   }
 
-  public static function jakForgotpassword($email, $time)
+  public static function envoForgotPassword($email, $time)
   {
 
     global $envodb;
@@ -138,7 +138,7 @@ class JAK_userlogin
 
   }
 
-  public static function jakForgotactive($forgotid)
+  public static function envoForgotActive($forgotid)
   {
 
     global $envodb;
@@ -150,7 +150,7 @@ class JAK_userlogin
 
   }
 
-  public static function jakWriteloginlog($username, $url, $ip, $agent, $success)
+  public static function envoWriteLoginLog($username, $url, $ip, $agent, $success)
   {
 
     global $envodb;
@@ -164,7 +164,7 @@ class JAK_userlogin
 
   }
 
-  public static function jakLogout($userid)
+  public static function envoLogout($userid)
   {
 
     global $envodb;
@@ -189,7 +189,7 @@ class JAK_userlogin
 
   }
 
-  function jakChecklogged()
+  function envoCheckLogged()
   {
 
     /* Check if user has been remembered */
@@ -201,7 +201,7 @@ class JAK_userlogin
     /* Username and idhash have been set */
     if (isset($_SESSION['username']) && isset($_SESSION['idhash']) && $_SESSION['username'] != $this->username) {
       /* Confirm that username and userid are valid */
-      if (!JAK_userlogin::jakConfirmidhash($_SESSION['username'], $_SESSION['idhash'])) {
+      if (!ENVO_userlogin::envoConfirmidHash($_SESSION['username'], $_SESSION['idhash'])) {
         /* Variables are incorrect, user not logged in */
         unset($_SESSION['username']);
         unset($_SESSION['idhash']);
@@ -210,14 +210,14 @@ class JAK_userlogin
       }
 
       // Return the user data
-      return JAK_userlogin::jakUserinfo($_SESSION['username']);
+      return ENVO_userlogin::envoUserInfo($_SESSION['username']);
     } /* User not logged in */
     else {
       return FALSE;
     }
   }
 
-  public static function jakConfirmidhash($username, $idhash)
+  public static function envoConfirmidHash($username, $idhash)
   {
 
     global $envodb;
@@ -256,7 +256,7 @@ class JAK_userlogin
 
   }
 
-  public static function jakUserinfo($username)
+  public static function envoUserInfo($username)
   {
 
     global $envodb;

@@ -1,9 +1,9 @@
 <?php
 
-class JAK_user
+class ENVO_user
 {
   private $data;
-  private $jakvar = 0;
+  private $envovar = 0;
   private $useridarray;
   private $username = '';
   private $userid = '';
@@ -17,10 +17,10 @@ class JAK_user
     $this->data = $row;
   }
 
-  function jakAdminaccess($jakvar)
+  function jakAdminaccess($envovar)
   {
     // check if user is in group 3
-    if ($jakvar == 3) {
+    if ($envovar == 3) {
       return TRUE;
     } else {
       return FALSE;
@@ -28,11 +28,11 @@ class JAK_user
 
   }
 
-  function jakSuperadminaccess($jakvar)
+  function envoSuperAdminAccess($envovar)
   {
     $useridarray = explode(',', JAK_SUPERADMIN);
     // check if userid exist in db.php
-    if (in_array($jakvar, $useridarray)) {
+    if (in_array($envovar, $useridarray)) {
       return TRUE;
     } else {
       return FALSE;
@@ -40,7 +40,7 @@ class JAK_user
 
   }
 
-  function jakLangaccess($adminid)
+  function envoLangAccess($adminid)
   {
     $useridarray = explode(',', JAK_ADMIN);
     // check if userid exist in db.php
@@ -56,7 +56,7 @@ class JAK_user
 
   }
 
-  function jakModuleaccess($userid, $accessids)
+  function envoModuleAccess($userid, $accessids)
   {
     $useridarray = explode(',', $accessids);
     // check if user is superadmin
@@ -70,13 +70,13 @@ class JAK_user
 
   }
 
-  function getVar($jakvar)
+  function getVar($envovar)
   {
 
     // Setting up an alias, so we don't have to write $this->data every time:
     $d = $this->data;
 
-    if (isset($d[$jakvar])) return $d[$jakvar];
+    if (isset($d[$envovar])) return $d[$envovar];
 
   }
 }

@@ -23,11 +23,11 @@ function envo_get_blog($limit, $order, $where, $table_row, $ext_seo, $timeago)
 
     // There should be always a varname in categories and check if seo is valid
     $seo = '';
-    if ($ext_seo) $seo = ENVO_base::jakCleanurl($row['title']);
+    if ($ext_seo) $seo = ENVO_base::envoCleanurl($row['title']);
     $parseurl = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_BLOG, 'a', $row['id'], $seo);
 
     // finally get the time
-    $getTime = JAK_Base::jakTimesince($row['time'], $jkv["blogdateformat"], $jkv["blogtimeformat"], $timeago);
+    $getTime = ENVO_base::envoTimesince($row['time'], $jkv["blogdateformat"], $jkv["blogtimeformat"], $timeago);
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole

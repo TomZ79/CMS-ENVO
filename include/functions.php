@@ -199,10 +199,10 @@ function envo_find_browser($useragent, $wap)
 }
 
 // Check if userid can have access to the forum, blog, gallery etc.
-function envo_get_access($jakvar, $jakvar1)
+function envo_get_access($envovar, $envovar1)
 {
-  $usergrouparray = explode(',', $jakvar1);
-  if (in_array($jakvar, $usergrouparray) || $jakvar == 3) {
+  $usergrouparray = explode(',', $envovar1);
+  if (in_array($envovar, $usergrouparray) || $envovar == 3) {
     return TRUE;
   } else {
     return FALSE;
@@ -243,20 +243,20 @@ function envo_get_setting_val($group)
 }
 
 // Get total from a table
-function envo_get_total($jakvar, $jakvar1, $jakvar2, $jakvar3)
+function envo_get_total($envovar, $envovar1, $envovar2, $envovar3)
 {
-  if (empty($jakvar1) && !empty($jakvar3)) {
-    $sqlwhere = ' WHERE ' . $jakvar3 . ' = 1';
-  } elseif (!empty($jakvar1) && !empty($jakvar3)) {
-    $sqlwhere = ' WHERE ' . $jakvar2 . ' = "' . smartsql($jakvar1) . '" AND ' . $jakvar3 . ' = 1';
-  } elseif (!empty($jakvar1) && empty($jakvar3)) {
-    $sqlwhere = ' WHERE ' . $jakvar2 . ' = "' . smartsql($jakvar1) . '"';
+  if (empty($envovar1) && !empty($envovar3)) {
+    $sqlwhere = ' WHERE ' . $envovar3 . ' = 1';
+  } elseif (!empty($envovar1) && !empty($envovar3)) {
+    $sqlwhere = ' WHERE ' . $envovar2 . ' = "' . smartsql($envovar1) . '" AND ' . $envovar3 . ' = 1';
+  } elseif (!empty($envovar1) && empty($envovar3)) {
+    $sqlwhere = ' WHERE ' . $envovar2 . ' = "' . smartsql($envovar1) . '"';
   } else {
     $sqlwhere = '';
   }
 
   global $envodb;
-  $row = $envodb->queryRow('SELECT COUNT(*) as totalAll FROM ' . $jakvar . $sqlwhere . '');
+  $row = $envodb->queryRow('SELECT COUNT(*) as totalAll FROM ' . $envovar . $sqlwhere . '');
 
   return $row['totalAll'];
 }
@@ -323,13 +323,13 @@ function envo_row_exist($id, $table)
 }
 
 // Check if row exist and user has permission to see it!
-function envo_row_permission($jakvar, $jakvar1, $jakvar2)
+function envo_row_permission($envovar, $envovar1, $envovar2)
 {
   global $envodb;
-  $result = $envodb->query('SELECT permission FROM ' . $jakvar1 . ' WHERE id = "' . smartsql($jakvar) . '" LIMIT 1');
+  $result = $envodb->query('SELECT permission FROM ' . $envovar1 . ' WHERE id = "' . smartsql($envovar) . '" LIMIT 1');
   if ($envodb->affected_rows === 1) {
     $row = $result->fetch_assoc();
-    if (envo_get_access($jakvar2, $row['permission']) || $row['permission'] == 0) {
+    if (envo_get_access($envovar2, $row['permission']) || $row['permission'] == 0) {
       return TRUE;
     }
   } else {
@@ -338,11 +338,11 @@ function envo_row_permission($jakvar, $jakvar1, $jakvar2)
 }
 
 // Check if catid exist
-function envo_get_id_name($jakvar, $jakvar1, $jakvar2, $jakvar3)
+function envo_get_id_name($envovar, $envovar1, $envovar2, $envovar3)
 {
   $sqlwhere = '';
   global $envodb;
-  $result = $envodb->query('SELECT id FROM ' . $jakvar2 . ' WHERE ' . $jakvar1 . ' = "' . smartsql($jakvar) . '"' . $sqlwhere . ' LIMIT 1');
+  $result = $envodb->query('SELECT id FROM ' . $envovar2 . ' WHERE ' . $envovar1 . ' = "' . smartsql($envovar) . '"' . $sqlwhere . ' LIMIT 1');
   if ($envodb->affected_rows > 0) {
     $row = $result->fetch_assoc();
 
@@ -353,14 +353,14 @@ function envo_get_id_name($jakvar, $jakvar1, $jakvar2, $jakvar3)
 }
 
 // Get News out the database
-function envo_get_news($jakvar, $where, $plname, $order, $datef, $timef, $timeago)
+function envo_get_news($envovar, $where, $plname, $order, $datef, $timef, $timeago)
 {
 
-  if (!empty($jakvar)) {
+  if (!empty($envovar)) {
     $sqlin = 'active = 1 ORDER BY ' . $order . ' ';
-  } else if (empty($jakvar) && is_numeric($where)) {
+  } else if (empty($envovar) && is_numeric($where)) {
     $sqlin = 'id = ' . $where . ' AND active = 1 ORDER BY ' . $order . ' ';
-  } else if (empty($jakvar) && !is_numeric($where)) {
+  } else if (empty($envovar) && !is_numeric($where)) {
     $sqlin = 'id IN(' . $where . ') AND active = 1 ORDER BY ' . $order . ' ';
   } else {
     $sqlin = 'active = 1 ORDER BY ' . $order . ' LIMIT 1';
@@ -369,7 +369,7 @@ function envo_get_news($jakvar, $where, $plname, $order, $datef, $timef, $timeag
   global $envodb;
   global $jkv;
   $envodata = array();
-  $result   = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'news WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 OR enddate >= ' . time() . ')) AND (FIND_IN_SET(' . JAK_USERGROUPID . ',permission) OR permission = 0) AND ' . $sqlin . $jakvar);
+  $result   = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'news WHERE ((startdate = 0 OR startdate <= ' . time() . ') AND (enddate = 0 OR enddate >= ' . time() . ')) AND (FIND_IN_SET(' . JAK_USERGROUPID . ',permission) OR permission = 0) AND ' . $sqlin . $envovar);
   while ($row = $result->fetch_assoc()) {
 
     $PAGE_TITLE   = $row['title'];
@@ -379,11 +379,11 @@ function envo_get_news($jakvar, $where, $plname, $order, $datef, $timef, $timeag
     $shortmsg = envo_cut_text($PAGE_CONTENT, $jkv["shortmsg"], '...');
 
     // Parse url for user link
-    $parseurl = ENVO_rewrite::envoParseurl($plname, 'a', $row['id'], ENVO_base::jakCleanurl($PAGE_TITLE), '');
+    $parseurl = ENVO_rewrite::envoParseurl($plname, 'a', $row['id'], ENVO_base::envoCleanurl($PAGE_TITLE), '');
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
-    $envodata[] = array('id' => $row['id'], 'title' => envo_secure_site($PAGE_TITLE), 'content' => envo_secure_site($PAGE_CONTENT), 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'showhits' => $row['showhits'], 'created' => ENVO_base::jakTimesince($row['time'], $datef, $timef, $timeago), 'titleurl' => ENVO_base::jakCleanurl($row['title']), 'hits' => $row['hits'], 'previmg' => $row['previmg'], 'contentshort' => $shortmsg, 'parseurl' => $parseurl, 'date-time' => $row['time']);
+    $envodata[] = array('id' => $row['id'], 'title' => envo_secure_site($PAGE_TITLE), 'content' => envo_secure_site($PAGE_CONTENT), 'showtitle' => $row['showtitle'], 'showcontact' => $row['showcontact'], 'showdate' => $row['showdate'], 'showhits' => $row['showhits'], 'created' => ENVO_base::envoTimesince($row['time'], $datef, $timef, $timeago), 'titleurl' => ENVO_base::envoCleanurl($row['title']), 'hits' => $row['hits'], 'previmg' => $row['previmg'], 'contentshort' => $shortmsg, 'parseurl' => $parseurl, 'date-time' => $row['time']);
 
   }
 
@@ -477,7 +477,7 @@ function envo_build_menu($parent, $menu, $active, $mainclass, $dropdown, $dropcl
 }
 
 // only full words
-function envo_cut_text($text, $limit, $jakvar2)
+function envo_cut_text($text, $limit, $envovar2)
 {
 
   // empty limit
@@ -489,10 +489,10 @@ function envo_cut_text($text, $limit, $jakvar2)
   if ($txtl > $limit) {
     for ($i = 1; $text[$limit - $i] != " "; $i++) {
       if ($i == $limit) {
-        return substr($text, 0, $limit) . $jakvar2;
+        return substr($text, 0, $limit) . $envovar2;
       }
     }
-    $envodata = substr($text, 0, $limit - $i + 1) . $jakvar2;
+    $envodata = substr($text, 0, $limit - $i + 1) . $envovar2;
   } else {
     $envodata = $text;
   }

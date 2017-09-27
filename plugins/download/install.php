@@ -224,14 +224,14 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
 
       // EN: Php code for search
       // CZ: Php kód pro vyhledávání
-      $sitephpsearch = '$download = new JAK_search($SearchInput);
-        	$download->jakSettable(\'download\',\"\");
-        	$download->jakAndor(\"OR\");
-        	$download->jakFieldactive(\"active\");
-        	$download->jakFieldtitle(\"title\");
-        	$download->jakFieldcut(\"content\");
-        	$download->jakFieldstosearch(array(\"title\",\"content\"));
-        	$download->jakFieldstoselect(\"id, title, content\");
+      $sitephpsearch = '$download = new ENVO_search($SearchInput);
+        	$download->envoSetTable(\'download\',\"\");
+        	$download->envoAndor(\"OR\");
+        	$download->envoFieldActive(\"active\");
+        	$download->envoFieldTitle(\"title\");
+        	$download->envoFieldCut(\"content\");
+        	$download->envoFieldstoSearch(array(\"title\",\"content\"));
+        	$download->envoFieldstoSelect(\"id, title, content\");
         	
         	// Load the array into template
         	$JAK_SEARCH_RESULT_DOWNLOAD = $download->set_result(JAK_PLUGIN_VAR_DOWNLOAD, \'f\', $jkv[\"downloadurl\"]);';
@@ -258,7 +258,7 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
       // EN: Php code for tags
       // CZ: Php kód pro tagy
       $sitephptag = 'if ($row[\'pluginid\'] == JAK_PLUGIN_ID_DOWNLOAD) {
-$downloadtagData[] = ENVO_tags::jakTagsql(\"download\", $row[\'itemid\'], \"id, title, content\", \"content\", JAK_PLUGIN_VAR_DOWNLOAD, \"f\", $jkv[\"downloadurl\"]);
+$downloadtagData[] = ENVO_tags::envoTagSql(\"download\", $row[\'itemid\'], \"id, title, content\", \"content\", JAK_PLUGIN_VAR_DOWNLOAD, \"f\", $jkv[\"downloadurl\"]);
 $JAK_TAG_DOWNLOAD_DATA = $downloadtagData;
 }';
 

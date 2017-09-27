@@ -53,7 +53,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
 
           <?php
           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-          echo $Html->addInput('text', 'jak_tags', '', 'input-bts-ex-1', 'form-control live-search', array('placeholder' => $tl["placeholder"]["p3"], 'aria-describedby' => 'search-icon1'));
+          echo $Html->addInput('text', 'envo_tags', '', 'input-bts-ex-1', 'form-control live-search', array('placeholder' => $tl["placeholder"]["p3"], 'aria-describedby' => 'search-icon1'));
           ?>
 
         </div>
@@ -92,8 +92,8 @@ if ($page2 == "e" || $page2 == "edn") { ?>
                   <?php
                   // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                   // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                  echo $Html->addCheckbox('', '', FALSE, 'jak_delete_all');
-                  echo $Html->addLabel('jak_delete_all', '');
+                  echo $Html->addCheckbox('', '', FALSE, 'envo_delete_all');
+                  echo $Html->addLabel('envo_delete_all', '');
                   ?>
 
                 </div>
@@ -129,7 +129,7 @@ if ($page2 == "e" || $page2 == "edn") { ?>
                     <?php
                     // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
                     // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                    echo $Html->addCheckbox('jak_delete_hook[]', $v["id"], FALSE, 'jak_delete_hook' . $v["id"], 'highlight');
+                    echo $Html->addCheckbox('envo_delete_hook[]', $v["id"], FALSE, 'envo_delete_hook' . $v["id"], 'highlight');
                     echo $Html->addLabel('jak_delete_hook' . $v["id"], '');
                     ?>
 

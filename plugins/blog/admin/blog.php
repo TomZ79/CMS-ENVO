@@ -6,7 +6,7 @@ if (!defined('JAK_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40']
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!JAK_USERID || !$jakuser->jakModuleaccess(JAK_USERID, JAK_ACCESSBLOG)) envo_redirect(BASE_URL);
+if (!JAK_USERID || !$jakuser->envoModuleAccess(JAK_USERID, JAK_ACCESSBLOG)) envo_redirect(BASE_URL);
 
 // -------- DATA FOR ALL ADMIN PAGES --------
 // -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
@@ -187,9 +187,9 @@ switch ($page1) {
             // Create Tags if the module is active
             if (!empty($defaults['jak_tags'])) {
               // check if tag does not exist and insert in cloud
-              ENVO_tags::jakBuildcloud($defaults['jak_tags'], $rowid, JAK_PLUGIN_BLOG);
+              ENVO_tags::envoBuildCloud($defaults['jak_tags'], $rowid, JAK_PLUGIN_BLOG);
               // insert tag for normal use
-              ENVO_tags::jakInsertags($defaults['jak_tags'], $rowid, JAK_PLUGIN_BLOG, $tagactive);
+              ENVO_tags::envoInserTags($defaults['jak_tags'], $rowid, JAK_PLUGIN_BLOG, $tagactive);
 
             }
 
@@ -803,7 +803,7 @@ switch ($page1) {
 
         if ($getTotal != 0) {
           // Paginator
-          $pages                 = new JAK_Paginator;
+          $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
           $pages->mid_range      = $jkv["adminpagemid"];
           $pages->items_per_page = $jkv["adminpageitem"];
@@ -903,7 +903,7 @@ switch ($page1) {
             envo_redirect(BASE_URL . 'index.php?p=blog&status=e');
           } else {
 
-            ENVO_tags::jakDeletetags($page2, JAK_PLUGIN_BLOG);
+            ENVO_tags::envoDeleteTags($page2, JAK_PLUGIN_BLOG);
 
             // EN: Redirect page
             // CZ: Přesměrování stránky s notifikací - úspěšné
@@ -937,7 +937,7 @@ switch ($page1) {
               for ($i = 0; $i < count($tags); $i++) {
                 $tag = $tags[$i];
 
-                ENVO_tags::jakDeleteonetag($tag);
+                ENVO_tags::envoDeleteOneTag($tag);
 
               }
             }
@@ -1139,9 +1139,9 @@ switch ($page1) {
                 // Create Tags if the module is active
                 if (!empty($defaults['jak_tags'])) {
                   // check if tag does not exist and insert in cloud
-                  ENVO_tags::jakBuildcloud($defaults['jak_tags'], smartsql($page2), JAK_PLUGIN_BLOG);
+                  ENVO_tags::envoBuildCloud($defaults['jak_tags'], smartsql($page2), JAK_PLUGIN_BLOG);
                   // insert tag for normal use
-                  ENVO_tags::jakInsertags($defaults['jak_tags'], smartsql($page2), JAK_PLUGIN_BLOG, $tagactive);
+                  ENVO_tags::envoInserTags($defaults['jak_tags'], smartsql($page2), JAK_PLUGIN_BLOG, $tagactive);
 
                 }
 
@@ -1288,7 +1288,7 @@ switch ($page1) {
 
               $result = $envodb->query('DELETE FROM ' . $envotable . ' WHERE id = "' . smartsql($locked) . '"');
 
-              ENVO_tags::jakDeletetags($locked, JAK_PLUGIN_BLOG);
+              ENVO_tags::envoDeleteTags($locked, JAK_PLUGIN_BLOG);
             }
 
             if (!$result) {

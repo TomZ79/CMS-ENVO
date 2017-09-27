@@ -201,14 +201,14 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
 
       // EN: Php code for search
       // CZ: Php kód pro vyhledávání
-      $sitephpsearch = '$faq = new JAK_search($SearchInput);
-        	$faq->jakSettable(\'faq\',\"\");
-        	$faq->jakAndor(\"OR\");
-        	$faq->jakFieldactive(\"active\");
-        	$faq->jakFieldtitle(\"title\");
-        	$faq->jakFieldcut(\"content\");
-        	$faq->jakFieldstosearch(array(\'title\',\'content\'));
-        	$faq->jakFieldstoselect(\"id, title, content\");
+      $sitephpsearch = '$faq = new ENVO_search($SearchInput);
+        	$faq->envoSetTable(\'faq\',\"\");
+        	$faq->envoAndor(\"OR\");
+        	$faq->envoFieldActive(\"active\");
+        	$faq->envoFieldTitle(\"title\");
+        	$faq->envoFieldCut(\"content\");
+        	$faq->envoFieldstoSearch(array(\'title\',\'content\'));
+        	$faq->envoFieldstoSelect(\"id, title, content\");
         	
         	// Load the array into template
         	$JAK_SEARCH_RESULT_FAQ = $faq->set_result(JAK_PLUGIN_VAR_FAQ, \'a\', $jkv[\"faqurl\"]);';
@@ -235,7 +235,7 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
       // EN: Php code for tags
       // CZ: Php kód pro tagy
       $sitephptag = 'if ($row[\'pluginid\'] == JAK_PLUGIN_ID_FAQ) {
-$faqtagData[] = ENVO_tags::jakTagsql(\"faq\", $row[\'itemid\'], \"id, title, content\", \"content\", JAK_PLUGIN_VAR_FAQ, \"a\", $jkv[\"faqurl\"]);
+$faqtagData[] = ENVO_tags::envoTagSql(\"faq\", $row[\'itemid\'], \"id, title, content\", \"content\", JAK_PLUGIN_VAR_FAQ, \"a\", $jkv[\"faqurl\"]);
 $JAK_TAG_FAQ_DATA = $faqtagData;
 }';
 

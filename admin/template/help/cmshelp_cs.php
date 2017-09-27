@@ -2988,8 +2988,8 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
 
     <p class="all-caps fs-12 bold">For example :</p>
     <pre class="prettyprint linenums lang-php">
-if (isset($defaults['jak_download'])) {
-	$insert .= 'download = "'.$defaults['jak_download'].'", downloadpost = "'.$defaults['jak_downloadpost'].'", downloadpostapprove = "'.$defaults['jak_downloadpostapprove'].'", downloadpostdelete = "'.$defaults['jak_downloadpostdelete'].'", downloadrate = "'.$defaults['jak_downloadrate'].'", downloadmoderate = "'.$defaults['jak_downloadmoderate'].'",'; }
+if (isset($defaults['envo_download'])) {
+	$insert .= 'download = "'.$defaults['envo_download'].'", downloadpost = "'.$defaults['envo_downloadpost'].'", downloadpostapprove = "'.$defaults['envo_downloadpostapprove'].'", downloadpostdelete = "'.$defaults['envo_downloadpostdelete'].'", downloadrate = "'.$defaults['envo_downloadrate'].'", downloadmoderate = "'.$defaults['envo_downloadmoderate'].'",'; }
 </pre>
 
     <p>If you like to include a file:</p>
@@ -3006,7 +3006,7 @@ APP_PATH . 'plugins/yourplugin/file_to_include.php';
 
     <p class="all-caps fs-12 bold">For example :</p>
     <pre class="prettyprint linenums lang-php">
-$envodb->query('UPDATE '.DB_PREFIX.'faqcomments SET username = "'.smartsql($defaults['jak_username']).'" WHERE userid = '.smartsql($page2).'');
+$envodb->query('UPDATE '.DB_PREFIX.'faqcomments SET username = "'.smartsql($defaults['envo_username']).'" WHERE userid = '.smartsql($page2).'');
 </pre>
 
     <p>If you like to include a file:</p>
@@ -3178,8 +3178,8 @@ $envodb->query('ALTER TABLE '.DB_PREFIX.'pages DROP INDEX `title`');
 
     <p class="all-caps fs-12 bold">For example :</p>
     <pre class="prettyprint linenums lang-php">
-if (empty($news) && !empty($defaults['jak_shownewsmany'])) {
-  $insert .= $defaults['jak_showorder'];
+if (empty($news) && !empty($defaults['envo_shownewsmany'])) {
+  $insert .= $defaults['envo_showorder'];
 }
 </pre>
   </section>
@@ -3192,8 +3192,8 @@ if (empty($news) && !empty($defaults['jak_shownewsmany'])) {
 
     <p class="all-caps fs-12 bold">For example :</p>
     <pre class="prettyprint linenums lang-php">
-if (empty($news) && !empty($defaults['jak_shownewsmany'])) {
-  $insert .= $defaults['jak_showorder'];
+if (empty($news) && !empty($defaults['envo_shownewsmany'])) {
+  $insert .= $defaults['envo_showorder'];
 }
 </pre>
   </section>

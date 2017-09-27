@@ -1,6 +1,6 @@
 <?php
 
-class JAK_search
+class ENVO_search
 {
   protected $table = '', $keyword = '', $groupme = '', $fields = '', $andor = '', $select = '', $plugin = '', $link = '', $dseo = '';
 
@@ -30,7 +30,7 @@ class JAK_search
 
   }
 
-  function jakSettable($table, $on)
+  function envoSetTable($table, $on)
   {
     // Set the table to search trhu but also check if there is more then one!
     if (is_array($table)) {
@@ -45,7 +45,7 @@ class JAK_search
     }
   }
 
-  function jakAndor($andor)
+  function envoAndor($andor)
   {
     // Set if the search should AND/OR
     $this->andor = '';
@@ -53,14 +53,14 @@ class JAK_search
 
   }
 
-  function jakFieldstoselect($select)
+  function envoFieldstoSelect($select)
   {
     // What fields should we select
     $this->select = '';
     if (isset($select)) $this->select = $select;
   }
 
-  function jakFieldtitle($seotitle)
+  function envoFieldTitle($seotitle)
   {
     // What fields should we select
     $this->title = '';
@@ -68,7 +68,7 @@ class JAK_search
 
   }
 
-  function jakFieldcontent($content)
+  function envoFieldContent($content)
   {
     // What fields should we select
     $this->content = '';
@@ -76,7 +76,7 @@ class JAK_search
 
   }
 
-  function jakFieldcut($cutme)
+  function envoFieldCut($cutme)
   {
     // What fields should we select
     $this->cutme = '';
@@ -84,7 +84,7 @@ class JAK_search
 
   }
 
-  function jakFieldactive($active)
+  function envoFieldActive($active)
   {
     // What fields should we check if this article is active or approved
     $this->active = '';
@@ -92,14 +92,14 @@ class JAK_search
 
   }
 
-  function jakFieldid($id)
+  function envoFieldId($id)
   {
     // What fields should we check if this article is active or approved
     if (isset($id)) $this->id = ' AND ' . $id;
 
   }
 
-  function jakSearchlimit($limited)
+  function envoSearchLimit($limited)
   {
     // Get the limit for this search
     $this->limited = '';
@@ -107,14 +107,14 @@ class JAK_search
 
   }
 
-  function jakTablegroup($groupme)
+  function envoTableGroup($groupme)
   {
     // Get the groups for this search
     $this->groupme = '';
     if (isset($groupme)) $this->groupme = ' GROUP BY ' . $groupme;
   }
 
-  function jakFieldstosearch($fields)
+  function envoFieldstoSearch($fields)
   {
 
     global $jkv;
@@ -163,7 +163,7 @@ class JAK_search
       if (isset($row["title"])) $title = $row["title"];
 
       // get the title for better seo, if there is a title
-      if ($dseo && $this->title) $wseo = ENVO_base::jakCleanurl($title);
+      if ($dseo && $this->title) $wseo = ENVO_base::envoCleanurl($title);
 
       // Get the url
       if (isset($row['catorder']) && $row['catorder'] == 1 && isset($row['catparent']) && $row['catparent'] == 0) {

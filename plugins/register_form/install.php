@@ -214,7 +214,7 @@ include_once APP_PATH.\'plugins/register_form/admin/template/rf_connect.php\';
 if (is_numeric($page1) && is_numeric($page2) && envo_row_exist($page1, DB_PREFIX.\'user\') && envo_field_not_exist($page2, DB_PREFIX.\'user\', \'activatenr\')) {
 
 		// Generate new idhash
-		$nidhash = JAK_userlogin::generateRandID();
+		$nidhash = ENVO_userlogin::generateRandID();
 		
 		$result = $envodb->query(\'UPDATE \'.DB_PREFIX.\'user SET session = \"\'.smartsql(session_id()).\'\", idhash = \"\'.smartsql($nidhash).\'\", lastactivity = NOW(), access = access - 1, activatenr = 0 WHERE id = \"\'.smartsql($page1).\'\" AND activatenr = \"\'.smartsql($page2).\'\"\');
 		

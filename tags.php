@@ -63,7 +63,7 @@ if (empty($page1)) {
         }
         // Get the news data
       } elseif ($row['pluginid'] == 1) {
-        $newstagData[]     = ENVO_tags::jakTagsql($envotable3, $row['itemid'], "id, title" . ", content", "content", JAK_PLUGIN_VAR_NEWS, 'a', 1);
+        $newstagData[]     = ENVO_tags::envoTagSql($envotable3, $row['itemid'], "id, title" . ", content", "content", JAK_PLUGIN_VAR_NEWS, 'a', 1);
         $JAK_TAG_NEWS_DATA = $newstagData;
       } else {
         // No Tag Data in the while
@@ -90,7 +90,7 @@ while ($grow = $grid->fetch_assoc()) {
 }
 
 // Now get the new meta keywords and description maker
-$PAGE_KEYWORDS    = str_replace(" ", " ", JAK_Base::jakCleanurl(JAK_PLUGIN_NAME_TAGS) . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+$PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl(JAK_PLUGIN_NAME_TAGS) . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
 $PAGE_DESCRIPTION = $jkv["metadesc"];
 
 // EN: Load the php template

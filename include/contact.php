@@ -50,8 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['contactF'])) {
         }
 
       } elseif ($formtype[$i] == 4) {
-        if ($defaults[JAK_Base::jakCleanurl($formnamearray[$i])] == '') {
-          $errorsA[JAK_Base::jakCleanurl($formnamearray[$i])] = $tl['error']['e11'] . ' (' . $formnamearray[$i] . ')<br />';
+        if ($defaults[ENVO_base::envoCleanurl($formnamearray[$i])] == '') {
+          $errorsA[ENVO_base::envoCleanurl($formnamearray[$i])] = $tl['error']['e11'] . ' (' . $formnamearray[$i] . ')<br />';
         }
 
       } elseif ($formtype[$i] == 5) {
@@ -60,20 +60,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['contactF'])) {
         // Get the filename and split it for further tests
         $filename = $_FILES[$formarray[$i]]['name']; // original filename
         $tmpf = explode(".", $filename);
-        $jak_xtension = end($tmpf);
+        $envo_xtension = end($tmpf);
         if ($filename == '') {
           $errorsA[$formarray[$i]] = $tl['error']['e11'] . ' (' . $formnamearray[$i] . ')<br />';
         }
-        if ($filename != '' && !in_array($jak_xtension, $allext)) {
+        if ($filename != '' && !in_array($envo_xtension, $allext)) {
           $errorsA[$formarray[$i]] = $tl['error']['e12'] . ' (' . $defaults['ext_' . $formarray[$i]] . ')<br />';
         }
-        if (in_array($jak_xtension, $allext) && $_FILES[$formarray[$i]]['size'] >= 1000000) {
+        if (in_array($envo_xtension, $allext) && $_FILES[$formarray[$i]]['size'] >= 1000000) {
           $errorsA[$formarray[$i]] = $tl['error']['e37'] . ' (' . $filename . ')<br />';
         }
 
       } elseif ($formtype[$i] == 6) {
-        if ($defaults[JAK_Base::jakCleanurl($formnamearray[$i])] == '') {
-          $errorsA[JAK_Base::jakCleanurl($formnamearray[$i])] = $tl['error']['e11'] . ' (' . $formnamearray[$i] . ')<br />';
+        if ($defaults[ENVO_base::envoCleanurl($formnamearray[$i])] == '') {
+          $errorsA[ENVO_base::envoCleanurl($formnamearray[$i])] = $tl['error']['e11'] . ' (' . $formnamearray[$i] . ')<br />';
         }
 
       }
@@ -105,10 +105,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['contactF'])) {
 
       if ($formtype[$i] <= 3) {
         $listForm .= $formnamearray[$i] . ': ' . $defaults[$formarray[$i]] . '<br />';
-      } elseif ($formtype[$i] == 4 && !empty($defaults[JAK_Base::jakCleanurl($formnamearray[$i])])) {
-        $listForm .= $formnamearray[$i] . ': ' . $defaults[JAK_Base::jakCleanurl($formnamearray[$i])] . '<br />';
-      } elseif ($formtype[$i] == 6 && !empty($defaults[JAK_Base::jakCleanurl($formnamearray[$i])])) {
-        $listForm .= $formnamearray[$i] . ': ' . join(', ', $defaults[JAK_Base::jakCleanurl($formnamearray[$i])]) . '<br />';
+      } elseif ($formtype[$i] == 4 && !empty($defaults[ENVO_base::envoCleanurl($formnamearray[$i])])) {
+        $listForm .= $formnamearray[$i] . ': ' . $defaults[ENVO_base::envoCleanurl($formnamearray[$i])] . '<br />';
+      } elseif ($formtype[$i] == 6 && !empty($defaults[ENVO_base::envoCleanurl($formnamearray[$i])])) {
+        $listForm .= $formnamearray[$i] . ': ' . join(', ', $defaults[ENVO_base::envoCleanurl($formnamearray[$i])]) . '<br />';
       } else {
         if ($_FILES[$formarray[$i]]['tmp_name']) {
           $tempFile = $_FILES[$formarray[$i]]['tmp_name'];
@@ -205,18 +205,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['contactF'])) {
   }
 }
 
-function envo_contact_form_title($jakvar)
+function envo_contact_form_title($envovar)
 {
   // Now get all the options from the choosen form and create the form in html include all the javascript options
   global $envodb;
-  $result = $envodb->query('SELECT title' . ', showtitle FROM ' . DB_PREFIX . 'contactform WHERE id = "' . $jakvar . '" LIMIT 1');
+  $result = $envodb->query('SELECT title' . ', showtitle FROM ' . DB_PREFIX . 'contactform WHERE id = "' . $envovar . '" LIMIT 1');
   $row = $result->fetch_assoc();
 
   return array("title" => $row['title'], "showtitle" => $row['showtitle']);
 }
 
 
-function envo_create_contact_form($formid, $jakvar1)
+function envo_create_contact_form($formid, $envovar1)
 {
 
 
@@ -265,7 +265,7 @@ function envo_create_contact_form($formid, $jakvar1)
         $selectopt .= '<option value="' . $optarray[$i] . '"' . ($_POST[$row['id']] == $optarray[$i] ? ' selected="selected"' : "") . '>' . $optarray[$i] . '</option>';
       }
 
-      $envodata .= '<div class="form-group1"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . '</label><select name="' . $row['id'] . '" id="' . $row['id'] . '" class="form-control"><option value="">' . $jakvar1 . '</option>' . $selectopt . '</select></div>';
+      $envodata .= '<div class="form-group1"><label class="control-label" for="' . $row['id'] . '">' . $row['name'] . $mandatory . '</label><select name="' . $row['id'] . '" id="' . $row['id'] . '" class="form-control"><option value="">' . $envovar1 . '</option>' . $selectopt . '</select></div>';
     }
 
     if ($row['typeid'] == 4) {
@@ -277,7 +277,7 @@ function envo_create_contact_form($formid, $jakvar1)
 
       $optarrayradio = explode(',', $row['options']);
 
-      $cleanName = JAK_Base::jakCleanurl($row['name']);
+      $cleanName = ENVO_base::envoCleanurl($row['name']);
 
       for ($i = 0; $i < count($optarrayradio); $i++) {
 
@@ -316,13 +316,13 @@ function envo_create_contact_form($formid, $jakvar1)
 
         if ($i) {
 
-          $getridc = JAK_Base::jakCleanurl($row['name'] . '_' . $i);
+          $getridc = ENVO_base::envoCleanurl($row['name'] . '_' . $i);
 
         } else {
-          $getridc = JAK_Base::jakCleanurl($row['name']);
+          $getridc = ENVO_base::envoCleanurl($row['name']);
         }
 
-        $cleanName = JAK_Base::jakCleanurl($row['name']);
+        $cleanName = ENVO_base::envoCleanurl($row['name']);
 
         $checkopt .= '<div class="checkbox"><label><input type="checkbox" name="' . $cleanName . '[]" id="' . $getridc . '" value="' . $optarray[$i] . '"' . (is_array($_POST[$row['name']]) && in_array($optarray[$i], $_POST[$cleanName]) ? ' checked="checked"' : "") . '> ' . $optarray[$i] . '</label></div>';
 

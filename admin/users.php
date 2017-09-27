@@ -259,8 +259,8 @@ switch ($page1) {
                 if (!empty($defaults['jak_delete_avatar'])) {
                   $targetPath   = '../' . JAK_FILES_DIRECTORY . '/' . $locked . '/';
                   $removedouble = str_replace("//", "/", $targetPath);
-                  foreach (glob($removedouble . '*.*') as $jak_unlink) {
-                    @unlink($jak_unlink);
+                  foreach (glob($removedouble . '*.*') as $envo_unlink) {
+                    @unlink($envo_unlink);
                   }
 
                   @unlink($targetPath);
@@ -315,7 +315,7 @@ switch ($page1) {
         // Now if total run paginator
         if ($getTotal != 0) {
           // Paginator
-          $pages                 = new JAK_Paginator;
+          $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
           $pages->mid_range      = $jkv["adminpagemid"];
           $pages->items_per_page = $jkv["adminpageitem"];
@@ -468,8 +468,8 @@ switch ($page1) {
           // Delete Avatar
           $targetPath   = '../' . JAK_FILES_DIRECTORY . '/' . $page2 . '/';
           $removedouble = str_replace("//", "/", $targetPath);
-          foreach (glob($removedouble . '*.*') as $jak_unlink) {
-            @unlink($jak_unlink);
+          foreach (glob($removedouble . '*.*') as $envo_unlink) {
+            @unlink($envo_unlink);
           }
 
           @unlink($targetPath);
@@ -565,8 +565,8 @@ switch ($page1) {
               $avatarpid    = str_replace("//", "/", $avatarpi);
               $targetPath   = '../' . JAK_FILES_DIRECTORY . '/userfiles/' . $page2 . '/';
               $removedouble = str_replace("//", "/", $targetPath);
-              foreach (glob($removedouble . '*.*') as $jak_unlink) {
-                unlink($jak_unlink);
+              foreach (glob($removedouble . '*.*') as $envo_unlink) {
+                unlink($envo_unlink);
                 copy($avatarpid, $targetPath . "/index.html");
               }
 
@@ -580,9 +580,9 @@ switch ($page1) {
 
                 $filename     = $_FILES['uploadpp']['name']; // original filename
                 $tmpf         = explode(".", $filename);
-                $jak_xtension = end($tmpf);
+                $envo_xtension = end($tmpf);
 
-                if ($jak_xtension == "jpg" || $jak_xtension == "jpeg" || $jak_xtension == "png" || $jak_xtension == "gif") {
+                if ($envo_xtension == "jpg" || $envo_xtension == "jpeg" || $envo_xtension == "png" || $envo_xtension == "gif") {
 
                   if ($_FILES['uploadpp']['size'] <= 500000) {
 
@@ -602,8 +602,8 @@ switch ($page1) {
 
                       }
                       // if old avatars exist delete it
-                      foreach (glob($targetPath . '*.*') as $jak_unlink) {
-                        unlink($jak_unlink);
+                      foreach (glob($targetPath . '*.*') as $envo_unlink) {
+                        unlink($envo_unlink);
                         copy("../" . JAK_FILES_DIRECTORY . "/index.html", $targetPath . "/index.html");
                       }
 
@@ -880,8 +880,8 @@ switch ($page1) {
                 // Delete Avatar
                 $targetPath   = '../' . JAK_FILES_DIRECTORY . '/' . $locked . '/';
                 $removedouble = str_replace("//", "/", $targetPath);
-                foreach (glob($removedouble . '*.*') as $jak_unlink) {
-                  @unlink($jak_unlink);
+                foreach (glob($removedouble . '*.*') as $envo_unlink) {
+                  @unlink($envo_unlink);
                 }
 
                 @unlink($targetPath);
@@ -923,7 +923,7 @@ switch ($page1) {
         $getTotal = envo_get_total($envotable, '', '', '');
         if ($getTotal != 0) {
           // Paginator
-          $pages                 = new JAK_Paginator;
+          $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
           $pages->mid_range      = $jkv["adminpagemid"];
           $pages->items_per_page = $jkv["adminpageitem"];

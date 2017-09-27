@@ -1,6 +1,6 @@
 <?php
 
-class Jak_ToDo
+class ENVO_todo
 {
 
   /* An array that stores the todo item data: */
@@ -118,7 +118,7 @@ class Jak_ToDo
       throw new Exception("Error inserting ToDo!");
 
     // Creating a new ToDo and outputting it directly:
-    echo(new Jak_ToDo(array(
+    echo(new ENVO_todo(array(
       'id'      => $envodb->envo_last_id(),
       'adminid' => JAK_USERID,
       'text'    => $text

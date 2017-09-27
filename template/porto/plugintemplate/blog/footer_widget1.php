@@ -2,7 +2,7 @@
 
 if (JAK_PLUGIN_ACCESS_BLOG) {
 
-  $JAK_BLOG_CAT = JAK_Base::jakGetcatmix(JAK_PLUGIN_VAR_BLOG, '', DB_PREFIX . 'blogcategories', JAK_USERGROUPID, $jkv["blogurl"]);
+  $JAK_BLOG_CAT = ENVO_base::envoGetcatmix(JAK_PLUGIN_VAR_BLOG, '', DB_PREFIX . 'blogcategories', JAK_USERGROUPID, $jkv["blogurl"]);
 
   if ($JAK_BLOG_CAT) { ?>
 

@@ -17,7 +17,7 @@ function jak_get_download($limit, $order, $where, $table_row, $ext_seo, $timeago
   $result = $envodb->query('SELECT t1.* FROM ' . DB_PREFIX . 'download AS t1 LEFT JOIN ' . DB_PREFIX . 'downloadcategories AS t2 ON (t1.catid = t2.id) WHERE ' . $sqlin . ' (FIND_IN_SET(' . JAK_USERGROUPID . ',t2.permission) OR t2.permission = 0) GROUP BY t1.id ORDER BY ' . $order . ' ' . $limit);
   while ($row = $result->fetch_assoc()) {
 
-    $getTime = JAK_Base::jakTimesince($row['time'], $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $timeago);
+    $getTime = ENVO_base::envoTimesince($row['time'], $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $timeago);
 
     // Write content in short format with full words
     $shortmsg = envo_cut_text($row['content'], $jkv["shortmsg"], '...');
@@ -25,7 +25,7 @@ function jak_get_download($limit, $order, $where, $table_row, $ext_seo, $timeago
     // There should be always a varname in categories and check if seo is valid
     $seo = '';
     if ($ext_seo) {
-      $seo = ENVO_base::jakCleanurl($row['title']);
+      $seo = ENVO_base::envoCleanurl($row['title']);
     }
 
     $parseurl = ENVO_rewrite::envoParseurl(JAK_PLUGIN_VAR_DOWNLOAD, 'f', $row['id'], $seo, '');

@@ -1,11 +1,11 @@
 <?php
 
 // Get the data per array for downloads
-function envo_get_downloads($limit, $jakvar1, $table)
+function envo_get_downloads($limit, $envovar1, $table)
 {
 
   $sqlwhere = '';
-  if (!empty($jakvar1)) $sqlwhere = 'WHERE catid = ' . smartsql($jakvar1) . ' ';
+  if (!empty($envovar1)) $sqlwhere = 'WHERE catid = ' . smartsql($envovar1) . ' ';
 
   global $envodb;
   $envodata = array();

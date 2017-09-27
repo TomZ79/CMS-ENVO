@@ -92,7 +92,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'jak_name', $ENVO_FORM_DATA["name"], 'jak_name', 'form-control');
+                    echo $Html->addInput('text', 'envo_name', $ENVO_FORM_DATA["name"], 'envo_name', 'form-control');
                     ?>
 
                   </div>
@@ -112,7 +112,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_email', $ENVO_FORM_DATA["email"], '', 'form-control');
+                      echo $Html->addInput('text', 'envo_email', $ENVO_FORM_DATA["email"], '', 'form-control');
                       ?>
 
                     </div>
@@ -133,8 +133,8 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_username', $ENVO_FORM_DATA["username"], '', 'form-control');
-                      echo $Html->addInput('hidden', 'jak_username_old', $ENVO_FORM_DATA["username"], '', 'form-control');
+                      echo $Html->addInput('text', 'envo_username', $ENVO_FORM_DATA["username"], '', 'form-control');
+                      echo $Html->addInput('hidden', 'envo_username_old', $ENVO_FORM_DATA["username"], '', 'form-control');
                       ?>
 
                     </div>
@@ -150,7 +150,7 @@ if ($errors) { ?>
 
                   </div>
                   <div class="col-md-7">
-                    <select name="jak_usergroup" class="form-control selectpicker">
+                    <select name="envo_usergroup" class="form-control selectpicker">
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -177,7 +177,7 @@ if ($errors) { ?>
 
                     <?php
                     // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                    echo $Html->addInput('text', 'jak_backtime', $ENVO_FORM_DATA["backtime"], 'datepicker', 'form-control', array('readonly' => 'readonly'));
+                    echo $Html->addInput('text', 'envo_backtime', $ENVO_FORM_DATA["backtime"], 'datepicker', 'form-control', array('readonly' => 'readonly'));
                     ?>
 
                   </div>
@@ -192,7 +192,7 @@ if ($errors) { ?>
 
                   </div>
                   <div class="col-md-7">
-                    <select name="jak_usergroupback" class="form-control selectpicker">
+                    <select name="envo_usergroupback" class="form-control selectpicker">
 
                       <?php
                       // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
@@ -222,14 +222,14 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('jak_access', '1', ($ENVO_FORM_DATA["access"] == '1') ? TRUE : FALSE, 'jak_access1');
+                      echo $Html->addRadio('envo_access', '1', ($ENVO_FORM_DATA["access"] == '1') ? TRUE : FALSE, 'envo_access1');
                       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                      echo $Html->addLabel('jak_access1', $tl["checkbox"]["chk"]);
+                      echo $Html->addLabel('envo_access1', $tl["checkbox"]["chk"]);
 
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addRadio('jak_access', '0', ($ENVO_FORM_DATA["access"] == '0') ? TRUE : FALSE, 'jak_access2');
+                      echo $Html->addRadio('envo_access', '0', ($ENVO_FORM_DATA["access"] == '0') ? TRUE : FALSE, 'envo_access2');
                       // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
-                      echo $Html->addLabel('jak_access2', $tl["checkbox"]["chk1"]);
+                      echo $Html->addLabel('envo_access2', $tl["checkbox"]["chk1"]);
                       ?>
 
                     </div>
@@ -285,7 +285,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                      echo $Html->addCheckbox('jak_delete_avatar');
+                      echo $Html->addCheckbox('envo_delete_avatar');
                       ?>
 
                     </div>
@@ -332,7 +332,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'jak_password', '', '', 'form-control');
+                        echo $Html->addInput('text', 'envo_password', '', '', 'form-control');
                         // Add Html Element -> addTag (Arguments: tag, text, class, optional assoc. array)
                         echo $Html->addTag('span', '', 'label password-indicator-label-absolute');
                         ?>
@@ -356,7 +356,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'jak_confirm_password', '', '', 'form-control');
+                        echo $Html->addInput('text', 'envo_confirm_password', '', '', 'form-control');
                         ?>
 
                       </div>
@@ -404,7 +404,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                      echo $Html->addInput('text', 'jak_phone', $ENVO_FORM_DATA["phone"], '', 'form-control');
+                      echo $Html->addInput('text', 'envo_phone', $ENVO_FORM_DATA["phone"], '', 'form-control');
                       ?>
 
                     </div>
@@ -424,7 +424,7 @@ if ($errors) { ?>
 
                       <?php
                       // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                      echo $Html->addTextarea('jak_description', $ENVO_FORM_DATA["description"], '4', '', array('class' => 'form-control'));
+                      echo $Html->addTextarea('envo_description', $ENVO_FORM_DATA["description"], '4', '', array('class' => 'form-control'));
                       ?>
 
                     </div>

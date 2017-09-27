@@ -429,14 +429,14 @@ $PAGE_TITLE = JAK_PLUGIN_NAME_BLOG;
         <p>Use this hook to execute PHP code in the search.php file.</p>
 
         <pre class="prettyprint linenums lang-php">
-$blog = new JAK_search($SearchInput);
-        	$blog->jakSettable('blog',"");
-        	$blog->jakAndor("OR");
-        	$blog->jakFieldactive("active");
-        	$blog->jakFieldtitle("title");
-        	$blog->jakFieldcut("content");
-        	$blog->jakFieldstosearch(array("title","content"));
-        	$blog->jakFieldstoselect("id, title, content");
+$blog = new ENVO_search($SearchInput);
+        	$blog->envoSetTable('blog',"");
+        	$blog->envoAndor("OR");
+        	$blog->envoFieldActive("active");
+        	$blog->envoFieldTitle("title");
+        	$blog->envoFieldCut("content");
+        	$blog->envoFieldstoSearch(array("title","content"));
+        	$blog->envoFieldstoSelect("id, title, content");
 
         	// Load the array into template
         	$JAK_SEARCH_RESULT_BLOG = $blog->set_result(JAK_PLUGIN_VAR_BLOG, 'a', $jkv["blogurl"]);
@@ -451,7 +451,7 @@ $blog = new JAK_search($SearchInput);
 
         <pre class="prettyprint linenums lang-php">
 if ($row['pluginid'] == JAK_PLUGIN_ID_BLOG) {
-	$blogtagData[] = ENVO_tags::jakTagsql("blog", $row['itemid'], "id, title, content", "content", JAK_PLUGIN_VAR_BLOG, "a", $jkv["blogurl"]);
+	$blogtagData[] = ENVO_tags::envoTagSql("blog", $row['itemid'], "id, title, content", "content", JAK_PLUGIN_VAR_BLOG, "a", $jkv["blogurl"]);
 	$JAK_TAG_BLOG_DATA = $blogtagData;
 }
         </pre>
