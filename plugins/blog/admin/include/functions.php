@@ -1,6 +1,19 @@
 <?php
 
-// Get the data per array for blogs
+/**
+ * EN: Get the data per array for blogs
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $limit
+ * @param $cid
+ * @param $table
+ * @return array
+ *
+ */
 function envo_get_blogs($limit, $cid, $table)
 {
 
@@ -16,10 +29,30 @@ function envo_get_blogs($limit, $cid, $table)
     $envodata[] = $row;
   }
 
-  return $envodata;
+  if (!empty($envodata)) return $envodata;
 }
 
-// Menu builder function, parentId 0 is the root
+/**
+ * EN: Menu builder function, parentId 0 is the root
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $parent
+ * @param $menu
+ * @param $lang
+ * @param $title1
+ * @param $title2
+ * @param $title3
+ * @param $title4
+ * @param $title5
+ * @param string $class
+ * @param string $id
+ * @return string
+ *
+ */
 function envo_build_menu_blog($parent, $menu, $lang, $title1, $title2, $title3, $title4, $title5, $class = "", $id = "")
 {
   $html = "";

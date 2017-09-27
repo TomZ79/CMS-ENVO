@@ -1,8 +1,13 @@
 <?php
-// EN: Getting the data about the Houses without limit by usergroupid
-// CZ: Získání dat o bytových domech bez limitu podle 'id' uživatelské skupiny
 
 /**
+ * EN: Getting the data about the Houses without limit by usergroupid
+ * CZ: Získání dat o bytových domech bez limitu podle 'id' uživatelské skupiny
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
  * @param $table
  * @param $ext_seo
  * @param $usergroupid
@@ -142,7 +147,21 @@ function envo_get_notification_unread($usergroupid, $ext_seo, $dateformat, $time
   if (isset($envodata)) return $envodata;
 }
 
-
+/**
+ * EN:
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $usergroupid
+ * @param $ext_seo
+ * @param $dateformat
+ * @param $timeformat
+ * @return array
+ *
+ */
 function envo_get_notification_all($usergroupid, $ext_seo, $dateformat, $timeformat)
 {
   global $envodb;

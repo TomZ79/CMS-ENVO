@@ -1,6 +1,19 @@
 <?php
 
-// Get the data per array for downloads
+/**
+ * EN: Get the data per array for downloads
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $limit
+ * @param $envovar1
+ * @param $table
+ * @return array
+ *
+ */
 function envo_get_downloads($limit, $envovar1, $table)
 {
 
@@ -19,7 +32,18 @@ function envo_get_downloads($limit, $envovar1, $table)
   return $envodata;
 }
 
-// Get local download files
+/**
+ * EN: Get local download files
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $path
+ * @return array
+ *
+ */
 function envo_get_download_files($path)
 {
   // Extension Filter - allowed extension of file
@@ -53,7 +77,27 @@ function envo_get_download_files($path)
   }
 }
 
-// Menu builder function, parentId 0 is the root
+/**
+ * EN: Menu builder function, parentId 0 is the root
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $parent
+ * @param $menu
+ * @param $lang
+ * @param $title1
+ * @param $title2
+ * @param $title3
+ * @param $title4
+ * @param $title5
+ * @param string $class
+ * @param string $id
+ * @return string
+ *
+ */
 function envo_build_menu_download($parent, $menu, $lang, $title1, $title2, $title3, $title4, $title5, $class = "", $id = "")
 {
   $html = "";

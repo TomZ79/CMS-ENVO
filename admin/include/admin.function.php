@@ -1,6 +1,17 @@
 <?php
 
-// Protected url names
+/**
+ * EN: Protected url names
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $envovar
+ * @return bool
+ *
+ */
 function envo_varname_blocked($envovar)
 {
   $blocked = 'user,usergroup,admin,cmsfiles,css,class,img,include,js,lang,pics_gallery,ftp,plugin,profilepicture,template,userfiles,videofiles,search,suche,' . ENVO_FILES_DIRECTORY;
@@ -11,7 +22,17 @@ function envo_varname_blocked($envovar)
   }
 }
 
-// Get the not used Categories out the database
+/**
+ * EN: Get the not used Categories out the database
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @return array
+ *
+ */
 function envo_get_cat_notused()
 {
   global $envodb;
@@ -23,7 +44,19 @@ function envo_get_cat_notused()
   if (!empty($categories)) return $categories;
 }
 
-// Get the categories per array with no limit
+/**
+ * EN: Get the categories per array with no limit
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $envovar
+ * @param $envovar1
+ * @return array
+ *
+ */
 function envo_get_cat_info($envovar, $envovar1)
 {
   global $envodb;
@@ -41,7 +74,18 @@ function envo_get_cat_info($envovar, $envovar1)
   if (isset($envodata)) return $envodata;
 }
 
-// Get the usergroup per array with no limit
+/**
+ * EN: Get the usergroup per array with no limit
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $envovar
+ * @return array
+ *
+ */
 function envo_get_usergroup_all($envovar)
 {
   global $envodb;
@@ -57,8 +101,14 @@ function envo_get_usergroup_all($envovar)
 }
 
 /**
- * Get count of the user in each usergroup
- *  - each user have ID of usergroup (column 'usergroupid')
+ * EN: Get count of the user in each usergroup
+ *      - each user have ID of usergroup (column 'usergroupid')
+ *
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
  *
  * @param    string      | $usertable      - Název tabulky s uloženými uživately
  * @param    string      | $usergroupID    - ID uživatelské skupiny
@@ -77,7 +127,19 @@ function envo_get_count_user_in_group($usertable, $usergroupID)
   return $envodata;
 }
 
-// Get the data per array for page,newsletter with limit
+/**
+ * EN: Get the data per array for page,newsletter with limit
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $envovar
+ * @param $envovar1
+ * @return array
+ *
+ */
 function envo_get_page_info($envovar, $envovar1)
 {
   global $envodb;
@@ -92,7 +154,18 @@ function envo_get_page_info($envovar, $envovar1)
   if (!empty($envodata)) return $envodata;
 }
 
-// Get the data per array for news with limit
+/**
+ * EN: Get the data per array for news with limit
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $envovar
+ * @return array
+ *
+ */
 function envo_get_news_info($envovar)
 {
   global $envodb;
@@ -107,7 +180,21 @@ function envo_get_news_info($envovar)
   return $envodata;
 }
 
-// Get the data per array for event comments with limit
+/**
+ * EN: Get the data per array for event comments with limit
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $limit
+ * @param $id
+ * @param $plugin
+ * @param $order
+ * @return array
+ *
+ */
 function envo_get_tag($limit, $id, $plugin, $order)
 {
 
@@ -135,7 +222,18 @@ function envo_get_tag($limit, $id, $plugin, $order)
   return $envodata;
 }
 
-// Search for style files in the site folder, only choose folders.
+/**
+ * EN: Search for style files in the site folder, only choose folders.
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $styledir
+ * @return array
+ *
+ */
 function envo_get_site_style($styledir)
 {
 
@@ -163,7 +261,20 @@ function envo_get_site_style($styledir)
   }
 }
 
-// Get all user out the database limited with the paginator
+/**
+ * EN: Get all user out the database limited with the paginator
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $envovar
+ * @param $envovar1
+ * @param $envovar2
+ * @return array
+ *
+ */
 function envo_get_user_all($envovar, $envovar1, $envovar2)
 {
 
@@ -180,7 +291,20 @@ function envo_get_user_all($envovar, $envovar1, $envovar2)
   return $user;
 }
 
-// Get all user or pages out the database limited with the paginator
+/**
+ * EN: Get all user or pages out the database limited with the paginator
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $envovar
+ * @param $envovar1
+ * @param $envovar2
+ * @return array
+ *
+ */
 function envo_admin_search($envovar, $envovar1, $envovar2)
 {
 
@@ -204,7 +328,18 @@ function envo_admin_search($envovar, $envovar1, $envovar2)
   return $envodata;
 }
 
-// Check if user exist and it is possible to delete ## (config.php)
+/**
+ * EN: Check if user exist and it is possible to delete ## (config.php)
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $envovar
+ * @return bool
+ *
+ */
 function envo_user_exist_deletable($envovar)
 {
   global $envodb;
@@ -218,7 +353,21 @@ function envo_user_exist_deletable($envovar)
   }
 }
 
-// Check if row exist with id
+/**
+ * EN: Check if row exist with id
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $envovar
+ * @param $envovar1
+ * @param $envovar2
+ * @param $envovar3
+ * @return bool
+ *
+ */
 function envo_field_not_exist_id($envovar, $envovar1, $envovar2, $envovar3)
 {
   global $envodb;
@@ -228,15 +377,29 @@ function envo_field_not_exist_id($envovar, $envovar1, $envovar2, $envovar3)
   }
 }
 
-// Get started with the tag system
+/* TAG SYSTEM
+============================================================*/
 
-// Get tags per id
+/**
+ * EN: Get tags per id
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $envovar
+ * @param $envovar1
+ * @return bool|string
+ *
+ */
 function envo_get_tags($envovar, $envovar1)
 {
 
   global $envodb;
   $tags = array();
   $result = $envodb->query('SELECT id, tag FROM ' . DB_PREFIX . 'tags' . ' WHERE itemid = ' . smartsql($envovar) . ' AND pluginid = ' . $envovar1 . ' ORDER BY `id` ASC');
+
   while ($row = $result->fetch_assoc()) {
     $tags[] = '<span class="label label-default fancy-checkbox" style="line-height:2.2;margin:0 10px 10px 0px;"><label class="checkbox-inline"><input type="checkbox" name="envo_tagdelete[]" value="' . $row['id'] . '" /><i class="fa fa-square-o fa-sm unchecked"></i><i class="fa fa-check-square-o fa-sm checked"></i> ' . $row['tag'] . '</label></span>';
   }
@@ -250,7 +413,17 @@ function envo_get_tags($envovar, $envovar1)
   }
 }
 
-// Tag cloud data
+/**
+ * EN: Tag cloud data
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @return array
+ *
+ */
 function envo_tag_data_admin()
 {
 
@@ -267,7 +440,17 @@ function envo_tag_data_admin()
   }
 }
 
-// Tag cloud name
+/**
+ * EN: Tag cloud name
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @return array
+ *
+ */
 function envo_tag_name_admin()
 {
 
@@ -282,7 +465,17 @@ function envo_tag_name_admin()
   }
 }
 
-// Create tag cloud
+/**
+ * EN: Create tag cloud
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @return string
+ *
+ */
 function envo_admin_tag_cloud()
 {
 
@@ -316,7 +509,19 @@ function envo_admin_tag_cloud()
   return $cloud_html;
 }
 
-// Get contact options
+/**
+ * EN: Get contact options
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $envovar
+ * @param $envovar1
+ * @return array
+ *
+ */
 function envo_get_contact_options($envovar, $envovar1)
 {
 
@@ -332,7 +537,19 @@ function envo_get_contact_options($envovar, $envovar1)
   return $envodata;
 }
 
-// Get contact options
+/**
+ * EN: Get contact options
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $envovar
+ * @param $envovar1
+ * @return mixed
+ *
+ */
 function envo_get_new_stuff($envovar, $envovar1)
 {
   if ($envovar1 == 1) {
@@ -347,12 +564,35 @@ function envo_get_new_stuff($envovar, $envovar1)
   return $row['totalAll'];
 }
 
-// Load the version from CMS
+/**
+ * EN: Load the version from CMS
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $envovar
+ * @return SimpleXMLElement
+ *
+ */
 function envo_load_xml_from_url($envovar)
 {
   return simplexml_load_string(envo_load_file_from_url($envovar));
 }
 
+/**
+ * EN:
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $envovar
+ * @return mixed
+ *
+ */
 function envo_load_file_from_url($envovar)
 {
   $curl = curl_init();
@@ -365,7 +605,19 @@ function envo_load_file_from_url($envovar)
   return $str;
 }
 
-// Parse the xml into an array
+/**
+ * EN: Parse the xml into an array
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $arrObjData
+ * @param array $arrSkipIndices
+ * @return array
+ *
+ */
 function envo_objectsIntoArray($arrObjData, $arrSkipIndices = array())
 {
   $arrData = array();
@@ -390,7 +642,27 @@ function envo_objectsIntoArray($arrObjData, $arrSkipIndices = array())
   return $arrData;
 }
 
-// Menu builder function, parentId 0 is the root
+/**
+ * EN: Menu builder function, parentId 0 is the root
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $parent
+ * @param $menu
+ * @param $lang
+ * @param $title1
+ * @param $title2
+ * @param $title3
+ * @param $title4
+ * @param $title5
+ * @param string $class
+ * @param string $id
+ * @return string
+ *
+ */
 function envo_build_menu_admin($parent, $menu, $lang, $title1, $title2, $title3, $title4, $title5, $class = "", $id = "")
 {
   $html = "";
@@ -552,7 +824,18 @@ function url_slug($str, $options = array())
   return $options['lowercase'] ? mb_strtolower($str, 'UTF-8') : $str;
 }
 
-// Menu Clipping - get first letter from two words - lowercase
+/**
+ * EN: Menu Clipping - get first letter from two words - lowercase
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $str
+ * @return string
+ *
+ */
 function text_clipping_lower($str)
 {
   $str = url_slug($str, array('delimiter' => ' ', 'lowercase' => true, 'transliterate' => true));
@@ -569,8 +852,18 @@ function text_clipping_lower($str)
   return $result;
 }
 
-
-// Menu Clipping - get first letter from two words - uppercase
+/**
+ * EN: Menu Clipping - get first letter from two words - uppercase
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *          
+ * @param $str
+ * @return string
+ *
+ */
 function text_clipping_upper($str)
 {
   $str = url_slug($str, array('delimiter' => ' ', 'lowercase' => false, 'transliterate' => true));

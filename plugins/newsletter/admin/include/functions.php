@@ -1,6 +1,16 @@
 <?php
-// EN:
-// CZ:
+/**
+ * EN:
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $styledir
+ * @return array
+ *
+ */
 function envo_get_themes($styledir)
 {
 

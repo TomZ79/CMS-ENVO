@@ -1,6 +1,17 @@
 <?php
-// EN: Getting the data about the Houses without limit
-// CZ: Získání dat o bytových domech bez limitu
+
+/**
+ * EN: Getting the data about the Houses without limit
+ * CZ: Získání dat o bytových domech bez limitu
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $table
+ * @return array
+ *
+ */
 function envo_get_house_info($table)
 {
   global $envodb;
@@ -15,8 +26,19 @@ function envo_get_house_info($table)
   if (isset($envodata)) return $envodata;
 }
 
-// EN: Getting the data about the contacts of Houses without limit
-// CZ: Získání dat o hlavních kontaktech bytových domů bez limitu
+/**
+ * EN: Getting the data about the contacts of Houses without limit
+ * CZ: Získání dat o hlavních kontaktech bytových domů bez limitu
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $id
+ * @param $table
+ * @return array
+ *
+ */
 function envo_get_house_contact($id, $table)
 {
 
@@ -32,8 +54,18 @@ function envo_get_house_contact($id, $table)
   if (isset($envodata)) return $envodata;
 }
 
-// EN: Getting the data about the entrance of Houses without limit
-// CZ: Získání dat o vchodech bytových domů bez limitu
+/**
+ * EN: Getting the data about the entrance of Houses without limit
+ * CZ: Získání dat o vchodech bytových domů bez limitu
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $id
+ * @param $table
+ * @return array
+ *
+ */
 function envo_get_house_entrance($id, $table)
 {
 
@@ -49,8 +81,18 @@ function envo_get_house_entrance($id, $table)
   if (isset($envodata)) return $envodata;
 }
 
-// EN: Getting the data about the apartment of Houses without limit
-// CZ: Získání dat o bytech bytových domů bez limitu
+/**
+ * EN: Getting the data about the apartment of Houses without limit
+ * CZ: Získání dat o bytech bytových domů bez limitu
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $id
+ * @param $table
+ * @return array
+ *
+ */
 function envo_get_house_apartment($id, $table)
 {
 
@@ -66,8 +108,19 @@ function envo_get_house_apartment($id, $table)
   if (isset($envodata)) return $envodata;
 }
 
-// EN: Getting the data about the services of Houses without limit
-// CZ: Získání dat o servisech bytových domů bez limitu
+/**
+ * EN: Getting the data about the services of Houses without limit
+ * CZ: Získání dat o servisech bytových domů bez limitu
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $id
+ * @param $table
+ * @return array
+ *
+ */
 function envo_get_house_services($id, $table)
 {
 
@@ -83,8 +136,19 @@ function envo_get_house_services($id, $table)
   if (isset($envodata)) return $envodata;
 }
 
-// EN: Getting the data about the documents of Houses without limit
-// CZ: Získání dat o dokumentech bytových domů bez limitu
+/**
+ * EN: Getting the data about the documents of Houses without limit
+ * CZ: Získání dat o dokumentech bytových domů bez limitu
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $id
+ * @param $table
+ * @return array
+ *
+ */
 function envo_get_house_documents($id, $table)
 {
 
@@ -100,8 +164,19 @@ function envo_get_house_documents($id, $table)
   if (isset($envodata)) return $envodata;
 }
 
-// EN: Getting the data about the documents of Houses without limit
-// CZ: Získání dat o dokumentech bytových domů bez limitu
+/**
+ * EN: Getting the data about the documents of Houses without limit
+ * CZ: Získání dat o dokumentech bytových domů bez limitu
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $id
+ * @param $table
+ * @return array
+ *
+ */
 function envo_get_house_image($id, $table)
 {
 
@@ -117,8 +192,19 @@ function envo_get_house_image($id, $table)
   if (isset($envodata)) return $envodata;
 }
 
-// EN: Check if house exist
-// CZ: Kontrola jestli dům existuje
+/**
+ * EN: Check if house exist
+ * CZ: Kontrola jestli dům existuje
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $ic
+ * @param $table
+ * @return bool
+ *
+ */
 function envo_house_not_exist($ic, $table)
 {
   global $envodb;
@@ -130,8 +216,18 @@ function envo_house_not_exist($ic, $table)
   }
 }
 
-// EN: Getting the data about the Notification without limit
-// CZ: Získání dat o Notifikacích bez limitu
+/**
+ * EN: Getting the data about the Notification without limit
+ * CZ: Získání dat o Notifikacích bez limitu
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $table
+ * @return array
+ *
+ */
 function envo_get_notification_info($table)
 {
   global $envodb;

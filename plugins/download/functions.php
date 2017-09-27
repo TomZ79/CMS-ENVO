@@ -1,6 +1,22 @@
 <?php
 
-// Get blog(s) out the database
+/**
+ * EN: Get blog(s) out the database
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @param $limit
+ * @param $order
+ * @param $where
+ * @param $table_row
+ * @param $ext_seo
+ * @param $timeago
+ * @return array
+ *
+ */
 function envo_get_download($limit, $order, $where, $table_row, $ext_seo, $timeago)
 {
   global $envodb;
@@ -39,7 +55,17 @@ function envo_get_download($limit, $order, $where, $table_row, $ext_seo, $timeag
   return $envodata;
 }
 
-// Get total from a table limited to permission
+/**
+ * EN: Get total from a table limited to permission
+ * CZ:
+ *
+ * @author  BluesatKV
+ * @version 1.0.0
+ * @date    09/2017
+ *
+ * @return int
+ *
+ */
 function envo_get_total_permission_dl()
 {
   global $envodb;
