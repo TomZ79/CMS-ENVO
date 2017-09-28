@@ -1,16 +1,20 @@
 <?php
 
-// Error reporting:
+// EN: Error reporting
+// CZ: Chybové hlášení
 error_reporting(E_ALL ^ E_NOTICE);
 
-// The DB connections data
+// EN: The DB connections data
+// CZ: Data pro připojení do DB
 require_once 'include/db.php';
 
-// Do not go any further if install folder still exists
-if (is_dir('install')) die('Please delete or rename install folder.');
+// EN: Error reporting, if install folder exists
+// CZ: Zobrazení chybového hlášení, pokud existuje instalační složka
+if (is_dir('install')) die($tl['general_error']['generror100']);
 
-// Files directory does not exist? abort.
-if (!ENVO_FILES_DIRECTORY) die('Please define a files directory in the db.php.');
+// EN: Error reporting, if files directory does not exists
+// CZ: Zobrazení chybového hlášení, pokud neexistuje složka souborů
+if (!ENVO_FILES_DIRECTORY) die($tl['general_error']['generror101']);
 
 // EN: Start a PHP Session
 // CZ: Start PHP Session
@@ -24,7 +28,8 @@ define("DS", DIRECTORY_SEPARATOR);
 define("PS", PATH_SEPARATOR);
 define("US", URL_SEPARATOR);
 
-// Absolute Path
+// EN: Setting of absolute path
+// CZ: Nastavení absolutní cesty
 define('APP_PATH', dirname(__file__) . DIRECTORY_SEPARATOR);
 if (isset($_SERVER['SCRIPT_NAME'])) {
   # on Windows _APP_MAIN_DIR becomes \ and abs url would look something like HTTP_HOST\/restOfUrl, so \ should be trimed too
@@ -34,15 +39,20 @@ if (isset($_SERVER['SCRIPT_NAME'])) {
   die('[config.php] Cannot determine APP_MAIN_DIR, please set manual and comment this line');
 }
 
-// Get the jak DB class
+// -----------------------------------------------------------------------
+// DEFINE CLASS, FUNCTION AND MYSQLI CONNECTION
+// -----------------------------------------------------------------------
+// EN: Get the DB class
+// CZ:
 require_once 'class/class.db.php';
 
-// MySQLi connection
+// EN: MySQLi connection
+// CZ:
 $envodb = new ENVO_mysql(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
 $envodb->set_charset("utf8");
 
-// EN: Important all Class - files
-// CZ: Import všech tříd
+// EN: Important all Class and functions
+// CZ: Import všech tříd a funkcí
 include_once 'include/functions.php';
 include_once 'class/class.envobase.php';
 include_once 'class/PHPMailerAutoload.php';

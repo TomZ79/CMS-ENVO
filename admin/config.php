@@ -1,11 +1,11 @@
 <?php
 
-// Do not go any further if install folder still exists
-if (is_dir('../install')) die('Please delete or rename install folder.');
+// EN: Error reporting, if install folder exists
+// CZ: Zobrazení chybového hlášení, pokud existuje instalační složka
 if (is_dir('../install')) die($tl['general_error']['generror41']);
 
 // EN: The DB connections data
-// CZ: Spojení do DB
+// CZ: Data pro připojení do DB
 require_once $_SERVER['DOCUMENT_ROOT'] . '/include/db.php';
 
 // Get the real stuff
