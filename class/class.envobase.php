@@ -11,8 +11,18 @@ class ENVO_base
   private $envovar;
   private $envovar1;
 
-  // This constructor can be used for all classes:
 
+  /**
+   * EN: ENVO_base constructor. This constructor can be used for all classes
+   * CZ: ENVO_base constructor.
+   *
+   * @author  BluesatKV
+   * @version 1.0.0
+   * @date    09/2017
+   *
+   * @param array $options
+   *
+   */
   public function __construct(array $options)
   {
 
@@ -23,6 +33,19 @@ class ENVO_base
     }
   }
 
+  /**
+   * EN:
+   * CZ:
+   *
+   * @author  BluesatKV
+   * @version 1.0.0
+   * @date    09/2017
+   *
+   * @param $str
+   * @param array $options
+   * @return string
+   *
+   */
   public static function envoCleanurl($str, $options = array())
   {
 
@@ -130,6 +153,18 @@ class ENVO_base
 
   }
 
+  /**
+   * EN:
+   * CZ:
+   *
+   * @author  BluesatKV
+   * @version 1.0.0
+   * @date    09/2017
+   *
+   * @param $envovar
+   * @return mixed|string
+   *
+   */
   public static function envoUnCleanurl($envovar)
   {
 
@@ -143,6 +178,21 @@ class ENVO_base
 
   }
 
+  /**
+   * EN:
+   * CZ:
+   *
+   * @author  BluesatKV
+   * @version 1.0.0
+   * @date    09/2017
+   *
+   * @param $mysqlstamp
+   * @param $date
+   * @param $time
+   * @param $lang
+   * @return false|string
+   *
+   */
   public static function envoTimesince($mysqlstamp, $date, $time, $lang)
   {
 
@@ -183,11 +233,36 @@ class ENVO_base
 
   }
 
+  /**
+   * EN:
+   * CZ:
+   *
+   * @author  BluesatKV
+   * @version 1.0.0
+   * @date    09/2017
+   *
+   * @param $count
+   * @param $text
+   * @param $plural
+   * @return string
+   *
+   */
   public static function pluralize($count, $text, $plural)
   {
     return $count . (($count == 1) ? (" $text") : (" ${plural}"));
   }
 
+  /**
+   * EN:
+   * CZ:
+   *
+   * @author  BluesatKV
+   * @version 1.0.0
+   * @date    09/2017
+   *
+   * @return array
+   *
+   */
   public static function envoGetallcategories()
   {
 
@@ -219,6 +294,22 @@ class ENVO_base
 
   }
 
+  /**
+   * EN:
+   * CZ:
+   *
+   * @author  BluesatKV
+   * @version 1.0.0
+   * @date    09/2017
+   *
+   * @param $where
+   * @param $where1
+   * @param $table
+   * @param $usergroup
+   * @param $dseo
+   * @return array
+   *
+   */
   public static function envoGetcatmix($where, $where1, $table, $usergroup, $dseo)
   {
 
@@ -251,6 +342,20 @@ class ENVO_base
     return $envodata;
   }
 
+  /**
+   * EN:
+   * CZ:
+   *
+   * @author  BluesatKV
+   * @version 1.0.0
+   * @date    09/2017
+   *
+   * @param $envovar
+   * @param $usraccesspl
+   * @param $catarray
+   * @return array
+   *
+   */
   public static function envoCatdisplay($envovar, $usraccesspl, $catarray)
   {
 
@@ -264,6 +369,19 @@ class ENVO_base
 
   }
 
+  /**
+   * EN:
+   * CZ:
+   *
+   * @author  BluesatKV
+   * @version 1.0.0
+   * @date    09/2017
+   *
+   * @param $id
+   * @param $catarray
+   * @return mixed
+   *
+   */
   public static function envoCatpluginvar($id, $catarray)
   {
 
@@ -279,6 +397,18 @@ class ENVO_base
 
   }
 
+  /**
+   * EN:
+   * CZ:
+   *
+   * @author  BluesatKV
+   * @version 1.0.0
+   * @date    09/2017
+   *
+   * @param $envovar
+   * @param $envovar1
+   *
+   */
   public static function envoUpdatehits($envovar, $envovar1)
   {
 
@@ -287,6 +417,17 @@ class ENVO_base
 
   }
 
+  /**
+   * EN:
+   * CZ:
+   *
+   * @author  BluesatKV
+   * @version 1.0.0
+   * @date    09/2017
+   *
+   * @return bool
+   *
+   */
   public static function envoSessionTimeLimit()
   {
 
@@ -320,6 +461,20 @@ class ENVO_base
     return $loadnew;
   }
 
+  /**
+   * EN:
+   * CZ:
+   *
+   * @author  BluesatKV
+   * @version 1.0.0
+   * @date    09/2017
+   *
+   * @param $pass
+   * @param $table
+   * @param $id
+   * @return bool
+   *
+   */
   public static function envoCheckProtectedArea($pass, $table, $id)
   {
 
