@@ -10,19 +10,13 @@ class ENVO_rewrite
 
   // This constructor can be used for all classes:
 
-  public
-  function __construct(
-    $url
-  )
+  public function __construct($url)
   {
 
     $this->url = $url;
   }
 
-  public
-  static function envoParseurl(
-    $var, $var1 = '', $var2 = '', $var3 = '', $var4 = '', $var5 = ''
-  )
+  public static function envoParseurl($var, $var1 = '', $var2 = '', $var3 = '', $var4 = '', $var5 = '')
   {
 
     // Set v to zero
@@ -89,10 +83,7 @@ class ENVO_rewrite
 
   }
 
-  public
-  static function envoParseurlpaginate(
-    $var
-  )
+  public static function envoParseurlpaginate($var)
   {
 
     $varname = '';
@@ -115,10 +106,7 @@ class ENVO_rewrite
 
   }
 
-  public
-  static function envoVideourlparser(
-    $url, $where
-  )
+  public static function envoVideourlparser($url, $where)
   {
 
     // Parse URL
@@ -187,7 +175,7 @@ class ENVO_rewrite
 
   }
 
-  function envoGetseg($var)
+  public function envoGetseg($var)
   {
 
     if (ENVO_USE_APACHE) {
@@ -226,8 +214,7 @@ class ENVO_rewrite
     if (!empty($url_seg)) return $url_seg;
   }
 
-  public
-  function envoGetsegAdmin($var)
+  public function envoGetsegAdmin($var)
   {
 
     // get the url and parse it
@@ -248,8 +235,7 @@ class ENVO_rewrite
     }
   }
 
-  public
-  function envoRealrequest()
+  public function envoRealrequest()
   {
     $r = str_replace(_APP_MAIN_DIR, '', $this->url);
 
