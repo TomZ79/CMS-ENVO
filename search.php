@@ -90,12 +90,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envoSH']) || !empty($p
 
 // Always tell the searchword
 $ENVO_SEARCH_WORD_RESULT = $SearchInput;
-$ENVO_SEARCH_CLOUD       = ENVO_tags::envoGettagcloud('search', 'searchlog', $jkv["taglimit"], $jkv["tagmaxfont"], $jkv["tagminfont"], $tl["title_element"]["tel"]);
+$ENVO_SEARCH_CLOUD       = ENVO_tags::envoGettagcloud('search', 'searchlog', $setting["taglimit"], $setting["tagmaxfont"], $setting["tagminfont"], $tl["title_element"]["tel"]);
 
 // EN: Set data for the frontend page - Title, Description, Keywords and other ...
 // CZ: Nastavení dat pro frontend stránku - Titulek, Popis, Klíčová slova a další ...
-$PAGE_TITLE   = $jkv["searchtitle"];
-$PAGE_CONTENT = $jkv["searchdesc"];
+$PAGE_TITLE   = $setting["searchtitle"];
+$PAGE_CONTENT = $setting["searchdesc"];
 $PAGE_SHOWTITLE = 1;
 
 // Get the sort orders for the grid
@@ -108,8 +108,8 @@ while ($grow = $grid->fetch_assoc()) {
 }
 
 // Now get the new meta keywords and description maker
-$PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl($tl["placeholder"]["plc"]) . ($ENVO_SEARCH_CLOUD ? "," . strip_tags($ENVO_SEARCH_CLOUD) : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
-$PAGE_DESCRIPTION = $jkv["metadesc"];
+$PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl($tl["placeholder"]["plc"]) . ($ENVO_SEARCH_CLOUD ? "," . strip_tags($ENVO_SEARCH_CLOUD) : "") . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
+$PAGE_DESCRIPTION = $setting["metadesc"];
 
 // EN: Load the php template
 // CZ: Načtení php template (šablony)

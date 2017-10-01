@@ -22,8 +22,8 @@ if ($hooksitemap) {
 
 // EN: Set data for the frontend page - Title, Description, Keywords and other ...
 // CZ: Nastavení dat pro frontend stránku - Titulek, Popis, Klíčová slova a další ...
-$PAGE_TITLE   = $jkv["sitemaptitle"];
-$PAGE_CONTENT = $jkv["sitemapdesc"];
+$PAGE_TITLE   = $setting["sitemaptitle"];
+$PAGE_CONTENT = $setting["sitemapdesc"];
 $PAGE_SHOWTITLE = 1;
 
 // Get the sort orders for the grid
@@ -36,8 +36,8 @@ while ($grow = $grid->fetch_assoc()) {
 }
 
 // Now get the new meta keywords and description maker
-$PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl(ENVO_PLUGIN_NAME_SITEMAP) . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
-$PAGE_DESCRIPTION = $jkv["metadesc"];
+$PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl(ENVO_PLUGIN_NAME_SITEMAP) . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
+$PAGE_DESCRIPTION = $setting["metadesc"];
 
 // EN: Load the php template
 // CZ: Načtení php template (šablony)

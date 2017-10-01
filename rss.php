@@ -16,12 +16,12 @@ $specialurl = array();
 // Now do the dirty work!
 if (empty($page1)) {
 
-  $sql = 'SELECT t1.*, t2.varname FROM ' . DB_PREFIX . $envotable . ' AS t1 LEFT JOIN ' . DB_PREFIX . $envotable1 . ' AS t2 ON (t1.catid = t2.id) WHERE t1.active = 1 AND t1.catid != 0 AND t2.pluginid = 0 ORDER BY t1.time DESC LIMIT ' . $jkv["rssitem"];
+  $sql = 'SELECT t1.*, t2.varname FROM ' . DB_PREFIX . $envotable . ' AS t1 LEFT JOIN ' . DB_PREFIX . $envotable1 . ' AS t2 ON (t1.catid = t2.id) WHERE t1.active = 1 AND t1.catid != 0 AND t2.pluginid = 0 ORDER BY t1.time DESC LIMIT ' . $setting["rssitem"];
 
   $what    = 0;
   $seowhat = 0;
 
-  $ENVO_RSS_DESCRIPTION = $jkv["metadesc"];
+  $ENVO_RSS_DESCRIPTION = $setting["metadesc"];
 }
 
 // EN: Get all the php Hook by name of Hook
@@ -52,9 +52,9 @@ if (!empty($sql)) {
     }
 
     if ($row['content']) {
-      $getStriped = envo_cut_text($PAGE_CONTENT, $jkv["shortmsg"], '...');
+      $getStriped = envo_cut_text($PAGE_CONTENT, $setting["shortmsg"], '...');
     } else {
-      $getStriped = envo_cut_text($PAGE_TITLE, $jkv["shortmsg"], '...');
+      $getStriped = envo_cut_text($PAGE_TITLE, $setting["shortmsg"], '...');
     }
 
     $getStripedT = str_replace('&nbsp;', "", $getStriped);
@@ -89,7 +89,7 @@ if (!empty($sql)) {
     $ENVO_GET_RSS_ITEM[] = array('link' => $parseurl, 'title' => $Name, 'description' => trim($getStripedT), 'created' => date("r", strtotime($row['time'])));
   }
 
-  $ENVO_RSS_TITLE = $jkv["title"] . ' - RSS';
+  $ENVO_RSS_TITLE = $setting["title"] . ' - RSS';
   $ENVO_RSS_DATE  = date(DATE_RFC2822);
 
   // EN: Load the php template

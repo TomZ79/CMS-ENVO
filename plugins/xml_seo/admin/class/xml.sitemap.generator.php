@@ -301,9 +301,9 @@ class xml_sitemap_generator
   private function _buildEntry(xml_sitemap_entry $entry)
   {
 
-    global $jkv;
+    global $setting;
 
-    if ($jkv["sitehttps"]) {
+    if ($setting["sitehttps"]) {
       $loc = sprintf("https://%s%s",
         $this->_conf->get('domain'), $entry->get('loc'));
     } else {

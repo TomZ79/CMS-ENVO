@@ -25,7 +25,7 @@ $swaplang = ENVO_PLUGIN_ID_TAGS;
 
 if (empty($page1)) {
   $PAGE_TITLE      = ENVO_PLUGIN_NAME_TAGS;
-  $PAGE_CONTENT    = $jkv["tagdesc"];
+  $PAGE_CONTENT    = $setting["tagdesc"];
   $ENVO_NO_TAG_DATA = $tl['general_error']['generror11'];
 } else {
 
@@ -54,7 +54,7 @@ if (empty($page1)) {
         $row2    = $result2->fetch_assoc();
 
         if ($envodb->affected_rows > 0) {
-          $getStriped = envo_cut_text($row2['content'], $jkv["shortmsg"], '...');
+          $getStriped = envo_cut_text($row2['content'], $setting["shortmsg"], '...');
 
           $parseurl = ENVO_rewrite::envoParseurl($row2['varname'], '', '', '', '');
 
@@ -72,8 +72,8 @@ if (empty($page1)) {
 
     }
     // Post the page title
-    $PAGE_TITLE   = strtoupper($page1) . ' - ' . $jkv["tagtitle"];
-    $PAGE_CONTENT = $jkv["tagdesc"];
+    $PAGE_TITLE   = strtoupper($page1) . ' - ' . $setting["tagtitle"];
+    $PAGE_CONTENT = $setting["tagdesc"];
   } else {
     // No tag data at all
     $ENVO_NO_TAG_DATA = $tl['general_error']['generror12'];
@@ -90,8 +90,8 @@ while ($grow = $grid->fetch_assoc()) {
 }
 
 // Now get the new meta keywords and description maker
-$PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl(ENVO_PLUGIN_NAME_TAGS) . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
-$PAGE_DESCRIPTION = $jkv["metadesc"];
+$PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl(ENVO_PLUGIN_NAME_TAGS) . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
+$PAGE_DESCRIPTION = $setting["metadesc"];
 
 // EN: Load the php template
 // CZ: Načtení php template (šablony)

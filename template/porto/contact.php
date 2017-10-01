@@ -34,7 +34,7 @@
 	<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/contact.js"></script>
 	<script type="text/javascript">
 
-		<?php if ($jkv["hvm"]) { ?>
+		<?php if ($setting["hvm"]) { ?>
 		jQuery(document).ready(function () {
 			jQuery(".cFrom").append('<input type="hidden" name="<?php echo $random_name;?>" value="<?php echo $random_value;?>" />');
 		});

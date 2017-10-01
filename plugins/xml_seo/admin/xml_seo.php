@@ -6,7 +6,7 @@ if (!defined('ENVO_ADMIN_PREVENT_ACCESS')) die($tl['general_error']['generror40'
 
 // EN: Check if the user has access to this file
 // CZ: Kontrola, zdali má uživatel přístup k tomuto souboru
-if (!ENVO_USERID || !$envouser->envoModuleAccess(ENVO_USERID, $jkv["accessmanage"])) envo_redirect(BASE_URL);
+if (!ENVO_USERID || !$envouser->envoModuleAccess(ENVO_USERID, $setting["accessmanage"])) envo_redirect(BASE_URL);
 
 // -------- DATA FOR ALL ADMIN PAGES --------
 // -------- DATA PRO VŠECHNY ADMIN STRÁNKY --------
@@ -126,7 +126,7 @@ switch ($page1) {
         $result1 = $envodb->query('SELECT id, title FROM ' . DB_PREFIX . 'download WHERE active = 1 && catid != 0');
 
         while ($row1 = $result1->fetch_assoc()) {
-          if ($jkv["downloadurl"]) {
+          if ($setting["downloadurl"]) {
             $seo = ENVO_base::envoCleanurl($row1['title']);
           }
           $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 'f', $row1['id'], $seo, '', '');
@@ -135,7 +135,7 @@ switch ($page1) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', $FREQUENCYDOWNLOAD);
         }
 
-        $ENVO_DOWNLOAD_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'downloadcategories', 0, $jkv["downloadurl"]);
+        $ENVO_DOWNLOAD_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'downloadcategories', 0, $setting["downloadurl"]);
 
         if (isset($ENVO_DOWNLOAD_CAT) && is_array($ENVO_DOWNLOAD_CAT)) foreach ($ENVO_DOWNLOAD_CAT as $c) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($c["parseurl"])), '1.0', 'monthly');
@@ -155,7 +155,7 @@ switch ($page1) {
         $result1 = $envodb->query('SELECT id, title FROM ' . DB_PREFIX . 'shop WHERE active = 1 && catid != 0');
 
         while ($row1 = $result1->fetch_assoc()) {
-          if ($jkv["shopurl"]) {
+          if ($setting["shopurl"]) {
             $seo = ENVO_base::envoCleanurl($row1['title']);
           }
           $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 'i', $row1['id'], $seo, '', '');
@@ -164,7 +164,7 @@ switch ($page1) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
         }
 
-        $ENVO_DOWNLOAD_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'shopcategories', 0, $jkv["shopurl"]);
+        $ENVO_DOWNLOAD_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'shopcategories', 0, $setting["shopurl"]);
 
         if (isset($ENVO_DOWNLOAD_CAT) && is_array($ENVO_DOWNLOAD_CAT)) foreach ($ENVO_DOWNLOAD_CAT as $c) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($c["parseurl"])), '1.0', 'monthly');
@@ -184,7 +184,7 @@ switch ($page1) {
         $result1 = $envodb->query('SELECT id, title FROM ' . DB_PREFIX . 'tickets WHERE active = 1 && catid != 0');
 
         while ($row1 = $result1->fetch_assoc()) {
-          if ($jkv["ticketurl"]) {
+          if ($setting["ticketurl"]) {
             $seo = ENVO_base::envoCleanurl($row1['title']);
           }
           $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 't', $row1['id'], $seo, '', '');
@@ -193,7 +193,7 @@ switch ($page1) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
         }
 
-        $ENVO_TICKET_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'ticketcategories', 0, $jkv["ticketurl"]);
+        $ENVO_TICKET_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'ticketcategories', 0, $setting["ticketurl"]);
 
         if (isset($ENVO_TICKET_CAT) && is_array($ENVO_TICKET_CAT)) foreach ($ENVO_TICKET_CAT as $c) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($c["parseurl"])), '1.0', 'monthly');
@@ -213,7 +213,7 @@ switch ($page1) {
         $result1 = $envodb->query('SELECT id, title FROM ' . DB_PREFIX . 'faq WHERE active = 1 && catid != 0');
 
         while ($row1 = $result1->fetch_assoc()) {
-          if ($jkv["faqurl"]) {
+          if ($setting["faqurl"]) {
             $seo = ENVO_base::envoCleanurl($row1['title']);
           }
           $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 'a', $row1['id'], $seo, '', '');
@@ -221,7 +221,7 @@ switch ($page1) {
           // CZ: Vložení získaných dat do pole
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
         }
-        $ENVO_FAQ_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'faqcategories', 0, $jkv["faqurl"]);
+        $ENVO_FAQ_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'faqcategories', 0, $setting["faqurl"]);
 
         if (isset($ENVO_FAQ_CAT) && is_array($ENVO_FAQ_CAT)) foreach ($ENVO_FAQ_CAT as $c) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($c["parseurl"])), '1.0', 'monthly');
@@ -241,7 +241,7 @@ switch ($page1) {
         $result1 = $envodb->query('SELECT id, title FROM ' . DB_PREFIX . 'blog WHERE active = 1 && catid != 0');
 
         while ($row1 = $result1->fetch_assoc()) {
-          if ($jkv["blogurl"]) {
+          if ($setting["blogurl"]) {
             $seo = ENVO_base::envoCleanurl($row1['title']);
           }
           $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 'a', $row1['id'], $seo, '', '');
@@ -251,7 +251,7 @@ switch ($page1) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', $FREQUENCYBLOG);
         }
 
-        $ENVO_BLOG_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'blogcategories', 0, $jkv["blogurl"]);
+        $ENVO_BLOG_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'blogcategories', 0, $setting["blogurl"]);
         if (isset($ENVO_BLOG_CAT) && is_array($ENVO_BLOG_CAT)) foreach ($ENVO_BLOG_CAT as $c) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($c["parseurl"])), '1.0', 'monthly');
         }
@@ -270,7 +270,7 @@ switch ($page1) {
         $result1 = $envodb->query('SELECT id, title FROM ' . DB_PREFIX . 'b2b_item WHERE active = 1 && catid != 0');
 
         while ($row1 = $result1->fetch_assoc()) {
-          if ($jkv["b2b_url"]) {
+          if ($setting["b2b_url"]) {
             $seo = ENVO_base::envoCleanurl($row1['title']);
           }
           $parseurl = ENVO_rewrite::envoParseurl($row['varname'], 'i', $row1['id'], $seo, '', '');
@@ -279,14 +279,14 @@ switch ($page1) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($parseurl)), '1.0', 'weekly');
         }
 
-        $ENVO_B2B_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'b2b_categories', 0, $jkv["b2b_url"]);
+        $ENVO_B2B_CAT = ENVO_base::envoGetcatmix($row['varname'], '', DB_PREFIX . 'b2b_categories', 0, $setting["b2b_url"]);
 
         if (isset($ENVO_B2B_CAT) && is_array($ENVO_B2B_CAT)) foreach ($ENVO_B2B_CAT as $c) {
           $entries[] = new xml_sitemap_entry(str_replace(BASE_URL, '', html_entity_decode($c["parseurl"])), '1.0', 'monthly');
         }
       }
 
-      if ($jkv["sitehttps"]) {
+      if ($setting["sitehttps"]) {
         $newURL = str_replace("https://", "", (ENVO_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG));
       } else {
         $newURL = str_replace("http://", "", (ENVO_USE_APACHE ? substr(BASE_URL_ORIG, 0, -1) : BASE_URL_ORIG));

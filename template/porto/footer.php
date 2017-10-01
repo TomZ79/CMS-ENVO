@@ -14,7 +14,7 @@ switch ($section) {
     echo '</div>';
 
     // Sidebar if right
-    if (!empty($ENVO_HOOK_SIDE_GRID) && $jkv["sidebar_location_tpl"] == "right") {
+    if (!empty($ENVO_HOOK_SIDE_GRID) && $setting["sidebar_location_tpl"] == "right") {
       include_once APP_PATH . 'template/' . ENVO_TEMPLATE . '/sidebar.php';
     }
 
@@ -45,31 +45,31 @@ switch ($section) {
       <div class="row">
         <div class="col-md-10">
           <div class="row">
-            <?php echo $jkv["footerblocktext1_porto_tpl"]; ?>
+            <?php echo $setting["footerblocktext1_porto_tpl"]; ?>
           </div>
         </div>
         <div class="col-md-2">
-          <h4><?php echo $jkv["socialfooterText_porto_tpl"]; ?></h4>
+          <h4><?php echo $setting["socialfooterText_porto_tpl"]; ?></h4>
           <ul class="social-icons">
 
-            <?php if ($jkv["facebookfooterShow_porto_tpl"] == 1) { ?>
+            <?php if ($setting["facebookfooterShow_porto_tpl"] == 1) { ?>
               <li class="social-icons-facebook">
-                <a href="<?php echo $jkv["facebookfooterLinks_porto_tpl"]; ?>" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
+                <a href="<?php echo $setting["facebookfooterLinks_porto_tpl"]; ?>" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
               </li>
             <?php }
-            if ($jkv["twitterfooterShow_porto_tpl"] == 1) { ?>
+            if ($setting["twitterfooterShow_porto_tpl"] == 1) { ?>
               <li class="social-icons-twitter">
-                <a href="<?php echo $jkv["twitterfooterLinks_porto_tpl"]; ?>" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>
+                <a href="<?php echo $setting["twitterfooterLinks_porto_tpl"]; ?>" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>
               </li>
             <?php }
-            if ($jkv["googlefooterShow_porto_tpl"] == 1) { ?>
+            if ($setting["googlefooterShow_porto_tpl"] == 1) { ?>
               <li class="social-icons-googleplus">
-                <a href="<?php echo $jkv["googlefooterLinks_porto_tpl"]; ?>" target="_blank" title="Google Plus"><i class="fa fa-google"></i></a>
+                <a href="<?php echo $setting["googlefooterLinks_porto_tpl"]; ?>" target="_blank" title="Google Plus"><i class="fa fa-google"></i></a>
               </li>
             <?php }
-            if ($jkv["instagramfooterShow_porto_tpl"] == 1) { ?>
+            if ($setting["instagramfooterShow_porto_tpl"] == 1) { ?>
               <li class="social-icons-instagram">
-                <a href="<?php echo $jkv["instagramfooterLinks_porto_tpl"]; ?>" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
+                <a href="<?php echo $setting["instagramfooterLinks_porto_tpl"]; ?>" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
               </li>
             <?php }
             if ($ENVO_RSS_DISPLAY) { ?>
@@ -94,7 +94,7 @@ switch ($section) {
                 </a>
               <?php }
             }
-            if ($jkv["printme"] && $printme) { ?>
+            if ($setting["printme"] && $printme) { ?>
               <a class="btn btn-filled btn-primary btn-sm" id="envoprint" href="#" title="<?php echo $tl["button"]["btn6"]; ?>">
                 <?php echo $tl["button"]["btn6"]; ?>
               </a>
@@ -108,11 +108,11 @@ switch ($section) {
         <div class="row">
           <div class="col-md-1">
             <a href="<?php echo BASE_URL; ?>" class="logo">
-              <img alt="<?php echo $tlporto["image_desc"]["imdesc"] . $jkv["title"]; ?>" class="img-responsive" src="<?php echo $jkv["logo2_porto_tpl"]; ?>">
+              <img alt="<?php echo $tlporto["image_desc"]["imdesc"] . $setting["title"]; ?>" class="img-responsive" src="<?php echo $setting["logo2_porto_tpl"]; ?>">
             </a>
           </div>
           <div class="col-md-7">
-            <p><?php echo $jkv["copyright"]; ?></p>
+            <p><?php echo $setting["copyright"]; ?></p>
           </div>
           <div class="col-md-4">
             <nav id="sub-menu">
@@ -136,31 +136,31 @@ switch ($section) {
         <div class="row">
           <div class="col-md-10">
             <div class="row">
-              <?php echo $jkv["footerblocktext1_porto_tpl"]; ?>
+              <?php echo $setting["footerblocktext1_porto_tpl"]; ?>
             </div>
           </div>
           <div class="col-md-2">
-            <h4><?php echo $jkv["socialfooterText_porto_tpl"]; ?></h4>
+            <h4><?php echo $setting["socialfooterText_porto_tpl"]; ?></h4>
             <ul class="social-icons">
 
-              <?php if ($jkv["facebookfooterShow_porto_tpl"] == 1) { ?>
+              <?php if ($setting["facebookfooterShow_porto_tpl"] == 1) { ?>
                 <li class="social-icons-facebook">
-                  <a href="<?php echo $jkv["facebookfooterLinks_porto_tpl"]; ?>" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
+                  <a href="<?php echo $setting["facebookfooterLinks_porto_tpl"]; ?>" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a>
                 </li>
               <?php }
-              if ($jkv["twitterfooterShow_porto_tpl"] == 1) { ?>
+              if ($setting["twitterfooterShow_porto_tpl"] == 1) { ?>
                 <li class="social-icons-twitter">
-                  <a href="<?php echo $jkv["twitterfooterLinks_porto_tpl"]; ?>" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>
+                  <a href="<?php echo $setting["twitterfooterLinks_porto_tpl"]; ?>" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>
                 </li>
               <?php }
-              if ($jkv["googlefooterShow_porto_tpl"] == 1) { ?>
+              if ($setting["googlefooterShow_porto_tpl"] == 1) { ?>
                 <li class="social-icons-googleplus">
-                  <a href="<?php echo $jkv["googlefooterLinks_porto_tpl"]; ?>" target="_blank" title="Google Plus"><i class="fa fa-google"></i></a>
+                  <a href="<?php echo $setting["googlefooterLinks_porto_tpl"]; ?>" target="_blank" title="Google Plus"><i class="fa fa-google"></i></a>
                 </li>
               <?php }
-              if ($jkv["instagramfooterShow_porto_tpl"] == 1) { ?>
+              if ($setting["instagramfooterShow_porto_tpl"] == 1) { ?>
                 <li class="social-icons-instagram">
-                  <a href="<?php echo $jkv["instagramfooterLinks_porto_tpl"]; ?>" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
+                  <a href="<?php echo $setting["instagramfooterLinks_porto_tpl"]; ?>" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a>
                 </li>
               <?php }
               if ($ENVO_RSS_DISPLAY) { ?>
@@ -185,7 +185,7 @@ switch ($section) {
                   </a>
                 <?php }
               }
-              if ($jkv["printme"] && $printme) { ?>
+              if ($setting["printme"] && $printme) { ?>
                 <a class="btn btn-filled btn-primary btn-sm" id="envoprint" href="#" title="<?php echo $tl["button"]["btn6"]; ?>">
                   <?php echo $tl["button"]["btn6"]; ?>
                 </a>
@@ -199,11 +199,11 @@ switch ($section) {
           <div class="row">
             <div class="col-md-1">
               <a href="<?php echo BASE_URL; ?>" class="logo">
-                <img alt="<?php echo $tlporto["image_desc"]["imdesc"] . $jkv["title"]; ?>" class="img-responsive" src="<?php echo $jkv["logo2_porto_tpl"]; ?>">
+                <img alt="<?php echo $tlporto["image_desc"]["imdesc"] . $setting["title"]; ?>" class="img-responsive" src="<?php echo $setting["logo2_porto_tpl"]; ?>">
               </a>
             </div>
             <div class="col-md-7">
-              <p><?php echo $jkv["copyright"]; ?></p>
+              <p><?php echo $setting["copyright"]; ?></p>
             </div>
             <div class="col-md-4">
               <nav id="sub-menu">
@@ -226,7 +226,6 @@ if (!$ENVO_SHOW_FOOTER) { ?>
 </div><!-- END BODY -->
 
 <!-- End Document  ================================================== -->
-
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="/assets/plugins/jquery/jquery-2.2.4.min.js?=v2.2.4"></script>
 <script src="/template/<?php echo ENVO_TEMPLATE; ?>/plugins/jquery.appear/jquery.appear.min.js"></script>
@@ -274,7 +273,7 @@ if (isset($ENVO_HOOK_FOOTER_END) && is_array($ENVO_HOOK_FOOTER_END)) foreach ($E
 }
 
 // Analytics code
-if (isset($jkv["analytics"])) echo $jkv["analytics"];
+if (isset($setting["analytics"])) echo $setting["analytics"];
 
 // Javascript for page - FOOTER
 if (isset($ENVO_FOOTER_JAVASCRIPT)) echo $ENVO_FOOTER_JAVASCRIPT;
@@ -335,7 +334,7 @@ if (isset($ENVO_FOOTER_JAVASCRIPT)) echo $ENVO_FOOTER_JAVASCRIPT;
     if ($PAGE_PASSWORD && ENVO_ASACCESS) { ?>
     $.notify({icon: 'icon-info', message: '<?php echo $tl["notification"]["n5"];?>'}, {type: 'info', delay: 0});
     <?php }
-    if ($jkv["offline"] == 1 && ENVO_ASACCESS) { ?>
+    if ($setting["offline"] == 1 && ENVO_ASACCESS) { ?>
     $.notify({
       // Options
       icon: 'icon-flash',
@@ -358,8 +357,8 @@ if (isset($ENVO_FOOTER_JAVASCRIPT)) echo $ENVO_FOOTER_JAVASCRIPT;
 </script>
 
 <!-- Porto Print script -->
-<?php if ($jkv["printme"]) { ?>
-  <script src="/assets/js/envoprint.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+<?php if ($setting["printme"]) { ?>
+  <script src="/assets/js/envoprint.js?=<?php echo $setting["updatetime"]; ?>"></script>
 
   <script>
     $(function () {
@@ -367,7 +366,7 @@ if (isset($ENVO_FOOTER_JAVASCRIPT)) echo $ENVO_FOOTER_JAVASCRIPT;
       $('#envoprint').on('click', function (e) {
         e.preventDefault();
         $('#printdiv').printThis({
-          title: '<?php echo sprintf($tl["printpage"]["pp"], $jkv["title"]); ?>',
+          title: '<?php echo sprintf($tl["printpage"]["pp"], $setting["title"]); ?>',
           styles: ['template/porto/css/bootstrap-print-md.css']
         });
       });
@@ -394,7 +393,7 @@ if (isset($ENVO_FOOTER_JAVASCRIPT)) echo $ENVO_FOOTER_JAVASCRIPT;
 </div>
 
 <!-- Search script -->
-<?php if ($jkv["ajaxsearch"] && $AJAX_SEARCH_PLUGIN_URL) { ?>
+<?php if ($setting["ajaxsearch"] && $AJAX_SEARCH_PLUGIN_URL) { ?>
   <script>
     $(document).ready(function () {
 
@@ -411,7 +410,7 @@ if (isset($ENVO_FOOTER_JAVASCRIPT)) echo $ENVO_FOOTER_JAVASCRIPT;
 <?php } ?>
 
 <!-- EU Cookies -->
-<?php if ($jkv["eucookie_enabled"] == 1) {
+<?php if ($setting["eucookie_enabled"] == 1) {
   include APP_PATH . '/assets/js/eu-cookies.php';
 } ?>
 
