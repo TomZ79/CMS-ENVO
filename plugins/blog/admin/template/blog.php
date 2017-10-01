@@ -77,8 +77,8 @@ if ($page1 == "e" || $page1 == "ene") { ?>
         <table id="blog_table" class="table table-striped table-hover span12">
           <thead>
           <tr>
-            <th class="no-sort" style="width:4%">#</th>
-            <th class="no-sort" style="width:3%">
+            <th class="no-sort" style="width:5%">#</th>
+            <th class="no-sort" style="width:5%">
               <div class="checkbox-singel check-success">
 
                 <?php
@@ -90,11 +90,11 @@ if ($page1 == "e" || $page1 == "ene") { ?>
 
               </div>
             </th>
-            <th style="width:32%"><?php echo $tlblog["blog_box_table"]["blogtb"]; ?></th>
-            <th style="width:13%"><?php echo $tlblog["blog_box_table"]["blogtb1"]; ?></th>
+            <th style="width:35%"><?php echo $tlblog["blog_box_table"]["blogtb"]; ?></th>
+            <th style="width:16%"><?php echo $tlblog["blog_box_table"]["blogtb1"]; ?></th>
             <th style="width:8%"><?php echo $tlblog["blog_box_table"]["blogtb2"]; ?></th>
             <th style="width:10%"><?php echo $tlblog["blog_box_table"]["blogtb3"]; ?></th>
-            <th style="width:18%"><?php echo $tlblog["blog_box_table"]["blogtb4"]; ?></th>
+            <th style="width:9%"><?php echo $tlblog["blog_box_table"]["blogtb4"]; ?></th>
             <th class="no-sort" style="width:4%">
 
               <?php
