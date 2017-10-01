@@ -27,6 +27,7 @@ $envotable = DB_PREFIX . 'urlmapping';
 // CZ: Přepínání přístupu všech stránek podle názvu stránky
 switch ($page1) {
   case 'new':
+    // ADD NEW URL MAPPING
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable
@@ -87,6 +88,77 @@ switch ($page1) {
     $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'new.php';
 
     break;
+  case 'edit':
+    // EDIT URL MAPPING
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      // EN: Default Variable
+      // CZ: Hlavní proměnné
+      $defaults = $_POST;
+
+      if (empty($defaults['envo_oldurl']) && empty($defaults['envo_newurl']) && (($defaults['envo_baseurl'] == 0) || ($defaults['envo_baseurl'] == 1))) {
+        $errors['e1'] = $tlum['urlmap_error']['urler'];
+      }
+
+      if (empty($defaults['envo_oldurl']) && !empty($defaults['envo_newurl']) && ($defaults['envo_baseurl'] == 0)) {
+        $errors['e2'] = $tlum['urlmap_error']['urler1'];
+      }
+
+      if (empty($defaults['envo_newurl']) && !empty($defaults['envo_oldurl']) && ($defaults['envo_baseurl'] == 0)) {
+        $errors['e3'] = $tlum['urlmap_error']['urler1'];
+      }
+
+      if (count($errors) == 0) {
+
+        if ($defaults['envo_baseurl'] == 1) {
+          $urlnew = '';
+        } else {
+          $urlnew = smartsql($defaults['envo_newurl']);
+        }
+
+        /* EN: Convert value
+         * smartsql - secure method to insert form data into a MySQL DB
+         * ------------------
+         * CZ: Převod hodnot
+         * smartsql - secure method to insert form data into a MySQL DB
+        */
+        $result = $envodb->query('UPDATE ' . $envotable . ' SET
+                      urlold = "' . smartsql($defaults['envo_oldurl']) . '",
+                      urlnew = "' . $urlnew . '",
+                      baseurl = "' . smartsql($defaults['envo_baseurl']) . '",
+                      redirect = "' . smartsql($defaults['envo_redirect']) . '",
+                      time = NOW()
+                      WHERE id = "' . smartsql($page2) . '"');
+
+        if (!$result) {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
+          envo_redirect(BASE_URL . 'index.php?p=urlmapping&sp=edit&ssp=' . $page2 . '&status=e');
+        } else {
+          // EN: Redirect page
+          // CZ: Přesměrování stránky
+          envo_redirect(BASE_URL . 'index.php?p=urlmapping&sp=edit&ssp=' . $page2 . '&status=s');
+        }
+
+      } else {
+        $errors['e'] = $tl['urlmap_error']['urler'];
+        $errors      = $errors;
+      }
+    }
+
+    // Get the data
+    $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
+
+    // EN: Title and Description
+    // CZ: Titulek a Popis
+    $SECTION_TITLE = $tlum["urlmap_title"]["urlt2"];
+    $SECTION_DESC  = $tlum["urlmap_desc"]["urld2"];
+
+    // EN: Load the php template
+    // CZ: Načtení php template (šablony)
+    $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'edit.php';
+
+    break;
   default:
 
     switch ($page1) {
@@ -132,79 +204,9 @@ switch ($page1) {
         }
 
         break;
-      case 'edit':
-
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-          // EN: Default Variable
-          // CZ: Hlavní proměnné
-          $defaults = $_POST;
-
-          if (empty($defaults['envo_oldurl']) && empty($defaults['envo_newurl']) && (($defaults['envo_baseurl'] == 0) || ($defaults['envo_baseurl'] == 1))) {
-            $errors['e1'] = $tlum['urlmap_error']['urler'];
-          }
-
-          if (empty($defaults['envo_oldurl']) && !empty($defaults['envo_newurl']) && ($defaults['envo_baseurl'] == 0)) {
-            $errors['e2'] = $tlum['urlmap_error']['urler1'];
-          }
-
-          if (empty($defaults['envo_newurl']) && !empty($defaults['envo_oldurl']) && ($defaults['envo_baseurl'] == 0)) {
-            $errors['e3'] = $tlum['urlmap_error']['urler1'];
-          }
-
-          if (count($errors) == 0) {
-
-            if ($defaults['envo_baseurl'] == 1) {
-              $urlnew = '';
-            } else {
-              $urlnew = smartsql($defaults['envo_newurl']);
-            }
-
-            /* EN: Convert value
-             * smartsql - secure method to insert form data into a MySQL DB
-             * ------------------
-             * CZ: Převod hodnot
-             * smartsql - secure method to insert form data into a MySQL DB
-            */
-            $result = $envodb->query('UPDATE ' . $envotable . ' SET
-                      urlold = "' . smartsql($defaults['envo_oldurl']) . '",
-                      urlnew = "' . $urlnew . '",
-                      baseurl = "' . smartsql($defaults['envo_baseurl']) . '",
-                      redirect = "' . smartsql($defaults['envo_redirect']) . '",
-                      time = NOW()
-                      WHERE id = "' . smartsql($page2) . '"');
-
-            if (!$result) {
-              // EN: Redirect page
-              // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=urlmapping&sp=edit&ssp=' . $page2 . '&status=e');
-            } else {
-              // EN: Redirect page
-              // CZ: Přesměrování stránky
-              envo_redirect(BASE_URL . 'index.php?p=urlmapping&sp=edit&ssp=' . $page2 . '&status=s');
-            }
-
-          } else {
-            $errors['e'] = $tl['urlmap_error']['urler'];
-            $errors      = $errors;
-          }
-        }
-
-        // Get the data
-        $ENVO_FORM_DATA = envo_get_data($page2, $envotable);
-
-        // EN: Title and Description
-        // CZ: Titulek a Popis
-        $SECTION_TITLE = $tlum["urlmap_title"]["urlt2"];
-        $SECTION_DESC  = $tlum["urlmap_desc"]["urld2"];
-
-        // EN: Load the php template
-        // CZ: Načtení php template (šablony)
-        $plugin_template = $SHORT_PLUGIN_URL_TEMPLATE . 'edit.php';
-
-        break;
       default:
+        // LIST OF URL MAPPING
 
-        // Hello we have a post request
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['envo_delete_urlmapping'])) {
           // EN: Default Variable
           // CZ: Hlavní proměnné
@@ -261,7 +263,8 @@ switch ($page1) {
 
         }
 
-        // Get all
+        // EN: Get all the data of URL Mapping
+        // CZ: Získání všech dat pro URL Mapování
         $result = $envodb->query('SELECT * FROM ' . DB_PREFIX . 'urlmapping ORDER BY id ASC');
         while ($row = $result->fetch_assoc()) {
           // EN: Insert each record into array

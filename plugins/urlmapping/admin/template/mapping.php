@@ -75,12 +75,11 @@ if ($page2 == "e" || $page2 == "ene") { ?>
     <div class="box box-success">
       <div class="box-body no-padding">
         <div class="table-responsive">
-          <table class="table table-striped table-hover">
+          <table id="url_table" class="table table-striped table-hover">
             <thead>
             <tr>
-              <th>#</th>
-              <th>
-
+              <th class="no-sort" style="width: 5%">#</th>
+              <th class="no-sort" style="width: 5%">
                 <div class="checkbox-singel check-success">
 
                   <?php
@@ -91,14 +90,13 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                   ?>
 
                 </div>
-
               </th>
-              <th><?php echo $tlum["url_box_table"]["urltb"]; ?></th>
-              <th><?php echo $tlum["url_box_table"]["urltb1"]; ?></th>
-              <th><?php echo $tlum["url_box_table"]["urltb2"]; ?></th>
-              <th><?php echo $tlum["url_box_table"]["urltb3"]; ?></th>
-              <th><?php echo $tlum["url_box_table"]["urltb4"]; ?></th>
-              <th>
+              <th style="width: 20%"><?php echo $tlum["url_box_table"]["urltb"]; ?></th>
+              <th style="width: 20%"><?php echo $tlum["url_box_table"]["urltb1"]; ?></th>
+              <th style="width: 15%"><?php echo $tlum["url_box_table"]["urltb2"]; ?></th>
+              <th style="width: 14%"><?php echo $tlum["url_box_table"]["urltb3"]; ?></th>
+              <th style="width: 9%"><?php echo $tlum["url_box_table"]["urltb4"]; ?></th>
+              <th class="no-sort" style="width: 4%">
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
@@ -106,8 +104,8 @@ if ($page2 == "e" || $page2 == "ene") { ?>
                 ?>
 
               </th>
-              <th></th>
-              <th>
+              <th class="no-sort" style="width: 4%"></th>
+              <th class="no-sort" style="width: 4%">
 
                 <?php
                 // Add Html Element -> addButtonSubmit (Arguments: name, value, id, class, optional assoc. array)
@@ -132,19 +130,27 @@ if ($page2 == "e" || $page2 == "ene") { ?>
 
                   </div>
                 </td>
-                <td>
+                <td class="ellipsis">
 
                   <?php
+                  // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+                  // Add Html Element -> endTag (Arguments: tag)
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=edit&amp;ssp=' . $v["id"], $v["urlold"]);
+                  echo $Html->startTag('span');
+                  echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=edit&amp;ssp=' . $v["id"], $v["urlold"], '', '', array('data-toggle' => 'tooltipEnvo', 'title' => $v["urlnew"]));
+                  echo $Html->endTag('span');
                   ?>
 
                 </td>
-                <td>
+                <td class="ellipsis">
 
                   <?php
+                  // Add Html Element -> startTag (Arguments: tag, optional assoc. array)
+                  // Add Html Element -> endTag (Arguments: tag)
                   // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
-                  echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=edit&amp;ssp=' . $v["id"], $v["urlnew"]);
+                  echo $Html->startTag('span');
+                  echo $Html->addAnchor('index.php?p=urlmapping&amp;sp=edit&amp;ssp=' . $v["id"], $v["urlnew"], '', '', array('data-toggle' => 'tooltipEnvo', 'title' => $v["urlnew"]));
+                  echo $Html->endTag('span');
                   ?>
 
                 </td>
