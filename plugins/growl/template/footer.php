@@ -3,7 +3,7 @@
   <script type="text/javascript">
 
     $(document).ready(function () {
-      $('head').append('<link rel="stylesheet" href="<?php echo BASE_URL;?>plugins/growl/assets/css/style.css?=<?php echo $jkv["updatetime"];?>" type="text/css" />');
+      $('head').append('<link rel="stylesheet" href="<?php echo BASE_URL;?>plugins/growl/assets/css/style.css?=<?php echo $setting["updatetime"];?>" type="text/css" />');
     });
     
   </script>

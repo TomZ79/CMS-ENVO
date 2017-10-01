@@ -24,12 +24,12 @@
  * @example: Example variable setting
  *
  * var aceEditor = {
-   *    acetheme: <?php echo json_encode($jkv["acetheme"]); ?>,
-   *    acewraplimit: <?php echo json_encode($jkv["acewraplimit"]); ?>,
-   *    acetabSize: <?php echo json_encode($jkv["acetabSize"]); ?>,
-   *    aceactiveline: <?php echo json_encode($jkv["aceactiveline"]); ?>,
-   *    aceinvisible: <?php echo json_encode($jkv["aceinvisible"]); ?>,
-   *    acegutter: <?php echo json_encode($jkv["acegutter"]); ?>
+   *    acetheme: <?php echo json_encode($setting["acetheme"]); ?>,
+   *    acewraplimit: <?php echo json_encode($setting["acewraplimit"]); ?>,
+   *    acetabSize: <?php echo json_encode($setting["acetabSize"]); ?>,
+   *    aceactiveline: <?php echo json_encode($setting["aceactiveline"]); ?>,
+   *    aceinvisible: <?php echo json_encode($setting["aceinvisible"]); ?>,
+   *    acegutter: <?php echo json_encode($setting["acegutter"]); ?>
    * };
  ========================================= */
 // Set WrapLimitRange from generated_js.php

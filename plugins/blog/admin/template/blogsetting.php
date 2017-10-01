@@ -207,7 +207,7 @@ if ($errors) { ?>
                           <?php for ($i = 0; $i <= 50; $i++) {
 
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption($i, $i, ($jkv["bloghlimit"] == $i) ? TRUE : FALSE);
+                            echo $Html->addOption($i, $i, ($setting["bloghlimit"] == $i) ? TRUE : FALSE);
 
                           } ?>
 
@@ -230,12 +230,12 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('', $tl["selection"]["sel110"], ($jkv['blogdateformat'] == '') ? TRUE : FALSE);
+                            echo $Html->addOption('', $tl["selection"]["sel110"], ($setting['blogdateformat'] == '') ? TRUE : FALSE);
 
-                            echo $Html->addOption('d.m.Y', 'd.m.Y (01.01.2017)', ($jkv['blogdateformat'] == 'd.m.Y') ? TRUE : FALSE);
-                            echo $Html->addOption('d F Y', 'd F Y (01 January 2017)', ($jkv['blogdateformat'] == 'd F Y') ? TRUE : FALSE);
-                            echo $Html->addOption('l m.Y', 'l m.Y (Monday 01.2017)', ($jkv['blogdateformat'] == 'l m.Y') ? TRUE : FALSE);
-                            echo $Html->addOption('l F Y', 'l F Y (Monday January 2017)', ($jkv['blogdateformat'] == 'l F Y') ? TRUE : FALSE);
+                            echo $Html->addOption('d.m.Y', 'd.m.Y (01.01.2017)', ($setting['blogdateformat'] == 'd.m.Y') ? TRUE : FALSE);
+                            echo $Html->addOption('d F Y', 'd F Y (01 January 2017)', ($setting['blogdateformat'] == 'd F Y') ? TRUE : FALSE);
+                            echo $Html->addOption('l m.Y', 'l m.Y (Monday 01.2017)', ($setting['blogdateformat'] == 'l m.Y') ? TRUE : FALSE);
+                            echo $Html->addOption('l F Y', 'l F Y (Monday January 2017)', ($setting['blogdateformat'] == 'l F Y') ? TRUE : FALSE);
                             ?>
 
                           </select>
@@ -257,17 +257,17 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('', $tl["selection"]["sel110"], ($jkv['blogtimeformat'] == '') ? TRUE : FALSE);
+                            echo $Html->addOption('', $tl["selection"]["sel110"], ($setting['blogtimeformat'] == '') ? TRUE : FALSE);
                             ?>
 
                             <optgroup label="<?php echo $tl["selection"]["sel111"]; ?>">
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                              echo $Html->addOption(' - h:i A', ' - h:i A ( - 01:00 PM)', ($jkv['blogtimeformat'] == ' - h:i A') ? TRUE : FALSE);
-                              echo $Html->addOption(' - h:i:s A', ' - h:i:s A ( - 01:00:00 PM)', ($jkv['blogtimeformat'] == ' - h:i:s A') ? TRUE : FALSE);
-                              echo $Html->addOption(' - g:i A', ' - g:i A ( - 1:00 PM)', ($jkv['blogtimeformat'] == ' - g:i A') ? TRUE : FALSE);
-                              echo $Html->addOption(' - g:i:s A', ' - g:i:s A ( - 1:00:00 PM)', ($jkv['blogtimeformat'] == ' - g:i:s A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - h:i A', ' - h:i A ( - 01:00 PM)', ($setting['blogtimeformat'] == ' - h:i A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - h:i:s A', ' - h:i:s A ( - 01:00:00 PM)', ($setting['blogtimeformat'] == ' - h:i:s A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - g:i A', ' - g:i A ( - 1:00 PM)', ($setting['blogtimeformat'] == ' - g:i A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - g:i:s A', ' - g:i:s A ( - 1:00:00 PM)', ($setting['blogtimeformat'] == ' - g:i:s A') ? TRUE : FALSE);
                               ?>
 
                             </optgroup>
@@ -275,9 +275,9 @@ if ($errors) { ?>
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                              echo $Html->addOption(' - H:i', ' - H:i ( - 13:00)', ($jkv['blogtimeformat'] == ' - H:i') ? TRUE : FALSE);
-                              echo $Html->addOption(' - H:i:s', ' - H:i:s ( - 13:00:00)', ($jkv['blogtimeformat'] == ' - H:i:s') ? TRUE : FALSE);
-                              echo $Html->addOption(' - H:i:s T O', ' - H:i:s T O ( - 13:00:00 CEST +0200)', ($jkv['blogtimeformat'] == ' - H:i:s T O') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i', ' - H:i ( - 13:00)', ($setting['blogtimeformat'] == ' - H:i') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i:s', ' - H:i:s ( - 13:00:00)', ($setting['blogtimeformat'] == ' - H:i:s') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i:s T O', ' - H:i:s T O ( - 13:00:00 CEST +0200)', ($setting['blogtimeformat'] == ' - H:i:s T O') ? TRUE : FALSE);
                               ?>
 
                             </optgroup>
@@ -301,12 +301,12 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_blogurl', '1', ($jkv["blogurl"] == '1') ? TRUE : FALSE, 'envo_blogurl1');
+                          echo $Html->addRadio('envo_blogurl', '1', ($setting["blogurl"] == '1') ? TRUE : FALSE, 'envo_blogurl1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('envo_blogurl1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_blogurl', '0', ($jkv["blogurl"] == '0') ? TRUE : FALSE, 'envo_blogurl2');
+                          echo $Html->addRadio('envo_blogurl', '0', ($setting["blogurl"] == '0') ? TRUE : FALSE, 'envo_blogurl2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('envo_blogurl2', $tl["checkbox"]["chk1"]);
                           ?>
@@ -328,7 +328,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'envo_rssitem', $jkv["blogrss"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_rssitem', $setting["blogrss"], '', 'form-control');
                           ?>
 
                         </div>
@@ -377,11 +377,11 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('2', $tl["selection"]["sel1"], ($jkv['blogpagemid'] == 2) ? TRUE : FALSE);
-                            echo $Html->addOption('4', $tl["selection"]["sel2"], ($jkv['blogpagemid'] == 4) ? TRUE : FALSE);
-                            echo $Html->addOption('6', $tl["selection"]["sel3"], ($jkv['blogpagemid'] == 6) ? TRUE : FALSE);
-                            echo $Html->addOption('8', $tl["selection"]["sel4"], ($jkv['blogpagemid'] == 8) ? TRUE : FALSE);
-                            echo $Html->addOption('10', $tl["selection"]["sel5"], ($jkv['blogpagemid'] == 10) ? TRUE : FALSE);
+                            echo $Html->addOption('2', $tl["selection"]["sel1"], ($setting['blogpagemid'] == 2) ? TRUE : FALSE);
+                            echo $Html->addOption('4', $tl["selection"]["sel2"], ($setting['blogpagemid'] == 4) ? TRUE : FALSE);
+                            echo $Html->addOption('6', $tl["selection"]["sel3"], ($setting['blogpagemid'] == 6) ? TRUE : FALSE);
+                            echo $Html->addOption('8', $tl["selection"]["sel4"], ($setting['blogpagemid'] == 8) ? TRUE : FALSE);
+                            echo $Html->addOption('10', $tl["selection"]["sel5"], ($setting['blogpagemid'] == 10) ? TRUE : FALSE);
                             ?>
 
                           </select>
@@ -402,7 +402,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'envo_item', $jkv["blogpageitem"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_item', $setting["blogpageitem"], '', 'form-control');
                           ?>
 
                         </div>
@@ -438,7 +438,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'envo_blogshortmsg', $jkv["blogshortmsg"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_blogshortmsg', $setting["blogshortmsg"], '', 'form-control');
                           ?>
 
                         </div>
@@ -481,7 +481,7 @@ if ($errors) { ?>
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                 echo $Html->addDiv('', 'csseditor');
                 // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                echo $Html->addTextarea('envo_css', $jkv["blog_css"], '20', '', array('id' => 'envo_css', 'class' => 'hidden'));
+                echo $Html->addTextarea('envo_css', $setting["blog_css"], '20', '', array('id' => 'envo_css', 'class' => 'hidden'));
                 ?>
 
               </div>
@@ -519,7 +519,7 @@ if ($errors) { ?>
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                 echo $Html->addDiv('', 'javaeditor');
                 // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                echo $Html->addTextarea('envo_javascript', $jkv["blog_javascript"], '20', '', array('id' => 'envo_javascript', 'class' => 'hidden'));
+                echo $Html->addTextarea('envo_javascript', $setting["blog_javascript"], '20', '', array('id' => 'envo_javascript', 'class' => 'hidden'));
                 ?>
 
               </div>

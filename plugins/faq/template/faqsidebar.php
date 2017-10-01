@@ -3,7 +3,7 @@
   $url_array = explode('/', $_SERVER['REQUEST_URI']);
   $url = end($url_array);
   // Get FAQ Categories
-  $ENVO_FAQ_CAT = ENVO_base::envoGetcatmix(ENVO_PLUGIN_VAR_FAQ, '', DB_PREFIX . 'faqcategories', ENVO_USERGROUPID, $jkv["faqurl"]);
+  $ENVO_FAQ_CAT = ENVO_base::envoGetcatmix(ENVO_PLUGIN_VAR_FAQ, '', DB_PREFIX . 'faqcategories', ENVO_USERGROUPID, $setting["faqurl"]);
 
   if ($ENVO_FAQ_CAT) { ?>
     <aside class="nav-side-menu">
