@@ -11,6 +11,88 @@
  *
  */
 
+/*  */
+.header .quick-list {
+  display: inline-block;
+}
+
+.quick-toggle {
+  top: 35px;
+  left: -26px;
+  padding: 0;
+}
+
+.quick-toggle:before {
+  border-bottom: 0 !important;
+}
+
+.quick-toggle:after {
+  border-bottom: 0 !important;
+}
+
+.quick-panel {
+  background-color: #FFF;
+  border: 1px solid #E6E6E6;
+}
+
+.quick-panel .quick-body {
+  height: auto;
+  max-height: 350px;
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-dropdown {
+  width: 300px;
+  text-align: center;
+  font-size: 16px;
+  color: #252932;
+}
+
+.stacked {
+  margin: 0;
+}
+
+.stacked .pluginname {
+  background-color: #F9F9F9;
+}
+
+.stacked > [class*="col-"] {
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0 !important;
+}
+
+.stacked a {
+  font-size: 13px;
+  color: #38464A;
+  width: 100%;
+  padding: 10px;
+  line-height: 30px;
+  display: block;
+  font-weight: 300;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+}
+
+.stacked a:hover {
+  background: #626262;
+  color: #FFF;
+}
+
+.stacked a i {
+  font-size: 25px;
+  line-height: 30px;
+  height: 30px;
+  display: block;
+  color: #697a7a;
+}
+
+.stacked a:hover i {
+  color: #FFF;
+}
+
 /* Pace.js custom style */
 #pace.active {
   z-index: 2000;
