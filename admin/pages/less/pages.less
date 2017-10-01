@@ -36,22 +36,20 @@ Generated From SASS
 30. Print
 31. Demo
 -------------------------------------------------------------------*/
-
 // Mixins tools
 @import "mixins";
 @import "modules/direction";
-
 // Includes of Modules
 @import "modules";
-
 // Responsive Util
 @import "responsive";
 
-//Change your theme here 
-@theme-name:"default";
+// Change your theme here
+@theme-name: "default";
 @direction: ltr; // use `rtl` or `ltr
 
 .theme {
-    @import "themes/@{theme-name}/theme";
+	@import "themes/@{theme-name}/theme";
 }
+
 .theme();

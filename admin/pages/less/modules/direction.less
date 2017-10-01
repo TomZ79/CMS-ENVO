@@ -8,7 +8,6 @@
 @left: ~`@{rtl} ? 'right' : 'left'`;
 @right: ~`@{rtl} ? 'left' : 'right'`;
 
-
 // "border-color:" rule
 
 .border-color(@top, @right, @bottom, @left) when not (@rtl) {
@@ -18,7 +17,6 @@
 .border-color(@top, @right, @bottom, @left) when (@rtl) {
 	border-color: @top @left @bottom @right;
 }
-
 
 // "border-left*:" rule
 
@@ -54,7 +52,6 @@
 	border-right-width: @left;
 }
 
-
 // "border-right*:" rule
 
 .border-right(@right) when not (@rtl) {
@@ -89,7 +86,6 @@
 	border-left-width: @right;
 }
 
-
 // "border-style:" rule
 
 .border-style(@top, @right, @bottom, @left) when not (@rtl) {
@@ -100,7 +96,6 @@
 	border-style: @top @left @bottom @right;
 }
 
-
 // "border-width:" rule
 
 .border-width(@top, @right, @bottom, @left) when not (@rtl) {
@@ -110,7 +105,6 @@
 .border-width(@top, @right, @bottom, @left) when (@rtl) {
 	border-width: @top @left @bottom @right;
 }
-
 
 // "border-radius:" rule
 
@@ -162,7 +156,6 @@
 	border-bottom-left-radius: @radius;
 }
 
-
 // "clear:" rule
 
 .clear(@side: both) when not (@rtl), not (@side = left) and not (@side = right) {
@@ -176,7 +169,6 @@
 .clear(right) when (@rtl) {
 	clear: left;
 }
-
 
 // "direction:" rule
 
@@ -196,7 +188,6 @@
 	direction: ltr;
 }
 
-
 // "left:" rule
 
 .left(@left) when not (@rtl) {
@@ -206,7 +197,6 @@
 .left(@left) when (@rtl) {
 	right: @left;
 }
-
 
 // "float:" rule
 
@@ -226,7 +216,6 @@
 	float: left;
 }
 
-
 // "margin:" rule
 
 .margin(@top, @right, @bottom, @left) when not (@rtl) {
@@ -244,7 +233,6 @@
 .ie7-margin(@top, @right, @bottom, @left) when (@rtl) {
 	*margin: @top @left @bottom @right;
 }
-
 
 // "margin-left:" rule
 
@@ -264,7 +252,6 @@
 	*margin-right: @left;
 }
 
-
 // "margin-right:" rule
 
 .margin-right(@right) when not (@rtl) {
@@ -283,7 +270,6 @@
 	*margin-left: @right;
 }
 
-
 // "padding:" rule
 
 .padding(@top, @right, @bottom, @left) when not (@rtl) {
@@ -293,7 +279,6 @@
 .padding(@top, @right, @bottom, @left) when (@rtl) {
 	padding: @top @left @bottom @right;
 }
-
 
 // "padding-left:" rule
 
@@ -305,7 +290,6 @@
 	padding-right: @left;
 }
 
-
 // "padding-right:" rule
 
 .padding-right(@right) when not (@rtl) {
@@ -315,7 +299,6 @@
 .padding-right(@right) when (@rtl) {
 	padding-left: @right;
 }
-
 
 // "text-align:" rule
 
@@ -334,7 +317,6 @@
 .text-align(right) when (@rtl) {
 	text-align: left;
 }
-
 
 // "right:" rule
 

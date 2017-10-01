@@ -2,67 +2,69 @@
 [14. Nesstables]
 */
 
-.dd-handle{
+.dd-handle {
 	border-color: fade(@color-master-light, 70%);
-	color:@color-master;
-	&:hover{
+	color: @color-master;
+	&:hover {
 		background-color: @color-master-lightest
 	}
 }
 
 .dark {
-	.dd-handle{
-	color:@color-master;
-	background: @color-master-lighter;
-		&:hover{
+	.dd-handle {
+		color: @color-master;
+		background: @color-master-lighter;
+		&:hover {
 			background-color: @color-master-lightest
 		}
 	}
-	.dd-placeholder{
-		background-color:@color-master-light;
+	.dd-placeholder {
+		background-color: @color-master-light;
 	}
-
+	
 }
 
-.dd3-content{
-	background:#fff;
+.dd3-content {
+	background: #FFF;
 	border-color: fade(@color-master-light, 70%);
-	color:@color-master;
-	&:hover{
+	color: @color-master;
+	&:hover {
 		background-color: @color-master-lightest
 	}
 }
 
-.dd3-handle{
-	background:transparent;
+.dd3-handle {
+	background: transparent;
 	text-indent: 9999px;
-	&:before{
+	&:before {
 		font-family: 'pages-icon';
-		color:@color-master;
-		content:"\e660";
+		color: @color-master;
+		content: "\e660";
 		font-size: 11px;
 		top: 5px;
 	}
 }
 
-.dd-placeholder{
-	background:@color-master-lighter;
+.dd-placeholder {
+	background: @color-master-lighter;
 	border-color: fade(@color-master, 35%);
 }
 
-.dd-empty{
-	background-image:none;
-	background:@color-master-lighter;
+.dd-empty {
+	background-image: none;
+	background: @color-master-lighter;
 	border-color: fade(@color-master, 50%);
 }
-.dd-item > button{
+
+.dd-item > button {
 	font-size: 11px;
-	&:before{
-	font-family: 'pages-icon';
-	content: "\e63b";
+	&:before {
+		font-family: 'pages-icon';
+		content: "\e63b";
 	}
 }
-.dd-item > button[data-action="collapse"]:before{
+
+.dd-item > button[data-action="collapse"]:before {
 	font-family: 'pages-icon';
 	content: "\e635";
 }
@@ -70,8 +72,8 @@
 /* Responsive Handlers : Nestables
 ------------------------------------
 */
-@media only screen and (min-width: 700px) { 
+@media only screen and (min-width: 700px) {
 	.dd {
-	width: 100%;
+		width: 100%;
 	}
 }

@@ -11,11 +11,11 @@ include_once $root . '/admin/include/admin.function.php';
 
 // EN: Import the language file
 // CZ: Import jazykových souborů
-if ($jkv["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
+if ($setting["lang"] != $site_language && file_exists(APP_PATH . 'admin/lang/' . $site_language . '.ini')) {
   $tl = parse_ini_file(APP_PATH . 'admin/lang/' . $site_language . '.ini', TRUE);
 } else {
-  $tl            = parse_ini_file(APP_PATH . 'admin/lang/' . $jkv["lang"] . '.ini', TRUE);
-  $site_language = $jkv["lang"];
+  $tl            = parse_ini_file(APP_PATH . 'admin/lang/' . $setting["lang"] . '.ini', TRUE);
+  $site_language = $setting["lang"];
 }
 
 // EN: Searching
@@ -45,9 +45,7 @@ if (is_ajax()) {
           </div>
           <div class="p-l-10 inline p-t-5">
             <h4 class="m-b-5">
-            <span class="semi-bold result-name">'
-            . $tl["search_overlay"]["so4"] .
-            '</span>
+              <span class="semi-bold result-name">' . $tl["search_overlay"]["so4"] . '</span>
             </h4>
           </div>
         </div>';
@@ -73,9 +71,7 @@ if (is_ajax()) {
           </div>
           <div class="p-l-10 inline p-t-5">
             <h4 class="m-b-5">
-            <span class="semi-bold result-name">'
-            . $tl["search_overlay"]["so5"] .
-            '</span>
+              <span class="semi-bold result-name">' . $tl["search_overlay"]["so5"] . '</span>
             </h4>
           </div>
         </div>';
@@ -101,9 +97,7 @@ if (is_ajax()) {
           </div>
           <div class="p-l-10 inline p-t-5">
             <h4 class="m-b-5">
-            <span class="semi-bold result-name">'
-            . $tl["search_overlay"]["so6"] .
-            '</span>
+              <span class="semi-bold result-name">' . $tl["search_overlay"]["so6"] . '</span>
             </h4>
           </div>
         </div>';
@@ -141,9 +135,7 @@ if (is_ajax()) {
           </div>
           <div class="p-l-10 inline p-t-5">
             <h4 class="m-b-5">
-            <span class="semi-bold result-name">'
-            . $tl["search_overlay"]["so7"] .
-            '</span>
+              <span class="semi-bold result-name">' . $tl["search_overlay"]["so7"] . '</span>
             </h4>
           </div>
         </div>';
@@ -169,9 +161,7 @@ if (is_ajax()) {
           </div>
           <div class="p-l-10 inline p-t-5">
             <h4 class="m-b-5">
-            <span class="semi-bold result-name">'
-            . $tl["search_overlay"]["so8"] .
-            '</span>
+              <span class="semi-bold result-name">' . $tl["search_overlay"]["so8"] . '</span>
             </h4>
           </div>
         </div>';
@@ -190,9 +180,7 @@ if (is_ajax()) {
 
   } else {
     echo '<div class="">
-            <h4 class="semi-bold text-danger">'
-            . $tl["search_overlay"]["so9"] .
-            '</h4>
+            <h4 class="semi-bold text-danger">' . $tl["search_overlay"]["so9"] . '</h4>
           </div>';
   }
 
