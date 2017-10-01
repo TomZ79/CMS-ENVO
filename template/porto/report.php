@@ -6,31 +6,31 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="keywords" content=""/>
 	<meta name="description" content=""/>
-	<meta name="author" content="<?php echo $jkv["metaauthor"]; ?>"/>
-	<meta name="robots" content="<?php echo $jkv["robots"]; ?>"/>
+	<meta name="author" content="<?php echo $setting["metaauthor"]; ?>"/>
+	<meta name="robots" content="<?php echo $setting["robots"]; ?>"/>
 
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/stylesheet.css?=<?php echo $jkv["updatetime"]; ?>"
+	<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/stylesheet.css?=<?php echo $setting["updatetime"]; ?>"
 		type="text/css"/>
 	<link rel="stylesheet"
-		href="<?php echo BASE_URL; ?>assets/plugins/bootstrapv3/css/bootstrap.min.css?=<?php echo $jkv["updatetime"]; ?>" type="text/css"
+		href="<?php echo BASE_URL; ?>assets/plugins/bootstrapv3/css/bootstrap.min.css?=<?php echo $setting["updatetime"]; ?>" type="text/css"
 		media="screen"/>
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>template/mosaic/css/screen.css?=<?php echo $jkv["updatetime"]; ?>"
+	<link rel="stylesheet" href="<?php echo BASE_URL; ?>template/mosaic/css/screen.css?=<?php echo $setting["updatetime"]; ?>"
 		type="text/css"/>
 
-	<?php if ($jkv["fontg_mosaic_tpl"] != "NonGoogle") { ?>
+	<?php if ($setting["fontg_mosaic_tpl"] != "NonGoogle") { ?>
 		<link rel="stylesheet"
-			href="http://fonts.googleapis.com/css?family=<?php echo $jkv["fontg_mosaic_tpl"]; ?>:regular,italic,bold,bolditalic"
+			href="http://fonts.googleapis.com/css?family=<?php echo $setting["fontg_mosaic_tpl"]; ?>:regular,italic,bold,bolditalic"
 			type="text/css"/>
 	<?php } ?>
 
 	<style type="text/css">
 		h1, h2, h3, h4, h5, h6 {
-			font-family: <?php if ($jkv["fontg_mosaic_tpl"] != "NonGoogle") echo '"'.str_replace("+", " ", $jkv["fontg_mosaic_tpl"]).'", '; echo $jkv["font_mosaic_tpl"];?>;
+			font-family: <?php if ($setting["fontg_mosaic_tpl"] != "NonGoogle") echo '"'.str_replace("+", " ", $setting["fontg_mosaic_tpl"]).'", '; echo $setting["font_mosaic_tpl"];?>;
 		}
 	</style>
 	<style id="cFontStyles" type="text/css">
 		body, code, input[type="text"], textarea {
-			font-family: <?php echo $jkv["font_mosaic_tpl"];?>;
+			font-family: <?php echo $setting["font_mosaic_tpl"];?>;
 		}
 	</style>
 
@@ -85,11 +85,11 @@
 
 </div>
 
-<script src="<?php echo BASE_URL; ?>assets/plugins/jquery/jquery.js?=<?php echo $jkv["updatetime"]; ?>"></script>
-<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/functions.js?=<?php echo $jkv["updatetime"]; ?>"></script>
+<script src="<?php echo BASE_URL; ?>assets/plugins/jquery/jquery.js?=<?php echo $setting["updatetime"]; ?>"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/functions.js?=<?php echo $setting["updatetime"]; ?>"></script>
 
 <script type="text/javascript">
-	<?php if ($jkv["hvm"]) { ?>
+	<?php if ($setting["hvm"]) { ?>
 	jQuery(document).ready(function () {
 		jQuery(".cReport").append('<input type="hidden" name="<?php echo $random_name;?>" value="<?php echo $random_value;?>" />');
 	});

@@ -1,4 +1,4 @@
-<?php if ($jkv["rf_active"] && isset($ENVO_SHOW_R_FORM)) { ?>
+<?php if ($setting["rf_active"] && isset($ENVO_SHOW_R_FORM)) { ?>
   <div class="row">
     <div class="col-md-6">
       <?php if (!ENVO_USERID) { ?>
@@ -21,7 +21,7 @@
           </div>
         <?php } else if (isset($_SESSION["rf_msg_sent"]) && $_SESSION["rf_msg_sent"] == 1) { ?>
           <div class="alert bg-success fade in">
-            <?php echo $jkv["rf_welcome"]; ?>
+            <?php echo $setting["rf_welcome"]; ?>
           </div>
         <?php }
         if (!isset($_SESSION["rf_msg_sent"]) || isset($_SESSION["rf_msg_sent"]) && $_SESSION["rf_msg_sent"] != 1) { ?>
@@ -29,7 +29,7 @@
           <h3><?php echo $tl["general"]["g57"]; ?></h3>
           <form method="post" class="cFrom" action="<?php echo $_SERVER['REQUEST_URI']; ?>"
             enctype="multipart/form-data">
-            <?php if ($jkv["rf_simple"]) { ?>
+            <?php if ($setting["rf_simple"]) { ?>
               <div class="form-group<?php if (isset($errorsC["e3"])) echo " has-error"; ?>">
                 <label class="control-label" for="username"><?php echo $tl["login"]["l1"]; ?> <i class="fa fa-star"></i></label>
                 <input type="text" name="username" id="username" class="form-control"
@@ -135,7 +135,7 @@
     <script type="text/javascript">
       $(document).ready(function () {
 
-        <?php if ($jkv["hvm"]) { ?>
+        <?php if ($setting["hvm"]) { ?>
         jQuery(document).ready(function () {
           jQuery(".cFrom").append('<input type="hidden" name="<?php echo $random_name;?>" value="<?php echo $random_value;?>" />');
         });

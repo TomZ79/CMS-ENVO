@@ -5,17 +5,17 @@
 		<form id="ajaxsearchForm" action="<?php echo $P_SEAERCH_LINK; ?>" method="post">
 			<div class="input-group">
 				<input type="text" name="envoSH" id="Jajaxs" class="form-control" placeholder="<?php echo $tl["placeholder"]["plc"];
-				if ($jkv["fulltextsearch"]) echo $tl["placeholder"]["plc1"]; ?>">
+				if ($setting["fulltextsearch"]) echo $tl["placeholder"]["plc1"]; ?>">
 			      <span class="input-group-btn">
 			        <button type="submit" class="btn btn-color" name="search" id="JajaxSubmitSearch"><?php echo $tl["button"]["btn4"]; ?></button>
 			      </span>
 			</div><!-- /input-group -->
-			<?php if ($jkv["ajaxsearch"] && $AJAX_SEARCH_PLUGIN_URL) { ?>
+			<?php if ($setting["ajaxsearch"] && $AJAX_SEARCH_PLUGIN_URL) { ?>
 				<input type="hidden" name="SearchWhere[]" value="<?php echo $AJAX_SEARCH_PLUGIN_WHERE; ?>"/>
 			<?php } ?>
 		</form>
 
-		<?php if ($jkv["ajaxsearch"] && $AJAX_SEARCH_PLUGIN_URL) { ?>
+		<?php if ($setting["ajaxsearch"] && $AJAX_SEARCH_PLUGIN_URL) { ?>
 			<div class="row">
 				<div class="col-xs-5">
 					<div class="hideAdvSearchResult"><a class="btn btn-default btn-xs" href="<?php echo $P_SEAERCH_LINK; ?>"><i

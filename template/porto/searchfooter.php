@@ -5,7 +5,7 @@
 		<div class="input-group">
 			<input type="text" name="envoSH" id="Jajaxs" class="form-control search-query"
 				placeholder="<?php echo $tl["placeholder"]["plc"];
-				if ($jkv["fulltextsearch"]) echo $tl["placeholder"]["plc1"]; ?>">
+				if ($setting["fulltextsearch"]) echo $tl["placeholder"]["plc1"]; ?>">
 		    <span class="input-group-btn">
 		    	<button type="submit" class="btn btn-default" name="search"><?php echo $tl["general"]["g83"]; ?></button>
 		    </span>
