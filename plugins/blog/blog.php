@@ -29,10 +29,10 @@ $ENVO_SEARCH_LINK  = ENVO_PLUGIN_VAR_BLOG;
 // AJAX Search
 $AJAX_SEARCH_PLUGIN_WHERE = $envotable;
 $AJAX_SEARCH_PLUGIN_URL   = 'plugins/blog/ajaxsearch.php';
-$AJAX_SEARCH_PLUGIN_SEO   = $jkv["blogurl"];
+$AJAX_SEARCH_PLUGIN_SEO   = $setting["blogurl"];
 
 // Get the rss if active
-if ($jkv["blogrss"]) {
+if ($setting["blogrss"]) {
   $ENVO_RSS_DISPLAY = 1;
   $P_RSS_LINK      = ENVO_rewrite::envoParseurl('rss.xml', ENVO_PLUGIN_VAR_BLOG, '', '', '');
 }
@@ -54,7 +54,7 @@ switch ($page1) {
 
     if (is_numeric($page2) && envo_row_permission($page2, $envotable1, ENVO_USERGROUPID)) {
 
-      if ($jkv["blogurl"]) {
+      if ($setting["blogurl"]) {
         $getWhere = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_BLOG, $page1, $page2, $page3, '');
         $getPage  = $page4;
       } else {
@@ -70,8 +70,8 @@ switch ($page1) {
         // Paginator
         $blogc                 = new ENVO_paginator;
         $blogc->items_total    = $getTotal["totalAll"];
-        $blogc->mid_range      = $jkv["blogpagemid"];
-        $blogc->items_per_page = $jkv["blogpageitem"];
+        $blogc->mid_range      = $setting["blogpagemid"];
+        $blogc->items_per_page = $setting["blogpageitem"];
         $blogc->envo_get_page   = $getPage;
         $blogc->envo_where      = $getWhere;
         $blogc->envo_prevtext   = $tl["pagination"]["pagin"];
@@ -81,14 +81,14 @@ switch ($page1) {
 
       }
 
-      $ENVO_BLOG_ALL = envo_get_blog($blogc->limit, $jkv["blogorder"], $page2, 't1.catid', $jkv["blogurl"], $tl['global_text']['gtxt4']);
+      $ENVO_BLOG_ALL = envo_get_blog($blogc->limit, $setting["blogorder"], $page2, 't1.catid', $setting["blogurl"], $tl['global_text']['gtxt4']);
 
       $row = $envodb->queryRow('SELECT name, content FROM ' . $envotable1 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
 
       $PAGE_TITLE              = ENVO_PLUGIN_NAME_BLOG . ' - ' . $row['name'];
       $PAGE_CONTENT            = $row['content'];
       $MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
-      $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];
+      $MAIN_SITE_DESCRIPTION   = $setting['metadesc'];
 
       // Get the sort orders for the grid
       $ENVO_HOOK_SIDE_GRID = FALSE;
@@ -107,7 +107,7 @@ switch ($page1) {
 
       if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-      $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($row['name']) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+      $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($row['name']) . ($keylist ? "," . $keylist : "") . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
 
       // SEO from the category content if available
       if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
@@ -116,8 +116,8 @@ switch ($page1) {
         $PAGE_DESCRIPTION = envo_cut_text($MAIN_SITE_DESCRIPTION, 155, '');
       }
 
-      $ENVO_HEADER_CSS        = $jkv["blog_css"];
-      $ENVO_FOOTER_JAVASCRIPT = $jkv["blog_javascript"];
+      $ENVO_HEADER_CSS        = $setting["blog_css"];
+      $ENVO_FOOTER_JAVASCRIPT = $setting["blog_javascript"];
 
       // EN: Load the php template
       // CZ: Načtení php template (šablony)
@@ -175,9 +175,9 @@ switch ($page1) {
           $BLOG_HITS                   = $row['hits'];
           $ENVO_HEADER_CSS              = $row['blog_css'];
           $ENVO_FOOTER_JAVASCRIPT       = $row['blog_javascript'];
-          $jkv["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
+          $setting["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
 
-          $PAGE_TIME       = ENVO_base::envoTimesince($row['time'], $jkv["blogdateformat"], $jkv["blogtimeformat"], $tl['global_text']['gtxt4']);
+          $PAGE_TIME       = ENVO_base::envoTimesince($row['time'], $setting["blogdateformat"], $setting["blogtimeformat"], $tl['global_text']['gtxt4']);
           $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
           // Display contact form if whish so and do the caching
@@ -209,7 +209,7 @@ switch ($page1) {
         $nextp = envo_next_page($page2, 'title', $envotable, 'id', ' AND catid != 0', '', 'active');
         if ($nextp) {
 
-          if ($jkv["blogurl"]) {
+          if ($setting["blogurl"]) {
             $seo = ENVO_base::envoCleanurl($nextp['title']);
           }
 
@@ -220,7 +220,7 @@ switch ($page1) {
         $prevp = envo_previous_page($page2, 'title', $envotable, 'id', ' AND catid != 0', '', 'active');
         if ($prevp) {
 
-          if ($jkv["blogurl"]) {
+          if ($setting["blogurl"]) {
             $seop = ENVO_base::envoCleanurl($prevp['title']);
           }
 
@@ -232,7 +232,7 @@ switch ($page1) {
         $resultc = $envodb->query('SELECT id, name, varname FROM ' . $envotable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
         while ($rowc = $resultc->fetch_assoc()) {
 
-          if ($jkv["blogurl"]) {
+          if ($setting["blogurl"]) {
             $seoc = ENVO_base::envoCleanurl($rowc['varname']);
           }
 
@@ -262,7 +262,7 @@ switch ($page1) {
       $keytags = preg_split('/\s+/', strip_tags($ENVO_TAGLIST));
       $keytags = ',' . implode(',', $keytags);
     }
-    $PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+    $PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . $keytags . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
     $PAGE_DESCRIPTION = envo_cut_text($PAGE_CONTENT, 155, '');
 
     // EN: Load the php template
@@ -286,8 +286,8 @@ switch ($page1) {
       // Paginator
       $blog                 = new ENVO_paginator;
       $blog->items_total    = $getTotal;
-      $blog->mid_range      = $jkv["blogpagemid"];
-      $blog->items_per_page = $jkv["blogpageitem"];
+      $blog->mid_range      = $setting["blogpagemid"];
+      $blog->items_per_page = $setting["blogpageitem"];
       $blog->envo_get_page   = $page1;
       $blog->envo_where      = $backtoblog;
       $blog->envo_prevtext   = $tl["pagination"]["pagin"];
@@ -297,18 +297,18 @@ switch ($page1) {
       // Pagination
       $ENVO_PAGINATE = $blog->display_pages();
       // Get all blogs
-      $ENVO_BLOG_ALL = envo_get_blog($blog->limit, $jkv["blogorder"], '', '', $jkv["blogurl"], $tl['global_text']['gtxt4']);
+      $ENVO_BLOG_ALL = envo_get_blog($blog->limit, $setting["blogorder"], '', '', $setting["blogurl"], $tl['global_text']['gtxt4']);
 
     }
 
     // Get the categories
-    $ENVO_BLOG_CAT = ENVO_base::envoGetcatmix(ENVO_PLUGIN_VAR_BLOG, '', $envotable1, ENVO_USERGROUPID, $jkv["blogurl"]);
+    $ENVO_BLOG_CAT = ENVO_base::envoGetcatmix(ENVO_PLUGIN_VAR_BLOG, '', $envotable1, ENVO_USERGROUPID, $setting["blogurl"]);
 
     // EN: Set data for the frontend page - Title, Description, Keywords and other ...
     // CZ: Nastavení dat pro frontend stránku - Titulek, Popis, Klíčová slova a další ...
-    $PAGE_TITLE              = $jkv["blogtitle"];
+    $PAGE_TITLE              = $setting["blogtitle"];
     $MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
-    $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];
+    $MAIN_SITE_DESCRIPTION   = $setting['metadesc'];
 
     // Get the url session
     $_SESSION['envo_lastURL'] = $backtoblog;
@@ -327,7 +327,7 @@ switch ($page1) {
 
     if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-    $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+    $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
 
     // SEO from the category content if available
     if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
@@ -337,8 +337,8 @@ switch ($page1) {
     }
 
     // Get the CSS and Javascript into the page
-    $ENVO_HEADER_CSS        = $jkv["blog_css"];
-    $ENVO_FOOTER_JAVASCRIPT = $jkv["blog_javascript"];
+    $ENVO_HEADER_CSS        = $setting["blog_css"];
+    $ENVO_FOOTER_JAVASCRIPT = $setting["blog_javascript"];
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)

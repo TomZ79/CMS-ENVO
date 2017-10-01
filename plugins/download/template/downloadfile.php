@@ -32,7 +32,7 @@
 
 <?php
 if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=download&amp;sp=edit&amp;id=' . $PAGE_ID;
-if ($jkv["printme"]) $printme = 1;
+if ($setting["printme"]) $printme = 1;
 $qapedit = BASE_URL . 'admin/index.php?p=download&amp;sp=quickedit&amp;id=' . $PAGE_ID;
 
 if ($DL_PASSWORD && !ENVO_ASACCESS && $DL_PASSWORD != $_SESSION['pagesecurehash' . $PAGE_ID]) { ?>

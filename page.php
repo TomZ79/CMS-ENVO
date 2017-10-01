@@ -30,7 +30,7 @@ $PAGE_TITLE            = $row['title'];
 $PAGE_CONTENT          = $row['content'];
 $PAGE_SHOWTITLE        = $row['showtitle'];
 $MAIN_DESCRIPTION      = $ca['metadesc'];
-$MAIN_SITE_DESCRIPTION = $jkv['metadesc'];
+$MAIN_SITE_DESCRIPTION = $setting['metadesc'];
 $SHOWDATE              = $row['showdate'];
 $SHOWTAGS              = $row['showtags'];
 $SHOWSOCIALBUTTON      = $row['socialbutton'];
@@ -38,10 +38,10 @@ $PAGE_ACTIVE           = $row['active'];
 $PAGE_PASSWORD               = $row['password'];
 $ENVO_HEADER_CSS              = $row['page_css'];
 $ENVO_FOOTER_JAVASCRIPT       = $row['page_javascript'];
-$jkv["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
+$setting["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
 
 $PAGE_LOGIN_FORM = $row['showlogin'];
-$PAGE_TIME       = ENVO_base::envoTimesince($row['time'], $jkv["dateformat"], $jkv["timeformat"], $tl['global_text']['gtxt4']);
+$PAGE_TIME       = ENVO_base::envoTimesince($row['time'], $setting["dateformat"], $setting["timeformat"], $tl['global_text']['gtxt4']);
 $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
 if (ENVO_USERID) {
@@ -72,11 +72,11 @@ if (!empty($row['shownews'])) {
 
   if (is_array($shownewsarray) && in_array("ASC", $shownewsarray) || in_array("DESC", $shownewsarray)) {
 
-    $ENVO_NEWS_IN_CONTENT = envo_get_news('LIMIT ' . $shownewsarray[2], '', ENVO_PLUGIN_VAR_NEWS, $shownewsarray[0] . ' ' . $shownewsarray[1], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
+    $ENVO_NEWS_IN_CONTENT = envo_get_news('LIMIT ' . $shownewsarray[2], '', ENVO_PLUGIN_VAR_NEWS, $shownewsarray[0] . ' ' . $shownewsarray[1], $setting["newsdateformat"], $setting["newstimeformat"], $tl['global_text']['gtxt4']);
 
   } else {
 
-    $ENVO_NEWS_IN_CONTENT = envo_get_news('', $row['shownews'], ENVO_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
+    $ENVO_NEWS_IN_CONTENT = envo_get_news('', $row['shownews'], ENVO_PLUGIN_VAR_NEWS, $setting["newsorder"], $setting["newsdateformat"], $setting["newstimeformat"], $tl['global_text']['gtxt4']);
   }
 
   // Set news load to false
@@ -121,7 +121,7 @@ if ($ENVO_TAGLIST) {
   $keytags = preg_split('/\s+/', strip_tags($ENVO_TAGLIST));
   $keytags = ',' . implode(',', $keytags);
 }
-$PAGE_KEYWORDS = str_replace(" ", " ", ($jkv["metakey"] ? $jkv["metakey"] : ENVO_base::envoCleanurl($row['title']) . $keytags) . ($ca['metakey'] ? "," . $ca['metakey'] : ""));
+$PAGE_KEYWORDS = str_replace(" ", " ", ($setting["metakey"] ? $setting["metakey"] : ENVO_base::envoCleanurl($row['title']) . $keytags) . ($ca['metakey'] ? "," . $ca['metakey'] : ""));
 
 
 // SEO from the category content if available

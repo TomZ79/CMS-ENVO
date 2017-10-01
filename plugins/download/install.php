@@ -234,20 +234,20 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
         	$download->envoFieldstoSelect(\"id, title, content\");
         	
         	// Load the array into template
-        	$ENVO_SEARCH_RESULT_DOWNLOAD = $download->set_result(ENVO_PLUGIN_VAR_DOWNLOAD, \'f\', $jkv[\"downloadurl\"]);';
+        	$ENVO_SEARCH_RESULT_DOWNLOAD = $download->set_result(ENVO_PLUGIN_VAR_DOWNLOAD, \'f\', $setting[\"downloadurl\"]);';
 
       // EN: Php code for rss
       // CZ: Php kód pro rss
       $sitephprss = 'if ($page1 == ENVO_PLUGIN_VAR_DOWNLOAD) {
 	
-	if ($jkv[\"downloadrss\"]) {
-		$sql = \'SELECT id, title, content, time FROM \'.DB_PREFIX.\'download WHERE active = 1 ORDER BY time DESC LIMIT \'.$jkv[\"downloadrss\"];
+	if ($setting[\"downloadrss\"]) {
+		$sql = \'SELECT id, title, content, time FROM \'.DB_PREFIX.\'download WHERE active = 1 ORDER BY time DESC LIMIT \'.$setting[\"downloadrss\"];
 		$sURL = ENVO_PLUGIN_VAR_DOWNLOAD;
 		$sURL1 = \'a\';
 		$what = 1;
-		$seowhat = $jkv[\"downloadurl\"];
+		$seowhat = $setting[\"downloadurl\"];
 		
-		$ENVO_RSS_DESCRIPTION = envo_cut_text($jkv[\"downloaddesc\"], $jkv[\"shortmsg\"], \'…\');
+		$ENVO_RSS_DESCRIPTION = envo_cut_text($setting[\"downloaddesc\"], $setting[\"shortmsg\"], \'…\');
 		
 	} else {
 		envo_redirect(BASE_URL);
@@ -258,7 +258,7 @@ if (file_exists(APP_PATH . 'plugins/download/admin/lang/' . $site_language . '.i
       // EN: Php code for tags
       // CZ: Php kód pro tagy
       $sitephptag = 'if ($row[\'pluginid\'] == ENVO_PLUGIN_ID_DOWNLOAD) {
-$downloadtagData[] = ENVO_tags::envoTagSql(\"download\", $row[\'itemid\'], \"id, title, content\", \"content\", ENVO_PLUGIN_VAR_DOWNLOAD, \"f\", $jkv[\"downloadurl\"]);
+$downloadtagData[] = ENVO_tags::envoTagSql(\"download\", $row[\'itemid\'], \"id, title, content\", \"content\", ENVO_PLUGIN_VAR_DOWNLOAD, \"f\", $setting[\"downloadurl\"]);
 $ENVO_TAG_DOWNLOAD_DATA = $downloadtagData;
 }';
 
@@ -266,7 +266,7 @@ $ENVO_TAG_DOWNLOAD_DATA = $downloadtagData;
       // CZ: Php kód pro mapu sítě
       $sitephpsitemap = 'include_once APP_PATH.\'plugins/download/functions.php\';
 
-$ENVO_DOWNLOAD_ALL = envo_get_download(\'\', $jkv[\"downloadorder\"], \'\', \'\', $jkv[\"downloadrss\"], $jkv[\"downloadurl\"], $tl[\'general\'][\'g56\']);
+$ENVO_DOWNLOAD_ALL = envo_get_download(\'\', $setting[\"downloadorder\"], \'\', \'\', $setting[\"downloadrss\"], $setting[\"downloadurl\"], $tl[\'general\'][\'g56\']);
 $PAGE_TITLE = ENVO_PLUGIN_NAME_DOWNLOAD;';
 
       // Fulltext search query
@@ -318,7 +318,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
       // CZ: Frontend - šablona
       $get_dlconnect = '
 	$pluginbasic_connect = \'plugins/download/template/pages_news.php\';
-	$pluginsite_connect = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/download/pages_news.php\';
+	$pluginsite_connect = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/download/pages_news.php\';
 	
 	if (ENVO_PLUGIN_ACCESS_DOWNLOAD && $pg[\'pluginid\'] == ENVO_PLUGIN_ID_DOWNLOAD && !empty($row[\'showdownload\'])) {
 		if (file_exists($pluginsite_connect)) {
@@ -333,7 +333,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
       // CZ: Frontend - šablona pro zobrazení postranního panelu pluginu
       $get_dlsidebar = '
 	$pluginbasic_sidebar = \'plugins/download/template/downloadsidebar.php\';
-	$pluginsite_sidebar = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/download/downloadsidebar.php\';
+	$pluginsite_sidebar = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/download/downloadsidebar.php\';
 	
 	if (file_exists($pluginsite_sidebar)) {
 		include_once APP_PATH.$pluginsite_sidebar;
@@ -346,7 +346,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
       // CZ: Frontend - šablona pro mapu sítě
       $get_dlsitemap = '
 	$pluginbasic_sitemap = \'plugins/download/template/sitemap.php\';
-	$pluginsite_sitemap = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/download/sitemap.php\';
+	$pluginsite_sitemap = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/download/sitemap.php\';
 	
 	if (file_exists($pluginsite_sitemap)) {
 		include_once APP_PATH.$pluginsite_sitemap;
@@ -359,7 +359,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
       // CZ: Frontend - šablona pro vyhledávání
       $get_dlsearch = '
 	$pluginbasic_search = \'plugins/download/template/search.php\';
-	$pluginsite_search = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/download/search.php\';
+	$pluginsite_search = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/download/search.php\';
 	
 	if (file_exists($pluginsite_search)) {
 		include_once APP_PATH.$pluginsite_search;
@@ -372,7 +372,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
       // CZ: Frontend - šablona pro tagy
       $get_dltag = '
 	$pluginbasic_tag = \'plugins/download/template/tag.php\';
-	$pluginsite_tag = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/download/tag.php\';
+	$pluginsite_tag = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/download/tag.php\';
 	
 	if (file_exists($pluginsite_tag)) {
 		include_once APP_PATH.$pluginsite_tag;
@@ -385,7 +385,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
       // CZ: Frontend - šablona pro zobrazení widgetu
       $get_dlfooter_widgets = '
 	$pluginbasic_fwidgets = \'plugins/download/template/footer_widget.php\';
-	$pluginsite_fwidgets = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/download/footer_widget.php\';
+	$pluginsite_fwidgets = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/download/footer_widget.php\';
 	
 	if (file_exists($pluginsite_fwidgets)) {
 		include_once APP_PATH.$pluginsite_fwidgets;
@@ -398,7 +398,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
       // CZ: Frontend - šablona pro zobrazení widgetu
       $get_dlfooter_widgets1 = '
 	$pluginbasic_fwidgets1 = \'plugins/download/template/footer_widget1.php\';
-	$pluginsite_fwidgets1 = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/download/footer_widget1.php\';
+	$pluginsite_fwidgets1 = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/download/footer_widget1.php\';
 	
 	if (file_exists($pluginsite_fwidgets1)) {
 		include_once APP_PATH.$pluginsite_fwidgets1;
@@ -532,7 +532,7 @@ if (is_array($showdlarray) && in_array(\"ASC\", $showdlarray) || in_array(\"DESC
 ) ENGINE = MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1');
 
       // Full text search is activated we do so for the download table as well
-      if ($jkv["fulltextsearch"]) {
+      if ($setting["fulltextsearch"]) {
         $envodb->query('ALTER TABLE ' . DB_PREFIX . 'download ADD FULLTEXT(`title`, `content`)');
       }
 

@@ -614,7 +614,7 @@ if ($errors) { ?>
                           if (isset($site_dload_files) && is_array($site_dload_files)) foreach ($site_dload_files as $l) {
 
                             $selected = ($_REQUEST["envo_file"] == $l) ? TRUE : FALSE;
-                            echo $Html->addOption($l, $jkv["downloadpath"] . "/" . $l, $selected);
+                            echo $Html->addOption($l, $setting["downloadpath"] . "/" . $l, $selected);
 
                           }
                           ?>

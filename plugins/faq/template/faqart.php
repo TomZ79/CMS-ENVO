@@ -21,7 +21,7 @@
 
 <?php if (ENVO_ASACCESS) $apedit = BASE_URL . 'admin/index.php?p=faq&amp;sp=edit&amp;id=' . $PAGE_ID;
 $qapedit = BASE_URL . 'admin/index.php?p=faq&amp;sp=quickedit&amp;id=' . $PAGE_ID;
-if ($jkv["printme"]) $printme = 1; ?>
+if ($setting["printme"]) $printme = 1; ?>
 
   <div id="printdiv">
     <div class="row">

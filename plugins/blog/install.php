@@ -213,20 +213,20 @@ if (file_exists(APP_PATH . 'plugins/blog/admin/lang/' . $site_language . '.ini')
         	$blog->envoFieldstoSelect(\"id, title, content\");
         	
         	// Load the array into template
-        	$ENVO_SEARCH_RESULT_BLOG = $blog->set_result(ENVO_PLUGIN_VAR_BLOG, \'a\', $jkv[\"blogurl\"]);';
+        	$ENVO_SEARCH_RESULT_BLOG = $blog->set_result(ENVO_PLUGIN_VAR_BLOG, \'a\', $setting[\"blogurl\"]);';
 
       // EN: Php code for rss
       // CZ: Php kód pro rss
       $sitephprss = 'if ($page1 == ENVO_PLUGIN_VAR_BLOG) {
 	
-	if ($jkv[\"blogrss\"]) {
-		$sql = \'SELECT id, title, content, time FROM \'.DB_PREFIX.\'blog WHERE active = 1 ORDER BY time DESC LIMIT \'.$jkv[\"blogrss\"];
+	if ($setting[\"blogrss\"]) {
+		$sql = \'SELECT id, title, content, time FROM \'.DB_PREFIX.\'blog WHERE active = 1 ORDER BY time DESC LIMIT \'.$setting[\"blogrss\"];
 		$sURL = ENVO_PLUGIN_VAR_BLOG;
 		$sURL1 = \'a\';
 		$what = 1;
-		$seowhat = $jkv[\"blogurl\"];
+		$seowhat = $setting[\"blogurl\"];
 		
-		$ENVO_RSS_DESCRIPTION = envo_cut_text($jkv[\"blogdesc\"], $jkv[\"shortmsg\"], \'…\');
+		$ENVO_RSS_DESCRIPTION = envo_cut_text($setting[\"blogdesc\"], $setting[\"shortmsg\"], \'…\');
 		
 	} else {
 		envo_redirect(BASE_URL);
@@ -237,7 +237,7 @@ if (file_exists(APP_PATH . 'plugins/blog/admin/lang/' . $site_language . '.ini')
       // EN: Php code for tags
       // CZ: Php kód pro tagy
       $sitephptag = 'if ($row[\'pluginid\'] == ENVO_PLUGIN_ID_BLOG) {
-$blogtagData[] = ENVO_tags::envoTagSql(\"blog\", $row[\'itemid\'], \"id, title, content\", \"content\", ENVO_PLUGIN_VAR_BLOG, \"a\", $jkv[\"blogurl\"]);
+$blogtagData[] = ENVO_tags::envoTagSql(\"blog\", $row[\'itemid\'], \"id, title, content\", \"content\", ENVO_PLUGIN_VAR_BLOG, \"a\", $setting[\"blogurl\"]);
 $ENVO_TAG_BLOG_DATA = $blogtagData;
 }';
 
@@ -245,7 +245,7 @@ $ENVO_TAG_BLOG_DATA = $blogtagData;
       // CZ: Php kód pro mapu sítě
       $sitephpsitemap = 'include_once APP_PATH.\'plugins/blog/functions.php\';
 
-$ENVO_BLOG_ALL = envo_get_blog(\'\', $jkv[\"blogorder\"], \'\', \'\', $jkv[\"blogurl\"], $tl[\'general\'][\'g56\']);
+$ENVO_BLOG_ALL = envo_get_blog(\'\', $setting[\"blogorder\"], \'\', \'\', $setting[\"blogurl\"], $tl[\'general\'][\'g56\']);
 $PAGE_TITLE = ENVO_PLUGIN_NAME_BLOG;';
 
       // Fulltext search query
@@ -294,7 +294,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
       // CZ: Frontend - šablona
       $get_blconnect = '
 	$pluginbasic_connect = \'plugins/blog/template/pages_news.php\';
-	$pluginsite_connect = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/pages_news.php\';
+	$pluginsite_connect = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/blog/pages_news.php\';
 	
 	if (ENVO_PLUGIN_ACCESS_BLOG && $pg[\'pluginid\'] == ENVO_PLUGIN_ID_BLOG && !empty($row[\'showblog\'])) {
 		if (file_exists($pluginsite_connect)) {
@@ -309,7 +309,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
       // CZ: Frontend - šablona pro zobrazení postranního panelu pluginu
       $get_blsidebar = '
 	$pluginbasic_sidebar = \'plugins/blog/template/blogsidebar.php\';
-	$pluginsite_sidebar = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/blogsidebar.php\';
+	$pluginsite_sidebar = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/blog/blogsidebar.php\';
 	
 	if (file_exists($pluginsite_sidebar)) {
 		include_once APP_PATH.$pluginsite_sidebar;
@@ -322,7 +322,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
       // CZ: Frontend - šablona pro mapu sítě
       $get_blsitemap = '
 	$pluginbasic_sitemap = \'plugins/blog/template/sitemap.php\';
-	$pluginsite_sitemap = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/sitemap.php\';
+	$pluginsite_sitemap = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/blog/sitemap.php\';
 	
 	if (file_exists($pluginsite_sitemap)) {
 		include_once APP_PATH.$pluginsite_sitemap;
@@ -335,7 +335,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
       // CZ: Frontend - šablona pro vyhledávání
       $get_blsearch = '
 	$pluginbasic_search = \'plugins/blog/template/search.php\';
-	$pluginsite_search = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/search.php\';
+	$pluginsite_search = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/blog/search.php\';
 	
 	if (file_exists($pluginsite_search)) {
 		include_once APP_PATH.$pluginsite_search;
@@ -348,7 +348,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
       // CZ: Frontend - šablona pro tagy
       $get_bltag = '
 	$pluginbasic_tag = \'plugins/blog/template/tag.php\';
-	$pluginsite_tag = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/tag.php\';
+	$pluginsite_tag = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/blog/tag.php\';
 	
 	if (file_exists($pluginsite_tag)) {
 		include_once APP_PATH.$pluginsite_tag;
@@ -361,7 +361,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
       // CZ: Frontend - šablona pro zobrazení widgetu
       $get_blfooter_widgets = '
 	$pluginbasic_fwidgets = \'plugins/blog/template/footer_widget.php\';
-	$pluginsite_fwidgets = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/footer_widget.php\';
+	$pluginsite_fwidgets = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/blog/footer_widget.php\';
 	
 	if (file_exists($pluginsite_fwidgets)) {
 		include_once APP_PATH.$pluginsite_fwidgets;
@@ -374,7 +374,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
       // CZ: Frontend - šablona pro zobrazení widgetu
       $get_blfooter_widgets1 = '
 	$pluginbasic_fwidgets1 = \'plugins/blog/template/footer_widget1.php\';
-	$pluginsite_fwidgets1 = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/blog/footer_widget1.php\';
+	$pluginsite_fwidgets1 = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/blog/footer_widget1.php\';
 	
 	if (file_exists($pluginsite_fwidgets1)) {
 		include_once APP_PATH.$pluginsite_fwidgets1;
@@ -487,7 +487,7 @@ if (is_array($showblogarray) && in_array(\"ASC\", $showblogarray) || in_array(\"
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
       // Full text search is activated we do so for the blog table as well
-      if ($jkv["fulltextsearch"]) {
+      if ($setting["fulltextsearch"]) {
         $envodb->query('ALTER TABLE ' . DB_PREFIX . 'blog ADD FULLTEXT(`title`, `content`)');
       }
 

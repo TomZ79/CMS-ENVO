@@ -713,7 +713,7 @@ switch ($page1) {
     }
 
     // Now let's check how to display the order
-    $showblogarray = explode(" ", $jkv["blogorder"]);
+    $showblogarray = explode(" ", $setting["blogorder"]);
 
     if (is_array($showblogarray) && in_array("ASC", $showblogarray) || in_array("DESC", $showblogarray)) {
 
@@ -805,8 +805,8 @@ switch ($page1) {
           // Paginator
           $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
-          $pages->mid_range      = $jkv["adminpagemid"];
-          $pages->items_per_page = $jkv["adminpageitem"];
+          $pages->mid_range      = $setting["adminpagemid"];
+          $pages->items_per_page = $setting["adminpageitem"];
           $pages->envo_get_page   = $page3;
           $pages->envo_where      = 'index.php?p=blog&sp=showcat&ssp=' . $page2;
           $pages->paginate();

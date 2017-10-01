@@ -45,9 +45,9 @@ switch ($page1) {
 
     // EN: Set data for the frontend page - Title, Description, Keywords and other ...
     // CZ: Nastavení dat pro frontend stránku - Titulek, Popis, Klíčová slova a další ...
-    $PAGE_TITLE              = $jkv["blankplugintitle"];
+    $PAGE_TITLE              = $setting["blankplugintitle"];
     $MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
-    $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];
+    $MAIN_SITE_DESCRIPTION   = $setting['metadesc'];
 
     // SEO from the category content if available
     if (!empty($MAIN_PLUGIN_DESCRIPTION)) {

@@ -29,10 +29,10 @@
     // parameters, refer to http://dev.twitter.com/pages/intents#tweet-intent
 
     $('#tweetLink').tweetAction({
-      text: "<?php echo $PAGE_TITLE . ' - ' . $jkv["title"];?>",
+      text: "<?php echo $PAGE_TITLE . ' - ' . $setting["title"];?>",
       url: '<?php echo BASE_URL . ENVO_PARSE_REQUEST;?>',
-      via: '<?php echo $jkv["downloadtwitter"];?>',
-      related: '<?php echo $jkv["downloadtwitter"];?>'
+      via: '<?php echo $setting["downloadtwitter"];?>',
+      related: '<?php echo $setting["downloadtwitter"];?>'
     }, function () {
 
       // Callback function. Triggered when the user closes the pop-up window

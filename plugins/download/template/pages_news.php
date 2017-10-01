@@ -33,11 +33,11 @@ $showdlarray = explode(":", $row['showdownload']);
 
 if (is_array($showdlarray) && in_array("ASC", $showdlarray) || in_array("DESC", $showdlarray)) {
 
-  $ENVO_DOWNLOAD = envo_get_download('LIMIT ' . $showdlarray[1], 't1.id ' . $showdlarray[0], '', 't1.id', $jkv["downloadurl"], $tl['global_text']['gtxt4']);
+  $ENVO_DOWNLOAD = envo_get_download('LIMIT ' . $showdlarray[1], 't1.id ' . $showdlarray[0], '', 't1.id', $setting["downloadurl"], $tl['global_text']['gtxt4']);
 
 } else {
 
-  $ENVO_DOWNLOAD = envo_get_download('', 't1.id ASC', $row['showdownload'], 't1.id', $jkv["downloadurl"], $tl['global_text']['gtxt4']);
+  $ENVO_DOWNLOAD = envo_get_download('', 't1.id ASC', $row['showdownload'], 't1.id', $setting["downloadurl"], $tl['global_text']['gtxt4']);
 }
 
 ?>

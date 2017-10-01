@@ -30,10 +30,10 @@ $ENVO_SEARCH_LINK  = ENVO_PLUGIN_VAR_FAQ;
 // AJAX Search
 $AJAX_SEARCH_PLUGIN_WHERE = $envotable;
 $AJAX_SEARCH_PLUGIN_URL   = 'plugins/faq/ajaxsearch.php';
-$AJAX_SEARCH_PLUGIN_SEO   = $jkv["faqurl"];
+$AJAX_SEARCH_PLUGIN_SEO   = $setting["faqurl"];
 
 // Get the rss if active
-if ($jkv["faqrss"]) {
+if ($setting["faqrss"]) {
   $ENVO_RSS_DISPLAY = 1;
   $P_RSS_LINK      = ENVO_rewrite::envoParseurl('rss.xml', ENVO_PLUGIN_VAR_FAQ, '', '', '');
 }
@@ -57,7 +57,7 @@ switch ($page1) {
 
       $getTotal = envo_get_total($envotable, $page2, 'catid', 'active');
 
-      if ($jkv["faqurl"]) {
+      if ($setting["faqurl"]) {
         $getWhere = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_FAQ, $page1, $page2, $page3, '');
         $getPage  = $page4;
       } else {
@@ -70,8 +70,8 @@ switch ($page1) {
         // Paginator
         $faqc                 = new ENVO_paginator;
         $faqc->items_total    = $getTotal;
-        $faqc->mid_range      = $jkv["faqpagemid"];
-        $faqc->items_per_page = $jkv["faqpageitem"];
+        $faqc->mid_range      = $setting["faqpagemid"];
+        $faqc->items_per_page = $setting["faqpageitem"];
         $faqc->envo_get_page   = $getPage;
         $faqc->envo_where      = $getWhere;
         $faqc->envo_prevtext   = $tl["pagination"]["pagin"];
@@ -80,7 +80,7 @@ switch ($page1) {
         $ENVO_PAGINATE = $faqc->display_pages();
       }
 
-      $ENVO_FAQ_ALL = envo_get_faq($faqc->limit, $jkv["faqorder"], $page2, 't1.catid', $jkv["faqurl"], $tl['global_text']['gtxt4']);
+      $ENVO_FAQ_ALL = envo_get_faq($faqc->limit, $setting["faqorder"], $page2, 't1.catid', $setting["faqurl"], $tl['global_text']['gtxt4']);
 
       $result = $envodb->query('SELECT name' . ', content' . ' FROM ' . $envotable1 . ' WHERE id = "' . smartsql($page2) . '" LIMIT 1');
       $row    = $result->fetch_assoc();
@@ -88,7 +88,7 @@ switch ($page1) {
       $PAGE_TITLE              = ENVO_PLUGIN_NAME_FAQ . ' - ' . $row['name'];
       $PAGE_CONTENT            = $row['content'];
       $MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
-      $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];
+      $MAIN_SITE_DESCRIPTION   = $setting['metadesc'];
 
       // Get the sort orders for the grid
       $ENVO_HOOK_SIDE_GRID = FALSE;
@@ -107,7 +107,7 @@ switch ($page1) {
 
       if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-      $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+      $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
 
       // SEO from the category content if available
       if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
@@ -117,8 +117,8 @@ switch ($page1) {
       }
 
       // Get the CSS and Javascript into the page
-      $ENVO_HEADER_CSS        = $jkv["faq_css"];
-      $ENVO_FOOTER_JAVASCRIPT = $jkv["faq_javascript"];
+      $ENVO_HEADER_CSS        = $setting["faq_css"];
+      $ENVO_FOOTER_JAVASCRIPT = $setting["faq_javascript"];
 
       // EN: Load the php template
       // CZ: Načtení php template (šablony)
@@ -169,7 +169,7 @@ switch ($page1) {
           $SHOWSOCIALBUTTON = $row['socialbutton'];
           $FAQ_HITS         = $row['hits'];
 
-          $PAGE_TIME       = ENVO_base::envoTimesince($row['time'], $jkv["faqdateformat"], $jkv["faqtimeformat"], $tl['global_text']['gtxt4']);
+          $PAGE_TIME       = ENVO_base::envoTimesince($row['time'], $setting["faqdateformat"], $setting["faqtimeformat"], $tl['global_text']['gtxt4']);
           $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
           // Display contact form if whish so and do the caching
@@ -201,7 +201,7 @@ switch ($page1) {
         $resultc = $envodb->query('SELECT id, name, varname FROM ' . $envotable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
         while ($rowc = $resultc->fetch_assoc()) {
 
-          if ($jkv["faqurl"]) {
+          if ($setting["faqurl"]) {
             $seoc = ENVO_base::envoCleanurl($rowc['varname']);
           }
 
@@ -224,7 +224,7 @@ switch ($page1) {
         $nextp = envo_next_page($page2, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
         if ($nextp) {
 
-          if ($jkv["faqurl"]) {
+          if ($setting["faqurl"]) {
             $seo = ENVO_base::envoCleanurl($nextp['title']);
           }
 
@@ -235,7 +235,7 @@ switch ($page1) {
         $prevp = envo_previous_page($page2, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
         if ($prevp) {
 
-          if ($jkv["faqurl"]) {
+          if ($setting["faqurl"]) {
             $seop = ENVO_base::envoCleanurl($prevp['title']);
           }
 
@@ -254,7 +254,7 @@ switch ($page1) {
       $keytags = preg_split('/\s+/', strip_tags($ENVO_TAGLIST));
       $keytags = ',' . implode(',', $keytags);
     }
-    $PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+    $PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . $keytags . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
     $PAGE_DESCRIPTION = envo_cut_text($PAGE_CONTENT, 155, '');
 
 
@@ -279,8 +279,8 @@ switch ($page1) {
       // Paginator
       $faq                 = new ENVO_paginator;
       $faq->items_total    = $getTotal;
-      $faq->mid_range      = $jkv["faqpagemid"];
-      $faq->items_per_page = $jkv["faqpageitem"];
+      $faq->mid_range      = $setting["faqpagemid"];
+      $faq->items_per_page = $setting["faqpageitem"];
       $faq->envo_get_page   = $page1;
       $faq->envo_where      = $backtofaq;
       $faq->envo_prevtext   = $tl["pagination"]["pagin"];
@@ -291,16 +291,16 @@ switch ($page1) {
       $ENVO_PAGINATE = $faq->display_pages();
 
       // Get all FAQ articles
-      $ENVO_FAQ_ALL = envo_get_faq($faq->limit, $jkv["faqorder"], '', '', $jkv["faqurl"], $tl['global_text']['gtxt4']);
+      $ENVO_FAQ_ALL = envo_get_faq($faq->limit, $setting["faqorder"], '', '', $setting["faqurl"], $tl['global_text']['gtxt4']);
 
     }
 
     // EN: Set data for the frontend page - Title, Description, Keywords and other ...
     // CZ: Nastavení dat pro frontend stránku - Titulek, Popis, Klíčová slova a další ...
-    $PAGE_TITLE              = $jkv["faqtitle"];
-    $PAGE_CONTENT            = $jkv["faqdesc"];
+    $PAGE_TITLE              = $setting["faqtitle"];
+    $PAGE_CONTENT            = $setting["faqdesc"];
     $MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
-    $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];
+    $MAIN_SITE_DESCRIPTION   = $setting['metadesc'];
 
     // Get the url session
     $_SESSION['envo_lastURL'] = $backtofaq;
@@ -318,7 +318,7 @@ switch ($page1) {
 
     if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-    $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+    $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
 
     // SEO from the category content if available
     if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
@@ -328,8 +328,8 @@ switch ($page1) {
     }
 
     // Get the CSS and Javascript into the page
-    $ENVO_HEADER_CSS        = $jkv["faq_css"];
-    $ENVO_FOOTER_JAVASCRIPT = $jkv["faq_javascript"];
+    $ENVO_HEADER_CSS        = $setting["faq_css"];
+    $ENVO_FOOTER_JAVASCRIPT = $setting["faq_javascript"];
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)

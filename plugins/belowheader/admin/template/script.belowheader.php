@@ -22,7 +22,7 @@ if ($page == 'belowheader') {
 
   // Add Html Element -> addScript (Arguments: src, optional assoc. array)
   // Load 'ace.js'  - only for selected pages
-  if ($jkv["adv_editor"]) {
+  if ($setting["adv_editor"]) {
     // Plugin ACE Editor
     echo $Html->addScript('assets/plugins/ace/ace.js');
   }

@@ -420,7 +420,7 @@ if ($errors) { ?>
                 <table class="table table-striped">
                   <tr>
                     <td>
-                      <?php if ($jkv["adv_editor"]) { ?>
+                      <?php if ($setting["adv_editor"]) { ?>
                         <div id="cover2">
                           <div class="cover-header">
 

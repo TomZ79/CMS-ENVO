@@ -211,20 +211,20 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
         	$faq->envoFieldstoSelect(\"id, title, content\");
         	
         	// Load the array into template
-        	$ENVO_SEARCH_RESULT_FAQ = $faq->set_result(ENVO_PLUGIN_VAR_FAQ, \'a\', $jkv[\"faqurl\"]);';
+        	$ENVO_SEARCH_RESULT_FAQ = $faq->set_result(ENVO_PLUGIN_VAR_FAQ, \'a\', $setting[\"faqurl\"]);';
 
       // EN: Php code for rss
       // CZ: Php kód pro rss
       $sitephprss = 'if ($page1 == ENVO_PLUGIN_VAR_FAQ) {
 	
-	if ($jkv[\"faqrss\"]) {
-		$sql = \'SELECT id, title, content, time FROM \'.DB_PREFIX.\'faq WHERE active = 1 ORDER BY time DESC LIMIT \'.$jkv[\"faqrss\"];
+	if ($setting[\"faqrss\"]) {
+		$sql = \'SELECT id, title, content, time FROM \'.DB_PREFIX.\'faq WHERE active = 1 ORDER BY time DESC LIMIT \'.$setting[\"faqrss\"];
 		$sURL = ENVO_PLUGIN_VAR_FAQ;
 		$sURL1 = \'a\';
 		$what = 1;
-		$seowhat = $jkv[\"faqurl\"];
+		$seowhat = $setting[\"faqurl\"];
 		
-		$ENVO_RSS_DESCRIPTION = envo_cut_text($jkv[\"faqdesc\"], $jkv[\"shortmsg\"], \'…\');
+		$ENVO_RSS_DESCRIPTION = envo_cut_text($setting[\"faqdesc\"], $setting[\"shortmsg\"], \'…\');
 		
 	} else {
 		envo_redirect(BASE_URL);
@@ -235,7 +235,7 @@ if (file_exists(APP_PATH . 'plugins/faq/admin/lang/' . $site_language . '.ini'))
       // EN: Php code for tags
       // CZ: Php kód pro tagy
       $sitephptag = 'if ($row[\'pluginid\'] == ENVO_PLUGIN_ID_FAQ) {
-$faqtagData[] = ENVO_tags::envoTagSql(\"faq\", $row[\'itemid\'], \"id, title, content\", \"content\", ENVO_PLUGIN_VAR_FAQ, \"a\", $jkv[\"faqurl\"]);
+$faqtagData[] = ENVO_tags::envoTagSql(\"faq\", $row[\'itemid\'], \"id, title, content\", \"content\", ENVO_PLUGIN_VAR_FAQ, \"a\", $setting[\"faqurl\"]);
 $ENVO_TAG_FAQ_DATA = $faqtagData;
 }';
 
@@ -243,7 +243,7 @@ $ENVO_TAG_FAQ_DATA = $faqtagData;
       // CZ: Php kód pro mapu sítě
       $sitephpsitemap = 'include_once APP_PATH.\'plugins/faq/functions.php\';
 
-$ENVO_FAQ_ALL = envo_get_faq(\'\', $jkv[\"faqorder\"], \'\', \'\', $jkv[\"faqurl\"], $tl[\'general\'][\'g56\']);
+$ENVO_FAQ_ALL = envo_get_faq(\'\', $setting[\"faqorder\"], \'\', \'\', $setting[\"faqurl\"], $tl[\'general\'][\'g56\']);
 $PAGE_TITLE = ENVO_PLUGIN_NAME_FAQ;';
 
       // Fulltext search query
@@ -293,7 +293,7 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
       // CZ: Frontend - šablona
       $get_faqconnect = '
 	$pluginbasic_connect = \'plugins/faq/template/pages_news.php\';
-	$pluginsite_connect = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/faq/pages_news.php\';
+	$pluginsite_connect = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/faq/pages_news.php\';
 	
 	if (ENVO_PLUGIN_ID_FAQ && $pg[\'pluginid\'] == ENVO_PLUGIN_ID_FAQ && !empty($row[\'showfaq\'])) {
 		if (file_exists($pluginsite_connect)) {
@@ -308,7 +308,7 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
       // CZ: Frontend - šablona pro zobrazení postranního panelu pluginu
       $get_faqsidebar = '
 	$pluginbasic_sidebar = \'plugins/faq/template/faqsidebar.php\';
-	$pluginsite_sidebar = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/faq/faqsidebar.php\';
+	$pluginsite_sidebar = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/faq/faqsidebar.php\';
 	
 	if (file_exists($pluginsite_sidebar)) {
 		include_once APP_PATH.$pluginsite_sidebar;
@@ -321,7 +321,7 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
       // CZ: Frontend - šablona pro mapu sítě
       $get_faqsitemap = '
 	$pluginbasic_sitemap = \'plugins/faq/template/sitemap.php\';
-	$pluginsite_sitemap = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/faq/sitemap.php\';
+	$pluginsite_sitemap = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/faq/sitemap.php\';
 	
 	if (file_exists($pluginsite_sitemap)) {
 		include_once APP_PATH.$pluginsite_sitemap;
@@ -334,7 +334,7 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
       // CZ: Frontend - šablona pro vyhledávání
       $get_faqsearch = '
 	$pluginbasic_search = \'plugins/faq/template/search.php\';
-	$pluginsite_search = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/faq/search.php\';
+	$pluginsite_search = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/faq/search.php\';
 	
 	if (file_exists($pluginsite_search)) {
 		include_once APP_PATH.$pluginsite_search;
@@ -347,7 +347,7 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
       // CZ: Frontend - šablona pro tagy
       $get_faqtag = '
 	$pluginbasic_tag = \'plugins/faq/template/tag.php\';
-	$pluginsite_tag = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/faq/tag.php\';
+	$pluginsite_tag = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/faq/tag.php\';
 	
 	if (file_exists($pluginsite_tag)) {
 		include_once APP_PATH.$pluginsite_tag;
@@ -360,7 +360,7 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
       // CZ: Frontend - šablona pro zobrazení widgetu
       $get_faqfooter_widgets = '
 	$pluginbasic_fwidgets = \'plugins/faq/template/footer_widget.php\';
-	$pluginsite_fwidgets = \'template/\'.$jkv[\"sitestyle\"].\'/plugintemplate/faq/footer_widget.php\';
+	$pluginsite_fwidgets = \'template/\'.$setting[\"sitestyle\"].\'/plugintemplate/faq/footer_widget.php\';
 	
 	if (file_exists($pluginsite_fwidgets)) {
 		include_once APP_PATH.$pluginsite_fwidgets;
@@ -466,7 +466,7 @@ if (is_array($showfaqarray) && in_array(\"ASC\", $showfaqarray) || in_array(\"DE
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1');
 
       // Full text search is activated we do so for the faq table as well
-      if ($jkv["fulltextsearch"]) {
+      if ($setting["fulltextsearch"]) {
         $envodb->query('ALTER TABLE ' . DB_PREFIX . 'faq ADD FULLTEXT(`title`, `content`)');
       }
 

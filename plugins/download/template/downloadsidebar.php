@@ -32,7 +32,7 @@
   $url_array = explode('/', $_SERVER['REQUEST_URI']);
   $url       = end($url_array);
   // Get Download Categories
-  $ENVO_DOWNLOAD_CAT = ENVO_base::envoGetcatmix(ENVO_PLUGIN_VAR_DOWNLOAD, '', DB_PREFIX . 'downloadcategories', ENVO_USERGROUPID, $jkv["downloadurl"]);
+  $ENVO_DOWNLOAD_CAT = ENVO_base::envoGetcatmix(ENVO_PLUGIN_VAR_DOWNLOAD, '', DB_PREFIX . 'downloadcategories', ENVO_USERGROUPID, $setting["downloadurl"]);
 
   if ($ENVO_DOWNLOAD_CAT) { ?>
     <aside class="nav-side-menu">

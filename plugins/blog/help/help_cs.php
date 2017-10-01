@@ -221,14 +221,14 @@
         <pre class="prettyprint linenums lang-php">
 if ($page1 == ENVO_PLUGIN_VAR_BLOG) {
 
-	if ($jkv["blogrss"]) {
-		$sql = 'SELECT id, title, content, time FROM '.DB_PREFIX.'blog WHERE active = 1 ORDER BY time DESC LIMIT '.$jkv["blogrss"];
+	if ($setting["blogrss"]) {
+		$sql = 'SELECT id, title, content, time FROM '.DB_PREFIX.'blog WHERE active = 1 ORDER BY time DESC LIMIT '.$setting["blogrss"];
 		$sURL = ENVO_PLUGIN_VAR_BLOG;
 		$sURL1 = 'a';
 		$what = 1;
-		$seowhat = $jkv["blogurl"];
+		$seowhat = $setting["blogurl"];
 
-		$ENVO_RSS_DESCRIPTION = envo_cut_text($jkv["blogdesc"], $jkv["shortmsg"], '…');
+		$ENVO_RSS_DESCRIPTION = envo_cut_text($setting["blogdesc"], $setting["shortmsg"], '…');
 
 	} else {
 		envo_redirect(BASE_URL);
@@ -417,7 +417,7 @@ if (file_exists(APP_PATH.'plugins/blog/lang/'.$site_language.'.ini')) {
         <pre class="prettyprint linenums lang-php">
 include_once APP_PATH.'plugins/blog/functions.php';
 
-$ENVO_BLOG_ALL = envo_get_blog('', $jkv["blogorder"], '', '', $jkv["blogurl"], $tl['global_text']['gtxt4']);
+$ENVO_BLOG_ALL = envo_get_blog('', $setting["blogorder"], '', '', $setting["blogurl"], $tl['global_text']['gtxt4']);
 $PAGE_TITLE = ENVO_PLUGIN_NAME_BLOG;
         </pre>
 
@@ -439,7 +439,7 @@ $blog = new ENVO_search($SearchInput);
         	$blog->envoFieldstoSelect("id, title, content");
 
         	// Load the array into template
-        	$ENVO_SEARCH_RESULT_BLOG = $blog->set_result(ENVO_PLUGIN_VAR_BLOG, 'a', $jkv["blogurl"]);
+        	$ENVO_SEARCH_RESULT_BLOG = $blog->set_result(ENVO_PLUGIN_VAR_BLOG, 'a', $setting["blogurl"]);
         </pre>
 
       </article>
@@ -451,7 +451,7 @@ $blog = new ENVO_search($SearchInput);
 
         <pre class="prettyprint linenums lang-php">
 if ($row['pluginid'] == ENVO_PLUGIN_ID_BLOG) {
-	$blogtagData[] = ENVO_tags::envoTagSql("blog", $row['itemid'], "id, title, content", "content", ENVO_PLUGIN_VAR_BLOG, "a", $jkv["blogurl"]);
+	$blogtagData[] = ENVO_tags::envoTagSql("blog", $row['itemid'], "id, title, content", "content", ENVO_PLUGIN_VAR_BLOG, "a", $setting["blogurl"]);
 	$ENVO_TAG_BLOG_DATA = $blogtagData;
 }
         </pre>

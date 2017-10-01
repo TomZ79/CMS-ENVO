@@ -64,7 +64,7 @@ $succesfully = 0;
 
           }
 
-          if ($row["value"] <= "1.2") {
+          if ($row["value"] <= "1.2.1") {
 
             $envodb->query('ALTER TABLE ' . DB_PREFIX . 'pages DROP `voteup`, DROP `votedown`');
             $envodb->query('ALTER TABLE ' . DB_PREFIX . 'news DROP `voteup`, DROP `votedown`');
@@ -103,7 +103,7 @@ $succesfully = 0;
 
               // Eval code for display connect
               $get_dlconnect = 'if (ENVO_PLUGIN_ACCESS_DOWNLOAD && $pg[\'pluginid\'] == ENVO_PLUGIN_ID_DOWNLOAD && !empty($row[\'showdownload\'])) {
-	include_once APP_PATH.\'plugins/download/template/\'.$jkv[\"sitestyle\"].\'/page_news.php\';}';
+	include_once APP_PATH.\'plugins/download/template/\'.$setting[\"sitestyle\"].\'/page_news.php\';}';
 
               $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET phpcode = "' . $dla . '" WHERE hook_name = "php_admin_lang" AND product = "download"');
               $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET phpcode = "' . $dl . '" WHERE hook_name = "php_lang" AND product = "download"');
@@ -138,7 +138,7 @@ $succesfully = 0;
 	}';
 
               $get_blconnect = 'if (ENVO_PLUGIN_ACCESS_BLOG && $pg[\'pluginid\'] == ENVO_PLUGIN_ID_BLOG && !empty($row[\'showblog\'])) {
-	include_once APP_PATH.\'plugins/blog/template/\'.$jkv[\"sitestyle\"].\'/pages_news.php\';}';
+	include_once APP_PATH.\'plugins/blog/template/\'.$setting[\"sitestyle\"].\'/pages_news.php\';}';
 
               $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET phpcode = "' . $bla . '" WHERE hook_name = "php_admin_lang" AND product = "blog"');
               $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET phpcode = "' . $bl . '" WHERE hook_name = "php_lang" AND product = "blog"');
@@ -182,7 +182,7 @@ $succesfully = 0;
 
               // Eval code for display connect
               $get_fqconnect = 'if ($pg[\'pluginid\'] == ENVO_PLUGIN_ID_FAQ && ENVO_PLUGIN_ID_FAQ && !empty($row[\'showfaq\'])) {
-	include_once APP_PATH.\'plugins/faq/template/\'.$jkv[\"sitestyle\"].\'/page_news.php\';}';
+	include_once APP_PATH.\'plugins/faq/template/\'.$setting[\"sitestyle\"].\'/page_news.php\';}';
 
               $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET phpcode = "' . $faqa . '" WHERE hook_name = "php_admin_lang" AND product = "faq"');
               $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET phpcode = "' . $faq . '" WHERE hook_name = "php_lang" AND product = "faq"');
@@ -206,7 +206,7 @@ $succesfully = 0;
 
               // Eval code for display connect
               $get_gqconnect = 'if (ENVO_PLUGIN_ACCESS_GALLERY && $pg[\'pluginid\'] == ENVO_PLUGIN_ID_GALLERY && !empty($row[\'showgallery\'])) {
-	include_once APP_PATH.\'plugins/gallery/template/\'.$jkv[\"sitestyle\"].\'/pages_news.php\';}';
+	include_once APP_PATH.\'plugins/gallery/template/\'.$setting[\"sitestyle\"].\'/pages_news.php\';}';
 
               $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET phpcode = "' . $gala . '" WHERE hook_name = "php_admin_lang" AND product = "gallery"');
               $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET phpcode = "' . $gal . '" WHERE hook_name = "php_lang" AND product = "gallery"');
@@ -273,7 +273,7 @@ $succesfully = 0;
 
               // Eval code for display connect
               $get_rqconnect = 'if (ENVO_PLUGIN_ACCESS_RETAILER && $pg[\'pluginid\'] == ENVO_PLUGIN_ID_RETAILER && !empty($row[\'showretailer\'])) {
-	include_once APP_PATH.\'plugins/retailer/template/\'.$jkv[\"sitestyle\"].\'/pages_news.php\';}';
+	include_once APP_PATH.\'plugins/retailer/template/\'.$setting[\"sitestyle\"].\'/pages_news.php\';}';
 
               $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET phpcode = "' . $reta . '" WHERE hook_name = "php_admin_lang" AND product = "retailer"');
               $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET phpcode = "' . $ret . '" WHERE hook_name = "php_lang" AND product = "retailer"');
@@ -309,7 +309,7 @@ $succesfully = 0;
 
               // Eval because of the foreach
               $tpl_connect = 'if (ENVO_PLUGIN_ACCESS_TICKETING && $pg[\'pluginid\'] == ENVO_PLUGIN_ID_TICKETING && !empty($row[\'showticketing\'])) {
-	include_once APP_PATH.\'plugins/ticketing/template/\'.$jkv[\"sitestyle\"].\'/page_news.php\';}';
+	include_once APP_PATH.\'plugins/ticketing/template/\'.$setting[\"sitestyle\"].\'/page_news.php\';}';
 
               $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET phpcode = "' . $tica . '" WHERE hook_name = "php_admin_lang" AND product = "ticketing"');
               $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET phpcode = "' . $tic . '" WHERE hook_name = "php_lang" AND product = "ticketing"');
@@ -322,14 +322,14 @@ $succesfully = 0;
 
             $sitephprss = 'if ($page1 == ENVO_PLUGIN_VAR_ECOMMERCE) {
 		
-		if ($jkv[\"shoprss\"]) {
-			$sql = \'SELECT id, title, content, time FROM \'.DB_PREFIX.\'shop WHERE active = 1 ORDER BY time DESC LIMIT \'.$jkv[\"shoprss\"];
+		if ($setting[\"shoprss\"]) {
+			$sql = \'SELECT id, title, content, time FROM \'.DB_PREFIX.\'shop WHERE active = 1 ORDER BY time DESC LIMIT \'.$setting[\"shoprss\"];
 			$sURL = ENVO_PLUGIN_VAR_ECOMMERCE;
 			$sURL1 = \'\';
 			$what = 1;
-			$seowhat = $jkv[\"shopurl\"];
+			$seowhat = $setting[\"shopurl\"];
 			
-			$ENVO_RSS_DESCRIPTION = envo_cut_text($jkv[\"e_desc\"], $jkv[\"shortmsg\"], \'…\');
+			$ENVO_RSS_DESCRIPTION = envo_cut_text($setting[\"e_desc\"], $setting[\"shortmsg\"], \'…\');
 			
 		} else {
 			envo_redirect(BASE_URL);
@@ -341,14 +341,14 @@ $succesfully = 0;
 
             $sitephprss1 = 'if ($page1 == ENVO_PLUGIN_VAR_DOWNLOAD) {
 		
-		if ($jkv[\"downloadrss\"]) {
-			$sql = \'SELECT id, title, content, time FROM \'.DB_PREFIX.\'download WHERE active = 1 ORDER BY time DESC LIMIT \'.$jkv[\"downloadrss\"];
+		if ($setting[\"downloadrss\"]) {
+			$sql = \'SELECT id, title, content, time FROM \'.DB_PREFIX.\'download WHERE active = 1 ORDER BY time DESC LIMIT \'.$setting[\"downloadrss\"];
 			$sURL = ENVO_PLUGIN_VAR_DOWNLOAD;
 			$sURL1 = \'a\';
 			$what = 1;
-			$seowhat = $jkv[\"downloadurl\"];
+			$seowhat = $setting[\"downloadurl\"];
 			
-			$ENVO_RSS_DESCRIPTION = envo_cut_text($jkv[\"downloaddesc\"], $jkv[\"shortmsg\"], \'…\');
+			$ENVO_RSS_DESCRIPTION = envo_cut_text($setting[\"downloaddesc\"], $setting[\"shortmsg\"], \'…\');
 			
 		} else {
 			envo_redirect(BASE_URL);
@@ -366,7 +366,7 @@ $succesfully = 0;
 	
 	define(\'ENVO_TICKETMODERATE\', $envousergroup->getVar(\"ticketmoderate\"));
 	
-	$ENVO_TICKET_ALL = envo_get_ticket(\'\', $jkv[\"ticketorder\"], \'\', \'\', $jkv[\"ticketurl\"], $tl[\'general\'][\'g56\']);
+	$ENVO_TICKET_ALL = envo_get_ticket(\'\', $setting[\"ticketorder\"], \'\', \'\', $setting[\"ticketurl\"], $tl[\'general\'][\'g56\']);
 	$PAGE_TITLE = ENVO_PLUGIN_NAME_TICKETING;';
 
             $envodb->query('UPDATE ' . DB_PREFIX . 'pluginhooks SET phpcode = "' . $sitephpsitemap . '" WHERE hook_name = "php_sitemap" AND product = "ticketing"');
@@ -419,13 +419,13 @@ $succesfully = 0;
           $succesfully = 1;
 
 // confirm
-          $email_body = 'URL: ' . BASE_URL . '<br />Email: ' . $jkv["email"] . '<br />License: ' . $jkv["o_number"];
+          $email_body = 'URL: ' . BASE_URL . '<br />Email: ' . $setting["email"] . '<br />License: ' . $setting["o_number"];
 
 // Send the email to the customer
           $mail = new PHPMailer(); // defaults to using php "mail()"
           $body = str_ireplace("[\]", "", $email_body);
-          $mail->SetFrom($jkv["email"]);
-          $mail->AddReplyTo($jkv["email"]);
+          $mail->SetFrom($setting["email"]);
+          $mail->AddReplyTo($setting["email"]);
           $mail->AddAddress('lic@jakweb.ch');
           $mail->Subject = 'Update - CMS 2.2';
           $mail->AltBody = 'HTML Format';

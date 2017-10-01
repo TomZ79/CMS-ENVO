@@ -234,7 +234,7 @@ $envodb->query("CREATE TABLE " . DB_PREFIX . "setting (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_czech_ci COLLATE utf8_czech_ci");
 
 $envodb->query("INSERT INTO " . DB_PREFIX . "setting VALUES
-('version', 'version', '1.2', '1.2', NULL, 'free', 'cms'),
+('version', 'version', '1.2.1', '1.2.1', NULL, 'free', 'cms'),
 ('updatetime', 'updatetime', '" . time() . "', '" . time() . "', 'timestamp', 'integer', 'cms'),
 ('o_number', 'setting', '0', '0', 'input', 'free', 'cms'),
 ('offline', 'general', '0', '0', 'yesno', 'boolean', 'cms'),

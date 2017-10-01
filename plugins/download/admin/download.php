@@ -39,7 +39,7 @@ switch ($page1) {
     // Get the important template stuff
     $ENVO_CAT           = envo_get_cat_info($envotable1, 0);
     $ENVO_CONTACT_FORMS = envo_get_page_info($envotable3, '');
-    $site_dload_files  = envo_get_download_files($jkv["downloadpath"]);
+    $site_dload_files  = envo_get_download_files($setting["downloadpath"]);
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       // EN: Default Variable
@@ -726,7 +726,7 @@ switch ($page1) {
     }
 
     // Now let's check how to display the order
-    $showdlarray = explode(" ", $jkv["downloadorder"]);
+    $showdlarray = explode(" ", $setting["downloadorder"]);
 
     if (is_array($showdlarray) && in_array("ASC", $showdlarray) || in_array("DESC", $showdlarray)) {
 
@@ -758,8 +758,8 @@ switch ($page1) {
           // Paginator
           $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
-          $pages->mid_range      = $jkv["adminpagemid"];
-          $pages->items_per_page = $jkv["adminpageitem"];
+          $pages->mid_range      = $setting["adminpagemid"];
+          $pages->items_per_page = $setting["adminpageitem"];
           $pages->envo_get_page   = $page3;
           $pages->envo_where      = 'index.php?p=download&sp=showcat&ssp=' . $page2;
           $pages->paginate();
@@ -842,7 +842,7 @@ switch ($page1) {
         break;
       case 'edit':
 
-        $site_dload_files = envo_get_download_files($jkv["downloadpath"]);
+        $site_dload_files = envo_get_download_files($setting["downloadpath"]);
 
         if (is_numeric($page2) && envo_row_exist($page2, $envotable)) {
 
@@ -1183,8 +1183,8 @@ switch ($page1) {
           // Paginator
           $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
-          $pages->mid_range      = $jkv["adminpagemid"];
-          $pages->items_per_page = $jkv["adminpageitem"];
+          $pages->mid_range      = $setting["adminpagemid"];
+          $pages->items_per_page = $setting["adminpageitem"];
           $pages->envo_get_page   = $page4;
           $pages->envo_where      = 'index.php?p=download&sp=sort&ssp=' . $page2 . '&sssp=' . $page3;
           $pages->paginate();
@@ -1291,8 +1291,8 @@ switch ($page1) {
           // Paginator
           $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
-          $pages->mid_range      = $jkv["adminpagemid"];
-          $pages->items_per_page = $jkv["adminpageitem"];
+          $pages->mid_range      = $setting["adminpagemid"];
+          $pages->items_per_page = $setting["adminpageitem"];
           $pages->envo_get_page   = $page1;
           $pages->envo_where      = 'index.php?p=download';
           $pages->paginate();

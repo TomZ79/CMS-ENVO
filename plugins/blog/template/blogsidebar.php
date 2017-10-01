@@ -3,7 +3,7 @@
   $url_array = explode('/', $_SERVER['REQUEST_URI']);
   $url       = end($url_array);
   // Get Download Categories
-  $ENVO_BLOG_CAT = ENVO_base::envoGetcatmix(ENVO_PLUGIN_VAR_BLOG, '', DB_PREFIX . 'blogcategories', ENVO_USERGROUPID, $jkv["blogurl"]);
+  $ENVO_BLOG_CAT = ENVO_base::envoGetcatmix(ENVO_PLUGIN_VAR_BLOG, '', DB_PREFIX . 'blogcategories', ENVO_USERGROUPID, $setting["blogurl"]);
 
   if ($ENVO_BLOG_CAT) { ?>
     <aside class="nav-side-menu">

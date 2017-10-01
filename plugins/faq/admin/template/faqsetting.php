@@ -207,12 +207,12 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('', $tl["selection"]["sel110"], ($jkv['faqdateformat'] == '') ? TRUE : FALSE);
+                            echo $Html->addOption('', $tl["selection"]["sel110"], ($setting['faqdateformat'] == '') ? TRUE : FALSE);
 
-                            echo $Html->addOption('d.m.Y', 'd.m.Y (01.01.2017)', ($jkv['faqdateformat'] == 'd.m.Y') ? TRUE : FALSE);
-                            echo $Html->addOption('d F Y', 'd F Y (01 January 2017)', ($jkv['faqdateformat'] == 'd F Y') ? TRUE : FALSE);
-                            echo $Html->addOption('l m.Y', 'l m.Y (Monday 01.2017)', ($jkv['faqdateformat'] == 'l m.Y') ? TRUE : FALSE);
-                            echo $Html->addOption('l F Y', 'l F Y (Monday January 2017)', ($jkv['faqdateformat'] == 'l F Y') ? TRUE : FALSE);
+                            echo $Html->addOption('d.m.Y', 'd.m.Y (01.01.2017)', ($setting['faqdateformat'] == 'd.m.Y') ? TRUE : FALSE);
+                            echo $Html->addOption('d F Y', 'd F Y (01 January 2017)', ($setting['faqdateformat'] == 'd F Y') ? TRUE : FALSE);
+                            echo $Html->addOption('l m.Y', 'l m.Y (Monday 01.2017)', ($setting['faqdateformat'] == 'l m.Y') ? TRUE : FALSE);
+                            echo $Html->addOption('l F Y', 'l F Y (Monday January 2017)', ($setting['faqdateformat'] == 'l F Y') ? TRUE : FALSE);
                             ?>
 
                           </select>
@@ -234,17 +234,17 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('', $tl["selection"]["sel110"], ($jkv['downloadtimeformat'] == '') ? TRUE : FALSE);
+                            echo $Html->addOption('', $tl["selection"]["sel110"], ($setting['downloadtimeformat'] == '') ? TRUE : FALSE);
                             ?>
 
                             <optgroup label="<?php echo $tl["selection"]["sel111"]; ?>">
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                              echo $Html->addOption(' - h:i A', ' - h:i A ( - 01:00 PM)', ($jkv['faqtimeformat'] == ' - h:i A') ? TRUE : FALSE);
-                              echo $Html->addOption(' - h:i:s A', ' - h:i:s A ( - 01:00:00 PM)', ($jkv['faqtimeformat'] == ' - h:i:s A') ? TRUE : FALSE);
-                              echo $Html->addOption(' - g:i A', ' - g:i A ( - 1:00 PM)', ($jkv['faqtimeformat'] == ' - g:i A') ? TRUE : FALSE);
-                              echo $Html->addOption(' - g:i:s A', ' - g:i:s A ( - 1:00:00 PM)', ($jkv['faqtimeformat'] == ' - g:i:s A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - h:i A', ' - h:i A ( - 01:00 PM)', ($setting['faqtimeformat'] == ' - h:i A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - h:i:s A', ' - h:i:s A ( - 01:00:00 PM)', ($setting['faqtimeformat'] == ' - h:i:s A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - g:i A', ' - g:i A ( - 1:00 PM)', ($setting['faqtimeformat'] == ' - g:i A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - g:i:s A', ' - g:i:s A ( - 1:00:00 PM)', ($setting['faqtimeformat'] == ' - g:i:s A') ? TRUE : FALSE);
                               ?>
 
                             </optgroup>
@@ -252,9 +252,9 @@ if ($errors) { ?>
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                              echo $Html->addOption(' - H:i', ' - H:i ( - 13:00)', ($jkv['faqtimeformat'] == ' - H:i') ? TRUE : FALSE);
-                              echo $Html->addOption(' - H:i:s', ' - H:i:s ( - 13:00:00)', ($jkv['faqtimeformat'] == ' - H:i:s') ? TRUE : FALSE);
-                              echo $Html->addOption(' - H:i:s T O', ' - H:i:s T O ( - 13:00:00 CEST +0200)', ($jkv['faqtimeformat'] == ' - H:i:s T O') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i', ' - H:i ( - 13:00)', ($setting['faqtimeformat'] == ' - H:i') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i:s', ' - H:i:s ( - 13:00:00)', ($setting['faqtimeformat'] == ' - H:i:s') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i:s T O', ' - H:i:s T O ( - 13:00:00 CEST +0200)', ($setting['faqtimeformat'] == ' - H:i:s T O') ? TRUE : FALSE);
                               ?>
 
                             </optgroup>
@@ -277,12 +277,12 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_faqurl', '1', ($jkv["faqurl"] == '1') ? TRUE : FALSE, 'envo_faqurl1');
+                          echo $Html->addRadio('envo_faqurl', '1', ($setting["faqurl"] == '1') ? TRUE : FALSE, 'envo_faqurl1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('envo_faqurl1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_faqurl', '0', ($jkv["faqurl"] == '0') ? TRUE : FALSE, 'envo_faqurl2');
+                          echo $Html->addRadio('envo_faqurl', '0', ($setting["faqurl"] == '0') ? TRUE : FALSE, 'envo_faqurl2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('envo_faqurl2', $tl["checkbox"]["chk1"]);
                           ?>
@@ -304,7 +304,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'envo_rssitem', $jkv["faqrss"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_rssitem', $setting["faqrss"], '', 'form-control');
                           ?>
 
                         </div>
@@ -353,11 +353,11 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('2', $tl["selection"]["sel1"], ($jkv['faqpagemid'] == 2) ? TRUE : FALSE);
-                            echo $Html->addOption('4', $tl["selection"]["sel2"], ($jkv['faqpagemid'] == 4) ? TRUE : FALSE);
-                            echo $Html->addOption('6', $tl["selection"]["sel3"], ($jkv['faqpagemid'] == 6) ? TRUE : FALSE);
-                            echo $Html->addOption('8', $tl["selection"]["sel4"], ($jkv['faqpagemid'] == 8) ? TRUE : FALSE);
-                            echo $Html->addOption('10', $tl["selection"]["sel5"], ($jkv['faqpagemid'] == 10) ? TRUE : FALSE);
+                            echo $Html->addOption('2', $tl["selection"]["sel1"], ($setting['faqpagemid'] == 2) ? TRUE : FALSE);
+                            echo $Html->addOption('4', $tl["selection"]["sel2"], ($setting['faqpagemid'] == 4) ? TRUE : FALSE);
+                            echo $Html->addOption('6', $tl["selection"]["sel3"], ($setting['faqpagemid'] == 6) ? TRUE : FALSE);
+                            echo $Html->addOption('8', $tl["selection"]["sel4"], ($setting['faqpagemid'] == 8) ? TRUE : FALSE);
+                            echo $Html->addOption('10', $tl["selection"]["sel5"], ($setting['faqpagemid'] == 10) ? TRUE : FALSE);
                             ?>
 
                           </select>
@@ -375,7 +375,7 @@ if ($errors) { ?>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group<?php if (isset($errors["e5"])) echo " has-error"; ?> no-margin">
-                          <input type="text" name="envo_item" class="form-control" value="<?php echo $jkv["faqpageitem"]; ?>"/>
+                          <input type="text" name="envo_item" class="form-control" value="<?php echo $setting["faqpageitem"]; ?>"/>
                         </div>
                       </div>
                     </div>
@@ -410,7 +410,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'envo_shortmsg', $jkv["faqshortmsg"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_shortmsg', $setting["faqshortmsg"], '', 'form-control');
                           ?>
 
                         </div>
@@ -453,7 +453,7 @@ if ($errors) { ?>
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                 echo $Html->addDiv('', 'csseditor');
                 // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                echo $Html->addTextarea('envo_css', $jkv["faq_css"], '20', '', array('id' => 'envo_css', 'class' => 'hidden'));
+                echo $Html->addTextarea('envo_css', $setting["faq_css"], '20', '', array('id' => 'envo_css', 'class' => 'hidden'));
                 ?>
 
               </div>
@@ -491,7 +491,7 @@ if ($errors) { ?>
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                 echo $Html->addDiv('', 'javaeditor');
                 // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                echo $Html->addTextarea('envo_javascript', $jkv["faq_javascript"], '20', '', array('id' => 'envo_javascript', 'class' => 'hidden'));
+                echo $Html->addTextarea('envo_javascript', $setting["faq_javascript"], '20', '', array('id' => 'envo_javascript', 'class' => 'hidden'));
                 ?>
 
               </div>

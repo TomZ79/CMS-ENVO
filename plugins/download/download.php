@@ -34,10 +34,10 @@ define('ENVO_DOWNLOADCAN', $envousergroup->getVar("downloadcan"));
 // AJAX Search
 $AJAX_SEARCH_PLUGIN_WHERE = $envotable;
 $AJAX_SEARCH_PLUGIN_URL   = 'plugins/download/ajaxsearch.php';
-$AJAX_SEARCH_PLUGIN_SEO   = $jkv["downloadurl"];
+$AJAX_SEARCH_PLUGIN_SEO   = $setting["downloadurl"];
 
 // Get the rss if active
-if ($jkv["downloadrss"]) {
+if ($setting["downloadrss"]) {
   $ENVO_RSS_DISPLAY = 1;
   $P_RSS_LINK      = ENVO_rewrite::envoParseurl('rss.xml', ENVO_PLUGIN_VAR_DOWNLOAD, '', '', '');
 }
@@ -61,7 +61,7 @@ switch ($page1) {
 
       $getTotal = envo_get_total($envotable, $page2, 'catid', 'active');
 
-      if ($jkv["downloadurl"]) {
+      if ($setting["downloadurl"]) {
         $getWhere = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, $page1, $page2, $page3, '');
         $getPage  = $page4;
       } else {
@@ -74,8 +74,8 @@ switch ($page1) {
         // Paginator
         $dlc                 = new ENVO_paginator;
         $dlc->items_total    = $getTotal;
-        $dlc->mid_range      = $jkv["downloadpagemid"];
-        $dlc->items_per_page = $jkv["downloadpageitem"];
+        $dlc->mid_range      = $setting["downloadpagemid"];
+        $dlc->items_per_page = $setting["downloadpageitem"];
         $dlc->envo_get_page   = $getPage;
         $dlc->envo_where      = $getWhere;
         $dlc->envo_prevtext   = $tl["pagination"]["pagin"];
@@ -83,7 +83,7 @@ switch ($page1) {
         $dlc->paginate();
         $ENVO_PAGINATE = $dlc->display_pages();
 
-        $ENVO_DOWNLOAD_ALL = envo_get_download($dlc->limit, $jkv["downloadorder"], $page2, 't1.catid', $jkv["downloadurl"], $tl['global_text']['gtxt4']);
+        $ENVO_DOWNLOAD_ALL = envo_get_download($dlc->limit, $setting["downloadorder"], $page2, 't1.catid', $setting["downloadurl"], $tl['global_text']['gtxt4']);
       }
 
       // Get the download categories
@@ -92,7 +92,7 @@ switch ($page1) {
       $PAGE_TITLE              = ENVO_PLUGIN_NAME_DOWNLOAD . ' - ' . $row['name'];
       $PAGE_CONTENT            = $row['content'];
       $MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
-      $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];
+      $MAIN_SITE_DESCRIPTION   = $setting['metadesc'];
 
       // Get the sort orders for the grid
       $ENVO_HOOK_SIDE_GRID = FALSE;
@@ -111,7 +111,7 @@ switch ($page1) {
 
       if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-      $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+      $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
 
       // SEO from the category content if available
       if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
@@ -121,8 +121,8 @@ switch ($page1) {
       }
 
       // Get the CSS and Javascript into the page
-      $ENVO_HEADER_CSS        = $jkv["download_css"];
-      $ENVO_FOOTER_JAVASCRIPT = $jkv["download_javascript"];
+      $ENVO_HEADER_CSS        = $setting["download_css"];
+      $ENVO_FOOTER_JAVASCRIPT = $setting["download_javascript"];
 
       // EN: Load the php template
       // CZ: Načtení php template (šablony)
@@ -232,10 +232,10 @@ switch ($page1) {
           $PAGE_PASSWORD               = $DL_PASSWORD;
           $ENVO_HEADER_CSS              = $row['dl_css'];
           $ENVO_FOOTER_JAVASCRIPT       = $row['dl_javascript'];
-          $jkv["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
+          $setting["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
           $DL_LINK                     = html_entity_decode(ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_DOWNLOAD, 'dl', $row['id'], '', ''));
 
-          $PAGE_TIME       = ENVO_base::envoTimesince($row['time'], $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $tl['global_text']['gtxt4']);
+          $PAGE_TIME       = ENVO_base::envoTimesince($row['time'], $setting["downloaddateformat"], $setting["downloadtimeformat"], $tl['global_text']['gtxt4']);
           $PAGE_TIME_HTML5 = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
           // Set download to false
@@ -276,7 +276,7 @@ switch ($page1) {
         $nextp = envo_next_page($page2, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
         if ($nextp) {
 
-          if ($jkv["downloadurl"]) {
+          if ($setting["downloadurl"]) {
             $seo = ENVO_base::envoCleanurl($nextp['title']);
           }
 
@@ -287,7 +287,7 @@ switch ($page1) {
         $prevp = envo_previous_page($page2, 'title', $envotable, 'id', ' AND catid = "' . smartsql($row["catid"]) . '"', '', 'active');
         if ($prevp) {
 
-          if ($jkv["downloadurl"]) {
+          if ($setting["downloadurl"]) {
             $seop = ENVO_base::envoCleanurl($prevp['title']);
           }
 
@@ -299,7 +299,7 @@ switch ($page1) {
         $resultc = $envodb->query('SELECT id, name, varname FROM ' . $envotable1 . ' WHERE id IN(' . $row['catid'] . ') ORDER BY id ASC');
         while ($rowc = $resultc->fetch_assoc()) {
 
-          if ($jkv["downloadurl"]) {
+          if ($setting["downloadurl"]) {
             $seoc = ENVO_base::envoCleanurl($rowc['varname']);
           }
 
@@ -329,7 +329,7 @@ switch ($page1) {
       $keytags = preg_split('/\s+/', strip_tags($ENVO_TAGLIST));
       $keytags = ',' . implode(',', $keytags);
     }
-    $PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+    $PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . $keytags . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
     $PAGE_DESCRIPTION = envo_cut_text($PAGE_CONTENT, 155, '');
 
     // Get Facebook SDK Connection
@@ -421,7 +421,7 @@ switch ($page1) {
            */
 
           // Specify file path
-          $dlfile = $jkv["downloadpath"] . '/' . $row['file'];
+          $dlfile = $setting["downloadpath"] . '/' . $row['file'];
           $dlfile = str_replace("//", "/", $dlfile);
 
           if (file_exists($dlfile)) {
@@ -517,8 +517,8 @@ switch ($page1) {
       // Paginator
       $dl                 = new ENVO_paginator;
       $dl->items_total    = $getTotal;
-      $dl->mid_range      = $jkv["downloadpagemid"];
-      $dl->items_per_page = $jkv["downloadpageitem"];
+      $dl->mid_range      = $setting["downloadpagemid"];
+      $dl->items_per_page = $setting["downloadpageitem"];
       $dl->envo_get_page   = $page1;
       $dl->envo_where      = $backtodl;
       $dl->envo_prevtext   = $tl["pagination"]["pagin"];
@@ -529,15 +529,15 @@ switch ($page1) {
       $ENVO_PAGINATE = $dl->display_pages();
 
       // Get all files
-      $ENVO_DOWNLOAD_ALL = envo_get_download($dl->limit, $jkv["downloadorder"], '', '', $jkv["downloadurl"], $tl['global_text']['gtxt4']);
+      $ENVO_DOWNLOAD_ALL = envo_get_download($dl->limit, $setting["downloadorder"], '', '', $setting["downloadurl"], $tl['global_text']['gtxt4']);
 
     }
 
     // EN: Set data for the frontend page - Title, Description, Keywords and other ...
     // CZ: Nastavení dat pro frontend stránku - Titulek, Popis, Klíčová slova a další ...
-    $PAGE_TITLE              = $jkv["downloadtitle"];
+    $PAGE_TITLE              = $setting["downloadtitle"];
     $MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
-    $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];
+    $MAIN_SITE_DESCRIPTION   = $setting['metadesc'];
 
     // Get the url session
     $_SESSION['envo_lastURL'] = $backtodl;
@@ -556,7 +556,7 @@ switch ($page1) {
 
     if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-    $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+    $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
 
     // SEO from the category content if available
     if (!empty($MAIN_PLUGIN_DESCRIPTION)) {
@@ -566,8 +566,8 @@ switch ($page1) {
     }
 
     // Get the CSS and Javascript into the page
-    $ENVO_HEADER_CSS        = $jkv["download_css"];
-    $ENVO_FOOTER_JAVASCRIPT = $jkv["download_javascript"];
+    $ENVO_HEADER_CSS        = $setting["download_css"];
+    $ENVO_FOOTER_JAVASCRIPT = $setting["download_javascript"];
 
     // EN: Load the php template
     // CZ: Načtení php template (šablony)

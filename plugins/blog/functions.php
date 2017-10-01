@@ -20,7 +20,7 @@
 function envo_get_blog($limit, $order, $where, $table_row, $ext_seo, $timeago)
 {
   global $envodb;
-  global $jkv;
+  global $setting;
 
   if (is_numeric($where)) {
     $sqlin = 'FIND_IN_SET(' . $where . ', ' . $table_row . ') AND t1.active = 1 AND';
@@ -35,7 +35,7 @@ function envo_get_blog($limit, $order, $where, $table_row, $ext_seo, $timeago)
   while ($row = $result->fetch_assoc()) {
 
     // Write content in short format with full words
-    $shortmsg = envo_cut_text($row['content'], $jkv["shortmsg"], '...');
+    $shortmsg = envo_cut_text($row['content'], $setting["shortmsg"], '...');
 
     // There should be always a varname in categories and check if seo is valid
     $seo = '';
@@ -43,7 +43,7 @@ function envo_get_blog($limit, $order, $where, $table_row, $ext_seo, $timeago)
     $parseurl = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_BLOG, 'a', $row['id'], $seo);
 
     // finally get the time
-    $getTime = ENVO_base::envoTimesince($row['time'], $jkv["blogdateformat"], $jkv["blogtimeformat"], $timeago);
+    $getTime = ENVO_base::envoTimesince($row['time'], $setting["blogdateformat"], $setting["blogtimeformat"], $timeago);
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole

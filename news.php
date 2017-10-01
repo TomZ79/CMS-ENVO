@@ -25,8 +25,8 @@ $ENVO_TPL_PLUG_T   = ENVO_PLUGIN_NAME_NEWS;
 $ENVO_TPL_PLUG_URL = $backtonews;
 
 // Get the CSS and Javascript into the page
-$ENVO_HEADER_CSS        = $jkv["news_css"];
-$ENVO_FOOTER_JAVASCRIPT = $jkv["news_javascript"];
+$ENVO_HEADER_CSS        = $setting["news_css"];
+$ENVO_FOOTER_JAVASCRIPT = $setting["news_javascript"];
 
 switch ($page1) {
 
@@ -66,19 +66,19 @@ switch ($page1) {
         $PAGE_ID                     = $row['id'];
         $PAGE_TITLE                  = $row['title'];
         $MAIN_PLUGIN_DESCRIPTION     = $ca['metadesc'];
-        $MAIN_SITE_DESCRIPTION       = $jkv['metadesc'];
+        $MAIN_SITE_DESCRIPTION       = $setting['metadesc'];
         $PAGE_IMAGE                  = $row['previmg'];
         $PAGE_CONTENT                = envo_secure_site($row['content']);
         $ENVO_HEADER_CSS              = $row['news_css'];
         $ENVO_FOOTER_JAVASCRIPT       = $row['news_javascript'];
-        $jkv["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
+        $setting["sidebar_location_tpl"] = ($row['sidebar'] ? "left" : "right");
         $SHOWTITLE                   = $row['showtitle'];
         $SHOWDATE                    = $row['showdate'];
         $SHOWHITS                    = $row['showhits'];
         $SHOWSOCIALBUTTON            = $row['socialbutton'];
         $PAGE_ACTIVE                 = $row['active'];
         $PAGE_HITS                   = $row['hits'];
-        $PAGE_TIME                   = ENVO_base::envoTimesince($row['time'], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
+        $PAGE_TIME                   = ENVO_base::envoTimesince($row['time'], $setting["newsdateformat"], $setting["newstimeformat"], $tl['global_text']['gtxt4']);
         $DATE_TIME                   = $row['time'];
         $PAGE_TIME_HTML5             = date("Y-m-d T H:i:s P", strtotime($row['time']));
 
@@ -145,7 +145,7 @@ switch ($page1) {
         $keytags = preg_split('/\s+/', strip_tags($ENVO_TAGLIST));
         $keytags = ',' . implode(',', $keytags);
       }
-      $PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . $keytags . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+      $PAGE_KEYWORDS    = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . $keytags . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
       $PAGE_DESCRIPTION = envo_cut_text($PAGE_CONTENT, 155, '');
 
       // EN: Load the php template
@@ -167,8 +167,8 @@ switch ($page1) {
       // Paginator
       $news                 = new ENVO_paginator;
       $news->items_total    = $getTotal;
-      $news->mid_range      = $jkv["newspagemid"];
-      $news->items_per_page = $jkv["newspageitem"];
+      $news->mid_range      = $setting["newspagemid"];
+      $news->items_per_page = $setting["newspageitem"];
       $news->envo_get_page   = $page1;
       $news->envo_where      = $backtonews;
       $news->envo_prevtext   = $tl["pagination"]["pagin"];
@@ -178,15 +178,15 @@ switch ($page1) {
       $ENVO_PAGINATE = $news->display_pages();
 
       // Display the news
-      $ENVO_NEWS_ALL = envo_get_news($news->limit, '', ENVO_PLUGIN_VAR_NEWS, $jkv["newsorder"], $jkv["newsdateformat"], $jkv["newstimeformat"], $tl['global_text']['gtxt4']);
+      $ENVO_NEWS_ALL = envo_get_news($news->limit, '', ENVO_PLUGIN_VAR_NEWS, $setting["newsorder"], $setting["newsdateformat"], $setting["newstimeformat"], $tl['global_text']['gtxt4']);
     }
 
     // EN: Set data for the frontend page - Title, Description, Keywords and other ...
     // CZ: Nastavení dat pro frontend stránku - Titulek, Popis, Klíčová slova a další ...
-    $PAGE_TITLE              = $jkv["newstitle"];
-    $PAGE_CONTENT            = $jkv["newsdesc"];
+    $PAGE_TITLE              = $setting["newstitle"];
+    $PAGE_CONTENT            = $setting["newsdesc"];
     $MAIN_PLUGIN_DESCRIPTION = $ca['metadesc'];
-    $MAIN_SITE_DESCRIPTION   = $jkv['metadesc'];
+    $MAIN_SITE_DESCRIPTION   = $setting['metadesc'];
 
     // EN: Get all the php Hook by name of Hook
     // CZ: Načtení všech php dat z Hook podle jména Hook
@@ -211,7 +211,7 @@ switch ($page1) {
     $keylist = "";
     if (!empty($seokeywords)) $keylist = join(",", $seokeywords);
 
-    $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($jkv["metakey"] ? "," . $jkv["metakey"] : ""));
+    $PAGE_KEYWORDS = str_replace(" ", " ", ENVO_base::envoCleanurl($PAGE_TITLE) . ($keylist ? "," . $keylist : "") . ($setting["metakey"] ? "," . $setting["metakey"] : ""));
 
     // SEO from the category content if available
     if (!empty($MAIN_PLUGIN_DESCRIPTION)) {

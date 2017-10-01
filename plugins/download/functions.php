@@ -20,7 +20,7 @@
 function envo_get_download($limit, $order, $where, $table_row, $ext_seo, $timeago)
 {
   global $envodb;
-  global $jkv;
+  global $setting;
 
   if (is_numeric($where)) {
     $sqlin = '' . $table_row . ' = "' . $where . '" AND t1.active = 1 AND';
@@ -33,10 +33,10 @@ function envo_get_download($limit, $order, $where, $table_row, $ext_seo, $timeag
   $result = $envodb->query('SELECT t1.* FROM ' . DB_PREFIX . 'download AS t1 LEFT JOIN ' . DB_PREFIX . 'downloadcategories AS t2 ON (t1.catid = t2.id) WHERE ' . $sqlin . ' (FIND_IN_SET(' . ENVO_USERGROUPID . ',t2.permission) OR t2.permission = 0) GROUP BY t1.id ORDER BY ' . $order . ' ' . $limit);
   while ($row = $result->fetch_assoc()) {
 
-    $getTime = ENVO_base::envoTimesince($row['time'], $jkv["downloaddateformat"], $jkv["downloadtimeformat"], $timeago);
+    $getTime = ENVO_base::envoTimesince($row['time'], $setting["downloaddateformat"], $setting["downloadtimeformat"], $timeago);
 
     // Write content in short format with full words
-    $shortmsg = envo_cut_text($row['content'], $jkv["shortmsg"], '...');
+    $shortmsg = envo_cut_text($row['content'], $setting["shortmsg"], '...');
 
     // There should be always a varname in categories and check if seo is valid
     $seo = '';

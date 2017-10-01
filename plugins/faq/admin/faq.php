@@ -672,7 +672,7 @@ switch ($page1) {
     }
 
     // Now let's check how to display the order
-    $showfaqarray = explode(" ", $jkv["faqorder"]);
+    $showfaqarray = explode(" ", $setting["faqorder"]);
 
     if (is_array($showfaqarray) && in_array("ASC", $showfaqarray) || in_array("DESC", $showfaqarray)) {
 
@@ -759,8 +759,8 @@ switch ($page1) {
           // Paginator
           $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
-          $pages->mid_range      = $jkv["adminpagemid"];
-          $pages->items_per_page = $jkv["adminpageitem"];
+          $pages->mid_range      = $setting["adminpagemid"];
+          $pages->items_per_page = $setting["adminpageitem"];
           $pages->envo_get_page   = $page3;
           $pages->envo_where      = 'index.php?p=faq&sp=showcat&ssp=' . $page2;
           $pages->paginate();
@@ -1064,8 +1064,8 @@ switch ($page1) {
           // Paginator
           $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
-          $pages->mid_range      = $jkv["adminpagemid"];
-          $pages->items_per_page = $jkv["adminpageitem"];
+          $pages->mid_range      = $setting["adminpagemid"];
+          $pages->items_per_page = $setting["adminpageitem"];
           $pages->envo_get_page   = $page4;
           $pages->envo_where      = 'index.php?p=faq&sp=sort&ssp=' . $page2 . '&sssp=' . $page3;
           $pages->paginate();
@@ -1167,8 +1167,8 @@ switch ($page1) {
           // Paginator
           $pages                 = new ENVO_paginator;
           $pages->items_total    = $getTotal;
-          $pages->mid_range      = $jkv["adminpagemid"];
-          $pages->items_per_page = $jkv["adminpageitem"];
+          $pages->mid_range      = $setting["adminpagemid"];
+          $pages->items_per_page = $setting["adminpageitem"];
           $pages->envo_get_page   = $page1;
           $pages->envo_where      = 'index.php?p=faq';
           $pages->paginate();

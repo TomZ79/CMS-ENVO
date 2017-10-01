@@ -207,12 +207,12 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('', $tl["selection"]["sel110"], ($jkv['downloaddateformat'] == '') ? TRUE : FALSE);
+                            echo $Html->addOption('', $tl["selection"]["sel110"], ($setting['downloaddateformat'] == '') ? TRUE : FALSE);
 
-                            echo $Html->addOption('d.m.Y', 'd.m.Y (01.01.2017)', ($jkv['downloaddateformat'] == 'd.m.Y') ? TRUE : FALSE);
-                            echo $Html->addOption('d F Y', 'd F Y (01 January 2017)', ($jkv['downloaddateformat'] == 'd F Y') ? TRUE : FALSE);
-                            echo $Html->addOption('l m.Y', 'l m.Y (Monday 01.2017)', ($jkv['downloaddateformat'] == 'l m.Y') ? TRUE : FALSE);
-                            echo $Html->addOption('l F Y', 'l F Y (Monday January 2017)', ($jkv['downloaddateformat'] == 'l F Y') ? TRUE : FALSE);
+                            echo $Html->addOption('d.m.Y', 'd.m.Y (01.01.2017)', ($setting['downloaddateformat'] == 'd.m.Y') ? TRUE : FALSE);
+                            echo $Html->addOption('d F Y', 'd F Y (01 January 2017)', ($setting['downloaddateformat'] == 'd F Y') ? TRUE : FALSE);
+                            echo $Html->addOption('l m.Y', 'l m.Y (Monday 01.2017)', ($setting['downloaddateformat'] == 'l m.Y') ? TRUE : FALSE);
+                            echo $Html->addOption('l F Y', 'l F Y (Monday January 2017)', ($setting['downloaddateformat'] == 'l F Y') ? TRUE : FALSE);
                             ?>
 
                           </select>
@@ -234,17 +234,17 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('', $tl["selection"]["sel110"], ($jkv['downloadtimeformat'] == '') ? TRUE : FALSE);
+                            echo $Html->addOption('', $tl["selection"]["sel110"], ($setting['downloadtimeformat'] == '') ? TRUE : FALSE);
                             ?>
 
                             <optgroup label="<?php echo $tl["selection"]["sel111"]; ?>">
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                              echo $Html->addOption(' - h:i A', ' - h:i A ( - 01:00 PM)', ($jkv['downloadtimeformat'] == ' - h:i A') ? TRUE : FALSE);
-                              echo $Html->addOption(' - h:i:s A', ' - h:i:s A ( - 01:00:00 PM)', ($jkv['downloadtimeformat'] == ' - h:i:s A') ? TRUE : FALSE);
-                              echo $Html->addOption(' - g:i A', ' - g:i A ( - 1:00 PM)', ($jkv['downloadtimeformat'] == ' - g:i A') ? TRUE : FALSE);
-                              echo $Html->addOption(' - g:i:s A', ' - g:i:s A ( - 1:00:00 PM)', ($jkv['downloadtimeformat'] == ' - g:i:s A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - h:i A', ' - h:i A ( - 01:00 PM)', ($setting['downloadtimeformat'] == ' - h:i A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - h:i:s A', ' - h:i:s A ( - 01:00:00 PM)', ($setting['downloadtimeformat'] == ' - h:i:s A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - g:i A', ' - g:i A ( - 1:00 PM)', ($setting['downloadtimeformat'] == ' - g:i A') ? TRUE : FALSE);
+                              echo $Html->addOption(' - g:i:s A', ' - g:i:s A ( - 1:00:00 PM)', ($setting['downloadtimeformat'] == ' - g:i:s A') ? TRUE : FALSE);
                               ?>
 
                             </optgroup>
@@ -252,9 +252,9 @@ if ($errors) { ?>
 
                               <?php
                               // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                              echo $Html->addOption(' - H:i', ' - H:i ( - 13:00)', ($jkv['downloadtimeformat'] == ' - H:i') ? TRUE : FALSE);
-                              echo $Html->addOption(' - H:i:s', ' - H:i:s ( - 13:00:00)', ($jkv['downloadtimeformat'] == ' - H:i:s') ? TRUE : FALSE);
-                              echo $Html->addOption(' - H:i:s T O', ' - H:i:s T O ( - 13:00:00 CEST +0200)', ($jkv['downloadtimeformat'] == ' - H:i:s T O') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i', ' - H:i ( - 13:00)', ($setting['downloadtimeformat'] == ' - H:i') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i:s', ' - H:i:s ( - 13:00:00)', ($setting['downloadtimeformat'] == ' - H:i:s') ? TRUE : FALSE);
+                              echo $Html->addOption(' - H:i:s T O', ' - H:i:s T O ( - 13:00:00 CEST +0200)', ($setting['downloadtimeformat'] == ' - H:i:s T O') ? TRUE : FALSE);
                               ?>
 
                             </optgroup>
@@ -277,12 +277,12 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_downloadurl', '1', ($jkv["downloadurl"] == '1') ? TRUE : FALSE, 'envo_downloadurl1');
+                          echo $Html->addRadio('envo_downloadurl', '1', ($setting["downloadurl"] == '1') ? TRUE : FALSE, 'envo_downloadurl1');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('envo_downloadurl1', $tl["checkbox"]["chk"]);
 
                           // Add Html Element -> addCheckbox (Arguments: name, value, checked, id, class, optional assoc. array)
-                          echo $Html->addRadio('envo_downloadurl', '0', ($jkv["downloadurl"] == '0') ? TRUE : FALSE, 'envo_downloadurl2');
+                          echo $Html->addRadio('envo_downloadurl', '0', ($setting["downloadurl"] == '0') ? TRUE : FALSE, 'envo_downloadurl2');
                           // Add Html Element -> addLabel (Arguments: for, label, optional assoc. array)
                           echo $Html->addLabel('envo_downloadurl2', $tl["checkbox"]["chk1"]);
                           ?>
@@ -304,7 +304,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'envo_rssitem', $jkv["downloadrss"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_rssitem', $setting["downloadrss"], '', 'form-control');
                           ?>
 
                         </div>
@@ -335,7 +335,7 @@ if ($errors) { ?>
                               return FALSE;
                             }
 
-                            global $jkv;
+                            global $setting;
                             $scan = scandir(APP_PATH . $dir);
 
                             foreach ($scan as $key => $val) {
@@ -346,9 +346,9 @@ if ($errors) { ?>
                               if (is_dir(APP_PATH . $dir . "/" . $val)) {
                                 $path = $dir . "/" . $val;
                                 if ($subdir == 0) {
-                                  echo '<option value="' . $path . '"' . (($jkv["downloadpath"] == $path) ? 'selected' : '') . ' style="font-weight:bold">' . $val . '</span>' . "\n";
+                                  echo '<option value="' . $path . '"' . (($setting["downloadpath"] == $path) ? 'selected' : '') . ' style="font-weight:bold">' . $val . '</span>' . "\n";
                                 } else {
-                                  echo '<option value="' . $path . '"' . (($jkv["downloadpath"] == $path) ? 'selected' : '') . '>' . str_repeat('--', $subdir) . $val . '</option>' . "\n";
+                                  echo '<option value="' . $path . '"' . (($setting["downloadpath"] == $path) ? 'selected' : '') . '>' . str_repeat('--', $subdir) . $val . '</option>' . "\n";
                                 }
 
                                 if ($val[0] != ".") {
@@ -386,7 +386,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_extension', $jkv["downloadpathext"], 'fileextension', 'form-control');
+                        echo $Html->addInput('text', 'envo_extension', $setting["downloadpathext"], 'fileextension', 'form-control');
                         ?>
 
                       </div>
@@ -404,7 +404,7 @@ if ($errors) { ?>
 
                         <?php
                         // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                        echo $Html->addInput('text', 'envo_twitter', $jkv["downloadtwitter"], '', 'form-control');
+                        echo $Html->addInput('text', 'envo_twitter', $setting["downloadtwitter"], '', 'form-control');
                         ?>
 
                       </div>
@@ -452,11 +452,11 @@ if ($errors) { ?>
 
                             <?php
                             // Add Html Element -> addOption (Arguments: value, text, selected, id, class, optional assoc. array)
-                            echo $Html->addOption('2', $tl["selection"]["sel1"], ($jkv['downloadpagemid'] == 2) ? TRUE : FALSE);
-                            echo $Html->addOption('4', $tl["selection"]["sel2"], ($jkv['downloadpagemid'] == 4) ? TRUE : FALSE);
-                            echo $Html->addOption('6', $tl["selection"]["sel3"], ($jkv['downloadpagemid'] == 6) ? TRUE : FALSE);
-                            echo $Html->addOption('8', $tl["selection"]["sel4"], ($jkv['downloadpagemid'] == 8) ? TRUE : FALSE);
-                            echo $Html->addOption('10', $tl["selection"]["sel5"], ($jkv['downloadpagemid'] == 10) ? TRUE : FALSE);
+                            echo $Html->addOption('2', $tl["selection"]["sel1"], ($setting['downloadpagemid'] == 2) ? TRUE : FALSE);
+                            echo $Html->addOption('4', $tl["selection"]["sel2"], ($setting['downloadpagemid'] == 4) ? TRUE : FALSE);
+                            echo $Html->addOption('6', $tl["selection"]["sel3"], ($setting['downloadpagemid'] == 6) ? TRUE : FALSE);
+                            echo $Html->addOption('8', $tl["selection"]["sel4"], ($setting['downloadpagemid'] == 8) ? TRUE : FALSE);
+                            echo $Html->addOption('10', $tl["selection"]["sel5"], ($setting['downloadpagemid'] == 10) ? TRUE : FALSE);
                             ?>
 
                           </select>
@@ -477,7 +477,7 @@ if ($errors) { ?>
 
                           <?php
                           // Add Html Element -> addInput (Arguments: type, name, value, id, class, optional assoc. array)
-                          echo $Html->addInput('text', 'envo_item', $jkv["downloadpageitem"], '', 'form-control');
+                          echo $Html->addInput('text', 'envo_item', $setting["downloadpageitem"], '', 'form-control');
                           ?>
 
                         </div>
@@ -520,7 +520,7 @@ if ($errors) { ?>
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                 echo $Html->addDiv('', 'csseditor');
                 // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                echo $Html->addTextarea('envo_css', $jkv["download_css"], '20', '', array('id' => 'envo_css', 'class' => 'hidden'));
+                echo $Html->addTextarea('envo_css', $setting["download_css"], '20', '', array('id' => 'envo_css', 'class' => 'hidden'));
                 ?>
 
               </div>
@@ -558,7 +558,7 @@ if ($errors) { ?>
                 // Add Html Element -> addDiv (Arguments: $value, $id, optional assoc. array)
                 echo $Html->addDiv('', 'javaeditor');
                 // Add Html Element -> addTextarea (Arguments: name, value, rows, cols, optional assoc. array)
-                echo $Html->addTextarea('envo_javascript', $jkv["download_javascript"], '20', '', array('id' => 'envo_javascript', 'class' => 'hidden'));
+                echo $Html->addTextarea('envo_javascript', $setting["download_javascript"], '20', '', array('id' => 'envo_javascript', 'class' => 'hidden'));
                 ?>
 
               </div>

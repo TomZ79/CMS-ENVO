@@ -20,7 +20,7 @@
 function envo_get_faq($limit, $order, $where, $table_row, $ext_seo, $timeago)
 {
   global $envodb;
-  global $jkv;
+  global $setting;
 
   if (is_numeric($where)) {
     $sqlin = '' . $table_row . ' = "' . smartsql($where) . '" AND t1.active = 1 AND';
@@ -34,7 +34,7 @@ function envo_get_faq($limit, $order, $where, $table_row, $ext_seo, $timeago)
   while ($row = $result->fetch_assoc()) {
 
     // Write content in short format with full words
-    $shortmsg = envo_cut_text($row['content'], $jkv["faqshortmsg"], '...');
+    $shortmsg = envo_cut_text($row['content'], $setting["faqshortmsg"], '...');
 
     // There should be always a varname in categories and check if seo is valid
     $seo = '';
@@ -46,7 +46,7 @@ function envo_get_faq($limit, $order, $where, $table_row, $ext_seo, $timeago)
     $parseurl = ENVO_rewrite::envoParseurl(ENVO_PLUGIN_VAR_FAQ, 'a', $row['id'], $seo, '');
 
 
-    $getTime = ENVO_base::envoTimesince($row['time'], $jkv["faqdateformat"], $jkv["faqtimeformat"], $timeago);
+    $getTime = ENVO_base::envoTimesince($row['time'], $setting["faqdateformat"], $setting["faqtimeformat"], $timeago);
 
     // EN: Insert each record into array
     // CZ: Vložení získaných dat do pole
