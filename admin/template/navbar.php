@@ -331,7 +331,7 @@
 
     <!-- START MANAGE SECTION -->
     <?php
-    if ($page == 'user' || $page == 'usergroup' || $page == 'categories' || $page == 'page' || $page == 'contactform' || $page == 'poll' || $page == 'contactform' || $page == 'sitemap' || $page == 'searchsetting' || $page == 'growl' || $page == 'xml_seo' || $page == 'slider' || $page == 'site-editor' || $page == 'belowheader' || $page == 'register-form' || $page == 'urlmapping') {
+    if ($page == 'users' || $page == 'usergroup' || $page == 'categories' || $page == 'page' || $page == 'contactform' || $page == 'poll' || $page == 'contactform' || $page == 'sitemap' || $page == 'searchsetting' || $page == 'growl' || $page == 'xml_seo' || $page == 'slider' || $page == 'site-editor' || $page == 'belowheader' || $page == 'register-form' || $page == 'urlmapping') {
 
       $classsection = 'open active';
       $classiconbg = 'bg-success';
@@ -348,7 +348,7 @@
 
       <ul class="sub-menu">
         <!-- USER -->
-        <li class="<?php echo ($page == 'user') ? 'submenu-active' : ''; ?>">
+        <li class="<?php echo ($page == 'users') ? 'submenu-active' : ''; ?>">
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -358,7 +358,7 @@
           ?>
 
         </li>
-        <li class="<?php echo ($page == 'user' && $page1 == 'newuser') ? 'submenu-active' : ''; ?>">
+        <li class="<?php echo ($page == 'users' && $page1 == 'newuser') ? 'submenu-active' : ''; ?>">
 
           <?php
           // Add Html Element -> addAnchor (Arguments: href_link, text, id, class, optional assoc. array)
@@ -368,7 +368,7 @@
           ?>
 
         </li>
-        <?php if ($page == 'user' && $page1 == 'edit') { ?>
+        <?php if ($page == 'users' && $page1 == 'edit') { ?>
           <li class="<?php echo ($page == 'user' && $page1 == 'edit') ? 'submenu-active' : ''; ?>">
 
             <?php
